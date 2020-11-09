@@ -1,0 +1,94 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: brandText
+    singleValue: false
+    xpath: (//div[@data-auto="product-title"]//h4)[1]
+  - name: description
+    singleValue: true
+    xpath: //div[contains(@data-el,product-details)]/p[@itemprop="description"]
+  - name: nameExtended
+    singleValue: true
+    xpath: concat((//div[@data-auto="product-title"]//h4)[1], (//div[@data-auto="product-title"]//h1)[1])
+  - name: name
+    singleValue: true
+    xpath: (//div[@data-auto="product-title"]//h1)[1]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//ul[@data-auto="product-description-bullets"]//li)
+  - name: featureHighlights
+    singleValue: false
+    xpath: //ul[@data-auto="product-description-bullets"]//li
+  - name: featureBullets
+    singleValue: false
+    xpath: //ul[@data-auto="product-description-bullets"]//li
+  - name: image
+    singleValue: true
+    xpath: //meta[@property="og:image"]//@content
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@data-auto="main-image"]//li//picture/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: (//picture[@class="alt-img__image"]//img/@alt)[1]
+  - name: videos
+    singleValue: true
+    xpath: 
+  - name: price
+    singleValue: true
+    xpath: ((//div[contains(@data-el, "price-details")]//span[@data-auto="sale-price"]/text())[1] | (//div[contains(@data-el, "price-details")]//span[@data-auto="main-price"]/text())[1])[1]
+    regExp: \d+\.\d+
+  - name: listPrice
+    singleValue: true
+    xpath: (//div[contains(@data-el, "price-details")]//span[@data-auto="main-price"]/text())[1]
+    regExp: \d+\.\d+
+  - name: availabilityText
+    singleValue: true
+    xpath: //button[@data-auto="add-to-bag"]
+    regExp: Add to bag
+    regExpReplace: In stock
+    defaultValue: Out of Stock
+  - name: category
+    singleValue: false
+    xpath: //div[@data-el="breadcrumb"]/a[@class="breadcrumbs-item"]
+  - name: sku
+    singleValue: true
+    xpath: //body/@productsku
+  - name: primeFlag
+    singleValue: true
+    xpath: 
+  - name: product_barcodes
+    singleValue: true
+    xpath: 
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: 
+  - name: questionsCount
+    singleValue: true
+    xpath: 
+  - name: sponsoredProductUrls
+    singleValue: true
+    xpath: 
+  - name: imagesStandard
+    singleValue: true
+    xpath: 
+  - name: nutritionInfo
+    singleValue: true
+    xpath: 
+  - name: aggregateRating
+    singleValue: true
+    xpath: //body/@productrating
+  - name: ratingCount
+    singleValue: true
+    xpath: //body/@productreview
+  - name: amazonChoice
+    singleValue: true
+    xpath: 
+  - name: sponsoredProductUrls
+    singleValue: true
+    xpath: 
