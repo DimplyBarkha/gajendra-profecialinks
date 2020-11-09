@@ -6,7 +6,7 @@ module.exports = {
     store: 'ah',
     domain: 'ah.be',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//div[contains(@class, 'not-found_root')]",
     zipcode: '',
   },
 };

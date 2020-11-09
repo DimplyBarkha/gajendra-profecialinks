@@ -28,8 +28,10 @@ module.exports = {
       }
 
       //Gets brand link
-      const brandLink = document.querySelector('.brand-button').href
-      addElementToDocument('ah_brandLink', brandLink);
+      const brandLink = document.querySelector('.brand-button');
+      if (brandLink) {
+        addElementToDocument('ah_brandLink', brandLink.href);
+      }
 
       // find storage collapsible block and click on it
       // @ts-ignore
