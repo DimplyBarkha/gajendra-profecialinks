@@ -27,10 +27,10 @@ fields:
   description: The <meta> keywords content
 - name: category
   singleValue: false
+  xpath: //li[@class="crumb___gkCdp monetate_cloneNode_2131502b"]/a/text()
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
-  xpath: //h1[@id="productName"]/span[@itemprop="name"]
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
@@ -67,6 +67,7 @@ fields:
   description: Product manufacturer
 - name: quantity
   singleValue: true
+  xpath: //h1[@id="productName"]/span[@class="size___2HSwr sizeMessage___3o5Ri"]
   description: Quantity as described on the page
 - name: weightNet
   singleValue: true
@@ -93,21 +94,26 @@ fields:
     site to quantity)
 - name: legalDisclaimer
   singleValue: true
+  xpath: //section[@class="disclaimer___2uRzl"]
   description: Content under "legal disclaimer" header
 - name: directions
   singleValue: true
   description: Content under "directions" header
 - name: warnings
   singleValue: true
+  xpath: //h3[text()="Warnings"]/following-sibling::ul/li
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
+  xpath: //div[@class="bv-header"]//span[@class="bv-content-pagination-pages-current"]/text()
+  regExp: \s(\d+)\s
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
+  xpath: //tr[@class="bv-secondary-rating-summary-stars"]//span[@class="bv-secondary-rating-summary-rating"]
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   singleValue: true
@@ -138,6 +144,7 @@ fields:
   description: URLs of videos on page
 - name: name
   singleValue: true
+  xpath: //h1[@id="productName"]/span[@itemprop="name"]
   description: The product name
 - name: inStorePrice
   singleValue: true
@@ -399,9 +406,13 @@ fields:
   description: List of additives in the product
 - name: pricePerUnit
   singleValue: true
+  xpath: //span[@class="pricePerUnit___1L8TG"]
+  regExp: .\d+.\d+
   description: Price of the product split into certain units
 - name: pricePerUnitUom
   singleValue: true
+  xpath: //span[@class="pricePerUnit___1L8TG"]
+  regExp: (([/]\D+)[)])
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
