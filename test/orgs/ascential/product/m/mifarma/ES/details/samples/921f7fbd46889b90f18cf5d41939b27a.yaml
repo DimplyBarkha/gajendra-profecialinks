@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/lacer-interdentales-extrafino-recto-10-unidades-formato-ahorro
 extractions:
-  - html: https://workbench.import.io/html/run=c173b589-3d1f-4ea5-a618-c3b859c78cab/task=96602ca8-17fa-468b-ad1f-bf770ecd1715/250c499e-b43f-4dcb-aba6-c2691fb3c8c2.html
+  - html: https://workbench.import.io/html/run=03c65cd0-8654-473a-9f51-23861d7c6581/task=4346e3d2-d5a9-45af-a8a2-851403e9492f/9e997958-946e-4bfb-a27a-694f9d7ced40.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -46,6 +46,9 @@ extractions:
             manufacturer:
               - text: Lacer
                 xpath: /html/body/div[1]/span[12]
+            sku:
+              - text: "9714"
+                xpath: /html/body/div[1]/span[2]
             mpc:
               - text: "9714"
                 xpath: /html/body/div[1]/span[2]
@@ -100,11 +103,11 @@ extractions:
             name:
               - text: Lacer Interdentales Extrafino Recto 10 Unidades
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
-            imageZoomFeaturePresents:
-              - text: No
             Image360Present:
+              - text: No
+            imageZoomFeaturePresents:
               - text: No
             weightGross:
               - text: 0.3000 kg
         xpath: /
-    timestamp: 1604926952882
+    timestamp: 1604933923767

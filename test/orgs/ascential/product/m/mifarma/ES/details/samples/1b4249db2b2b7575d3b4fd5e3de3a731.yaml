@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/preservativo-control-adapta-extra-lube-12unidades
 extractions:
-  - html: https://workbench.import.io/html/run=c173b589-3d1f-4ea5-a618-c3b859c78cab/task=9bf34a81-ed3e-42fa-8d63-20a657094dc6/b9086aa7-0163-4bab-821b-3e1c1ab4b856.html
+  - html: https://workbench.import.io/html/run=03c65cd0-8654-473a-9f51-23861d7c6581/task=51c40b23-d042-4286-b75f-68aeb1196ab8/31840d67-45c5-4a39-9ce0-4895731fc041.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -52,6 +52,9 @@ extractions:
             manufacturer:
               - text: Control
                 xpath: /html/body/div[1]/span[12]
+            sku:
+              - text: "1852"
+                xpath: /html/body/div[1]/span[2]
             mpc:
               - text: "1852"
                 xpath: /html/body/div[1]/span[2]
@@ -102,11 +105,11 @@ extractions:
             ingredientsList:
               - text: Fabricado en látex de caucho natural.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
-            imageZoomFeaturePresents:
-              - text: No
             Image360Present:
+              - text: No
+            imageZoomFeaturePresents:
               - text: No
             weightGross:
               - text: 0.1000 kg
         xpath: /
-    timestamp: 1604926948952
+    timestamp: 1604933921525

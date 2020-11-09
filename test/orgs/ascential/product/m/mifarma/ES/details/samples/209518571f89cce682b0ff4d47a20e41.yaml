@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
 extractions:
-  - html: https://workbench.import.io/html/run=c173b589-3d1f-4ea5-a618-c3b859c78cab/task=3077e661-5c6c-4f78-a440-9be62f0eda39/6218dc56-797a-4c90-939e-623662c4da8d.html
+  - html: https://workbench.import.io/html/run=03c65cd0-8654-473a-9f51-23861d7c6581/task=6c13019e-8a77-4616-9faa-d7198c229677/45cedac7-638b-41b7-b9e3-e9151c4d8ea5.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -47,6 +47,9 @@ extractions:
             manufacturer:
               - text: Lacer
                 xpath: /html/body/div[1]/span[12]
+            sku:
+              - text: "92391"
+                xpath: /html/body/div[1]/span[2]
             mpc:
               - text: "92391"
                 xpath: /html/body/div[1]/span[2]
@@ -91,11 +94,11 @@ extractions:
             ingredientsList:
               - text: No contiene mentol. Sin gluten.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
-            imageZoomFeaturePresents:
-              - text: No
             Image360Present:
+              - text: No
+            imageZoomFeaturePresents:
               - text: No
             weightGross:
               - text: 0.1200 kg
         xpath: /
-    timestamp: 1604926951709
+    timestamp: 1604933923657

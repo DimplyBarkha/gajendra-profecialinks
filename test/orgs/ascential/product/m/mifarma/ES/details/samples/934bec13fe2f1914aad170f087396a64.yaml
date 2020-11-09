@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/colutorio-encias-herbal-parodontax-500ml
 extractions:
-  - html: https://workbench.import.io/html/run=c173b589-3d1f-4ea5-a618-c3b859c78cab/task=292f8beb-0410-475b-bbd4-c645d8aed874/e95e1eaf-598c-4648-b387-cc58771781fe.html
+  - html: https://workbench.import.io/html/run=03c65cd0-8654-473a-9f51-23861d7c6581/task=3cbff0a1-3e1a-4a7b-81fb-8744dd06143b/eda1f4cf-dc40-4eef-84a6-49c9432699e6.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -47,6 +47,9 @@ extractions:
             manufacturer:
               - text: Parodontax
                 xpath: /html/body/div[1]/span[12]
+            sku:
+              - text: "121186"
+                xpath: /html/body/div[1]/span[2]
             mpc:
               - text: "121186"
                 xpath: /html/body/div[1]/span[2]
@@ -89,11 +92,11 @@ extractions:
             name:
               - text: Colutorio Encías Herbal Parodontax 500ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
-            imageZoomFeaturePresents:
-              - text: No
             Image360Present:
+              - text: No
+            imageZoomFeaturePresents:
               - text: No
             weightGross:
               - text: 0.5200 kg
         xpath: /
-    timestamp: 1604926948963
+    timestamp: 1604933919391

@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/nenuco-canastilla-bebe
 extractions:
-  - html: https://workbench.import.io/html/run=c173b589-3d1f-4ea5-a618-c3b859c78cab/task=414b494e-ae78-4e47-b31c-6664e7019367/cd9d8fdf-a2ba-42a2-bb5f-51ba9da1baa4.html
+  - html: https://workbench.import.io/html/run=03c65cd0-8654-473a-9f51-23861d7c6581/task=65fe1c8d-4102-477c-8f2f-01fe65aebc3c/cf207ade-be79-4587-b2e2-0eea3e84878c.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -36,6 +36,9 @@ extractions:
             manufacturer:
               - text: Nenuco
                 xpath: /html/body/div[1]/span[12]
+            sku:
+              - text: "94761"
+                xpath: /html/body/div[1]/span[2]
             mpc:
               - text: "94761"
                 xpath: /html/body/div[1]/span[2]
@@ -192,11 +195,11 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
             availabilityText:
               - text: Out of Stock
-            imageZoomFeaturePresents:
-              - text: No
             Image360Present:
+              - text: No
+            imageZoomFeaturePresents:
               - text: No
             weightGross:
               - text: 4.2300 kg
         xpath: /
-    timestamp: 1604926952670
+    timestamp: 1604933921940
