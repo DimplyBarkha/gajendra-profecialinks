@@ -23,6 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[@class="product-slider__navigation"]//img/@otherimgs
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -61,17 +62,21 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//ul[@class='product-notes']//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: (//div[@class="product-page__section product-page__section--alt product-page__section--products"]//h2[@class="product-title product-title--bravo"])[1]
+  regExp: More from ([a-zA-Z' ]+)
+  regExpReplace: $1
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //p[@class='product-main__data']
+  regExp: \d+.?\d+?[a-z]+
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -84,6 +89,7 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //input[@id="productID"]//@value
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
@@ -121,7 +127,6 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: //div[@class="deliveryInfo"]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -243,6 +248,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count(//div[@class="product-slider__navigation"]//img/@otherimgs)
 - name: news
   singleValue: true
   description: 
@@ -422,13 +428,7 @@ fields:
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
-  xpath: //p[@class='product-action__unit-price']
-  regExp: per ([a-z]+)
-  regExpReplace: $1
-- name: promotion
-  singleValue: true
-  description: promotion text on product page
-  xpath: //span[@class='product-offer__text']
+  xpath: //p[@class='product-action__unit-price']/@unit
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
