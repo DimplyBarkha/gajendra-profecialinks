@@ -34,10 +34,13 @@ module.exports = {
       }
       catch (err) {
       }
+
+      var dup = Number(rankOrganic);
+      dup = dup-1
       if (!rankOrganic) {
         rankOrganic = 1;
       } else {
-        rankOrganic = (parseInt(rankOrganic) * 24) + 1;
+        rankOrganic = (dup * 24) + 1;
       }
       const urlProduct = document.querySelectorAll('section[class="collapsed"]');
       for (let i = 0; i < urlProduct.length; i++) {

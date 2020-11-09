@@ -7,7 +7,7 @@ fields:
     singleValue: false
     description: price of the product
     type: CURRENCY
-    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='prices product-tile__prices']/div[@class='product-tile__price-container']/a[@class='prices__price product-tile__price']
+    xpath: //div[@class='info']/div[@class='prices']/a/div[@class='price']
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
@@ -17,15 +17,15 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[@class='product-img-container product-tile__img-container']/a/img[@class='product-img product-tile__img lazyloaded']/@src
+    xpath: //div[@class="item-container"]//div[@class="product-img-container"]/a/img/@data-src
   - name: id
     singleValue: false
     description: The store-specific product identifier
-    xpath: //section[@class="collapsed"]/article/@data-productactions-sku
+    xpath: //section[@class="collapsed"]/article/@data-product-tile-sku    
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='title product-tile__title']/a/text()
+    xpath: //div[@class='item-container']/div[@class='info']/div[@class='title']/a/text()
   - name: rankOrganic
     singleValue: false
     xpath: //div[@id='rankOrganic']
