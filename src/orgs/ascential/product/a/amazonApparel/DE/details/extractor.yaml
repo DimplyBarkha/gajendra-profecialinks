@@ -3,18 +3,15 @@ parameters:
   country: DE
   domain: amazon.de
   store: amazonApparel
-  zipcode: ""
-# proxy:
-#   zone: ZDE
-#   type: DATA_CENTER
+  zipcode: "10117"
+proxy:
+  zone: ZDE
+  type: DATA_CENTER
 meta:
   branches:
-    amazon_apparel_de-product_details:
+    development:
       extractor: 70934c43-b13e-4af0-9926-54166914252d
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
     staging:
       extractor: b15b345d-0c5d-464d-9205-9e09e7045a18
-      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
-    development:
-      extractor: 7b5fba06-c2de-4b6f-84e9-ec689e995f8c
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

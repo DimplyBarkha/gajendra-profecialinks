@@ -41,10 +41,27 @@ fields:
     xpath: //div[@id="unclippedCouponSns"]//label
   - name: ingredientsList
     xpath: //div[@id="productDescription"]/p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Inhaltsstoffe") or contains(normalize-space(text()),"Zutaten")]]
+  - name: ingredientsListFallback
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Bestandteile')]/p
   - name: storage
     singleValue: false
     xpath: //*[contains(text(),"Aufbewahrung")]/following-sibling::*[1]
+  - name: directions
+    singleValue: false
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/p
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Haftungsausschluss')]/p
 
+  - name: servingSize
+    xpath: //*[contains(text(),"Portionsgröße")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
+  - name: servingSizeUom
+    regExp: '[^\s]+$'
+    xpath: //*[contains(text(),"Portionsgröße")]/following-sibling::*[1]
+  - name: alcoholContent
+    xpath: //*[contains(text(),"Alkoholgehalt")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
   - name: caloriesPerServing
     xpath: //*[contains(text(),"Nährwertangaben")]/following-sibling::div//*[contains(text(),"Energie (kcal)")]/following-sibling::*[1]
     regExp: '^[^\s]+'
@@ -139,7 +156,10 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
-
+  - name: news
+    singleValue: false
+    xpath: //table[contains(@id,"productDetails_detailBullets")]//tr/th[contains(text(),"Amazon Bestseller-Rang")]/../td//span[contains(text(), "Nr. 1 ")]
+  
   - name: energyEfficiency
     singleValue: true
     xpath: //*[contains(text(),"Energieeffizienzklasse")]/following-sibling::*[1]

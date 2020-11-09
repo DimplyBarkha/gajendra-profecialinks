@@ -213,9 +213,14 @@ const transform = (data, context) => {
       }
       if (row.primeFlag) {
         row.primeFlag = [{ text: 'Yes - Shipped and Sold' }];
+      } else {
+        row.primeFlag = [{ text: 'NO' }];
       }
       if (row.ingredientsList) {
         row.ingredientsList = [{ text: row.ingredientsList.map(item => `${item.text}`).join(' ') }];
+      }
+      if (!row.ingredientsList && row.ingredientsListFallback) {
+        row.ingredientsList = [{ text: row.ingredientsListFallback.map(item => `${item.text}`).join(' ') }];
       }
       if (row.lowestPriceIn30Days) {
         row.lowestPriceIn30Days = [{ text: 'True' }];
