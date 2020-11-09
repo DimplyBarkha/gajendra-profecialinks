@@ -1,0 +1,124 @@
+input:
+  _url: http://thefragranceshop.co.uk
+  URL: https://www.thefragranceshop.co.uk/snowcrystal/snowcrystal/snowcrystal-blusher-and-bronzer-duo-c1/p/44276
+extractions:
+  - html: https://workbench.import.io/html/run=5cee306a-9a3a-4912-8068-56db1945e594/task=90a4976e-dd9d-4220-b33a-196585cdfd2e/7171c649-bf8c-4af4-8d88-b4c5280f57af.html
+    extractionConfigId: product/details/stores/t/thefragranceshop/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.thefragranceshop.co.uk/snowcrystal/snowcrystal/snowcrystal-blusher-and-bronzer-duo-c1/p/44276
+                xpath: /html/head[1]/link[15]/@href
+            image:
+              - text: https://the-fragrance-shop.imgix.net/products/44276_stockzoomed.jpg?h=369&w=369
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Blusher & Bronzer Duo -C1
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/picture[1]/img[1]/@alt
+            alternateImages:
+              - text: https://the-fragrance-shop.imgix.net/products/47535_stockzoomed.jpg?h=70&w=70
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            category:
+              - text: Home
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Brands
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/text()[1]
+              - text: Snowcrystal
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/text()[1]
+            listPrice:
+              - text: £40.00
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/h5[1]/span[2]/span[1]
+            price:
+              - text: £14.00
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/h5[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[6]/div[1]/div[1]/span[1]
+            brandText:
+              - text: Snowcrystal
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            manufacturer:
+              - text: Snowcrystal
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            sku:
+              - text: "44276"
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[3]/@value
+            shippingInfo:
+              - text: |-
+                  Delivery
+                   
+                   
+                   Standard Delivery
+                   Free on orders over £40
+                   
+                   
+                   £2.99
+                   
+                   
+                   
+                   
+                   Next Working Day Delivery
+                   Free on orders over £100
+                   
+                   
+                   £3.99
+                   
+                   
+                   
+                   
+                   Saturday Delivery
+                   
+                   
+                   £3.99
+                   
+                   
+                   
+                   
+                   Sunday Delivery
+                   
+                   
+                   £5.99
+                xpath: /html/body/div[4]
+            ingredientsList:
+              - text: "BLUSHER Ingredients: TALC, MICA, ISOPROPYL LANOLATE, CETYL ACETATE,
+                  CAPRYLYL GLYCOL, C12-15 ALKYL BENZOATE, SILICA, ACETYLATED
+                  LANOLIN ALCOHOL, AQUA [WATER], CITRUS GRANDIS FRUIT EXTRACT
+                  [CITRUS GRANDIS (GRAPEFRUIT) FRUIT EXTRACT], CITRUS GRANDIS
+                  PEEL EXTRACT [CITRUS GRANDIS (GRAPEFRUIT) PEEL EXTRACT],
+                  ALCOHOL. May Contain +/-: CI 77891 [TITANIUM DIOXIDE], CI
+                  77492 [IRON OXIDES], CI 77491 [IRON OXIDES]. BRONZER
+                  Ingredients: TALC, MICA, ALUMINUM STARCH OCTENYLSUCCINATE,
+                  DIMETHICONE, ISOPROPYL LANOLATE, CAPRYLYL GLYCOL, CETYL
+                  ACETATE, ACETYLATED LANOLIN ALCOHOL, AQUA [WATER], CITRUS
+                  GRANDIS FRUIT EXTRACT [CITRUS GRANDIS (GRAPEFRUIT) FRUIT
+                  EXTRACT], CITRUS GRANDIS PEEL EXTRACT [CITRUS GRANDIS
+                  (GRAPEFRUIT) PEEL EXTRACT], ALCOHOL. May contain +/-: CI 77491
+                  [IRON OXIDES], CI 77499 [IRON OXIDES], CI 77492 [IRON
+                  OXIDES]."
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
+            promotion:
+              - text: SAVE £26.00
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/h5[1]/span[3]
+            nameExtended:
+              - text: Snowcrystal Blusher & Bronzer Duo -C1 FREE Bronzer *
+            description:
+              - text: >
+                  Blusher & Bronzer Duo. For perfectly-flushed cheeks and a
+                  radiant glow! Lightweight, luminous blusher and bronzer with
+                  micro-fine, buildable powders for a soft, silky finish.
+                  Multi-use refillable compact with a warm, neutral or cool Duo
+                  combination. Refill compact when empty or change to another
+                  favourite powder product. Cruelty Free. Paraben free.How To
+                  UseApply thin layers for a natural everyday makeup and build
+                  intensity by adding more colour until the colour has the
+                  intensity you want to achieve.
+                    Start with the bronzer to give your face a contoured definition, based on the shape of your face and then finish with the blusher on top of your cheekbones. 
+            variantCount:
+              - text: "0"
+            name:
+              - text: Snowcrystal Blusher & Bronzer Duo -C1 FREE Bronzer *
+        xpath: /
+    timestamp: 1604302940090

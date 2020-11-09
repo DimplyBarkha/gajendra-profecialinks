@@ -1,0 +1,108 @@
+input:
+  _url: http://thefragranceshop.co.uk
+  URL: https://www.thefragranceshop.co.uk/barbour/barbour-female/eau-de-toilette-spray/p/52883
+extractions:
+  - html: https://workbench.import.io/html/run=5cee306a-9a3a-4912-8068-56db1945e594/task=aea2e964-0295-46ec-92e1-e9beb5fccd45/7f7a7977-b3e5-4f34-9439-ab7445a04443.html
+    extractionConfigId: product/details/stores/t/thefragranceshop/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.thefragranceshop.co.uk/barbour/barbour-female/eau-de-toilette-spray
+                xpath: /html/head[1]/link[15]/@href
+            image:
+              - text: https://the-fragrance-shop.imgix.net/products/52883.jpg?h=369&w=369
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Eau De Toilette 100ml Spray
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/picture[1]/img[1]/@alt
+            category:
+              - text: Home
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Brands
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/text()[1]
+              - text: Barbour
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/text()[1]
+              - text: Barbour Female
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/text()[1]
+            listPrice:
+              - text: £65.00
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/h5[1]/span[2]/span[1]
+            price:
+              - text: £19.50
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/h5[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[6]/div[1]/div[1]/span[1]
+            brandText:
+              - text: Barbour
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            manufacturer:
+              - text: Barbour
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            sku:
+              - text: "52883"
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[4]/@value
+            shippingInfo:
+              - text: |-
+                  Delivery
+                   
+                   
+                   Standard Delivery
+                   Free on orders over £40
+                   
+                   
+                   £2.99
+                   
+                   
+                   
+                   
+                   Next Working Day Delivery
+                   Free on orders over £100
+                   
+                   
+                   £3.99
+                   
+                   
+                   
+                   
+                   Saturday Delivery
+                   
+                   
+                   £3.99
+                   
+                   
+                   
+                   
+                   Sunday Delivery
+                   
+                   
+                   £5.99
+                xpath: /html/body/div[5]
+            promotion:
+              - text: SAVE £45.50
+                xpath: /html/body/header[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/h5[1]/span[3]
+            nameExtended:
+              - text: Barbour Barbour Female Eau De Toilette 100ml Spray
+            description:
+              - text: >-
+                  Barbour Classic perfume for women is an elegant, fresh, fruity
+                  and floral scent. It is evocative of natural and beautiful
+                  rustic surroundings. A delightful blend of rose, jasmine and
+                  blush peony are accompanied by musks and sweet vanilla with
+                  rich notes of vetiver. 
+
+
+                  Top notes: Pink Pepper, Red Currant 
+
+                  Heart notes: Peony, Jasmine, Rose 
+
+                  Base notes: Musk, Vanilla, Vetiver
+            variantCount:
+              - text: "0"
+            name:
+              - text: Barbour Barbour Female Eau De Toilette 100ml Spray
+        xpath: /
+    timestamp: 1604302942684
