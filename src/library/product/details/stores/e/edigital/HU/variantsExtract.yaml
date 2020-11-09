@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //a/@href
+  - name: variantUrl
+    singleValue: false
+    xpath: //a/@href
+  - name: variant
+    singleValue: false
+    xpath: //a//img/@alt | //a
