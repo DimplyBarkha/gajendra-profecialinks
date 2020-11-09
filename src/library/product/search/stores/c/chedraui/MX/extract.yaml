@@ -1,0 +1,46 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@class="js-plp-product-click product-item"]
+fields:
+  - name: id
+    singleValue: false
+    # xpath: //div[@class="plp-buttons"]//form/@id 
+    xpath: //li//input[contains(@class,"productClickData_plp_id")]/@value
+    # regExp: ([\d]+)
+    # regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product__list--price-panel"]/div/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="name"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.chedraui.com.mx/$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="plp-product-thumb"]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.chedraui.com.mx/$1
+  - name: name
+    singleValue: false
+    xpath: //div[@class="plp-product-thumb"]//img/@alt
+  - name: aggregateRating
+    singleValue: false
+    xpath: 
+    # regExp: (.+)(\sout.+)
+    # regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: 
+    regExp: \d+
+  - name: reviewCount
+    singleValue: false
+    xpath: 
+    regExp: \d+
+  - name: rank
+    singleValue: false
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
