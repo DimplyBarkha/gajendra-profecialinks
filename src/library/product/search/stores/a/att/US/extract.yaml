@@ -6,9 +6,10 @@ recordXPath: //ul[@class="support-list shop"]/li
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="inline-block"]//span[@class="hidden-spoken"]/@id
-    regExp: list13(.+)
-    regExpReplace: $1
+    xpath: //div[@class='extra-info-id']
+    # xpath: //div[@class="inline-block"]//span[@class="hidden-spoken"]/@id
+    # regExp: list13(.+)
+    # regExpReplace: $1
   - name: rankOrganic
     defaultValue: false
   - name: name
@@ -40,7 +41,8 @@ fields:
     regExp: \W\W\W(.+)
     regExpReplace: $1
   - name: price
-    xpath: //span[@class="padTop3-d shopPrice gs-price fontpricestyle"]
+    #xpath: //span[@class="padTop3-d shopPrice gs-price fontpricestyle"]
+    xpath: //span[contains(@class, "gs-price")]
     singleValue: false
   - name: manufacturer
     singleValue: true

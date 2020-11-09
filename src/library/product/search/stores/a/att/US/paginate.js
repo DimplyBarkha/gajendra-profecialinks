@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'att',
-    nextLinkSelector: 'li.active+li',
+    // nextLinkSelector: 'li.active + li > a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul.support-list',
