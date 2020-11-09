@@ -1,0 +1,133 @@
+input:
+  _url: http://groceries.morrisons.com
+  URL: https://groceries.morrisons.com/products/431831011
+extractions:
+  - html: https://workbench.import.io/html/run=9c0ca3bb-ac0a-4d6c-abcd-a09a93b1c51b/task=f634e9f0-d868-4edf-9727-cea418af649e/2de6d0f2-8357-4b0e-acfd-210830e45a16.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: http://groceries.morrisons.com/products/431831011
+                xpath: /html/head[1]/meta[17]/@content
+            image:
+              - text: http://groceries.morrisons.com/productImages/431/431831011_0_640x640.jpg?identifier=c6fd53533c2f8f046e42dc32ea52ec6a
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, TRESemme, Hair Creams & Gels, Toiletries &
+                  Beauty, Hair Care, Styling
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Toiletries & Beauty
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/text()[1]
+              - text: Hair Care
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/text()[1]
+              - text: Styling
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/text()[1]
+              - text: Hair Creams & Gels
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/text()[1]
+            price:
+              - text: £5
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]/text()[1]
+            brandText:
+              - text: TRESemme
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/ul[1]/li[1]/div[1]/a[1]
+            manufacturer:
+              - text: |-
+                  Unilever Dept ER,
+                  Wirral CH63 3JW UK
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]
+            sku:
+              - text: "431831011"
+                xpath: /html/head[1]/meta[17]/@content
+            variantId:
+              - text: "431831011"
+                xpath: /html/head[1]/meta[17]/@content
+            warnings:
+              - text: >-
+                  Safety Warning:
+
+                  As we are always looking to improve our products, our formulations change from time to time, so please always check the product packaging before use
+
+                  Origin:
+
+                  United Kingdom
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/div[1]/a[1]/div[1]/span[2]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[6]/div[1]/div[1]/span[1]/text()[1]
+            ingredientsList:
+              - text: Aqua (Water),Alcohol
+                  Denat.,Cyclopentasiloxane,Dimethicone,Isohexadecane,Benzophenonone-4,Citric
+                  Acid,Disodium EDTA,Glycerin,Hydrolyzed Silk,Hydroxypropyl
+                  Cyclodextrin,Iodopropynyl Butylcarbamate,Parfum
+                  (Fragrance),Phenoxyethanol,Propylene Glycol,Sodium
+                  Chloride,Sodium Hydroxide,Alpha-Isomethyl Ionone,Benzyl
+                  Alcohol,Butylphenyl Methylpropional,Citronellol,Geraniol,Hexyl
+                  Cinnamal,Hydroxycitronellal,Linalool,CI 42053,CI 42090
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]
+            countryOfOrigin:
+              - text: United Kingdom
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]
+            productOtherInformation:
+              - text: >-
+                  Safety Warning:
+
+                  As we are always looking to improve our products, our formulations change from time to time, so please always check the product packaging before use
+
+                  Origin:
+
+                  United Kingdom
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[3]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]
+            pricePerUnit:
+              - text: £2.50
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[1]/text()[1]
+            pricePerUnitUom:
+              - text: per 100ml
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[1]/text()[5]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            availabilityText:
+              - text: In Stock
+            nameExtended:
+              - text: Tresemme Smooth & Shine Blow - Dry Mist 200ml
+            description:
+              - text: Always remember to apply our pro performance blow dry protection products
+                  before hair drying, straightening or curling your hair.
+                  Whether you want to keep your frizz at bay with a long lasting
+                  smooth finish, add volume, body and bounce, or simply protect
+                  your hair against damage from daily blow drying, TRESemmé has
+                  a range of blow dry protection products for you. The full
+                  range promises to protect against damage that is caused by the
+                  heat from hairdryers, and help keep your hair looking
+                  healthy.If you are looking for body and bounce, try our
+                  Volumising Blow-Dry Crème. If it is a super smooth shine you
+                  are after, give our Smooth & Shine Blow-Dry Mist a go. If you
+                  have normal to thick hair and want help to control frizz, why
+                  not pick up our Frizz-Free Blow-Dry Crème. And if you just
+                  want to protect and care for your hair, try our TRESemmé Heat
+                  Protect Spray.To apply all TRESemmé Blow-Dry Protection
+                  products, apply a small amount to damp hair from root to tip,
+                  focusing on the lengths to protect your hair from heat damaged
+                  caused by your hairdryer. All products give protection up to
+                  230◦C, so you are covered from heat damage caused by
+                  straighteners and curlers too.Putting pro performance in your
+                  hands every day. For more Pro tips from our stylists, visit
+                  www.tresemme.com/ukIf you love TRESemmé Smooth & Shine
+                  Blow-Dry Mist, don’t keep it a secret. Leave a review and
+                  share your tips.Daily blow drying can cause damage to your
+                  hair, Our professional quality Smooth & Shine Blow-Dry Mist
+                  helps protect normal to fine hair from damage while blow
+                  drying, straightening and curling, For a natural looking,
+                  smooth style, This lightweight mist will help control frizz
+                  and add a silky shine, Protecting from 230◦C heat, this is
+                  your blow dry saviour to help prevent hair breakage and keep
+                  it looking healthy, Shake well to mix the two layers, spritz
+                  mist onto damp hair after washing with your favourite TRESemme
+                  Shampoo and ConditionerCountry of OriginUnited Kingdom
+        xpath: /
+    timestamp: 1604943313862

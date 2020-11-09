@@ -9,8 +9,8 @@ fields:
   singleValue: false
 - name: productUrl
   xpath: //meta[@property="og:url"]/@content
-  regExp: (.+)
-  regExpReplace: http://groceries.morrisons.com$1
+  regExp: (\d{4,})
+  regExpReplace: http://groceries.morrisons.com/products/$1
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
@@ -54,9 +54,9 @@ fields:
 - name: availabilityText
   singleValue: true
   defaultValue: "In Stock"
+  xpath: //div[@class="bop-outOfStock"]
   regExp: .+
   regExpReplace: "Out of Stock"
-  xpath: //div[@class="bop-outOfStock"]
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
@@ -99,6 +99,8 @@ fields:
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
+  xpath: //meta[@property="og:url"]/@content
+  regExp: \d{4,}
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku

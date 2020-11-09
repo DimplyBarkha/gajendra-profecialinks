@@ -1,0 +1,198 @@
+input:
+  _url: http://groceries.morrisons.com
+  URL: https://groceries.morrisons.com/products/251794011
+extractions:
+  - html: https://workbench.import.io/html/run=9c0ca3bb-ac0a-4d6c-abcd-a09a93b1c51b/task=0bebe232-6a3b-4e9d-a02d-c9830b05842e/80a0d7fe-3b6d-4770-bfef-abfd2cd1af81.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: http://groceries.morrisons.com/products/251794011
+                xpath: /html/head[1]/meta[17]/@content
+            image:
+              - text: http://groceries.morrisons.com/productImages/251/251794011_0_640x640.jpg?identifier=e944196b4737e8f1e6408424b19605c3
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, New, Colman's, Recipe Mixes, Food Cupboard,
+                  Cooking Ingredients, Packet Mixes
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Food Cupboard
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/text()[1]
+              - text: Cooking Ingredients
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/text()[1]
+              - text: Packet Mixes
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/text()[1]
+              - text: Recipe Mixes
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/text()[1]
+            price:
+              - text: 50p
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]/text()[1]
+            brandText:
+              - text: Colman's
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[2]/div[1]/a[1]
+            manufacturer:
+              - text: |-
+                  Unilever UK,
+                  Freepost ADM3940,
+                  London,
+                  SW1A 1YR.
+                  Unilever Ireland,
+                  20 Riverwalk,
+                  Citywest,
+                  Dublin 24.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[3]/div[2]/div[1]/div[4]/div[1]
+            weightNet:
+              - text: 39g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]/span[1]
+            sku:
+              - text: "251794011"
+                xpath: /html/head[1]/meta[17]/@content
+            variantId:
+              - text: "251794011"
+                xpath: /html/head[1]/meta[17]/@content
+            directions:
+              - text: "Step 1: frying pan Heat the oil in a frying pan and fry the beef and
+                  onions over a high heat for 5 minutes. Add the mushrooms and
+                  pepper. Step 2: measuring jug Blend the contents of the sachet
+                  with the milk and pour over the beef. Bring to the boil,
+                  stirring continuously. Step 3: frying pan Reduce the heat and
+                  simmer for 8 minutes or until the beef is thoroughly cooked,
+                  stirring occasionally. Step 4: plate/knife/fork Enjoy with
+                  freshly cooked rice and a green salad."
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/div[1]/a[1]/div[1]/span[2]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]/text()[1]
+            ingredientsList:
+              - text: Wheat Flour, Salt, Palm Fat, Cream Powder (Milk) (7%), Paprika (3.6%),
+                  Mushrooms (3.1%), Barley Malt Extract, Garlic (2%), Yeast
+                  Extract, Lactose (Milk), Maltodextrin, Milk Proteins, Onion
+                  Powder (1.1%), Mushroom Juice Concentrate (1%), Parsley
+                  (0.6%), Potato Starch, Turmeric, Sugar, Pepper, Nutmeg, Lemon
+                  Juice Powder, Flavourings, Parsley Roots
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            servingSize:
+              - text: Per 100g as sold
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/text()[1]
+            caloriesPerServing:
+              - text: 397kcal
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalFatPerServing:
+              - text: 17g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            saturatedFatPerServing:
+              - text: 10g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalCarbPerServing:
+              - text: 47g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            dietaryFibrePerServing:
+              - text: 4.2g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            totalSugarsPerServing:
+              - text: 4.5g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            proteinPerServing:
+              - text: 11g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            saltPerServing:
+              - text: 11.9g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            dietaryInformation:
+              - text: Contains Barley, May Contain Celery, May Contain Eggs, Contains Milk, May
+                  Contain Mustard, May Contain Soya, Contains Wheat
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]
+            storage:
+              - text: Store in a cool, dry place.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            countryOfOrigin:
+              - text: United Kingdom
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]
+            productOtherInformation:
+              - text: |-
+                  Full Product Name:
+                  A creamy seasoning mix with mushrooms and garlic
+                  Storage:
+                  Store in a cool, dry place.
+                  Usage:
+                  4 Servings
+                  Additional Information:
+                  V-Label.EU - European Vegetarian Union
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]
+            pricePerUnit:
+              - text: £1.28
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[1]/text()[1]
+            pricePerUnitUom:
+              - text: per 100g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[1]/text()[5]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            availabilityText:
+              - text: In Stock
+            nameExtended:
+              - text: Colman's Beef Stroganoff Recipe Mix 39g
+            description:
+              - text: "This packet of Colman's Beef Stroganoff seasoning mix helps you create
+                  tasty, hearty meals for the whole family to enjoy. Containing
+                  a carefully selected blend of herbs and spices, it has never
+                  been easier to serve up ‘meals that say it all'. Preparation
+                  and Usage: Using the fresh ingredients from the shopping list
+                  below, follow the four easy steps on the back of the recipe
+                  mix packet and you can rest assured that you'll bring smiles
+                  to the whole family at dinner time. Shopping List (serves 4)
+                  450g Lean Frying Steak 1 Onions 115g Mushrooms 1 Red Pepper
+                  300ml Semi Skimmed Milk Heat the oil in a frying pan and fry
+                  the beef and onions over a high for 5 minutes. Add the
+                  mushrooms and pepper. Blend the contents of the sachet with
+                  the milk and pour over the beef. Bring to the boil, stirring
+                  continuously. Reduce the heat and simmer for 8 minutes or
+                  until the beef is thoroughly cooked, stirring occasionally.
+                  Enjoy with freshly cooked rice and a green salad. Why not try
+                  serving your Beef Stroganoff with freshly cooked rice and a
+                  green salad. Discover the rest of our range and more about
+                  Colman's and our heritage at https://www.colmans.co.uk/. At
+                  Colman's we believe you deserve the very best. That's why we
+                  select quality ingredients for all our recipes, which are
+                  seasonally harvested to deliver great tasting family
+                  favourites. We use only the highest quality herbs & vegetables
+                  and let them grow as nature intended. We work closely with our
+                  farmers to ensure our vegetables are harvested at exactly the
+                  right moment to deliver the taste we are famous for. We are
+                  also working hard to protect the planet by enrolling our
+                  farmers on a sustainable agriculture programme called ‘Growing
+                  for the Future', which ensures that our vegetable crops are
+                  both well looked after today and protected in the future. Read
+                  more at https://www.colmans.co.uk/colmans-storyQuickly creates
+                  a creamy beef stroganoff in just 15 minutes!, This subtle
+                  blend of mushrooms & spices, Quick and easy to prepare recipe,
+                  Great tasting, Suitable for vegetarians, no artificial colours
+                  or preservatives, no added MSGCountry of OriginUnited Kingdom"
+        xpath: /
+    timestamp: 1604943313101

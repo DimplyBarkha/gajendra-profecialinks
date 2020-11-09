@@ -1,0 +1,124 @@
+input:
+  _url: http://groceries.morrisons.com
+  URL: https://groceries.morrisons.com/products/258260011
+extractions:
+  - html: https://workbench.import.io/html/run=9c0ca3bb-ac0a-4d6c-abcd-a09a93b1c51b/task=e9525469-742e-487b-b3ba-71a5d5f89939/e1d70368-6e1e-475d-be7a-238eceb910fe.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: http://groceries.morrisons.com/products/258260011
+                xpath: /html/head[1]/meta[17]/@content
+            image:
+              - text: http://groceries.morrisons.com/productImages/258/258260011_0_640x640.jpg?identifier=9a6d390ccb614a5fdb43e6f71737afa8
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, On Offer, Morrisons, Cider Bottles, Fruit
+                  Cider, Beer, Wines & Spirits, Cider
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Beer, Wines & Spirits
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/text()[1]
+              - text: Cider
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/text()[1]
+              - text: Fruit Cider
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/text()[1]
+            price:
+              - text: £2.30
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]/text()[1]
+            brandText:
+              - text: Morrisons
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[2]/div[1]/a[1]
+            manufacturer:
+              - text: |-
+                  HP Bulmer Limited,
+                  Hereford,
+                  HR4 0LE.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[3]/div[2]/div[1]/div[4]/div[1]
+            sku:
+              - text: "258260011"
+                xpath: /html/head[1]/meta[17]/@content
+            variantId:
+              - text: "258260011"
+                xpath: /html/head[1]/meta[17]/@content
+            legalDisclaimer:
+              - text: This product is age restricted to 18 years or over
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/section[1]/div[1]/div[1]/div[1]/span[2]
+            directions:
+              - text: Serve chilled with ice and strawberries & blueberries. Enjoy when looking
+                  to discover new experiences. Get the kiwi taste for adventure.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/div[1]/a[1]/div[1]/span[2]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]/text()[1]
+            dietaryInformation:
+              - text: Contains Sulphur Dioxide/Sulphites
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]
+            storage:
+              - text: >-
+                  Please store the products in a clean, dry and well ventilated
+                  place.
+
+                  Prior to consumption, bottles should be refrigerated.
+
+                  Do not expose the product to freezing conditions.
+
+                  Avoid exposure of the product to temperatures above 25°C.
+
+                  Avoid exposure of the product to direct sunlight or fluorescent lighting.
+
+                  For best before see bottle shoulder.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            countryOfOrigin:
+              - text: Produce of the EU
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]
+            recyclingInformation:
+              - text: Bottle - Recyclable
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[5]/div[1]
+            productOtherInformation:
+              - text: |-
+                  Full Product Name:
+                  Cider blended with the juice of berries & cherries
+                  Origin:
+                  Made in the EU
+                  Additional Information:
+                  Alcohol By Volume: 4.0%
+                  Units: 2.0
+                  2.0 UK Units per bottle
+                  Please Enjoy Responsibly
+                  For further health information visit drinkaware.co.uk
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[6]/div[1]
+            pricePerUnit:
+              - text: 46p
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[1]/text()[1]
+            pricePerUnitUom:
+              - text: per 100ml
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[1]/text()[5]
+            promotion:
+              - text: Buy 3 for £5
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[2]/div[1]/a[1]/p[1]
+            alcoholContent:
+              - text: 4.0%
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: In Stock
+            nameExtended:
+              - text: Old Mout Cider Berries & Cherries Bottle 500ml
+            description:
+              - text: This tasty tipple occurred when our crisp apples met their match with a
+                  bunch of ripe summer berries.This fun, fruity cider brings all
+                  the summer fruits together in one super refreshing glass! Put
+                  a Kiwi twist on it, and serve over ice with strawberries and
+                  blueberries.AROMA:Tangy berry linger.FLAVOUR:Perfumed, floral,
+                  jasmine, elderberry.MOUTHFEEL:Medley of red fruits
+                  strawberries, raspberries, cherries, and blueberries, with
+                  underlying apple juice notes.FINISH:Sweet and spritzy.FOOD
+                  MATCH:Sea bass with beetroot salad, blue cheese.A fruity
+                  little number, Pronounced incorrectly since 1947, Established
+                  in Nelson, New ZealandCountry of OriginProduce of the EU
+        xpath: /
+    timestamp: 1604943313901
