@@ -157,7 +157,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class='product-title']/h1/font/font/text()
+    xpath: //div[@class='product-title']/h1/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -251,7 +251,9 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count(//div[@class='slick-track']/div//img[@class='product-detail-image']/@src) - 1
+    xpath: (count(//div[@class='slick-track']/div//img[@class='product-detail-image']/@src) - 1)
+    regExp: -1
+    regExpReplace: 0
   - name: news
     singleValue: true
     description: null
@@ -514,7 +516,7 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
-    xpath: //td[contains(text(), 'Enerji')]/following-sibling::td/text()
+    xpath: //td[contains(text(), 'Enerji')]/following-sibling::td/span/text()
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']

@@ -2,7 +2,7 @@ input:
   id: 125077495
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=0dcb7e5f-d830-476e-809b-e9d82588c2b6/task=527a8f4c-f108-463d-b321-3ceabc64b9ae/fc28ae0a-3f0d-459a-8839-8f158e89b4fe.html
+  - html: https://workbench.import.io/html/run=3ef6a1e4-76b0-48d6-b79c-6d69776214a3/task=7df3c579-d1bf-435f-8549-804c50ec0c98/8f9e95ab-bde3-47e1-99d1-de754ba1504a.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -44,11 +44,11 @@ extractions:
               - text: Samsung Galaxy A51 White Akıllı Telefon
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
             listPrice:
-              - text: 3.499 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/text()[1]
+              - text: 3.699 TL
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/text()[1]
             price:
               - text: 3.499 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/text()[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/text()[2]
@@ -136,12 +136,12 @@ extractions:
               - text: "125077495"
                 xpath: /html/head[1]/script[4]/text()[1]
             ratingCount:
-              - text: "60"
+              - text: "61"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
                 type: NUMBER
-                raw: Yorumlar (60)
+                raw: Yorumlar (61)
                 locale: tr
-                value: 60
+                value: 61
             aggregateRatingText:
               - text: 4,9
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
@@ -237,6 +237,9 @@ extractions:
             videos:
               - text: /_ui/responsive/theme-teknosa/images/icon/video-img.png
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            name:
+              - text: Samsung Galaxy A51 White Akıllı Telefon
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
             specifications:
               - text: Ağırlık
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[1]
@@ -279,4 +282,4 @@ extractions:
                 locale: tr
                 value: 8
         xpath: /
-    timestamp: 1604312508196
+    timestamp: 1604916945150
