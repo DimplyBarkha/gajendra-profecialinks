@@ -9,6 +9,9 @@ fields:
     regExp: ^(.+)$
     regExpReplace: https:$1
     xpath: //img[@id="product-image-default"]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //meta[@name="twitter:title"]/@content
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -44,10 +47,6 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //html//div[@id='Brand']
-  - name: quantity
-    singleValue: true
-    description: Quantity as described on the page
-    xpath: (//span[@class="quantity-value curs-d dib txtc"])[1]/@data-original-quantity
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -60,6 +59,9 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //html//div[@id='mpc']
+  - name: variantCount
+    singleValue: true
+    defaultValue: '0'
   - name: directions
     singleValue: true
     description: Content under "directions" header
@@ -68,23 +70,19 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: (//div[@class="flex star-container"]/span)[1]/text()
-  - name: aggregateRating
+    xpath: //div[@class="price-stars flex"]/div/span/text()
+  - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //html//div[@id='aggregateRating']
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
-    xpath: //div[@class="delivery-service"]
   - name: name
     singleValue: true
     description: The product name
     xpath: //meta[@name="twitter:title"]/@content
   - name: ingredientsList
     singleValue: true
-    xpath: 
+    xpath: //html//div[@id='ingredientsList']
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -97,15 +95,15 @@ fields:
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']

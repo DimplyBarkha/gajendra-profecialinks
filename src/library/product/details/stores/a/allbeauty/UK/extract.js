@@ -1,4 +1,4 @@
-  const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -29,9 +29,20 @@ module.exports = {
       const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[1].innerText;
       const jsondata = JSON.parse(rawdata);
       const gtin = jsondata.gtin13;
-      const aggregateRating = jsondata.aggregateRating.ratingValue
+      const aggregateRating = jsondata.aggregateRating.ratingValue;
       addElementToDocument('gtin', gtin);
-      addElementToDocument('aggregateRating', aggregateRating);
+      let singleRating;
+      var ratings = document.querySelectorAll("div[class='hide-when-purchase-disabled prices'] div[class='ratings']");
+      if (ratings.length > 0) {
+        // @ts-ignore
+        singleRating = ratings[0].style.width;
+      }
+      else {
+        singleRating = '0';
+      }
+      singleRating = singleRating.slice(0, singleRating.length - 1)
+      singleRating = (5 * singleRating) / 100;
+      addElementToDocument('aggregateRating', singleRating);
       // @ts-ignore
       const sku = window.dataLayer[1].product.sku;
       addElementToDocument('sku', sku);
@@ -41,10 +52,23 @@ module.exports = {
       // @ts-ignore
       const Brand = window.dataLayer[1].product.brand_name;
       addElementToDocument('Brand', Brand);
-      const directions = getXpath("//meta[@name=\"twitter:description\"]/@content", 'nodeValue');
-      var directionsLength = directions.length;
-      const finalDirections = directions.substr(directions.indexOf('To use'), directionsLength);
-      addElementToDocument('directions', finalDirections);
+      // @ts-ignore
+      var fullText = document.querySelector('div[id="descriptionTabContent"] p').innerText;
+      fullText = fullText.replace(/\n\n/g, "_____");
+      const seperateText = fullText.split('_____');
+      var index;
+      for (index = 0; index < seperateText.length; index++) {
+        if (seperateText[index].includes("Ingredients")) {
+          addElementToDocument('ingredientsList', seperateText[index]);
+          break;
+        }
+      }
+      for (index = 0; index < seperateText.length; index++) {
+        if (seperateText[index].includes("To use")) {
+          addElementToDocument('directions', seperateText[index]);
+          break;
+        }
+      }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
