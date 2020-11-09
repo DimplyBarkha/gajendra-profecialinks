@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'bedbathbeyond',
-    nextLinkSelector: "ul[class *='Pagination_')] li a[class *='__btnNext']",
+    nextLinkSelector: "ul[class *='Pagination_'] li a[class *='__btnNext']",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
