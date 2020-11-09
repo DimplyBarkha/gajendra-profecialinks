@@ -149,7 +149,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class='tab-container']//p//img[not(contains(@src, 'data:image'))]/@src
+    xpath: //div[@class='tab-container'][1]//img[not(contains(@src, 'data:image'))]/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
