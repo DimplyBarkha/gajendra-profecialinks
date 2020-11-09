@@ -1,0 +1,53 @@
+input:
+  _url: https://medikamente-per-klick.de
+  URL: https://www.medikamente-per-klick.de/vichy-neovadiol-creme-normale-haut-75ml-11729448
+extractions:
+  - html: https://workbench.import.io/html/run=0ae95414-dd71-4dec-aa7b-3d5bbb811b08/task=5ed5d45e-412f-445c-a0a9-feeda83c1106/58ac9a05-2965-413a-b0eb-755d5b289d75.html
+    extractionConfigId: product/details/stores/m/medikamente-per-klick/de/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/a[1]/span[1]
+            availabilityText:
+              - text: out_of_stock
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[3]/dl[3]/dd[1]/span[1]/@title
+            category:
+              - text: Markenshops
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[2]
+            description:
+              - text: "VICHY NEOVADIOL Creme normale HautTiefenwirksam reaktivierende Pflege für
+                  reife
+                  HautHauttyp:Wirksamkeit:Verträglichkeit:Erlebnis:Anwendung:"
+                xpath: /html/body/div[11]
+            gtin:
+              - text: "775488"
+                xpath: /html/body/div[10]
+            image:
+              - text: /images/ecommerce/11/72/11729448_200x200.png
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[2]/div[2]/img[1]/@src
+            listPrice:
+              - text: 30.90 €*
+                xpath: /html/body/div[8]
+            metaKeywords:
+              - text: VICHY NEOVADIOL Creme normale
+                  Haut,medikamente-per-klick,versandapotheke,apotheke,internetapotheke,onlineapotheke,arzneimittel,
+                  homöopathie,naturheilkunde,kosmetik,gesundheit
+                xpath: /html/head[1]/meta[11]/@content
+            nameExtended:
+              - text: VICHY NEOVADIOL Creme normale Haut (75 ml)
+                xpath: /html/body/div[6]
+            price:
+              - text: 26.57 €*
+                xpath: /html/body/div[7]
+            quantity:
+              - text: 75 ml
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[3]/dl[1]/dd[3]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[8]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[3]
+            variantId:
+              - text: "11729448"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[3]/dl[1]/dd[4]
+        xpath: /
+    timestamp: 1591619080134

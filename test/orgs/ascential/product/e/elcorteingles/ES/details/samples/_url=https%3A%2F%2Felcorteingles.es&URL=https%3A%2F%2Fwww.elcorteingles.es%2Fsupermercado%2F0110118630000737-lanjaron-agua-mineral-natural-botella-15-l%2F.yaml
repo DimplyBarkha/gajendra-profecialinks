@@ -1,0 +1,102 @@
+input:
+  _url: https://elcorteingles.es
+  URL: https://www.elcorteingles.es/supermercado/0110118630000737-lanjaron-agua-mineral-natural-botella-15-l/
+extractions:
+  - html: https://workbench.import.io/html/run=57ad56ed-3869-4e71-9dd6-65fc2011ffe8/task=2d40d93f-5024-4662-bdb6-26ca661da30a/102fbc47-cd43-4d17-9550-bebe827d1729.html
+    extractionConfigId: product/details/stores/e/elcorteingles/ES/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[18]
+            brandLink:
+              - text: https://www.elcorteingles.es/alimentacion/marcas/lanjaron/
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/a[1]/@href
+            brandText:
+              - text: LANJARON
+                xpath: /html/body/div[19]
+            calciumPerServing:
+              - text: 28,9
+                xpath: /html/body/div[22]
+            category:
+              - text: Supermercado
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[1]
+              - text: Bebidas
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[2]
+              - text: Agua, Refrescos y Zumos
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[3]
+              - text: Agua y soda
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[4]
+              - text: Agua mineral sin gas
+                xpath: /html/body/div[4]/div[1]/ol[1]/li[5]
+            description:
+              - text: "Información generalDenominación del alimento: Agua Mineral Natural de
+                  mineralización débil. Indicada para la preparación de
+                  alimentos infantiles y dietas pobres en sodio.Nombre del
+                  operador: Aguas Danone, S.A.Dirección del operador: Buenos
+                  Aires, 21 08029 BarcelonaLugar de procedencia del alimento:
+                  Manantial Salud (Lanjarón - Granada)Cantidad Neta: 1.5
+                  LitrosOtras menciones obligatorias en la etiqueta: Exija que
+                  se abra la botella en su presencia. Por su seguridad, no
+                  reutilizar este envase."
+                xpath: /html/body/div[26]
+            directions:
+              - text: "Modo de empleo: El agua contribuye a mantener las funciones físicas y
+                  cognitivas normales con una ingesta diaria de al menos 2L de
+                  agua al día, procedente de cualquier fuente. Es importante una
+                  dieta variada y equilibrada y un estilo de vida saludable."
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/ul[1]/li[2]
+            gtin:
+              - text: "8410728180120"
+                xpath: /html/body/div[17]
+            image:
+              - text: https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201909/26/00118630000737____4__600x600.jpg
+                xpath: /html/body/div[15]
+            imageAlt:
+              - text: LANJARON agua mineral natural botella 1,5 l
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            ingredientsList:
+              - text: "Ingredientes y alérgenos Composición (en mg/L): Bicarbonatos 108 · Calcio
+                  28,9 · Magnesio 11,4 · Sodio 5,9. Conductividad (uS/cm) 200
+                  (CNTA-2018)"
+                xpath: /html/body/div[27]
+            magnesiumPerServing:
+              - text: 11,4
+                xpath: /html/body/div[23]
+            nameExtended:
+              - text: LANJARON agua mineral natural botella 1,5 l
+            price:
+              - text: 0,60 €
+            pricePerUnit:
+              - text: 0,40 €
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[4]/div[1]/div[1]/div[2]
+            pricePerUnitUom:
+              - text: € / Litro
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/span[1]/div[1]/div[4]/div[1]/div[1]/div[2]
+            quantity:
+              - text: 1,5
+                xpath: /html/body/div[21]
+            ratingCount:
+              - text: "28"
+                xpath: /html/body/div[25]
+            sku:
+              - text: "8410728180120"
+                xpath: /html/body/div[17]
+            sodiumPerServing:
+              - text: 5,9
+                xpath: /html/body/div[24]
+            storage:
+              - text: Conservar en lugar limpio, fresco y seco. Proteger de la luz solar y de
+                  olores agresivos. Evitar contacto directo con el suelo. Exija
+                  que se abra la botella en su presencia. Por su seguridad, no
+                  reutilizar este envase. Una vez abierto el envase mantener en
+                  frío y consumir en los 2-3 días siguientes a su apertura.
+                  Evitar contacto directo con el suelo. No reutilizar este
+                  envase. Consumir preferentemente antes de la fecha indicada en
+                  el lote (ver botella)
+                xpath: /html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/ul[1]/li[1]
+            variantId:
+              - text: "110118630000737"
+                xpath: /html/body/div[20]
+        xpath: /html/body
+    timestamp: 1591768165781

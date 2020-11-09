@@ -1,0 +1,105 @@
+input:
+  _url: https://carrefour.es
+  url: https://www.carrefour.es/supermercado/detail/supermercado/detail/Ketchup-extracontrol/_/R-520661027
+extractions:
+  - html: https://workbench.import.io/html/run=d6b15e45-fd17-4661-bcf5-1e1d783c5b11/task=3a94a738-cc59-4c1e-8af5-f4441f988a88/ec14971e-4d10-4133-8b26-9cb2e102ecf3.html
+    extractionConfigId: product/details/stores/c/carrefour/es/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "0"
+                xpath: /html/body/@aggregate_rating
+            availability:
+              - text: In stock
+                xpath: /html/body/@availability
+            brand:
+              - text: heinz
+                xpath: /html/body/@brand
+            category:
+              - text: Inicio
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Supermercado
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: La Despensa
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Alimentación
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Salsas y Tomate Frito
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[5]
+            image:
+              - text: https://static.carrefour.es/hd_510x_/img_pim_food/680150_00_1.jpg
+                xpath: /html/body/a[1]/@href
+            imageAlt:
+              - text: Kétchup Heinz envase 700 g.
+                xpath: /html/body/a[1]/@alt
+            nameExtended:
+              - text: Kétchup Heinz envase 700 g.
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: 2,95 €
+                xpath: /html/body/div[2]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            pricePerUnit:
+              - text: 4,21 €
+                xpath: /html/body/@price_per_unit
+            pricePerUnitUom:
+              - text: kg
+                xpath: /html/body/@price_per_unit_uom
+            proteinPerServing:
+              - text: "0.9"
+                xpath: /html/body/@total_protein_per_serving
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/@total_protein_per_serving_uom
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/@rating_count
+            retailerProductCode:
+              - text: "520661027"
+                xpath: /html/head[1]/link[3]/@href
+            saltPerServing:
+              - text: "1.2"
+                xpath: /html/body/@total_sal_per_serving
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/@total_sal_per_serving_uom
+            saturatedFatPerServing:
+              - text: "0.1"
+                xpath: /html/body/@saturated_per_serving
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/@saturated_per_serving_uom
+            scrapeCode:
+              - text: https://www.carrefour.es /supermercado/R-520661027/p
+                xpath: /html/head[1]/link[3]/@href
+            secondaryImageTotal:
+              - text: "0"
+                xpath: /html/body/@secondary_image_total
+            sku:
+              - text: "520661027"
+                xpath: /html/head[1]/link[3]/@href
+            totalCarbPerServing:
+              - text: "24.1"
+                xpath: /html/body/@total_carb_per_serving
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/@total_carb_per_serving_uom
+            totalFatPerServing:
+              - text: "0.1"
+                xpath: /html/body/@total_fat_per_serving
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/@total_fat_per_serving_uom
+            totalSugarsPerServing:
+              - text: "23.7"
+                xpath: /html/body/@total_sugars_per_serving
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/@total_sugars_per_serving_uom
+            url:
+              - text: https://www.carrefour.es /supermercado/R-520661027/p
+                xpath: /html/head[1]/link[3]/@href
+            variantId:
+              - text: "520661027"
+                xpath: /html/body/@variant_id
+        xpath: /
+    timestamp: 1591786926061

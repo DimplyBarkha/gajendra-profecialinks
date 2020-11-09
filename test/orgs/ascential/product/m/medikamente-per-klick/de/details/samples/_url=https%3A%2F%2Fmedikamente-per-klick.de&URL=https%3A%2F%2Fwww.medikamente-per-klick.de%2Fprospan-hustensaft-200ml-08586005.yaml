@@ -1,0 +1,86 @@
+input:
+  _url: https://medikamente-per-klick.de
+  URL: https://www.medikamente-per-klick.de/prospan-hustensaft-200ml-08586005
+extractions:
+  - html: https://workbench.import.io/html/run=0ae95414-dd71-4dec-aa7b-3d5bbb811b08/task=098a550e-645d-4895-b555-816904fc42d0/bd3e31b3-9b68-4431-beaf-5d19e5aad35d.html
+    extractionConfigId: product/details/stores/m/medikamente-per-klick/de/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/a[1]/span[1]
+            alternateImages:
+              - text: /images/products/medikamenteperklick/mittel/08586005_m.jpg
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            availabilityText:
+              - text: in_stock
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[3]/dl[3]/dd[1]/span[1]/@title
+            category:
+              - text: Markenshops
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[2]
+            description:
+              - text: "Effektiv und sehr gut verträglich – deshalb sollte der Prospan®
+                  Hustensaft in keiner Hausapotheke fehlen. • Für Kinder und
+                  Säuglinge (Kinder < 1 nur nach Rücksprache mit dem Arzt) • Mit
+                  leckerem KirschgeschmackProspan®, die Nr.1 weltweit*: Lindert
+                  den Hustenreiz Löst den Schleim Lindert die Entzündung Fördert
+                  das Durchatmen *Pflanzliche Expektoranzien, IQVIA Global OTC
+                  Insights MAT 12/2018.Der Prospan® Hustensaft enthält den
+                  einzigartigen Efeu-Spezial-Extrakt EA 575®. Deshalb ist
+                  Prospan® in der Lage, das komplexe Geschehen bei Husten &
+                  Bronchitis effektiv zu behandeln. Der Prospan® Hustensaft ist
+                  sehr gut verträglich und es sind bislang keine
+                  Wechselwirkungen mit anderen Präparaten bekannt. Nehmen Sie
+                  den Prospan® Hustensaft mit dem Messbecher immer genau nach
+                  der Anweisung der Packungsbeilage ein. Bitte fragen Sie bei
+                  Ihrem Arzt oder Apotheker nach, wenn Sie sich nicht ganz
+                  sicher sind. Falls vom Arzt nicht anders verordnet, ist die
+                  übliche Dosis:"
+                xpath: /html/body/div[10]
+            gtin:
+              - text: "35099"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[3]/div[1]/form[1]/input[1]/@value
+            image:
+              - text: /images/products/medikamenteperklick/gross/08586005_g.jpg
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[2]/div[2]/img[1]/@src
+            legalDisclaimer:
+              - text: Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage und fragen Sie
+                  Ihren Arzt oder Apotheker.
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[9]
+            listPrice:
+              - text: 13.15 €*
+                xpath: /html/body/div[8]
+            manufacturerImages:
+              - text: https://www.medikamente-per-klick.de/images/generic_attachments/attachments/medikamenteperklick/header_Medikamente-per-klick_2020_Saft.jpg
+                  ||
+                  https://www.medikamente-per-klick.de/images/generic_attachments/attachments/medikamenteperklick/Engelhard_Motiv_03_Prospan_Alex_B_RGB.jpg
+                  ||
+                  https://www.medikamente-per-klick.de/images/generic_attachments/attachments/medikamenteperklick/pds_Label_Efeu-Spezial-Extrakt_EA575_DE_11.jpg
+                  ||
+                  https://www.medikamente-per-klick.de/images/generic_attachments/attachments/medikamenteperklick/pds_HustensaftDosierung.jpg
+                xpath: /html/body/div[9]
+            metaKeywords:
+              - text: PROSPAN
+                  Hustensaft,medikamente-per-klick,versandapotheke,apotheke,internetapotheke,onlineapotheke,arzneimittel,
+                  homöopathie,naturheilkunde,kosmetik,gesundheit
+                xpath: /html/head[1]/meta[16]/@content
+            nameExtended:
+              - text: PROSPAN Hustensaft (200 ml)
+                xpath: /html/body/div[6]
+            price:
+              - text: 7.79 €*
+                xpath: /html/body/div[7]
+            quantity:
+              - text: 200 ml
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[3]/dl[1]/dd[3]
+            ratingCount:
+              - text: "15"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[8]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[3]
+            variantId:
+              - text: "08586005"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[1]/div[3]/div[3]/dl[1]/dd[4]
+            videos:
+              - text: https://www.youtube.com/watch?v=hLhwkF5M8DQ
+                xpath: /html/head[1]/meta[9]/@content
+        xpath: /
+    timestamp: 1591619084628

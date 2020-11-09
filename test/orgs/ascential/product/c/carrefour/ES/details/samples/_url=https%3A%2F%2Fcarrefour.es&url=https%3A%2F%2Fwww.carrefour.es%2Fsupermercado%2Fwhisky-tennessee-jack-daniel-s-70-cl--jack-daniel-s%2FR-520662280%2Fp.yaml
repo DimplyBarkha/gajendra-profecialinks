@@ -1,0 +1,77 @@
+input:
+  _url: https://carrefour.es
+  url: https://www.carrefour.es/supermercado/whisky-tennessee-jack-daniel-s-70-cl--jack-daniel-s/R-520662280/p
+extractions:
+  - html: https://workbench.import.io/html/run=d6b15e45-fd17-4661-bcf5-1e1d783c5b11/task=683e682a-980b-4387-a5fb-6673972271b7/126f960c-fd7f-4034-a661-bfbb0188ef7a.html
+    extractionConfigId: product/details/stores/c/carrefour/es/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "0"
+                xpath: /html/body/@aggregate_rating
+            alcoholContent:
+              - text: "40.0"
+                xpath: /html/body/div[2]/div[1]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/span[2]
+            availability:
+              - text: In stock
+                xpath: /html/body/@availability
+            brand:
+              - text: jack-daniels
+                xpath: /html/body/@brand
+            category:
+              - text: Inicio
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Supermercado
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Bebidas
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Alcoholes
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Whisky y Bourbon
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/nav[1]/div[1]/div[1]/ul[1]/li[5]
+            image:
+              - text: https://static.carrefour.es/hd_510x_/img_pim_food/000320_00_1.jpg
+                xpath: /html/body/a[1]/@href
+            imageAlt:
+              - text: Whisky Tennessee Jack Daniel's 70 cl.
+                xpath: /html/body/a[1]/@alt
+            ingredientsList:
+              - text: agua y alcohol.
+                xpath: /html/body/div[2]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/p[2]
+            nameExtended:
+              - text: Whisky Tennessee Jack Daniel's 70 cl.
+                xpath: /html/body/div[2]/div[1]/main[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: 19,60 €
+                xpath: /html/body/div[2]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            pricePerUnit:
+              - text: 28,00 €
+                xpath: /html/body/@price_per_unit
+            pricePerUnitUom:
+              - text: l
+                xpath: /html/body/@price_per_unit_uom
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/@rating_count
+            retailerProductCode:
+              - text: "520662280"
+                xpath: /html/head[1]/link[3]/@href
+            scrapeCode:
+              - text: https://www.carrefour.es
+                  /supermercado/whisky-tennessee-jack-daniel-s-70-cl--jack-daniel-s/R-520662280/p
+                xpath: /html/head[1]/link[3]/@href
+            secondaryImageTotal:
+              - text: "0"
+                xpath: /html/body/@secondary_image_total
+            sku:
+              - text: "520662280"
+                xpath: /html/head[1]/link[3]/@href
+            url:
+              - text: https://www.carrefour.es
+                  /supermercado/whisky-tennessee-jack-daniel-s-70-cl--jack-daniel-s/R-520662280/p
+                xpath: /html/head[1]/link[3]/@href
+            variantId:
+              - text: "520662280"
+                xpath: /html/body/@variant_id
+        xpath: /
+    timestamp: 1591786929917
