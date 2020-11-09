@@ -8,4 +8,17 @@ module.exports = {
     domain: 'alloffice.se',
     zipcode: '',
   },
+ /* implementation: async function (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+    ) {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+
+    const productImage = 'div>img[itemprop="image"]';
+    await context.waitForSelector(productImage);
+    return await context.extract(productDetails, { transform });
+  }*/
 };

@@ -17,23 +17,10 @@ async function implementation (
   console.log('URL :', responseStatus.url);
 
   // Check if accept cookies dialog pops up
-  /*const doesAcceptCookiesBtnExists = await context.evaluate(function () {if(document.evaluate(`//button[contains(.,'Jag godkänner')]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()) {
-    document.evaluate(`//button[contains(.,'Jag godkänner')]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().click()
-    }
-  });
-
-  if (doesAcceptCookiesBtnExists) {
-    console.log('Clicking on accept cookies btn');
-    await context.click(`//button[contains(.,'Jag godkänner')]`);
-    await context.waitForNavigation();
-  }*/
   await context.evaluate(function () {if(document.evaluate(`//button[contains(.,'Jag godkänner')]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()) {
     document.evaluate(`//button[contains(.,'Jag godkänner')]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().click()
     }
   });
- 
-  
-
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
