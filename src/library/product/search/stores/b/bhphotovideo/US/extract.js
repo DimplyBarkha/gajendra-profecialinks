@@ -12,7 +12,7 @@ async function implementation (
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   const manuf = await context.evaluate(async function () {
     const GetTagByIdUsingRegex = (tag, html) => {
-      return new RegExp('<' + tag + '>window.dlo.*[\\s\\S]?(\n\t{3}var.*\n\t{3}BH.*\n\t{3}B.*\n\t{2})<\/' + tag + '>').exec(html)
+      return new RegExp('<' + tag + '>window.dlo.*[\\s\\S]?(\n\t{3}var.*\n\t{3}BH.*\n\t{3}B.*\n\t{2})</' + tag + '>').exec(html);
     };
 
     const manufactArr = await fetch(window.location.href, {
@@ -22,7 +22,7 @@ async function implementation (
       const outerHTML = result && result[0] ? result[0] : '';
       const dataStr = outerHTML && outerHTML.split('window.__PRELOADED_DATA = ') && outerHTML.split('window.__PRELOADED_DATA = ')[1] && outerHTML.split('window.__PRELOADED_DATA = ')[1].split('window.__SERVER_RENDER_TIME')[0] ? outerHTML.split('window.__PRELOADED_DATA = ')[1].split('window.__SERVER_RENDER_TIME')[0] : '';
 
-      if(dataStr.split('fct_brand_name')[1] == undefined){
+      if (dataStr.split('fct_brand_name')[1] === undefined) {
         const obj = [];
         return obj;
       }
@@ -37,28 +37,27 @@ async function implementation (
     return manufactArr;
   });
 
-  const windowScroll = await context.evaluate(async () => {
-    for(let i=0;i<=document.body.scrollHeight;i=i+500){
-      window.scroll(0,i);
+  await context.evaluate(async () => {
+    for (let i = 0; i <= document.body.scrollHeight; i = i + 500) {
+      window.scroll(0, i);
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   });
   
   var data = await context.extract(productDetails, { transform });
-
-  for(let i=0;i<data[0].group.length;i++){
-    if("price" in data[0].group[i]){
-      if(data[0].group[i].price.length==2){
+  for (let i = 0; i < data[0].group.length; i++) {
+    if ('price' in data[0].group[i]) {
+      if (data[0].group[i].price.length === 2) {
         data[0].group[i].price[0].text += '.' + data[0].group[i].price[1].text;
-        data[0].group[i].price.splice(1,1);
+        data[0].group[i].price.splice(1, 1);
       }
     }
-    if("manufacturer" in data[0].group[i]){
-      if(manuf.length == 0){
+    if ('manufacturer' in data[0].group[i]) {
+      if (manuf.length === 0) {
         data[0].group[i].manufacturer[0].text = '';
-      }else{
-        for(let j=0;j<manuf.length;j++){
-          if(data[0].group[i].manufacturer[0].text.toLowerCase().replace("-", ' ').includes(manuf[j].toLowerCase().replace("-", ' '))){
+      } else {
+        for (let j = 0; j < manuf.length; j++) {
+          if (data[0].group[i].manufacturer[0].text.toLowerCase().replace("-", ' ').includes(manuf[j].toLowerCase().replace("-", ' '))) {
             data[0].group[i].manufacturer[0].text = manuf[j];
             break;
           }
@@ -73,7 +72,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'bhphotovideo',
-    transform: null,
+    transform: transform,
     domain: 'bhphotovideo.com',
     zipcode: '',
   },
