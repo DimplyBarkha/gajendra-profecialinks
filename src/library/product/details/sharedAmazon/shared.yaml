@@ -277,13 +277,13 @@ fields:
     xpath: //div[@id="fast-track-message"]//div[@id="delivery-message"][not(normalize-space(.)="")] | //div[@id="fast-track-message"]//span[@id="upsell-message"][not(normalize-space(.)="")]
   - name: ingredientsList
     singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p
   - name: servingSize
-    singleValue: true
-    xpath: 
+    xpath: //*[contains(text(),"Serving Size")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
   - name: servingSizeUom
-    singleValue: true
-    xpath: 
+    xpath: //*[contains(text(),"Serving Size")]/following-sibling::*[1]
+    regExp: '[^\s]+$'
   - name: numberOfServingsInPackage
     singleValue: false
     xpath: //div[contains(@id, "package_quantity")]//span[contains(@class, "selection")] | //*[contains(text(), "Number of Items")]/following-sibling::td[1]
@@ -441,8 +441,8 @@ fields:
     singleValue: false
     xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li | (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price"] | //*[@id="regularprice_savings"]
   - name: alcoholContent
-    singleValue: true
-    xpath: 
+    xpath: //*[contains(text(),"Alcohol Content")]/following-sibling::*[1]
+    regExp: '^[^\s]+'
   - name: newAsin
     singleValue: false
     xpath: //div[@id="newer-version"]//a[not(img)]/@href

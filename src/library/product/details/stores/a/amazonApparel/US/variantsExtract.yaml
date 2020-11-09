@@ -6,10 +6,10 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //*[@id='ii_variant']    
+    xpath: //*[@id='ii_variant']
   - name: variantUrl
     singleValue: false
     description: variant Url
     xpath: //*[@id='ii_variant']
     regExp: (.+)
-    regExpReplace: https://www.amazon.com/dp/$1?th=1&psc=1&fpw=pantry
+    regExpReplace: https://amazon.com/dp/product/$1?th=1&psc=1

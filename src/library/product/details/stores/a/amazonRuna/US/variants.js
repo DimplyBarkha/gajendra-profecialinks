@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/details/variants',
   parameterValues: {
     country: 'US',
-    store: 'amazonPharmapacks',
+    store: 'amazonRuna',
     domain: 'amazon.com',
-    zipcode: '10001'
+    zipcode: '',
   },
 };

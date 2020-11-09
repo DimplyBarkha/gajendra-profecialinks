@@ -38,7 +38,6 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     return await context.evaluate(() => {
       console.log('context.evaluate');
       const selectors = {
-        hasVariants: 'div[id*="variation_"] ul, div[id*="variation_"] option',
         hasProdDetails: '#prodDetails, #detailBullets_feature_div',
         hasSalesRank: '#detailBullets_feature_div a[href*="bestsellers"], #detailBullets a[href*="bestsellers"], #prodDetails a[href*="bestsellers"], #SalesRank',
         isProductPage: 'link[rel*=canonical][href*="/dp/"]',
@@ -64,6 +63,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
           elementChecks[prop] = true;
         } else { elementChecks[prop] = false; }
       }
+      elementChecks.hasVariants = !!window.isTwisterPage;
       elementChecks.windowLocation = window.location;
       return elementChecks;
     });
@@ -104,37 +104,50 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
   const setZip = async (zip) => {
     if (zip) {
-      const apiZipChange = await context.evaluate(async (zipcode) => {
-        const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
-        const response = await fetch('/gp/delivery/ajax/address-change.html', {
-          headers: {
-            accept: 'text/html,*/*',
-            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-            'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
-            'x-requested-with': 'XMLHttpRequest',
-          },
-          body,
-          method: 'POST',
-          mode: 'cors',
-          credentials: 'include',
-        });
-        return response.status === 200;
-      }, zipcode);
+      try {
+        const apiZipChange = await context.evaluate(async (zipcode) => {
+        // const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+        // const response = await fetch('/gp/delivery/ajax/address-change.html', {
+        //   headers: {
+        //     accept: 'text/html,*/*',
+        //     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+        //     'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        //     'x-requested-with': 'XMLHttpRequest',
+        //   },
+        //   body,
+        //   method: 'POST',
+        //   mode: 'cors',
+        //   credentials: 'include',
+        // });
+        // return response.status === 200;
+          if (document.querySelector('#glow-ingress-block').innerText.includes(zipcode)) {
+            console.log('Correct zipcode: ', document.querySelector('#glow-ingress-block').innerText);
+            return false;
+          }
+          return true;
+        }, zipcode);
 
+        if (apiZipChange) {
+          await context.click('#nav-global-location-slot > [data-a-modal]');
+          await context.waitForFunction((selector) => {
+            console.log(selector, document.querySelector(selector));
+            return !document.querySelector(selector);
+          }, { timeout: 20000 }, '[class="a-popover-wrapper"][aria-busy="false"]');
+          await context.waitForSelector('#GLUXZipUpdateInput');
+          await context.setInputValue('#GLUXZipUpdateInput', zipcode);
+          await context.click('#GLUXZipUpdate > span > input');
+          await context.reload();
+          page = await pageContextCheck(await pageContext());
+          await handlePage(page, null);
+        }
+      } catch (err) {
+        console.log('Zipcode change failed.');
+      }
+      /*
       const onCorrectZip = await context.evaluate((zipcode) => {
         const zipText = document.querySelector('div#glow-ingress-block');
         return zipText ? zipText.textContent.includes(zipcode) : false;
-      }, zipcode);
-
-      if (!apiZipChange) {
-        console.log('API zip change failed');
-        // throw new Error('API zip change failed');
-      } else {
-        await context.reload();
-        page = await pageContextCheck(await pageContext());
-        // await solveCaptchaIfNecessary(page);
-        await handlePage(page, null);
-      }
+      }, zipcode); */
     }
   };
 
@@ -149,7 +162,6 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
           'ptd',
           'storeID',
           'parent_asin',
-          'current_asin',
         ];
         const params = {};
         const raw = document.evaluate("//script[contains(@language,'JavaScript') and contains(text(), 'pgid')  and  contains(text(), 'current_asin')]", document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
@@ -165,12 +177,13 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
             }
           });
         }
+        params.current_asin = document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] ? document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] : (document.querySelector('#all-offers-display-params') ? document.querySelector('#all-offers-display-params').getAttribute('data-asin') : '');
         console.log('params', params);
         return params;
       };
       const params = await getParams();
       try {
-        if (Object.keys(params).length === 7) {
+        if (Object.entries(params).filter(item => item[1] != undefined).length === 7) {
           let url;
           if (page.windowLocation.hostname.includes('com')) {
             url = `https://${page.windowLocation.hostname}/gp/page/refresh?acAsin=${params.current_asin}&asinList=${params.current_asin}&auiAjax=1&dpEnvironment=softlines&dpxAjaxFlag=1&ee=2&enPre=1&id=${params.current_asin}&isFlushing=2&isP=1&isUDPFlag=1&json=1&mType=full&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&pgid=${params.pgid}&psc=1&ptd=${params.ptd}&rid=${params.rid}=1&sCac=1&sid=${params.sid}&storeID=${params.storeID}&triggerEvent=Twister&twisterView=glance`;
@@ -204,7 +217,10 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
             }
           });
           return true;
-        } else { return false; }
+        } else {
+          console.log('could not collect all params for appendLogic');
+          return false;
+        }
       } catch (err) {
         console.log('append data try  catch fail', err);
         return false;
@@ -217,10 +233,8 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     try {
       const apiUrl = 'https://moorhe2t18.execute-api.us-east-1.amazonaws.com/prod/?url=' + encodeURIComponent(url || gotoInput.url);
 
-      // console.log('shouldhavefetch :', apiUrl)
-
       const res = await Promise.race([
-        context.fetch(apiUrl, { timeout: 1e3 }),
+        extractorContext.fetch(apiUrl, { timeout: 1e3 }),
         new Promise((r, j) => setTimeout(j, 1e3)),
       ]);
       const data = await res.json();
@@ -246,7 +260,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     });
 
     console.log('solved captcha, waiting for page change');
-    await context.waitForNavigation();
+    await context.waitForNavigation(30);
 
     console.log('Captcha vanished');
 
@@ -295,7 +309,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         const key = `${extractor}_${await currDateHour()}`;
         const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}/plus`;
         const res = await Promise.race([
-          context.fetch(apiUrl, { timeout: 1e3 }),
+          extractorContext.fetch(apiUrl, { timeout: 1e3 }),
           new Promise((r, j) => setTimeout(j, 1e3)),
         ]);
         const data = await res.json();
@@ -312,7 +326,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         const key = encodeURIComponent(`${extractor}_${await currDateHour()}`);
         const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}`;
         const res = await Promise.race([
-          context.fetch(apiUrl, { timeout: 1e3 }),
+          extractorContext.fetch(apiUrl, { timeout: 1e3 }),
           new Promise((r, j) => setTimeout(j, 1e3)),
         ]);
         const data = await res.json();
@@ -371,7 +385,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       await context.click('a img[src*="503.png"], a[href*="ref=cs_503_link"], a img[src*="error/500-title"]');
 
       console.log('Waiting for page to reload on homepage using 503  pageId');
-      await context.waitForNavigation();
+      await context.waitForNavigation(30);
 
       page = await pageContext();
       if (page.is500Page) {
@@ -489,7 +503,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         await context.reload();
         await new Promise(r => setTimeout(r, 2000));
         console.log('Waiting for page to reload');
-        await context.waitForNavigation();
+        await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
         page = await handlePage(await pageContext(), lastResponseData);
         console.log('page handled: ', page);
@@ -500,7 +514,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         await context.reload();
         await new Promise(r => setTimeout(r, 2000));
         console.log('Waiting for page to reload');
-        await context.waitForNavigation();
+        await context.waitForNavigation(30);
         console.log('Page reloaded');
         page = await handlePage(await pageContext(), lastResponseData);
         console.log('page handled: ', page);
@@ -3636,8 +3650,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
   // clean cookie retry in session
   try {
-    await context.setJavaScriptEnabled(true);
     await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setJavaScriptEnabled(true);
     await run(userAgentString);
     await setZip(zipcode);
   } catch (err) {
