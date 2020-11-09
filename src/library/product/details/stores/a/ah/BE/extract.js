@@ -35,9 +35,12 @@ module.exports = {
 
       // find storage collapsible block and click on it
       // @ts-ignore
-      const colapsibleBlock = [...document.querySelectorAll('.collapsible-block-header_content__1Uv_0')]
+      const colapsibleBlock = [...document.querySelectorAll('.collapsible-block-header_content__1Uv_0')];
       
-      colapsibleBlock.find(block => block.innerText === 'Bewaren').click()
+      const storageBlock = colapsibleBlock.find(block => block.innerText === 'Bewaren');
+      if (storageBlock) {
+        storageBlock.click();
+      }
     });
 
     return await context.extract(productDetails, { transform });
