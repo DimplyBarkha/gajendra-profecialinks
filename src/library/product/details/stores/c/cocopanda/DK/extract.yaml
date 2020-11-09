@@ -13,7 +13,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"slick-vertical")]//div[@class="slick-track"]/a[@data-zoom-id="pdp-images" and position()>1 and not(contains(@class,"video"))]/@href
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
@@ -25,10 +25,10 @@ fields:
     singleValue: false
     xpath: //div[@id="is-on-sale-price"]
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="final-sales-price"]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="wishlist-action nostock"]/@style
   - name: description
     singleValue: false
@@ -45,9 +45,6 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@id="product-description"]/p[contains(@class,"product-number")]/span
-  - name: mpc
-    singleValue: false
-    xpath: //div[@id="product-description"]/p[contains(@class,"product-number")]/span
   - name: ratingCount
     singleValue: false
     xpath: //span[@id="rating-label"]
@@ -56,13 +53,10 @@ fields:
     xpath: //div[@id="product-ratings-summary"]/@class
   - name: videos
     singleValue: false
-    xpath: //li[@class="b-video-item"]/div[@class="b-video-item-tile"]/@data-videoid
+    xpath: //html/body/ul/li[@class="b-video-item"]/div[@class="b-video-item-tile"]/@data-videoid
   - name: name
     singleValue: false
     xpath: //h1[@id="product-title"]
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: //div[contains(@class,"slick-vertical")]//div[@class="slick-track"]/a[@data-zoom-id="pdp-images" and position()>1]/@href
   - name: variantInformation
     singleValue: false
     xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container" and position()=1]/@title
@@ -72,3 +66,15 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: '0'
+  - name: descriptionBullets
+    singleValue: false
+    defaultValue: //div[@id="product-description"]//li
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container" and position()=1]/@title
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container" and position()=1]//input[@type="radio"]/@data-attribute-value-id
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container"]//input[@type="radio"]/@data-attribute-value-id

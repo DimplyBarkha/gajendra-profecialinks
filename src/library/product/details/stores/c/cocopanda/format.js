@@ -23,8 +23,36 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      var skuText='';
+      var skuText=''; var bText='';var nText='';
       for (let row of group) {
+        if(row.videos){
+          //console.log('comming to row.videos');
+          var info=[];
+          row.videos.forEach(item=>{
+            let vURL="https://youtu.be/"+item.text;
+            //console.log('vURL : ',vURL);
+            info.push(vURL);
+            //console.log('vList : ',info);
+          });
+          row.videos=[{"text":info.join(" | ")}];
+        }
+        if(row.descriptionBullets){
+          var tot=0;
+          row.descriptionBullets.forEach(item=>{
+            tot++;
+          });
+          row.descriptionBullets=[{"text":tot}];
+        }
+        if(row.brandText){
+          row.brandText.forEach(item=>{
+            bText=item.text;
+          })
+        }
+        if(row.nameExtended){
+          row.nameExtended.forEach(item=>{
+            nText=item.text;
+          })
+        }
         if(row.price){
           row.price.forEach(item => {
             item.text=item.text.slice(0, -2);
@@ -55,12 +83,13 @@ const transform = (data) => {
             item.text=item.text.replace('(','').replace(')','');
           });
         }
-        if(row.secondaryImageTotal){
-          var tot=0;
-          row.secondaryImageTotal.forEach(item=>{
-            tot++;
+        if(row.variants){
+          var info=[];
+          row.variants.forEach(item=>{
+            info.push(item.text);
           })
-          row.secondaryImageTotal=[{"text":tot}];
+          row.variantCount=[{"text":info.length}];
+          row.variants=[{"text":info.join(" | ")}];
         }
         if(row.description){
           var info=[];
@@ -69,19 +98,8 @@ const transform = (data) => {
           })
           row.description=[{"text":info.join(" | ")}];
         }
-        if(row.videos){
-          var info=[];
-          row.videos.forEach(item=>{
-            info.push("https://youtu.be/"+item.text);
-          });
-          row.videos=[{"text":info.join(" | ")}];
-        }
-        if(row.descriptionBullets){
-          var tot=0;
-          row.descriptionBullets.forEach(item=>{
-            tot++;
-          });
-          row.videos=[{"text":tot}];
+        if(bText!=''){
+          row.nameExtended=[{"text":bText+" - "+nText}];
         }
       }
     }
