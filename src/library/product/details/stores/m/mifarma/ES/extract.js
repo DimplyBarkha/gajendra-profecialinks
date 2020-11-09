@@ -9,4 +9,9 @@ module.exports = {
     domain: 'mifarma.es',
     zipcode: '',
   },
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    await context.extract(productDetails);
+  },
 };

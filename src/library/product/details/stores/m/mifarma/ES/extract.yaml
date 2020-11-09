@@ -490,6 +490,11 @@ fields:
   singleValue: true
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+- name: Image360Present
+  singleValue: true
+  description: If 360 image is present in the carousel ['Yes','No']
+  example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+  defaultValue: 'No'
 - name: imageZoomFeaturePresents
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
@@ -497,10 +502,5 @@ fields:
   xpath: //div[@class='zoomContainer']/div[@class='zoomLens']/@class
   regExp: (.*?)
   regExpReplace: 'Yes'
-  defaultValue: 'No'
-- name: Image360Present
-  singleValue: true
-  description: If 360 image is present in the carousel ['Yes','No']
-  example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: 'No'
 
