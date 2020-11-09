@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //img[@class="w-100 "]/@src
+    xpath: //div[@data-clicked="3056909.jpg"]/img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -16,32 +16,37 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="product-info border-bottom py-3 "]
+    xpath: //*[@id="content-top"]/div[2]/nav/ol/li[1]
+  - name: sub_category
+    description: the sub categories of the product
+    xpath: //*[@id="content-top"]/div[2]/nav/ol/li[2]/a
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="small text-right text-gray"]/del
-  - name: price
-    singleValue: true
-    description: The offered price for the selected product variant
-    xpath: //span[@class="text-nowrap font-weight-500 "]/font
+    xpath: //div[@class="col-6 pl-0 ml-auto"]/div/div
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant.
+    xpath: //div[@class="col-12 mt-4"]/span/span
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website 
+    xpath: //h2[@class="lead-small"]
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name
-    xpath: //div[@class="modal facet-modal "]/@id
+    xpath: //div[@class="media brand-banner"]/a/img
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
     xpath: //span[@class="next-quantity-value"]
+  - name: url
+    singlevalu: true
+    description: the url of the product
+    xpath: //meta[@property="og:url"]/content
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -55,3 +60,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+  - name: varientid
+    singlevalue: true
+    description: identifier for a varient for a source
+    xpath: //*[@id="content"]/div[4]/div[2]/div[3]
