@@ -15,6 +15,24 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  if (inputs.id) {
+    const searchUrl = `https://www.joycemayne.com.au/catalogsearch/result/?q=${inputs.id}`;
+    await context.goto(searchUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    await context.evaluate(async function () {
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+      if (document.querySelector('div[id="category-grid"] div:first-child a')) {
+        document.querySelector('div[id="category-grid"] div:first-child a').click();
+        await stall(4500);
+      }
+    });
+    // const url = `https://grocery.walmart.com/v3/api/products/${id}?itemFields=all&storeId=5260`;
+  }
 
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
