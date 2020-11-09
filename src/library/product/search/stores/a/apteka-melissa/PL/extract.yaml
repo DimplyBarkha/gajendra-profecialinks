@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, 'center produkt')]/div[contains(@class,'tblprodukt')]
+fields:
+  - name: productUrl
+    xpath: //a/@href
+  - name: thumbnail
+    xpath: //div[@class="prfoto text-center"]/img/@data-src
+  - name: name
+    xpath: //div[@class="napis_produkt"][1]
+  - name: price
+    xpath: //h2
+    regExp: (.+) z
+    regExpReplace: $1
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: true
+    type: NUMBER    
+  - name: rankOrganic
+    type: NUMBER
+  - name: id
+    xpath: //h2/@id
+    regExp: napis(\d+)
+    regExpReplace: $1
