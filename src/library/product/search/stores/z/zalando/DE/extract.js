@@ -5,28 +5,28 @@ const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   await context.evaluate(async () => {
     const lang = document.querySelector('div[class*="langNav"] a[href="#"]');
     if (lang !== null) {
       // @ts-ignore
       lang.click();
     };
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    const langOpt = document.querySelector('label[for="de-m"]');
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const langOpt = document.querySelector('label[for*="de"]');
     if (langOpt !== null) {
       // @ts-ignore
       langOpt.click();
     };
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     const langSave = document.querySelector('button[class*="_buttonPrimary"]');
-    if (langOpt !== null) {
+    if (langSave !== null) {
       // @ts-ignore
       langSave.click();
     };
   });
-  await context.waitForNavigation();
+  await new Promise((resolve) => setTimeout(resolve, 1500));
 
   await context.evaluate(() => {
     const allProducts = document.querySelectorAll('div[class*="DvypSJ"]');
@@ -56,7 +56,6 @@ async function implementation (inputs, parameters, context, dependencies) {
       element.setAttribute('href', prefix.concat(element.getAttribute('href')));
     });
   });
-  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return await context.extract(productDetails, { transform });
 }
