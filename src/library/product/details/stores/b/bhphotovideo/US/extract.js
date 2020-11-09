@@ -14,10 +14,11 @@ module.exports = {
     { productDetails },
   ) => {
     let productLink = 'https://www.bhphotovideo.com';
-    productLink += await context.evaluate(async () => {
-      return document.querySelector('a[data-selenium="miniProductPageProductImgLink"]').getAttribute('href');
+    const productElement = await context.evaluate(async () => {
+      return document.querySelector('a[data-selenium="miniProductPageProductImgLink"]');
     });
-    if (productLink) {
+    if (productElement) {
+      productLink += productElement.getAttribute('href');
       context.goto(productLink);
     }
     await context.waitForNavigation();
