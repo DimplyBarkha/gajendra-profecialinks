@@ -33,7 +33,7 @@ module.exports = {
       await context.goto('https://bol.com' + detailsPage);
     }
 
-    // await context.waitForNavigation();
+    await context.waitForNavigation();
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
     await context.evaluate(async function () {
@@ -69,25 +69,25 @@ module.exports = {
 
       // get price
       var priceElem = document.querySelector('span[class="promo-price"]');
-      const regex = /\d+/gm;
-      var priceOne = priceElem.childNodes[0].textContent.match(regex);
-      var priceTwo = priceElem.childNodes[1].textContent.match(regex);
-      let price = '';
-      if (priceTwo !== null) {
-        price = '€' + priceOne + ',' + priceTwo;
-      } else {
-        price = '€ ' + priceOne;
+      if (priceElem) {
+        const regex = /\d+/gm;
+        const priceOne = priceElem.childNodes[0].textContent.match(regex);
+        const priceTwo = priceElem.childNodes[1].textContent.match(regex);
+        let price = '';
+        if (priceTwo !== null) {
+          price = '€' + priceOne + ',' + priceTwo;
+        } else {
+          price = '€ ' + priceOne;
+        }
+        addElementToDom(price, 'price');
       }
-      addElementToDom(price, 'price');
 
       // convert rating
       var rawRating = document.querySelector(
-        'div[class="rating-horizontal__average-score"]'
-      );
+        'div[class="rating-horizontal__average-score"]');
       if (rawRating) {
         var text = document.querySelector(
-          'div[class="rating-horizontal__average-score"]'
-        ).textContent;
+          'div[class="rating-horizontal__average-score"]').textContent;
         rawRating.setAttribute('rating', text.toString().replace('.', ','));
       }
     });
