@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@data-selector,"splp-prd-tl-wrp")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"List")]/@id
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@aria-label,"Actual Price")]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@aria-label="product details"]//a[@data-clicktype="product_tile_click"]/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.lowes.com$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class,"product-image")]/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"List")]//article
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-ttl-rtgs"]/div/@aria-label
+    regExp: (.+) out of(.)
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"List")]//span[contains(@class,"total")]
+  - name: rank
+    singleValue: false
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
+
+
+
+
