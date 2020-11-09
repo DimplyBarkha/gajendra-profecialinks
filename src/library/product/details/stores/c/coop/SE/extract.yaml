@@ -1,0 +1,53 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[contains(@class,'js-mainProduct')]//script[@class='js-model']
+fields:
+  - name: name
+    singleValue: false
+    xpath: //article[contains(@class,'js-mainProduct')]//script[@class='js-model']
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'ItemInfo-image')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'ItemInfo-image')]//img/@alt
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,'ItemInfo-heading')]  
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,'u-marginBmd u-textSmall')][3] 
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(@class,'ItemInfo-description')]
+  - name: storage
+    singleValue: false
+    xpath: //div[contains(@class,'u-marginBmd u-textSmall')]/div
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //span[contains(@itemprop,'calories')]/@content
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //span[contains(@itemprop,'fatContent')]/@content
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //span[contains(@itemprop,'carbohydrateContent')]/@content
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //span[contains(@itemprop,'proteinContent')]/@content
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //span[contains(@itemprop,'saturatedFatContent')]/@content
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //span[contains(@itemprop,'sugarContent')]/@content
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,'u-marginBmd u-textSmall')][1]
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'Breadcrumb-container')]//a[contains(@class,'js-asyncLink')]
+  - name: description
+    singleValue: false
+    xpath: //span[contains(@itemprop,'description')]
