@@ -40,14 +40,27 @@ module.exports = {
         ? document.querySelector('span[class*=\'product-price__decimal\']').innerText.trim() : '';
       let finalPrice;
       if (integerPrice && decimalPrice) {
-        finalPrice = integerPrice + ',' + decimalPrice;
+        finalPrice = integerPrice + ',' + decimalPrice + ' DKK';
         addElementToDocument('finalPrice', finalPrice);
       } else if (integerPrice && !decimalPrice) {
-        finalPrice = integerPrice;
+        finalPrice = integerPrice + ' DKK';
         addElementToDocument('finalPrice', finalPrice);
       } else if (!integerPrice && decimalPrice) {
-        finalPrice = '0,' + decimalPrice;
+        finalPrice = '0,' + decimalPrice + ' DKK';
         addElementToDocument('finalPrice', finalPrice);
+      }
+
+      const unitPrice = document.querySelector('p[class*=\'separated-list\']>span:last-child')
+        ? document.querySelector('p[class*=\'separated-list\']>span:last-child').innerText.trim() : '';
+      if (unitPrice) {
+        // eslint-disable-next-line no-useless-escape
+        const unitPriceRegex = /([\d,]+)\/?([\d,]+)?/g;
+        // eslint-disable-next-line no-useless-escape
+        const unitPriceUomRegex = /[^\.]+\.$/g;
+        const unitPriceString = unitPriceRegex.exec(unitPrice)[1] + ' DKK';
+        const unitPriceUomString = unitPriceUomRegex.exec(unitPrice)[0];
+        addElementToDocument('pricePerUnit', unitPriceString);
+        addElementToDocument('pricePerUnitUom', unitPriceUomString);
       }
     });
 

@@ -28,15 +28,15 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[contains(@class, 'breadcrumbs')]/li[position() < last()]/a
+    xpath: //ul[contains(@class, 'breadcrumbs')]/li[position() < last()][position() > 1]/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[contains(@class, 'product-title')]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@id='finalPrice']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user clicks
@@ -67,7 +67,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //p/span[1]
+    # xpath: //p/span[1]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -129,6 +129,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: "0"
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -454,14 +455,15 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    xpath: //div[@id='pricePerUnit']
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-    regExp: "[a-zA-Z]+"
+    xpath: //div[@id='pricePerUnitUom']
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //div[contains(@class,"offer")]/span
+    xpath: //div[contains(@class, 'text-right')]/div[contains(@class,"offer")]/*
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
