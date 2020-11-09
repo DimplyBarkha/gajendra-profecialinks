@@ -23,38 +23,76 @@ async function implementation(
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }
+
+    //for rank
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('div[class="product_wrapper col-md-4 col-xs-6 table_cell"]')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
+    let rankOrganic;
+    let url = window.location.href;
+    let checkPageNumber = url.split('&')[1];
+    try {
+      if (checkPageNumber.startsWith('page=')) {
+        rankOrganic = checkPageNumber.replace('page=', '');
+      }
+    }
+    catch (err) {
+    }
+
+
+    var dup = Number(rankOrganic);
+    dup = dup - 1; 
+
+    if (!rankOrganic) {
+      rankOrganic = 1;
+    } else {
+      rankOrganic = (dup * 21) + 1;
+    }
+    const urlProduct = document.querySelectorAll('div[class="product_wrapper col-md-4 col-xs-6 table_cell"]');
+    for (let i = 0; i < urlProduct.length; i++) {
+      addHiddenDiv('rankOrganic', rankOrganic++, i);
+    }
+
+
+    // Method to Retrieve Xpath content of a Single Node
+    var getXpath = (xpath, prop) => {
+      var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+      let result;
+      if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+      else result = elem ? elem.singleNodeValue : '';
+      return result && result.trim ? result.trim() : result;
+    };
+
+    var pagination = getXpath("//ul[@class='pagination']/li[last()]/a/@class", 'nodeValue');
+    if (pagination === 'pagination__link') {
+      addclass('ul.pagination li:last-child a');
+    };
+
     // for rank
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
-      http://catelement.id/ = key;
+      catElement.id = key;
       catElement.textContent = value;
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
-      }
-    // function addElementToDocument(key, value) {
-    //   // const parent  =document.querySelectorAll("product-info");
-    //   // const parentObject = document.getElementsByClassName('product-info');
-    //   // for (var i = 0; i < parentObject.length; i++) {
-    //   // [...parentObject].forEach((parent, i) => {
-    //     const catElement = document.createElement('div');
-    //     catElement.id = key;
-    //     catElement.textContent = value;
-    //     catElement.style.display = 'none';
-    //     parentObject[i].appendChild(catElement);
-        
-    //   // });
-    //   }
-    // }
+    }
+
     // Method to Retrieve Xpath content of a Multiple Nodes
     const getAllXpath = (xpath, prop) => {
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       const result = [];
       for (let index = 0; index < nodeSet.snapshotLength; index++) {
         const element = nodeSet.snapshotItem(index);
-      if (element) result.push(prop ? element[prop] : element.nodeValue);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
       }
       return result;
     };
+
     // for rank
     const sliceURL = (data) => {
       var cnt = 0;
@@ -65,9 +103,11 @@ async function implementation(
         }
       }
     };
-    var backgroundURL = getAllXpath('//a[@class="product-name"]', 'nodeValue');
+    var backgroundURL = getAllXpath('//a[@class="product-name"]/text()', 'nodeValue');
     sliceURL(backgroundURL);
-    });
-    //rank end
-    return await context.extract(productDetails, { transform });
-}  
+  });
+  //rank end
+
+
+  return await context.extract(productDetails, { transform });
+}
