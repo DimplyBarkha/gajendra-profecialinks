@@ -8,10 +8,16 @@ const { transform } = require('../format');
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
+// @ts-ignore
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.click('a[class*="read-me"]');
+  try {
+    await context.click('a[class*="read-me"]');
+  } catch (e) {
+    console.log('Error in click read more description');
+  }
+
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -21,6 +27,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       document.body.appendChild(newDiv);
     }
     const scriptTagSelector = document.querySelector('script[type="application/ld+json"]');
+    // @ts-ignore
     const scriptTagData = scriptTagSelector ? scriptTagSelector.innerText : '';
     let scriptTagJSON = '';
     try {
@@ -29,9 +36,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       console.log('Error in converting text to JSON....');
       scriptTagJSON = '';
     }
+    // @ts-ignore
     const gtin = scriptTagJSON ? scriptTagJSON.gtin13 : '';
     console.log('gtin', gtin);
     addHiddenDiv('added_gtinText', gtin);
+    // @ts-ignore
     let availabilityText = scriptTagJSON ? scriptTagJSON.offers ? scriptTagJSON.offers[0].availability ? scriptTagJSON.offers[0].availability : '' : '' : '';
     availabilityText = availabilityText && availabilityText.toLowerCase().includes('instock') ? 'In Stock' : 'Out Of Stock';
     addHiddenDiv('added_availabilityText', availabilityText);

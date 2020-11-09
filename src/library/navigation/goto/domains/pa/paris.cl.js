@@ -12,7 +12,7 @@ module.exports = {
     { url, zipcode, storeId },
     parameters,
     context,
-    dependencies
+    dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.setLoadImages(false);
