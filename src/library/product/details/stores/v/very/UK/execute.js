@@ -6,7 +6,7 @@ module.exports = {
     store: 'very',
     domain: 'very.co.uk',
     loadedSelector: 'div#recs_1',
-    noResultsXPath: '//span[@id="noSearchResultsString"]',
+    noResultsXPath: '//span[@id="noSearchResultsString"]|//div[contains(@id, "sliderTarget--primaryCell")]',
     zipcode: '',
   },
 };
