@@ -11,7 +11,7 @@ fields:
     xpath: //div[@class="image-large"]/a/figure/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"slick-vertical")]//div[@class="slick-track"]/a[@data-zoom-id="pdp-images" and position()>1]/@href
+    xpath: //div[contains(@class,"slick-vertical")]//div[@class="slick-track"]/a[@data-zoom-id="pdp-images" and position()>1 and not(contains(@class,"video"))]/@href
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -32,7 +32,7 @@ fields:
     xpath: //div[@class="wishlist-action nostock"]/@style
   - name: description
     singleValue: false
-    xpath: //div[@id="product-description"]/p[not(contains(@class,"product-number"))]
+    xpath: //div[@id="product-description"]/p[not(contains(@class,"product-number"))] | //div[@id="product-description"]//li | //div[@id="product-description"]/text()
   - name: brandText
     singleValue: false
     xpath: //h2[@id="product-manufacturer"]

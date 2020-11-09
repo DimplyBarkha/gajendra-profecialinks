@@ -76,6 +76,13 @@ const transform = (data) => {
           });
           row.videos=[{"text":info.join(" | ")}];
         }
+        if(row.descriptionBullets){
+          var tot=0;
+          row.descriptionBullets.forEach(item=>{
+            tot++;
+          });
+          row.videos=[{"text":tot}];
+        }
       }
     }
     return cleanUp(data);
