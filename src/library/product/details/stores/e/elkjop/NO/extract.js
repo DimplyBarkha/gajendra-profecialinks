@@ -18,12 +18,36 @@ module.exports = {
       }
     });
     try {
-      await context.waitForSelector('a[id*="tab-specs-trigger"]', { timeout: 10000 });
-      await context.click('a[id*="tab-specs-trigger"]');
+      await context.waitForSelector('a[id*="tab-more-info-trigger"]', { timeout: 10000 });
+      await context.click('a[id*="tab-more-info-trigger"]');
     } catch (error) {
       console.log('more info button click failed!!');
     }
-    await context.evaluate(async function getDataFromAPI (id) {
+    try {
+      await context.waitForSelector('a[id*="tab-specs-trigger"]', { timeout: 10000 });
+      await context.click('a[id*="tab-specs-trigger"]');
+    } catch (error) {
+      console.log('spec button click failed!!');
+    }
+    try {
+      await context.waitForSelector('iframe[id*="quchbox-videolist"]');
+    } catch (error) {
+      console.log('video iframe is not present');
+    }
+    await context.evaluate(async function () {
+      const videoIframe = document.querySelector('iframe[id*="quchbox-videolist"]');
+      try {
+        if (videoIframe) {
+          const y = videoIframe.contentDocument.documentElement;
+          const videoDiv = y.querySelector('ul[class*="b-video-list"]');
+          console.log('viddd', videoDiv);
+          if (videoDiv) {
+            document.body.appendChild(videoDiv);
+          }
+        }
+      } catch (error) {
+        console.log('video not fetched');
+      }
       function addHiddenDiv (vidurl, content) {
         const newDiv = document.createElement('div');
         newDiv.setAttribute('data-vidurl', vidurl);
@@ -31,6 +55,15 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      function addElementToDom (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      const productOtherInformation = document.evaluate('//div[contains(@class,"tab-data-row product-more-info")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      productOtherInformation && addElementToDom('pd_productOtherInformation', productOtherInformation.textContent.trim());
       const sku = document.evaluate("//meta[@itemprop='sku']/@content", document, null, XPathResult.STRING_TYPE, null);
       const name = document.evaluate("//meta[@itemprop='name']/@content", document, null, XPathResult.STRING_TYPE, null);
       if (sku && name) {
