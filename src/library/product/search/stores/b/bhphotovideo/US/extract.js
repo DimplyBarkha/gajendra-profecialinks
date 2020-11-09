@@ -43,7 +43,6 @@ async function implementation (
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   });
-  
   var data = await context.extract(productDetails, { transform });
   for (let i = 0; i < data[0].group.length; i++) {
     if ('price' in data[0].group[i]) {
@@ -57,7 +56,7 @@ async function implementation (
         data[0].group[i].manufacturer[0].text = '';
       } else {
         for (let j = 0; j < manuf.length; j++) {
-          if (data[0].group[i].manufacturer[0].text.toLowerCase().replace("-", ' ').includes(manuf[j].toLowerCase().replace("-", ' '))) {
+          if (data[0].group[i].manufacturer[0].text.toLowerCase().replace('-', ' ').includes(manuf[j].toLowerCase().replace('-', ' '))) {
             data[0].group[i].manufacturer[0].text = manuf[j];
             break;
           }
