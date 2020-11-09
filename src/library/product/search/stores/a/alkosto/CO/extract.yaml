@@ -1,0 +1,53 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class, 'salesperson-products-grid-item')]
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //h2[@class="product-name"]/@id
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //h2[@class="product-name"]/@rankorganic
+  - name: name
+    description: The product name
+    xpath: //h2[@class="product-name"]/@name
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //h2[@class="product-name"]/@producturl
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: //h2[@class="product-name"]/@id
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="amlabel-div"]/a/img/@src
+  - name: aggregateRating2
+    description: The stated aggregate rating normalized to be out of 5
+    type: STRING
+    xpath: //span[@class="sr-only"]
+    regExp: (\d)\.(\d)
+    regExpReplace: $1,$2
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+    xpath: //a[@class="text-m"]
+  - name: ratingCount
+    description: The number of ratings
+  - name: price
+    description: The offered price for the product
+    xpath: //span[@class="price"]/span[@class="price"]
+  - name: manufacturer
+    description: Product manufacturer
+    xpath: //h2[@class="product-name"]/@manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+    xpath: //h2[@class="product-name"]/@rankorganic
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: sponsored #todo
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
