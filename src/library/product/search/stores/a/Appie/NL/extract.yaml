@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="app"]//div[@data-testhook="search-lane"]/article[@data-testhook="product-card"]
+fields:
+  - name: productUrl
+    xpath: //div[@class="header_root__3b4tI"]/a/@href
+    regExp: ((.+)(wi+\d+))
+    regExpReplace: https://www.ah.nl$1
+  - name: thumbnail
+    xpath: //div[@class="header_root__3b4tI"]//img/@src
+  - name: name
+    xpath: //div[@class="product-card-portrait_content__KKpmv"]//strong[@data-testhook="product-title"]
+  - name: price
+    xpath: //div[@class="price_portrait__1yoeR"]/div[contains(@class,"price-amount_highlight__8fdrD")]
+  - name: rank   
+  - name: rankOrganic
+  - name: id
+    xpath: //div[@class="header_root__3b4tI"]/a/@href
+    regExp: (wi+\d+)
+    regExpReplace: $1
