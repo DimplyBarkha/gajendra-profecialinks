@@ -1,10 +1,10 @@
 
 module.exports = {
   implements: 'product/search',
-  parameterValues:{
+  parameterValues: {
     country: 'SE',
     store: 'alloffice',
     domain: 'alloffice.se',
-    zipcode:'',
+    zipcode: '',
   },
 };

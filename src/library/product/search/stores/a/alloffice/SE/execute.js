@@ -7,7 +7,10 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   const responseStatus = await context.goto(url, {
+<<<<<<< HEAD
     firstRequestTimeout: 60000,
+=======
+>>>>>>> b1a430b0163219b10fd0ea427eb83e46ba63a41c
     timeout: 50000,
     waitUntil: 'load',
     checkBlocked: false,
@@ -16,6 +19,7 @@ async function implementation (
   console.log('Status :', responseStatus.status);
   console.log('URL :', responseStatus.url);
 
+<<<<<<< HEAD
   // Check if accept cookies dialog pops up
   /*const doesAcceptCookiesBtnExists = await context.evaluate(function () {if(document.evaluate(`//button[contains(.,'Jag godkänner')]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()) {
     document.evaluate(`//button[contains(.,'Jag godkänner')]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().click()
@@ -34,6 +38,8 @@ async function implementation (
  
   
 
+=======
+>>>>>>> b1a430b0163219b10fd0ea427eb83e46ba63a41c
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
@@ -47,8 +53,13 @@ async function implementation (
         const products = document.evaluate('//div[@id="content-container"]//img/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const productsCount = products.snapshotLength;
         console.log('Length: ' + productsCount);
+<<<<<<< HEAD
         await stall(5000);
         scrollTop += 500;
+=======
+        await stall(1000);
+        scrollTop += 1000;
+>>>>>>> b1a430b0163219b10fd0ea427eb83e46ba63a41c
         window.scroll(0, scrollTop);
         if (scrollTop === 20000 || productsCount > 160) {
           await stall(5000);
