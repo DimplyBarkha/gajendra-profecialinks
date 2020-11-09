@@ -14,40 +14,47 @@ async function implementation (
         }, ms);
       });
     }
-    // const values = document.querySelectorAll('div.VisualOptionCard > div > div > label > input');
-    // values.forEach(item => {
-    //   item.setAttribute('url', window.location.href.replace(/[^htm]+$/g, `l?piid=${item.getAttribute('value')}`));
-    // });
-    // if (!document.querySelector('div.VisualOptionCard > div > div > label > input')) {
     const val = [];
-    try {
-      const data = window.WEBPACK_ENTRY_DATA.application.props.optionComboToPartId;
-      for (const i in data) {
-        val.push(i);
-      }
-      await stall(2000);
-      if (val.length === 0) {
+    const values = document.querySelectorAll('div.VisualOptionCard > div > div > label > input');
+    values.forEach(item => {
+      val.push(item.getAttribute('value'));
+      item.setAttribute('url', window.location.href.replace(/[^htm]+$/g, `l?piid=${item.getAttribute('value')}`));
+    });
+    if (!document.querySelector('div.VisualOptionCard > div > div > label > input')) {
+      try {
+        const data = window.WEBPACK_ENTRY_DATA.application.props.optionComboToPartId;
+        for (const i in data) {
+          val.push(i);
+        }
+        await stall(2000);
+        if (val.length === 0) {
         // const skuId = document.querySelector("#form-add-to-cart > input[type=hidden]:nth-child(1)").getAttribute('value');
-        const sku = window.WEBPACK_ENTRY_DATA.application.props.sku;
-        val.push(sku);
-      }
-      if (!document.querySelector('div.VisualOptionCard > div > div > label > input')) {
+          const sku = window.WEBPACK_ENTRY_DATA.application.props.sku;
+          val.push(sku);
+        }
         var URL = document.querySelector('[property="og:url"]') ? document.querySelector('[property="og:url"]').getAttribute('content') : '';
         var id = URL.replace(new RegExp('(.+)(keyword=|piid=|redir=)(.+)', 'g'), '$3');
         var altId = document.querySelector('#form-add-to-cart > div > div > div > div > input[type=hidden]');
         var skuId = document.querySelector('[property="og:upc"]') ? document.querySelector('[property="og:upc"]').getAttribute('content') : '';
+        const description = document.createElement('div');
+        description.id = 'variant';
         if (altId) {
           val.push(altId);
+          description.setAttribute('variantid', altId);
         } else if (skuId) {
           val.push(skuId);
+          description.setAttribute('variantid', skuId);
         } else if (id) {
           val.push(id);
+          description.setAttribute('variantid', id);
         }
+        description.setAttribute('url', URL);
+        document.body.appendChild(description);
+      } catch (err) {
+        console.log({ err });
       }
-    } catch (err) {
-      console.log({ err });
     }
-    await new Promise(resolve => setTimeout(resolve, 20000));
+    // await new Promise(resolve => setTimeout(resolve, 20000));
     const table = document.createElement('table');
     document.body.appendChild(table);
     const tBody = document.createElement('tbody');

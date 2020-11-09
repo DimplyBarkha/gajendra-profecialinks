@@ -1,9 +1,9 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //table/tbody//tr[contains(@class,'append_variant')]
 fields:
   - name: variantUrl
-    xpath: //tr[contains(@class,'append_variant')]/td//@url
+    xpath: //td//@url | ancestor::html//input[@type="checkbox"]//@url
   - name: variantId
-    xpath: //tr[contains(@class,'append_variant')]/td//@id
+    xpath: //td//@id | ancestor::html//div[contains(@class,'is-checkbox')]//input/@value
