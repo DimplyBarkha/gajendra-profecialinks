@@ -16,13 +16,13 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-      try {
-        for (let j = 0; j < 36; j++) {
-          // @ts-ignore
-          document.getElementsByClassName("rankOrganic").remove();
-        }
-      }
-      catch (err) {
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll("div[class='list-item relative']")[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       let rankOrganic;
       let url = window.location.href;
@@ -41,8 +41,7 @@ module.exports = {
       }
       const urlProduct = document.querySelectorAll("div[class='list-item relative']");
       for (let i = 0; i < urlProduct.length; i++) {
-        // @ts-ignore
-        document.querySelectorAll("div[class='list-item relative']")[i].setAttribute("rankOrganic", rankOrganic++);
+        addHiddenDiv('rankOrganic', rankOrganic++, i);
       }
       const ratings = document.querySelectorAll("div[class='ratings']");
       for (let k = 0; k < ratings.length; k++) {
@@ -51,7 +50,7 @@ module.exports = {
         singleRating = singleRating.slice(0, singleRating.length - 1)
         singleRating = (5 * singleRating) / 100;
         singleRating = singleRating.toFixed(1);
-        document.querySelectorAll("div[class='list-item relative']")[k].setAttribute("aggregateRating", singleRating);
+        addHiddenDiv('aggregateRating', singleRating, k);
       }
     });
     return await context.extract(productDetails, { transform });

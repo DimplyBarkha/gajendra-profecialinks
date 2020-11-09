@@ -19,6 +19,6 @@ fields:
     type: NUMBER
     xpath: //span[@class="ratings-count"]/text()
   - name: rankOrganic
-    xpath: //div[@class="list-item relative"]/@rankOrganic
+    xpath: //div[@id='rankOrganic']/text()
   - name: aggregateRating
-    xpath: //div[@class="list-item relative"]/@aggregateRating
+    xpath: //div[@id='aggregateRating']/text()
