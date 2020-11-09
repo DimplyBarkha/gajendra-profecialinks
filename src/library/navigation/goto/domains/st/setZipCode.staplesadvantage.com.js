@@ -5,6 +5,6 @@ module.exports = {
     country: 'US',
     domain: 'staplesadvantage.com',
     store: 'staplesadvantage',
-    zipcode: '',
+    zipcode: '10101',
   },
 };

@@ -6,7 +6,8 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   // removing iframe popup on every page of search results
   // the popup is visible after a moment -> delaying the removal
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise(resolve => setTimeout(resolve, 3000));
+  // await context.waitForSelector('div.truste_box_overlay', { timeout: 20000 });
   const isPopupPresent = await context.evaluate(async () => {
     return document.querySelector('div.truste_box_overlay');
   });

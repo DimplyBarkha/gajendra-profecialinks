@@ -6,6 +6,6 @@ module.exports = {
     timeout: null,
     country: 'US',
     store: 'staplesadvantage',
-    zipcode: '',
+    zipcode: '10101',
   },
 };
