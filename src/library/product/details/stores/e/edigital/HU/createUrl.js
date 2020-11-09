@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'edigital.hu',
     prefix: null,
-    url: null,
+    url: "https://edigital.hu/slug/-p{id}",
     country: 'HU',
     store: 'edigital',
     zipcode: '',
