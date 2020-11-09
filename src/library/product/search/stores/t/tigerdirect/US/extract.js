@@ -44,10 +44,12 @@ async function implementation(
     }
     catch (err) {
     }
+    var dup = Number(rankOrganic);
+    dup = dup - 1;
     if (!rankOrganic) {
       rankOrganic = 1;
     } else {
-      rankOrganic = (parseInt(rankOrganic) * 10) + 1;
+      rankOrganic = (dup * 10) + 1;
     }
     const urlProduct = document.querySelectorAll('div[class="each-sku"]');
     for (let i = 0; i < urlProduct.length; i++) {
