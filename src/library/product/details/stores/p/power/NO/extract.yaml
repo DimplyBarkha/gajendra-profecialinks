@@ -54,7 +54,7 @@ fields:
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//*[@id="product-intro"]/div[2]//ul/li)
+    xpath: count(//*[@id="product-intro"]//ul[contains(@class, 'product-description-bullets')]/li)
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -77,11 +77,11 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id="eangtin"]
+    xpath: //div[@id="eangtin"] | //meta[contains(@itemprop, 'gtin13')]/@content
   - name: eangtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id="eangtin"]
+    xpath: //div[@id="eangtin"] | //meta[contains(@itemprop, 'gtin13')]/@content
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -123,7 +123,6 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-    xpath: //div[@id="shipingInfo"]
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
@@ -135,7 +134,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -230,6 +229,9 @@ fields:
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: "No"
+    xpath: //a[contains(@title, 'Instruction Manual')]
+    regExp: (.+)
+    RegExpReplace: 'Yes'
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']

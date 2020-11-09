@@ -100,7 +100,6 @@ module.exports = {
         addElementToDocument('stock', stock);
       }
 
-      document.querySelectorAll('h3.panel-title')[1].innerText == 'Spesifikasjoner' ? document.querySelectorAll('h3.panel-title')[1].click() : '';
       const color = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"farge")]/following-sibling::*')
         ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"farge")]/following-sibling::*').textContent
         : '';
@@ -197,6 +196,16 @@ module.exports = {
       const aggRating = document.querySelector('div.product-intro-details button[itemprop="ratingValue"]')
         ? document.querySelector('div.product-intro-details button[itemprop="ratingValue"]').innerText : '';
       if (aggRating) addElementToDocument('aggRating', aggRating);
+    });
+    await context.evaluate(async function() {
+      const mainTabsSelector = document.querySelectorAll('h3.panel-title');
+      if (mainTabsSelector) {
+        mainTabsSelector.forEach(ele => {
+          if (ele.innerText.includes('Spesifikasjoner')) {
+            ele.click();
+          }
+        });
+      }
     });
     await context.evaluate(async function () {
       let scrollSelector = document.querySelector('footer[id="footer-site"]');
