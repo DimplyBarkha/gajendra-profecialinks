@@ -26,6 +26,30 @@ module.exports = {
         }
         return result;
       };
+      const sliceURL = (data) => {
+        for (let index = 0; index < data.length; index++) {
+          if (data[index].includes(":-")) {
+            var temp = data[index].replace(":-", " ");
+          } else {
+            temp = data[index].replace(":", ".");
+          }
+          addElementToDocument('altImage1', temp);
+        }
+      };
+      var backgroundURL = getAllXpath("(//b[@class='ah-price'])[1]/text()", 'nodeValue');
+      sliceURL(backgroundURL);
+      const sliceURL1 = (data) => {
+        for (let index = 0; index < data.length; index++) {
+          if (data[index].includes(":-")) {
+            var temp = data[index].replace(":-", " ");
+          } else {
+            temp = data[index].replace(":", ".");
+          }
+          addElementToDocument('altImage2', temp);
+        }
+      };
+      var backgroundURL1 = getAllXpath("//div[@class='ah-pdp-product-price pt-- mb--']/div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price']/text()", 'nodeValue');
+      sliceURL1(backgroundURL1);
       const splitfunction = (data) => {
         var singleSeparatorText = data[0].split(',');
         for (let i = 0; i < singleSeparatorText.length; i++) {
