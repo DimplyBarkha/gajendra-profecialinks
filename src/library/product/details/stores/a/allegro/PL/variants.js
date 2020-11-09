@@ -1,12 +1,10 @@
 
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'product/details/variants',
   parameterValues: {
     country: 'PL',
     store: 'allegro',
     domain: 'allegro.pl',
-    loadedSelector: null,
-    noResultsXPath: null,
     zipcode: '',
   },
 };

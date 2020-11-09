@@ -4,27 +4,31 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //div[contains(@data-role, 'app-container')]//div[@style]/img/@src
+    xpath: //meta[@property='og:image']/@content
   - name: category
     xpath: //div[contains(@data-role, 'breadcrumbs-list')]//div[contains(@data-role, 'breadcrumb-item') and position() > 1]/a
   - name: nameExtended
-    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1
+    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"]
   - name: price
     xpath: //meta[@itemprop='price']/@content
     regExp: (.+)
     regExpReplace: $1 PLN
-  - name: availability
+  - name: availabilityText
     xpath: //link[@itemprop='availability']/@href
   - name: sku
     xpath: //meta[contains(@itemprop, 'sku')]/@content
+  - name: skuSecondary
+    xpath: //small[contains(@class, 'asi-offer__offer-id')]
+    regExp: (\d+)
   - name: description
-    xpath: //div[@data-box-name="Parameters"]
+    xpath: //div[@data-box-name="Parameters"] | //dl[contains(@class, 'asi-attributes__list')]
   - name: brandText
-    xpath: //li//div[contains(text(), "Marka")]/following-sibling::div[1]
+    xpath: //li//div[contains(text(), "Marka")]/following-sibling::div[1] | //dt[contains(., 'Marka') or contains(., 'marka')]/following-sibling::dd
   - name: variantId
-    xpath: //meta[contains(@itemprop, 'sku')]/@content
+    xpath: //meta[contains(@itemprop, 'sku')]/@content | //small[contains(@class, 'asi-offer__offer-id')]
+    regExp: \d+
   - name: alternateImages
-    xpath: //div[@class='_b8e15_aMJ-v' and position() > 1]/img/@src
+    xpath: //div[@class='_b8e15_aMJ-v' and position() > 1]/img/@src | //li[contains(@class, 'si-gallery__thumbnail') and not(contains(@class, 'is-active'))]//img/@src
   - name: ratingCount
     xpath: //a[contains(@href, 'productReviews')]
     regExp: (\d+)
@@ -35,15 +39,59 @@ fields:
     xpath: //div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content
   - name: manufacturerImages
     xpath: //a[@name='description']/following-sibling::div//img[contains(@class, 'lazyloaded')]/@data-src
+  - name: manufacturerImagesLovela
+    xpath: //div[@class='description']//section[contains(@class, 'section')]//img/@srcset
+    regExp: (.+),(.+)
+    regExpReplace: $2
   - name: shippingInfo
     xpath: //a[contains(@href, 'aboutSeller')]
+  - name: shippingInfoLovela
+    xpath: //span[contains(., 'Sprzedane przez')]
+    regExp: (.+)\"(.+)\"
+    regExpReplace: $2
   - name: manufacturerDescription
-    xpath: //a[@name='description']/following-sibling::div
+    xpath: normalize-space(//a[@name='description']/following-sibling::div |//div[@class='description'])
   - name: secondaryImageTotal
-    xpath: count(//div[@class='_b8e15_aMJ-v' and position() > 1]/img/@src)
+    xpath: count(//div[@class='_b8e15_aMJ-v' and position() > 1]/img | //li[contains(@class, 'si-gallery__thumbnail') and not(contains(@class, 'is-active'))]//img)
   - name: brandLink
     xpath: //li//div[contains(text(), "Marka")]/following-sibling::div[1]/a/@href
   - name: listPrice
     xpath: //s
   - name: promotion
     xpath: //s/../preceding-sibling::span
+  - name: mpc
+    xpath: //li//div[contains(., 'Kod producenta')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Kod producenta')]/following-sibling::dd
+  - name: color
+    xpath: //li//div[contains(., 'Kolor dominujący')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Kolor dominujący')]/following-sibling::dd
+  - name: variantInformation
+    xpath: //li//div[contains(., 'Kolor dominujący') or contains(., 'Smak') or contains(., 'Zapach')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Kolor dominujący') or contains(., 'Smak') or contains(., 'Zapach')]/following-sibling::dd
+  - name: weightGross
+    xpath: //li//div[contains(., 'Waga (z opakowaniem):')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Waga (z opakowaniem):')]/following-sibling::dd
+    singleValue: true
+  - name: weightNet
+    xpath: //li//div[contains(., 'Waga:')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Waga')]/following-sibling::dd
+    singleValue: true
+  - name: countryOfOrigin
+    xpath: //li//div[contains(., 'Kraj pochodzenia')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Kraj pochodzenia')]/following-sibling::dd
+    singleValue: true
+  - name: materials
+    xpath: //li//div[contains(., 'Materiał:')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Materiał:')]/following-sibling::dd
+    singleValue: true
+  - name: packSize
+    xpath: //li//div[contains(text(), "Liczba sztuk w opakowaniu") or contains(., 'Liczba sztuk:')]/following-sibling::div[1] | //dt[contains(., 'Liczba sztuk w opakowaniuZ')]/following-sibling::dd
+    singleValue: true
+  - name: shippingWeight
+    xpath: //li//div[contains(., 'Waga (z opakowaniem):')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Waga (z opakowaniem):')]/following-sibling::dd
+    singleValue: true
+  - name: packaging
+    xpath: //li//div[contains(text(), "Opakowanie")]/following-sibling::div[1] | //dt[contains(., 'Opakowanie')]/following-sibling::dd
+    singleValue: true
+  - name: directions
+    xpath: //p[contains(., 'Sposób użycia:')]/following-sibling::ol |//p[contains(., 'Sposób użycia:')]/following-sibling::p  | //dt[contains(., 'Sposób użycia:')]/following-sibling::dd | //h2[contains(., 'Stosowanie:')]/following-sibling::*
+    singleValue: true
+  - name: warnings
+    xpath: //h2[contains(., 'UWAGA!')] | //dt[contains(., 'UWAGA!')]/following-sibling::dd
+    singleValue: true
+  - name: eangtin
+    xpath: //li//div[contains(., 'ean')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'EAN')]/following-sibling::dd
+    singleValue: true

@@ -22,13 +22,39 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.availability) {
-        const availability = row.availability[0].text;
-        if (availability.includes('InStock')) {
-          row.availability = [{ text: 'In stock' }];
+      if (row.availabilityText) {
+        const availabilityText = row.availabilityText[0].text;
+        if (availabilityText.includes('OutOfStock')) {
+          row.availabilityText = [{ text: 'Out of stock' }];
         } else {
-          row.availability = [{ text: 'Out of stock' }];
+          row.availabilityText = [{ text: 'In Stock' }];
         }
+      }
+
+      if (row.aggregateRating) {
+        const ratingValue = row.aggregateRating[0].text;
+        row.aggregateRating = [{ text: ratingValue.replace('.', ',') }];
+      }
+
+      if (!row.sku && row.skuSecondary) {
+        row.sku = row.skuSecondary;
+      }
+
+      if (!row.manufacturerImages && row.manufacturerImagesLovela) {
+        row.manufacturerImages = row.manufacturerImagesLovela;
+      }
+
+      if (!row.shippingInfo && row.shippingInfoLovela) {
+        row.shippingInfo = row.shippingInfoLovela;
+      }
+
+      if (row.directions) {
+        const directionsArray = row.directions;
+        let directions = '';
+        for (const direction of directionsArray) {
+          directions += `${direction.text} `;
+        }
+        row.directions = [{ text: directions }];
       }
     }
   }

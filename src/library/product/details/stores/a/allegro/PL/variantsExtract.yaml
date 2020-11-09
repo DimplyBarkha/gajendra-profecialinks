@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div[data-analytics-view-label="offerVariants"] a[data-analytics-click-label="itemVariantClick"]
+recordXPath: //div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick"]
+fields:
+  - name: variantId
+    xpath: //div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick"]/@data-analytics-click-custom-offer-id-variant
+  - name: variantUrl
+    xpath: //div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick"]/@href
+  - name: productUrl
+    xpath: ancestor::html//div[@itemprop='offers']//meta[@itemprop='url']/@content
+    singleValue: true
+  - name: productId
+    xpath: ancestor::html//meta[@itemprop='sku']/@content
+   
