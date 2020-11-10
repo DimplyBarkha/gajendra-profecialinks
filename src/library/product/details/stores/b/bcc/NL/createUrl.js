@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'bcc.nl',
     prefix: null,
-    url: null,
+    url: 'https://www.bcc.nl/search?search={id}',
     country: 'NL',
     store: 'bcc',
     zipcode: '',
