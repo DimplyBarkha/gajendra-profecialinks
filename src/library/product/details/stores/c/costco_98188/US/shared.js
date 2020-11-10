@@ -7,9 +7,9 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       var bulletsText = '';
+      var newArray = [];
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo.length) {
         var originalArray = row.additionalDescBulletInfo;
-        var newArray = [];
         var lookupObject = {};
         for (var i in originalArray) {
           lookupObject[originalArray[i].text] = originalArray[i];
