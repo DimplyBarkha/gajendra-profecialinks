@@ -31,6 +31,7 @@ module.exports = {
     await context.clickAndWaitForNavigation("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", {}, { timeout: 20000 });
     await context.waitForSelector("input[id*='localisation-search']", { timeout: 20000 });
     await new Promise((resolve) => setTimeout(resolve, 2000));
+    // ------------- GoTo requried URL --------------
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
