@@ -27,6 +27,9 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //link[@itemprop="availability"]/@href
+    regExp: (.+)
+    regExpReplace: $1
+    defaultValue: Out of Stock
   - name: brandText
     singleValue: false
     xpath: //div[contains(@evtperfname, "product-info-component")]//h1[contains(@class, "description-title")]//span[1]
