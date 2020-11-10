@@ -30,6 +30,7 @@ async function implementation (
     await new Promise(resolve => { setTimeout(resolve, 15000); });
   });
 }
+
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
