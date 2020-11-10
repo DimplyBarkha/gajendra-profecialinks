@@ -1,0 +1,92 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="lpBloc"]/li[@data-sku]
+fields:
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="added_search_url"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="prdtBILDetails"]//a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class="prdtBImg"]/@src
+  - name: name
+    singleValue: false
+    xpath: //div[@class="prdtBILDetails"]//a
+  - name: sku
+    singleValue: false
+    xpath: //ul[@id="lpBloc"]/li[@data-sku]/@data-sku
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="prdtBILStar"]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="added_price"] | //div[@class="lpSavings"]//span[contains(@class,"hideFromPro price")] | //div[@class="lpSavings"]//span[contains(@class," price")]
+  - name: id
+    singleValue: false
+    xpath: //ul[@id="lpBloc"]/li[@data-sku]/@data-sku
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id="added_aggregate_rating"]
+  - name: mpc
+    singleValue: false
+    description: The model code of the product
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+  - name: paid
+    singleValue: false
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: false
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: false
+    description: The name of the seller of the item (if available)
+    xpath: (//div[@class="prdtBILSeller"]//span[concat(contains(@class,'prdtBILLink'),contains(@class,'logoCDS'))])[1]
+  - name: endorsementText
+    singleValue: false
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
