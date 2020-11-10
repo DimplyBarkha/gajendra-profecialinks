@@ -1,3 +1,4 @@
+
 singleRecord: true
 regionsSelector: null
 recordSelector: null
@@ -5,9 +6,10 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //img[@id="productImage"]//@src
+    xpath: //img[@id="initialProductImage"]/@src
   - name: imageAlt
     singleValue: false
+    xpath: //img[@id="initialProductImage"]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //a[contains(@class,'RICHFXColorChangeLink')][position()>1]/img//@src[contains(.,'735')]
@@ -21,11 +23,15 @@ fields:
   - name: category
     singleValue: false
     xpath: //li[position()>1]//span[@itemprop="name"]/text()
+  - name: inStorePrice
+    xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
   - name: listPrice
     singleValue: false
+    xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
   - name: price
     singleValue: false
-    xpath: //span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
+    # xpath: //meta[@property="product:price:amount"]/@content | //div[@class="online-price active"]//span[@class="currency"]
+    xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
     # regExpReplace: (.+)
     # defaultValue: $$1
   - name: availabilityText
@@ -63,10 +69,10 @@ fields:
   - name: sku
     singleValue: false
     # xpath: //span[contains(@class,"model-number")]//span | //p[contains(@id,"product-body-model-number")]//span | //p[contains(@id,"product-body-model-number")]
-    xpath: //p[@class="model-number "]/span
+    xpath: //p[@class="model-number "]/span | //p[contains(@id,"product-body-model-number")]
   - name: variantId
     singleValue: false
-    xpath: //p[@id="product-body-item-number"]/span
+    xpath: //p[@id="product-body-item-number"]/span | //p[@class="item-number"]
   #   regExp: (\d+)
   - name: mpc
     singleValue: false
@@ -81,45 +87,44 @@ fields:
     xpath: //b[contains(.,'Directions:')]/..
   - name: warnings
     singleValue: false
-  - name: ratingCount
+  - name: ratingCount 
     singleValue: false
     xpath: //span[@itemprop="reviewCount"]
-    regExp: (\d+)
-  - name: aggregateRatingText
-    singleValue: false
+    #xpath: //dd[@class="bv-rating-ratio-count"]/a/span[@class="bv-rating-ratio-count"]/@aria-label
+    regExp: (.+)
   - name: aggregateRating
     singleValue: false
     xpath: //span[@itemprop="ratingValue"]
+  # - name: aggregateRating2
+  #   singleValue: false
+  #   xpath: //span[@itemprop="ratingValue"]
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class="product-info-shipping"]/text()
-  # - name: shippingDimensions
-  #   singleValue: false
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //span[contains(text(),"Additional Dimensions")]//following-sibling::ul//text()
   # - name: shippingWeight
   #   singleValue: false
-  # - name: variantCount
-  #   singleValue: false
-  #   xpath: count(//div[@id="theSwatches" and not(contains(@class,"hide"))]/a)
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@id="theSwatches" and not(contains(@class,"hide"))]/a)
   #   type: NUMBER
-  # - name: color
-  #   xpath: //div[@id="theSwatches"]/a/span[@id="selectedOffScreenSwatch"]/../@data-content
-  # - name: colorCode
-  #   singleValue: false
+  - name: color
+    xpath: //div[@id="theSwatches"]/a/span[@id="selectedOffScreenSwatch"]/../@data-content
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="wc-rich-content-description"] | //h2[contains(@Class,"wc-first-header")]//following-sibling::div 
+    xpath: (//div[@class="product-info-description"])[1] | //div[@class="wc-rich-content-description"] | //h2[contains(@Class,"wc-first-header")]//following-sibling::div 
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))] 
+    xpath: //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
+    # xpath: //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))] 
   - name: videos
     singleValue: false
-    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4full')] | //head/@*[contains(.,'http')]|//head/@video
-  #   xpath: //meta[@itemprop="contentUrl"]/@content | //head/@*[contains(.,'http')]|//head/@video
+    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')]
   - name: name
     singleValue: false
-    xpath: //title
-  # - name: inStorePrice
-  #   singleValue: false
+    xpath: //h1[@itemprop="name"]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//a[contains(@class,'RICHFXColorChangeLink')][position()>1]/img//@src[contains(.,'735')])
@@ -130,9 +135,11 @@ fields:
   #   singleValue: false
   - name: specifications
     singleValue: false
-    xpath: normalize-space(//h2[contains(.,'Specifications')]/../div//table//tbody | //div[@class="product-info-specs body-copy"])
-  # - name: warranty
-  #   singleValue: false
+    xpath: //div[@class="product-info-specs body-copy"]//div[@class="row"]
+    #xpath: //h2[contains(.,'Specifications')]/../div//table//tbody | //div[@class="product-info-specs body-copy"]//div[@class="row"]
+  - name: warranty
+    singleValue: false
+    xpath: //figure[@class="product-concierge"]/ul/li/p
   # - name: storage
   #   singleValue: false
   # - name: countryOfOrigin
@@ -150,8 +157,8 @@ fields:
   - name: pricePerUnit
     singleValue: false
     xpath: //span[contains(@class,"unitcurrency")]
-  # - name: pricePerUnitUom
-  #   singleValue: false
+  - name: pricePerUnitUom
+    singleValue: false
   - name: promotion
     singleValue: false
     xpath: //p[@class="merchandisingText"]
@@ -163,9 +170,10 @@ fields:
   #   singleValue: false
   # - name: newDescription
   #   singleValue: false
-  # - name: variantInformation
-  #   singleValue: false
-  #   description: colour / scent / flavour / other
+  - name: variantInformation
+    singleValue: false
+    description: colour / scent / flavour / other
+    xpath: //span[@class="variant-v2 selection-box-v2 "]
   # - name: firstVariant
   #   singleValue: false
   # - name: variants
@@ -175,10 +183,10 @@ fields:
     xpath: //div[@class="wc-rich-content-description"]/ul/li
   - name: technicalInformationPdfPresent
     singleValue: false
-    xpath: //div[@class="wc-doc-text"]/div/div/following-sibling::div/img/@src
-    defaultValue: No
+    xpath: //ul[@class="list-group product-attachments"]//a/@href | //div[@class="wc-doc-text"]/div/div//a/@href | //div[contains(., 'Specification')]//span[contains(., 'pdf')]//../div/a/@href
     regExp: (.+)
     regExpReplace: Yes
+    defaultValue: No
   # - name: termsAndConditions
   #   singleValue: false
   #   defaultValue: No
@@ -193,7 +201,7 @@ fields:
   - name: Image360Present
     singleValue: false
     defaultValue: No
-    xpath: //button[contains(.,'360')]
+    xpath: //button[contains(.,'360')] | //span[@id="canvasCaption" and contains(text(),  "Roll over")]
   - name: imageZoomFeaturePresent
     # singleValue: false
     # defaultValue: No

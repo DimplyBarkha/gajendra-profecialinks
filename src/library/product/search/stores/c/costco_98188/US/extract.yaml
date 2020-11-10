@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product-list")]/div[contains(@class,"product")]
+fields:
+  - name: productUrl
+    xpath: //div[@class="caption"]//span[@class="description"]/a/@href
+  - name: thumbnail
+    xpath: //div[@class="thumbnail"]//img[contains(@class,"img")]/@data-src | //div[@class="thumbnail"]//img[contains(@class,"img")][not(@data-src)]/@src
+  - name: name
+    xpath: //div[@class="caption"]//span[@class="description"]/a
+  - name: id
+    xpath: //div[@class='scProdId']/@sc.prodid
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id='added-search-url']
+  - name: reviewCount
+    xpath: //div[@class='stars']//div[@class='ratings-number']
+    regExp: \d+
+  - name: ratingCount
+    xpath: //div[@class='stars']//div[@class='ratings-number']
+    regExp: \d+
+  - name: price
+    singleValue: false
+    xpath: //div[@class="caption"]//div[contains(@id,"price")] | //div[@class="caption"]//div[contains(@class,"price")] | //div[@class='price']
+  - name: manufacturer
+  - name: aggregateRating2
+    xpath: //div[@class='ratings row']/div/@aria-label
+    type: number
+    regExp: >-
+      Rated (\d(\.?\d+)?) out
+    regExpReplace: $1
+  - name: rankOrganic
+  - name: rank
+  - name: sponsored
+    defaultValue: false

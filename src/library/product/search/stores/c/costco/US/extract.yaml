@@ -1,3 +1,4 @@
+
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -5,41 +6,45 @@ recordXPath: //div[contains(@class,"product-list")]/div[contains(@class,"product
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="caption"]//p[@class="description"]/a/@href
+    xpath: //span[@class="description"]/a/@href
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="thumbnail"]//img[contains(@class,"img")]/@data-src | //div[@class="thumbnail"]//img[contains(@class,"img")][not(@data-src)]/@src
   - name: name
     singleValue: false
-    xpath: //span[@class="description"]/a
+    xpath: //span[@class="description"]/a/text()
   - name: id
     singleValue: false
     xpath: //div[@class='scProdId']/@sc.prodid
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class='stars']//div[@class='ratings-number']
-    regExp: \d+
-  - name: ratingCount
-    singleValue: false
-    xpath: //div[@class='stars']//div[@class='ratings-number']
-    regExp: \d+
+    xpath: //div[@class='ratings row']/div/@aria-label
+    type: number
+    regExp: on\W(.+)\Wreviews
+    regExpReplace: $1
+    # xpath: //div[@class='stars']//div[@class='ratings-number']
+    # regExp: \d+
+  # - name: ratingCount
+  #   singleValue: false
+  #   xpath: //div[@class='stars']//div[@class='ratings-number']
+  #   # regExp: \d+
   - name: price
     singleValue: false
     xpath: //div[@class="caption"]//div[contains(@id,"price")] | //div[@class="caption"]//div[contains(@class,"price")] | //div[@class='price']
-  - name: manufacturer
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@class='ratings row']/div/@aria-label
     type: number
-    regExp: >-
-      Rated (\d(\.?\d+)?) out
+    regExp: Rated\W(.+)\Wout
     regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='ratings row']/div/@aria-label
+    regExp: Rated\W(.+)\Wout
+    regExpReplace: $1
     type: number
-  # - name: rankOrganic
-  # - name: rank
-  # - name: sponsored
-  #   defaultValue: truesingleRecord: true
+  - name: rankOrganic
+  - name: rank
+  - name: sponsored
+    # defaultValue: truesingleRecord: true
     
