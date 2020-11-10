@@ -17,12 +17,13 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-      function addElementToDocument(key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll("li[class='item product-item']")[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       function addrankOrganic() {
         // @ts-ignore
@@ -31,7 +32,7 @@ module.exports = {
           var lengthData = totalData[i].ecommerce.impressions.length;
           for (var j = 0; j < lengthData; j++) {
             var data = totalData[i].ecommerce.impressions;
-            addElementToDocument('rankOrganic', data[j].position);
+            addHiddenDiv('rankOrganic', data[j].position, j);
           }
         }
       }
