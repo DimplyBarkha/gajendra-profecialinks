@@ -1,0 +1,27 @@
+input:
+  _url: http://jumia.co.ke
+  SKU: CE996OT00I5C1NAFAMZ
+extractions:
+  - html: https://workbench.import.io/html/run=e6471646-68ea-474c-b02a-28d9ba3e552a/task=430720a4-6146-46f8-8a56-41e6c983b017/0a3ccfcd-9a32-47b7-8a70-9d25840c9759.html
+    extractionConfigId: product/details/stores/j/jumia/KE/extract
+    data:
+      - group:
+          - image:
+              - text: https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/00/846721/1.jpg?4616
+                xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]
+    timestamp: 1604934719455
