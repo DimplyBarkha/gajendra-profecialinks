@@ -44,6 +44,7 @@ async function implementation (
   await applyScrollAndClick(context);
   // Code executed after all results are loaded
   await context.evaluate(async function () {
+    /*
     // AggregateRating formating
     const aggregateRatingSelector = document.querySelectorAll('div[data-test="product-pod-content"] > p > a > span > span > span');
     if (aggregateRatingSelector) {
@@ -54,6 +55,7 @@ async function implementation (
         element.innerText = properFormat;
       });
     }
+    */
     // Creating rank/rankOrganic
     const allProducts = document.querySelectorAll('article[data-test="product-pod"]');
     if (allProducts) {
