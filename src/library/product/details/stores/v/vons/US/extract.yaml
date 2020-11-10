@@ -26,10 +26,12 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: list_price
     singleValue: true
+    type: CURRENCY
     description: The stated undiscounted price for the product
     xpath: (//div[@class='product-prices-wrapper']/del//text())[2]
   - name: online_price
     singleValue: true
+    type: CURRENCY
     description: The offered price for the selected product variant
     xpath: (//div[@class='product-prices-wrapper']//span//text())[2]
   - name: availability
@@ -41,10 +43,10 @@ fields:
     regExp: '(\"availability\"\:\")(\w+)'
     regExpReplace: $2
   - name: Additional_description
-    singleValue: false
+    singleValue: False
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat((//div[@class='content-detail']/div[1])//text(),(//div[@class='content-detail']/div[2])//text())
+    xpath: //div[@id='details']//div[@class='content-detail']//div//text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -58,7 +60,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: (//span[contains(@class,'content-product-more-pdp')])[3]//text()
+    xpath: //div[@class='container-product-more-pdp']//span[(contains(text(),'About the Producer'))]/following-sibling::span//text()
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -89,7 +91,7 @@ fields:
   - name: pack_size
     singleValue: true
     description: The number of packs in the product offer
-    xpath: //div[@class='product-heading']/h1//text()
+    xpath: //h1[@class='modal-heading']//text()
     regExp: '[^-]*$'
   - name: legalDisclaimer
     singleValue: true
@@ -273,19 +275,21 @@ fields:
     description: Nutritional Information for Calories Per Serving content - Usually
      based on per 100g serving
     xpath: (//td[@class='table-ingredients-text']//text())[2]
+    # xpath: (//div[@id='ingredients']//div[@class='bordered-table nutrition-facts']//th[contains(text(),'Calories')]/following-sibling::td)[1]//text()
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
      based on per 100g serving
     type: NUMBER
     xpath: (//td[@class='table-ingredients-text']//text())[6]
+    # xpath: (//div[@id='ingredients']//div[@class='bordered-table nutrition-facts']//th[contains(text(),'Calories From Fat')]/following-sibling::td)[1]//text()
   - name: totalFatPerServing
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
        per 100g serving
     type: NUMBER
     xpath: (//td[@class='table-ingredients-text']//text())[8]
-    # regExp: '^[0-9]\d*(\.\d+)?'
+    # xpath: (//div[@id='ingredients']//div[@class='bordered-table nutrition-facts']//th[contains(text(),'Total Fat')]/following-sibling::td)[1]//text()
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
