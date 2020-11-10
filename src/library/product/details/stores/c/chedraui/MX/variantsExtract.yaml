@@ -1,0 +1,17 @@
+  
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[@class="variant-selector"]//select/option/@value | //form[@id="configureForm"]/@action
+    regExp: \d{18}
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[@class="variant-selector"]//select/option/@value | //form[@id="configureForm"]/@action
+    regExp: (.+)
+    regExpReplace: https://www.chedraui.com.mx$1
