@@ -1,0 +1,24 @@
+robot: product/search
+proxy:
+  zone: ZUK
+  type: DATA_CENTER
+parameters:
+  country: UK
+  domain: parfetts.co.uk
+  store: parfetts
+  zipcode: ""
+authenticated: true
+policy:
+  numberRetries: 1
+  priority: MEDIUM
+  retryDelay: 30
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
+meta:
+  branches:
+    parfetts_UK_search_test:
+      extractor: c225f67c-2fec-452a-b3d4-8627d14260bf
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    parfetts_UK_search:
+      extractor: ea8f345b-503d-4870-bb07-d78c8d798721
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

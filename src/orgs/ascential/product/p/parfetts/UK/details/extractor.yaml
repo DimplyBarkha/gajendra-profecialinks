@@ -1,0 +1,18 @@
+robot: product/details
+parameters:
+  country: UK
+  domain: parfetts.co.uk
+  store: parfetts
+  zipcode: ""
+authenticated: true
+policy:
+  numberRetries: 1
+  priority: MEDIUM
+  retryDelay: 30
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
+meta:
+  branches:
+    parfetts_core_test:
+      extractor: 3552ebd3-37d4-4060-8506-10bb193f089f
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
