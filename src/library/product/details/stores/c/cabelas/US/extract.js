@@ -119,6 +119,12 @@ module.exports = {
       var ppp = 0;
       addElementToDocument('ppp', ppp);
 
+      var varinfo = getXpath('//div[@class="definingAttributes"]/div[contains(text(),"Color")]/text()', 'nodeValue');
+      if (varinfo != null){
+        varinfo = varinfo.split(": ")[1];
+        addElementToDocument('varinfo', varinfo);
+      }
+
     });
     await context.extract(productDetails);
   },
