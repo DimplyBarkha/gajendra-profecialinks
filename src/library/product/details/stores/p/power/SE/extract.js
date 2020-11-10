@@ -21,7 +21,6 @@ module.exports = {
     }
     try {
       await context.click('#product-information-tabs > div:nth-child(1) > div');
-      //await context.click('#product-information-tabs > div#product-tab-description-panel > div');
     } catch (error) {
       console.log('no specification found');
     }
@@ -62,7 +61,7 @@ module.exports = {
         await new Promise(resolve => setTimeout(resolve, 3500));
       }
 
-      const xpath = '//iframe[@id="flix-iframe0"]/@src';
+      const xpath = '//iframe[contains(@id,"flix-iframe")]/@src';
       const videoList = [];
       const videoSelector = document.evaluate(xpath, document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       for (let index = 0; index < videoSelector.snapshotLength; index++) {
