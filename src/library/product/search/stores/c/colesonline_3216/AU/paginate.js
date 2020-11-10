@@ -66,14 +66,14 @@ module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'AU',
-    store: 'colesonline',
+    store: 'colesonline_3216',
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: "section[id*='product-list']",
     noResultsXPath: "//span[contains(@id,'emptyCatalogEntryList')] | //h1[contains(@class,'heading-error-404')] | //div[contains(@class,'error-wrapper')]",
     openSearchDefinition: {
-      template: 'https://shop.coles.com.au/a/alexandria/everything/search/{searchTerms}?pageNumber={page}',
+      template: 'https://shop.coles.com.au/a/waurn-ponds/everything/search/{searchTerms}?pageNumber={page}',
     },
     domain: 'shop.coles.com.au',
     zipcode: '',
