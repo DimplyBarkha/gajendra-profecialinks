@@ -25,18 +25,22 @@ module.exports = {
         const originalDiv = document.querySelectorAll("li[class='item product-item']")[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      function addrankOrganic() {
-        // @ts-ignore
-        var totalData = window.dlObjects;
-        for (var i = 0; i < totalData.length; i++) {
-          var lengthData = totalData[i].ecommerce.impressions.length;
-          for (var j = 0; j < lengthData; j++) {
-            var data = totalData[i].ecommerce.impressions;
-            addHiddenDiv('rankOrganic', data[j].position, j);
-          }
-        }
+      let url = window.location.href;
+      let rankOrganic;
+      try {
+        rankOrganic = ((window.location.href).indexOf('p=')) ? parseInt((window.location.href).replace(/.*p=(.*)/, '$1')) : 0;
       }
-      addrankOrganic();
+      catch (err) {
+      }
+      if (!rankOrganic) {
+        rankOrganic = 1;
+      } else {
+        rankOrganic = ((rankOrganic - 1) * 30) + 1;
+      }
+      const urlProduct = document.querySelectorAll("li[class='item product-item']");
+      for (let i = 0; i < urlProduct.length; i++) {
+        addHiddenDiv('rankOrganic', rankOrganic++, i);
+      }
     });
     return await context.extract(productDetails, { transform });
   },
