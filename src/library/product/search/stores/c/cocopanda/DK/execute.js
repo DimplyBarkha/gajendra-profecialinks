@@ -25,6 +25,22 @@ async function implementation (
   //await context.click('div.roulette-iframe-close a');
   //await new Promise((resolve, reject) => setTimeout(resolve, 500));
 
+  try{
+    await context.waitForSelector('button[aria-label="Accepter alle"]');
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await context.click('button[aria-label="Accepter alle"]');
+  }catch(e){
+
+  }
+  
+  try{
+    await context.waitForSelector('div.vex-close');
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await context.click('div.vex-close');
+  }catch(e){
+    //
+  }
+
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;

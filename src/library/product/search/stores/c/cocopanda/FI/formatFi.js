@@ -30,11 +30,6 @@ const transform = (data) => {
             item.text='https://www.cocopanda.fi'+item.text;
           });
         }
-        /*if(row.price){
-          row.price.forEach(item => {
-            item.text=item.text.slice(0, -2);
-          });
-        }*/
         if(row.aggregateRating){
           row.aggregateRating.forEach(item => {
             let reviewCountData=item.text.split('-');
