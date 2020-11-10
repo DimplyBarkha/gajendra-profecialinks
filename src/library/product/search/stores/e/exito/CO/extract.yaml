@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"vtex-search-result-3-x-gallery")]//div[contains(@class,"vtex-search-result-3-x-gallery")]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="exito-product-details-3-x-elementScroll"]/@name
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,"vtex-search-result-3-x-galleryItem")]//a/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[contains(@class,"search-result-exito-vtex-components-selling-price")]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[contains(@class,"vtex-search-result-3-x-galleryItem")]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[contains(@class,"vtex-search-result-3-x-galleryItem")]//span[contains(@class,"search-result-exito-product-summary-name-product")]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
