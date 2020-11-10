@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class*="cat_catalog"]',
-    noResultsXPath: '//div[contains(@class, "noSearchResults")] | //div[contains(@class, "404")] | //div[contains(@class, "error")]',
+    noResultsXPath: '//div[contains(@class, "404")] | //div[contains(@class, "error")]',
     openSearchDefinition: null,
     domain: 'zalando.de',
     zipcode: '',
