@@ -24,19 +24,18 @@ const transform = (data) => {
     for (let row of group) {
       try {
         if (row.availabilityText) {
-          let text = '';
-          row.availabilityText.map(item => {
-            console.log(item.text);
-            if (item.text.includes('en stock')) {
-              text = 'In Stock';
-            } else {
-              text = 'Out Of Stock';
-            }
-            item.text = text;
+          const availabilityTextArr = row.availabilityText.map((item) => {
+            return (typeof (item.text) === 'string') && (item.text.includes('en stock')) ? 'In Stock' : 'Out of Stock';
           });
+          row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
         }
         if (row.alternateImages) {
           row.alternateImages.shift();
+          const countStr = row.alternateImages.length.toString;
+          row.secondaryImageTotal = [{ text: countStr, xpath: row.ingredientsList[0].xpath }];
+        }
+        if (row.nameExtended && row.brandText) {
+          row.nameExtended = [{ text: row.brandText[0].text + ' ' + row.nameExtended[0].text, xpath: row.nameExtended[0].xpath }];
         }
         row = cleanUp(row);
       } catch (exception) {
