@@ -119,11 +119,11 @@ fields:
 - name: aggregateRatingText 
   singleValue: true
   description: The stated aggregate rating
-  xpath: //div[@class='cn_product_visited']/span[@class='rating_value']
-- name: aggregateRating 
-  singleValue: true
+  xpath: //div[@class='cn_product_visited']/span[@class='rating_value']/@ratingvalueconverted
+- name: aggregateRating   
+  type: STRING
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //div[@class='cn_product_visited']/span[@class='rating_value']
+  xpath: //div[@class='cn_product_visited']/span[@class='rating_value']/@ratingvalueconverted
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
