@@ -6,12 +6,12 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href
+    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href | //div[@evtperfname="super-sku-swatch-variants-component"]//ul[contains(@class,"hdca-swatch-group")]//a/@href
     regExp: (.*)(\/)(\d+$)
     regExpReplace: $3
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href
+    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href | //div[@evtperfname="super-sku-swatch-variants-component"]//ul[contains(@class,"hdca-swatch-group")]//a/@href
     regExp: (.+)
     regExpReplace: https://www.homedepot.ca$1

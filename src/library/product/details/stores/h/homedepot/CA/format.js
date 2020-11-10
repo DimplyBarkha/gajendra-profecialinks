@@ -36,7 +36,7 @@ const transform = (data) => {
 
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(item => {
-          item.text = `https:${item.text}`;
+          item.text = item.text.startsWith('https:') ? item.text : `https:${item.text}`;
         });
       }
 
@@ -60,7 +60,7 @@ const transform = (data) => {
         row.shippingDimensions.forEach(item => {
           item.text = item.text.replace(/\)\n/g, ') : ').replace(/\n/g, ' | ').trim();
           const index = item.text.indexOf('Packaged');
-          item.text = item.text.slice(index, -1);
+          item.text = item.text.slice(index);
         });
       }
 
@@ -82,7 +82,7 @@ const transform = (data) => {
 
       if (row.manufacturerDescription) {
         row.manufacturerDescription.forEach(item => {
-          item.text = item.text.replace(/(\s?\n\s?)+/g, ' ').replace('Product Overview', '').trim();
+          item.text = item.text.replace(/(\s?\n\s?)+/g, ' ').replace('Product Overview', '').replace('HDS8645C – Product Spec Sheet with Installation Instructions View HDS8645C – Product Spec Sheet with Installation Instructions PDF | Download HDS8645C – Product Spec Sheet with Installation Instructions PDF PDF, 1.84MB, 2 pages HDS8645C – Overview HDS8645C – Overview View HDS8645C – Overview PDF | Download HDS8645C – Overview PDF PDF, 2.78MB, 2 pages', ' View | Download PDF, 1.84MB, 2 pages HDS8645C – Overview View | Download PDF, 2.78MB, 2 pages').trim();
         });
       }
 
@@ -122,6 +122,13 @@ const transform = (data) => {
         row.mpc.forEach(item => {
           item.text = item.text.replace(/.*?#/, '').trim();
         });
+      }
+      if (row.videos && row.videos1) {
+        row.videos.push(...row.videos1);
+      } else {
+        if (row.videos1) {
+          row.videos = row.videos1;
+        }
       }
     }
   }

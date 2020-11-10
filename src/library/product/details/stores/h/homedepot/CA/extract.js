@@ -41,6 +41,14 @@ module.exports = {
       console.log('product description is not loaded');
     }
     await new Promise(resolve => setTimeout(resolve, 50000));
+    try {
+      await new Promise(resolve => setTimeout(resolve, 30000));
+      await context.click('.hdca-video__play');
+      await new Promise(resolve => setTimeout(resolve, 30000));
+    } catch (error) {
+      console.log('no localized button found');
+    }
+    await new Promise(resolve => setTimeout(resolve, 50000));
     return await context.extract(productDetails, { transform });
   },
 };

@@ -19,11 +19,11 @@ fields:
     xpath: //span[@itemprop="ratingValue"]
   - name: alternateImages
     singleValue: false
-    xpath: (//div[@class="ngu-touch-container"])[2]//img/@src
+    xpath: ((//div[@class="ngu-touch-container"])[2]//img/@src)[position()>1]
   - name: secondaryImageTotal
     singleValue: false
     description: null
-    xpath: count((//div[@class="ngu-touch-container"])[2]//img/@src)
+    xpath: count(((//div[@class="ngu-touch-container"])[2]//img/@src)[position()>1])
   - name: availabilityText
     singleValue: false
     xpath: //link[@itemprop="availability"]/@href
@@ -67,9 +67,13 @@ fields:
     regExpReplace: $3
   - name: image
     singleValue: false
-    xpath: //div[contains(@evtperfname,"product-gallery-container")]/hdca-carousel//div[contains(@class,"selected")]//img/@src
+    xpath: //div[contains(@evtperfname,"product-gallery-container")]/hdca-carousel//div[contains(@class,"selected")]//img/@src | //div[contains(@class,"hdca-product__gallery")]/img/@src
   - name: Image360Present
     singleValue: false
+    xpath: //div[contains(@class,"zoomableContainer")]//img[contains(@alt,"360 Degree View")]/@alt
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
   - name: imageAlt
     singleValue: false
     xpath: //meta[@property="og:image:alt"]/@content
@@ -162,22 +166,27 @@ fields:
     defaultValue: No
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href)
+    xpath: count(//div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href | //div[@evtperfname="super-sku-swatch-variants-component"]//ul[contains(@class,"hdca-swatch-group")]//a/@href)
     defaultValue: '0'
   - name: variantId
     singleValue: false
     xpath: //nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]
   - name: variantInformation
     singleValue: false
-    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//label[contains(@class,"acl-swatch-group__label")]
+    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//label[contains(@class,"acl-swatch-group__label")] | //div[@evtperfname="super-sku-swatch-variants-component"]//div[@class="hdca-swatch-group__label"]
   - name: variants
     singleValue: false
-    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href
+    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href | //div[@evtperfname="super-sku-swatch-variants-component"]//ul[contains(@class,"hdca-swatch-group")]//a/@href
     regExp: (.*)(\/)(\d+$)
     regExpReplace: $3
   - name: videos
     singleValue: false
     xpath: //*[contains(@title,"Flix-media-video")]/@src
+  - name: videos1
+    singleValue: false
+    xpath: //*[contains(@class,"hdca-product-video__frame")]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: warnings
     singleValue: false
   - name: warranty
