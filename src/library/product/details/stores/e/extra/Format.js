@@ -73,7 +73,7 @@ const transform = (data) => {
         }
       if(row.manufacturerImages){
         row.manufacturerImages.forEach(x =>{
-          if(x.text.indexOf("https") == -1){
+          if(x.text.indexOf("http") == -1){
             x.text = 'https:' + x.text;
           }
         })

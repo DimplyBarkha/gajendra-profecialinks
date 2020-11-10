@@ -22,7 +22,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[contains(@class,'css-1qm1lh')]
+    xpath: //div[contains(@class,'css-1qm1lh')]//h1
   - name: name
     singleValue: false
     description: The product name
@@ -49,7 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class,'css-1fj0as8')]
+    xpath: //div[@id='product-description']
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -113,9 +113,9 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //div[contains(@class,'pd-image-full')]//img//@src | //div[@id="product-special-content"]//img//@src
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[contains(@class,'css-1fj0as8')]
+  # - name: manufacturerDescription
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'css-1fj0as8')]
   - name: secondaryImageTotal
   - name: warranty
     singleValue: false
@@ -128,7 +128,7 @@ fields:
     xpath: //div[@id='more-information']
   - name: shippingInfo
     singleValue: false
-    xpath: //p[@id='sold-by'] 
+    xpath: //p[@id='sold-by']//a
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
@@ -146,3 +146,6 @@ fields:
   - name: quantity
     singleValue: false
     xpath: (//div[contains(text(),'Tamanho da tela')]/following::span)[1]
+  - name: promotion
+    singleValue: false
+    xpath: //span[@id='discount-stamp']
