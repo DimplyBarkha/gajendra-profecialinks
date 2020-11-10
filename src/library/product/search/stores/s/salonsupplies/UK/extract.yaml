@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="contentGrid"]//ul//li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="contentGrid"]//ul//li/@data-product-code
+  - name: name
+    singleValue: false
+    xpath: //div[@class="contentGrid"]//li//div//a
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="contentGrid"]//li//a[@class="productimage"]//@href
+    regExp: (\/.*)
+    regExpReplace: https://salonsupplies.co.uk$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="contentGrid"]//li//a[@class="productimage"]//img/@src
+    regExp: (\/.*)
+    regExpReplace: https://salonsupplies.co.uk$1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="contentGrid"]//li//div//span/text()

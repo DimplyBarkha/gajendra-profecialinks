@@ -1,0 +1,98 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="productPage"]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@id="primary"]//h1
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="column gallery"]//img/@alt
+  - name: url
+    singleValue: false
+    xpath: //input[@name="redirect_to"]//@value
+    regExp: (\/.*)
+    regExpReplace: https://salonsupplies.co.uk$1
+  - name: productPrice
+    singleValue: false
+    xpath: (//div[@id="price"]//span[@id="offerPrice"]/span | //div[@id="price"]//span[@id="listPrice"]/span)
+  - name: price
+  - name: listPrice
+  - name: sku
+    singleValue: false
+    xpath: //div[@id="price"]//p//span[2]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[@class="list-wrapper"]//ul//li/@rel)[1]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="list-wrapper"]//li[@class="selected"]//@rel
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: variants
+    singleValue: false
+    xpath: //div[@id="orderForm"]//select[@name="variation"]//option/@value
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="responsive-iframe"]//iframe/@src
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id='page']/div[@id='productPage']/div[@id='primary']/div[@class='column']/div[@id='information']/div[1]/div[1]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="green-offer"]//text()
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id="price"]//p//span[2]
+    regExp: (\d+)
+    regExpReplace: In Stock
+  - name: category
+    singleValue: false
+    xpath: //div[@id="breadcrumb"]//li[position()>1 and position() < last()]
+    regExp: (.+)\/
+    regExpReplace: $1
+  - name: description
+    singleValue: false
+    xpath: //div[@class="description"]//div[position()>1 and position() < last()] | //div[@class="description"]/h5//text() | //div[@class="description"]/ul/li | //div[@class="description"]/li
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="description"]//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class,'description')]/h5 | //div[contains(@class,'description')]//ul/li  | //div[contains(@class,'description')]/li)
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@id="primary"]//h1
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id="breadcrumb"]//li/a[contains(@href,'/brand')]
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //a[contains(@class,'icon pdf')]/@href    
+    regExp: (^.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: image
+    singleValue: false
+    xpath: (//div[@id="primary"]//div[@class="column gallery"]//a//img/@src)[1]
+    regExp: (\/.*\/)\d+_(.*)
+    regExpReplace: https://salonsupplies.co.uk$1$2
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="productPage"]//div[contains(@class,'gallery')]//li/a/@href
+    regExp: (.*)
+    regExpReplace: https://salonsupplies.co.uk$1
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id="productPage"]//div[contains(@class,'gallery')]//li/a/@href)
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="dropdown"]//div[@class="selected"]
+    regExp: (.*)\s-
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="list-wrapper"]//li)
