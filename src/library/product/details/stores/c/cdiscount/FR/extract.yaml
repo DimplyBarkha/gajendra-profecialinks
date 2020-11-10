@@ -1,0 +1,128 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: nameExtended
+    singleValue: false
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+  - name: price
+    singleValue: false
+    xpath : //span[@itemprop="price" and contains(@class, "hideFromPro")]
+    regExp: ^(\d+)(.*?)(\d+)
+    regExpReplace: $1,$3 $2
+  - name: shippingInfo
+    singleValue: false
+    xpath : concat((//div[@id="fpSellBy"]//div//text())[1], (//div[@id="fpSellBy"]//div[contains(text(), "Vendu")]/a)[1] | (//div[@id="fpSellBy"]//span[contains(@class, "noWrap")]))
+  - name: image
+    singleValue: false
+  - name: imageAlt
+    singleValue: false
+    xpath: //*[@id="picture0"]/@alt
+  - name: category
+    singleValue: false
+    xpath: //*[@id="bc"]//ul/li[position() > 2]
+  - name: shippingWeight
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[text()="Poids (Expédition)"]/parent::tr
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[contains(text(), "Classe d'efficacité énergétique")]//following-sibling::*
+  - name: warranty
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[contains(text(), "Garantie")]//following-sibling::*
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class, "fpStrikedAfter")]/text()
+  - name: color
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[contains(text(), "Couleur")]//following-sibling::* | //div[@id="presContent"]//text()[contains(., "Couleur:")]
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class="smallPic"]//li[contains(@class, "fpZoomPic")]//img//@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//ul[@class="smallPic"]//li[contains(@class, "fpZoomPic")]//img//@src)
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //*[@class="fpLegacy"]
+  - name: brandText
+    singleValue: false
+    xpath: //span[@class="fpBrand"]
+  - name: quantity
+    singleValue: false
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[text()="Largeur (emballée)"]/parent::tr | //*[@id="descContent"]//td[text()="Hauteur (Expédition)"]/parent::tr | //*[@id="descContent"]//td[text() ="Profondeur (emballée)"]/parent::tr
+  - name: sku
+    singleValue: false
+    xpath: //*[@id="fpSku"]
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: availabilityText
+    singleValue: false
+    xpath: //p[@class="fpProductAvailability"]
+  - name: weightNet
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[text()="Poids"]/following-sibling::*
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="fpBulletPointReadMore"]//ul/li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class="fpBulletPointReadMore"]//ul/li)
+  - name: description
+    singleValue: false
+    xpath: concat(//div[@id="descContent"]//p[@class="fpMb"]," ",//div[@class="fpBulletPointReadMore"]//ul)
+  - name: manufacturer
+    singleValue: false
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class, "fpDescTb")]//tr[not(.//descendant::th)]
+  - name: storage
+    singleValue: false
+    xpath: //div[@id="presContent"]/font/font
+  - name: weightGross
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[text()="Poids (Expédition)"]/parent::tr
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="added-manufacturerDesc"]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="inpage_container"]//img/@srcset | //div[@id="presContent"]//img/@src
+  - name: gtin
+    singleValue: false
+    xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product
+  - name: ratingCount
+    singleValue: false
+    xpath: //a[@class="fpCusto"]
+    regExp: (\d*).*
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="topMainRating"]//span[@class="mainTit"]
+  - name: videos
+    singleValue: false
+    xpath: //ul[@class="smallPic"]//li[not(@class)]/@onclick
+  - name: variantId
+    singleValue: false
+    xpath: //*[@id="fpSku"]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[@class="fpMainImg"]//img[contains(@class,"fpLoopZoom")]/@id
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: warnings
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[contains(text(), "Avertissement")]//following-sibling::*
+  - name: ingredientsList
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[contains(text(), "Ingrédient")]//following-sibling::*
+  - name: directions
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[contains(text(), "Précautions d'emploi") or contains(text(),"Conseils d'utilisation")]//following-sibling::*
