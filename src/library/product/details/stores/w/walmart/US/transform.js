@@ -40,6 +40,10 @@ const transform = (data, context) => {
         if (row.asin) {
           row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
         }
+        if (row.variantIdOverRide) {
+          const id = row.variantIdOverRide[0].text.split('/').slice(-1)[0];
+          row.variantId[0].text = id;
+        }
         if (row.variantId) {
           row.productUrl = [{ text: `https://www.walmart.com/ip/${row.variantId[0].text}` }];
         }
@@ -67,7 +71,7 @@ const transform = (data, context) => {
             row.lbbPrice = [{ text: row.price[0].text.trim() }];
           }
         } else if (!row.otherSellersName || (row.otherSellersName && row.otherSellersName.length < 2)) {
-          row.lbb = [{ text: 'No' }]; 
+          row.lbb = [{ text: 'No' }];
         }
 
         // if (row.lbb && row.lbb[0].text.includes('Yes') && row.price) {

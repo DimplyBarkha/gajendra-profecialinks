@@ -84,6 +84,9 @@ fields:
 - name: variantId
   singleValue: true
   xpath: //div[@id='added-sku'] 
+- name: variantIdOverRide
+  singleValue: true
+  xpath: //link[@itemprop="url"]/@href
 - name: firstVariant
   singleValue: true
   manualSelector: script[id='item'], script[id='product']

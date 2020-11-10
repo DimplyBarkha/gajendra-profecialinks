@@ -23,59 +23,6 @@ module.exports = {
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, dependencies) => {
     await context.addToDom('added-parentInput', parentInput);
 
-    async function addAdditionalContent () {
-      await context.evaluate(async () => {
-        async function getSellerInformation (url) {
-          try {
-            var data = await
-            fetch(url)
-              .then(response => response.text())
-              .catch();
-            return (data);
-          } catch (error) {
-            console.log(error);
-            throw (error);
-          }
-        }
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-          return newDiv;
-        }
-        const node = document.querySelector("script[id='item']");
-        if (node && node.textContent) {
-          const jsonObj = node.textContent.startsWith('{"item":') ? JSON.parse(node.textContent) : null;
-          if (jsonObj && jsonObj.item && jsonObj.item.product && jsonObj.item.product.buyBox && jsonObj.item.product.buyBox.products &&
-              jsonObj.item.product.buyBox.products[0]) {
-            const content = jsonObj.item.product.buyBox.products[0];
-            if (content.idmlSections && content.idmlSections.marketingContent) {
-              const marketingDiv = addHiddenDiv('added-marketing', '');
-              marketingDiv.innerHTML = unescape(jsonObj.item.product.buyBox.products[0].idmlSections.marketingContent);
-            }
-            if (content.shippingOptions && content.shippingOptions[0] && content.shippingOptions[0].fulfillmentPrice) {
-              let price = '0';
-              if (content.freeShippingThresholdPrice && content.freeShippingThresholdPrice.price) {
-                price = '0';
-              } else {
-                price = content.shippingOptions[0].fulfillmentPrice.price;
-              }
-              addHiddenDiv('added-sprice', price);
-            }
-          }
-        }
-        const url = window.location.href;
-        const id = url.replace(/[^\d]/g, '');
-        addHiddenDiv('added-sku', id);
-        const sellerUrl = `https://www.walmart.com/product/${id}/sellers`;
-        const result = await getSellerInformation(sellerUrl);
-        const sellerDiv = addHiddenDiv('added-sellers', '');
-        sellerDiv.innerHTML = result;
-      });
-    };
-
     await context.click('//span[@class="button-wrapper" and contains(text(),"Show delivery")]')
       .catch(() => console.log('No other pickup/delivery options'));
 
@@ -93,6 +40,7 @@ module.exports = {
     const nutrTabPresentAndClicked = await context.evaluate(async () => {
       const nutrTab = document.evaluate('//span[contains(text(),"Nutrition Facts")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
       if (nutrTab) {
+        // @ts-ignore
         nutrTab.click();
       }
       return !!nutrTab;
@@ -124,44 +72,82 @@ module.exports = {
       // scroll to bottom of page, iframe should load if present!
       await window.scrollTo(0, document.body.scrollHeight);
     });
-    await context.waitForSelector('iframe#iframe-AboutThisItem-marketingContent', { timeout: 5000 })
-      .then(async () => {
-        await context.evaluate(async () => {
-          function addHiddenDiv (id, content) {
-            const newDiv = document.createElement('div');
-            newDiv.id = id;
-            newDiv.textContent = content;
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
-          }
-
-          const marketingIframe = document.querySelector('iframe#iframe-AboutThisItem-marketingContent');
-          if (marketingIframe) {
-            marketingIframe.scrollIntoView();
-            await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-            const images = marketingIframe.contentDocument.querySelectorAll('img');
-            const imagesSrc = [];
-            images.forEach(img => {
-              let imgUrl = img.getAttribute('src');
-              if (!imgUrl.startsWith('http')) {
-                imgUrl = 'https:' + imgUrl;
-              }
-              imagesSrc.push(imgUrl);
-            });
-            addHiddenDiv('my_manufact_images', imagesSrc.join(' | '));
-
-            const enhancedContent = marketingIframe.contentDocument.querySelectorAll('div');
-            if (enhancedContent) {
-              const setText = new Set();
-              Array.from(enhancedContent).forEach((el) => setText.add(el.innerText));
-              addHiddenDiv('my_enh_content', Array.from(setText).join(' '));
-            }
-          }
-        });
-      })
+    const enhancedContentSelector = 'iframe#iframe-AboutThisItem-marketingContent';
+    await context.waitForSelector(enhancedContentSelector, { timeout: 5000 })
       .catch(() => console.log('no aplus iframe'));
+    await context.evaluate(async (selector) => {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
 
-    await addAdditionalContent();
+      const marketingIframe = document.querySelector(selector);
+      if (marketingIframe) {
+        marketingIframe.scrollIntoView();
+        await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+        const imagesSrc = [...marketingIframe.contentDocument.querySelectorAll('img')]
+          .map(img => {
+            const src = img.getAttribute('src');
+            return !src.startsWith('http') ? `https:${src}` : src;
+          });
+        addHiddenDiv('my_manufact_images', imagesSrc.join(' | '));
+
+        // @ts-ignore
+        const setText = [...new Set(
+          [...marketingIframe.contentDocument.querySelectorAll('div')].map(el => el.innerText),
+        )];
+        addHiddenDiv('my_enh_content', setText.join(' '));
+      }
+    }, enhancedContentSelector);
+
+    // add additionall content
+    await context.evaluate(async () => {
+      async function getSellerInformation (url) {
+        var data = await fetch(url)
+          .then(response => response.text())
+          .catch(console.log);
+        return (data);
+      }
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+        return newDiv;
+      }
+      const node = document.querySelector("script[id='item']");
+      if (node && node.textContent) {
+        const jsonObj = node.textContent.startsWith('{"item":') ? JSON.parse(node.textContent) : null;
+        if (jsonObj && jsonObj.item && jsonObj.item.product && jsonObj.item.product.buyBox && jsonObj.item.product.buyBox.products &&
+            jsonObj.item.product.buyBox.products[0]) {
+          const content = jsonObj.item.product.buyBox.products[0];
+          if (content.idmlSections && content.idmlSections.marketingContent) {
+            const marketingDiv = addHiddenDiv('added-marketing', '');
+            marketingDiv.innerHTML = unescape(jsonObj.item.product.buyBox.products[0].idmlSections.marketingContent);
+          }
+          if (content.shippingOptions && content.shippingOptions[0] && content.shippingOptions[0].fulfillmentPrice) {
+            let price = '0';
+            if (content.freeShippingThresholdPrice && content.freeShippingThresholdPrice.price) {
+              price = '0';
+            } else {
+              price = content.shippingOptions[0].fulfillmentPrice.price;
+            }
+            addHiddenDiv('added-sprice', price);
+          }
+        }
+      }
+      const id = window.location.pathname.split('/').slice(-1)[0];
+      addHiddenDiv('added-sku', id);
+      const sellerUrl = `https://www.walmart.com/product/${id}/sellers`;
+      const result = await getSellerInformation(sellerUrl);
+      const sellerDiv = addHiddenDiv('added-sellers', '');
+      // @ts-ignore
+      sellerDiv.innerHTML = result;
+    });
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
   },
 };
