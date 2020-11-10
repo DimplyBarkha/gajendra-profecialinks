@@ -1,0 +1,104 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _url
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_1?') or contains(@src,'_01?')][1]/@src
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,'breadcrum')]/li[position() >1 ]
+  - name: sku
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: '"sku": "([^"]+)"'
+    regExpReplace: $1    
+  - name: imageAlt
+    singleValue: false
+    xpath: //meta[@property="og:image:alt"]/@content
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: promotion
+    singleValue: false
+    xpath: //span[contains(@class,'pod-badges-item')]
+  - name: mpc
+    singleValue: false
+    xpath: //td[contains(text(),'Modelo')]/following-sibling::td[1]
+  - name: weightNet
+    singleValue: false
+    xpath: //td[contains(text(),'Peso')]/following-sibling::td[1]    
+  - name: warranty
+    singleValue: false
+    xpath: //td[contains(text(),'Garantía del proveedor')]/following-sibling::td[1]      
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //td[contains(text(),'Eficiencia energética')]/following-sibling::td[1]     
+  # - name: gtin 
+  #   singleValue: false
+  #   xpath: //td[contains(text(),'Modelo')]/following-sibling::td[1]    
+  - name: name
+    singleValue: true
+    xpath: //div/@data-name
+  - name: nameExtended
+    singleValue: true
+    xpath: concat(//div/@data-brand,'-',//div/@data-name) 
+  - name: listPrice
+    singleValue: false
+    xpath: //section[contains(@class,'pdp-detail-section')]//li[contains(@class,'price-1')]//div[contains(@class,'cmr-icon-container')]/span
+  - name: price
+    singleValue: false
+    xpath: //section[contains(@class,'pdp-detail-section')]//li[contains(@class,'price-0')]//div[contains(@class,'cmr-icon-container')]/span
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
+  - name: availabilityText
+    singleValue: false
+    xpath: concat(substring('Out Of Stock', 1 div boolean(//div[contains(@class,'outofstock-container')])),
+       substring('In Stock', 1 div not(//div[contains(@class,'outofstock-container')])))
+  - name: description
+    singleValue: false    
+    xpath: //div[@class='fb-product-information__product-information-tab']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'specifications-list')]/ul/li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class,'specifications-list')]/ul/li)
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src)
+  - name: brandText
+    singleValue: false
+    xpath: //div/@data-brand  
+  - name: variantId
+    singleValue: false
+    xpath: //div/@data-id
+  - name: shippingInfo
+    singleValue: false
+    xpath: //p[contains(@class,'sellerInfo')]
+  - name: ratingCount
+    singleValue: false
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop='ratingValue'] 
+  - name: videos
+    singleValue: false
+    xpath: concat(substring-after(//img[contains(@id,'https://www.youtube.com/')]/@id, 'image-') , //iframe[contains(@src,'youtube')]/@src)
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class,'specification-table')]//tr
+  - name: variantCount
+    singleValue: false
+    defaultValue: "0"  
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'color-swatch-container fa--color-swatches__desktop')]//span[contains(text(),'Color:')]/following-sibling::span[contains(@class,'copy3 primary')]

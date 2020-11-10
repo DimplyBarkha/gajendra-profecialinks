@@ -43,6 +43,7 @@ const transform = (data, context) => {
       if (row.price) {
         row.price.forEach(item => {
           item.text = item.text.replace("(Oferta)",'').trim();
+          item.text = item.text.replace(/(\s*\(Precio\s+final\)\s*)+/g, '').trim();
           // item.text = item.text.replace('S\/ ','');
           // item.text = item.text.replace(',', '.');
         });
