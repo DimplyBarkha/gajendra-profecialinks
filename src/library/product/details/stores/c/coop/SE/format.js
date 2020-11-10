@@ -25,29 +25,35 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.name) {
-        var scriptJSON = JSON.parse(row.name[0].text);
+      if (row.gtin) {
+        var scriptJSON = JSON.parse(row.gtin[0].text);
         if (scriptJSON.id) {
-          row.name = [{ text: scriptJSON.id }];
+          row.variantId = row.sku = [{ text: scriptJSON.id }];
         }
         if (scriptJSON.ean) {
           row.gtin = [{ text: scriptJSON.ean }];
         }
-        if (scriptJSON.name) {
-          row.name = [{ text: scriptJSON.name }];
+        if (scriptJSON.manufacturer) {
+          row.brandText = [{ text: scriptJSON.manufacturer }];
+          if (row.nameExtended) {
+            row.nameExtended = [{ text: scriptJSON.manufacturer + ' - ' + row.nameExtended[0].text }];
+          }
         }
         if (scriptJSON.image) {
-          // if (scriptJSON.image.indexOf('http') < 0) {
-          //   scriptJSON.image = 'https:' + scriptJSON.image;
-          // }
-          row.name = [{ text: 'https:' + scriptJSON.image }];
+          if (scriptJSON.image.url) {
+            var tempUrl = scriptJSON.image.url;
+            if (tempUrl.indexOf('http') < 0) {
+              tempUrl = 'https' + tempUrl;
+            }
+            row.image = [{ text: tempUrl }];
+          }
         }
-        if (scriptJSON.price) {
-          row.price = [{ text: scriptJSON.price }];
-        }
+        // if (scriptJSON.price) {
+        //   row.price = [{ text: scriptJSON.price }];
+        // }
         if (scriptJSON.details) {
-          if (scriptJSON.details.packageSizeInformation) {
-            row.weightNet = [{ text: scriptJSON.details.packageSizeInformation }];
+          if (scriptJSON.details.size.packageSizeInformation) {
+            row.weightNet = [{ text: scriptJSON.details.size.packageSizeInformation }];
           }
         }
       }
