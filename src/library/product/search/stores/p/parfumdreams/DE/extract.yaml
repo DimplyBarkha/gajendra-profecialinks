@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='item clearfix no-underline ajx item-link c d-4 p-m-6  ']
+fields:
+  - name: name
+    singleValue: false
+    xpath: //p[@class='item-description mbs0']
+  - name: manufacturer
+    singleValue: false
+    xpath: //p[@class='item-description mbs0']/span[1]
+  - name: url
+    singleValue: false
+    xpath: //div[@class='product-image c d-12']/a/@href
+    regExp: (^\/.+)
+    regExpReplace: https://en.parfumdreams.de$1
+  - name: thumbnail
+    singleValue: false
+    xpath:  //div[@class='product-image c d-12']/a/img/@src
+  - name: price
+    singleValue: false
+    xpath: //span[@class='font-deep no-wrap']
+  - name: id
+    singleValue: false
+    xpath: //div[@class='product-image c d-12']/a/@onclick
+    regExp: \"id\":(.*),\"simpleId\"
+    regExpReplace: $1
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@class='product-image c d-12']/a/@onclick
+    regExp: \"position\":(.*)},
+    regExpReplace: $1
