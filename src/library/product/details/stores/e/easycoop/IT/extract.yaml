@@ -5,22 +5,22 @@ recordXPath: null
 fields:
   - name: name
     singleValue: false
-    xpath: //div[@class="product__info"]//div[@class="product-title"]//h4[contains(@class,"product-title__name")]
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h4[contains(@class,"product-title__name")]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="product__info"]//div[@class="product-title"]//h4[contains(@class,"product-title__name")]
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h4[contains(@class,"product-title__name")]
   - name: category
     singleValue: false
-    xpath: //div[@class="product__top-container"]//nav[@class="breadcrumbs"]//ul//li
+    xpath: //div[@class="product__top-container"]//nav[contains(@class,"breadcrumbs")]//ul//li
   - name: price
     singleValue: false
-    xpath: (//div[@class="product__price"]//div[@class="price product__price"]//span[@class="price__final"])
+    xpath: //div[@class="product__price"]//div[contains(@class,"price product__price")]//span[contains(@class,"price__final")]
   - name: listPrice
     singleValue: false
-    xpath: (//span[@class="product__price-per-qty"])
+    xpath: //span[contains(@class,"product__price-per-qty")]
   - name: specifications
     singleValue: false
-    xpath: //div[@class="product__details-wrapper"]//div[@class="product__attribute"]
+    xpath: //div[@class="product__details-wrapper"]//div[contains(@class,"product__attribute")]
   - name: image
     singleValue: false
     xpath: //div[@class="product__image-box"]//div[contains(@class,"swiper-slide") and position()=1]//img/@src
@@ -29,13 +29,13 @@ fields:
     xpath: //div[@class="product__image-box"]//div[contains(@class,"swiper-slide")]//img/@src
   - name: description
     singleValue: false
-    xpath: //div[@class="product__details-wrapper"]//div[@class="product__attribute"]//p
+    xpath: //div[@class="product__details-wrapper"]//div[contains(@class,"product__attribute")]//p
   - name: brandText
     singleValue: false
-    xpath: //div[@class="product__info"]//div[@class="product-title"]//h5[contains(@class,"product-title__brand")]
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h5[contains(@class,"product-title__brand")]
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class="product__info"]//div[@class="product-title"]//h5[contains(@class,"product-title__brand")]
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h5[contains(@class,"product-title__brand")]
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
