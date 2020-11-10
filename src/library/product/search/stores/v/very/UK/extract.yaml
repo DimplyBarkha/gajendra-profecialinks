@@ -33,9 +33,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: 
+    xpath: //a[@class="productPrice"]/@price
   - name: manufacturer
     singleValue: true
+    xpath: //em[@class="productBrand"]
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -44,10 +45,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //div[@class="productInfo"]//@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //div[@class="productInfo"]//@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
