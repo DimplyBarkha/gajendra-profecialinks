@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/preservativo-control-adapta-extra-lube-12unidades
 extractions:
-  - html: https://workbench.import.io/html/run=03c65cd0-8654-473a-9f51-23861d7c6581/task=51c40b23-d042-4286-b75f-68aeb1196ab8/31840d67-45c5-4a39-9ce0-4895731fc041.html
+  - html: https://workbench.import.io/html/run=d61db710-0ab3-49c6-bd74-012bdced05d3/task=b40f6f93-fd09-4aae-949c-c21c96f9d84d/73226907-4f01-4ad7-b9fa-723d52f30f3b.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -73,10 +73,11 @@ extractions:
                 xpath: /html/body/div[1]/span[13]
             aggregateRatingText:
               - text: "0"
-                xpath: /html/body/div[1]/span[14]
+                xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
             aggregateRating:
               - text: "0"
-                xpath: /html/body/div[1]/span[14]
+                xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
+                type: STRING
             shippingInfo:
               - text: Envío urgente gratis en la Península en pedidos desde 59€.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[2]/div[1]/p[1]/text()[1]
@@ -112,4 +113,4 @@ extractions:
             weightGross:
               - text: 0.1000 kg
         xpath: /
-    timestamp: 1604933921525
+    timestamp: 1605003341898
