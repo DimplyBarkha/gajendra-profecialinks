@@ -2,7 +2,7 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 1019298
 extractions:
-  - html: https://workbench.import.io/html/run=ba2a9e28-b2a0-41f9-bfc0-73446f2f4c66/task=1ef94db8-9e14-453b-b1b1-ff630d18f201/9a7af625-2ec3-4460-a82c-062e3b4cef49.html
+  - html: https://workbench.import.io/html/run=c1cf0ba1-f27b-4710-93e2-189246d90375/task=83412a06-17cd-4996-a04e-244333a6b043/fc56c5a2-e870-45dc-9f32-509f616c65a9.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
@@ -12,6 +12,16 @@ extractions:
             imageAlt:
               - text: BIC Orange Grip Ballpoint Pen Fine 0.3 mm Blue Pack of 20
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
+            alternateImages:
+              - text: https://static.viking.de/is/image/odeu13/%211019298_alt1?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[4]
+              - text: https://static.viking.de/is/image/odeu13/%211019298_alt2?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[5]
+              - text: https://static.viking.de/is/image/odeu13/%211019298_alt3?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[6]
+            metaKeywords:
+              - text: BIC,Orange,Grip,Ballpoint,Pen,Fine,0.3,mm,Blue,Pack,of,20,Writing,&,Drawing,Ballpoint,Pens,Stick
+                xpath: /html/head[1]/meta[5]/@content
             category:
               - text: Writing Instruments
                 xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
@@ -27,6 +37,9 @@ extractions:
             price:
               - text: £9.59
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/main[1]/div[3]/div[2]
             description:
               - text: A timeless design by BIC
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/h2[1]/text()[1]
@@ -50,6 +63,9 @@ extractions:
             brandText:
               - text: BIC
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
+            quantity:
+              - text: 20 Pieces
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
             gtin:
               - text: "3086123009028"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
@@ -59,27 +75,15 @@ extractions:
             variantId:
               - text: "1019298"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[4]/span[1]
+            mpc:
+              - text: "811926"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
             shippingInfo:
               - text: Free delivery on orders over £30
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]
             name:
               - text: BIC Orange Grip Ballpoint Pen Fine 0.3 mm Blue Pack of 20
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[7]
-            technicalInformationPdfPresent:
-              - text: No
-                xpath: /html/body/div[8]
-            alternateImages:
-              - text: https://static.viking.de/is/image/odeu13/%211019298_alt1?
-                xpath: /html/body/div[9]
-          - alternateImages:
-              - text: https://static.viking.de/is/image/odeu13/%211019298_alt2?
-                xpath: /html/body/div[10]
-          - alternateImages:
-              - text: https://static.viking.de/is/image/odeu13/%211019298_alt3?
-                xpath: /html/body/div[11]
             specifications:
               - text: Viking No. 1019298 || EAN/UPC 3086123009028 || Barrel Colour Orange ||
                   Brand BIC || Clip Yes || Contents 20 Pieces || Ink Colour Blue
@@ -89,6 +93,9 @@ extractions:
                   Pen || Qty per Unit 20 || Refillable No || Suitable for
                   Left-handed People Yes || Unit Pack || What's in the box 20 x
                   Ballpoint Pens
-                xpath: /html/body/div[12]
-        xpath: /html/body
-    timestamp: 1605023404944
+                xpath: /html/body/div[4]/main[1]/div[3]/div[7]
+            technicalInformationPdfPresent:
+              - text: No
+                xpath: /html/body/div[4]/main[1]/div[3]/div[3]
+        xpath: /html
+    timestamp: 1605027483138

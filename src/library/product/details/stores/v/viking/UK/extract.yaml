@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: /html
 fields:
 - name: _input
   singleValue: false
@@ -12,23 +12,20 @@ fields:
 - name: _pageTimeStamp
   singleValue: false
 - name: image
-  singleValue: true
   description: URL of the main product image
   xpath: //div[@class="image-viewer__pre-load-image"]//img[@itemprop="image"]/@src
   regExp: (\/\/static.*\?).*
   regExpReplace: https:$1
 - name: imageAlt
-  singleValue: true
   description: Alt text of the main product image
   xpath: //div[@class="image-viewer__pre-load-image"]//img[@itemprop="image"]/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@id='img']
+  xpath: //body//div[@id='alternateImg']
 - name: metaKeywords
-  singleValue: true
   description: The <meta> keywords content
-  xpath: //div[@id="productPage"]//meta[@name="keywords"]/@content
+  xpath: //meta[@name="keywords"]/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
@@ -42,7 +39,6 @@ fields:
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
-  singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
   xpath: //div[@id="productDetailsPanel"]//div[@class="product-price-panel__price-alt-vat"]
@@ -70,10 +66,10 @@ fields:
   singleValue: true
   description: Product manufacturer
 - name: quantity
-  singleValue: true
   description: Quantity as described on the page
+  xpath: //td[text()='Quantity']/following-sibling::td | //td[text()='Contents']/following-sibling::td
+  regExp: ([\S]+(\s?[\S]+)*)
 - name: weightNet
-  singleValue: true
   description: Net weight as described on the page
   xpath: //td[contains(text(),'Weight')]/following-sibling::td
   regExp: ([\S]+(\s?[\S]+)*)
@@ -94,12 +90,14 @@ fields:
     sku
   xpath: //span[@itemprop="sku"]
 - name: mpc
-  singleValue: true
   description: The manufacturer model code (unique) of the product
+  xpath: //td[text()='Manufacturer Part No.']/following-sibling::td
+  regExp: ([\S]+(\s?[\S]+)*)
 - name: packSize
-  singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //td[text()='Packaged Quantity']/following-sibling::td
+  regExp: ([\S]+(\s?[\S]+)*)
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -114,15 +112,12 @@ fields:
   description: The number of ratings
   xpath: //a[@id='productRating']/@data-review-count
 - name: aggregateRatingText
-  singleValue: true
   description: The stated aggregate rating
   xpath: //div[@class="bv-secondary-rating-summary-list bv-table"]//span[@class="bv-off-screen"]
 - name: aggregateRating
-  singleValue: true
   description: The stated aggregate rating normalized to be out of 5
   xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
 - name: shippingInfo
-  singleValue: true
   description: Shipping information for the product
   xpath: //div[@id="productDisplayAdditionalInformation"]//li[contains(text(),'delivery')]
 - name: shippingDimensions
@@ -135,7 +130,6 @@ fields:
   singleValue: true
   description: Number of variants listed
 - name: color
-  singleValue: true
   description: A textual description of the colour
   xpath: //td[contains(text(),'Product Colour')]/following-sibling::td | //td[text()='Colour']/following-sibling::td
   regExp: ([\S]+(\s?[\S]+)*)
@@ -255,9 +249,9 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
-  singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //td[contains(text(),'Ingredients')]/following-sibling::td
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -387,7 +381,6 @@ fields:
   singleValue: true
   description: 
 - name: specifications
-  singleValue: true
   description: The physical dimensions of the product including packaging.
   xpath: //div[@id="specifications"]
 - name: warranty
@@ -421,8 +414,8 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion
-  singleValue: true
   description: promotion text on product page
+  xpath: //div[@class='deal-badge__content']//span
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -471,7 +464,6 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
   xpath: //div[@id='pdfPresent']
 - name: termsAndConditions
   singleValue: true

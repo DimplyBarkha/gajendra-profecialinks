@@ -1,0 +1,103 @@
+input:
+  _url: http://viking-direct.co.uk
+  SKU: 1096807
+extractions:
+  - html: https://workbench.import.io/html/run=c1cf0ba1-f27b-4710-93e2-189246d90375/task=47c0ebee-ca7e-4021-b12d-4859f060a250/ef3f72ae-120a-4bb2-bcde-85986faa1b86.html
+    extractionConfigId: product/details/stores/v/viking/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/1096807?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Plenty Kitchen Rolls The Original One 2 Ply 100 Sheets Pack of 4
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
+            metaKeywords:
+              - text: Plenty,Kitchen,Rolls,The,Original,One,2,Ply,100,Sheets,Pack,of,4,Catering,&,Kitchen,Catering,Equipment,Kitchen
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Cleaning & Catering
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: Catering & Kitchen
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+              - text: Catering & Kitchen Equipment
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/span[1]
+              - text: Kitchen Rolls
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: Plenty Kitchen Rolls The Original One 2 Ply 100 Sheets Pack of 4
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            price:
+              - text: £5.39
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/main[1]/div[3]/div[2]
+            description:
+              - text: Quick and effective cleaning with Plenty
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/h2[1]/text()[1]
+              - text: Keep your kitchen spotless with these reliable white kitchen rolls from
+                  Plenty.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]/text()[1]
+              - text: Does your kitchen get dirty quickly? That will no longer be a problem with
+                  the Original kitchen rolls from Plenty. Their 2-ply material
+                  not only gives them a high rate of absorbency, but also makes
+                  them durable and strong, even when they are wet. This makes
+                  them suitable for cleaning and drying all kinds of surfaces
+                  around your kitchen.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
+              - text: Each pack consists of 4 rolls with 100 sheets per roll, making a total of
+                  400 sheets. Therefore, you can use them freely without having
+                  to replace them frequently. They are made of FSC®-certified
+                  paper, which has been sourced in a socially and
+                  environmentally sustainable manner.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[2]/text()[1]
+            brandText:
+              - text: Plenty
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
+            quantity:
+              - text: 100 Sheets
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            gtin:
+              - text: "7322540981957"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: "1096807"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[4]/span[1]
+            variantId:
+              - text: "1096807"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[4]/span[1]
+            mpc:
+              - text: "8441014"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            packSize:
+              - text: Pack 4
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/@data-review-count
+            shippingInfo:
+              - text: Free delivery on orders over £30
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]
+            color:
+              - text: White
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            name:
+              - text: Plenty Kitchen Rolls The Original One 2 Ply 100 Sheets Pack of 4
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            specifications:
+              - text: Viking No. 1096807 || EAN/UPC 7322540981957 || Brand Plenty || Colour
+                  White || Contents 100 Sheets || Dimensions 26.3 cm ||
+                  Manufacturer Part No. 8441014 || Material Paper || Model
+                  Number The Original One || Number of Layers 2 Ply || Packaged
+                  Quantity Pack 4 || Pack Quantity 4 Pieces 100 Sheets ||
+                  Product Type Kitchen Roll
+                xpath: /html/body/div[4]/main[1]/div[3]/div[4]
+            promotion:
+              - text: -10%
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+                xpath: /html/body/div[4]/main[1]/div[3]/div[3]
+        xpath: /html
+    timestamp: 1605027486512

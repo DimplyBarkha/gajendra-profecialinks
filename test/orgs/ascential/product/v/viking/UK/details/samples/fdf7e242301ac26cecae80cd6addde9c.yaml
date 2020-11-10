@@ -2,7 +2,7 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 1036472
 extractions:
-  - html: https://workbench.import.io/html/run=ba2a9e28-b2a0-41f9-bfc0-73446f2f4c66/task=e7c3900c-b812-45e4-b595-7a7fa11ab9b6/9fd62ad1-655e-40e4-8e4c-18f3a6547b44.html
+  - html: https://workbench.import.io/html/run=c1cf0ba1-f27b-4710-93e2-189246d90375/task=a9702894-5e69-4103-9bdd-6c00198735b9/cdee6319-9259-4092-9776-6b7be1adfac0.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
@@ -13,6 +13,9 @@ extractions:
               - text: Kimberly-Clark Professional Hand Towel Dispenser 8976 Stainless Steel
                   Silver 30.3 x 43.5 x 23 cm
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
+            metaKeywords:
+              - text: Kimberly-Clark,Professional,Hand,Towel,Dispenser,8976,Stainless,Steel,Silver,30.3,x,43.5,23,cm,Cleaning,&,Hygiene,Bathroom,Supplies,Accessories,Paper,Dispensers
+                xpath: /html/head[1]/meta[5]/@content
             category:
               - text: Cleaning & Catering
                 xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
@@ -27,6 +30,9 @@ extractions:
             price:
               - text: £298.80
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/main[1]/div[3]/div[2]
             description:
               - text: Stylish design, exceptional performance
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/h2[1]/text()[1]
@@ -60,6 +66,9 @@ extractions:
             variantId:
               - text: "1036472"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[4]/span[1]
+            mpc:
+              - text: "8976"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
             shippingInfo:
               - text: Free delivery on orders over £30
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]
@@ -70,12 +79,6 @@ extractions:
               - text: Kimberly-Clark Professional Hand Towel Dispenser 8976 Stainless Steel
                   Silver 30.3 x 43.5 x 23 cm
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[7]
-            technicalInformationPdfPresent:
-              - text: No
-                xpath: /html/body/div[8]
             specifications:
               - text: Viking No. 1036472 || EAN/UPC 5027375044052 || Brand Kimberly-Clark
                   Professional || Colour Silver || Dimensions 30.3 (W) x 43.5
@@ -83,6 +86,9 @@ extractions:
                   || Material Stainless Steel || Model Number 8976 || Product
                   Type Hand Towel Dispenser || Unit Each || What's in the box 1
                   x Hand Towel Dispenser
-                xpath: /html/body/div[9]
-        xpath: /html/body
-    timestamp: 1605023437163
+                xpath: /html/body/div[4]/main[1]/div[3]/div[4]
+            technicalInformationPdfPresent:
+              - text: No
+                xpath: /html/body/div[4]/main[1]/div[3]/div[3]
+        xpath: /html
+    timestamp: 1605027484961

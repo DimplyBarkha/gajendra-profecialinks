@@ -17,7 +17,7 @@ module.exports = {
         catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
-        document.body.appendChild(catElement);
+        document.querySelector('body div#productPage').appendChild(catElement);
       }
       const availability = document.querySelector('div#productPage div.product-display__add-to-basket button[title="Add to basket"]') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availability', availability);
@@ -27,7 +27,7 @@ module.exports = {
       const alternateImages = document.querySelectorAll('div#s7viewer_swatches_listbox div.s7thumb');
       for (let i = 1; i < alternateImages.length; i++) {
         const img = alternateImages[i].getAttribute('style').replace(/.*url\("(https.*\?).*/g, '$1');
-        addElementToDocument('img', img);
+        addElementToDocument('alternateImg', img);
       }
       const specifications = document.querySelectorAll('div#contentproductSpecifications tr');
       let specificationsArr = [];
@@ -36,7 +36,8 @@ module.exports = {
       }
       addElementToDocument('specifications', specificationsArr.join(' || '));
     });
-
-    await context.extract(productDetails, { transform });
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    console.log('waiting');
+    return await context.extract(productDetails, { transform });
   },
 };
