@@ -24,10 +24,27 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
             item.text =  Number(item.text);
           });
+        }
+        if (row.reviewCount) {
+            row.reviewCount.forEach(item => {
+              var tmp = item.text.replace('(', '');
+              item.text = tmp.replace(')', '');
+              item.text=parseInt(item.text);
+            });
+          }
+        if (row.image) {
+            row.image.forEach(item => {
+              item.text = 'https://www.iciparisxl.be'+item.text;
+            });
+        }
+        if (row.alternateImages) {
+            row.alternateImages.forEach(item => {
+              item.text = 'https://www.iciparisxl.be'+item.text;
+            });
         }
         if (row.description) {
             let description_ar = [];
@@ -40,7 +57,7 @@ const transform = (data) => {
         }
         if (row.specifications) {
           let specifications_ar = [];
-          row.description.forEach(item => {
+          row.specifications.forEach(item => {
             specifications_ar.push(item.text);
           });
           if (specifications_ar.length) {
@@ -49,19 +66,19 @@ const transform = (data) => {
         }
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-        } 
-        if (row.category) {
-          let info = [];
-          row.category.forEach(item => {
-            info.push(item.text.trim());
-          });
-          if (info.length) {
-            row.category = [];
-            info.forEach(item => {
-              row.category.push({ "text": item});
-            });
-          }
         }
+        if (row.category) {
+            let info = [];
+            row.category.forEach(item => {
+              info.push(item.text.trim());
+            });
+            if (info.length) {
+              row.category = [];
+              info.forEach(item => {
+                row.category.push({ "text": item});
+              });
+            }
+        } 
       }
     }
     return cleanUp(data);

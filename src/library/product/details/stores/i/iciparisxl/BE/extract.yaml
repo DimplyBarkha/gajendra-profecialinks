@@ -2,3 +2,62 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"product-images")]//div[contains(@class,"lg-image-wrapper slick-slide") and position()=1]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"product-images")]//div[contains(@class,"lg-image-wrapper slick-slide") and position()=1]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"product-images")]//div[contains(@class,"lg-image-wrapper slick-slide")]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="breadcrumb-component"]//li[not(contains(position(),1))]//a
+  - name: sku
+    singleValue: false
+    xpath: //fieldset[@id="qtyex"]//input[@name="productCodePost"]/@value
+  - name: variantId
+    singleValue: false
+    xpath: //fieldset[@id="qtyex"]//input[@name="productCodePost"]/@value
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-price"]//span[@id="pricespan"]/p[@class="formatted-price"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="product-price"]//div[@class="pricing"]//div[not(contains(class,'old-price'))]
+  - name: name
+    singleValue: false 
+    xpath: //div[@class="product-heading"]//h1
+  - name: nameExtended
+    singleValue: false 
+    xpath: //div[@class="product-heading"]//h1
+  - name: brandText
+    singleValue: false  
+    xpath: //div[@class="product-heading"]//h1[@class="prod-name"]//span[@class="link-wrapper"]
+  - name: manufacturer
+    singleValue: false  
+    xpath: //div[@class="product-heading"]//h1[@class="prod-name"]//span[@class="link-wrapper"]
+  - name: description
+    singleValue: false
+    xpath: //div[@itemprop="description"]/p
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id="tab-details"]//div[@class="wrap"]//dt |  //div[@id="tab-details"]//div[@class="wrap"]//dd
+  - name: descriptionBullets
+    singleValue: false    
+    xpath: //div[@id="tab-details"]//div[@class="wrap"]//dt |  //div[@id="tab-details"]//div[@class="wrap"]//dd
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class="brand-info"]//a[@class="all-brand-products"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"product-details")]//div[@class="product-rating"]//span[1]
+    defaultValue: 0
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="product-rating"]//meta[@itemprop="ratingValue"]/@content
