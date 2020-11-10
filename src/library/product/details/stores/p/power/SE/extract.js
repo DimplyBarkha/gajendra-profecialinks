@@ -21,6 +21,7 @@ module.exports = {
     }
     try {
       await context.click('#product-information-tabs > div:nth-child(1) > div');
+      //await context.click('#product-information-tabs > div#product-tab-description-panel > div');
     } catch (error) {
       console.log('no specification found');
     }
@@ -40,7 +41,8 @@ module.exports = {
         const htmlDoc = parser.parseFromString(iframeDoc.document.body.innerHTML, 'text/html');
         const videoElements = htmlDoc.querySelectorAll('div.b-video-cover');
         videoElements && videoElements.forEach(item => {
-          addElementToDocument('videoUrls', item.getAttribute('style'));
+          let vidURL = item.getAttribute('style').replace(/(.*) url(\()(.*)(\))/g,'$3')
+          addElementToDocument('videoUrls', vidURL);
         });
         const videoDurations = htmlDoc.querySelectorAll('.video-duration ');
         videoDurations && videoDurations.forEach(item => {
@@ -59,6 +61,18 @@ module.exports = {
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
         await new Promise(resolve => setTimeout(resolve, 3500));
       }
+
+      const xpath = '//iframe[@id="flix-iframe0"]/@src';
+      const videoList = [];
+      const videoSelector = document.evaluate(xpath, document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let index = 0; index < videoSelector.snapshotLength; index++) {
+        const element = videoSelector.snapshotItem(index);
+        let vidURL = element.nodeValue;
+          videoList.push(vidURL);
+        }
+
+      videoList.forEach(element => addElementToDocument('added_videoUrls', element));
+
     });
     try {
       await context.waitForXPath('//div[@id="videoUrls"]');

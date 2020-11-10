@@ -154,9 +154,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id="videoUrls"]
-    regExp: (.*) url(\()(.*)(\))
-    regExpReplace: $3
+    xpath: //div[@id="videoUrls"] | //div[@id="added_videoUrls"]/text()
+    #regExp: (.*) url(\()(.*)(\))
+    #regExpReplace: $3
   - name: name
     singleValue: false
     description: The product name
