@@ -11,16 +11,13 @@ fields:
     xpath: //h1//span[@class="desc-brand"]
   - name: image
     singleValue: false
-    xpath: (//div[@class="galleryWrapper"]//ul//li//img/@src)[1]
+    xpath: (//div[contains(@class,"galleryWrapper")]//ul//li//img/@src)[1]
   - name: imageAlt
     singleValue: false
-    xpath: (//div[@class="galleryWrapper"]//ul//li//img/@alt)[1]
+    xpath: (//div[contains(@class,"galleryWrapper")]//ul//li//img/@alt)[1]
   - name: alternateImages
     singleValue: false
     xpath: //a[@class='alternateImages']/@href
-  - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
   - name: category
     singleValue: false
     xpath: //nav[@class="breadcrumb-container"]//ul//li//a
@@ -44,7 +41,7 @@ fields:
     xpath: count(//div[@class="content"]//div[@class="specs"]//ul//li)
   - name: sku 
     singleValue: false
-    xpath: //link[@rel="canonical"]/@href
+    xpath: //link[@rel="canonical"]/@href | //meta[@property="og:url"]/@content | //button[@aria-label="Save"]/@data-product-id
     regExp: (\/)(\d+)
     regExpReplace: $2
   - name: variantId
@@ -113,7 +110,5 @@ fields:
     description: colour / scent / flavour / other 
   - name: Image360Present
     singleValue: false
-    xpath: //button[@data-thumbtypeindex="main0"]//img//@data-met-type
-    regExp: (spin|3DImage)
-    regExpReplace: Yes
-    defaultValue: No
+    xpath: //div[@class="tile"]/img/@style
+    defaultValue: Yes
