@@ -56,6 +56,10 @@ const transform = (data) => {
         row.imageAlt = [{ text: '' }];
       }
 
+      if (!row.image && row.image1 && row.image1[0]) {
+        row.image = [{ text: row.image1[0].text.replace(/(wid=)(\d)*/g, '$1500').replace(/(hei=)(\d)*/g, '$1500') }];
+      }
+
       if (row.shippingDimensions) {
         row.shippingDimensions.forEach(item => {
           item.text = item.text.replace(/\)\n/g, ') : ').replace(/\n/g, ' | ').trim();

@@ -68,6 +68,9 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@evtperfname,"product-gallery-container")]/hdca-carousel//div[contains(@class,"selected")]//img/@src | //div[contains(@class,"hdca-product__gallery")]/img/@src
+  - name: image1
+    singleValue: false
+    xpath: ((//div[@class="ngu-touch-container"])[2]//img/@src)[1]
   - name: Image360Present
     singleValue: false
     xpath: //div[contains(@class,"zoomableContainer")]//img[contains(@alt,"360 Degree View")]/@alt
