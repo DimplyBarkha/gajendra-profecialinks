@@ -29,8 +29,8 @@ fields:
   - name: promotion
     singleValue: true
     xpath: //div[@class='b-product-tile-price']/span
-    regExp: \- (.+)
-    regExpReplace: $1
+    # regExp: \- (.+)
+    # regExpReplace: $1
   - name: rankOrganic
     singleValue: false
     xpath: //div[@class='b-product-grid-tile-outer js-product-tiles']/div/@data-position
