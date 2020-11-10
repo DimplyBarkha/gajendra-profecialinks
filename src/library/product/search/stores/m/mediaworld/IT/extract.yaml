@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'search-product-list') and contains(@class,'active')]//div[contains(@class,'search-product-list-content') and contains(@class,'display-mode-list active')]//article
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'search-product-list') and contains(@class,'active')]//div[contains(@class,'search-product-list-content') and contains(@class,'display-mode-list active')]//img/@src
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='added-searchurl']
+    #xpath: //form[@data-drupal-selector="search-form"]/@action
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'search-product-list') and contains(@class,'active')]//div[contains(@class,'search-product-list-content') and contains(@class,'display-mode-list active')]//h3[contains(@class,'product-name')]/a/@href
+    regExp: [^(.*)$]
+    regExpReplace: 'https://www.mediaworld.it$1'
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,'search-product-list') and contains(@class,'active')]//div[contains(@class,'search-product-list-content') and contains(@class,'display-mode-list active')]//article/@data-pcode
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'search-product-list') and contains(@class,'active')]//div[contains(@class,'search-product-list-content') and contains(@class,'display-mode-list active')]//article/@data-gtm-price
+    #regExp: [^(.*)$]
+    regExp: ([^\.]*)(\.)(.*)
+    regExpReplace: 'Eur$1,$3'
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'search-product-list') and contains(@class,'active')]//div[contains(@class,'search-product-list-content') and contains(@class,'display-mode-list active')]//h3[contains(@class,'product-name')]
+  - name: brand
+    singleValue: false
+    xpath: //div[contains(@class,'search-product-list') and contains(@class,'active')]//div[contains(@class,'search-product-list-content') and contains(@class,'display-mode-list active')]//article/@data-gtm-brand
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,'search-product-list') and contains(@class,'active')]//div[contains(@class,'display-mode-list active')]//p[@class="product-ratings"]//span/@data-rating
+    regExp: ([^\.]*)(\.)(.?)(.*)
+    regExpReplace: '$1,$3'
+  - name: reviewCount
+    singleValue: false
+    type: NUMBER
+    xpath: //div[contains(@class,'search-product-list') and contains(@class,'active')]//div[contains(@class,'display-mode-list active')]//p[@class="product-ratings"]//span[@class="rating-num"]
+
+
