@@ -32,7 +32,7 @@ fields:
     xpath: //div[@class="wishlist-action nostock"]/@style
   - name: description
     singleValue: false
-    xpath: //div[@id="product-description"]/p[not(contains(@class,"product-number"))]
+    xpath: //div[@id="product-description"]/p[not(contains(@class,"product-number"))] | //div[@id="product-description"]//li | //div[@id="product-description"]/text()
   - name: brandText
     singleValue: false
     xpath: //h2[@id="product-manufacturer"]
@@ -60,10 +60,7 @@ fields:
   - name: name
     singleValue: false
     xpath: //h1[@id="product-title"]
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: //div[contains(@class,"slick-vertical")]//div[@class="slick-track"]/a[@data-zoom-id="pdp-images" and position()>1]/@href
-  - name: variantInformation
+  \- name: variantInformation
     singleValue: false
     xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container" and position()=1]/@title
   - name: imageZoomFeaturePresent
@@ -72,3 +69,15 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: '0'
+  - name: descriptionBullets
+    singleValue: false
+    defaultValue: //div[@id="product-description"]//li
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container" and position()=1]/@title
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container" and position()=1]//input[@type="radio"]/@data-attribute-value-id
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container"]//input[@type="radio"]/@data-attribute-value-id

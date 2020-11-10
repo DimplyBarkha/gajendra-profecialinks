@@ -23,7 +23,7 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      var skuText='';
+      var skuText='';var bText='';var nText='';
       for (let row of group) {
         if(row.price){
           row.price.forEach(item => {
@@ -55,13 +55,6 @@ const transform = (data) => {
             item.text=item.text.replace('(','').replace(')','');
           });
         }
-        if(row.secondaryImageTotal){
-          var tot=0;
-          row.secondaryImageTotal.forEach(item=>{
-            tot++;
-          })
-          row.secondaryImageTotal=[{"text":tot}];
-        }
         if(row.description){
           var info=[];
           row.description.forEach(item=>{
@@ -75,6 +68,34 @@ const transform = (data) => {
             info.push("https://youtu.be/"+item.text);
           });
           row.videos=[{"text":info.join(" | ")}];
+        }
+        if(row.brandText){
+          row.brandText.forEach(item=>{
+            bText=item.text;
+          })
+        }
+        if(row.nameExtended){
+          row.nameExtended.forEach(item=>{
+            nText=item.text;
+          })
+        }
+        if(row.variants){
+          var info=[];
+          row.variants.forEach(item=>{
+            info.push(item.text);
+          })
+          row.variantCount=[{"text":info.length}];
+          row.variants=[{"text":info.join(" | ")}];
+        }
+        if(row.descriptionBullets){
+          var tot=0;
+          row.descriptionBullets.forEach(item=>{
+            tot++;
+          });
+          row.descriptionBullets=[{"text":tot}];
+        }
+        if(bText!=''){
+          row.nameExtended=[{"text":bText+" - "+nText}];
         }
       }
     }
