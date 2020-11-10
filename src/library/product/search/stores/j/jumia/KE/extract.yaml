@@ -1,30 +1,38 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: section.card article.prd
 recordXPath: null
 fields:
   - name: id
     singleValue: false
+    xpath: //a[@class="core"]//@data-id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //h3[@class="name"]
   - name: productUrl
     singleValue: false
+    xpath: //@productUrlId
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[@class="img-c"]/img[@class="img"]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
+    xpath: //@aggrating
   - name: reviewCount
     singleValue: false
+    xpath: //@ratingCount
   - name: ratingCount
     singleValue: false
+    xpath: //@ratingCount
   - name: price
     singleValue: false
+    xptah: //div[@class="prc"]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -34,15 +42,18 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
+    xpath: //@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
+    selector: a.core[data-list="sponsored"]
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER
