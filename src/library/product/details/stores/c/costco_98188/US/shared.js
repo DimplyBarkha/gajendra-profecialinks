@@ -12,7 +12,7 @@ const transform = (data) => {
         var newArray = [];
         var lookupObject = {};
         for (var i in originalArray) {
-          lookupObject[originalArray[i]['text']] = originalArray[i];
+          lookupObject[originalArray[i].text] = originalArray[i];
         }
         for (i in lookupObject) {
           newArray.push(lookupObject[i]);
@@ -21,41 +21,38 @@ const transform = (data) => {
           if (ele.text) {
             bulletsText += '||' + ele.text.trim();
           }
-        })
+        });
         row.additionalDescBulletInfo = [
           {
-            text: bulletsText
-          }
-        ];
+            text: bulletsText,
+          }];
       }
       if (row.descriptionBullets && newArray.length) {
         row.descriptionBullets[0].text = newArray.length;
       }
       if (row.description) {
-          var desc = '';
-          row.description.forEach((ele) => {
-            desc += ' ' + ele.text;
-          })
-          row.description = [
-            {
-              text: bulletsText + ' ' + desc
-            }
-          ] 
+        var desc = '';
+        row.description.forEach((ele) => {
+          desc += ' ' + ele.text;
+        });
+        row.description = [
+          {
+            text: bulletsText + ' ' + desc,
+          }];
       } else if (bulletsText) {
         row.description = [
           {
-            text: bulletsText
-          }
-        ] 
+            text: bulletsText,
+          }];
       }
       if (row.specifications) {
         var specText = '';
         for (var j = 0; j < row.specifications.length; j = j + 2) {
-          specText += row.specifications[j].text + ': ' + row.specifications[j + 1].text + " || ";
+          specText += row.specifications[j].text + ': ' + row.specifications[j + 1].text + ' || ';
         }
         row.specifications = [{
-          text: (specText.slice(0, -3)).trim()
-        }]
+          text: (specText.slice(0, -3)).trim(),
+        }];
       }
     }
   }
