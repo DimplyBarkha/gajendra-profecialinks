@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'ah',
-    nextLinkSelector: null,
+    nextLinkSelector: '.f-load-more button',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'article[data-testhook="product-card"] img',
