@@ -7,5 +7,5 @@ module.exports = {
     transform,
     domain: 'arco.uk',
     zipcode: '',
-  },
-};
+    },
+  };

@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '#results > div:nth-child(1) > div > a:nth-child(1) > div.outer > div > img',
+    loadedSelector: 'div[class = "inner"] > img',
     noResultsXPath: '//div[contains(@class,searchTerms)]/span[contains(text(),"Sorry, your search for ")]',
     openSearchDefinition: {},
     domain: 'arco.uk',
