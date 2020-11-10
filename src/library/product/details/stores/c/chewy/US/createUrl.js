@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'chewy.com',
     prefix: null,
-    url: null,
+    url: 'https://www.chewy.com/s?query={id}',
     country: 'US',
     store: 'chewy',
     zipcode: '',

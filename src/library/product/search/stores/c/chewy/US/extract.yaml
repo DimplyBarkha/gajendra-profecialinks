@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[contains(@class,"results-products")]//article
+fields:
+  - name: productUrl
+    xpath: //article/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.chewy.com$1
+    singleValue: false
+  - name: thumbnail
+    xpath: //section[contains(@class,"results-products")]/article/a/div/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.chewy.com$1 
+    singleValue: false
+  - name: name
+    xpath: //div[@class="content"]/h2//text()
+    singleValue: false
+  - name: price
+    xpath: //p[@class="price"]/strong
+    singleValue: false
+    description: The offered price for the product
+  - name: id
+    xpath: //section//article/@data-id
+    singleValue: false
+    description: Unique id (within this extractor)
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //p[@class="rating item-rating"]//img/@src
+    regExp: rating-(.+).png
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //p[@class="rating item-rating"]/span
+  - name: ratingCount
+    singleValue: false
+    xpath: //p[@class="rating item-rating"]/span
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+    type: BOOLEAN
+    singleValue: false

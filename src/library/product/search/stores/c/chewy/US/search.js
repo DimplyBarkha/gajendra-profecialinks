@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'chewy.com',
-    timeout: 80000,
     country: 'US',
     store: 'chewy',
+    domain: 'chewy.com',
     zipcode: '',
   },
 };

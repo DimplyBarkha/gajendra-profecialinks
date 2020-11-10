@@ -21,7 +21,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //ul//li[@itemprop="itemListElement"][position()>1]/a/span/text()
+    xpath: //ul//li[@itemprop="itemListElement"]/a/span/text()
   - name: nameExtended
     singleValue: false
     xpath: //meta[@property="og:title"]/@content
@@ -42,14 +42,14 @@ fields:
     xpath: //article[@id="descriptions"] | //span[@itemprop="description"]/p | (//span[@class="cw-type__h2"])[1] | //div[@class="cw-tabs__body container"]//ul//li
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@class="cw-tabs__body container"]/ul/li)
+    xpath: count(//section[@class="descriptions__content cw-tabs__content--left"]/ul//li)
     type: NUMBER
   - name: brandText
     singleValue: false
     # xpath: //div[@class="sfw-attribute-buttons"]/@dataattributes   
     # regExp: brand"\W"([^"]+)\W
     # regExpReplace: $1 
-    xpath: (//div[contains(text(),"Brand")]/following-sibling::div/span/text())[2]
+    xpath: //div[contains(text(),"Brand")]//../following-sibling::div//text()
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -59,21 +59,21 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    xpath: //div[contains(text(),"Weight")]/following-sibling::div/span/text()
+    xpath: //div[contains(text(),"Weight")]/following-sibling::div//text()
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    xpath: //div[@class="sfw-attribute-buttons"]/@dataattributes   
-    regExp: gtin"\W"([0-9]+)
-    regExpReplace: $1    
+    # xpath: //div[@class="sfw-attribute-buttons"]/@dataattributes   
+    # regExp: gtin"\W"([0-9]+)
+    # regExpReplace: $1    
   - name: sku
     singleValue: false
     xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: false
-    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //meta[@itemprop="sku"]/@content
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -98,7 +98,9 @@ fields:
   - name: aggregateRatingText
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="ugc ugc-head"]/picture/img
+    xpath: //div[@class="ugc ugc-head"]/picture/img/@aria-label
+    regExp: Rating\W\W([^ ]+)
+    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -110,14 +112,14 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
+    xpath: count(//div[@role="radiogroup"]/div)
     type: NUMBER
   - name: color
     singleValue: false
     description: A textual description of the colour
-  - name: colorCode
+  - name: firstVariant
     singleValue: false
-    description: A code description of the color (e.g. RGB hex)
+    xpath: //div[@role="radiogroup"]/div[1]/@data-qe-id
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
@@ -155,81 +157,10 @@ fields:
     singleValue: false
     description: Amazon best selling rank from product details (linked back) - needs
       to be collapsed
-  - name: salesRankCategory
-    singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
-      to be collapsed
-  - name: subscriptionPrice
-    singleValue: false
-    description: Subscribe and save price
-  - name: subscribeAndSave
-    singleValue: false
-    description: YES/NO
-  - name: heroQuickPromoHeadline
-    singleValue: false
-    description: See image - top section hero area
-  - name: heroQuickPromoImageUrl
-    singleValue: false
-    description: null
-  - name: heroQuickPromoUrl
-    singleValue: false
-    description: null
-  - name: pasin
-    singleValue: false
-    description: Parent asin
-  - name: videoLength
-    singleValue: false
-    description: null
-  - name: ingredientImagePresent
-    singleValue: false
-    description: null
-  - name: factImagePresent
-    singleValue: false
-    description: null
-  - name: largeImageCount
-    singleValue: false
-    description: null
-    type: NUMBER
-  - name: variantAsins
-    singleValue: false
-    description: null
-  - name: primeFlag
-    singleValue: false
-    description: null
-  - name: lbb
-    singleValue: false
-    description: Check Lost by Box Requirements (just for Amazon and a couple of
-      other stores) - LBB occurs when a product is bought from someone other
-      than Amazon (on Amazon Website) - even though Amazon has the product "in
-      Stock"
-  - name: lbbPrice
-    singleValue: false
-    description: null
-  - name: featureBullets
-    singleValue: false
-    description: null
-  - name: otherSellersName
-    singleValue: false
-    description: null
-  - name: otherSellersPrice
-    singleValue: false
-    description: null
-  - name: otherSellersShipping
-    singleValue: false
-    description: null
   - name: secondaryImageTotal
     singleValue: false
-    description: null
+    xpath: count(//a[@data-zoom-id="Zoomer"][position()>1]/@href)
     type: NUMBER
-  - name: news
-    singleValue: false
-    description: null
-  - name: addonItem
-    singleValue: false
-    description: null
-  - name: fastTrack
-    singleValue: false
-    description: null
   - name: ingredientsList
     singleValue: false
     xpath: //span[@class="cw-type__h2 Ingredients-title"]/../p[1]/text()
@@ -245,34 +176,28 @@ fields:
     type: NUMBER
   - name: caloriesPerServing
     singleValue: false
-    description: Nutritional Information for Calories Per Serving content - Usually
-      based on per 100g serving
+    xpath: //span[contains(text(),"Caloric Content")]/following-sibling::p
+    regExp: (^(?:\S+\s+\n?){1,1})
+    regExpReplace: $1
   - name: caloriesFromFatPerServing
     singleValue: false
-    description: Nutritional Information for Calories From Fat content - Usually
-      based on per 100g serving
-    type: NUMBER
   - name: totalFatPerServing
     singleValue: false
-    description: Nutritional Information for Total Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //td[contains(text(),"Fat")]/following-sibling::td
+    regExp: (.+)\s
+    regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Fat content
+    xpath: //td[contains(text(),"Fat")]/following-sibling::td
+    regExp: \s(.+)min
+    regExpReplace: %
   - name: saturatedFatPerServing
     singleValue: false
-    description: Nutritional Information for Saturated Fat content - Usually based
-      on per 100g serving
-    type: NUMBER
   - name: saturatedFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
     singleValue: false
-    description: Nutritional Information for Trans Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
   - name: transFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Trans Fat content
@@ -286,52 +211,48 @@ fields:
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: false
-    description: Nutritional Information for Sodium content - Usually based on per
-      100g serving
-    type: NUMBER
   - name: sodiumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    description: Nutritional Information for Total Carbohydrate content - Usually
-      based on per 100g serving
-    type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     singleValue: false
-    description: Nutritional Information for Dietary Fibre content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath:  //td[contains(text(),"Fiber")]/following-sibling::td
+    regExp: (.+)\s
+    regExpReplace: $1
   - name: dietaryFibrePerServingUom
     singleValue: false
-    description: Unit of Measure Data for Dietary Fibre content
+    xpath:  //td[contains(text(),"Fiber")]/following-sibling::td
+    regExp: (.+)
+    regExpReplace: %
   - name: totalSugarsPerServing
     singleValue: false
-    description: Nutritional Information for Total Sugar content - Usually based on
-      per 100g serving
-    type: NUMBER
   - name: totalSugarsPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: false
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //td[contains(text(),"Protein")]/following-sibling::td
+    regExp: (.+)\s
+    regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Protein
+    xpath: //td[contains(text(),"Protein")]/following-sibling::td
+    regExp: (.+)
+    regExpReplace: %
   - name: vitaminAPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin A content - Usually based on
-      per 100g serving
+    xpath: //td[contains(text(),"Vitamin A")]/following-sibling::td
     type: NUMBER
   - name: vitaminAPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Vitamin A
+    xpath: //td[contains(text(),"Vitamin A")]/following-sibling::td
+    regExp: \s(.+)min
+    regExpReplace: $1
   - name: vitaminCPerServing
     singleValue: false
     description: Nutritional Information for Vitamin C content - Usually based on
@@ -342,12 +263,12 @@ fields:
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
     singleValue: false
-    description: Nutritional Information for Calcium content - Usually based on per
-      100g serving
+    xpath: //td[contains(text(),"Calcium")]/following-sibling::td
     type: NUMBER
   - name: calciumPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Calcium
+    xpath: //td[contains(text(),"Calcium")]/following-sibling::td
+
   - name: ironPerServing
     singleValue: false
     description: Nutritional Information for Iron content - Usually based on per
@@ -413,7 +334,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    description: promotion text on product page
+    xpath: concat(//li[@class='you-save']/p/text(),'', //p[@class='price']/text())
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
@@ -431,26 +352,20 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
-    description: colour / scent / flavour / other
+    xpath: //label[contains(text(),"Size")]/following-sibling::span/text()
   - name: variants
     singleValue: false
-    description: null
+    xpath: //div[@role="radiogroup"]/div/@data-qe-id
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null
+    xpath: //section[@class="descriptions__content cw-tabs__content--left"]/ul//li
   - name: prop65Warning
     singleValue: false
     description: null
   - name: ageSuitability
     singleValue: false
-    description: Recommended age displayed on the product page.
-      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
-    example: 4 - 99 years
   - name: energyEfficiency
     singleValue: false
-    description: Energy rating of a product.
-      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    example: A+, A+++, B
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //li[@class="rx-attachments__item js-rx-pdf"]/a/@href
