@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'arco',
-    nextLinkSelector: '#topBar > div.pagination.clearfix > ul',
+    nextLinkSelector: "li > a > span[class= 'icon-arrow-right']",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
