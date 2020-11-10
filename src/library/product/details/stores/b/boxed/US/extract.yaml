@@ -16,18 +16,15 @@ fields:
   singleValue: true
   description: URL of the main product image
   xpath: //img[contains(@alt, 'image 1')]/@src | (//a/img[contains(@class, 'ca5-less')]/@src)[1] 
-  regExp: \/\/(.*)
-  regExpReplace: $1
+  regExp: https.*
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: $x('//img[contains(@alt, "image 1")]/@alt | (//a/img[contains(@class, "ca5-less")]/@alt)[1] ')
+  xpath: //img[contains(@alt, "image 1")]/@alt | (//a/img[contains(@class, "ca5-less")]/@alt)[1]
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: (//img[contains(@alt, 'image')]/@src)[position() > 1]
-  regExp: \/\/(.*)
-  regExpReplace: $1
+  xpath: //div[contains(@id, 'addedImage')]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content

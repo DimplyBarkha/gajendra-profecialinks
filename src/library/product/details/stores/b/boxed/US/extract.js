@@ -18,7 +18,11 @@ module.exports = {
       const productDetails = document.querySelector('a[data-tab-key="productDetails"]');
       // @ts-ignore
       if (productDetails) productDetails.click();
+    });
 
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    await context.evaluate(async function () {
       function addElementToDocument (id, value, key) {
         const catElement = document.createElement('div');
         catElement.id = id;
@@ -67,6 +71,20 @@ module.exports = {
         addElementToDocument('isAvailable', 'Out of Stock', 'No');
       } else {
         addElementToDocument('isAvailable', 'In Stock', 'Yes');
+      }
+
+      const allImages = document.querySelectorAll("div>a[aria-label*='Slide']");
+      if (allImages.length) {
+        for (let i = 0; i < allImages.length; i++) {
+          // @ts-ignore
+          allImages[i].click();
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          if (i !== 0) {
+            const regex = /https.*/;
+            const currentImage = document.querySelector(`div[data-index='${i}'] img[alt*='Product image']`);
+            addElementToDocument(`addedImage${i}`, currentImage.getAttribute('src').match(regex)[0]);
+          }
+        }
       }
     });
 
