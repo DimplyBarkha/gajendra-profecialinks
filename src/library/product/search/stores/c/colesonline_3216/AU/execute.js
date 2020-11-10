@@ -4,14 +4,10 @@ async function implementation (
   context,
   dependencies,
 ) {
-  let { url, id } = inputs;
-  if (!url) {
-    if (!id) {
-      throw new Error('no id provided');
-    }
-    url = await dependencies.createUrl({ id });
-  }
-  // await dependencies.goto({ url, zipcode, storeId });
+  console.log('params', parameters);
+  let url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  // await dependencies.goto({ url, zipcode: inputs.zipcode });
+  // -------------Search--------------------------
   const timeout = parameters.timeout ? parameters.timeout : 10000;
   await context.setBlockAds(false);
   await context.setLoadAllResources(true);
@@ -30,7 +26,7 @@ async function implementation (
   await context.waitForSelector("input[id*='localisation-search']");
   await context.setInputValue("input[id*='localisation-search']", 'WAURN PONDS, 3216');
   await context.waitForSelector("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)");
-  await context.clickAndWaitForNavigation("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", {}, { timeout: 60000 });
+  await context.clickAndWaitForNavigation("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", {}, { timeout: 20000 });
   await context.waitForSelector("input[id*='localisation-search']", { timeout: 20000 });
   await new Promise((resolve) => setTimeout(resolve, 2000));
   // ------------- GoTo requried URL --------------
@@ -46,34 +42,30 @@ async function implementation (
     waitUntil: 'load',
     checkBlocked: false,
   });
-  await new Promise((resolve) => setTimeout(resolve, 6000));
-  const link = await context.evaluate(() => {
-    const link = document.querySelector("section[id*='product-list'] a[class*='product-image-link']") ? document.querySelector("section[id*='product-list'] a[class*='product-image-link']").getAttribute('href') : '';
-    return link;
-  });
-  console.log('Link:::', link);
-  await context.goto('https://shop.coles.com.au' + link, {
-    firstRequestTimeout: 60000,
-    timeout: 60000,
-    waitUntil: 'load',
-    checkBlocked: false,
-  });
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-
-  // TODO: Check for not found?
+  console.log('Checking no results', parameters.noResultsXPath);
+  return await context.evaluate(function (xp) {
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return !e;
+  }, parameters.noResultsXPath);
 }
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'product/search/execute',
   parameterValues: {
     country: 'AU',
     store: 'colesonline_3216',
     domain: 'shop.coles.com.au',
-    loadedSelector: 'div[class*="product-hero-image-container"] img',
-    noResultsXPath: "//h1[contains(@class,'error-heading')] | //nav[not(contains(@class,'ng-hide'))]//ol[contains(@id,'tablist')]//li",
+    url: 'https://shop.coles.com.au/a/waurn-ponds/everything/search/{searchTerms}?pageNumber=1',
+    loadedSelector: "section[id*='product-list']",
+    noResultsXPath: "//span[contains(@id,'emptyCatalogEntryList')] | //h1[contains(@class,'heading-error-404')] | //div[contains(@class,'error-wrapper')]",
     zipcode: '',
   },
   implementation,
