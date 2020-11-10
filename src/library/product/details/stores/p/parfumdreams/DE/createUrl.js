@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'en.parfumdreams.de',
     prefix: null,
-    url: 'https://en.parfumdreams.de/Jovan/Mens-fragrances/Musk-For-Men/Aftershave/index_51521.aspx',
+    url: null,
     country: 'DE',
     store: 'parfumdreams',
     zipcode: '',

@@ -3,6 +3,35 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: name
+    singleValue: true
+    xpath: //div[@class='c d-7 p-l-12']
   - name: description
     singleValue: true
-    xpath: //span[@class="productDetails-name"] | //div[@class="content content--productDescription"]
+    xpath: //p[@itemprop='description']  
+  - name: price
+    singleValue: true
+    xpath: //div[@class='font-headline mbs05']/text()
+    regExp: (€.+)\*
+    regExpReplace: $1
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class='line font-headline-sub no-wrap']/text()
+  - name: image
+    singleValue: true
+    xpath: //img[@role='presentation']/@src
+  - name: manufacturer
+    singleValue: true
+    xpath: //h1[@class='hide-text']
+  - name: sku
+    singleValue: true
+    xpath: //div[@id='articlenumberDiv']
+  - name: aggregateRating
+    singleValue: true
+    xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div/div[2]/div/a/text()
+  - name: category
+    singleValue: false
+    xpath:  //*[contains(concat( " ", @class, " " ), concat( " ", "breadcrumb", " " ))]
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@class='font-headline description mbs1']
