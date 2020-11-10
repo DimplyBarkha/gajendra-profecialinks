@@ -34,13 +34,13 @@ fields:
     singleValue: true
     xpath: //*[normalize-space(text())="Allergie-Informationen"]/following-sibling::*[1]
   - name: warnings
-    xpath: //div[@id="productDescription"]/p[preceding-sibling::h3[1][normalize-space(text())="Warnhinweise"]] | //div[@id="productDescription"]/p[starts-with(normalize-space(text()),"Zur Kontrolle")]
+    xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Warnhinweise"]] | //p[starts-with(normalize-space(text()),"Zur Kontrolle")]
   - name: shippingInfo
     xpath: //a[@id="sellerProfileTriggerId"]/parent::* | //div[@id="merchant-info"]
   - name: coupon
     xpath: //div[@id="unclippedCouponSns"]//label
   - name: ingredientsList
-    xpath: //div[@id="productDescription"]/p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Inhaltsstoffe") or contains(normalize-space(text()),"Zutaten")]]
+    xpath: //p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Inhaltsstoffe") or contains(normalize-space(text()),"Zutaten")]]
   - name: ingredientsListFallback
     xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Bestandteile')]/p
   - name: storage
@@ -48,7 +48,7 @@ fields:
     xpath: //*[contains(text(),"Aufbewahrung")]/following-sibling::*[1]
   - name: directions
     singleValue: false
-    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/p
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/p[not(normalize-space(.)="")] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/div[@class="TabPanel"]
   - name: legalDisclaimer
     singleValue: false
     xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Haftungsausschluss')]/p

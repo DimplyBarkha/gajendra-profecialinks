@@ -137,6 +137,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
           await context.setInputValue('#GLUXZipUpdateInput', zipcode);
           await context.click('#GLUXZipUpdate > span > input');
           await context.reload();
+          await new Promise(resolve => setTimeout(resolve, 2000));
           page = await pageContextCheck(await pageContext());
           await handlePage(page, null);
         }

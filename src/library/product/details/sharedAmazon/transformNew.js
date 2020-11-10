@@ -181,15 +181,15 @@ const transform = (data, context) => {
           row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
         }
       }
-      if (row.otherSellersPrime) {
-        row.otherSellersPrime.forEach(item => {
-          if (item.text.match(/details/i)) {
-            item.text = 'YES';
-          } else {
-            item.text = 'NO';
-          }
-        });
-      }
+      // if (row.otherSellersPrime) {
+      //   row.otherSellersPrime.forEach(item => {
+      //     if (item.text.match(/details/i)) {
+      //       item.text = 'YES';
+      //     } else {
+      //       item.text = 'NO';
+      //     }
+      //   });
+      // }
       // if (row.availabilityText && row.availabilityText[0]) {
       //   row.availabilityText = [
       //     {
@@ -201,21 +201,21 @@ const transform = (data, context) => {
       //   row.availabilityText = [{ text: 'Out of stock' }];
       // }
 
-      if (row.otherSellersShipping2) {
-        row.otherSellersShipping2 = row.otherSellersShipping2.map(item => {
-          if (item.text.includes('+ $')) {
-            const regex = /\$([0-9.]{3,})/s;
-            const mtch = item.text.match(regex);
-            return { text: mtch && mtch[1] ? item.text.match(regex)[1] : '0.00' };
-          }
-          return { text: '0.00' };
-        });
-      }
-      if (row.primeFlag) {
-        row.primeFlag = [{ text: 'Yes - Shipped and Sold' }];
-      } else {
-        row.primeFlag = [{ text: 'NO' }];
-      }
+      // if (row.otherSellersShipping2) {
+      //   row.otherSellersShipping2 = row.otherSellersShipping2.map(item => {
+      //     if (item.text.includes('+ $')) {
+      //       const regex = /\$([0-9.]{3,})/s;
+      //       const mtch = item.text.match(regex);
+      //       return { text: mtch && mtch[1] ? item.text.match(regex)[1] : '0.00' };
+      //     }
+      //     return { text: '0.00' };
+      //   });
+      // }
+      // if (row.primeFlag) {
+      //   row.primeFlag = [{ text: 'Yes - Shipped and Sold' }];
+      // } else {
+      //   row.primeFlag = [{ text: 'NO' }];
+      // }
       if (row.ingredientsList) {
         row.ingredientsList = [{ text: row.ingredientsList.map(item => `${item.text}`).join(' ') }];
       }
@@ -323,7 +323,7 @@ const transform = (data, context) => {
         if (!row.videos || row.videos[0].text === '') {
           row.videos = row.manufacturerVideos;
         } else {
-          row.videos = [...row.videos, row.manufacturerVideos];
+          row.videos = row.videos.concat(row.manufacturerVideos);
         }
         delete row.manufacturerVideos;
       }
