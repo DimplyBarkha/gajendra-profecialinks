@@ -4,12 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'bcc',
-    nextLinkSelector: '.pagination li.active + li a',
+    nextLinkSelector: null,
     mutationSelector: null,
-    spinnerSelector: '#global-loading-indicator[style="display: none;"]',
-    loadedSelector: '.products-container',
+    spinnerSelector: null,
+    loadedSelector: null,
     noResultsXPath: '//div[@class=\'no-search-results\']',
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.bcc.nl/?search={searchTerms}&index={page}',
+    },
     domain: 'bcc.nl',
     zipcode: '',
   },
