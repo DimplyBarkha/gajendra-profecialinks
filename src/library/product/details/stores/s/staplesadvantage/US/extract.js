@@ -29,6 +29,10 @@ async function implementation (inputs, parameters, context, dependencies) {
         document.querySelector('div.ccs-cc-inline-embedded-video').click();
       }
     });
+
+    // set promises to get videoLength and to extract data (redirecton with extract give an error)
+
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     // extract data in iframe
 
     await context.extract(productDetails);

@@ -25,11 +25,11 @@ fields:
   xpath: (//meta/@content)[1]
 - name: category
   singleValue: false
-  xpath: //div[@id='breadcrumbs_container']/ol/
+  xpath: //div[@id='breadcrumbs_container']/ol
 - name: nameExtended
   singleValue: true
   xpath: //h1[@id='product_title']
-  regExp: ^.*(?=(, ))
+  regExp: '^.*(?=(, ))'
 - name: listPrice
   singleValue: true
   xpath: //span[@class='price-info__originalPrice']
@@ -63,8 +63,7 @@ fields:
 - name: sku
   singleValue: true
   xpath: //h1[@id='product_title']
-  regExp: \((.*?)\)
-  regExpReplace: $1
+  regExp: '\((.*?)\)'
 - name: variantId
   singleValue: true
 - name: mpc
@@ -84,16 +83,15 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
-  xpath: //div[@class='review-snapshot-ux2dot0__review_section']/descendant::span[@class='rating__review_link']
-  regExp: (.+)?( Reviews|No reviews*.)
+  xpath: //div[@class='review-snapshot-ux2dot0__review_block']/descendant::span[@class='rating__reviewLinkWrapper rating__review_link rating__textDecoration']
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
-  xpath: //div[@class='review-snapshot-ux2dot0__review_section']/descendant::span[@class='rating__review_link']
+  xpath: //span[@class='rating__rating_label']
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //span[@class='ReviewStyles__average_Rating_count']
+  xpath: //span[@class='rating__rating_label']
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -131,7 +129,7 @@ fields:
   singleValue: true
   description: The product name
   xpath: //h1[@id='product_title']
-  regExp: ^.*(?=(, ))
+  regExp: '^.*(?=(, ))'
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
