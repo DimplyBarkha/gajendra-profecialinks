@@ -139,6 +139,40 @@ module.exports = {
         addElementToDocument('properrating', newRating);
       }
     });
+
+    //production fixes
+    try{
+      await context.evaluate(()=>{
+        document.querySelector('.mlayout_footer').scrollIntoView({ behavior:"smooth" });
+      })
+      await context.waitForSelector('#flix-inpage img');
+    }catch(err){
+      console.log('No enhanced content');
+    }
+    await context.evaluate(()=>{
+      //@ts-ignore
+      let carousel = [...document.querySelectorAll('div[id*=carouselcatalog] li img')];
+      let videoLinks=[];
+      for(let i=0;i<carousel.length;i++)
+      if(carousel[i].getAttribute('src').search('youtube') != -1){
+        videoLinks.push(carousel[i].getAttribute('src'));
+      }
+      //@ts-ignore
+      videoLinks = [...new Set(videoLinks)];
+      let videoCodes=[];
+      for(let i=0;i<videoLinks.length;i++){
+        videoLinks[i] = videoLinks[i].match(/vi\/(.+)\//g);
+        videoCodes.push(videoLinks[i][0].split('/')[1])
+      }
+      //@ts-ignore
+      videoCodes = [...new Set(videoCodes)];
+      let videoSrc=[]
+      for(let i=0;i<videoCodes.length;i++){
+        videoSrc[i]='https://www.youtube.com/watch?v='+videoCodes[i]
+      }
+      let videoAppend = videoSrc.join(' | ');
+      document.querySelector('body').setAttribute('video-src', videoAppend)
+    })
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform: transformParam });
   },

@@ -166,12 +166,13 @@ fields:
       description: The extended description of the product supplied by the lister
       xpath: //*[@id="manufacturerDescription"] | //div[@id='inpage_container']
     - name: manufacturerImages
-      singleValue: true
       description: Images within the third party description
-      xpath: //*[@id="manufacturerImages"] | //div[@id='inpage_container']//img/@src
-    # - name: videos
-    #   singleValue: false
-    #   description: URLs of videos on page
+      xpath: //*[@id="manufacturerImages"] | //div[@id='inpage_container']//img/@data-flixsrcset
+      regExp: (.+)\s200w
+      regExpReplace: https:$1
+    - name: videos
+      description: URLs of videos on page
+      xpath: //iframe[contains(@id,"flix-iframe")]/@src | //body/@video-src
     - name: name
       singleValue: true
       description: The product name
