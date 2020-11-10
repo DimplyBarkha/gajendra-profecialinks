@@ -61,7 +61,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//div[@class="product-price  st-price "]/span/span)[1] | (//span[@class="price-sales "]/span)[1]
+    xpath: //html//div[@id='price']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -97,7 +97,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //span[@class="brand-name"]/a
+    # xpath: //span[@class="brand-name"]/a
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -119,7 +119,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@data-bv-show="rating_summary"]/@data-bv-productid
+    xpath: //span[@id="masterid"]/@data-masterid
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -159,7 +159,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class="brand-content-body text show-for-medium"]/p
+    xpath: //div[@class="description-content"]/p/text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -180,7 +180,7 @@ fields:
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
-    xpath: //html//div[@id='altImages']
+    # xpath: //html//div[@id='altImages']
   - name: amazonChoice
     singleValue: true
     description: YES or Blank
@@ -456,6 +456,7 @@ fields:
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
+    xpath: //html//div[@id='ppuu']
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -478,7 +479,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //html//div[@id='info']
+    xpath: (//ul[@class="display-name display-name-size no-bullet"]/li[@class="selected default"]/a/@title) | (//p[@class="selected-value-name-wrapper"]/span/text())
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of

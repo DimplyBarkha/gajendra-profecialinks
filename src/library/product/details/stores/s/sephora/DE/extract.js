@@ -48,30 +48,47 @@ async function implementation(
       else result = elem ? elem.singleNodeValue : '';
       return result && result.trim ? result.trim() : result;
     };
+
+
+
     var coupon_str = getXpath("//p[@class='banner-description']/text()", 'nodeValue');
     if(coupon_str != null){
       var coupon = coupon_str.split(": ")[1];
     addElementToDocument('altImages', coupon);
     }
     
-    var ppu = getAllXpath("//div[@class='price-block-right']/div[@class='unit-price']/span/text()", 'nodeValue')
+    var ppu = getXpath("//div[@class='price-block-right']/div[@class='unit-price']/span[@class='unit']/text()", 'nodeValue')
     // .toString()).replace(/(\r\n|\n|\r)/gm, " ")).replace(" € * , / , ", "/");
     if (ppu != null){
-      var pp = (ppu.toString()).replace(/(\r\n|\n|\r)/gm, " ").replace(" € * , / , ", "/");
+      var pp = ppu.split(" ")[0];
+      pp = ppu.replace(",",".");
+      // var pp = (ppu.toString()).replace(/(\r\n|\n|\r)/gm, " ").replace(" € * , / , ", "/");
       // var pp = pp.substring(0, pp.length - 3);
       addElementToDocument('ppu', pp);
     }
+
+    var ppuu = getXpath('(//span[@class="variation-title bidirectional"])[1]/text()', 'nodeValue')
+    if ( ppuu != null){
+      if(ppuu.includes("ml")){
+        ppuu = ppuu.slice(-2);
+        addElementToDocument('ppuu', ppuu);
+       }
+    }
+    
+
     
     var promotion = getXpath("//div[@class='product-flag']/div/span/text()", 'nodeValue')
     if (promotion != null){
-      promotion = promotion.split(" ")[1];
+      promotion = promotion.replace(" ","")
+      // promotion = promotion.split(" ")[1];
       addElementToDocument('promotion', promotion);
     }
     
 
-    var lisPri = getXpath('(//div[@class="product-price  st-price "]/span/span)[1]/text() | (//span[@class="price-sales "]/span)[1]/text()', 'nodeValue');
+    var lisPri = getXpath('(//span[@class="price-standard"])[1]/text() | //span[@class="price-sales price-sales-standard"]/span/text()', 'nodeValue');
     if (lisPri != null){
-      var lis = (lisPri.split(" ")[0]).replace(",","");
+      var lis = lisPri.split(" ")[0].replace(",",".")
+      // var lis = (lisPri.split(" ")[0]).replace(",","");
       // var lis = lisPri.replace(".","");
       addElementToDocument('lisPri', lis);
     }
@@ -96,12 +113,26 @@ async function implementation(
 
 
     //nameExtended ( product description )
-    var first = getXpath("//span[@class='product-name product-name-bold']/text()", 'nodeValue');
-    var second = getXpath('//div[@class="description-container"]/span/text()', 'nodeValue');
-    var third = getXpath('//div[@class="description-container"]/span[@class="more-ellipses"]/text()', 'nodeValue');
-    var fourth = getXpath('//div[@class="description-container"]/a/text()', 'nodeValue');
-    var final = first+"\n"+second+" "+third+"\n"+fourth;
-    addElementToDocument('nameExt', final);
+    var first = getXpath('//span[@class="brand-name"]/a/text()', 'nodeValue');
+    var second = getXpath('//span[@class="product-name product-name-bold"]/text()', 'nodeValue');
+    
+    // var third = getXpath('//div[@class="description-container"]/span[@class="more-ellipses"]/text()', 'nodeValue');
+    // var fourth = getXpath('//div[@class="description-container"]/a/text()', 'nodeValue');
+    // var final = first+"\n"+second+" "+third+"\n"+fourth;
+    if(first != null)
+    {
+      if(second != null){
+        var final = first+" "+second;
+        addElementToDocument('nameExt', final);
+      }
+    }
+    
+    //price
+    var price = getXpath('(//div[@class="product-price  st-price "]/span/span)[1]/text() | (//span[@class="price-sales "]/span/text())[1]', 'nodeValue');
+    if ( price != null){
+      price = price.replace(",",".");
+      addElementToDocument('price', price);
+    }
 
     // var manu_image = getAllXpath('//div[@class="brand-content-image"]/img/@src', 'nodeValue');
 
