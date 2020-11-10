@@ -26,6 +26,9 @@ async function implementation (inputs, parameters, context, dependencies) {
       await context.evaluate(() => {
         const manufacturer = document.querySelectorAll('.marca');
         const price = document.querySelectorAll('.priceContainer');
+        const productUrlAll = document.querySelectorAll('a.productMainLink.productTooltipClass');
+        let productUrl;
+        let productUrlIteration;
         let priceIteration;
         let manufacturerIteration;
         let words;
@@ -38,6 +41,18 @@ async function implementation (inputs, parameters, context, dependencies) {
           priceIteration = priceIteration.replace(/\s\s+/g, '');
           priceIteration = priceIteration.replace('Unidad', '');
 
+          document.querySelectorAll('.priceContainer')[i].setAttribute('price', priceIteration);
+
+          productUrlIteration = productUrlAll[i].href;
+
+          if (productUrlIteration.includes('https://www.alcampo.es/')) {
+            productUrl = productUrlIteration;
+          } else {
+            productUrl = 'https://www.alcampo.es/' + productUrlIteration;
+          };
+
+          document.querySelectorAll('a.productMainLink.productTooltipClass')[i].setAttribute('productUrl', productUrl);
+
           manufacturerIteration = manufacturer[i].textContent;
           manufacturerIteration.replace(/\s\s+/g, '');
           words = manufacturerIteration.match(/([\w+]+)/g);
@@ -48,10 +63,10 @@ async function implementation (inputs, parameters, context, dependencies) {
             manufacturerIteration = words[0] + ' ' + words[1];
           };
 
-          document.querySelectorAll('.priceContainer')[i].setAttribute('price', priceIteration);
+          document.querySelectorAll('.marca')[i].setAttribute('manufacturer', manufacturerIteration);
+
           document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rank', `${i + 1}`);
           // @ts-ignore
-          document.querySelectorAll('.marca')[i].setAttribute('manufacturer', manufacturerIteration);
           document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rankorganic', `${i + 1}`);
         };
       });
