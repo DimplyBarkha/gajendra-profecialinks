@@ -165,7 +165,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1[@class="col-xs-12 main-page-header"]
+    xpath: //h1[@class="col-xs-12 main-page-header"]/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store

@@ -8,7 +8,7 @@ module.exports = {
     domain: 'uk.rs-online.com',
     zipcode: '',
   }, 
- implementation,
+
 };
 async function implementation(
   inputs,
