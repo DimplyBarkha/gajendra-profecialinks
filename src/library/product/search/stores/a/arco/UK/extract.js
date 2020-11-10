@@ -8,4 +8,14 @@ module.exports = {
     domain: 'arco.uk',
     zipcode: '',
   },
+implementation: async function (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
+},
 };
