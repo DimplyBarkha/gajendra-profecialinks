@@ -37,7 +37,7 @@ module.exports = {
   parameterValues: {
     country: 'CO',
     store: 'alkosto',
-    transform: null,
+    transform: transform,
     domain: 'alkosto.com',
     zipcode: '',
   },
