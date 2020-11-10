@@ -1,0 +1,294 @@
+input:
+  keywords: bolest
+  _url: http://pilulka.cz
+extractions:
+  - html: https://workbench.import.io/html/run=5d5d78f1-3593-40d4-87b5-523185a893ab/task=0100553b-061c-449b-b2ea-29038a2c464d/8420905a-d95d-4e2d-9dcf-056b453584e7.html
+    extractionConfigId: product/search/stores/p/pilulka/CZ/extract
+    data:
+      - group:
+          - id:
+              - text: "246357"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-400-400mg-tbl-flm-24
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2019-12/1576503580-1556779970-1544455544-gmid332422-box-ibalgin-400mg-24tbl-box-cz-59247-s-tabletou-p.jpg?v=1582797241&d=x160&p=246357
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[1]/@rating
+                type: STRING
+            reviewCount:
+              - text: "28"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "28"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 59 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[3]/span[1]
+          - id:
+              - text: "241628"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-400-tbl-flm-48x400mg
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2019-12/1576509407-1544455364-gmid534767-box-ibalgin-400mg-48tbl-box-s-tabletou-cz-59258-p.jpg?v=1582797241&d=x160&p=241628
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[2]/@rating
+                type: STRING
+            reviewCount:
+              - text: "36"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "36"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 89 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[2]/div[1]/div[3]/span[1]
+          - id:
+              - text: "241423"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-400-400mg-tbl-flm-100
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2018-12/1544442775-ibalgin400tbl100.jpg?v=1582796829&d=x160&p=241423
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[3]/@rating
+                type: STRING
+            reviewCount:
+              - text: "43"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "43"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 169 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[3]/div[1]/div[3]/span[1]
+          - id:
+              - text: "241627"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[4]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-rapidcaps-400mg-cps-mol-20
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[4]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2018-12/1544526344-gmid-552061-box-ib-rapidcaps-20cps-89032814-s-kapsli-p.jpg?v=1582796829&d=x160&p=241627
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[4]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "4.9"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[4]/@rating
+                type: STRING
+            reviewCount:
+              - text: "18"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "18"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 99 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[4]/div[1]/div[3]/span[1]
+          - id:
+              - text: "246279"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[5]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-rapidcaps-400mg-cps-mol-30x400mg
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[5]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2019-12/1576509351-1544537196-gmid-707007-box-ibalgin-rapidcaps-30cps-89033030-s-kapsli-p.jpg?v=1582797241&d=x160&p=246279
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[5]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[5]/@rating
+                type: STRING
+            reviewCount:
+              - text: "66"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "66"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 119 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[5]/div[1]/div[3]/span[1]
+          - id:
+              - text: "253042"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[6]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-rapidcaps-200mg-cps-mol-24
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[6]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2019-01/1548610816-ibalgin-rapidcaps-200mg-24tbl-box-cz-b-kapsle.jpg?v=1582796837&d=x160&p=253042
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[6]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[6]/@rating
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 79 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[6]/div[1]/div[3]/span[1]
+          - id:
+              - text: "255422"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[7]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-duo-effect-50mg-g-2mg-g-crm-100g
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[7]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2019-06/1560249506-gmid372989-box-ibalgin-duo-ef-100g-cz-s-tubou-p-v06.jpg?v=1582796860&d=x160&p=255422
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[7]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[7]/@rating
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 249 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[7]/div[1]/div[3]/span[1]
+          - id:
+              - text: "243447"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[8]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-200-200mg-tbl-flm-24
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[8]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2019-03/1553690674-ibalgin-200mg-24tbl-box-cz-59557-s-tabletou-p.jpg?v=1582796850&d=x160&p=243447
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[8]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[8]/@rating
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 59 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[8]/div[1]/div[3]/span[1]
+          - id:
+              - text: "248027"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[9]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-50mg-g-gel-100g
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[9]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2018-12/1544532832-703599-et-100g-ibalgin-gel-cz-b-v-3-stubou-p-v04.jpg?v=1582796829&d=x160&p=248027
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[9]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            price:
+              - text: 149 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[9]/div[1]/div[3]/span[1]
+          - id:
+              - text: "255416"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[10]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-grip-200mg-5mg-tbl-flm-24
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[10]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2019-11/1574932099-1553691682-gmid478630-box-ibalgin-grip-24-tbl-box-cz-58707-s-tabletou-p-v02.jpg?v=1582797238&d=x160&p=255416
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[10]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            price:
+              - text: 169 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[10]/div[1]/div[3]/span[1]
+          - id:
+              - text: "255423"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[11]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-duo-effect-50mg-g-2mg-g-crm-50g
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[11]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2020-09/1599568938-8595116523915-2-ibalgin-duo-ef-100g-cz-s-tubou-p-v06-1-.png?v=1599568938&d=x160&p=255423
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[11]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            price:
+              - text: 159 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[11]/div[1]/div[3]/span[1]
+          - id:
+              - text: "241806"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[12]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-baby-100mg-5ml-por-sus-100ml
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[12]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2018-12/1544535126-bez-nazvu.jpg?v=1582796829&d=x160&p=241806
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[12]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            price:
+              - text: 109 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[12]/div[1]/div[3]/span[1]
+          - id:
+              - text: "242989"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[13]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-junior-40mg-ml-por-sus-1x100ml-1561003878
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[13]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2019-07/1562245412-ibalgin-junior.jpg?v=1582796865&d=x160&p=242989
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[13]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            price:
+              - text: 169 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[13]/div[1]/div[3]/span[1]
+          - id:
+              - text: "242712"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[14]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-50mg-g-crm-100g
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[14]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2018-12/1544531925-714119-et-100g-ibalgin-cream-cz-b-s-tubou-p.jpg?v=1582796829&d=x160&p=242712
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[14]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            price:
+              - text: 149 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[14]/div[1]/div[3]/span[1]
+          - id:
+              - text: "242713"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[15]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-50mg-g-crm-50g
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[15]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2018-12/1544533833-619903-et-50g-ibalgin-cream-cz-a-pix-s-tubou-p.jpg?v=1582796829&d=x160&p=242713
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[15]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            price:
+              - text: 109 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[15]/div[1]/div[3]/span[1]
+          - id:
+              - text: "243445"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[16]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-50mg-g-gel-50g
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[16]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2018-12/1544533642-619883-et-50g-ibalgin-gel-cz-pix-s-tubou-p-v05.jpg?v=1582796829&d=x160&p=243445
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[16]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            price:
+              - text: 109 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[16]/div[1]/div[3]/span[1]
+          - id:
+              - text: "567193"
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[17]/div[1]/@data-product-id
+            productUrl:
+              - text: https://www.pilulka.cz/ibalgin-duo-effect-krem-2x100g-magne-b6-relax-30-kapsli
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[17]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2020-01/1578671895-ibalgin-gel-2x-magne-b6.jpg?v=1582797243&d=x160&p=567193
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[17]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            price:
+              - text: 649 Kč
+                xpath: /html/body/div[5]/div[2]/div[2]/div[4]/div[3]/div[3]/div[1]/div[17]/div[1]/div[3]/span[1]
+        xpath: /html
+    timestamp: 1605016969917

@@ -1,30 +1,43 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="product-list"]//div[contains(@class, "product-card__border")]
 fields:
   - name: id
     singleValue: false
+    xpath: //div[contains(@class, "product-prev__content")]/@data-product-id
   - name: searchUrl
     singleValue: true
+    xpath: //ancestor::body/@searchurl
   - name: name
     singleValue: false
   - name: productUrl
     singleValue: false
+    xpath: //a[contains(@class, "product-prev__title")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.pilulka.cz$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[contains(@class, "product-list__fluid-img")]/@data-src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
+    type: STRING
+    xpath: //@rating
   - name: reviewCount
     singleValue: false
+    xpath: //li[contains(@class, "star")]/ancestor::div/following-sibling::div[contains(@class, "text")]
+    regExp: \d+
   - name: ratingCount
     singleValue: false
+    xpath: //li[contains(@class, "star")]/ancestor::div/following-sibling::div[contains(@class, "text")]
+    regExp: \d+
   - name: price
     singleValue: false
+    xpath: //span[@data-at="product-price"]
   - name: manufacturer
     singleValue: true
   - name: soldBy

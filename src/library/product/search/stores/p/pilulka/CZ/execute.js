@@ -5,9 +5,9 @@ module.exports = {
     country: 'CZ',
     store: 'pilulka',
     domain: 'pilulka.cz',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.pilulka.cz/hledej?q={searchTerms}',
+    loadedSelector: 'a.product-prev__img',
+    noResultsXPath: '//div[@class="alert alert-danger"]//div[contains(text(), "žádné")]',
     zipcode: '',
   },
 };
