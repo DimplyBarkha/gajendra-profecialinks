@@ -76,7 +76,7 @@ fields:
   singleValue: true
   description: Quantity as described on the page
   xpath: //p[@class='product-main__data']
-  regExp: \d+.?\d+?[a-z]+
+  regExp: \d+\.?(\d+)?[a-z]+
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
