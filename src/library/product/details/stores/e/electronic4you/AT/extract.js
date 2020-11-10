@@ -15,7 +15,7 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.click('li#tab-description a');
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -45,7 +45,7 @@ module.exports = {
         if (concatDescBullets) addElementToDocument('concatDescBullets', concatDescBullets.replace(/\s{2,}|\n/g, ' '));
       }
       const bulletInfo = document.querySelector('div#lenConcatDescBullets') &&
-      document.querySelector('div#lenConcatDescBullets').innerText !== '0'
+        document.querySelector('div#lenConcatDescBullets').innerText !== '0'
         ? document.querySelector('div#concatDescBullets') : document.querySelector('div#top_bullets');
       if (bulletInfo) addElementToDocument('bulletInfo', bulletInfo.innerText);
       const lenBullets = document.querySelector('div#lenConcatDescBullets') &&
@@ -92,7 +92,7 @@ module.exports = {
         addElementToDocument('desc_manufacturer1', manufacturerDesc1.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
       }
       const manufacturerDesc2 = document.querySelector('div.dyson_description')
-      // @ts-ignore
+        // @ts-ignore
         ? document.querySelector('div.dyson_description').innerText : '';
       if (manufacturerDesc2) {
         addElementToDocument('desc_manufacturer2', manufacturerDesc2.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
@@ -124,7 +124,31 @@ module.exports = {
       const aggRating = document.querySelector('span.ts-reviewSummary-ratingValue')
         ? document.querySelector('span.ts-reviewSummary-ratingValue').innerText : '';
       addElementToDocument('aggRating', aggRating.replace(/(\d+)\.?(\d+)?/g, '$1,$2'));
+      
+      // function to append the elements to DOM
+      function addElementToDocument(key, value) {
+        const catElement = document.createElement('div');
+        catElement.className = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+
+      if (document.querySelector('#flix-iframe0')) {
+        let videoUrl1 = document.querySelector('#flix-iframe0').getAttribute('src');
+        console.log(videoUrl1);
+        addElementToDocument('videoLink', videoUrl1);
+      }
+      if (document.querySelector('a[class="fade-on-hover pu-trigger-responsive"]')) {
+        let videoUrl2 = document.querySelector('a[class="fade-on-hover pu-trigger-responsive"]').getAttribute('href');
+        console.log(videoUrl2);
+        addElementToDocument('videoLink', videoUrl2);
+      }
+
+      // let videoUrl = [videoUrl1, videoUrl2];
+      // console.log(videoUrl);
+
     });
-    await context.extract(productDetails, {transform});
+    await context.extract(productDetails, { transform });
   },
 };
