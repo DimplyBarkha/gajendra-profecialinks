@@ -2,6 +2,11 @@ async function implementation (inputs, parameters, context, dependencies) {
   // extracting data in default url
   const { productDetails } = dependencies;
 
+  const url = 'https://www.staplesadvantage.com/product_{id}'.replace(
+    '{id}',
+    encodeURIComponent(inputs.id),
+  );
+
   await context.extract(productDetails);
 
   const iFrameSrc = await context.evaluate(async () => {
@@ -17,16 +22,20 @@ async function implementation (inputs, parameters, context, dependencies) {
   if (iFrameContent !== '8px') {
     await context.goto(iFrameSrc);
 
-    await context.click('div.ccs-cc-inline-embedded-video');
+    // if video exists click in play button
 
-    // waiting video to load
-
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-
+    await context.evaluate(() => {
+      if (document.querySelector('div.ccs-cc-inline-embedded-video') !== null) {
+        document.querySelector('div.ccs-cc-inline-embedded-video').click();
+      }
+    });
     // extract data in iframe
 
     await context.extract(productDetails);
+
+    await new Promise((resolve) => setTimeout(resolve, 3000));
   };
+  await context.goto(url);
 };
 
 module.exports = {

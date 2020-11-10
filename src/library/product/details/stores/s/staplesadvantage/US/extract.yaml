@@ -25,7 +25,7 @@ fields:
   xpath: (//meta/@content)[1]
 - name: category
   singleValue: false
-  xpath: normalize-space(//div[@id='breadcrumbs_container']/ol)
+  xpath: //div[@id='breadcrumbs_container']/ol/
 - name: nameExtended
   singleValue: true
   xpath: //h1[@id='product_title']
@@ -41,7 +41,7 @@ fields:
   defaultValue: Out of Stock
 - name: description
   singleValue: false
-  xpath: normalize-space(//div[@id='ProductDetailsSummaryWrapper']/ul)
+  xpath: //div[@id='ProductDetailsSummaryWrapper']/ul
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[@id='ProductDetailsSummaryWrapper']/ul/li)
@@ -97,7 +97,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: normalize-space(//div[@class='delivery-info-ux2__full_width'])
+  xpath: //div[@class='delivery-info-ux2__full_width']
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -122,7 +122,7 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-  xpath: //span[@class='ccs-cc-thumbnail-wrapper']/img/@src
+  xpath: //div[@id="ccs-script-broker-container"]/descendant::img/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
@@ -418,7 +418,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
-  xpath: normalize-space(//div[@id='ProdSpecSection'])
+  xpath: //div[@id='ProdSpecSection']
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
