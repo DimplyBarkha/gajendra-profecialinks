@@ -39,7 +39,7 @@ fields:
 - name: price
   singleValue: true
   xpath: //span[@data-test="product-pod-price"]/span
-  regExp: (\d+\.?\d+)
+  # regExp: (\d+\.?\d+)
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
@@ -52,7 +52,7 @@ fields:
     "In Stock"
 - name: description
   singleValue: false
-  xpath: //section[@id="productDescription"] | //section[@id="marketingDescriptionBop"]
+  xpath: concat(//section[@id="productDescription"], ' ', //section[@id="marketingDescriptionBop"])
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
@@ -106,7 +106,7 @@ fields:
 - name: ratingCount
   singleValue: true
   xpath: //div[@class="bv-header"]//span[@class="bv-content-pagination-pages-current"]/text()
-  regExp: \s(\d+)\s
+  regExp: ([^\s]\d+[^\s])
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
@@ -247,19 +247,24 @@ fields:
   description: 
 - name: ingredientsList
   singleValue: true
+  xpath: //div[@class="ingredientsText___Ztpzh"]
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
 - name: servingSize
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/thead/tr/td[1]
   description: The size of serving Nutritional information is based on.
 - name: servingSizeUom
   singleValue: true
   description: Unit of measure of serving
 - name: numberOfServingsInPackage
   singleValue: true
+  xpath: //*[@id="nutrition-region"]//p
+  regExp: \d+
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
   singleValue: true
+  xpath: concat(//*[@id="nutrition-region"]//table/tbody/tr[1]/td[1], '/', //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[2]/td[1])
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
 - name: caloriesFromFatPerServing
@@ -268,17 +273,25 @@ fields:
     on per 100g serving
 - name: totalFatPerServing
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[3]/td[1]
+  regExp: \W?\d+.?\d+
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
 - name: totalFatPerServingUom
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[3]/td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Total Fat content
 - name: saturatedFatPerServing
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[4]/td[1]
+  regExp: \W?\d+.?\d+
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
 - name: saturatedFatPerServingUom
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[4]/td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Saturated Fat content
 - name: transFatPerServing
   singleValue: true
@@ -303,10 +316,14 @@ fields:
   description: Unit of Measure Data for Sodium content
 - name: totalCarbPerServing
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[5]/td[1]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
 - name: totalCarbPerServingUom
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[5]/td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Total Carbohydrate content
 - name: dietaryFibrePerServing
   singleValue: true
@@ -324,10 +341,14 @@ fields:
   description: Unit of Measure Data for Total Sugar content
 - name: proteinPerServing
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr/th[text()="Protein"]/following::td[1]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
 - name: proteinPerServingUom
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr/th[text()="Protein"]/following::td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Protein
 - name: vitaminAPerServing
   singleValue: true
@@ -338,10 +359,14 @@ fields:
   description: Unit of Measure Data for Vitamin A
 - name: vitaminCPerServing
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[10]/td[2]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
 - name: vitaminCPerServingUom
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[10]/td[2]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Vitamin C
 - name: calciumPerServing
   singleValue: true
@@ -407,12 +432,12 @@ fields:
 - name: pricePerUnit
   singleValue: true
   xpath: //span[@class="pricePerUnit___1L8TG"]
-  regExp: .\d+.\d+
+  regExp: ([^(]\w+[.]\w[^/])
   description: Price of the product split into certain units
 - name: pricePerUnitUom
   singleValue: true
   xpath: //span[@class="pricePerUnit___1L8TG"]
-  regExp: (([/]\D+)[)])
+  regExp: ([/]\w+[^)])
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
