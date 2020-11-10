@@ -39,3 +39,15 @@ fields:
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
+  - name: sku
+    singleValue: true
+    xpath: //div[@class="product__image-box"]//div[contains(@class,"swiper-slide") and position()=1]//img/@src
+  - name: variantId
+    singleValue: true
+    xpath: //div[@class="product__image-box"]//div[contains(@class,"swiper-slide") and position()=1]//img/@src
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'yes'
+  - name: variantCount
+    singleValue: false
+    defaultValue: '1'

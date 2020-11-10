@@ -39,6 +39,16 @@ const transform = (data) => {
               row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
         }
+        if (row.sku) {
+          row.sku.forEach(item => {
+            item.text = item.text.match(/\d{7}/g)[1];
+          });
+        }
+        if (row.sku) {
+          row.sku.forEach(item => {
+            item.text = item.text.match(/\d{7}/g)[1];
+          });
+        }
         if (row.specifications) {
           let specifications_ar = [];
           row.specifications.forEach(item => {
