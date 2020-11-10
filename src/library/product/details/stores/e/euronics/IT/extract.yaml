@@ -28,11 +28,11 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1[@class='productDetails__name']
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
     xpath: (//div[@class='productDetails__priceWrapper']/span[@class='productDetails__originalPrice'] | //span[@class='productDetails__price pdpPrice'])[1]
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user clicks add to basket this is the price they would be charged
     xpath: (//div[@class='productDetails__priceWrapper']/span[@class='productDetails__originalPrice'] | //span[@class='productDetails__price pdpPrice'])[last()]
   - name: availabilityText
