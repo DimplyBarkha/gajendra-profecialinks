@@ -1,5 +1,25 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: //li[contains(@class,'cd-p-item')]
 recordXPath: null
-fields: null
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[@class='ProductCard__ProductContainer-sc-2vuvzo-2 gVgtAI']//a/@href
+    regExp: (.*)IdSku=(.*)
+    regExpReplace: $2
+  - name: name
+    singleValue: false
+    xpath: //li[contains(@class,'cd-p-item')]//a[contains(@class,'cd-p-name')]
+  - name: productUrl
+    singleValue: false
+    xpath: //li[contains(@class,'cd-p-item')]//a[contains(@class,'cd-p-thumb')]//@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //li[contains(@class,'cd-p-item')]//img[contains(@class,'cd-p-img')]//@src
+  - name: price
+    singleValue: false
+    xpath: //li[contains(@class,'cd-p-item')]//span[contains(@class,'cd-p-prices')]//span[contains(@class,'cd-p-price')]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //li[contains(@class,'cd-p-item')]//span[contains(@class,'cd-p-rating-inner')]//@style
