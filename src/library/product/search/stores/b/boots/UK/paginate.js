@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'boots',
     nextLinkSelector: null,
-    mutationSelector: 'ul[class="grid_mode grid"]',
+    mutationSelector: null,
     domain: 'boots.com',
     zipcode: '',
   },

@@ -10,7 +10,7 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //img[normalize-space(@class)="product_img"]/@src
-    regExp: '(^[^?]+)'
+    regExp: "(^[^?]+)"
     # Added custom height nd width values.
     regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
     description: The URL for the product thumbnail image
@@ -66,6 +66,4 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
   - name: gtin
     singleValue: false
-    xpath: //div[@class="ais-Hits"]//ol[@class="ais-Hits-list"]//li[@class="ais-Hits-item"]
-    regExp: \"upc":\s"(\d+)
-    regExpReplace: $1
+    xpath: //div[@class="product_listing_container"]//ul["grid_mode"]//li[@class="estore_product_container"]//div[@id="upc"]
