@@ -1,5 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"cont-card-ftd")]/div[contains(@class,"card-ftd")]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //p[@class="text-title"]
