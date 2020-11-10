@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'auchan.pt',
     prefix: null,
-    url: null,
+    url: 'https://www.auchan.pt/Frontoffice/search/{id}',
     country: 'PT',
     store: 'auchan',
     zipcode: '',
