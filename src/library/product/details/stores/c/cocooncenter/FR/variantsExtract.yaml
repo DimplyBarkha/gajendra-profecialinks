@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'variation_selector_img_items')]/div
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[contains(@class,'variation_selector_img_items')]/div/@data-attribut
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[contains(@class,'variation_selector_img_items')]/div/a/@href

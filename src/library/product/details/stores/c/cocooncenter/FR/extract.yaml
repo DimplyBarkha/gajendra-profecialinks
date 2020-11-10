@@ -1,0 +1,89 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: concat('http:',//div[@class="produit_infos_gauche"]//a/@href)
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="produit_infos_gauche"]//img[@itemprop="image"]/@alt
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumb gtm-bc']/li[position()>1]    
+  - name: nameExtended
+    singleValue: false
+    xpath: //meta[@property="og:title"]/@content
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="texte_ancien_prix"]/span
+  - name: price
+    singleValue: false
+    xpath: //span[@class="prix_fiche_produit"]/span
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='div_ajout_panier btn_fiche_ajout_panier'][not(contains(@style,'display:none;'))]/div[1]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@itemprop="description"]
+  - name: brandText
+    singleValue: false
+    xpath: substring(//div[@class="prod_subtitle"], 5)
+  - name: manufacturer
+    singleValue: false
+    xpath: substring(//div[@class="prod_subtitle"], 5)
+  - name: quantity
+    singleValue: false
+    xpath: //div[@id='detail']//td[@id='type_info_prio_3_1']
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id='detail']//span[@itemprop='gtin13']
+  - name: sku
+    singleValue: false
+    xpath: //meta[@itemprop='sku']/@content
+  - name: variantId
+    singleValue: false
+    xpath: //div[@data-bv-show="reviews"]/@data-bv-product-id
+  - name: directions
+    singleValue: false
+    xpath: //div[@class="content_zone_desc bloc_depliable_cnt cnt_deplie tabcontent"]
+  - name: warnings
+    singleValue: false
+    xpath: //div[@class='texte_restriction']
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//div[@itemprop="ratingValue"]
+  - name: variantCount
+    singleValue: false
+    xpath: count(//*[@id="fiche"]/div/div[1]/div/div[2]/div[1]/div[2]/div[2]/div[3]/div)
+  - name: name
+    singleValue: false
+    xpath: //meta[@property="og:title"]/@content
+  - name: brandLink
+    singleValue: false
+    xpath: concat('https://www.cocooncenter.com',//div[@class="prod_subtitle"]/a/@href)
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class='longcompo']
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='detail']//tr
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='variation_selector_title']
+  - name: variants
+    singleValue: false
+    xpath: //*[@id="fiche"]/div/div[1]/div/div[2]/div[1]/div[2]/div[2]/div[3]/div/@data-attribut
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: promotion
+    singleValue: false
+    xpath: //span[@class='vignette_promotion_pourcentage']

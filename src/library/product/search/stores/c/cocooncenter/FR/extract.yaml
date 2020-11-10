@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: //article[contains(@class,"fiche_min fiche_min_categorie")]
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //img/@src
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='fmd_div_nom_marque']
+  - name: name
+    singleValue: false
+    description: 
+    xpath: //div[contains(@class,'fm_div_info_base')]//a
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'texte_current_prix')]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,'bv_averageRating_component_container')]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,'bv_numReviews_component_container')]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,'bv_numReviews_component_container')]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'fm_div_info_base')]//a/@href
+  - name: id
+    singleValue: false
+    xpath: //img/@id
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]
