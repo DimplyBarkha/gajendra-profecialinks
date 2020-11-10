@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@id, 'productListing')]/article
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price"]
+    regExp: (((\d+),(\d+))(\s\S))$
+    regExpReplace: $2
+  - name: name
+    xpath: //h3[contains(@class, 'name')]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'productlink')]/@data-product-link
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'productlink')]//div[contains(@class,'wrapper')]/img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@class,'ratings-stars-average')]
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,'productlink')]/@eans
+    regExp: ^(\d+)
+    regExpReplace: $1
+  - name: reviewCount
+    xpath: //div[contains(@class,'ratings-stars')]
+    regExp: (\s)(\d+)(\s)
+    regExpReplace: $2
+  - name: manufacturer
+    singleValue: true
+    xpath: 
+  - name: soldBy
+    singleValue: true
+    xpath:
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,'productlink')]/@eans
+    regExp: ^(\d+)
+    regExpReplace: $1
