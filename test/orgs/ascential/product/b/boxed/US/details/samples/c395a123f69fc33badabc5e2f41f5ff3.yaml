@@ -1,0 +1,97 @@
+input:
+  _url: http://boxed.com
+  URL: https://www.boxed.com/product/3856/snyders-of-hanover-pretzel-rods-27-oz.
+extractions:
+  - html: https://workbench.import.io/html/run=af14be10-9895-460a-9d56-f25223da7d0c/task=713f6df8-feb7-4379-ac8c-2615ac73d78b/eb7b3c46-0bc8-488c-b1b6-2e77aa8fa312.html
+    extractionConfigId: product/details/stores/b/boxed/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boxed.com/product/3856/snyders-of-hanover-pretzel-rods-27-oz.
+                xpath: /html/head[1]/meta[9]/@content
+            image:
+              - text: https://static-assets.boxed.com/1478447948055.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Product image 1 of 3
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://static-assets.boxed.com/1478447948680.jpg
+                xpath: /html/body/div[10]
+              - text: https://static-assets.boxed.com/1478447948455.jpg
+                xpath: /html/body/div[11]
+            metaKeywords:
+              - text: pretzel, party, snack, salty
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[1]/a[1]
+              - text: Categories
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[2]/a[1]
+              - text: Snacks
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[3]/a[1]
+              - text: Salty Snacks
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[4]/a[1]
+            nameExtended:
+              - text: Snyder's of Hanover Pretzel Rods
+                xpath: /html/head[1]/meta[8]/@content
+            price:
+              - text: $7.29
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[2]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]
+            description:
+              - text: >-
+                  Discover the pretzelbilities! Snyder's Pretzel Rods offer all
+                  the rich, hearty flavor of traditional pretzels in a crunchy,
+                  unique shape. They’re perfect for dipping or decorating.
+                  You'll love this tasty snack with only 1 gram of fat per
+                  serving.
+
+                  The Story of the Pretzel begins about 1500 years ago in a monastery; it is believed, in Southern France or Northern Italy. There, the monk whose task it was to bake bread found he always had scraps of dough left over when he'd shape the loaves. Being as imaginative as he was frugal, he formed these scraps into dough-ropes which he twisted into the now-familiar shape. Someone soon noticed how this shape resembled that of a child's arm folded in prayer, and since the demand had almost instantly outstripped the supply, our friend decided to called them "Pretiola" – "little rewards" in Latin – and saved them for the children who learned their prayers well.
+
+                  • America's Pretzel Bakery producing Olde Tyme Pretzels since 1909
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/section[1]/div[1]/article[1]/p[1]
+            brandText:
+              - text: Snyder's of Hanover
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/a[1]
+            manufacturer:
+              - text: Snyder's of Hanover
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/a[1]
+            quantity:
+              - text: 27 oz.
+                xpath: /html/body/div[4]
+            sku:
+              - text: "3856"
+                xpath: /html/head[1]/meta[9]/@content
+            shippingInfo:
+              - text: Add $19.98 to meet order minimum
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[3]/div[2]/div[1]
+            name:
+              - text: Snyder's of Hanover Pretzel Rods
+                xpath: /html/head[1]/meta[8]/@content
+            brandLink:
+              - text: https://www.boxed.com/products/search/snyder's of hanover
+                xpath: /html/body/div[5]/@content
+            ingredientsList:
+              - text: >-
+                  Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron,
+                  Thiamine Mononitrate, Riboflavin, Folic Acid), Malt, Canola
+                  Oil, Salt, Yeast
+
+                  Contains: Wheat
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/section[1]/div[1]/article[1]/p[2]
+            pricePerUnit:
+              - text: $0.27
+                xpath: /html/body/div[6]
+            pricePerUnitUom:
+              - text: oz
+                xpath: /html/body/div[7]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[9]/@content
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1604993253124

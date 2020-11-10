@@ -1,0 +1,115 @@
+input:
+  _url: http://boxed.com
+  URL: https://www.boxed.com/product/5618/plum-organics-super-puffs-4-x-1.5-oz.-super-purples
+extractions:
+  - html: https://workbench.import.io/html/run=af14be10-9895-460a-9d56-f25223da7d0c/task=828a7948-0b81-4f94-870c-22822df7a909/78b4ed6b-9c8e-4249-8b7a-92b461f4d6a2.html
+    extractionConfigId: product/details/stores/b/boxed/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boxed.com/product/5618/plum-organics-super-puffs-4-x-1.5-oz.-super-purples
+                xpath: /html/head[1]/meta[9]/@content
+            image:
+              - text: https://static-assets.boxed.com/1512976103613.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Product image 1 of 6
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://static-assets.boxed.com/1512976103316.jpg
+                xpath: /html/body/div[10]
+              - text: https://static-assets.boxed.com/1512976103043.jpg
+                xpath: /html/body/div[11]
+              - text: https://static-assets.boxed.com/1512976101574.jpg
+                xpath: /html/body/div[12]
+              - text: https://static-assets.boxed.com/1512976103035.jpg
+                xpath: /html/body/div[13]
+              - text: https://static-assets.boxed.com/1512976102083.jpg
+                xpath: /html/body/div[14]
+            metaKeywords:
+              - text: baby, baby food, puffs
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[1]/a[1]
+              - text: Categories
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[2]/a[1]
+              - text: Baby
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[3]/a[1]
+              - text: Food & Formulas
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[4]/a[1]
+            nameExtended:
+              - text: Plum Organics Super Puffs
+                xpath: /html/head[1]/meta[8]/@content
+            price:
+              - text: $12.89
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[2]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]
+            description:
+              - text: >-
+                  Super Puffs, a colorful line of bite-sized, nutritious puffed
+                  snacks, are made with whole grains and organic veggies and
+                  fruit. With 7 essential vitamins and minerals, Super Puffs
+                  delight tiny taste buds with a rainbow of nutritional
+                  goodness. Perfectly sized for little fingers, this snack
+                  encourages self- feeding and easily dissolves into grins and
+                  giggles. Teach your little stars to eat their colors!
+
+                  • 7 essential vitamins and minerals
+
+                  • 10% DV Vit. A & Iron
+
+                  • 23 mg Choline
+
+                  • Perfect first snack for baby, dissolves easily and sized for little fingers to encourage self-feeding
+
+                  • Non-BPA packaging that fits in most cup holders
+
+                  • Convenient, re-sealable & portable for on-the-go feeding
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/section[1]/div[1]/article[1]/p[1]
+            brandText:
+              - text: Plum Organics
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/a[1]
+            manufacturer:
+              - text: Plum Organics
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/a[1]
+            quantity:
+              - text: 4 x 1.5 oz.
+                xpath: /html/body/div[4]
+            sku:
+              - text: "5618"
+                xpath: /html/head[1]/meta[9]/@content
+            shippingInfo:
+              - text: Add $19.98 to meet order minimum
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[3]/div[1]/div[1]
+            name:
+              - text: Plum Organics Super Puffs
+                xpath: /html/head[1]/meta[8]/@content
+            brandLink:
+              - text: https://www.boxed.com/products/search/plum organics
+                xpath: /html/body/div[5]/@content
+            ingredientsList:
+              - text: >-
+                  Organic Rice Flour, Organic Whole Grain Oat Flour, Organic
+                  Dried Cane Syrup, Organic Brown Rice Flour, Organic Blueberry
+                  Powder, Natural Blueberry Flavor, Tri- And Dicalcium
+                  Phosphate, Organic Purple Sweet Potato Juice Powder, Mixed
+                  Tocopherols (For Freshness)
+
+                  Vitamins & Minerals: Tricalcium Phosphate, L-Choline Bitartrate, Reduced Iron, Zinc Sulfate, DL-Alpha Tocopheryl Acetate (Vitamin E), Niacinamide, Retinol Palmitate (Vitamin A), Folic Acid, Thiamine Hydrochloride (Vitamin B1), Riboflavin (Vitamin B2), Pyridoxine Hydrochloride (Vitamin B6), Cyanocobalamin (Vitamin B12)
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/section[1]/div[1]/article[1]/p[2]
+            pricePerUnit:
+              - text: $3.22
+                xpath: /html/body/div[6]
+            pricePerUnitUom:
+              - text: ea
+                xpath: /html/body/div[7]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[9]/@content
+            variantCount:
+              - text: "2"
+        xpath: /
+    timestamp: 1604993257268

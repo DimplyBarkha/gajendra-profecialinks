@@ -1,0 +1,111 @@
+input:
+  _url: http://boxed.com
+  URL: https://www.boxed.com/product/5897/califia-farms-almondmilk-creamer-2-x-32-oz.-vanilla
+extractions:
+  - html: https://workbench.import.io/html/run=af14be10-9895-460a-9d56-f25223da7d0c/task=8eb6263c-388e-494c-a307-9e0d9b0326bc/7778a5ba-6554-462e-a916-e59050ed94c5.html
+    extractionConfigId: product/details/stores/b/boxed/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boxed.com/product/5897/califia-farms-almondmilk-creamer-2-x-32-oz.-vanilla
+                xpath: /html/head[1]/meta[9]/@content
+            image:
+              - text: https://static-assets.boxed.com/1565707410661.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Product image 1 of 5
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://static-assets.boxed.com/1565707410783.jpg
+                xpath: /html/body/div[10]
+              - text: https://static-assets.boxed.com/1565707410864.jpg
+                xpath: /html/body/div[11]
+              - text: https://static-assets.boxed.com/1565707410648.jpg
+                xpath: /html/body/div[12]
+              - text: https://static-assets.boxed.com/1565707410077.jpg
+                xpath: /html/body/div[13]
+            metaKeywords:
+              - text: Non Dairy Creamer, Coffee Creamer, Vegan Coffee Creamer, Dairy Free
+                  Creamer, Almond Creamer, Coconut Creamer, Vanilla Creamer,
+                  French Vanilla Creamer, Shelf Stable, Emergency Food, Non
+                  perishable Food, Emergency Food Kit, Shelf Stable Food, Shelf
+                  Stable, Emergency Food, Non perishable Food, Emergency Food
+                  Kit, Shelf Stable Food
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[1]/a[1]
+              - text: Categories
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[2]/a[1]
+              - text: Beverages
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[3]/a[1]
+              - text: Milk & Creamers
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[4]/a[1]
+            nameExtended:
+              - text: Califia Farms Almondmilk Creamer
+                xpath: /html/head[1]/meta[8]/@content
+            price:
+              - text: $10.79
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[2]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]
+            description:
+              - text: >-
+                  Traditional vanilla-flavored creamer, move aside. Califia
+                  Farms' deliciously creamy plant based version tastes just as
+                  good but feels infinitely better with less calories, less
+                  sugar, and wholesome ingredients.
+
+                  • Califia Farms' delicious almond milk creamer with coconut cream tastes just as good as traditional creamer but feels infinitely better with less calories, less sugar, and wholesome ingredients.
+
+                  • Only 15 calories and 2g sugar per serving
+
+                  • Soy free, dairy free, gluten free, carrageenan-free, non-GMO, kosher, vegan
+
+                  • Now in a non-refrigerated, shelf stable pack to keep your kitchen fully stocked. Only refrigerate after opening
+
+                  • Great in coffee and a wide assortment of recipes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/section[1]/div[1]/article[1]/p[1]
+            brandText:
+              - text: Califia Farms
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/a[1]
+            manufacturer:
+              - text: Califia Farms
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/a[1]
+            quantity:
+              - text: 2 x 32 oz.
+                xpath: /html/body/div[4]
+            sku:
+              - text: "5897"
+                xpath: /html/head[1]/meta[9]/@content
+            shippingInfo:
+              - text: Add $19.98 to meet order minimum
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[3]/div[1]/div[1]
+            name:
+              - text: Califia Farms Almondmilk Creamer
+                xpath: /html/head[1]/meta[8]/@content
+            brandLink:
+              - text: https://www.boxed.com/products/search/califia farms
+                xpath: /html/body/div[5]/@content
+            ingredientsList:
+              - text: >-
+                  Almondmilk (Water, Almonds), Coconut Cream, Pure Cane Sugar,
+                  Natural Flavors, Sunflower Lecithin, Calcium Carbonate, Sea
+                  Salt, Potassium Citrate, Locust Bean Gum, Gellan Gum
+
+                  Allergen Statement: Contains: Almonds, Coconut
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/section[1]/div[1]/article[1]/p[2]
+            pricePerUnit:
+              - text: $5.39
+                xpath: /html/body/div[6]
+            pricePerUnitUom:
+              - text: ea
+                xpath: /html/body/div[7]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[9]/@content
+            variantCount:
+              - text: "2"
+        xpath: /
+    timestamp: 1604993254708
