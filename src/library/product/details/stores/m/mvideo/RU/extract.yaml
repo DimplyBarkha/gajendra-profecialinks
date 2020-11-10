@@ -12,11 +12,11 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@class="c-media-container__image-wrapper"]//img//@alt
+    xpath: (//div[@class="c-media-container__image-wrapper"]//img)/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="c-carousel__item-wrapper"]/@itemtype
+    xpath: //img[@class="c-carousel__img"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -45,7 +45,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div//span//link[@itemprop="availability"]
+    xpath: //link[@itemprop="availability"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -419,6 +419,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
+    xpath: (//table[@class="table table-striped product-details-table"][1]//span[@class="product-details-overview-specification"])[4]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
