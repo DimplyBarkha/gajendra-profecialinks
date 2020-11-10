@@ -4,20 +4,31 @@ recordSelector: null
 recordXPath: null
 fields: 
   - name: id
+    singleValue: false
     xpath: //div[@id="rd-item-grid"]/div/@data-item-id
   - name: productUrl
+    singleValue: false
     xpath: //div[@id="rd-item-grid"]/div/a/@href
     regExp: ^(.+)$
     regExpReplace: https://www.real.de/$1
   - name: thumbnail
+    singleValue: false
     xpath: //div[@class='img-wrapper rd-product__image-container']/img/@content
   - name: name
+    singleValue: false
     xpath: //div[@class="_title"]/span/text()
   - name: gtin
+    singleValue: false
     xpath: //meta[@itemprop="gtin13"]/@content
   - name: aggregateRating
+    singleValue: false
     xpath: //div[@class="_rating star-icons star-icons--small"]/@data-rating
   - name: price
+    singleValue: false
     xpath: //div[@id="rd-item-grid"]/div/@data-price
   - name: rankOrganic
+    singleValue: false
     xpath: //div[@id="rd-item-grid"]/div/@data-list-position
+  - name: searchUrl
+    singleValue: true
+    xpath: //html//div[@id='URL']

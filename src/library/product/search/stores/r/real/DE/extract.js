@@ -23,12 +23,13 @@ async function implementation(
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }
-    function addElementToDocument(key, value) {
-      const catElement = document.createElement('div');
-      catElement.className = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
+    function addHiddenDiv(id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll("div[class='widget product item category-unconfirmed item-valid']:first-child")[0];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
     // Method to Retrieve Xpath content of a Single Node
     var getXpath = (xpath, prop) => {
@@ -42,6 +43,12 @@ async function implementation(
     if (pagination === '_icon icon-chevron-right') {
       addclass('ul.pagination.list.-inline.item-pagination li:last-child a');
     };
+    try {
+      var myobj = document.getElementById("URL").remove();
+    } catch (error) {
+    }
+    const url = window.location.href;
+    addHiddenDiv('URL', url);
   });
   return await context.extract(productDetails, { transform });
 }
