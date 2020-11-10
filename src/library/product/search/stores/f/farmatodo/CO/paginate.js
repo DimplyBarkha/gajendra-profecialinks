@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '//div[contains(@class,"cont-card-ftd")]',
+    loadedSelector: 'div[class^=cont-card-ftd]',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'farmatodo.com.co',

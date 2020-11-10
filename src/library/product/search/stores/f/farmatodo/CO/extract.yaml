@@ -6,3 +6,24 @@ fields:
   - name: name
     singleValue: false
     xpath: //p[@class="text-title"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="product-image-link"]/@href
+  - name: id
+    singleValue: false
+    xpath: //a[@class="product-image-link"]/@data-cuf
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="product-image-link"]/picture/img/@src
+  - name: price
+    singleValue: false
+    xpath: //span[@class="text-price"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="bv_averageRating_component_container"]/div
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="bv_numReviews_component_container"]/div
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="bv_numReviews_component_container"]/div

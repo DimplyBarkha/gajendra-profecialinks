@@ -14,8 +14,37 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
+  try{
+    //button.ab-close-button
+    await context.waitForSelector('button.ab-close-button');
+    await context.click('button.ab-close-button');
+  }catch(e){
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  }
+
+  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  const applyScroll = async function (context) {
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await stall(500);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(5000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
+  };
+  await applyScroll(context);
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -39,7 +68,7 @@ module.exports = {
     store: 'farmatodo',
     domain: 'farmatodo.com.co',
     url: 'https://www.farmatodo.com.co/buscar?producto={searchTerms}',
-    loadedSelector: '//div[contains(@class,"cont-card-ftd")]',
+    loadedSelector: 'div[class^=cont-card-ftd]',
     noResultsXPath: null,
     zipcode: '',
   },
