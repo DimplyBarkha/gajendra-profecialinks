@@ -1,0 +1,75 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1
+  - name: nameExtend
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__image')]//div[contains(@class, 't-product-details__carousel-container')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__image')]//div[contains(@class, 't-product-details__carousel-container')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__image')]//div[contains(@class, 't-product-details__thumbs')]//button[not(contains(@class, 'active'))]//img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__image')]//div[contains(@class, 't-product-details__thumbs')]//button[not(contains(@class, 'active'))]//img/@src)
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1//span[contains(@class, 'dbh-brand-name')]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[contains(@class, 'dbh-product-price')]
+    regExp: .*£(\d+)
+    regExpReplace: £$1
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[contains(@class, 'dbh-product-saving')]
+    regExp: \((.*)\)
+    regExpReplace: $1
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[contains(@class, 'dbh-product-original')]
+    regExp: .*£(\d+)
+    regExpReplace: £$1
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//meta[@itemprop='reviewCount']/@content
+  - name: rating
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//button[@itemprop='ratingValue']
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, 'description-text-container')]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class, 'description-text-container')]//ul//li)
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class, 'dbh-product-color-selector')]//div[contains(@class, 'pw-swatch__item') and contains(@class, 'pw--selected')]//img/@alt
+  - name: category
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-breadcrumb']/text()
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-availability']/text()
+  - name: size
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-size']/text()
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class, 'description-text-container')]//div[contains(@class, 'product-item-number')]//*[contains(@class, 'item-number-value')]/text()
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class, 'description-text-container')]//div[contains(@class, 'product-item-number')]//*[contains(@class, 'item-number-value')]/text()
+  - name: directions
+    singleValue: false
+    xpath: //div[@id='editors_notes']/p/text()
+  
