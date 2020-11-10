@@ -8,7 +8,7 @@ fields:
     description: URL of the main product image
     xpath: (//div[@class='productDetail__image  j-carouselItem j-openOverlay']/img/@src)[1]
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
     xpath: (//div[@class='productDetail__image  j-carouselItem j-openOverlay']/img/@alt)[1]
   - name: alternateImages
@@ -23,7 +23,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: (//div[@class='productDetails__category'])[1]
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1[@class='productDetails__name']
@@ -50,12 +50,12 @@ fields:
       multiple places; specifically not the manufacturer description
     xpath: //ul[@class='productDetails__specifications']
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
     xpath: count(//li[@class='specifications__item'])
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[@class='productDetails__linkWrapper']/a//@alt
@@ -67,7 +67,7 @@ fields:
     description: Quantity as described on the page
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
     xpath: //*[contains(text(), 'Peso-Kg')]/following-sibling::*[1] | //*[contains(text(), 'Peso-gr')]/following-sibling::*[1]
   - name: weightGross
@@ -123,9 +123,8 @@ fields:
     description: Number of variants listed
     type: NUMBER
   - name: color
-    singleValue: true
+    singleValue: false
     description: A textual description of the colour
-    xpath: //*[contains(text(), 'Colore')]/following-sibling::*[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -161,14 +160,14 @@ fields:
     singleValue: true
     description: Text of link next to Amazon choice graphic
   - name: brandLink
-    singleValue: true
+    singleValue: false
     description: null
     xpath: (//div[@class='productDetails__linkWrapper']/a/@href)[1]
   - name: energyEfficiency
-    singleValue: true
+    singleValue: false
     xpath: //*[contains(text(), 'Classe consumo energetico')]/following-sibling::*[1]
   - name: technicalInformationPdfPresent
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='flix-std-clmn-lg-12']/a[@class='flix-doc-download flix-std-clmn-lg-4 flix-std-clmn-sm-11 flix-align-right']/@href
     defaultValue: No
   - name: internationalShipping
@@ -408,7 +407,6 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: (//ul[@class='USPList'])[1]//li[2]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
