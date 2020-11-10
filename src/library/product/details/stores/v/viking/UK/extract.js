@@ -19,9 +19,9 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      const availability = document.querySelector('div#productDetailsPanel div.product-add-to-cart-panel') && document.querySelector('div#productDetailsPanel div.product-add-to-cart-panel').getAttribute('data-stock-status') === 'inStock' ? 'In Stock' : 'Out of Stock';
+      const availability = document.querySelector('div#productPage div.product-display__add-to-basket button[title="Add to basket"]') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availability', availability);
-      const pdfPresent = document.querySelector('a.product-attachments-table__link') ? 'Yes' : 'No';
+      const pdfPresent = document.querySelector('div#productPage a.product-attachments-table__link') ? 'Yes' : 'No';
       addElementToDocument('pdfPresent', pdfPresent);
 
       const alternateImages = document.querySelectorAll('div#s7viewer_swatches_listbox div.s7thumb');
@@ -29,6 +29,12 @@ module.exports = {
         const img = alternateImages[i].getAttribute('style').replace(/.*url\("(https.*\?).*/g, '$1');
         addElementToDocument('img', img);
       }
+      const specifications = document.querySelectorAll('div#contentproductSpecifications tr');
+      let specificationsArr = [];
+      for (let j = 0; j < specifications.length; j++) {
+        specificationsArr.push(specifications[j].innerText.replace(/\s+/g, ' '));
+      }
+      addElementToDocument('specifications', specificationsArr.join(' || '));
     });
 
     await context.extract(productDetails, { transform });

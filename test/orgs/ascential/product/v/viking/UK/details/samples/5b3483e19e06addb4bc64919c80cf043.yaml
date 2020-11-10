@@ -2,7 +2,7 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 1019298
 extractions:
-  - html: https://workbench.import.io/html/run=7641f173-5aea-41d4-9113-9925cd547392/task=a86acea8-eb7c-4788-b83b-38bf778295b7/4611908b-c9b9-48bb-aa82-0c95ceb63d76.html
+  - html: https://workbench.import.io/html/run=ba2a9e28-b2a0-41f9-bfc0-73446f2f4c66/task=1ef94db8-9e14-453b-b1b1-ff630d18f201/9a7af625-2ec3-4460-a82c-062e3b4cef49.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
@@ -12,16 +12,6 @@ extractions:
             imageAlt:
               - text: BIC Orange Grip Ballpoint Pen Fine 0.3 mm Blue Pack of 20
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
-            alternateImages:
-              - text: https://static.viking.de/is/image/odeu13/%211019298_alt1?
-                xpath: /html/body/div[9]
-              - text: https://static.viking.de/is/image/odeu13/%211019298_alt2?
-                xpath: /html/body/div[10]
-              - text: https://static.viking.de/is/image/odeu13/%211019298_alt3?
-                xpath: /html/body/div[11]
-            metaKeywords:
-              - text: BIC,Orange,Grip,Ballpoint,Pen,Fine,0.3,mm,Blue,Pack,of,20,Writing,&,Drawing,Ballpoint,Pens,Stick
-                xpath: /html/head[1]/meta[5]/@content
             category:
               - text: Writing Instruments
                 xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
@@ -37,9 +27,6 @@ extractions:
             price:
               - text: £9.59
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[7]
             description:
               - text: A timeless design by BIC
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/h2[1]/text()[1]
@@ -60,106 +47,6 @@ extractions:
                   office, school or at home. These ballpoint pens come in a
                   handy pack of 20 pieces and are blue in colour
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[2]/text()[1]
-              - text: |-
-                  Viking No.
-                   
-                  1019298
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
-              - text: |-
-                  EAN/UPC
-                   
-                   3086123009028
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
-              - text: |-
-                  Barrel Colour
-                   
-                   Orange
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
-              - text: |-
-                  Brand
-                   
-                   BIC
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
-              - text: |-
-                  Clip
-                   
-                   Yes
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
-              - text: |-
-                  Contents
-                   
-                   20 Pieces
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
-              - text: |-
-                  Ink Colour
-                   
-                   Blue
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
-              - text: |-
-                  Ink Type
-                   
-                   Oil based ink
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
-              - text: |-
-                  Line Width
-                   
-                   0.3 mm
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
-              - text: |-
-                  Manufacturer Part No.
-                   
-                   811926
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
-              - text: |-
-                  Nib Size
-                   
-                   0.8 mm
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
-              - text: |-
-                  Nib Type
-                   
-                   Ballpoint
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[12]
-              - text: |-
-                  Nib Width
-                   
-                   Fine
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[13]
-              - text: |-
-                  Pen Type
-                   
-                   Ballpoint
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[14]
-              - text: |-
-                  Product Type
-                   
-                   Ballpoint Pen
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[15]
-              - text: |-
-                  Qty per Unit
-                   
-                   20
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[16]
-              - text: |-
-                  Refillable
-                   
-                   No
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[17]
-              - text: |-
-                  Suitable for Left-handed People
-                   
-                   Yes
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[18]
-              - text: |-
-                  Unit
-                   
-                   Pack
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[19]
-              - text: |-
-                  What's in the box
-                   
-                   20 x Ballpoint Pens
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[20]
             brandText:
               - text: BIC
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
@@ -172,20 +59,36 @@ extractions:
             variantId:
               - text: "1019298"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[4]/span[1]
-            packSize:
-              - text: "20"
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[16]/td[2]
             shippingInfo:
               - text: Free delivery on orders over £30
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]
-            color:
-              - text: Orange
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
             name:
               - text: BIC Orange Grip Ballpoint Pen Fine 0.3 mm Blue Pack of 20
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[7]
             technicalInformationPdfPresent:
               - text: No
                 xpath: /html/body/div[8]
-        xpath: /
-    timestamp: 1604681221901
+            alternateImages:
+              - text: https://static.viking.de/is/image/odeu13/%211019298_alt1?
+                xpath: /html/body/div[9]
+          - alternateImages:
+              - text: https://static.viking.de/is/image/odeu13/%211019298_alt2?
+                xpath: /html/body/div[10]
+          - alternateImages:
+              - text: https://static.viking.de/is/image/odeu13/%211019298_alt3?
+                xpath: /html/body/div[11]
+            specifications:
+              - text: Viking No. 1019298 || EAN/UPC 3086123009028 || Barrel Colour Orange ||
+                  Brand BIC || Clip Yes || Contents 20 Pieces || Ink Colour Blue
+                  || Ink Type Oil based ink || Line Width 0.3 mm || Manufacturer
+                  Part No. 811926 || Nib Size 0.8 mm || Nib Type Ballpoint ||
+                  Nib Width Fine || Pen Type Ballpoint || Product Type Ballpoint
+                  Pen || Qty per Unit 20 || Refillable No || Suitable for
+                  Left-handed People Yes || Unit Pack || What's in the box 20 x
+                  Ballpoint Pens
+                xpath: /html/body/div[12]
+        xpath: /html/body
+    timestamp: 1605023404944

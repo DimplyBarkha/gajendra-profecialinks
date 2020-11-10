@@ -28,7 +28,7 @@ fields:
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
-  xpath: //meta[@name="keywords"]/@content
+  xpath: //div[@id="productPage"]//meta[@name="keywords"]/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
@@ -57,7 +57,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="product__intro"]//text() | //div[@itemprop="description"]//text() | //div[@id="contentproductSpecifications"]//tr
+  xpath: //div[@class="product__intro"]/*/text() | //div[@itemprop="description"]/*/text()
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -76,6 +76,7 @@ fields:
   singleValue: true
   description: Net weight as described on the page
   xpath: //td[contains(text(),'Weight')]/following-sibling::td
+  regExp: ([\S]+(\s?[\S]+)*)
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -99,8 +100,6 @@ fields:
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
-  xpath: //td[contains(text(), 'Qty per Unit')]/following-sibling::td | //td[contains(text(), "What's in the box")]/following-sibling::td
-  regExp: \d+
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -138,7 +137,8 @@ fields:
 - name: color
   singleValue: true
   description: A textual description of the colour
-  xpath: //td[contains(text(),'Colour')]/following-sibling::td
+  xpath: //td[contains(text(),'Product Colour')]/following-sibling::td | //td[text()='Colour']/following-sibling::td
+  regExp: ([\S]+(\s?[\S]+)*)
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -389,7 +389,7 @@ fields:
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
-  xpath: //td[contains(text(),'Dimensions')]/following-sibling::td
+  xpath: //div[@id="specifications"]
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
