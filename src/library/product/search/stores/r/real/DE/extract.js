@@ -28,7 +28,7 @@ async function implementation(
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll("div[class='widget product item category-unconfirmed item-valid']:first-child")[0];
+      const originalDiv = document.querySelectorAll("div[id='rd-item-grid']")[0];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
     // Method to Retrieve Xpath content of a Single Node
