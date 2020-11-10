@@ -6,6 +6,9 @@ fields:
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
   - name: brandText
     singleValue: false
     xpath: (//div[@data-auto="product-title"]//h4)[1]
@@ -23,16 +26,16 @@ fields:
     xpath: count(//ul[@data-auto="product-description-bullets"]//li)
   - name: featureHighlights
     singleValue: false
-    xpath: //ul[@data-auto="product-description-bullets"]//li
+    xpath: //ul[@data-auto="product-description-bullets"]//li/text()
   - name: featureBullets
     singleValue: false
-    xpath: //ul[@data-auto="product-description-bullets"]//li
+    xpath: //ul[@data-auto="product-description-bullets"]//li/text()
   - name: image
     singleValue: true
     xpath: //meta[@property="og:image"]//@content
   - name: alternateImages
     singleValue: false
-    xpath: //div[@data-auto="main-image"]//li//picture/img/@src
+    xpath: //table//tr[@class="append_image"]//@images
   - name: imageAlt
     singleValue: true
     xpath: (//picture[@class="alt-img__image"]//img/@alt)[1]

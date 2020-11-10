@@ -14,25 +14,53 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      let id = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_id ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_id[0]: "";
-      let upc = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_upc ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_upc[0]: "";
-      let sku;
 
-      if (id && upc) {
-        sku = id + '_' + upc;
-      } else if(!upc) {
-        sku = id;
+      if (window.__INITIAL_STATE__) {
+        let id = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_id ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_id[0] : "";
+        let upc = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_upc ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_upc[0] : "";
+        let sku;
+
+        if (id && upc) {
+          sku = id + '_' + upc;
+        } else if (!upc) {
+          sku = id;
+        }
+
+        document.body.setAttribute('productsku', sku);
+        let product_rating = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_rating ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_rating[0] : "";
+        let product_review = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_reviews ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_reviews[0] : "";
+
+        if (product_rating && product_review) {
+          document.body.setAttribute('productrating', product_rating);
+          document.body.setAttribute('productreview', product_review);
+        }
       }
 
-      document.body.setAttribute('productsku', sku);
-      let product_rating = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_rating ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_rating[0]: "";
-      let product_review = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_reviews ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_reviews[0]: "";
+        let images = document.querySelectorAll('div.main-img-container ul li picture img');
+        if (images.length) {
+          let image = [];
+          for (let i = 0; i < images.length; i++) {
+            image[i] = images[i].src;
+          }
 
-      if (product_rating && product_review){
-        document.body.setAttribute('productrating', product_rating);
-        document.body.setAttribute('productreview', product_review);
-      }
+          let uniqueImage = image.filter((c, index) => {
+            return image.indexOf(c) === index;
+          });
 
+          const table = document.createElement('table');
+          document.body.appendChild(table);
+          const tBody = document.createElement('tbody');
+          table.appendChild(tBody);
+
+
+          for (let index = 0; index < uniqueImage.length; index++) {
+            const newlink = document.createElement('tr');
+            newlink.setAttribute('class', 'append_image');
+            newlink.setAttribute('images', uniqueImage[index]);
+            tBody.appendChild(newlink);
+          }
+        }
+        
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
