@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.card__product
+recordSelector: null # div.card__product
 recordXPath: //div[@class="results-area"]
 fields:
   - name: id
@@ -13,7 +13,7 @@ fields:
     xpath: //a[@data-test='product-title']
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="h-o-hidden"]/a/@href
+    xpath: //div[@class="h-o-hidden"]/a/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -46,9 +46,10 @@ fields:
     xpath: //wsp-buy-block[@class='product-item__options hit-area']/@rank
     type: NUMBER
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //wsp-buy-block[@class="product-item__options hit-area"]/@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid

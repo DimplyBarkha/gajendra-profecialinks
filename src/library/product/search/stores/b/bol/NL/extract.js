@@ -25,6 +25,9 @@ async function implementation (inputs, parameters, context, dependencies) {
     let seller;
     const sponsored = document.querySelectorAll('div.h-color-subtext.h-bottom--xs.small_details');
     let sponsoredIteration;
+    let rankOrganic = 0;
+    const productUrlAll = document.querySelectorAll('.h-o-hidden>a');
+    let productUrl;
 
     for (let i = 0; i < itereationLength; i++) {
       ratings = document.querySelectorAll('.star-rating')[i].dataset.count;
@@ -35,10 +38,12 @@ async function implementation (inputs, parameters, context, dependencies) {
         ratings = '0';
       };
 
-      if (sponsoredIteration !== undefined && sponsoredIteration !== null) {
+      if (sponsoredIteration !== null) {
         sponsoredIteration = true;
       } else {
         sponsoredIteration = false;
+        rankOrganic++;
+        addProp('wsp-buy-block.product-item__options.hit-area', i, 'rankorganic', rankOrganic);
       };
 
       if (seller !== undefined && seller !== null) {
@@ -48,13 +53,19 @@ async function implementation (inputs, parameters, context, dependencies) {
         seller = 'Seller is not known';
       };
 
+      if (productUrlAll[i].href.includes('https')) {
+        productUrl = productUrlAll[i].href;
+      } else {
+        productUrl = 'https://www.bol.com' + productUrlAll[i].href;
+      }
+
+      addProp('.h-o-hidden>a', i, 'producturl', productUrl);
       addProp('.star-rating', i, 'ratingsCount', ratings);
       addProp('div.product-item__info.hit-area', i, 'sponsored', sponsoredIteration);
       addProp('wsp-buy-block.product-item__options.hit-area', i, 'seller', seller);
       addProp('wsp-buy-block.product-item__options.hit-area', i, 'rank', `${i + 1}`);
     };
   });
-
   return await context.extract(productDetails);
 };
 
