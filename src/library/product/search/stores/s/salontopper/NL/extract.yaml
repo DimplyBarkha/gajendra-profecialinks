@@ -1,20 +1,28 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class, 'product-gallery')]/div[@class='cell']
 fields:
   - name: id
     singleValue: false
+    xpath: //a[contains(@class, 'add-cart')]/@data-product-id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //div[@class='title']
   - name: productUrl
     singleValue: false
+    xpath: //div[contains(@class, 'product-gallery')]//a[contains(@href, '/product')]/@href
+    regExp: (.*)
+    regExpReplace: https://www.salontopper.nl$1   
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[@class='image']/img/@src
+    regExp: (.*)
+    regExpReplace: https://www.salontopper.nl$1 
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,6 +33,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[@class='price']
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -39,6 +48,7 @@ fields:
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
