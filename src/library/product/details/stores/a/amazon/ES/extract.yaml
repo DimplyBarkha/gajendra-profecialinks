@@ -2,12 +2,12 @@ extends: ../../../../sharedAmazon/shared
 fields:
   - name: backupBrand
     singleValue: false
-    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
+    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt | //a[@id="brand"]
     regExp: '(Marca:\s+(.+)$|Visit la Store de (.+)|^(.+)$)'
     regExpReplace: $2$3$4
   - name: brandText
     singleValue: false
-    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
+    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt | //a[@id="brand"]
     regExp: '(Marca:\s+(.+)$|Visit la Store de (.+)|^(.+)$)'
     regExpReplace: $2$3$4
   - name: manufacturer
@@ -43,13 +43,13 @@ fields:
   - name: salesRank
     singleValue: false
     xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
-    regExp: nº([0-9,]{1,})[ \t]*en[ \t]*([^\(]+)
+    regExp: nº([0-9,\.]{1,})[ \t]*en[ \t]*([^\(]+)
     regExpReplace: >-
       #$1
   - name: salesRankCategory
     singleValue: false
     xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
-    regExp: nº([0-9,]{1,})[ \t]*en[ \t]*([^\(]+)
+    regExp: nº([0-9,\.]{1,})[ \t]*en[ \t]*([^\(]+)
     regExpReplace: >-
       $2 
   - name: packSize
@@ -59,6 +59,9 @@ fields:
     regExpReplace: $3
   - name: imageZoomFeaturePresent
     defaultValue: true
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'direcciÃ³n')]/../p[text()]/text() | //*[contains(text(), "direcciÃ³n")]/following-sibling::*[text()]/text() | //*[contains(text(), "dirección")]/following-sibling::*[text()]/text()
   - name: ingredientsList
     singleValue: true
     xpath: //div[@id="productDescription"]/p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Ingredientes")]]

@@ -130,7 +130,8 @@ const transform = (data, context) => {
             //   });
             // }
             if (row.manufacturerDescription && row.manufacturerDescription[0]) {
-                const regexIgnoreText = /(Read more)/g;
+                //Add ignore text here
+                const regexIgnoreText = /(Read more|Leer más)/g;
                 const text = row.manufacturerDescription[0].text.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(regexIgnoreText, '').trim();
                 row.manufacturerDescription = [{ text }];
             }
@@ -187,7 +188,7 @@ const transform = (data, context) => {
                     if (item.text.match(/details/i)) {
                         item.text = 'YES';
                     } else {
-                        item.text = 'NO';
+                        item.text = 'FALSE';
                     }
                 });
             }
@@ -306,11 +307,8 @@ const transform = (data, context) => {
             if (row.shippingWeight) {
                 row.grossWeight = row.shippingWeight;
             }
-            if (!row.packSize && row.packSizeFallback) {
-                row.packSize = row.packSizeFallback;
-            }
             if (!row.packSize && row.quantity) {
-                const packSize = row.quantity[0].text.match(/Pack\s+of\s+(\d+)/i);
+                const packSize = row.quantity[0].text.match(/Pack of (\d+)/);
                 if (packSize) {
                     row.packSize = [{ text: packSize[1] }];
                 }
@@ -323,10 +321,6 @@ const transform = (data, context) => {
                     row.videos = [...row.videos, row.manufacturerVideos];
                 }
                 delete row.manufacturerVideos;
-            }
-            if (row.fastTrack) {
-                const text = row.fastTrack[0].text.replace(/details/gi, '').trim();
-                row.fastTrack[0].text = text;
             }
             Object.keys(row).forEach(header => {
                 row[header].forEach(el => {
