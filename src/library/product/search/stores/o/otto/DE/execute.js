@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'otto',
     domain: 'otto.de',
-    url: "https://www.otto.de/suche/adidas%20golf/",
+    url: "https://www.otto.de/suche/{searchTerms}/",
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

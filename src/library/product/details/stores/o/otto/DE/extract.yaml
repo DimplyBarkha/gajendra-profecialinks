@@ -24,3 +24,9 @@ fields:
   - name: sku
     singleValue: true
     xpath: //meta[@itemprop='sku']/@content
+  - name: variantId
+    singleValue: true
+    xpath: //div[@class='exactag js_exactag']/@data-variationid
+  - name: mpc
+    singleValue:  true
+    xpath: //div[@class='exactag js_exactag']/@data-productid
