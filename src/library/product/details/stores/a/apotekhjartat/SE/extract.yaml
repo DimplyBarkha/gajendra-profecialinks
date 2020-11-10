@@ -108,6 +108,7 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
+    xpath: //h2[contains(.,"ur du använder")]/following-sibling::*
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
