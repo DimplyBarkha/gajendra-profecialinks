@@ -11,10 +11,7 @@ fields:
     xpath: //a[@class="products-list__link"]/@href
   - name: price
     SingleValue: false
-    xpath: //div[@class="products-list__special-price"]
-  - name: price
-    SingleValue: false
-    xpath: //div[@class="products-list__regular-price"]
+    xpath: //div[@class="products-list__price-box"]//div[not(@class="products-list__old-price")]
   - name: thumbnail
     SingleValue: false
     xpath: //a[@class="products-list__link"]/img/@src
