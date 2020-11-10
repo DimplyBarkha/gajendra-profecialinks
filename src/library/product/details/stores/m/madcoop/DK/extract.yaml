@@ -14,14 +14,9 @@ fields:
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
-    xpath: //nav[contains(@class,"c-breadcrumb")]//ul//li[position()=2]
-    regExp: (.+)(\s\>)
-    regExpReplace: $1
-    description: The categories (e.g. from breadcrumbs)
-  - name: category
-    xpath: //nav[contains(@class,"c-breadcrumb")]//ul//li[position()=3] | //nav[contains(@class,"c-breadcrumb")]//ul//li[position()=4]
+    xpath: //ul//li[@itemprop="itemListElement"][position()>1 and position()<last()]/a
   - name: nameExtended
-    xpath: concat((//div[contains(@class,"c-product-detail")]//div//p[contains(@class,"text-15")])," ",(//h1[contains(@class,"c-product-detail__title")]))
+    xpath: concat((//div[contains(@class,"c-product-detail")]//div//p[contains(@class,"text")])," ",(//h1[contains(@class,"c-product-detail__title")]))
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -46,7 +41,7 @@ fields:
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    xpath: //div[contains(@class,"c-product-detail")]//div//p[contains(@class,"text-15")]
+    xpath: //div[contains(@class,"c-product-detail__basic-info")]//div//p[contains(@class,"text")]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
