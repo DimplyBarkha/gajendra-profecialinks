@@ -43,12 +43,6 @@ async function implementation(
     if (pagination === '_icon icon-chevron-right') {
       addclass('ul.pagination.list.-inline.item-pagination li:last-child a');
     };
-    try {
-      var myobj = document.getElementById("URL").remove();
-    } catch (error) {
-    }
-    const url = window.location.href;
-    addHiddenDiv('URL', url);
   });
   return await context.extract(productDetails, { transform });
 }
