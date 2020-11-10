@@ -8,7 +8,8 @@ fields:
     description: product_name - Product title
   - name: aggregateRating
     xpath: ancestor::html//*[contains(@data-a-popover, "average-customer")]//span[contains(@class,"a-icon-alt")]
-    regExp: ^[^\s]+
+    regExp: ^([0-9\.]{3,})
+    regExpReplace: $1
     description: "product_reviews - Product reviews, usually out of 5, 
       if not append the amount its out of. ex: 4.5/10"
   - name: reviewCount
@@ -40,8 +41,14 @@ fields:
     regExp: \(([^\s]+)
     regExpReplace: $1
     description: reseller_reviews - Number of reviews the seller has
+  - name: resellerAggregateRating
+    xpath: //i[contains(@class," a-icon-star ")]
+    regExp: ^([0-9\.]{3,})
+    regExpReplace: $1
+    description: Aggregate rating of seller (stars)
   - name: resellerFeedbackPercent
-    regExp: ^[^%]+
+    regExp: ([^%]+)
+    regExpReplace: $1
     xpath: //i[contains(@class," a-icon-star ")]/following-sibling::a/b
     description: reseller_feedback_% - Seller feedback percentage poisitive or
       negative dont include percent if possible
