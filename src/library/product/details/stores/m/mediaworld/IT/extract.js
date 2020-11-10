@@ -81,7 +81,7 @@ module.exports = {
         if (scriptXpathObj.graph[0].aggregateRating !== undefined) {
           const aggregateData = scriptXpathObj.graph[0].aggregateRating.ratingValue;
           const aggregate = aggregateData.split('.');
-          const aggregateNewValue = aggregate[0] + '.' + aggregate[1].substring(0,1);
+          const aggregateNewValue = aggregate[0] + '.' + aggregate[1].substring(0, 1);
           // addElementToDocument('added_rating', aggregateNewValue);
           addElementToDocument('added_rating', aggregateNewValue.replace(/\./g, ','));
           addElementToDocument('added_rating_count', scriptXpathObj.graph[0].aggregateRating.reviewCount);
