@@ -8,19 +8,7 @@ module.exports = {
     domain: 'medpex.de',
   },
   // @ts-ignore
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    await context.waitForSelector('div#product-list > div.product-list-entry');
-    async function firstItemLink () {
-      return await context.evaluate(function () {
-        // @ts-ignore
-        const firstItem = document.querySelector('div#product-list > div.product-list-entry > form > div.clearfix > div.description > span.product-name > b > a').href;
-        return firstItem;
-      });
-    }
-    const url = await firstItemLink();
-    if (url !== null) {
-      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
-    }
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -29,7 +17,6 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-
       function findJsonObj (scriptSelector, startString, endString) {
         const xpath = `//script[contains(.,'${scriptSelector}')]`;
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -87,6 +74,6 @@ module.exports = {
         addElementToDocument('pd_directions', siblingsDirections);
       }
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
