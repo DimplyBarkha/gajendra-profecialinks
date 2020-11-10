@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
     xpath: //section[contains(@class, 'productimages')]//div[contains(@class, 'productimages__mainimage')]/img/@src
   - name: imageAlt
@@ -23,7 +23,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: //ol[contains(@class, 'breadcrumb')]//li[not(position()=1)]//a
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //a[contains(@class, 'brandlogo')]/following-sibling::h1
@@ -60,7 +60,7 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
     xpath: //a[contains(@class, 'brandlogo')]/img/@alt
   - name: quantity
@@ -69,15 +69,15 @@ fields:
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
     xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'Gewicht']/following-sibling::td
   - name: weightGross
-    singleValue: true
+    singleValue: false
     description: Gross weight as described on the page
     xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'Gewicht']/following-sibling::td
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
     xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'EAN']/following-sibling::td
   - name: sku
@@ -88,7 +88,7 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The manufacturer model code (unique) of the product
     xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'Type']/following-sibling::td
   - name: packSize
@@ -118,7 +118,7 @@ fields:
     type: NUMBER
     xpath: //*[contains(@itemprop, 'ratingValue')][1]
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
     xpath: (//ul[@class='USPList'])[1]//li[1]
   - name: shippingDimensions
@@ -128,12 +128,12 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
+    singleValue: false
     description: Number of variants listed
     type: NUMBER
     xpath: count(//div[@id='productvariants']//div[@class='ProductVariants__Group']//a | //div[@id='productvariants']//div[@class='ProductVariants__Group']//span)
   - name: color
-    singleValue: true
+    singleValue: false
     description: A textual description of the colour
     xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Kleur van het')]/following-sibling::td
   - name: colorCode
@@ -402,11 +402,11 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
     xpath: concat(//div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Hoogte')]/following-sibling::td, ' x ', //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Breedte')]/following-sibling::td, ' x ', //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Diepte')]/following-sibling::td)
   - name: warranty
-    singleValue: true
+    singleValue: false
     description: Guarantee associated with the product
     xpath: (//ul[@class='USPList'])[1]//li[2]
   - name: storage
@@ -455,7 +455,7 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     description: colour / scent / flavour / other
     xpath: concat(
       substring((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[1], 1, string-length((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[1])),
@@ -523,7 +523,7 @@ fields:
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: true
+    singleValue: false
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
