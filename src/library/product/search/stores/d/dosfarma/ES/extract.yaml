@@ -2,4 +2,22 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: null
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //section[@name="ebx-grid-item--animation"]//article[@class="ebx-result ebx-grid-item ebx-result--default"]/@data-scroll-id
+  - name: thumbnail
+    singleValue: false
+    xpath: //section[@id="ebx-grid"]//article[@class="ebx-result ebx-grid-item ebx-result--default"]//section[@class="ebx-result-figure ebx-result__figure"]//img/@src
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="ebx-result-title ebx-result__title"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //section[@id="ebx-grid"]//article[@class="ebx-result ebx-grid-item ebx-result--default"]//a/@href
+  - name: price
+    singleValue: false
+    xpath: //p[@class="ebx-result-price ebx-result__price"]//strong[@class="ebx-result-price__value"]/text()
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="ebx-rating ebx-result-rating"]
