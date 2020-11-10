@@ -64,9 +64,9 @@ fields:
 - name: aggregateRating
   singleValue: true 
   xpath: (//div[@class="mt-4 rating-box"]//div/meta[@itemprop="ratingValue"]/@content)
-- name: productOtherInformation
-  singleValue: true 
-  xpath: //section[@id="productSheetCont"]/meta[@itemprop="description"]/@content
+# - name: productOtherInformation
+#   singleValue: true 
+#   xpath: //section[@id="productSheetCont"]/meta[@itemprop="description"]/@content
 - name: descriptionBullets
   singleValue: false  
   xpath: count(//div[@id="content-description"]//ul/li)
