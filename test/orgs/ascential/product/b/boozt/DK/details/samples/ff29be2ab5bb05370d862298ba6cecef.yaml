@@ -1,0 +1,106 @@
+input:
+  _url: http://boozt.com
+  URL: https://www.boozt.com/dk/da/lancome/cils-booster-xl_18031486/18031487?group=search
+extractions:
+  - html: https://workbench.import.io/html/run=6d8188db-8cf4-46be-b07f-8b2943cf8e89/task=18a572e5-4b01-43aa-8bd2-996fd159dec8/2f432a03-3ced-422d-a94c-08190e4ab5b3.html
+    extractionConfigId: product/details/stores/b/boozt/DK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boozt.com/dk/da/lancome/cils-booster-xl_18031486/18031487?group=search
+                xpath: /html/head[1]/meta[16]/@content
+            image:
+              - text: https://ean-images.booztcdn.com/lancome/1300x1700/g/lanl8512000_cwhite.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Lancôme - Cils Booster XL Mascarabase - mascara - white - 0
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://ean-images.booztcdn.com/lancome/183x239/g/lanl8512000_cwhite.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/lancome/183x239/g/lanl8512000_cwhite_2.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/lancome/183x239/g/lanl8512000_cwhite_3.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/img[1]/@src
+            category:
+              - text: Kvinder
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/a[1]/text()[1]
+              - text: Beauty
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/a[2]/text()[1]
+              - text: Makeup
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/a[3]/text()[1]
+            listPrice:
+              - text: 260 kr
+                xpath: /html/body/div[9]/div[1]/div[2]/div[6]/div[1]/span[2]
+            price:
+              - text: 195 kr
+                xpath: /html/body/div[9]/div[1]/div[2]/div[6]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]/div[1]/div[2]/div[7]/div[1]/div[1]/button[1]/div[1]
+            description:
+              - text: Hudtype
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/text()[1]
+              - text: Alle hudtyper
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/text()[1]
+            brandText:
+              - text: Lancôme
+                xpath: /html/body/div[9]/div[1]/div[2]/div[1]/h2[1]/a[1]/text()[1]
+            manufacturer:
+              - text: Lancôme
+                xpath: /html/body/div[9]/div[1]/div[2]/div[1]/h2[1]/a[1]/text()[1]
+            sku:
+              - text: " LANL8512000"
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]
+            variantId:
+              - text: "18031487"
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/text()[5]
+            manufacturerDescription:
+              - text: Cils Booster XL er en hvid mascaraprimer, der anvendes inden den
+                  almindelige mascara for at skabe ekstra volumen og længde. Det
+                  ideelle underlag for enhver mascara.
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            brandLink:
+              - text: https://www.boozt.com/dk/da/lancome/kvinder
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[2]/a[1]/@href
+            promotion:
+              - text: Spar 65 kr
+                xpath: /html/body/div[9]/div[1]/div[2]/div[6]/div[1]/span[3]
+            nameExtended:
+              - text: Lancôme Cils Booster XL Mascarabase - Makeup
+            descriptionBullets:
+              - text: "0"
+            ratingCount:
+              - text: "5"
+            aggregateRating:
+              - text: "4"
+            variantCount:
+              - text: "0"
+            productOtherInformation:
+              - text: ""
+            shippingInfo:
+              - text: >-
+                  Fri og hurtig retur
+
+
+                  Gyldig på ordre over 499 kr. Din pakke ankommer det valgte afhentningssted eller hjemme hos dig selv inden 1-2 arbejdsdage. LÆS MER
+
+
+                  Enkel bytte af gaver
+
+
+                  Log ind på Mit Boozt, og skab en gavekvittering. LÆS MER
+
+
+                  Fri retur
+
+
+                  Ønsker du at returnere dit køb? Vi tilbyder 30 dags enkel og fri retur med en forhåndsbetalt returetiket inkluderet i pakken. LÆS MER
+
+
+                  Find ud af mere
+
+
+                  Find hurtigt svar på dine spørsmål på vores kundeservicesider. Kundeservice og FAQ
+        xpath: /
+    timestamp: 1605031063601

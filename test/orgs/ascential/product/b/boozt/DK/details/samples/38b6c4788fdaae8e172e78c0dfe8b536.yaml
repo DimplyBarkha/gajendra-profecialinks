@@ -1,0 +1,27 @@
+input:
+  _url: http://boozt.com
+  URL: https://www.boozt.com/dk/da/eve-lom/radiant-rituals-set_15929143/15929144?group=search
+extractions:
+  - html: https://workbench.import.io/html/run=6d8188db-8cf4-46be-b07f-8b2943cf8e89/task=6830f9a0-88fa-48ff-85d9-8d05979982e1/341ec798-267a-4f2a-9add-38d1de2c2a72.html
+    extractionConfigId: product/details/stores/b/boozt/DK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boozt.com/dk/da
+                xpath: /html/head[1]/meta[16]/@content
+            nameExtended:
+              - text: ""
+            descriptionBullets:
+              - text: "0"
+            ratingCount:
+              - text: ""
+            aggregateRating:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            productOtherInformation:
+              - text: ""
+            shippingInfo:
+              - text: ""
+        xpath: /html/head[1]
+    timestamp: 1605031062277

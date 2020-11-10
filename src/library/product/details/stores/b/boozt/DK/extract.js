@@ -25,13 +25,13 @@ module.exports = {
 
       //iteration through all the buttons and click on them for loading the div with text
       for (let i = 0; i < infoBtns.length; i++) {
-        if (infoBtns[i].innerText === "CARE TIPS") {
+        if (infoBtns[i].innerText === "BÆREDYGTIG FASHION" || infoBtns[i].innerText === "TØJPLEJE") {
           infoBtns[i].click();
           await new Promise((r) => setTimeout(r, 1000));
           let careTips = document.querySelector("div.pp-tabs__content.pp-content").innerText;
           allInfoRaw.careTips = careTips;
         }
-        else if (infoBtns[i].innerText === "SHIPPING & RETURNS") {
+        else if (infoBtns[i].innerText === "LEVERING & RETURNERING") {
           infoBtns[i].click();
           await new Promise((r) => setTimeout(r, 1000));
           let shippingInfo = document.querySelector("div.pp-tabs__content.pp-content > div.pp-content__section").innerText;

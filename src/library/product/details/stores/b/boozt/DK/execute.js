@@ -6,7 +6,7 @@ module.exports = {
     store: 'boozt',
     domain: 'boozt.com',
     loadedSelector: 'div.related__content',
-    noResultsXPath: '//h2[@class="fsearchnoresults__header"]',
+    noResultsXPath: '//div[@class="listing-table-wrapper"]|//div[@id="preview_parent"]|//h2[@class="fsearchnoresults__header"]',
     zipcode: '',
   },
 };

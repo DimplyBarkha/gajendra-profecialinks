@@ -1,0 +1,138 @@
+input:
+  _url: http://boozt.com
+  URL: https://www.boozt.com/dk/da/adidas-originals/trefoil-tee_26327573/20872116?navId=71547&group=brandwall&position=1000000
+extractions:
+  - html: https://workbench.import.io/html/run=6d8188db-8cf4-46be-b07f-8b2943cf8e89/task=3e2a85e0-ec3a-4618-9258-168f4df53f9b/22e7be56-1245-4091-bd07-0bc8755db449.html
+    extractionConfigId: product/details/stores/b/boozt/DK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boozt.com/dk/da/adidas-originals/trefoil-tee_26327573/20872116?group=brandwall&navId=71547&position=1000000
+                xpath: /html/head[1]/meta[16]/@content
+            image:
+              - text: https://ean-images.booztcdn.com/adidas-originals/1300x1700/g/adifm3311_cblackwhite.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: adidas Originals - TREFOIL TEE - sportstoppe - black/white - 1
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://ean-images.booztcdn.com/adidas-originals/183x239/adifm3311_cblackwhite_10.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/adidas-originals/183x239/g/adifm3311_cblackwhite.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/adidas-originals/183x239/g/adifm3311_cblackwhite_1.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/adidas-originals/183x239/adifm3311_cblackwhite_11.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/adidas-originals/183x239/adifm3311_cblackwhite_90.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/img[1]/@src
+            category:
+              - text: Kvinder
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/a[1]/text()[1]
+              - text: Brands A-Z
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/a[2]/text()[1]
+              - text: adidas
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/a[3]/text()[1]
+            listPrice:
+              - text: 199 kr
+                xpath: /html/body/div[9]/div[1]/div[2]/div[7]/div[1]/span[2]
+            price:
+              - text: 159.20 kr
+                xpath: /html/body/div[9]/div[1]/div[2]/div[7]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]/div[1]/div[2]/div[8]/div[1]/div[1]/button[1]/div[1]
+            description:
+              - text: Om produktet
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/text()[1]
+              - text: 92% bomuld, 8% elastane
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/text()[1]
+              - text: Finvask ved max 30˚C
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/text()[1]
+            brandText:
+              - text: adidas Originals
+                xpath: /html/body/div[9]/div[1]/div[2]/div[1]/h2[1]/a[1]/text()[1]
+            manufacturer:
+              - text: adidas Originals
+                xpath: /html/body/div[9]/div[1]/div[2]/div[1]/h2[1]/a[1]/text()[1]
+            sku:
+              - text: " ADIFM3311"
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]
+            variantId:
+              - text: "20872116"
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/text()[5]
+            color:
+              - text: BLACK/WHITE
+                xpath: /html/body/div[9]/div[1]/div[2]/div[3]/div[1]/p[1]/span[1]
+            manufacturerDescription:
+              - text: Frisk, fin og fuld af adidas-stolthed. Et adidas Trefoil-logo gør sig
+                  bemærket foran på denne klassiske T-shirt. Den har et enkelt
+                  design, der giver et sporty look til hverdagen. Den er lavet i
+                  bomuldsjersey, der føles blød mod huden.
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            brandLink:
+              - text: https://www.boozt.com/dk/da/adidas/women
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/a[1]/@href
+            promotion:
+              - text: Spar 39.80 kr
+                xpath: /html/body/div[9]/div[1]/div[2]/div[7]/div[1]/span[3]
+            materials:
+              - text: 92% bomuld, 8% elastane
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]
+            nameExtended:
+              - text: adidas Originals TREFOIL TEE - T-shirts & Toppe
+            descriptionBullets:
+              - text: "2"
+            ratingCount:
+              - text: "7"
+            aggregateRating:
+              - text: "4"
+            variantCount:
+              - text: "5"
+            productOtherInformation:
+              - text: >-
+                  Bæredygtig fashion på Boozt
+
+
+                  Udforsk nyttig information om stof, innovative fremstillingsprocesser, hvilke brands der er førende inden for den bæredygtige revolution, og hvordan du bedst forlænger dine yndlingsprodukters levetid. LÆS MERE
+
+
+                  Quick care tips
+
+                  Følg vaskeanvisningen nøje.
+
+                  Vask kun dit tøj, når det er nødvendigt og ved lave temperaturer.
+
+                  Lufttørring anbefales.
+
+
+                  Nu er det op til dig at elske det, passe på det og gøre det til dit eget.
+            shippingInfo:
+              - text: >-
+                  Fri og hurtig retur
+
+
+                  Gyldig på ordre over 499 kr. Din pakke ankommer det valgte afhentningssted eller hjemme hos dig selv inden 1-2 arbejdsdage. LÆS MER
+
+
+                  Enkel bytte af gaver
+
+
+                  Log ind på Mit Boozt, og skab en gavekvittering. LÆS MER
+
+
+                  Fri retur
+
+
+                  Ønsker du at returnere dit køb? Vi tilbyder 30 dags enkel og fri retur med en forhåndsbetalt returetiket inkluderet i pakken. LÆS MER
+
+
+                  Find ud af mere
+
+
+                  Find hurtigt svar på dine spørsmål på vores kundeservicesider. Kundeservice og FAQ
+        xpath: /
+    timestamp: 1605031063485
