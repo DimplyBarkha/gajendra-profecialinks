@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'mondoffice',
-    nextLinkSelector: 'div#Pager>span.next',
+    nextLinkSelector: 'a.pagination-button__next',
     // mutationSelector: null,
     // spinnerSelector: null,
-    loadedSelector: 'div#ResultsSection',
+    loadedSelector: 'div#toolbar__all_anchor',
     // noResultsXPath: null,
     // openSearchDefinition: null,
     domain: 'mondoffice.com',

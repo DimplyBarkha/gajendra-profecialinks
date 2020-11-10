@@ -1,4 +1,3 @@
-const { transform } = require('./shared');
 async function implementation (
   inputs,
   parameters,
@@ -6,14 +5,18 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
+  await context.waitForSelector('#toolbar__all_anchor');
+  await context.evaluate(async function () {
+    const el = document.querySelector('body');
+    el.setAttribute('search_url', location.href);
+  });
 
-  await context.waitForSelector('#ResultsSection');
   // Check if cookies pop-up appeared
   const doesPopupExist = await context.evaluate(function () {
-    return Boolean(document.querySelector('.accept-all-cookies'));
+    return Boolean(document.querySelector('#onetrust-accept-btn-handler'));
   });
   if (doesPopupExist) {
-    await context.click('.accept-all-cookies');
+    await context.click('#onetrust-accept-btn-handler');
   }
   return await context.extract(productDetails);
 }
@@ -22,7 +25,7 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'mondoffice',
-    transform,
+    transform: null,
     domain: 'mondoffice.com',
     zipcode: '',
   },
