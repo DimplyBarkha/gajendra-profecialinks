@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'otto.de',
-    timeout: 40000,
     country: 'DE',
     store: 'otto',
+    domain: 'otto.de',
     zipcode: '',
   },
 };
