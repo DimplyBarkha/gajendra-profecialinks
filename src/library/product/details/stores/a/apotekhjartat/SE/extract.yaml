@@ -21,6 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //div[contains(@class,"facts-list")]/div/div[contains(.,"Kategori")]/following-sibling::div[1]//a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -49,17 +50,25 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@id,"fass-info")]//p
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
+    xpath: count(//ul[contains(@class,"productMainUSP")]/li) 
     type: NUMBER
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //*[contains(@ng-controller,"richDataController")]
+    regExp: brand([:"\s]+)([\w\d\s]+)(")
+    regExpReplace: $2
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //*[contains(@ng-controller,"richDataController")]
+    regExp: brand([:"\s]+)([\w\d\s]+)(")
+    regExpReplace: $2
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -74,15 +83,21 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //*[contains(@ng-controller,"richDataController")]
+    regExp: gtin13([:"\s]+)(\d+)(",)
+    regExpReplace: $2
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //*[contains(@class,"productContentHolder")]/@data-variantcode
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[contains(@class,"facts-list")]/div/div[contains(.,"arunummer")]/following-sibling::div[1]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //*[contains(@class,"productContentHolder")]/@data-id
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -96,6 +111,7 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
+    xpath: //h2[contains(.,"arningar")]/following-sibling::*[position()<3]
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -134,10 +150,14 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
+    xpath: (//img[contains(@src,"youtube.com")]/@src)[1]
+    regExp: vi/(.+)/
+    regExpReplace: https://www.youtube.com/watch?v=$1
     description: URLs of videos on page
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[@id="title"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -226,6 +246,7 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
+    xpath: count(//ul[@class="slides"]/li[not(contains(@class,"clone")) and (position()>2)]/img)
     singleValue: true
     description: null
     type: NUMBER
@@ -242,6 +263,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //*[@id="product-toc"]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -422,6 +444,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
+    xpath: //div[contains(@class,"productMainImageHolder")]//div[contains(@class,"flyer_container")]
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
@@ -456,6 +479,7 @@ fields:
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
+    xpath: //ul[contains(@class,"productMainUSP")]/li
     singleValue: false
     description: null
   - name: prop65Warning
