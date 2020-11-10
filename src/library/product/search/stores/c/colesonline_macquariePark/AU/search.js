@@ -1,12 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'shop.coles.com.au',
-    timeout: 60000,
     country: 'AU',
-    // store: 'colesonline',
     store: 'colesonline_macquariePark',
+    domain: 'shop.coles.com.au',
     zipcode: '',
   },
 };
