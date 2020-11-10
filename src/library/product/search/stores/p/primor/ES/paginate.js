@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'primor',
-    nextLinkXpath: '//*[@id="pagination_next_bottom"]/a/i',
+    nextLinkSelector: '[id="pagination_next_bottom"] a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
