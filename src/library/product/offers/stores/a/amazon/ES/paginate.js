@@ -1,7 +1,7 @@
 module.exports = {
   implements: 'product/offers/paginate',
   parameterValues: {
-    country: 'CA',
+    country: 'ES',
     store: 'amazon',
     nextLinkSelector: 'li.a-last > a',
     spinnerSelector: null,
@@ -10,8 +10,8 @@ module.exports = {
     // Use openSearchDefinition if nextLink has navigation issues.
     openSearchDefinition: {
       indexOffset: 10,
-      template: 'https://www.amazon.ca/gp/offer-listing/{id}/ref=olp_f_new?ie=UTF8&overridePriceSuppression=10&&startIndex={offset}',
+      template: 'https://www.amazon.es/gp/offer-listing/{id}/ref=olp_f_new?ie=UTF8&overridePriceSuppression=10&&startIndex={offset}',
     },
-    domain: 'amazon.ca',
+    domain: 'amazon.es',
   },
 };

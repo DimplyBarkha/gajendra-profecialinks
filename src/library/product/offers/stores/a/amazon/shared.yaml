@@ -37,7 +37,7 @@ fields:
     description: reseller_link - Link to the seller page
   - name: resellerReviews
     xpath: //i[contains(@class," a-icon-star ")]/following-sibling::text()
-    regExp: \(([^\s])+
+    regExp: \(([^\s]+)
     regExpReplace: $1
     description: reseller_reviews - Number of reviews the seller has
   - name: resellerFeedbackPercent
