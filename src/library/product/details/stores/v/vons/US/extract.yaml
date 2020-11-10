@@ -91,8 +91,8 @@ fields:
   - name: pack_size
     singleValue: true
     description: The number of packs in the product offer
-    xpath: //h1[@class='modal-heading']//text()
-    regExp: '[^-]*$'
+    # xpath: //h1[@class='modal-heading']//text()
+    # regExp: '[^-]*$'
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -256,9 +256,10 @@ fields:
     xpath: //div[@class='col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 flour']//text()
   - name: servingSize
     singleValue: true
+    type: NUMBER
     description: The size of serving Nutritional information is based on.
     xpath: (//div[@id='ingredients']//tr//td)[1]//text()
-    regExp: '\d+(\.\d+)?'
+    # regExp: '\d+(\.\d+)?'
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
@@ -269,9 +270,10 @@ fields:
     description: Suggested number of servings of the product.
     type: NUMBER
     xpath: //div[@id='ingredients']//tr//td//span[2]
-    regRxp: '\d+(\.\d+)?'
+    # regRxp: '\d+(\.\d+)?'
   - name: caloriesPerServing
     singleValue: true
+    type: NUMBER
     description: Nutritional Information for Calories Per Serving content - Usually
      based on per 100g serving
     xpath: (//td[@class='table-ingredients-text']//text())[2]
