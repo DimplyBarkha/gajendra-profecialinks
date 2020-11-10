@@ -58,7 +58,17 @@ module.exports = {
       await context.evaluateInFrame('iframe', () => grecaptcha.execute());
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation({ timeout });
-      await context.waitForXPath('//div[@id="product-detail-page"]', { timeout });
+      try {
+        await context.waitForXPath('//div[@id="product-detail-page"]', { timeout });
+      } catch (error) {
+        console.log('error: ', error); 
+      }
+      try {
+        await context.waitForXPath('//div[@class="product-list"]', { timeout });
+      } catch (error) {
+        console.log('error: ', error);
+      }
+      
       try {
       await context.waitForXPath('//button[@id="footer_tc_privacy_button"]', { timeout });
       await context.evaluateInFrame('iframe', () => {
@@ -84,8 +94,31 @@ module.exports = {
       
     } catch (error) {
       console.log('error: ', error);
-
     }
+    try {
+      await context.waitForXPath('//div[@class="ab-popin_content"]', { timeout: 30000 });
+      await context.evaluateInFrame('iframe', () => {
+        let closePopUp = document.querySelector('div.ab-popin_content button.modal__close');
+        if (closePopUp) {
+          // @ts-ignore
+          closePopUp.click();
+        }
+      });
+      } catch (error) {
+        console.log('error: ', error);
+      }
+      try {
+        await context.waitForXPath('//div[@class="ab-popin_content"]', { timeout: 30000 });
+        await context.evaluateInFrame('iframe', () => {
+          let closePopUp = document.querySelector('div.ab-popin_content button.modal__close');
+          if (closePopUp) {
+            // @ts-ignore
+            closePopUp.click();
+          }
+        });
+        } catch (error) {
+          console.log('error: ', error);
+        }
     await context.evaluate(async function () {
       try {
         await new Promise((resolve) => setTimeout(resolve, 5000));

@@ -66,6 +66,9 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
+    xpath: //span[contains(@class,"ds-body-text ds-body-text--weight-bold ds-body-text--size-m")]
+    regExp: la\sboite\sde\s(.*)
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -141,7 +144,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id="flix-inpage"]//img/@srcset
+    xpath: //div[@id="flix-inpage"]//img/@srcset | //div[@id="wc-aplus"]//img/@src
     # xpath: //div[@class="webcollage"]//div//img/@srcset
   - name: videos
     singleValue: false
@@ -257,6 +260,7 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //h3[contains(text(),"Ingrédients")]/following-sibling::div
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
