@@ -38,13 +38,20 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
 
-      const sliceURL = (data) => {
-        for (let index = 0; index < data.length; index++) {
-          addElementToDocument('altImages', data[index].slice(50, -3));
-        }
-      };
-      var backgroundURL = getAllXpath("(//div[@class='s7thumb'])[1]/@style", 'nodeValue');
-      sliceURL(backgroundURL);
+      // const sliceURL = (data) => {
+      //   for (let index = 0; index < data.length; index++) {
+      //     var image = data[index].slice(50, -3);
+      //     addElementToDocument('altImages', data[index].slice(50, -3));
+      //   }
+      // };
+      var backgroundURL = getXpath("(//div[@class='s7thumb'])[1]/@style", 'nodeValue');
+      if (backgroundURL != null){
+        var i = backgroundURL.slice(50, -3);
+        i = i.replace("wid=56","wid=300");
+        i = i.replace("hei=56","wid=300");
+        addElementToDocument('altImages', i);
+      }
+      // sliceURL(backgroundURL);
 
       const sliceURL1 = (data) => {
         for (let index = 0; index < data.length; index++) {
