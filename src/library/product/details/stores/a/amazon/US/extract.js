@@ -33,21 +33,21 @@ async function implementation(
         }
     }
 
-    const MAX_TRIES = 3;
-    let counter = 1;
-    let loaded = false;
-    const pageUrl = await context.evaluate(() => window.location.href);
-    do {
-        loaded = await loadContent();
-        if (!loaded) {
-            await goto(pageUrl, { waitUntil: ['networkidle0', 'domcontentloaded'] });
-        }
-        counter++;
-    } while (!loaded && counter <= MAX_TRIES);
+    // const MAX_TRIES = 3;
+    // let counter = 1;
+    // let loaded = false;
+    // const pageUrl = await context.evaluate(() => window.location.href);
+    // do {
+    //     loaded = await loadContent();
+    //     if (!loaded) {
+    //         await goto(pageUrl, { waitUntil: ['networkidle0', 'domcontentloaded'] });
+    //     }
+    //     counter++;
+    // } while (!loaded && counter <= MAX_TRIES);
 
-    if (!loaded) {
-        throw new Error('Product detail not loaded.');
-    }
+    // if (!loaded) {
+    //     throw new Error('Product detail not loaded.');
+    // }
     /*
     async function getLbb () {
       const elem = await helpers.checkXpathSelector("//div[contains(@id, 'glow-toaster-body') and //*[contains(text(), 'Amazon Fresh')]]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']");
