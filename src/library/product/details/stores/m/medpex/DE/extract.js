@@ -1,15 +1,18 @@
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'medpex',
-    transform: null,
+    transform: cleanUp,
     domain: 'medpex.de',
   },
+  // @ts-ignore
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.waitForSelector('div#product-list > div.product-list-entry');
     async function firstItemLink () {
       return await context.evaluate(function () {
+        // @ts-ignore
         const firstItem = document.querySelector('div#product-list > div.product-list-entry > form > div.clearfix > div.description > span.product-name > b > a').href;
         return firstItem;
       });
@@ -30,6 +33,7 @@ module.exports = {
       function findJsonObj (scriptSelector, startString, endString) {
         const xpath = `//script[contains(.,'${scriptSelector}')]`;
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        // @ts-ignore
         const scriptContent = element.innerText;
         const startIdx = scriptContent.indexOf(startString);
         const endIdx = scriptContent.indexOf(endString);
@@ -47,6 +51,7 @@ module.exports = {
         jsonStr = jsonStr.replace(/[\u0000-\u0019]+/g, '');
         return jsonStr;
       }
+      // @ts-ignore
       let stockAvailabilityText = document.querySelector('link[itemprop="availability"]').href;
       stockAvailabilityText = stockAvailabilityText.split('/')[3];
       let rating = document.querySelector('div[class="review"] div').classList;
@@ -56,10 +61,12 @@ module.exports = {
       const siblingsDirections = [];
       for (let index = 0; index < directions.length; index++) {
         let element = directions[index];
+        // @ts-ignore
         if (element.innerText === 'Anwendung:') {
           element = element.nextElementSibling;
           while (element) {
             if (element) {
+              // @ts-ignore
               siblingsDirections.push(element.innerText);
               element = element.nextElementSibling;
             } else {

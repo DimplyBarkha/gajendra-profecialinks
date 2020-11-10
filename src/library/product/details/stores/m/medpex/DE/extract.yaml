@@ -28,7 +28,7 @@ fields:
     xpath: //ol[@class="breadcrumb"]
   - name: nameExtended
     singleValue: true
-    xpath: //div[@id='pd_nameExtended']
+    xpath: //b[@itemprop="name"]/text()
   - name: listPrice
     singleValue: true
     xpath: //div[@class="prices"]/span[@class="sp2p normal-price-crossedout"]
@@ -46,7 +46,7 @@ fields:
     xpath: count(//div[@class="content content--productDescription"]/ul/li)
   - name: brandText
     singleValue: true
-    xpath: //div[@id='pd_brandText']
+    xpath: //span[@itemprop="brand"]/text()
   - name: manufacturer
     singleValue: true
     xpath: //span[@itemprop="brand"]

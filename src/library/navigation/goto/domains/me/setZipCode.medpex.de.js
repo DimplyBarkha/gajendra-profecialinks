@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'DE',
-    store: 'medpex',
     domain: 'medpex.de',
+    store: 'medpex',
     zipcode: '',
   },
 };
