@@ -54,8 +54,8 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: //span[@itemprop="description"]//text()
-  singleValue: false
+  xpath: //span[@itemprop="description"]
+  singleValue: true
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
@@ -467,7 +467,7 @@ fields:
   description: 
 - name: ageSuitability
   xpath: //li[contains(text(),"Age")]/text()|//span[@itemprop="description"]//p/text()
-  regExp: Ag.+ (\d{1,}) years
+  regExp: (Ag.+ (\d{1,}) years)
   regExpReplace: $1
   singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
@@ -511,4 +511,4 @@ fields:
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: "Yes"
