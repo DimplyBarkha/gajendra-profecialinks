@@ -46,6 +46,43 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.variantUrl) {        
+        const variantUrls = [];
+        let dupUrl = "";
+        let urls = [];
+        row.variantUrl.forEach(item => {
+          console.log('item:: ', item.text);
+         urls =  row.variantUrl.filter(it => item.text === it.text);
+        if(urls && urls.length === 1 ){
+          variantUrls.push(item);
+        }else{
+          if(dupUrl !== item.text){
+            dupUrl =  item.text;
+            variantUrls.push(item);
+          }
+        }
+        });
+        row.variantUrl = variantUrls;
+      }
+
+      // if (row.variantId) {        
+      //   const variantIds = [];
+      //   let dup = "";
+      //   let urls = [];
+      //   row.variantId.forEach(item => {
+      //     // console.log('item:: ', item.text);
+      //    urls =  row.variantId.filter(it => item.text === it.text);
+      //   if(urls && urls.length === 1 ){
+      //     variantIds.push(item);
+      //   }else{
+      //     if(dup !== item.text){
+      //       dup =  item.text;
+      //       variantIds.push(item);
+      //     }
+      //   }
+      //   });
+      //   row.variantId = variantIds;        
+      // }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {

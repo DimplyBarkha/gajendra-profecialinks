@@ -65,10 +65,10 @@ fields:
     description: //table[@class="table"]//tr//td[contains(text(),"Peso del producto")]//following-sibling::td//text()
   - name: weightGross
     singleValue: false
-    description: Gross weight as described on the page
+    description: //table[@class="table"]//tr//td[contains(text(),"Peso Embalaje")]//following-sibling::td//text()
   - name: gtin
     singleValue: false
-    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="sku-code-pdp"]//span[@class="code"]/text()
   - name: sku
     singleValue: false
     xpath: //div[@class="sku-code-pdp"]//span[@class="code"]/text()
@@ -133,7 +133,7 @@ fields:
     xpath: //div[@class="yCmsContentSlot productDetailsPageSection4"]//img/@src | //html[@class="ng-scope"]//img/@src
   - name: videos
     singleValue: false
-    description: URLs of videos on page
+    xpath: //a[@class="ytp-title-channel-logo"]/@href
   - name: name
     singleValue: false
     xpath: //div[contains(@class,"product-details-name")]/text()
