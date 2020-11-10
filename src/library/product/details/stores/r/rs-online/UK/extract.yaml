@@ -110,6 +110,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //table[@class="table table-striped"]//td[contains(text(),"Number of") and contains(text(),"per Pack")]//following-sibling::td[text()]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -164,6 +165,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[@class="col-xs-12 main-page-header"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -477,6 +479,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //div[@class="text-units"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
