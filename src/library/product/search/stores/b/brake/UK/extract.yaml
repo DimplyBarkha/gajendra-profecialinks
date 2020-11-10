@@ -30,9 +30,12 @@ fields:
     singleValue: false
   - name: ratingCount
     singleValue: false
+    #prices may be different because website is using 'My Trade Calculator' which by default is set to '20' and here we extract orginal prices
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, 'product-price--current-price')]/span[contains (@class,'product-price__value--current')]
+    xpath: //div[contains(@class, 'product-price--current-price')]/span[contains (@class,'product-price__value--current')]/@data-price
+    regExp: (.+)
+    regExpReplace: £$1
   - name: manufacturer
     singleValue: true
   - name: soldBy
