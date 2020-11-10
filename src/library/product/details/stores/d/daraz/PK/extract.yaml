@@ -1,0 +1,105 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id='container']
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='description']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'next-slick-slide') and contains(@class,'item-gallery__thumbnail_state_active')]//img/@src
+    regExp: (.+?)80x80(.+)
+    regExpReplace: $11200x1200$2
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'item-gallery__thumbnail_state_active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'next-slick-slide') and not(contains(@class,'item-gallery__thumbnail_state_active'))]//img/@src
+    regExp: (.+?)80x80(.+)
+    regExpReplace: $11200x1200$2
+  - name: category
+    singleValue: false
+    xpath: //ul[@id='J_breadcrumb']//li//span//a
+  - name: name
+    singleValue: false
+    xpath: //span[@class='pdp-mod-product-badge-title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //span[@class='pdp-mod-product-badge-title']
+  - name: availabilityText
+    singleValue: false
+    xpath: //script[@type='application/ld+json' and contains(text(),'availability')]
+    regExp: (.+?)availability(.+)InStock(.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[@id='module_product_price_1']//div[@class='pdp-product-price']//span[contains(@class,'pdp-price_type_normal')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id='module_product_price_1']//div[@class='pdp-product-price']//span[contains(@class,'pdp-price_type_deleted')]
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'detail-content')]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-product-highlights')]//ul//li
+  - name: additionalDescBulletInfo
+    singleValue: false  
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]
+  - name: brandLink
+    singleValue: false
+    xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]/@href
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]
+  - name: mpc
+    singleValue: false
+    xpath: //ul[@class='specification-keys']//li//span[normalize-space()='Model']//following-sibling::div
+  - name: sku
+    singleValue: false
+    xpath: //ul[@class='specification-keys']//li//span[normalize-space()='SKU']//following-sibling::div
+  - name: variantId
+    singleValue: false
+    xpath: //ul[@class='specification-keys']//li//span[normalize-space()='SKU']//following-sibling::div
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@class='sku-prop-content']//span[@class='sku-variable-name-text']
+    defaultValue: 0
+    type: NUMBER
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='sku-prop']//span[contains(@class,'sku-name')]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@data-spm='promotion_bar']//div[@class='tag-name']
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-mod-specification')]//ul/li
+  - name: warranty
+    singleValue: false
+    xpath: //script[@type='application/ld+json' and contains(text(),'durationOfWarranty')]
+    regExp: Warranty\s*:(.+)
+    regExpReplace: $1
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'detail-content')]//img
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'detail-content')]
+  - name: ratingCount
+    singleValue: false
+    xpath: //script[@type='application/ld+json' and contains(text(),'aggregateRating>ratingCount')]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //script[@type='application/ld+json' and contains(text(),'aggregateRating>ratingValue')]
+  - name: quantity
+    singleValue: false
+    xpath: //ul[@class='specification-keys']//li//span[normalize-space()='Product Volume']//following-sibling::div
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //ul[@class='specification-keys']//li//span[normalize-space()='Country of origin']//following-sibling::div
