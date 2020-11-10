@@ -8,19 +8,20 @@ fields:
    xpath: //div[@class="img-with-sticker"]/a//img/@src
  - name: id
    singleValue: false
-   xpath: //div[@id="select-quantity-modal-container-3056909"]
+   xpath: //div[@class="product-info border-bottom py-3 col-xxl-3 col-md-4 col-6 border-right"]
  - name: rankOrganic
    singleValue: false
    type: NUMBER
  - name: rank
    singleValue: false
+   xpath: //div[@class="container  "]/div
  - name: price
    singleValue: false
    type: CURRENCY
    xpath: //div[@class="prices"]/div
  - name: name
    singleValue: false
-   xpath: //div[@class="col-lg-8 col-7"]/a/h5
+   xpath: //h3[@class="h5 text-break"]
  - name: productUrl
    singleValue: false
    xpath: //div[@class="img-with-sticker"]/a/@href
