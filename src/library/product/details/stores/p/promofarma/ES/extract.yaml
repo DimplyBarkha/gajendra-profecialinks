@@ -60,7 +60,7 @@ fields:
   xpath: //section[@id='productSheetCont']/h1/text()
 - name: additionalDescBulletInfo
   singleValue: false 
-  xpath: //div[@id="content-instructions"]/p
+  xpath: //div[@id="content-description"]//ul/li
 - name: aggregateRating
   singleValue: true 
   xpath: (//div[@class="mt-4 rating-box"]//div/meta[@itemprop="ratingValue"]/@content)
@@ -107,7 +107,7 @@ fields:
   defaultValue: No
 - name: imageZoomFeaturePresent
   singleValue: true
-  xpath: boolean(//a[@class="MagicZoom"]/text())
+  xpath: //html//div[@id='zoom']
   
 
   
