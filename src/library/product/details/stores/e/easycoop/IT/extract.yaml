@@ -40,10 +40,10 @@ fields:
     singleValue: false
     defaultValue: In Stock
   - name: sku
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="product__image-box"]//div[contains(@class,"swiper-slide") and position()=1]//img/@src
   - name: variantId
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="product__image-box"]//div[contains(@class,"swiper-slide") and position()=1]//img/@src
   - name: imageZoomFeaturePresent
     singleValue: false
