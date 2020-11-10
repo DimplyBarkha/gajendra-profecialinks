@@ -1,20 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,'DvypSJ')]
 fields:
   - name: id
     singleValue: false
+    xpath: //article/a/@href
+    regExp: \-(.{13}).html
+    regExpReplace: $1 
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //header/div[contains(@class,'hPW')]
   - name: productUrl
     singleValue: false
+    xpath: //article/a/@href  
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[contains(@class, 'mo6ZnF PZ5eVw')]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,8 +31,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //span[contains(@class, 'cMfkVL')]
   - name: manufacturer
     singleValue: true
+    xpath: //span[contains(@class, 'EKabf7')]
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -35,14 +43,18 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
+    xpath: //div[contains(@class,"sponsored")]/@sponsored
+    defaultValue: false
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER
