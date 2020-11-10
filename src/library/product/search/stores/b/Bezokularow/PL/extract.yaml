@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="main-content"]/div[contains(@class,"listing")]/div[@class="row"]/div[contains(@class,"col-lg-3")]
+fields:
+  - name: productUrl
+    xpath: //a/@href
+    regExp: (.+)
+    regExpReplace: https://www.bezokularow.pl$1
+  - name: thumbnail
+    xpath: //div[@class="thumb"]/img/@src
+  - name: name
+    xpath: //div[@class="info"]/h3
+  - name: price
+    xpath: //div[@class="info"]/div[@class="price"]
+    regExp: (\d+,\d+|\d+)
+    regExpReplace: $1
+  - name: manufacturer
+    xpath: //div[@class="info"]/div[@class="manufacturer"]
+  - name: rank
+  - name: rankOrganic
+  - name: id
+    xpath: //div[@class="thumb"]/img/@src
+    regExp: /(\d+)/
+    regExpReplace: $1
