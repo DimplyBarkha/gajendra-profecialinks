@@ -6,26 +6,25 @@ fields:
   - name: price
     singleValue: false
     xpath: (//p[@class="price"])/strong
+    type: CURRENCY
   - name: productUrl
     singleValue: false
     xpath: //li[@class="item"]/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.notino.de/$1
+    # regExp: (.+)
+    # regExpReplace: https://www.notino.de/$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
     xpath: //span[@class="img-wrap"]//span/img/@src
     description: The URL for the product thumbnail image
-  - name: id
-    xpath: //ul/li[@class="item"]/@data-product-code
-    description: The store-specific product identifier
   - name: name
     singleValue: false
-    xpath: //span[@class="name"]//strong
-  - name: rank
-    singleValue: false
-    xpath: //html//div[@id='altImages']
+    xpath: //span[@class="name"]/strong
   - name: rankOrganic
     singleValue: false
+    xpath: //div[@id='rankOrganic']
+  - name: rank
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
 
 
