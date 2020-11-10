@@ -55,7 +55,7 @@ async function implementation(
     if (!rankOrganic) {
       rankOrganic = 1;
     } else {
-      rankOrganic = (dup * 21) + 1;
+      rankOrganic = (dup * 21) + 22;
     }
     const urlProduct = document.querySelectorAll('div[class="product_wrapper col-md-4 col-xs-6 table_cell"]');
     for (let i = 0; i < urlProduct.length; i++) {
