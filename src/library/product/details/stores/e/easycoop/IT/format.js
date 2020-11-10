@@ -36,7 +36,7 @@ const transform = (data) => {
                 description_ar.push(item.text);
             });
             if (description_ar.length) {
-              row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
+              row.description = [{ "text": description_ar.join(" | "), 'xpath': row.description[0].xpath }];
             }
         }
         if (row.sku) {
@@ -44,8 +44,8 @@ const transform = (data) => {
             item.text = item.text.match(/\d{7}/g)[1];
           });
         }
-        if (row.sku) {
-          row.sku.forEach(item => {
+        if (row.variantId) {
+          row.variantId.forEach(item => {
             item.text = item.text.match(/\d{7}/g)[1];
           });
         }
@@ -62,4 +62,4 @@ const transform = (data) => {
     }
     return cleanUp(data);
   };
-  module.exports = { transform };
+module.exports = { transform };
