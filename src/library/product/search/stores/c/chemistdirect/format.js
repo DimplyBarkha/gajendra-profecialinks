@@ -32,6 +32,11 @@ const transform = (data, context) => {
             row.price[0].text = (row.price[0].text).replace("Now ","");
         }
 
+        if(row.aggregateRating2){
+            var text = row.aggregateRating2[0].text;
+            row.aggregateRating2[0].text = String((parseFloat(String(row.aggregateRating2[0].text).trim()) / 100) * 5 > 5 ? 5 : ((parseFloat(String(row.aggregateRating2[0].text).trim()) / 100) * 5).toFixed(2));
+          }
+
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));

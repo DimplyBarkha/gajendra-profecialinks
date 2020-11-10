@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'chemistdirect',
-    nextLinkSelector: "//li[contains(@class,'nxt-pages-next')]//a",
+    nextLinkSelector: "li.nxt-pages-next a",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#cd-main',

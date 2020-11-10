@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'chemistdirect',
     domain: 'chemistdirect.co.uk',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.cd-product-main',
+    noResultsXPath: "//div[contains(@class,'error404')]",
     zipcode: '',
   },
 };
