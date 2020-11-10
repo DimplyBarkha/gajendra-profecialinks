@@ -11,7 +11,8 @@
  *  loadedSelector: string,
  *  noResultsXPath: string,
  *  spinnerSelector: string,
- *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
+ *  resultsDivSelector: string,
+ *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number, pageIndexMultiplier?: number, pageStartNb?: number }
  * }} parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -23,7 +24,7 @@ async function implementation (
   dependencies,
 ) {
   const { keywords, page, offset } = inputs;
-  const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
+  const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition, resultsDivSelector } = parameters;
 
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
@@ -48,10 +49,13 @@ async function implementation (
   });
 
   if (!url && openSearchDefinition) {
-    url = openSearchDefinition.template
+    const { pageStartNb, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
+    const pageNb = page + pageStartNb - 1;
+    url = template
       .replace('{searchTerms}', encodeURIComponent(keywords))
-      .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
-      .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
+      .replace('{page}', (pageNb + (pageOffset || 0)).toString())
+      .replace('{index}', (pageNb * (pageIndexMultiplier || 0)).toString())
+      .replace('{offset}', (offset + (indexOffset || 0)).toString());
   }
 
   if (!url) {
@@ -65,12 +69,17 @@ async function implementation (
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, loadedSelector, noResultsXPath);
   }
-  console.log('Checking no results', noResultsXPath);
+
+  if (resultsDivSelector) {
+    // counting results
+    const resultNB = await context.evaluate(sel => document.querySelectorAll(sel).length, resultsDivSelector);
+    console.log(`The page has: ${resultNB} results. Pagination continues: ${!!resultNB}`);
+    return !!resultNB;
+  }
+
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-    console.log(xp, r);
     const e = r.iterateNext();
-    console.log(e);
     return !e;
   }, noResultsXPath);
 }
@@ -104,6 +113,10 @@ module.exports = {
     {
       name: 'noResultsXPath',
       description: 'XPath selector for no results',
+    },
+    {
+      name: 'resultsDivSelector',
+      description: 'alternative to noResultsXPath, if the count is zero the pagination stops',
     },
     {
       name: 'openSearchDefinition',
