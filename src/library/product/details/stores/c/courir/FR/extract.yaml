@@ -22,10 +22,7 @@ fields:
   - name: price
     xpath: //div[contains(@class,"product-details-top-right")]//div[@itemprop="offers"]//span[@itemprop="price"]/@content | //div[contains(@class,"product-details-top-right")]//div[@itemprop="offers"]//span[@class="price-minimum"]
   - name: availabilityText
-    xpath: //button[@id="add-to-cart"][@value="Ajouter"]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //body/@available
   - name: description
     xpath: //div[@class="product-info"]//span[@itemprop="description"] | //div[@class="product-info-slideupdown"]/span[contains(.,"Composition")]/following-sibling::div
   - name: descriptionBullets

@@ -28,6 +28,29 @@ const transform = (data) => {
         });
         row.variants = [{ text }];
       }
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.variants = [{ text }];
+      }
+
+      if (row.nameExtended) {
+        let text = '';
+        row.nameExtended.forEach(item => {
+          if (item.text.trim().endsWith('-')) {
+            text = item.text.replace('-', '');
+          } else {
+            text = item.text;
+          }
+        });
+        row.nameExtended = [
+          {
+            text,
+          },
+        ];
+      }
     }
   }
 

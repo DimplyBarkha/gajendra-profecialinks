@@ -8,7 +8,21 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  console.log('Extracting data.');
+  await context.evaluate(async function () {
+    console.log('Extracting data.');
+    const availability = document.evaluate('//button[@id="add-to-cart"][@value="Ajouter"]', document).iterateNext();
+    let availabilityText = '';
+    if (availability) {
+      const text = availability.textContent;
+      if (text) {
+        availabilityText = 'In Stock';
+        document.body.setAttribute('available', availabilityText);
+      }
+    } else {
+      availabilityText = 'Out of Stock';
+      document.body.setAttribute('available', availabilityText);
+    }
+  });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
