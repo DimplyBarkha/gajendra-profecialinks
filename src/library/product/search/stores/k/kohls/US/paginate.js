@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'kohls',
-    nextLinkSelector: 'a.nextArw',
+    nextLinkSelector: 'a.nextArw[style=""]',
     mutationSelector: null,
     spinnerSelector: 'div.pmp-ajax-loading1[style*="block"]',
     loadedSelector: 'ul.products',

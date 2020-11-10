@@ -13,7 +13,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
-      const allProducts = document.querySelectorAll('products_grid ');
+      const allProducts = document.querySelectorAll('li.products_grid ');
       let x;
       for (x = 0; allProducts.length - 1 >= x; x++) {
         allProducts[x].setAttribute('count', `${x + 1}`);
