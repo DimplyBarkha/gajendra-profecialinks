@@ -157,13 +157,13 @@ fields:
   - name: variants
     singleValue: false
     description: null
-  - name: additionalDescBulletInfo
-    singleValue: false
-    description: null
-  - name: termsAndConditions
+  - name: mpc
     singleValue: true
-    description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    xpath: //meta[@itemprop="productID"]/@content
+  - name: ingredientsList
+    singleValue: true
+    xpath: concat(//table[@class="table-data-sheet"]/tbody/tr/td[2]/p[1]/text(),';',//table[@class="table-data-sheet"]/tbody/tr/td[2]/p[2]/text())
+    #defaultValue: No
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
