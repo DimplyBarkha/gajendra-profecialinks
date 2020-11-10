@@ -14,7 +14,7 @@ fields:
     xpath: //li//a[@class="fancybox"]//img//@src
   - name: promotion
     singleValue: true
-    xpath: //html//div[@id='desc3']
+    xpath: //p[@id="reduction_percent"]/span[@id="reduction_percent_display"]/text()
   - name: category
     singleValue: false
     xpath: //div[@class="breadcrumb clearfix"]//a[position()>1 and position()<=last()] | //div[@class="breadcrumb clearfix"]/text()
