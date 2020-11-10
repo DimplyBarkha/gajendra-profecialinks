@@ -10,7 +10,7 @@ fields:
   - name: thumbnail
     xpath: //div[@class="thumb"]/img/@src
   - name: name
-    xpath: //div[@class="info"]/h3
+    xpath: //div[@class="info"]/div[@class="name"]|//div[@class="info"]/h3
   - name: price
     xpath: //div[@class="info"]/div[@class="price"]
     regExp: (\d+,\d+|\d+)
