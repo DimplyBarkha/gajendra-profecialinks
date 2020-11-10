@@ -7,22 +7,22 @@ const { transform } = require('../shared');
 // ) {
 //   const { transform } = parameters;
 //   const { productDetails } = dependencies;
-//   var variantLength = await context.evaluate(async () => {
-//     return (document.querySelectorAll('div.rd__col.rd__col--sm-12.rd__col--md-5.rd__col--lg-7')) ? document.querySelectorAll(' div.rd__col.rd__col--sm-12.rd__col--md-5.rd__col--lg-7').length : 0;
-//   });
-//   console.log("variantLength:: ", variantLength);
-//   if (variantLength > 1) {
-//     // await preparePageForCommonElement(0, variantLength);
-//     for (let j = 0; j < variantLength; j++) {
-//       await context.evaluate(async (j) => {
-//         return document.querySelectorAll('div.rd__product-details.sd__product-details')[j].click();
-//       }, j);
-//       // await context.click(`ul.topic li label`);
-//       console.log('Inside variants', j);
-//       // await preparePage(j, variantLength);
-//       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
-//     }
-//   }
+  // var variantLength = await context.evaluate(async () => {
+  //   return (document.querySelectorAll('div.rd__col.rd__col--sm-12.rd__col--md-5.rd__col--lg-7')) ? document.querySelectorAll(' div.rd__col.rd__col--sm-12.rd__col--md-5.rd__col--lg-7').length : 0;
+  // });
+  // console.log("variantLength:: ", variantLength);
+  // if (variantLength > 1) {
+  //   // await preparePageForCommonElement(0, variantLength);
+  //   for (let j = 0; j < variantLength; j++) {
+  //     await context.evaluate(async (j) => {
+  //       return document.querySelectorAll('div.rd__product-details.sd__product-details')[j].click();
+  //     }, j);
+  //     // await context.click(`ul.topic li label`);
+  //     console.log('Inside variants', j);
+  //     // await preparePage(j, variantLength);
+  //     if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+  //   }
+  // }
 //   return await context.extract(productDetails, { transform });
 // }
 async function implementation (
@@ -33,6 +33,21 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  var variantLength = await context.evaluate(async () => {
+    return (document.querySelectorAll('div.rd__blob img')) ? document.querySelectorAll('div.rd__blob img').length : 0;
+  });
+  console.log("variantLength:: ", variantLength);
+  if (variantLength > 1) {
+    // await preparePageForCommonElement(0, variantLength);
+    for (let j = 0; j < variantLength; j++) {
+      await context.evaluate(async (j) => {
+        return document.querySelectorAll('img.rd__img.rd__list-services__headline.loading')[j].click();
+      }, j);
+      // await context.click(`ul.topic li label`);
+      console.log('Inside variants', j);
+      if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+    }
+  }
 
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 

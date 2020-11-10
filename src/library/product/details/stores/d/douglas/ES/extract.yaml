@@ -46,7 +46,9 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //button[@data-product-code]/@data-product-code
+    xpath: //div[@class="rd__blob"]/img
+    regExp: \d{5,}
+    regExpReplace: $1
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="bv_numReviews_text"]
@@ -61,9 +63,9 @@ fields:
     description: The product name
     xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text()
     regExp: (?<=\s).*
-  - name: packSize
-    singleValue: false
-    xpath: //h2[@title]
+  # - name: packSize
+  #   singleValue: false
+  #   xpath: //h2[@title]
   - name: ingredientsList
     singleValue: false
     xpath: //div[@id="my-ingredient-text"]
@@ -106,7 +108,7 @@ fields:
   - name: promotion
     xpath: //div[@class="rd__flag rd__flag--160 rd__footer__meta"]
   - name: variantCount
-    xpath: count(//div/div[@class="rd__product-details sd__product-details"])
+    xpath: count(//div[@class="rd__blob"]/img)
   - name: color
     singlValue: false
     xpath: //div[@class="rd__blob"]//img[@class="rd__img loading"]/@alt
