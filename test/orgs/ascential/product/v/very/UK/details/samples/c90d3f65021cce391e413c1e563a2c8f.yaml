@@ -1,0 +1,98 @@
+input:
+  _url: http://very.co.uk
+  URL: https://www.very.co.uk/under-armour-tech-t-shirt-black/1600262737.prd
+extractions:
+  - html: https://workbench.import.io/html/run=391c06b1-16a6-4634-ae36-378ed113effc/task=3e107890-50b3-4984-bcf5-d95d8c9b27b7/d031d202-7bab-4a39-9bd6-14165c131e69.html
+    extractionConfigId: product/details/stores/v/very/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.very.co.uk/under-armour-tech-t-shirt-black/1600262737.prd
+                xpath: /html/head[1]/meta[26]/@content
+            image:
+              - text: https://media.very.co.uk/i/very/MNT6Y_SQ1_0000000004_BLACK_MDf?$550x733_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://media.very.co.uk/i/very/MNT6Y_SQ1_0000000004_BLACK_MDf?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/img[1]/@src
+              - text: https://media.very.co.uk/i/very/MNT6Y_SQ2_0000000004_BLACK_MDb?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[2]/img[1]/@src
+              - text: https://media.very.co.uk/i/very/MNT6Y_SQ3_0000000004_BLACK_MDo?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[3]/img[1]/@src
+              - text: https://media.very.co.uk/i/very/MNT6Y_SQ4_0000000004_BLACK_MDd?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[4]/img[1]/@src
+            metaKeywords:
+              - text: UNDER ARMOUR Tech T-Shirt - Black
+                xpath: /html/head[1]/meta[3]/@content
+            nameExtended:
+              - text: UNDER ARMOUR Tech T-Shirt - Black
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]
+            price:
+              - text: £23
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/text()[1]
+            description:
+              - text: >-
+                  Under Armour Tech Mens T-Shirt
+
+                  Size & Fit
+
+                  Regular fit - order your usual size
+
+                  Model is 6'1" and is wearing size M
+
+                  Details
+
+                  End use – Training
+
+                  Men's Tech T-Shirt by Under Armour
+
+                  Black
+
+                  Be serious about your training with the Tech tee by Under Armour. With the black backdrop, the round neck collar, short sleeve shape and visible stitching, it has a natural-feeling synthetic that wicks sweat away and dries super fast.
+
+                  Raglan sleeves
+
+                  Under Armour logo to chest
+
+                  Material
+
+                  Material Content: 100% Polyester
+
+                  Washing Instructions: Machine Washable
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            brandText:
+              - text: UNDER ARMOUR
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
+            manufacturer:
+              - text: UNDER ARMOUR
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
+            gtin:
+              - text: "192006314288"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/p[1]/span[1]/text()[2]
+            sku:
+              - text: MNT6Y
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/span[1]/text()[1]
+            variantId:
+              - text: "1600262737"
+                xpath: /html/head[1]/meta[26]/@content
+            aggregateRating:
+              - text: "4.9"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]/span[1]/text()[1]
+            shippingInfo:
+              - text: FREE delivery with Click & Collect on orders £30 or more (product
+                  exclusions apply), and free returns.
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[4]/div[1]/text()[1]
+            color:
+              - text: Black
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/span[1]/text()[1]
+            materials:
+              - text: "Material Content: 100% Polyester"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[3]/li[1]/text()[1]
+            availabilityText:
+              - text: In Stock
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "20"
+        xpath: /
+    timestamp: 1605031855391

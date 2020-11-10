@@ -1,0 +1,91 @@
+input:
+  _url: http://very.co.uk
+  URL: https://www.very.co.uk/adidas-youth-boys-must-haves-badge-of-sport-t-shirt-medium-grey-heather/1600425784.prd
+extractions:
+  - html: https://workbench.import.io/html/run=391c06b1-16a6-4634-ae36-378ed113effc/task=e0abf040-2b21-4227-b564-e6edd555c5bf/6b7e0178-071c-47bc-b336-c652e716dcb1.html
+    extractionConfigId: product/details/stores/v/very/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.very.co.uk/adidas-youth-boys-must-haves-badge-of-sport-t-shirt-medium-grey-heather/1600425784.prd
+                xpath: /html/head[1]/meta[26]/@content
+            image:
+              - text: https://media.very.co.uk/i/very/PRPCP_SQ1_0000000390_MEDIUM_GREY_HEATHER_SLf?$550x733_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://media.very.co.uk/i/very/PRPCP_SQ1_0000000390_MEDIUM_GREY_HEATHER_SLf?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/img[1]/@src
+              - text: https://media.very.co.uk/i/very/PRPCP_SQ3_0000000390_MEDIUM_GREY_HEATHER_SLb?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[2]/img[1]/@src
+              - text: https://media.very.co.uk/i/very/PRPCP_SQ4_0000000390_MEDIUM_GREY_HEATHER_SLd?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[3]/img[1]/@src
+            metaKeywords:
+              - text: adidas Youth Boys Must Haves Badge of Sport T-Shirt - Medium Grey Heather
+                xpath: /html/head[1]/meta[3]/@content
+            nameExtended:
+              - text: adidas Youth Boys Must Haves Badge of Sport T-Shirt - Medium Grey Heather
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]
+            price:
+              - text: £13
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/text()[1]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[6]
+            description:
+              - text: >-
+                  adidas Logo Tee
+
+                  Size & Fit
+
+                  Available in ages: 3-16 years 
+
+                  Details
+
+                  Youth Boys Must Haves Badge of Sport T-Shirt by adidas 
+
+                  Medium Grey Heather 
+
+                  This super soft T-shirt is a timeless addition to his wardrobe with its light grey hue and vibrant yellow logo! 
+
+                  Pure cotton for a breathable wear 
+
+                  Ribbed crew neck 
+
+                  Short, practical sleeves 
+
+                  Material
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            brandText:
+              - text: adidas
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
+            manufacturer:
+              - text: adidas
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
+            gtin:
+              - text: "4062049511653"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/p[1]/span[1]/text()[2]
+            sku:
+              - text: PRPCP
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/span[1]/text()[1]
+            variantId:
+              - text: "1600425784"
+                xpath: /html/head[1]/meta[26]/@content
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]/span[1]/text()[1]
+            shippingInfo:
+              - text: FREE delivery with Click & Collect on orders £30 or more (product
+                  exclusions apply), and free returns.
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[4]/div[1]/text()[1]
+            color:
+              - text: Medium Grey Heather
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/span[1]/text()[1]
+            promotion:
+              - text: From
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "14"
+        xpath: /
+    timestamp: 1605031859245
