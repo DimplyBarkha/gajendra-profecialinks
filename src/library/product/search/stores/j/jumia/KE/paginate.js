@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'KE',
     store: 'jumia',
-    nextLinkSelector: 'a[aria-label="Next Page"]',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
