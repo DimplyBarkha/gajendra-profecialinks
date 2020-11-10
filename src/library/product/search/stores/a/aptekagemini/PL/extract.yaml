@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ol[contains(@class,"ais-Hits-list")]//li[contains(@class,'ais-Hits-item')]//div[@class = "product-card__container"]
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a/@href
+    regExp: (.+)
+    regExpReplace: https://www.aptekagemini.pl$1
+  - name: thumbnail
+    xpath: //span[contains(@class, "thumbnail")]/img/@data-src
+  - name: name
+    xpath: //a/@title
+  - name: price
+    xpath: //span[@class="money-price__amount"]
+    regExp: (\d+\,\d+)
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    type: NUMBER
+  - name: id
+    xpath: //span[contains(@class, "thumbnail")]/img/@data-src
+    regExp: (\d+).jpg
+    regExpReplace: $1
