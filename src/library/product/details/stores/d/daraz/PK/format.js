@@ -29,6 +29,14 @@ const transform = (data) => {
           row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
         }
       }
+      if (row.specifications) {
+        var arrSpec = [];
+        row.specifications.forEach(item => {
+          item.text = item.text.replace('\n', ': ');
+          arrSpec.push(item.text);
+        });
+        row.specifications = [{ text: arrSpec.join(' || ') }];
+      }
       if (row.descriptionBullets) {
         var bulletArr = [];
         row.descriptionBullets.forEach(item => {
