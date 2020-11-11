@@ -38,7 +38,7 @@ const transform = (data) => {
 
       if (row.price) {
         const price = row.price[0].text;
-        row.price = [{ text: price.replace(',', '.') }];
+        row.price = [{ text: price.replace('.', ',') }];
       }
 
       if (!row.sku && row.skuSecondary) {

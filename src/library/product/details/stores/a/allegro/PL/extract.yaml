@@ -13,8 +13,6 @@ fields:
     xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"]
   - name: price
     xpath: //meta[@itemprop='price']/@content
-    regExp: (.+)
-    regExpReplace: $1 PLN
   - name: availabilityText
     xpath: //link[@itemprop='availability']/@href
   - name: sku
@@ -68,7 +66,7 @@ fields:
   - name: variantInformation
     xpath: //li//div[contains(., 'Kolor dominujący') or contains(., 'Smak') or contains(., 'Zapach')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Kolor dominujący') or contains(., 'Smak') or contains(., 'Zapach')]/following-sibling::dd
   - name: weightGross
-    xpath: //li//div[contains(., 'Waga (z opakowaniem):')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Waga (z opakowaniem):')]/following-sibling::dd
+    xpath: //li//div[contains(., 'Waga (z opakowaniem):')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Waga (z opakowaniem)')]/following-sibling::dd
     singleValue: true
   - name: weightNet
     xpath: //li//div[contains(., 'Waga:')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Waga')]/following-sibling::dd
@@ -83,14 +81,13 @@ fields:
     xpath: //li//div[contains(text(), "Liczba sztuk w opakowaniu") or contains(., 'Liczba sztuk:')]/following-sibling::div[1] | //dt[contains(., 'Liczba sztuk w opakowaniuZ')]/following-sibling::dd
     singleValue: true
   - name: shippingWeight
-    xpath: //li//div[contains(., 'Waga (z opakowaniem):')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Waga (z opakowaniem):')]/following-sibling::dd
+    xpath: //li//div[contains(., 'Waga (z opakowaniem):')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Waga (z opakowaniem)')]/following-sibling::dd
     singleValue: true
   - name: packaging
     xpath: //li//div[contains(text(), "Opakowanie")]/following-sibling::div[1] | //dt[contains(., 'Opakowanie')]/following-sibling::dd
     singleValue: true
   - name: directions
     xpath: //*[contains(., 'Sposób użycia:')]/following-sibling::ol |//*[contains(., 'Sposób użycia:')]/following-sibling::p  | //dt[contains(., 'Sposób użycia:')]/following-sibling::dd | //h2[contains(., 'Stosowanie:')]/following-sibling::*
-    singleValue: true
   - name: warnings
     xpath: //h2[contains(., 'UWAGA!')] | //dt[contains(., 'UWAGA!')]/following-sibling::dd
     singleValue: true
