@@ -44,10 +44,10 @@ fields:
     xpath: //div[@itemprop="description"]/p
   - name: specifications
     singleValue: false
-    xpath: //div[@id="tab-details"]//div[@class="wrap"]//dt |  //div[@id="tab-details"]//div[@class="wrap"]//dd
+    xpath: //div[@class="fixed-container"]//div[@id="tab-details"]//div[@class="wrap"]//dt |  //div[@id="tab-details"]//div[@class="wrap"]//dd
   - name: descriptionBullets
     singleValue: false    
-    xpath: //div[@id="tab-details"]//div[@class="wrap"]//dt |  //div[@id="tab-details"]//div[@class="wrap"]//dd
+    xpath: //div[@class="fixed-container"]//div[@id="tab-details"]//div[@class="wrap"]//dt |  //div[@id="tab-details"]//div[@class="wrap"]//dd
   - name: availabilityText
     singleValue: false
     defaultValue: 'In Stock'
