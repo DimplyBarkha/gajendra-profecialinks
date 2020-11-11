@@ -3,6 +3,7 @@ module.exports = {
   parameterValues: {
     domain: 'tesco.com',
     country: 'UK',
+    timeout: 20000,
     store: 'tesco',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
