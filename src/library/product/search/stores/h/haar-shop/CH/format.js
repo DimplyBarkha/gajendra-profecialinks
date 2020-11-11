@@ -30,19 +30,6 @@ const transform = (data) => {
           item.text = item.text.replace('/182x182/', '/1200x1200/');
         });
       }
-      if (row.id) {
-        row.id.forEach(item => {
-          row.id.forEach(item => {
-            var myRegexp = /\/de\/(.+?)-/g;
-            var match = myRegexp.exec(item.text);
-            if (match) {
-              item.text = match[1].trim();
-            } else {
-              delete row.id;
-            }
-          });
-        });
-      }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }

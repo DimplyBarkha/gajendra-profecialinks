@@ -5,7 +5,7 @@ recordXPath: //ol[contains(@class,"products")]/li
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[@class="cs-product-tile__thumbnail"]/a/@href
+    xpath: //div[@class="price-box price-final_price"]/@data-product-id
   - name: productUrl
     SingleValue: false
     xpath: //div[@class="cs-product-tile__thumbnail"]/a/@href
