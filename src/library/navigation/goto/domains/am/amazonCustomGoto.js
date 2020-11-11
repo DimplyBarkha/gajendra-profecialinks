@@ -103,16 +103,27 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     }
   };
 
+  async function getCSRFToken () {
+    const api = '/gp/glow/get-address-selections.html?deviceType=desktop&pageType=Gateway&storeContext=NoStoreName';
+    const response = await fetch(api);
+    const html = await response.text();
+    const csrfToken = html.match(/CSRF_TOKEN\s*:\s*"([^"]+)/);
+    if (csrfToken) {
+      return csrfToken[1];
+    }
+    return false;
+  }
+
   const setZip = async (zip) => {
     if (zip) {
-      try {
-        const apiZipChange = await context.evaluate(async (zipcode) => {
-        /* const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+      const csrf = await context.evaluate(getCSRFToken);
+      const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
+        const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
         const response = await fetch('/gp/delivery/ajax/address-change.html', {
           headers: {
-            accept: 'text/html',
-            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-            'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'anti-csrftoken-a2z': csrf,
+            'content-type': 'application/x-www-form-urlencoded',
+            contenttype: 'application/x-www-form-urlencoded;charset=utf-8',
             'x-requested-with': 'XMLHttpRequest',
           },
           body,
@@ -120,37 +131,22 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
           mode: 'cors',
           credentials: 'include',
         });
-        return response.status === 200; */
-          if (document.querySelector('#glow-ingress-block').innerText.includes(zipcode)) {
-            console.log('Correct zipcode: ', document.querySelector('#glow-ingress-block').innerText);
-            return false;
-          }
-          return true;
-        }, zipcode);
+        return response.status === 200;
+      }, zipcode, csrf);
 
-        if (apiZipChange) {
-          await context.click('#nav-global-location-slot > [data-a-modal]');
-          await context.waitForFunction((selector) => {
-            console.log(selector, document.querySelector(selector));
-            return !document.querySelector(selector);
-          }, { timeout: 20000 }, '[class="a-popover-wrapper"][aria-busy="false"]');
-          await context.waitForSelector('#GLUXZipUpdateInput');
-          await context.setInputValue('#GLUXZipUpdateInput', zipcode);
-          await context.click('#GLUXZipUpdate > span > input');
-          await context.reload();
-          // Wait for potential captcha.
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          page = await pageContextCheck(await pageContext());
-          await handlePage(page, null);
-        }
-      } catch (err) {
-        console.log('Zipcode change failed.');
-      }
-      /*
       const onCorrectZip = await context.evaluate((zipcode) => {
         const zipText = document.querySelector('div#glow-ingress-block');
         return zipText ? zipText.textContent.includes(zipcode) : false;
-      }, zipcode); */
+      }, zipcode);
+
+      if (!apiZipChange) {
+        console.log('API zip change failed');
+        // throw new Error('API zip change failed');
+      } else if (!onCorrectZip) {
+        await context.reload();
+        page = await pageContextCheck(await pageContext());
+        await handlePage(page, null);
+      }
     }
   };
 
@@ -3653,9 +3649,6 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
   // clean cookie retry in session
   try {
-    await context.setBlockAds(false);
-    await context.setLoadAllResources(true);
-    await context.setJavaScriptEnabled(true);
     await run(userAgentString);
     await setZip(zipcode);
   } catch (err) {
