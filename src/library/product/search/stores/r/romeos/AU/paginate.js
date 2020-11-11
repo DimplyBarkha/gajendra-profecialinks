@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'romeos',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div[class="TalkerGrid__Item"]',
     noResultsXPath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
