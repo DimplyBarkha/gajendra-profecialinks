@@ -5,8 +5,8 @@ module.exports = {
     country: 'PL',
     store: 'eobuwie',
     domain: 'eobuwie.com.pl',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-view',
+    noResultsXPath: "//h1[contains(text(),'404 - Nie znaleziono strony')]",
     zipcode: '',
   },
 };
