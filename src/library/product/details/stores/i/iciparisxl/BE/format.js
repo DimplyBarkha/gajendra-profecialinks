@@ -56,12 +56,15 @@ const transform = (data) => {
             }
         }
         if (row.specifications) {
-          let specifications_ar = [];
+          var specificationArr = [];
           row.specifications.forEach(item => {
-            specifications_ar.push(item.text);
+            item.text = item.text.replace(/\n\s\n/, ' || ');
+            specificationArr.push(item.text);
           });
-          if (specifications_ar.length) {
-            row.specifications = [{ "text": specifications_ar.join(" || "), 'xpath': row.specifications[0].xpath }];
+          if (specificationArr.length) {
+            row.specifications = [{ "text": specificationArr.join(" || "), 'xpath': row.specifications[0].xpath }];
+          } else {
+            delete row.specifications;
           }
         }
         if (row.descriptionBullets) {
