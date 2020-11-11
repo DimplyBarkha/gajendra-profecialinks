@@ -51,3 +51,6 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
