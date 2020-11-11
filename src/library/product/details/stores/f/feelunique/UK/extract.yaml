@@ -22,7 +22,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="galleryimages-gallery-inner gallery-video"]/a/@href
+    xpath: //div[@class="galleryimages-gallery-inner gallery-video"]/a[position()>=2]/@href
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -250,7 +250,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count(//div[@class="galleryimages-gallery-inner gallery-video"]/a/@href)
+    xpath: count(//div[@class="galleryimages-gallery-inner gallery-video"]/a[position()>=2]/@href)
   - name: news
     singleValue: true
     description: null
