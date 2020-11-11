@@ -6,9 +6,6 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="sc-channel-container-channels"]/@id
-  - name: rankOrganic
-    singleValue: true
-    xpath: //div[@id='pd_rank']
   - name: name
     singleValue: false
     xpath: //div[@class="sc-product-card-title"]
@@ -22,24 +19,4 @@ fields:
     xpath: //img[@class="sc-product-card-image"]/@src
   - name: url
     singleValue: false
-  - name: aggregateRating
-    singleValue: false
-    xpath: //span[@class="seo-avg-rating"]
-  - name: reviewCount
-    singleValue: false
-    xpath: //span[@class="seo-review-count"]
-  - name: ratingCount
-    singleValue: false
-    xpath: //span[@class="seo-review-count"]
-  - name: price
-    singleValue: false
-    xpath: //span[@class="Price-group"]
-  - name: manufacturer
-    singleValue: true
-  - name: soldBy
-    singleValue: true
-  - name: rank
-    singleValue: true
-    xpath: //div[@id='pd_rank']
-  - name: endorsementText
-    singleValue: true
+    xpath: //html//div[@id='URL']

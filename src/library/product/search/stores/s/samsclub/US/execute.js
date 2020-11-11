@@ -6,7 +6,7 @@ module.exports = {
     store: 'samsclub',
     domain: 'samsclub.com',
     url: 'https://samsclub.com/s/{searchTerms}',
-    loadedSelector: 'div#panel-all-id div ul',
-    noResultsXPath: '//div[@class="sc-error-page"]',
+    loadedSelector: 'body',
+    noResultsXPath: null,
   },
 };

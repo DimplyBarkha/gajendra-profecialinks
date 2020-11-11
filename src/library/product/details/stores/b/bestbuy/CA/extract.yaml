@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //img[@class="productImage_AMBPT"]/@src
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //img[@class="productImage_AMBPT"]/@src
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: (//span[@class="x-crumb"]/text())[4]
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: (//span[@class="screenReaderOnly_3anTj large_3aP7Z"]/text())[1]

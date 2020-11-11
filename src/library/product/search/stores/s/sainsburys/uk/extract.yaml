@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="ln-c-card pt"]/@data-test-id
+  - name: name
+    singleValue: false
+    xpath: //a[@class="pt__link"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="pt__link"]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class="pt-image__product"]/@src
+  - name: url
+    singleValue: false
+    xpath: //html//div[@id='URL']
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="reviews"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="reviews"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="pt__cost__total undefined"]/text()
+
+
+
+
+  
