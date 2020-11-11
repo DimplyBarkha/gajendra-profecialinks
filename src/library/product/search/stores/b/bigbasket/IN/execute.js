@@ -34,13 +34,16 @@
           if (scrollTop === 20000 || productsCount > 160) {
             await stall(10000);
             await stall(5000);
-             
-            const seeAllSelector = document.querySelector('#dynamicDirective > product-deck > section > div.col-md-9.wid-fix.clearfix.pl-wrap > div.col-xs-12.product-deck-container.pad-0 > div.show-more > button');
-            if(seeAllSelector) {
-        seeAllSelector.click(); 
-      }           
           }
         }
+        const products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const productsCount = products.snapshotLength;
+        while(productsCount < 150) {
+            const seeAllSelector = document.querySelector('#dynamicDirective > product-deck > section > div.col-md-9.wid-fix.clearfix.pl-wrap > div.col-xs-12.product-deck-container.pad-0 > div.show-more > button');
+          if(seeAllSelector) {
+           seeAllSelector.click();
+          }
+        };
         function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
