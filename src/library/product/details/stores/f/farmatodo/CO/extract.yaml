@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"picture-wrapper")]/picture/img[@class="image"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"picture-wrapper")]/picture/img[@class="image"]/@alt
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,"cont-bread")]/p[@class="mb-3"]/a[starts-with(@href,'/categorias')]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="title"]/div[@class="big-title"]/text()
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="item-section price"]/p[@class="p-offer"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="item-section price"]/p
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    xpath: //p[@class="media-description"]
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="rating-summary"]/@data-bv-product-id
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="rating-summary"]/@data-bv-product-id
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="bv_numReviews_component_container"]/meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //button[@id="avg-rating-button"]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="title"]/div[@class="big-title"]/text()
