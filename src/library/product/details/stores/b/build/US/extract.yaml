@@ -97,3 +97,24 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //div[@id='custom-attr-product-manufacturer-name']/text()
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-weight']/text()
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[@id='product-variations']//a)[1]
+  - name: materials
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-material']/text()
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-country-of-origin']/text()
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-manufacturer-warranty']/text()
+  # - name: videoLength
+  #   singleValue: false
+  #   xpath: //ul[@id='custom-attr-product-video-durations']//li/text()
+  - name: featureBullets
+    singleValue: false
+    xpath: //ul[@id='custom-attr-product-feature-bullets']//li

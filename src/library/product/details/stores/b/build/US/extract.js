@@ -40,7 +40,7 @@ module.exports = {
           // await context.click(`ul.topic li label`);
           console.log('Inside variants');
           try {
-            const hiddenDivs = document.querySelectorAll("div[id^=custom-attr]");
+            const hiddenDivs = document.querySelectorAll("*[id^=custom-attr]");
             hiddenDivs.forEach(x => {
               x.parentElement.removeChild(x);
             });
@@ -92,15 +92,25 @@ module.exports = {
               addHiddenDiv("custom-attr-product-description-bullet-count", str.length);
             }
     
+            const specsArray = [];
             const specsIterator = document.evaluate("//div[@id='product-specs']//div[contains(@class, 'specs')]/..", document, null, XPathResult.ANY_TYPE);
             if (specsIterator) {
               let node = specsIterator.iterateNext();
-              const specsArray = [];
               while(node) {
                 specsArray.push(node.innerText.replace('\n', ' : '));
                 node = specsIterator.iterateNext();
               }
               addHiddenDiv("custom-attr-product-specifications", specsArray.join(' || '));
+            }
+            if (specsArray.length) {
+              const productWeight = specsArray.find(x => x.startsWith("Product Weight :")) || "";
+              addHiddenDiv("custom-attr-product-weight", productWeight.replace("Product Weight :", "").trim());
+              const productMaterial = specsArray.find(x => x.startsWith("Material :")) || "";
+              addHiddenDiv("custom-attr-product-material", productMaterial.replace("Material :", "").trim());
+              const productCountryOfOrigin = specsArray.find(x => x.startsWith("Country Of Origin :")) || "";
+              addHiddenDiv("custom-attr-product-country-of-origin", productCountryOfOrigin.replace("Country Of Origin :", "").trim());
+              const productManufacturerWarranty = specsArray.find(x => x.startsWith("Manufacturer Warranty :")) || "";
+              addHiddenDiv("custom-attr-product-manufacturer-warranty", productManufacturerWarranty.replace("Manufacturer Warranty :", "").trim());
             }
             addHiddenDiv("custom-attr-image-zoom-feature-present", 'Yes');
             console.log('availability text', selectedFinish.status);
@@ -121,6 +131,49 @@ module.exports = {
     
             const variantsInfo = selectedFinish.finish;
             addHiddenDiv("custom-attr-product-variants-info", variantsInfo);
+
+            // Feature Bullets
+            const descriptionHeaders = document.querySelectorAll("div.description p");
+            descriptionHeaders.forEach(header => {
+              if (header.textContent.toLowerCase().includes("feature")) {
+                const list = header.nextSibling;
+                if (list) {
+                  const featureBullets = document.createElement("ul");
+                  featureBullets.id = "custom-attr-product-feature-bullets";
+                  featureBullets.style.display = "none";
+                  const liItems = list.getElementsByTagName("li");
+                  for (const li of liItems) {
+                    const liEle = document.createElement("li");
+                    liEle.textContent = li.textContent;
+                    featureBullets.appendChild(liEle);
+                  }
+                  document.body.appendChild(featureBullets);
+                }
+              }
+            });
+
+            // const vidsDuration = document.createElement("ul");
+            // vidsDuration.id = "custom-attr-product-video-durations";
+            // vidsDuration.style.display = "none";
+            // const vids = document.querySelectorAll("div#product-images-container video[src^=https]");
+            // vids.forEach(async x => {
+            //     x.play();
+            //     const vidLi = await new Promise(function (resolve, reject) {setTimeout(function() {
+            //       if(x.readyState > 0) {
+            //         let liItem = document.createElement("li");
+            //         const minutes = parseInt(x.duration / 60, 10);
+            //         const seconds = Math.ceil(x.duration % 60);
+            //         console.log(minutes, seconds);
+            //         liItem.textContent = `${minutes}:${seconds}`;
+            //         resolve(liItem);
+            //         x.pause();
+            //         clearInterval(i);
+            //         resolve();
+            //       }
+            //     }, 200)});
+            //     vidsDuration.appendChild(vidLi);
+            // });
+            // document.body.appendChild(vidsDuration);
             
           } catch (error) {
             console.log("Error: ", error);
