@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: price
-    singleValue: true    
+    singleValue: false    
     xpath: (//span[@id='price']/span[@class='value-promotion-price'] | //div[@class='prices']/span[@id='price'])/text()
     type: CURRENCY
   - name: productUrl
@@ -13,9 +13,9 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //img[starts-with(@class,'GA')]/@src | //img[starts-with(@class,' GA')]/@src | //a[@class="link"]/img/@data-retina 
-  - name: aggregateRating
+  - name: aggregateRating    
     singleValue: false
-    xpath: //div[@id='ratings']
+    xpath: //div[@id='ratings']  
   - name: reviewCount
     singleValue: false
     xpath: //span[@class="text-container left-spacer-small pf-color-gray"]/span

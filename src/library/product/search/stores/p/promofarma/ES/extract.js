@@ -24,6 +24,14 @@ module.exports = {
         const originalDiv = document.querySelectorAll('article[data-qa-ta="couponItem"]')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
+      function addHiddenDivrating(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('article[data-qa-ta="couponItem"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -64,6 +72,13 @@ module.exports = {
         }
         return result;
         };
+        var getXpath = (xpath, prop) => {
+          var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+          let result;
+          if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+          else result = elem ? elem.singleNodeValue : '';
+          return result && result.trim ? result.trim() : result;
+          };
         var rating = getAllXpath('//div[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]/@content');
         for (var i=0; i < rating.length; i++) {
           (rating[i/2]);
@@ -71,7 +86,7 @@ module.exports = {
         
         console.log(rating = rating.map(x => x/2))
         for (var j=0; j <rating.length; j++){  
-          addElementToDocument('ratings', rating[j]);        
+          addHiddenDivrating('ratings', rating[j],j)      
         }
         
       
