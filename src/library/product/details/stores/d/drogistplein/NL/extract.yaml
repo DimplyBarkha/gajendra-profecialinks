@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,"owl-stage")]//div[contains(@class,"owl-item active")]//img/@alt
   - name: alternateImages
     singleValue: false
-    defaultValue: null
+    xpath: //div[contains(@class,"owl-stage")]//div[contains(@class,"owl-item active")]//img/@src
   - name: category
     singleValue: false
     xpath: //ul[@class="breadcrumb"]//li[not(contains(@class,'breadcrumb-back'))]//a
