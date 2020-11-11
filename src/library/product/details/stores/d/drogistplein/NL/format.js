@@ -38,15 +38,21 @@ const transform = (data) => {
             item.text = Number(item.text);
           });
         }
-        if (row.category) {
-            if (row.category.length) {
-              row.category.splice(0, 1);
-              row.category.splice(row.category.length - 1, 1);
-            }
-            row.category.forEach(item => {
-              item.text = item.text.replace('>', '').trim();
-            });
+        if (row.quantity) {
+          row.quantity.forEach(item => {
+            item.text = item.text.match(/([\d.]+) *ml/)[1];
+            item.text = item.text+' ml';
+          });
+        }
+        if (row.variantInformation) {
+          let info_ar = [];
+          row.variantInformation.forEach(item => {
+            info_ar.push(item.text);
+          });
+          if (info_ar.length) {
+            row.variantInformation = [{ "text": info_ar.join(" | "), 'xpath': row.variantInformation[0].xpath }];
           }
+        }
         if (row.specifications) {
           let specifications_ar = [];
           row.specifications.forEach(item => {
@@ -58,7 +64,10 @@ const transform = (data) => {
         }
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-        } 
+        }
+        if (row.variantCount) {
+          row.variantCount = [{'text':row.variantCount.length, 'xpath':row.variantCount[0].xpath}];              
+        }  
       }
     }
     return cleanUp(data);
