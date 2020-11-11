@@ -45,6 +45,26 @@ const transform = (data) => {
         row.additionalDescBulletInfo = [{ text: '|| ' + bulletArr.join(' || ') }];
         row.descriptionBullets = [{ text: row.descriptionBullets.length }];
       }
+      if (row.variants) {
+        var variations = [];
+        row.variants.forEach(item => {
+          var data = JSON.parse(item.text);
+          if (data) {
+            data.forEach(variation => {
+              if (variation.cartSkuId) {
+                variations.push(variation.cartSkuId);
+              }
+            });
+          }
+        });
+        if (variations.length) {
+          row.variantCount = [{ text: variations.length }];
+          row.variants = [{ text: variations.join(' | ') }];
+        } else {
+          delete row.variants;
+          row.variantCount = [{ text: 0 }];
+        }
+      }
     }
   }
   return cleanUp(data);

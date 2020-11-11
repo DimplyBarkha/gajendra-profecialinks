@@ -66,9 +66,17 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //ul[@class='specification-keys']//li//span[normalize-space()='SKU']//following-sibling::div
-  - name: variantCount
+  - name: firstVariant
     singleValue: false
-    xpath: //div[@class='sku-prop-content']//span[@class='sku-variable-name-text']
+    xpath: //ul[@class='specification-keys']//li//span[normalize-space()='SKU']//following-sibling::div  
+  - name: variants
+    singleValue: false
+    xpath: //script[contains(text(),'"skus"')]
+    #"skus":[...]}},
+    #regExp: \"skus\"\s*:\s*(\[.+?\])\}\},
+    #regExpReplace: $1
+  - name: variantCount
+    singleValue: false    
     defaultValue: 0
     type: NUMBER
   - name: variantInformation
