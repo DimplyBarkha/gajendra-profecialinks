@@ -59,6 +59,7 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
+    xpath: //span[@class="title-product-more-pdp"][contains(.,'About the Producer')]/following-sibling::span 
     singleValue: true
     description: Product manufacturer
   - name: quantity
@@ -125,6 +126,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
