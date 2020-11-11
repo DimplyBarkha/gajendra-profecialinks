@@ -5,8 +5,8 @@ module.exports = {
     country: 'CH',
     store: 'globus',
     domain: 'globus.ch',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: "div[class='mzg-catalogue-detail__mosaic-gallery'] picture source",
+    noResultsXPath: "//div[contains(@class,'ErrorPage__CodeCircleText-') and text()='404']",
     zipcode: '',
   },
 };
