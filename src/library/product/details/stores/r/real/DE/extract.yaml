@@ -14,10 +14,7 @@ fields:
     xpath: //nav[@class="rd-product-breadcrumb-navigation"]/a[not(contains(@cs-id,'breadcrumb-level-1-link'))]/text()
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@class="rd-product-detail__title"]/@title
-  - name: listPrice
-    singleValue: true
-    xpath: //meta[@property="product:price:amount"]/@content
+    xpath: //h1[@class="rd-product-detail__title"]/@titles
   - name: price
     singleValue: true
     xpath: //meta[@property="product:price:amount"]/@content
@@ -29,10 +26,13 @@ fields:
     xpath: //meta[@property="product:availability"]/@content
   - name: description
     singleValue: false
-    xpath: //div[@class="rd-product-description__text"]
+    xpath: //html//div[@id='description']
   - name: brandText
     singleValue: true
     xpath: //meta[@property="product:brand"]/@content
+  - name: weightGross
+    singleValue: true
+    xpath: //html//div[@id='weightGross']
   - name: sku
     singleValue: true
     xpath: //html//div[@id='sku']
@@ -65,21 +65,36 @@ fields:
   - name: shippingInfo
     singleValue: true
     xpath: //html//div[@id='shipping_details']
+  - name: shippingWeight
+    singleValue: true
+    xpath: //html//div[@id='shippingWeight']
+  - name: specifications
+    singleValue: true
+    xpath: //div[@class="rd-product-description__text"]/div/p/strong[contains(text(),'Spezifikationen')]/parent::p
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //html//div[@id='shippingDimensions']
   - name: name
     singleValue: true
     xpath: //h1[@class="rd-product-detail__title"]/@title
+  - name: color
+    singleValue: true
+    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span
+  - name: variants
+    singleValue: true
+    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span | //html//div[@id='Material']
+  - name: variantInformation
+    singleValue: true
+    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Farbe')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span | //html//div[@id='Material']
   - name: storage
     singleValue: true
     xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Aufbewahrung und Verwendung')]/following::div[@class="rd-product-information-cell__value-data"])[1]
   - name: countryOfOrigin
     singleValue: true
     xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Herkunft')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Herkunft')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span
-  - name: productOtherInformation
-    singleValue: true
-    xpath: //html//div[@id='shippingInfo']
   - name: alcoholContent
     singleValue: true
-    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Alkoholgehalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Alkoholgehalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span
+    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Alkoholgehalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Alkoholgehalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span | //html//div[@id='Alcohol']
   - name: ageSuitability
     singleValue: true
     example: 4 - 99 years
@@ -103,3 +118,6 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: Yes
+  - name: materials
+    singleValue: true
+    xpath: //html//div[@id='Material']

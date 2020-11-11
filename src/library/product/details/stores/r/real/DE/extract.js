@@ -43,6 +43,14 @@ module.exports = {
         }
         return result;
       };
+      // Double Pipe Concatenation
+      const pipeSeparatorDouble = (id, data) => {
+        var doubleSeparatorText = data.join(' || ');
+        addElementToDocument(id, doubleSeparatorText);
+      };
+      // XPATH Data Extraction For Description Bullet
+      const description = getAllXpath("//div[@class='rd-product-description__text']/div/p/text()", 'nodeValue');
+      pipeSeparatorDouble('description', description);
       const sliceURL = (data) => {
         for (let index = 0; index < data.length; index++) {
           addElementToDocument('altImages', data[index].slice(23, -37));
@@ -57,6 +65,64 @@ module.exports = {
       const sellerOnRealSince = updatedData.childProps.sellerOnRealSince;
       var shipping_details = sellerName + " verkauft auf real.de seit: " + sellerOnRealSince;
       addElementToDocument('shipping_details', shipping_details);
+
+      // @ts-ignore
+      var fullText = document.querySelector("div[class='rd-product-description__text']").innerText;
+      fullText = fullText.replace(/\n/g, "_____");
+      const seperateText = fullText.split('_____');
+      var index;
+      for (index = 0; index < seperateText.length; index++) {
+        if (seperateText[index].includes("Paketgewicht")) {
+          addElementToDocument('weightGross', seperateText[index]);
+          break;
+        }
+      }
+      var height, diameter, maxCapacity, package_weight,Alcohol,Material;
+      for (index = 0; index < seperateText.length; index++) {
+        if (seperateText[index].includes("Höhe")) {
+          height = seperateText[index];
+        }
+        if (seperateText[index].includes("Durchmesser")) {
+          diameter = seperateText[index];
+        }
+        if (seperateText[index].includes("Maximale Füllmenge")) {
+          maxCapacity = seperateText[index];
+        }
+        if (seperateText[index].includes("Paketgewicht")) {
+          package_weight = seperateText[index];
+        }
+        if (seperateText[index].includes("Alkoholgehalt")) {
+          Alcohol = seperateText[index];
+        }
+        if (seperateText[index].includes("Material") || seperateText[index].includes("Material")) {
+          Material = seperateText[index];
+        }
+      }
+      try {
+        if (height.length > 0 || diameter.length > 0 || maxCapacity.length > 0) {
+          addElementToDocument('shippingDimensions', height + ', ' + diameter + ', ' + maxCapacity);
+        }
+
+      } catch (error) {
+      }
+      try {
+        if (package_weight.length > 0) {
+          addElementToDocument('shippingWeight', package_weight);
+        }
+      } catch (error) {
+      }
+      try {
+        if (Alcohol.length > 0) {
+          addElementToDocument('Alcohol', Alcohol);
+        }
+      } catch (error) {
+      }
+      try {
+        if (Material.length > 0) {
+          addElementToDocument('Material', Material);
+        }
+      } catch (error) {
+      }
     });
     await context.extract(productDetails);
   },
