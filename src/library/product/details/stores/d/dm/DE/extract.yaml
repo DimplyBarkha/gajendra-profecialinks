@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class='product-image-container']/img/@src
+    xpath: //meta[@property="og:image"]/@content
   - name: url
     singleValue: true
     xpath: //meta[@property='og:url']/@content
@@ -17,29 +17,23 @@ fields:
     xpath: //h1[@data-dmid='detail-page-headline-product-title']
   - name: price
     singleValue: true
-    xpath: //span[@data-dmid='sas-product-price']
+    xpath: concat(//meta[@itemprop="price"]/@content, " ", //div[@data-dmid="decimal-price-container"]//span[@data-dmid="price-currency"])
   - name: availabilityText
     xpath: //link[@itemprop="availability"]/@href
     singleValue: true
     regExp: InStock
     regExpReplace: Lieferbar
     defaultValue: Derzeit online nicht lieferbar
-  - name: description
-    singleValue: false,
-    xpath: concat(//ul[@data-dmid='description-relevant-selling-points'] , //div[@data-dmid="detail-first-section"]//div[@data-dmid="expandable-text-container"]/@content)
   - name: ingredientsList
     singleValue: true
     xpath: normalize-space(//button[@aria-label="Zutaten" or @aria-label="Inhaltsstoffe"]/following-sibling::div)
   - name: brandText
     singleValue: true
     xpath: //div[@data-dmid='detail-page-headline-brand-name']
-  - name: manufacturer
-    singleValue: true
-    xpath: //div[@data-dmid="detail-page-headline"]//a | //div[@data-dmid="detail-page-headline"]//h1
   - name: quantity
     singleValue: true
     xpath: //h1[@data-dmid="detail-page-headline-product-title"]
-    regExp: (.*)\,\s(.*)([a-z]{1,2})
+    regExp: (.*)\,\s(.*)([a-z]{1,2})|(\d+)
     regExpReplace: $2$3
   - name: sku
     singleValue: true
@@ -55,21 +49,13 @@ fields:
     xpath: //button[@aria-label='Wichtiger Hinweis']/following-sibling::div
   - name: alternateImages
     singleValue: false
-    xpath: //div[@data-dmid='dm-slick-slider-container']/div/div/div/div//button/img/@src
-    regExp: (.*)60x60(.*)
-    regExpReplace: $1280x430$2
+    xpath: //div[@data-dmid="detail-image-slider-container"]//div[@data-dmid="thumbnail-container"]//button[@data-dmid="thumbnail-button"]//img/@src
   - name: ratingCount
     singleValue: true
     defaultValue: 0
-    xpath: //div[@class='bv_numReviews_text']
+    xpath: //div[@class='bv_numReviews_text'] | //div[@class='bv_numReviews_text'] | //div[@id="main-section-headline-container"]//div[@role="button"]//span[2]
     regExp: >-
-      (?:([\d\.\,]+)\s?)
-  - name: aggregateRating
-    singleValue: true
-    defaultValue: 0
-    xpath: //div[@itemprop="ratingValue"]
-    regExp: >-
-      (?:([\d\.\,]+)\s?)
+      (?:([\d\.\,]+)\s?)|(\d+)
   - name: shippingInfo
     singleValue: true
     xpath: //button[@aria-label="Anschrift des Unternehmens"]/..//div[@data-dmid="product-detail-accordion-inner-content"]
@@ -90,7 +76,7 @@ fields:
     singleValue: true
     xpath: //td[text()='Salz Äquivalent']/following-sibling::td
     regExp: >-
-      (?:([\d\.\,]+)\s?)(.*)
+      (?:([\d\.\,]+)\s?)(.*)|(\b(\w+)$)
     regExpReplace: $2
   - name: servingSize
     singleValue: true
@@ -99,7 +85,7 @@ fields:
   - name: servingSizeUom
     singleValue: true
     xpath: //button[@aria-label='Nährwerte']/..//div[@data-dmid="product-detail-accordion-inner-content"]//table/thead/tr/th[2]
-    regExp: (?:([\d\.\,]+)\s?)(.*)(\s[a-z]{2}\s)(.*)
+    regExp: (?:([\d\.\,]+)\s?)(.*)(\s[a-z]{2}\s)(.*)|(\b(\w+)$)
     regExpReplace: $3
   - name: caloriesPerServing
     singleValue: true
@@ -118,7 +104,7 @@ fields:
     singleValue: true
     xpath: //td[text()="Fett"]/following-sibling::td
     regExp: >-
-      (?:([\d\.\,]+)\s?)(.*)
+      (?:([\d\.\,]+)\s?)(.*)|(\b(\w+)$)
     regExpReplace: $2
   - name: saturatedFatPerServing
     singleValue: true
@@ -127,7 +113,7 @@ fields:
   - name: saturatedFatPerServingUom
     singleValue: true
     xpath: //td[contains(.,'Fett, davon gesättigte Fettsäuren')]/following-sibling::td
-    regExp: (?:([\d\.\,]+)\s?)(.*)
+    regExp: (?:([\d\.\,]+)\s?)(.*)|(\b(\w+)$)
     regExpReplace: $2
   - name: sodiumPerServing
     singleValue: true
@@ -214,10 +200,7 @@ fields:
     regExpReplace: $2
   - name: dietarySymbols
     singleValue: false
-    xpath: //div[@data-dmid='detail-first-section']/div[@data-dmid="label-slider-container"]//div[@data-dmid="label-container"]//img/@src
-  - name: descriptionBullets
-    singleValue: true
-    xpath: count(//ul[@data-dmid='description-relevant-selling-points']/li)
+    xpath: //div[@data-dmid='detail-first-section']/div[@data-dmid="label-slider-container"]//div[@data-dmid="label-container"]//img/@src | //div[@data-dmid='detail-first-section']//div[@data-dmid="label-slider-container"]//div[contains(@data-dmid, "label")]//div//div[contains(@class, "slick-list")]
   - name: pricePerUnit
     singleValue: true
     xpath: //div[@data-dmid='detail-page-base-price-container']/div[@data-dmid='product-base-price']
@@ -239,4 +222,28 @@ fields:
     regExpReplace: https://dm.de$1
   - name: termsAndConditions
     singleValue: true
+    xpath: //a[contains(text(), 'AGB')]/@href
+    regExp: (.+)
     regExpReplace: https://www.dm.de$1
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@data-dmid="sellout-price-container"]
+  - name: category
+    singleValue: false
+    xpath: //div[@data-dmid="breadcrumb-container"]//span[@data-dmid="breadcrumb-element-container"][position()>1]//a/@title
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@data-dmid="thumbnail-container"]//button[@data-dmid="thumbnail-button"][position()>1]//img/@src)
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@data-dmid="detail-first-section"]//div//ul[@data-dmid="description-relevant-selling-points"]//li)
+  - name: description
+    singleValue: false
+    xpath: //div[@data-dmid="detail-first-section"]//div//ul[@data-dmid="description-relevant-selling-points"]//li | //div[@data-dmid="detail-first-section"]//..//div[@data-dmid="expandable-text-container"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="bv-section-summary"]//div[contains(@class, "bv-secondary-rating-summary")]//div[contains(@class, "bv-secondary-rating-summary-list")]//div[contains(@class, "bv-secondary-rating-summary-stars")]//span[contains(@class, "bv-secondary-rating-summary-rating")]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@data-dmid="detail-first-section"]//div//ul[@data-dmid="description-relevant-selling-points"]//li
+    
