@@ -6,6 +6,8 @@ fields:
   - name: image
     singleValue: true
     xpath: //img[@class="product-image product-image-visible"]/@src|//div[contains(@class,'product-image--wrapper')]/span//img/@src
+    regExp: (.+)(h=\d+&w=\d+)
+    regExpReplace: $1h=1280&w=1280
   - name: alternateImages
     singleValue: false
     xpath: //body//@additional_image
@@ -23,7 +25,7 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
-    xpath: //nav[@aria-label="breadcrumb"]/ol/li//a/span/span
+    xpath: //ol[contains(@class,"beans-breadcrumb__list")]/li
   - name: description
     singleValue: true
     xpath: concat(//div[contains(@id,'product-description')]//ul,' ',//div[contains(@id,'product-marketing')]//ul,' ',//div[contains(@id,'other-information')]//ul,' ',//div[contains(@id,'features')]//ul,' ',//div[contains(@id,'pack-size')]//ul)
@@ -32,7 +34,7 @@ fields:
     xpath: //div[@class="product-details-tile"]//div[contains(@class,"price-per-sellable-unit")]|(//div[@data-auto="product-controls"]//div[contains(@class,'price-details--wrapper')]/div//span[@data-auto="price-value"])[1]
   - name: availabilityText
     xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
-    regExp: (.+)
+    regExp: InStock
     regExpReplace: In Stock
     defaultValue: Out Of Stock
   - name: descriptionBullets
@@ -82,7 +84,9 @@ fields:
     xpath: //div[@id="return-address"]/ul
   - name: numberOfServingsInPackage
     singleValue: true
-    xpath: //div[@id="uses"]/p
+    xpath: //div[@id="uses"][contains(.,'serving')]/p
+    regExp: (.+)(\d+)(\sserving)
+    regExpReplace: $2
   - name: storage
     singleValue: true
     xpath: //div[@id="storage-details"]/p
@@ -180,10 +184,12 @@ fields:
     xpath: //div[contains(@id,"net-contents")]/p
   - name: packSize
     singleValue: true
-    xpath: //div[@id="net-contents"]/p
+    xpath: //div[@id="pack-size"]
+    regExp: (.+):\s(\d+(\.\d+)?.+)
+    regExpReplace: $2
   - name: directions
     singleValue: true
-    xpath: //div[@id="preparation-and-usage"]//ul|//div[contains(@id,'uses')]/p
+    xpath: //div[@id="preparation-and-usage"]//ul
   - name: warnings
     singleValue: true
     xpath: //div[@id="warnings"]//ul|//div[contains(@id,'lower-age-limit')]
