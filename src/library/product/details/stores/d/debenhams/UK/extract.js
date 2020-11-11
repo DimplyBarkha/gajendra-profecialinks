@@ -53,17 +53,21 @@ module.exports = {
           // await context.click(`ul.topic li label`);
           console.log('Inside variants');
           try {
-            const hiddenDivs = document.querySelectorAll("div[id^=custom-attr]");
+            const hiddenDivs = document.querySelectorAll("*[id^=custom-attr]");
             hiddenDivs.forEach(x => {
               x.parentElement.removeChild(x);
             });
             
             const breadcrumbs = document.querySelectorAll("div.t-breadcrumb div.t-breadcrumb__wrap");
-            const category = [];
+            const categoryEl = document.createElement("ul");
             breadcrumbs.forEach(x => {
-              category.push(x.innerText);
+              const liEl = document.createElement("li");
+              liEl.textContent = x.innerText;
+              categoryEl.appendChild(liEl);
             });
-            addHiddenDiv("custom-attr-product-breadcrumb", category.join(" > "));
+            categoryEl.id = "custom-attr-product-breadcrumb";
+            categoryEl.style.display = "none";
+            document.body.appendChild(categoryEl);
 
             const addToBagButton = document.evaluate("boolean(//button[contains(@class, 'dbh-add-to-bag')]/@disabled)", document, null, XPathResult.ANY_TYPE);
             if (addToBagButton) {
@@ -79,6 +83,8 @@ module.exports = {
               const size = volume.replace("Volume:", "").trim();
               addHiddenDiv("custom-attr-product-size", size);
             }
+
+            addHiddenDiv("custom-attr-product-image-zoom-feature", "Yes");
             
           } catch (error) {
             console.log("Error: ", error);

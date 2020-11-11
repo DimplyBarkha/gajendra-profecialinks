@@ -1,4 +1,4 @@
-
+const { transform } = require("../transform");
 async function implementation(
   inputs,
   parameters,
@@ -41,7 +41,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'debenhams',
-    transform: null,
+    transform,
     domain: 'debenhams.com',
     zipcode: '',
   },

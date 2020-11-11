@@ -3,18 +3,20 @@ regionsSelector: null
 recordSelector: "div.t-product-list__product"
 recordXPath: null
 fields:
-  # - name: id
-  #   singleValue: false
-  #   xpath: 
   - name: name
     singleValue: false
     xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//h2
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//h2/../@href
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//h2/../@href
+    regExp: .*_(\d+)_-1.*
+    regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//div[contains(@class, 'dbh-now')]
+    xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//div[contains(@class, 'dbh-price') or contains(@class, 'dbh-now')]
     regExp: .*£(\d+)
     regExpReplace: £$1
   - name: thumbnail

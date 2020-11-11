@@ -6,7 +6,7 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1
-  - name: nameExtend
+  - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1
   - name: image
@@ -56,7 +56,7 @@ fields:
     xpath: //div[contains(@class, 'dbh-product-color-selector')]//div[contains(@class, 'pw-swatch__item') and contains(@class, 'pw--selected')]//img/@alt
   - name: category
     singleValue: false
-    xpath: //div[@id='custom-attr-product-breadcrumb']/text()
+    xpath: //ul[@id='custom-attr-product-breadcrumb']//li/text()
   - name: availabilityText
     singleValue: false
     xpath: //div[@id='custom-attr-product-availability']/text()
@@ -72,4 +72,7 @@ fields:
   - name: directions
     singleValue: false
     xpath: //div[@id='editors_notes']/p/text()
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-image-zoom-feature']/text()
   
