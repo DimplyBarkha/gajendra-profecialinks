@@ -9,17 +9,13 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //div[@id="ii_quantity"][last()]
-    regExp: (\d+\sml)
-    regExpReplace: $1
+    regExp: (\d+\sml)|(\d+ml)
   - name: promotion
     singleValue: false
     xpath: //div[@id="ii_promotion"][last()]
   - name: listPrice
     singleValue: false
     xpath: //div[@id="ii_listPrice"][last()]
-  - name: nameExtended
-    singleValue: false
-    xpath: //div[@id="ii_nameExtended"][last()]
   - name: variantId
     singleValue: false
     xpath: //div[@id="ii_variantId"][last()]
@@ -51,19 +47,13 @@ fields:
     regExpReplace: $1$2
   - name: metaKeywords
     singleValue: false
-    xpath: //div[@id="resume_content"]//p
+    xpath: (//meta[@name="keywords"]/@content | //div[@id="resume_content"] | //div[@id="resume_content"]//p)[1]
   - name: url
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
     xpath: //div[contains(@class, 'breadcrumb')]//span[@class="navigation_page"]//span//a
-  - name: description
-    singleValue: false
-    xpath: //div[@id="tab_content"]//section[@id="desc_product"]//div//p
-  - name: brandText
-    singleValue: false
-    xpath: //span[3]//a[@itemprop="url"]
   - name: manufacturer
     singleValue: false
     xpath: //div[@class="name-under-image"]
@@ -87,14 +77,28 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@id="ii_name"][last()] | //div[@class="columns-container"]//h1[@itemprop="name"]
-  - name: sku
-    singleValue: false
-    xpath: //script[contains(text(),'ecomm_prodid')]
-    regExp: \"ecomm_prodid":"(\d+-\d+)
-    regExpReplace: $1
   - name: gtin
     singleValue: false
     xpath: //div[@id="ii_gtin"][last()]
   - name: videos
     singleValue: false
     xpath: //section[@id="youtube"]//iframe//@src
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id="ii_variantInformation"][last()]
+  - name: description
+    singleValue: false
+    xpath: //div[@id="tab_content"]//section[@id="desc_product"]//div//p
+  - name: brandText
+    singleValue: false
+    xpath: //script[contains(text(),'brand')]
+    regExp: \"brand":"(.*?)"
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: //script[contains(text(),'ecomm_prodid')]
+    regExp: \"ecomm_prodid":"(\d+-\d+)
+    regExpReplace: $1
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@id="ii_nameExtended"][last()]

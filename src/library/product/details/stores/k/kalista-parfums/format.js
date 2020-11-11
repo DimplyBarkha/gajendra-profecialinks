@@ -25,9 +25,15 @@ const transform = (data) => {
       }
       if (row.description) {
         const descriptionArr = row.description.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '').replace(/\//g, '') : '|';
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '').replace(/(\\|\")+/gm, '') : '|';
         });
-        row.description = [{ text: descriptionArr.join('|'), xpath: row.description[0].xpath }];
+        row.description = [{ text: descriptionArr.join(' | '), xpath: row.description[0].xpath }];
+      }
+      if (row.directions) {
+        const directionsArr = row.directions.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, '').replace(/(\\|\")+/gm, '') : '|';
+        });
+        row.directions = [{ text: directionsArr.join(' | '), xpath: row.directions[0].xpath }];
       }
       if (row.manufacturer) {
         const manufacturerArr = row.manufacturer.map((item) => {
@@ -43,13 +49,13 @@ const transform = (data) => {
       }
       if (row.quantity) {
         const quantityArr = row.quantity.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '') : '|';
+          return clean(typeof (item.text) === 'string' ? item.text.replace(/\n/g, '') : '|');
         });
         row.quantity = [{ text: quantityArr.join('|'), xpath: row.quantity[0].xpath }];
       }
       if (row.variants) {
         const variantsArr = row.variants.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '|') : '|';
+          return clean(typeof (item.text) === 'string' ? item.text.replace(/\n/g, '|') : '|');
         });
         row.variants = [{ text: variantsArr.join(' | '), xpath: row.variants[0].xpath }];
       }
@@ -67,21 +73,18 @@ const transform = (data) => {
       }
       if (row.variantInformation) {
         const variantInformationArr = row.variantInformation.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '') : '|';
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, ' ') : '|';
         });
         row.variantInformation = [{ text: variantInformationArr.join('|'), xpath: row.variantInformation[0].xpath }];
       }
+      if (row.gtin) {
+        const gtinArr = row.gtin.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/_/g, '-').replace(/([a-zA-Z]+)(_\d+)/g, '$2') : '|';
+        });
+        row.gtin = [{ text: gtinArr.join(' '), xpath: row.gtin[0].xpath }];
+      }
     }
   }
-  data.forEach(obj =>
-    obj.group.forEach(row =>
-      Object.keys(row).forEach(header =>
-        row[header].forEach(el => {
-          el.text = clean(el.text);
-        }),
-      ),
-    ),
-  );
   return data;
 };
 

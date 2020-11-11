@@ -1,6 +1,6 @@
 const { transform } = require('../format.js');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -40,18 +40,16 @@ async function implementation(
     }
   }
 
-
-
-  async function preparePage(index, variantLength) {
+  async function preparePage (index, variantLength) {
     await context.evaluate(async (index, variantLength) => {
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      async function infiniteScroll() {
+      async function infiniteScroll () {
         let prevScroll = document.documentElement.scrollTop;
         while (true) {
           window.scrollBy(0, document.documentElement.clientHeight);
@@ -64,7 +62,7 @@ async function implementation(
         }
       }
       await infiniteScroll();
-      function getSingleText(xpath, document) {
+      function getSingleText (xpath, document) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         if (element && element.singleNodeValue) {
           const nodeElement = element.singleNodeValue;
@@ -76,7 +74,7 @@ async function implementation(
       // @ts-ignore
       let xpathIndex = 1;
       xpathIndex = xpathIndex + index;
-      const nameExtendedXpath = "(//tr//td[contains(@class, 'tab-attribute-td')])[" + xpathIndex + '] | //div[@class="columns-container"]//h1[@itemprop="name"]';
+      const nameExtendedXpath = '(//table[contains(@id,"product_combinations")]//tr//td[contains(@class,"tab-attribute-td last clearfix")])[' + xpathIndex + '] | (//div[contains(@class,"product-tab-row")]/div[contains(@class,"attribute-wrapper")]//select/option/@title)[' + xpathIndex + ']';
       addHiddenDiv('ii_nameExtended', getSingleText(nameExtendedXpath, document));
       const nameXpath = "(//tr//td[contains(@class, 'tab-attribute-td')])[" + xpathIndex + ']';
       addHiddenDiv('ii_name', getSingleText(nameXpath, document));
@@ -96,6 +94,8 @@ async function implementation(
       addHiddenDiv('ii_variantId', getSingleText(variantIdXpath, document));
       const variantsXpath = "(//tr[contains(@class,'product-combinations-line')]//td//img/@title) | //ul[@id='color_to_pick_list']//li//a/@id";
       addHiddenDiv('ii_variants', getSingleText(variantsXpath, document));
+      const variantInformationXpath = '(//table[@id="product_combinations"]//tbody//tr[contains(@class, "product-combinations-line")]//td[contains(@class, "tab-attribute-td")])[' + xpathIndex + '] | (//ul[@id="color_to_pick_list"]//li//a/@title)[' + xpathIndex + ']';
+      addHiddenDiv('ii_variantInformation', getSingleText(variantInformationXpath, document));
     }, index, variantLength);
   }
   return await context.extract(productDetails, { transform });
