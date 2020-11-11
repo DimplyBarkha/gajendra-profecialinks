@@ -41,14 +41,87 @@ async function implementation (
     // await preparePageForCommonElement(0, variantLength);
     for (let j = 0; j < variantLength; j++) {
       await context.evaluate(async (j) => {
-        return document.querySelectorAll('img.rd__img.rd__list-services__headline.loading')[j].click();
+        return document.querySelectorAll('div.rd__blob img.rd__img')[j].click();
       }, j);
       // await context.click(`ul.topic li label`);
       console.log('Inside variants', j);
+      // await preparePage(j, variantLength);
       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
     }
   }
+  var variantLength = await context.evaluate(async () => {
+    return (document.querySelectorAll('div.rd__product-details.sd__product-details')) ? document.querySelectorAll('div.rd__product-details.sd__product-details').length : 0;
+  });
+  console.log('Variant Length', variantLength);
+  if (variantLength >= 1) {
+    for (let j = 1; j < variantLength; j++) {
+      await preparePage(j, variantLength, true);
+      console.log('Inside variants', j);
+      if (j !== variantLength - 1) { await context.extract(productDetails, { transform }); }
+    }
+  }
+  // const colorArray = await context.evaluate(async (j) => {
+  //   return document.querySelectorAll('div.rd__product-details.sd__product-details').length;
+  // });
+  // if (colorArray) {
+  //   for (let j = 0; j < colorArray; j++) {
+  //     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  //     await context.evaluate(async (j) => {
+  //       document.querySelectorAll('div.rd__product-details.sd__product-details')[j].click();
+  //       const value = document.querySelectorAll('div.rd__product-details.sd__product-details')[j].getAttribute('value');
+  //       document.querySelector('h2.rd__headlline').value = value;
+  //       return document.querySelector('h2.rd__headlline').dispatchEvent(new Event('click'));
+  //     }, j);
+  //     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  //     await preparePage(j, variantLength, true);
+  //     if (j !== colorArray - 1) {
+  //       await context.extract(productDetails, { transform }, { type: 'APPEND' });
+  //     }
+  //   }
+  // }
 
+
+
+  async function preparePage(index, variantLength) {
+    await context.evaluate(async (index, variantLength) => {
+      function getSingleText(xpath, document, index) {
+        const element = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if (element && element.snapshotLength > 0) {
+          const elem = element.snapshotItem(index)
+          return elem ? elem.textContent : '';
+        } else {
+          return '';
+        } 
+      }
+      
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+
+      const qtyXpath = '//h2[@class="rd__headlline rd__headline--80"]';
+      const quantity = getSingleText(qtyXpath, document, index - 1);
+      addHiddenDiv('my-qty', quantity);
+
+      const priceXpath = '//span[contains(@class,"rd__headline--130")]/text()';
+      const price = getSingleText(priceXpath, document, index - 1);
+      addHiddenDiv('my-price', price);
+
+      const availabXpath = "//div[contains(@class,'rd__slider-brand-nav__index__item--active')]";
+      const availab = getSingleText(availabXpath, document, index - 1);
+      addHiddenDiv('my-availab', availab);
+
+      const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")]';
+      const listPrice = getSingleText(listPriceXpath, document, index - 1);
+      addHiddenDiv('my-listPrice', listPrice);
+
+
+      return [`#qty:${quantity}`, `#price:${price}`, `#availab:${availab}`, `#listPrice:${listPrice}`];
+    }, index, variantLength);
+  }
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
   await context.evaluate(async function () {

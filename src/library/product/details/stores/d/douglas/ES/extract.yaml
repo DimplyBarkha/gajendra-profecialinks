@@ -25,13 +25,13 @@ fields:
     xpath : //div[@class="rd__product-details__image__slider__item slick-slide"]/img/@src
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,"rd__headline--130")]/text()
+    xpath: //div[@id="my-price"]
   - name: listPrice
     singleValue: false
-    xpath: //div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,'sd__product-details__options__price__item__quantity')]
+    xpath: //div[@id="my-listPrice"]
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,'rd__slider-brand-nav__index__item--active')]
+    xpath: //div[@id="my-availab"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -58,6 +58,7 @@ fields:
     singleValue: false
     description: The stated aggregate rating
     xpath: //div[@itemprop='ratingValue']
+    defaultValue: '0'
   - name: name
     singleValue: false
     description: The product name
@@ -90,11 +91,12 @@ fields:
     singleValue: false
     xpath: //div[@class="sd__vidcontent"]//iframe/@src
   - name: quantity
-    xpath: //h2[@class="rd__headlline rd__headline--80"]
+    xpath: //div[@id="my-qty"]
     regExp: (\d+) (ML|UN|UD|ST)
   # - name: variantInformation
   #   xpath: //h2[@class="rd__headlline rd__headline--80"][contains(text(),'ML') or contains(text(),'UD') or contains(text(),'UD') or contains(text(),'ST')] 
   - name: ratingCount
+    singleValue: false
     xpath: //div[@class="bv_numReviews_text"]
     regExp: (\d+)
   # - name: pricePerUnit2
@@ -104,10 +106,11 @@ fields:
   #   regExpReplace: >-
   #      $4/$2
   - name: descriptionBullets
-    xpath: count(//ul[@class="rd__list rd__list--20"]/li)
+    xpath: count(//ul[@class="rd__list rd__list--20"]/li | //ul[@class="rd__list--130"]/li)
   - name: promotion
     xpath: //div[@class="rd__flag rd__flag--160 rd__footer__meta"]
   - name: variantCount
+    singleValue: false
     xpath: count(//div[@class="rd__blob"]/img)
   - name: color
     singlValue: false
@@ -115,7 +118,12 @@ fields:
   - name: customerServiceAvailability
     singleValue: true
     defaultValue: Yes
-  # - name: usageTest
-  #   xpath: //div[@id="my-usage-text"]
-  # - name: ingredientTest
-  #   xpath: //div[@id="my-ingredient-text"]
+  # - name: firstVariants
+  #   xpath: (//div[@class="rd__blob"]/img)[1]/@src
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="rd__container sd__container"]/a[@data-promo]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath:  //ul[@class="rd__list--130"]/li
+  

@@ -23,6 +23,17 @@ const transform = (data) => {
         });
         row.aggregateRating = [{ text }];
       }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        });
+        row.additionalDescBulletInfo = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
       if ( row.variantCount) {
         // 
         row.variantCount.forEach(item => {
