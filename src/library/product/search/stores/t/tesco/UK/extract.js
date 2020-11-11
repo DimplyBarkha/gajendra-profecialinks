@@ -19,8 +19,25 @@ module.exports = {
         acceptWaitingRoom: true,
         resources: [{ type: 'search', params: { query: { page, query } } }],
       };
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await stall(500);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(5000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
       console.log('this is our body');
-      console.log(JSON.stringify(body))
+      console.log(JSON.stringify(body));
       const csrf = document.querySelector('[data-csrf-token]').getAttribute('data-csrf-token');
       const response = await fetch('https://www.tesco.com/groceries/en-GB/resources', {
         headers: {
@@ -31,6 +48,14 @@ module.exports = {
         method: 'POST',
         mode: 'cors',
       });
+      const optionalWait = async (sel) => {
+        try {
+          await context.waitForSelector(sel, { timeout: 60000 });
+        } catch (err) {
+          console.log(`Couldn't load selector => ${sel}`);
+        }
+      };
+      optionalWait('div[data-test-id="ProductName"]');
       const data = await response.json();
       return data;
     };
