@@ -13,7 +13,9 @@ fields:
     xpath: //h3[@class="name"]
   - name: productUrl
     singleValue: false
-    xpath: //@productUrlId
+    xpath: //a[@class="core"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.jumia.co.ke$1
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -23,16 +25,20 @@ fields:
     singleValue: false
   - name: aggregateRating2
     singleValue: false
-    xpath: //@aggrating
+    xpath: //div[@class="stars _s"]
+    regExp: (.+) out of.+
+    regExpReplace: $1
   - name: reviewCount
     singleValue: false
-    xpath: //@ratingCount
   - name: ratingCount
     singleValue: false
-    xpath: //@ratingCount
+    xpath: //div[@class="rev"]
+    regExp: \((\d+)\)$
+    regExpReplace: $1
   - name: price
-    singleValue: false
-    xptah: //div[@class="prc"]
+    xpath: //div[@class="prc"]
+    regExp: KSh ([\d,]+)
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -40,20 +46,21 @@ fields:
   - name: endorsementText
     singleValue: false
   - name: rank
-    singleValue: false
+    singleValue: true
     description: search/listing rank
-    xpath: //@rank
+    xpath: self::@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //@rank
+    xpath: self::@rankOrganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    selector: a.core[data-list="sponsored"]
+    xpath: //a[@class="core"][@data-list="sponsored"]
+    defaultValue: 'false'
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER

@@ -18,28 +18,32 @@ module.exports = {
     if (closeNewsletterBtn) {
       await context.click('button[data-track-onclick="popupClose"]');
     }
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-
     await context.evaluate(async function () {
-      const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
-      const products = document.querySelectorAll('section.card article.prd');
-      for (let i = 0; i < products.length; i++) {
-        const productCoreInfo = products[i].querySelector(' a.core');
-        const productHref = productCoreInfo ? productCoreInfo.getAttribute('href') : null;
-        const productUrl = productHref ? 'https://www.jumia.co.ke' + productHref : '';
-        products[i].setAttribute('productUrlId', productUrl);
-        const ratingCount = products[i].querySelector('div.rev') ? products[i].querySelector('div.rev').textContent : '';
-        if (ratingCount) products[i].setAttribute('ratingcount', ratingCount.replace(/^\d+\.?,?(\d+)? out of \d+\((\d+)\)/g, '$2'));
-        const aggRating = products[i].querySelector('div.rev') ? products[i].querySelector('div.rev').textContent : '';
-        if (aggRating) products[i].setAttribute('aggrating', aggRating.replace(/(^\d+(\.?,?\d+)?).*/g, '$1').replace('.', ','));
-        const sponspored = products[i].querySelector('a.core[data-list="sponsored"]');
-        if (sponspored) products[i].setAttribute('productSponsored', 'true');
+      const body = document.body;
+      const html = document.documentElement;
+      const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-        products[i].setAttribute('rank', `${lastProductPosition + i}`);
+      let scrollTop = 0;
+      while (scrollTop <= pageHeight) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        scrollTop += 200;
+        window.scroll(0, scrollTop);
       }
-      localStorage.setItem('prodCount', `${lastProductPosition + products.length}`);
     });
 
+    await context.evaluate(async function () {
+      let rank = localStorage.getItem('lastRank') ? Number(localStorage.getItem('lastRank')) : 1;
+      let rankOrganic = localStorage.getItem('lastRankOrganic') ? Number(localStorage.getItem('lastRankOrganic')) : 1;
+      const products = document.querySelectorAll('section.card article.prd');
+      for (let i = 0; i < products.length; i++) {
+        products[i].setAttribute('rank', `${rank + i}`);
+        products[i].setAttribute('rankOrganic', `${rankOrganic + i}`);
+        rank++;
+        if (!products[i].querySelector('a[data-list="sponsored"]')) rankOrganic++;
+      }
+      localStorage.setItem('lastRank', `${rank}`);
+      localStorage.setItem('lastRankOrganic', `${rankOrganic}`);
+    });
     return await context.extract(productDetails, { transform });
   },
 };
