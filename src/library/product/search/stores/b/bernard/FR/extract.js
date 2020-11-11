@@ -1,4 +1,4 @@
-const {cleanUp} = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -8,57 +8,39 @@ module.exports = {
     domain: 'bernard.fr',
     zipcode: '',
   },
-implementation,
-};
-async function implementation(
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { transform } = parameters;
-  const { productDetails } = dependencies;
-  await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
-      var elems = document.querySelectorAll(xpathforpagination);
-      elems[0].classList.add('pagination');
-    }
-
-    // for rank
-    function addElementToDocument(key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
-
-    // Method to Retrieve Xpath content of a Multiple Nodes
-    const getAllXpath = (xpath, prop) => {
-      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      const result = [];
-      for (let index = 0; index < nodeSet.snapshotLength; index++) {
-        const element = nodeSet.snapshotItem(index);
-        if (element) result.push(prop ? element[prop] : element.nodeValue);
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.evaluate(() => {
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll("div[id='SKUDetailsDiv']")[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      return result;
-    };
-
-    // for rank
-    const sliceURL = (data) => {
-      var cnt = 0;
-      for (let index = 0; index < data.length; index++) {
-        if (data[0] != 0) {
-          cnt++;
-          addElementToDocument('altImages', cnt);
-        }
+      let rankOrganic;
+      try {
+        rankOrganic = ((window.location.href).indexOf('page=')) ? Number((window.location.href).replace(/.*page=(.*)/, '$1')) : 0;
       }
-    };
-    var backgroundURL = getAllXpath('//h3[@id="skuName"]', 'nodeValue');
-    sliceURL(backgroundURL);
-  });
-  //rank end
+      catch (err) {
+      }
+      if (!rankOrganic) {
+        rankOrganic = 1;
+      } else {
+        rankOrganic = (rankOrganic - 1) * 24 + 1;
+      }
+      const urlProduct = document.querySelectorAll("div[id='SKUDetailsDiv']");
+      for (let i = 0; i < urlProduct.length; i++) {
+        addHiddenDiv('rankOrganic', rankOrganic++, i);
+      }
 
-
-  return await context.extract(productDetails, { transform });
+    });
+    return await context.extract(productDetails, { transform });
+  },
 }

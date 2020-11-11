@@ -29,13 +29,14 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
+    type: CURRENCY
     xpath: //span[@itemprop="price"]
   - name: rankOrganic
     singleValue: true
-    xpath: //html//div[@id='altImages']
+    xpath: //div[@id='rankOrganic']/text()
   - name: rank
     singleValue: true
-    xpath: //html//div[@id='altImages']
+    xpath: //div[@id='rankOrganic']/text()
   - name: sponsored
     singleValue: true
     defaultValue: false
