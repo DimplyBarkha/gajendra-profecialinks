@@ -6,7 +6,7 @@ module.exports = {
     store: 'bijenkorf',
     nextLinkSelector: 'div[class="load-more-button"]>a',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div[data-testid="Loading"]',
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
