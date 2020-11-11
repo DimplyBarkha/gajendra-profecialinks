@@ -34,7 +34,7 @@ fields:
   - name: description
     singleValue: false
     description: Product description supplied by website 
-    xpath: //h2[@class="lead-small"]
+    xpath: //div[@class="d-inline-block float-left order-2 order-lg-1"]/div/h2
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name
@@ -46,7 +46,7 @@ fields:
   - name: url
     singlevalu: true
     description: the url of the product
-    xpath: //meta[@property="og:url"]/content
+    xpath: //meta[@property="og:url"]/@content
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
