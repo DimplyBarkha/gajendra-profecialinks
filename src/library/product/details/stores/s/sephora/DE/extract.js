@@ -51,11 +51,11 @@ async function implementation(
 
 
 
-    var coupon_str = getXpath("//p[@class='banner-description']/text()", 'nodeValue');
-    if(coupon_str != null){
-      var coupon = coupon_str.split(": ")[1];
-    addElementToDocument('altImages', coupon);
-    }
+    // var coupon_str = getXpath("//p[@class='banner-description']/text()", 'nodeValue');
+    // if(coupon_str != null){
+    //   var coupon = coupon_str.split(": ")[1];
+    // addElementToDocument('altImages', coupon);
+    // }
     
     var ppu = getXpath("//div[@class='price-block-right']/div[@class='unit-price']/span[@class='unit']/text()", 'nodeValue')
     // .toString()).replace(/(\r\n|\n|\r)/gm, " ")).replace(" € * , / , ", "/");
@@ -135,6 +135,17 @@ async function implementation(
     }
 
     // var manu_image = getAllXpath('//div[@class="brand-content-image"]/img/@src', 'nodeValue');
+
+
+    //manufactureDiscription
+    var manu_des = getAllXpath('//div[@class="description-content"]/p/text()', 'nodeValue');
+    var manu = ""
+    if (manu_des != null){
+      for(let i=0; i < manu_des.length; i++){
+        manu = manu + manu_des[i];
+      }
+      addElementToDocument('manu', manu);
+    }
 
   });
   return await context.extract(productDetails, { transform });

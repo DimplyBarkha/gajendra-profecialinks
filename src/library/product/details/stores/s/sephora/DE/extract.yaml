@@ -159,7 +159,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class="description-content"]/p/text()
+    xpath: //html//div[@id='manu']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
