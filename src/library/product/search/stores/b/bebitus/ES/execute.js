@@ -6,7 +6,7 @@ module.exports = {
     store: 'bebitus',
     domain: 'bebitus.es',
     url: 'https://www.bebitus.com/search/?q={searchTerms}',
-    loadedSelector: 'div.wrapper img',
+    loadedSelector: 'div.footer-main-container',
     noResultsXPath: '//h1[contains(., "Lo sentimos")]',
     zipcode: '',
   },

@@ -15,10 +15,14 @@ fields:
     xpath: //div[contains(@class,'productlink')]/@data-product-link
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'productlink')]//div[contains(@class,'wrapper')]/img/@src
-  - name: aggregateRating
+    xpath: //script
+    regExp: ((.html)(.+))((http)(.+))((', 'false)|(', 'true))
+    regExpReplace: $4
+  - name: aggregateRating2
     singleValue: false
     xpath: //span[contains(@class,'ratings-stars-average')]
+    regExp: (\d+)(.)(\d+)
+    regExpReplace: $1,$3
   - name: id
     singleValue: false
     xpath: //div[contains(@class,'productlink')]/@eans

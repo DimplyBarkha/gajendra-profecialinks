@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'div.pager-item.pagination > a:last-child',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.wrapper img',
+    loadedSelector: 'div.footer-main-container',
     noResultsXPath: '//h1[contains(., "Lo sentimos")]',
     openSearchDefinition: null,
     domain: 'bebitus.es',
