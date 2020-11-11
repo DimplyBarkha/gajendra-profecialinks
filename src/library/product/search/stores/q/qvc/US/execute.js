@@ -5,9 +5,9 @@ module.exports = {
     country: 'US',
     store: 'qvc',
     domain: 'qvc.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.qvc.com/catalog/search.html?keyword={searchTerms}',
+    loadedSelector: 'div[class="productInfo productGallery "]',
+    noResultsXPath: '//div[@class="monetate_selectorHTML_bcb1faba"]',
     zipcode: '',
   },
 };
