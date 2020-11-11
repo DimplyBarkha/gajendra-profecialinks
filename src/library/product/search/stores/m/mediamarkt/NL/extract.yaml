@@ -87,8 +87,9 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    singleValue: true
+    singleValue: false
     description: Unique id (within this extractor)
+    xpath: //div[@class='product-wrapper']/@data-modelnumber
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"

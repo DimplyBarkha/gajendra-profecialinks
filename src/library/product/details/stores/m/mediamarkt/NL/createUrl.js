@@ -16,7 +16,7 @@ module.exports = {
     dependencies,
   ) => {
     const { id } = inputs;
-    const { domain, prefix, suffix } = parameters;
+    const { domain } = parameters;
 
     const gotoUrl = `https://${domain}/nl/search.html?query=${id}&searchProfile=onlineshop&channel=mmnlnl`;
     return gotoUrl;
