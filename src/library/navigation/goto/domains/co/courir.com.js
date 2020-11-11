@@ -2,7 +2,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'courir.com',
-    timeout: 20000,
+    timeout: 60000,
     country: 'FR',
     store: 'courir',
     zipcode: '',
@@ -56,9 +56,12 @@ module.exports = {
       }
     };
 
+    const delay = t => new Promise(resolve => setTimeout(resolve, t));
+
     await gotoPage();
 
     const captchaSelector = 'iframe[src*="https://geo.captcha"]';
+    await optionalWait(captchaSelector);
     const isCaptchaFramePresent = await checkExistance(captchaSelector);
 
     console.log('isCaptcha', isCaptchaFramePresent);
@@ -85,18 +88,30 @@ module.exports = {
           },
         );
 
-        await new Promise(resolve => setTimeout(resolve, 500));
-        await context.evaluateInFrame('iframe', function () {
+        await delay(500);
+        await context.evaluateInFrame(captchaSelector, function () {
           // @ts-ignore
           document.querySelector('.captcha-handler').click();
         });
 
+        // Wait for iframe to disappear
+        let iframeStillExists = await checkExistance(captchaSelector);
+        let counter = 0;
+        while (iframeStillExists) {
+          iframeStillExists = await checkExistance(captchaSelector);
+          await delay(500);
+          ++counter;
+
+          // Waiting for a minute before throwing an error
+          if (counter === 120) {
+            throw new Error('CAPTCHA_FAIL');
+          }
+        }
+
         console.log('Captcha Resolved.');
-        await new Promise(resolve => setTimeout(resolve, 500));
         await context.waitForNavigation({ timeout: 30000 });
         // we may be navigated to an index page after captcha solve
         const productPageSelector = '#product-content';
-        // await context.waitForSelector(productPageSelector);
         const isWaitProduct = await optionalWait(productPageSelector);
 
         console.log('isProduct', isWaitProduct);
@@ -125,6 +140,8 @@ module.exports = {
         console.log('CAPTCHA error: ', error);
         if (error.message === 'Blocked') {
           await context.reportBlocked(403);
+          throw error;
+        } else if (error.message === 'CAPTCHA_FAIL') {
           throw error;
         }
       }
