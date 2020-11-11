@@ -22,26 +22,24 @@ const transform = (data) => {
       }))));
       return data;
     };
-    for (const { group } of data) {
-      let rank = 1;
+    for (const { group } of data) {      
       for (const row of group) {
-        if (row.productUrl) {
-          row.productUrl.forEach(item => {
-            item.text = "https://en-ae.namshi.com" + item.text;
+        if (row.name) {
+          row.name.forEach(item => {
+            let j_data = JSON.parse(item.text);
+            if (j_data['name']){
+              item.text = j_data['name'];
+            }
           });
         }
-        if (row.rankOrganic) {
-          row.rankOrganic.forEach(item => {
-            item.text = parseInt(item.text) + 1;
+        if (row.image) {
+          row.image.forEach(item => {
+            let j_data = JSON.parse(item.text);
+            if (j_data['image']){
+              item.text = j_data['image'] + "?v=gallery&width=1000";
+            }
           });
         }
-        if (row.nameExtended) {
-          row.nameExtended.forEach(item => {
-            item.text = item.text + " - " + row.name[0]["text"];
-          });
-        }
-        row.rank = [{ "text": rank }];
-        rank++;
       }
     }
     return cleanUp(data);
