@@ -13,7 +13,7 @@ fields:
     xpath: //*[normalize-space(text())='Hersteller']/following-sibling::*[1]
   - name: quantity
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Größe')]/following-sibling::*[1]
+    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Größe')]/following-sibling::*[1] | //*[contains(text(),"Stückzahl")]/following-sibling::*[1]
   - name: shippingWeight
     singleValue: false
     xpath: //*[normalize-space(text())="Verpackungsabmessungen"]/following-sibling::*[1][contains(.,';')]
@@ -27,7 +27,8 @@ fields:
     xpath: //*[contains(text(),"Modellnummer")]/following-sibling::*[1]
   - name: weightNet
     singleValue: false
-    xpath: //*[contains(normalize-space(text()),"Produktabmessungen")]/following-sibling::*[1][contains(.,';')]
+    xpath: //*[contains(normalize-space(text()),"Produktabmessungen")]/following-sibling::*[1][contains(.,';')] | //*[contains(text(),"Netto-Gewicht")]/following-sibling::*[1]
+    regExp: '[^;]+$'
   - name: countryOfOrigin
     xpath: //*[normalize-space(text())="Ursprungsland"]/following-sibling::*[1]
   - name: allergyAdvice

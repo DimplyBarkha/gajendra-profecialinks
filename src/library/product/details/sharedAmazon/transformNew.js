@@ -288,8 +288,8 @@ const transform = (data, context) => {
         row.legalDisclaimer = [{ text }];
       }
       if (row.directions) {
-        const text = row.directions.map(elm => elm.text).join(' ');
-        row.directions = [{ text }];
+        const text = row.directions.map(elm => elm.text.trim());
+        row.directions = [{ text: Array.from(new Set(text)).join(' ') }];
       }
       if (row.warnings) {
         const text = row.warnings.map(elm => elm.text).join(' ');
