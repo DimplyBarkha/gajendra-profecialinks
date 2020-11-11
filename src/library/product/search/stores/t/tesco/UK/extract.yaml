@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@class="product-list grid"] /li /div
+recordXPath: //div[contains(@class,"product-list--current-page")]//ul[@class="product-list grid"] /li /div
 fields:
   - name: productUrl
     xpath: //a[@data-auto="product-tile--title"]/@href
@@ -9,7 +9,7 @@ fields:
     regExpReplace: https://www.tesco.com$1
     description: The URL for the product details page
   - name: thumbnail
-    xpath: //@thumbnail
+    xpath: //a[contains(@class,"product-image-wrapper")]//img/@src
     description: The URL for the product thumbnail image
   - name: name
     xpath: //a[@data-auto="product-tile--title"]
@@ -25,6 +25,6 @@ fields:
   - name: sponsored
     defaultValue: false
   - name: gtin
-    xpath: //@thumbnail
+    xpath: //a[contains(@class,"product-image-wrapper")]//img/@src
     regExp: (\d+)\/[^\/]+$
     regExpReplace: $1
