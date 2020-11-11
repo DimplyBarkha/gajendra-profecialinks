@@ -32,10 +32,10 @@ fields:
     xpath: //div[@itemprop="description"]
   - name: brandText
     singleValue: false
-    xpath: substring(//div[@class="prod_subtitle"], 5)
+    xpath: //span[@itemprop="brand"]
   - name: manufacturer
     singleValue: false
-    xpath: substring(//div[@class="prod_subtitle"], 5)
+    xpath: //span[@itemprop="brand"]
   - name: quantity
     singleValue: false
     xpath: //div[@id='detail']//td[@id='type_info_prio_3_1']
@@ -80,7 +80,7 @@ fields:
     xpath: //div[@class='variation_selector_title']
   - name: variants
     singleValue: false
-    xpath: //*[@id="fiche"]/div/div[1]/div/div[2]/div[1]/div[2]/div[2]/div[3]/div/@data-attribut
+    xpath: //div[contains(@class,'variation_selector_img_items')]/div/@data-attribut
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes

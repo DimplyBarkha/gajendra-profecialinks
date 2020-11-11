@@ -41,6 +41,11 @@ const transform = (data) => {
                   });
                 row.specifications = [{ text: result.slice(0, -4), xpath: xpath }];
             }
+
+            if (row.sku) {
+              let firstVariant = row.sku[0].text.split('-')[0];
+              row.firstVariant = [{text: firstVariant, xpath: row.sku[0].xpath}];
+            }
         }
       }
   
