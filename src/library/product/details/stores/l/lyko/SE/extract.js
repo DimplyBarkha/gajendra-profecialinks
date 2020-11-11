@@ -1,11 +1,11 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/extract',
   parameterValues: {
-    domain: 'lyko.com',
-    timeout: 100000000,
     country: 'SE',
     store: 'lyko',
+    transform: null,
+    domain: 'lyko.com',
     zipcode: '',
   },
 };

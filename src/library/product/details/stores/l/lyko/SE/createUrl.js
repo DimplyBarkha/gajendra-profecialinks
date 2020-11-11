@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'lyko.com',
-    timeout: 100000000,
+    prefix: null,
+    url: null,
     country: 'SE',
     store: 'lyko',
     zipcode: '',

@@ -5,17 +5,18 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //picture/img/@src
-    # regExp: (.+)
-    # regExpReplace: https://www.whiteaway.com$1
+    xpath: //div[@data-buyable-variant-code]/div/div[1]/a[@data-scope-link]/@href
+    regExp: (.+)
+    regExpReplace: https://lyko.com$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class="srp-product-box__image-section list"]/a/img/@src
+    xpath: //div[contains(@class, 'link-product-page')]/picture/img/@src
   - name: name
     description: The product name
-    xpath: //div[@class="srp-product-box__image-section list"]/a/img/@alt
+    xpath: //a[@data-scope-link]/h5
   - name: skus
     description: The store-specific product identifiera
+    xpath: //div[@class="gXdoAx"]/@data-buyable-variant-code
   - name: ratingCount
     description: The number of ratings
     regExp: (\d+)
@@ -24,8 +25,7 @@ fields:
     regExp: (\d+)
   - name: price
     description: The offered price for the product
-    xpath: //div[@class="campaign-banner__info offer"]/div[2]/span | //span[@class="price-section__price"]
-    regExp: '\d+\.\d+'
+    xpath: //div/a[@data-scope-link]/span/span[1]
   - name: rank
     description: search/listing rank
     type: NUMBER
@@ -38,9 +38,8 @@ fields:
     type: BOOLEAN
   - name: id
     description: Unique id (within this extractor)
-    xpath: //h3/span[2]
+    xpath: //div[@class="gXdoAx"]/@data-buyable-variant-code
   - name: aggregateRating
-    xpath: //div[@class="star-rating__front"]/@style
     type: NUMBER
   - name: hasVariants
 
