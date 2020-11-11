@@ -3649,6 +3649,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
   // clean cookie retry in session
   try {
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setJavaScriptEnabled(true);
     await run(userAgentString);
     await setZip(zipcode);
   } catch (err) {
