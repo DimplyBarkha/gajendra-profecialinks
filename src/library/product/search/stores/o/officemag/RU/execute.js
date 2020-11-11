@@ -5,9 +5,9 @@ module.exports = {
     country: 'RU',
     store: 'officemag',
     domain: 'officemag.ru',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.officemag.ru/search/?q={searchTerms}',
+    loadedSelector: 'div.listItemsContainer',
+    noResultsXPath: '//div[@class="searchPageForm"]',
     zipcode: '',
   },
 };
