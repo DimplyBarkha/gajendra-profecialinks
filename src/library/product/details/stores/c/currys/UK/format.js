@@ -40,7 +40,7 @@ const transform = (data) => {
       if (row.specifications) {
         var arrSpecs = [];
         row.specifications.forEach(item => {
-          item.text = item.text.replace(/\n\s+\n/, ':');
+          item.text = item.text.replace(/\n\s+\n/, ' : ');
           arrSpecs.push(item.text);
         });
         row.specifications = [{ text: arrSpecs.join(' || ') }];
@@ -66,7 +66,7 @@ const transform = (data) => {
           for (var i = 0; i < objectsInVariants; i++) {
             var keyName = Object.keys(scriptJSON.productVariants)[i];
             var variants = scriptJSON.productVariants[keyName].variants;
-            variants.forEach(function(item, index) {
+            variants.forEach(function (item, index) {
               varientIds.push(item.fupid);
             });
           }
@@ -78,7 +78,7 @@ const transform = (data) => {
         row.price.forEach(item => {
           arrBullets.push(item.text);
         });
-        row.additionalDescBulletInfo = [{ text: '||' + arrBullets.join('||') }];
+        row.additionalDescBulletInfo = [{ text: '|| ' + arrBullets.join(' || ') }];
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {

@@ -1,7 +1,7 @@
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='product-page']
+recordXPath: null
 fields:
   - name: metaKeywords
     singleValue: false
@@ -40,7 +40,7 @@ fields:
     regExpReplace: $1
   - name:  description
     singleValue: false
-    xpath: //div[@id='product-info']  
+    xpath: //div[@id='product-info']
   - name: brandText
     singleValue: false
     xpath: //h1[contains(@class,'page-title')]//span[1]  
