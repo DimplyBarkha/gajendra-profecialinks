@@ -8,39 +8,74 @@ module.exports = {
     domain: 'promofarma.com',
     zipcode: '',
   },
-  implementation: async (inputs, parameters, context, dependencies) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('article[data-qa-ta="couponItem"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
-        catElement.className = key;
+        catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
+        }
+      
+      let rankOrganic;
+      let url = window.location.href;
+      let checkPageNumber = url.split('&')[1];
+      try {
+        if (checkPageNumber.startsWith('page=')) {
+          rankOrganic = checkPageNumber.replace('page=', '');
+        }
       }
-      // Method to Retrieve Xpath content of a Multiple Nodes
+      catch (err) {
+      } 
+      
+      var dup = Number(rankOrganic);
+      dup = dup-1;
+
+      if (!rankOrganic) {
+        rankOrganic = 1;
+      } else {
+        rankOrganic = (dup * 60) + 1;
+      }
+      const urlProduct = document.querySelectorAll('article[data-qa-ta="couponItem"]');
+      for (let i = 0; i < urlProduct.length; i++) {
+        addHiddenDiv('rankOrganic', rankOrganic++, i);
+      } 
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
         for (let index = 0; index < nodeSet.snapshotLength; index++) {
-          const element = nodeSet.snapshotItem(index);
-          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
         return result;
-      };
-      const sliceURL = (data) => {
-        var cnt = 0;
-        for (let index = 0; index < data.length; index++) {
-          if (data[0] != 0) {
-            cnt++;
-            addElementToDocument('altImages', cnt);
-          }
+        };
+        var rating = getAllXpath('//div[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]/@content');
+        for (var i=0; i < rating.length; i++) {
+          (rating[i/2]);
         }
-      };
-      var backgroundURL = getAllXpath('//div[@class="col-sm-6 col-md-4 col-lg-3 item-container"]/article/@data-id', 'nodeValue');
-      sliceURL(backgroundURL);
+        
+        console.log(rating = rating.map(x => x/2))
+        for (var j=0; j <rating.length; j++){  
+          addElementToDocument('ratings', rating[j]);        
+        }
+        
+      
     });
     return await context.extract(productDetails, { transform });
   },
-};
+}

@@ -5,17 +5,17 @@ recordXPath: null
 fields:
   - name: price
     singleValue: true    
-    xpath: //span[@id="price"]
+    xpath: (//span[@id='price']/span[@class='value-promotion-price'] | //div[@class='prices']/span[@id='price'])/text()
     type: CURRENCY
   - name: productUrl
     singleValue: false
     xpath: //div[@class="col-6 col-sm-12 column-text"]/div/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //a[@class="link"]/img/@src
+    xpath: //img[starts-with(@class,'GA')]/@src | //img[starts-with(@class,' GA')]/@src | //a[@class="link"]/img/@data-retina 
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]/@content
+    xpath: //div[@id='ratings']
   - name: reviewCount
     singleValue: false
     xpath: //span[@class="text-container left-spacer-small pf-color-gray"]/span
@@ -27,5 +27,7 @@ fields:
     xpath: //div[@class="col-sm-6 col-md-4 col-lg-3 item-container"]/article/@data-id
   - name: rankOrganic
     singleValue: false
-    description: The product name
-    xpath: //html//div[@class='altImages']
+    xpath: //div[@id='rankOrganic']
+  - name: rank
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
