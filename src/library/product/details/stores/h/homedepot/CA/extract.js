@@ -35,6 +35,7 @@ module.exports = {
         });
       }
     });
+    await new Promise(resolve => setTimeout(resolve, 50000));
     try {
       await context.waitForSelector('.hdca-product__description');
     } catch (error) {

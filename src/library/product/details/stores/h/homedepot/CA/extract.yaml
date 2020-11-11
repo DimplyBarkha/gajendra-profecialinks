@@ -120,6 +120,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[contains(@evtperfname,"product-localized-price-component")]//p//span[1]
+  - name: price1
+    singleValue: false
+    xpath: //span[@itemprop="price"]
   - name: productOtherInformation
     singleValue: false
   - name: promotion

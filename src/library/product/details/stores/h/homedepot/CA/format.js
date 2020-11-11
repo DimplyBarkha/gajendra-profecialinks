@@ -24,6 +24,14 @@ const transform = (data) => {
           item.text = item.text.includes('InStock') ? 'In Stock' : 'Out of Stock';
         });
       }
+      if (!row.price && row.price1 && row.price1[0]) {
+        const price = Number(parseFloat(row.price1[0].text).toFixed(2)).toLocaleString('en', {
+          minimumFractionDigits: 2,
+        });
+        row.price = [{
+          text: `$${price}`,
+        }];
+      }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           item.text = (+item.text).toFixed(1);
