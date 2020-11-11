@@ -14,7 +14,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,"slick-slide")]//img//@src
+    # xpath: //div[contains(@class,"slick-slide")]//img//@src
+    xpath: //div[@id='secondaryImages']/text()
     regExp: ^(.+)$
     regExpReplace: https://www.gigantti.fi$1
   - name: metaKeywords
