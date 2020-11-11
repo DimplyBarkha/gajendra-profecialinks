@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'currys.co.uk',
     prefix: null,
-    url: 'https://www.currys.co.uk/gbuk/cameras-and-camcorders/digital-cameras/dslr-and-compact-system-cameras/canon-{id}-pdt.html',
+    url: null,
     country: 'UK',
     store: 'currys',
     zipcode: '',
