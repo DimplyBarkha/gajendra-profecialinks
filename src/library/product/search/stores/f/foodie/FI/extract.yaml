@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,"products-shelf")]/li
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //li[contains(@class,"item")]/@data-ean
+  - name: productUrl
+    SingleValue: false
+    xpath: //li[contains(@class,"item")]/a/@href
+  - name: price
+    SingleValue: false
+    xpath: //li[contains(@class,"item")]//div[contains(@class,"unit-price")]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //li[contains(@class,"item")]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //li[contains(@class,"item")]/div[contains(@class,"info")]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
