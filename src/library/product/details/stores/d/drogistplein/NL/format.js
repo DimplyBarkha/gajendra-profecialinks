@@ -38,12 +38,6 @@ const transform = (data) => {
             item.text = Number(item.text);
           });
         }
-        if (row.quantity) {
-          row.quantity.forEach(item => {
-            item.text = item.text.match(/([\d.]+) *ml/)[1];
-            item.text = item.text+' ml';
-          });
-        }
         if (row.category) {
           let info = [];
           row.category.forEach(item => {
