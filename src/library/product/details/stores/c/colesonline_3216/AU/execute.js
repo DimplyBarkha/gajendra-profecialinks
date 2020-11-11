@@ -18,21 +18,27 @@ async function implementation (
   await context.setLoadImages(true);
   await context.setJavaScriptEnabled(true);
   await context.setAntiFingerprint(false);
-  await context.goto('https://shop.coles.com.au/', {
+  await context.goto('https://shop.coles.com.au/#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_all_resources":true}[/!opt!]', {
     firstRequestTimeout: 60000,
     timeout: timeout,
     waitUntil: 'load',
     checkBlocked: false,
   });
+  const locationSet = await context.evaluate(() => {
+    const location = document.querySelector("span[class*='localised-suburb']") ? document.querySelector("span[class*='localised-suburb']").innerText : '';
+    return location.includes('Waurn Ponds, VIC');
+  });
   // -------------To set location-----------------
-  await context.waitForSelector("button[id*='changeLocationBar']");
-  await context.click("button[id*='changeLocationBar']");
-  await context.waitForSelector("input[id*='localisation-search']");
-  await context.setInputValue("input[id*='localisation-search']", 'WAURN PONDS, 3216');
-  await context.waitForSelector("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)");
-  await context.clickAndWaitForNavigation("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", {}, { timeout: 60000 });
-  await context.waitForSelector("input[id*='localisation-search']", { timeout: 20000 });
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  if (!locationSet) {
+    await context.waitForSelector("button[id*='changeLocationBar']", { timeout: 30000 });
+    await context.click("button[id*='changeLocationBar']");
+    await context.waitForSelector("input[id*='localisation-search']", { timeout: 30000 });
+    await context.setInputValue("input[id*='localisation-search']", 'WAURN PONDS, 3216');
+    await context.waitForSelector("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", { timeout: 30000 });
+    await context.clickAndWaitForNavigation("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", {}, { timeout: 60000 });
+    await context.waitForSelector("input[id*='localisation-search']", { timeout: 60000 });
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+  }
   // ------------- GoTo requried URL --------------
   await context.setBlockAds(false);
   await context.setLoadAllResources(true);
