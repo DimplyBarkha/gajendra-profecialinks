@@ -8,7 +8,7 @@ module.exports = {
     domain: 'alloffice.se',
     zipcode: '',
   },
- /* implementation: async function (
+  /*implementation: async function (
     inputs,
     parameters,
     context,

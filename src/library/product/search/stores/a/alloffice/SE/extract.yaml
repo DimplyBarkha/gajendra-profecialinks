@@ -20,7 +20,7 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.alloffice.se$1
   - name: thumbnail
-    xpath: //a//div//img/@src
+    xpath: //div[@id="productImage"]
     regExp: (\/globalassets\/productimages\/\w+\.\w+\?ref=\w+)
     regExpReplace: https://www.alloffice.se$1
   - name: name
@@ -48,9 +48,9 @@ fields:
 
 #  Should these be source specific formulas or in the extractor? 
   - name: id
-    xpath: //a//div//img/@src
-    regExp: (\/\w+\/\w+\/)(\w+)(\_)
-    regExpReplace: $2
+    # xpath: //a//div//img/@src
+    # regExp: (\/\w+\/\w+\/)(\w+)(\_)
+    # regExpReplace: $2
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
