@@ -14,9 +14,27 @@ module.exports = {
     context,
     dependencies,
   ) {
-    await context.evaluate(() => {
+    await context.evaluate(async () => {
+      const url = window.location.href;
+      async function getData (url = '') {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            'x-requested-with': 'XMLHttpRequest',
+          },
+        });
+        return response.json();
+      };
+
+      const productDetails = await getData(url);
       const divs = document.querySelectorAll('a[data-test-id="product-link"]');
-      divs.forEach((element) => { element.scrollIntoView(); });
+      for (let i = 0; i < divs.length; i++) {
+        divs[i].setAttribute('video-link', 'https://www.alloffice.se' + productDetails.products[i].images[0].url.split('?')[0]);
+        divs[i].setAttribute('product-id', productDetails.products[i].variationCode);
+        divs[i].setAttribute('price', productDetails.products[i].price.current.exclVat + ' kr');
+        if (productDetails.products[i].price.current.exclVat !== productDetails.products[i].price.original.exclVat) { divs[i].setAttribute('list-price', productDetails.products[i].price.original.exclVat + ' kr'); }
+      }
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
