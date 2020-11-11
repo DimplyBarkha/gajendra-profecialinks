@@ -7,10 +7,6 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //ul[@id='tns1']/li[@id='tns1-item0']/img[@class='pr-2']/@src
-#  - name: imageAlt
-#    singleValue: true
-#    description: Alt text of the main product image
-#    xpath: //div[@id='skuZoomImage']/img[@id='SkuPageMainImg']/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -20,22 +16,27 @@ fields:
     description: The <meta> keywords content
     xpath: //meta[@name="description"]/@content
   - name: category
-    singleValue: false
+    singleValue: true
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@class='page-breadcrumb']/li
+    xpath: //ol[@class='page-breadcrumb']/li[2]/div/span/a
   - name: sub_category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@class='page-breadcrumb']/li[last()]
+    xpath: //ol[@class='page-breadcrumb']/li/div/span/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //title
-  - name: price
+  - name: online_price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //span[@class='product-sku__price-min']
+  - name: online_price_currency
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+        clicks add to basket this is the price they would be charged
     xpath: //span[@class='product-sku__price-min']
   - name: availabilityText
     singleValue: true
@@ -44,13 +45,13 @@ fields:
       should be "In Stock"
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[@class='description-sku__figure-text']/ul/li
-  - name: brandText
+  - name: brand
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
@@ -65,37 +66,20 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //div[@class='col product-sku__ref']
-  - name: mpc
+  - name: upc
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //div[@class='product-sku__reinsurance-container']/div/@data-upcean
-  - name: packSize
-    singleValue: false
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
-    xpath: //div[@class='product-sku__pack']/p[@class='mb-1']
-#  - name: aggregateRating
-#    singleValue: true
-#    description: The stated aggregate rating normalized to be out of 5
-#    xpath: //div[@class='pr-snippet-stars pr-snippet-stars-png']/div/font/font
-#    type: NUMBER
-  - name: color
+  - name: retailer_product_code
     singleValue: true
-    description: A textual description of the colour
-    xpath: //div[@class='product-sku__details']/ul/li[1]
-#  - name: colorCode
-#    singleValue: true
-#    description: A code description of the color (e.g. RGB hex)
-#    xpath: //tbody/tr[@id='test'][2]/td[@id='6']/font/font
-#    type: NUMBER
-#  - name: dietaryInformation
-#    singleValue: true
-#    description: null
-#    xpath: //div[@id='CILOGINDIV']
-  - name: specifications
-    singleValue: false
-    description: The physical dimensions of the product including packaging.
-    xpath: //div[@class='description-sku__attribute attribute-col-3']/ul[@class='col wrap']/li
-#  - name: video
-#    singleValue: false
-#    xpath: //div[@class='qOverflow']/ul/li/span/div/iframe/@src
+    xpath: //div[@class='col product-sku__ref']
+  - name: ean_gtin
+    singleValue: true
+    xpath: //div[@class='product-sku__reinsurance-container']/div/@data-upcean
+  - name: products_per_page
+    singleValue: true
+    xpath: //input[@id='articleQuantity']/@value
+  - name: harvested_product_description
+    singleValue: true
+    xpath: //ol[@class='page-breadcrumb']/li[last()]
+

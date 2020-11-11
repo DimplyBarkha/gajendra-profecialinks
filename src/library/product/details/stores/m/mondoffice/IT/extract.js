@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'mondoffice',
-    transform: null,
+    transform,
     domain: 'mondoffice.com',
     zipcode: '',
   },
