@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-dmid="product-grid-container"]//..//div[@data-dmid="product-tiles"]//div[@data-dmid="product-tile-container"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@data-dmid="product-tiles-container"]//div[@data-dmid="product-tile-container"]//div[@data-dmid="product-tile-image-wrapper"]//a[@data-dmid="dm-link"]/@href
+  - name: name
+    xpath: //div[@data-dmid="product-tile-content"]//div[@data-dmid="product-description"]//a[@data-dmid="dm-link"]//span
+    singleValue: false
+  - name: rankOrganic
+  - name: rank
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@data-dmid="product-tile-image-wrapper"]//a[@data-dmid="dm-link"]/@href
+    regExp: (.+)
+    regExpReplace: https://dm.de$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@data-dmid="product-image-container"]//img//@src
+  - name: price
+    singleValue: false
+    xpath: //div[@data-dmid="product-tile-price"]//div[@data-dmid="price"]//span
+    regExp: (\d+\,\d+\s€)
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@data-dmid="product-tile-content"]//div[@data-dmid="product-tile-rating"]//span
+    regExp: (\d+)
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@data-dmid="product-tile-content"]//div[@data-dmid="product-description"]//span[@data-dmid="product-brand"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@data-dmid="product-tile"]//img[contains(@alt, "Bewertungsstern")]/@alt
+    regExp: (\d+)
+    
