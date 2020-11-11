@@ -26,14 +26,14 @@ async function implementation (
       });
     }
     const url = window.location.href;
-    if (!document.querySelector('div.VisualOptionCard > div > div > label > input')) {
-      if (url.includes('piid') || url.includes('redir')) {
-        document.body.setAttribute('variantid', url.replace(new RegExp('(.+)(piid=|redir=)(.+)', 'g'), '$3'));
-      } else {
-        const skuId = document.querySelector('[property="og:upc"]') ? document.querySelector('[property="og:upc"]').getAttribute('content') : '';
-        document.body.setAttribute('variantid', skuId);
-      }
+    // if (!document.querySelector('div.VisualOptionCard > div > div > label > input')) {
+    if (url.includes('piid') || url.includes('redir')) {
+      document.body.setAttribute('variantid', url.replace(new RegExp('(.+)(piid=|redir=)(.+)', 'g'), '$3'));
+    } else {
+      const skuId = document.querySelector('[property="og:upc"]') ? document.querySelector('[property="og:upc"]').getAttribute('content') : '';
+      document.body.setAttribute('variantid', skuId);
     }
+    // }
     // if (!document.querySelector('div.VisualOptionCard > div > div > label > input')) {
     //   var URL = document.querySelector('[property="og:url"]') ? document.querySelector('[property="og:url"]').getAttribute('content') : '';
     //   var id = URL.replace(new RegExp('(.+)(keyword=|piid=|redir=)(.+)', 'g'), '$3');

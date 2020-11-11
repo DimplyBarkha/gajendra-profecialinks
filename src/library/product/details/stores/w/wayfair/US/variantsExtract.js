@@ -32,27 +32,30 @@ async function implementation (
           const sku = window.WEBPACK_ENTRY_DATA.application.props.sku;
           val.push(sku);
         }
-        var URL = document.querySelector('[property="og:url"]') ? document.querySelector('[property="og:url"]').getAttribute('content') : '';
-        var id = URL.replace(new RegExp('(.+)(keyword=|piid=|redir=)(.+)', 'g'), '$3');
-        var altId = document.querySelector('#form-add-to-cart > div > div > div > div > input[type=hidden]');
-        var skuId = document.querySelector('[property="og:upc"]') ? document.querySelector('[property="og:upc"]').getAttribute('content') : '';
-        const description = document.createElement('div');
-        description.id = 'variant';
-        if (altId) {
-          val.push(altId);
-          description.setAttribute('variantid', altId);
-        } else if (skuId) {
-          val.push(skuId);
-          description.setAttribute('variantid', skuId);
-        } else if (id) {
-          val.push(id);
-          description.setAttribute('variantid', id);
-        }
-        description.setAttribute('url', URL);
-        document.body.appendChild(description);
       } catch (err) {
         console.log({ err });
       }
+    }
+    if (val.length === 0) {
+      var URL = document.querySelector('[property="og:url"]') ? document.querySelector('[property="og:url"]').getAttribute('content') : '';
+      var id = URL.replace(new RegExp('(.+)(keyword=|piid=|redir=)(.+)', 'g'), '$3');
+      // var altId = document.querySelector('#form-add-to-cart > div > div > div > div > input[type=hidden]');
+      var skuId = document.querySelector('[property="og:upc"]') ? document.querySelector('[property="og:upc"]').getAttribute('content') : '';
+      const description = document.createElement('div');
+      description.id = 'variant';
+      // if (altId) {
+      //   val.push(altId);
+      //   description.setAttribute('variantid', altId);
+      // } else
+      if (skuId) {
+        val.push(skuId);
+        description.setAttribute('variantid', skuId);
+      } else if (id) {
+        val.push(id);
+        description.setAttribute('variantid', id);
+      }
+      description.setAttribute('url', URL);
+      document.body.appendChild(description);
     }
     // await new Promise(resolve => setTimeout(resolve, 20000));
     const table = document.createElement('table');
