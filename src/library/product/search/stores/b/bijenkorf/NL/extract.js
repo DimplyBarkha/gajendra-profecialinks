@@ -1,27 +1,25 @@
-
 const { transform } = require('../../../../shared');
-
 async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(async function () {
+  const { transform } = parameters;
+  await context.evaluate(async function (context) {
     let scrollTop = 0;
-    while (scrollTop <= 20000) {
+    while (scrollTop !== 20000) {
       await stall(500);
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       if (scrollTop === 20000) {
-        await stall(8000);
+        await stall(5000);
         break;
       }
     }
     function stall (ms) {
-      return new Promise(resolve => {
+      return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
         }, ms);
@@ -34,10 +32,11 @@ async function implementation (
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'US',
-    store: 'amazonPrimeNow_75204',
+    country: 'NL',
+    store: 'bijenkorf',
     transform,
-    domain: 'primenow.amazon.com',
+    domain: 'bijenkorf.nl',
+    zipcode: '',
   },
   implementation,
 };
