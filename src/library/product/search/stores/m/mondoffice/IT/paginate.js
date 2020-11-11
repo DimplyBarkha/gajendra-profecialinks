@@ -12,7 +12,6 @@ module.exports = {
       template: 'https://www.mondoffice.com/INTERSHOP/web/WFS/RAJA-MONDOFFICE-Site/it_IT/-/EUR/ViewParametricSearch-ProductPaging?PageNumber={page}&PageSize=20&SortingAttribute=&ViewType=1&SearchTerm={searchTerms}',
     },
     noResultsXPath: "//ul[@class='search-noresult__list']/li",
-    // openSearchDefinition: null,
     domain: 'mondoffice.com',
     zipcode: '',
   },
