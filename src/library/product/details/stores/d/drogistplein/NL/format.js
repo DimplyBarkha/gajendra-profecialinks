@@ -56,9 +56,6 @@ const transform = (data) => {
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
         }
-        if (row.variantCount) {
-          row.variantCount = [{'text':row.variantCount.length, 'xpath':row.variantCount[0].xpath}];              
-        }
       }
     }
     return cleanUp(data);

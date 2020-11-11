@@ -41,7 +41,7 @@ fields:
     xpath: //div[contains(@class,'row hidden-md-down')]//form[@id="frmWithQuantity"]//input[@name='product_id']/@value
   - name: variantCount
     singleValue: false
-    xpath: //body[@id="product-page"]//div[position()=2]/div[position()=1]/div[position()=3]/ul//li
+    defaultValue: 0
   - name: quantity
     singleValue: false
     xpath: //div[contains(@class,'col-xs-12 col-lg-6')]//h1 
