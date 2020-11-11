@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //script[contains(text(),'snowdog.product.variants')]
+    #snowdog.product.variants = [{"alt...}];
+    regExp: snowdog\.product\.variants\s*=\s*(\[.+?\]);
+    regExpReplace: $1
+  - name: variantUrl
+    singleValue: false
+  - name: variant
+    singleValue: false
