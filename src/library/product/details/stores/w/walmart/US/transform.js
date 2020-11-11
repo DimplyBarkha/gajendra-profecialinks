@@ -42,7 +42,7 @@ const transform = (data, context) => {
         }
         if (row.variantIdOverRide) {
           const id = row.variantIdOverRide[0].text.split('/').slice(-1)[0];
-          row.variantId[0].text = id;
+          row.variantId = [{ text: `${id}` }];
         }
         if (row.variantId) {
           row.productUrl = [{ text: `https://www.walmart.com/ip/${row.variantId[0].text}` }];

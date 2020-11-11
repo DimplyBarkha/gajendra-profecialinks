@@ -65,6 +65,7 @@ fields:
   xpath: //span[@itemprop='brand']
 - name: quantity
   singleValue: true
+  xpath: //div[contains(@id,"Size")]//span[contains(@class, "content")]
 - name: weightNet
   singleValue: true
 - name: weightGross
@@ -82,8 +83,8 @@ fields:
   singleValue: false
   xpath: //div[contains(@class,'wm-item-number')]
 - name: variantId
-  singleValue: true
-  xpath: //div[@id='added-sku'] 
+  singleValue: false
+  xpath: //div[@id='added-sku']
 - name: variantIdOverRide
   singleValue: true
   xpath: //link[@itemprop="url"]/@href
