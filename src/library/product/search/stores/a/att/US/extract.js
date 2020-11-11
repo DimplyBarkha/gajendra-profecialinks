@@ -20,10 +20,12 @@ async function implementation(inputs, parameters, context, dependencies) {
 
       if (productInfo) {
         let prodId = productInfo.id;
-        if (prodId.indexOf("sku") > -1) {
-          newDivId.textContent = prodId;
-          if (productCards && productCards.item(i)) {
-            productCards.item(i).appendChild(newDivId);
+        if(prodId.indexOf("https") === -1){
+          if (prodId.indexOf("sku") > -1) {
+            newDivId.textContent = prodId;
+            if (productCards && productCards.item(i)) {
+              productCards.item(i).appendChild(newDivId);
+            }
           }
         }
       }
