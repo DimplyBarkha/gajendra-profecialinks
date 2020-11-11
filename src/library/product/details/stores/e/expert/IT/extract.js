@@ -129,7 +129,7 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
         let iframeUrl= window.location.href;
         for(let i=0;i<manufacturerImages.length;i++){
           if(i!==manufacturerImages.length-1){
-            if(manufacturerImages[i].substring(0,6)==='images'){
+            if(manufacturerImages[i] && manufacturerImages[i].substring(0,6)==='images'){
             let tempUrl='https://media.flixfacts.com/eyekandy/dyson/v11/it/';
             tempUrl+=manufacturerImages[i];
             aplusImages+=tempUrl+" || ";}
@@ -138,7 +138,7 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
             }
           }
           else{
-            if(manufacturerImages[i].substring(0,6)==='images'){
+            if(manufacturerImages[i] && manufacturerImages[i].substring(0,6)==='images'){
               let tempUrl='https://media.flixfacts.com/eyekandy/dyson/v11/it/';
               tempUrl+=manufacturerImages[i];
               aplusImages+=tempUrl;}
