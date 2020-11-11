@@ -62,14 +62,21 @@ const transform = (data) => {
       if (row.image) {
         row.image.forEach(item => {
           if (item.text.indexOf('http') < 0) {
-            item.text = 'http' + item.text;
+            item.text = 'https:' + item.text;
           }
         });
       }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           if (item.text.indexOf('http') < 0) {
-            item.text = 'http' + item.text;
+            item.text = 'https:' + item.text;
+          }
+        });
+      }
+      if (row.brandLink) {
+        row.brandLink.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
           }
         });
       }
