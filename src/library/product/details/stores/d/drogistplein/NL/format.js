@@ -24,6 +24,15 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
+        if (row.description) {
+            let description_ar = [];
+            row.description.forEach(item => {
+              description_ar.push(item.text);
+            });
+            if (description_ar.length) {
+              row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
+            }
+        }
         if (row.aggregateRating) {
           row.aggregateRating.forEach(item => {
             item.text = Number(item.text);
@@ -35,13 +44,16 @@ const transform = (data) => {
             item.text = item.text+' ml';
           });
         }
-        if (row.description) {
-          let description_ar = [];
-          row.description.forEach(item => {
-            description_ar.push(item.text);
+        if (row.category) {
+          let info = [];
+          row.category.forEach(item => {
+            info.push(item.text.trim());
           });
-          if (description_ar.length) {
-            row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
+          if (info.length) {
+            row.category = [];
+            info.forEach(item => {
+              row.category.push({ "text": item});
+            });
           }
         }
         if (row.specifications) {
@@ -55,9 +67,9 @@ const transform = (data) => {
         }
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-        }
+        } 
       }
     }
     return cleanUp(data);
   };
-module.exports = { transform };
+  module.exports = { transform };
