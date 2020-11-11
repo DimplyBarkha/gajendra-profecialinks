@@ -44,10 +44,7 @@ fields:
     xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='Producent:']//following-sibling::span//a
   - name: brandLink
     singleValue: true
-    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='Producent:']//following-sibling::span//a/@href
-  - name: manufacturer
-    singleValue: true
-    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='Producent:']//following-sibling::span//a
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='Producent:']//following-sibling::span//a/@href  
   - name: mpc
     singleValue: true
     xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='Model:']//following-sibling::span
@@ -57,14 +54,15 @@ fields:
   - name: variants
     singleValue: false
     xpath: //script[contains(text(),'snowdog.product.variants')]
+    #snowdog.product.variants = [{"alt...}];
+    regExp: snowdog\.product\.variants\s*=\s*(\[.+?\]);
+    regExpReplace: $1
   - name: variantId
     singleValue: true
     # get href where active:true
     xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='SKU:']//following-sibling::span
   - name: variantCount
-    singleValue: true
-    # count number of elements in array
-    xpath: //script[contains(text(),'snowdog.product.variants')]
+    singleValue: true    
     defaultValue: '0'
     type: NUMBER
   - name: variantInformation

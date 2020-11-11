@@ -28,10 +28,10 @@ const transform = (data) => {
       if (row.specifications) {
         var arrSpec = [];
         row.specifications.forEach(item => {
-          arrSpec.push(item.text);
           item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
           item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
           item.text = item.text.replace(/\s*:\s*/g, ' : ').trim();
+          arrSpec.push(item.text);
         });
         row.specifications = [{ text: arrSpec.join(' || ') }];
       }
@@ -73,51 +73,23 @@ const transform = (data) => {
           }
         });
       }
-      // if (row.variants) {
-      //   let variations = [];
-      //   let v_info = [];
-      //   let color = null;
-      //   row.variants.forEach(item => {
-      //     let data = JSON.parse(item.text);
-      //     if (data['variations']) {
-      //       data['variations'].forEach(variation => {
-      //         variations.push(variation['sku']);
-      //         v_info.push(variation['color']);
-      //         if (variation['sku'] == row.sku[0]['text']) {
-      //           row.firstVariant = [{ "text": variation['sku'] }];
-      //         }
-      //       });
-      //     }
-      //     color = data['attributes']['color'];
-      //   });
-      //   if (color) {
-      //     row.color = [{ "text": color }];
-      //   }
-      //   if (variations.length) {
-      //     row.variantCount = [{ "text": variations.length }];
-      //     row.variants = [{ "text": variations.join(' | ') }];
-      //   } else {
-      //     delete row.variants;
-      //     row.variantCount = [{ "text": 0 }];
-      //   }
-      //   if (v_info.length) {
-      //     row.variantInformation = [{ "text": v_info.join(' | ') }];
-      //   }
-      // }
-      // if (row.nameExtended) {
-      //   row.nameExtended.forEach(item => {
-      //     item.text = item.text + " - " + row.name[0]["text"];
-      //   });
-      // }
-      // if (row.description) {
-      //   let description_ar = [];
-      //   row.description.forEach(item => {
-      //     description_ar.push(item.text);
-      //   });
-      //   if (description_ar.length) {
-      //     row.description = [{ "text": description_ar.join(" | ") }];
-      //   }
-      // }
+      if (row.variants) {
+        var arrVariants = [];
+        row.variants.forEach(item => {
+          var data = JSON.parse(item.text);
+          data.forEach(variation => {
+            var tempSrc = variation.src;
+            tempSrc = tempSrc.replace(/.+75x75\/\d+\/\d+\//g, '');
+            tempSrc = tempSrc.replace(/_.+/g, '');
+            arrVariants.push(tempSrc);
+            if (variation.active) {
+              row.variantInformation = [{ text: variation.alt }];
+            }
+          });
+        });
+        row.variants = [{ text: arrVariants.join(' | ') }];
+        row.variantCount = [{ text: arrVariants.length }];
+      }
     }
   }
   return cleanUp(data);
