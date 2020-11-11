@@ -11,6 +11,7 @@ async function implementation(
   await context.evaluate(async function () {
     console.log('Extracting data.');
     const availability = document.evaluate('//button[@id="add-to-cart"][@value="Ajouter"]', document).iterateNext();
+    const productPage = document.querySelector('span[class="product-name"][itemprop="name"]');
     let availabilityText = '';
     if (availability) {
       const text = availability.textContent;
@@ -19,8 +20,10 @@ async function implementation(
         document.body.setAttribute('available', availabilityText);
       }
     } else {
-      availabilityText = 'Out of Stock';
-      document.body.setAttribute('available', availabilityText);
+      if (productPage) {
+        availabilityText = 'Out of Stock';
+        document.body.setAttribute('available', availabilityText);
+      }
     }
   });
   return await context.extract(productDetails, { transform });
