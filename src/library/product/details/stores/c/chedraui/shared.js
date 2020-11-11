@@ -105,6 +105,50 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        });
+        row.description = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        });
+        row.specifications = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} | `;
+        });
+        row.variants = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        });
+        row.additionalDescBulletInfo = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
       if (row.allergyAdvice) {
         let text = '';
         row.allergyAdvice.forEach(item => {
