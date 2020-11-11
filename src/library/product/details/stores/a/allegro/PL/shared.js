@@ -36,6 +36,11 @@ const transform = (data) => {
         row.aggregateRating = [{ text: ratingValue.replace('.', ',') }];
       }
 
+      if (row.price) {
+        const price = row.price[0].text;
+        row.price = [{ text: price.replace(',', '.') }];
+      }
+
       if (!row.sku && row.skuSecondary) {
         row.sku = row.skuSecondary;
       }
@@ -55,6 +60,10 @@ const transform = (data) => {
           directions += `${direction.text} `;
         }
         row.directions = [{ text: directions }];
+      }
+
+      if (!row.imageAlt && row.nameExtended) {
+        row.imageAlt = row.nameExtended;
       }
     }
   }

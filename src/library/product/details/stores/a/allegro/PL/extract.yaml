@@ -5,6 +5,8 @@ recordXPath: null
 fields:
   - name: image
     xpath: //meta[@property='og:image']/@content
+  - name: imageAlt
+    xpath: //div[@data-role='app-container']//img[@role='presentation']/@alt
   - name: category
     xpath: //div[contains(@data-role, 'breadcrumbs-list')]//div[contains(@data-role, 'breadcrumb-item') and position() > 1]/a
   - name: nameExtended
@@ -87,7 +89,7 @@ fields:
     xpath: //li//div[contains(text(), "Opakowanie")]/following-sibling::div[1] | //dt[contains(., 'Opakowanie')]/following-sibling::dd
     singleValue: true
   - name: directions
-    xpath: //p[contains(., 'Sposób użycia:')]/following-sibling::ol |//p[contains(., 'Sposób użycia:')]/following-sibling::p  | //dt[contains(., 'Sposób użycia:')]/following-sibling::dd | //h2[contains(., 'Stosowanie:')]/following-sibling::*
+    xpath: //*[contains(., 'Sposób użycia:')]/following-sibling::ol |//*[contains(., 'Sposób użycia:')]/following-sibling::p  | //dt[contains(., 'Sposób użycia:')]/following-sibling::dd | //h2[contains(., 'Stosowanie:')]/following-sibling::*
     singleValue: true
   - name: warnings
     xpath: //h2[contains(., 'UWAGA!')] | //dt[contains(., 'UWAGA!')]/following-sibling::dd
@@ -95,3 +97,10 @@ fields:
   - name: eangtin
     xpath: //li//div[contains(., 'ean')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'EAN')]/following-sibling::dd
     singleValue: true
+  - name: firstVariant
+    xpath: //div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick"]/@data-analytics-click-custom-offer-id-variant
+    singleValue: true
+  - name: variants
+    xpath: //div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick" and not(contains(@class, '_9a071_28K5N '))]/@data-analytics-click-custom-offer-id-variant
+  - name: variantCount 
+    xpath: count(//div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick" and not(contains(@class, '_9a071_28K5N '))])

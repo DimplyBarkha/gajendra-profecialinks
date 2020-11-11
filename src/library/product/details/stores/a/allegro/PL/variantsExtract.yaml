@@ -1,15 +1,9 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div[data-analytics-view-label="offerVariants"] a[data-analytics-click-label="itemVariantClick"]
-recordXPath: //div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick"]
+recordSelector: null
+recordXPath: null
 fields:
   - name: variantId
-    xpath: //div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick"]/@data-analytics-click-custom-offer-id-variant
+    xpath: //div[contains(@class, '_9a071_1LGgN')][count(//div[contains(@class, '_9a071_1M8Xc _9a071_2sZmp')]) > 0]//div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick"]/@data-analytics-click-custom-offer-id-variant | //div[contains(@class, '_9a071_1LGgN')][count(//div[contains(@class, '_9a071_1M8Xc _9a071_2sZmp')]) = 0]//ancestor::html//meta[@itemprop='sku']/@content
   - name: variantUrl
-    xpath: //div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick"]/@href
-  - name: productUrl
-    xpath: ancestor::html//div[@itemprop='offers']//meta[@itemprop='url']/@content
-    singleValue: true
-  - name: productId
-    xpath: ancestor::html//meta[@itemprop='sku']/@content
-   
+    xpath: //div[contains(@class, '_9a071_1LGgN')][count(//div[contains(@class, '_9a071_1M8Xc _9a071_2sZmp')]) > 0]//div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick"]/@href | //div[contains(@class, '_9a071_1LGgN')][count(//div[contains(@class, '_9a071_1M8Xc _9a071_2sZmp')]) = 0]//ancestor::html//div[@itemprop='offers']//meta[@itemprop='url']/@content
