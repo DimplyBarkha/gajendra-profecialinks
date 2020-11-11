@@ -38,7 +38,7 @@ async function implementation (
   await context.waitForSelector("button[id*='changeLocationBar']");
   await context.click("button[id*='changeLocationBar']");
   await context.waitForSelector("input[id*='localisation-search']");
-  await context.setInputValue("input[id*='localisation-search']", 'Sydney 2000');
+  await context.setInputValue("input[id*='localisation-search']", 'macquarie park');
   await context.waitForSelector("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)");
   await context.clickAndWaitForNavigation("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", {}, { timeout: 20000 });
   await context.waitForSelector("input[id*='localisation-search']", { timeout: 20000 });
