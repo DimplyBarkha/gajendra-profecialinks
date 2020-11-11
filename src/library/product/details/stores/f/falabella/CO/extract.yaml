@@ -2,10 +2,7 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields:
-  - name: _url
-    singleValue: false
-    xpath: //meta[@property="og:url"]/@content
+fields:  
   - name: image
     singleValue: false
     xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_1?') or contains(@src,'_01?')][1]/@src
@@ -41,9 +38,6 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //td[contains(text(),'Eficiencia energética')]/following-sibling::td[1]     
-  # - name: gtin 
-  #   singleValue: false
-  #   xpath: //td[contains(text(),'Modelo')]/following-sibling::td[1]    
   - name: name
     singleValue: true
     xpath: //div/@data-name
@@ -71,10 +65,7 @@ fields:
     xpath: //div[contains(@class,'specifications-list')]/ul/li
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,'specifications-list')]/ul/li)
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src)
+    xpath: count(//div[contains(@class,'specifications-list')]/ul/li)  
   - name: brandText
     singleValue: false
     xpath: //div/@data-brand  

@@ -52,7 +52,13 @@ const transform = (data) => {
               item.text = item.text.replace(/(\s*\(Precio\s+final\)\s*)+/g, '').trim();
             });
         }
-        
+        if (row.videos) {
+          row.videos.forEach(item => {
+            if(item.text == ''){
+              delete row.videos;
+            }
+          });
+        }
         if (row.aggregateRatingText) {
           row.aggregateRatingText.forEach(item => {
             item.text = item.text.replace(/(\s?\n)+/g, ' | ').trim();
