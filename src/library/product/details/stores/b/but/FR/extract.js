@@ -16,10 +16,9 @@ module.exports = {
   ) => {
 
     const delay = t => new Promise(resolve => setTimeout(resolve, t));
-    delay(10000);
     const checkExistance = async (selector) => {
       return await context.evaluate(async (currentSelector) => {
-        return await Boolean(document.querySelector(currentSelector));
+        return Boolean(document.querySelector(currentSelector));
       }, selector);
     };
 
@@ -27,8 +26,82 @@ module.exports = {
       return document.querySelector('meta[property="og:url"]').getAttribute('content')
     });
 
-    const iframeSelector = '#eky-dyson-iframe';
+    if(await checkExistance('.swiper-wrapper a[class*=video]')){
+      await context.evaluate((video) => {
+        //@ts-ignore
+      let galleryVideo = [...document.querySelectorAll('.swiper-wrapper a[class*=video]')]
+      let videos = [];
+      for(let i = 0 ; i < galleryVideo.length ; i++){
+        galleryVideo[i].click();
+        videos.push(document.querySelector('.mfp-iframe').getAttribute('src'));
+        //@ts-ignore
+        document.querySelector('.mfp-close').click();
+      }
+      let galVideo = videos.join(' | ');
+      document.querySelector('body').setAttribute('gallery-video', galVideo);
+      });
+    }
 
+    try {
+      await context.waitForXPath('//script[contains(.,"reviewListStatistics")]');
+    } catch (error) {
+      console.log("SCript not loaded");
+    }
+    try {
+      await context.waitForXPath("//div[@class='s7staticimage']//img");
+    } catch (error) {
+      console.log("Image not loaded");
+    }
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.evaluate(async function () {
+       // function to get the json data from the string
+    // function findJsonData (scriptSelector, startString, endString) {
+       
+    //     const xpath = `//script[contains(.,'${scriptSelector}')]`;
+    //     let element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    //     // @ts-ignore
+    //    let elementTxt = (element !== null) ? element.textContent : ''
+    //     return elementTxt;
+    // };
+    // let videoContent = findJsonData ('reviewListStatistics',' var appData =','};')
+    // addHiddenDiv('videos', videoContent);
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+      }
+      let image = document.querySelector('div.s7staticimage img');
+      // @ts-ignore
+      image = image ? image.src : '';
+      addHiddenDiv('image', image);
+      // let videoList = document.querySelectorAll("#product-swiper > ul > li.swiper-slide.simpleVideo");
+      // let videoArr = [];
+      // for (let index = 0; index < videoList.length; index++) {
+      //   // @ts-ignore
+      //   videoList[index] = videoList[index] ? videoList[index].click() : '';
+      //   let close = document.querySelector('button.mfp-close');
+      //   let videoUrl = document.querySelector('iframe.mfp-iframe');
+      //   // @ts-ignore
+      //   videoUrl = videoUrl ? videoUrl.src : '';
+      //   videoArr.push(videoUrl);
+      //   // @ts-ignore
+      //   close = close ? close.click() : '';
+      // }
+      // // @ts-ignore
+      // videoArr = videoArr.join(' | ');
+      // addHiddenDiv('videos', videoArr);
+
+      let description = document.querySelector('div[id="feature-product"]');
+      let descriptionHTML = description ? description.innerHTML : '';
+      descriptionHTML = descriptionHTML ? descriptionHTML.replace(/(.*)\<div\sid="flix-inpage"/gm,'$1').replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/\s{2,}/, ' ').replace('Les plus produit','').replace('description produit','').replace('Caractéristiques','').trim() : '';
+      addHiddenDiv('descriptionHTML', descriptionHTML);
+    });
+    
+    const iframeSelector = '#eky-dyson-iframe';
+    await delay(10000);
     if (await checkExistance(iframeSelector)) {
       const iframeUrl = await context.evaluate((iframeSelector) => {
         return document.querySelector(iframeSelector).getAttribute('src');
@@ -100,66 +173,7 @@ module.exports = {
         document.querySelector('body').setAttribute('desc', desc);
       }, desc);
     }
-
-
-
-    try {
-      await context.waitForXPath('//script[contains(.,"reviewListStatistics")]');
-    } catch (error) {
-      console.log("SCript not loaded");
-    }
-    try {
-      await context.waitForXPath("//div[@class='s7staticimage']//img");
-    } catch (error) {
-      console.log("Image not loaded");
-    }
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
-    await context.evaluate(async function () {
-       // function to get the json data from the string
-    // function findJsonData (scriptSelector, startString, endString) {
-       
-    //     const xpath = `//script[contains(.,'${scriptSelector}')]`;
-    //     let element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    //     // @ts-ignore
-    //    let elementTxt = (element !== null) ? element.textContent : ''
-    //     return elementTxt;
-    // };
-    // let videoContent = findJsonData ('reviewListStatistics',' var appData =','};')
-    // addHiddenDiv('videos', videoContent);
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-      }
-      let image = document.querySelector('div.s7staticimage img');
-      // @ts-ignore
-      image = image ? image.src : '';
-      addHiddenDiv('image', image);
-      // let videoList = document.querySelectorAll("#product-swiper > ul > li.swiper-slide.simpleVideo");
-      // let videoArr = [];
-      // for (let index = 0; index < videoList.length; index++) {
-      //   // @ts-ignore
-      //   videoList[index] = videoList[index] ? videoList[index].click() : '';
-      //   let close = document.querySelector('button.mfp-close');
-      //   let videoUrl = document.querySelector('iframe.mfp-iframe');
-      //   // @ts-ignore
-      //   videoUrl = videoUrl ? videoUrl.src : '';
-      //   videoArr.push(videoUrl);
-      //   // @ts-ignore
-      //   close = close ? close.click() : '';
-      // }
-      // // @ts-ignore
-      // videoArr = videoArr.join(' | ');
-      // addHiddenDiv('videos', videoArr);
-
-      let description = document.querySelector('div[id="feature-product"]');
-      let descriptionHTML = description ? description.innerHTML : '';
-      descriptionHTML = descriptionHTML ? descriptionHTML.replace(/(.*)\<div\sid="flix-inpage"/gm,'$1').replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/\s{2,}/, ' ').replace('Les plus produit','').replace('description produit','').replace('Caractéristiques','').trim() : '';
-      addHiddenDiv('descriptionHTML', descriptionHTML);
-    });
+    await delay(5000);
     return await context.extract(productDetails, { transform });
   },
 };

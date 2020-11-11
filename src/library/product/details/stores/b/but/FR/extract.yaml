@@ -32,14 +32,7 @@ fields:
     # regExp: selectImage\(\'(.*)\'\)
     # regExpReplace: $1 
   - name: videos
-    # xpath: //div[@class="mfp-content"]/div[@class="mfp-iframe-scaler"]/iframe/@src
-    xpath: //div[@id="videos"]
-    regExp: appData\.videoUrl\s=\s\'(.*)'\;\sappData.view3D    
-    regExpReplace: $1 
-    singleValue: false
-  # - name: video
-  #   xpath: //div[@class="flix-videodiv"]/iframe/@src
-  #   singleValue: false
+    xpath: //iframe[contains(@id,"flix-iframe")]/@src | //body/@video-src | //body/@gallery-video
   - name: imageAlt
     xpath: //div[@class="product-swiper"]/ul/li[1]/img/@alt | //div[@class="product-swiper"]/ul/li[1]/a/img/@alt | //img[@id="visualProduct"]/@alt
     singleValue: false
