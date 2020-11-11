@@ -54,11 +54,11 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExp: (?:\s?([\([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    xpath: //p//b[contains(text(),"Pack size:")]/../text()
+    xpath: //p//b[contains(text(),"Pack size")]/../text()
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -76,8 +76,7 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
+    xpath: //p//b[contains(text(),"Quantity in pack")]/../text()
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
