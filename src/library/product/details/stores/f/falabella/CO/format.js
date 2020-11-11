@@ -35,13 +35,7 @@ const transform = (data) => {
             info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());            
           });          
           row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
-        }
-        if (row.alternateImages) {
-            row.alternateImages.forEach(item => {
-              //item.text = item.text.replace("?wid=800&hei=800&qlt=70", '').trim();
-            });
-        }
-        
+        }        
         if (row.additionalDescBulletInfo) {
             row.additionalDescBulletInfo.forEach(item => {
               item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
