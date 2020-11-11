@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,"owl-stage")]//div[contains(@class,"owl-item active")]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"owl-stage")]//div[contains(@class,"owl-item active")]//img/@data-src
+    defaultValue: null
   - name: category
     singleValue: false
     xpath: //ul[@class="breadcrumb"]//li[not(contains(@class,'breadcrumb-back'))]//a
@@ -32,10 +32,10 @@ fields:
     xpath: //div[@class="col-xs-12 col-lg-6"]//div[not(@class)][2] | //div[@class="col-xs-12 col-lg-6"]//div[not(@class)][2]//ul/li
   - name: specifications
     singleValue: false
-    xpath: //div[@class="col-xs-12 col-lg-6"]//div[not(@class)][2]//ul/li
+    xpath: //div[@class="product-details product-details-hidden"]//ul//li
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@class="col-xs-12 col-lg-6"]//div[not(@class)][2]//ul/li
+    xpath: //div[@class="product-details product-details-hidden"]//ul//li
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'row hidden-md-down')]//form[@id="frmWithQuantity"]//input[@name='product_id']/@value 
@@ -44,18 +44,16 @@ fields:
     xpath: //div[contains(@class,'row hidden-md-down')]//form[@id="frmWithQuantity"]//input[@name='product_id']/@value
   - name: variantCount
     singleValue: false
-    defaultValue: 1 
+    defaultValue: 0 
   - name: quantity
     singleValue: false
-    defaultValue: 1
+    xpath: //div[contains(@class,'col-xs-12 col-lg-6')]//h1 
   - name: gtin
     singleValue: false
     xpath: //div[@class="container"]//div[@class="film-button-container"]//@data-ean 
   - name: brandText
     singleValue: false
-    xpath: (//script[@type="application/ld+json"])[2] 
-    regExp: \"brand:(.+?)\"
-    regExpReplace: $1
+    xpath: //div[@class="product-details product-details-hidden"]//span//a
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,'row hidden-md-down')]//a[contains(@class,'btn product-add-to-cart')]/@data-modal-rating-count
