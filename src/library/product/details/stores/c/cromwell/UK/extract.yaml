@@ -17,7 +17,7 @@ fields:
     xpath: //div[@class="ProductVariantPrice"]//p[@class="ProductVariantPrice_MainPrice"]//strong
   - name: description
     singleValue: false
-    xpath: //div[@class="ProductVariantBriefDetailsB"]//p[@data-e2e="ProductVariantBriefDetails"]
+    xpath: //div[@class="ProductVariantBriefDetailsB"]
   - name: category
     singleValue: false
     xpath: //ol[@class="Breadcrumb"]//li[2]
@@ -26,7 +26,7 @@ fields:
     xpath: //ol[@class="Breadcrumb"]//li[position()>2]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class="productBrandName"]//span[@data-e2e="productName"]
+    xpath: //h1[@class="productBrandName"]
   - name: brandText
     singleValue: false
     xpath: //h1[@class="productBrandName"]//em[@class="productBrand"]
@@ -44,13 +44,16 @@ fields:
     xpath: //li[@class="ProductFurtherInfo_attrTable_item"]//div[@class="ProductFurtherInfo_attrTableitem_info"]//strong[contains(text(),'Pack Quantity')]//following-sibling::span
   - name: variantId
     singleValue: false
-    xpath: //li[@class="ProductFurtherInfo_attrTable_item"]//div[@class="ProductFurtherInfo_attrTableitem_info"]//strong[contains(text(),'MFR Part No.')]//following-sibling::span
+    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"MFR Part No.")]//following-sibling::span//div
   - name: shippingDimensions
     singleValue: false
-    xpath: //li[@class="ProductFurtherInfo_attrTable_item"]//div[@class="ProductFurtherInfo_attrTableitem_info"]//strong[contains(text(),'Dimensions')]//following-sibling::span
+    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Dimensions')]//following-sibling::span//div
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div//article//div[@class="ProductVariantBriefDetailsB"]//ul//li)
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div//article//div[@class="ProductVariantBriefDetailsB"]//ul
   - name: availabilityText
     singleValue: false
     xpath: //*[@id="app-dom-hook"]//div//div[4]//div//div//div[1]//div[4]//div//following-sibling::div

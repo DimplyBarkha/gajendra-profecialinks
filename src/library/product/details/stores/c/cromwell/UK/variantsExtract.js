@@ -58,11 +58,11 @@ async function implementation (
         const variantUrlXpath = '(//div[@class="rt-td"]//a//@href)[' + index + ']';
         addHiddenDiv('variant_url_text', getSingleText(variantUrlXpath, document), `parent-${index}`);
       } else {
-        const variantXpath = '//li[@class="ProductFurtherInfo_attrTable_item"]//div[@class="ProductFurtherInfo_attrTableitem_info"]//strong[contains(text(),"MFR Part No.")]//following-sibling::span';
+        const variantXpath = '//li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"MFR Part No.")]//following-sibling::span//div';
         addHiddenDiv('variant_id_text', getSingleText(variantXpath, document), `parent-${index}`);
         const skuXpath = '//h2[@class="productCodeSku"]//span[@data-e2e="productSku"]';
         addHiddenDiv('variant_sku_text', getSingleText(skuXpath, document), `parent-${index}`);
-        const variantUrlXpath = '//link[@rel="canonical"]/@href';
+        const variantUrlXpath = '//link[@rel="canonical"]//@href';
         addHiddenDiv('variant_url_text', getSingleText(variantUrlXpath, document), `parent-${index}`);
       }
     }, index, variantCount);

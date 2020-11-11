@@ -6,9 +6,16 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="FamilyDetailsPanel_Details col-md-8 col-sm-12 col-xs-12"]//div[@class="FamilyDetailsPanel_Title"]
+  - name: id
+    singleValue: false
+    xpath: //div[@class="FamilyDetailsPanel_Image searchImage"]//a//img//@src
+    regExp: ([A-Za-z0-9]{11}|[0-9]{3}\-)
+    regExpReplace: $1
   - name: productUrl
     singleValue: false
     xpath: //div[@class="SearchScreen_Results col-sm-9"]//div//div[@class="FamilyDetailsPanel FamilyDetailsPanel_ListView"]//div[@class="FamilyDetailsPanel_Details col-md-8 col-sm-12 col-xs-12"]//following-sibling::a//@href
+    regExp: (\/.*)
+    regExpReplace: https://www.cromwell.co.uk$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="FamilyDetailsPanel_Image searchImage"]//a//img//@src

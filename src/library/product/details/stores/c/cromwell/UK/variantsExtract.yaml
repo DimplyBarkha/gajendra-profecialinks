@@ -9,9 +9,10 @@ fields:
   - name: variantUrl
     singleValue: false
     xpath: //div[@class="variant_url_text"]//a//@href
+    regExp: (\/.*)
+    regExpReplace: https://www.cromwell.co.uk$1
   - name: variantSku
     singleValue: false
     xpath: //div[@class="variant_sku_text"]//@href
     regExp: (\/([^\/]+)\/?$)
     regExpReplace: $2
-  
