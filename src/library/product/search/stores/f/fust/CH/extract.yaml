@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,"results")]/li
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //li/@data-prj-productid
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="product"]//h3//a[@class="js-tealium-event-product-click"]/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="product"]//div[@class="endprice"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="product"]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="product"]//span[@class="product-title"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
+  - name: aggregateRating2
+    SingleValue: false
+    xpath: //div[@class="product"]//div[@itemprop="ratingValue"]
+  - name: reviewCount
+    SingleValue: false
+    xpath: //div[@class="product"]//meta[@itemprop="reviewCount"]/@content
