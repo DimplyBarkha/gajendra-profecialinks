@@ -7,6 +7,7 @@ fields:
     singleValue: false
     description: URL of the main product image
     xpath: //ul[@class="slides"]/li[contains(@class,"active-slide")]/img/@src
+    regExp: (.+)(?=\?)
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -30,6 +31,7 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    defaultValue: 0
     xpath: //div[@class="productSecondaryWrapper"]//*[contains(@class,"oldPrice")]
     regExp: \d+
   - name: price
@@ -49,7 +51,7 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@id,"fass-info")]//p
+    xpath: //li[contains(@class,"ah-accordion-more")]//div[contains(@class,"holder")]/div/div[position()<3]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -60,13 +62,13 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //*[contains(@ng-controller,"richDataController")]
-    regExp: brand([:"\s]+)([\w\d\s]+)(")
+    regExp: brand([:"\s]+)([\w\d\s-\W]+)(")
     regExpReplace: $2
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
     xpath: //*[contains(@ng-controller,"richDataController")]
-    regExp: brand([:"\s]+)([\w\d\s]+)(")
+    regExp: brand([:"\s]+)([\w\d\s-\W]+)(")
     regExpReplace: $2
   - name: quantity
     singleValue: false
@@ -262,7 +264,7 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //*[@id="product-toc"]
+    xpath: //*[@id="section"][2]
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.

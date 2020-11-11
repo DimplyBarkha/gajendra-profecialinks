@@ -28,6 +28,16 @@ module.exports = {
         div.innerText = c.join(' | ');
         document.body.append(div);
 
+        const ing = document.getElementById('product-toc');
+        if (ing) {
+          let secDiv = document.createElement('div');
+          secDiv.setAttribute('id', 'section');
+          document.body.append(secDiv);
+          secDiv = document.createElement('div');
+          secDiv.setAttribute('id', 'section');
+          secDiv.append(ing);
+          document.body.append(secDiv);
+        }
         const pmDoc = document.querySelector('#pm-document');
         if (pmDoc) {
           const hs = document.querySelectorAll('#pm-document>h2');
