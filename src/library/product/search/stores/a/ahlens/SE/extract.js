@@ -28,18 +28,18 @@ async function implementation(
         }
         return result;
       };
-      // const sliceURL1 = (data) => {
-      //   for (let index = 0; index < data.length; index++) {
-      //     if (data[index].includes(",")) {
-      //       var temp = data[index].replace(",", ".");
-      //     } else {
-      //       temp = data[index].replace(" ", ".");
-      //     }
-      //     addElementToDocument('altImage2', temp);
-      //   }
-      // };
-      // var backgroundURL1 = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()", 'nodeValue');
-      // sliceURL1(backgroundURL1);
+      const sliceURL1 = (data) => {
+        for (let index = 0; index < data.length; index++) {
+          if (data[index].includes(",")) {
+            var temp = data[index].replace(",", ".");
+          } else {
+            temp = data[index].replace(" ", " ");
+          }
+          addElementToDocument('altImage2', temp);
+        }
+      };
+      var backgroundURL1 = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()", 'nodeValue');
+      sliceURL1(backgroundURL1);
       const sliceURL = (data) => {
         var cnt = 0;
         for (let index = 0; index < data.length; index++) {
