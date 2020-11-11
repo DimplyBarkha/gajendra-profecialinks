@@ -25,12 +25,16 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      // if (row.specifications) {
-      //   row.specifications.forEach(item => {
-      //     item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
-      //     item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
-      //   });
-      // }
+      if (row.specifications) {
+        var arrSpec = [];
+        row.specifications.forEach(item => {
+          arrSpec.push(item.text);
+          item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
+          item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
+          item.text = item.text.replace(/\s*:\s*/g, ' : ').trim();
+        });
+        row.specifications = [{ text: arrSpec.join(' || ') }];
+      }
       // if (row.additionalDescBulletInfo) {
       //   let bullet_info = [];
       //   row.additionalDescBulletInfo.forEach(item => {

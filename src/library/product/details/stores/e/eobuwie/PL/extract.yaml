@@ -60,7 +60,7 @@ fields:
   - name: variantId
     singleValue: true
     # get href where active:true
-    xpath: //script[contains(text(),'snowdog.product.variants')]
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='SKU:']//following-sibling::span
   - name: variantCount
     singleValue: true
     # count number of elements in array
