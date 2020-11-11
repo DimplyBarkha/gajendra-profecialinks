@@ -3,16 +3,24 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: onlineStore
+    xpath: //div[contains(@class,'StoreSelection__banners')]//div[contains(@class,'AddressPanel')]/@name
   - name: online_store
     xpath: //div[contains(@class,'StoreSelection__banners')]//div[contains(@class,'AddressPanel')]/@name
   - name: drive
     xpath: //script[@id="__input"]
-    regExp: (.*)postcode":"(.*?)"(.*)
-    regExpReplace: $2
+    regExp: postcode":"([^"]+)
+    regExpReplace: $1
+  - name: retailerId
+    xpath: //script[@id="__input"]
+    regExp: StoreID":"([^"]+)
+    regExpReplace: $1
   - name: retailer_id
     xpath: //script[@id="__input"]
-    regExp: (.*)StoreID":"(.*?)"(.*)
-    regExpReplace: $2
+    regExp: StoreID":"([^"]+)
+    regExpReplace: $1
+  - name: retailerIdFallback
+    xpath: //body/@store-id
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -53,8 +61,8 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //script[@id="__input"]
-    regExp: (.*)RPC":"(.*?)"(.*)
-    regExpReplace: $2
+    regExp: RPC":"([^"]+)
+    regExpReplace: $1
   - name: directions
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()

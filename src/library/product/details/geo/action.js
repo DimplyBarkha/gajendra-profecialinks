@@ -1,7 +1,7 @@
 
 /**
  *
- * @param { { URL: any, RPC: any, SKU: any, id: any, postcode: any, storeId: any } } inputs
+ * @param { { URL: any, RPC: any, SKU: any, id: any, postcode: any, storeId: any, StoreID: any, Postcode: any, zipcode: any} } inputs
  * @param { { country: any, domain: any, store: any, zipcode: any, useDefault:boolean } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action,prepare: ImportIO.Action,geoExtract: ImportIO.Action } } dependencies
@@ -12,16 +12,18 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { URL, RPC, SKU, postcode, storeId } = inputs;
+  let { URL, RPC, SKU, postcode, storeId } = inputs;
   const { execute, extract, prepare, geoExtract } = dependencies;
   const url = URL;
-  const id = (RPC) || ((SKU) || inputs.id);
-  await execute({ url, id, zipcode: postcode, storeId });
-  await prepare({ zipcode: postcode, storeId });
+  const id = (RPC) || (SKU) || inputs.id;
+  storeId = inputs.StoreID || storeId;
+  const zipcode = inputs.Postcode || inputs.zipcode || postcode;
+  await execute({ url, id, zipcode, storeId });
+  await prepare({ zipcode, storeId });
   if (parameters.useDefault) {
     await extract({ url, id });
   } else {
-    await geoExtract({ url, id });
+    await geoExtract({ url, id, storeId, zipcode });
   }
 }
 
@@ -87,6 +89,18 @@ module.exports = {
     },
     {
       name: 'storeId',
+      description: '',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'Postcode',
+      description: '',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'StoreID',
       description: '',
       type: 'string',
       optional: true,
