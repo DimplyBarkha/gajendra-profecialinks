@@ -14,9 +14,11 @@ const transform = (data) => {
         row.thumbnail = [{ text: thumbnail, xpath: row.thumbnail[0].xpath }];
       }
       if (row.aggregateRating) {
-        const aggregateRating = row.aggregateRating.map((item) => {
-          return item.text.length === 5 ? item.text.charAt(0) : '0';
-        });
+        console.log('row.aggregateRating ->', row.aggregateRating);
+        // const aggregateRating = row.aggregateRating.map((item) => {
+        //   return row.aggregateRating.text.length === 5 ? item.text.charAt(0) : '0';
+        // });
+        const aggregateRating = row.aggregateRating[0].text.length === 5 ? row.aggregateRating[0].text.charAt(0) : '0';
         console.log('aggregateRating ->', aggregateRating);
         // const rating = aggregateRating.length === 5 ? aggregateRating[0].charAt(0) : '0';
         row.aggregateRating = [{ text: aggregateRating, xpath: row.aggregateRating[0].xpath }];

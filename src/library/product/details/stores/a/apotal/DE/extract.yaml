@@ -10,7 +10,7 @@ fields:
     xpath: //div[@class="boxProductDetail"]//h1
     singleValue: false
   - name: nameExtended
-    xpath: //div[@class="boxProductDetail"]//h1
+    xpath: concat(//div[@class="boxProductDetail"]//h1, ' - ', //div[@class="boxProductDetail"]//dd[@itemprop="brand"], ' - ', //div[@class="boxProductDetail"]//div[contains(@class,"similarProducts")]//div[contains(@class,"boxProductSimilar current")]//dl[@class="productInfos"]//dd)
     singleValue: false
   - name: image
     xpath: //div[@class="boxProductDetail"]//div[@class="image"]//img/@src
@@ -47,8 +47,11 @@ fields:
   - name: variants
     xpath: //div[@class="boxProductDetail"]//div[contains(@class,"similarProducts")]//div[@class="boxProductSimilar"]//div[1]/a/@href
     singleValue: false
+  - name: variantInformation
+    xpath: //div[@class="boxProductDetail"]//div[contains(@class,"similarProducts")]//div[@class="boxProductSimilar"]//dl[@class="productInfos"]//dd
+    singleValue: false
   - name: description
-    xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]
+    xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]//div[@itemprop="description"]//dd[@class="productLongDescription"]
     singleValue: false
   - name: manufacturerImages
     xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]//div[@class="description"]//img/@src
@@ -61,6 +64,12 @@ fields:
     # regExp: (\d+)p
   - name: category
     xpath: //div[@class="navigatorBoxLeft"]//div[@class="navigatorBoxMiddle"]/a
+    singleValue: false
+  - name: aggregateRatingText
+    xpath: //div[@class="boxProductDetail"]//div[contains(@class, "customerReviews")]//a//span/text()
+    singleValue: false
+  - name: aggregateRating
+    xpath: //div[@class="boxProductDetail"]//div[contains(@class, "customerReviews")]//a//span/text()
     singleValue: false
   - name: aggregateRating2
     xpath: //div[@class="boxProductDetail"]//div[contains(@class, "customerReviews")]//a//span/text()
@@ -82,4 +91,10 @@ fields:
     singleValue: false
   - name: warnings
     xpath: substring-before(substring-after(//div[@class='abdainfo'], "Wichtige Hinweise"), "Wirkungsweise")
+    singleValue: false
+  - name: gtin
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="gtin14"]/@content
+    singleValue: false
+  - name: mpc
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="sku"]/@content
     singleValue: false

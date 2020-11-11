@@ -1,13 +1,10 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="productsList"]//div[@class="boxProduct"]
 fields:
   - name: name
-    xpath: div[@id="productsList"]//div[@class="boxProduct"]//h3[@itemprop="name"]
-    singleValue: false
-  - name: manufacturer
-    xpath: //div[@id="productsList"]//div[@class="boxProduct_middle"]//dd[@itemprop="brand"]
+    xpath: //div[@id="productsList"]//div[@class="boxProduct"]//h3[@itemprop="name"]
     singleValue: false
   - name: id
     xpath: //div[@id="productsList"]//div[@class="boxProduct_middle"]//meta[@itemprop="sku"]/@content
@@ -16,7 +13,7 @@ fields:
     xpath: //div[@id="productsList"]//div[@class="boxProduct_middle"]//div[@class="image"]//img/@src
     singleValue: false
   - name: price
-    xpath: div[@id="productsList"]//div[@class="boxProduct"]//dl[@class="productPrice"]//dd[@class="yourPrice"]
+    xpath: //div[@id="productsList"]//div[@class="boxProduct_middle"]//div[@class="productInformations"]//dl[@class="productPrice"]//dd[@class="yourPrice"]
     singleValue: false
   - name: productUrl
     xpath: //div[@id="productsList"]//div[@class="boxProduct_middle"]//h3/a/@href
@@ -26,5 +23,8 @@ fields:
     singleValue: false
   - name: reviewCount
     xpath: //div[@id="productsList"]//div[@class="boxProduct_middle"]//div[@itemprop="aggregateRating"]//span[@class="rank"]//span[@class="reviewers"]
+    singleValue: false
+  - name: gtin
+    xpath: //div[@id="productsList"]//div[@class="boxProduct_middle"]//meta[@itemprop="gtin14"]/@content
     singleValue: false
   
