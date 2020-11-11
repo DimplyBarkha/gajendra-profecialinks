@@ -1,0 +1,295 @@
+ksingleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: online_store
+    xpath: //div[contains(@class,'StoreSelection__banners')]//div[contains(@class,'AddressPanel')]/@name
+  - name: drive
+    xpath: //script[@id="__input"]
+    regExp: (.*)postcode":"(.*?)"(.*)
+    regExpReplace: $2
+  - name: retailer_id
+    xpath: //script[@id="__input"]
+    regExp: (.*)StoreID":"(.*?)"(.*)
+    regExpReplace: $2
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@class='prod-ProductImage']//img/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //div[@class='prod-ProductImage']//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="prod-AltImageWrapper"]//ul[@class="slider-list"]//li[position()>1]//img/@src
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@data-automation-id="name"]
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'ProductPage__title')]//span[@data-automation-id="salePrice"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@data-automation-id="add-to-cart"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@data-automation-id="details"]//div[contains(@class,'ProductAttribute')]
+  - name: descriptionBottom
+    singleValue: false
+    xpath: //div[@data-automation-id="details"]//div[contains(@class,'ProductAttribute')]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@data-automation-id="ingredients"]//div
+  - name: variantId
+    singleValue: false
+    xpath: //script[@id="__input"]
+    regExp: (.*)RPC":"(.*?)"(.*)
+    regExpReplace: $2
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
+  - name: ratingCount
+    singleValue: false
+    xpath: //*[@id="acrCustomerReviewText"]/text()
+    regExp: ([0-9,]{1,}) ratings
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //*[@id="acrPopover"]/@title
+    regExp: ([0-9\.]{1,}) out of
+    regExpReplace: $1
+  - name: shippingInfo
+    singleValue: false
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@data-automation-id="productAttributeValue"]//li)
+  - name: imageAlt
+    singleValue: false
+    xpath: (//img[@id="landingImage"])[1]/@alt
+  - name: fastTrack
+    singleValue: false
+    xpath: //*[@id="deliveryMessageMirId"]
+  - name: variantInformation
+    singleValue: false
+    xpath: //*[@id="twister"]//span[@class="selection"]
+  - name: category
+    singleValue: false
+    xpath: //*[@id="SalesRank"]/ul/li//a[1]
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
+  - name: videos
+    singleValue: false
+    xpath: //*[@id="imageBlockVariations_feature_div"]/script/text()
+    regExp: url":"(.{30,300})"\,"videoHeight
+    regExpReplace: $1
+  - name: quantity
+    singleValue: false
+    xpath: //*[@id="productTitle"]
+    regExp: (\d+.?\d*[-\s]*([Ff]luid)?\s*([Cc]ount|[fF][lL].?\s[Oo][Zz]|[Oo]unce|[Oo]z))
+    regExpReplace: $1
+  - name: promotion
+    singleValue: false
+    xpath: //*[contains(@id,"price_savings") and not(contains(@class,"a-hidden"))]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@cel_widget_id="aplus"]//*[not(self::noscript)]/img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: '#aplus'
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: servingSize
+    singleValue: false
+    xpath: //*[contains(text(),'Serving')]/following-sibling::*[1]
+    description: The size of serving Nutritional information is based on.
+  - name: servingSizeUom
+    singleValue: false
+    xpath: //*[contains(text(),'Serving')]/following-sibling::*[1]
+    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    regExpReplace: $1
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //*[contains(text(),'Energy (kJ)')]/following-sibling::*[1]
+    description: Nutritional Information for Calories Per Serving content - Usually
+      based on per 100g serving
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //td[contains(text(),'Fat')]/following-sibling::*[1]
+    description: Nutritional Information for Total Fat content - Usually based on
+      per 100g serving
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(),'Fat')]/following-sibling::*[1]
+    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    regExpReplace: $1
+    description: Unit of Measure Data for Total Fat content
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //td[contains(text(),'Saturate')]/following-sibling::*[1]
+    description: Nutritional Information for Saturated Fat content - Usually based
+      on per 100g serving
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(),'Saturate')]/following-sibling::*[1]
+    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    regExpReplace: $1
+    description: Unit of Measure Data for Saturated Fat content
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //td[contains(text(),'Sodium')]/following-sibling::*[1]
+    description: Nutritional Information for Sodium content - Usually based on per
+      100g serving
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(),'Sodium')]/following-sibling::*[1]
+    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    regExpReplace: $1
+    description: Unit of Measure Data for Sodium content
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //td[contains(text(),'Carb')]/following-sibling::*[1]
+    description: Nutritional Information for Total Carbohydrate content - Usually
+      based on per 100g serving
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(),'Carb')]/following-sibling::*[1]
+    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    regExpReplace: $1
+    description: Unit of Measure Data for Total Carbohydrate content
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //td[contains(text(),'Fibre')]/following-sibling::*[1]
+    description: Nutritional Information for Dietary Fibre content - Usually based
+      on per 100g serving
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //td[contains(text(),'Fibre')]/following-sibling::*[1]
+    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    regExpReplace: $1
+    description: Unit of Measure Data for Dietary Fibre content
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //td[contains(text(),'Sugar')]/following-sibling::*[1]
+    description: Nutritional Information for Total Sugar content - Usually based on
+      per 100g serving
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(),'Sugar')]/following-sibling::*[1]
+    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    regExpReplace: $1
+    description: Unit of Measure Data for Total Sugar content
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //td[contains(text(),'Protein')]/following-sibling::*[1]
+    description: Nutritional Information for Protein content - Usually based on per
+      100g serving
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(),'Protein')]/following-sibling::*[1]
+    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    regExpReplace: $1
+    description: Unit of Measure Data for Protein
+  - name: saltPerServing
+    singleValue: false
+    xpath: //td[contains(text(),'Salt')]/following-sibling::*[1]
+    description: Nutritional Information for Salt content - Usually based on per
+      100g serving
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: //td[contains(text(),'Salt')]/following-sibling::*[1]
+    regExp: (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
+    regExpReplace: $1
+    description: Unit of Measure Data for Salt
+  - name: weightNet
+    singleValue: false
+    xpath: //td[text()='Weight']/following-sibling::*[1]/text()[1]|//div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //tr[contains(@class,'size-weight')][1]//td[2]
+    regExp: ([^()]+)
+    regExpReplace: $1
+  - name: weightGross
+    singleValue: false
+    xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //tr[contains(@class,'shipping-weight')][1]//td[2]
+    regExp: ([^()]+)
+    regExpReplace: $1
+  - name: warnings
+    singleValue: false
+    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1]|//*[contains(@class,"warningAlert")]/following-sibling::*//span
+  - name: shippingWeight
+    singleValue: false
+    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
+    regExp: ([^()]+)
+    regExpReplace: $1
+  - name: storage
+    singleValue: false
+    xpath: //td[contains(text(),'Storage')]/following-sibling::*[1]
+  - name: allergyAdvice
+    singleValue: false
+    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1] | //td[contains(text(),'Allergen')]/following-sibling::*[1]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
+  - name: alcoholContent
+    singleValue: false
+    description: Alcohol content information
+    xpath: //td[contains(text(),'Alcohol Content')]/following-sibling::*[1]
+  - name: packSize
+    singleValue: false
+    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Number of Items')]/../td | //td[contains(text(),'Item Package Quantity')]/following-sibling::*[1]
+    regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
+    regExpReplace: $1$3
+  - name: pasin
+    singleValue: false
+    xpath: (//li[contains(@data-dp-url,"dp/")])[1]/@data-dp-url
+    regExp: twister_([A-Z0-9]{9,})
+    regExpReplace: $1
+    description: Parent asin
+  - name: firstVariant
+    singleValue: false
+    xpath: (//li[contains(@data-dp-url,"dp/")])[1]/@data-dp-url
+    regExp: twister_([A-Z0-9]{9,})
+    regExpReplace: $1
+  - name: variantAsins
+    singleValue: false
+    xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
+  - name: specifications
+    singleValue: false
+    xpath: //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//tbody/tr
+  - name: retailer_id
+    xpath: //span[@id="glow-ingress-line2"]
+    singleValue: false
+    regExp: .*?\s+(\w+).*
+    regExpReplace: $1
+  - name: drive
+    singleValue: false
+    xpath: //span[@id="glow-ingress-line2"]
+    regExp: .*?\s+(\w+).*
+  - name: coupon
+    singleValue: false
+    xpath: //label[@id='couponBadge']|//tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]/div[@id="unclippedCoupon"] | //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]//div[contains(@class,"vpcApplyCoupon")]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@data-automation-id="productAttributeValue"]//li
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //*[@id="priceblock_ourprice_row"]//span[@class="a-size-small a-color-price"]
+    regExp: \(?(.*)\/.*\)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //*[@id="priceblock_ourprice_row"]//span[@class="a-size-small a-color-price"]
+    regExp: \(?.*\/\s*(.*)\)
+    regExpReplace: $1
