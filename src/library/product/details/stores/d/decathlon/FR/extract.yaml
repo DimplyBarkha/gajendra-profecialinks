@@ -6,9 +6,19 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[@id="product-picture__slider"]//div[@id="pp-0-0"]//picture/@data-iesrc
+    regExp: (htt.*)\?
+    regExpReplace: $1
+  - name: imageAlt
+    singleValue: false
+    xpath alert: (//div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture//img/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture/@data-iesrc
+    regExp: (htt.*)\?
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: false
-    xpath: //meta[@name="keywords"]/@content
+    xpath: (//meta[@name="keywords"]/@content)[1]
   - name: category
     singleValue: false
     xpath: //div[contains(@class,"breadcrumbs-mobile")]//ul[@class="breadcrumbs"]//li[not(contains(@class,"home"))]//a//span[@class="text"]//span[@class="content"]
@@ -20,18 +30,18 @@ fields:
     xpath: //script[contains(text(),'product_brand')]
     regExp: (product_brand:"([A-Za-z].*?)")
     regExpReplace: $2
-  - name: alternateImages
-    singleValue: false
-    xpath: //div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture/@data-iesrc
   - name: price
     singleValue: false
     xpath: //div[@id="current-price-container"]//div[@class="dkt-price"]//div[@class="dkt-price__cartridge"]
   - name: description
     singleValue: false
-    xpath: //div[@class="benefits__holder"]//div[@class="benefits__item"]//div[@class="benefits__desc-block"]
+    xpath: //div[@class="tech-info"]
+  - name: additionalDescription
+    singleValue: false
+    xpath: //div[@id="conversion-zone"]//p[not(contains(@class,"financing-text"))]
   - name: availabilityText
     singleValue: false
-    xpath: //a[@data-tid="stock-information"]
+    xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]//span[@class="sizes__stock"]
   - name: sku
     singleValue: false
     xpath: //div[@class="product-refs"]//small[@class="product-data-model-id"]
@@ -49,15 +59,47 @@ fields:
     xpath: //div[@class="notation-stars"]//span[@class="number-star"]
     regExp: (\d+)
     regExpReplace: $1
-  - name: imageAlt
-    singleValue: false
-    xpath alert: //div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture//img/@alt
-  - name: metaKeywords
-    singleValue: false
-    xpath: //meta[@name="keywords"]/@content
   - name: url
     singleValue: false
-    xpath URL: //meta[@property="og:url"]/@content
-  - name: ratingCount
+    xpath: //meta[@property="og:url"]/@content
+  - name: promotion
     singleValue: false
-    xpath Count: //div[@class="container-notation-ref"]//span[@class="number-star"]
+    xpath Count: (//span[@class="dkt-price__info-addon"]//span[@class="dkt-price__reduction"])[1]
+  - name: secondaryImageTotal
+    xpath: count(//div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture/@data-iesrc) - 1
+    singleValue: false
+  - name: listPrice
+    singleValue: false
+    xpath Count: (//span[@class="dkt-price__info-addon"]//span[@class="dkt-price__previous-price"])[1]
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="title--main product-title-right"]
+  - name: color
+    singleValue: false
+    xpath: //span[@class="model-color"]
+  - name: variants
+    singleValue: false
+    xpath: //div[@data-scope="conversion-zone"]//div/@data-id
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="pictures"]//a//picture/@data-iesrc
+    regExp: (htt.*)\?
+    regExpReplace: $1
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: 
+  - name: directions
+    singleValue: false
+    xpath: //div[@class="description-composition description-composition__visible"]
+  - name: variantInformation
+    singleValue: false
+    xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]//span[@class="sizes__info"] | //span[@class="model-color"]
+  - name: quantity
+    singleValue: false
+    xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]//span[@class="sizes__info"]
+  - name: variantId
+    singleValue: false
+    xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]/@data-id
+  - name: firstVariant
+    singleValue: false
+    xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]/@data-id
