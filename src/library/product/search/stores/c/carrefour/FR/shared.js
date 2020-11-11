@@ -41,20 +41,30 @@ const transform = (data, context) => {
         }
         if (row.productUrl) {
           row.productUrl.forEach(item => {
-            if (item.text.includes('https://www.carrefour.fr')) {
+            if ((item.text.includes('https') || (item.text.includes('http')))) {
               item.text = item.text;
             } else {
               item.text = 'https://www.carrefour.fr' + item.text;
             }
+            // if (item.text.includes('https://www.carrefour.fr')) {
+            //   item.text = item.text;
+            // } else {
+            //   item.text = 'https://www.carrefour.fr' + item.text;
+            // }
           });
         }
         if (row.thumbnail) {
           row.thumbnail.forEach(item => {
-            if (item.text.includes('https://www.carrefour.fr')) {
+            if ((item.text.includes('https') || (item.text.includes('http')))) {
               item.text = item.text;
             } else {
               item.text = 'https://www.carrefour.fr' + item.text;
             }
+            // if (item.text.includes('https://www.carrefour.fr')) {
+            //   item.text = item.text;
+            // } else {
+            //   item.text = 'https://www.carrefour.fr' + item.text;
+            // }
           });
         }
       }

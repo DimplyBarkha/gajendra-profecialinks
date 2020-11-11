@@ -17,7 +17,8 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[@class='ds-product-card--vertical-image']/a/img/@src
+    xpath: //a[@class="product-card-image"]/img/@src
+    # xpath: //div[@class='ds-product-card--vertical-image']/a/img/@src
   # - name: mpc
   #   singleValue: false
   #   description: The model code of the product
