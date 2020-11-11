@@ -15,7 +15,7 @@ async function implementation (
     const data = await response.json();
     const accessPointId = data.accessPointList.find(elm => elm.assortmentStoreId.includes(storeId));
     if (accessPointId) {
-      return accessPointId.assortmentStoreId;
+      return accessPointId.accessPointId;
     }
     return false;
   }
