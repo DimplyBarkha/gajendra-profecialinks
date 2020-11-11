@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage')]//div[contains(@class,'fotorama__active')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage')]//div[contains(@class,'fotorama__active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //span[@class='alternate_image_urls']//span
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='cs-breadcrumbs__list']//li[not(contains(@class,'home')) and not(contains(@class,'product'))]//span
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='page-title']//span
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='page-title']//span
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[@class='availability' and text()='InStock']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'product-info-price')]//span[@class='special-price']//span[@class='price']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'product-info-price')]//span[@class='old-price']//span[@class='price']
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'cs-product-details-main__content')]//p
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class,'cs-product-details-main__content')]//ul//li
+  - name: brandText
+    singleValue: false
+    xpath: //span[@class='brand']
+  - name: brandLink
+    singleValue: false
+    xpath: //div[@class='cs-buybox__brand']//a/@href
+  - name: manufacturer
+    singleValue: false
+    xpath: //span[@class='manufacturer']
+  - name: gtin
+    singleValue: false
+    xpath: //script[contains(text(),'gtin14')]
+    regExp: gtin14\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: //span[@class='sku']
+  - name: variantId
+    singleValue: false
+    xpath: //span[@class='product_id']
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'product-info-price')]//div[@class='swatch-opt']//div[contains(@class,'swatch-option text')]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class='review_count']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class='rating_value']
+  - name: promotion
+    singleValue: false
+    xpath: //ul[@class='cs-page-product__badges']//span[@class='cs-page-product__badge-text']
