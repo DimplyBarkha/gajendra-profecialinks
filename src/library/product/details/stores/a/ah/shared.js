@@ -35,20 +35,13 @@ const transform = (data) => {
       //     },
       //   ];
       // }
-      // if (row.specifications) {
-      //   let text = '';
-      //   row.specifications.forEach(item => {
-      //     text = row.specifications.map(elm => elm.text).join(' || ');
-      //   });
-      //   row.specifications = [{ text }];
-      // }
-      // if (row.manufacturerDescription) {
-      //   let text = '';
-      //   row.manufacturerDescription.forEach(item => {
-      //     text = text + (text ? ' ' : '') + item.text;
-      //   });
-      //   row.manufacturerDescription = [{ text }];
-      // }
+      if (row.gtin) {
+        let text = '';
+        row.gtin.forEach(item => {
+          text = row.gtin.map(elm => elm.text).join('').replace(new RegExp('(.+"gtin13":\\s")(\\d+)(.+)', 'g'), '$2');
+        });
+        row.gtin = [{ text }];
+      }
 
       // if (row.caloriesPerServing) {
       //   let text = '';

@@ -19,8 +19,9 @@ fields:
     xpath: concat(//h1[1],' ',//div[contains(@class,"product-card-header_unitInfo")]/text())
   - name: listPrice
     description: The stated undiscounted price for the product
+    xpath: //div[contains(@class,"product-card-hero-price_root")]//div[contains(@class,"price_was_")]
   - name: price
-    xpath: //div[contains(@class,"product-card-hero-price_root")]//div[@data-testhook="price-amount"] 
+    xpath: //div[contains(@class,"product-card-hero-price_root")]//div[contains(@class,"price_now")] 
   - name: availabilityText
     xpath: //html/body/script[4]
     regExp: (.+availableOnline":false,"orderable.+)
@@ -43,9 +44,11 @@ fields:
 #   - name: weightGross
 #     singleValue: true
 #     description: Gross weight as described on the page
-#   - name: gtin
-#     singleValue: true
-#     description: GTIN code (includes UPC/EAN)
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: normalize-space(//script[@type="application/ld+json"][contains(.,'gtin13')][1])
+    # regExp: gtin
+    # # regExpReplace: $2
   - name: sku
     xpath: //link[@rel="canonical"]//@href
     regExp: (wi\d+)
@@ -63,7 +66,7 @@ fields:
 #     singleValue: true
 #     description: Content under "legal disclaimer" header
   - name: directions
-    xpath: //p[contains(@class,'product-info-storage')]
+    xpath: //span[contains(.,'GEBRUIKSAANWIJZING')]
 #   - name: warnings
 #     singleValue: true
 #     description: Content under "warnings" header
@@ -87,10 +90,8 @@ fields:
 #   - name: shippingWeight
 #     singleValue: true
 #     description: Stated shipping weight
-#   - name: variantCount
-#     singleValue: true
-#     description: Number of variants listed
-#     type: NUMBER
+  - name: variantCount
+    xpath: count(//a[contains(@class,'product-recommendations')]//@href)
 #   - name: color
 #     singleValue: true
 #     description: A textual description of the colour
