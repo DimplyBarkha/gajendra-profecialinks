@@ -50,15 +50,15 @@ module.exports = {
       };
       var backgroundURL1 = getAllXpath("//div[@class='ah-pdp-product-price pt-- mb--']/div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price']/text()", 'nodeValue');
       sliceURL1(backgroundURL1);
-      const splitfunction = (data) => {
-        var singleSeparatorText = data[0].split(',');
-        for (let i = 0; i < singleSeparatorText.length; i++) {
-          var output = singleSeparatorText[i].split(" ");
-          addElementToDocument('altImage', 'https://www.ahlens.se/' + output[0]);
-        }
-      };
-      const Images = getAllXpath("//div[@class='slick-track']/li[@class='ah-image-carousel__item slick-slide slick-current slick-active']/img[@class='ah-product-image']/@srcset", 'nodeValue');
-      splitfunction(Images);
+    //   const sliceURL2 = (data) => {
+    //     var singleSeparatorText = data[0].split(',');
+    //     for (let i = 0; i < singleSeparatorText.length; i++) {
+    //       var output = singleSeparatorText[i].split(" ");
+    //       addElementToDocument('altImage', 'https://www.ahlens.se/' + output[0]);
+    //     }
+    //   };
+    //   var backgroundURL2 = getAllXpath("//div[@class='slick-list draggable']/div[@class='slick-track']/li[@class='ah-image-carousel-nav__item slick-slide']/img[@class='ah-product-image']/@src", 'nodeValue');
+    //   sliceURL2(backgroundURL2);
     });
     await context.extract(productDetails, { transform: transformParam });
   },

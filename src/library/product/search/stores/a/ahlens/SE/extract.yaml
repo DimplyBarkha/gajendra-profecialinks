@@ -6,8 +6,9 @@ fields:
   - name: price
     singleValue: false
     description: price of the product
-    type: CURRENCY
-    xpath: //html//div[@class='altImages']  
+    xpath: //*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text() 
+    regExp: ([^kr]+)
+    regExpReplace: $1SEK
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
@@ -15,7 +16,7 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//figure//img//@src
+    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//figure//img//@srcset
     regExp: (/.+)
     regExpReplace: https://www.ahlens.se/$1
   - name: id
@@ -28,9 +29,9 @@ fields:
     singleValue: false
     description: The product name
     xpath: //*[contains(@class,'MuiCardContent-root')]/div/span[2]
-  - name: rankOrganic
-    singleValue: false
-    xpath: //html//div[@class='altImages1']
-  - name: rank
-    singleValue: false
-    xpath: //html//div[@class='altImages1']
+  # - name: rankOrganic
+  #   singleValue: false
+  #   xpath: //html//div[@class='altImages1']
+  # - name: rank
+  #   singleValue: false
+  #   xpath: //html//div[@class='altImages1']
