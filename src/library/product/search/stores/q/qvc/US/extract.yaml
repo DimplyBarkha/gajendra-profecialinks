@@ -6,7 +6,7 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="lazyWrap primary"]/img/@title
-    regExp: (- (\w+))
+    regExp: (- (\w+$))
     regExpReplace: $2
     description: Unique id (within this extractor)
   - name: name
@@ -29,17 +29,18 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="stars"]/@title
+    regExp: (^\d\.\d+|^\d)
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: aggregateRating2
     singleValue: false
   - name: reviewCount
     singleValue: false
+    xpath: //span[@class="productNumberOfReviews"]
+    regExp: \d+
     description: The number of reviews
   - name: ratingCount
     singleValue: false
-    xpath: //span[@class="productNumberOfReviews"]
-    regExp: \d+
     description: The number of ratings
   - name: price
     singleValue: false
