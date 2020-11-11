@@ -14,7 +14,7 @@ fields:
     xpath: //meta[contains(@name,"Keyword")]/@content
   - name: category
     singleValue: true
-    xpath: //div[@id='ii_nameExtended']
+    #xpath: //div[@id='ii_nameExtended']
   - name: nameExtended
     singleValue: true
     xpath: //div[@id='ii_nameExtended']
@@ -89,9 +89,10 @@ fields:
   - name: variantCount
     singleValue: true
     xpath: //div[@id='ii_variantCount']
+    defaultValue: 0
   - name: shippingInfo
     singleValue: true
-    xpath: //div[@id='ii_shippingInfo']
+    #xpath: //div[@id='ii_shippingInfo']
   - name: color
     singleValue: true
   - name: colorCode
