@@ -8,6 +8,7 @@ fields:
     xpath: //ul[@class='product-listing product-grid']//li//div/div[@class='infoTextCarousel']/div[@class='daily-offer-block daily-offer-countdown']/@data-product-id
   - name: rankOrganic
     singleValue: true
+    xpath: //div[@id='rankOrganic']/text()
   - name: name
     singleValue: true
     xpath: //ul[@class='product-listing product-grid']//li//div/div[@class='infoTextCarousel']//div[@class='product_name']
@@ -20,16 +21,15 @@ fields:
     singleValue: true
   - name: thumbnail
     singleValue: true
-    xpath: //ul[@class='product-listing product-grid']//li//div/a/div/div[@class='product_img']/img[@class='primImg primaryImage_prodcat']/@src
+    xpath: //div[@id='thumbnailSrc']/text()
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@id='finalAggregatingValue']
-    regExp: (?<=:).*$
+    xpath: //div[@id='aggregateRating']/text()
   - name: reviewCount
-    singleValue: true
-    xpath: //div[@class='variant_num']/span
+    xpath: //div[@class='variant_num']/span/text()
   - name: price
     singleValue: true
-    xpath: //div[@id='priceText']
+    xpath: //div[@id='priceText']/text()
   - name: rank
     singleValue: true
+    xpath: //div[@id='rankOrganic']/text()
