@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
 extractions:
-  - html: https://workbench.import.io/html/run=d61db710-0ab3-49c6-bd74-012bdced05d3/task=1a050557-d9aa-49a4-99bd-cdff1fee7549/796aeb76-0569-46ad-823b-5b66a2d194fa.html
+  - html: https://workbench.import.io/html/run=e3448d58-06bb-4a3e-818e-0e1a6a4e466a/task=d7982b26-2c04-4c1b-aa17-ea7866852ccb/e174994a-6882-44e9-8c1b-77673d4fbc51.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -16,8 +16,6 @@ extractions:
               - text: Pasta Dentifrica Natural Lacer Natur 100ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@alt
             category:
-              - text: Mifarma
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/text()[1]
               - text: Higiene y Salud
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/text()[1]
               - text: Dental
@@ -30,9 +28,6 @@ extractions:
             listPrice:
               - text: 8,35 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
-            price:
-              - text: 5,85 €
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
@@ -44,12 +39,12 @@ extractions:
             brandText:
               - text: Lacer
                 xpath: /html/body/div[1]/span[12]
-            manufacturer:
-              - text: Lacer
-                xpath: /html/body/div[1]/span[12]
+            quantity:
+              - text: 100ml
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             sku:
-              - text: "92391"
-                xpath: /html/body/div[1]/span[2]
+              - text: "189473"
+                xpath: /html/body/script[69]/text()[1]
             mpc:
               - text: "92391"
                 xpath: /html/body/div[1]/span[2]
@@ -102,4 +97,4 @@ extractions:
             weightGross:
               - text: 0.1200 kg
         xpath: /
-    timestamp: 1605003344843
+    timestamp: 1605087633035
