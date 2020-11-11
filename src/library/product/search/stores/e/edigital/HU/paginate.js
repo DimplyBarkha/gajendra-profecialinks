@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "div[class='product-list'] ul[id='prefixbox-search-engine'] li[id *='ed-prod-'] div[class='image'] img[class='img-responsive'][src *='product_images']",
     openSearchDefinition: null,
     domain: 'edigital.hu',
     zipcode: '',
