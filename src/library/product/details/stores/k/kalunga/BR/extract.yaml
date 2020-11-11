@@ -15,7 +15,7 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: image
     singleValue: false
-    description: images of product
+    description: images of product 
     xpath: //div[@class='owl-stage']/div[@class='owl-item active']/div[@class='galeriaproduto__item item']/img/@src
   - name: imageAlt
     singleValue: false
@@ -25,6 +25,10 @@ fields:
     singleValue: true
     description: unic code of product
     xpath: //div[@id='header-infos-produto']//p[@id='codigo-produto']
+  - name: rpc
+    singleValue: true
+    description: unic code of product
+    xpath: translate(//p[@id='codigo-produto'],translate(//p[@id='codigo-produto'], '0123456789', ''), '')
   - name: discount
     singleValue: true
     description: discount of product
@@ -33,6 +37,10 @@ fields:
     singleValue: true
     description: price of product
     xpath: //div[@class='row produtoinfos border rounded px-4 py-4 m-0']/h3[@class='produtoinfos__price']/span
+  - name: listPrice
+    singleValue: true
+    description: price of product
+    xpath: translate(//p[@class='produtoinfos__text produtoinfos__text--grey pr-2'],translate(//p[@class='produtoinfos__text produtoinfos__text--grey pr-2'], '0123456789R$ ', ''), '')
   - name: description
     singleValue: false
     description: description of product
@@ -41,6 +49,10 @@ fields:
     singleValue: true
     description: rating of product
     xpath: //div[@class='reviewsproduto__reviews col-12 col-xl-4']/h3
+  - name: ratingCount
+    singleValue: true
+    description: the number of rating
+    xpath: translate(//p[@id='total_avaliacoes'],translate(//p[@id='total_avaliacoes'], '0123456789', ''), '')
   - name: comments
     singleValue: false
     description: comments for product
@@ -57,3 +69,7 @@ fields:
     singleValue: false
     description: additional description product
     xpath: //div[@id='dvEspecificacaoAdicionalTop']/div/div
+  - name: manufacturer
+    xpath: //a[@class='marca-produto']
+  - name: availabilityText
+    xpath: //div[@id='availabilityText']
