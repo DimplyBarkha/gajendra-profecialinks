@@ -6,8 +6,8 @@ fields:
   - name: id
     singleValue: false
     # xpath: //div[@class="plp-buttons"]//form/@id 
-    xpath: //li//input[contains(@class,"productClickData_plp_id")]/@value
-    # regExp: ([\d]+)
+    xpath: //div[@class="plp-product-thumb"]//img/@src
+    regExp: \d{6,}
     # regExpReplace: $1
   - name: price
     singleValue: false
@@ -25,19 +25,19 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="plp-product-thumb"]//img/@alt
-  - name: aggregateRating
-    singleValue: false
-    xpath: 
-    # regExp: (.+)(\sout.+)
-    # regExpReplace: $1
-  - name: ratingCount
-    singleValue: false
-    xpath: 
-    regExp: \d+
-  - name: reviewCount
-    singleValue: false
-    xpath: 
-    regExp: \d+
+  # - name: aggregateRating
+  #   singleValue: false
+  #   xpath: 
+  #   # regExp: (.+)(\sout.+)
+  #   # regExpReplace: $1
+  # - name: ratingCount
+  #   singleValue: false
+  #   xpath: 
+  #   regExp: \d+
+  # - name: reviewCount
+  #   singleValue: false
+  #   xpath: 
+  #   regExp: \d+
   - name: rank
     singleValue: false
     type: NUMBER
