@@ -14,10 +14,8 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    if (await context.evaluate(() => {
-      return (!window.location.href.toString().includes('soksida'));
-    })) {
-      await context.evaluate(() => {
+    if (await context.evaluate(async () => !window.location.href.toString().includes('soksida'))) {
+      await context.evaluate(async () => {
         let a = document.evaluate('//ul[@class="slides"]/li[not(contains(@class,"clone")) and (position()>2)]/img', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
         let b = a.iterateNext();
         let c = [];
@@ -59,6 +57,18 @@ module.exports = {
         div2.setAttribute('id', 'directions');
         div2.innerText = c.join(' ');
         document.body.append(div2);
+
+        a = document.evaluate('//div[@id="section" and contains(.,"arningar")]//text()', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+        b = a.iterateNext();
+        c = [];
+        while (b !== null) {
+          c.push(b.textContent);
+          b = a.iterateNext();
+        }
+        const div3 = document.createElement('div');
+        div3.setAttribute('id', 'warnings');
+        div3.innerText = c.join(' ');
+        document.body.append(div3);
       });
       const { transform } = parameters;
       const { productDetails } = dependencies;
