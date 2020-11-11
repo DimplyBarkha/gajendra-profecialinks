@@ -7,7 +7,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '.grid-item:nth-last-child(1)',
-    noResultsXPath: '//div[@class="products_list-container _no_products vp"] | //html[not(//div[@id="products-list"]/ul/li)]',
+    noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'elcorteingles.es',
     zipcode: '',

@@ -15,6 +15,7 @@ module.exports = {
     context,
     dependencies,
   ) {
+    
     await context.evaluate(() => {
       var newElement = document.createElement('DIV');
       newElement.setAttribute('class', 'page-link');
@@ -24,6 +25,7 @@ module.exports = {
       productTiles.forEach((tile) => {
         tile.scrollIntoView();
       });
+
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
