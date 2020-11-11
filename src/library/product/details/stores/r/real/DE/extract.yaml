@@ -42,9 +42,6 @@ fields:
   - name: manufacturer
     singleValue: true
     xpath: //meta[@property="product:brand"]/@content
-  - name: quantity
-    singleValue: true
-    xpath: //html//div[@id='quantity']
   - name: weightNet
     singleValue: true
     xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Inhalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Inhalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span

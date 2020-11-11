@@ -30,9 +30,6 @@ module.exports = {
       // @ts-ignore
       const sku = window.dataLayer[0].product.id;
       addElementToDocument('sku', sku);
-      // @ts-ignore
-      const quantity = window.document.getElementById('amount').value;
-      addElementToDocument('quantity', quantity);
       // Method to Retrieve Xpath content of a Multiple Nodes
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
