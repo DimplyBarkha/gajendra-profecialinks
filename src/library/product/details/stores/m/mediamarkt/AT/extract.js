@@ -33,6 +33,12 @@ module.exports = {
     const avail = await sharedhelpers.getEleByXpath('//button[contains(text(), "In den Warenkorb")]');
 
     await sharedhelpers.addHiddenInfo('ii_availText', avail ? 'In Stock' : 'Out of Stock');
+    try{     
+      await context.waitForSelector('button[class*=ProductFeatures] span');
+      await context.click('button[class*=ProductFeatures] span');
+    }catch(err){
+      console.log('no load more button for specification');
+    }
     await context.evaluate(function () {
       
       if(document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]')){
@@ -40,9 +46,6 @@ module.exports = {
         accordionClicker.click();
       }
       if(document.querySelector('div[class*="ProductFeatures__StyledFeatureContainer"]')){
-        if(document.querySelector('button[class*=ProductFeatures] span')){
-          document.querySelector('button[class*=ProductFeatures] span').click();
-        }
         let specsData=document.querySelectorAll('div[class*="ProductFeatures__StyledFeatureContainer"] table tbody td');
         let specsAppended='';
         for(let i=0;i<specsData.length;i++){
