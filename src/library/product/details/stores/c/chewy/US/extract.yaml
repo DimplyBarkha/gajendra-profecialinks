@@ -73,7 +73,7 @@ fields:
     xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: false
-    xpath: //meta[@itemprop="sku"]/@content
+    xpath: //div[@class="value js-part-number"]/span
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
