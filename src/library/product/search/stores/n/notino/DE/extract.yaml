@@ -9,7 +9,7 @@ fields:
     type: CURRENCY
   - name: productUrl
     singleValue: false
-    xpath: //li[@class="item"]/a/@href
+    xpath: //li[@class="item"]/a/@data-url-redirect
     # regExp: (.+)
     # regExpReplace: https://www.notino.de/$1
     description: The URL for the product details page

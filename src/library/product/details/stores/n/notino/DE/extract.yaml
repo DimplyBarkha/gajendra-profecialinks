@@ -32,11 +32,13 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
+    type: CURRENCY
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: (//div[@id="pd-price"])
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
