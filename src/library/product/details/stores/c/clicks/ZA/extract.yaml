@@ -53,9 +53,7 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    description: Quantity as described on the page
-    regExp: (?:\s?([\([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //p//b[contains(text(),"Quantity in pack")]/../text()
   - name: weightNet
     singleValue: false
     xpath: //p//b[contains(text(),"Pack size")]/../text()
@@ -76,7 +74,7 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
-    xpath: //p//b[contains(text(),"Quantity in pack")]/../text()
+    xpath: //p//b[contains(text(),"Pack size")]/../text()
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -108,7 +106,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@class="selectric-scroll"]/ul//li[position()>1])
+    xpath: count(//div[@class="selectric-scroll"]/ul//li[position()>1] | //div[@class="variant_options"]//ul//li//img)
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -428,13 +426,13 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class="SizeWrapper"]/span/text()
+    xpath: //div[@class="variant_options"]//span/text()
   - name: firstVariant
     singleValue: false
-    xpath: //ul//li[@data-index="1"]
+    xpath: //ul//li[@data-index="1"] | //div[@class="variant_options"]//ul//li[1]//img/@alt
   - name: variants
     singleValue: false
-    xpath: //div[@class="selectric-scroll"]//ul//li[position()>1]/text()
+    xpath: //div[@class="selectric-scroll"]//ul//li[position()>1]/text() | //div[@class="variant_options"]//ul//li//img/@alt
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
