@@ -29,17 +29,23 @@ module.exports = {
         return result;
       };
 
-      const sliceURL = (data) => {
-        var cnt = 0;
-        for (let index = 0; index < data.length; index++) {
-          if (data[0] != 0) {
-            cnt++;
-            addElementToDocument('rank1',cnt);
-            }
-        }
-      };
-      const result = getAllXpath("//div[@class='tile-column details']//a[@class='h7']/text()", 'nodeValue');
-      sliceURL(result);
+      // const sliceURL = (data) => {
+      //   var cnt = 0;
+      //   for (let index = 0; index < data.length; index++) {
+      //     if (data[0] != 0) {
+      //       cnt++;
+      //       addElementToDocument('rank1',cnt);
+      //       }
+      //   }
+      // };
+      //const result = getAllXpath("//div[@class='tile-column details']//a[@class='h7']/text()", 'nodeValue');
+      //sliceURL(result);
+      const abc= document.querySelectorAll('div[class="product-item"]');
+      for(let i=1;i<=abc.length;i++)
+      {
+        addElementToDocument('rank1',i);
+      }
+
     });
     return await context.extract(productDetails, { transform });
   },
