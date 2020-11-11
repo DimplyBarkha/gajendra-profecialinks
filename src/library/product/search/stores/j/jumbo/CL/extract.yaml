@@ -1,20 +1,27 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[@class='shelf-item']
 fields:
   - name: id
     singleValue: false
+    xpath: //a[contains(@class, 'shelf-product-title')]/@href
+    regExp: \/(.*)\/
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
+    xpath: //a[contains(@class, 'shelf-product-title')]/h2
   - name: productUrl
     singleValue: false
+    xpath: //li[@class='shelf-item']/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[contains(@class, 'lazy-image-wrap')]/img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,6 +32,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[@class='product-single-price-container']/text()[1] | //div[@class='price-product-content']/span[contains(@class, 'price-product-best') and not(descendant::span)] | //span[contains(@class, 'price-product-prom')]/text()[contains(., '%')]/../following-sibling::text()
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -35,14 +43,16 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //li[@class='shelf-item']/@rankorganic
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //li[@class='shelf-item']/@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
   # - name: totalRecordCount
-  #   singleValue: true 
+  #   singleValue: true
   #   type: NUMBER
