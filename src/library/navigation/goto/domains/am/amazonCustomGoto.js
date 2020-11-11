@@ -63,6 +63,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
           elementChecks[prop] = true;
         } else { elementChecks[prop] = false; }
       }
+      elementChecks.isOffersPage = window.location.href.includes('offer-listing');
       elementChecks.hasVariants = !!window.isTwisterPage;
       elementChecks.windowLocation = window.location;
       return elementChecks;
@@ -106,20 +107,20 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     if (zip) {
       try {
         const apiZipChange = await context.evaluate(async (zipcode) => {
-        // const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
-        // const response = await fetch('/gp/delivery/ajax/address-change.html', {
-        //   headers: {
-        //     accept: 'text/html,*/*',
-        //     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-        //     'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        //     'x-requested-with': 'XMLHttpRequest',
-        //   },
-        //   body,
-        //   method: 'POST',
-        //   mode: 'cors',
-        //   credentials: 'include',
-        // });
-        // return response.status === 200;
+        /* const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+        const response = await fetch('/gp/delivery/ajax/address-change.html', {
+          headers: {
+            accept: 'text/html',
+            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+            'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'x-requested-with': 'XMLHttpRequest',
+          },
+          body,
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'include',
+        });
+        return response.status === 200; */
           if (document.querySelector('#glow-ingress-block').innerText.includes(zipcode)) {
             console.log('Correct zipcode: ', document.querySelector('#glow-ingress-block').innerText);
             return false;
@@ -137,6 +138,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
           await context.setInputValue('#GLUXZipUpdateInput', zipcode);
           await context.click('#GLUXZipUpdate > span > input');
           await context.reload();
+          // Wait for potential captcha.
           await new Promise(resolve => setTimeout(resolve, 2000));
           page = await pageContextCheck(await pageContext());
           await handlePage(page, null);
@@ -431,7 +433,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       return false;
     }
 
-    if (lastResponseCode !== 200) {
+    if (lastResponseCode !== 200 && (page.is400Page || page.is500Page)) {
       return context.reportBlocked(lastResponseCode, 'Blocked: ' + lastResponseCode);
     }
 
@@ -3651,9 +3653,6 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
   // clean cookie retry in session
   try {
-    await context.setBlockAds(false);
-    await context.setLoadAllResources(true);
-    await context.setJavaScriptEnabled(true);
     await run(userAgentString);
     await setZip(zipcode);
   } catch (err) {
