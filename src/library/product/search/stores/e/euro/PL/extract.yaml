@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="product-row"]//div//h2/a[@class="js-save-keyword"]/text()
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="product-tile js-UA-product "]/@data-product-href
+    xpath: //div[@class="product-main"]/div/h2/a/@href
     regExp: (.+)
     regExpReplace: https://www.euro.com.pl$&
   - name: gtin
@@ -19,7 +19,7 @@ fields:
     #//div[@class="product-row"]//div[@class="product-photo"]/a/img[position()=1]/@src
     regExp: (.+)
     regExpReplace: https://www.euro.com.pl$1
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //div[@class="product-row"]//a[@class="js-save-keyword js-scroll-by-hash"]/@title  
     regExp: (?:^|(?:[.!?]\s))(\d+)

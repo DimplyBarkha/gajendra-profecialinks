@@ -137,13 +137,13 @@ const transform = (data) => {
         //     },
         //   ];
         // }
-        // if (row.listPrice) {
-        //   row.listPrice = [
-        //     {
-        //       text: row.listPrice[0].text.replace(' ', ''),
-        //     },
-        //   ];
-        // }
+        if (row.aggregateRating) {
+          row.aggregateRating = [
+            {
+              text: row.aggregateRating[0].text.replace('.', ','),
+            },
+          ];
+        }
         if (row.alternateImages) {
           const images = row.alternateImages.filter(img => !img.text.match('#'));
           // console.log('images:: ', images);

@@ -28,9 +28,17 @@ const transform = (data, context) => {
           row.rankOrganic = [{ text: orgRankCounter }];
         }
         row.rank = [{ text: rankCounter }];
+        if (row.aggregateRating) {
+          row.aggregateRating = [
+            {
+              text: row.aggregateRating[0].text.replace('.', ','),
+            },
+          ];
+        }
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));
+        
       }
     }
     context.setState({ rankCounter });

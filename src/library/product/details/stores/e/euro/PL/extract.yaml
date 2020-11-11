@@ -45,7 +45,7 @@ fields:
     xpath: //a[@id='big-photo']//img//@alt
   - name: category
     singleValue: false
-    xpath: //div[@id='breadcrumb']//ul//li[position()>2][position()<last()]
+    xpath: //div[@id='breadcrumb']//ul//li[position()<last()]
   - name: nameExtended
     singleValue: false
     xpath: //div[@class='product-header']//h1/text()
@@ -89,7 +89,7 @@ fields:
     xpath: normalize-space(//tr//td[contains(text(),'Kolor')]//following-sibling::td)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="description-text"]//text()
+    xpath: //div[@class="e-scene_core"]//text()
     # xpath: //div[contains(@class,"col-xs-12")] | //div[contains(@class,"esm-col")]/div/span  | //div[contains(@class,"esm-col")]/div/p | //div[@class="col-desc"] | //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p | //div[@class="display-desktop"]//text() | //div[@class="e-text e-widget"] |  //div[@id="description-text"]
     # xpath:  //div[contains(@class,"esm-col")]//div//span  | //div[contains(@class,"e-text")] |//div[@class="col-desc"] |//p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p | //div[contains(@class,"col-xs-12")]
     # //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()      //div[@id="description-text"]//div[contains(@class,"esm-col")]/text()
@@ -122,9 +122,9 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@class,"variant-list js-variant-list")]/a)
-  # - name: -url
-  #   singleValue: false
-  #   xpath: //meta[contains(@property,"og:url")]/@content
+  - name: mpc
+    singleValue: false
+    xpath: //td[contains(text(),'Kod producenta')][1]//following-sibling::td/text()
   - name: variantInformation
     singleValue: false
     xpath: //div[@id="product-variants"]//div/a[contains(@class,"active")]/@title
