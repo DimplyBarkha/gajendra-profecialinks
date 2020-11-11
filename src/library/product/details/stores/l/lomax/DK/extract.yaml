@@ -7,6 +7,8 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //img[@width="600" and @height="600"]/@src
+    regExp: (.+)
+    regExpReplace: https://www.lomax.dk$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -47,6 +49,8 @@ fields:
     singlevalu: true
     description: the url of the product
     xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.lomax.dk$1
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
