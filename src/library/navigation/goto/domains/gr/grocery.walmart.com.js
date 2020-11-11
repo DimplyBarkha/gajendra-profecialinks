@@ -9,10 +9,15 @@ module.exports = {
     store: 'walmartOG',
   },
 
-  implementation: async (inputs, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     // USING OPT TAGS > anti_fingerprint), to avoid blocking
     // #[!opt!]{"anti_fingerprint":false}[/!opt!]
-    const url = `${inputs.url}#[!opt!]{"anti_fingerprint":false}[/!opt!]`;
-    await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+
+    if (zipcode) {
+      await dependencies.setZipCode({ zipcode: zipcode });
+    }
+
+    const inputUrl = `${url}`;
+    await context.goto(inputUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: false });
   },
 };
