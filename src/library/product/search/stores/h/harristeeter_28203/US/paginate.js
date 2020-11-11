@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'harristeeter_28203',
-    nextLinkSelector: null,
+    nextLinkSelector: null, // 'div.pagination-bar a.next-arrow',
     mutationSelector: null,
-    spinnerSelector: null,
-    loadedSelector: null,
+    spinnerSelector: null, // '#loader-div',
+    loadedSelector: null, // 'div.search-results.section-products.grid-view',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'harristeeter.com',

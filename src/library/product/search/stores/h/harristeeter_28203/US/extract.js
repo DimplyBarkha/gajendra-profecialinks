@@ -1,3 +1,4 @@
+const { transform } = require('../../../../shared');
 async function implementation (
   inputs,
   parameters,
@@ -25,9 +26,19 @@ async function implementation (
       return catElement;
     }
 
-    console.log('getDataFromAPI');
     let data = {};
-    const fetchURL = 'https://www.harristeeter.com/shop/api/v1/el/stores/C217228/products/search?Q=${encodeURIComponent(keywords)}&WithCart=false&UserId=0dcfda6e-b8cc-442a-a25c-b9c6b9824afd&Page=1&Limit=20&IsMember=false&AllowAlcohol=true&Sort=Relevance';
+    var pageNo = 1;
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('pageNo');
+    var pathname = new URL(window.location.href).pathname;
+    var searchKey = pathname.split('search/')[1];
+
+    if (myParam) {
+      pageNo = parseInt(myParam);
+    }
+    const fetchURL = `https://www.harristeeter.com/shop/api/v1/el/stores/C217228/products/search?Q=${encodeURIComponent(searchKey)}&WithCart=false&UserId=0dcfda6e-b8cc-442a-a25c-b9c6b9824afd&Page=${pageNo}&Limit=20&IsMember=false&AllowAlcohol=true&Sort=Relevance`;
+    const windowUrl = window.location.href.split('search');
+    const baseUrl = windowUrl[0];
     const referrer = window.location.href;
     console.log('fetchURL');
     console.log(fetchURL);
@@ -48,54 +59,25 @@ async function implementation (
 
     if (searchResults && searchResults.status === 200) {
       data = await searchResults.json();
-      console.log('category');
-      console.log(typeof (data.Data.Items));
-      console.log(Object.keys(data.Data.Items).length);
-      Object.keys(data.Data.Items).forEach((prop) => console.log('here ' + prop));
-
       data.Data.Items.forEach((category) => {
-        console.log('category');
-        console.log(category);
-        // const name = category.Name;
+        const row = addElementToDocument('added_row', '');
+        const name = category.Brand + ' ' + category.Name;
+        const id = category.Sku;
+        const image = category.ImageLinks;
+        const price = category.CurrentPrice;
+        image.forEach(element => {
+          if (element.Rel === 'large') {
+            const thumbnail = element.Uri;
+            row.setAttribute('added_thumbnail', thumbnail);
+          }
+        });
+        const prodUrl = baseUrl + 'product/' + id + '/details/selected';
+        row.setAttribute('added_name', name);
+        row.setAttribute('added_url', prodUrl);
+        row.setAttribute('added_id', id);
+        row.setAttribute('added_price', price);
       });
     }
-    // Object.keys(searchResults).forEach((prop) => console.log('here ' + prop));
-    // var myObjStr = JSON.stringify(searchResults);
-    // console.log(myObjStr);
-    // console.log(searchResults.Data.Items);
-    // if (!searchResults.Data.Items) return;
-    // searchResults.Data.Items.forEach((category) => {
-    //   const name = category.Name;
-    //   console.log(name);
-    //   // const img = category.rangeImageUrl || '';
-    //   // if (category.associatedProducts) {
-    //   //   category.associatedProducts.forEach((product) => {
-    //   //     const row = addElementToDocument('added_row', '');
-    //   //     const listPrice = product.price ? product.price.formattedValue : '';
-    //   //     const price = product.reducedPrice ? product.reducedPrice.formattedValue : listPrice;
-    //   //     const isDiscontinued = product.discontinued;
-    //   //     const name = product.webName || '';
-    //   //     const prefix = name && name.includes(brand) ? '' : brand;
-    //   //     row.setAttribute('added_productURL', `${domain}${product.productURL}`);
-    //   //     row.setAttribute('added_brand', brand);
-    //   //     row.setAttribute('added_thumbnail', img);
-    //   //     row.setAttribute('added_sku', product.code || '');
-    //   //     row.setAttribute('added_mpc', product.mpc || '');
-    //   //     row.setAttribute('added_name', name);
-    //   //     row.setAttribute('added_price', isDiscontinued ? '' : price);
-    //   //     row.setAttribute('added_listPrice', isDiscontinued || listPrice === price ? '' : listPrice);
-    //   //     row.setAttribute('added_nameExtended', `${prefix ? prefix + ' - ' : ''}${name}`);
-    //   //   });
-    //   // } else {
-    //   //   const row = addElementToDocument('added_row', '');
-    //   //   const name = category.name || '';
-    //   //   row.setAttribute('added_productURL', `${domain}${category.url}`);
-    //   //   row.setAttribute('added_brand', brand);
-    //   //   row.setAttribute('added_thumbnail', img);
-    //   //   row.setAttribute('added_name', name);
-    //   //   row.setAttribute('added_nameExtended', name);
-    //   // }
-    // });
   }, domain, country, keywords);
 
   return await context.extract(productDetails, { transform: parameters.transform });
@@ -106,7 +88,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'harristeeter_28203',
-    transform: null,
+    transform: transform,
     domain: 'harristeeter.com',
     zipcode: '',
   },
