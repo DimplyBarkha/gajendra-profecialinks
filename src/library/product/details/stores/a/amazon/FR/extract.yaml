@@ -2,15 +2,19 @@ extends: ../../../../sharedAmazon/shared
 fields:
   - name: backupBrand
     singleValue: false
-    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
+    xpath: //a[@id='brand'] | //span[@class='author notFaded']//a[1] | //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
     regExp: '(Marque\s:\s+(.+)$|Visiter\sla\sboutique (.+)|by\s+(.+)$|^(.+)$)'
     regExpReplace: $2$3$4$5
   - name: brandText
     singleValue: false
-    xpath: //*[normalize-space(text())="Brand" or normalize-space(text())="Brand:" or normalize-space(text())="Brand Name"]/following-sibling::*[1]  
+    xpath: //a[@id='brand'] | //span[@class='author notFaded']//a[1] | //*[normalize-space(text())="Brand" or normalize-space(text())="Brand:" or normalize-space(text())="Brand Name"]/following-sibling::*[1]  
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@id='brand'] | //span[@class='author notFaded']//a[1] | //*[normalize-space(text())="Brand" or normalize-space(text())="Brand:" or normalize-space(text())="Brand Name"]/following-sibling::*[1]  
+    type: LINK
   - name: quantity
     singleValue: false
-    xpath: //label[contains(text(), 'Taille')]/following-sibling::*[1]
+    xpath: //tr[contains(.,'Volume')]//td | //label[contains(text(), 'Taille')]/following-sibling::*[1]
   - name: weightNet
     singleValue: false
     xpath: //*[contains(normalize-space(text()),"Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1]
@@ -47,7 +51,7 @@ fields:
     regExpReplace: $2
   - name: mpc
     singleValue: false
-    xpath: //*[contains(text(),"modèle de")]/following-sibling::*[1]
+    xpath: //*[contains(text(),"modèle de")]/following-sibling::*[1] | //tr[contains(.,'RÃ©fÃ©rence fabricant')]//td
     # xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(),'odel')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(text(),"odel")]/following-sibling::td[1]/text() | //div[contains(@id,"prodDetails")]//*[contains(text(),"odel")]/following-sibling::td[1]/text() | //table[@id="product-specification-table"]//th[contains(text(),  "Manufacturer") and contains(text(), "Number")]/following-sibling::td/text()
   - name: imageZoomFeaturePresent
     defaultValue: true
