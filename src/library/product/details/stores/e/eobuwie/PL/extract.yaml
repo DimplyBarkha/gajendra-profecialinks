@@ -1,0 +1,101 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: true
+    xpath: (//div[@class='product-fullscreen-gallery__main']//img)[1]/@data-lazy
+  - name: imageAlt
+    singleValue: true
+    xpath: (//div[@class='product-fullscreen-gallery__main']//img)[1]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[@class='product-fullscreen-gallery__main']//img)/@data-lazy
+  - name: category
+    singleValue: false
+    xpath: //ol[@class='e-breadcrumbs__list']//li[not(contains(@class,'home')) and not(contains(@class,'product'))]//a
+  - name: name
+    singleValue: true
+    xpath: //ol[@class='e-breadcrumbs__list']//li[contains(@class,'product')]//a/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //ol[@class='e-breadcrumbs__list']//li[contains(@class,'product')]//a/text()
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@class='product-right__add-to-cart']//button[normalize-space()='Dodaj do koszyka']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: true
+    xpath: //div[@class='e-product-price__normal' or @class='e-product-price__special']
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class='e-product-price__regular']
+  - name:  description
+    singleValue: true
+    xpath: //div[@class='e-product-description__content']
+  - name: brandText
+    singleValue: true
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='Producent:']//following-sibling::span//a
+  - name: brandLink
+    singleValue: true
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='Producent:']//following-sibling::span//a/@href
+  - name: manufacturer
+    singleValue: true
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='Producent:']//following-sibling::span//a
+  - name: mpc
+    singleValue: true
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='Model:']//following-sibling::span
+  - name: sku
+    singleValue: true
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='SKU:']//following-sibling::span
+  - name: variants
+    singleValue: false
+    xpath: //script[contains(text(),'snowdog.product.variants')]
+  - name: variantId
+    singleValue: true
+    # get href where active:true
+    xpath: //script[contains(text(),'snowdog.product.variants')]
+  - name: variantCount
+    singleValue: true
+    # count number of elements in array
+    xpath: //script[contains(text(),'snowdog.product.variants')]
+    defaultValue: '0'
+    type: NUMBER
+  - name: variantInformation
+    singleValue: true
+    #get from @href of active:true
+    xpath: //script[contains(text(),'snowdog.product.variants')]
+  - name: promotion
+    singleValue: true
+    xpath: //div[@class='e-product-price__group']//div[@class='e-product-price__discount']
+  - name: specifications
+    singleValue: false
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li
+  - name: warranty
+    singleValue: true
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[contains(normalize-space(),'Gwarancja')]//following-sibling::span
+  - name: ratingCount
+    singleValue: true
+    xpath: //script[contains(text(),'reviewCount')]
+    regExp: \"reviewCount\":(\d+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: true
+    xpath: //script[contains(text(),'ratingValue')]
+    regExp: \"ratingValue\":(.+?)\,
+    regExpReplace: $1
+  - name: color
+    singleValue: true
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[contains(normalize-space(),'Kolor:')]//following-sibling::span
+  - name: weightNet
+    singleValue: true
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[contains(normalize-space(),'Waga')]//following-sibling::span
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[contains(normalize-space(),'Wymiary:')]//following-sibling::span

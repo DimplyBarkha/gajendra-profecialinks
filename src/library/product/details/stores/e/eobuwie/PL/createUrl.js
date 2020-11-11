@@ -1,11 +1,12 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'eobuwie.com.pl',
-    timeout: 100000,
+    prefix: null,
+    url: null,
     country: 'PL',
     store: 'eobuwie',
-    zipcode: "''",
+    zipcode: '',
   },
 };
