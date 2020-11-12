@@ -31,6 +31,11 @@ const transform = (data) => {
         });
         row.description = [{ text: descArr.join(' | ') }];
       }
+      if (row.brandText) {
+        if (row.nameExtended) {
+          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
+        }
+      }
       if (row.descriptionBullets) {
         var bulletArr = [];
         row.descriptionBullets.forEach(item => {
