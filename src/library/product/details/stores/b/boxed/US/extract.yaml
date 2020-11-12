@@ -16,7 +16,8 @@ fields:
   singleValue: true
   description: URL of the main product image
   xpath: //img[contains(@alt, 'image 1')]/@src | (//a/img[contains(@class, 'ca5-less')]/@src)[1] 
-  regExp: https.*
+  regExp: \/\/(.*)
+  regExpReplace: $1
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
@@ -32,7 +33,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //div[@id='pdp-breadcrumbs-large']/span/a
+  xpath: (//div[@id='pdp-breadcrumbs-large']/span/a)[position() > 1]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -86,13 +87,12 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //meta[@id='meta-og-url']/@content
-  regExp: \/(\d+)\/
-  regExpReplace: $1
+  xpath: //meta[@id='meta-og-url']/@sku
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //meta[@id='meta-og-url']/@sku
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
@@ -121,7 +121,6 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: //div[contains(@class,'a8dfbc-less')]/div
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -150,7 +149,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-  xpath: //ancestor::html//meta[@name='og-title']/@content
+  xpath: //section[@data-bx='pdp-name']/h1
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -160,6 +159,7 @@ fields:
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
+  xpath: //div[contains(@id, 'couponId')]/div[contains(@class, 'e594')]/@coupon
 - name: amazonChoice
   singleValue: true
   description: YES or Blank
@@ -440,6 +440,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  xpath: (//div[contains(@class,'g-form-option')]//span[contains(@class, 'c98d-less')]/span)[1]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -453,6 +454,7 @@ fields:
 - name: variants
   singleValue: false
   description: 
+  xpath: //div[@data-bx='pdp-controls-options']//ul[@role='listbox']/li
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
@@ -475,11 +477,11 @@ fields:
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  xpath: //a[contains(@href, 'terms-conditions')]/@terms
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  xpath: //a[contains(@href, 'privacy-policy')]/@policy
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
