@@ -33,19 +33,19 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  var variantLength = await context.evaluate(async () => {
-    return (document.querySelectorAll('div.rd__blob img')) ? document.querySelectorAll('div.rd__blob img').length : 0;
-  });
-  console.log("variantLength:: ", variantLength);
-  if (variantLength > 1) {
-    for (let j = 0; j < variantLength; j++) {
-      await context.evaluate(async (j) => {
-        return document.querySelectorAll('div.rd__blob img.rd__img')[j].click();
-      }, j);
-      console.log('Inside variants', j);
-      if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
-    }
-  }
+  // var variantLength = await context.evaluate(async () => {
+  //   return (document.querySelectorAll('div.rd__blob img')) ? document.querySelectorAll('div.rd__blob img').length : 0;
+  // });
+  // console.log("variantLength:: ", variantLength);
+  // if (variantLength > 1) {
+  //   for (let j = 0; j < variantLength; j++) {
+  //     await context.evaluate(async (j) => {
+  //       return document.querySelectorAll('div.rd__blob img.rd__img')[j].click();
+  //     }, j);
+  //     console.log('Inside variants', j);
+  //     if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+  //   }
+  // }
   
   var variantLength = await context.evaluate(async () => {
     return (document.querySelectorAll('div.rd__product-details.sd__product-details')) ? document.querySelectorAll('div.rd__product-details.sd__product-details').length : 0;
@@ -59,16 +59,16 @@ async function implementation (
     }
   }
   // const colorArray = await context.evaluate(async (j) => {
-  //   return document.querySelectorAll('div.rd__product-details.sd__product-details').length;
+  //   return document.querySelectorAll('div.rd__blob img').length;
   // });
   // if (colorArray) {
   //   for (let j = 0; j < colorArray; j++) {
   //     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   //     await context.evaluate(async (j) => {
-  //       document.querySelectorAll('div.rd__product-details.sd__product-details')[j].click();
-  //       const value = document.querySelectorAll('div.rd__product-details.sd__product-details')[j].getAttribute('value');
+  //       document.querySelectorAll('div.rd__blob img.rd__img')[j].click();
+  //       const value = document.querySelectorAll('div.rd__blob')[j].getAttribute('value');
   //       document.querySelector('h2.rd__headlline').value = value;
-  //       return document.querySelector('h2.rd__headlline').dispatchEvent(new Event('click'));
+  //       return document.querySelector('').dispatchEvent(new Event('click'));
   //     }, j);
   //     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   //     await preparePage(j, variantLength, true);
@@ -129,6 +129,68 @@ async function implementation (
     }, index, variantLength);
   }
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
+  var variantLength1 = await context.evaluate(async () => {
+    return (document.querySelectorAll('div.rd__blob img.rd__img')) ? document.querySelectorAll('div.rd__blob img.rd__img').length : 0;
+  });
+  console.log('Variant Length1', variantLength1);
+  if (variantLength1 >= 1) {
+    for (let j = 0; j < variantLength1; j++) {
+      await preparePage1(j, variantLength1);
+      console.log('Inside variants1', j);
+      if (j !== variantLength1 - 1) { await context.extract(productDetails, { transform }); }
+    }
+  }
+  async function preparePage1(index, variantLength1) {
+    await context.evaluate(async (index, variantLength1) => {
+      function getSingleText(xpath, document, index) {
+        const element = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if (element && element.snapshotLength > 0) {
+          const elem = element.snapshotItem(index)
+          return elem ? elem.textContent : '';
+        } else {
+          return '';
+        } 
+      }
+      
+      function addHiddenDiv1(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+
+      const qtyXpath = '//h2[@class="rd__headlline rd__headline--80"]';
+      const quantity = getSingleText(qtyXpath, document, index);
+      addHiddenDiv1('my-qty', quantity);
+
+      const variantIdXpath = '//div[@class="rd__blob"]/img/@src';
+      const variantId = getSingleText(variantIdXpath, document, index);
+      addHiddenDiv1('my-variantId', variantId);
+
+      const priceXpath = '//span[contains(@class,"rd__headline--130")]/text()';
+      const price = getSingleText(priceXpath, document, index);
+      addHiddenDiv1('my-price', price);
+
+      const availabXpath = "//div[contains(@class,'rd__slider-brand-nav__index__item--active')]";
+      const availab = getSingleText(availabXpath, document, index);
+      addHiddenDiv1('my-availab', availab);
+
+      const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")]';
+      const listPrice = getSingleText(listPriceXpath, document, index - 1);
+      addHiddenDiv1('my-listPrice', listPrice);
+
+      // //const colorXpath = '//div[@class="rd__product-details__colors__select__collapsible__item rd__col--lg-12"]/@data-rd-color-name';
+      const colorXpath = '//div[@class="rd__blob"]/img/@alt';
+      const color = getSingleText(colorXpath, document, index - 1);
+      addHiddenDiv1('my-color', color);
+
+      return [`#variantId1:${variantId}`,  `#color1:${color}`, `#listPrice1:${listPrice}`];
+    }, index, variantLength1);
+  }
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
 
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {

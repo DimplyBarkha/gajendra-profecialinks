@@ -25,13 +25,13 @@ fields:
     xpath : //div[@class="rd__product-details__image__slider__item slick-slide"]/img/@src
   - name: price
     singleValue: false
-    xpath: //div[@id="my-price"]
+    xpath: //div[@id="my-price"][last()]
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="my-listPrice"]
+    xpath: //div[@id="my-listPrice"][last()]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id="my-availab"]
+    xpath: //div[@id="my-availab"][last()]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: In Stock
@@ -46,9 +46,10 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@id="my-variantId"] | //h2[@class="rd__headlline rd__headline--80"]/@title
-    regExp: ([\d]+)
-    regExpReplace: $1
+    xpath: //div[@id="my-variantId"][last()] 
+    #xpath: //div[@class="rd__blob"]/img/@src
+    regExp: \d{7,}
+    # regExpReplace:
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="bv_numReviews_text"]
@@ -91,7 +92,7 @@ fields:
     singleValue: false
     xpath: //div[@class="sd__vidcontent"]//iframe/@src
   - name: quantity
-    xpath: //div[@id="my-qty"]
+    xpath: //div[@id="my-qty"][last()]
     regExp: (\d+) (ML|UN|UD|ST)
   # - name: variantInformation
   #   xpath: //h2[@class="rd__headlline rd__headline--80"][contains(text(),'ML') or contains(text(),'UD') or contains(text(),'UD') or contains(text(),'ST')] 
@@ -115,12 +116,12 @@ fields:
   - name: color
     singlValue: false
     # xpath: //div[@class="rd__blob"]/img/@alt 
-    xpath: //div[@id="my-color"]
+    xpath: //div[@id="my-color"][last()]
   - name: customerServiceAvailability
     singleValue: true
     defaultValue: Yes
-  # - name: firstVariants
-  #   xpath: (//div[@class="rd__blob"]/img)[1]/@src
+  - name: firstVariant
+    xpath: (//div[@class="rd__blob"]/img)[1]/@src
   - name: promotion
     singleValue: false
     xpath: //div[@class="rd__container sd__container"]/a[@data-promo]
