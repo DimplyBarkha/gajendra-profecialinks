@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@id,"_ProductsList")]//li[contains(@class,"_Product")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@class="sc-product-card-pdp-link"]/@href
+  
+  - name: name
+    singleValue: false
+    xpath: //a[contains(@class,"_Product")]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="sc-product-card-pdp-link"]/@href
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[contains(@class,"_Product")]/img/@src
+  - name: url
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+ 
+  - name: reviewCount
+    singleValue: false
+    
+  - name: ratingCount
+    singleValue: false
+
+  - name: price
+    singleValue: false
+    xpath: //p[contains(@class="PrixUnitaire"]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: true
+  - name: rankOrganic
+    singleValue: true  
+  - name: sponsored
+    singleValue: true
