@@ -12,11 +12,11 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     return hasNutrition;
   });
   let hasDescription = await context.evaluate(async function () {
-    hasDescription = true;
-    /* const productTabDetail = document.querySelector('div.product-tabs').textContent;
+    hasDescription = false;
+    const productTabDetail = document.querySelector('div.product-tabs').textContent;
     if (productTabDetail.includes('Description')) {
       hasDescription = true;
-    } */
+    }
     return hasDescription;
   });
   let hasIngredient = await context.evaluate(async function () {
@@ -180,31 +180,33 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       const SkuList = SkuXpath.split(':');
       addElementToDocument('added_sku', SkuList[1]);
     }
-    addElementToDocument('added_manufactureDescription', enhanceContent);
-    addElementToDocument('added_manufactureImages', enhanceImage);
-    addElementToDocument('added_ingredient', IngredientDetails);
-    addElementToDocument('added_additional_description', DescriptionDetails);
-    addElementToDocument('added_additional_warning', WarningDetails);
+    addElementToDocument('added_manufactureDescription', typeof enhanceContent === 'undefined' ? '' : enhanceContent);
+    addElementToDocument('added_manufactureImages', typeof enhanceImage === 'undefined' ? '' : enhanceImage);
+    addElementToDocument('added_ingredient', typeof IngredientDetails === 'undefined' ? '' : IngredientDetails);
+    addElementToDocument('added_additional_description', typeof DescriptionDetails === 'undefined' ? '' : DescriptionDetails);
+    addElementToDocument('added_additional_warning', typeof WarningDetails === 'undefined' ? '' : WarningDetails);
     const BrandXpath = getXpath('//h1[@_ngcontent-c18]', 'innerText');
-    const brandList = BrandXpath.split(' ');
-    if (brandList[0].length < 6) {
-      addElementToDocument('added_brand', brandList[0] + ' ' + brandList[1]);
-    } else {
-      addElementToDocument('added_brand', brandList[0]);
+    if (BrandXpath !== null) {
+      const brandList = BrandXpath.split(' ');
+      if (brandList[0].length < 6) {
+        addElementToDocument('added_brand', brandList[0] + ' ' + brandList[1]);
+      } else {
+        addElementToDocument('added_brand', brandList[0]);
+      }
     }
     // Nutrition
-    if (nutritionDetails !== null && nutritionDetails !== 'null') {
+    if (typeof nutritionDetails !== 'undefined' && nutritionDetails !== null && nutritionDetails !== 'null') {
       if (nutritionDetails[1] !== 'null') {
         // added_number_of_servings
-        addElementToDocument('added_number_of_servings', nutritionDetails[1]);
+        addElementToDocument('added_number_of_servings', nutritionDetails[1].replace(/[^\d.-]/g, ''));
       }
       if (nutritionDetails[2] !== 'null ') {
       // added_calories_per_serving
-        addElementToDocument('added_calories_per_serving', nutritionDetails[2]);
+        addElementToDocument('added_calories_per_serving', nutritionDetails[2].replace(/[^\d.-]/g, ''));
       }
       if (nutritionDetails[3] !== 'null ') {
         // added_calories_from_fat_per_serving
-        addElementToDocument('added_calories_from_fat_per_serving', nutritionDetails[3]);
+        addElementToDocument('added_calories_from_fat_per_serving', nutritionDetails[3].replace(/[^\d.-]/g, ''));
       }
       if (nutritionDetails[0] !== 'null' && nutritionDetails[0] !== null && nutritionDetails[0] !== '') {
         const servingSize = nutritionDetails[0].replace(/[^\d.-]/g, '');

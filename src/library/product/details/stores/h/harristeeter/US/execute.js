@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'harristeeter',
     domain: 'harristeeter.com',
-    loadedSelector: null,
+    loadedSelector: 'hts-product-details',
     noResultsXPath: null,
     zipcode: '',
   },
