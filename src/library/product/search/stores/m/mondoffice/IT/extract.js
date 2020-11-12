@@ -7,8 +7,14 @@ async function implementation (
   const { productDetails } = dependencies;
   await context.waitForSelector('#toolbar__all_anchor');
   await context.evaluate(async function () {
-    const el = document.querySelector('body');
-    el.setAttribute('search_url', location.href);
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    addElementToDocument('search_url', location.href);
   });
 
   // Check if cookies pop-up appeared
@@ -25,13 +31,6 @@ async function implementation (
   if (doesPopupInfoExist) {
     await context.click('.kamPopup__close');
   }
-  // try {
-  //   await context.clickAndWaitForNavigation('.pagination-button__next', {}, { timeout: 30000 });
-  // } catch (err) {
-  //   console.log('Click & Navigation error' + err);
-  // }
-  // await context.goto('https://www.mondoffice.com/INTERSHOP/web/WFS/RAJA-MONDOFFICE-Site/it_IT/-/EUR/ViewParametricSearch-ProductPaging?PageNumber=1&PageSize=20&SortingAttribute=&ViewType=1&SearchTerm=paper&SearchParameter=%26%40QueryTerm%3Dpaper%26MasterProductFlag%3D0%26SpecialProductFlag%3Dfalse#toolbar__all_anchor')
-  // await context.goto('https://www.mondoffice.com/INTERSHOP/web/WFS/RAJA-MONDOFFICE-Site/it_IT/-/EUR/ViewParametricSearch-ProductPaging?PageNumber=2&PageSize=20&SortingAttribute=&ViewType=1&SearchTerm=paper&SearchParameter=%26%40QueryTerm%3Dpaper%26MasterProductFlag%3D0%26SpecialProductFlag%3Dfalse#toolbar__all_anchor')
   return await context.extract(productDetails);
 }
 module.exports = {
