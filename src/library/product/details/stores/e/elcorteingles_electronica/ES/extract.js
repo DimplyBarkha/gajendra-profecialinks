@@ -19,6 +19,8 @@ module.exports = {
     });
     let iframeUrl = '';
     let additionalDesc = '';
+    let manufacturerImg='';
+    let manufacturerDesc= '';
     let additionalDescBulletCount = 0;
     try{
       await context.waitForSelector('#loadbeeTabContent');
@@ -27,7 +29,49 @@ module.exports = {
       });
       await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
       await context.waitForNavigation();
-      additionalDesc = await context.evaluate(()=>{
+      try{
+        await context.waitForSelector('div.descriptions img')
+      }catch(e){
+        console.log('enhanced content not loaded')
+      }
+      try{
+        manufacturerDesc = await context.evaluate(()=>{
+          //@ts-ignore
+          let manufacturerDescArray = [...document.querySelectorAll('div.descriptions p')];
+          for(let  i = 0 ; i < manufacturerDescArray.length ; i ++){
+            if(manufacturerDescArray[i].innerText != '[object HTMLParagraphElement]' || manufacturerDescArray[i].innerText != ''){
+              manufacturerDescArray[i] = manufacturerDescArray[i].innerText;
+            }
+          }
+          let filtered = manufacturerDescArray.filter(function (el) {
+            return (el != null && el != "");
+          });
+
+          return filtered.join(' | ');
+        });
+      }catch(e){
+        console.log('manufacturer Description not present');
+      }
+      try{
+        manufacturerImg = await context.evaluate(()=>{
+        //@ts-ignore
+        let manufacturerImgArray = [...document.querySelectorAll('div.thumbnail')];
+        for(let  i = 0 ; i < manufacturerImgArray.length ; i ++){
+          manufacturerImgArray[i] = manufacturerImgArray[i].getAttribute('data-highres-img');
+        }
+        //@ts-ignore
+        let manufacturerImgs = [...document.querySelectorAll('div.descriptions img.img-responsive')];
+        for(let  i = 0 ; i < manufacturerImgs.length ; i ++){
+          manufacturerImgArray.push(manufacturerImgs[i].getAttribute('src'));
+        }
+        return manufacturerImgArray.join(' | ');
+      });
+      }catch(e){
+        console.log('Manufacturer Imapges not present');
+      }
+      
+      try{
+        additionalDesc = await context.evaluate(()=>{
         //@ts-ignore
         let additionalDescArray = [...document.querySelectorAll('div.container-fluid.hero ul>li')];
         for(let  i = 0 ; i < additionalDescArray.length ; i ++){
@@ -35,20 +79,41 @@ module.exports = {
         }
         return additionalDescArray.join(' || ');
       });
-      additionalDescBulletCount = await context.evaluate(()=>{
+       additionalDescBulletCount = await context.evaluate(()=>{
         //@ts-ignore
         return [...document.querySelectorAll('div.container-fluid.hero ul>li')].length;
       });
+      }catch(e){
+        console.log('additional Description not present')
+      }
+     
     }catch(err){
       console.log('iframe not present');
     }
     await context.goto(currentUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
     await context.waitForNavigation();
     console.log('descrption - ', additionalDesc);
-    await context.evaluate((additionalDescBulletCount,additionalDesc)=>{
+    await context.evaluate((additionalDescBulletCount,additionalDesc,manufacturerDesc,manufacturerImg)=>{
       document.querySelector('body').setAttribute('bullet',additionalDescBulletCount);
       document.querySelector('body').setAttribute('desc',additionalDesc);
-    },additionalDescBulletCount,additionalDesc);
+      document.querySelector('body').setAttribute('manu-desc',manufacturerDesc);
+      document.querySelector('body').setAttribute('manu-img',manufacturerImg);
+    },additionalDescBulletCount,additionalDesc,manufacturerDesc,manufacturerImg);
+
+
+    try{
+      await context.waitForSelector('#flix_hotspots');
+      await context.click('#flix_product_video');
+      await context.waitForSelector('iframe[id*=flix-iframe]');
+      await context.evaluate(()=>{
+      let galleryVideo = document.querySelector('iframe[id*=flix-iframe]').getAttribute('src');
+      document.querySelector('body').setAttribute('gallery-video',galleryVideo);
+    });
+    }catch(err){
+      console.log('no video in gallery', err.message);
+    }    
+
+
     await context.evaluate(async function () {
       // function to append the elements to DOM
       function addElementToDocument(key, value) {

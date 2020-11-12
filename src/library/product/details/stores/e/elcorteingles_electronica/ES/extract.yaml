@@ -68,7 +68,7 @@ fields:
     xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
   - name: videos
     singleValue: false
-    xpath : //div[@id="video"]
+    xpath : //div[@id="video"] | //body/@gallery-video
   - name: name
     singleValue: true
     xpath : //meta[@name="twitter:title"]/@content
@@ -115,3 +115,11 @@ fields:
     xpath: //body/@bullet
     description: Number of ul > li tags in the description
     type: NUMBER
+  - name: manufacturerImages
+    singleValue: true
+    description: Images within the third party description
+    xpath: //body/@manu-img
+  - name: manufacturerDescription
+    singleValue: true
+    description: The extended description of the product supplied by the lister
+    xpath: //body/@manu-desc
