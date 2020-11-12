@@ -28,7 +28,7 @@ const transform = (data, context) => {
     return joinArray(matchArray.map(mtch => mtch.match(regex2) ? mtch.match(regex2)[0] : ''));
   };
 
-  const matchRegex = (regex, item, def = item) => {
+  const matchRegexFunc = (regex, item, def = item) => {
     const match = item.match(regex);
     return match ? match[0] : def;
   };
@@ -36,7 +36,7 @@ const transform = (data, context) => {
   const regexTestNReplace = (regex, item, { extraRegex, matchRegex } = {}) => {
     if (regex.test(item)) {
       if (extraRegex) return item.toString().replace(regex, '').replace(extraRegex, '');
-      if (matchRegex) return matchRegex(matchRegex, item.toString().replace(regex, ''));
+      if (matchRegex) return matchRegexFunc(matchRegex, item.toString().replace(regex, ''));
       return item.toString().replace(regex, '');
     }
     return item;
@@ -51,7 +51,7 @@ const transform = (data, context) => {
       const hostName = row.productUrl && row.productUrl[0] ? row.productUrl[0].text.split('/')[2] : '';
       const websiteName = hostName.split('.').slice(1).join('.');
       const mappingObject = {
-        asin: item => matchRegex(/([A-Za-z0-9]{10,})/g, sg(item), ''),
+        asin: item => matchRegexFunc(/([A-Za-z0-9]{10,})/g, sg(item), ''),
         warnings: item => sg(item).replace(/Safety Information/g, '').trim(),
         weightGross: item => sg(item).trim(),
         shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
