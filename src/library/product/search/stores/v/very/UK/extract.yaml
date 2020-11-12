@@ -8,6 +8,7 @@ fields:
     xpath: //li[@class="product"]/@data-sdg-id
   - name: searchUrl
     singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
     xpath: //span[@class="productBrandDesc"]
