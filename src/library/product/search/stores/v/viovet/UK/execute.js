@@ -5,9 +5,9 @@ module.exports = {
     country: 'UK',
     store: 'viovet',
     domain: 'viovet.co.uk',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.viovet.co.uk/advanced_search_result.php?keywords={searchTerms}',
+    loadedSelector: 'span[class="_results-view-option"]',
+    noResultsXPath: '//h3[@style="margin-top:10px;"]',
     zipcode: '',
   },
 };

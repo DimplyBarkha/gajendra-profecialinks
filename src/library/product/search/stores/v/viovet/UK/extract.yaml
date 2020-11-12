@@ -1,30 +1,39 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[@itemtype="http://schema.org/Product"]
 fields:
   - name: id
     singleValue: false
+    xpath: //li[@itemtype="http://schema.org/Product"]//a/@href
+    regExp: c(\d+)
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //li[@itemtype="http://schema.org/Product"]//h2[@itemprop="name"]
   - name: productUrl
     singleValue: false
+    xpath: //li[@itemtype="http://schema.org/Product"]/@product_url
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //li[@itemtype="http://schema.org/Product"]/@image_url
   - name: aggregateRating
     singleValue: false
+    xpath: //li[@itemtype="http://schema.org/Product"]//i[@itemprop="ratingValue"]/@content
   - name: aggregateRating2
     singleValue: false
   - name: reviewCount
     singleValue: false
+    xpath : //li[@itemtype="http://schema.org/Product"]//span[@itemprop="reviewCount"]/@content
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //li[@itemtype="http://schema.org/Product"]//span[@class="_sale-price"]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -35,10 +44,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //li[@itemtype="http://schema.org/Product"]/@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //li[@itemtype="http://schema.org/Product"]/@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
