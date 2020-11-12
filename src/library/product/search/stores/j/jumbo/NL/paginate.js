@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'jumbo',
-    nextLinkSelector: null,
+    nextLinkSelector: 'span.d-none.d-l-inline',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: '.rw',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'jumbo.com',
