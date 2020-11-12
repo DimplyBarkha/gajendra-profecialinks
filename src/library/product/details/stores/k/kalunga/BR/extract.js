@@ -17,7 +17,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-
+    await context.waitForSelector('.stars');
     await context.evaluate(() => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -32,8 +32,9 @@ module.exports = {
       if (!outOfStock) {
         addElementToDocument('availabilityText', 'In Stock');
       }
+      const stars = document.querySelectorAll('.reviews .stars > .text-warning');
+      addElementToDocument('ratingStars', stars.length);
     });
-
     return await context.extract(productDetails, { transform });
   }
 };

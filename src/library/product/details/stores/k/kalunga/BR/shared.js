@@ -9,7 +9,6 @@ const transform = (data) => {
   const currency = /[\d\., ]/g;
   data.forEach(el => {
     el.group.forEach(gr => {
-      console.log(gr, 'ssssssssssssssssssssssss');
       gr.rpc[0].text = gr.rpc[0].text.replace(onlyNumbers, '');
       gr.price[0].text = gr.price[0].text.replace(onlyNumbers, '');
       gr.uniqCode[0].text = gr.uniqCode[0].text.replace(onlyNumbers, '');
