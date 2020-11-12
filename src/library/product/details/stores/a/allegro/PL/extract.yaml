@@ -91,7 +91,7 @@ fields:
   - name: directions
     xpath: //*[contains(., 'Sposób użycia:')]/following-sibling::ol |//*[contains(., 'Sposób użycia:')]/following-sibling::p  | //dt[contains(., 'Sposób użycia:')]/following-sibling::dd | //h2[contains(., 'Stosowanie:')]/following-sibling::*
   - name: warnings
-    xpath: //h2[contains(., 'UWAGA!')] | //dt[contains(., 'UWAGA!')]/following-sibling::dd
+    xpath: //h2[contains(., 'UWAGA!')] | //dt[contains(., 'UWAGA!')]/following-sibling::dd | //p[contains(., 'OSTRZEŻENIA DOTYCZĄCE BEZPIECZEŃSTWA') or contains(., 'Środki ostrożności:')]/following-sibling::p
     singleValue: true
   - name: eangtin
     xpath: //li//div[contains(., 'ean')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'EAN')]/following-sibling::dd
