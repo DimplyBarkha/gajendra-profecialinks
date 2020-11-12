@@ -394,10 +394,14 @@ fields:
   description: Unit of Measure Data for Magnesium
 - name: saltPerServing
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[9]/td[1]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
 - name: saltPerServingUom
   singleValue: true
+  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[9]/td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Salt
 - name: dietaryInformation
   singleValue: true

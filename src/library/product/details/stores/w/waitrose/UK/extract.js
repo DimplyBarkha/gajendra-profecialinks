@@ -14,6 +14,13 @@ module.exports = {
     { country, domain },
     context,
     { productDetails }) => {
+      //remove cookies popup
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await context.evaluate(async function () {
+      const cookies = document.querySelector('div.acceptCookieCTA___NwqHh button');
+      if (cookies) cookies.click();
+    });
+
     var detailsPage = await context.evaluate(async () => {
       if (document.querySelector('a[data-origincomponent="ProductPod"]') != null) {
         var productLink = document.querySelector('a[data-origincomponent="ProductPod"]').getAttribute('href');
@@ -23,13 +30,6 @@ module.exports = {
     if (detailsPage) {
       await context.goto('https://www.waitrose.com/' + detailsPage);
     }
-
-    //remove cookies popup
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-    await context.evaluate(async function () {
-      const cookies = document.querySelector('div.acceptCookieCTA___NwqHh button');
-      if (cookies) cookies.click();
-    });
 
     // await context.waitForNavigation();
     await new Promise((resolve) => setTimeout(resolve, 3000));
