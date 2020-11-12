@@ -21,13 +21,7 @@ async function implementation (
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   });
-  var data = await context.extract(productDetails, { transform });
-  for (let i = 0; i < data[0].group.length; i++) {
-    if ('aggregateRating2' in data[0].group[i]) {
-        data[0].group[i].aggregateRating2[0].text = data[0].group[i].aggregateRating2[0].text.replace('.', ','); 
-    }
-  }
-  return data;
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
