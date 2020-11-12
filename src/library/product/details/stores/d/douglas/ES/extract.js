@@ -38,17 +38,15 @@ async function implementation (
   });
   console.log("variantLength:: ", variantLength);
   if (variantLength > 1) {
-    // await preparePageForCommonElement(0, variantLength);
     for (let j = 0; j < variantLength; j++) {
       await context.evaluate(async (j) => {
         return document.querySelectorAll('div.rd__blob img.rd__img')[j].click();
       }, j);
-      // await context.click(`ul.topic li label`);
       console.log('Inside variants', j);
-      // await preparePage(j, variantLength);
       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
     }
   }
+  
   var variantLength = await context.evaluate(async () => {
     return (document.querySelectorAll('div.rd__product-details.sd__product-details')) ? document.querySelectorAll('div.rd__product-details.sd__product-details').length : 0;
   });
@@ -106,6 +104,10 @@ async function implementation (
       const quantity = getSingleText(qtyXpath, document, index - 1);
       addHiddenDiv('my-qty', quantity);
 
+      const variantIdXpath = '//h2[@class="rd__headlline rd__headline--80"]/@title';
+      const variantId = getSingleText(variantIdXpath, document, index - 1);
+      addHiddenDiv('my-variantId', variantId);
+
       const priceXpath = '//span[contains(@class,"rd__headline--130")]/text()';
       const price = getSingleText(priceXpath, document, index - 1);
       addHiddenDiv('my-price', price);
@@ -118,8 +120,12 @@ async function implementation (
       const listPrice = getSingleText(listPriceXpath, document, index - 1);
       addHiddenDiv('my-listPrice', listPrice);
 
+      // //const colorXpath = '//div[@class="rd__product-details__colors__select__collapsible__item rd__col--lg-12"]/@data-rd-color-name';
+      const colorXpath = '//div[@class="rd__blob"]/img/@alt';
+      const color = getSingleText(colorXpath, document, index - 1);
+      addHiddenDiv('my-color', color);
 
-      return [`#qty:${quantity}`, `#price:${price}`, `#availab:${availab}`, `#listPrice:${listPrice}`];
+      return [`#qty:${quantity}`, `#variantId:${variantId}`, `#price:${price}`, `#availab:${availab}`, `#color:${color}`, `#listPrice:${listPrice}`];
     }, index, variantLength);
   }
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));

@@ -34,7 +34,7 @@ fields:
     xpath: //div[@id="my-availab"]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
@@ -46,9 +46,8 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class="rd__blob"]/img
-    regExp: \d{5,}
-    regExpReplace: $1
+    xpath: //div[@id="my-variantId"] | //h2[@class="rd__headlline rd__headline--80"]/@title
+    type: NUMBER
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="bv_numReviews_text"]
@@ -114,7 +113,8 @@ fields:
     xpath: count(//div[@class="rd__blob"]/img)
   - name: color
     singlValue: false
-    xpath: //div[@class="rd__blob"]//img[@class="rd__img loading"]/@alt
+    # xpath: //div[@class="rd__blob"]/img/@alt 
+    xpath: //div[@id="my-color"]
   - name: customerServiceAvailability
     singleValue: true
     defaultValue: Yes
