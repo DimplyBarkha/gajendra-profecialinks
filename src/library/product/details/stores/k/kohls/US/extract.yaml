@@ -8,7 +8,7 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
-  singleValue: false
+  singleValue: (//meta[@itemprop="url"]/@content)[1]
 - name: _pageTimeStamp
   singleValue: false
 - name: image

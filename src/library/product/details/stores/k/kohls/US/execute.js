@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'kohls',
     domain: 'kohls.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[id="PDP_colGrid"]',
+    noResultsXPath: '//div[@class="pdp_outofstockproduct"]',
     zipcode: '',
   },
 };
