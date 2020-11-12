@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-# recordXPath: //td[@class="docs depth_1"]/table[1]/tbody/tr
+# recordXPath: //ul[@data-dy="productsList"]/li[@data-dy]
 fields:
   - name: productUrl
     xpath: //a[@class="sc-1w9a1pg-5 sc-19ibhqc-3 gjliPR"]/@href
@@ -12,18 +12,25 @@ fields:
     xpath: //div[@class="sc-19ibhqc-2 jNsyzk"]//a[@class="sc-1w9a1pg-5 sc-19ibhqc-3 gjliPR"]//img/@src
     description: The URL for the product thumbnail image
   - name: name
-    xpath: (//div[@class="sc-1w9a1pg-12 sc-19ibhqc-13 hhdhoM"]//a)
+    xpath: (//a[@data-dy="title"])
     description: The product name
   - name: id
     xpath: //span[@class="sc-19ibhqc-10 jCwEGn"]
     description: The store-specific product identifier
+  - name: aggregateRating
+    xpath: (//div[@class="sc-1w9a1pg-9 sc-19ibhqc-6 dazTtU"]/div/span[1]/span[@class="tevqf5-0 cbJQML"])[1]
   - name: reviewCount
     xpath: //a[@class="sc-1w9a1pg-11 sc-19ibhqc-9 bnWFSv ReviewLink"]
+    regExp: \d+
   - name: price
     xpath: //span[@class="sc-1xca1up-1 sc-3lsqu-1 kQIWtq"] | //span[@class="sc-1cthcno-1 sc-1jb1pug-1 jXDfSo"]
     description: The offered price for the product
   - name: rank
-    xpath: //li[@class="sc-1w9a1pg-0 sc-19ibhqc-0 gUmybO"]//@data-product-index
     singleValue: false
+    xpath: //div[@id='rankOrganic']
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@id='rankOrganic']
     
 
