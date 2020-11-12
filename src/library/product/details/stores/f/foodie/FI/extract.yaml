@@ -1,0 +1,96 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //a[@id='product-image-zoom']/@href
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@id='product-image-zoom']/@alt
+  - name: category
+    singleValue: false
+    # Remove last <a> as it contains product name and no specific tag to identify last one
+    xpath: //div[contains(@class,'categories-breadcrumb')]//a[not(contains(@class,'root-icon'))]
+  - name: name
+    singleValue: false
+    xpath: //h1[@id='product-name']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@id='product-name']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'amount-selector')]//span[contains(@class,'amount-empty-label') and text()='Lisää']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    # Price is divided in 3 <spans> for whole, decimal and unit
+    xpath: //div[@id='js-pricebox'] 
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'tab-content')]//h3[text()='Tuotekuvaus']//following-sibling::p[@itemprop='description']
+  - name: brandText
+    singleValue: false
+    xpath: //h2[@id='product-subname']
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,'tab-content')]//h3[text()='Valmistaja']//following-sibling::p[1]
+  - name: mpc
+    singleValue: false
+    # reason of [1] because sometimes they display model 2 times
+    xpath: (//div[@id='attributes']//td[text()='Malli']/following-sibling::td)[1]
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop='sku']
+  - name: variantId
+    singleValue: false
+    xpath: //span[@itemprop='sku']
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+    # No variation
+    type: NUMBER  
+  - name: gtin
+    singleValue: false
+    xpath: //span[@itemprop='sku']
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,'tab-content')]//h3[text()='Ainesosat']//following-sibling::p[@id='product-ingredients']
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='attributes']//tr
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id='attributes']//td[text()='Takuu']/following-sibling::td
+  - name: color
+    singleValue: false
+    xpath: //div[@id='attributes']//td[contains(text(),'Väritys')]/following-sibling::td
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,'tab-content')]//h3[text()='Valmistusmaa']//following-sibling::p[1]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='pull-right']//span[@itemprop="reviewCount"]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='js-quantity']
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //div[@class='js-details']/text()[normalize-space()]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='attributes']//td[text()='Nettopaino']/following-sibling::td
+    # 0,38 kgm replace , by .
+  - name: weightGross
+    singleValue: false
+    # 0,38 kgm replace , by .
+    xpath: //div[@id='attributes']//td[text()='Bruttopaino']/following-sibling::td
+  - name: storage
+    singleValue: false
+    xpath: //div[@id='attributes']//td[contains(text(),'Säilytysohje')]/following-sibling::td
