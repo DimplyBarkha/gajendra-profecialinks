@@ -26,19 +26,13 @@ module.exports = {
       try {
         var clickButton = document.querySelectorAll('a[class="c-link f5 mb2 mt0 db-m dn"]');
         if (clickButton.length) {
-          if (clickButton.length === 2) {
-            // @ts-ignore
-            clickButton[1].click();
-          } else {
-            // @ts-ignore
-            clickButton[0].click();
-          }
+          clickButton[0].click()
+          console.log('clicked successfully');
         }
-        console.log('clicked successfully');
       } catch (e) {
         console.log('not able to click');
       }
     });
-    await context.waitForNavigation({ timeout });
+    await context.waitForSelector('div[class*="galleryItem"]', { timeout: 40000 });
   },
 };
