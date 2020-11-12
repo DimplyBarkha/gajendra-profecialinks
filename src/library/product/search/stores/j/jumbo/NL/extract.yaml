@@ -1,20 +1,24 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: div[analytics-tag="product card"]
 recordXPath: null
 fields:
   - name: id
     singleValue: false
+    xpath: //div[@analytics-tag='product card']/@data-product-id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //h3[@class='jum-card-title__text mb-0 regular']/span
   - name: productUrl
     singleValue: false
+    xpath: //div[@class="list-methods"]/descendant::a[@class="opposite"]/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[@class='jum-image d-block autosize w-100']/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,6 +29,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    # xpath: //span[@class="jum-product-price__current-price d-inline-flex align-items-start"]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -34,10 +39,12 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
+    xpath:  //div[@analytics-tag="product card"]/@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
+    xpath:  //div[@analytics-tag="product card"]/@rankorganic
     type: NUMBER
   - name: sponsored
     singleValue: false
