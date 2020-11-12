@@ -3,21 +3,16 @@ const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'US',
-    store: 'boxed',
+    country: 'CL',
+    store: 'jumbo',
     transform: cleanUp,
-    domain: 'boxed.com',
+    domain: 'jumbo.cl',
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await context.evaluate(async function () {
-      const isPopupPresent = document.querySelector('div[aria-label="Close modal"]');
-      // @ts-ignore
-      if (isPopupPresent) isPopupPresent.click();
-      const productDetails = document.querySelector('a[data-tab-key="productDetails"]');
-      // @ts-ignore
-      if (productDetails) productDetails.click();
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
+    await context.evaluate(async function () {
       function addElementToDocument (id, value, key) {
         const catElement = document.createElement('div');
         catElement.id = id;
@@ -27,8 +22,10 @@ module.exports = {
         document.body.appendChild(catElement);
       };
 
-      const imageLink = document.querySelector('div.product-image div.zoomed-image')
-        ? document.querySelector('div.product-image div.zoomed-image').baseURI : null;
+      const imageLink = document.querySelector('div.product-image div.zoomed-image') ? 
+      (document.querySelector('div.product-image div.zoomed-image').getAttribute('style') ? 
+        (document.querySelector('div.product-image div.zoomed-image').getAttribute('style').match(/url\("([^"]+)/)? 
+        document.querySelector('div.product-image div.zoomed-image').getAttribute('style').match(/url\("([^"]+)/)[1] : null) : null) : null
       // @ts-ignore
       if (imageLink !== null) {
         // @ts-ignore
@@ -37,7 +34,7 @@ module.exports = {
 
       const ImageThumb = document.querySelectorAll('div.product-image-thumbs li img');
       // @ts-ignore
-      const alt = ImageThumb ? ImageThumb[0].alt : null;
+      const alt = ImageThumb ? (ImageThumb[0] ? ImageThumb[0].alt : null) : null;
       if (alt !== null) {
         // @ts-ignore
         addElementToDocument('altText', '', alt);
@@ -51,16 +48,16 @@ module.exports = {
         });
       }
 
-      const nutritionalInfo = document.querySelectorAll('div.nutritional-details-title-data span');
+      const nutritionalInfo = document.querySelectorAll('li.nutritional-details-title-data');
 
       if (nutritionalInfo) {
         nutritionalInfo.forEach(e => {
-          const val = e.textContent.match(/^[^(]+\((\w+)\)/)[1];
+          const val = e.textContent.match(/^[^(]+\((\w+)\)/) ? e.textContent.match(/^[^(]+\((\w+)\)/)[1] : null ;
           e.setAttribute('unitOfMeasure', val);
         });
       }
     });
 
-    await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };

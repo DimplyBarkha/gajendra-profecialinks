@@ -1,0 +1,71 @@
+input:
+  _url: http://jumbo.cl
+  URL: https://www.jumbo.cl/desodorante-masculino-black-axe-96-g/p
+extractions:
+  - html: https://workbench.import.io/html/run=11137642-177f-4f68-b73e-d43356de27e7/task=898a0b03-531a-4bdd-ba91-217bf3551fe5/a50af64e-dd7a-4b9e-b58b-525a02083a01.html
+    extractionConfigId: product/details/stores/j/jumbo/CL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.cl/desodorante-masculino-black-axe-96-g/p
+                xpath: /html/head[1]/meta[13]/@content
+            image:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/353756-750-750/Principal-867.jpg?v=637342300921900000
+                xpath: /html/body/div[2]/@content
+            imageAlt:
+              - text: Principal-867
+                xpath: /html/body/div[3]/@content
+            alternateImages:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/353756/Principal-867.jpg?v=637342300921900000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/img[1]/@fullimg
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/353244/Pack2x-Freestyle-desodorante-antitranspirante-2-867.jpg?v=637342290753270000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/img[1]/@fullimg
+            category:
+              - text: Perfumería
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Cuidado Hombre
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Desodorantes Masculinos
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $ 4.289
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[4]/div[1]/text()[1]
+            availabilityText:
+              - text: in stock
+                xpath: /html/head[1]/meta[28]/@content
+            description:
+              - text: Fragancia fresca y masculina
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[5]/span[2]/li[1]
+              - text: Efecto duradero hasta por 48 horas
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[5]/span[2]/li[2]
+              - text: Aplicable en todo el cuerpo
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[5]/span[2]/li[3]
+              - text: Desodorante de larga duración
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[5]/span[2]/li[4]
+              - text: Haz que la cosa fluya con la increíble fragancia del nuevo Axe Freestyle.
+                  Desodorante antitranspirante que te mantiene seco por 48
+                  horas. Combina protección junto con la mejor fragancia. No
+                  daña la capa de ozono.
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[2]
+            brandText:
+              - text: Axe
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[2]
+            manufacturer:
+              - text: Axe
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[2]
+            quantity:
+              - text: 1 un
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[1]
+            sku:
+              - text: "9647"
+                xpath: /html/head[1]/meta[29]/@content
+            nameExtended:
+              - text: Axe Pack2x Freestyle desodorante + antitranspirante
+            descriptionBullets:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: es
+                value: 4
+        xpath: /
+    timestamp: 1605178573794

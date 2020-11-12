@@ -4,14 +4,12 @@ recordSelector: null
 recordXPath: null
 fields:
 - name: _input
-  singleValue: true
-  xpath: //meta[@property="og:url"][@data-react-helmet]/@content
+  singleValue: false
 - name: _url
-  singleValue: true
-  xpath: //meta[@property="og:url"][@data-react-helmet]/@content
+  singleValue: false
 - name: productUrl
-  singleValue: true
-  xpath: //meta[@property="og:url"][@data-react-helmet]/@content
+  singleValue: false
+  xpath: //meta[@property="og:url"][1]/@content
 - name: _pageTimeStamp
   singleValue: true
 - name: image
@@ -34,19 +32,19 @@ fields:
   description: The categories (e.g. from breadcrumbs)
   xpath: (//div[@class="bread-crumb"]//a)[position()>1] 
 - name: nameExtended
-  singleValue: true
+  singleValue: false
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
   xpath: concat(//span[@class="product-brand"], ' ', //h1[@class="product-name"])
 - name: listPrice
-  singleValue: true
+  singleValue: false
   description: The stated undiscounted price for the product
-  xpath: //div[@class="product-single-price-container"]/text() | //span[@class="price-product-value"]
+  xpath: (//div[@class="product-single-price-container"]/text() | //div[@class="price-product-old-price"]/span[1] | //div[@class='price-product-content']/span[contains(@class,"price-product")][1])[1]
 - name: price
-  singleValue: true
+  singleValue: false
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //div[@class="product-single-price-container"]/text() | //div[@class="price-product-text"]//span[@class="price-product-best optic-center"]/text()
+  xpath: //div[@class="price-product-text"]//span[@class="price-product-best optic-center"]/text()
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -62,6 +60,7 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
   xpath: count(//span[@class='product-main-description-short']//li)
+  type: NUMBER
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -264,7 +263,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'kcal')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'kcal')]/following-sibling::li[1]
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -273,83 +272,83 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Grasa Total')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Grasa Total')]/following-sibling::li[1]
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Grasa Total')]/@unitofmeasure
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Grasa Total')]/@unitofmeasure
 - name: saturatedFatPerServing
   singleValue: true
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Grasa Saturada')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Grasa Saturada')]/following-sibling::li[1]
 - name: saturatedFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Saturated Fat content
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Grasa Saturada')]/@unitofmeasure
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Grasa Saturada')]/@unitofmeasure
 - name: transFatPerServing
   singleValue: true
   description: Nutritional Information for Trans Fat content - Usually based on per
     100g serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Grasa Trans')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Grasa Trans')]/following-sibling::li[1]
 - name: transFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Trans Fat content
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Grasa Trans')]/@unitofmeasure
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Grasa Trans')]/@unitofmeasure
 - name: cholesterolPerServing
   singleValue: true
   description: Nutritional Information for Cholesterol content - Usually based on
     per 100g serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Colesterol')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Colesterol')]/following-sibling::li[1]
 - name: cholesterolPerServingUom
   singleValue: true
   description: Unit of Measure Data for Cholesterol content
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Colesterol')]/@unitofmeasure
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Colesterol')]/@unitofmeasure
 - name: sodiumPerServing
   singleValue: true
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Sodio')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Sodio')]/following-sibling::li[1]
 - name: sodiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Sodium content
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Sodio')]/@unitofmeasure
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Sodio')]/@unitofmeasure
 - name: totalCarbPerServing
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Hidratos de Carbono')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Hidratos de Carbono')]/following-sibling::li[1]
 - name: totalCarbPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Carbohydrate content
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Hidratos de Carbono')]/@unitofmeasure
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Hidratos de Carbono')]/@unitofmeasure
 - name: dietaryFibrePerServing
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Fibra Dietética')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Fibra Dietética')]/following-sibling::li[1]
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Fibra Dietética')]/@unitofmeasure
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Fibra Dietética')]/@unitofmeasure
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Azúcares Totales')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Azúcares Totales')]/following-sibling::li[1]
 - name: totalSugarsPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Azúcares Totales')]/@unitofmeasure
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Azúcares Totales')]/@unitofmeasure
 - name: proteinPerServing
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Proteinas')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Proteinas')]/following-sibling::li[1]
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
-  //div[@class='nutritional-details-title-data']/span[contains(text(),'Proteinas')]/@unitofmeasure
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Proteinas')]/@unitofmeasure
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
@@ -368,11 +367,11 @@ fields:
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Calcio')]/parent::div/following-sibling::div/span[1]
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Calcio')]/following-sibling::li[1]
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
-  xpath: //div[@class='nutritional-details-title-data']/span[contains(text(),'Calcio')]/@unitofmeasure
+  xpath: //li[@class='nutritional-details-title-data'][contains(text(),'Calcio')]/@unitofmeasure
 - name: ironPerServing
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g

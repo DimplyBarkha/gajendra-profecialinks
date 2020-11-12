@@ -1,0 +1,86 @@
+input:
+  _url: http://jumbo.cl
+  URL: https://www.jumbo.cl/limpiador-crema-cif-limon-750-g/p
+extractions:
+  - html: https://workbench.import.io/html/run=11137642-177f-4f68-b73e-d43356de27e7/task=81900d3b-2115-4b70-9d8f-a7cbbaef0d3a/9f97d5f1-34ef-4039-8726-4a5b7d55ad33.html
+    extractionConfigId: product/details/stores/j/jumbo/CL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.cl/limpiador-crema-cif-limon-750-g/p
+                xpath: /html/head[1]/meta[13]/@content
+            image:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324595-750-750/Principal-2385.jpg?v=637159014361400000
+                xpath: /html/body/div[2]/@content
+            imageAlt:
+              - text: Principal-2385
+                xpath: /html/body/div[3]/@content
+            alternateImages:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324595/Principal-2385.jpg?v=637159014361400000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/img[1]/@fullimg
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/225987/1492545.jpg?v=636591221658470000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/img[1]/@fullimg
+            category:
+              - text: Limpieza
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Baño y Cocina
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Limpiadores Baño y Cocina
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]
+            listPrice:
+              - text: $ 1.759
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: in stock
+                xpath: /html/head[1]/meta[28]/@content
+            description:
+              - text: Limpiador cremoso con micropartículas
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[5]/span[2]/li[1]
+              - text: Máxima limpieza de las superficies con mínimo esfuerzo
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[5]/span[2]/li[2]
+              - text: Imbatible en muchas superficies
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[5]/span[2]/li[3]
+              - text: Remueve fácilmente las suciedades más dificiles
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[5]/span[2]/li[4]
+              - text: "CIF Limpiador En Crema Limón es un limpiador cremoso con micropartículas
+                  que ofrece una máxima limpieza de las superficies con mínimo
+                  esfuerzo. La limpieza de Cif Limpiador Cremoso es imbatible en
+                  muchas superficies, brinda una limpieza profunda y remueve
+                  fácilmente las suciedades más difíciles haciendo que tus
+                  superficies queden brillantes. Te sorprenderás al ver como Cif
+                  Crema Limón puede remover de manera fácil las suciedades más
+                  difíciles del baño, la cocina, y hasta objetos tan
+                  sorprendentes como un par de zapatillas. Algunas de las
+                  superficies de aplicación son: enlozadas, cromadas, de acero
+                  inoxidable, esmaltadas, de porcelana, de plástico, de goma,
+                  cerámicas, de cuerina. CIF Limpiador En Crema Limón ofrece
+                  limpieza y acción antibacterial dejando las superficies de tu
+                  casa, incluso las zonas en contacto con comida, increíblemente
+                  limpias. Además, su fórmula remueve alérgenos y ácaros y
+                  elimina 99,9% de bacterias. Algunas de las superficies en las
+                  que su pueden utilizar son baño, cocina, computador, tabla de
+                  cocina, asiento y tabla del inodoro. Cif Crema Limón ofrece
+                  limpieza y una agradable fragancia a su hogar."
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[2]
+            brandText:
+              - text: Cif
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[2]
+            manufacturer:
+              - text: Cif
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[2]
+            quantity:
+              - text: 1 un
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/div[1]/span[1]
+            sku:
+              - text: "7930"
+                xpath: /html/head[1]/meta[29]/@content
+            nameExtended:
+              - text: Cif Limpiador crema limón micropartículas 750 g
+            descriptionBullets:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: es
+                value: 4
+        xpath: /
+    timestamp: 1605178574983
