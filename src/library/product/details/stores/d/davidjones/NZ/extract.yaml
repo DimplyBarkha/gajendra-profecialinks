@@ -139,9 +139,15 @@ fields:
   #   singleValue: false
   # - name: quantity
   #   singleValue: false
-  # - name: ratingCount
+  - name: aggregateRating
+    #singleValue: true
+    xpath: //button[@id="ratings-summary"]//div[contains(@class,"avgRating")] 
+  - name: ratingCount
   #   singleValue: false
   #   type: NUMBER
+    xpath: //button[@id="ratings-summary"]//div[contains(@class,"numReviews_text")]
+    regExp: ([(])(\d+)([)])
+    regExpReplace: $2 
   # - name: recyclingInformation
   #   singleValue: false
   # - name: shippingDimensions
