@@ -10,7 +10,9 @@ fields:
   - name: category
     xpath: //div[contains(@data-role, 'breadcrumbs-list')]//div[contains(@data-role, 'breadcrumb-item') and position() > 1]/a
   - name: nameExtended
-    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"]
+    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"] | //div[@data-box-name='productRatingInfo']//h4
+  - name: name
+    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"] | //div[@data-box-name='productRatingInfo']//h4
   - name: price
     xpath: //meta[@itemprop='price']/@content
   - name: availabilityText
@@ -50,7 +52,7 @@ fields:
     regExp: (.+)\"(.+)\"
     regExpReplace: $2
   - name: manufacturerDescription
-    xpath: normalize-space(//a[@name='description']/following-sibling::div |//div[@class='description'])
+    xpath: //a[@name='description']/following-sibling::div//text() | //div[@class='description']//text()
   - name: secondaryImageTotal
     xpath: count(//div[@class='_b8e15_aMJ-v' and position() > 1]/img | //li[contains(@class, 'si-gallery__thumbnail') and not(contains(@class, 'is-active'))]//img)
   - name: brandLink

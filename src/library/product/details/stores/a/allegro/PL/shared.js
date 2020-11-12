@@ -62,6 +62,15 @@ const transform = (data) => {
         row.directions = [{ text: directions }];
       }
 
+      if (row.manufacturerDescription) {
+        const enhancedContentArray = row.manufacturerDescription;
+        let enhancedContent = '';
+        for (const content of enhancedContentArray) {
+          enhancedContent += `${content.text} `;
+        }
+        row.manufacturerDescription = [{ text: enhancedContent }];
+      }
+
       if (!row.imageAlt && row.nameExtended) {
         row.imageAlt = row.nameExtended;
       }
