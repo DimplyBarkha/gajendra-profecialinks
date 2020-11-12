@@ -29,6 +29,14 @@ const transform = (data) => {
             item.text=item.text.replace('=s360','');
           });
         }
+        if(row.sku){
+          row.sku.forEach(item=>{
+            let dataAr=item.text.replace('https://www.farmatodo.com.co/producto/','').split('-');
+            item.text=dataAr[0];
+            row.variantId=[{"text":dataAr[0]}];
+          })
+        }
+        
       }
     }
     return cleanUp(data);

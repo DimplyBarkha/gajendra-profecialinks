@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'farmatodo.com.co',
     prefix: null,
-    url: 'https://www.farmatodo.com.co/producto/{id}',
+    url: null,
     country: 'CO',
     store: 'farmatodo',
     zipcode: '',

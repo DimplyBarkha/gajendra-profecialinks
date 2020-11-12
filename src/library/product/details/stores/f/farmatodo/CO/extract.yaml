@@ -29,10 +29,10 @@ fields:
     xpath: //p[@class="media-description"]
   - name: sku
     singleValue: false
-    xpath: //div[@class="rating-summary"]/@data-bv-product-id
+    xpath: //link[@rel="canonical"]/@href
   - name: variantId
     singleValue: false
-    xpath: //div[@class="rating-summary"]/@data-bv-product-id
+    xpath: //link[@rel="canonical"]/@href
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="bv_numReviews_component_container"]/meta[@itemprop="reviewCount"]/@content
