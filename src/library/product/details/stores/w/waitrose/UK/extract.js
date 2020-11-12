@@ -11,7 +11,7 @@ module.exports = {
   },
   implementation: async (
     { inputString },
-    { country, domain },
+    { country, domain, transform },
     context,
     { productDetails }) => {
       //remove cookies popup
@@ -29,12 +29,25 @@ module.exports = {
     });
     if (detailsPage) {
       await context.goto('https://www.waitrose.com/' + detailsPage);
+      await context.waitForNavigation();
     }
+    var data = await context.extract(productDetails, { transform });
 
-    // await context.waitForNavigation();
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-
-    await context.extract(productDetails);
+    for (let i = 0; i < data[0].group.length; i++) {
+      if ('legalDisclaimer' in data[0].group[i]) {
+        for (let j = 0; j < data[0].group[i].legalDisclaimer.length; j++) {
+        data[0].group[i].legalDisclaimer[0].text += data[0].group[i].legalDisclaimer[j].text;
+        }
+        data[0].group[i].legalDisclaimer.splice(1, data[0].group[i].legalDisclaimer.length-1);
+      }
+      if ('recyclingInformation' in data[0].group[i]) {
+        for (let j = 0; j < data[0].group[i].recyclingInformation.length; j++) {
+        data[0].group[i].recyclingInformation[0].text += ', ' + data[0].group[i].recyclingInformation[j].text;
+        }
+        data[0].group[i].recyclingInformation.splice(1, data[0].group[i].recyclingInformation.length-1);
+      }
+    }
+    return data;
   },
 
 };

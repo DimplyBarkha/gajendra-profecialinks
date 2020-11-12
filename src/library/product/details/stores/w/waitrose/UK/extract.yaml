@@ -43,7 +43,7 @@ fields:
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
-  singleValue: true
+  singleValue: false
   xpath: //button[@data-origincomponent="AddToTrolley"]/@data-shortdescription
   regExp: (.+)
   regExpReplace: In Stock
@@ -93,18 +93,19 @@ fields:
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
 - name: legalDisclaimer
-  singleValue: true
-  xpath: //section[@class="disclaimer___2uRzl"]
+  singleValue: false
+  xpath: //section[@class="disclaimer___2uRzl"]/h2[text()="Disclaimer"]/following-sibling::p[(contains(p,a))]
   description: Content under "legal disclaimer" header
 - name: directions
   singleValue: true
   description: Content under "directions" header
 - name: warnings
   singleValue: true
-  xpath: //h3[text()="Warnings"]/following-sibling::ul/li
+  xpath: //h3[text()="Warnings"]/following-sibling::ul
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
+  type: STRING
   xpath: //div[@class="bv-header"]//span[@class="bv-content-pagination-pages-current"]/text()
   regExp: ([^\s]\d+[^\s])
   description: The number of ratings
@@ -113,6 +114,7 @@ fields:
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
+  type: STRING
   xpath: //tr[@class="bv-secondary-rating-summary-stars"]//span[@class="bv-secondary-rating-summary-rating"]
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
@@ -252,15 +254,17 @@ fields:
     start/end point
 - name: servingSize
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/thead/tr/td[1]
+  xpath: //th[text()="Typical values"]/following-sibling::td[1]
+  regExp: \d+
   description: The size of serving Nutritional information is based on.
 - name: servingSizeUom
   singleValue: true
+  xpath: //th[text()="Typical values"]/following-sibling::td[1]
+  regExp: \d+(\D+)
+  regExpReplace: $1
   description: Unit of measure of serving
 - name: numberOfServingsInPackage
   singleValue: true
-  xpath: //*[@id="nutrition-region"]//p
-  regExp: \d+
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
   singleValue: true
@@ -273,24 +277,24 @@ fields:
     on per 100g serving
 - name: totalFatPerServing
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[3]/td[1]
+  xpath: //th[text()="Fat"]/following-sibling::td[1]
   regExp: \W?\d+.?\d+
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
 - name: totalFatPerServingUom
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[3]/td[1]
+  xpath: //th[text()="Fat"]/following-sibling::td[1]
   regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Total Fat content
 - name: saturatedFatPerServing
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[4]/td[1]
+  xpath: //th[text()="Of which Saturates"]/following-sibling::td[1]
   regExp: \W?\d+.?\d+
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
 - name: saturatedFatPerServingUom
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[4]/td[1]
+  xpath: //th[text()="Of which Saturates"]/following-sibling::td[1]
   regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Saturated Fat content
 - name: transFatPerServing
@@ -316,38 +320,46 @@ fields:
   description: Unit of Measure Data for Sodium content
 - name: totalCarbPerServing
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[5]/td[1]
+  xpath: //th[text()="Carbohydrate"]/following-sibling::td[1]
   regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
 - name: totalCarbPerServingUom
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[5]/td[1]
+  xpath: //th[text()="Carbohydrate"]/following-sibling::td[1]
   regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Total Carbohydrate content
 - name: dietaryFibrePerServing
   singleValue: true
+  xpath: //th[text()="Fibre"]/following-sibling::td[1]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
 - name: dietaryFibrePerServingUom
   singleValue: true
+  xpath: //th[text()="Fibre"]/following-sibling::td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Dietary Fibre content
 - name: totalSugarsPerServing
   singleValue: true
+  xpath: //th[text()="Of which Sugars"]/following-sibling::td[1]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
 - name: totalSugarsPerServingUom
   singleValue: true
+  xpath: //th[text()="Of which Sugars"]/following-sibling::td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Total Sugar content
 - name: proteinPerServing
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr/th[text()="Protein"]/following::td[1]
+  xpath: //th[text()="Protein"]/following-sibling::td[1]
   regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
 - name: proteinPerServingUom
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr/th[text()="Protein"]/following::td[1]
+  xpath: //th[text()="Protein"]/following-sibling::td[1]
   regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Protein
 - name: vitaminAPerServing
@@ -359,21 +371,25 @@ fields:
   description: Unit of Measure Data for Vitamin A
 - name: vitaminCPerServing
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[10]/td[2]
+  xpath: //th[text()="Vitamin C"]/following-sibling::td[1]
   regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
 - name: vitaminCPerServingUom
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[10]/td[2]
+  xpath: //th[text()="Vitamin C"]/following-sibling::td[1]
   regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Vitamin C
 - name: calciumPerServing
   singleValue: true
+  xpath: //th[text()="Calcium"]/following-sibling::td[1]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
 - name: calciumPerServingUom
   singleValue: true
+  xpath: //th[text()="Calcium"]/following-sibling::td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Calcium
 - name: ironPerServing
   singleValue: true
@@ -394,17 +410,18 @@ fields:
   description: Unit of Measure Data for Magnesium
 - name: saltPerServing
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[9]/td[1]
+  xpath: //th[text()="Salt"]/following-sibling::td[1]
   regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
 - name: saltPerServingUom
   singleValue: true
-  xpath: //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[9]/td[1]
+  xpath: //th[text()="Salt"]/following-sibling::td[1]
   regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Salt
 - name: dietaryInformation
   singleValue: true
+  xpath: //h3[text()="Lifestyle"]/following-sibling::ul,  //h3[text()="Nutritional claims"]/following-sibling::ul
   description: 
 - name: specifications
   singleValue: true
@@ -417,12 +434,15 @@ fields:
   description: Suggested storage location for product
 - name: countryOfOrigin
   singleValue: true
+  xpath: //h3[text()="Origin Information"]/following-sibling::ul
   description: The country from which the product originates
 - name: allergyAdvice
   singleValue: true
+  xpath: //h3[text()="Allergy advice"]/following-sibling::ul
   description: Allergy information associated with the product
 - name: recyclingInformation
-  singleValue: true
+  singleValue: false
+  xpath: //td[@class="yes___24QAi"]/preceding::td[1]
   description: Recycling information associated with the product
 - name: productOtherInformation
   singleValue: false
@@ -432,6 +452,7 @@ fields:
   description: Packaging information
 - name: additives
   singleValue: true
+  xpath: //h3[text()="Additives"]/following-sibling::ul
   description: List of additives in the product
 - name: pricePerUnit
   singleValue: true
@@ -441,7 +462,8 @@ fields:
 - name: pricePerUnitUom
   singleValue: true
   xpath: //span[@class="pricePerUnit___1L8TG"]
-  regExp: ([/]\w+[^)])
+  regExp: (\w+)[)]
+  regExpReplace: $1
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
