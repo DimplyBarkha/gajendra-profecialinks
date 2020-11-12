@@ -5,8 +5,8 @@ module.exports = {
     country: 'NL',
     store: 'jumbo',
     domain: 'jumbo.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.jum-page.gd-container',
+    noResultsXPath: '//div[@class="jum-error-message"]',
     zipcode: '',
   },
 };
