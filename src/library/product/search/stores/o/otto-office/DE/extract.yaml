@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: span[class="ccP-item-number"]
+    # regExp: 
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="ooB-rel item-rating-stars ooB-ib"]
+  - name: name
+    singleValue: false
+    xpath: //a[@class="oo-link fftracking-productclick"]/b
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="oo-link fftracking-productclick"]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="fftracking-productclick"]/img/@src
+  - name: aggregateRating
+    singleValue: true
+  - name: reviewCount
+    singleValue: true
+    xpath: //div[@class="ooB-rel item-rating-stars ooB-ib"]
+  - name: price
+    singleValue: false
+    xpath: //span[@id="colorChange_2_0000297326__unit_price"]
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class="ooB-mb6 ooB-mt6"]
