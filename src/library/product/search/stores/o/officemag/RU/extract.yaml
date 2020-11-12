@@ -1,0 +1,65 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="Content__group"]//ul[@class="listItems "]/li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //span[@class="code"]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    xpath: //div[@class="Content__group"]//div[@class="name"]
+    singleValue: false
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="Content__group"]//div[@class="name"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.officemag.ru$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="Content__group"]//div[@class="listItemPhoto__wrapper"]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.officemag.ru$1
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //ul[@class="listItems "]/li/@rating
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[@class="Content__group"]//ul[@class="listItems "]/li/@data-ga-obj
+    regExp: price"..(\d*\.?\d*)
+    regExpReplace: $1 руб
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="Content__group"]//ul[@class="listItems "]/li/@data-ga-obj
+    regExp: brand...(.*?)"
+    regExpReplace: $1
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
