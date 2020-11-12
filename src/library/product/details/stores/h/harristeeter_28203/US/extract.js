@@ -13,8 +13,8 @@ module.exports = {
       return window.location.href;
     });
     let hasNutrition = await context.evaluate(async function () {
-      hasNutrition = true;
-      const productTabDetail = document.querySelector('div.product-tabs').innerHTML;
+      hasNutrition = false;
+      const productTabDetail = document.querySelector('div.product-tabs').textContent;
       if (productTabDetail.includes('Nutrition')) {
         hasNutrition = true;
       }
@@ -22,18 +22,18 @@ module.exports = {
     });
     let hasDescription = await context.evaluate(async function () {
       hasDescription = true;
-      /* const productTabDetail = document.querySelector('div.product-tabs').innerHTML;
-      if (productTabDetail.includes('Nutrition')) {
-        hasNutrition = true;
+      /* const productTabDetail = document.querySelector('div.product-tabs').textContent;
+      if (productTabDetail.includes('Description')) {
+        hasDescription = true;
       } */
       return hasDescription;
     });
     let hasIngredient = await context.evaluate(async function () {
-      hasIngredient = true;
-      /* const productTabDetail = document.querySelector('div.product-tabs').innerHTML;
-      if (productTabDetail.includes('Nutrition')) {
-        hasNutrition = true;
-      } */
+      hasIngredient = false;
+      const productTabDetail = document.querySelector('div.product-tabs').textContent;
+      if (productTabDetail.includes('Ingredients')) {
+        hasIngredient = true;
+      }
       return hasIngredient;
     });
     if (hasDescription) {
@@ -46,9 +46,49 @@ module.exports = {
           else result = elem ? elem.singleNodeValue : '';
           return result && result.trim ? result.trim() : result;
         };
-
         const Description = getXpath('//hts-product-tab//div', 'innerText');
         return Description;
+      });
+      var enhanceMedia = await context.evaluate(async function () {
+        const getXpath = (xpath, prop) => {
+          const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+          let result;
+          if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+          else result = elem ? elem.singleNodeValue : '';
+          return result && result.trim ? result.trim() : result;
+        };
+
+        const iframeURL = getXpath('//div[@class="webCollageIframe"]//iframe//@src', 'nodeValue');
+        return iframeURL;
+      });
+    }
+    if (enhanceMedia) {
+      await context.goto('https://www.harristeeter.com' + enhanceMedia, { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
+      var enhanceImage = await context.evaluate(async function () {
+        const getAllXpath = (xpath, prop) => {
+          const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          const result = [];
+          for (let index = 0; index < nodeSet.snapshotLength; index++) {
+            const element = nodeSet.snapshotItem(index);
+            if (element) result.push(prop ? element[prop] : element.nodeValue);
+          }
+          return result;
+        };
+        const enhanceImg = getAllXpath('//div[@id="wc-power-page"]//img/@src', 'nodeValue').join('|');
+        return enhanceImg;
+      });
+      var enhanceContent = await context.evaluate(async function () {
+        const getAllXpath = (xpath, prop) => {
+          const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          const result = [];
+          for (let index = 0; index < nodeSet.snapshotLength; index++) {
+            const element = nodeSet.snapshotItem(index);
+            if (element) result.push(prop ? element[prop] : element.nodeValue);
+          }
+          return result;
+        };
+        const enhanceData = getAllXpath('//div[@id="wc-power-page"]//*[contains(@class,"rich")]', 'innerText').join('|');
+        return enhanceData;
       });
     }
     if (hasIngredient) {
@@ -99,9 +139,8 @@ module.exports = {
         return NutritionString.split('|');
       });
     }
-    console.log(nutritionDetails);
     await context.goto(url, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
-    await context.evaluate(async function (nutritionDetails, IngredientDetails, DescriptionDetails) {
+    await context.evaluate(async function (nutritionDetails, IngredientDetails, DescriptionDetails, enhanceImage, enhanceContent) {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -109,6 +148,8 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      addElementToDocument('added_manufactureDescription', enhanceContent);
+      addElementToDocument('added_manufactureImages', enhanceImage);
       addElementToDocument('added_ingredient', IngredientDetails);
       addElementToDocument('added_additional_description', DescriptionDetails);
       // Nutrition
@@ -223,7 +264,7 @@ module.exports = {
           addElementToDocument('added_iron_per_serving_uom', IronPerServingUOM);
         }
       }
-    }, nutritionDetails, IngredientDetails, DescriptionDetails);
+    }, nutritionDetails, IngredientDetails, DescriptionDetails, enhanceImage, enhanceContent);
     await context.extract(productDetails, { transform: transformParam });
   },
 };

@@ -5,7 +5,7 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
-    store: 'harristeeter_28203',
+    store: 'harristeeter',
     transform: transform,
     domain: 'harristeeter.com',
     zipcode: '',
