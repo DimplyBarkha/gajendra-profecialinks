@@ -15,7 +15,7 @@ async function implementation (
     function addProp(selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     };
-    const allProducts = document.querySelectorAll('div.product-grid-item.ColUI-gjy0oc-0.ifczFg.ViewUI-sc-1ijittn-6.iXIDWU');
+    const allProducts = document.querySelector('div#content-middle').querySelectorAll('div.product-grid-item.ColUI-gjy0oc-0.ifczFg.ViewUI-sc-1ijittn-6.iXIDWU');
     const allSponsored = document.querySelectorAll('a.card-product-url');
     let multiplier = 0;
     if (allSponsored[0]) {
@@ -54,7 +54,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'submarino',
-    transform: null,
+    transform: transform,
     domain: 'submarino.com.br',
     zipcode: '',
   },

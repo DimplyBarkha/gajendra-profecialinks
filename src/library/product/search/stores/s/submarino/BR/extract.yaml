@@ -6,10 +6,10 @@ fields:
   - name: id
     description: Unique id (within this extractor)
     xpath: //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@currentid|//a[@class="card-product-url"]/@currentid
-  - name: rankOrganic # missing for TV
+  - name: rankOrganic # missing for TV 83/89 (77+6 that should not be catched)
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@rankorganic
+    xpath: //div[@id="content-middle"]//div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@rankorganic
   - name: name
     description: The product name
     xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//div[contains(@class, 'TitleWrapper')]/h2|//h3[@class="card-product-name"]|//div[@data-component="recommendationAds"]//h2[contains(@class, 'TitleUI')]

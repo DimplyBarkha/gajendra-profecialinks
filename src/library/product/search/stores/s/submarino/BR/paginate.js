@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'submarino',
-    nextLinkSelector: 'span[aria-label="Next"',
+    nextLinkSelector: 'li[class=""] span[aria-label="Next"',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.row.product-grid.no-gutters.main-grid',
