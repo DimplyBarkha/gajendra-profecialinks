@@ -10,7 +10,7 @@ fields:
     regExpReplace: https://www.aptekaolmed.pl$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class="product_wrapper_hotspot_sub"]/a//img/@src
+    xpath: //a[@class="product-icon align_row"]/div/div/img/@src
     regExp: (.+)
     regExpReplace: https://www.aptekaolmed.pl$1
   - name: name

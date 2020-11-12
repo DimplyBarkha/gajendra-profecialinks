@@ -51,7 +51,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@class="projector_description description"], //div[contains(@class,"projector_longdescription cm")])
+    xpath: concat(//div[@class="projector_description description"], '||', //div[contains(@class,"projector_longdescription cm")],'@@')
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -61,17 +61,14 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//td/span[contains(text(),'Marka')]/following::td[1])
+    xpath: concat(//td/span[contains(text(),'Marka')]/following::td[1], '||' ,//a[@class="brand"])
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
     xpath: //a[@class="brand"]
   - name: quantity
     singleValue: true
-    description: Quantity as described on the page
-    # xpath: //*[contains(text(),'Opakowanie')]/following::td[1]/div
-    xpath: //h1
-    regExp: ((,)(\s+)\d+(.+))$
+    description: Quantity as described on the page    
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -92,18 +89,21 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    type: Number
     xpath: //div[@class="code"]/strong
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //h1
+    regExp: ((\s+)\d+(.+))$
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
     description: Content under "directions" header
-    xpath: //p/strong/span[contains(text(),'Sposób użycia')]/following::p[1]
+    xpath: //*[contains(text(),'Sposób użycia')]/following::p[1]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -258,6 +258,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //*[contains(text(),'Skład:')]/following::p[1] | //*[contains(text(),'Składnik')]/following::p[1]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -428,8 +429,6 @@ fields:
   - name: packaging
     singleValue: true
     description: Packaging information
-    xpath: //h1
-    regExp: ((,)(\s+)\d+(.+))$
   - name: additives
     singleValue: true
     description: List of additives in the product
@@ -508,6 +507,8 @@ fields:
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
+    xpath: //span[@class="title_terms_form"]
+    regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
     singleValue: true

@@ -62,6 +62,14 @@ async function implementation(
       addHiddenDiv('rankOrganic', rankOrganic++, i);
     }
 
+    // Double Pipe Concatenation
+    const pipeSeparatorDouble = (id, data) => {
+
+      var doubleSeparatorText = data.join(' || ');
+      
+      addElementToDocument(id, doubleSeparatorText);
+      
+      };
 
     // Method to Retrieve Xpath content of a Single Node
     // var getXpath = (xpath, prop) => {
