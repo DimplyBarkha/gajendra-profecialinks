@@ -8,6 +8,9 @@ fields:
     description: The URL for the product details page
     regExp: (.+)
     regExpReplace: https://www.bernard.fr/$1
+  - name: url
+    description: The URL for the product details page
+    xpath: //div[@id="inside_holder"]/@pageurl
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //img[@id="SkuPageMainImg"]/@src

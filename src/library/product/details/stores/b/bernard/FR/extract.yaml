@@ -12,21 +12,26 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    type: TEXT
     xpath: (//img[@id="SkuPageMainImg"]/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //li[@class="itemThumb"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@id="skuBreadCrumbs"]
+    type: TEXT[]
+    xpath: //ol[@class='ML_s breadCrumbSchema']//span//text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+      and appending " - ${tstType}" if necessary (fixed per feed)
+    type: TEXT
+    xpath: //h1[@class="skuName"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -40,13 +45,12 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    type: TEXT
     xpath: //span[@class="leadText SL_m"]
   - name: description
     singleValue: true
     description: Product description supplied by the website
+    type: TEXT[]
     xpath: //div[@id="SkuTabDescription"]
   - name: descriptionBullets
     singleValue: true
@@ -58,15 +62,18 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     regExp: '[^:]*$'
+    type: TEXT
     xpath: (//div[@class="formLabel SL_m"])[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    type: TEXT
     xpath: (//div[@class="formLabel SL_m"])[1]
     regExp: '[^:]*$'
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
+    type: TEXT
     xpath: (//td[@class="txtBold PBBorder"])[1]
   - name: weightNet
     singleValue: true
@@ -80,15 +87,19 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    type: TEXT
     xpath: //div[@class="formLabel"]/@content
     regExp: (\d{3,9})
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    type: TEXT
+    xpath: //div[@class="formLabel"]/@content
+    regExp: (\d{3,9})
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    type: NUMBER
+    type: TEXT
     xpath: //div[@class="formLabel"]/@content
     regExp: (\d{3,9})
   - name: packSize
@@ -137,6 +148,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    type: TEXT
     xpath: //ul[@class="formRow darkGray"]//li
     regExp: '[^:]*$'
   - name: colorCode
@@ -245,6 +257,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count(//li[@class="itemThumb"])
   - name: news
     singleValue: true
     description: null
@@ -406,6 +419,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    type: TEXT
     xpath: //div[@id="skuTabSpecifications"]
   - name: warranty
     singleValue: true
@@ -440,6 +454,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    type: TEXT
     xpath: (//span[@id="spnNavItemName"])[6]
   - name: alcoholContent
     singleValue: true
@@ -476,6 +491,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    type: TEXT[]
     xpath: //div[@id="SkuTabDescription"]
   - name: prop65Warning
     singleValue: true
