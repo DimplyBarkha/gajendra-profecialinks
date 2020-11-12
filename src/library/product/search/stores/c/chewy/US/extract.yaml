@@ -10,8 +10,8 @@ fields:
     singleValue: false
   - name: thumbnail
     xpath: //article/a/div/img/@data-src
-    regExp: (.+)
-    regExpReplace: https://www.chewy.com$1 
+    # regExp: (.+)
+    # regExpReplace: https://www.chewy.com$1 
     singleValue: false
   - name: name
     xpath: //div[@class="content"]/h2//text()
