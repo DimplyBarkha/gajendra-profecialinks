@@ -28,9 +28,13 @@ module.exports = {
         aggrating = aggrating[2] !== undefined ? aggrating[2].split('-')[2] : '';
         // @ts-ignore
         const productUrl = product[i].querySelector('span.product-name b a').href;
+        // @ts-ignore
+        const price=document.querySelectorAll('span.normal-price')[i].innerText;
         addHiddenDiv('pd_productUrl', productUrl, i);
         addHiddenDiv('pd_url', URL, i);
         addHiddenDiv('pd_aggregateRating', aggrating, i);
+        addHiddenDiv('price',price,i)
+
       }
     });
     return await context.extract(productDetails, { transform });

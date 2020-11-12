@@ -33,17 +33,19 @@ fields:
     xpath: //div[@class="rating"]/span/a
   - name: price
     singleValue: false
-    xpath: //div[@class="prices"]/span[@class="normal-price"]
-    regExp: (\d+)\.(\d+)\,(\d+)(.*)
-    regExpReplace: $1$2.$3$4
+    #xpath: //div[@class="product-list-entry data-tracking-product"]/@data-tracking-product-price
+    selector: div.prices span.normal-price
+    #xpath: //form[@name="productform"]//div[@class="prices"]//span[@class="normal-price"]
+    #regExp: (\d+)\.(\d+)\,(\d+)(.*)
+    #regExpReplace: $1$2.$3$4
   - name: manufacturer
     singleValue: false
     xpath: //div[@class="description"]/text()[3] | //div[@class="description"]/font[2]/font
   - name: soldBy
     singleValue: false
-    defaultValue: meijer
   - name: rank
     singleValue: false
+    xpath: //form/input[@name="fp"]/@value
   - name: endorsementText
     singleValue: false
   - name: ratingCount
