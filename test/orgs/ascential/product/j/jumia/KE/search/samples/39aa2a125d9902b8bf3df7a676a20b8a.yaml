@@ -2,19 +2,22 @@ input:
   keywords: Geisha soap
   _url: http://jumia.co.ke
 extractions:
-  - html: https://workbench.import.io/html/run=14a30b67-9a55-4cf9-96bd-a6e04960333f/task=f9b823ee-9fb9-40dc-b7ec-4dc705cea9e6/fbaab3ca-9399-4179-99a7-a53c3c7a2adb.html
+  - html: https://workbench.import.io/html/run=03fc0205-7e21-4440-8b6d-832423d0bb1f/task=60a8dd03-d22c-4319-b0e1-08a4632759de/dd161e45-0c32-47c0-b15a-94bc47aad6ee.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
           - id:
-              - text: GE855HB00CUO5NAFAMZ
+              - text: GE855ST0ZJXAUNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@data-id
             name:
-              - text: Geisha Rose & Honey Soap - 125g
+              - text: Geisha Moringa Oil Soap 225G
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/h3[1]
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/00/599621/1.jpg?3625
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/59/716182/1.jpg?6725
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/@aggrating
             rank:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/@rank
@@ -56,16 +59,16 @@ extractions:
                 locale: en_KE
                 value: 2
           - id:
-              - text: GE855ST0ZJXAUNAFAMZ
+              - text: GE855ST0HOX5INAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@data-id
             name:
-              - text: Geisha Moringa Oil Soap 225G
+              - text: Geisha Traditional Black Soap 225G
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/h3[1]
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/59/716182/1.jpg?6725
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/29/716182/1.jpg?6725
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: 4,6
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/@aggrating
             rank:
               - text: "3"
@@ -82,65 +85,65 @@ extractions:
                 locale: en_KE
                 value: 3
           - id:
-              - text: GE855ST0HOX5INAFAMZ
+              - text: GE855DR1JVJT7NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@data-id
             name:
-              - text: Geisha Traditional Black Soap 225G
+              - text: Geisha Aloe Vera And Honey Family Soap - 225g
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/h3[1]
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/29/716182/1.jpg?6725
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/@aggrating
-            rank:
-              - text: "4"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/@rank
-                type: NUMBER
-                raw: "4"
-                locale: en_KE
-                value: 4
-            rankOrganic:
-              - text: "4"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/@rank
-                type: NUMBER
-                raw: "4"
-                locale: en_KE
-                value: 4
-          - id:
-              - text: GE855DR1JVJT7NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@data-id
-            name:
-              - text: Geisha Aloe Vera And Honey Family Soap - 225g
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/h3[1]
-            thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/93/850891/1.jpg?8515
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[1]/img[1]/@src
             rank:
-              - text: "5"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/@rank
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/@rank
                 type: NUMBER
-                raw: "5"
+                raw: "4"
                 locale: en_KE
-                value: 5
+                value: 4
             rankOrganic:
-              - text: "5"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/@rank
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/@rank
                 type: NUMBER
-                raw: "5"
+                raw: "4"
                 locale: en_KE
-                value: 5
+                value: 4
           - id:
               - text: GE855HB0TRDQ1NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@data-id
             name:
               - text: Geisha Soap Pink Value Pack 90gx4
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/h3[1]
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/49/986361/1.jpg?5177
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/@aggrating
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: en_KE
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: en_KE
+                value: 5
+          - id:
+              - text: GE855HB1HPJ1DNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@data-id
+            name:
+              - text: Geisha Soap Pink Value Pack - 200g (Pack Of 3)
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/h3[1]
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/90/210721/1.jpg?7744
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/@aggrating
             rank:
               - text: "6"
@@ -157,16 +160,16 @@ extractions:
                 locale: en_KE
                 value: 6
           - id:
-              - text: GE855HB1HPJ1DNAFAMZ
+              - text: GE855HB0FAM8LNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@data-id
             name:
-              - text: Geisha Soap Pink Value Pack - 200g (Pack Of 3)
+              - text: Geisha Ab Soap Chamom & Vitamin E - 225g
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/h3[1]
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/90/210721/1.jpg?7744
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/25/689621/1.jpg?7923
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "5"
+              - text: 4,5
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/@aggrating
             rank:
               - text: "7"
@@ -182,31 +185,5 @@ extractions:
                 raw: "7"
                 locale: en_KE
                 value: 7
-          - id:
-              - text: GE855HB0FAM8LNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@data-id
-            name:
-              - text: Geisha Ab Soap Chamom & Vitamin E - 225g
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/div[2]/h3[1]
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/25/689621/1.jpg?7923
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/@aggrating
-            rank:
-              - text: "8"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/@rank
-                type: NUMBER
-                raw: "8"
-                locale: en_KE
-                value: 8
-            rankOrganic:
-              - text: "8"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/@rank
-                type: NUMBER
-                raw: "8"
-                locale: en_KE
-                value: 8
         xpath: /html
-    timestamp: 1605014851519
+    timestamp: 1605191357348
