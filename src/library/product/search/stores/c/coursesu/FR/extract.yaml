@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@id, 'search-result-items')]/li
+fields:
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id='searchUrl']
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //h3[contains(@class, 'product-name')]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.coursesu.com$1
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[contains(@class, 'product-image')]/a//img/@src
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h3[contains(@class, 'product-name')]
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: false
+    description: The model code of the product
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //span[contains(@class, 'price-sales')]/span
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: false
+    description: The name of the seller of the item (if available)
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[contains(@class, 'product-tile')]/@data-itemid
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //h3[contains(@class, 'product-name')]
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
