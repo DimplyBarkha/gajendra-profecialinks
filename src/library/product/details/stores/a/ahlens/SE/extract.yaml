@@ -31,14 +31,12 @@ fields:
     xpath: //div[@class='ah-pdp-info']/div/a/text() |  //div[@class='ah-pdp-info']/h1[@class='mb-- weight--light ah-product-info__title'] 
   - name: listPrice
     singleValue: true
-    type: CURRENCY
     xpath: //html//div[@class='altImage2']
   - name: color
     singleValue: true
     xpath: //div[@class='ah-dropdown__title']/span/text()
   - name: price
     singleValue: true
-    type: CURRENCY
     xpath: //html//div[@class='altImage1']  
   - name: manufacturerImages
     singleValue: false

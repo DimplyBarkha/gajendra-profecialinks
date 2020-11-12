@@ -6,9 +6,8 @@ fields:
   - name: price
     singleValue: false
     description: price of the product
-    xpath: //*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()
-    regExp: ([^kr]+)
-    regExpReplace: $1SEK
+    xpath: //div[@id='altImage2']
+    type: CURRENCY
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 

@@ -7,7 +7,7 @@ module.exports = {
     transform: cleanUp,
     domain: 'ahlens.se',
     zipcode: '',
-  }, 
+  },
   implementation: async (inputs,
     parameters,
     context,
@@ -27,48 +27,78 @@ module.exports = {
           document.body.appendChild(catElement);
         }
       }
-        function addHiddenDiv(id, content, index) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          const originalDiv = document.querySelectorAll('span[class="MuiCardActionArea-focusHighlight"]')[index];
-          originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('span[class="MuiCardActionArea-focusHighlight"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
+      function addHiddenDivPrice(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('span[class="MuiCardActionArea-focusHighlight"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
+      // Method to Retrieve Xpath content of a Multiple Nodes
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
-        // Method to Retrieve Xpath content of a Multiple Nodes
-        const getAllXpath = (xpath, prop) => {
-          const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-          const result = [];
-          for (let index = 0; index < nodeSet.snapshotLength; index++) {
-            const element = nodeSet.snapshotItem(index);
-            if (element) result.push(prop ? element[prop] : element.nodeValue);
-          }
-          return result;
-        };
+        return result;
+      };
 
-        let rankOrganic;
-        let url = window.location.href;
-        let checkPageNumber = url.split('&')[1];
-        try {
-          if (checkPageNumber.startsWith('p=')) {
-            rankOrganic = checkPageNumber.replace('p=', '');
-          }
+      let rankOrganic;
+      let url = window.location.href;
+      let checkPageNumber = url.split('&')[1];
+      try {
+        if (checkPageNumber.startsWith('p=')) {
+          rankOrganic = checkPageNumber.replace('p=', '');
         }
-        catch (err) {
-        }
-        var dup = Number(rankOrganic);
-        dup = dup - 1;
+      }
+      catch (err) {
+      }
+      var dup = Number(rankOrganic);
+      dup = dup - 1;
 
-        if (!rankOrganic) {
-          rankOrganic = 1;
+      if (!rankOrganic) {
+        rankOrganic = 1;
+      } else {
+        rankOrganic = (dup * 60) + 1;
+      }
+      const urlProduct = document.querySelectorAll('span[class="MuiCardActionArea-focusHighlight"]');
+      for (let i = 0; i < urlProduct.length; i++) {
+        addHiddenDiv('rankOrganic', rankOrganic++, i);
+      }
+      // const sliceURL1 = (data) => {
+      //   for (let index = 0; index < data.length; index++) {
+      //     if (data[index].includes(":")) {
+      //       var temp = data[index].replace(":", ".");
+      //     } else {
+      //       temp = data[index].replace(" ", "");
+      //     }
+      //     addElementToDocument('altImage2', temp);
+      //   }
+      // };
+      // var backgroundURL1 = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()", 'nodeValue');
+      // sliceURL1(backgroundURL1);
+      var rating = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()");
+      for (let index = 0; index < rating.length; index++) {
+        if (rating[index].includes(":")) {
+          var temp = rating[index].replace(":", ".");
         } else {
-          rankOrganic = (dup * 60) + 1;
+          temp = rating[index].replace(" ", "");
         }
-        const urlProduct = document.querySelectorAll('span[class="MuiCardActionArea-focusHighlight"]');
-        for (let i = 0; i < urlProduct.length; i++) {
-          addHiddenDiv('rankOrganic', rankOrganic++, i);
-        }
-      });
-      return await context.extract(productDetails, { transform });
-    },
-  }
+        addHiddenDivPrice('altImage2', temp, index);
+      }
+
+    });
+    return await context.extract(productDetails, { transform });
+  },
+}
