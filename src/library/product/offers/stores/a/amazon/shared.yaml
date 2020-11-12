@@ -3,6 +3,10 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="a-row a-spacing-mini olpOffer"]
 fields:
+  - name: getInventory
+    xpath: ./@getinventory
+    description: product_name - Product titles
+    defaultValue: 'false'
   - name: name
     xpath: ancestor::html//h1[@role="main"]
     description: product_name - Product title
@@ -36,7 +40,7 @@ fields:
     xpath: //*[contains(@class,"olpSellerName")]//a
     type: LINK
     description: reseller_link - Link to the seller page
-  - name: resellerReviews
+  - name: resellerReviewCount
     xpath: //i[contains(@class," a-icon-star ")]/following-sibling::text()
     regExp: \(([^\s]+)
     regExpReplace: $1

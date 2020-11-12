@@ -1,7 +1,7 @@
 
 /**
  *
- * @param { { URL: string, id: any, RPC: string, SKU: string, results: number, zipcode: any } } inputs
+ * @param { { URL: string, id: any, RPC: string, SKU: string, results: number, zipcode: any, assign_quantity: any } } inputs
  * @param { { store: any, domain: any, country: any, zipcode: any, mergeType: any, defaultResults: number } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action, paginate: ImportIO.Action } } dependencies
@@ -19,6 +19,7 @@ async function implementation (
   const id = (RPC) || ((SKU) || inputs.id);
   const zipcode = parameters || inputs.zipcode;
   const results = inputs.results || defaultResults || 100;
+  const assign_quantity = parseInt(inputs.assign_quantity) || results;
   // TODO: consider moving this to a reusable function
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
   console.log('zip:' + zipcode);
@@ -29,11 +30,11 @@ async function implementation (
     console.log('No results were returned');
     return;
   }
-
+  let collected = 0
   // try gettings some search results
-  const pageOne = await extract({});
+  const pageOne = await extract({assign_quantity, collected});
 
-  let collected = length(pageOne);
+  collected = length(pageOne);
 
   console.log('Got initial number of results', collected);
 
@@ -44,7 +45,7 @@ async function implementation (
 
   let page = 2;
   while (collected < results && await paginate({ id, page, offset: collected })) {
-    const data = await extract({});
+    const data = await extract({assign_quantity, collected});
     const count = length(data);
     if (count === 0) {
       // no results
@@ -115,6 +116,11 @@ module.exports = {
       description: 'the minimum number of results required',
       type: 'number',
       optional: true,
+    },
+    {
+      name: 'assign_quantity',
+      description: 'number of sellers that will be assigned a quantity TRUE boolean',
+      type: 'string',
     },
   ],
   dependencies: {
