@@ -10,7 +10,7 @@ fields:
     singleValue: true
     xpath: /html/body/@imagealt
   - name: alternateImages
-    singleValue: true
+    singleValue: false
     xpath: //img[@class="sc-image-viewer-thumb"]/@src
   - name: metaKeywords
     singleValue: true
@@ -20,19 +20,20 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
-    xpath: //ol[@class="sc-breadcrumbs"]
+    xpath: //ol[@class="sc-breadcrumbs"]//li
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class="sc-product-header-title-container"]
+    xpath: //div[@class="sc-product-header-title-container"] | //h1
   - name: listPrice
     singleValue: true
     xpath: //span[@class="sc-channel-savings-list-price"]
   - name: price
     singleValue: true
-    xpath: //span[@class="Price-group"]
+    xpath: (//div[@class="sc-pc-single-price"]//span[@class="Price-group"]//span)[1]
+    regExp: \$.+
   - name: availabilityText
     singleValue: true
-    xpath: //div[@class="sc-oos-card-label"]
+    xpath: //div[@class="sc-oos-card-label"] | //div[@itemprop="offers"]//meta[@itemprop="availability"]/@content
   - name: description
     singleValue: true
     xpath: //div[@class="sc-full-description-long"]
@@ -55,7 +56,7 @@ fields:
     singleValue: true
   - name: sku
     singleValue: true
-    xpath: //div[@id="sc-bv-summary-container"]/@data-bv-product-id
+    xpath: //div[@id="sc-bv-summary-container"]/@data-bv-product-id | (//div/@data-bv-product-id)[1]
   - name: variantId
     singleValue: true
   - name: mpc
@@ -64,6 +65,7 @@ fields:
     singleValue: true
   - name: legalDisclaimer
     singleValue: true
+    xpath: //div[@class="flix-wrapper-legales"]
   - name: directions
     singleValue: true
   - name: warnings
@@ -94,9 +96,35 @@ fields:
   - name: manufacturerDescription
     singleValue: true
   - name: manufacturerImages
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class="ccs-slick-list"]//div/@data-image-url | //div[@id="wc-power-page"]//div//img/@src
   - name: videos
     singleValue: true
   - name: name
     singleValue: true
     xpath: //div[@class="sc-product-header-title-container"]
+    # salsify
+  - name: shownImages
+    singleValue: true
+    xpath: //button[@class="sc-image-viewer-img-button"]/img/@src
+  - name: featureHighlights
+    singleValue: false
+    xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//ul//li | //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//p
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//ul//li | //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//p
+  - name: specifications
+    singleValue: true
+    xpath: normalize-space(//body//@specification)
+  - name: productUrl
+    singleValue: true
+    xpath: //body//@producturl | //link[@rel="canonical"]/@href
+  - name: questionsCount
+    singleValue: true
+    xpath: (//a[@data-content-type="question"])[1]
+    regExp: (\d+)
+  - name: highQualityImages
+    singleValue: false
+    xpath: //div[@class="sc-image-viewer-controls"]//img[@class="sc-image-viewer-thumb"]/@src
+    regExp: (.+\_)(.+)
+    regExpReplace: $1PDP_Image$

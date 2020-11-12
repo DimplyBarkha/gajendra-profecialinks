@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'samsclub.com',
-    store: 'sams_club',
+    store: 'samsclub',
     zipcode: '',
   },
 };
