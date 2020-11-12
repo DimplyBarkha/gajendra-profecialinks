@@ -17,10 +17,10 @@ fields:
     xpath: //h1[@class="title"]/div[@class="big-title"]/text()
   - name: listPrice
     singleValue: false
-    xpath: //div[@class="item-section price"]/p[@class="p-offer"]
+    xpath: //div[contains(@class,"item-section")]/p[contains(@class,"p-offer")]
   - name: price
     singleValue: false
-    xpath: //div[@class="item-section price"]/p
+    xpath: //div[contains(@class,"item-section")]/p[contains(@class,"p-blue")]
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock

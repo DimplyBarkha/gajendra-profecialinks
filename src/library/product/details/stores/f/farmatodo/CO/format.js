@@ -36,7 +36,11 @@ const transform = (data) => {
             row.variantId=[{"text":dataAr[0]}];
           })
         }
-        
+        if(row.image){
+          row.image.forEach(item => {
+            item.text=item.text.replace('=s360','');
+          });
+        }
       }
     }
     return cleanUp(data);
