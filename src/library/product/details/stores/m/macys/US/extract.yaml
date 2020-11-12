@@ -33,7 +33,13 @@ fields:
   - name: image
     singleValue: true
     xpath: //meta[@property="og:image"]//@content
+  - name: shownImages
+    singleValue: true
+    xpath: //meta[@property="og:image"]//@content
   - name: alternateImages
+    singleValue: false
+    xpath: //table//tr[@class="append_image"]//@images
+  - name: highQualityImages
     singleValue: false
     xpath: //table//tr[@class="append_image"]//@images
   - name: imageAlt
@@ -44,7 +50,7 @@ fields:
     xpath: 
   - name: price
     singleValue: true
-    xpath: ((//div[contains(@data-el, "price-details")]//span[@data-auto="sale-price"]/text())[1] | (//div[contains(@data-el, "price-details")]//span[@data-auto="main-price"]/text())[1])[1]
+    xpath: ((//div[contains(@data-el, "price-details")]//span[@data-auto="sale-price"]/text())[1] | (//div[contains(@data-el, "price-details")]//span[@data-auto="main-price"]/text())[1])[1] | (//div[@data-el="price-details"]//div[@data-auto="sale-price"])[1]
     regExp: \d+\.\d+
   - name: listPrice
     singleValue: true
@@ -55,43 +61,30 @@ fields:
     xpath: //button[@data-auto="add-to-bag"]
     regExp: Add to bag
     regExpReplace: In stock
-    defaultValue: Out of Stock
   - name: category
     singleValue: false
     xpath: //div[@data-el="breadcrumb"]/a[@class="breadcrumbs-item"]
   - name: sku
     singleValue: true
     xpath: //body/@productsku
-  - name: primeFlag
+  - name: gtin
     singleValue: true
-    xpath: 
-  - name: product_barcodes
-    singleValue: true
-    xpath: 
-  - name: manufacturerDescription
-    singleValue: true
-    xpath: 
+    xpath: //body/@productupc
   - name: questionsCount
     singleValue: true
-    xpath: 
-  - name: sponsoredProductUrls
-    singleValue: true
-    xpath: 
-  - name: imagesStandard
-    singleValue: true
-    xpath: 
-  - name: nutritionInfo
-    singleValue: true
-    xpath: 
+    xpath: (//div[@class="BVQAQuestionAndAnswerCount"]//span[@class="BVQANumber"])[1]
   - name: aggregateRating
     singleValue: true
     xpath: //body/@productrating
   - name: ratingCount
     singleValue: true
     xpath: //body/@productreview
-  - name: amazonChoice
+  - name: manufacturerImages
     singleValue: true
-    xpath: 
+    xpath: //body//@enhancedcontent
   - name: sponsoredProductUrls
-    singleValue: true
-    xpath: 
+    singleValue: false
+    xpath: //div[@class="sponsored-item-top-container"]//a/@href | //div[@class="componentCarousel horizontal"]//div[@class="carousel-content"]//li//div[@class="productThumbnailImage"]//a//@href
+    regExp: (.+)
+    regExpReplace: https://www.macys.com$1
+    
