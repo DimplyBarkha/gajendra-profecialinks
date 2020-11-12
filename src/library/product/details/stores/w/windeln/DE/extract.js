@@ -2,8 +2,13 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(() => {
-    const categorySelector = document.querySelector('.row.breadcrumbs-section').textContent;
-    const category = categorySelector.replace(/\b(\w*Zurück zu\w*)\b/, '');
+    let category = document.querySelector('.row.breadcrumbs-section').textContent;
+    const categoryItereation = category.split('Zurück zu:');
+    category = '';
+
+    categoryItereation.forEach(element => {
+      category += element + '>';
+    });
 
     document.querySelector('.row.breadcrumbs-section').setAttribute('category', category);
   });
