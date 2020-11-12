@@ -2,7 +2,7 @@ input:
   keywords: bic
   _url: http://bruneau.fr
 extractions:
-  - html: https://workbench.import.io/html/run=b79658f8-79a7-471a-8a6c-c5d93de0a86f/task=f10c38ae-c1f1-4a02-ac20-8b9edfea6bad/41f38161-eab6-4b1d-9b67-b3126ffe6898.html
+  - html: https://workbench.import.io/html/run=680bf092-0076-42ac-93f3-054c14caae68/task=0fe23788-f88d-42b2-bf9e-0679a0bffe21/6f4342d4-6503-4c45-b0b2-05540f96d0b6.html
     extractionConfigId: product/search/stores/b/bruneau/FR/extract
     data:
       - group:
@@ -462,6 +462,9 @@ extractions:
                 raw: "11"
                 locale: fr_FR
                 value: 11
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "63110"
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/@data-reference
@@ -580,6 +583,9 @@ extractions:
                 raw: "14"
                 locale: fr_FR
                 value: 14
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "90155"
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/@data-reference
@@ -1162,6 +1168,9 @@ extractions:
                 raw: "28"
                 locale: fr_FR
                 value: 28
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "90698"
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[29]/@data-reference
@@ -1744,6 +1753,9 @@ extractions:
                 raw: "42"
                 locale: fr_FR
                 value: 42
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "70140"
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[43]/@data-reference
@@ -1787,22 +1799,33 @@ extractions:
                 locale: fr_FR
                 value: 43
           - id:
-              - text: "707229"
+              - text: "24516"
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/@searchurl
             name:
-              - text: Surligneur pinceau Highlighter Flex Bic - Pochette de 4
+              - text: Stylo bille Bic 4 couleurs grip Pro rétractable pointe 1 mm - écriture
+                  moyenne
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/surligneurs/surligneur-pinceau-highlighter-flex-bic-pochette-4-OF707229.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-grip-pro-retractable-pointe-1-mm-ecriture-moyenne-OF24516.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/72/29/707229.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/24/51/24516.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "21"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "21"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 5,59
+              - text: 1,69
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "44"
@@ -1819,33 +1842,22 @@ extractions:
                 locale: fr_FR
                 value: 44
           - id:
-              - text: "90174"
+              - text: "707229"
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/@searchurl
             name:
-              - text: Marqueur effaçable Bic Velleda 1741 pointe ogive 2 mm - Pochette de 4
-                  assortis
+              - text: Surligneur pinceau Highlighter Flex Bic - Pochette de 4
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1741-pointe-ogive-2-mm-pochette-4-assortis-OF90174.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/surligneurs/surligneur-pinceau-highlighter-flex-bic-pochette-4-OF707229.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/90/17/90174.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/72/29/707229.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/div[1]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,6
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/div[2]/div[1]/div[1]/span[1]/@title
-                type: STRING
-            reviewCount:
-              - text: "56"
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
-            ratingCount:
-              - text: "56"
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 3,95
+              - text: 5,59
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "45"
@@ -1861,24 +1873,37 @@ extractions:
                 raw: "45"
                 locale: fr_FR
                 value: 45
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
-              - text: "709362"
+              - text: "90174"
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/@searchurl
             name:
-              - text: Stylo BIC Gel-ocity Illusion encre gel effaçable à capuchon pointe 0,7 mm
-                  - écriture...
+              - text: Marqueur effaçable Bic Velleda 1741 pointe ogive 2 mm - Pochette de 4
+                  assortis
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-effacables/stylo-bic-gel-ocity-illusion-encre-gel-effacable-capuchon-pointe-0-7-mm-ecriture-moyenne-OF709362.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1741-pointe-ogive-2-mm-pochette-4-assortis-OF90174.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/93/64/709364.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/90/17/90174.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "56"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "56"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 2,09
+              - text: 3,95
                 xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "46"
@@ -1980,8 +2005,8 @@ extractions:
                 locale: fr_FR
                 value: 48
         xpath: /html
-    timestamp: 1605082062257
-  - html: https://workbench.import.io/html/run=b79658f8-79a7-471a-8a6c-c5d93de0a86f/task=f10c38ae-c1f1-4a02-ac20-8b9edfea6bad/d431648b-d608-4b0e-81a0-a4946dc21ea0.html
+    timestamp: 1605167435587
+  - html: https://workbench.import.io/html/run=680bf092-0076-42ac-93f3-054c14caae68/task=0fe23788-f88d-42b2-bf9e-0679a0bffe21/a3c049c8-4bb3-48a2-b35d-bad068dd0611.html
     extractionConfigId: product/search/stores/b/bruneau/FR/extract
     data:
       - group:
@@ -2060,34 +2085,36 @@ extractions:
                 raw: "50"
                 locale: fr_FR
                 value: 50
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
-              - text: "24516"
+              - text: "63621"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/@searchurl
             name:
-              - text: Stylo bille Bic 4 couleurs grip Pro rétractable pointe 1 mm - écriture
-                  moyenne
+              - text: Porte mine rechargeable Critérium Bic pointe 2 mm chromé
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-grip-pro-retractable-pointe-1-mm-ecriture-moyenne-OF24516.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/crayons-porte-mines/porte-mines/porte-mine-rechargeable-criterium-bic-pointe-2-mm-chrome-OF63621.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/24/51/24516.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/63/62/63621.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: 4,0
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "21"
+              - text: "3"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "21"
+              - text: "3"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 1,69
+              - text: 3,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "51"
@@ -2104,32 +2131,33 @@ extractions:
                 locale: fr_FR
                 value: 51
           - id:
-              - text: "63621"
+              - text: "24515"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/@searchurl
             name:
-              - text: Porte mine rechargeable Critérium Bic pointe 2 mm chromé
+              - text: Stylo bille Bic 4 couleurs grip Fun rétractable pointe 1 mm - écriture
+                  moyenne
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/crayons-porte-mines/porte-mines/porte-mine-rechargeable-criterium-bic-pointe-2-mm-chrome-OF63621.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-grip-fun-retractable-pointe-1-mm-ecriture-moyenne-OF24515.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/63/62/63621.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/24/51/24515.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,0
+              - text: 4,4
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "3"
+              - text: "10"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "3"
+              - text: "10"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 3,99
+              - text: 1,65
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "52"
@@ -2146,33 +2174,33 @@ extractions:
                 locale: fr_FR
                 value: 52
           - id:
-              - text: "24515"
+              - text: "16645"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/@searchurl
             name:
-              - text: Stylo bille Bic 4 couleurs grip Fun rétractable pointe 1 mm - écriture
-                  moyenne
+              - text: Marqueur permanent indélébile Bic Pocket pointe ogive 1,1 mm - Pochette de
+                  4 assortis
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-grip-fun-retractable-pointe-1-mm-ecriture-moyenne-OF24515.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-indelebile-bic-pocket-pointe-ogive-1-1-mm-pochette-4-assortis-OF16645.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/24/51/24515.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/16/64/16645.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: 4,6
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "10"
+              - text: "5"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "10"
+              - text: "5"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 1,65
+              - text: 2,70
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "53"
@@ -2189,33 +2217,33 @@ extractions:
                 locale: fr_FR
                 value: 53
           - id:
-              - text: "16645"
+              - text: "90346"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/@searchurl
             name:
-              - text: Marqueur permanent indélébile Bic Pocket pointe ogive 1,1 mm - Pochette de
-                  4 assortis
+              - text: Marqueur permanent indélébile Bic Onyx Mini Market pointe ogive moyenne
+                  1,5 mm noir
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-indelebile-bic-pocket-pointe-ogive-1-1-mm-pochette-4-assortis-OF16645.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-indelebile-bic-onyx-market-mini-pointe-ogive-moyenne-1-5-mm-noir-OF90346.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/16/64/16645.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/90/34/90346A.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,6
+              - text: 4,1
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "5"
+              - text: "11"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "5"
+              - text: "11"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 2,70
+              - text: 1,69
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "54"
@@ -2232,33 +2260,22 @@ extractions:
                 locale: fr_FR
                 value: 54
           - id:
-              - text: "90346"
+              - text: "703297"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/@searchurl
             name:
-              - text: Marqueur permanent indélébile Bic Onyx Mini Market pointe ogive moyenne
-                  1,5 mm noir
+              - text: Porte mines rechargeable Critérium Bic pointe 0,5 mm noir
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-indelebile-bic-onyx-market-mini-pointe-ogive-moyenne-1-5-mm-noir-OF90346.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/crayons-porte-mines/porte-mines/porte-mines-rechargeable-criterium-bic-pointe-0-5-mm-noir-OF703297.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/90/34/90346A.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/32/97/703297.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[1]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,1
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/div[1]/div[1]/span[1]/@title
-                type: STRING
-            reviewCount:
-              - text: "11"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
-            ratingCount:
-              - text: "11"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 1,69
+              - text: 2,95
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "55"
@@ -2274,23 +2291,36 @@ extractions:
                 raw: "55"
                 locale: fr_FR
                 value: 55
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
-              - text: "703297"
+              - text: "90070"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/@searchurl
             name:
-              - text: Porte mines rechargeable Critérium Bic pointe 0,5 mm noir
+              - text: Surligneur Bic Technolight couleur
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/crayons-porte-mines/porte-mines/porte-mines-rechargeable-criterium-bic-pointe-0-5-mm-noir-OF703297.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/surligneurs/surligneur-bic-technolight-couleur-OF90070.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/32/97/703297.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/90/07/90071.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 2,95
+              - text: 1,79
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "56"
@@ -2307,32 +2337,32 @@ extractions:
                 locale: fr_FR
                 value: 56
           - id:
-              - text: "90070"
+              - text: "24528"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/@searchurl
             name:
-              - text: Surligneur Bic Technolight couleur
+              - text: Marqueur effaçable Bic Velleda 1741 pointe ogive 2 mm
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/surligneurs/surligneur-bic-technolight-couleur-OF90070.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1741-pointe-ogive-2-mm-OF24528.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/90/07/90071.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/24/53/24539.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: 4,1
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "10"
+              - text: "7"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "10"
+              - text: "7"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 1,79
+              - text: 1,25
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "57"
@@ -2349,32 +2379,32 @@ extractions:
                 locale: fr_FR
                 value: 57
           - id:
-              - text: "24528"
+              - text: "27359"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/@searchurl
             name:
-              - text: Marqueur effaçable Bic Velleda 1741 pointe ogive 2 mm
+              - text: Gomme Bic fun
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1741-pointe-ogive-2-mm-OF24528.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/fournitures-instruments/correction/correction-gomme/gomme-bic-fun-OF27359.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/24/53/24539.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/27/35/27359B.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: 5,0
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "7"
+              - text: "5"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "7"
+              - text: "5"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 1,25
+              - text: 0,85
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "58"
@@ -2391,32 +2421,32 @@ extractions:
                 locale: fr_FR
                 value: 58
           - id:
-              - text: "27359"
+              - text: "68694"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/@searchurl
             name:
-              - text: Gomme Bic fun
+              - text: Porte mine rechargeable Velocity Bic pointe 0,7 mm HB couleurs assorties
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/fournitures-instruments/correction/correction-gomme/gomme-bic-fun-OF27359.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/crayons-porte-mines/porte-mines/porte-mine-rechargeable-velocity-bic-pointe-0-7-mm-hb-couleurs-assorties-OF68694.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/27/35/27359B.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/68/69/68694.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 5,0
+              - text: 4,7
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "5"
+              - text: "7"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "5"
+              - text: "7"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 0,85
+              - text: 1,45
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "59"
@@ -2433,32 +2463,22 @@ extractions:
                 locale: fr_FR
                 value: 59
           - id:
-              - text: "68694"
+              - text: "705405"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/@searchurl
             name:
-              - text: Porte mine rechargeable Velocity Bic pointe 0,7 mm HB couleurs assorties
+              - text: Marqueur effaçable Bic Velleda 1701 pointe ogive 4,95 mm
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/crayons-porte-mines/porte-mines/porte-mine-rechargeable-velocity-bic-pointe-0-7-mm-hb-couleurs-assorties-OF68694.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1701-pointe-ogive-4-95-mm-OF705405.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/68/69/68694.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/54/09/705409.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[1]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,7
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[2]/div[1]/div[1]/span[1]/@title
-                type: STRING
-            reviewCount:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
-            ratingCount:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 1,45
+              - text: 1,39
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "60"
@@ -2474,23 +2494,37 @@ extractions:
                 raw: "60"
                 locale: fr_FR
                 value: 60
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
-              - text: "705405"
+              - text: "15180"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/@searchurl
             name:
-              - text: Marqueur effaçable Bic Velleda 1701 pointe ogive 4,95 mm
+              - text: Marqueur effaçable Bic Velleda 1781 pointe biseautée 3 à 6 mm - pochette
+                  de 4 assortis
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1701-pointe-ogive-4-95-mm-OF705405.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1781-pointe-biseautee-3-6-mm-pochette-4-assortis-OF15180.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/54/09/705409.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/15/18/15180.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 1,39
+              - text: 7,95
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "61"
@@ -2507,33 +2541,32 @@ extractions:
                 locale: fr_FR
                 value: 61
           - id:
-              - text: "15180"
+              - text: "85078"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/@searchurl
             name:
-              - text: Marqueur effaçable Bic Velleda 1781 pointe biseautée 3 à 6 mm - pochette
-                  de 4 assortis
+              - text: Porte mine jetable Matic Ecolutions Bic pointe 0,7 mm HB vert
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1781-pointe-biseautee-3-6-mm-pochette-4-assortis-OF15180.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/crayons-porte-mines/porte-mines/porte-mine-jetable-matic-ecolutions-bic-pointe-0-7-mm-hb-vert-OF85078.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/15/18/15180.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/85/07/85078.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: 5,0
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "5"
+              - text: "2"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "5"
+              - text: "2"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 7,95
+              - text: 0,50
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "62"
@@ -2550,32 +2583,22 @@ extractions:
                 locale: fr_FR
                 value: 62
           - id:
-              - text: "85078"
+              - text: "703542"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/@searchurl
             name:
-              - text: Porte mine jetable Matic Ecolutions Bic pointe 0,7 mm HB vert
+              - text: Stylo feutre Bic Visa à capuchon pointe 2 mm - écriture moyenne 0,8 mm
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/crayons-porte-mines/porte-mines/porte-mine-jetable-matic-ecolutions-bic-pointe-0-7-mm-hb-vert-OF85078.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/feutres/feutres-ecriture/stylo-feutre-bic-visa-capuchon-pointe-2-mm-ecriture-moyenne-0-8-mm-OF703542.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/85/07/85078.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/35/45/703545.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[1]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[2]/div[1]/div[1]/span[1]/@title
-                type: STRING
-            reviewCount:
-              - text: "2"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
-            ratingCount:
-              - text: "2"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 0,50
+              - text: 0,36
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "63"
@@ -2591,23 +2614,36 @@ extractions:
                 raw: "63"
                 locale: fr_FR
                 value: 63
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
-              - text: "703542"
+              - text: "91076"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/@searchurl
             name:
-              - text: Stylo feutre Bic Visa à capuchon pointe 2 mm - écriture moyenne 0,8 mm
+              - text: Pack 20+ 4 marqueurs Onyx Bic noir pointe biseautée 4 à 7,5 mm
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/feutres/feutres-ecriture/stylo-feutre-bic-visa-capuchon-pointe-2-mm-ecriture-moyenne-0-8-mm-OF703542.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/packs-promos-ecriture/pack-20-4-marqueurs-onyx-bic-noir-pointe-biseautee-4-7-5-mm-OF91076.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/35/45/703545.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/91/07/91076.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 0,36
+              - text: 33,75
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "64"
@@ -2624,32 +2660,33 @@ extractions:
                 locale: fr_FR
                 value: 64
           - id:
-              - text: "91076"
+              - text: "90178"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/@searchurl
             name:
-              - text: Pack 20+ 4 marqueurs Onyx Bic noir pointe biseautée 4 à 7,5 mm
+              - text: Marqueur effaçable Bic Velleda 1741 pointe ogive 2 mm - Pochette de 8
+                  assortis
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/packs-promos-ecriture/pack-20-4-marqueurs-onyx-bic-noir-pointe-biseautee-4-7-5-mm-OF91076.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1741-pointe-ogive-2-mm-pochette-8-assortis-OF90178.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/91/07/91076.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/90/17/90178C.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: 4,6
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "6"
+              - text: "38"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "6"
+              - text: "38"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 33,75
+              - text: 8,55
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "65"
@@ -2666,33 +2703,32 @@ extractions:
                 locale: fr_FR
                 value: 65
           - id:
-              - text: "90178"
+              - text: "90320"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/@searchurl
             name:
-              - text: Marqueur effaçable Bic Velleda 1741 pointe ogive 2 mm - Pochette de 8
-                  assortis
+              - text: Marqueur effaçable Bic Velleda 1781 pointe biseautée 3 à 6 mm
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1741-pointe-ogive-2-mm-pochette-8-assortis-OF90178.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1781-pointe-biseautee-3-6-mm-OF90320.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/90/17/90178C.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/90/32/90322.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,6
+              - text: 4,1
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "38"
+              - text: "10"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "38"
+              - text: "10"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 8,55
+              - text: 2,05
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "66"
@@ -2709,32 +2745,23 @@ extractions:
                 locale: fr_FR
                 value: 66
           - id:
-              - text: "90320"
+              - text: "705413"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/@searchurl
             name:
-              - text: Marqueur effaçable Bic Velleda 1781 pointe biseautée 3 à 6 mm
+              - text: Marqueur effaçable Bic Velleda 1701 pointe ogive 4,95 mm - Etui de 4
+                  assortis
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1781-pointe-biseautee-3-6-mm-OF90320.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1701-pointe-ogive-4-95-mm-etui-4-assortis-OF705413.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/90/32/90322.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/54/13/705413.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/div[1]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,1
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/div[2]/div[1]/div[1]/span[1]/@title
-                type: STRING
-            reviewCount:
-              - text: "10"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
-            ratingCount:
-              - text: "10"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 2,05
+              - text: 4,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "67"
@@ -2750,24 +2777,37 @@ extractions:
                 raw: "67"
                 locale: fr_FR
                 value: 67
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
-              - text: "705413"
+              - text: "94728"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/@searchurl
             name:
-              - text: Marqueur effaçable Bic Velleda 1701 pointe ogive 4,95 mm - Etui de 4
-                  assortis
+              - text: Marqueur effaçable Bic Velleda encre liquide pointe ogive moyenne 2,2 mm -
+                  Boîte de 4...
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-1701-pointe-ogive-4-95-mm-etui-4-assortis-OF705413.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-encre-liquide-pointe-ogive-moyenne-2-2-mm-boite-4-coloris-fun-OF94728.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/54/13/705413.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/94/72/94728.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 4,99
+              - text: 5,09
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "68"
@@ -2784,33 +2824,33 @@ extractions:
                 locale: fr_FR
                 value: 68
           - id:
-              - text: "94728"
+              - text: "30641"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/@searchurl
             name:
-              - text: Marqueur effaçable Bic Velleda encre liquide pointe ogive moyenne 2,2 mm -
-                  Boîte de 4...
+              - text: Marqueur permanent indélébile Bic Onyx Market pointe biseautée extra-large
+                  9,9 mm noir
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-pour-tableaux-blancs/marqueur-effacable-bic-velleda-encre-liquide-pointe-ogive-moyenne-2-2-mm-boite-4-coloris-fun-OF94728.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-indelebile-bic-onyx-market-pointe-biseautee-extra-large-9-9-mm-noir-OF30641.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/94/72/94728.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/30/64/30641.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: 3,2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
-              - text: "6"
+              - text: "4"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             ratingCount:
-              - text: "6"
+              - text: "4"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 5,09
+              - text: 6,49
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "69"
@@ -2827,23 +2867,23 @@ extractions:
                 locale: fr_FR
                 value: 69
           - id:
-              - text: "30641"
+              - text: "91959"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[22]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[22]/@searchurl
             name:
-              - text: Marqueur permanent indélébile Bic Onyx Market pointe biseautée extra-large
-                  9,9 mm noir
+              - text: Marqueur permanent indélébile Bic 2000 pointe ogive 1,7 mm - Pochette de 4
+                  assortis
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[22]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-indelebile-bic-onyx-market-pointe-biseautee-extra-large-9-9-mm-noir-OF30641.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-indelebile-bic-2000-pointe-ogive-1-7-mm-pochette-4-assortis-OF91959.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[22]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/30/64/30641.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/91/95/91959A.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[22]/div[1]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,2
+              - text: 4,8
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[22]/div[2]/div[1]/div[1]/span[1]/@title
                 type: STRING
             reviewCount:
@@ -2853,7 +2893,7 @@ extractions:
               - text: "4"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[22]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 6,49
+              - text: 2,70
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[22]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "70"
@@ -2870,33 +2910,23 @@ extractions:
                 locale: fr_FR
                 value: 70
           - id:
-              - text: "91959"
+              - text: "709370"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/@searchurl
             name:
-              - text: Marqueur permanent indélébile Bic 2000 pointe ogive 1,7 mm - Pochette de 4
-                  assortis
+              - text: Marqueur permanent Bic Marking Pro pointe biseauté de 1,7 à 4,7 mm - Corps
+                  métal
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-indelebile-bic-2000-pointe-ogive-1-7-mm-pochette-4-assortis-OF91959.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-bic-marking-pro-pointe-biseaute-1-7-4-7-mm-corps-metal-OF709370.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/91/95/91959A.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/93/71/709371.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/div[1]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,8
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/div[2]/div[1]/div[1]/span[1]/@title
-                type: STRING
-            reviewCount:
-              - text: "4"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
-            ratingCount:
-              - text: "4"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 2,70
+              - text: 1,75
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "71"
@@ -2912,24 +2942,36 @@ extractions:
                 raw: "71"
                 locale: fr_FR
                 value: 71
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
-              - text: "709370"
+              - text: "27360"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/@searchurl
             name:
-              - text: Marqueur permanent Bic Marking Pro pointe biseauté de 1,7 à 4,7 mm - Corps
-                  métal
+              - text: Surligneur Highlighter Grip Bic couleur
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-bic-marking-pro-pointe-biseaute-1-7-4-7-mm-corps-metal-OF709370.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/surligneurs/surligneur-highlighter-grip-bic-couleur-OF27360.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/93/71/709371.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/27/43/27435.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 1,75
+              - text: 1,29
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "72"
@@ -2946,32 +2988,22 @@ extractions:
                 locale: fr_FR
                 value: 72
           - id:
-              - text: "27360"
+              - text: "709373"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/@searchurl
             name:
-              - text: Surligneur Highlighter Grip Bic couleur
+              - text: Marqueur permanent Bic Marking Pro pointe ogive 1,1 mm - Corps métal
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/surligneurs/surligneur-highlighter-grip-bic-couleur-OF27360.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-bic-marking-pro-pointe-ogive-1-1-mm-corps-metal-OF709373.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/27/43/27435.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/93/75/709375.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/div[1]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,6
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/div[2]/div[1]/div[1]/span[1]/@title
-                type: STRING
-            reviewCount:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
-            ratingCount:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
             price:
-              - text: 1,29
+              - text: 1,75
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "73"
@@ -2987,23 +3019,27 @@ extractions:
                 raw: "73"
                 locale: fr_FR
                 value: 73
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
-              - text: "709373"
+              - text: "709362"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[26]/@data-reference
             searchUrl:
               - text: https://www.bruneau.fr/recherche/result.htm?search=bic&page=2
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[26]/@searchurl
             name:
-              - text: Marqueur permanent Bic Marking Pro pointe ogive 1,1 mm - Corps métal
+              - text: Stylo BIC Gel-ocity Illusion encre gel effaçable à capuchon pointe 0,7 mm
+                  - écriture...
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[26]/div[2]/h3[1]/a[1]/span[1]
             productUrl:
-              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/marqueurs/marqueurs-permanents/marqueur-permanent-bic-marking-pro-pointe-ogive-1-1-mm-corps-metal-OF709373.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-effacables/stylo-bic-gel-ocity-illusion-encre-gel-effacable-capuchon-pointe-0-7-mm-ecriture-moyenne-OF709362.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20B&oabtopencours=March2020
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[26]/div[2]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/93/75/709375.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/93/64/709364.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[26]/div[1]/a[1]/div[1]/img[1]/@src
             price:
-              - text: 1,75
+              - text: 2,09
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[26]/div[3]/div[1]/div[1]/div[2]/text()[1]
             rank:
               - text: "74"
@@ -3019,6 +3055,9 @@ extractions:
                 raw: "74"
                 locale: fr_FR
                 value: 74
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "90047"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[27]/@data-reference
@@ -3180,6 +3219,9 @@ extractions:
                 raw: "78"
                 locale: fr_FR
                 value: 78
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "90350"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[31]/@data-reference
@@ -3719,6 +3761,9 @@ extractions:
                 raw: "91"
                 locale: fr_FR
                 value: 91
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "90890"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/@data-reference
@@ -3793,6 +3838,9 @@ extractions:
                 raw: "93"
                 locale: fr_FR
                 value: 93
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "13686"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/@data-reference
@@ -3825,6 +3873,9 @@ extractions:
                 raw: "94"
                 locale: fr_FR
                 value: 94
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "712474"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[47]/@data-reference
@@ -3857,6 +3908,9 @@ extractions:
                 raw: "95"
                 locale: fr_FR
                 value: 95
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "16088"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[48]/@data-reference
@@ -3900,8 +3954,8 @@ extractions:
                 locale: fr_FR
                 value: 96
         xpath: /html
-    timestamp: 1605082062257
-  - html: https://workbench.import.io/html/run=b79658f8-79a7-471a-8a6c-c5d93de0a86f/task=f10c38ae-c1f1-4a02-ac20-8b9edfea6bad/4ead158f-1c48-4962-b7b2-52e1cc3d1c9f.html
+    timestamp: 1605167435587
+  - html: https://workbench.import.io/html/run=680bf092-0076-42ac-93f3-054c14caae68/task=0fe23788-f88d-42b2-bf9e-0679a0bffe21/43af698b-db2e-4f75-a1dd-86b62fe57874.html
     extractionConfigId: product/search/stores/b/bruneau/FR/extract
     data:
       - group:
@@ -3937,6 +3991,9 @@ extractions:
                 raw: "97"
                 locale: fr_FR
                 value: 97
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8081056"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/@data-reference
@@ -3969,6 +4026,9 @@ extractions:
                 raw: "98"
                 locale: fr_FR
                 value: 98
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488182"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/@data-reference
@@ -4001,6 +4061,9 @@ extractions:
                 raw: "99"
                 locale: fr_FR
                 value: 99
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "611580"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/@data-reference
@@ -4033,6 +4096,9 @@ extractions:
                 raw: "100"
                 locale: fr_FR
                 value: 100
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489757"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/@data-reference
@@ -4192,6 +4258,9 @@ extractions:
                 raw: "104"
                 locale: fr_FR
                 value: 104
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488028"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/@data-reference
@@ -4224,6 +4293,9 @@ extractions:
                 raw: "105"
                 locale: fr_FR
                 value: 105
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "622356"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/@data-reference
@@ -4257,6 +4329,9 @@ extractions:
                 raw: "106"
                 locale: fr_FR
                 value: 106
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8005444"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/@data-reference
@@ -4289,6 +4364,9 @@ extractions:
                 raw: "107"
                 locale: fr_FR
                 value: 107
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489466"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/@data-reference
@@ -4322,6 +4400,9 @@ extractions:
                 raw: "108"
                 locale: fr_FR
                 value: 108
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489470"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/@data-reference
@@ -4355,6 +4436,9 @@ extractions:
                 raw: "109"
                 locale: fr_FR
                 value: 109
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8003060"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/@data-reference
@@ -4387,6 +4471,9 @@ extractions:
                 raw: "110"
                 locale: fr_FR
                 value: 110
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489440"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/@data-reference
@@ -4419,6 +4506,9 @@ extractions:
                 raw: "111"
                 locale: fr_FR
                 value: 111
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "515369"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/@data-reference
@@ -4452,6 +4542,9 @@ extractions:
                 raw: "112"
                 locale: fr_FR
                 value: 112
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488664"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/@data-reference
@@ -4484,6 +4577,9 @@ extractions:
                 raw: "113"
                 locale: fr_FR
                 value: 113
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489764"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/@data-reference
@@ -4517,6 +4613,9 @@ extractions:
                 raw: "114"
                 locale: fr_FR
                 value: 114
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "551519"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/@data-reference
@@ -4549,6 +4648,9 @@ extractions:
                 raw: "115"
                 locale: fr_FR
                 value: 115
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "514046"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/@data-reference
@@ -4581,6 +4683,9 @@ extractions:
                 raw: "116"
                 locale: fr_FR
                 value: 116
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489771"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/@data-reference
@@ -4614,6 +4719,9 @@ extractions:
                 raw: "117"
                 locale: fr_FR
                 value: 117
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488024"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[22]/@data-reference
@@ -4646,6 +4754,9 @@ extractions:
                 raw: "118"
                 locale: fr_FR
                 value: 118
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "592171"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/@data-reference
@@ -4678,6 +4789,9 @@ extractions:
                 raw: "119"
                 locale: fr_FR
                 value: 119
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8031670"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/@data-reference
@@ -4710,6 +4824,9 @@ extractions:
                 raw: "120"
                 locale: fr_FR
                 value: 120
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489292"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/@data-reference
@@ -4743,6 +4860,9 @@ extractions:
                 raw: "121"
                 locale: fr_FR
                 value: 121
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489753"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[26]/@data-reference
@@ -4775,6 +4895,9 @@ extractions:
                 raw: "122"
                 locale: fr_FR
                 value: 122
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489770"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[27]/@data-reference
@@ -4808,6 +4931,9 @@ extractions:
                 raw: "123"
                 locale: fr_FR
                 value: 123
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8092851"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[28]/@data-reference
@@ -4840,6 +4966,9 @@ extractions:
                 raw: "124"
                 locale: fr_FR
                 value: 124
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "514618"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[29]/@data-reference
@@ -4873,6 +5002,9 @@ extractions:
                 raw: "125"
                 locale: fr_FR
                 value: 125
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488657"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[30]/@data-reference
@@ -4906,6 +5038,9 @@ extractions:
                 raw: "126"
                 locale: fr_FR
                 value: 126
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489512"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[31]/@data-reference
@@ -4938,6 +5073,9 @@ extractions:
                 raw: "127"
                 locale: fr_FR
                 value: 127
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "551514"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[32]/@data-reference
@@ -4970,6 +5108,9 @@ extractions:
                 raw: "128"
                 locale: fr_FR
                 value: 128
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "663211"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[33]/@data-reference
@@ -5002,6 +5143,9 @@ extractions:
                 raw: "129"
                 locale: fr_FR
                 value: 129
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "622350"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[34]/@data-reference
@@ -5034,6 +5178,9 @@ extractions:
                 raw: "130"
                 locale: fr_FR
                 value: 130
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "664066"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[35]/@data-reference
@@ -5067,6 +5214,9 @@ extractions:
                 raw: "131"
                 locale: fr_FR
                 value: 131
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488026"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[36]/@data-reference
@@ -5099,6 +5249,9 @@ extractions:
                 raw: "132"
                 locale: fr_FR
                 value: 132
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8016641"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[37]/@data-reference
@@ -5131,6 +5284,9 @@ extractions:
                 raw: "133"
                 locale: fr_FR
                 value: 133
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "664470"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[38]/@data-reference
@@ -5164,6 +5320,9 @@ extractions:
                 raw: "134"
                 locale: fr_FR
                 value: 134
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8005441"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[39]/@data-reference
@@ -5196,6 +5355,9 @@ extractions:
                 raw: "135"
                 locale: fr_FR
                 value: 135
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8023132"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[40]/@data-reference
@@ -5228,6 +5390,9 @@ extractions:
                 raw: "136"
                 locale: fr_FR
                 value: 136
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8031671"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[41]/@data-reference
@@ -5260,6 +5425,9 @@ extractions:
                 raw: "137"
                 locale: fr_FR
                 value: 137
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "490355"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[42]/@data-reference
@@ -5292,6 +5460,9 @@ extractions:
                 raw: "138"
                 locale: fr_FR
                 value: 138
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8000912"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[43]/@data-reference
@@ -5324,6 +5495,9 @@ extractions:
                 raw: "139"
                 locale: fr_FR
                 value: 139
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489294"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/@data-reference
@@ -5357,6 +5531,9 @@ extractions:
                 raw: "140"
                 locale: fr_FR
                 value: 140
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8005415"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/@data-reference
@@ -5389,6 +5566,9 @@ extractions:
                 raw: "141"
                 locale: fr_FR
                 value: 141
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489293"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/@data-reference
@@ -5422,6 +5602,9 @@ extractions:
                 raw: "142"
                 locale: fr_FR
                 value: 142
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8005439"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[47]/@data-reference
@@ -5454,6 +5637,9 @@ extractions:
                 raw: "143"
                 locale: fr_FR
                 value: 143
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489469"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[48]/@data-reference
@@ -5487,9 +5673,12 @@ extractions:
                 raw: "144"
                 locale: fr_FR
                 value: 144
+            aggregateRating2:
+              - text: "0"
+                type: STRING
         xpath: /html
-    timestamp: 1605082062257
-  - html: https://workbench.import.io/html/run=b79658f8-79a7-471a-8a6c-c5d93de0a86f/task=f10c38ae-c1f1-4a02-ac20-8b9edfea6bad/c90f2818-85d1-4813-8f8a-d73420c81f7f.html
+    timestamp: 1605167435587
+  - html: https://workbench.import.io/html/run=680bf092-0076-42ac-93f3-054c14caae68/task=0fe23788-f88d-42b2-bf9e-0679a0bffe21/699d3416-5ec6-4840-8bcb-9db384f551fa.html
     extractionConfigId: product/search/stores/b/bruneau/FR/extract
     data:
       - group:
@@ -5526,6 +5715,9 @@ extractions:
                 raw: "145"
                 locale: fr_FR
                 value: 145
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488636"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/@data-reference
@@ -5559,6 +5751,9 @@ extractions:
                 raw: "146"
                 locale: fr_FR
                 value: 146
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "592355"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/@data-reference
@@ -5592,6 +5787,9 @@ extractions:
                 raw: "147"
                 locale: fr_FR
                 value: 147
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8005404"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/@data-reference
@@ -5624,6 +5822,9 @@ extractions:
                 raw: "148"
                 locale: fr_FR
                 value: 148
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8005433"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/@data-reference
@@ -5656,6 +5857,9 @@ extractions:
                 raw: "149"
                 locale: fr_FR
                 value: 149
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488022"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/@data-reference
@@ -5688,6 +5892,9 @@ extractions:
                 raw: "150"
                 locale: fr_FR
                 value: 150
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "592415"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/@data-reference
@@ -5720,6 +5927,9 @@ extractions:
                 raw: "151"
                 locale: fr_FR
                 value: 151
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "662658"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/@data-reference
@@ -5752,6 +5962,9 @@ extractions:
                 raw: "152"
                 locale: fr_FR
                 value: 152
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "551691"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/@data-reference
@@ -5784,6 +5997,9 @@ extractions:
                 raw: "153"
                 locale: fr_FR
                 value: 153
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "592418"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/@data-reference
@@ -5816,6 +6032,9 @@ extractions:
                 raw: "154"
                 locale: fr_FR
                 value: 154
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8016648"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/@data-reference
@@ -5848,6 +6067,9 @@ extractions:
                 raw: "155"
                 locale: fr_FR
                 value: 155
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488461"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/@data-reference
@@ -5881,6 +6103,9 @@ extractions:
                 raw: "156"
                 locale: fr_FR
                 value: 156
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "592905"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/@data-reference
@@ -5914,6 +6139,9 @@ extractions:
                 raw: "157"
                 locale: fr_FR
                 value: 157
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488635"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/@data-reference
@@ -5947,6 +6175,9 @@ extractions:
                 raw: "158"
                 locale: fr_FR
                 value: 158
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489468"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/@data-reference
@@ -5980,6 +6211,9 @@ extractions:
                 raw: "159"
                 locale: fr_FR
                 value: 159
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "489557"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/@data-reference
@@ -6012,6 +6246,9 @@ extractions:
                 raw: "160"
                 locale: fr_FR
                 value: 160
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "664150"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[17]/@data-reference
@@ -6044,6 +6281,9 @@ extractions:
                 raw: "161"
                 locale: fr_FR
                 value: 161
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8005401"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[18]/@data-reference
@@ -6076,6 +6316,9 @@ extractions:
                 raw: "162"
                 locale: fr_FR
                 value: 162
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "664992"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[19]/@data-reference
@@ -6109,6 +6352,9 @@ extractions:
                 raw: "163"
                 locale: fr_FR
                 value: 163
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488021"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[20]/@data-reference
@@ -6141,6 +6387,9 @@ extractions:
                 raw: "164"
                 locale: fr_FR
                 value: 164
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488031"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[21]/@data-reference
@@ -6173,6 +6422,9 @@ extractions:
                 raw: "165"
                 locale: fr_FR
                 value: 165
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "493679"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[22]/@data-reference
@@ -6206,6 +6458,9 @@ extractions:
                 raw: "166"
                 locale: fr_FR
                 value: 166
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "608470"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[23]/@data-reference
@@ -6238,6 +6493,9 @@ extractions:
                 raw: "167"
                 locale: fr_FR
                 value: 167
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488027"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[24]/@data-reference
@@ -6270,6 +6528,9 @@ extractions:
                 raw: "168"
                 locale: fr_FR
                 value: 168
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8031673"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[25]/@data-reference
@@ -6302,6 +6563,9 @@ extractions:
                 raw: "169"
                 locale: fr_FR
                 value: 169
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "662666"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[26]/@data-reference
@@ -6334,6 +6598,9 @@ extractions:
                 raw: "170"
                 locale: fr_FR
                 value: 170
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "662653"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[27]/@data-reference
@@ -6366,6 +6633,9 @@ extractions:
                 raw: "171"
                 locale: fr_FR
                 value: 171
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8016666"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[28]/@data-reference
@@ -6398,6 +6668,9 @@ extractions:
                 raw: "172"
                 locale: fr_FR
                 value: 172
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8018843"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[29]/@data-reference
@@ -6430,6 +6703,9 @@ extractions:
                 raw: "173"
                 locale: fr_FR
                 value: 173
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488025"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[30]/@data-reference
@@ -6462,6 +6738,9 @@ extractions:
                 raw: "174"
                 locale: fr_FR
                 value: 174
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8005428"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[31]/@data-reference
@@ -6494,6 +6773,9 @@ extractions:
                 raw: "175"
                 locale: fr_FR
                 value: 175
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8016664"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[32]/@data-reference
@@ -6526,6 +6808,9 @@ extractions:
                 raw: "176"
                 locale: fr_FR
                 value: 176
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8017894"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[33]/@data-reference
@@ -6558,6 +6843,9 @@ extractions:
                 raw: "177"
                 locale: fr_FR
                 value: 177
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8061689"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[34]/@data-reference
@@ -6590,6 +6878,9 @@ extractions:
                 raw: "178"
                 locale: fr_FR
                 value: 178
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "554473"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[35]/@data-reference
@@ -6622,6 +6913,9 @@ extractions:
                 raw: "179"
                 locale: fr_FR
                 value: 179
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "613487"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[36]/@data-reference
@@ -6654,6 +6948,9 @@ extractions:
                 raw: "180"
                 locale: fr_FR
                 value: 180
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "554475"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[37]/@data-reference
@@ -6686,6 +6983,9 @@ extractions:
                 raw: "181"
                 locale: fr_FR
                 value: 181
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "592416"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[38]/@data-reference
@@ -6718,6 +7018,9 @@ extractions:
                 raw: "182"
                 locale: fr_FR
                 value: 182
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "664473"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[39]/@data-reference
@@ -6751,6 +7054,9 @@ extractions:
                 raw: "183"
                 locale: fr_FR
                 value: 183
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "8092940"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[40]/@data-reference
@@ -6783,6 +7089,9 @@ extractions:
                 raw: "184"
                 locale: fr_FR
                 value: 184
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488030"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[41]/@data-reference
@@ -6815,6 +7124,9 @@ extractions:
                 raw: "185"
                 locale: fr_FR
                 value: 185
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "516538"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[42]/@data-reference
@@ -6848,6 +7160,9 @@ extractions:
                 raw: "186"
                 locale: fr_FR
                 value: 186
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "515716"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[43]/@data-reference
@@ -6880,6 +7195,9 @@ extractions:
                 raw: "187"
                 locale: fr_FR
                 value: 187
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "612523"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[44]/@data-reference
@@ -6912,6 +7230,9 @@ extractions:
                 raw: "188"
                 locale: fr_FR
                 value: 188
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "662659"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[45]/@data-reference
@@ -6944,6 +7265,9 @@ extractions:
                 raw: "189"
                 locale: fr_FR
                 value: 189
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "494027"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[46]/@data-reference
@@ -6976,6 +7300,9 @@ extractions:
                 raw: "190"
                 locale: fr_FR
                 value: 190
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488023"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[47]/@data-reference
@@ -7008,6 +7335,9 @@ extractions:
                 raw: "191"
                 locale: fr_FR
                 value: 191
+            aggregateRating2:
+              - text: "0"
+                type: STRING
           - id:
               - text: "488311"
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[3]/div[48]/@data-reference
@@ -7041,5 +7371,8 @@ extractions:
                 raw: "192"
                 locale: fr_FR
                 value: 192
+            aggregateRating2:
+              - text: "0"
+                type: STRING
         xpath: /html
-    timestamp: 1605082062257
+    timestamp: 1605167435587
