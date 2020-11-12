@@ -1,10 +1,12 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div[data-ref*="product-tile"]
-recordXPath: null
+recordSelector: null
+recordXPath: //div[contains(@data-ref,"product-tile")]
 fields:
   - name: id
-    singleValue: false
+    xpath: //@data-ref[contains(.,"product-tile")]
+    regExp: product-tile-(.*)
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
@@ -12,10 +14,16 @@ fields:
     xpath: //h5[contains(@class,'ProductName')]
   - name: productUrl
     singleValue: false
+    xpath: //div[contains(@class,'ProductImage')]//a/@href
+    regExp: (\/shop.*)
+    regExpReplace: https://www.officeworks.com.au$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[contains(@class,'ProductImage')]//img/@src
+    regExp: (\/\/images.*)
+    regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -26,6 +34,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[contains(@class,'ProductPrice')]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -43,6 +52,7 @@ fields:
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
+    xpath: //div[contains(@class,'SponsoredBadge')]
     type: BOOLEAN
   # - name: totalRecordCount
   #   singleValue: true 
