@@ -35,8 +35,6 @@ module.exports = {
     await context.waitForXPath('(//div[contains(@class,"prod-alt-image")]/img/@src)[position()!=1]', { timeout: 6000 })
       .catch(() => console.log('no alt Images'));
 
-    await context.click('body');
-
     const nutrTabPresentAndClicked = await context.evaluate(async () => {
       const nutrTab = document.evaluate('//span[contains(text(),"Nutrition Facts")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
       if (nutrTab) {
@@ -70,7 +68,7 @@ module.exports = {
     // Iframe logic for aplus_images & enhanced_content if not picked up in API:
     await context.evaluate(async () => {
       // scroll to bottom of page, iframe should load if present!
-      await window.scrollTo(0, document.body.scrollHeight);
+      //await window.scrollTo(0, document.body.scrollHeight);
     });
     const enhancedContentSelector = 'iframe#iframe-AboutThisItem-marketingContent';
     await context.waitForSelector(enhancedContentSelector, { timeout: 5000 })

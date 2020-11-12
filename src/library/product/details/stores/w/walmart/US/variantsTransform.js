@@ -16,7 +16,7 @@ const variantsTransform = (data, context) => {
     for (const row of group) {
       try {
         if (row.variantId && row.variantName) {
-          row.variantUrl = [{ text: `http://walmart.com/ip/${row.variantId[0].text}` }];
+          row.variantUrl = [{ text: `http://walmart.com/ip/${row.variantId[0].text}/?selected=true` }];
           delete row.variantName;
         }
       } catch (exception) {
