@@ -34,11 +34,11 @@ const transform = (data, context) => {
           el.text = clean(el.text);
         }));
 
-        if (row.brandText) {
-          row.brandText.forEach(item => {
-            item.text = item.text.split(' ')[0];
-          });
-        }
+        // if (row.brandText) {
+        //   row.brandText.forEach(item => {
+        //     item.text = item.text.split(' ')[0];
+        //   });
+        // }
         // if (row.productUrl) {
         //   row.productUrl.forEach(item => {
         //     if (item.text.includes('https://www.carrefour.fr')) {
