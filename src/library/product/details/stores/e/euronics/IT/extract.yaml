@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
     xpath: (//div[@class='productDetail__image  j-carouselItem j-openOverlay']/img/@src)[1]
   - name: imageAlt
@@ -58,7 +58,7 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@class='productDetails__linkWrapper']/a//@alt
+    xpath: (//div[@class='productDetails__brand'])[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
