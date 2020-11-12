@@ -11,6 +11,7 @@ fields:
     xpath: //ancestor::body/@searchurl
   - name: name
     singleValue: false
+    xpath: //h2/a[contains(@class, "product-prev__title")]
   - name: productUrl
     singleValue: false
     xpath: //a[contains(@class, "product-prev__title")]/@href

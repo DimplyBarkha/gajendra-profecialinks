@@ -26,7 +26,7 @@ module.exports = {
             const starValue = Number(star.getAttribute('style').replace(/[^\d]/g, ''));
             ratingValue += starValue;
           });
-          const ratingAttribute = (ratingValue / 100).toFixed(1);
+          const ratingAttribute = (ratingValue / 100).toFixed(1).replace('.', ',');
           product.setAttribute('rating', ratingAttribute);
         }
       });
