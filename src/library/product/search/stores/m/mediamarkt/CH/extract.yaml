@@ -8,7 +8,6 @@ fields:
     xpath: //@data-reco-pid
   - name: searchUrl
     singleValue: false
-    xpath: concat('https:',//ul[@class='pagination']/li[@class='active']/a/@href)
   - name: name
     singleValue: false
     xpath: //h2/a
@@ -19,7 +18,7 @@ fields:
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: concat('https:',//*[@class="product-photo"]//img/@src)
+    xpath: //@product-picture
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -36,7 +35,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: concat(//div[contains(@class, 'price-box')]/div,//div[contains(@class, 'price-range')]/following-sibling::div[1]/label)
+    xpath: //@product-price
   - name: manufacturer
     singleValue: true
     xpath: //script
@@ -55,6 +54,7 @@ fields:
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
