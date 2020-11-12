@@ -43,6 +43,28 @@ module.exports = {
         addElementToDocument('price', price);
       }
 
+      //mpc
+      var mpc = getXpath("//div[contains(text(),'Artikelnummer')]/text()", 'nodeValue');
+      if (mpc != null){
+        mpc = mpc.split(": ")[1];
+        addElementToDocument('mpc', mpc);
+      }
+
+      //description 
+      var brand = getXpath("(//div[@class='product-detail__specification']/table/tbody/tr/th[1])[contains(text(),'Varumärke')]/following-sibling::th/text()", 'nodeValue');
+      var desc = getXpath("//h1[@class='product-page__title']/span/text()", 'nodeValue');
+      var desc2 = getXpath("(//h1[@class='product-page__title'])/text()[2]", 'nodeValue');
+      if (desc2 != null){
+        desc = desc + " " + desc2;
+        if(brand != null) {
+            desc = brand+"-"+desc;
+        }
+      }
+      if(desc != null){
+        addElementToDocument('desc', desc);
+      }
+      
+
     });
     await context.extract(productDetails);
   },
