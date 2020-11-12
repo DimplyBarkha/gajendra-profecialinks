@@ -5,9 +5,9 @@ module.exports = {
     country: 'AU',
     store: 'chemistwarehouse',
     domain: 'chemistwarehouse.com.au',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.chemistwarehouse.com.au/search?searchtext={searchTerms}&fh=1',
+    loadedSelector: 'div.search__result__product__list',
+    noResultsXPath: '//div[@class="search__result__products-no-result"]',
     zipcode: '',
   },
 };
