@@ -1,13 +1,4 @@
 robot: product/search
-proxy:
-  zone: ZES
-  type: DATA_CENTER
-policy:
-  numberRetries: 1
-  priority: MEDIUM
-  retryDelay: 60
-  backoffPolicy: EXPONENTIAL
-  retryWithResidentialProxyAfter: 99
 parameters:
   country: ES
   domain: elcorteingles.es
@@ -27,12 +18,9 @@ meta:
     elcort_papeleria_test:
       extractor: debbc498-332b-4480-a7a7-0d93859f2166
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
-<<<<<<< HEAD
-    elcorteingles_papeleria_search:
-      extractor: 0d4ea56b-28e2-4c9d-80ec-145cbb4435f5
-      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
-=======
     papeleria:
       extractor: a8fb37ae-8272-4278-b7b2-a5b6200d7df7
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
->>>>>>> 841345e2c081221ab4e9d83992ab4238638c6134
+    DS_elcorteingles_papeleria_search:
+      extractor: bc5f2553-3d17-48b1-b45e-ed08ad2024e8
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
