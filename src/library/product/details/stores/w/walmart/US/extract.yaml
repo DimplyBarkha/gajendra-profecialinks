@@ -76,9 +76,9 @@ fields:
 - name: sku
   singleValue: true
   xpath: //script[@id='item'] | //script[id='product']
-  regExp: ("primaryProductId":")([^"]+)(","primary)
+  regExp: primaryProductId\"\s?:\s?\"([^\"]+)
   # regExp: (","primaryProductId":\")(\w+)(",")?
-  regExpReplace: $2
+  regExpReplace: $1
 - name: asin
   singleValue: false
   xpath: //div[contains(@class,'wm-item-number')]
@@ -128,7 +128,9 @@ fields:
 - name: shippingInfo1
   singleValue: false
   xpath: //script[@id='item'] | //script[@id='product']
-  regExp: \"sellerDisplayName\"\:\"([^"]+)(\"\,\"showSold)  
+  #regExp: \"sellerDisplayName\"\:\"([^"]+)(\"\,\"showSold) 
+  regExp: sellerDisplayName\"\s?:\s?\"([^\"]+) 
+  regExpReplace: $1
 - name: shippingDimensions
   singleValue: true
   xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides'] | //td[contains(text(),"Assembled Product Dimensions")]/following-sibling::td/div
