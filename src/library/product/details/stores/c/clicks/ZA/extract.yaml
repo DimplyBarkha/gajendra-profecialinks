@@ -11,7 +11,7 @@ fields:
     regExpReplace: https://clicks.co.za/$1
   - name: imageAlt
     singleValue: false
-    description: Alt text of the main product image
+    xpath: //a[@id="imageLink"]/img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //li[@class="slide"][position()>1]//a/@href
@@ -64,9 +64,9 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
+  # - name: sku
+  #   singleValue: false
+  #   xpath: //div[contains(@class,"product-code")]/text()
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,"product-code")]/text()
@@ -81,7 +81,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    description: Content under "directions" header
+    xpath: //p//b[contains(text(),"Usage instructions")]/../text()
   - name: warnings
     singleValue: false
     xpath: //p//b[contains(text(),"Warnings")]/../text()
