@@ -216,6 +216,7 @@ fields:
     singleValue: true
     description: null
   - name: featureBullets
+    xpath: //div[@class="react-tabs__tab-content"]/li/text()
     singleValue: false
     description: null
   - name: otherSellersName
@@ -505,3 +506,13 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: shownImages
+    xpath: //div[@class="thumbnail-wrapper"]/img/@src
+  - name: highQualityImages
+    xpath: //div[@class="thumbnail-wrapper"]/img/@src    
+  - name: eangtin
+    xpath: //script[contains(@type,"application/ld+json")][1]
+    regExp: ("gtin13":\s)\"(\d+)\"
+    regExpReplace: $2
+  - name: product_grocery_nutritionals
+    xpath: //body/@nutritionInfo

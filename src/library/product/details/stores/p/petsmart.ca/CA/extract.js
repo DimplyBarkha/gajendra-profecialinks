@@ -1,9 +1,10 @@
+const { transform } = require('../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CA',
     store: 'petsmart.ca',
-    transform: null,
+    transform,
     domain: 'petsmart.ca',
     zipcode: '',
   },
@@ -12,6 +13,7 @@ implementation: async (inputs,
        context,
       dependencies,
        ) => {
+         
   await context.evaluate(async function () {
     let getdescription = document.querySelector("#react-tabs-0");
     if(getdescription) { 
@@ -37,8 +39,9 @@ implementation: async (inputs,
     }
     
   });
-  const { productDetails } = dependencies;
-  await context.extract(productDetails);
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.extract(productDetails, { transform });
 },
 
 }; 
