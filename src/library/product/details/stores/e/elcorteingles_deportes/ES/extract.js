@@ -74,11 +74,11 @@ module.exports = {
           }
         };
 
-        function setAttributes (el, attrs) {
-          for (var key in attrs) {
-            el.setAttribute(key, attrs[key]);
-          }
-        }
+        // function setAttributes (el, attrs) {
+        //   for (var key in attrs) {
+        //     el.setAttribute(key, attrs[key]);
+        //   }
+        // }
 
         const imageData = findJsonObj('image');
         // Check for the data and append to DOM
