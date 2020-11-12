@@ -1,10 +1,11 @@
+const { transform } = require('./shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'BR',
     store: 'kalunga',
-    transform: null,
+    transform,
     domain: 'kalunga.com.br',
     zipcode: '',
   },

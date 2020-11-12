@@ -28,7 +28,7 @@ fields:
   - name: rpc
     singleValue: true
     description: unic code of product
-    xpath: translate(//p[@id='codigo-produto'],translate(//p[@id='codigo-produto'], '0123456789', ''), '')
+    xpath: //p[@id='codigo-produto']
   - name: discount
     singleValue: true
     description: discount of product
@@ -37,10 +37,14 @@ fields:
     singleValue: true
     description: price of product
     xpath: //div[@class='row produtoinfos border rounded px-4 py-4 m-0']/h3[@class='produtoinfos__price']/span
+  - name: currency
+    singleValue: true
+    description: currency of product
+    xpath: //div[@class='row produtoinfos border rounded px-4 py-4 m-0']/h3[@class='produtoinfos__price']/span
   - name: listPrice
     singleValue: true
     description: price of product
-    xpath: translate(//p[@class='produtoinfos__text produtoinfos__text--grey pr-2'],translate(//p[@class='produtoinfos__text produtoinfos__text--grey pr-2'], '0123456789R$ ', ''), '')
+    xpath: //div[@id='desconto_content_info_produto']/p/del
   - name: description
     singleValue: false
     description: description of product
