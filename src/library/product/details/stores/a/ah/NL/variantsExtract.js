@@ -7,16 +7,16 @@ async function implementation (
   const { createUrl, variants } = dependencies;
   await context.evaluate(async function () {
     function getListOfElementsByXPath (xpath) {
-      var result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
+      const result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
       return result;
     }
-    var arr = [];
-    var results = getListOfElementsByXPath("//a[contains(@class,'product-recommendations')]//@href");
+    const arr = [];
+    const results = getListOfElementsByXPath("//a[contains(@class,'product-recommendations')]//@href");
     while (node = results.iterateNext()) {
       arr.push(node.value.replace(/(.+)(wi\d+)(.+)/g, '$2'));
     }
     if (arr.length === 0) {
-      var id = window.location.href.replace(/(.+)(wi\d+)(.+)/g, '$2');
+      const id = window.location.href.replace(/(.+)(wi\d+)(.+)/g, '$2');
       arr.push(id);
     }
     console.log(arr);

@@ -16,6 +16,7 @@ module.exports = {
   ) => {
     await context.evaluate(async function () {
       let text = '';
+      let bulletText = '';
       const value = document.querySelector('div.product-summary');
       if (value) {
         getDesc(value);
@@ -29,6 +30,7 @@ module.exports = {
           if (item.nodeName === 'UL') {
             [...item.children].forEach(val => {
               text += ` || ${val.textContent}`;
+              bulletText += ` || ${val.textContent}`;
             });
           } else {
             text += `${item.textContent}`;
@@ -36,10 +38,13 @@ module.exports = {
         });
       }
       const description = document.createElement('div');
+      const bulletDescription = document.createElement('div');
       description.id = 'desc';
+      bulletDescription.id = 'bulletdesc';
       description.innerText = text.replace(/\s{2,}/g, ' ');
+      bulletDescription.innerText = bulletText.replace(/\s{2,}/g, ' ');
       document.body.appendChild(description);
-      // document.body.setAttribute('desc', `${text.replace(/\s{2,}/g, ' ')}`);
+      document.body.appendChild(bulletDescription);
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

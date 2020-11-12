@@ -4,7 +4,6 @@ module.exports = {
   parameterValues: {
     domain: 'ah.nl',
     prefix: 'producten/product',
-    url: null,
     country: 'NL',
     store: 'ah',
     zipcode: '',
