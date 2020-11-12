@@ -27,21 +27,46 @@ module.exports = {
         }
         return result;
       };
+      var finalDescText;
       // Double Pipe Concatenation
       const pipeSeparatorDouble = (id, data) => {
         var doubleSeparatorText = data.join(' || ');
+        finalDescText = doubleSeparatorText;
         addElementToDocument(id, doubleSeparatorText);
       };
       // XPATH Data Extraction For Additional Description Bullet
       const addDescBulletInfo = getAllXpath("//div[@class='product attribute description wysiwyg-content']/div/ul/li/text()", 'nodeValue');
       pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
 
+      // Method to Retrieve Xpath content of a Single Node
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+
       // @ts-ignore
       let category = window.dlObjects[0].ecommerce.detail.products[0].category;
       addElementToDocument('category', category);
-      // @ts-ignore
-      let quantity = document.querySelector('#qty').value;
-      addElementToDocument('quantity', quantity);
+      const youtubeID = getXpath("//div[@class='product-video']/@data-code", 'nodeValue');
+      try {
+        if (youtubeID.length > 0) {
+          const video = "https://youtu.be/" + youtubeID;
+          addElementToDocument('video', video);
+        }
+      } catch (error) {
+      }
+      var spaceText;
+      // space Pipe Concatenation
+      const spaceSeparatorDouble = (data) => {
+        spaceText = data.join(' ');
+      };
+      const addDescInfo = getAllXpath("//div[@class='product attribute description wysiwyg-content']/div/p/text()", 'nodeValue');
+      spaceSeparatorDouble(addDescInfo);
+
+      addElementToDocument('description', spaceText + ' || ' + finalDescText);
     });
     await context.extract(productDetails, { transform: transformParam });
   },

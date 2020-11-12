@@ -36,7 +36,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="product attribute description wysiwyg-content"]
+    xpath: //html//div[@id='description']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -50,7 +50,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //html//div[@id='quantity']
+    xpath: //tr/th[(starts-with(text(),"Size"))]/following-sibling::td/text()
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -117,7 +117,10 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: Yes
+    defaultValue: No
   - name: tax
     singleValue: true
     xpath: //tr/th[(contains(text(),"VAT Exempt"))]/following-sibling::td/text()
+  - name: video
+    singleValue: false
+    xpath: //html//div[@id='video']
