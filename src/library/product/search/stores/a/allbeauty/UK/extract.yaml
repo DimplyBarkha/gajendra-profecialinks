@@ -17,7 +17,7 @@ fields:
     xpath: //p[@class="list-item-price"]/text()
   - name: reviewCount
     type: NUMBER
-    xpath: //span[@class="ratings-count"]/text()
+    xpath: //div[@class="flex star-container" and @style="display:;"]/span/text()
   - name: rankOrganic
     xpath: //div[@id='rankOrganic']/text()
   - name: rank

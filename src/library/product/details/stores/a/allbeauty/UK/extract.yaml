@@ -15,7 +15,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id="product-thumbnails"]/a/img[@class="pointer-n"]/@src
+    xpath: //div[@id="product-thumbnails"]/a[@class="curs-po"]/@data-zoom-image
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -71,7 +71,7 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: //div[@class="price-stars flex"]/div/span/text()
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
@@ -115,3 +115,9 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
+  - name: videos
+    singleValue: false
+    xpath: //div[@id="product-video"]/@data-video-url
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id="product-thumbnails"]/a[@class="curs-po"]/@data-zoom-image)
