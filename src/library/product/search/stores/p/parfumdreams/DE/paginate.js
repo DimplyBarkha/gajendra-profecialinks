@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'parfumdreams',
-    nextLinkSelector: '#right-column div div:nth-child(10) form a div',
+    nextLinkSelector: 'div[class="right"] a[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
