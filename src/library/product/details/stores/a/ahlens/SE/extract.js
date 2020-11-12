@@ -28,10 +28,10 @@ module.exports = {
       };
       const sliceURL = (data) => {
         for (let index = 0; index < data.length; index++) {
-          if (data[index].includes(":-")) {
-            var temp = data[index].replace(":-", "");
+          if (data[index].includes(":")) {
+            var temp = data[index].replace(":", ".");
           } else {
-            temp = data[index].replace(":", ".");
+            temp = data[index].replace(":-", ".");
           }
           addElementToDocument('altImage1', temp+"SEK");
         }
@@ -40,15 +40,15 @@ module.exports = {
       sliceURL(backgroundURL);
       const sliceURL1 = (data) => {
         for (let index = 0; index < data.length; index++) {
-          if (data[index].includes(":-")) {
-            var temp = data[index].replace(":-", "");
+          if (data[index].includes(":")) {
+            var temp = data[index].replace(":", ".");
           } else {
-            temp = data[index].replace(":", ".");
+            temp = data[index].replace(":-", ".");
           }
           addElementToDocument('altImage2', temp+"SEK");
         }
       };
-      var backgroundURL1 = getAllXpath("//div[@class='ah-pdp-product-price pt-- mb--']/div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price']/text()", 'nodeValue');
+      var backgroundURL1 = getAllXpath("//div[@class='ah-offer-regular']/b[@class='ah-price']/text()", 'nodeValue');
       sliceURL1(backgroundURL1);
     //   const sliceURL2 = (data) => {
     //     var singleSeparatorText = data[0].split(',');

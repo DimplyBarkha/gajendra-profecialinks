@@ -89,15 +89,13 @@ module.exports = {
       // var backgroundURL1 = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()", 'nodeValue');
       // sliceURL1(backgroundURL1);
       var rating = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()");
-      for (let index = 0; index < rating.length; index++) {
-        var temp = rating[index]
-        if (temp.includes(":")) {
-          temp = temp.replace(":", ".");
-        } 
-        if (temp.includes(",")){
-          temp = temp.replace(",", ".");
-        }             
-        addHiddenDivPrice('altImage2', temp, index);
+      for (let index = 0; index < rating.length; index++) {        
+        if (rating[index].includes(":")) {
+          var temp = rating[index].replace(":", ".");
+        } else {
+          temp = rating[index].replace(":-", ".");
+        }           
+        addHiddenDivPrice('altImage2', temp+"SEK", index);
       }
 
     });
