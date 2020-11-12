@@ -5,18 +5,18 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div/@data-bv-product-id
+    xpath: //div/@data-bv-product-id|//div/div[text()="RS Stock No."]/a/span[@data-qa="value"]
   - name: name
     singleValue: false
-    xpath: //div[@class="row margin-bottom"]//a
+    xpath: //div[@class="row margin-bottom"]//a|//div[@class="wrapper_1i8rKsLZ description_FbmxLk1-"]/@title
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="row margin-bottom"]//a/@href
+    xpath: //div[@class="row margin-bottom"]//a/@href|//a[@class="link_3n-4Qpxf"]/@href
     regExp: (.+)
     regExpReplace: https://uk.rs-online.com/$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="fixedImageColumn"]//img/@src
+    xpath: //div[@class="fixedImageColumn"]//img/@src|//figure[@class="image_10iIwerB"]/img/@src
   - name: aggregateRating
     singleValue: false
     type: NUMBER
@@ -26,13 +26,5 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //span[@class="col-xs-12 price text-left"]
+    xpath: //span[@class="col-xs-12 price text-left"]|//span[@data-qa="price"]
     type: CURRENCY
-  - name: rank
-    singleValue: false
-    type: NUMBER
-    xpath: //div[@id='rankOrganic']
-  - name: rankOrganic
-    singleValue: false
-    type: NUMBER
-    xpath: //div[@id='rankOrganic']

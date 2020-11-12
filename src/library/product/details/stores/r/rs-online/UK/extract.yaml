@@ -37,9 +37,10 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@class="was-price"]/span
     # xpath: //div[@class=" product-price-vat"]
     # regExp: .+\d
-    # type: CURRENCY
+    type: CURRENCY
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -60,7 +61,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="prodDetailsContainer top20"]
+    xpath: //div[@class="specifications"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -184,7 +185,8 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
-    xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/@href
+    # xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/@href
+    xpath: concat('https://uk.rs-online.com', //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/@href)
     # regExp: (.+)
     # regExpReplace: https://uk.rs-online.com/$1
   - name: internationalShipping
@@ -452,11 +454,11 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
-    xpath: //div[@class="table-row value-row price-range-bg"]/div[@class="indicativePrice col-xs-4 "]
+    xpath: //div[@class="table-row value-row price-range-bg"]/div[@class="indicativePrice col-xs-4 "]|//div[@class="table-row value-row price-range-bg"]/div[@class="unitPrice col-xs-6 "]
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-    xpath: //div[@class="table-row value-row price-range-bg"]/div[@class="indicativePrice col-xs-4 "]
+    xpath: //div[@class="table-row value-row price-range-bg"]/div[@class="indicativePrice col-xs-4 "]|//div[@class="table-row value-row price-range-bg"]/div[@class="unitPrice col-xs-6 "]
     regExp: ^\W
   - name: promotion
     singleValue: true
@@ -515,6 +517,8 @@ fields:
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     xpath: //div[@class="col-xs-6"]/a/@href
+    regExp: (.+In stock.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
