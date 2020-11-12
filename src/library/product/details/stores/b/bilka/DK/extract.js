@@ -60,7 +60,31 @@ module.exports = {
           } catch (error) {
             console.log(error.message);
           }
-          
+          let xpathforVideo = `//div[@class="thumb-container video-thumbnail"]//img[contains(@src,"youtube")]/@src`;
+          let finalVideoUrl = '';
+          let videoImageElm = document.evaluate(xpathforVideo, document, null, 7, null);
+          if(videoImageElm.snapshotLength > 0) {
+            console.log('found the element');
+            if(videoImageElm.snapshotLength === 1) {
+              console.log('we found exactly one link - hence will take that');
+              let thisVideoUrl = videoImageElm.snapshotItem(0).textContent.trim();
+              console.log('this video url is in - ' + thisVideoUrl);
+              const regex = /youtube.com\/vi\/(.+)\//g;
+              finalVideoUrl = 'https://www.youtube.com/watch?v=' + regex.exec(thisVideoUrl)[1];
+              console.log(`final video url - ${finalVideoUrl}`);
+            } else {
+              console.log('multiple products with same id -- hence we do not know which one to opt for');
+            }
+          } else {
+            console.log('element with this id is not present');
+          }
+
+          if(finalVideoUrl) {
+            console.log('final video will be - ' + finalVideoUrl);
+            addEleToDoc('video', finalVideoUrl);
+          } else {
+            console.log('final video is empty');
+          }
       let tempadditionalDescBulletInfo = document.querySelectorAll('div.product-panel-slot div.description').length;               
       if(tempadditionalDescBulletInfo > 0)
       {
