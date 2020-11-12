@@ -25,7 +25,7 @@ fields:
   xpath: (//meta/@content)[1]
 - name: category
   singleValue: false
-  xpath: //div[@id='breadcrumbs_container']/ol
+  xpath: //div[@id="breadcrumbs_container"]/ol/@category 
 - name: nameExtended
   singleValue: true
   xpath: //h1[@id='product_title']
@@ -64,6 +64,7 @@ fields:
   singleValue: true
   xpath: //h1[@id='product_title']
   regExp: '\((.*?)\)'
+  regExpReplace: $1
 - name: variantId
   singleValue: true
 - name: mpc
