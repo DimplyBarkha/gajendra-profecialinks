@@ -48,7 +48,7 @@ fields:
     xpath: //span[@itemprop="brand"]
   - name: quantity
     singleValue: true
-    description: Quantity as described on the page
+    xpath: //div/p[@id="quantity_wanted_p"]/input/@value
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -63,10 +63,10 @@ fields:
     xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //meta[@itemprop="sku"]/@content
   - name: mpc
     singleValue: true
-    description: The manufacturer model code (unique) of the product
+    xpath: //meta[@itemprop="mpn"]/@content
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -142,7 +142,7 @@ fields:
     xpath: //meta[@property="og:url"]//@content
   - name: variantInformation
     singleValue: true
-    description: colour / scent / flavour / other
+    xpath: //div[@class="attribute_list"]/ul/li[@class="selected"]/span/text() | //span[@id="selected-product-name"]/text()
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -157,9 +157,6 @@ fields:
   - name: variants
     singleValue: false
     description: null
-  - name: mpc
-    singleValue: true
-    xpath: //meta[@itemprop="productID"]/@content
   - name: ingredientsList
     singleValue: true
     xpath: concat(//table[@class="table-data-sheet"]/tbody/tr/td[2]/p[1]/text(),';',//table[@class="table-data-sheet"]/tbody/tr/td[2]/p[2]/text())
