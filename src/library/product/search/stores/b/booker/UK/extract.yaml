@@ -4,38 +4,45 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: id
-    xpath: //td[@class='packm']/div
+    singleValue: false
+  - name: searchUrl
     singleValue: true
   - name: name
-    xpath: //td[@class="info"]//a
     singleValue: false
   - name: productUrl
-    xpath: //td[@class="info"]//a/@href
-    regExp: ^(.+)$
-    regExpReplace: https://www.booker.co.uk$1
     singleValue: false
   - name: gtin
-    singleValue: true
+    singleValue: false
   - name: thumbnail
-    xpath: //td[@class="pack"]/a/img/@src
-    regExp: ^(.+)$
-    regExpReplace: https://www.booker.co.uk$1
     singleValue: false
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
   - name: reviewCount
-    singleValue: true
+    singleValue: false
   - name: ratingCount
-    singleValue: true
+    singleValue: false
   - name: price
-    singleValue: true
+    singleValue: false
   - name: manufacturer
     singleValue: true
   - name: soldBy
     singleValue: true
   - name: endorsementText
-    singleValue: true
+    singleValue: false
   - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
   - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
   - name: sponsored
-    defaultValue: false
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
