@@ -1,0 +1,40 @@
+input:
+  keywords: Spring Water
+  _url: https://amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=def2066d-96ad-4102-ae66-4aad1ad36b2e/task=51a5fdda-9352-4a24-8224-d6a5f63e1d93/245fb98f-2084-493e-833e-2e23e016203c.html
+    extractionConfigId: product/search/stores/a/amazonRuna/US/extract
+    data:
+      - group:
+          - price:
+              - text: US$ 29.88
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]
+            name:
+              - text: Runa Zero Energía Orgánica Limpia Bebida de la Hoja de Guayusa
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.com/-/es/RUNA-Clean-Energy-Watermelon-Alternative/dp/B078NBYM7L/ref=sr_1_fkmr0_1?dchild=1&keywords=Spring+Water&qid=1592550125&refinements=p_89%3ARUNA&sr=8-1-fkmr0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/81e1Ok6MPsL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            id:
+              - text: B078NBYM7L
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[2]/@data-asin
+          - price:
+              - text: US$ 19.98
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[4]/div[1]/div[1]/a[1]/span[1]/span[1]
+            name:
+              - text: Runa Zero Energía Orgánica Limpia Bebida de la Hoja de Guayusa
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.com/-/es/RUNA-Organic-Guayusa-Tea-Antioxidant/dp/B004FSASKU/ref=sr_1_fkmr0_2?dchild=1&keywords=Spring+Water&qid=1592550125&refinements=p_89%3ARUNA&sr=8-2-fkmr0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/41csPDp2oFL._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            id:
+              - text: B004FSASKU
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/span[1]/div[1]/div[3]/@data-asin
+        xpath: /html
+    timestamp: 1592550134197

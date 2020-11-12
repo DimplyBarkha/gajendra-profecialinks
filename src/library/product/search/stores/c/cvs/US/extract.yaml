@@ -1,0 +1,130 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='css-1dbjc4n']//div[contains(@class,'r-1pi2tsx')]//a
+fields:
+  - name: id
+    singleValue: false
+    # xpath: (.//div[@class="css-1dbjc4n r-6koalj r-13awgt0 r-1mlwlqe r-eqz5dr r-1pi2tsx r-1wtj0ep r-dnmrzs r-q81ovl"]/a/@href)
+    xpath: ./@href
+    regExp: ([0-9]+$)
+  - name: rankOrganic
+    singleValue: true
+    type: NUMBER
+  - name: rank
+    singleValue: false
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    type: BOOLEAN
+    selector: div.css-1dbjc4n.r-1d2f490.r-u8s1d.r-s5r7i3.r-uejdgs div[dir="auto"]
+  - name: name
+    singleValue: false
+    xpath: (.//div[@class='css-901oao css-cens5h r-1khnkhu r-1jn44m2 r-ubezar r-29m4ib r-rjixqe r-kc8jnq r-fdjqy7 r-13qz1uu'])[1]
+  - name: productUrl
+    singleValue: false
+    xpath: (//div[@class="css-1dbjc4n r-6koalj r-13awgt0 r-1mlwlqe r-eqz5dr r-1pi2tsx r-1wtj0ep r-dnmrzs r-q81ovl"]/a/@href)[1]
+    regExp: >- 
+      ^(.*)$
+    regExpReplace: >-
+      https://www.cvs.com$1
+  # - name: gtin
+  #   singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: (.//div[@class="css-1dbjc4n r-1mlwlqe r-1ldr0hp r-dnmrzs r-1udh08x r-417010"]//img/@src)[1]
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//div[@class='css-1dbjc4n r-18u37iz r-zl2h9q']//div/@aria-label)[1]
+    regExp: >- 
+      Rated ([.0-9]+)
+    regExpReplace: >-
+      $1
+  - name: reviewCount
+    singleValue: false
+    xpath:  (.//div[contains(@class,'css-1dbjc4n')]/div[@class='css-901oao r-1kihuf0 r-zdkpiq r-1jn44m2 r-1enofrn r-1bymd8e r-1uu6nss'])[1]
+  - name: price
+    singleValue: false
+    xpath: (.//div[@class='css-901oao r-1jn44m2 r-evnaw r-b88u0q r-ttdzmv'])[1]
+  - name: manufacturer
+    singleValue: false
+    xpath: (.//div[@class='css-901oao r-zdkpiq r-1jn44m2 r-1enofrn r-1f529hi r-cnkkqs r-xd6kpl r-s1qlax r-glunga'])[1]
+  - name: soldBy
+    singleValue: false
+    defaultValue: CVS
+  - name: endorsementText
+    singleValue: false
+    xpath: (.//span[@class='css-901oao css-16my406 r-1jn44m2 r-1b6yd1w r-1hfyk0a'])[1]
+  # - name: paid
+  #   singleValue: true
+  #   description: Whether this is a sponsored/paid result
+  #   type: BOOLEAN
+  # - name: brand
+  #   singleValue: true
+  #   description: The brand name
+  #   example: Panasonic
+  # - name: category
+  #   singleValue: false
+  #   description: The categories (e.g. from breadcrumbs)
+  #   example:
+  #     - Dental Care
+  #     - Toothbrushes & Accessories
+  #     - Electric Toothbrushes & Accessories
+  #     - Electric Toothbrushes
+  #     - Rotating
+  # - name: productUrl
+  #   singleValue: true
+  #   description: The URL for the product details page
+  # - name: thumbnail
+  #   singleValue: true
+  #   description: The URL for the product thumbnail image
+  # - name: name
+  #   singleValue: true
+  #   description: The product name
+  # - name: sku
+  #   singleValue: true
+  #   description: The store-specific product identifier
+  # - name: mpc
+  #   singleValue: true
+  #   description: The model code of the product
+  # - name: gtin
+  #   singleValue: true
+  #   description: GTIN code (includes UPC/EAN)
+  # - name: aggregateRatingText
+  #   singleValue: true
+  #   description: The stated aggregate rating
+  # - name: ratingCount
+  #   singleValue: true
+  #   description: The number of ratings
+  # - name: reviewCount
+  #   singleValue: true
+  #   description: The number of reviews
+  # - name: price
+  #   singleValue: true
+  #   description: The offered price for the product
+  # - name: listPrice
+  #   singleValue: true
+  #   description: The stated undiscounted price for the product
+  # - name: manufacturer
+  #   singleValue: true
+  #   description: Product manufacturer
+  # - name: soldBy
+  #   singleValue: true
+  #   description: The name of the seller of the item (if available)
+  # - name: endorsementText
+  #   singleValue: true
+  #   description: The text that signifies that a product is endorsed
+  # - name: shippingInfo
+  #   singleValue: true
+  #   description: Shipping information for the product
+  # - name: id
+  #   singleValue: true
+  #   description: Unique id (within this extractor)
+  # - name: nameExtended
+  #   singleValue: true
+  #   description: The product name, prefixing "${brand} - " if not included in "name"
+  #     and appending " - ${variantType}" if necessary (fixed per extractor)
+  # - name: aggregateRating
+  #   singleValue: true
+  #   description: The stated aggregate rating normalized to be out of 5
+  #   type: NUMBER

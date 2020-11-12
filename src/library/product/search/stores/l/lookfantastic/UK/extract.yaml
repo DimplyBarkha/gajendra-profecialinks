@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class,'productListProducts_product')]
+fields:
+  - name: id
+    singleValue: true
+    xpath: //div[@id='ii_id']
+  - name: rankOrganic
+    singleValue: true
+    xpath: //div[@id='ii_rankOrganic']
+  - name: name
+    singleValue: false
+    xpath: //h3[contains(@class,'productBlock_productName')]
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@id='ii_productUrl']
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    singleValue: true
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@class,'productBlock_ratingValue')]
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@class,'productBlock_reviewCount')]
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,'productBlock_priceValue') or contains(@class,'productBlock_fromValue')]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: true
+  - name: endorsementText
+    singleValue: true
+
+    

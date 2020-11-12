@@ -1,0 +1,79 @@
+input:
+  id: 104571
+  _url: https://samsclub.com
+extractions:
+  - html: https://workbench.import.io/html/run=3485bb92-692c-4d31-a2d6-73ca45243883/task=516c7df5-bc85-409b-9b97-140e5d6922a6/3a893c4e-f140-42d7-91ca-96c4030721f0.html
+    extractionConfigId: product/details/stores/s/samsclub/US/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[2]
+            alternateImages:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0004369507675_A?$DT_Thumbnail$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+            brandText:
+              - text: by Hot Pockets
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            category:
+              - text: |-
+                  All Departments
+                  Grocery
+                  Freezer
+                  Entrees
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]
+            description:
+              - text: >-
+                  Hot Pockets® Pepperoni Pizza Sandwiches combine two of
+                  America's best-loved foods—pepperoni pizzas and sandwiches—for
+                  a hearty and flavorful meal ready in just two minutes. This
+                  17-ct. package ensures you have plenty of savory pizza pockets
+                  on hand for snacks, family meals and guest appetizers.
+                   
+                  About Hot Pockets Pepperoni Pizza Sandwiches 
+                   
+                  This package contains 17 individually-sealed pizza pockets. They're made with a garlic butter crust that is stuffed with real pepperoni pieces, reduced-fat mozzarella cheese and tomato sauce. When heated in the protective sleeve, which serves to evenly-cook each pocket, the savory crust becomes soft, while the inside becomes gooey and simply irresistible.
+                   
+                  Are These a Good Meal for Kids?
+                   
+                  Yes. Parents love feeding their kids these delicious pizza Hot Pockets. They offer the flavor of gourmet pizza with the portability of a sandwich. Unlike other snacks, pizza Hot Pockets are ready to eat from frozen in just a couple of minutes. In addition to the convenience, parents love that pizza pockets satisfy hunger, thanks to the 11 grams of protein per pocket. They're also free from trans fats and each pocket contains a high amount of calcium and other essential nutrients. Hot Pockets are also made without artificial flavors, making these sandwiches an ideal snack after school or lunch on the weekends.
+                   
+                  Other Ways to Enjoy Hot Pockets Pepperoni Pizza Sandwiches
+                   
+                  This bulk pack of pizza pockets can be enjoyed at home for the perfect weeknight meal alongside a fresh salad. The convenient packaging also makes them ideal for when you're on the go. Toss a Hot Pocket sandwich into school lunchboxes for kids who have access to a microwave during lunchtime or in your bag to bring to the office for a hearty lunch. They're also ready for resale and can be sold in convenience stores and vending machines.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
+            descriptionBullets:
+              - text: "6"
+            image:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0004369507675_A?$DT_PDP_Image$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/button[1]/img[1]/@src
+            imageAlt:
+              - text: Hot Pockets Pepperoni Pizza Stuffed Sandwiches, Frozen (17 ct.)
+                xpath: /html/body/@imagealt
+            metaKeywords:
+              - text: hot,sandwiches,freezer,lunch,portable,microwaveable,dinner,snack,stuffed,hot,pocket,hot,pockets,stuffed,sandwich,stuffed,sandwiches,sandwich,sandwiches,frozen,resale,resell,wrapped,c-store,convenient,store,convenient,stores,convenience,store,convenience,stores,individually,wrapped,business,members,nestle,nestle,usa,vending,meal,snack,pepperoni,seasoned,pizza,crust,value,pack,pizza,pizza,sandwich
+                xpath: /html/head[1]/meta[13]/@content
+            name:
+              - text: Hot Pockets Pepperoni Pizza Stuffed Sandwiches, Frozen (17 ct.)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            nameExtended:
+              - text: Hot Pockets Pepperoni Pizza Stuffed Sandwiches, Frozen (17 ct.)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            ratingCount:
+              - text: "333"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[3]/meta[1]/@content
+            shippingInfo:
+              - text: |-
+                  Shipping Info
+                  Standard - 2 to 6 business days
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[5]
+            sku:
+              - text: "104571"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/@data-bv-product-id
+            url:
+              - text: https://www.samsclub.com/p/hot-pockets-pepperoni-pizza-stuffed-sandwiches-4-5-oz-17-ct/104571
+                xpath: /html/head[1]/link[38]/@href
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1591522430103

@@ -1,0 +1,19 @@
+proxy:
+  zone: USA
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
+honorRobots: false
+schema: product/listing
+parameters:
+  - domain
+  - country
+  - store
+  - zipcode
+entryPoint: product/details
+pathTemplate: product/${store[0:1]}/${store}/${country}/details
+authentication: navigation/auth/action

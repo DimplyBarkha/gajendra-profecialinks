@@ -1,0 +1,117 @@
+input:
+  RPC: B001667U5K
+  _url: https://primenow.amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=87a9d1f9-58f3-4540-874c-32617cc307b1/task=aacf65a6-eccd-4ff9-af20-386e139bb6da/5e4d5064-64c0-4747-91da-9475822644ce.html
+    extractionConfigId: product/details/stores/a/amazonPrimeNow_98005/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/31wLzs747RL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41e%2BRTl6TUL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51MY%2BB63sjL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41AZkULx2PL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/61N9061CerL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41aV8N-QWQL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Robert Mondavi Private Selection Cabernet Sauvignon Red Wine, 750
+                  ml,Robert Mondavi Private Selection
+                xpath: /html/head[1]/meta[5]/@content
+            nameExtended:
+              - text: Robert Mondavi Private Selection Cabernet Sauvignon Red Wine has a fresh
+                  fruit character and bright acidity that pairs well with a
+                  variety of dishes. This delicious red wine has flavors of ripe
+                  Bing cherries, blackberries and plum, accented with vanilla,
+                  toasty oak and hints of coffee. Aromas of red berry and spice,
+                  juicy cherry, black currant and black pepper complete this
+                  cabernet sauvignon wine. Crafted with grapes from the
+                  cool-climate Central Coast vineyards, this California red wine
+                  has a complexity and depth of flavor influenced by its slow
+                  ripening by the Pacific Ocean. Made from phenomenal grapes,
+                  Central Coast wine is ultimately of the utmost quality and is
+                  offered by Robert Mondavi Private Selection at a more
+                  accessible price. This medium bodied cabernet sauvignon wine
+                  pairs well with roasted or grilled meats, hearty pasta or
+                  strong cheese. Serve cool at around 60 degrees for optimal
+                  taste. Please enjoy our wines responsibly. © 2020 Robert
+                  Mondavi, Acampo, CA USA
+                xpath: /html/body/div[2]/div[1]/div[2]/div[8]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]
+            availability:
+              - text: |-
+                  Currently Unavailable. 
+                  We don't know when or if this item will be back in stock.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[6]/div[1]
+            availabilityText:
+              - text: |-
+                  Currently Unavailable. 
+                  We don't know when or if this item will be back in stock.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[6]/div[1]
+            description:
+              - text: Features aromas of red berry and spice, juicy cherry, black currant and
+                  black pepper
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[2]
+              - text: Flavors of ripe Bing cherries, blackberries and plum with vanilla, toasty
+                  oak and hints of coffee
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[3]
+              - text: Medium bodied cabernet sauvignon wine with a bright finish
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[4]
+              - text: Serve at a wine and cheese party or pair with roast meat, grilled meat or
+                  hearty pasta dishes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[5]
+              - text: California wine made with fruit from the cool-climate Central Coast
+                  vineyards
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[6]
+            brandText:
+              - text: Robert Mondavi Private Selection
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[2]
+            manufacturer:
+              - text: Robert Mondavi Private Selection
+                xpath: /html/body/div[2]/div[1]/div[2]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+            weightNet:
+              - text: 2.78 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            weightGross:
+              - text: 2.78 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            asin:
+              - text: B001667U5K
+                xpath: /html/head[1]/link[8]/@href
+            name:
+              - text: Robert Mondavi Private Selection Cabernet Sauvignon Red Wine, 750 ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/h1[1]
+            sku:
+              - text: B001667U5K
+                xpath: /html/head[1]/link[8]/@href
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/71nq31WxBRL._SX679_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Robert Mondavi Private Selection Cabernet Sauvignon Red Wine, 750 ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "5"
+            shippingDimensions:
+              - text: 3.18 x 3.18 x 11.75 inches; 2.78 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/text()[1]
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "6"
+            promotion:
+              - text: ""
+            amazonChoice:
+              - text: No
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+        xpath: /html
+    timestamp: 1593423664780

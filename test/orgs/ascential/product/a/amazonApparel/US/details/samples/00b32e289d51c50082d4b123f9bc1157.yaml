@@ -1,0 +1,406 @@
+input:
+  _url: https://amazon.com
+  SKU: B0000ASD57
+extractions:
+  - html: https://workbench.import.io/html/run=8d41f7a0-1836-4212-8b3b-a62284734086/task=3e1f40d6-05d2-4d9f-b0f3-3d2f789783c4/845d83e0-b125-43cc-b429-09815f6fb5db.html
+    extractionConfigId: product/details/stores/a/amazonApparel/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/41RrUHUqf7L.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/417b3Y6sMPL.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41kWSwARjPL.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/31RoYyejm5L.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/313DvtrRA6L.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41d0%2Bhvn-CL.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Reebok Women's Freestyle Hi Walking Shoe, Black, 6,Reebok,FF125
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Clothing, Shoes & Jewelry
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/ul[1]/li[1]
+              - text: Women
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/ul[1]/li[3]
+              - text: Shoes
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/ul[1]/li[5]
+              - text: Athletic
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/ul[1]/li[7]
+              - text: Walking
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/ul[1]/li[9]
+            nameExtended:
+              - text: Amazon.com | Reebok Women's Freestyle Hi Walking Shoe, Black, 6 | Walking
+                xpath: /html/head[1]/title[1]
+            price:
+              - text: $56.00
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+              - text: $56.00
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            availabilityText:
+              - text: In Stock.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[1]/div[1]
+            description:
+              - text: 100% Leather and synthetic
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[1]
+              - text: Imported
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[2]
+              - text: Rubber sole
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[3]
+              - text: Shaft measures approximately 4" from arch
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[4]
+              - text: Soft leather upper
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[5]
+              - text: Mid-cut design
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[6]
+              - text: Die-cut EVA midsole
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[7]
+              - text: On-trend, in-vogue, and all-the-craze. This women footwear features a
+                  leather upper that is supportive and comfortable. These
+                  fashion sneakers have an EVA midsole and terry cloth lining
+                  which provide lightweight cushioning so you keep moving long
+                  after others have stopped. These durable shoes are perfect for
+                  long walks, running, jogging and hikes.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[1]/text()[1]
+            brandText:
+              - text: Reebok
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]
+            asin:
+              - text: B0000ASD57
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[4]/@value
+            variantId:
+              - text: J92632
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[2]
+            mpc:
+              - text: J92632
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[2]
+            ratingCount:
+              - text: "056"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[3]/a[1]/span[1]/text()[1]
+              - text: "056"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/ul[1]/li[1]/span[1]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "4.2"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/span[1]/@title
+              - text: "4.2"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/ul[1]/li[1]/span[1]/div[1]/span[1]/span[1]/@title
+            shippingInfo:
+              - text: Ships from and sold by Amazon.com.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]
+            color:
+              - text: Black
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/div[1]/span[1]
+            manufacturerDescription:
+              - text: On-trend, in-vogue, and all-the-craze. This women footwear features a
+                  leather upper that is supportive and comfortable. These
+                  fashion sneakers have an EVA midsole and terry cloth lining
+                  which provide lightweight cushioning so you keep moving long
+                  after others have stopped. These durable shoes are perfect for
+                  long walks, running, jogging and hikes.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[1]/text()[1]
+            name:
+              - text: Reebok Women's Freestyle Hi Walking Shoe
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/h1[1]/span[1]
+            brandLink:
+              - text: https://www.amazon.com/stores/Reebok/page/AE90A1B3-208C-4285-B3A8-BFC27937657B?ref_=ast_bln
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            salesRank:
+              - text: 5,526
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/text()[2]
+              - text: "3033"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[1]/span[1]
+              - text: "23"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[2]/span[1]
+              - text: "36"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[3]/span[1]
+            salesRankCategory:
+              - text: Clothing
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/text()[2]
+              - text: "Shoes & Jewelry "
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/text()[2]
+              - text: Women
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[1]/span[2]/a[1]
+              - text: Shops
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[1]/span[2]/a[1]
+              - text: Women
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[2]/span[2]/a[1]
+              - text: Walking Shoes
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[2]/span[2]/a[1]
+              - text: Women
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[3]/span[2]/a[1]
+              - text: Fashion Sneakers
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[3]/span[2]/a[1]
+            heroQuickPromoHeadline:
+              - text: Save up to 50%
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[34]/div[1]/div[1]/div[1]/span[1]
+            variantAsins:
+              - text: 0,B0000ASD3U
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[2]/@value
+              - text: 1,B0000ASD3G
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[3]/@value
+              - text: 2,B0000ASD57
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[4]/@value
+              - text: 3,B0000ASD21
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[5]/@value
+              - text: 4,B0000ASD79
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[6]/@value
+              - text: 5,B0000ASD6X
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[7]/@value
+              - text: 6,B0000ASD4R
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[8]/@value
+              - text: 7,B0000ASD6G
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[9]/@value
+              - text: 8,B0000ASD62
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[10]/@value
+              - text: 9,B0000ASD4C
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[11]/@value
+              - text: 10,B0000ASD2G
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[12]/@value
+              - text: 11,B008NBPRGK
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[13]/@value
+              - text: 12,B07MR9WPXZ
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[14]/@value
+              - text: 13,B008NBPOLS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[15]/@value
+              - text: 14,B0000AH1NV
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[16]/@value
+              - text: 15,B077ZK5TVN
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[17]/@value
+              - text: 16,B077Z81RW7
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[18]/@value
+              - text: 17,B077ZG5VF1
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[19]/@value
+              - text: 18,B077Z992VQ
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[20]/@value
+              - text: 19,B077ZGRXSH
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[21]/@value
+              - text: 20,B077Z9H5DY
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/select[1]/option[22]/@value
+              - text: B0000ASD57
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[1]/@data-defaultasin
+              - text: B0000ANC7V
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[2]/@data-defaultasin
+              - text: B001CQY0M0
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[3]/@data-defaultasin
+              - text: B001CR1YPK
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[4]/@data-defaultasin
+              - text: B077ZHTHV7
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[5]/@data-defaultasin
+              - text: B07DGV9XXN
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[6]/@data-defaultasin
+              - text: B07DGVX2YC
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[7]/@data-defaultasin
+              - text: B07DGX5TBR
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[8]/@data-defaultasin
+              - text: B07DGVWM2N
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[9]/@data-defaultasin
+              - text: B07DGZKGF8
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[10]/@data-defaultasin
+              - text: B077ZC94T5
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[11]/@data-defaultasin
+              - text: B077Z99S89
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[12]/@data-defaultasin
+              - text: B07DGSCNT9
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[13]/@data-defaultasin
+              - text: B07DGSCN2T
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[14]/@data-defaultasin
+              - text: B07DGZJHTW
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[15]/@data-defaultasin
+              - text: B077ZGS33S
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[16]/@data-defaultasin
+              - text: B077ZF6R1L
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[18]/@data-defaultasin
+              - text: B07DGXQHF3
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[19]/@data-defaultasin
+              - text: B077Z9HH3R
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[20]/@data-defaultasin
+              - text: B07L5P2C8R
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[23]/@data-defaultasin
+              - text: B005SARJ6A
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[24]/@data-defaultasin
+            featureBullets:
+              - text: 100% Leather and synthetic
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[1]
+              - text: Imported
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[2]
+              - text: Rubber sole
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[3]
+              - text: Shaft measures approximately 4" from arch
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[4]
+              - text: Soft leather upper
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[5]
+              - text: Mid-cut design
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[6]
+              - text: Die-cut EVA midsole
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[7]
+            otherSellersName:
+              - text: NVRBAREFOOT
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]/div[1]/div[2]/span[2]
+              - text: Zappos
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/div[1]/div[2]/span[2]
+            otherSellersPrice:
+              - text: $54.45
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]/div[1]/div[1]/span[1]
+              - text: $74.95
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/div[1]/div[1]/span[1]
+            otherSellersShipping2:
+              - text: + Free Shipping
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]/div[1]/div[1]/span[2]
+              - text: FREE Shipping & FREE Returns. Details
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/div[1]/div[1]/span[2]
+            otherSellersPrime:
+              - text: + Free Shipping
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]/div[1]/div[1]/span[2]
+              - text: FREE Shipping & FREE Returns. Details
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/div[1]/div[1]/span[2]
+            fastTrack:
+              - text: |-
+                  Fastest delivery: Saturday, June 27 
+                   Order within 10 hrs and 33 mins
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]
+            Image360Present:
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/script[1]
+            imageZoomFeaturePresent:
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/c:if[1]/div[1]/div[1]/span[1]
+            largeImageCount:
+              - text: "0"
+            lbb:
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            lbbPrice:
+              - text: $56.00
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/81emfK3exJL._AC_UX695_.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Reebok Women's Freestyle Hi Walking Shoe
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "7"
+            quantity:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/span[1]/span[1]/span[1]/span[1]/span[1]/span[1]
+            variantCount:
+              - text: "45"
+            amazonChoice:
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]
+            amazonChoiceCategory:
+              - text: for "
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/span[2]/span[1]/text()[1]
+              - text: reebok shoes women black
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/span[2]/span[1]/span[1]/a[1]/text()[1]
+              - text: '"'
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/span[2]/span[1]/text()[2]
+            pasin:
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[2]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[3]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[4]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[5]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[6]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[7]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[8]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[9]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[10]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[11]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[12]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[13]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[14]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[15]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[16]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[17]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[18]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[19]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[20]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[23]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[24]/@data-dp-url
+            secondaryImageTotal:
+              - text: "6"
+            additionalDescBulletInfo:
+              - text: "9"
+            firstVariant:
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[2]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[3]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[4]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[5]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[6]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[7]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[8]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[9]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[10]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[11]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[12]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[13]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[14]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[15]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[16]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[17]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[18]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[19]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[20]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[23]/@data-dp-url
+              - text: B089W5QJSS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/ul[1]/li[24]/@data-dp-url
+            variantInformation:
+              - text: Black
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/div[1]/span[1]
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+            primeFlag:
+              - text: NO
+        xpath: /html
+    timestamp: 1593099685272

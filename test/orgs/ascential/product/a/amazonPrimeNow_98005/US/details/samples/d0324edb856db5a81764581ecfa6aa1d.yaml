@@ -1,0 +1,105 @@
+input:
+  _url: https://primenow.amazon.com
+  URL: https://primenow.amazon.com/dp/B0016H3968?qid=1592338656&m=A2QJ4VT1YF51GV&sr=1-1&ref_=pn_sr_sg_1_img_A2QJ4VT1YF51GV
+extractions:
+  - html: https://workbench.import.io/html/run=cf6bd9ad-9bd6-4204-93fe-507e16d9c904/task=b3c4b8e1-3720-4d7b-b970-30151f9c6991/992800de-7f36-4826-9e4c-f9983441f360.html
+    extractionConfigId: product/details/stores/a/amazonPrimeNow_98005/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/31wsQeAsdyL._AC_SR38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51A5a%2BCnDjL._AC_SR38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51j8lIcRB8L._AC_SR38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/618Kw9igYBL._AC_SR38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/614BrsusW3L._AC_SR38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/613lB68IkDL._AC_SR38,50_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Kim Crawford Sauvignon Blanc White Wine, 750mL bottle,KIM
+                  CRAWFORD,689352009611
+                xpath: /html/head[1]/meta[5]/@content
+            nameExtended:
+              - text: Kim Crawford Sauvignon Blanc White Wine is fresh and juicy with ripe,
+                  tropical flavors of passion fruit, melon, and stone fruit.
+                  Each sip of wine reveals classic Marlborough sauvignon blanc
+                  aromas of lifted citrus, tropical fruit, and crushed herbs,
+                  along with vibrant acidity and plenty of weight and length on
+                  the palate. This New Zealand sauvignon blanc is made with
+                  grapes specially selected from vineyards in Marlborough's
+                  Wairau Valley and the neighboring Awatere Valley. The climate
+                  and fast-draining soil in this region offer winemakers a
+                  selection of grapes that deliver the consistently flavorful
+                  wine for which Kim Crawford is known. Pair this Kim Crawford
+                  white wine with fresh oysters, asparagus, lobster, or a light
+                  salad. For optimal taste, refrigerate this sauvignon blanc
+                  wine for at least two hours then serve chilled. Make it
+                  Amazing with Kim Crawford wine. Please enjoy our wines
+                  responsibly. © 2020 Constellation Imports, Rutherford, CA USA
+                xpath: /html/body/div[2]/div[1]/div[2]/div[9]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]
+            price:
+              - text: $11.97
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[5]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            availability:
+              - text: In Stock.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[6]/div[1]
+            description:
+              - text: "Origin: California"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[2]
+              - text: "Type of Wine: Red"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[3]
+              - text: "Varietal: Cabernet Sauvignon"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[11]/div[1]/ul[1]/li[4]
+            brandText:
+              - text: Kim Crawford
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[2]
+            weightNet:
+              - text: 2.8 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            weightGross:
+              - text: 2.8 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            ratingCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[3]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[1]/div[1]/span[1]/span[1]/@title
+            name:
+              - text: Kim Crawford Sauvignon Blanc White Wine, 750mL bottle
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/h1[1]
+            promotion:
+              - text: |-
+                  You Save: 
+                   
+                   $2.01 (14%)
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[4]/div[5]/div[1]/table[1]/tbody[1]/tr[3]
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/61Rnd-TRrRL._AC_SX679_.jpg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Kim Crawford Sauvignon Blanc White Wine, 750mL bottle
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "3"
+            shippingDimensions:
+              - text: 3.5 x 3.6 x 12.1 inches; 2.8 pounds
+                xpath: /html/body/div[2]/div[1]/div[2]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/text()[1]
+            variantCount:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "7"
+            amazonChoice:
+              - text: No
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+        xpath: /html
+    timestamp: 1592822297146

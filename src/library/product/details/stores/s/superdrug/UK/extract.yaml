@@ -1,0 +1,146 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="pdp-gallery__zoom"]/@data-image
+    singleValue: false
+    regExp: (.+)
+    regExpReplace: https://www.superdrug.com$1
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@itemprop="name"]
+  - name: url
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+  - name: category
+    singleValue: false
+    xpath: //div[@id="breadcrumb"]/a[position()>1 and position()<last()]
+  - name: description
+    singleValue: true
+    xpath: (//p[@itemprop="description"])[1]
+  - name: price
+    singleValue: true
+    xpath: concat(//span[@itemprop="priceCurrency"],//span[@itemprop="price"])
+  - name: availabilityText
+    singleValue: true
+    xpath: //*[@itemprop="availability"]
+    regExp: inStock
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+  - name: ingredientsList
+    singleValue: false
+    xpath: //strong[@class="itemHeader"][contains(text(),"Ingredients")]/../../following-sibling::p[not(preceding-sibling::div)]
+  - name: brandText
+    singleValue: true
+    xpath: //a[@itemprop="brand"]
+  - name: sku
+    singleValue: true
+    xpath: //p[@itemprop="sku"]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: true
+    xpath: //p[@itemprop="sku"]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: warnings
+    singleValue: true
+    xpath: //h3[@class="pdp-details__sub-title"][contains(.,"Warnings")]/following-sibling::p
+  - name: alternateImages
+    singleValue: false
+    xpath: //*[@id="thumbnails"]/li[not(@class="selected")]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.superdrug.com$1
+  - name: ratingCount
+    singleValue: true
+    xpath: (//span[@itemprop="reviewCount"])[1]
+    defaultValue: 0
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[@itemprop="ratingValue"]
+    defaultValue: 0
+  - name: shippingDimensions
+    xpath: //p[contains(text(),"Size")][contains(text(),"Height")][contains(text(),"Width")][contains(text(),"Depth")]
+    regExp: Height.+$
+  - name: packSize
+    xpath: //p[contains(text(),"Size")][contains(text(),"Height")][contains(text(),"Width")][contains(text(),"Depth")]
+    regExp: (.+)(?=Height)
+  - name: allergyAdvice
+    singleValue: true
+    xpath: //h3[contains(.,"Product Specification")]/following::p[@class="embedded"]/span
+  - name: recyclingInformation
+    singleValue: true
+    xpath: //h3[contains(.,"Recyclable")]/following-sibling::p
+  - name: videos
+    singleValue: false
+    xpath: //iframe[contains(@src,"youtube")]/@src
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //p[contains(@class,"pricing__per-item")]
+  - name: pricePerUnitUom
+    singleValue: true
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class="pdp-gallery__zoom"]//img/@alt
+  - name: supplementaryImage
+    singleValue: false
+    xpath: //div[@class="pdp-gallery__zoom"]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.superdrug.com$1
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@itemprop="brand"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.superdrug.com$1
+  - name: supplementaryImageTotal
+    singleValue: true
+    xpath: count(//div[@class="pdp-gallery__zoom"]/@data-image)
+  - name: listPrice
+    singleValue: true
+    xpath: //span[@class="pricing__was"]
+  - name: caloriesPerServing
+    xpath: //td[normalize-space(text())="Energy"]/following-sibling::td[1]
+  - name: totalFatPerServing
+    xpath: //td[normalize-space(text())="Fat"]/following-sibling::td[1]
+    regExp: "^[^\\s]+"
+  - name: totalFatPerServingUom
+    xpath: //td[normalize-space(text())="Fat"]/following-sibling::td[1]
+    regExp: "[^\\s]+$"
+  - name: saturatedFatPerServing
+    xpath: //td[normalize-space(text())="of which, saturates"]/following-sibling::td[1]
+    regExp: "^[^\\s]+"
+  - name: saturatedFatPerServingUom
+    xpath: //td[normalize-space(text())="of which, saturates"]/following-sibling::td[1]
+    regExp: "[^\\s]+$"
+  - name: totalCarbPerServing
+    xpath: //td[normalize-space(text())="Carbohydrate"]/following-sibling::td[1]
+    regExp: "^[^\\s]+"
+  - name: totalCarbPerServingUom
+    xpath: //td[normalize-space(text())="Carbohydrate"]/following-sibling::td[1]
+    regExp: "[^\\s]+$"
+  - name: totalSugarsPerServing
+    xpath: //td[contains(text(),"sugars")]/following-sibling::td[1]
+    regExp: "^[^\\s]+"
+  - name: totalSugarsPerServingUom
+    xpath: //td[contains(text(),"sugars")]/following-sibling::td[1]
+    regExp: "[^\\s]+$"
+  - name: dietaryFibrePerServing
+    xpath: //td[normalize-space(text())="Fibre"]/following-sibling::td[1]
+    regExp: "^[^\\s]+"
+  - name: dietaryFibrePerServingUom
+    xpath: //td[normalize-space(text())="Fibre"]/following-sibling::td[1]
+    regExp: "[^\\s]+$"
+  - name: proteinPerServing
+    xpath: //td[normalize-space(text())="Protein"]/following-sibling::td[1]
+    regExp: "^[^\\s]+"
+  - name: proteinPerServingUom
+    xpath: //td[normalize-space(text())="Protein"]/following-sibling::td[1]
+    regExp: "[^\\s]+$"
+  - name: saltPerServing
+    xpath: //td[normalize-space(text())="Salt"]/following-sibling::td[1]
+    regExp: "^[^\\s]+"
+  - name: saltPerServingUom
+    xpath: //td[normalize-space(text())="Salt"]/following-sibling::td[1]
+    regExp: "[^\\s]+$"

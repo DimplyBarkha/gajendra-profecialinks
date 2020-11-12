@@ -1,0 +1,109 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@id='ii_image']
+  - name: url
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name,"Keyword")]/@content
+  - name: category
+    singleValue: true
+    xpath: //div[@id='ii_nameExtended']
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@id='ii_nameExtended']
+  - name: price
+    singleValue: true
+    xpath: //p[@class='productPrice_price']
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@id='ii_availabilityText']
+  - name: brandText
+    singleValue: true
+    xpath: //div[@id='ii_brandText']
+  - name: manufacturerDescription
+    singleValue: true
+  - name: weightNet
+    singleValue: true
+  - name: weightGross
+    singleValue: true
+  - name: sku
+    singleValue: true
+    xpath: //div[@id='ii_sku']
+  - name: quantity
+    singleValue: true
+    xpath: (//div[contains(@data-information-component,'volume')])[1]
+  - name: directions
+    singleValue: true
+    xpath: //div[@id='ii_directions']
+  - name: warnings
+    singleValue: true
+    xpath: //div[@id='ii_warnings']
+  - name: alternateImages
+    singleValue: true
+    xpath: //div[@id='ii_alternateImages']
+  - name: manufacturerImages
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@id='ii_ratingCount']
+  - name: shippingDimensions
+    singleValue: true
+  - name: specifications
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: warranty
+    singleValue: true
+  - name: gtin
+    singleValue: true
+  - name: videos
+    singleValue: true
+    xpath: //div[@class='productDescription']//iframe/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: (//img[contains(@class,'productImageCarousel_image')]/@data-alt)[1]
+  - name: aggregateRatingText
+    singleValue: true
+    xpath: //div[@id='ii_aggregateRatingText']
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@id='ii_aggregateRatingText']
+  - name: name
+    singleValue: true
+    xpath: //div[@id='ii_nameExtended']
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@id='ii_listPrice']
+  - name: legalDisclaimer
+    singleValue: true
+  - name: mpc
+    singleValue: true
+    xpath: //div[@id='ii_mpc']
+  - name: variantCount
+    singleValue: true
+    xpath: //div[@id='ii_variantCount']
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@id='ii_shippingInfo']
+  - name: color
+    singleValue: true
+  - name: colorCode
+    singleValue: true
+  - name: description
+    singleValue: true
+    xpath: //div[@id='ii_description']
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id='ii_sku']
+  - name: descriptionBullets
+    singleValue: true
+    xpath: //div[@id='ii_descriptionBullets']
+  - name: packSize
+    singleValue: true

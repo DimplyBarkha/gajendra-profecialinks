@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'category-products')]/ul/li[not(@class='no-hover')]
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[@class='wishlist-heart']/@data-wishlist
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id='pd_rank']
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-item-box']/a/img/@title
+  - name: productUrl
+    singleValue: false
+    xpath: concat(('https://www.flaconi.de'),'',(//div[@class='product-item-box']/a/@href))
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-item-box']/a/img/@src
+  - name: aggregateRating
+    singleValue: true
+  - name: reviewCount
+    singleValue: true
+  - name: price
+    singleValue: false
+    xpath: //span[@class='price']
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: true
+  - name: endorsementText
+    singleValue: true
+

@@ -1,0 +1,35 @@
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="plp__product-container"]/li
+fields:
+  - name: id
+    xpath: //div[@class="item__text"]/a[contains(@class,"item__productName")]/@href
+    regExp: "[^\/]+$"
+  - name: name
+    xpath: //div[@class="item__text"]/a[contains(@class,"item__productName")]
+  - name: productUrl
+    xpath: //div[@class="item__text"]/a[contains(@class,"item__productName")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.superdrug.com$1
+  - name: reviewCount
+    xpath: //span[contains(@class,"bv-text-link")]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: thumbnail
+    xpath: //a[contains(@class,"item__image")]//img/@src|//a[contains(@class,"item__image")]//img/@data-src
+    regExp: (.+)
+    regExpReplace: https://www.superdrug.com$1
+  - name: ratingCount
+    xpath: //span[contains(@class,"bv-text-link")]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: aggregateRating
+    xpath: //dt[@class="bv-rating-ratio"]//span[@class="bv-off-screen"]
+    regExp: (.+)?( out of.*|No rating.*)
+    regExpReplace: '$1'
+  - name: price
+    xpath: //span[contains(@class,"item__price item__price--now")]
+  - name: rankOrganic
+  - name: rank
+  - name: sponsored
+    defaultValue: false

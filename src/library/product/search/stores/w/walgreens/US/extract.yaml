@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.wag-product-card-details
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-id
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='filtered-url']
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, 'wag-prod-title')]//a/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-url
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-upc
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-thumbnail 
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-rating
+    type: NUMBER
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-rating
+    type: NUMBER
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class, 'wag-prod-review-info')]//span
+    regExp: (\d+)
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath:  //div[@class='extra-info']/@data-price
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+    selector: div.sponsored-text

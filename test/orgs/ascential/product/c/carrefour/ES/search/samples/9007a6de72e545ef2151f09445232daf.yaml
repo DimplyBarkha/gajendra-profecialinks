@@ -1,0 +1,44 @@
+input:
+  Keywords: after eight
+  _url: https://carrefour.es
+extractions:
+  - html: https://workbench.import.io/html/run=ddca97aa-baca-40f1-aab5-172944e5ccba/task=b97011ea-e6cf-4203-b844-22581fd8f7db/52839809-1c9d-4441-a9a5-e5daeabce81d.html
+    extractionConfigId: product/search/stores/c/carrefour/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.carrefour.es/supermercado/laminas-de-chocolate-y-menta-nestle-after-eight-300-g-nestle-after-eight/R-prod130238/p
+                xpath: /html/body/section[1]/main[1]/div[1]/section[1]/section[1]/article[1]/div[1]/a[2]/@href
+            thumbnail:
+              - text: https://static.carrefour.es/hd_350x_/img_pim_food/228877_00_1.jpg
+                xpath: /html/body/section[1]/main[1]/div[1]/section[1]/section[1]/article[1]/div[1]/a[1]/section[1]/img[1]/@src
+            name:
+              - text: Láminas de chocolate y menta Nestlé After Eight 300 g.
+                xpath: /html/body/section[1]/main[1]/div[1]/section[1]/section[1]/article[1]/div[1]/a[2]/h1[1]
+            price:
+              - text: 4,25 €
+                xpath: /html/body/section[1]/main[1]/div[1]/section[1]/section[1]/article[1]/div[1]/p[1]/strong[1]
+            id:
+              - text: prod130238
+                xpath: /html/body/section[1]/main[1]/div[1]/section[1]/section[1]/article[1]/div[1]/a[2]/@href
+            sponsored:
+              - text: "False"
+          - productUrl:
+              - text: https://www.carrefour.es/supermercado/mousse-de-chocolate-negro-nestle-after-eight-pack-de-4-unidades-de-57-g-nestle-after-eight/R-855600508/p
+                xpath: /html/body/section[1]/main[1]/div[1]/section[1]/section[1]/article[2]/div[1]/a[2]/@href
+            thumbnail:
+              - text: https://static.carrefour.es/hd_350x_/img_pim_food/087825_00_1.jpg
+                xpath: /html/body/section[1]/main[1]/div[1]/section[1]/section[1]/article[2]/div[1]/a[1]/section[1]/img[1]/@src
+            name:
+              - text: Mousse de chocolate negro Nestlé After Eight pack de 4 unidades de 57 g.
+                xpath: /html/body/section[1]/main[1]/div[1]/section[1]/section[1]/article[2]/div[1]/a[2]/h1[1]
+            price:
+              - text: 2,05 €
+                xpath: /html/body/section[1]/main[1]/div[1]/section[1]/section[1]/article[2]/div[1]/p[1]/strong[1]
+            id:
+              - text: "855600508"
+                xpath: /html/body/section[1]/main[1]/div[1]/section[1]/section[1]/article[2]/div[1]/a[2]/@href
+            sponsored:
+              - text: "False"
+        xpath: /html
+    timestamp: 1592567717841

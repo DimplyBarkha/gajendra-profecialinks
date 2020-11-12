@@ -1,0 +1,202 @@
+input:
+  _url: https://dm.de
+  URL: https://www.dm.de/dmbio-nuss-frucht-riegel-superfood-kakao-nibs-und-cashew-p4058172390043.html
+extractions:
+  - html: https://workbench.import.io/html/run=831f6115-11bc-4a87-96da-d2c00ce324d6/task=53bd0f39-bc7b-4197-93e1-6ad4818fee0f/68e9f3cf-ce5c-4963-9467-f1f76eacd9f3.html
+    extractionConfigId: product/details/stores/d/dm/de/extract
+    data:
+      - group:
+          - additional_desc_bullet_count:
+              - text: "5"
+            aggregateRating:
+              - text: "3.8"
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/button[1]/div[2]
+            allergyAdvice:
+              - text: |-
+                  Enthält Kaschunuss und Kaschunusserzeugnisse
+                  Kann Spuren enthalten von Haselnuss und Haselnusserzeugnisse
+                  Kann Spuren enthalten von Mandeln und Mandelerzeugnisse
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]
+            allergy_information:
+              - text: >-
+                  Genaue Produktbezeichnung: 
+
+                  Bio Dattel Fruchtriegel mit Kakaonibs und Cashewkernen
+                   
+                  zutaten: 63% Datteln* getrocknet, 8% Kakaokernstücke*, 8% CASHEWKERNE*, Apfelsaftkonzentrat*, Kokosfett*, Erdmandelmehl*, 5% stark entölter Kakao*, Meersalz. *aus biologischer Landwirtschaft. Kann Spuren von HASELNÜSSEN und MANDELN enthalten.
+                   
+                  Bitte beachten Sie die Hinweise zu Allergenen.
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+            alternateImages:
+              - text: https://cdn02.dm-static.com/images/mediacatalog/h4058172390043-2076830/productimage_60x60/1588242289000/4058172390043-2076830_org.png
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/button[1]/img[1]/@src
+              - text: https://cdn02.dm-static.com/images/mediacatalog/h4058172390043-2076829/productimage_60x60/1588242290000/4058172390043-2076829_org.png
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/button[1]/img[1]/@src
+            availabilityText:
+              - text: Lieferbar
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[3]/div[4]/div[2]/span[2]
+            brandText:
+              - text: dmBio
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]
+            caloriesPerServing:
+              - text: 374 kcal / 1.567 kJ
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+            description:
+              - text: >-
+                  Cashew-Fruchtriegel
+
+                  Glutenfrei
+
+                  Laktosefrei
+
+                  Eifrei
+
+                  Vegan
+
+                  Der dmBio Kakao-Nibs & Cashew Riegel punktet mit seiner besonders schonenden Herstellung und Verarbeitung. Er ist ohne gentechnisch veränderte Rohstoffe und kommt ohne Aromen aus.... Mehr lesen
+
+                  Pfeil nach links
+
+                  EU-Bio-Label
+
+                  Das EU-Bio-Label bedeutet, dass das Produkt den Bedingungen und Regeln der Europäischen Union für die ökologische / biologische Produktion entspricht.
+
+                  DE-ÖKO-001
+
+                  EU/Nicht-EU Landwirtschaft
+
+                  Laktosefrei
+
+                  Dieses Produkt ist laktosefrei.
+
+                  Bio
+
+                  Dieses Produkt entspricht den Bio-Richtlinien.
+
+                  Vegetarisch
+
+                  Dieses Produkt ist vegetarisch und enthält nur pflanzliche Inhaltstoffe oder solche, die vom lebenden Tier stammen.
+
+                  Vegan
+
+                  Dieses Produkt ist vegan und enthält keine tierischen Inhalts- oder Hilfsstoffe.
+
+                  Glutenfrei
+
+                  Dieses Produkt enthält kein Gluten.
+
+                  BIO Siegel DE
+
+                  Das BIO Güte- und Prüfsiegel steht für eine nachhaltige Produktion mit Erzeugnissen aus ökologischem Landbau.
+
+                  Pfeil nach rechts
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+            dietaryFibrePerServing:
+              - text: "9,6 "
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            dietary_symbols:
+              - text: https://cdn02.dm-static.com/images/mediacatalog/hV6380_laktosefrei/labelimage_svg/1568978564000/V6380_laktosefrei.svg
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://cdn02.dm-static.com/images/mediacatalog/hV0192_bio/labelimage_svg/1538636892000/V0192_bio.svg
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://cdn02.dm-static.com/images/mediacatalog/hV6352_vegetarisch/labelimage_svg/1538636894000/V6352_vegetarisch.svg
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://cdn02.dm-static.com/images/mediacatalog/hV6351_vegan/labelimage_svg/1568903475000/V6351_vegan.svg
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://cdn02.dm-static.com/images/mediacatalog/hV6355_glutenfrei/labelimage_svg/1568978661000/V6355_glutenfrei.svg
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://cdn02.dm-static.com/images/mediacatalog/hV1726_bio_label_DE/labelimage_svg/1538636893000/V1726_bio_label_DE.svg
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            image:
+              - text: https://cdn02.dm-static.com/images/mediacatalog/h4058172390043-2076831/productimage_280x430/1588243129000/4058172390043-2076831_org.png
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            image_alt_text:
+              - text: Nuss-Frucht-Riegel` Superfood Kakao-Nibs & Cashew
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/img[1]/@alt
+            ingredientsList:
+              - text: >-
+                  Genaue Produktbezeichnung: 
+
+                  Bio Dattel Fruchtriegel mit Kakaonibs und Cashewkernen
+                   
+                  zutaten: 63% Datteln* getrocknet, 8% Kakaokernstücke*, 8% CASHEWKERNE*, Apfelsaftkonzentrat*, Kokosfett*, Erdmandelmehl*, 5% stark entölter Kakao*, Meersalz. *aus biologischer Landwirtschaft. Kann Spuren von HASELNÜSSEN und MANDELN enthalten.
+                   
+                  Bitte beachten Sie die Hinweise zu Allergenen.
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]
+            manufacturer_name:
+              - text: |-
+                  dm-drogerie markt GmbH + Co. KG
+                  Am dm-Platz 1
+                  76227 Karlsruhe
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]
+            mpc:
+              - text: "501068"
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/meta[3]/@content
+            nameExtended:
+              - text: Nuss-Frucht-Riegel, Superfood Kakao-Nibs & Cashew, 40 g
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: 115€
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[1]
+            price_per_unit:
+              - text: 40 g (2,87 € je 100 g)
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[3]/div[4]/div[1]/div[1]
+            product_id:
+              - text: "501068"
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/meta[3]/@content
+            quantity:
+              - text: Superfood Kakao-Nibs & Cash
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            ratingCount:
+              - text: "20"
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
+            saltPerServing:
+              - text: "0,1 "
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            saturatedFatPerServing:
+              - text: "9,1 "
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            saturatedFatPerServingUmo:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]
+            shippingInfo:
+              - text: |-
+                  dm-drogerie markt GmbH + Co. KG
+                  Am dm-Platz 1
+                  76227 Karlsruhe
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]
+            sku:
+              - text: "501068"
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/meta[3]/@content
+            storage:
+              - text: Trocken und vor Wärme geschützt lagern.
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[6]/div[1]
+            totalCarbPerServing:
+              - text: "50 "
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalFatPerServing:
+              - text: "15 "
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            totalProtienPerServing:
+              - text: "5 "
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalProtienPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            url:
+              - text: https://www.dm.de/dmbio-nuss-frucht-riegel-superfood-kakao-nibs-und-cashew-p4058172390043.html
+                xpath: /html/head[1]/meta[10]/@content
+            variantId:
+              - text: "501068"
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/meta[3]/@content
+        xpath: /
+    timestamp: 1591640464515

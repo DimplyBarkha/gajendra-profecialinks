@@ -1,0 +1,46 @@
+Search:
+singleRecord: false
+recordSelector: 'div[data-component-type="s-search-result"]'
+fields:
+  - name: price
+    singleValue: single
+    xpath: (//span[contains(@class, 'a-price')])[1] 
+    regExp: 
+  - name: rankOrganic
+    singleValue: false
+    xpath: 
+  - name: rank
+    singleValue: false
+    xpath: 
+  - name: name
+    singleValue: false
+    xpath: (//span[contains(@class, 'a-size-base-plus a-color-base a-text-normal')])[1]
+  - name: productUrl
+    singleValue: false
+    xpath: (//div[contains(@class, 'a-section a-spacing-medium')]//a/@href)[1]
+  - name: gtin
+    singleValue: false
+    xpath: 
+  - name: thumbnail
+    singleValue: false
+    xpath: (//div[contains(@class, 'a-section aok-relative s-image-square-aspect')]/img/@src)[1]
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//i[contains(@class, 'a-icon a-icon-star-small')])[1]
+    regExp: 
+  - name: reviewCount
+    singleValue: false
+    xpath: 
+  - name: ratingCount
+    singleValue: false
+    xpath: (//span[contains(@class, 'a-size-base')])[1]
+  - name: manufacturer
+    singleValue: false
+    xpath: (//span[contains(@class, 'a-size-base-plus a-color-base a-text-normal')])[1]
+    regExp: 
+  - name: soldBy
+    singleValue: false
+    xpath: 
+  - name: endorsementText
+    singleValue: false
+    xpath: (//span[contains(@class, 'a-badge-label-inner a-text-ellipsis')])[1]

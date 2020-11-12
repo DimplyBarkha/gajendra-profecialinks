@@ -1,0 +1,12 @@
+
+module.exports = {
+  implements: 'product/search/paginate',
+  parameterValues: {
+    country: 'US',
+    store: 'amazonPrimeNow',
+    nextLinkSelector: 'ul[class*="pagination-container"] > li:last-child > a[class*="buttons__prev-next-button"]:not([class*="buttons__disabled"])',
+    mutationSelector: null,
+    spinnerSelector: 'div[class*="product_grid__disabledCover"]',
+    loadedSelector: 'li[class^=product_grid__item]',
+  },
+};

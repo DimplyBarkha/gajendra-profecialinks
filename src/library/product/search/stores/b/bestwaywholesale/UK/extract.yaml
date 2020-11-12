@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li/@data-ga-product-id
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //li//h2
+  - name: productUrl
+    singleValue: false
+    xpath: //li//h2/a/@href
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //li//div/a/img/@src
+    regExp: (https:\/\/www.bestwaywholesale.co.uk)?(.+)
+    regExpReplace: https://www.bestwaywholesale.co.uk$2
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //li//div/p[contains(@class,'prodrsp')]
+    regExp: '[RSP:\s]£(.*)'
+    regExpReplace: £$1
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER

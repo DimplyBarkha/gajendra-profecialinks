@@ -1,0 +1,113 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'ProductCard')][contains(@data-qa,'ProductCard')]
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@class='my-search-url']
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    # xpath: //a[@class='Color Link']/@href
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    regExp: >-
+      [0-9]{13}
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    # xpath: //a[@componentname='internal search']/@href
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    regExp: >-
+       ^(.*)$
+    regExpReplace:
+      https://www.kroger.com$1
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //img[@class='kds-Image-img']/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //h3[@data-qa='cart-page-item-description']
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    regExp: >-
+      [0-9]{13}
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    defaultValue: ''
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    defaultValue: ''
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //span[@class='kds-Price-singular']
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: aggregateRating2
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER   
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //div[@data-qa='featured-product-tag']

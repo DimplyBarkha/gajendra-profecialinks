@@ -1,0 +1,51 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@data-component-type,"s-search-result") and not(contains(@class, "AdHolder"))][@data-asin]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.de$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, 'image')]/img/@src
+  - name: name
+    singleValue: true
+    xpath: //h2//span
+    description: The product name
+  - name: price
+    singleValue: false
+    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
+  - name: id
+    singleValue: false
+    xpath: //div/../@data-asin
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@aria-label,"Sternen")]/@aria-label
+    regExp: (.+) von 
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="a-size-base"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="a-size-base"]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: false
+    xpath: //span[contains(@class, "a-badge-label") and @id]
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+

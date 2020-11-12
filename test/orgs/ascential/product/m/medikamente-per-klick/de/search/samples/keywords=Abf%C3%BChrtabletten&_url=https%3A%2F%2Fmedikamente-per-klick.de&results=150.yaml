@@ -1,0 +1,72 @@
+input:
+  keywords: Abführtabletten
+  _url: https://medikamente-per-klick.de
+  results: 150
+extractions:
+  - html: https://workbench.import.io/html/run=cf363837-06e1-4827-bbf5-50f698d56f3c/task=2b7fa2a8-175a-425f-857c-349a8cf7b725/a28c32dd-e9e3-45d5-a389-fcdf911e7e2f.html
+    extractionConfigId: product/search/stores/m/medikamente-per-klick/DE/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[7]/div[1]/a[1]/span[1]/span[1]
+            gtin:
+              - text: "537867"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[4]/form[1]/@name
+            id:
+              - text: "06800196"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[6]/dl[1]/dd[3]
+            name:
+              - text: DULCOLAX Dragées Dose 100 Stück bei Verstopfung
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[6]/div[1]/a[1]/span[1]
+            price:
+              - text: 11.93 €*
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[10]
+            productUrl:
+              - text: https://www.medikamente-per-klick.de/dulcolax-dragees-dose-100st-06800196
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[6]/div[1]/a[1]/@href
+            rank:
+              - text: "1"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[9]
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[9]
+            reviewCount:
+              - text: "21"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[7]/div[1]/a[1]/span[1]/span[3]
+            thumbnail:
+              - text: https://www.medikamente-per-klick.de/images/products/medikamenteperklick/klein/06800196_k.jpg
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[5]/div[1]/a[1]/img[1]/@src
+              - text: https://www.medikamente-per-klick.de
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[2]/div[5]/div[1]/a[1]/img[1]/@src
+          - aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[3]/div[7]/div[1]/a[1]/span[1]/span[1]
+            id:
+              - text: "00616971"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[3]/div[6]/dl[1]/dd[3]
+            name:
+              - text: LAXAGETTEN-CT 5 mg Abführtabletten
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[3]/div[6]/div[1]/a[1]/span[1]
+            price:
+              - text: 7.00 €*
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[3]/div[10]
+            productUrl:
+              - text: https://www.medikamente-per-klick.de/laxagetten-ct-5-mg-abfuehrtabletten-100st-00616971
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[3]/div[6]/div[1]/a[1]/@href
+            rank:
+              - text: "2"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[3]/div[9]
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[3]/div[9]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[3]/div[7]/div[1]/a[1]/span[1]/span[3]
+            thumbnail:
+              - text: https://www.medikamente-per-klick.de/images/products/medikamenteperklick/klein/00616971_k.jpg
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[3]/div[5]/div[1]/a[1]/img[1]/@src
+              - text: https://www.medikamente-per-klick.de
+                xpath: /html/body/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[5]/div[3]/div[5]/div[1]/a[1]/img[1]/@src
+        xpath: /html
+    timestamp: 1591786828461

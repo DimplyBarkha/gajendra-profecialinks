@@ -1,0 +1,57 @@
+input:
+  id: 103063
+  _url: https://booker.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=465968b2-b6e2-48e1-8a4b-7599c45829de/task=a2bc8f06-7f7c-4e98-a682-238eeae2a29c/6bc47cb6-d703-4223-a9f3-4dc490d84ff7.html
+    extractionConfigId: product/details/stores/b/booker/UK/extract
+    data:
+      - group:
+          - category:
+              - text: Booker Home
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[1]
+            image:
+              - text: https://www.booker.co.uk/bbimages/1/cb82be10-88ab-4235-856d-3ce439d1777b.jpg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Farm Fresh Loose 40's Baking Potatoes 1kg - Click for larger image
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            nameExtended:
+              - text: Farm Fresh Loose 40's Baking Potatoes 1kg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            brandText:
+              - text: Farm Fresh
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/span[1]
+            quantity:
+              - text: 15kg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
+            variantId:
+              - text: "103063"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            sku:
+              - text: "103063"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            storage:
+              - text: Chilled
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[4]/ul[1]/li[1]
+            brandLink:
+              - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=1378&searchTerm=By+Brand%3a+Farm+Fresh
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/span[1]/a[1]/@href
+            name:
+              - text: Farm Fresh Loose 40's Baking Potatoes 1kg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            url:
+              - text: https://www.booker.co.uk/productinformation.aspx?code=103063
+                xpath: /html/body/form[1]/@action
+            metaKeywords:
+              - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
+                  Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
+                  House Vintners, Chef's Larder, Drop Shipment
+                xpath: /html/body/meta-key[1]
+            warnings:
+              - text: ""
+            allergyAdvice:
+              - text: ""
+            variantCount:
+              - text: "0"
+        xpath: /html
+    timestamp: 1592485356651

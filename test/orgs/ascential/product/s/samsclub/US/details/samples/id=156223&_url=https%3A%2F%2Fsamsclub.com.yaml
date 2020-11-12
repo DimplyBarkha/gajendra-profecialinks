@@ -1,0 +1,89 @@
+input:
+  id: 156223
+  _url: https://samsclub.com
+extractions:
+  - html: https://workbench.import.io/html/run=3485bb92-692c-4d31-a2d6-73ca45243883/task=47f77a76-50c0-4f34-850c-703585f83126/356bf41d-a0d7-47f2-b0e7-c7e67301e7a0.html
+    extractionConfigId: product/details/stores/s/samsclub/US/extract
+    data:
+      - group:
+          - aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[2]
+            alternateImages:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0008304600550_A?$DT_Thumbnail$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/button[1]/img[1]/@src
+            brandText:
+              - text: by Nestle Waters
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            category:
+              - text: |-
+                  All Departments
+                  Grocery
+                  Beverages
+                  Bottled Water
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]
+            description:
+              - text: >-
+                  Ice Mountain 100% Natural Spring Water makes it easy to take
+                  refreshment on the go. This multipack gives you plenty of
+                  refreshment with 48 single-serve bottles that are great for
+                  parties, events, game nights, concession stands and offices.
+                  They fit conveniently in purses and backpacks and can be
+                  recycled when you're done.
+                   
+                  Is Ice Mountain Water Healthy?
+                   
+                  Ice Mountain 100% Natural Spring Water is made from naturally sourced spring water. It has zero calories, zero sugar without artificial flavors or colors added. Each bottle contains natural minerals for flavor, giving you healthy refreshment on the go. You can trust that you're getting a quality product when you choose Ice Mountain Bottled Water.
+                   
+                  What Is Spring Water?
+                   
+                  Spring water is a natural water option. Specifically, this water comes from a natural underground source that rises to the surface. Water must reach the surface naturally in order to qualify as mountain spring water, but when it is bottled, it's collected at the source to ensure freshness and purity. This water is not filtered or processed like purified or distilled water products.
+                   
+                  Where Can I Buy Ice Mountain Water?
+                   
+                  Ice Mountain 100% Natural Spring Water is available at exclusive Club pricing in select Club locations. This product is currently unavailable for purchase online. You can use the Club locator on the website to search for this product in a Club near you. You can also find many other brands and types of bottled water in Club locations, giving you plenty of selection at great prices.
+                   
+                  Are These Mini Bottles?
+                   
+                  These single-serve Ice Mountain Spring Water bottles are half the size of a typical water bottle, offering eight ounces of water in each. They're perfectly portable, making them a popular choice among families, elementary schools and daycare centers. These bottles are also the perfect size for the office cooler or anywhere else you want to stash some refreshing bottled water.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
+            descriptionBullets:
+              - text: "5"
+            image:
+              - text: https://scene7.samsclub.com/is/image/samsclub/0008304600550_A?$DT_PDP_Image$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/button[1]/img[1]/@src
+            imageAlt:
+              - text: Ice Mountain 100% Natural Spring Water (8oz / 48pk)
+                xpath: /html/body/@imagealt
+            listPrice:
+              - text: $5.48
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/a[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/span[3]
+            metaKeywords:
+              - text: Ice Mountain 100% Natural Spring Water, Ice mountain natural spring water,
+                  Ice mountain spring water, Ice mountain water, Ice mountain,
+                  Natural spring water, Spring water, Bottled water, Water,
+                  Concessions, C-store, C store, Vending, Nestle waters,
+                  00406425147892, 00083046005505,
+                xpath: /html/head[1]/meta[13]/@content
+            name:
+              - text: Ice Mountain 100% Natural Spring Water (8oz / 48pk)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            nameExtended:
+              - text: Ice Mountain 100% Natural Spring Water (8oz / 48pk)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/div[1]
+            price:
+              - text: "current price: $3.36$3.36"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/a[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
+            ratingCount:
+              - text: "62"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/div[3]/meta[1]/@content
+            sku:
+              - text: "156223"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/@data-bv-product-id
+            url:
+              - text: https://www.samsclub.com/p/ice-mountain-natural-spring-water-48-8-oz/156223
+                xpath: /html/head[1]/link[38]/@href
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1591522431027

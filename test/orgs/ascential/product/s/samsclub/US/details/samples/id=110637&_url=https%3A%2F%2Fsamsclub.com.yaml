@@ -1,0 +1,59 @@
+input:
+  id: 110637
+  _url: https://samsclub.com
+extractions:
+  - html: https://workbench.import.io/html/run=3485bb92-692c-4d31-a2d6-73ca45243883/task=f3879618-553d-407b-bc4e-3eed60c1314c/791ba4e6-bf23-4833-8b0a-88c46d995176.html
+    extractionConfigId: product/details/stores/s/samsclub/US/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: Out of stock
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]
+            category:
+              - text: |-
+                  All Departments
+                  Pharmacy, Health & Beauty
+                  Beauty & Personal Care
+                  Bath & Body
+                  Body Lotion
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]
+            description:
+              - text: >-
+                  If you enjoy the delightful feeling of freshly moisturized
+                  skin, this Cetaphil® Moisturizing Cream is an ideal option for
+                  you. 
+
+                  When Should You Use Cetaphil Moisturizing Cream?
+                   This moisturizing cream can be used any time of the day that you feel like your skin needs a bit of a boost. It's great for those moments when you've just exited the shower and are drying off with a warm towel. Gently rub the Cetaphil Moisturizing Cream anywhere that needs some help, especially areas such as the feet, elbows, knees and hands. You can also keep it on hand to use any time you need to wash your hands to keep them hydrated throughout the day. For an extra touch of rejuvenation, moisturize your skin at night before bed and enjoy waking up to fresh, supple skin. 
+                  Is Cetaphil Moisturizing Cream Good for Sensitive Skin?
+                   If you experience dry or sensitive skin, this creamy formula is an ideal option for you to use. It's made with a special system of humectants and extra-strength emollients that work to keep your skin from losing its moisture. It helps bind water to the surface of your skin for relief that lasts. It’s non-greasy, and you can begin to notice results almost immediately. It also does not contain any fragrances, which makes it a great choice for sensitive skin. 
+                  Plenty to Last
+                   This jar of Cetaphil Moisturizing Cream contains 20 oz., which is enough to last you for quite some time. You can keep several jars on hand so that you never run out. Keep one in your gym bag, one in your bathroom and one at the office, so you have access to the creamy moisturizer any time you need it.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
+            descriptionBullets:
+              - text: "0"
+            imageAlt:
+              - text: "null"
+                xpath: /html/body/@imagealt
+            metaKeywords:
+              - text: cetaphil, moisturizing cream, dry skin, sensitive skin, cetaphil lotion,
+                  cetaphil cream, non greasy formula, fragrance free,
+                  Non-comedogenic,
+                xpath: /html/head[1]/meta[13]/@content
+            price:
+              - text: "current price: $14.48$14.48"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/a[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
+            shippingInfo:
+              - text: |-
+                  Shipping Info
+                  Standard - 2 to 6 business days 
+                   
+                  Premium - 2 to 4 business days
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]
+            url:
+              - text: https://www.samsclub.com/p/cetaphil-moisturizing-cream-20oz/110637
+                xpath: /html/head[1]/link[38]/@href
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1591522426937
