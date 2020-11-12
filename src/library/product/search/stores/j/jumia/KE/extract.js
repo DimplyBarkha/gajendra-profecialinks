@@ -37,9 +37,10 @@ module.exports = {
       const products = document.querySelectorAll('section.card article.prd');
       for (let i = 0; i < products.length; i++) {
         products[i].setAttribute('rank', `${rank + i}`);
-        products[i].setAttribute('rankOrganic', `${rankOrganic + i}`);
+        products[i].setAttribute('rank_organic', `${rankOrganic + i}`);
         rank++;
-        if (!products[i].querySelector('a[data-list="sponsored"]')) rankOrganic++;
+        const isSponsored = !!products[i].querySelector('a[data-list="sponsored"]');
+        if (!isSponsored) rankOrganic++;
       }
       localStorage.setItem('lastRank', `${rank}`);
       localStorage.setItem('lastRankOrganic', `${rankOrganic}`);

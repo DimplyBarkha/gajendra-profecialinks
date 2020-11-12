@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: section.card article.prd
-recordXPath: null
+recordSelector: null
+recordXPath: //div[@data-catalog]/article
 fields:
   - name: id
     singleValue: false
@@ -48,13 +48,12 @@ fields:
   - name: rank
     singleValue: true
     description: search/listing rank
-    xpath: self::@rank
+    xpath: //@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
-    xpath: self::@rankOrganic
+    xpath: //@rank_organic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
