@@ -2,7 +2,7 @@ input:
   id: APAPCRBC130
   _url: http://bhphotovideo.com
 extractions:
-  - html: https://workbench.import.io/html/run=d76896a5-6ff5-4c97-9ba9-3c7b07dab2af/task=ca0a7a9f-10a4-4370-a932-6a84cd1939d7/8df2dfb9-2fe5-4201-a99c-0235acd81251.html
+  - html: https://workbench.import.io/html/run=c0e65966-6e81-4c13-9129-ca491b664855/task=d913c51d-cedf-477c-a066-5483db949115/a3b9c718-6909-4e5e-8036-deba1450eb0c.html
     extractionConfigId: product/details/stores/b/bhphotovideo/US/extract
     data:
       - group:
@@ -30,9 +30,12 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[4]/a[1]
               - text: UPS Backup Battery Packs
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[5]/a[1]
+            nameExtended:
+              - text: "APC Replacement Battery Cartridge #130 (Black)"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/h1[1]
             price:
               - text: $89.99
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
             description:
               - text: "The black Replacement Battery Cartridge #130 from APC is a
                   maintenance-free sealed lead-acid battery with suspended
@@ -64,16 +67,16 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[2]/div[2]/div[1]
             sku:
               - text: "1026833"
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[6]/div[1]/a[1]/@href
+                xpath: /html/head[1]/meta[11]/@content
+            variantId:
+              - text: "1026833"
+                xpath: /html/head[1]/meta[11]/@content
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/span[1]/div[1]/a[1]/span[2]
             aggregateRating:
               - text: "5"
                 xpath: /html/body/@rating
-            shippingInfo:
-              - text: Calculate Shipping
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/span[1]/button[1]
             shippingDimensions:
               - text: 10.7 x 9.3 x 5.5"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
@@ -112,7 +115,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/aside[1]/div[1]/div[1]/ul[1]/li[3]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[6]/div[5]/section[1]/div[1]
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[5]/section[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -121,7 +124,11 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            availabilityText:
+              - text: "In Stock "
             variantCount:
               - text: "0"
+            variantInformation:
+              - text: "0"
         xpath: /
-    timestamp: 1604923418757
+    timestamp: 1605192050652

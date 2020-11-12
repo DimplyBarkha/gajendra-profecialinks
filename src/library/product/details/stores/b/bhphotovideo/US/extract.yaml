@@ -36,6 +36,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@data-selenium="productTitle"]
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -51,7 +52,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //span[contains(@class, "statusLow")]
+  xpath: concat(//span[@data-selenium="stockStatus"], " ", //div[contains(@class, "stockTimeFrame")])
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -86,12 +87,14 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //div[contains(@class, "seeAnyErrors")]//a/@href
+  xpath: //meta[@property="og:image"]/@content
   regExp: (\d+)
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //meta[@property="og:image"]/@content
+  regExp: (\d+)
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -99,6 +102,9 @@ fields:
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //h1[@data-selenium="productTitle"]
+  regExp: (\d)-[Pp]ack
+  regExpReplace: $1
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -124,7 +130,6 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: //button[@data-selenium="shipMessage" or @data-selenium="shipPromos"]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -215,6 +220,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  xpath: count(//div[contains(@class, "grouping")]//a)
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core

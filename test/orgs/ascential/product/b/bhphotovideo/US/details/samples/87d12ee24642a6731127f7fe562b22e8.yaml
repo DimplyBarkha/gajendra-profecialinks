@@ -2,7 +2,7 @@ input:
   id: APRBC63
   _url: http://bhphotovideo.com
 extractions:
-  - html: https://workbench.import.io/html/run=d76896a5-6ff5-4c97-9ba9-3c7b07dab2af/task=7b68040f-5d59-4bf2-a908-41478f19c994/ec47c7f9-4227-4219-a934-3135042c7a87.html
+  - html: https://workbench.import.io/html/run=c0e65966-6e81-4c13-9129-ca491b664855/task=b91b2dbb-8558-4372-8e70-7f78acbdf1a6/12a70355-e8bd-4c2f-a3ef-05b9940bc583.html
     extractionConfigId: product/details/stores/b/bhphotovideo/US/extract
     data:
       - group:
@@ -28,12 +28,12 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[3]/a[1]
               - text: Other Accessories
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[4]/a[1]
+            nameExtended:
+              - text: "APC RBC #63 Battery Cartridge"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/h1[1]
             price:
               - text: $149.99
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
             description:
               - text: "The APC RBC #63 Battery Cartridge is a replacement battery for S-type
                   power conditioners with battery backup. It is a
@@ -53,16 +53,16 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[2]/div[2]/div[1]
             sku:
               - text: "500066"
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[6]/div[1]/a[1]/@href
+                xpath: /html/head[1]/meta[11]/@content
+            variantId:
+              - text: "500066"
+                xpath: /html/head[1]/meta[11]/@content
             ratingCount:
               - text: "11"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/span[1]/div[1]/a[1]/span[2]
             aggregateRating:
               - text: "5"
                 xpath: /html/body/@rating
-            shippingInfo:
-              - text: Calculate Shipping
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/span[1]/button[1]
             shippingDimensions:
               - text: 16.5 x 10.5 x 8.5"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
@@ -86,7 +86,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/aside[1]/div[1]/div[1]/ul[1]/li[2]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[6]/div[5]/section[1]/div[1]
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[6]/div[4]/section[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -95,7 +95,11 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            availabilityText:
+              - text: "In Stock "
             variantCount:
               - text: "0"
+            variantInformation:
+              - text: "0"
         xpath: /
-    timestamp: 1604923421539
+    timestamp: 1605192049487

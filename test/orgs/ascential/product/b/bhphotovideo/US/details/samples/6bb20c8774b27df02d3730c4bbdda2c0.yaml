@@ -2,7 +2,7 @@ input:
   id: APPH8
   _url: http://bhphotovideo.com
 extractions:
-  - html: https://workbench.import.io/html/run=d76896a5-6ff5-4c97-9ba9-3c7b07dab2af/task=61eca1b0-5497-487d-a90e-e8acda338840/16ea269e-1ec9-4b0e-aa43-69953cbc1820.html
+  - html: https://workbench.import.io/html/run=c0e65966-6e81-4c13-9129-ca491b664855/task=c8e84c36-fbe1-4e5c-8679-507b8c8cc902/659ab49b-41ac-419e-baac-fd5b4d4ce168.html
     extractionConfigId: product/details/stores/b/bhphotovideo/US/extract
     data:
       - group:
@@ -34,12 +34,12 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[4]/a[1]
               - text: Power Strips
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[5]/a[1]
+            nameExtended:
+              - text: APC Home Office SurgeArrest 8-Outlet Surge Protector (6', 120V, Black)
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/h1[1]
             price:
               - text: $18.24
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
             description:
               - text: Provide professional-grade electrical protection against power surges and
                   spikes for computers and electronics using the black Home
@@ -122,16 +122,16 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[2]/div[5]/div[1]/div[1]
             sku:
               - text: "1391323"
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[6]/div[1]/a[1]/@href
+                xpath: /html/head[1]/meta[10]/@content
+            variantId:
+              - text: "1391323"
+                xpath: /html/head[1]/meta[10]/@content
             ratingCount:
               - text: "13"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/span[1]/div[1]/a[1]/span[2]
             aggregateRating:
               - text: "5"
                 xpath: /html/body/@rating
-            shippingInfo:
-              - text: Eligible for Free Expedited Shipping on orders over $49
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[3]/button[1]
             shippingDimensions:
               - text: 11.6 x 5.75 x 1.95"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
@@ -219,7 +219,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/aside[1]/div[1]/div[1]/ul[1]/li[3]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[5]/section[1]/div[1]
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[4]/section[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -228,7 +228,11 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            availabilityText:
+              - text: "In Stock "
             variantCount:
               - text: "6"
+            variantInformation:
+              - text: "6"
         xpath: /
-    timestamp: 1604923431091
+    timestamp: 1605192052267
