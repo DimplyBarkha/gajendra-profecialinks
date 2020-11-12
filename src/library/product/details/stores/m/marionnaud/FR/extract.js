@@ -51,6 +51,7 @@ async function implementation (
  
    // @ts-ignore
    let warningInfo="";
+     // @ts-ignore
    if(document.getElementsByClassName('prodInfoTxtData')[1].textContent.includes("WARNING")){
     alert('hi')
     // @ts-ignore

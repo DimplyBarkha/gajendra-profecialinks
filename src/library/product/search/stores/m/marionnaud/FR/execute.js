@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'marionnaud',
     domain: 'marionnaud.fr',
-    url: 'https://www.marionnaud.fr/maquillage/coffret-palette/c/M0500',
+    url: 'https://www.marionnaud.fr/search/?text={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
