@@ -29,11 +29,11 @@ module.exports = {
       const sliceURL = (data) => {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(":-")) {
-            var temp = data[index].replace(":-", " ");
+            var temp = data[index].replace(":-", "");
           } else {
             temp = data[index].replace(":", ".");
           }
-          addElementToDocument('altImage1', temp);
+          addElementToDocument('altImage1', temp+"SEK");
         }
       };
       var backgroundURL = getAllXpath("(//b[@class='ah-price'])[1]/text()", 'nodeValue');
@@ -41,11 +41,11 @@ module.exports = {
       const sliceURL1 = (data) => {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(":-")) {
-            var temp = data[index].replace(":-", " ");
+            var temp = data[index].replace(":-", "");
           } else {
             temp = data[index].replace(":", ".");
           }
-          addElementToDocument('altImage2', temp);
+          addElementToDocument('altImage2', temp+"SEK");
         }
       };
       var backgroundURL1 = getAllXpath("//div[@class='ah-pdp-product-price pt-- mb--']/div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price']/text()", 'nodeValue');
