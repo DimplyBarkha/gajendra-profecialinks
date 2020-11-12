@@ -14,6 +14,41 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain }, context, { productDetails, transform }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
+    let currentUrl = await context.evaluate(() => {
+      return document.querySelector('meta[name="twitter:url"]').getAttribute('content');
+    });
+    let iframeUrl = '';
+    let additionalDesc = '';
+    let additionalDescBulletCount = 0;
+    try{
+      await context.waitForSelector('#loadbeeTabContent');
+      iframeUrl = await context.evaluate(()=>{
+        return document.querySelector('#loadbeeTabContent').getAttribute('src');
+      });
+      await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
+      await context.waitForNavigation();
+      additionalDesc = await context.evaluate(()=>{
+        //@ts-ignore
+        let additionalDescArray = [...document.querySelectorAll('div.container-fluid.hero ul>li')];
+        for(let  i = 0 ; i < additionalDescArray.length ; i ++){
+          additionalDescArray[i] = additionalDescArray[i].innerText;
+        }
+        return additionalDescArray.join(' || ');
+      });
+      additionalDescBulletCount = await context.evaluate(()=>{
+        //@ts-ignore
+        return [...document.querySelectorAll('div.container-fluid.hero ul>li')].length;
+      });
+    }catch(err){
+      console.log('iframe not present');
+    }
+    await context.goto(currentUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
+    await context.waitForNavigation();
+    console.log('descrption - ', additionalDesc);
+    await context.evaluate((additionalDescBulletCount,additionalDesc)=>{
+      document.querySelector('body').setAttribute('bullet',additionalDescBulletCount);
+      document.querySelector('body').setAttribute('desc',additionalDesc);
+    },additionalDescBulletCount,additionalDesc);
     await context.evaluate(async function () {
       // function to append the elements to DOM
       function addElementToDocument(key, value) {
@@ -170,17 +205,23 @@ module.exports = {
           }
 
           // Check for List Price 
+          try{
           if (dataObj[0].product.price.o_price) {
             addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ","));
           } else {
             addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
+          }}catch(err){
+            console.log('No List price')
           }
 
           // Check for  Price 
+          try{
           if (dataObj[0].product.price.o_price) {
             addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ","));
           } else {
             addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ","));
+          }}catch(err){
+            console.log('Price not available')
           }
 
           // Check for the product id  and append to DOM
@@ -235,6 +276,7 @@ module.exports = {
         const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (element) {
+          //@ts-ignore
           const allElements = [...element.querySelectorAll('b')];
           const allergyAdvice = allElements.map(i => i.textContent).join(' ');
           addElementToDocument('allergyAdvice ', allergyAdvice);

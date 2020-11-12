@@ -35,7 +35,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath : //div[@id="bulletDescription"]
+    xpath : //div[@id="bulletDescription"] | //body/@desc
   - name: brandText
     singleValue: true
     xpath : //div[@id="brand"]
@@ -107,6 +107,11 @@ fields:
     xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1]     
   - name: energyEfficiency
     singleValue: true
-    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
+    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] | //dt[contains(text(),"Eficacia de lavado")]/following-sibling::dd[1] 
   - name: imageZoomFeaturePresent
     xpath: //div[@id="imageZoomFeaturePresent"] 
+  - name: descriptionBullets
+    singleValue: true
+    xpath: //body/@bullet
+    description: Number of ul > li tags in the description
+    type: NUMBER
