@@ -14,7 +14,7 @@ async function implementation (
   }
 
   const domain = 'walgreens.com';
-  url = url.replace('=/', '=');
+  url = url.replace('=/', '=%22') + '%22';
   console.log(url);
 
   await dependencies.goto({ url });
