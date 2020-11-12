@@ -38,7 +38,7 @@ async function implementation (
   const locationSet = await context.evaluate(() => {
     // @ts-ignore
     const location = document.querySelector("span[class*='localised-suburb']") ? document.querySelector("span[class*='localised-suburb']").innerText : '';
-    return location.includes('Waurn Ponds, VIC');
+    return location.includes('Macquarie Park, NSW');
   });
   // -------------To set location-----------------
   if (!locationSet) {
