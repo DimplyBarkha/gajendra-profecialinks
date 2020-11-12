@@ -68,11 +68,11 @@ fields:
 - name: quantity
   description: Quantity as described on the page
   xpath: //td[text()='Quantity']/following-sibling::td | //td[text()='Contents']/following-sibling::td
-  regExp: ([\S]+(\s?[\S]+)*)
+  regExp: \d+\.?\,?\d*\s?[g|kg]
 - name: weightNet
   description: Net weight as described on the page
   xpath: //td[contains(text(),'Weight')]/following-sibling::td
-  regExp: ([\S]+(\s?[\S]+)*)
+  regExp: \d+\.?\,?\d*\s?[g|kg]
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -97,7 +97,7 @@ fields:
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
   xpath: //td[text()='Packaged Quantity']/following-sibling::td
-  regExp: ([\S]+(\s?[\S]+)*)
+  regExp: \d+
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -119,7 +119,6 @@ fields:
   xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
 - name: shippingInfo
   description: Shipping information for the product
-  xpath: //div[@id="productDisplayAdditionalInformation"]//li[contains(text(),'delivery')]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -129,6 +128,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  defaultValue: "0"
 - name: color
   description: A textual description of the colour
   xpath: //td[contains(text(),'Product Colour')]/following-sibling::td | //td[text()='Colour']/following-sibling::td
@@ -145,6 +145,7 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //div[@id='video']
 - name: name
   singleValue: true
   description: The product name
@@ -415,7 +416,7 @@ fields:
   description: The unit of measurement used in price_per_unit
 - name: promotion
   description: promotion text on product page
-  xpath: //div[@class='deal-badge__content']//span
+  xpath: //div[@id='dealBadgePercentage']//span
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -468,15 +469,15 @@ fields:
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  xpath: //div[@id='tAndCs']
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  xpath: //div[@id='privacyPolicy']
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  xpath: //div[@id='customerService']
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -485,7 +486,7 @@ fields:
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  xpath: //div[@id='zoomIn']
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']

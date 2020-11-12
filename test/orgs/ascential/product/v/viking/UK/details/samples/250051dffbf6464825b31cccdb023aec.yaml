@@ -1,0 +1,125 @@
+input:
+  _url: http://viking-direct.co.uk
+  SKU: 2895198
+extractions:
+  - html: https://workbench.import.io/html/run=49784e0a-130a-42a4-9283-f371deb85ff0/task=a3065a37-f66d-41a8-be98-6b65989e64e2/3c59dc8d-b1dd-47fa-ae07-8c76432c912f.html
+    extractionConfigId: product/details/stores/v/viking/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/2895198?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: NESCAFÉ Gold Origins Collection Cap Colombia Instant Ground Coffee Tin
+                  500g
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
+            metaKeywords:
+              - text: NESCAFÉ,Gold,Origins,Collection,Cap,Colombia,Instant,Ground,Coffee,Tin,500g,Catering,&,Kitchen,Coffee,Instant
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Cleaning & Catering
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: Catering & Kitchen
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+              - text: Coffee
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/span[1]
+              - text: Instant Coffee
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: NESCAFÉ Gold Origins Collection Cap Colombia Instant Ground Coffee Tin
+                  500g
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            price:
+              - text: £26.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/main[1]/div[3]/div[2]
+            description:
+              - text: Smooth and fruity coffee produced with 100% Arabica beans
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/h2[1]/text()[1]
+              - text: Smooth, fruity and absolutely delicious, NESCAFÉ Cap Colombia is a lightly
+                  roasted luxury coffee with a wonderful flavour. Our expert
+                  team of roasters take 100% Arabica beans, grown in the finest
+                  coffee regions of South America and lightly roast them,
+                  releasing a juicy, fruity flavour.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]/text()[1]
+              - text: Let your taste buds sample the delicate flavours as you savour the fruity
+                  notes of NESCAFÉ Cap Colombia and its naturally sweet aromas.
+                  This is a wonderfully exquisite coffee, ideal for coffee
+                  connoisseurs everywhere.With a hinged lid and 'Click-to-Close'
+                  technology it makes for simple and secure re-sealing, making
+                  it easy to serve from and simple to reach every last granule
+                  of coffee. The Simply Better Tin is space efficient and easy
+                  to store back of house or on a counter top.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
+              - text: NESCAFÉ works with local coffee farmers in growing regions around the
+                  world to help develop more sustainable farming practices
+                  through the NESCAFÉ Plan. By providing farmers with training
+                  support through our network of agronomists and higher
+                  yielding, disease resistant plants, we are able to ensure you
+                  get to enjoy NESCAFÉ coffee with the knowledge that it has
+                  been produced with care and quality in every cup.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[2]/text()[1]
+            brandText:
+              - text: Nescafé
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
+            quantity:
+              - text: 500 g
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            gtin:
+              - text: "7613035302921"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: "2895198"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[4]/span[1]
+            variantId:
+              - text: "2895198"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[4]/span[1]
+            mpc:
+              - text: "12284223"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/@data-review-count
+            aggregateRatingText:
+              - text: Overall, average rating value is 4 of 5.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[3]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
+            name:
+              - text: NESCAFÉ Gold Origins Collection Cap Colombia Instant Ground Coffee Tin
+                  500g
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            ingredientsList:
+              - text: Pure Arabica Coffee (100%)
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            specifications:
+              - text: Viking No. 2895198 || EAN/UPC 7613035302921 || Brand Nescafé || Coffee
+                  Type Ground || Contents 500 g || Decaffeinated Non
+                  Decaffeinated || Flavour Delicate with fruity notes ||
+                  Ingredients Pure Arabica Coffee (100%) || Manufacturer Part
+                  No. 12284223 || Model Number GOLD Origins Cap Colombia ||
+                  Number of Portions 277 || Package Type Tin || Pack Quantity
+                  500 g || Product Type Coffee || Unit Each
+                xpath: /html/body/div[4]/main[1]/div[3]/div[8]
+            technicalInformationPdfPresent:
+              - text: No
+                xpath: /html/body/div[4]/main[1]/div[3]/div[3]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[4]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[5]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[6]
+            Image360Present:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[7]
+            variantCount:
+              - text: "0"
+        xpath: /html
+    timestamp: 1605206769994

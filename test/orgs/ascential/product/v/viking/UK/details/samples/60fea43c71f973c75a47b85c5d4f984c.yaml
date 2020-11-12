@@ -2,7 +2,7 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 2884005
 extractions:
-  - html: https://workbench.import.io/html/run=c1cf0ba1-f27b-4710-93e2-189246d90375/task=71ae5117-a7a2-49cf-ab3b-9afc53830364/bb2f7431-8172-48d8-9efe-6b4a5fb2061f.html
+  - html: https://workbench.import.io/html/run=49784e0a-130a-42a4-9283-f371deb85ff0/task=638c8fbc-0257-4377-8621-73a7165fa450/dabac8bc-aca2-4955-98fa-2bd92c588ca3.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
@@ -14,15 +14,13 @@ extractions:
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
             alternateImages:
               - text: https://static.viking.de/is/image/odeu13/%212884005_alt1?
-                xpath: /html/body/div[4]/main[1]/div[3]/div[4]
-              - text: https://static.viking.de/is/image/odeu13/%212884005_alt2?
-                xpath: /html/body/div[4]/main[1]/div[3]/div[5]
-              - text: https://static.viking.de/is/image/odeu13/%212884005_alt3?
-                xpath: /html/body/div[4]/main[1]/div[3]/div[6]
-              - text: https://static.viking.de/is/image/odeu13/%212884005_alt4?
-                xpath: /html/body/div[4]/main[1]/div[3]/div[7]
-              - text: https://static.viking.de/is/image/odeu13/%212884005_v1?
                 xpath: /html/body/div[4]/main[1]/div[3]/div[8]
+              - text: https://static.viking.de/is/image/odeu13/%212884005_alt2?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[9]
+              - text: https://static.viking.de/is/image/odeu13/%212884005_alt3?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[10]
+              - text: https://static.viking.de/is/image/odeu13/%212884005_alt4?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[11]
             metaKeywords:
               - text: Tork,S1,Hand,Soap,Dispenser,Refill,Wall,Mounted,White,Cleaning,&,Hygiene,Bathroom,Supplies,Accessories,Soap,Dispensers
                 xpath: /html/head[1]/meta[5]/@content
@@ -90,12 +88,12 @@ extractions:
             mpc:
               - text: "560000"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
-            shippingInfo:
-              - text: Free delivery on orders over £30
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]
             color:
               - text: White
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            videos:
+              - text: https://odeu.scene7.com/is/content/odeu13/%212884005_v1
+                xpath: /html/body/div[4]/main[1]/div[3]/div[12]
             name:
               - text: Tork S1 Hand Soap Dispenser Refill Wall Mounted White
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
@@ -105,9 +103,23 @@ extractions:
                   Yes || Manufacturer Part No. 560000 || Material Plastic ||
                   Model Number S1 || Operation Manual || Product Type Hand Soap
                   Dispenser || Unit Each
-                xpath: /html/body/div[4]/main[1]/div[3]/div[9]
+                xpath: /html/body/div[4]/main[1]/div[3]/div[13]
             technicalInformationPdfPresent:
               - text: No
                 xpath: /html/body/div[4]/main[1]/div[3]/div[3]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[4]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[5]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[6]
+            Image360Present:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[7]
+            variantCount:
+              - text: "0"
         xpath: /html
-    timestamp: 1605027488937
+    timestamp: 1605206770048

@@ -2,7 +2,7 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 1096807
 extractions:
-  - html: https://workbench.import.io/html/run=c1cf0ba1-f27b-4710-93e2-189246d90375/task=47c0ebee-ca7e-4021-b12d-4859f060a250/ef3f72ae-120a-4bb2-bcde-85986faa1b86.html
+  - html: https://workbench.import.io/html/run=49784e0a-130a-42a4-9283-f371deb85ff0/task=68da2eec-54c5-4d6f-8ce5-eb59b201a470/2008b544-f664-4ad3-b124-973b3c54ee51.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
@@ -55,9 +55,6 @@ extractions:
             brandText:
               - text: Plenty
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
-            quantity:
-              - text: 100 Sheets
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
             gtin:
               - text: "7322540981957"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
@@ -71,14 +68,17 @@ extractions:
               - text: "8441014"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
             packSize:
-              - text: Pack 4
+              - text: "4"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/@data-review-count
-            shippingInfo:
-              - text: Free delivery on orders over £30
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]
+            aggregateRatingText:
+              - text: Overall, average rating value is 5 of 5.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[3]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
             color:
               - text: White
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
@@ -92,12 +92,26 @@ extractions:
                   Number The Original One || Number of Layers 2 Ply || Packaged
                   Quantity Pack 4 || Pack Quantity 4 Pieces 100 Sheets ||
                   Product Type Kitchen Roll
-                xpath: /html/body/div[4]/main[1]/div[3]/div[4]
+                xpath: /html/body/div[4]/main[1]/div[3]/div[8]
             promotion:
               - text: -10%
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
             technicalInformationPdfPresent:
               - text: No
                 xpath: /html/body/div[4]/main[1]/div[3]/div[3]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[4]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[5]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[6]
+            Image360Present:
+              - text: Yes
+                xpath: /html/body/div[4]/main[1]/div[3]/div[7]
+            variantCount:
+              - text: "0"
         xpath: /html
-    timestamp: 1605027486512
+    timestamp: 1605206772712
