@@ -3,14 +3,14 @@ fields:
     xpath: //img[@id="productImage"]/@src
   - name: imageAlt
   - name: alternateImages
-    xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))]//img/@src
+    xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))]//img/@src | //div[@class="RICHFXColorChange"]/img/@src
   - name: metaKeywords
     xpath: //meta[contains(@name, "keywords")]/@content
   - name: _pageTimestamp
   - name: _url
     xpath: //link[@rel='canonical']/@href
   - name: category
-    xpath: //ol[@itemprop="breadcrumb"]//li[position()>1]//a
+    xpath: //ol[@itemprop="breadcrumb"]//li[position()>1]//a |//div[@class="row"]/div/li/a/span[@itemprop="name"]
   - name: nameExtended
     xpath: //h1[@itemprop="name"]
   - name: listPrice
@@ -99,6 +99,7 @@ fields:
   - name: lbb
   - name: lbbPrice
   - name: featureBullets
+    xpath: //div[@class="product-info-description"]/ul/li
   - name: otherSellersName
   - name: otherSellersPrime
   - name: otherSellersShipping
@@ -188,3 +189,8 @@ fields:
   - name: Image360Present
   - name: imageZoomFeaturePresent
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+  #salsify
+  - name: shownImages
+    xpath: //img[@id="productImage"]/@src
+  - name: highQualityImages
+    xpath: //img[@id="productImage"]/@src
