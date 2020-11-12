@@ -13,37 +13,49 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   }
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await context.evaluate(async () => {
+    // scroll
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+
+    var match = document.querySelectorAll('li.product-item--row.js_item_root')
+      .length;
+
+    let scrollTop = 0;
+    const scrollLimit = match * 334;
+    while (scrollTop <= scrollLimit) {
+      await stall(1000);
+      scrollTop += 1006;
+      window.scroll(0, scrollTop);
+    }
+  });
+
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   await context.evaluate(() => {
     function addProp (selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     };
 
+    const product = document.querySelectorAll('li.product-item--row.js_item_root');
+    let rankOrganic = 0;
     let ratings = document.querySelectorAll('.star-rating');
     const itereationLength = ratings.length;
     let seller;
-    const sponsored = document.querySelectorAll('div.h-color-subtext.h-bottom--xs.small_details');
-    let sponsoredIteration;
-    let rankOrganic = 0;
     const productUrlAll = document.querySelectorAll('.h-o-hidden>a');
     let productUrl;
 
     for (let i = 0; i < itereationLength; i++) {
       ratings = document.querySelectorAll('.star-rating')[i].dataset.count;
       seller = document.querySelectorAll('div[data-test="plazaseller-link"]')[i];
-      sponsoredIteration = sponsored[i];
 
       if (ratings === undefined && ratings !== null) {
         ratings = '0';
-      };
-
-      if (sponsoredIteration !== null) {
-        sponsoredIteration = true;
-      } else {
-        sponsoredIteration = false;
-        rankOrganic++;
-        addProp('wsp-buy-block.product-item__options.hit-area', i, 'rankorganic', rankOrganic);
       };
 
       if (seller !== undefined && seller !== null) {
@@ -59,9 +71,13 @@ async function implementation (inputs, parameters, context, dependencies) {
         productUrl = 'https://www.bol.com' + productUrlAll[i].href;
       }
 
+      if (!product[i].innerHTML.includes('h-color-subtext h-bottom--xs small_details')) {
+        rankOrganic++;
+        addProp('wsp-buy-block.product-item__options.hit-area', i, 'rankorganic', rankOrganic);
+      };
+
       addProp('.h-o-hidden>a', i, 'producturl', productUrl);
       addProp('.star-rating', i, 'ratingsCount', ratings);
-      addProp('div.product-item__info.hit-area', i, 'sponsored', sponsoredIteration);
       addProp('wsp-buy-block.product-item__options.hit-area', i, 'seller', seller);
       addProp('wsp-buy-block.product-item__options.hit-area', i, 'rank', `${i + 1}`);
     };

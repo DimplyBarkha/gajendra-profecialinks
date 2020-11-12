@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'span.sb.sb-chevron-next',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '.loader-control__content',
+    loadedSelector: '.results-area',
     noResultsXPath: '//div[@data-test="no-result-content"]',
     openSearchDefinition: null,
     domain: 'bol.com',
