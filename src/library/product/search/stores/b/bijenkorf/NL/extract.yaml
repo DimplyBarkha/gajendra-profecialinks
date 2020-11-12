@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class,"productlist__list")]//li
+recordXPath: (//ul[contains(@class,"productlist__list")])[last()]//li
 fields:
   - name: paid
     singleValue: true
@@ -20,7 +20,7 @@ fields:
     regExp: (.+)
     regExpReplace: https:$1
   - name: thumbnail
-    xpath: //a//div//div//img/@src
+    xpath: //a//div[contains(@class,"image-wrapper")]//img/@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: name
@@ -65,17 +65,17 @@ fields:
   - name: rank
     singleValue: true
     description: search/listing rank
-    type: NUMBER    
+    type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER 
+    type: NUMBER
   - name: sponsored
     singleValue: true
     description: Is sponsored/paid
-    type: BOOLEAN    
+    type: BOOLEAN
 
-#  Should these be source specific formulas or in the extractor? 
+#  Should these be source specific formulas or in the extractor?
   - name: id
     xpath: //a/@href
     regExp: (\d+)\-(\d+)
@@ -86,4 +86,4 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER 
+    type: NUMBER

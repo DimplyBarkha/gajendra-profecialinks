@@ -6,7 +6,7 @@ module.exports = {
     store: 'bijenkorf',
     domain: 'bijenkorf.nl',
     url: 'https://www.debijenkorf.nl/product-lister-page.html?SearchTerm={searchTerms}',
-    loadedSelector: 'div[class="load-more-button"]>a',
+    loadedSelector: 'li[data-at="lister-product-item"]:nth-last-child(1)',
     noResultsXPath: '//h2[contains(.,"hebben helaas geen")]',
     zipcode: '',
   },
