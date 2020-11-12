@@ -2,7 +2,7 @@ input:
   id: 58396
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=b2efdc17-cb71-42b5-a00e-f6fc835964f4/task=e57da067-dce0-47d6-bf9d-20dd009b1580/8ca36073-d622-4121-9163-fba1e9d0da0c.html
+  - html: https://workbench.import.io/html/run=bc80df50-e97f-4058-82cc-b56af16bc256/task=642c2fe0-4b1a-4e73-8a44-c9a43619316a/e28c5c62-42ae-480c-9bb7-29741c090774.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
@@ -25,6 +25,9 @@ extractions:
                 xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[4]/a[1]
               - text: Verduras Ecológicas
                 xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[5]/a[1]
+            nameExtended:
+              - text: Patatas ALCAMPO PRODUCCIÓN CONTROLADA ECOLÓGICO malla de 2 kg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
             price:
               - text: 3,39 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
@@ -82,4 +85,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1604765334218
+    timestamp: 1605181725514

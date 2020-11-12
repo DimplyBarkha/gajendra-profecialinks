@@ -2,7 +2,7 @@ input:
   id: 475213
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=b2efdc17-cb71-42b5-a00e-f6fc835964f4/task=bd32278b-19bd-4e2b-a45a-dc689b332f50/a9dca237-d213-4388-8a64-18bcfa6164d0.html
+  - html: https://workbench.import.io/html/run=bc80df50-e97f-4058-82cc-b56af16bc256/task=3b3d70c4-8a58-475b-9c05-988b0862fb53/7042b875-d82c-4c67-a8d0-930ee853f018.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
@@ -24,6 +24,10 @@ extractions:
                 xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[5]/a[1]
               - text: Soja, almendra, avena
                 xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[6]/a[1]
+            nameExtended:
+              - text: Especialidad de soja estilo islandés, con alto contenido en proteínas y
+                  sabor natural ALPRO 400 g.
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
             price:
               - text: 1,89 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
@@ -45,9 +49,6 @@ extractions:
             aggregateRating:
               - text: "4"
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[4]/div[1]/a[1]/span[1]/@class
-            shippingInfo:
-              - text: "- ENVÍO A DOMICILIO- RECOGIDA PARKING"
-                xpath: /html/body/@shippinginfo
             name:
               - text: Especialidad de soja estilo islandés, con alto contenido en proteínas y
                   sabor natural ALPRO 400 g.
@@ -127,4 +128,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1604765333101
+    timestamp: 1605181724866
