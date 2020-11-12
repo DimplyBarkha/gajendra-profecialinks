@@ -5,7 +5,8 @@ module.exports = {
     domain: 'shop.coles.com.au',
     timeout: 60000,
     country: 'AU',
-    store: 'colesonline',
+    // store: 'colesonline',
+    store: 'colesonline_macquariePark',
     zipcode: '',
   },
 };
