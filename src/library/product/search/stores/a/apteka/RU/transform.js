@@ -6,7 +6,7 @@
  */
 const transform = (data, context) => {
   const clean = text => text.toString()
-    .replace(/\r\n|\r|\n/g, ' ')
+    // .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
