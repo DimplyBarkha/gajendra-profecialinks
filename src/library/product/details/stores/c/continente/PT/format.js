@@ -23,15 +23,28 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-        var idData=''; var idData1='';
+        var idData=''; var idData1=''; var bText='';var nText='';var skuText='';
       for (let row of group) {
+        if(row.brandText){
+          row.brandText.forEach(item=>{
+            bText=item.text;
+          })
+        }
+        if(row.nameExtended){
+          row.nameExtended.forEach(item=>{
+            nText=item.text;
+          })
+        }
         if(row.sku){
+          //console.log('row.sku is comming');
           row.sku.forEach(item => {
-            let idDataArr=item.text.split('ProductId=');
-            idData1=idDataArr[1].split('(');
+            //console.log('row.sku is comming',item.text);
+            var idDataArr=item.text.split('(');
+            skuText=idDataArr[0];
+            //console.log('idDataArr : ',idDataArr);
           });
-          row.sku=[{"text":idData1[0]}];
-          row.variantId=[{"text":idData1[0]}];
+          row.sku=[{"text":skuText}];
+          row.variantId=[{"text":skuText}];
         }
         if(row.manufacturerImages){
             let info=[];
@@ -45,6 +58,9 @@ const transform = (data) => {
             let reviewCountData=item.text.split(' ');
             item.text=reviewCountData[0];
           });
+        }
+        if(bText!=''){
+          row.nameExtended=[{"text":bText+" - "+nText}];
         }
       }
     }
