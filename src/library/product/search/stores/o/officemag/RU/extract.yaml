@@ -1,49 +1,45 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="Content__group"]//ul[@class="listItems "]/li
+recordXPath: //div[@class='Content__group']//ul[@class='listItems ']/li
 fields:
   - name: id
     singleValue: false
-    xpath: //span[@class="code"]
+    xpath: //span[@class='code']
     regExp: (\d+)
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
-    xpath: //div[@class="Content__group"]//div[@class="name"]
+    xpath: //div[@class='Content__group']//div[@class='name']
     singleValue: false
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="Content__group"]//div[@class="name"]/a/@href
+    xpath: //div[@class='Content__group']//div[@class='name']/a/@href
     regExp: (.+)
     regExpReplace: https://www.officemag.ru$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="Content__group"]//div[@class="listItemPhoto__wrapper"]//img/@src
+    xpath: //div[@class='Content__group']//div[@class='listItemPhoto__wrapper']//img/@src
     regExp: (.+)
     regExpReplace: https://www.officemag.ru$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
-    xpath: //ul[@class="listItems "]/li/@rating
+    xpath: //ul[@class='listItems ']/li/@rating
   - name: reviewCount
     singleValue: false
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class="Content__group"]//ul[@class="listItems "]/li/@data-ga-obj
-    regExp: price"..(\d*\.?\d*)
-    regExpReplace: $1 руб
+    xpath: //div[@class='Content__group']//ul[@class='listItems ']/li/@price
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class="Content__group"]//ul[@class="listItems "]/li/@data-ga-obj
-    regExp: brand...(.*?)"
-    regExpReplace: $1
+    xpath: //div[@class='Content__group']//ul[@class='listItems ']/li/@brand
   - name: soldBy
     singleValue: true
   - name: endorsementText

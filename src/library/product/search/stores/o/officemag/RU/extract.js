@@ -17,8 +17,15 @@ module.exports = {
       products.forEach(product => {
         const starsStyleWidth = product.querySelector('span[class="Score__fill"]').getAttribute('style');
         const starValue = Number(starsStyleWidth.match(/(\d+.\d+)/g)) / 20;
-        const ratingAttribute = starValue.toFixed(1);
+        const ratingAttribute = starValue.toFixed(1).replace('.', ',');
         product.setAttribute('rating', ratingAttribute);
+        const productDataObject = JSON.parse(product.getAttribute('data-ga-obj'));
+        for (const property in productDataObject) {
+          if (property === 'price') {
+            productDataObject[property] = productDataObject[property].replace('.', ',');
+          }
+          product.setAttribute(property, productDataObject[property]);
+        }
       });
     });
     return await context.extract(productDetails, { transform });
