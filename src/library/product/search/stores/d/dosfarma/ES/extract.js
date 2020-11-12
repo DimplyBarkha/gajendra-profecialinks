@@ -1,11 +1,11 @@
 
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'ES',
     store: 'dosfarma',
-    transform: cleanUp,
+    transform: transform,
     domain: 'dosfarma.com',
     zipcode: '',
   },
