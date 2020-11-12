@@ -10,9 +10,9 @@ fields:
     xpath: //div[@class="product-name"]/p/text()
   - name: productUrl
     singleValue: false
-    xpath: 
-    # regExp: (.+)
-    # regExpReplace: https://www.amazon.com$1
+    xpath: //div[@class="productBlock"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://clicks.co.za$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="productBlock"]/a/img/@src

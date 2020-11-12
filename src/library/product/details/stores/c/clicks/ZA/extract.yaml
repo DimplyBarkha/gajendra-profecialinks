@@ -31,7 +31,8 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"price-details-wrapper")]//div[@class="price"]/text()
+    xpath: //div[@class="price-wrap"]
+    # xpath: //div[contains(@class,"price-details-wrapper")]//div[@class="price"]/text()
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="pdp-btn"]//button[@class="btn addToCartButtonSubmit"]
