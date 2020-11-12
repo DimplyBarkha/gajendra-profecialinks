@@ -6,7 +6,7 @@ fields:
   - name: price
     singleValue: false
     description: price of the product
-    xpath: //html//div[@class='altImage2'] 
+    xpath: //*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()
     regExp: ([^kr]+)
     regExpReplace: $1SEK
   - name: productUrl
@@ -29,9 +29,9 @@ fields:
     singleValue: false
     description: The product name
     xpath: //*[contains(@class,'MuiCardContent-root')]/div/span[2]
-  # - name: rankOrganic
-  #   singleValue: false
-  #   xpath: //html//div[@class='altImages1']
-  # - name: rank
-  #   singleValue: false
-  #   xpath: //html//div[@class='altImages1']
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
+  - name: rank
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
