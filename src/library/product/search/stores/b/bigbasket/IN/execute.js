@@ -36,7 +36,6 @@ async function implementation(
           await stall(5000);
         }
       }
-
       function stall(ms)
  {
         return new Promise((resolve, reject) => {
@@ -62,13 +61,11 @@ async function implementation(
       const seeAllSelector = document.querySelector('div[class="show-more"] > button');
       while (productsCount <= 150 && seeAllSelector !== null) {
         console.log('Length: ' + productsCount);
-        // if (seeAllSelector !== null) {
           seeAllSelector.click();
           await stall(1000);
           products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           productsCount = products.snapshotLength;
-          console.log("count button");
-        // }   
+          console.log("count button");   
       };
     });
   };
