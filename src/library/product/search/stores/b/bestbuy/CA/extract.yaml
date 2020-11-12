@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@itemprop='url']/@href
+    regExp: \b[\w=.]+$
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //div[@class="productItemName_3IZ3c"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="col-xs-12_1GBy8 col-sm-4_NwItf col-lg-3_2V2hX x-productListItem productLine_2N9kG"]/div/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.bestbuy.ca/en-ca
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="displayingImage_3xp0y"]/img/@src
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //span[@class="screenReaderOnly_3anTj large_3aP7Z"]/text()
+  - name: rating
+    singleValue: false
+    xpath: //div[@class="reviews_1KIjQ"]/span/meta/@content
+  - name: reviews
+    singleValue: true
+    xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
+  - name: shippinginfo1
+    singleValue: false
+    xpath: //span[@class="container_3LC03"]/text()
+  - name: shippinginfo2
+    singleValue: false
+    xpath: //p[@class="availabilityMessageSearchPickup_2eGze"]/text()
+  
