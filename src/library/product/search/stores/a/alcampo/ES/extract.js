@@ -70,6 +70,28 @@ async function implementation (inputs, parameters, context, dependencies) {
       };
     });
 
+    await context.evaluate(async () => {
+      // scroll
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+
+      var match = document.querySelectorAll('li.product-item--row.js_item_root')
+        .length;
+
+      let scrollTop = 0;
+      const scrollLimit = match * 334;
+      while (scrollTop <= scrollLimit) {
+        scrollTop += 1006;
+        window.scroll(0, scrollTop);
+        await stall(10000);
+      }
+    });
+
     // if nextLinkSelector is null extract page and break loop, else click in it
 
     if (await context.evaluate(() => {
