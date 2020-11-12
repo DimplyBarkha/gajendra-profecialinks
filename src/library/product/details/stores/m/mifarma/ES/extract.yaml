@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@class='more-views']//img/@src
+  xpath: //div[@class='product-image-gallery']/img[@class='gallery-image'][position()>1]/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -44,7 +44,7 @@ fields:
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //div[@class='no-movil']//p[@class='special-price']/span[@class='price']/text() | //span[@class='precio-sin-stock'
+  xpath: //div[@class='no-movil']//p[@class='special-price']/span[@class='price']/text() | //span[@class='precio-sin-stock']
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -97,7 +97,6 @@ fields:
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
-  xpath: //div[@class='cn_product_visited']/span[@class='product_id']
 - name: packSize 
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -105,15 +104,13 @@ fields:
 - name: legalDisclaimer 
   singleValue: true
   description: Content under "legal disclaimer" header
-  xpath: //div[@class='textoform-legal']/p/text()
 - name: directions 
-  singleValue: true
+  singleValue: false
   description: Content under "directions" header
   xpath: //div[@id='secc-modouso']/p/text()
 - name: warnings 
   singleValue: true
   description: Content under "warnings" header
-  xpath: //div[@id='secc-opinionfarma']/p/text()
 - name: ratingCount 
   singleValue: true
   description: The number of ratings
@@ -129,7 +126,6 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: //div[@class='texto-extra']/p/text()
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -139,6 +135,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  defaultValue: '0'
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -155,7 +152,7 @@ fields:
 - name: videos 
   singleValue: false
   description: URLs of videos on page
-  xpath: //div[@class='ytp-title']//a/@href
+  xpath: //div[@id='bloque-video']//iframe/@src
 - name: name
   singleValue: true
   description: The product name

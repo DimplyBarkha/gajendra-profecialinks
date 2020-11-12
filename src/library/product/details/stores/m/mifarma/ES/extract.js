@@ -5,7 +5,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'mifarma',
-    transform: transform,
+    transform,
     domain: 'mifarma.es',
     zipcode: '',
   },
@@ -16,6 +16,7 @@ module.exports = {
       const ratingValueConverted = rating.innerHTML.replace('.', ',');
       rating.setAttribute('ratingvalueconverted', ratingValueConverted);
     });
-    await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
+
 };
