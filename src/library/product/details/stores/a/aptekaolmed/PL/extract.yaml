@@ -51,7 +51,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@class="projector_description description"], '||', //div[contains(@class,"projector_longdescription cm")],'@@')
+    xpath: concat(//div[@class="projector_description description"], '||', //html//div[@id='xyz'])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
