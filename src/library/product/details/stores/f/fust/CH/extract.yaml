@@ -1,0 +1,101 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@class='sliderdetail__init']//div[contains(@class,'cycle-slide-active')]//a/@href
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='sliderdetail__init']//div[contains(@class,'cycle-slide-active')]//a//preceding-sibling::img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='sliderdetail__init']//div[not(contains(@class,'cycle-slide-active'))]//a/@href
+  - name: category
+    singleValue: false
+    xpath: //nav[@id='locationPointer']//ul[contains(@class,'show-for-large')]//li//a//span[not(text()='Home')]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'productDetail')]/meta[@itemprop="name"]/@content
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop='name']
+  - name: availabilityText
+    singleValue: false
+    xpath: //link[@itemprop='availability' and contains(@href,'InStock')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[@class='prices-container']//div[@class='endprice']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='prices-container']//span[@class='oldprice']
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'productDetailImgContainer')]//div[@class='awardbox-under-image']//div//div
+  - name:  description
+    singleValue: false
+    xpath: //div[@itemprop='description']
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,'productDetail')]/meta[@itemprop="brand"]/@content
+  - name: brandLink
+    singleValue: false
+    xpath: //div[@class='row']//h2[contains(@class,'subTitle--rubric')]//a/@href
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,'productDetail')]/meta[@itemprop="mpn"]/@content
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,'productDetail')]/meta[@itemprop="gtin"]/@content
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'productDetail')]/meta[@itemprop="sku"]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'js-storefinderproductdetail')]//input[@name='storeProductId']/@value
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class,'specification')]//tr 
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class,'show-for-medium')]//div[@class='guarantee']//span
+    regExp: Garantiedauer\s*(.+)
+    regExpReplace: $1
+  - name: materials
+    singleValue: false
+    xpath: //table[contains(@class,'specification')]//tr//td[text()='Material Behälter']//following-sibling::td
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //*[@id='flix-inpage' or @id='loadbee-template']//img[not(@title='Powered by Flixmedia')]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='flix-inpage']
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,'productDetailTxtContainer')]//meta[@itemprop='reviewCount']/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'bv_avgRating_component_container')]//button[@itemprop='ratingValue']
+  - name: weightNet
+    singleValue: false
+    xpath: //table[contains(@class,'specification')]//tr//td[text()='Gewicht']//following-sibling::td
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,'demoupUI-playbutton')]//meta[@itemprop='contentURL']/@content
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //table[contains(@class,'specification')]//tr//td[text()='Dimensionen B x H x T']//following-sibling::td
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[@class='productdetail-rightpart']//div[contains(@class,'js-energylabel-show-etikette')]
