@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="in-product-list"]//div[@id="js-product-wrapper"]//article
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[@id="in-product-list"]//div[@id="js-product-wrapper"]//article//div[@class="dkt-product-slider__gallery"]//div[@class="dkt-product-slider__slide dkt-product-slider__slide--active"]//div[@itemprop="url"]/@data-product-repository-id
+  - name: thumbnail
+    singlevalue: false
+    xpath: //div[@id="in-product-list"]//div[@id="js-product-wrapper"]//article//div[@class="dkt-product-slider__gallery"]//div[@class="dkt-product-slider__slide dkt-product-slider__slide--active"]//div//picture//source[@type="image/webp"]/@srcset
+  - name: name
+    singlevalue: false
+    xpath: //div[@id="in-product-list"]//div[@id="js-product-wrapper"]//article//div[@class="dkt-product__infos-wrapper"]//div[@class="dkt-product__infos__link"]//div[contains(@class,"dkt-product__title-content")]
+  - name: productUrl
+    singlevalue: false
+    xpath: //div[@id="in-product-list"]//div[@id="js-product-wrapper"]//article//div[@class="dkt-product__infos-wrapper"]//div[@class="dkt-product__infos__link"]//div[contains(@class,"dkt-product__title-content")]//a/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.decathlon.fr$1
+  - name: aggregateRating
+    singlevalue: false
+    xpath: //div[@id="in-product-list"]//div[@id="js-product-wrapper"]//article//div[@class="dkt-product__infos-wrapper"]//div[@itemprop="aggregateRating"]//div[@class="dkt-product__snipets"]//span[@itemprop="ratingValue"]
+  - name: aggregateRating2
+    singlevalue: false
+    xpath: //div[@id="in-product-list"]//div[@id="js-product-wrapper"]//article//div[@class="dkt-product__infos-wrapper"]//div[@itemprop="aggregateRating"]//div[@class="dkt-product__snipets"]//span[@itemprop="ratingValue"]
+  - name: reviewCount
+    singlevalue: false
+    xpath: //div[@id="in-product-list"]//div[@id="js-product-wrapper"]//article//div[@class="dkt-product__infos-wrapper"]//div[@itemprop="aggregateRating"]//div[@class="dkt-product__snipets"]//span[@itemprop="reviewCount"]
+  - name: price
+    singlevalue: false
+    xpath: //div[@id="in-product-list"]//div[@id="js-product-wrapper"]//article//div[@class="dkt-product__infos-wrapper"]//div[@class="dkt-product__infos__link"]//div[@class="dkt-product__price"]//div[@class="dkt-price__cartridge"]
+  - name: rank
+  - name: rankOrganic
