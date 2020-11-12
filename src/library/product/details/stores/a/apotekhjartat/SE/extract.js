@@ -56,7 +56,7 @@ module.exports = {
           document.body.append(secDiv);
         }
 
-        a = document.evaluate('//div[@id="section" and contains(.,"ur du använder")]//text()', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+        a = document.evaluate('//div[@id="section" and contains(.,"ur du")]//text()', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
         b = a.iterateNext();
         c = [];
         while (b !== null) {
