@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class='productImage']/@src
+  - name: name
+    singleValue: false
+    xpath: //a[@class='productLink']/span
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class= 'productLink']/@href  
+  - name: price
+    singleValue: single
+    xpath: //span[@class='value']
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class= 'san_tile_content']/p
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class= 'nrOfReviews']
+  - name: rank
+    singleValue: false
+    xpath: //article[@class="product"]/@data-listposition  
+  - name: rankOrganic
+    singleValue: false
+    xpath: //article[@class="product"]/@data-listposition 
+  - name: id
+    singleValue: false
+    xpath: //article[@class="product"]/@data-productid
