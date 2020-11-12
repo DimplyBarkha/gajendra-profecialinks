@@ -2,7 +2,7 @@ input:
   id: 4015600368890-KIT
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=da7de4c0-36ad-4a1a-b0ae-40095af72064/task=d0c439c6-56af-4441-9dbb-6aafc397d3b7/5a6c0b89-be4f-4ebe-8ae0-f843f4594d42.html
+  - html: https://workbench.import.io/html/run=e408ca68-9e88-465b-ac1f-95ee3245a132/task=8c8da1ca-22b2-4236-9e4d-e4f29cb1f291/a24eabf4-09d8-44ab-a6ab-39960a088989.html
     extractionConfigId: product/details/stores/b/brack/CH/extract
     data:
       - group:
@@ -17,7 +17,7 @@ extractions:
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
             alternateImages:
               - text: https://cdn.competec.ch/images2/3/3/2/56215233/56215233_xxl.jpg
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/img[1]/@src
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/img[1]/@data-src
             category:
               - text: Supermarkt & Drogerie
                 xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[2]/a[1]
@@ -33,7 +33,7 @@ extractions:
               - text: CHF 9.95
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[5]/p[1]
             availabilityText:
-              - text: "183"
+              - text: "179"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
             description:
               - text: |-
@@ -52,14 +52,20 @@ extractions:
             quantity:
               - text: 180 Stück
                 xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            gtin:
+              - text: "4015600368890"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             sku:
+              - text: "1026523"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            variantId:
               - text: "1026523"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
             mpc:
               - text: 4015600368890-KIT
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             shippingInfo:
-              - text: Bis 10 Uhr bestellt, heute in Mägenwil oder Willisau abholen.
+              - text: Bis 17 Uhr bestellt, morgen portofrei geliefert oder in Renens abholen.
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/div[1]/p[1]
             manufacturerDescription:
               - text: Diese feuchten Reinigunstücher von Meister Proper riechen nach Citrus und
@@ -78,6 +84,11 @@ extractions:
                   Hände waschen und trocknen. Kein Nachwischen nötig ausser für
                   Oberflächen die direkten Kontakt mit Lebensmittel haben
                 xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            variants:
+              - text: 60 Stück
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]
+              - text: 180 Stück
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -97,4 +108,4 @@ extractions:
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1604911251067
+    timestamp: 1605180654134

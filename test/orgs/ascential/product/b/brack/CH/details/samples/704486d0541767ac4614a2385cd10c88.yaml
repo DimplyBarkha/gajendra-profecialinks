@@ -2,7 +2,7 @@ input:
   id: 606282
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=da7de4c0-36ad-4a1a-b0ae-40095af72064/task=5483def8-3825-4b9c-8a15-270c70296c3d/e3167361-a964-4496-b6f6-a544fc4f1dde.html
+  - html: https://workbench.import.io/html/run=e408ca68-9e88-465b-ac1f-95ee3245a132/task=0e78ac80-22e1-4254-9937-26d39d223517/48e4b235-1062-473a-8202-020fb9a06b2e.html
     extractionConfigId: product/details/stores/b/brack/CH/extract
     data:
       - group:
@@ -30,7 +30,7 @@ extractions:
               - text: CHF 12.45
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
             availabilityText:
-              - text: "-88"
+              - text: "-89"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
             description:
               - text: |-
@@ -46,7 +46,13 @@ extractions:
             manufacturer:
               - text: BISSELL
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+            gtin:
+              - text: "1078"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             sku:
+              - text: "606282"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            variantId:
               - text: "606282"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
             mpc:
@@ -80,4 +86,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1604911256261
+    timestamp: 1605180653021

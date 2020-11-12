@@ -45,7 +45,7 @@ module.exports = {
     const alternateImages = dataRef[0].group[0].alternateImages;
     if (alternateImages) {
       alternateImages.forEach(image => {
-        image.text = image.text.replace('xs3', 'xxl');
+        image.text = 'https:' + image.text.replace('xs3', 'xxl');
       });
     }
 
