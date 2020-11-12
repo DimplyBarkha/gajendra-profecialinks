@@ -185,6 +185,13 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     addElementToDocument('added_ingredient', IngredientDetails);
     addElementToDocument('added_additional_description', DescriptionDetails);
     addElementToDocument('added_additional_warning', WarningDetails);
+    const BrandXpath = getXpath('//h1[@_ngcontent-c18]', 'innerText');
+    const brandList = BrandXpath.split(' ');
+    if (brandList[0].length < 6) {
+      addElementToDocument('added_brand', brandList[0] + ' ' + brandList[1]);
+    } else {
+      addElementToDocument('added_brand', brandList[0]);
+    }
     // Nutrition
     if (nutritionDetails !== null && nutritionDetails !== 'null') {
       if (nutritionDetails[1] !== 'null') {

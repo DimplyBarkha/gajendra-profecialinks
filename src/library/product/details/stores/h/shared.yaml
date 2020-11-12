@@ -10,6 +10,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //div[@class='product-image']//img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -23,6 +24,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@_ngcontent-c18]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -53,6 +55,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@id="added_brand"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
