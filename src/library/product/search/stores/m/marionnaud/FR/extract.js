@@ -44,7 +44,7 @@ implementation: async (
       for (let i = 0; i < urlProduct.length; i++) {
         addHiddenDiv('rankOrganic', rankOrganic++, i);
       }
-    const price = document.querySelectorAll("div[class='productMainLink'] div[class='infoTextCarousel'] div span[class='lineinner']");
+    const price = document.querySelectorAll('div.productMainLink div.infoTextCarousel div span.lineinner');
     //const length1=price.length
     for (let k = 0; k < price.length; k++) {
       // @ts-ignore
@@ -65,7 +65,7 @@ implementation: async (
       singleRating = singleRating.toFixed(1);
       addHiddenDiv('aggregateRating', singleRating, k);
     }
-    const thumbnail=document.querySelectorAll("div[class='product_img'] img[class='primImg primaryImage_prodcat']")
+    const thumbnail=document.querySelectorAll("div.product_img img.primImg.primaryImage_prodcat")
     for(let i=0;i< thumbnail.length;i++){
       // @ts-ignore
       let thumbnailSrc=thumbnail[i].src

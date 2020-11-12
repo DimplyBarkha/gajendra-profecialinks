@@ -68,7 +68,9 @@ async function implementation (
   // addElementToDocument('productName', productName)
 
     const price = document.querySelector('div.finalPrice');
+     // @ts-ignore
     if (price && price.textContent) {
+       // @ts-ignore
       let priceText = price.textContent;
       if (priceText.includes('€')) {
         priceText = priceText.replace('€', '.');

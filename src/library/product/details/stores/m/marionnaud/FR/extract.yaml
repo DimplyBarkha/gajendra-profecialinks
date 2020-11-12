@@ -31,6 +31,7 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //*[@id="top-bar"]/div[5]/div/div/ol/li[not(contains(@class, "back-btn"))] [not(contains(@class, "home"))]
+    type: TEXT
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -45,6 +46,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@id='priceText']
+    type: TEXT
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -76,7 +78,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //div[@class='select']//div[@class='select-styled']
+    xpath: //div[@class='size-box-wrapper']//span
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -109,6 +111,7 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
+    type: TEXT
     xpath: //div[@id='warningInfo']
   - name: ratingCount
     singleValue: true
@@ -462,7 +465,6 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //div[@class='size-box-wrapper']//span
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -525,4 +527,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
