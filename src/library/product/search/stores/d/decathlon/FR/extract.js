@@ -17,11 +17,11 @@ module.exports = {
           }, ms);
         });
       }
-      const moreButton = document.evaluate('//div[@class="more-content"]//button[@id="more_product_a" and not(contains(@style,"display: none;"))]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      if (moreButton != null) {
+      const moreButton = document.evaluate('//div[@class="more-content"]//button[@id="more_product_a" and not(contains(@style,"display: none;"))]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      if (moreButton && moreButton.singleNodeValue != null) {
         while (document.evaluate('//div[@class="more-content"]//button[@id="more_product_a" and not(contains(@style,"display: none;"))]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue) {
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-          moreButton.click();
+          moreButton.singleNodeValue.click();
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           let scrollTop = 0;
           while (scrollTop !== 5000) {

@@ -7,7 +7,7 @@ module.exports = {
     domain: 'decathlon.fr',
     url: 'https://www.decathlon.fr/search?Ntt={searchTerms}',
     loadedSelector: 'div#in-product-list',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="left"]//div[@class="title"]',
     zipcode: '',
   },
 };
