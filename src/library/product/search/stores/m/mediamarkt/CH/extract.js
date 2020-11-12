@@ -13,7 +13,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     allProducts.forEach((product, index) => {
       const pictureUrl = `https:${product.querySelector('aside.product-photo > figure > a > img').getAttribute('src')}`;
       // @ts-ignore
-      const price = product.querySelector('div.price-box > div').innerText.replaceAll('\n', '');
+      const price = product.querySelector('div.price-box > div').innerText.replace(/\n/g, '');
       product.setAttribute('product-picture', pictureUrl);
       product.setAttribute('product-price', `${price} ${currency}`);
       product.setAttribute('rank', `${index + 1}`);
