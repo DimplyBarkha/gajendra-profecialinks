@@ -18,14 +18,14 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //*[@id="content-top"]/div[2]/nav/ol/li[1]
+    xpath: //*[@id="content-top"]/div[2]/nav/ol/li[2]/a
   - name: sub_category
     description: the sub categories of the product
-    xpath: //*[@id="content-top"]/div[2]/nav/ol/li[2]/a
+    xpath: //*[@id="content-top"]/div[2]/nav/ol/li[3]/a
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[contains(@class,'text-nowrap font-weight-500')]
+    xpath: //div[@class="price-container text-right"]/div/span
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant.
