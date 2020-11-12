@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'jumbo.com',
     prefix: null,
-    url: null,
+    url: 'https://www.jumbo.com/ref/{id}',
     country: 'NL',
     store: 'jumbo',
     zipcode: '',
