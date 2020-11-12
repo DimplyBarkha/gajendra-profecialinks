@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //body
 fields:
   - name: image
     singleValue: true
@@ -21,7 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//form[@data-category]/@data-category)[1]
+    xpath: //div[@class='brcbs col16 -pts -pbm']/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -30,19 +30,18 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: (//span[@data-price])[1]
+    xpath: //body/@listprice
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //body/@price
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //body/@availability
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -52,21 +51,27 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//div[@id='description']//following-sibling::div/ul/li)
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[contains(text(), 'Brand')]/a[1]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
+    xpath: //div[contains(text(), 'Brand')]/a[1]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
+    defaultValue: '1'
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
+    xpath: //span[contains(text(), 'Weight')]/ancestor::li
+    regExp: ([\d\.]+)
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -74,11 +79,15 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
+    xpath: //span[contains(text(), 'SKU')]/ancestor::li/text()
+    regExp: ([A-z\d]+)
   - name: variantId
-    singleValue: true
+    singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //span[contains(text(), 'SKU')]/ancestor::li/text()
+    regExp: ([A-z\d]+)
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -96,16 +105,20 @@ fields:
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
+    xpath: //p[contains(text(), 'ratings')]
+    regExp: (\d+)
     type: NUMBER
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
+    xpath: //div[@class='stars _s _al']
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //div[@class='stars _s _al']
+    regExp: (^[\d.]+)
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -119,6 +132,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: count(//div[@aria-label='Select Variation']/input)
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -134,18 +148,23 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //iframe[@class='y-ifm']/@src
+    regExp: (www.+)
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1
   - name: inStorePrice
-    singleValue: true
+    singleValue: false
     description: Price in the selected store
+    xpath: //body/@price
   - name: asin
     singleValue: true
     description: null
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
+    xpath: (//span[@data-disc]/@data-disc)[1]
   - name: amazonChoice
     singleValue: true
     description: YES or Blank
@@ -153,8 +172,11 @@ fields:
     singleValue: true
     description: Text of link next to Amazon choice graphic
   - name: brandLink
-    singleValue: true
+    singleValue: false
     description: null
+    xpath:  //div[contains(text(), 'Brand')]/a[1]/@href
+    regExp: (.+)
+    regExpReplace: https://www.jumia.co.ke$1
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -387,8 +409,9 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //h2[contains(text(), 'Specifications')]//following-sibling::ul/li
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -396,8 +419,10 @@ fields:
     singleValue: true
     description: Suggested storage location for product
   - name: countryOfOrigin
-    singleValue: true
+    singleValue: false
     description: The country from which the product originates
+    xpath: //span[contains(text(), 'Production Country')]/ancestor::li/text()
+    regExp: ([A-z]+)
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -407,6 +432,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
+    xpath: //h2[contains(text(), 'Key Features')]//following-sibling::div/ul/li | //h2[contains(text(), 'What’s in the box')]//following-sibling::div
   - name: packaging
     singleValue: true
     description: Packaging information

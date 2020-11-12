@@ -1,8 +1,8 @@
 input:
   _url: http://jumia.co.ke
-  SKU: CE996OT00I5C1NAFAMZ
+  SKU: CO453OT1FDXS1NAFAMZ
 extractions:
-  - html: https://workbench.import.io/html/run=acf16475-887c-4dc9-b017-8bf4f76c526a/task=5bb7c4bf-328d-4076-8bd6-9be99f8b0b8d/3f496440-91fd-41a7-8fd7-b50f4b7a6b00.html
+  - html: https://workbench.import.io/html/run=acf16475-887c-4dc9-b017-8bf4f76c526a/task=07013ba6-1d7f-4992-8b8a-32a38fd0ecce/dd838874-2785-4f4c-ae01-c2f294f55d36.html
     extractionConfigId: product/details/stores/j/jumia/KE/extract
     data:
       - group:
@@ -13,40 +13,37 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[1]/a[2]
               - text: Drinks
                 xpath: /html/body/div[1]/main[1]/div[2]/div[1]/a[3]
-              - text: Juices & Other Non Carbonated Drinks
+              - text: Carbonated Drinks
                 xpath: /html/body/div[1]/main[1]/div[2]/div[1]/a[4]
-              - text: Others
+              - text: Cola
                 xpath: /html/body/div[1]/main[1]/div[2]/div[1]/a[5]
-              - text: Other Small Packs
+              - text: Single Pack Cola
                 xpath: /html/body/div[1]/main[1]/div[2]/div[1]/a[6]
-              - text: Delight Juice Orange - 1 Litre
+              - text: Fanta Orange Soda- 350ml
                 xpath: /html/body/div[1]/main[1]/div[2]/div[1]/a[7]
             nameExtended:
-              - text: Ceres Delight Juice Orange - 1 Litre
+              - text: Coca-cola Fanta Orange Soda- 350ml
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/h1[1]
-            listPrice:
-              - text: KSh 214
-                xpath: /html/body/@listprice
             price:
-              - text: KSh 169
+              - text: KSh 37
                 xpath: /html/body/@price
             availabilityText:
               - text: In Stock
                 xpath: /html/body/@availability
             description:
               - text: >-
-                  The Ceres Delight Juice Orange 1L is Now On Jumia Kenya At
-                  Carrefour Shop online. You can now order For the Ceres Delight
-                  Juice Orange 1L on Jumia Kenya at the best price and Have It
-                  Delivered Right At Your Doorstep.About Carrefour
+                  The Fanta Orange Pet 350 ML is Now On Jumia Kenya At Carrefour
+                  Shop online. You can now order For the Fanta Orange Pet 350 ML
+                  on Jumia Kenya at the best price and Have It Delivered Right
+                  At Your Doorstep.About Carrefour
 
                   Carrefour, one of the largest hypermarket chains in the world was introduced to the Middle East and North Africa (MENA) market in 1995 by Majid Al Futtaim, the leading shopping mall, retail and leisure pioneer across MENA.Carrefour has become the most dynamic, fast-moving and exciting hypermarket chain in the region and shared its growth with more than 38,000 employees from more than 70 nationalities in 15 countries, providing shoppers with variety and value-for-money. Carrefour ensures customer satisfaction and everyday convenience while offering unbeatable value for money with a vast array of more than 100,000 products, shoppers can purchase items for their every need, whether home electronics or fresh fruits from around the world, to locally produced items. Carrefour opened its first outlet in Kenya in 2016, and currently operates over 250 hypermarkets, supermarkets, and online stores in 15 countries across the region, with plans to extend into 38 countries in the Middle East, Central Asia, Africa and Russia.We always strive to provide the best quality and most diverse selection of household goods available in Kenya. Our value packs and combination discount offers means that we can offer these products at even lower costs, keeping your household essentials at unbeatable prices.
                    
 
                    
-                  Product Name: Ceres Delight Juice Orange 1L
+                  Product Name: Fanta Orange Pet 350 ML
                    
-                  Brand Name: Ceres
+                  Brand Name: Fanta
                    
                   Product Type: Beverages
                    
@@ -55,50 +52,59 @@ extractions:
                   Affordable Price
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]
             brandText:
-              - text: Ceres
+              - text: Coca-cola
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/a[1]
             manufacturer:
-              - text: Ceres
+              - text: Coca-cola
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/a[1]
             weightNet:
-              - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[4]
+              - text: "350"
+                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[5]
             sku:
-              - text: CE996OT00I5C1NAFAMZ
+              - text: CO453OT1FDXS1NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[1]/text()[1]
             variantId:
-              - text: CE996OT00I5C1NAFAMZ
+              - text: CO453OT1FDXS1NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[1]/text()[1]
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[2]/div[2]/div[1]/div[1]/p[1]
+                type: NUMBER
+                raw: "7"
+                locale: en_KE
+                value: 7
             aggregateRatingText:
-              - text: 0 out of 5
+              - text: 4 out of 5
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]
             aggregateRating:
-              - text: "0"
+              - text: "4"
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]
             name:
-              - text: Ceres Delight Juice Orange - 1 Litre
+              - text: Coca-cola Fanta Orange Soda- 350ml
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/h1[1]
             inStorePrice:
-              - text: KSh 169
+              - text: KSh 37
                 xpath: /html/body/@price
             brandLink:
-              - text: https://www.jumia.co.ke/-ceres/
+              - text: https://www.jumia.co.ke/coca-cola/
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/a[1]/@href
             specifications:
-              - text: "SKU: CE996OT00I5C1NAFAMZ"
+              - text: "SKU: CO453OT1FDXS1NAFAMZ"
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[1]
-              - text: "Main Material: N/A"
+              - text: "Main Material: -"
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[2]
-              - text: "Type: Carrefour Beverages"
+              - text: "Size (L x W x H cm): -"
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[3]
-              - text: "Weight (kg): 1"
+              - text: "Type: Carrefour Beverages"
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[4]
-              - text: "Shop Type: Jumia Mall/Food"
+              - text: "Weight (kg): 350"
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[5]
+              - text: "Shop Type: Jumia Mall/Food"
+                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[6]
             productOtherInformation:
-              - text: "Product Name: Ceres Delight Juice Orange 1L"
+              - text: "Product Name: Fanta Orange Pet 350 ML"
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[1]
-              - text: "Brand Name: Ceres"
+              - text: "Brand Name: Fanta"
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[2]
               - text: "Product Type: Beverages"
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[3]
@@ -106,13 +112,13 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[4]
               - text: Affordable Price
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[5]
-              - text: Delight Juice Orange 1l
+              - text: Fanta Orange Soda- 350ml
                 xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[2]/div[1]/div[1]
             image:
-              - text: https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/00/846721/1.jpg?4616
+              - text: https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/86/310721/1.jpg?3384
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             imageAlt:
-              - text: product_image_name-Ceres-Delight Juice Orange - 1 Litre-1
+              - text: product_image_name-Coca-cola-Fanta Orange Soda- 350ml-1
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             descriptionBullets:
               - text: "5"
@@ -126,9 +132,6 @@ extractions:
                 raw: "1"
                 locale: en_KE
                 value: 1
-            coupon:
-              - text: 21%
-                xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[3]/div[1]/span[2]/@data-disc
             quantity:
               - text: "1"
             technicalInformationPdfPresent:
@@ -144,4 +147,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: No
         xpath: /html
-    timestamp: 1605181275893
+    timestamp: 1605181277042

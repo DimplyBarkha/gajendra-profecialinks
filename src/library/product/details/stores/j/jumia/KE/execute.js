@@ -18,8 +18,8 @@ async function implementation (inputs, parameters, context, dependencies) {
         return 'https://www.jumia.co.ke' + productUrl;
       }
     });
-    console.log(gotoUrl);
     await context.goto(gotoUrl);
+    await new Promise((resolve) => setTimeout(resolve, 3000));
   }
 }
 module.exports = {
