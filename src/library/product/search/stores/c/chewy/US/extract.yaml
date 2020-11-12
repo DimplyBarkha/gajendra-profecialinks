@@ -9,7 +9,7 @@ fields:
     regExpReplace: https://www.chewy.com$1
     singleValue: false
   - name: thumbnail
-    xpath: //section[contains(@class,"results-products")]/article/a/div/img/@src
+    xpath: //article/a/div/img/@data-src
     regExp: (.+)
     regExpReplace: https://www.chewy.com$1 
     singleValue: false

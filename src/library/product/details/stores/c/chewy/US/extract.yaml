@@ -70,7 +70,7 @@ fields:
     # regExpReplace: $1    
   - name: sku
     singleValue: false
-    xpath: //meta[@itemprop="sku"]/@content
+    xpath: //div[@class="value js-part-number"]/span
   - name: variantId
     singleValue: false
     xpath: //div[@class="value js-part-number"]/span
@@ -94,7 +94,7 @@ fields:
     # xpath: //a[@href="#ugc-section"]/text()
     # xpath: //div[@class="ugc ugc-head"]/picture/img/@aria-label
     xpath: //a//span[@itemprop="reviewCount"]
-    #type: NUMBER
+    type: NUMBER
   - name: aggregateRatingText
   - name: aggregateRating
     singleValue: false
@@ -179,18 +179,20 @@ fields:
     xpath: //span[contains(text(),"Caloric Content")]/following-sibling::p
     regExp: (^(?:\S+\s+\n?){1,1})
     regExpReplace: $1
+    type: NUMBER
   - name: caloriesFromFatPerServing
     singleValue: false
   - name: totalFatPerServing
     singleValue: false
-    xpath: //td[contains(text(),"Fat")]/following-sibling::td
-    regExp: (.+)\s
+    xpath: //td[contains(text(),"Crude Fat")]/following-sibling::td
+    regExp: (.+)\W\s
     regExpReplace: $1
+    type: NUMBER
   - name: totalFatPerServingUom
     singleValue: false
-    xpath: //td[contains(text(),"Fat")]/following-sibling::td
+    xpath: //td[contains(text(),"Crude Fat")]/following-sibling::td
     regExp: \s(.+)min
-    regExpReplace: %
+    regExpReplace: '%'
   - name: saturatedFatPerServing
     singleValue: false
   - name: saturatedFatPerServingUom
@@ -222,13 +224,14 @@ fields:
   - name: dietaryFibrePerServing
     singleValue: false
     xpath:  //td[contains(text(),"Fiber")]/following-sibling::td
-    regExp: (.+)\s
+    regExp: (.+)\W\s
     regExpReplace: $1
+    type: NUMBER
   - name: dietaryFibrePerServingUom
     singleValue: false
     xpath:  //td[contains(text(),"Fiber")]/following-sibling::td
     regExp: (.+)
-    regExpReplace: %
+    regExpReplace: '%'
   - name: totalSugarsPerServing
     singleValue: false
   - name: totalSugarsPerServingUom
@@ -237,13 +240,14 @@ fields:
   - name: proteinPerServing
     singleValue: false
     xpath: //td[contains(text(),"Protein")]/following-sibling::td
-    regExp: (.+)\s
+    regExp: (.+)\W\s
     regExpReplace: $1
+    type: NUMBER
   - name: proteinPerServingUom
     singleValue: false
     xpath: //td[contains(text(),"Protein")]/following-sibling::td
     regExp: (.+)
-    regExpReplace: %
+    regExpReplace: '%'
   - name: vitaminAPerServing
     singleValue: false
     xpath: //td[contains(text(),"Vitamin A")]/following-sibling::td
@@ -268,7 +272,8 @@ fields:
   - name: calciumPerServingUom
     singleValue: false
     xpath: //td[contains(text(),"Calcium")]/following-sibling::td
-
+    regExp: (.+)
+    regExpReplace: '%'
   - name: ironPerServing
     singleValue: false
     description: Nutritional Information for Iron content - Usually based on per
@@ -334,7 +339,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    xpath: concat(//li[@class='you-save']/p/text(),'', //p[@class='price']/text())
+    xpath: concat(//li[@class='you-save']/p/text(), //p[@class='price']/text())
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
@@ -395,3 +400,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: ratingCount
+    singleValue: false
+    # xpath: //a[@href="#ugc-section"]/text()
+    # xpath: //div[@class="ugc ugc-head"]/picture/img/@aria-label
+    xpath: //a//span[@itemprop="reviewCount"]
+    type: NUMBER

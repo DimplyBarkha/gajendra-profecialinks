@@ -22,45 +22,42 @@ async function implementation(
       const firstItem = document.querySelector('article> a');
       firstItem.click();
     });
+  }
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 
-    await context.evaluate(async function () {
-      function addHiddenDiv(id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-    });
+  await context.evaluate(async function () {
+    function addHiddenDiv(id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+  });
   var variantLength = await context.evaluate(async () => {
-      return (document.querySelectorAll('div.cw-form-button-toggle__wrapper label')) ? document.querySelectorAll('div.cw-form-button-toggle__wrapper label').length : 0;
-    });
-    console.log("variantLength:: ", variantLength);
-    if (variantLength > 1) {
-      // await preparePageForCommonElement(0, variantLength);
-      for (let j = 0; j < variantLength; j++) {
-        await context.evaluate(async (j) => {
-          return document.querySelectorAll('label.cw-form-button-toggle__label')[j].click();
-        }, j);
-        // await context.click(`ul.topic li label`);
-        console.log('Inside variants', j);
-        // await preparePage(j, variantLength);
-        if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
-      }
-    };
+    return (document.querySelectorAll('div.cw-form-button-toggle__wrapper label')) ? document.querySelectorAll('div.cw-form-button-toggle__wrapper label').length : 0;
+  });
+  console.log("variantLength:: ", variantLength);
+  if (variantLength > 1) {
+    for (let j = 0; j < variantLength; j++) {
+      await context.evaluate(async (j) => {
+        return document.querySelectorAll('label.cw-form-button-toggle__label span')[j].click();
+      }, j);
+      console.log('Inside variants', j);
+      if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+    }
     return await context.extract(productDetails, { transform });
   }
 }
-  module.exports = {
-    implements: 'product/details/extract',
-    parameterValues: {
-      country: 'US',
-      store: 'chewy',
-      transform: transform,
-      domain: 'chewy.com',
-      zipcode: '',
-    },
-    implementation,
-  };
+module.exports = {
+  implements: 'product/details/extract',
+  parameterValues: {
+    country: 'US',
+    store: 'chewy',
+    transform: transform,
+    domain: 'chewy.com',
+    zipcode: '',
+  },
+  implementation,
+};

@@ -57,7 +57,7 @@ const transform = (data) => {
         });
         row.variants = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -2),
           },
         ];
       }
