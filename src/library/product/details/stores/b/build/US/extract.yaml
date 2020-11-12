@@ -20,7 +20,7 @@ fields:
     xpath: count(//div[@id='product-images-container']//div[contains(@class, 'product-gallery__thumbnails')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-current')) and not(contains(@class, 'slick-cloned'))]//img[not(contains(@data-activitymap-name, 'Video'))]/@src)
   - name: name
     singleValue: false
-    xpath: //h1[@data-automation="heading"]
+    xpath: (//h1[@data-automation="heading"]//span)[2]
   - name: category
     singleValue: false
     xpath: (//div[@id="breadcrumb"]//text())[position() < last() or position() = 1]
@@ -76,13 +76,13 @@ fields:
     xpath: //div[@id='custom-attr-image-zoom-feature-present']/text()
   - name: variants
     singleValue: false
-    xpath: //div[@id='product-variations']//a
+    xpath: //ul[@id='custom-attr-product-variants']//li
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //div[@id='custom-attr-product-pdfs']/text()
   - name: variantInformation
     singleValue: false
-    xpath: //div[@id='product-variations']//a[not(@href)]
+    xpath: //div[@id='custom-attr-product-variants-info']/text()
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class, 'description')]//img/@src
@@ -90,7 +90,7 @@ fields:
     regExpReplace: https:$1
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@id='product-variations']//a)
+    xpath: //div[@id='custom-attr-product-variants-count']/text()
   - name: videos
     singleValue: false
     xpath: //div[@id='product-images-container']//video[starts-with(@src, 'http')]/@src
@@ -102,7 +102,7 @@ fields:
     xpath: //div[@id='custom-attr-product-weight']/text()
   - name: firstVariant
     singleValue: false
-    xpath: (//div[@id='product-variations']//a)[1]
+    xpath: //div[@id='custom-attr-product-first-variant']/text()
   - name: materials
     singleValue: false
     xpath: //div[@id='custom-attr-product-material']/text()
@@ -118,3 +118,6 @@ fields:
   - name: featureBullets
     singleValue: false
     xpath: //ul[@id='custom-attr-product-feature-bullets']//li
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@id='custom-attr-product-additional-desc-bullets']//li

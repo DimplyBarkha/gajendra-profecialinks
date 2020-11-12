@@ -17,7 +17,7 @@ module.exports = {
     const { transform } = parameters;
 
     var variantLength = await context.evaluate(async () => {
-      return (document.querySelectorAll("div#purchase-box div#finish-swatches ul.finish-list li")) ? document.querySelectorAll("div#purchase-box div#finish-swatches ul.finish-list li").length || 1 : 0;
+      return (document.querySelectorAll("div#purchase-box div#finish-swatches ul.finish-list li")) ? document.querySelectorAll("div#purchase-box div#finish-swatches ul.finish-list li").length || 1 : 1;
     });
 
     if (variantLength > 0) {
@@ -117,11 +117,23 @@ module.exports = {
             addHiddenDiv("custom-attr-product-availability-text", selectedFinish.status === "stock" ? 'In Stock' : 'Out of Stock');
     
             const variants = dataLayer.finishes.map(finish => finish.finish);
-            // addHiddenDiv("custom-attr-product-variants", variants);
+            const variations = (dataLayer.variations || [])[0];
+            const productVariations = variations ? variations.variationProducts.map(item => item.variationName) : [];
+            const productVariantsEle = document.createElement("ul");
+            [...variants, ...productVariations].forEach(x => {
+              const liEle = document.createElement("li");
+              liEle.textContent = x;
+              productVariantsEle.appendChild(liEle);
+            });
+            productVariantsEle.style.display = "none";
+            productVariantsEle.id = "custom-attr-product-variants";
+            document.body.appendChild(productVariantsEle);
     
             if (variants) {
-              addHiddenDiv("custom-attr-product-variants-count", variants.length);
+              addHiddenDiv("custom-attr-product-variants-count", variants.length + productVariations.length);
             }
+
+            addHiddenDiv("custom-attr-product-first-variant", productVariations[0] || variants[0]);
     
             const pdfIterator = document.evaluate("//div[@id='manufacturer-resources']//a[contains(@class, 'js-view-pdf')]/@data-href", document, null, XPathResult.ANY_TYPE);
             const pdfNode = pdfIterator.iterateNext();
@@ -129,8 +141,9 @@ module.exports = {
               addHiddenDiv("custom-attr-product-pdfs", "Yes");
             }
     
-            const variantsInfo = selectedFinish.finish;
-            addHiddenDiv("custom-attr-product-variants-info", variantsInfo);
+            const productFinish = selectedFinish.finish;
+            const productVariation = dataLayer.variations.length ? dataLayer.variations[0].currentVariation : null;
+            addHiddenDiv("custom-attr-product-variants-info", productVariation || productFinish);
 
             // Feature Bullets
             const descriptionHeaders = document.querySelectorAll("div.description p");
@@ -140,6 +153,22 @@ module.exports = {
                 if (list) {
                   const featureBullets = document.createElement("ul");
                   featureBullets.id = "custom-attr-product-feature-bullets";
+                  featureBullets.style.display = "none";
+                  const liItems = list.getElementsByTagName("li");
+                  for (const li of liItems) {
+                    const liEle = document.createElement("li");
+                    liEle.textContent = li.textContent;
+                    featureBullets.appendChild(liEle);
+                  }
+                  document.body.appendChild(featureBullets);
+                }
+              }
+
+              if (header.textContent.toLowerCase().includes("specification")) {
+                const list = header.nextSibling;
+                if (list) {
+                  const featureBullets = document.createElement("ul");
+                  featureBullets.id = "custom-attr-product-additional-desc-bullets";
                   featureBullets.style.display = "none";
                   const liItems = list.getElementsByTagName("li");
                   for (const li of liItems) {
