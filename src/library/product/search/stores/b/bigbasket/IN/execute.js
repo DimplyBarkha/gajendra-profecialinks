@@ -1,4 +1,4 @@
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -7,8 +7,7 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   const responseStatus = await context.goto(url, {
-    firstRequestTimeout: 60000,
-    timeout: 60000,
+    firstRequestTimeout: 10000,
     waitUntil: 'load',
     checkBlocked: false,
   });
@@ -17,7 +16,9 @@ async function implementation (
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 50000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, {
+      timeout: 10000,
+    }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   // Apply scroll
   const applyScroll = async function (context) {
@@ -35,7 +36,8 @@ async function implementation (
           await stall(5000);
         }
       }
-      function stall (ms)
+
+      function stall(ms)
  {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -44,22 +46,38 @@ async function implementation (
         });
       }
     });
-
+  };
+  const loadProducts = async function (contenxt) {
     await context.evaluate(async function () {
+      function stall(ms)
+ {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
       let products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       let productsCount = products.snapshotLength;
-      while (productsCount < 150) {
-        const seeAllSelector = document.querySelector('#dynamicDirective > product-deck > section > div.col-md-9.wid-fix.clearfix.pl-wrap > div.col-xs-12.product-deck-container.pad-0 > div.show-more > button');
-        if (seeAllSelector) {
+      const seeAllSelector = document.querySelector('div[class="show-more"] > button');
+      while (productsCount <= 150 && seeAllSelector !== null) {
+        console.log('Length: ' + productsCount);
+        // if (seeAllSelector !== null) {
           seeAllSelector.click();
+          await stall(1000);
           products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           productsCount = products.snapshotLength;
-        }
+          console.log("count button");
+        // }   
       };
     });
   };
+
   await applyScroll(context);
+  await loadProducts(context);
+
   console.log('Checking no results', parameters.noResultsXPath);
+
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);

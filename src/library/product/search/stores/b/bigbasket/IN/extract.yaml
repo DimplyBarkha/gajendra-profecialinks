@@ -20,7 +20,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[contains(@ng-bind,"vm.selectedProduct.sp.replace('.00', '')")]
-  - name: aggregateRating
+  - name: aggregateRating2
+    xpath: //span[contains(@ng-bind,"vm.selectedProduct.rating_info.avg_rating")]
+  - name: ratingCount
     xpath: //span[contains(@ng-bind,"vm.selectedProduct.rating_info.avg_rating")]
   - name: rankOrganic
   - name: rank
