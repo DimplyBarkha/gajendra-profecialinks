@@ -1,5 +1,5 @@
-async function goto(gotoInput, parameterValues, context, dependencies) {
-  const zipcode  =  gotoInput.zipcode;
+async function goto (gotoInput, parameterValues, context, dependencies) {
+  const zipcode = gotoInput.zipcode;
 
   // strategies can  be  turned on and off
   const fillRateStrategies = {
@@ -13,20 +13,20 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
     cleanCookieRetry: false,
     // dependant on missingDataRetry
     salesRankBadgeRetry: true,
-    hourlyRetryLimit: false
+    hourlyRetryLimit: false,
   };
-  console.log('fillRateStrategies: ', fillRateStrategies)
+  console.log('fillRateStrategies: ', fillRateStrategies);
 
-  //input.extractor || 
-  const extractor = ''
-  //parseInt(input.maxCaptchas) ||
-  const MAX_CAPTCHAS =  3
-  //parseInt(input.maxSessionRetries) ||
-  const MAX_SESSION_RETRIES =  2
+  // input.extractor ||
+  const extractor = '';
+  // parseInt(input.maxCaptchas) ||
+  const MAX_CAPTCHAS = 3;
+  // parseInt(input.maxSessionRetries) ||
+  const MAX_SESSION_RETRIES = 2;
   // HOURLY_RETRY_LIMIT is a variable  depending on throughput and proxy pool volumee
   // We may need to expand the "key" to be project&extractor specific beecause projects have custom domain limits
-  //parseInt(input.hourlyRetryLimit) ||
-  const HOURLY_RETRY_LIMIT =  90000
+  // parseInt(input.hourlyRetryLimit) ||
+  const HOURLY_RETRY_LIMIT = 90000;
 
   let page;
   let captchas = 0;
@@ -63,17 +63,17 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
           elementChecks[prop] = true;
         } else { elementChecks[prop] = false; }
       }
-      elementChecks["isOffersPage"] = window.location.href.includes('offer-listing')
-      elementChecks["hasVariants"] = !!window.isTwisterPage
-      elementChecks["windowLocation"] = window.location
+      elementChecks.isOffersPage = window.location.href.includes('offer-listing');
+      elementChecks.hasVariants = !!window.isTwisterPage;
+      elementChecks.windowLocation = window.location;
       return elementChecks;
     });
   };
 
   // checking for blank pages and reloads if blank (data dropped)
   const pageContextCheck = async (page) => {
-    console.log('pageContextCheck', page)
-    if (Object.entries(page).filter(item=>item[0]!="windowLocation").filter(item=>item[1] === true).length  === 0) {
+    console.log('pageContextCheck', page);
+    if (Object.entries(page).filter(item => item[0] != 'windowLocation').filter(item => item[1] === true).length === 0) {
       context.counter.set('dropped_data', 1);
       await context.reload();
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -85,7 +85,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
 
   // redshift element counter
   const counter = async (page) => {
-    if(page.isProductPage){
+    if (page.isProductPage) {
       const counts = [];
       const fields = [
         { key: 'aplus', boolean: page.hasAplus },
@@ -103,15 +103,27 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
     }
   };
 
+  async function getCSRFToken () {
+    const api = '/gp/glow/get-address-selections.html?deviceType=desktop&pageType=Gateway&storeContext=NoStoreName';
+    const response = await fetch(api);
+    const html = await response.text();
+    const csrfToken = html.match(/CSRF_TOKEN\s*:\s*"([^"]+)/);
+    if (csrfToken) {
+      return csrfToken[1];
+    }
+    return false;
+  }
+
   const setZip = async (zip) => {
-    if(zip){
-      const apiZipChange = await context.evaluate(async (zipcode) => {
+    if (zip) {
+      const csrf = await context.evaluate(getCSRFToken);
+      const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
         const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
         const response = await fetch('/gp/delivery/ajax/address-change.html', {
           headers: {
-            accept: 'text/html,*/*',
-            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-            'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'anti-csrftoken-a2z': csrf,
+            'content-type': 'application/x-www-form-urlencoded',
+            contenttype: 'application/x-www-form-urlencoded;charset=utf-8',
             'x-requested-with': 'XMLHttpRequest',
           },
           body,
@@ -120,23 +132,23 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
           credentials: 'include',
         });
         return response.status === 200;
-      }, zipcode);
+      }, zipcode, csrf);
 
       const onCorrectZip = await context.evaluate((zipcode) => {
-        const zipText = document.querySelector('div#glow-ingress-block')
-        return zipText ? zipText.textContent.includes(zipcode) : false
+        const zipText = document.querySelector('div#glow-ingress-block');
+        return zipText ? zipText.textContent.includes(zipcode) : false;
       }, zipcode);
 
-        if(!apiZipChange){
-          console.log('API zip change failed')
-          // throw new Error('API zip change failed');
-        } else {
-          await context.reload();
-          page = await pageContextCheck(await pageContext());
-          await handlePage(page, null)
-        }
+      if (!apiZipChange) {
+        console.log('API zip change failed');
+        // throw new Error('API zip change failed');
+      } else if (!onCorrectZip) {
+        await context.reload();
+        page = await pageContextCheck(await pageContext());
+        await handlePage(page, null);
       }
     }
+  };
 
   // calls refresh API and appends data to the page that doesnt already exist
   const appendData = async (page) => {
@@ -164,13 +176,13 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
             }
           });
         }
-        params['current_asin'] = document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] ? document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] : ( document.querySelector('#all-offers-display-params') ? document.querySelector('#all-offers-display-params').getAttribute('data-asin'):'')
+        params.current_asin = document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] ? document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] : (document.querySelector('#all-offers-display-params') ? document.querySelector('#all-offers-display-params').getAttribute('data-asin') : '');
         console.log('params', params);
         return params;
       };
       const params = await getParams();
       try {
-        if (Object.entries(params).filter(item=>item[1] != undefined).length === 7) {
+        if (Object.entries(params).filter(item => item[1] != undefined).length === 7) {
           let url;
           if (page.windowLocation.hostname.includes('com')) {
             url = `https://${page.windowLocation.hostname}/gp/page/refresh?acAsin=${params.current_asin}&asinList=${params.current_asin}&auiAjax=1&dpEnvironment=softlines&dpxAjaxFlag=1&ee=2&enPre=1&id=${params.current_asin}&isFlushing=2&isP=1&isUDPFlag=1&json=1&mType=full&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&pgid=${params.pgid}&psc=1&ptd=${params.ptd}&rid=${params.rid}=1&sCac=1&sid=${params.sid}&storeID=${params.storeID}&triggerEvent=Twister&twisterView=glance`;
@@ -192,22 +204,22 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
           dataRaw.forEach(part => {
             const element = document.getElementById(Object.keys(part.Value.content)[0]);
             if (element) {
-              //element.innerHTML = Object.values(part.Value.content)[0];
+              // element.innerHTML = Object.values(part.Value.content)[0];
             } else {
               const div = document.createElement('div');
               div.setAttribute('id', Object.keys(part.Value.content)[0]);
               div.innerHTML = Object.values(part.Value.content)[0];
               const appendAtBottom = document.getElementById('a-page');
-              if(appendAtBottom){
-                appendAtBottom.insertBefore(div, document.getElementById('navFooter'))
-              }else{console.log('couldnt find a good place to append data')}
+              if (appendAtBottom) {
+                appendAtBottom.insertBefore(div, document.getElementById('navFooter'));
+              } else { console.log('couldnt find a good place to append data'); }
             }
           });
           return true;
         } else {
-            console.log('could not collect all params for appendLogic')
-            return false; 
-          }
+          console.log('could not collect all params for appendLogic');
+          return false;
+        }
       } catch (err) {
         console.log('append data try  catch fail', err);
         return false;
@@ -219,7 +231,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
   const getShouldHaveData = async (url) => {
     try {
       const apiUrl = 'https://moorhe2t18.execute-api.us-east-1.amazonaws.com/prod/?url=' + encodeURIComponent(url || gotoInput.url);
-      
+
       const res = await Promise.race([
         extractorContext.fetch(apiUrl, { timeout: 1e3 }),
         new Promise((r, j) => setTimeout(j, 1e3)),
@@ -247,7 +259,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
     });
 
     console.log('solved captcha, waiting for page change');
-    await context.waitForNavigation(30)
+    await context.waitForNavigation(30);
 
     console.log('Captcha vanished');
 
@@ -291,7 +303,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
   };
 
   const hourlyRetryIncrement = async () => {
-    if(extractor && fillRateStrategies.hourlyRetryLimit){
+    if (extractor && fillRateStrategies.hourlyRetryLimit) {
       try {
         const key = `${extractor}_${await currDateHour()}`;
         const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}/plus`;
@@ -308,7 +320,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
   };
 
   const getHourlyRetryCount = async () => {
-    if(extractor && fillRateStrategies.hourlyRetryLimit){
+    if (extractor && fillRateStrategies.hourlyRetryLimit) {
       try {
         const key = encodeURIComponent(`${extractor}_${await currDateHour()}`);
         const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}`;
@@ -328,7 +340,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
         return HOURLY_RETRY_LIMIT;
       }
     }
-    return 0
+    return 0;
   };
 
   const retryContext = async () => {
@@ -372,7 +384,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
       await context.click('a img[src*="503.png"], a[href*="ref=cs_503_link"], a img[src*="error/500-title"]');
 
       console.log('Waiting for page to reload on homepage using 503  pageId');
-      await context.waitForNavigation(30)
+      await context.waitForNavigation(30);
 
       page = await pageContext();
       if (page.is500Page) {
@@ -405,9 +417,9 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
 
       console.log('Going back to desired page');
       lastResponseData = await context.goto(gotoInput.url, {
-        checkBlocked: true
+        checkBlocked: true,
       });
-      lastResponseCode = lastResponseData.status
+      lastResponseCode = lastResponseData.status;
       console.log('lastResponseData: ', lastResponseCode);
       page = await pageContext();
       console.log('page: ', page);
@@ -417,14 +429,13 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
       return false;
     }
 
-    if (lastResponseCode !== 200 && (page.is400Page || page.is500Page) ) {
+    if (lastResponseCode !== 200 && (page.is400Page || page.is500Page)) {
       return context.reportBlocked(lastResponseCode, 'Blocked: ' + lastResponseCode);
     }
 
     await context.checkBlocked();
 
     page = await acceptCookiesIfNecessary(page);
-
 
     if (lastResponseData && (lastResponseData.url.includes('elasticbeanstalk') || lastResponseData.url.includes('www.primevideo.com'))) {
       context.counter.set('primevideo', 1);
@@ -436,26 +447,26 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
   const run = async (user_agent) => {
     // context.enableNetworkDebugger();
     // redshift health counters set to 0
-    context.counter.set('task', 0)
-    context.counter.set('expected', 0)
-    context.counter.set('primevideo', 0)
-    context.counter.set('refresh', 0)
-    context.counter.set('append', 0)
+    context.counter.set('task', 0);
+    context.counter.set('expected', 0);
+    context.counter.set('primevideo', 0);
+    context.counter.set('refresh', 0);
+    context.counter.set('append', 0);
 
     // options used for all goto's
-    await context.setUserAgent(user_agent)
-    await context.setJavaScriptEnabled(true)
-    await context.setCssEnabled(false)
+    await context.setUserAgent(user_agent);
+    await context.setJavaScriptEnabled(true);
+    await context.setCssEnabled(false);
 
     lastResponseData = await context.goto(gotoInput.url, {
-      checkBlocked: false
+      checkBlocked: false,
     });
     console.log('lastResponseData: ', lastResponseData);
 
     // get all needed selectors  on  page as booleans as pageContext
     // solve  captcha, handle 503, accept cookies, etc
 
-    console.log('about to  handle page')
+    console.log('about to  handle page');
     page = await handlePage(await pageContext(), lastResponseData);
     console.log('page handled: ', page);
     if (!page) {
@@ -465,22 +476,22 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
 
     const retry = await retryContext();
     console.log('retryContextAPI: ', retry);
-    const shouldRetry = (!retry.isLastRetry && await getHourlyRetryCount() < HOURLY_RETRY_LIMIT)
+    const shouldRetry = (!retry.isLastRetry && await getHourlyRetryCount() < HOURLY_RETRY_LIMIT);
 
-    const shouldHaveData = await getShouldHaveData(gotoInput.url)
-    console.log('blank page check')
-    page = await pageContextCheck(await pageContext())
-    console.log('blank page check done :', page)
+    const shouldHaveData = await getShouldHaveData(gotoInput.url);
+    console.log('blank page check');
+    page = await pageContextCheck(await pageContext());
+    console.log('blank page check done :', page);
 
     // API append if variants exist and prodDetails expected, otherwise reload
     if (page.isProductPage && !!parseInt(shouldHaveData.details) && !page.hasProdDetails) {
       if (page.hasVariants && fillRateStrategies.variantAPIAppendData) {
-        console.log('append ------>', 'Missing prodDetails when API history says it is expected, and variants exist.')
+        console.log('append ------>', 'Missing prodDetails when API history says it is expected, and variants exist.');
         if (await appendData(page)) {
-          context.counter.set('append', 1)
-          console.log('appended data to bottom of page')
+          context.counter.set('append', 1);
+          console.log('appended data to bottom of page');
         } else {
-          console.log('failed to append data')
+          console.log('failed to append data');
         }
         page = await pageContext();
         console.log('page update after append: ', page);
@@ -491,7 +502,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
         await context.reload();
         await new Promise(r => setTimeout(r, 2000));
         console.log('Waiting for page to reload');
-        await context.waitForNavigation({timeout: 30})
+        await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
         page = await handlePage(await pageContext(), lastResponseData);
         console.log('page handled: ', page);
@@ -502,7 +513,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
         await context.reload();
         await new Promise(r => setTimeout(r, 2000));
         console.log('Waiting for page to reload');
-        await context.waitForNavigation(30)
+        await context.waitForNavigation(30);
         console.log('Page reloaded');
         page = await handlePage(await pageContext(), lastResponseData);
         console.log('page handled: ', page);
