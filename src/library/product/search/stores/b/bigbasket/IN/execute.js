@@ -72,12 +72,9 @@ async function implementation(
       };
     });
   };
-
   await applyScroll(context);
   await loadProducts(context);
-
   console.log('Checking no results', parameters.noResultsXPath);
-
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
