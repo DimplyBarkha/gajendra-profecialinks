@@ -260,7 +260,7 @@ fields:
 - name: servingSizeUom
   singleValue: true
   xpath: //th[text()="Typical values"]/following-sibling::td[1]
-  regExp: \d+(\D+)
+  regExp: \/\d+(\w+)
   regExpReplace: $1
   description: Unit of measure of serving
 - name: numberOfServingsInPackage
