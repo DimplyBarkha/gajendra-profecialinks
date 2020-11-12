@@ -68,11 +68,11 @@ fields:
 - name: quantity
   description: Quantity as described on the page
   xpath: //td[text()='Quantity']/following-sibling::td | //td[text()='Contents']/following-sibling::td
-  regExp: \d+\.?\,?\d*\s?[g|kg]
+  regExp: \d+\.?\,?\d*\s?(g|kg)
 - name: weightNet
   description: Net weight as described on the page
   xpath: //td[contains(text(),'Weight')]/following-sibling::td
-  regExp: \d+\.?\,?\d*\s?[g|kg]
+  regExp: \d+\.?\,?\d*\s?(g|kg)
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
