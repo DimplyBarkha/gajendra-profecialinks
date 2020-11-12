@@ -63,7 +63,54 @@ module.exports = {
       if(desc != null){
         addElementToDocument('desc', desc);
       }
-      
+
+
+      //description
+      var description = getXpath('//div[@class="product-detail__description__80"]/text()', 'nodeValue');
+      if ( description != null && description.length > 1){
+        description = description.trim();
+        addElementToDocument('description', description);
+      }
+      description = getXpath('//div[@class="product-detail__description__80"]/p/b/text()', 'nodeValue');
+      if (description != null && description.length > 1){
+        description = description.trim();
+          addElementToDocument('description', description);
+      }
+      description = getXpath('//div[@class="product-detail__description__80"]/p/text()', 'nodeValue');
+      if ( description != null && description.length > 1){
+        description = description.trim();
+        addElementToDocument('description', description);
+      }
+
+      // if ( description != null){
+      //   if( description.length > 1){
+      //     description = description.trim();
+      //     addElementToDocument('description', description);
+      //   } else {
+      //     description = getXpath('//div[@class="product-detail__description__80"]/p/text()', 'nodeValue');
+      //     if ( description != null){
+      //       description = description.trim();
+      //     addElementToDocument('description', description);
+      //     }
+      //   }
+      // }
+
+      //sec image total
+      var res = getAllXpath('//ul[@class="carousel-thumbnails small-12 large-2 columns"]/li/img/@src', 'nodeValue');
+      var cnt = res.length - 1;
+      if(cnt > 0){
+        addElementToDocument('cnt', cnt);
+      }
+
+      //alternate image
+      var altimg = getAllXpath('//ul[@class="carousel-thumbnails small-12 large-2 columns"]/li/img/@src', 'nodeValue');
+      if ( altimg != null){
+        for (var i=1; i < altimg.length; i++){
+          var ext = "https://pacson.se"
+          altimg[i]= ext+altimg[i];
+          addElementToDocument('altimg', altimg[i]);
+        }
+      }
 
     });
     await context.extract(productDetails);

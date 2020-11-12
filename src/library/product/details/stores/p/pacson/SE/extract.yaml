@@ -19,6 +19,10 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //html//div[@id='altimg']
+    # xpath: //ul[@class="carousel-thumbnails small-12 large-2 columns"]/li[position()>1 and position()<= last()]/img/@src
+    # regExp: (storage/.*)
+    # regExpReplace: https://pacson.se/$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -62,7 +66,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //html//div[@id='desc']
+    xpath: //html//div[@id='description']
     # xpath: //h1[@class="product-page__title"]
     # xpath: (//span[@class="product-page__title__product_name"])
   - name: additional_description
@@ -84,17 +88,18 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //div[@class="product-detail__specification"]/table/tbody/tr[6]/td[2]
+    xpath: //td[contains(text(),'Nettovikt (kg)')]/following-sibling::td/text()
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //div[@class="product-detail__specification"]/table/tbody/tr[4]/td[2]
+    xpath: //td[contains(text(),'Bruttovikt (kg)')]/following-sibling::td/text()
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //html//div[@id='mpc']
   - name: rpc
     singleValue: true
     description: The store-specific product identifier
@@ -148,6 +153,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: count(//select[@id="product-variants"]/option)
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -167,7 +173,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1[@class="product-page__title"]
+    xpath: //h1[@class="product-page__title"]/span[@class="product-page__title__product_name"]/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -234,6 +240,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: //html//div[@id='cnt']
   - name: news
     singleValue: true
     description: null
@@ -458,9 +465,11 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //select[@id="product-variants"]/option[1]/text()
   - name: variants
     singleValue: false
     description: null
+    xpath: //select[@id="product-variants"]/option/text()
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
