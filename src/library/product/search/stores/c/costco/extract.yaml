@@ -1,0 +1,105 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@class="caption"]//span[@class="description"]/a/@href
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: true
+    xpath: //div[@class="thumbnail"]//img[contains(@class,"img")]/@data-src | //div[@class="thumbnail"]//img[contains(@class,"img")][not(@data-src)]/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: true
+    xpath: //div[@class="caption"]//span[@class="description"]/a
+    description: The product name
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    xpath: //div[@class='ratings row']/div/@aria-label
+    regExp: Rated\s([0-9\.]+)
+    regExpReplace: $1
+    description: The stated aggregate rating
+  - name: aggregateRating2
+    xpath: //div[@class='ratings row']/div/@aria-label
+    regExp: Rated\s([0-9\.]+)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //div[@class='ratings row']/div/@aria-label
+    regExp: (\d+) reviews
+    regExpReplace: $1
+    description: The number of reviews
+  - name: price
+    singleValue: true
+    xpath: //div[@class="caption"]//div[contains(@id,"price")] | //div[@class="caption"]//div[contains(@class,"price")] | //div[@class='price']
+    description: The offered price for the product
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    xpath: //div[@class="criteo-sponsored"]
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: true
+    xpath: //div[@class='scProdId']/@sc.prodid
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER

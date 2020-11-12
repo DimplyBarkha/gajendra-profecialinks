@@ -3,23 +3,26 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'costco.com',
+    timeout: 20000,
     country: 'US',
     store: 'costco',
     zipcode: '98188',
   },
-  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
+  implementation: async ({ url, storeId, zipcode }, { timeout }, context, dependencies) => {
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setJavaScriptEnabled(true);
+
+    const URL = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true, "cookie_jar":[{"name":"invCheckPostalCode","value":"${zipcode}"}]}[/!opt!]`
+
+    await context.goto(URL, { timeout, waitUntil: 'load' });
+
     if (zipcode) {
-      url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true, "cookie_jar":[{"name":"invCheckPostalCode","value":${zipcode}}]}[/!opt!]`;
-    } else {
-      url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true}[/!opt!]`;
+      console.log('FOUND ZIP CODE', zipcode);
+      await dependencies.setZipCode({ url, zipcode, storeId });
     }
-    await context.goto(url, {
-      block_ads: false,
-      load_all_resources: true,
-      images_enabled: true,
-      timeout: 50000,
-      waitUntil: 'load',
-    });
+
     await context.waitForNavigation();
   },
 };
