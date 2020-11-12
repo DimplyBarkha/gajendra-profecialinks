@@ -44,7 +44,7 @@ module.exports.implementation = async function implementation (
     if (myParam) {
       pageNo = parseInt(myParam);
     }
-    const fetchURL = `https://www.harristeeter.com/shop/api/v1/el/stores/${storeMapping[storeId]}/products/search?Q=${encodeURIComponent(searchKey)}&WithCart=false&UserId=0dcfda6e-b8cc-442a-a25c-b9c6b9824afd&Page=${pageNo}&Limit=20&IsMember=false&AllowAlcohol=true&Sort=Relevance`;
+    const fetchURL = `https://www.harristeeter.com/shop/api/v1/el/stores/${storeMapping[storeId]}/products/search?Q=${(searchKey)}&WithCart=false&UserId=0dcfda6e-b8cc-442a-a25c-b9c6b9824afd&Page=${pageNo}&Limit=20&IsMember=false&AllowAlcohol=true&Sort=Relevance`;
     const windowUrl = window.location.href.split('search');
     const baseUrl = windowUrl[0];
     const referrer = window.location.href;
