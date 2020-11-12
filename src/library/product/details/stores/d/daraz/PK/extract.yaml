@@ -53,10 +53,7 @@ fields:
     xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]
   - name: brandLink
     singleValue: false
-    xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]/@href
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]
+    xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]/@href  
   - name: mpc
     singleValue: false
     xpath: //ul[@class='specification-keys']//li//span[normalize-space()='Model']//following-sibling::div
@@ -71,10 +68,10 @@ fields:
     xpath: //ul[@class='specification-keys']//li//span[normalize-space()='SKU']//following-sibling::div  
   - name: variants
     singleValue: false
-    xpath: //script[contains(text(),'"skus"')]
+    xpath: //script[contains(text(),'skus')]
     #"skus":[...]}},
-    #regExp: \"skus\"\s*:\s*(\[.+?\])\}\},
-    #regExpReplace: $1
+    regExp: \"skus\"\s*:\s*(\[.+?\])\}\},
+    regExpReplace: $1
   - name: variantCount
     singleValue: false    
     defaultValue: 0
@@ -93,12 +90,6 @@ fields:
     xpath: //script[@type='application/ld+json' and contains(text(),'durationOfWarranty')]
     regExp: Warranty\s*:(.+)
     regExpReplace: $1
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[contains(@class,'detail-content')]//img
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[contains(@class,'detail-content')]
   - name: ratingCount
     singleValue: false
     xpath: //script[@type='application/ld+json' and contains(text(),'aggregateRating>ratingCount')]
