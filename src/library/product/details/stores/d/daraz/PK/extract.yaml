@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id='container']
+recordXPath: null
 fields:
   - name: metaKeywords
     singleValue: false
@@ -53,22 +53,34 @@ fields:
     xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]
   - name: brandLink
     singleValue: false
-    xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]/@href  
+    xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]/@href
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='pdp-product-brand']//a[contains(@class,'pdp-product-brand__brand-link')]
   - name: mpc
     singleValue: false
     xpath: //ul[@class='specification-keys']//li//span[normalize-space()='Model']//following-sibling::div
   - name: sku
     singleValue: false
     xpath: //ul[@class='specification-keys']//li//span[normalize-space()='SKU']//following-sibling::div
+    #179312060_PK-1357082084
+    regExp: (.+?)_
+    regExpReplace: $1
   - name: variantId
     singleValue: false
     xpath: //ul[@class='specification-keys']//li//span[normalize-space()='SKU']//following-sibling::div
+    #179312060_PK-1357082084
+    regExp: (.+?)_
+    regExpReplace: $1
   - name: firstVariant
     singleValue: false
     xpath: //ul[@class='specification-keys']//li//span[normalize-space()='SKU']//following-sibling::div  
+    #179312060_PK-1357082084
+    regExp: (.+?)_
+    regExpReplace: $1
   - name: variants
     singleValue: false
-    xpath: //script[contains(text(),'skus')]
+    xpath: //script[contains(text(),'"skus"')]
     #"skus":[...]}},
     regExp: \"skus\"\s*:\s*(\[.+?\])\}\},
     regExpReplace: $1
@@ -90,6 +102,12 @@ fields:
     xpath: //script[@type='application/ld+json' and contains(text(),'durationOfWarranty')]
     regExp: Warranty\s*:(.+)
     regExpReplace: $1
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'detail-content')]//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'detail-content')]
   - name: ratingCount
     singleValue: false
     xpath: //script[@type='application/ld+json' and contains(text(),'aggregateRating>ratingCount')]

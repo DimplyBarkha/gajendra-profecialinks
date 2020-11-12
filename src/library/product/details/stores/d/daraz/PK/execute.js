@@ -6,7 +6,7 @@ module.exports = {
     store: 'daraz',
     domain: 'daraz.pk',
     loadedSelector: 'span.pdp-mod-product-badge-title',
-    noResultsXPath: null,
+    noResultsXPath: "//h3[contains(text(),'Sorry! This product is no longer available')]",
     zipcode: '',
   },
 };

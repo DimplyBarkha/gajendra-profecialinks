@@ -47,16 +47,14 @@ const transform = (data) => {
       }
       if (row.variants) {
         var variations = [];
-        row.variants.forEach(item => {
-          var data = JSON.parse(item.text);
-          if (data) {
-            data.forEach(variation => {
-              if (variation.cartSkuId) {
-                variations.push(variation.cartSkuId);
-              }
-            });
-          }
-        });
+        var dataJsonObj = JSON.parse(row.variants[0].text);
+        if (dataJsonObj) {
+          dataJsonObj.forEach(variation => {
+            if (variation.cartSkuId) {
+              variations.push(variation.cartSkuId);
+            }
+          });
+        }
         if (variations.length) {
           row.variantCount = [{ text: variations.length }];
           row.variants = [{ text: variations.join(' | ') }];
