@@ -36,9 +36,14 @@ const transform = (data) => {
           });
         }
         if(row.ratingCount){
-            row.ratingCount.forEach(item => {
-              item.text=item.text.replace('(','').replace(')','');
-            });
+          row.ratingCount.forEach(item => {
+            item.text=item.text.replace('(','').replace(')','');
+          });
+        }
+        if(row.price){
+          row.price.forEach(item => {
+            item.text=item.text.replace('.',',');
+          });
         }
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];

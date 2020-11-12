@@ -36,10 +36,22 @@ const transform = (data) => {
             row.variantId=[{"text":dataAr[0]}];
           })
         }
-        if(row.image){
-          row.image.forEach(item => {
-            item.text=item.text.replace('=s360','');
+        if(row.price){
+          row.price.forEach(item => {
+            item.text=item.text.replace('.',',');
           });
+        }
+        if(row.listPrice){
+          row.listPrice.forEach(item => {
+            item.text=item.text.replace('.',',');
+          });
+        }
+        if(row.category){
+          row.category.forEach(item=>{
+            if(item.text.substr(0,1)=='/'){
+              item.text=item.text.substr(2, item.text.lenght);
+            }
+          })
         }
       }
     }
