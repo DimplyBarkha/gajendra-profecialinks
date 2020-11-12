@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/nenuco-canastilla-bebe
 extractions:
-  - html: https://workbench.import.io/html/run=e3448d58-06bb-4a3e-818e-0e1a6a4e466a/task=2b0dbe17-a683-4197-a2b1-1b11c9032a20/d6c62864-7b31-4859-bbdb-afc914ab273a.html
+  - html: https://workbench.import.io/html/run=ea3fe672-a20c-4d53-964c-b8f6e327e95a/task=b8d607cf-845e-4778-8a07-9dad487703c1/9d18a3b3-9a15-4b96-85b2-482ca9d6c3c0.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -23,6 +23,9 @@ extractions:
             nameExtended:
               - text: Nenuco Canastilla Bebé
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            price:
+              - text: 59.43€
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[3]/p[1]/span[1]
             description:
               - text: Diverida, original y completa canastilla de bebé, con 8 productos
                   imprescindibles para el aseo y el cuidado de los más pequeños
@@ -34,12 +37,6 @@ extractions:
             sku:
               - text: "3080166"
                 xpath: /html/body/script[69]/text()[1]
-            mpc:
-              - text: "94761"
-                xpath: /html/body/div[1]/span[2]
-            legalDisclaimer:
-              - text: "Responsable de los datos: Mifarma Tienda Online S.L."
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[3]/div[2]/div[1]/form[1]/div[3]/div[2]/p[1]/text()[1]
             directions:
               - text: ": En cada cambio del pañal, limpiar bien el culito del bebé con agua
                   templada secando sin frotar. Aplicar a continuación una capa
@@ -56,9 +53,6 @@ extractions:
               - text: "0"
                 xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
                 type: STRING
-            shippingInfo:
-              - text: Envío urgente gratis en la Península en pedidos desde 59€.
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]/p[1]/text()[1]
             manufacturerDescription:
               - text: ", con un divertido diseño y 8 productos que no pueden faltar en el
                   neceser del cualquier niño:"
@@ -191,6 +185,8 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
             availabilityText:
               - text: Out of Stock
+            variantCount:
+              - text: "0"
             Image360Present:
               - text: No
             imageZoomFeaturePresents:
@@ -198,4 +194,4 @@ extractions:
             weightGross:
               - text: 4.2300 kg
         xpath: /
-    timestamp: 1605087631607
+    timestamp: 1605178715593

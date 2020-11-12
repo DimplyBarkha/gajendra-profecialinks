@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/colutorio-encias-herbal-parodontax-500ml
 extractions:
-  - html: https://workbench.import.io/html/run=e3448d58-06bb-4a3e-818e-0e1a6a4e466a/task=960eeef5-c347-47d3-a5e5-72fb97549890/31f697c0-c743-4803-a0ec-f8c3a87df8b3.html
+  - html: https://workbench.import.io/html/run=ea3fe672-a20c-4d53-964c-b8f6e327e95a/task=050fda36-742f-4b13-a28d-e26a1e76b60d/db63eeb4-9f92-41c6-b504-3e6bb5055053.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -28,6 +28,9 @@ extractions:
             listPrice:
               - text: 8,99 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
+            price:
+              - text: 7,00 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
@@ -45,31 +48,23 @@ extractions:
             sku:
               - text: "193562"
                 xpath: /html/body/script[69]/text()[1]
-            mpc:
-              - text: "121186"
-                xpath: /html/body/div[1]/span[2]
-            legalDisclaimer:
-              - text: "Responsable de los datos: Mifarma Tienda Online S.L."
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[3]/div[2]/div[1]/form[1]/div[3]/div[2]/p[1]/text()[1]
             directions:
               - text: 1. Utilizar 2 veces al día.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[3]/p[2]/text()[1]
-            warnings:
-              - text: No hace falta enjuagarse con agua tras su uso.
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]/text()[1]
+              - text: 2. Medir 10ml y enjuagarse la boca durante un minuto.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[3]/p[3]/text()[1]
+              - text: 3. Escupir después. No tragar el producto.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[3]/p[4]/text()[1]
             ratingCount:
-              - text: "0"
+              - text: "5"
                 xpath: /html/body/div[1]/span[13]
             aggregateRatingText:
-              - text: "0"
+              - text: "5"
                 xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
             aggregateRating:
-              - text: "0"
+              - text: "5"
                 xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
                 type: STRING
-            shippingInfo:
-              - text: Envío urgente gratis en la Península en pedidos desde 59€.
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[2]/div[1]/p[1]/text()[1]
             manufacturerDescription:
               - text: Este
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
@@ -88,6 +83,8 @@ extractions:
             name:
               - text: Colutorio Encías Herbal Parodontax 500ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            variantCount:
+              - text: "0"
             Image360Present:
               - text: No
             imageZoomFeaturePresents:
@@ -95,4 +92,4 @@ extractions:
             weightGross:
               - text: 0.5200 kg
         xpath: /
-    timestamp: 1605087631648
+    timestamp: 1605178714273

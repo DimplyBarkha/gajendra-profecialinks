@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
 extractions:
-  - html: https://workbench.import.io/html/run=e3448d58-06bb-4a3e-818e-0e1a6a4e466a/task=d7982b26-2c04-4c1b-aa17-ea7866852ccb/e174994a-6882-44e9-8c1b-77673d4fbc51.html
+  - html: https://workbench.import.io/html/run=ea3fe672-a20c-4d53-964c-b8f6e327e95a/task=fc28cf95-e084-45aa-b3c8-12d52acdff0d/9641a315-206f-463c-8ca7-9d672cbb9e0c.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -28,6 +28,9 @@ extractions:
             listPrice:
               - text: 8,35 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
+            price:
+              - text: 5,85 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
@@ -45,20 +48,10 @@ extractions:
             sku:
               - text: "189473"
                 xpath: /html/body/script[69]/text()[1]
-            mpc:
-              - text: "92391"
-                xpath: /html/body/div[1]/span[2]
-            legalDisclaimer:
-              - text: "Responsable de los datos: Mifarma Tienda Online S.L."
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[3]/div[2]/div[1]/form[1]/div[3]/div[2]/p[1]/text()[1]
             directions:
               - text: Cepillarse los dientes al menos tres veces al día y después de cada
                   comida.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[2]/text()[1]
-            warnings:
-              - text: Al contener extractos naturales vegetales, puede apreciarse una
-                  variabilidad en la coloración. No ingerir.
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[3]/p[2]/text()[1]
             ratingCount:
               - text: "11"
                 xpath: /html/body/div[1]/span[13]
@@ -69,9 +62,6 @@ extractions:
               - text: 4,7272727272727
                 xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
                 type: STRING
-            shippingInfo:
-              - text: Envío urgente gratis en la Península en pedidos desde 59€.
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[2]/div[1]/p[1]/text()[1]
             manufacturerDescription:
               - text: Su fórmula, con extractos naturales vegetales, previene la placa dental y
                   ayuda a mantener una boca y unos dientes sanos.
@@ -90,6 +80,8 @@ extractions:
             ingredientsList:
               - text: No contiene mentol. Sin gluten.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
+            variantCount:
+              - text: "0"
             Image360Present:
               - text: No
             imageZoomFeaturePresents:
@@ -97,4 +89,4 @@ extractions:
             weightGross:
               - text: 0.1200 kg
         xpath: /
-    timestamp: 1605087633035
+    timestamp: 1605178717781

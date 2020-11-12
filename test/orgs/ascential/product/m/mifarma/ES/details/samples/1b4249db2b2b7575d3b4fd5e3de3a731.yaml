@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/preservativo-control-adapta-extra-lube-12unidades
 extractions:
-  - html: https://workbench.import.io/html/run=e3448d58-06bb-4a3e-818e-0e1a6a4e466a/task=ff41e3e8-6435-41e6-a1d0-5266046de319/b6a8e413-692a-42c4-a796-970cfe2f2350.html
+  - html: https://workbench.import.io/html/run=ea3fe672-a20c-4d53-964c-b8f6e327e95a/task=880e13a1-73a0-4deb-8f50-7192407968f4/578559b4-0c19-42d3-a1b5-34c6fb0a3132.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -16,12 +16,10 @@ extractions:
               - text: Preservativo Control Adapta Nature Extra Lube 12 Uds
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://www.mifarma.es/media/catalog/product/cache/1/thumbnail/75x/9df78eab33525d08d6e5fb8d27136e95/1/7/178239_5.jpg
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[6]/ul[1]/li[1]/a[1]/img[1]/@src
-              - text: https://www.mifarma.es/media/catalog/product/cache/1/thumbnail/75x/9df78eab33525d08d6e5fb8d27136e95/1/7/178239_6.jpg
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[6]/ul[1]/li[2]/a[1]/img[1]/@src
-              - text: https://www.mifarma.es/media/catalog/product/cache/1/thumbnail/75x/9df78eab33525d08d6e5fb8d27136e95/1/7/178239_7.jpg
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[6]/ul[1]/li[3]/a[1]/img[1]/@src
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/1800x/7991b0a10959e5a6fe23085fbcedc5d2/1/7/178239_6.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[3]/@src
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/1800x/7991b0a10959e5a6fe23085fbcedc5d2/1/7/178239_7.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[4]/@src
             category:
               - text: Vida Íntima
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/text()[1]
@@ -33,6 +31,9 @@ extractions:
             listPrice:
               - text: 7,95 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
+            price:
+              - text: 5,40 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
@@ -47,19 +48,9 @@ extractions:
             sku:
               - text: "178239"
                 xpath: /html/body/script[69]/text()[1]
-            mpc:
-              - text: "1852"
-                xpath: /html/body/div[1]/span[2]
-            legalDisclaimer:
-              - text: "Responsable de los datos: Mifarma Tienda Online S.L."
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[3]/div[2]/div[1]/form[1]/div[3]/div[2]/p[1]/text()[1]
             directions:
               - text: Leer detenidamente las instrucciones contenidas en el envase.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[2]/text()[1]
-            warnings:
-              - text: El látex puede causar alergias incluso shock anafiláctico si se usa siendo
-                  alérgico al látex.
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[3]/p[2]/text()[1]
             ratingCount:
               - text: "0"
                 xpath: /html/body/div[1]/span[13]
@@ -70,9 +61,6 @@ extractions:
               - text: "0"
                 xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
                 type: STRING
-            shippingInfo:
-              - text: Envío urgente gratis en la Península en pedidos desde 59€.
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[2]/div[1]/p[1]/text()[1]
             manufacturerDescription:
               - text: Preservativos con mayor lubricación para favorecer relaciones más cómodas
                   y satisfactorias.
@@ -98,6 +86,8 @@ extractions:
             ingredientsList:
               - text: Fabricado en látex de caucho natural.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
+            variantCount:
+              - text: "0"
             Image360Present:
               - text: No
             imageZoomFeaturePresents:
@@ -105,4 +95,4 @@ extractions:
             weightGross:
               - text: 0.1000 kg
         xpath: /
-    timestamp: 1605087630446
+    timestamp: 1605178715106

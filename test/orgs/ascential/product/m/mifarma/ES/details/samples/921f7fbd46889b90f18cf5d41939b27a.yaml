@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/lacer-interdentales-extrafino-recto-10-unidades-formato-ahorro
 extractions:
-  - html: https://workbench.import.io/html/run=e3448d58-06bb-4a3e-818e-0e1a6a4e466a/task=52f855d0-e793-402b-9b5c-6222cf4fe0d7/bafdc434-8d38-4409-84f6-ca7015e4e8c5.html
+  - html: https://workbench.import.io/html/run=ea3fe672-a20c-4d53-964c-b8f6e327e95a/task=cb6f95fe-21c7-4884-8c67-2c4a80280b11/7e3809b6-0485-42ec-be58-02b035bc6cbe.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -28,6 +28,9 @@ extractions:
             listPrice:
               - text: 7,87 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
+            price:
+              - text: 4,30 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
@@ -41,12 +44,6 @@ extractions:
             sku:
               - text: "163240"
                 xpath: /html/body/script[69]/text()[1]
-            mpc:
-              - text: "9714"
-                xpath: /html/body/div[1]/span[2]
-            legalDisclaimer:
-              - text: "Responsable de los datos: Mifarma Tienda Online S.L."
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[3]/div[2]/div[1]/form[1]/div[3]/div[2]/p[1]/text()[1]
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[1]/span[13]
@@ -57,9 +54,6 @@ extractions:
               - text: "5"
                 xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
                 type: STRING
-            shippingInfo:
-              - text: Envío urgente gratis en la Península en pedidos desde 59€.
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[2]/div[1]/p[1]/text()[1]
             manufacturerDescription:
               - text: Cepillos interdentales con filamentos Tynex texturizados. Interdental
                   recto, de fácil agarre para una mejor guía.
@@ -96,6 +90,8 @@ extractions:
             name:
               - text: Lacer Interdentales Extrafino Recto 10 Unidades
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            variantCount:
+              - text: "0"
             Image360Present:
               - text: No
             imageZoomFeaturePresents:
@@ -103,4 +99,4 @@ extractions:
             weightGross:
               - text: 0.3000 kg
         xpath: /
-    timestamp: 1605087631517
+    timestamp: 1605178717356
