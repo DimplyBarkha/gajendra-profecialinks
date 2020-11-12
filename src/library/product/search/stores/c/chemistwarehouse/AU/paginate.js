@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'AU',
-    store: 'chemistwarehouse',
+    store: 'ChemistWarehouse_Mweb',
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,

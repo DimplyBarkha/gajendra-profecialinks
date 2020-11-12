@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     domain: 'chemistwarehouse.com.au',
-    store: 'chemistwarehouse',
+    store: 'ChemistWarehouse_Mweb',
     zipcode: '',
   },
 };

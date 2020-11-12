@@ -5,7 +5,7 @@ module.exports = {
     domain: 'chemistwarehouse.com.au',
     timeout: 90000,
     country: 'AU',
-    store: 'chemistwarehouse',
+    store: 'ChemistWarehouse_Mweb',
     zipcode: '',
   },
 };

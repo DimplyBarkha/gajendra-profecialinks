@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search',
   parameterValues: {
     country: 'AU',
-    store: 'chemistwarehouse',
+    store: 'ChemistWarehouse_Mweb',
     domain: 'chemistwarehouse.com.au',
     zipcode: '',
   },
