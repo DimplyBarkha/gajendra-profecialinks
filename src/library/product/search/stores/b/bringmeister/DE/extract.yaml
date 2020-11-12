@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    xpath: //div[@data-cy="productInfoTitle"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.bringmeister.de/$1
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //img/@srcset
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //span[@class="css-d9sin2 e1gyaih30"]
+    description: The product name
+  - name: id
+    xpath: //div[@data-cy="productInfoTitle"]/a/@href
+    description: The store-specific product identifier
+    regExp: \d+
+  - name: price
+    xpath: (//p[@class="DQd30"][2])
+    regExp: ^[^\s]+
+    description: The offered price for the product
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    xpath: (//p[@class="DQd30"][2])
+    regExp: ((\s+)\d+(.+))$
+  - name: rank
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@id='rankOrganic']
