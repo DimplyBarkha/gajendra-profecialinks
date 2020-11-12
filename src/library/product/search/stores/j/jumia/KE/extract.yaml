@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //div[@data-catalog]/article
+recordSelector: section.card article.prd
+recordXPath: null
 fields:
   - name: id
     singleValue: false
@@ -26,8 +26,8 @@ fields:
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@class="stars _s"]
-    regExp: (.+) out of.+
-    regExpReplace: $1
+    regExp: (\d+)\.?\,?(\d+)?
+    regExpReplace: $1,$2
   - name: reviewCount
     singleValue: false
   - name: ratingCount
@@ -48,18 +48,16 @@ fields:
   - name: rank
     singleValue: true
     description: search/listing rank
-    xpath: //@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    xpath: //@rank_organic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
     xpath: //a[@class="core"][@data-list="sponsored"]
-    defaultValue: 'false'
+    defaultValue: false
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER

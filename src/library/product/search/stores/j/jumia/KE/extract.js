@@ -30,21 +30,6 @@ module.exports = {
         window.scroll(0, scrollTop);
       }
     });
-
-    await context.evaluate(async function () {
-      let rank = localStorage.getItem('lastRank') ? Number(localStorage.getItem('lastRank')) : 1;
-      let rankOrganic = localStorage.getItem('lastRankOrganic') ? Number(localStorage.getItem('lastRankOrganic')) : 1;
-      const products = document.querySelectorAll('section.card article.prd');
-      for (let i = 0; i < products.length; i++) {
-        products[i].setAttribute('rank', `${rank + i}`);
-        products[i].setAttribute('rank_organic', `${rankOrganic + i}`);
-        rank++;
-        const isSponsored = !!products[i].querySelector('a[data-list="sponsored"]');
-        if (!isSponsored) rankOrganic++;
-      }
-      localStorage.setItem('lastRank', `${rank}`);
-      localStorage.setItem('lastRankOrganic', `${rankOrganic}`);
-    });
     return await context.extract(productDetails, { transform });
   },
 };
