@@ -26,7 +26,7 @@ module.exports = {
       try {
         var clickButton = document.querySelectorAll('a[class="c-link f5 mb2 mt0 db-m dn"]');
         if (clickButton.length) {
-          clickButton[0].click()
+          clickButton[0].click();
           console.log('clicked successfully');
         }
       } catch (e) {
