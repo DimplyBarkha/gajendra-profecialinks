@@ -31,7 +31,7 @@ module.exports = {
         addElementToDom(discount, 'discount');
         const discountNumber = parseFloat(discount.replace(/.*[$]/g, ''));
         const discountedPriceNumber = parseFloat(discountedPrice.replace(/.*[$]/g, ''));
-        const listedPrice = `$${discountNumber + discountedPriceNumber}`;
+        const listedPrice = `$${(discountNumber + discountedPriceNumber).toFixed(2)}`;
         addElementToDom(listedPrice, 'listedPrice');
       }
 
