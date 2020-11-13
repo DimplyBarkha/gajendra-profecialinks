@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul.load_container',
+    loadedSelector: 'ul.load_container a.product__link',
     noResultsXPath: '//div[@class="resource-not-found"]',
     resultsDivSelector: null,
     openSearchDefinition: {
