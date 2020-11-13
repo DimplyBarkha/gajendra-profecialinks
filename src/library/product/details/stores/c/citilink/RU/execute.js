@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'citilink',
     domain: 'citilink.ru',
-    loadedSelector: '.main_content',
+    loadedSelector: '.MainWrapper',
     noResultsXPath: '//span[contains(text(), "страница не найдена")]',
     zipcode: '',
   },
