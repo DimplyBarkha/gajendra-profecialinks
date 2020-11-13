@@ -5,7 +5,7 @@ recordXPath: null
 fields:
 - name: url
   description: URL of the main product page
-  xpath: //meta[@property='og:url']/@content
+  xpath: //link[@hreflang='de-DE']/@href
 - name: image
   singleValue: true
   description: URL of the main product image
@@ -15,19 +15,22 @@ fields:
   description: Alt text of the main product image
   xpath: (//li[@class='productData clearfix']/div[@class='col-sm col-sm-fixed-50 article-thumbnail']/img/@alt)[1]
 - name: secondary_image
+  type: FILE[]
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[contains(@class,"article-image-further")]/a[not(contains(@class,'image-zoom-gallery           active activated'))]//img/@src
+  xpath: //div[@class='article-image-further']/a[not(contains(@class,'image-zoom-gallery           active activated'))]//img/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
   xpath: //meta[@name='keywords']/@content
 - name: category
   singleValue: false
+  type: TEXT[]
   description: The categories (e.g. from breadcrumbs)
   xpath:  //div[@class='box well well-sm category-tree category-sub-tree hidden-xs']/div/a//text()
 - name: sub_category
-  xpath: //div[@class='box well well-sm category-tree category-sub-tree hidden-xs']//li[@class='current']//a//text()
+  type: TEXT[]
+  xpath: //div[@class='box well well-sm category-tree category-sub-tree hidden-xs']//div//following-sibling::ul//li[@class='current']/a//text()
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -36,16 +39,16 @@ fields:
   singleValue: true
   description: The stated undiscounted price for the product
 - name: online_price
+  type: CURRENCY
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   xpath: (//span[@class='article-price-default article-club-hidden'])[1]//text()
-  regExp: '(.\d.\d+)'
 - name: online_price_currency
   singleValue: true
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: (//span[@class='article-price-default article-club-hidden'])[1]//text()
-  regExp: '[^\d]+$'
+  # xpath: (//span[@class='article-price-default article-club-hidden'])[1]//text()
+  # regExp: '[^\d]+$'
 - name: availabilityText
   singleValue: true
   xpath: //meta[@itemprop="availability"]/@content
@@ -54,10 +57,11 @@ fields:
   regExpReplace: Out of Stock
 - name: additional_description
   singleValue: false
+  type: TEXT[]
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   # xpath: //meta[@name='description']/@content
-  xpath: //div[@id='product-detail-information']//div[@itemprop='description']
+  xpath: //div[@itemprop='description']//div//text()
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -73,11 +77,11 @@ fields:
 - name: size
   singleValue: true
   description: Quantity as described on the page
-  xpath: (//div[@class='to-basket-area align-bottom']//div[@class='article-amount']//span//text())[1]
+  xpath: (//div[@class='to-basket-area align-bottom']//div[@class='article-amount']//span)[1]//text()
 - name: alcohol_content
   singleValue: true
   description: Alcohol content described on the page
-  xpath: (//div[@class='to-basket-area align-bottom']//div[@class='article-amount']//span//text())[2]
+  xpath: (//div[@class='to-basket-area align-bottom']//div[@class='article-amount']//span)[2]//text()
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -88,6 +92,9 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //meta[@itemprop='sku']/@content
+- name: rpc
+  singleValue: true
   xpath: //meta[@itemprop='sku']/@content
 - name: variantId
   singleValue: true
@@ -114,6 +121,7 @@ fields:
   regExp: '\d+\.\d+'
 - name: number_of_customer_reviews
   singleValue: true
+  type: NUMBER
   description: The stated aggregate rating
   xpath: (//div[@class='col-xs-12 col-xl-8 flex-column']//span[@class='rating-count']//text())[2]
 - name: aplus_image
@@ -121,6 +129,7 @@ fields:
   xpath: //div[@class='infos row']//a/img/@src
 - name: enhanced_content
   singleValue: false
+  type: TEXT
   xpath: //div[@class='infos row']//div[@class='text']//text()
 - name: aggregateRating
   singleValue: true
@@ -153,9 +162,10 @@ fields:
   description: Images within the third party description
 - name: videos
   description: URLs of videos on page
-  xpath: //div[@class='embed-responsive embed-responsive-16by9']/iframe/@src
+  type: URL[]
+  xpath: //div[@class='embed-responsive embed-responsive-16by9']//iframe/@src
 - name: product_description
-  singleValue: true
+  type: TEXT[]
   description: The product name
   # xpath: //meta[@property='og:title']/@content
   xpath: (//div[@class='modal-title h4'])[1]//text()
@@ -163,9 +173,10 @@ fields:
   # regExpReplace: $1
 - name: harvested_product_description
   singleValue: true
+  type: TEXT
   description: The product name
-  xpath: //meta[@property='og:title']/@content
-  regExp: '([^|]+)'
+  xpath: (//div[@class='modal-title h4'])[1]//text()
+  # xpath: //meta[@property='og:title']/@content
 - name: harvested_price
   xpath: (//span[@class='article-price-default article-club-hidden'])[1]//text()
 - name: inStorePrice
