@@ -1,11 +1,11 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addElementToDocument(key, value) {
+    function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
