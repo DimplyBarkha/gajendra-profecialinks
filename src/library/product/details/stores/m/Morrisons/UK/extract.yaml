@@ -53,10 +53,10 @@ fields:
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
-  defaultValue: "In Stock"
-  xpath: //div[@class="bop-outOfStock"]
-  regExp: .+
-  regExpReplace: "Out of Stock"
+  # defaultValue: "In Stock"
+  xpath: //button[@class="gn-button gn-button--buy basketControls__add"]
+  regExp: (.+)
+  regExpReplace: "In Stock"
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
