@@ -75,8 +75,9 @@ module.exports = {
       const regex = /\/(\d+)\//;
       // @ts-ignore
       sku.setAttribute('sku', sku.getAttribute('content').match(regex)[1]);
-      const allImages = document.querySelectorAll("div>a[aria-label*='Slide']");
-      if (allImages.length) {
+      const allImages = document.querySelectorAll("div>a[aria-label*='Slide']")
+        ? document.querySelectorAll("div>a[aria-label*='Slide']") : null;
+      if (allImages !== null && allImages.length !== undefined) {
         for (let i = 0; i < allImages.length; i++) {
           // @ts-ignore
           allImages[i].click();

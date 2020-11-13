@@ -2,7 +2,7 @@ input:
   _url: http://boxed.com
   URL: https://www.boxed.com/product/5897/califia-farms-almondmilk-creamer-2-x-32-oz.-vanilla
 extractions:
-  - html: https://workbench.import.io/html/run=af14be10-9895-460a-9d56-f25223da7d0c/task=8eb6263c-388e-494c-a307-9e0d9b0326bc/7778a5ba-6554-462e-a916-e59050ed94c5.html
+  - html: https://workbench.import.io/html/run=e9c7716d-d3d9-4fb3-9d0c-103faddc548a/task=60e28ffe-3c26-42a6-980e-35c9239ebb65/90e95fb1-b351-4a4b-9d04-efc6a9a52308.html
     extractionConfigId: product/details/stores/b/boxed/US/extract
     data:
       - group:
@@ -10,20 +10,20 @@ extractions:
               - text: https://www.boxed.com/product/5897/califia-farms-almondmilk-creamer-2-x-32-oz.-vanilla
                 xpath: /html/head[1]/meta[9]/@content
             image:
-              - text: https://static-assets.boxed.com/1565707410661.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1565707410661.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Product image 1 of 5
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://static-assets.boxed.com/1565707410783.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1565707410783.jpg
+                xpath: /html/body/div[9]
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1565707410864.jpg
                 xpath: /html/body/div[10]
-              - text: https://static-assets.boxed.com/1565707410864.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1565707410648.jpg
                 xpath: /html/body/div[11]
-              - text: https://static-assets.boxed.com/1565707410648.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1565707410077.jpg
                 xpath: /html/body/div[12]
-              - text: https://static-assets.boxed.com/1565707410077.jpg
-                xpath: /html/body/div[13]
             metaKeywords:
               - text: Non Dairy Creamer, Coffee Creamer, Vegan Coffee Creamer, Dairy Free
                   Creamer, Almond Creamer, Coconut Creamer, Vanilla Creamer,
@@ -33,8 +33,6 @@ extractions:
                   Kit, Shelf Stable Food
                 xpath: /html/head[1]/meta[5]/@content
             category:
-              - text: Home
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[1]/a[1]
               - text: Categories
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[2]/a[1]
               - text: Beverages
@@ -49,7 +47,7 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[2]/div[1]/span[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[8]
             description:
               - text: >-
                   Traditional vanilla-flavored creamer, move aside. Califia
@@ -74,20 +72,20 @@ extractions:
               - text: Califia Farms
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/a[1]
             quantity:
-              - text: 2 x 32 oz.
-                xpath: /html/body/div[4]
+              - text: 2 x 32 oz
+                xpath: /html/body/div[3]
             sku:
               - text: "5897"
-                xpath: /html/head[1]/meta[9]/@content
-            shippingInfo:
-              - text: Add $19.98 to meet order minimum
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[3]/div[1]/div[1]
+                xpath: /html/head[1]/meta[9]/@sku
+            variantId:
+              - text: "5897"
+                xpath: /html/head[1]/meta[9]/@sku
             name:
-              - text: Califia Farms Almondmilk Creamer
-                xpath: /html/head[1]/meta[8]/@content
+              - text: Almondmilk Creamer
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/h1[1]
             brandLink:
               - text: https://www.boxed.com/products/search/califia farms
-                xpath: /html/body/div[5]/@content
+                xpath: /html/body/div[4]/@content
             ingredientsList:
               - text: >-
                   Almondmilk (Water, Almonds), Coconut Cream, Pure Cane Sugar,
@@ -98,14 +96,28 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/section[1]/div[1]/article[1]/p[2]
             pricePerUnit:
               - text: $5.39
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[5]
             pricePerUnitUom:
               - text: ea
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
+            variantInformation:
+              - text: Vanilla
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[4]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            variants:
+              - text: Vanilla
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[4]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]
+              - text: Hazelnut
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[4]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[2]/div[2]/p[1]/span[1]/a[1]/@terms
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[2]/div[2]/p[1]/span[1]/a[2]/@policy
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[9]/@content
+                xpath: /html/body/div[8]/@content
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1604993254708
+    timestamp: 1605252399761

@@ -2,7 +2,7 @@ input:
   _url: http://boxed.com
   URL: https://www.boxed.com/product/3856/snyders-of-hanover-pretzel-rods-27-oz.
 extractions:
-  - html: https://workbench.import.io/html/run=af14be10-9895-460a-9d56-f25223da7d0c/task=713f6df8-feb7-4379-ac8c-2615ac73d78b/eb7b3c46-0bc8-488c-b1b6-2e77aa8fa312.html
+  - html: https://workbench.import.io/html/run=e9c7716d-d3d9-4fb3-9d0c-103faddc548a/task=af536380-200c-48d5-bd82-29e00d7dbae3/d40b95ec-98a0-4fc1-92d3-3b3ccc832ec8.html
     extractionConfigId: product/details/stores/b/boxed/US/extract
     data:
       - group:
@@ -10,22 +10,20 @@ extractions:
               - text: https://www.boxed.com/product/3856/snyders-of-hanover-pretzel-rods-27-oz.
                 xpath: /html/head[1]/meta[9]/@content
             image:
-              - text: https://static-assets.boxed.com/1478447948055.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1478447948055.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Product image 1 of 3
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://static-assets.boxed.com/1478447948680.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1478447948680.jpg
+                xpath: /html/body/div[9]
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1478447948455.jpg
                 xpath: /html/body/div[10]
-              - text: https://static-assets.boxed.com/1478447948455.jpg
-                xpath: /html/body/div[11]
             metaKeywords:
               - text: pretzel, party, snack, salty
                 xpath: /html/head[1]/meta[5]/@content
             category:
-              - text: Home
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[1]/a[1]
               - text: Categories
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/span[2]/a[1]
               - text: Snacks
@@ -40,7 +38,7 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[2]/div[1]/span[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[8]
             description:
               - text: >-
                   Discover the pretzelbilities! Snyder's Pretzel Rods offer all
@@ -60,20 +58,20 @@ extractions:
               - text: Snyder's of Hanover
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/a[1]
             quantity:
-              - text: 27 oz.
-                xpath: /html/body/div[4]
+              - text: 27 oz
+                xpath: /html/body/div[3]
             sku:
               - text: "3856"
-                xpath: /html/head[1]/meta[9]/@content
-            shippingInfo:
-              - text: Add $19.98 to meet order minimum
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[3]/div[2]/div[1]
+                xpath: /html/head[1]/meta[9]/@sku
+            variantId:
+              - text: "3856"
+                xpath: /html/head[1]/meta[9]/@sku
             name:
-              - text: Snyder's of Hanover Pretzel Rods
-                xpath: /html/head[1]/meta[8]/@content
+              - text: Pretzel Rods
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/h1[1]
             brandLink:
               - text: https://www.boxed.com/products/search/snyder's of hanover
-                xpath: /html/body/div[5]/@content
+                xpath: /html/body/div[4]/@content
             ingredientsList:
               - text: >-
                   Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron,
@@ -84,14 +82,23 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/section[1]/div[1]/article[1]/p[2]
             pricePerUnit:
               - text: $0.27
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[5]
             pricePerUnitUom:
               - text: oz
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
+            variantInformation:
+              - text: "01"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[2]/div[2]/p[1]/span[1]/a[1]/@terms
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[2]/div[2]/p[1]/span[1]/a[2]/@policy
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[9]/@content
+                xpath: /html/body/div[8]/@content
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1604993253124
+    timestamp: 1605252395079
