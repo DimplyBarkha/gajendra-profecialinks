@@ -24,6 +24,7 @@ module.exports = {
       if (numOfVariants) {
         await context.click(`form[name="size-picker-form"] div[role="presentation"]:nth-of-type(${i}) label`);
       }
+
       await context.evaluate(
         async ({ i }) => {
           const addedVariant = document.createElement('div');
