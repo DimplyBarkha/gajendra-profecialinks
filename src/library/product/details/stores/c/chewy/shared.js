@@ -13,30 +13,6 @@ const transform = (data) => {
         ];
       }
 
-      if (row.description || row.descriptionTop) {
-        let text = '';
-        if(row.descriptionTop) {
-          text = row.descriptionTop[0].text.replace(/\n/g, ' ');
-        }
-        if (row.additionalDescBulletInfo) {
-          row.additionalDescBulletInfo.forEach(bullet => {
-            text = text + ' || ' + bullet.text;
-          });
-        }
-        if (row.description) {
-          for (let i = 1; i < row.description.length; i++) {
-            text = text + ' | ' + row.description[i].text.replace(/\n/g, ' ');
-          }
-          if(text) {
-            text = `${text} | ${row.description[0].text}`
-          } else {
-            text = row.description[0].text
-          }
-        }
-        row.description = [{
-          text: text,
-        }];
-      }
 
       if (!row.brandText && row.name) {
         row.brandText = [{
@@ -61,7 +37,12 @@ const transform = (data) => {
           },
         ];
       }
-     
+      if (row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n*\s\n)+/g, ' |');
+      }
+      if (row.manufacturerImages) {
+        row.manufacturerImages[0].text = row.manufacturerImages[0].text.replace(/(\n*\s\n)+/g, ' |');
+      }
 
       if (row.manufacturerDescription) {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/(\n*\s\n)+/g, ' |');

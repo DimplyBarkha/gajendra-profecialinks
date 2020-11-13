@@ -47,8 +47,9 @@ async function implementation(
       console.log('Inside variants', j);
       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
     }
-    return await context.extract(productDetails, { transform });
+    
   }
+  return await context.extract(productDetails, { transform });
 }
 module.exports = {
   implements: 'product/details/extract',
