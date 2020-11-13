@@ -5,9 +5,9 @@ module.exports = {
     country: 'ZA',
     store: 'picknpay',
     domain: 'pnp.co.za',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.pnp.co.za/pnpstorefront/pnp/en/search/?text={searchTerms}',
+    loadedSelector: 'div[class="results"]',
+    noResultsXPath: '//div[@class="no-results"]',
     zipcode: '',
   },
 };

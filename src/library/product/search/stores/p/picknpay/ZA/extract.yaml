@@ -1,22 +1,30 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="productCarouselItemContainer"]
 fields:
   - name: id
     singleValue: false
+    xpath: //div[@class="productCarouselItemContainer"]/div/div/@data-pdt-code
+    regExp: (\d+)\_
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
+    xpath: //div[@class="item-name"]
   - name: productUrl
     singleValue: false
+    xpath: //div[@class="productCarouselItemContainer"]/@product_url
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[@class="thumb"]/img/@src
   - name: aggregateRating
     singleValue: false
+    xpath: //div[@class="productCarouselItemContainer"]/@rating
   - name: aggregateRating2
     singleValue: false
   - name: reviewCount
@@ -25,6 +33,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[@class="productCarouselItemContainer"]/@price
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -35,10 +44,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //div[@class="productCarouselItemContainer"]/@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //div[@class="productCarouselItemContainer"]/@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
