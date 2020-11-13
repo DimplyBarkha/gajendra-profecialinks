@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     url: null,
     country: 'AU',
-    store: 'metcash_drakes',
+    store: 'drakes',
     zipcode: '',
   },
 };

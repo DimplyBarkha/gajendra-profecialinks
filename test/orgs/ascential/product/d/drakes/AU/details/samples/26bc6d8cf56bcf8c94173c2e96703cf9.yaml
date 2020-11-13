@@ -1,0 +1,74 @@
+input:
+  _url: http://drakes.com.au
+  URL: https://074.drakes.com.au/lines/beef-mince-extra-lean-approx-weight-500g-1
+extractions:
+  - html: https://workbench.import.io/html/run=bfc5e9a4-b78b-42c7-9c87-6d8ad34e2e7c/task=bee77bcc-8a22-407e-8373-62009ebe1f06/cdfce572-2afa-4495-92e0-9139dc470f58.html
+    extractionConfigId: product/details/stores/d/drakes/AU/extract
+    data:
+      - group:
+          - legalDisclaimer:
+              - text: Approximate price per 500g is based on typical size (0.5 kg). Actual size
+                  may vary.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
+            availabilityText:
+              - text: In Stock
+          - legalDisclaimer:
+              - text: Drakes Online Castle Plaza aims to include in the product list up to date
+                  pictures of the products and accurate ingredients, nutritional
+                  information and other information. However, product detail may
+                  change from time to time and there may be a delay in making
+                  updates. When precise information is important, we recommend
+                  that you read the label on the products you purchase or
+                  contact the manufacturer of the product.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]
+            availabilityText:
+              - text: In Stock
+        xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
+      - group:
+          - image:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImE3MzllNzYwZjg3M2VjYWQ1MDM3YmRmZGYzNjY0YTUwLmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=c399a20ec69d77384076472d7754e16cd463a1bf5a9a203859a2170af7a63804
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Eyjpzci6ime3mzllnzywzjg3m2vjywq1mdm3ymrmzgyznjy0ytuwlmpwzyisinn0b3jhz2uioijwdwjsawnfc3rvcmuifq?signature=c399a20ec69d77384076472d7754e16cd463a1bf5a9a203859a2170af7a63804
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            nameExtended:
+              - text: Drakes 5 Star Butchers Choice Extra Lean Beef Mince
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+            name:
+              - text: Drakes 5 Star Butchers Choice Extra Lean Beef Mince
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+            countryOfOrigin:
+              - text: Australian Grown
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            price:
+              - text: Approximately $8.75
+                xpath: /html/body/div[3]
+            description:
+              - text: Price shown is based on approx. weight. Weight may vary between 400g and
+                  600g.
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In Stock
+          - description:
+              - text: Australian Grown
+                xpath: /html/body/div[5]
+            servingSize:
+              - text: per 500g
+                xpath: /html/body/div[6]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[7]
+            weightNet:
+              - text: 500g
+                xpath: /html/body/div[8]
+            pricePerUnit:
+              - text: $17.50 per kg
+                xpath: /html/body/div[9]
+            pricePerUnitUom:
+              - text: kg
+                xpath: /html/body/div[10]
+            availabilityText:
+              - text: In Stock
+        xpath: /html/body
+        htmlExtraction: https://crawl-assets.import.io/html/run=bfc5e9a4-b78b-42c7-9c87-6d8ad34e2e7c/task=bee77bcc-8a22-407e-8373-62009ebe1f06/cdfce572-2afa-4495-92e0-9139dc470f58.html
+    timestamp: 1605274749390

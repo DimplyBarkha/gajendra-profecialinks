@@ -1,10 +1,12 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/details/execute',
   parameterValues: {
     country: 'AU',
-    store: 'metcash_drakes',
+    store: 'drakes',
     domain: 'drakes.com.au',
+    loadedSelector: null,
+    noResultsXPath: null,
     zipcode: '',
   },
 };
