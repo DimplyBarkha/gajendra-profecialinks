@@ -3,6 +3,13 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
   const url = await context.evaluate(async function () {
     return window.location.href;
   });
+  var DescriptionDetails;
+  var enhanceImage;
+  var enhanceContent;
+  var IngredientDetails;
+  var WarningDetails;
+  var nutritionDetails;
+  var enhanceMedia;
   let hasNutrition = await context.evaluate(async function () {
     hasNutrition = false;
     const productTabDetail = document.querySelector('div.product-tabs').textContent;
@@ -35,9 +42,10 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     }
     return hasWarning;
   });
+
   if (hasDescription) {
     await context.goto(url + 'description', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
-    var DescriptionDetails = await context.evaluate(async function () {
+    DescriptionDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -48,7 +56,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       const Description = getXpath('//hts-product-tab//div', 'innerText');
       return Description;
     });
-    var enhanceMedia = await context.evaluate(async function () {
+    enhanceMedia = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -60,9 +68,9 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       return iframeURL;
     });
   }
-  if (enhanceMedia !== null) {
+  if (typeof enhanceMedia !== 'undefined' && enhanceMedia !== null) {
     await context.goto('https://www.harristeeter.com' + enhanceMedia, { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
-    var enhanceImage = await context.evaluate(async function () {
+    enhanceImage = await context.evaluate(async function () {
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
@@ -79,7 +87,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
         return enhanceImg;
       }
     });
-    var enhanceContent = await context.evaluate(async function () {
+    enhanceContent = await context.evaluate(async function () {
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
@@ -99,7 +107,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
   }
   if (hasIngredient) {
     await context.goto(url + 'ingredients', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
-    var IngredientDetails = await context.evaluate(async function () {
+    IngredientDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -114,7 +122,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
   }
   if (hasWarning) {
     await context.goto(url + 'warnings%2520cautions', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
-    var WarningDetails = await context.evaluate(async function () {
+    WarningDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -129,7 +137,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
   }
   if (hasNutrition) {
     await context.goto(url + 'nutrition', { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
-    var nutritionDetails = await context.evaluate(async function () {
+    nutritionDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -139,7 +147,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       };
 
       const ServingSize = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Serving Size")]/following-sibling::span', 'innerText');
-      const ServingPerContainer = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Per Container")]/following-sibling::span', 'innerText');
+      const ServingPerContainer = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Per Container")]/following-sibling::span | //div[@id="nutrionFacts"]//div//label[contains(text(),"Per Container")]/preceding-sibling::span', 'innerText');
       const Calories = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Calories")]/following-sibling::span[1]', 'innerText');
       const CaloriesFromFat = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Calories from Fat")]/following-sibling::span[1]', 'innerText');
       const TotalFat = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Total Fat")]/following-sibling::span[1]', 'innerText');
@@ -158,8 +166,8 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       const NutritionString = ServingSize + '|' + ServingPerContainer + '|' + Calories + ' |' + CaloriesFromFat + ' |' + TotalFat + '|' + SaturatedFat + '|' + TransFat + '|' + Cholestrol + '|' + Sodium + '|' + Carbohydrate + '|' + DieteryFiber + '|' + TotalSugar + '|' + Protein + '|' + VitaminA + '|' + VitaminC + '|' + Calcium + '|' + Iron;
       return NutritionString.split('|');
     });
-  }
-  await context.goto(url, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
+  } 
+  await context.goto(url, { timeout: 100000, waitUntil: 'load', checkBlocked: true });
   await context.evaluate(async function (nutritionDetails, IngredientDetails, DescriptionDetails, enhanceImage, enhanceContent, WarningDetails) {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
