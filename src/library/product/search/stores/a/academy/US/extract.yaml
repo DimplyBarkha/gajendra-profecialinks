@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXpath: //div[@class="col-12 col-md-4 d-flex css-fuf08e"]
+#recordXPath: //div[@class="horizontal product-card c-product__has-quickview css-zcw7sa"]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //span[@class="c-price__sub css-1f28zyy e1xaasfo1"]
+    regExp: (.+)\b(\d+)(\d{2})\b
+    regExpReplace: $1$2.$3
+  - name: id
+    singleValue: false 
+    xpath: //section[@id='productCardListing']//a/@href
+    regExp: (.*)(=)(.*)
+    regExpReplace: $3
+  - name: name
+    singleValue: false
+    xpath: //div[@class='c-product__title mb-0 mb-md-half']/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //section[@id='productCardListing']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.academy.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='horizontal product-card c-product__has-quickview css-zcw7sa']//picture//img//@src[1] | //img[@class="css-1lt8ar8 w-100 pt-3 pb-1 pb-md-0 pt-md-1 px-1 px-md-2 h-lazyloadimg"]/@src
+  - name: reviewCount
+    singleValue: true
+    xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
+    regExp: (\d*)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class='c-product__ratings-reviews my-quarter d-flex align-items-center flex-wrap']//div/aria-label
+    regExp: (\d)
+    #regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']
+
