@@ -2,10 +2,10 @@
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
-    country: 'DE',
+    country: 'de',
     store: 'ottooffice',
-    domain: 'ottooffice.com',
-    url: 'https://www.otto-office.com/de/app/search/index?query%5Bquery%5D={searchTerms}&wkid=OO-8-DEo0m8TvYbZsZg7QLT&plid=nav-search',
+    domain: 'otto-office.com',
+    url: 'https://www.otto-office.com/de/app/search/index?query%5Bquery%5D={searchTerms}&wkid=OO-6-DEhPQEeweqET8VaQpR&plid=nav-search',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

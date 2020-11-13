@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'DE',
+    country: 'de',
     store: 'ottooffice',
     nextLinkSelector: null,
     mutationSelector: null,
@@ -10,7 +10,7 @@ module.exports = {
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
-    domain: 'ottooffice.com',
+    domain: 'otto-office.com',
     zipcode: '',
   },
 };

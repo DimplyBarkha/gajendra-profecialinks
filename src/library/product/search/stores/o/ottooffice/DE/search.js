@@ -2,9 +2,9 @@
 module.exports = {
   implements: 'product/search',
   parameterValues: {
-    country: 'DE',
+    country: 'de',
     store: 'ottooffice',
-    domain: 'ottooffice.com',
+    domain: 'otto-office.com',
     zipcode: '',
   },
 };

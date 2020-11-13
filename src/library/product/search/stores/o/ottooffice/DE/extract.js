@@ -1,11 +1,11 @@
-const { cleanUp } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'DE',
+    country: 'de',
     store: 'ottooffice',
-    transform: cleanUp,
-    domain: 'ottooffice.com',
+    transform: null,
+    domain: 'otto-office.com',
     zipcode: '',
   },
 };

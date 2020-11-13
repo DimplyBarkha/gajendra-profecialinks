@@ -6,6 +6,9 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="ln-c-card pt"]/@data-test-id
+    # type: NUMBER
+    regExp: \d+
+    # regExpReplace: ''
   - name: name
     singleValue: false
     xpath: //a[@class="pt__link"]/text()
@@ -26,7 +29,14 @@ fields:
     xpath: //span[@class="reviews"]
   - name: price
     singleValue: false
-    xpath: //div[@class="pt__cost__total undefined"]/text()
+    xpath: //div[@class="pt__cost__total undefined"]/text() | //div[@class="pt__cost__total--promo undefined"]/text()
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: rank
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+    # type: NUMBER
 
 
 
