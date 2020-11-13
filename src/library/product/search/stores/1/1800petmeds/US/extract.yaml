@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@class="product"]/@data-pid
+  - name: name
+    singleValue: true
+    description: Alt text of the main product image
+    xpath:  //div[@class="pdp-link"]/a
+  - name: productUrl
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="image-container"]/a/@href
+    regExp: [^(.*)$] 
+    regExpReplace: 'https://www.1800petmeds.com$1'
+  - name: thumbnail
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@class="image-container"]/a/img/@src
+  - name: aggregateRating
+    singleValue: true
+    description: Alt text of the main product image
+  - name: reviewCount
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="BVInlineRatings"]//text()
+    regExp : [\((.+?)\)]
+  - name: ratingCount
+    singleValue: true
+    description: URL of the main product image
+  - name: price
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //span[@class="sale"]
+  
+    
+  
