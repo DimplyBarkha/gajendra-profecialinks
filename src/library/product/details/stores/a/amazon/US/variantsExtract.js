@@ -5,11 +5,10 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'amazon',
-    transform: null,
     domain: 'amazon.com',
   },
   dependencies: {
-    Helpers: 'module:helpers/helpers',
+    variants: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/variantsExtract',
   },
   implementation,
 };

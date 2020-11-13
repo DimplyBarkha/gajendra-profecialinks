@@ -10,7 +10,6 @@ fields:
   - name: variantUrl
     singleValue: false
     description: variant Url
-    # xpath: //*[@id='ii_variant']/text()
     xpath: //*[@id='ii_variant']
     regExp: (.+)
-    regExpReplace: https://amazon.com/dp/product/$1/
+    regExpReplace: https://amazon.com/dp/product/$1?th=1&psc=1
