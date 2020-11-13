@@ -222,10 +222,10 @@ module.exports = {
               addElementToDocument('listPrice', '');
             } else {
               if (dataObj[0].product.price.o_price) {
-                addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ','));
+                addElementToDocument('listPrice', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.o_price ? dataObj[0].product.price.o_price.toString().replace('.', ','): "");
               } else {
                 if (dataObj[0].product.price.original) {
-                  addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ','));
+                  addElementToDocument('listPrice', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.original ? dataObj[0].product.price.original.toString().replace('.', ','): "");
                 } else {
                   addElementToDocument('listPrice', '');
                 }
@@ -234,10 +234,10 @@ module.exports = {
 
             // Check for  Price
             if (dataObj[0].product.price.o_price) {
-              addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ','));
+              addElementToDocument('price', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.f_price ? dataObj[0].product.price.f_price.toString().replace('.', ',') : "");
             } else {
               if (dataObj[0].product.price.final) {
-                addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ','));
+                addElementToDocument('price', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.final ? dataObj[0].product.price.final.toString().replace('.', ',') : "");
               } else {
                 addElementToDocument('price', '');
               }
