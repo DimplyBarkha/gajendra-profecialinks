@@ -1,0 +1,65 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='productListe']/div
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='maskABinterne']
+    regExp: (\d+)
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@class='productListe']/div/@href
+  - name: name
+    singleValue: false
+    xpath: //div[@class='designations']/h2/a
+  - name: productUrl
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.boulanger.com$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='visuel']//img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //p[contains(@class, 'rating orange')]/@rating
+  - name: reviewCount
+    singleValue: false
+    xpath: //p[contains(@class, 'rating orange')]
+    regExp: (\d+)
+  - name: ratingCount
+    singleValue: false
+    xpath: //p[contains(@class, 'rating orange')]
+    regExp: (\d+)
+  - name: price
+    singleValue: false
+    xpath: //p[@class='fix-price']
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class='designations']/h2/a/strong
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    xpath: //div[@class='productListe']/div/@count
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    xpath: //div[@class='productListe']/div/@count
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
