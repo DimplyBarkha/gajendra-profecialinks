@@ -45,10 +45,7 @@ fields:
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
-  xpath: //div[contains(@class, "outStock")]
-  regExp: (.+)
-  regExpReplace: "Out of Stock"
-  defaultValue: "In Stock"
+  xpath: //div[contains(@class, "stockMessaging")]/span[@class="indicator"]/text()
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
