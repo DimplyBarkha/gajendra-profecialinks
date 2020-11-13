@@ -6,3 +6,15 @@ fields:
   - name: name
     singleValue: false
     xpath: //h3[@class="product-title"]/a
+  - name: productUrl
+    singleValue: false
+    xpath: //h3[@class="product-title"]/a/@href
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product-actions"]/a/@data-shopid
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="product-photo"]/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"product-price-value-primary")]/strong

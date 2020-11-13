@@ -1,10 +1,10 @@
-
+const {transform}=require('../CZ/format');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CZ',
     store: 'macro',
-    transform: null,
+    transform,
     domain: 'macro.cz',
     zipcode: '',
   },
