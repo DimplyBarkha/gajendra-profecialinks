@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div#quicksearch-search-results div.ais-hits--item
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,"product-tile__container")]/@data-variant-id
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,"product-tile__container")]//a[@class="ais-details-a product-tile"]/@href
+  - name: price
+    SingleValue: false
+    xpath: //span[@class="ais-hit--price price"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="product-tile__image--aspect-ratio"]/img/@src
+  - name: name
+    SingleValue: false
+    xpath: //h4[contains(@class,"product-tile__title")]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
+  - name: aggregateRating2
+    SingleValue: false
+    xpath: //span[@class="review-rating"]
+  - name: reviewCount
+    SingleValue: false
+    xpath: //span[@class="review-count"]
+    type: NUMBER
+  - name: manufacturer
+    SingleValue: false
+    xpath: //div[contains(@class,"product-preamble")]//img/@alt
