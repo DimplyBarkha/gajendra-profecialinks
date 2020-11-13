@@ -1,0 +1,99 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+    xpath: //div[@class="productTileV2Styled__DescriptionWrapper-sc-19ad4vz-9 kqemlr"]/span/b
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: productUrl
+    singleValue: true
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    xpath: //img[@class="productTileV2Styled__Picture-sc-19ad4vz-4 bHtZgq"]/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@data-ctx="recherche"]/@data-name
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@data-ctx="recherche"]/@data-nfproductid
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+    xpath: //div[@data-ctx="recherche"]/@data-nfproductid
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+    xpath: //div[@data-ctx="recherche"]/@data-price
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+    xpath: //div[@data-ctx="recherche"]/@data-id
+  - name: nameExtended
+    singleValue: true
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //div[@data-ctx="recherche"]/@data-name
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
