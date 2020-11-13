@@ -49,6 +49,17 @@ async function implementation (inputs, parameters, context, dependencies) {
     let seller;
     const productUrlAll = document.querySelectorAll('.h-o-hidden>a');
     let productUrl;
+    let price;
+    const priceSelector = document.querySelectorAll('meta[itemprop="price"]');
+    let newprice;
+    let j = 0;
+
+    priceSelector.forEach(element => {
+      price = element.content
+      newprice = price.replace('.', ',');
+      addProp('meta[itemprop="price"]', j, 'newprice', newprice);
+      j++;
+    });
 
     for (let i = 0; i < itereationLength; i++) {
       ratings = document.querySelectorAll('.star-rating')[i].dataset.count;
