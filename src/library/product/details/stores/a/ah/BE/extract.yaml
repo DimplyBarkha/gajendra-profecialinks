@@ -10,6 +10,12 @@ fields:
   - name: sku
     singleValue: true
     xpath: //script[@type='application/ld+json']
+  - name: url
+    singleValue: true
+    xpath: //script[@type='application/ld+json']
+  - name: product_description
+    singleValue: true
+    xpath: //script[@type='application/ld+json']
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -22,18 +28,76 @@ fields:
     description: The <meta> keywords content
     xpath: //meta[@name='description']/@content
   - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //nav/ol/li
-  - name: listPrice
     singleValue: true
-    description: The stated undiscounted price for the product
-    xpath: //div[@class='product-card-hero-price_root__1kqcn']/div/div
-  - name: price
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //nav/ol/li[2]
+
+  - name: online_price
+    singleValue: true
+    xpath: //div[@class='product-card-hero_priceControls__2mRFt']/div/div
+  - name: number_of_servings_in_package
+    singleValue: true
+    xpath: //tbody/tr[2]/td[@class='product-info-contents__contents-table-cell']
+  - name: total_fat_per_serving
+    singleValue: true
+    xpath: //tbody/tr[2]/td[2]
+  - name: total_fat_per_serving_uom
+    singleValue: true
+    xpath: //tbody/tr[2]/td[2]
+  - name: total_carb_per_serving
+    singleValue: true
+    xpath: //tbody/tr[4]/td[2]
+  - name: total_carb_per_serving_uom
+    singleValue: true
+    xpath: //tbody/tr[4]/td[2]
+  - name: dietary_fibre_per_serving
+    singleValue: true
+    xpath: //tbody/tr[6]/td[2]
+  - name: dietary_fibre_per_serving_uom
+    singleValue: true
+    xpath: //tbody/tr[6]/td[2]
+  - name: total_sugars_per_serving
+    singleValue: true
+    xpath: //tbody/tr[5]/td[2]
+  - name: total_sugars_per_serving_uom
+    singleValue: true
+    xpath: //tbody/tr[5]/td[2]
+  - name: protein_per_serving
+    singleValue: true
+    xpath: //tbody/tr[8]/td[2]
+  - name: protein_per_serving_uom
+    singleValue: true
+    xpath: //tbody/tr[8]/td[2]
+  - name: salt_per_serving
+    singleValue: true
+    xpath: //tbody/tr[9]/td[2]
+  - name: salt_per_serving_uom
+    singleValue: true
+    xpath: //tbody/tr[9]/td[2]
+  - name: additional_desc_bullet_count
+    singleValue: true
+    xpath: //div[@id='additional_desc_bullet_count']
+  - name: harvested_price
+    singleValue: true
+    xpath: //div[@class='product-card-hero_priceControls__2mRFt']/div/div
+  - name: harvested_list_price
+    singleValue: true
+    xpath: //div[@class='product-card-hero_priceControls__2mRFt']/div/div
+  - name: list_price
+    singleValue: true
+    xpath: //div[@class='product-card-hero_priceControls__2mRFt']/div/div/div
+  - name: additional_desc_bullet_info
+    singleValue: false
+    xpath: //ul[@class='product-info-description__list']/li[@class='product-info-description__list-item']
+
+
+
+
+  - name: ingredients_list
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='price-amount_root__vE9dJ price-amount_bonus__xJzk1 product-card-hero-price_now__PlF9u']
+    xpath: //div[@class='column xlarge-6 large-8 small-12 xlarge-offset-1']/div[@class='product-info-content-block product-info-ingredients']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If

@@ -33,6 +33,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       addElementToDocument('variantCount', document.getElementsByClassName('product-recommendations_link__1b2lR').length);
+      addElementToDocument('additional_desc_bullet_count', document.getElementsByClassName('product-info-description__list-item').length);
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
