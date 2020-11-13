@@ -70,13 +70,6 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   };
 
-  await context.evaluate(() => {
-    const category = document.querySelector('div[id="breadcrumbs_container"]>ol').textContent;
-    const categoryProp = category.replace(/\>/g, ' > ');
-
-    document.querySelector('div[id="breadcrumbs_container"]>ol').setAttribute('category', categoryProp);
-  });
-
   return await context.evaluate(function (xp) {
     const r = document.evaluate(
       xp,
