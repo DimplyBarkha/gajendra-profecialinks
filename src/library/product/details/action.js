@@ -1,7 +1,10 @@
-
 /**
  *
+<<<<<<< HEAD
  * @param { { URL: string, id: any, RPC: string, SKU: string, parentInput: string } } inputs
+=======
+ * @param { { URL: string, id: any, RPC: string, SKU: string, zipcode: string } } inputs
+>>>>>>> d5da5883a1e881688ba15995bae127527f8784dd
  * @param { { store: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
@@ -15,9 +18,15 @@ async function implementation (
   const { URL, RPC, SKU, rpc, parentInput } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
+<<<<<<< HEAD
   const id = (RPC) || ((SKU) || (rpc) || inputs.id);
   // await execute({ url, id, zipcode: parameters.zipcode });
   const productFound = await execute({ url, id, zipcode: parameters.zipcode });
+=======
+  const id = (RPC) || ((SKU) || inputs.id);
+  const zipcode = inputs.zipcode || parameters.zipcode;
+  await execute({ url, id, zipcode });
+>>>>>>> d5da5883a1e881688ba15995bae127527f8784dd
 
   if (!productFound) {
     console.log('No product found');
@@ -79,8 +88,13 @@ module.exports = {
       optional: true,
     },
     {
+<<<<<<< HEAD
       name: 'parentInput',
       description: 'parent input value',
+=======
+      name: 'zipcode',
+      description: 'zipcode',
+>>>>>>> d5da5883a1e881688ba15995bae127527f8784dd
       type: 'string',
       optional: true,
     },
