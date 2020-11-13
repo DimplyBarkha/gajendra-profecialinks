@@ -10,6 +10,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
   var WarningDetails;
   var nutritionDetails;
   var enhanceMedia;
+  var DirectionDetails;
   let hasNutrition = await context.evaluate(async function () {
     hasNutrition = false;
     const productTabDetail = document.querySelector('div.product-tabs').textContent;
@@ -41,6 +42,14 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       hasWarning = true;
     }
     return hasWarning;
+  });
+  let hasDirection = await context.evaluate(async function () {
+    hasDirection = false;
+    const productTabDetail = document.querySelector('div.product-tabs').textContent;
+    if (productTabDetail.includes('Usage Directions')) {
+      hasDirection = true;
+    }
+    return hasDirection;
   });
 
   if (hasDescription) {
@@ -120,6 +129,22 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       return IngredientSize;
     });
   }
+  if (hasDirection) {
+    await context.goto(url + 'usage%2520directions%2520dosage', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
+    DirectionDetails = await context.evaluate(async function () {
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+
+      const Direction = getXpath('//hts-product-tab//div', 'innerText');
+      return Direction;
+    });
+  }
+
   if (hasWarning) {
     await context.goto(url + 'warnings%2520cautions', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
     WarningDetails = await context.evaluate(async function () {
@@ -168,7 +193,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     });
   } 
   await context.goto(url, { timeout: 100000, waitUntil: 'load', checkBlocked: true });
-  await context.evaluate(async function (nutritionDetails, IngredientDetails, DescriptionDetails, enhanceImage, enhanceContent, WarningDetails) {
+  await context.evaluate(async function (nutritionDetails, IngredientDetails, DescriptionDetails, enhanceImage, enhanceContent, WarningDetails, DirectionDetails) {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -188,8 +213,14 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       const SkuList = SkuXpath.split(':');
       addElementToDocument('added_sku', SkuList[1]);
     }
+    const QuantityXpath = getXpath('//span[@class="quantity-info"]', 'innerText');
+    if (QuantityXpath !== null) {
+      const QuantityList = QuantityXpath.split('|');
+      addElementToDocument('added_size', QuantityList[0]);
+    }
     addElementToDocument('added_manufactureDescription', typeof enhanceContent === 'undefined' ? '' : enhanceContent);
     addElementToDocument('added_manufactureImages', typeof enhanceImage === 'undefined' ? '' : enhanceImage);
+    addElementToDocument('added_direction', typeof DirectionDetails === 'undefined' ? '' : DirectionDetails);
     addElementToDocument('added_ingredient', typeof IngredientDetails === 'undefined' ? '' : IngredientDetails);
     addElementToDocument('added_additional_description', typeof DescriptionDetails === 'undefined' ? '' : DescriptionDetails);
     addElementToDocument('added_additional_warning', typeof WarningDetails === 'undefined' ? '' : WarningDetails);
@@ -314,6 +345,6 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
         addElementToDocument('added_iron_per_serving_uom', IronPerServingUOM);
       }
     }
-  }, nutritionDetails, IngredientDetails, DescriptionDetails, enhanceImage, enhanceContent, WarningDetails);
+  }, nutritionDetails, IngredientDetails, DescriptionDetails, enhanceImage, enhanceContent, WarningDetails, DirectionDetails);
   await context.extract(productDetails, { transform: transformParam });
 };

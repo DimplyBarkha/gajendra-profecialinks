@@ -64,9 +64,10 @@ fields:
     description: Quantity as described on the page
     #regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     #regExpReplace: $1$2$3$4
-    xpath: //span[@class='quantity-info']
-    regExp: (.*)([|])
-    regExpReplace: $1
+    #xpath: //span[@class='quantity-info']
+    xpath: //div[@id="added_size"]
+    #regExp: (.*)([|])
+    #regExpReplace: $1
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -97,6 +98,7 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
+    xpath: //div[@id="added_direction"]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -448,7 +450,8 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //div[@class='alternatesale-main']//span[@class='alternatesale-info-red']
+    #xpath: //div[@class='alternatesale-main']//span[@class='alternatesale-info-red']
+    xpath: concat(//div[@class='alternatesale-main']//span[@class='alternatesale-info-red'],//div[@class='alternatesale-main']//span[@class='alternatesale-date'])
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
