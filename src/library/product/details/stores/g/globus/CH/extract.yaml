@@ -9,79 +9,52 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class='mzg-catalogue-detail mzg-catalogue-detail__page']//script[@type='application/ld+json']
-  - name: 
+  - name: color
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //div[@class='mzg-catalogue-detail mzg-catalogue-detail__page']//script[@type='application/ld+json']
+  - name: description
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //div[@class='mzg-catalogue-detail mzg-catalogue-detail__page']//script[@type='application/ld+json']
+  - name: variantId
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //p[@class='mzg-catalogue-detail__product-summary__id']
+  - name: sku
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //div[@class='mzg-catalogue-detail mzg-catalogue-detail__page']//script[@type='application/ld+json']
+  - name: price
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //div[@class='mzg-catalogue-detail mzg-catalogue-detail__page']//script[@type='application/ld+json']
+  - name: availabilityText
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //div[@class='mzg-catalogue-detail mzg-catalogue-detail__page']//script[@type='application/ld+json']
+  - name: imageAlt
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //div[@class='mzg-catalogue-detail__mosaic-gallery']//div[@class='mzg-catalogue-detail__mosaic-gallery mzg-catalogue-detail__mosaic-gallery__desktop']//div[@class='col col-sm-6'][1]//div[@class='mzg-components-module-product-image']//img/@alt
+  - name: alternateImages
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //div[@class='mzg-catalogue-detail__mosaic-gallery']//div[@class='mzg-catalogue-detail__mosaic-gallery mzg-catalogue-detail__mosaic-gallery__desktop']//div[@class='mzg-components-module-product-image']//img/@src
+  - name: metaKeywords
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //title[@class='next-head']
+  - name: category
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //ol[@class='mzg-components-module-breadcrumb-list']//li[@class='mzg-components-module-breadcrumb-list__item' and position()>1]//a//span
+  - name: nameExtended
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //div[@class='mzg-catalogue-detail mzg-catalogue-detail__page']//script[@type='application/ld+json']
+  - name: descriptionBullets
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //div[@class='mzg-catalogue-detail-info__cluster']//ul//li[@class='mzg-catalogue-detail-info__cluster-list__item']   
+  - name: firstVariant
+    singleValue: false    
+  - name: variantInformation
+    singleValue: false    
+  - name: variantCount
+    singleValue: false    
+  - name: gtin
     singleValue: false
-    xpath: 
-  - name: 
+    xpath: //script[contains(text(),'__NEXT_DATA__')]/text()
+  - name: variants
     singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
-  - name: 
-    singleValue: false
-    xpath: 
+    xpath: //script[contains(text(),'__NEXT_DATA__')]/text()
   
