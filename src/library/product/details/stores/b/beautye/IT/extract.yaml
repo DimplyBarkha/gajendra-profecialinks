@@ -23,8 +23,9 @@ fields:
     # //ul[@class="items"]/li[position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name="title"]/@content 
-    #//div[@class="fotorama__caption__wrap"][1]
+    xpath: //h1[@class="page-title"]/span | //div[@itemprop="description"]
+    #xpath: //meta[@name="title"]/@content 
+    #xpath: //div[@class="fotorama__caption__wrap"][1] | //div[@itemprop="description"]
     # xpath: concat(//span[@class='brand-no-link'],' ',//div[@class='fotorama__caption__wrap'][1])
   - name: listPrice
     singleValue: false
@@ -52,14 +53,14 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: //div[@class="box-tocart"]//button/@data-brand
+    xpath: //div[@class="box-tocart"]//button/@data-brand | //div[@class="product_logo_link"]//img/@src
     # //span[@class="brand-no-link"]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    # xpath: //input[@name="qty"]/@value
+    xpath: (//div[@class="custom-option-label col-4"][contains(text(),"ml")])[1]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -84,7 +85,7 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
-    xpath: //div[contains(@class,"swatch-option row text selected")]//div[contains(@class,"custom-option-label")]
+    # xpath: //div[contains(@class,"swatch-option row text selected")]//div[contains(@class,"custom-option-label")]
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -99,13 +100,14 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //p[@class="am-banners-lite-img"]/a/@href
+    # xpath: //p[@class="am-banners-lite-img"]/a/@href
   - name: videos
     singleValue: false
     description: URLs of videos on page
   - name: name
     singleValue: false
-    xpath: //div[@class="fotorama__caption__wrap"][1]
+    xpath: //h1[@class="page-title"]/span
+    # //div[@class="fotorama__caption__wrap"][1]
   - name: promotion
     singleValue: false
     xpath: (//div[@class="custom-option-sale"])[1]
@@ -149,3 +151,19 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@role="listbox"]/div)
+    defaultValue: 0    
+  - name: variants
+    singleValue: false
+    # xpath: //div[@role="listbox"]/div/@option-id  
+    xpath: //script[@data-ommit="true"][contains(text(),"AEC.CONFIGURABLE_SIMPLES")]/text()
+    regExp: id\W\W\W(\d{5,})
+    regExpReplace: $1
+  - name: firstVariant
+    singleValue: true
+    # xpath: //div[@role="listbox"]/div[1]/@option-id
+    xpath: //link[@rel="canonical"]/@href
+    regExp: \d{5,}
+    # regExpReplace: $1
