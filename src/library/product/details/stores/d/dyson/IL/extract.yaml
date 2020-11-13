@@ -21,9 +21,10 @@ fields:
   - name: availabilityText
     singleValue: false
     manualSelector: button[title*="Add to basket"], div.hero__body__inner button[alt*="Basket icon"]
-    regExp: (.*)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    type: BOOLEAN
+    #regExp: (.*)
+    #regExpReplace: In Stock
+    #defaultValue: Out of Stock
   - name: weightNet
     singleValue: false
     xpath: //span[contains(@class,"spec") and *[contains(text(),"Weight")]]//span

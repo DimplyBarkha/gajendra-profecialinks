@@ -27,6 +27,11 @@ const transform = (data) => {
           }
         }
       }
+      if (row.availabilityText && row.availabilityText[0].value != null) {
+        row.availabilityText = [
+          { text: row.availabilityText[0].value ? 'In Stock' : 'Out of Stock' },
+        ];
+      }
     }
   }
 

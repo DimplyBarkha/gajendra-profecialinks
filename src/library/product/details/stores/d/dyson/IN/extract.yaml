@@ -12,8 +12,6 @@ fields:
   - name: category
     singleValue: false
     manualSelector: footer ol.crumb__list > li:first-child~li > a
-  - name: availabilityText
-    singleValue: false
   - name: nameExtended
     singleValue: false
     xpath: //h2[contains(@class,"rating-set__title")] | //h1[contains(@class,"hgroup__motif__h1-cdn-img-replace")] | //div[contains(@class,"hgroup hero")] //h1
@@ -26,9 +24,10 @@ fields:
   - name: availabilityText
     singleValue: false
     manualSelector: button[title*="Add to cart"]
-    regExp: (.*)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    type: BOOLEAN
+    #regExp: (.*)
+    #regExpReplace: In Stock
+    #defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class,"hgroup product__claims") ] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]

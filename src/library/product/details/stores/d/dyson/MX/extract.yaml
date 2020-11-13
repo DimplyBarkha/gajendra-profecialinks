@@ -19,11 +19,7 @@ fields:
     singleValue: false
     manualSelector: div.product__price .price__is span.price
   - name: availabilityText
-    singleValue: false
     manualSelector: div.hero__content__preorder-container button.product__variant__add-to-cart--animated-smaller:not([value="Notify Me"])
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: weightNet
     singleValue: false
     xpath: //span[contains(@class,"spec") and *[contains(text(),"Peso")]]//span
