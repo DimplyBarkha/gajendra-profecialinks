@@ -91,6 +91,8 @@ fields:
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //h2[@class='product-description-ean']
+  regExp: '[^:]*$'
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
