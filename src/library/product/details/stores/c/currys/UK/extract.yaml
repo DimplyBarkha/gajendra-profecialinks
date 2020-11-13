@@ -26,7 +26,7 @@ fields:
     xpath: //h1[contains(@class,'page-title')]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id='product-actions']//span[@data-name='AddToBasket']
+    xpath: //div[@id='product-actions']//span[@data-name='AddToBasket']/@data-name
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -46,9 +46,9 @@ fields:
     xpath: //h1[contains(@class,'page-title')]//span[1]  
   - name: sku
     singleValue: false
-    xpath: //script[contains(text(),'productSKU') and @id='app.digitalData']
-    #"productSKU":"726799"
-    regExp: \"productSKU\"\s*:\s*\"(.+?)\"
+    xpath: //script[@type='application/ld+json' and contains(text(),'sku')]
+    #"sku":"726799"
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
     regExpReplace: $1
   - name: variantId
     singleValue: false
@@ -67,9 +67,23 @@ fields:
   - name: variants
     singleValue: false
     xpath: //script[@id='app.settings']
+  - name: manufacturer
+    singleValue: false
+    xpath: //script[@id='app.digitalData']
+    # "manufacturer":"ASUS"
+    regExp: \"manufacturer\":\s*\"(.+?)\",
+    regExpReplace: $1
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='richmedia-container']//div[contains(@class,'flix-media-flex')]//img/@src    
   - name: promotion
     singleValue: false
     xpath: //div[@data-component='avms-tab']//ul[contains(@class,'simple product-offers')]//li  
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class='no-tablet']//div[contains(@class,'product-highlight')]//ul[@class='to-print']//li
+  - name: descriptionBullets
+    singleValue: false    
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,'tab-tech-specs')]//tr
