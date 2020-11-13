@@ -4,7 +4,8 @@ recordSelector: "div.ais-infinite-hits--item"
 recordXPath: null
 fields:
   - name: id
-    xpath: //div[contains(@class,'product-item-details')]//a[@itemprop="url"]//@data-objectid
+    xpath: //div[contains(@class,"product details product-item-details")]//div[@data-bv-show="inline_rating"]/@data-bv-product-id
+    # xpath: //div[contains(@class,'product-item-details')]//a[@itemprop="url"]//@data-objectid
     singleValue: false
   - name: name
     xpath: //div[contains(@class,'product-item-details')]//a[@itemprop="url"]//strong[@itemprop="name"]
