@@ -19,11 +19,11 @@ fields:
 - name: productUrl
   singleValue: false
   xpath: //li[@class='item']//@href
-#   regExp: (.+)
-#   regExpReplace: https://www.choithrams.com$1
+  # regExp: (.+)
+  # regExpReplace: https://www.notino.ro$1
 - name: thumbnail
   singleValue: false
-  xpath: //span[@class='img']//@src
+  xpath: //span[@class='img responsively-lazy' or @class='img']//@src
 #   regExp: (.+)
 #   regExpReplace: https://www.choithrams.com$1
 - name: id
