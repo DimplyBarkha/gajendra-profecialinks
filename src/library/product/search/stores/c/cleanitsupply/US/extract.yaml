@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@class="item"]
+fields:
+  - name: productUrl
+    xpath: //a[@class="product-page-link"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.cleanitsupply.com/$1
+    singleValue: false    
+  - name: thumbnail
+    xpath: //a[@class="product-page-link"]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.cleanitsupply.com/$1
+    singleValue: false
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //div[@class="description text-center"]/a/text()
+    singleValue: false
+    description: The product name
+  - name: price
+    xpath: //p[@class="price"]/text()
+    singleValue: false
+  - name: id
+    xpath: //div[@class="description text-center"]/a/text()
+    singleValue: false
+    regExp: \s\W(.+)\W
+    regExpReplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+    type: BOOLEAN
+    singleValue: false
