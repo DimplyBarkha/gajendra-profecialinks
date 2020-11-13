@@ -6,12 +6,10 @@ fields:
   - name: id
     singleValue: false
     xpath: //a[contains(@class,"productcard-container") ]/@href
-    # //div[@class="l-column-30_xs-30_sm-20_md-15_lg-12_xlg-10-mobileGutter"]//@data-productid
     regExp: ([^,]*)(-p)([^\/]*)
     regExpReplace: $3
   - name: searchUrl
     singleValue: true
-    # xpath: //a[@class="productcard-container"]//@href
   - name: name
     singleValue: false
     xpath: //h2[@class="details__name h3 text-center mt-0"]//text()
@@ -22,43 +20,24 @@ fields:
     regExpReplace: https://www.citygross.se$1
   - name: gtin
     singleValue: false
-    # xpath: //div[@id='added_gtin']/text()
   - name: thumbnail
     singleValue: false
     xpath: //picture[@class="c-progressive-picture__picture"]//img//@srcset
-    # //picture[@class="c-progressive-picture__picture"]//source[1]//@srcset
     regExp: (.+)
     regExpReplace: https://www.citygross.se$1
   - name: aggregateRating
     singleValue: false
-    # xpath: //*[contains(@class,"product__rating")]//img//@title
-    # regExp: >-
-    # ^.{0,3}
   - name: aggregateRating2
     singleValue: false
-    # xpath: //*[contains(@class,"product__rating")]//img//@title
-    # regExp: >-
-    #   ^.{0,3}
   - name: reviewCount
     singleValue: false
-    # xpath: //*[contains(@class,"product__rating")]//figcaption
-    # regExp: (\d+)
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
     xpath: //div[@class="value end-end"] | //span[@class="bold ordinal-price"]//text()
     regExp: (.*)(:)|([^,]*)(\s,)([^\/]*)|([^\s]*)(,)([^\s]*)
-      # (.*)(:)|([^,]*)(\s,)([^\/]*)
-      # ([^,]*)(\s,)([^\/]*)
     regExpReplace: $1$3$6.$5$8
-      # //div[@class="value end-end"]
-    # string-join((//span[@class="integer"]/text(), '.', //span[@class="fractions"]/text()))
-    # concat(//span[@class="integer"]/text(), '.', //span[@class="fractions"]/text())
-    # string-join((//span[@class="integer"]/text(), //span[@class="fractions"]/text()),".")
-    # concat(//span[@class="integer"]/text(), '.', //span[@class="fractions"]/text())
-      # string-join(//span[@class="integer"]/text(),'.')
-    # xpath: //div[contains(@class,"product__details")]//*[contains(@class,"price__contain")]//*[contains(@class,"product__price")]/text()
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -77,8 +56,6 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    # xpath: //*[contains(@class,"card__product")]//*[contains(@class,"sponsored")]//span
   - name: totalRecordCount
     singleValue: true 
-    # xpath: ancestor::html//p[contains(@name, 'searchresultcount')]/strong/text()
     type: NUMBER
