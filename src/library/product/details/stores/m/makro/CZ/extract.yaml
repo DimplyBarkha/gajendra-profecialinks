@@ -1,0 +1,50 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: fasle
+    xpath: //a[@class="product-photo"]/@href
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="moProductGallery"]/a[not(contains(@class,"active"))]/@data-zoom-image
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="breadcrumb"]/li[position()>1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="product-title"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="product-price-label"]/i[contains(@class,"icon-package")]/parent::*/parent::*/div[@class="product-price-value"]/strong
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"product-price-value-primary")]/strong
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    xpath: //span[@class="btn-text-wrapper"]
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,"product-info-ean")]//span[@class="title"]
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"product-info-id")]
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"product-info-id")]
+  - name: variantCount
+    singleValue: fasle
+    defaultValue: 0
+  - name: name
+    singleValue: true
+    xpath: //h1[@class="product-title"]
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
