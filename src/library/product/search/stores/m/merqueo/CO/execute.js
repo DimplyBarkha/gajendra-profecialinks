@@ -5,9 +5,9 @@ module.exports = {
     country: 'CO',
     store: 'merqueo',
     domain: 'merqueo.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://merqueo.com/bogota/buscar/{searchTerms}',
+    loadedSelector: 'main[id="infinite- scroll - products"]',
+    noResultsXPath: '//section/figure[@class="mq-grid-notfound mq-finder-not-found big"]',
     zipcode: '',
   },
 };
