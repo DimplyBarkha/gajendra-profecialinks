@@ -22,6 +22,9 @@ fields:
     singleValue: false
   - name: variantId
     singleValue: false
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
   - name: weightNet
     singleValue: false    
   - name: storage
@@ -38,13 +41,19 @@ fields:
     xpath: //span[contains(@itemprop,'carbohydrateContent')]/@content
   - name: proteinPerServing
     singleValue: false
-    xpath: //span[contains(@itemprop,'proteinContent')]/@content  
-  - name: saturatedFatPerServing
+    xpath: //span[contains(@itemprop,'proteinContent')]/@content
+  - name: totalSugarsPerServing
     singleValue: false
     xpath: //span[contains(@itemprop,'sugarContent')]/@content
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //span[contains(@itemprop,'saturatedFatContent')]/@content    
+  - name: saltPerServing
+    singleValue: false
+    xpath: //ul[contains(@class,'List')]//span[contains(text(),'Salt')]/@content
   - name: ingredientsList
     singleValue: false
-    xpath: //div[contains(@class,'u-marginBmd u-textSmall')][1]
+    xpath: //div[contains(@class,'u-marginBmd u-textSmall')]//h5[contains(text(),'Ingredienser')]/parent::*
   - name: category
     singleValue: false
     xpath: //div[contains(@class,'Breadcrumb-container')]//a[contains(@class,'js-asyncLink')]/span
@@ -55,5 +64,13 @@ fields:
     singleValue: false    
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,'ItemInfo-priceValue')]
-
+    xpath: (//div[contains(@class,'ItemInfo-details')]//span[contains(@class,'ItemInfo-priceValue')])[1]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'ItemInfo-details')]//span[@aria-label='Award']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'ItemInfo-details')]//div[@class='AddToCart-container']//button[@aria-label='Increase number']
+    defaultValue: 'In Stock'
+  - name: manufacturer
+    singleValue: false    
