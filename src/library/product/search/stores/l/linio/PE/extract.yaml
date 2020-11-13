@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: price
+    singleValue: false
+    xpath: //div[@class="lowest-price"][1]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"catalogue-product")]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.linio.com.pe$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="image-container"]/figure/picture/img/@src
+    description: The URL for the product thumbnail image
+    regExp: (.+)
+    regExpReplace: https://www.linio.com.pe$1
+  - name: name
+    singleValue: false
+    xpath: //span[@class="title-section"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //meta[@itemprop="ratingValue"]/@content 
+  - name: reviewCount
+    singleValue: false
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: rank
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@id='rankOrganic']
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@id='rankOrganic']
+
+
+
