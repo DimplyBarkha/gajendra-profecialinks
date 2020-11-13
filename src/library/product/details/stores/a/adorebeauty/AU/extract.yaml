@@ -24,6 +24,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //meta[contains(@itemprop,'sku')]/@content
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
   - name: brandText
     singleValue: false
     xpath: (//ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')])[1]
@@ -33,6 +36,18 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[contains(@class,'live-price')]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class='old-price']
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: Yes
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: Yes
+  - name: customerServiceAvailability
+    singleValue: false
+    defaultValue: Yes
   - name: ratingCount
     singleValue: false
     xpath: (//div[contains(@class,'main col1-layout')]//a[contains(@class,'review-summary__link')])[1]/text()
@@ -47,7 +62,21 @@ fields:
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@itemprop='description']
+    xpath: //div[@itemprop='description']//p
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@itemprop='description']//ul/li
+  - name: descriptionBullets
+    singleValue: false  
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,'product-tab__content')]//p[contains(text(),'Ingredients')]
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@class,'product-tab__content')]//p[contains(text(),'How To Use')]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
   # - name: productOtherInformation
   #   singleValue: false
   #   xpath: (//div[contains(@class,'product-tab__content wysiwyg')])[2]
@@ -56,4 +85,11 @@ fields:
   #   xpath: (//div[contains(@class,'product-tab__content wysiwyg')])[3]
   - name: category
     singleValue: false
-    xpath: //ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')]
+    xpath: //ol[@class='vue-breadcrumb']//span[not(text()='Home')]
+  - name: videos
+    singleValue: false
+    xpath: //script[contains(text(),'videos_t_mv')]
+    #videos_t_mv=["https:\u002F\u002Fwww.youtube.com\u002Fembed\u002FFyNenbFDccc"];
+    regExp: videos_t_mv=(\[.+?\])
+    regExpReplace: $1
+

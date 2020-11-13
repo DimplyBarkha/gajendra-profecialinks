@@ -41,6 +41,29 @@ const transform = (data) => {
           item.text = 'https://www.adorebeauty.com.au' + item.text;
         });
       }
+      if (row.additionalDescBulletInfo) {
+        var arrBullets = [];
+        row.additionalDescBulletInfo.forEach(item => {
+          arrBullets.push(item.text);
+        });
+        row.additionalDescBulletInfo = [{ text: arrBullets.join(' || ') }];
+        row.descriptionBullets = [{ text: arrBullets.length }];
+      }
+      if (row.description) {
+        var arrDesc = [];
+        row.description.forEach(item => {
+          arrDesc.push(item.text);
+        });
+        row.description = [{ text: arrDesc.join(' ') }];
+      }
+      if (row.videos) {
+        var arrVideos = [];
+        var arrJsonVideo = JSON.parse(row.videos[0].text);
+        arrJsonVideo.forEach(vdoUrl => {
+          arrVideos.push(vdoUrl);
+        });
+        row.videos = [{ text: arrVideos }];
+      }
       if (row.category) {
         row.category.splice(row.category.length - 1, 1);
       }
