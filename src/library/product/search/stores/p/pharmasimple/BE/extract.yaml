@@ -1,22 +1,28 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[@class="product_list grid row"]//div[@class="product-container"]
 fields:
   - name: id
     singleValue: false
+    xpath: //a/@data-id-product
   - name: searchUrl
     singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
+    xpath: //a[@class="product-name"]
   - name: productUrl
     singleValue: false
+    xpath: //a[@class="product-name"]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //a[@class="product_img_link"]/img/@src
   - name: aggregateRating
     singleValue: false
+    xpath: //div[@class="ratingInner"]/@rating
   - name: aggregateRating2
     singleValue: false
   - name: reviewCount
@@ -25,8 +31,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //span[@class="price product-price"]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
+    xpath: //h5[@class="manufacturer_name"]/a
   - name: soldBy
     singleValue: true
   - name: endorsementText

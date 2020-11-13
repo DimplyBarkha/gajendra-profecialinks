@@ -5,9 +5,9 @@ module.exports = {
     country: 'BE',
     store: 'pharmasimple',
     domain: 'pharmasimple.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://pharmasimple.com/module/ambjolisearch/jolisearch?search_query={searchTerms}',
+    loadedSelector: 'ul[class="product_list grid row"]',
+    noResultsXPath: '//p[@class="alert alert-warning"]',
     zipcode: '',
   },
 };
