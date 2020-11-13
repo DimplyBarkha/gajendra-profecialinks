@@ -44,7 +44,7 @@ fields:
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //div[@class='no-movil']//p[@class='special-price']/span[@class='price']/text() | //span[@class='precio-sin-stock']
+  xpath: //div[@class='no-movil']//p[@class='special-price']/span[@class='price']/text() | //div[@class='no-movil']//span[@class='regular-price']/span[@class='price']/text() | //span[@class='precio-sin-stock']
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -74,7 +74,7 @@ fields:
   singleValue: true
   description: Quantity as described on the page
   xpath: //div[@class='product-name nombre-producto']/h1/text()
-  regExp: \d+ml
+  regExp: \d+\+\w+|\d+ \w+|\d+\w+
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
