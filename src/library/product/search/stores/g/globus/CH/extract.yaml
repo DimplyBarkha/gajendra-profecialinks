@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+# recordXPath: null
+recordXPath: "//div[@class='mzg-components-module-product-listing']//div[@class='mzg-components-module-product-listing__item']"
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='mzg-components-module-product-listing__item__image']//a/@href
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='mzg-components-module-product-listing__item__image']//a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='mzg-components-module-product-listing__item__image']//picture//img/@src
+  - name: name
+    singleValue: false
+    xpath: //div[@class='mzg-components-module-product-listing__item__caption']//h4//a
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='mzg-components-module-product-listing__item__caption']//p[@class='text-uppercase']
+  - name: price
+    singleValue: false
+    xpath: //span[@class='mzg-component-price']//span[@class='mzg-component-price__original']
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: true
