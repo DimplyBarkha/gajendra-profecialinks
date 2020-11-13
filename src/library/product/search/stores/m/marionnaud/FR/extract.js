@@ -67,9 +67,14 @@ implementation: async (
     }
     const thumbnail=document.querySelectorAll("div.product_img img.primImg.primaryImage_prodcat")
     for(let i=0;i< thumbnail.length;i++){
-      // @ts-ignore
-      let thumbnailSrc=thumbnail[i].src
-      addHiddenDiv('thumbnailSrc', thumbnailSrc, i);
+      let thumbnailSrc=document.querySelectorAll("div.product_img img.primImg.primaryImage_prodcat")[i].getAttribute('data-src')
+      let finalImageSrc=' https://www.marionnaud.fr'+thumbnailSrc
+      addHiddenDiv('thumbnailSrc', finalImageSrc, i);
+    }
+    const productUrl=document.querySelectorAll("a.ProductInfoAnchor")
+    for(let i=0;i<productUrl.length;i++){
+      let urlHref=document.querySelectorAll("a.ProductInfoAnchor")[i].href
+      addHiddenDiv('productUrl', urlHref, i);
     }
  });
  return await context.extract(productDetails, { transform });
