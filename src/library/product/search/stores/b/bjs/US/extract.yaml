@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@class="each-section"]/a/@id
+    regExp: (^([^€]*))(\item-)([^\€]*)($)
+    regExpReplace: $5$2$4
+  - name: thumbnail
+    singleValue: true
+    description: URL of the main product image
+    xpath: concat("http:",//img[@class="img-link"]/@src)
+  - name: productUrl
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="products-list"]//div[@class="product"]//app-product-card//div//div//div//div//a//@href
+    regExp: [^(.*)$] 
+    regExpReplace: 'https://www.bjs.com$1'
+  - name: name
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //div[@_ngcontent-bjs-universal-app-c92=""]/a//h2[@class="product-title no-select d-none d-sm-block"]/text()
+  - name: price
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //span[@class="price"]/text()
+  - name: reviewCount
+    singleValue: true
+    description: Other product images (not in manufacturer description)
+    xpath: //span[@class="reviews-count no-select"]/text()
+    regExp: (?:([\d\.]+)\s?)   
+  - name: aggregateRating
+    singleValue: true
+    description: Other product images (not in manufacturer description)
+    xpath: count(//div[@class="product-card plp-cont"]//div[@class="flex-item-container"]//div[@class="prod-rating"]//div//span)
+    regExp: ([0-9\.]{1,}) out of
+    regExpReplace: $1  
