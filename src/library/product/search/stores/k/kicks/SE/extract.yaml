@@ -18,19 +18,16 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //img[@title="Perfect Blush 09 Rose Nude"]/@src
-  - name: aggregateRating2
-    singleValue: true
-    # xpath: //div[@class="a d5 q"]//span[1]
   - name: ratingCount
     singleValue: false
     type: NUMBER
     xpath: //span[@class="ep"]
-  - name: rankOrganic
-    singleValue: true
-    xpath: //div[@id='rankOrganic']/text()
-  - name: rank
-    singleValue: true
-    xpath: //div[@id='rankOrganic']/text()
+  - name: id
+    singleValue: false
+    xpath: //a[@class="c8 d2"]/@id
+  - name: sku
+    singleValue: false
+    xpath: //a[@class="c8 d2"]/@id
   - name: manufacturer
     singleValue: true 
     xpath: //span[@class="ev k ew ef"]/text()
