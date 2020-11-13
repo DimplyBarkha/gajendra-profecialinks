@@ -32,19 +32,19 @@ module.exports = {
       await context.waitForNavigation();
     }
     var data = await context.extract(productDetails, { transform });
-    for (let k = 0; k < data[0].length; k++) {
-      for (let i = 0; i < data[0].group.length; i++) {
-        if ('legalDisclaimer' in data[0].group[i]) {
-          for (let j = 0; j < data[0].group[i].legalDisclaimer.length; j++) {
-          data[0].group[i].legalDisclaimer[0].text += data[0].group[i].legalDisclaimer[j].text;
+    for (let k = 0; k < data.length; k++) {
+      for (let i = 0; i < data[k].group.length; i++) {
+        if ('legalDisclaimer' in data[k].group[i]) {
+          for (let j = 0; j < data[k].group[i].legalDisclaimer.length; j++) {
+          data[k].group[i].legalDisclaimer[k].text += data[k].group[i].legalDisclaimer[j].text;
           }
-          data[0].group[i].legalDisclaimer.splice(1, data[0].group[i].legalDisclaimer.length-1);
+          data[k].group[i].legalDisclaimer.splice(1, data[k].group[i].legalDisclaimer.length-1);
         }
-        if ('recyclingInformation' in data[0].group[i]) {
-          for (let j = 0; j < data[0].group[i].recyclingInformation.length; j++) {
-          data[0].group[i].recyclingInformation[0].text += ', ' + data[0].group[i].recyclingInformation[j].text;
+        if ('recyclingInformation' in data[k].group[i]) {
+          for (let j = 0; j < data[k].group[i].recyclingInformation.length; j++) {
+          data[k].group[i].recyclingInformation[k].text += ', ' + data[k].group[i].recyclingInformation[j].text;
           }
-          data[0].group[i].recyclingInformation.splice(1, data[0].group[i].recyclingInformation.length-1);
+          data[k].group[i].recyclingInformation.splice(1, data[k].group[i].recyclingInformation.length-1);
         }
       }
     }
