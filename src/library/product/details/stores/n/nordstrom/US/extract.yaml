@@ -78,7 +78,7 @@ fields:
     xpath: ancestor::html//section[@id="product-page-price-lockup"]//span[contains(text(),'% off')] | ancestor::html//div[@id="product-page-banner-giftwithpurchase"]//span
   - name: productDescriptionIm
   - name: imageAlt
-    xpath: ancestor::html//picture//img/@alt
+    xpath: ancestor::html//section[contains(@id,"product-page-thumbnail-gallery")]//div//img//@alt
     singleValue: true
   - name: firstVariant
     xpath: ancestor::html//ul//li//span[@class="UI69S"] | ancestor::html//ul[@id="product-page-swatches"]/li/button/img/@alt
