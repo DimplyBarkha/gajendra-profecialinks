@@ -1,0 +1,55 @@
+input:
+  keywords: grapefruit
+  _url: http://martinplace.romeosonline.com.au
+extractions:
+  - html: https://workbench.import.io/html/run=a2c71c0e-df43-44ec-ae9e-2d291415e194/task=3b722e17-ad3d-4052-a76f-c076adfa98d5/3efbd7cf-40e3-48ce-a2f3-9756d2966e71.html
+    extractionConfigId: product/search/stores/r/romeos/AU/extract
+    data:
+      - group:
+          - id:
+              - text: line_56932364e1272f7c78034992
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/@id
+            name:
+              - text: Grapefruit (​Yellow)
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://martinplace.romeosonline.com.au/lines/grapefruit
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/256/256/true/eyJpZCI6Ijk5OWFhZDhhMDE2NWE1OGE3M2I3OWMwNDNiOWRmZWNkIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=305633cb7dae6346e5b3870b8de8ba26fd54bea2e0240cccfd83a4f22750342f
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: $5.99
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/strong[1]
+          - id:
+              - text: line_5bc895d6e1272f1c6a03c28f
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/@id
+            name:
+              - text: Bickford's Cordial Pink Grapefruit 750ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://martinplace.romeosonline.com.au/lines/bickfords-cordial-pink-grapefruit-750ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/256/256/true/eyJpZCI6IjM5Yzk5OTIyNmFlYWU0YzRiODA1MDI1ZTQzYjU2NGYzIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=c5c5239487bbc031db8927a293d7e0727c7e0c4b637f959db555307dbc971cd5
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: $4.00
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]/strong[1]
+          - id:
+              - text: line_56cc6912e1272f18b302e862
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/@id
+            name:
+              - text: Grove Ruby Red Grapefruit Juice 1lt
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://martinplace.romeosonline.com.au/lines/grove-jce-ruby-red-grapefrt-1l
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/256/256/true/eyJpZCI6IjM3MjdmOGMzNDM1MjgyMmMyNTJkOGU0MTI4Njc0ZjdhIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=decade1ad7231c53759c85c017a7c56801ad70732dbf95404fb05ef399e73427
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: $5.43
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/span[1]/strong[1]
+        xpath: /html
+    timestamp: 1605252597256

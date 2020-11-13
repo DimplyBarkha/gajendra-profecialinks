@@ -1,0 +1,25 @@
+input:
+  keywords: berry lemonade
+  _url: http://martinplace.romeosonline.com.au
+extractions:
+  - html: https://workbench.import.io/html/run=a2c71c0e-df43-44ec-ae9e-2d291415e194/task=ad889bf5-7e3f-4ff1-b389-5c25bdd80bda/416dd98f-3c8b-4375-9e03-dc082222cef4.html
+    extractionConfigId: product/search/stores/r/romeos/AU/extract
+    data:
+      - group:
+          - id:
+              - text: line_5f8eff0ff605cc205d6e7014
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/@id
+            name:
+              - text: Calypso G/​Berry Lemonade 473ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            productUrl:
+              - text: https://martinplace.romeosonline.com.au/lines/calypso-g-berry-lemonade-473ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/256/256/false/eyJpZCI6Ijc2ZjI0ZGRkZDBiNTUxOTQ2NGM0ZGE3ZDk1MzQ4YWZiIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=a2519311d7cdcc29aaa676c20c9f49fd89bd92dca07c72b3c22a034115aceba7
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: $3.97
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/strong[1]
+        xpath: /html
+    timestamp: 1605252593242
