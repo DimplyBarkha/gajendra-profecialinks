@@ -2,4 +2,47 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: null
+fields:
+  - name: id
+    singleValue: false
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+  - name: productUrl
+    singleValue: false
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
