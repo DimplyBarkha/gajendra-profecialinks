@@ -6,3 +6,15 @@ fields:
   - name: name
     singleValue: false
     xpath: //a[@class="title"]/h4
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="title"]/@href
+  - name: id
+    singleValue: false
+    xpath: //div[@class="mfcss_card-article-2--articlenumber"]/p/text()
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="image"]/picture/img/@src
+  - name: price
+    singleValue: false
+    xpath: //p[contains(@class,"price") and contains(@class,"primary")]//span/text()
