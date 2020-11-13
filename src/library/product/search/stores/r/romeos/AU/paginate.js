@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="TalkerGrid__Item"]',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="search-results__empty-message"]',
     resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'martinplace.romeosonline.com.au',
