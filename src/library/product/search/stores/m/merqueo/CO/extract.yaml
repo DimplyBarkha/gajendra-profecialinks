@@ -1,20 +1,24 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
+recordSelector: .mq-grid-item
+recordXPath: //div[@class="mq-grid-item"]
 fields:
   - name: id
     singleValue: false
+    xpath: //div[@class="mq-grid-item"]/article/@id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //h2[@class='mq-product-title']
   - name: productUrl
     singleValue: false
+    xpath: //div[@class="mq-product-img"]/div/a/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[@class="v-lazy-image-loaded"]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,6 +29,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //h3[@class='mq-product-price h6-text tx-pink500']/font/font
   - name: manufacturer
     singleValue: true
   - name: soldBy
