@@ -13,16 +13,12 @@ fields:
     xpath: //div[@class='title']
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class, 'product-gallery')]//a[contains(@href, '/product')]/@href
-    regExp: (.*)
-    regExpReplace: https://www.salontopper.nl$1   
+    xpath: //div[contains(@class, 'product-gallery')]//a[contains(@href, '/product')]/@productUrl
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='image']/img/@src
-    regExp: (.*)
-    regExpReplace: https://www.salontopper.nl$1 
+    xpath: //div[@class='image']/img/@image
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -36,6 +32,7 @@ fields:
     xpath: //div[@class='price']
   - name: manufacturer
     singleValue: true
+    xpath: //@brand
   - name: soldBy
     singleValue: true
   - name: endorsementText
