@@ -32,14 +32,18 @@ const transform = (data) => {
         row.additionalDescBulletInfo = [{ text: bulletText }];
       }
       if (row.description) {
-        row.description1[0].text = row.description1[0].text.replace(/\n \n/g, ' ');
+        if(row.description1) {
+          row.description1[0].text = row.description1[0].text.replace(/\n \n/g, ' ');
+        }
         let demo = '';
-        row.description2.forEach(item => {
-          demo += item.text.replace(/\n \n \n \n/g, ' : ') + '  ';
-        });
-        row.description2 = [{ text: demo.slice(0, -1).trim() }];
+        if(row.description2) {
+          row.description2.forEach(item => {
+            demo += item.text.replace(/\n \n \n \n/g, ' : ') + '  ';
+          });
+          row.description2 = [{ text: demo.slice(0, -1).trim() }];
+        }
         row.description[0].text = row.description[0].text.replace(/\n - /g, ' || ').replace(/\n \n-/g, ' || ').replace(/\n \n \n \n/g, ' ').replace(/\n \n \n/g, ' ').replace(/\n \n/g, ' ').replace(/\n/g, ' ');
-        row.description[0].text = row.description1[0].text + ' | ' + row.description[0].text + ' | ' + row.description2[0].text;
+        row.description[0].text = row.description1 ? row.description1[0].text: "" + ' | ' + row.description[0].text + ' | ' + row.description2 ? row.description2[0].text : "";
       }
       if (row.availabilityText) {
         row.availabilityText = row.availabilityText[0].text === 'Disponibile' ? [{ text: 'In Stock' }] : [{ text: 'Out of Stock' }];
