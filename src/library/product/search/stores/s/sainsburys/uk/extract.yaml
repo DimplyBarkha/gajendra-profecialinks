@@ -11,7 +11,7 @@ fields:
     # regExpReplace: ''
   - name: name
     singleValue: false
-    xpath: //a[@class="pt__link"]/text()
+    xpath: //section[@class="ln-o-section ln-o-section"]/ul/li//h2[@class="pt__info__description"]/a/text()
   - name: productUrl
     singleValue: false
     xpath: //a[@class="pt__link"]/@href

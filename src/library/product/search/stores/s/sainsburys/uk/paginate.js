@@ -7,10 +7,12 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
-    noResultsXPath: null,
-    openSearchDefinition: null,
+    loadedSelector: 'body',
+    openSearchDefinition: {
+      template: 'https://www.sainsburys.co.uk/gol-ui/SearchDisplayView?filters[keyword]={searchTerms}&pn={page}',
+    },
     domain: 'sainsburys.co.uk',
-    zipcode: '',
   },
-};
+    noResultsXPath: null,
+    zipcode: '',
+  };
