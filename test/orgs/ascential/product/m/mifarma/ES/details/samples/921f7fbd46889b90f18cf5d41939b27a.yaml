@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/lacer-interdentales-extrafino-recto-10-unidades-formato-ahorro
 extractions:
-  - html: https://workbench.import.io/html/run=ea3fe672-a20c-4d53-964c-b8f6e327e95a/task=cb6f95fe-21c7-4884-8c67-2c4a80280b11/7e3809b6-0485-42ec-be58-02b035bc6cbe.html
+  - html: https://workbench.import.io/html/run=88a59eb5-77a3-45d3-80b3-233eee1f3419/task=44e76a98-318c-4d7b-a56e-5834eaa6e46e/ceee2472-ff17-4a9b-ae15-1aa5779aea1c.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -41,17 +41,20 @@ extractions:
             brandText:
               - text: Lacer
                 xpath: /html/body/div[1]/span[12]
+            quantity:
+              - text: 10 Unidades
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             sku:
               - text: "163240"
                 xpath: /html/body/script[69]/text()[1]
             ratingCount:
-              - text: "2"
+              - text: "0"
                 xpath: /html/body/div[1]/span[13]
             aggregateRatingText:
-              - text: "5"
+              - text: "0"
                 xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
             aggregateRating:
-              - text: "5"
+              - text: "0"
                 xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
                 type: STRING
             manufacturerDescription:
@@ -99,4 +102,4 @@ extractions:
             weightGross:
               - text: 0.3000 kg
         xpath: /
-    timestamp: 1605178717356
+    timestamp: 1605256466132

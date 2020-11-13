@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/preservativo-control-adapta-extra-lube-12unidades
 extractions:
-  - html: https://workbench.import.io/html/run=ea3fe672-a20c-4d53-964c-b8f6e327e95a/task=880e13a1-73a0-4deb-8f50-7192407968f4/578559b4-0c19-42d3-a1b5-34c6fb0a3132.html
+  - html: https://workbench.import.io/html/run=88a59eb5-77a3-45d3-80b3-233eee1f3419/task=dc632497-fb69-43ac-a5cd-2b4a15e5aad6/036fe28e-933c-4642-9cf7-b74d3e88e97a.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -45,6 +45,9 @@ extractions:
             brandText:
               - text: Control
                 xpath: /html/body/div[1]/span[12]
+            quantity:
+              - text: 12 Uds
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             sku:
               - text: "178239"
                 xpath: /html/body/script[69]/text()[1]
@@ -95,4 +98,4 @@ extractions:
             weightGross:
               - text: 0.1000 kg
         xpath: /
-    timestamp: 1605178715106
+    timestamp: 1605256464251
