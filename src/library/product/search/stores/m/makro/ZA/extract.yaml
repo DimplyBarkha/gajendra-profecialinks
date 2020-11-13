@@ -1,5 +1,23 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"mak-product-tiles-container")]/div[@class="mak-product-tiles-container__product-tile"]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //a[contains(@class,"product-tile-inner__img")]/img/@alt
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,"product-tile-inner__img")]/@href
+  - name: id
+    singleValue: false
+    xpath: //div[@class="SearchResultsGrid-ListAddToCartAction"]//input[@name="productCodePost"]/@value
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[contains(@class,"product-tile-inner__img")]/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class="SearchResultsGrid-ListAddToCartAction"]//input[@name="productPostPrice"]/@value
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"rating-stars")]/@data-rating

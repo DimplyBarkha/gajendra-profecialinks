@@ -2,8 +2,8 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'makro.za',
-    timeout: null,
+    domain: 'makro.co.za',
+    timeout: 50000,
     country: 'ZA',
     store: 'makro',
     zipcode: '',

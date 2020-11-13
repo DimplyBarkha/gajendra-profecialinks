@@ -7,10 +7,10 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#mak-body-content',
+    noResultsXPath: '//div[@class="searchEmpty-title"]/h1[contains(text(),"We couldn\'t find any results for")]',
     openSearchDefinition: null,
-    domain: 'makro.za',
+    domain: 'makro.co.za',
     zipcode: '',
   },
 };

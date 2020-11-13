@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ZA',
     store: 'makro',
-    domain: 'makro.za',
+    domain: 'makro.co.za',
     zipcode: '',
   },
 };

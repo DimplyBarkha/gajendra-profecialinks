@@ -1,11 +1,11 @@
-
+const {transform}=require('../ZA/format');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'ZA',
     store: 'makro',
-    transform: null,
-    domain: 'makro.za',
+    transform,
+    domain: 'makro.co.za',
     zipcode: '',
   },
 };
