@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
@@ -7,7 +6,7 @@ module.exports = {
     domain: 'petlove.com.br',
     url: 'https://www.petlove.com.br/busca?q={searchTerms}',
     loadedSelector: 'div[id="catalog-desktop"]',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="container container--limited"]',
     zipcode: "''",
   },
 };
