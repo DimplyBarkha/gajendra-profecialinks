@@ -21,6 +21,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@class="prix_fiche_produit"]/span
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //div[@class='infos_prix_fiche_produit']/div[2]
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='div_ajout_panier btn_fiche_ajout_panier'][not(contains(@style,'display:none;'))]/div[1]
@@ -29,11 +32,8 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@itemprop="description"]
+    xpath: //div[@itemprop="description"]/div[@id="type_info_prio_11_1"]
   - name: brandText
-    singleValue: false
-    xpath: //span[@itemprop="brand"]
-  - name: manufacturer
     singleValue: false
     xpath: //span[@itemprop="brand"]
   - name: quantity
@@ -72,9 +72,6 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class='longcompo']
-  - name: specifications
-    singleValue: false
-    xpath: //div[@id='detail']//tr
   - name: variantInformation
     singleValue: false
     xpath: //div[@class='variation_selector_title']

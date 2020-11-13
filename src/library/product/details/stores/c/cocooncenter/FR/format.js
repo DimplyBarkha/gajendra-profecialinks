@@ -32,19 +32,15 @@ const transform = (data) => {
                 row.quantity[0].text = row.quantity[0].text.replace(',','.');
             }
 
-            if(row.specifications) {
-                let result = '';
-                let xpath = '';
-                row.specifications.forEach(item => {
-                    result += `${item.text} || `;
-                    xpath = item.xpath;
-                  });
-                row.specifications = [{ text: result.slice(0, -4), xpath: xpath }];
-            }
-
             if (row.sku) {
               let firstVariant = row.sku[0].text.split('-')[0];
               row.firstVariant = [{text: firstVariant, xpath: row.sku[0].xpath}];
+            }
+
+            if (row.pricePerUnit) {
+              let data = row.pricePerUnit[0].text.split(':');
+              row.pricePerUnit[0].text = data[1].trim();
+              row.pricePerUnitUom = [{text: data[0].replace('Prix au','').trim(), xpath: row.pricePerUnit[0].xpath}];
             }
         }
       }
