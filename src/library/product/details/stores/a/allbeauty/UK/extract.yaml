@@ -121,3 +121,9 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id="product-thumbnails"]/a[@class="curs-po"]/@data-zoom-image)
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@class="delivery-service"]
+  - name: quantity
+    singleValue: true
+    xpath: count(//h1[@class="product-details txtt-none"])
