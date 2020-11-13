@@ -136,9 +136,10 @@ module.exports = {
 
       const categoryXpath = getXpath("//div/a[contains(@class,'breadcrumb joker' ) and contains(@href,'/category/')]//text()", 'nodeValue');
       console.log(categoryXpath);
-      const addedCategory = categoryXpath.replace(/[>]+/g, '');
-
-      addElementToDocument('added_category', addedCategory);
+      if(categoryXpath) {
+        const addedCategory = categoryXpath.replace(/[>]+/g, '');
+        addElementToDocument('added_category', addedCategory);
+      }
       // const priceCurrency = getXpath("//span[@class = 'currency-symbol']//text()", 'nodeValue');
       // const price = getXpath("//input[@id='txtInitialPrice']/@value", 'nodeValue');
       // const totalPrice = priceCurrency + price;
