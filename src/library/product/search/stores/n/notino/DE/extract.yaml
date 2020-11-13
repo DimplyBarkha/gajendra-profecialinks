@@ -5,7 +5,7 @@ recordSelector: null
 fields: 
   - name: price
     singleValue: false
-    xpath: (//p[@class="price"])/strong
+    xpath: (//ul[@id="productsList"]/li/a[@data-datalayer]/p[@class="price"])/strong
     type: CURRENCY
   - name: productUrl
     singleValue: false
@@ -15,11 +15,11 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
-    xpath: //span[@class="img-wrap"]//span/img/@src
+    xpath: //ul[@id="productsList"]/li//span[@class="img-wrap"]//span/img/@src
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //span[@class="name"]/strong
+    xpath: //ul[@id="productsList"]/li//span[@class="name"]
   - name: rankOrganic
     singleValue: false
     xpath: //div[@id='rankOrganic']
@@ -27,5 +27,5 @@ fields:
     singleValue: false
     xpath: //div[@id='rankOrganic']
   - name: id
-    xpath: //@data-product-code
+    xpath: //ul[@id="productsList"]/li//@data-product-code
     description: The store-specific product identifier

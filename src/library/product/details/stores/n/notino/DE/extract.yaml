@@ -27,7 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//h1[@class="sc-AykKD styled__H1-sc-3sotvb-1 igslcx"], //div[@class="styled__Name-h83s98-4 izOgAK"])
+    xpath: (//h1[@class="sc-AykKD styled__H1-sc-3sotvb-1 igslcx"])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -150,6 +150,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: (//h1[@class="sc-AykKD styled__H1-sc-3sotvb-1 igslcx"])
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -457,7 +458,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //div[@class="styled__Name-h83s98-4 izOgAK"]
+    # xpath: //div[@class="styled__Name-h83s98-4 izOgAK"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
