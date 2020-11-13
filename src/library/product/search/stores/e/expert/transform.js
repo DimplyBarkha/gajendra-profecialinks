@@ -37,14 +37,14 @@ const transform = (data, context) => {
             jsText = jsText.length === 2 ? jsText[1] : [];
             jsText = jsText.length ? jsText.split(',\'siteid\':') : [];
             // eslint-disable-next-line no-useless-escape
-            jsText = jsText.length ? jsText[0].replace(/\'/gm, '"') : '';
+            jsText = jsText.length > 0 ? jsText[0].replace(/\'/gm, '"') : '';
 
             const jsonProduct = jsText.length ? JSON.parse(jsText)[0] : {};
             row.gtin = [{ text: (Object.keys(jsonProduct).length ? ((jsonProduct.pid !== null) ? jsonProduct.pid : '') : '') }];
           }
         }
       }
-      if(row.ratingCount[0].text.charAt('('))
+      if(row.ratingCount && row.ratingCount[0].text.charAt('('))
       {
         row.ratingCount[0].text=row.ratingCount[0].text.replace(/(\()(.+)(\))/g,'$2');
       }
