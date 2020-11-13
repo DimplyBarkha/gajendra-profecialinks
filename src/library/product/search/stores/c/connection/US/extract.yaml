@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+- name: id
+  singleValue: true
+  xpath: //table[@class="table"]//tbody//tr[@class="product-container"]/@data-id
+- name: name
+  singleValue: true
+  xpath: //div[@class="product-name-list"]/a/@title
+- name: productUrl
+  singleValue: true
+  xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//td[@class="list-image"]/div/a/@href
+  regExp: [^(.*)$] 
+  regExpReplace: 'https://www.connection.com$1'
+- name: thumbnail
+  singleValue: true
+  xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//td[@class="list-image"]/div/a/div/img/@src
+- name: price
+  singleValue: true
+  xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//span[@class="priceDisplay"]/text()
+- name: manufactruer
+  singleValue: true
+  xpath: //*[@id="productNameLink"]/a
+- name: availabilityText
+  singleValue: true
+  xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//td[@class="list-availability"]/div/span/text()
+  
