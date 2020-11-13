@@ -81,17 +81,6 @@ const transform = (data) => {
         }
         row.variants = [{ text: varientIds.join(' | ') }];
       }
-      if (row.pricePerUnit) {
-        var tempPerUniit = '';
-        var tempJson = JSON.parse(row.pricePerUnit[0].text);
-        if (tempJson.comparativePrice) {
-          tempPerUniit = tempJson.comparativePrice;
-          if (tempJson.comparativeUnit) {
-            tempPerUniit = tempPerUniit + ' ' + tempJson.comparativeUnit;
-          }
-        }
-        row.pricePerUnit = [{ text: tempPerUniit }];
-      }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
         row.additionalDescBulletInfo.forEach(item => {
