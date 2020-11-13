@@ -5,9 +5,10 @@ recordXPath: //li[@class="js-plp-product-click product-item"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="plp-buttons"]//form/@id 
+    xpath: //input[contains(@class,"productClickData_plp_id_")]/@value 
+      #//div[@class="plp-buttons"]//form/@id 
     # xpath: //div[@class="plp-product-thumb"]//img/@src
-    regExp: \d{13,}
+    # regExp: \d{13,}
     # regExpReplace: $1
   - name: price
     singleValue: false

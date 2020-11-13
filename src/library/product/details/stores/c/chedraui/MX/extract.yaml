@@ -5,15 +5,16 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class="owl-item"]//a//img/@src
+    xpath: (//a//img[@class="lazyOwl"])[position()=1]
     regExp: (.+)
     regExpReplace: https://www.chedraui.com.mx$1
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class="item active"]/div/img/@alt
+    xpath: //div[contains(@class,"product-details-name")]/text()
+    # xpath: //div[@class="owl-item"]/a/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: (//div[@class="owl-item"]//a//img/@src)[position()>1]
+    xpath: (//a//img[@class="lazyOwl"])[position()>1]
     regExp: (.+)
     regExpReplace: https://www.chedraui.com.mx$1
   - name: metaKeywords
