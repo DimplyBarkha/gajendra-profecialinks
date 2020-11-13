@@ -1,22 +1,30 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: 
+recordXPath: //div[contains(@class, "product ")]
 fields:
   - name: id
     singleValue: false
+    xpath: //a[@itemprop="url"]/@data-sku
     description: Unique id (within this extractor)
   - name: name
     singleValue: false
+    xpath: //a[@itemprop="url"]/@title
     description: The product name
   - name: productUrl
     singleValue: false
+    xpath: //a[@itemprop="url"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.petstock.com.au/$1
     description: The URL for the product details page
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     singleValue: false
+    xpath: //a[@itemprop="url"]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.petstock.com.au/$1
     description: The URL for the product thumbnail image
   - name: aggregateRating
     singleValue: false
@@ -24,8 +32,10 @@ fields:
     type: NUMBER
   - name: aggregateRating2
     singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]/span//span[@itemprop="ratingValue"]
   - name: reviewCount
     singleValue: false
+    xpath: //span[@itemprop="reviewCount"]
     description: The number of reviews
     type: NUMBER
   - name: ratingCount
@@ -33,6 +43,7 @@ fields:
     description: The number of ratings
   - name: price
     singleValue: false
+    xpath: //div[@class="price"]/meta[@itemprop="price"][1]/@content
     description: The offered price for the product
   - name: manufacturer
     singleValue: true
@@ -43,10 +54,12 @@ fields:
     singleValue: false
   - name: rank
     singleValue: false
+    xpath: count(preceding-sibling::*[@itemtype="https://schema.org/Product"])+1
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
+    xpath: count(preceding-sibling::*[@itemtype="https://schema.org/Product"])+1
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored

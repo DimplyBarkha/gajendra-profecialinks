@@ -5,9 +5,9 @@ module.exports = {
     country: 'AU',
     store: 'petstock',
     domain: 'petstock.com.au',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.petstock.com.au/pet/search/{searchTerms}',
+    loadedSelector: 'div[class="products"]',
+    noResultsXPath: '//div[@class="search-no-result"]',
     zipcode: '',
   },
 };
