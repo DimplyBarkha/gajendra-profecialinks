@@ -24,7 +24,7 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      var rank = 1;
+      var rank = 1; 
       for (let row of group) {               
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
