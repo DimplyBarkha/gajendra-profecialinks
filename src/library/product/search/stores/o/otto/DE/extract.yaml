@@ -11,7 +11,9 @@ fields:
     xpath: //a[@class='productLink']/span
   - name: productUrl
     singleValue: false
-    xpath: //a[@class= 'productLink']/@href  
+    xpath: //a[@class= 'productLink']/@href 
+    regExp: (\/p\/.+)
+    regExpReplace: https://www.otto.de$1
   - name: price
     singleValue: single
     xpath: //span[@class='value']
@@ -30,3 +32,6 @@ fields:
   - name: id
     singleValue: false
     xpath: //article[@class="product"]/@data-productid
+  - name: aggregateRating
+    singleValue: false
+    xpath: //html//div[@id='rating']
