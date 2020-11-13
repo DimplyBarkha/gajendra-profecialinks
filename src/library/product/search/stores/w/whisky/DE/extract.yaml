@@ -5,12 +5,13 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[@class='row']//a[@class='title']/@href
+    xpath: //div[@class='row']//div[@class='article-title']//a[not(contains(@class,'article-video'))]/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class='row']//a[@class='title']/img/@src
+    xpath: //div[@class='row']//a[@class='title']//img/@src
   - name: name
     singleValue: true
+    type: TEXT
     xpath: //div[@class='row']//a[@class='title']/@title
   - name: id
     singleValue: true
@@ -19,13 +20,16 @@ fields:
     regExp: '(\"id\"\:\ ")([^"]+)'
     regExpReplace: $2
   - name: manufacturer
-    xpath: //select[@name='searchmanufacturer']//option//font//font//text()
+    type: TEXT
+    # xpath: (//select[@name='searchmanufacturer']//option)[1]//text()
   - name: rating
     xpath: //div[@class='col-xl-6']//div[@class='rating ']/@data-rating
   - name: number_of_reviews
-    xpath: //div[@class='col-xl-6']//span[@class='rating-count']//span//font//text()
+    type: NUMBER
+    xpath:  //div[@class='col-xl-6']//span[@class='rating-count']/span//text()
   - name: price
     description: The offered price for the product
-    xpath: //div[@class="article-metadata"]/div[@class="article-price"]/span
+    type: CURRENCY
+    xpath: //div[@class="article-metadata"]//div[@class="article-price"]//span[(contains(@class,'article-price-default article-club-hidden'))]//text()
     # regExp: '\d+(\.\d+)?'
     # regExpReplace: $1
