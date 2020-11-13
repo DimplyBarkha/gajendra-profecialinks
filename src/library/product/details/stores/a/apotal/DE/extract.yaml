@@ -83,8 +83,20 @@ fields:
   - name: ingredientsList
     xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]//span//br[3]/following-sibling::text()[1]
     singleValue: false
+  - name: ingredientsList2
+    xpath: substring-before(substring-after(//dd[@class='productLongDescription'], "Inhaltsstoffe:"), "  ")
+    singleValue: false
+  - name: ingredientsList3
+    xpath: substring-before(substring-after(//div[@id='productDetail'], "Wirkstoffe:"), "  ")
+    singleValue: false
+  - name: ingredientsList4
+    xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]//span//br[2]/following-sibling::text()[1] | //div[@class="boxProductDetail"]//div[@id="productDesc"]//span//br[3]/following-sibling::text()[2]
+    singleValue: false
+  - name: ingredientsList5
+    xpath: substring-before(substring-after(//dd[@class='productLongDescription'], "Inhaltsstoffe:"), "Warnhinweise:")
+    singleValue: false
   - name: directions
-    xpath: substring-before(//div[@class="abdainfo"], "Aufbewahrung")
+    xpath: substring-before(substring-after(//div[@class='abdainfo'], "Artikelinformationen:"), "Gegenanzeigen")
     singleValue: false
   - name: storage
     xpath: substring-before(substring-after(//div[@class='abdainfo'], "Aufbewahrung"), "Gegenanzeigen")

@@ -85,6 +85,32 @@ const transform = (data) => {
         ingredients = ingredients.startsWith('Wirkstoff:') ? ingredients.substr(11) : '';
         row.ingredientsList = [{ text: ingredients, xpath: row.ingredientsList[0].xpath }];
       }
+      if (row.ingredientsList2) {
+        const ingredients = row.ingredientsList2[0].text.trim();
+        if (ingredients) {
+          row.ingredientsList = [{ text: ingredients, xpath: row.ingredientsList2[0].xpath }];
+        }
+      }
+      if (row.ingredientsList3) {
+        const ingredients = row.ingredientsList3[0].text.trim();
+        if (ingredients) {
+          row.ingredientsList = [{ text: ingredients, xpath: row.ingredientsList3[0].xpath }];
+        }
+      }
+      if (row.ingredientsList4) {
+        const ingredients = row.ingredientsList4.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.trim() : '';
+        });
+        if (ingredients) {
+          row.ingredientsList = [{ text: ingredients.join(' '), xpath: row.ingredientsList4[0].xpath }];
+        }
+      }
+      if (row.ingredientsList5) {
+        const ingredients = row.ingredientsList5[0].text.trim();
+        if (ingredients) {
+          row.ingredientsList = [{ text: ingredients, xpath: row.ingredientsList5[0].xpath }];
+        }
+      }
     }
   }
 
