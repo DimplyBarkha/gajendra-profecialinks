@@ -56,7 +56,7 @@ fields:
     xpath: //div[contains(@class,'u-marginBmd u-textSmall')]//h5[contains(text(),'Ingredienser')]/parent::*
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,'Breadcrumb-container')]//a[contains(@class,'js-asyncLink')]/span
+    xpath: //div[contains(@class,'Breadcrumb-container')]//div[contains(@class,'Breadcrumb-item')]//span
   - name: description
     singleValue: false
     xpath: //span[contains(@itemprop,'description')]
