@@ -14,7 +14,10 @@ fields:
     xpath: //strong[@data-product="price"]
   - name: thumbnail
     SingleValue: false
-    xpath: //div[@class="product-images"]/img/@src
+    xpath: //div[@class="product-images"]//source/@srcset
+  - name: thumbnail_1
+    SingleValue: false
+    xpath: //div[@class="product-images"]/img/@src    
   - name: name
     SingleValue: false
     xpath: //span[@data-product="name"]

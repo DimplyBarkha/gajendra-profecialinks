@@ -30,6 +30,12 @@ const transform = (data) => {
           item.text = item.text.replace('/g_', '/u_');
         });
       }
+      if (row.thumbnail_1) {
+        if (!row.thumbnail) {
+          row.thumbnail = row.thumbnail_1;
+        }
+        delete row.thumbnail_1;
+      }
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach(item => {
           item.text = item.text.replace('reevoo-score score-', '');
