@@ -1,13 +1,16 @@
 
 module.exports = {
-  implements: 'product/search/execute',
+  implements: 'product/search/paginate',
   parameterValues: {
     country: 'CZ',
-    store: 'macro',
-    domain: 'macro.cz',
-    url: 'https://sortiment.makro.cz/cs/search/?submitted=1&lst=catalog&q={searchTerms}',
+    store: 'makro',
+    nextLinkSelector: 'nav.my-0 li a[title^="Dal"]',
+    mutationSelector: null,
+    spinnerSelector: null,
     loadedSelector: 'main[class^="mo-container"]',
     noResultsXPath: '//span[@class="alert-description" and text()="Hledaným parametrům nevyhovuje žádné zboží. "]',
+    openSearchDefinition: null,
+    domain: 'makro.cz',
     zipcode: '',
   },
 };

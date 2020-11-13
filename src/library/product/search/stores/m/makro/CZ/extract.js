@@ -3,9 +3,9 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CZ',
-    store: 'macro',
+    store: 'makro',
     transform,
-    domain: 'macro.cz',
+    domain: 'makro.cz',
     zipcode: '',
   },
 };

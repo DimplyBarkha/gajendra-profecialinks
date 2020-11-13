@@ -2,10 +2,10 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'macro.cz',
+    domain: 'makro.cz',
     timeout: 50000,
     country: 'CZ',
-    store: 'macro',
+    store: 'makro',
     zipcode: '',
   },
 };
