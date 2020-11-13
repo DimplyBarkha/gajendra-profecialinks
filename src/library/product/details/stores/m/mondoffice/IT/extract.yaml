@@ -55,6 +55,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    defaultValue: mondoffice
     xpath: //div[@class='product-sku__reinsurance-container']/div/@data-mf
   - name: quantity
     singleValue: true
@@ -82,4 +83,28 @@ fields:
   - name: harvested_product_description
     singleValue: true
     xpath: //ol[@class='page-breadcrumb']/li[last()]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='product-sku__details']/ul/li
+  - name: additional_desc_bullet_count
+    singleValue: true
+    xpath: //div[@id='additional_desc_bullet_count']
+    type: NUMBER
+  - name: secondary_image-total
+    singleValue: true
+    xpath: //div[@id='secondary_image-total']
+    type: NUMBER
+  - name: additional_desc_bullet_info-total
+    singleValue: false
+    xpath: //div[@class='description-sku__figure-text']/ul/li
+  - name: colour
+    singleValue: true
+    xpath: //div[@id='colour']
+  - name: materials
+    singleValue: true
+    xpath: //div[@id='materials']
+  - name: image_zoom_feature_present
+    singleValue: true
+    defaultValue: Yes
+
 
