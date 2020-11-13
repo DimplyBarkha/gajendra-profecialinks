@@ -1,12 +1,12 @@
-
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'MX',
     store: 'chedraui',
     domain: 'chedraui.com.mx',
-    url: 'https://www.chedraui.com.mx/search?text={searchTerms}',
-    loadedSelector: 'div[class="product__list--wrapper"]',
+    url: 'https://www.chedraui.com.mx/search?q={searchTerms}',
+    // loadedSelector: 'div[class="product__list--wrapper"]',
+    loadedSelector: 'ul[class="product__listing product__grid"]', //'li[class*="product-item"]',
     noResultsXPath: '//div[@class="not-found-text"]',
     zipcode: "''",
   },
