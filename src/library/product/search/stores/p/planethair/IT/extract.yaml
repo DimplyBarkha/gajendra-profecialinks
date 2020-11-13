@@ -5,7 +5,7 @@ recordXPath: //div[@class="ty-column3"]/div[contains(@class, 'list__item')]
 fields:
   - name: id
     singleValue: false
-    xpath: //img[contains(@id, 'det_img')]/@id
+    xpath: //a/img[contains(@id, 'det_img')]/@id
     regExp: \d+
   - name: searchUrl
     singleValue: true
@@ -24,14 +24,18 @@ fields:
     singleValue: false
   - name: aggregateRating2
     singleValue: false
+    type: STRING
+    xpath: //@ratings
   - name: reviewCount
     singleValue: false
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //span[contains(@class,'ty-price') and contains(@id, 'line')]
   - name: manufacturer
     singleValue: true
+    xpath: //input[contains(@name, '[brand]')]/@value
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -44,6 +48,7 @@ fields:
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
