@@ -10,9 +10,9 @@ const transform = (data) => {
   }
   data.forEach(el => {
     el.group.forEach(gr => {
-      const mainData = JSON.parse(gr.sku[0].text);
+      const mainData = JSON.parse(gr.rpc[0].text);
       if (mainData) {
-        if (mainData) gr.sku[0].text = mainData.sku;
+        if (mainData) gr.rpc[0].text = mainData.sku;
         if (mainData.brand) gr.brandText[0].text = mainData.brand.name;
         if (mainData.brand) gr.brandLink[0].text = mainData.brand.url;
         if (mainData) gr.url[0].text = mainData.url;

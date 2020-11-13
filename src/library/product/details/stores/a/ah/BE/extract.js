@@ -32,8 +32,12 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      addElementToDocument('variantCount', document.getElementsByClassName('product-recommendations_link__1b2lR').length);
-      addElementToDocument('additional_desc_bullet_count', document.getElementsByClassName('product-info-description__list-item').length);
+      try {
+        addElementToDocument('variantCount', document.getElementsByClassName('product-recommendations_link__1b2lR').length);
+        addElementToDocument('additional_desc_bullet_count', document.getElementsByClassName('product-info-description__list-item').length);
+      } catch (e) {
+        console.log(e);
+      }
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
