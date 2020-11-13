@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[@class="sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin sg-col-4-of-28 sg-col-4-of-16 sg-col sg-col-4-of-20 sg-col-4-of-32"]/@data-asin
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@class="sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin sg-col-4-of-28 sg-col-4-of-16 sg-col sg-col-4-of-20 sg-col-4-of-32"]/@data-index
+  - name: name
+    singleValue: false
+    xpath: //div[@class="a-section aok-relative s-image-square-aspect"]/img/@alt
+  - name: productUrl
+    singleValue: false
+    xpath: concat(('https://www.amazon.de'),'',(//h2[@class="a-size-mini a-spacing-none a-color-base s-line-clamp-4"]/a/@href))
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="a-section aok-relative s-image-square-aspect"]/img/@src
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@id='pqr']
+  - name: reviewCount
+    singleValue: true
+    xpath: //a/span[@class="a-size-base"]
+  - name: price
+    singleValue: false
+    xpath: //div[@id='abc']
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: true
+    xpath: //div[@class="sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin sg-col-4-of-28 sg-col-4-of-16 sg-col sg-col-4-of-20 sg-col-4-of-32"]/@data-index
+  - name: endorsementText
+    singleValue: true
+
