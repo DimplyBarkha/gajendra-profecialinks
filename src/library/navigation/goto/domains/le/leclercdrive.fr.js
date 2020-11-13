@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'leclercdrive.fr',
-    timeout: null,
+    timeout: 60000,
     country: 'FR',
     store: 'leclerc',
     zipcode: '',
