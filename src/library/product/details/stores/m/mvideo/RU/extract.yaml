@@ -29,7 +29,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class="e-h1 sel-product-title"]
+    xpath: //h1[@class="e-h1 sel-product-title"]/text()
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -38,14 +38,14 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    type: NUMBER
-    xpath: //div[@class="fl-pdp-price__current"]
+    type: CURRENCY
+    xpath: //div[@class="fl-pdp-price__current"]/text()
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //link[@itemprop="availability"]
+    defaultValue: InStock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -72,7 +72,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: (//table[@class="table table-striped product-details-table"][12]//span[@class="product-details-overview-specification"])[2]
+    xpath: //table[@class="table table-striped product-details-table"]/tbody//td//span[contains(text(),"Вес")]/ancestor::*[position()=2]//td[2]/span/text()
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -94,7 +94,7 @@ fields:
   - name: name
     singleValue: true
     description: This is the name of the product (Title) - Should contain the full product description as it appears on the website.
-    xpath: //h4[@class="e-h4 u-pb-8"]
+    xpath: //h4[@class="e-h4 u-pb-8"]/text()
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -116,7 +116,7 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@class='review-ext-stars-ratings-all']/span[@itemprop="ratingValue"]
@@ -137,7 +137,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: (//table[@class="table table-striped product-details-table"][11]//span[@class="product-details-overview-specification"])[2]
+    xpath: //table[@class="table table-striped product-details-table"]/tbody//td//span[contains(text(),"Цвет")]/ancestor::*[position()=2]//td[2]/span/text()
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -154,7 +154,7 @@ fields:
   - name: nameExtended
     singleValue: true
     description: The product name
-    xpath: //h1[@class="e-h1 sel-product-title"]
+    xpath: //h1[@class="fl-h1"]//text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -246,6 +246,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[@class="c-carousel__item-wrapper"])
     type: NUMBER
   - name: news
     singleValue: true
@@ -412,14 +413,14 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: (//table[@class="table table-striped product-details-table"][1]//span[@class="product-details-overview-specification"])[2]
+    xpath: //table[@class="table table-striped product-details-table"]/tbody//td//span[contains(text(),"Гарантия")]/ancestor::*[position()=2]//td[2]/span/text()
   - name: storage
     singleValue: true
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
-    xpath: (//table[@class="table table-striped product-details-table"][1]//span[@class="product-details-overview-specification"])[4]
+    xpath: //table[@class="table table-striped product-details-table"]/tbody//td//span[contains(text(),"Страна")]/ancestor::*[position()=2]//td[2]/span/text()
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
