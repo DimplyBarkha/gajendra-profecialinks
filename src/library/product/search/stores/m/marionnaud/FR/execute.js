@@ -6,8 +6,8 @@ module.exports = {
     store: 'marionnaud',
     domain: 'marionnaud.fr',
     url: 'https://www.marionnaud.fr/search/?text={searchTerms}',
-    loadedSelector: 'body',
-    noResultsXPath: null,
+    loadedSelector: 'ul[class="product-listing product-grid"] li',
+    noResultsXPath: 'div[@class="title_holder"]//p[@id="noSearchHeading"]',
     zipcode: '',
   },
 };

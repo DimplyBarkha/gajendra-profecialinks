@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'a[class="page-link next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: 'ul[class="product-listing product-grid"] li',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'marionnaud.fr',

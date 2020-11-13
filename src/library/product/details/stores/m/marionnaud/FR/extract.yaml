@@ -30,8 +30,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //*[@id="top-bar"]/div[5]/div/div/ol/li[not(contains(@class, "back-btn"))] [not(contains(@class, "home"))]
-    type: TEXT
+    xpath: //*[@id="top-bar"]/div[5]/div/div/ol/li[not(contains(@class, "back-btn"))] [not(contains(@class, "home"))]/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
