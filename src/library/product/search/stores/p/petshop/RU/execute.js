@@ -5,9 +5,9 @@ module.exports = {
     country: 'RU',
     store: 'petshop',
     domain: 'petshop.ru',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.petshop.ru/search/?q={searchTerms}',
+    loadedSelector: 'div#products-wrapper',
+    noResultsXPath: '//div[@class="search-result-items"]//p[@class="errortext"]',
     zipcode: '',
   },
 };

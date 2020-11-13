@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'petshop',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a.next',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'article.article-catalogue[style="opacity: 0.25;"]',
     loadedSelector: null,
     noResultsXPath: null,
     resultsDivSelector: null,

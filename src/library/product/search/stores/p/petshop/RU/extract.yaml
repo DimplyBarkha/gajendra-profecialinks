@@ -1,23 +1,33 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[contains(@class, 'product-item')]
 fields:
   - name: id
     singleValue: false
+    xpath: //li[contains(@class, 'product-item')]/@data-id
   - name: searchUrl
     singleValue: true
   - name: name
+    xpath: //div[@itemprop='name']
     singleValue: false
   - name: productUrl
     singleValue: false
+    xpath: //li[contains(@class, 'product-item')]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.petshop.ru$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //li[contains(@class, 'product-item')]/a/img/@data-big-image
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
+    type: STRING
+    xpath: //div[contains(@id, 'j_rating')]/@data-rating
     singleValue: false
   - name: reviewCount
     singleValue: false
@@ -25,8 +35,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //*[@itemprop="price"]/span
   - name: manufacturer
-    singleValue: true
+    singleValue: false
+    xpath: //a[contains(@class, 'j_product-brand')]
   - name: soldBy
     singleValue: true
   - name: endorsementText
