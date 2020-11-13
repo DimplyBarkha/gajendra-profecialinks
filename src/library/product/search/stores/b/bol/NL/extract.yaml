@@ -24,8 +24,7 @@ fields:
   - name: aggregateRating2
     singleValue: false
     type: STRING
-    xpath: //div[@class='star-rating']/@title
-    regExp: '([0-9.]+){2}'
+    xpath: //div[@class='star-rating']/@newrating
   - name: reviewCount
     singleValue: false
     xpath: //div[@class='star-rating']/@ratingscount

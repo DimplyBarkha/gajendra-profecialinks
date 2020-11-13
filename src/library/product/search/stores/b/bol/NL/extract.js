@@ -61,6 +61,18 @@ async function implementation (inputs, parameters, context, dependencies) {
       j++;
     });
 
+    let rating;
+    const ratingSelector = document.querySelectorAll('.star-rating');
+    let newRating;
+    j = 0;
+    ratingSelector.forEach(element => {
+      rating = element.title;
+      newRating = rating.replace('.', ',');
+      rating = newRating.match(/[0-9,]{3}/);
+      addProp('.star-rating', j, 'newrating', rating);
+      j++;
+    });
+
     for (let i = 0; i < itereationLength; i++) {
       ratings = document.querySelectorAll('.star-rating')[i].dataset.count;
       seller = document.querySelectorAll('div[data-test="plazaseller-link"]')[i];
