@@ -30,6 +30,12 @@ const transform = (data) => {
           item.text = item.text.replace('/L/', '/XL/');
         });
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(/\s+/, '');
+          item.text = item.text.replace('.', ',');
+        });
+      }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
