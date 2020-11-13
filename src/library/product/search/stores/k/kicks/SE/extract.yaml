@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class="a eq"]//following-sibling::span/span[1]
+  - name: name
+    singleValue: true
+    xpath: //span[@class="et es ex"]/text()
+    type: TEXT
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@id="product-card-2"]/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.kicks.se$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@title="Perfect Blush 09 Rose Nude"]/@src
+  - name: aggregateRating2
+    singleValue: true
+    # xpath: //div[@class="a d5 q"]//span[1]
+  - name: ratingCount
+    singleValue: false
+    type: NUMBER
+    xpath: //span[@class="ep"]
+  - name: rankOrganic
+    singleValue: true
+    xpath: //div[@id='rankOrganic']/text()
+  - name: rank
+    singleValue: true
+    xpath: //div[@id='rankOrganic']/text()
+  - name: manufacturer
+    singleValue: true 
+    xpath: //span[@class="ev k ew ef"]/text()
