@@ -72,7 +72,10 @@ fields:
     xpath: //script[@id='app.digitalData']
     # "manufacturer":"ASUS"
     regExp: \"manufacturer\":\s*\"(.+?)\",
-    regExpReplace: $1
+    regExpReplace: $1    
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //article[contains(@class,'ItemInfo')]//script[@class='js-model']
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id='richmedia-container']//div[contains(@class,'flix-media-flex')]//img/@src    
