@@ -22,22 +22,22 @@ async function implementation (
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+
     const searchUrl = window.location.href;
     addElementToDocument('searchUrl', searchUrl);
 
     const allProducts = document.querySelectorAll('div[class*=\'products__list-item\']');
     const productUrls = document.querySelectorAll('div[class*=\'products__list-item\'] a[class*=\'preview-product__title\']');
-    const productsPrice = document.querySelectorAll('div[class*=\'products__list-item\'] meta[itemprop=\'price\']');
-    const productsPriceCurrency = document.querySelectorAll('div[class*=\'products__list-item\'] meta[itemprop=\'priceCurrency\']');
-
+    let productImage;
     for (let i = 0; i < allProducts.length; i++) {
-      allProducts[i].focus();
-      await new Promise((resolve, reject) => setTimeout(resolve, 200));
+      // eslint-disable-next-line no-undef
+      productImage = __SD__.catalogProductsRaw.data[i].img;
+      addProp('div[class*=\'products__list-item\']', i, 'productimg', productImage);
       addProp('div[class*=\'products__list-item\']', i, 'rankOrganic', `${i + 1}`);
       addProp('div[class*=\'products__list-item\'] a[class*=\'preview-product__title\']', i, 'productUrl',
-        'https://santehnika-online.ru/' + productUrls[i].getAttribute('href'));
-      addProp('div[class*=\'products__list-item\']', i, 'productPrice',
-        productsPrice[i].getAttribute('content') + ' ' + productsPriceCurrency[i].getAttribute('content'));
+        'https://santehnika-online.ru' + productUrls[i].getAttribute('href'));
     }
   });
   return await context.extract(productDetails, { transform });
