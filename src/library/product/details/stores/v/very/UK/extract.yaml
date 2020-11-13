@@ -8,7 +8,7 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
-  xpath: //meta[@property="og:url"]/@content
+  xpath: //link[@rel="canonical"]//@href
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
@@ -86,8 +86,8 @@ fields:
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
-  xpath: //meta[@property="og:url"]/@content
-  regExp: (\d+)
+  xpath: //link[@rel="canonical"]//@href
+  regExp: (\d+).prd
   regExpReplace: $1
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
@@ -502,10 +502,10 @@ fields:
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
 - name: imageZoomFeaturePresent
-  xpath: //li[@class="amp-slide amp-selected amp-seen amp-visible"]//div[@class="amp-zoom-overflow"]/img
+  xpath: //li[contains(@class, "amp-slide")]//div[@class="amp-zoom-overflow"]/img
   regExp: (.+)
   regExpReplace: "Yes"
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: "Yes"
+  # defaultValue: "Yes"
