@@ -5,7 +5,6 @@
   *  nextLinkSelector: string,
   *  mutationSelector: string,
   *  loadedSelector: string,
-  *  loadedXpath: string,
   *  spinnerSelector: string,
   * }} inputs
   * @param { Record<string, any> } parameters
@@ -22,7 +21,6 @@ async function implementation (
     nextLinkSelector,
     mutationSelector,
     loadedSelector,
-    loadedXpath,
     spinnerSelector,
   } = inputs;
 
@@ -52,9 +50,6 @@ async function implementation (
     await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });
     if (loadedSelector) {
       await context.waitForSelector(loadedSelector, { timeout: 20000 });
-    }
-    if (loadedXpath) {
-      await context.waitForXPath(loadedXpath, { timeout: 20000 });
     }
     return true;
   }

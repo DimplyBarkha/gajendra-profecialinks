@@ -15,6 +15,14 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //span[@property="gr:hasCurrencyValue"]/text()
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from

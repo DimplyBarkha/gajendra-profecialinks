@@ -3,14 +3,13 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: id
-    singleValue: false
-    xpath: span[class="ccP-item-number"]
-    # regExp: 
-    type: NUMBER
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="ooB-rel item-rating-stars ooB-ib"]
+  - name: id
+    singleValue: false
+    xpath: //div[@class="ooB-mb12 ooB-mt6 artikelnummer"]/span/span
+    regExp: (\d+)
   - name: name
     singleValue: false
     xpath: //a[@class="oo-link fftracking-productclick"]/b
@@ -25,6 +24,7 @@ fields:
   - name: reviewCount
     singleValue: true
     xpath: //div[@class="ooB-rel item-rating-stars ooB-ib"]
+    # regExp: (\d+)
   - name: price
     singleValue: false
     xpath: //span[@id="colorChange_2_0000297326__unit_price"]
