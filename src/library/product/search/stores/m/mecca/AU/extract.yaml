@@ -1,38 +1,51 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="product-tile"]
 fields:
   - name: id
     singleValue: false
+    xpath: //div[@class="product-tile"]/@data-itemid
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //a[@class="name-link"]/@title
   - name: productUrl
     singleValue: false
+    xpath: //a[@class="thumb-link"]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[@class="img-responsive"]/@data-src
+    regExp: (.+)
+    regExpReplace: https://www.mecca.com.au$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
+    type: STRING
+    xpath: //div[@class="bv_averageRating_component_container"]/meta/@content
   - name: reviewCount
     singleValue: false
+    xpath: //div[@class="bv_numReviews_component_container"]
+    regExp: \d+ 
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[@class="search-results-page-product-pricing"]/span/text()
   - name: manufacturer
     singleValue: true
+    xpath: //a[@class="brand-name"]/@title
   - name: soldBy
     singleValue: true
   - name: endorsementText
     singleValue: false
   - name: rank
     singleValue: false
+    xpath: count(preceding-sibling::*[@data-itemid])+1
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
