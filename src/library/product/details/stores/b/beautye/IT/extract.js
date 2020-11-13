@@ -48,15 +48,14 @@ async function implementation (
   });
   console.log("variantLength:: ", variantLength);
   if (variantLength > 1) {
-    // await preparePageForCommonElement(0, variantLength);
     for (let j = 0; j < variantLength; j++) {
       try {
-        await context.evaluate( (j) => {
-          return document.querySelectorAll('div.swatch-option')[j].click();
-        }, j);
-        // await context.click('div.swatch-option div.custom-option-bg');
-        console.log('Inside variants', j);
-        // await preparePage(j, variantLength);
+        try {
+          await context.evaluate( (j) => {
+            return document.querySelectorAll('div.swatch-option')[j].click();
+          }, j);
+          console.log('Inside variants', j);
+        } catch (err) {}
         if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
       } catch (err) {}
     }

@@ -46,6 +46,49 @@ const transform = (data) => {
           },
         ];
       }
+      let brand = '';
+      if (row.brandText) {
+        if (row.brandText.length > 1) {
+          row.brandText = row.brandText.slice(0);
+          brand = row.brandText[0].text;
+        } else {
+          const arr = row.brandText[0].text.split('/');
+          let text = arr[arr.length - 1];
+          const idx = text.indexOf('@');
+          if (idx > -1) {
+            text = text.substring(0, idx);
+          }
+          text = text.split('-').join(' ');
+          brand = text;
+          row.brandText = [{text: text } ];
+        }
+      }
+
+      if (row.nameExtended) {
+        let text = brand + ' ';
+        row.nameExtended.forEach(item => {
+          text += item.text + ' '; 
+        });
+        row.nameExtended = [{text: text } ];
+      }
+
+      if (row.variants) {
+        const descs = [];
+        let newTxt = '';
+        let cnt = 0;
+        row.variants.forEach(item => {
+          descs[0] = item;
+          item.text = item.text.replace(/(\s?\n)+/g, ' ').trim();
+          if (cnt > 0) newTxt = newTxt + '| ' + item.text;
+          else newTxt = newTxt + item.text;
+          cnt++;
+        });
+        descs.forEach(item => {
+          item.text = newTxt;
+        });
+        row.variants = descs;
+      }
+
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
