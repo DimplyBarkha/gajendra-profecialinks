@@ -149,6 +149,11 @@ module.exports = {
     }catch(err){
       console.log('No enhanced content');
     }
+    try{
+      await context.waitForSelector('.flix-video-feat img');
+    }catch(err){
+      console.log('No video in enhanced content');
+    }
     await context.evaluate(()=>{
       //@ts-ignore
       let carousel = [...document.querySelectorAll('div[id*=carouselcatalog] li img')];
