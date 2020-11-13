@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    description: price of the product
+    type: CURRENCY
+    xpath: //div[@class='fp-productList_price fp-productList_price--hasOld']/b[@class='orange']
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page 
+    xpath: //a[@class="fp-productList_detailsLink"]/@href
+    regExp: (coca-cola/.*)
+    regExpReplace: https://www.flaschenpost.de/$1
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class='fp-productList_image']/img/@src
+  - name: id
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //div[@class="fp-productList_detail"]/@data-article
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //div[@class='fp-productList_info']/h5[@class='fp-productList_productName']
+  # - name: rankOrganic
+  #   singleValue: false
+  #   xpath: //div[@id='rankOrganic']
+  # - name: rank
+  #   singleValue: false
+  #   xpath: //div[@id='rankOrganic']

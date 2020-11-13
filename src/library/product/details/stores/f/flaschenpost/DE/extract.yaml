@@ -1,0 +1,113 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true    
+    xpath: //div[@class='fp-productList_image']/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='fp-productList_image']/img/@alt
+  - name: metaKeywords
+    singleValue: true
+    xpath: /html/head/meta[@name="description"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class='fp-pagination']/a[position() >= 2 and position()<last()]/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class='fp-productList_info']/h5[@class='fp-productList_productName']/text()  
+  - name: availabilityText
+    singleValue: true
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class='fp-productList_bottleDetails'] | //div[@class="swiper-slide swiper-slide-next"] | //div[@class='swiper-wrapper']/div[@class='swiper-slide swiper-slide-active']/p
+  - name: brandText
+    singleValue: true
+    xpath: //div[@class="fp-pagination"]/@data-brand-name
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class='fp-productList_bottleDetails']
+  - name: weightNet
+    singleValue: false
+    xpath: //tbody//tr//th[@width="25%"]/text()
+  - name: variantId
+    singleValue: true
+    xpath: //div[@class="fp-productList"]/@data-default-image 
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    type: NUMBER
+    xpath: count(//div[@class='fp-productList_bottleDetails'])
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='fp-productList_info']/h5[@class='fp-productList_productName']
+  - name: price
+    singleValue: true
+    type: CURRENCY
+    xpath: //b[@class="fp-price-is-special-offer"]/text()
+  - name: ingredientsList
+    singleValue: false
+    xpath: //tbody/tr
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //tbody/tr[2]/td[position()>1]
+  - name: totalFatPerServing
+    singleValue: false
+    type: NUMBER
+    xpath: //tbody/tr[3]/td[position()>1]
+  - name: saturatedFatPerServing
+    singleValue: false
+    description: Nutritional Information for Saturated Fat content - Usually based
+      on per 100g serving
+    type: NUMBER
+    xpath: //tbody/tr[4]/td[position()>1]
+  - name: totalSugarsPerServing
+    singleValue: false
+    type: NUMBER
+    xpath: //tbody/tr[6]/td[position()>1]
+  - name: proteinPerServing
+    singleValue: false
+    description: Nutritional Information for Protein content - Usually based on per
+      100g serving
+    type: NUMBER
+    xpath: //tbody/tr[7]/td[position()>1]
+  - name: saltPerServing
+    singleValue: false
+    type: NUMBER
+    xpath: //tbody/tr[8]/td[position()>1]
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    singleValue: true
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
