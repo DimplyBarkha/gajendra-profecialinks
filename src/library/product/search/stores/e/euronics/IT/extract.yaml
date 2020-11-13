@@ -4,19 +4,20 @@ recordSelector: null
 recordXPath: //div[contains(@class, 'productCard j-productCard')]
 fields:
   - name: id
+    singleValue: true
     xpath: substring-after(//div[@class='productCard j-productCard j-comparisonItem']/@data-item, 'comp-eProd')
-    singleValue: false
   - name: name
+    singleValue: false
     xpath: //h2[@class='productCard__name']
-    singleValue: false
   - name: productUrl
-    xpath: //div[@class='productCard__content']//a[contains(@onclick, 'trackingProductClick')]/@href
     singleValue: false
+    xpath: //div[@class='productCard__content']//a[contains(@onclick, 'trackingProductClick')]/@href
   - name: gtin
     singleValue: false
+    xpath: //div[@class='productCard j-productCard j-comparisonItem']/@data-flix-ean
   - name: thumbnail
-    xpath: //img[@class='productCard__image  j-comparisonImg']/@src
     singleValue: false
+    xpath: //img[@class='productCard__image  j-comparisonImg']/@src
   - name: aggregateRating
     singleValue: false
   - name: reviewCount
@@ -24,8 +25,8 @@ fields:
   - name: ratingCount
     singleValue: false
   - name: price
-    xpath: //div[contains(@class, 'productCard__price')]
     singleValue: false
+    xpath: //div[contains(@class, 'productCard__price')]
   - name: manufacturer
     singleValue: false
     xpath: //span[@class='productCard__brand']
