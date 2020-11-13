@@ -1,20 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //tr[@class='pr']
 fields:
   - name: id
     singleValue: false
+    xpath: //td[@class='packm']
   - name: searchUrl
-    singleValue: true
+    singleValue: false
+    xpath: ancestor::html//div[@id='pageURL']/@content
   - name: name
     singleValue: false
+    xpath: //div[@class='info_r1']//a
   - name: productUrl
     singleValue: false
+    xpath: //div[@class='info_r1']//a/@produrl
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[@class='pi']/@prodthumb
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -34,6 +39,7 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
+    xpath: //tr[@class='pr']/@index
     type: NUMBER
   - name: rankOrganic
     singleValue: true
