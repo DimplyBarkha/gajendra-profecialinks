@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'coolblue.be',
     prefix: null,
-    url: 'https://www.coolblue.be/en/product/{id}',
+    url: 'https://www.coolblue.be/nl/zoeken?query={id}',
     zipcode: '',
     country: 'BE',
     store: 'coolblue',

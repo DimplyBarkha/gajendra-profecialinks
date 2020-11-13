@@ -9,6 +9,28 @@ module.exports = {
     domain: 'coolblue.be',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    const prodUrl = await context.evaluate(async function() {
+      const productUrlSelector = 'div.product-card div.product-card__title a';
+      const prodUrlNode = document.querySelector(productUrlSelector);
+      if(prodUrlNode && prodUrlNode.hasAttribute('href')) {
+        return `https://www.coolblue.be`+prodUrlNode.getAttribute('href');
+      } else {
+        return null;
+      }
+    });
+  
+    const isProdPage = await context.evaluate(async function() {
+      const prodPageSelector = 'h1 span[class*=product-name]'
+      if(document.querySelector(prodPageSelector)) {
+        return true;
+      } else {
+        return false;
+      }
+    }); 
+  
+    if(prodUrl && !isProdPage){
+      await context.goto(prodUrl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+    }
     await context.evaluate(async function () {
       // append listprice in the DOM
       let getPrice;
