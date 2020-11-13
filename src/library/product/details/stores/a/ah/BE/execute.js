@@ -1,4 +1,3 @@
-ean_gtin
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
