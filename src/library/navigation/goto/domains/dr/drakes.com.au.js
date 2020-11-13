@@ -1,11 +1,10 @@
-
 module.exports = {
-  implements: 'navigation/goto',
+  implements: "navigation/goto",
   parameterValues: {
-    domain: 'drakes.com.au',
+    domain: "drakes.com.au",
     timeout: null,
-    country: 'AU',
-    store: 'metcash_drakes',
-    zipcode: '',
+    country: "AU",
+    store: "drakes",
+    zipcode: "",
   },
 };

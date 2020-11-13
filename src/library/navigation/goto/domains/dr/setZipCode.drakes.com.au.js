@@ -1,10 +1,9 @@
-
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: "navigation/goto/setZipCode",
   parameterValues: {
-    country: 'AU',
-    domain: 'drakes.com.au',
-    store: 'metcash_drakes',
-    zipcode: '',
+    country: "AU",
+    domain: "drakes.com.au",
+    store: "drakes",
+    zipcode: "",
   },
 };
