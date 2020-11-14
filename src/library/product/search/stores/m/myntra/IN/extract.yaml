@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class='results-base']//li[@class='product-base']
+fields: 
+  - name: id
+    SingleValue: false
+    xpath: //li[@class='product-base']/a/@href
+    regExp: (.+)\/(\d+)\/buy
+    regExpReplace: $2
+  - name: productUrl
+    SingleValue: false
+    xpath: //li[@class='product-base']/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.myntra.com$1
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class='product-imageSliderContainer']//picture/img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class='product-productMetaInfo']//h4[@class='product-product']
+  - name: price
+    SingleValue: false
+    xpath: //div[@class='product-productMetaInfo']//div[@class='product-price']//span//span[@class='product-discountedPrice'] | //div[@class='product-productMetaInfo']//div[@class='product-price']//span[not(@class)]/text()
+  - name: brandText
+    SingleValue: false
+    xpath: //div[@class='product-productMetaInfo']//h3[@class='product-brand']  
+  - name: rankOrganic
+    SingleValue: false    
+  - name: rank
+    SingleValue: false
