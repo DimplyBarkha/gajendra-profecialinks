@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: metaKeywords
     singleValue: false
-    xpath: //head[@class='at-element-marker']//meta[contains(@name,'keywords')]/@content
+    xpath: //meta[contains(@name,'keywords')]/@content
   - name: image
     singleValue: false
     xpath: //div[@class='swiper-wrapper']//div[contains(@class,'swiper-slide-active')]//div//img[@class='product-image']/@src
@@ -57,10 +57,8 @@ fields:
     regExp: \"productID\"\s*:\s*\"(.+?)\"
     regExpReplace: $1
   - name: variantCount
-    singleValue: false
-    xpath: //div[@class='no-tablet']//ul[@class='dc-product-swatches-list']//count(li)
-    defaultValue: 0
-    type: NUMBER
+    singleValue: false    
+    defaultValue: '0'    
   - name: variantInformation
     singleValue: false
     xpath: //div[@class='no-tablet']//ul[@class='dc-product-swatches-list']//li[contains(@class,'dc-product-swatch-active')]//span
@@ -73,9 +71,12 @@ fields:
     # "manufacturer":"ASUS"
     regExp: \"manufacturer\":\s*\"(.+?)\",
     regExpReplace: $1
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class='inpage_selector_feature']
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='richmedia-container']//div[contains(@class,'flix-media-flex')]//img/@src    
+    xpath: //div[@id='richmedia-container']//div[contains(@class,'flix-feature-image')]//img/@src
   - name: promotion
     singleValue: false
     xpath: //div[@data-component='avms-tab']//ul[contains(@class,'simple product-offers')]//li  

@@ -79,7 +79,12 @@ const transform = (data) => {
             });
           }
         }
-        row.variants = [{ text: varientIds.join(' | ') }];
+        if (varientIds.length) {
+          row.variants = [{ text: varientIds.join(' | ') }];
+        }
+        else {
+          delete row.variants;
+        }
       }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
