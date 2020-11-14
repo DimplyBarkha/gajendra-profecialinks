@@ -8,4 +8,5 @@ module.exports = {
     domain: 'coop.ch',
     zipcode: "''",
   },
+  
 };

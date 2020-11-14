@@ -10,4 +10,5 @@ module.exports = {
     noResultsXPath: '//h1[contains(text(),"Aucun résultat trouvé")]',
     zipcode: "''",
   },
+  
 };
