@@ -52,8 +52,12 @@ module.exports = {
       specDiv.textContent = specList.join('||');
       document.body.appendChild(specDiv);
 
-      const breadcrumbs = document.querySelector('span.posted_in').innerText.replace(',', ' >').replace(',', ' >');
-      document.querySelector('span.posted_in').setAttribute('breadcrums', breadcrumbs);
+      let breadcrumbs = '';
+      if(document.querySelectorAll('span.posted_in').length > 0) {
+        breadcrumbs = document.querySelector('span.posted_in').innerText.replace(',', ' >').replace(',', ' >');
+        document.querySelector('span.posted_in').setAttribute('breadcrums', breadcrumbs);
+      } 
+      
     });
     await context.extract(productDetails, { transform: transformParam });
   },
