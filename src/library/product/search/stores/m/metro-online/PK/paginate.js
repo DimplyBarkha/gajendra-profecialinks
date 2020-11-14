@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'PK',
     store: 'metro-online',
-    nextLinkSelector: null,
+    nextLinkSelector: "div[class='no-pagination-selector']",
     mutationSelector: null,
-    spinnerSelector: "div[class='loadmorebtn']",
+    spinnerSelector: null,//"div[class='loadmorebtn']",
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,

@@ -30,27 +30,26 @@ const transform = (data, context) => {
           row.rankOrganic = [{ text: orgRankCounter }];
         }
   
-        if (row.name) {
-          row.name.forEach(item => {
-            nameData=item.text;
+        if (row.id) {
+          row.id.forEach(item => {
+            var matches = /.+\/(\d+)/isg.exec(item.text);
+            if (matches){
+                item.text = matches[1];
+            }
+            else{
+                delete row.id;
+            }
           });
         }
-        if (row.brandText) {
-          row.brandText.forEach(item => {
-            brandData=item.text;
-          });
+        if (row.productUrl) {
+            row.productUrl.forEach(item => {
+              item.text = "https://metro-online.pk" + item.text;
+            });
         }
-        if (row.price) {
-          row.price.forEach(item => {
-            item.text = item.text.replace("(Oferta)",'').trim();
-            item.text = item.text.replace(/(\s*\(Precio\s+final\)\s*)+/g, '').trim();
-            // item.text = item.text.replace('S\/ ','');
-            // item.text = item.text.replace(',', '.');
-          });
-        }
-        row.rank = [{ text: rankCounter }];
         
-        row.name=[{text: brandData+' '+nameData}];
+        
+        row.rank = [{ text: rankCounter }];
+                
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));

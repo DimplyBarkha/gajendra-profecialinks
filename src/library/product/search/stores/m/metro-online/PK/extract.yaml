@@ -18,7 +18,7 @@ fields:
     xpath: //h6[@class='productname']//a  
   - name: price
     singleValue: false
-    xpath: //h6[@class='productprice']//a  
+    xpath: //h6[@class='productprice']//a/text()
   - name: rank
     singleValue: false
   - name: rankOrganic
