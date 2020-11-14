@@ -63,6 +63,15 @@ const transform = (data) => {
           item.text = item.text.replace(',', '');
         });
       }
+      if (row.manufacturerDescription) {
+        var arrDesc = [];
+        row.manufacturerDescription.forEach(item => {
+          arrDesc.push(item.text);
+        });
+        if (arrDesc.length) {
+          row.manufacturerDescription = [{ text: arrDesc.join(' ') }];
+        }
+      }
       if (row.variantCount) {
         row.variantCount = [{ text: row.variantCount.length }];
       }
