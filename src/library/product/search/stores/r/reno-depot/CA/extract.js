@@ -37,6 +37,8 @@ async function implementation (
     document.querySelectorAll('.col-xs-6').forEach((el, ind) => {
       if (ind >= 150) {
         el.remove();
+      }  else if (el && el.id && el.id.includes('plumbing_tile')) {
+        console.log('this is a advertisement div - hence ignoring this');
       } else {
         addHiddenDiv(el, 'itemId', el.querySelector('.sku').innerText.replace('Article', '').replace('#', '').trim());
         addHiddenDiv(el, 'rank', ind + 1);
