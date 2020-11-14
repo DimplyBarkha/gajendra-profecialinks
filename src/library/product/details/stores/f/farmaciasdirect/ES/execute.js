@@ -6,7 +6,7 @@ module.exports = {
     store: 'farmaciasdirect',
     domain: 'farmaciasdirect.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//section[contains(@class,'page-not-found')]",
     zipcode: '28001',
   },
 };

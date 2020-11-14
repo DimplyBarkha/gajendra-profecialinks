@@ -3,6 +3,16 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[contains(@class,"product-reference")]
+    regExp: >-
+      [0-9]+
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    # xpath: //ol/li[@class="breadcrumb-item"]
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -15,9 +25,6 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -34,13 +41,14 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@class,"product-description")]/p[not(contains(@class,"title"))] | //div[@class="description-short"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -66,9 +74,6 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -92,6 +97,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //span[@id="reviewCount"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -468,19 +474,19 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
+    # defaultValue: No
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    # defaultValue: No
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    # defaultValue: No
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    # defaultValue: No
   - name: materials
     singleValue: true
     description: Materials used to make the product
@@ -489,10 +495,10 @@ fields:
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
+    # defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    # defaultValue: No
