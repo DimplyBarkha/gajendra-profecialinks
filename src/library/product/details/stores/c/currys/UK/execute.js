@@ -19,14 +19,27 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
+
+  try {
+    await context.click('button#onetrust-accept-btn-handler');
+  } catch (error) {
+    console.log(error.message);
+  }
+
+  try {
+    await context.click('div.long-text-ctl a');
+  } catch (error) {
+    console.log(error.message);
+  }
+
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
+      while (scrollTop !== 5000) {
         await stall(1000);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
+        if (scrollTop === 5000) {
           await stall(5000);
           break;
         }

@@ -60,7 +60,6 @@ const transform = (data) => {
           if (item.text.indexOf('http') < 0) {
             item.text = 'https:' + item.text;
           }
-          item.text = item.text.replace(',', '');
         });
       }
       if (row.manufacturerDescription) {

@@ -73,10 +73,10 @@ fields:
     regExpReplace: $1
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,'richmedia-container')]
+    xpath: //div[contains(@id,'inpage_container')]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='richmedia-container']//div[contains(@class,'feature-image')]//img/@src
+    xpath: //div[@id='inpage_container']//img/@srcset
   - name: promotion
     singleValue: false
     xpath: //div[@data-component='avms-tab']//ul[contains(@class,'simple product-offers')]//li  
