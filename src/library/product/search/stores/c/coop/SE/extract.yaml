@@ -22,3 +22,8 @@ fields:
     SingleValue: true
   - name: rank
     SingleValue: true
+  - name: manufacturer
+    SingleValue: false
+    xpath: //article[contains(@class,"ItemTeaser")]//script
+    regExp: \"manufacturer\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1

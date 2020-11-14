@@ -25,10 +25,18 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(':', '.').trim();
+        });
+      }
       if (row.gtin) {
         var scriptJSON = JSON.parse(row.gtin[0].text);
         if (scriptJSON.id) {
           row.variantId = row.sku = [{ text: scriptJSON.id }];
+        }
+        if (scriptJSON.manufacturer) {
+          row.manufacturer = row.sku = [{ text: scriptJSON.manufacturer }];
         }
         if (scriptJSON.ean) {
           row.gtin = [{ text: scriptJSON.ean }];
@@ -42,8 +50,8 @@ const transform = (data) => {
         if (scriptJSON.image) {
           if (scriptJSON.image.url) {
             var tempUrl = scriptJSON.image.url;
-            if (tempUrl.indexOf('http') < 0) {
-              tempUrl = 'https' + tempUrl;
+            if (tempUrl.indexOf('http:') < 0) {
+              tempUrl = 'https:' + tempUrl;
             }
             row.image = [{ text: tempUrl }];
           }
