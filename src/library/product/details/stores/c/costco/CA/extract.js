@@ -59,15 +59,11 @@ module.exports = {
       const tabDescInfo = getAllXpath(tabDescInfoXpath, 'nodeValue');
       const bulletsXpath = "//div[@class='product-info-description']/ul/li/text()";
       const bulletsInfo = getAllXpath(bulletsXpath, 'nodeValue').join(' || ');
-      console.log('featureDescInfo ********', featureDescInfo);
-      console.log('tabDescInfo ********', tabDescInfo[1]);
-      console.log('bulletsInfo ********', bulletsInfo);
       let finalDescInfo;
       if (tabDescInfo[1].length > 0 && featureDescInfo.length > 0) {
         addElementToDocument('featureBullets', featureDescInfo);
         addElementToDocument('additionalDescBulletInfo', bulletsInfo);
         finalDescInfo = featureDescInfo + ' || ' + tabDescInfo[1] + ' || ' + bulletsInfo;
-        console.log('finalDescInfo ********', finalDescInfo);
         finalDescInfo = finalDescInfo.replace('\n', '||');
         addElementToDocument('added_descriptionText', finalDescInfo);
       }
@@ -101,14 +97,9 @@ module.exports = {
       // xpath for priceValue
       const priceXpath = '//div[contains(@id,"pull-right-price")]/span';
       const priceValue = getAllXpath(priceXpath, 'innerText');
-      console.log('***PriceValue******', priceValue);
-      console.log('PriceValue 0', priceValue[0]);
-      console.log('PriceValue 1', priceValue[1]);
-      console.log('PriceValue 2', priceValue[2]);
       let priceNew;
       if (priceValue.length > 0 && !priceValue[0].includes('- -.- -')) {
         priceNew = [priceValue[1] + '' + priceValue[0]];
-        console.log('***priceNew******', priceNew);
         addElementToDocument('priceValue', priceNew);
       }
 
@@ -123,6 +114,12 @@ module.exports = {
           availabilityText = 'Out of Stock';
         }
         addElementToDocument('availabilityText', availabilityText);
+      }
+
+      const aggregateRating = getXpath("//span[@itemprop='ratingValue']", 'innerText');
+      console.log('aggregateRating', aggregateRating);
+      if (aggregateRating) {
+        addElementToDocument('added_aggregateRating', aggregateRating.replace('.', ','));
       }
 
       let scrollTop = 500;

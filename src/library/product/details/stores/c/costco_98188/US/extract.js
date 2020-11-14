@@ -14,34 +14,24 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    // await context.waitForSelector('div.product-info-description');
-    const videoEle = await context.evaluate(async () => {
-      var videoEle = false;
-      const iframeNode = document.querySelectorAll('.wc-ribbon-button');
-      // const testNode = document.querySelectorAll('iframe.data-iframe-viewed');
-      if (iframeNode.length) {
-        iframeNode.forEach((ele) => {
-          var videoAttr = ele.getAttribute('data-wc-open-content-type')
-          if (videoAttr && videoAttr === 'video-gallery') {
-            videoEle = true;
-          }
-        });
-      }
-      return videoEle;
-    });
-    if (videoEle) {
-      await context.waitForSelector('div#vjs_video_1 video');
-    }
     await context.evaluate(async () => {
       const descNode = document.querySelector('div.product-info-description');
-      const videoNode = document.querySelectorAll('div#vjs_video_1 video');
-      if (videoNode.length) {
-        if (videoNode[0].getAttribute('src')) {
-          addHiddenDiv('product-video', videoNode[0].getAttribute('src'));
+      try {
+        var parentNode = document.getElementsByClassName('syndi_powerpage');
+        if (parentNode && parentNode.length && parentNode[0].shadowRoot) {
+          var shadowRoot = parentNode[0].shadowRoot;
+          if (shadowRoot && shadowRoot.querySelector('video')) {
+            var videoEle = shadowRoot.querySelector('video');
+            videoEle.click();
+            if (videoEle && videoEle.getAttribute('src')) {
+              addHiddenDiv('product-video', videoEle.getAttribute('src'));
+            }
+          }
         }
+      } catch (e) {
       }
       if (descNode && descNode.innerText) {
-        addHiddenDiv('product-desc', descNode.innerText)
+        addHiddenDiv('product-desc', descNode.innerText);
       }
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');

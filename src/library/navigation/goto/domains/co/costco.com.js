@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'costco.com',
     country: 'US',
-    timeout: 40000,
+    timeout: 100000,
     store: 'costco',
     zipcode: '',
   },
