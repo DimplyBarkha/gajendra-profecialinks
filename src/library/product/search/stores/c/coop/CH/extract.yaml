@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class,"list-page__item")]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //a[contains(@class,"productTile")]/@id
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[contains(@class,"productTile")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.coop.ch$1 
+  - name: price
+    SingleValue: false
+    xpath: //dd[@class="productTile__price-value productTile__price-value-lead"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="product-listing__thumbnail-image"]/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: name
+    SingleValue: false
+    xpath: //p[@class="productTile-details__name-value"]/text()
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
+  - name: aggregateRating2
+    xpath: //i[@class="visuallyhidden"]/text()
+    regExp: \W\s(.+) sur 5
+    regExpReplace: $1
+  - name: reviewCount
+    xpath: //span[@itemprop="reviewCount"]/text()

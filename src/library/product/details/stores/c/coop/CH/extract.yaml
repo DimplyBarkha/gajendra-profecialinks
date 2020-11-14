@@ -5,13 +5,14 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //a[contains(@class,"carousel__pagination-item")]/img/@src
+    xpath: //meta[@property="og:image"]/@content
+    # xpath: //a[contains(@class,"carousel__pagination-item")]/img/@src
   - name: imageAlt
     singleValue: false
-    xpath: 
+    xpath: //a[@class="carousel__link carousel__link--preload"]/@title
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
+    xpath: (//img[@class="responsive-image carousel__pagination-item-img"]/@src)[position()>1]
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -23,44 +24,38 @@ fields:
     xpath: //h1//p//text()
   - name: listPrice
     singleValue: false
-    description: The stated undiscounted price for the product
+    xpath: //dd[contains(@class,"price-value--red productBasicInfo")]/text()
   - name: price
     singleValue: false
     xpath: //span[@itemprop="price"]//text()
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    xpath: //span[contains(text(),"Ce article n'est pas disponible pour les ventes en ligne actuellement")]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Description")]//following-sibling::div
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //span[@class="productBasicInfo__productMeta-value-item"]/span/text()
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //span[@itemprop="weight"]//text()
   - name: weightNet
     singleValue: false
-    description: //div[@class="productBasicInfo__quantity-info"]//text()
+    description: 
   - name: weightGross
     singleValue: false
-    description: Gross weight as described on the page
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Poids")]//following-sibling::div/text()[2]
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -72,7 +67,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
-    description: The manufacturer model code (unique) of the product
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Marque d'identification")]//following-sibling::div
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -85,7 +80,7 @@ fields:
     description: Content under "directions" header
   - name: warnings
     singleValue: false
-    description: Content under "warnings" header
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Divers")]//following-sibling::div
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="productBasicInfo__rating"]//span[@itemprop="reviewCount"]//text()
@@ -94,7 +89,8 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@class="reviews__header-average-value"]//text()
+    xpath: //div[@class="rating"]//span[@class="visuallyhidden"]/text()
+    regEx: \b(\w+)\b
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -215,7 +211,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    description: null
+    xpath: count((//img[@class="responsive-image carousel__pagination-item-img"]/@src)[position()>1])
     type: NUMBER
   - name: news
     singleValue: false
@@ -231,10 +227,14 @@ fields:
     xpath: //div[@class="productInformation"]//div[contains(text(),"Ingrédients")]//following-sibling::div
   - name: servingSize
     singleValue: false
-    description: The size of serving Nutritional information is based on.
+    xpath: //a[@class="nutritionInformation-heading__option-link"]/text()
+    regExp: \s\W([^\W]+)
+    regExpReplace: $1
   - name: servingSizeUom
     singleValue: false
-    description: Unit of measure of serving
+    xpath: //a[@class="nutritionInformation-heading__option-link"]/text()
+    regExp: \s\W([^\W]+)
+    regExpReplace: g
   - name: numberOfServingsInPackage
     singleValue: false
     description: Suggested number of servings of the product.
@@ -291,49 +291,57 @@ fields:
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Glucides")]//following::span[1]/span
   - name: totalCarbPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Glucides")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: g
   - name: dietaryFibrePerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fibres alimentaires")]//following::span[1]/span
   - name: dietaryFibrePerServingUom
     singleValue: false
-    description: Unit of Measure Data for Dietary Fibre content
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fibres alimentaires")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: g
   - name: totalSugarsPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"dont sucres")]//following::span[1]/span
   - name: totalSugarsPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Sugar content
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"dont sucres")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: g
   - name: proteinPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Protéines")]//following::span[1]/span
   - name: proteinPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Protein
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Protéines")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: g
   - name: vitaminAPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin A content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin A")]//following::span[1]/span
   - name: vitaminAPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Vitamin A
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin A")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: mg
   - name: vitaminCPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin C content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamine C")]//following::span[1]/span
   - name: vitaminCPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Vitamin C
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamine C")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: mg
   - name: calciumPerServing
     singleValue: false
-    description: Nutritional Information for Calcium content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
   - name: calciumPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Calcium
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: g
   - name: ironPerServing
     singleValue: false
     description: Nutritional Information for Iron content - Usually based on per
@@ -347,18 +355,20 @@ fields:
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
     singleValue: false
-    description: Nutritional Information for Magnesium content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnésium")]//following::span[1]/span
   - name: magnesiumPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Magnesium
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnésium")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: mg
   - name: saltPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Sel")]//following::span[1]/span
   - name: saltPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Salt
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Sel")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: g
   - name: dietaryInformation
     singleValue: false
     description: null
@@ -370,13 +380,13 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
-    description: Suggested storage location for product
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Stockage")]//following-sibling::div
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[@class="productInformation"]//div[contains(text(),"Pays de production")]//following-sibling::div/text()
   - name: allergyAdvice
     singleValue: false
-    description: Allergy information associated with the product
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Ingrédients")]//following-sibling::div/b
   - name: recyclingInformation
     singleValue: false
     description: Recycling information associated with the product
@@ -397,7 +407,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    description: promotion text on product page
+    xpath: //div[@class="productBasicInfo__pricePanel"]//span[@class="productBasicInfo__price-text-saving-inner"]/text()
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information

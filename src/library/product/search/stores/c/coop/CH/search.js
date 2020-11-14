@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'coop.ch',
-    timeout: 80000,
     country: 'CH',
     store: 'coop',
+    domain: 'coop.ch',
     zipcode: "''",
   },
 };
