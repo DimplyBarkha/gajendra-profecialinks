@@ -8,6 +8,10 @@ module.exports = {
     store: 'costco',
     zipcode: '',
   },
+  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
+    const timeout = parameters.timeout ? parameters.timeout : 40000;
+    await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+  },
   // implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
   //   if (zipcode) {
   //     url = `${url}#[!opt!]{"first_request_timeout":60000, "force3000": true, "cookie_jar":[{"name":"invCheckPostalCode","value":${zipcode}}]}[/!opt!]`;
