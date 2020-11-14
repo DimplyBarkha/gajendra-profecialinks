@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: ul.neemu-products-container li.nm-product-item
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //li/@id
+    regExp: nm-product-(.+)
+    regExpReplace: $1
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[contains(@class,"productShowCaseContainer")]/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[@itemprop="price"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //img[@class="nm-product-img"]/@src
+  - name: name
+    SingleValue: false
+    xpath: //h2[@class="nm-product-name"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
+  - name: manufacturer
+    SingleValue: false
+    xpath: //div[contains(@itemtype,"/Brand")]//meta[@itemprop="name"]/@content
