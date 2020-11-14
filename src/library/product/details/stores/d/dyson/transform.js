@@ -27,9 +27,9 @@ const transform = (data) => {
           }
         }
       }
-      if (row.availabilityText && row.availabilityText[0].value != null) {
+      if (row.availabilityText && row.availabilityText[0]) {
         row.availabilityText = [
-          { text: row.availabilityText[0].value ? 'In Stock' : 'Out of Stock' },
+          { text: row.availabilityText[0].text ? 'In Stock' : 'Out of Stock' },
         ];
       }
     }
