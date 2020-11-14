@@ -75,7 +75,7 @@ async function implementation(
     // }
 
       // XPATH Data Extraction For Additional Description Bullet
-      const addDescBulletInfo1 = getAllXpath("//div[@itemprop='description']/p/span/text() | //div[@itemprop='description']/p/text()", 'nodeValue');
+      const addDescBulletInfo1 = getAllXpath("(//div[@itemprop='description']/p/strong/text())[1] | //div[@itemprop='description']/p/span/text() | //div[@itemprop='description']/p/text()", 'nodeValue');
       if (addDescBulletInfo1 != null){
         var abc = addDescBulletInfo1.join(" || ");
         addElementToDocument('id', abc);
