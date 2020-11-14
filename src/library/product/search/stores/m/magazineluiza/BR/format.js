@@ -40,6 +40,11 @@ const transform = (data) => {
           }
         });
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('à vista', '').trim();
+        });
+      }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
