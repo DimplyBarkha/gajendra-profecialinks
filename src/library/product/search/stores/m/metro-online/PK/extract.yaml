@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: "//ul[@class='productsitems clearfix']//div[@class='productdivinner']"
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //h6[@class='productname']//a/@href
+  - name: productUrl
+    singleValue: false
+    xpath: //h6[@class='productname']//a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='productimg']//a//img/@src
+  - name: name
+    singleValue: false
+    xpath: //h6[@class='productname']//a  
+  - name: price
+    singleValue: false
+    xpath: //h6[@class='productprice']//a  
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: true
