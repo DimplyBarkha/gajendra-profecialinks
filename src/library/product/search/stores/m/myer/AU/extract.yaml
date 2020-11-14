@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@data-automation='product-grid']//li[@data-automation='product-grid-item']
+fields:
+  - name: id
+    xpath: //li/@id
+    singleValue: false
+  - name: name
+    xpath: //h3//span[@data-automation='product-name']
+    singleValue: false
+  - name: producturl
+    xpath: //h3/a/@href
+    singleValue: false
+    regExp: (https://www.myer.com.au)?(.+)
+    regExpReplace: https://www.myer.com.au$2
+  - name: brandText
+    xpath: //h3//span[@data-automation='product-brand']
+    singleValue: false    
+  - name: thumbnail
+    xpath: //h3//div[@data-automation='image-placeholder']/img/@src
+    singleValue: false    
+  - name: price
+    xpath: //div[@data-automation="product-price"]//p[@data-automation="product-price-was"]
+    singleValue: false 
+  - name: rankOrganic
+    singleValue: false   
+  - name: rank
+    singleValue: false
