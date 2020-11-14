@@ -5,7 +5,7 @@ recordXPath: //div[contains(@id,"_ProductsList")]//li[contains(@class,"_Product"
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@class="sc-product-card-pdp-link"]/@href
+    xpath: //a[contains(@class,"_Product")]/img/@productId
   
   - name: name
     singleValue: false
@@ -31,7 +31,7 @@ fields:
 
   - name: price
     singleValue: false
-    xpath: //p[contains(@class="PrixUnitaire"]
+    xpath: //p[contains(@class,"PrixUnitaire")]
   - name: manufacturer
     singleValue: true
   - name: soldBy
