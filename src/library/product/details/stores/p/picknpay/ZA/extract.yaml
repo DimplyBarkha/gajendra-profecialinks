@@ -13,7 +13,7 @@ fields:
   singleValue: false
 - name: image
   singleValue: true
-  description: URL of the main product image
+  xpath: (//img[@class="owl-lazy"]/@src)[position()=1]
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
