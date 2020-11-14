@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1//span[contains(@class, 'dbh-product-name')]
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1
@@ -24,6 +24,8 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1//span[contains(@class, 'dbh-brand-name')]
+    regExp: (.*)-.*
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[contains(@class, 'dbh-product-price')]
@@ -39,28 +41,34 @@ fields:
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[contains(@class, 'dbh-product-original')]
     regExp: .*£(\d+)
     regExpReplace: £$1
-  - name: reviewCount
+  - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//meta[@itemprop='reviewCount']/@content
-  - name: rating
+  - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//button[@itemprop='ratingValue']
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, 'description-text-container')]
+    xpath: //div[@id='custom-attr-product-description']/text()
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class, 'description-text-container')]//ul//li)
+  - name: variants
+    singleValue: false
+    xpath: //ul[@id='custom-attr-product-variants-field']//li/text()
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@class, 'dbh-product-color-selector')]//div[contains(@class, 'pw-swatch__item') and contains(@class, 'pw--selected')]//img/@alt
+    xpath: //div[@class='t-product-details__content']//span[contains(text(), 'Selected')]/following-sibling::span
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-first_variant']/text()
   - name: category
     singleValue: false
     xpath: //ul[@id='custom-attr-product-breadcrumb']//li/text()
   - name: availabilityText
     singleValue: false
     xpath: //div[@id='custom-attr-product-availability']/text()
-  - name: size
+  - name: quantity
     singleValue: false
     xpath: //div[@id='custom-attr-product-size']/text()
   - name: variantId
@@ -71,8 +79,22 @@ fields:
     xpath: //div[contains(@class, 'description-text-container')]//div[contains(@class, 'product-item-number')]//*[contains(@class, 'item-number-value')]/text()
   - name: directions
     singleValue: false
-    xpath: //div[@id='editors_notes']/p/text()
+    xpath: //div[@id='custom-attr-product-directions']/text()
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //div[@id='custom-attr-product-image-zoom-feature']/text()
-  
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-weight']/text()
+  - name: warnings
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-warning']/text()
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@id='custom-attr-product-additional-bullet-info']//li/text()
+  - name: materials
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-material']/text()
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-warranty']/text()

@@ -32,6 +32,11 @@ const transform = (data) => {
             element.text = `https:${element.text}`
           });
         }
+        if (row.variantInformation) {
+          row.variantInformation.forEach(x => {
+            x.text = x.text.split(",").join(" / ");
+          });
+        }
 
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
