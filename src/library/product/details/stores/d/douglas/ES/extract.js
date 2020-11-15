@@ -112,7 +112,7 @@ async function implementation (
       const price = getSingleText(priceXpath, document, index - 1);
       addHiddenDiv('my-price', price);
 
-      const availabXpath = "//div[contains(@class,'rd__slider-brand-nav__index__item--active')]";
+      const availabXpath = '//button[@class="rd__back-to-top rd__col--lg-12 rd__product-details__description rd__button rd__button--primary rd__button--md bb__add-chart add2chart"]';
       const availab = getSingleText(availabXpath, document, index - 1);
       addHiddenDiv('my-availab', availab);
 
@@ -165,7 +165,7 @@ async function implementation (
       const quantity = getSingleText(qtyXpath, document, index);
       addHiddenDiv1('my-qty', quantity);
 
-      const variantIdXpath = '//div[@class="rd__blob"]/img/@src';
+      const variantIdXpath = '//div[@class="rd__blob"]/img/@alt';
       const variantId = getSingleText(variantIdXpath, document, index);
       addHiddenDiv1('my-variantId', variantId);
 
@@ -173,7 +173,7 @@ async function implementation (
       const price = getSingleText(priceXpath, document, index);
       addHiddenDiv1('my-price', price);
 
-      const availabXpath = "//div[contains(@class,'rd__slider-brand-nav__index__item--active')]";
+      const availabXpath = '//button[@class="rd__back-to-top rd__col--lg-12 rd__product-details__description rd__button rd__button--primary rd__button--md bb__add-chart add2chart"]';
       const availab = getSingleText(availabXpath, document, index);
       addHiddenDiv1('my-availab', availab);
 

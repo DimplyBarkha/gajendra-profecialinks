@@ -28,21 +28,21 @@ fields:
     xpath: //div[@id="my-price"][last()]
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="my-listPrice"][last()]
+    xpath: //div[@id="my-listPrice"][last()] |(//img[@alt="Precio habitual"]/parent::div)[1] | (//img[@alt="Precio habitual"]/parent::span/parent::span)[1]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id="my-availab"][last()]
+    xpath: //button[@class="rd__back-to-top rd__col--lg-12 rd__product-details__description rd__button rd__button--primary rd__button--md bb__add-chart add2chart"]
+    # xpath: //div[@id="my-availab"][last()]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: In Stock
+    defaultValue: Out of Stock 
   - name: description
     singleValue: false
-    xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
-    # xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
+    #xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"] | //span[@class="rd__copytext rd__copytext--70"]
+    xpath: (//div[@class="rd__checkout-details__section__description"])[1] |  //span[@class="rd__headline rd__headline--80"]//text()
   - name: brandText
     singleValue: false
-    xpath: //meta[@property='og:title']/@content
-    regExp: ^([\w\-]+)
+    xpath: //div[@class="rd__product-header"]//img[contains(@class,'rd__img sd__img')]/@alt
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
@@ -63,8 +63,8 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text()
-    regExp: (?<=\s).*
+    xpath: //div[@class="rd__col sd__no-float"]
+    #regExp: (?<=\s).*
   # - name: packSize
   #   singleValue: false
   #   xpath: //h2[@title]
@@ -94,20 +94,20 @@ fields:
   - name: quantity
     xpath: //div[@id="my-qty"][last()]
     regExp: (\d+) (ML|UN|UD|ST)
-  # - name: variantInformation
-  #   xpath: //h2[@class="rd__headlline rd__headline--80"][contains(text(),'ML') or contains(text(),'UD') or contains(text(),'UD') or contains(text(),'ST')] 
+  - name: variantInformation
+    xpath: //h2[@class="rd__headlline rd__headline--80"][contains(text(),'ML') or contains(text(),'UD') or contains(text(),'UD') or contains(text(),'ST')] 
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="bv_numReviews_text"]
     regExp: (\d+)
-  # - name: pricePerUnit2
-  #   xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
-  #   regExp: >- 
-  #     (.+los\s)(.+)(\w{2})\sa\s(.+)
-  #   regExpReplace: >-
-  #      $4/$2
-  - name: descriptionBullets
-    xpath: count(//ul[@class="rd__list rd__list--20"]/li | //ul[@class="rd__list--130"]/li)
+  - name: pricePerUnit2
+    xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
+    regExp: >- 
+      (.+los\s)(.+)(\w{2})\sa\s(.+)
+    regExpReplace: >-
+       $4/$2
+  # - name: descriptionBullets
+  #   xpath: count(//ul[@class="rd__list rd__list--20"]/li | //ul[@class="rd__list--130"]/li)
   - name: promotion
     xpath: //div[@class="rd__flag rd__flag--160 rd__footer__meta"]
   - name: variantCount
@@ -118,14 +118,30 @@ fields:
     # xpath: //div[@class="rd__blob"]/img/@alt 
     xpath: //div[@id="my-color"][last()]
   - name: customerServiceAvailability
-    singleValue: true
+    singleValue: false
     defaultValue: Yes
   - name: firstVariant
     xpath: (//div[@class="rd__blob"]/img)[1]/@src
-  - name: promotion
-    singleValue: false
-    xpath: //div[@class="rd__container sd__container"]/a[@data-promo]
+    regExp: \d{5,}
+  # - name: promotion
+  #   singleValue: false
+  #   xpath: //div[@class="rd__container sd__container"]/a[@data-promo]
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath:  //ul[@class="rd__list--130"]/li
+    # xpath:  //ul[@class="rd__list--130"]/li
+  - name: shippingInfo
+    singleValue: false
+    xpath: //a[@data-promo="promo | envio_gratis | slot"]/text()
+  - name: variants
+    singleValue: false
+    xpath: //h2[@class="rd__headlline rd__headline--80 rd__list-services__headline"]/text()
+  - name: pricePerUnitUom
+    xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
+    regExp: ML|GR|UD|ST
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@class="sd__bold rd__discount-layer__table__headline rd__list-recommendation rd__footer__meta rd__table-cell--middle rd__form-field__list-headline rd__slider-brand-nav__index__item"]/@href
+    regExp: (.+)
+    regExpReplace: https://douglas.es/$1
+
   
