@@ -17,6 +17,7 @@ async function implementation (
   try{
     await context.waitForSelector('button#onetrust-accept-btn-handler');
     await context.click('button#onetrust-accept-btn-handler');
+    await context.waitForNavigation();
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
   }catch(e){
     //
@@ -39,13 +40,12 @@ async function implementation (
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
-    country: 'AT',
+    country: 'CH',
     store: 'marionnaud',
-    domain: 'marionnaud.at',
-    url: 'https://www.marionnaud.at/search?text={searchTerms}',
-    loadedSelector: '',
-    noResultsXPath: 'not(//div[@class="container-fluid"]/div[@class="more-data-loader"])',
+    domain: 'marionnaud.ch',
+    url: null,
+    loadedSelector: null,
+    noResultsXPath: null,
     zipcode: '',
   },
-  implementation,
 };
