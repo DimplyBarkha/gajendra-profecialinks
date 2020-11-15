@@ -25,8 +25,21 @@ module.exports = {
       let rawtext = body.substring(startIndex + temp.length + 1);
       const endIndex = rawtext.indexOf("}});");
       rawtext = rawtext.substring(0, endIndex + 2);
-      console.log(rawtext);
-      await context.saveToJson("added-json", rawtext);
+
+      let jsonObj = JSON.parse(rawtext);
+
+      if (jsonObj && jsonObj.objContenu && jsonObj.objContenu.lstElements) {       
+        for (let i = 0; i < jsonObj.objContenu.lstElements.length; i++) {         
+          await context.evaluate(function (existingVal, newVal, newId) {
+            existingVal = existingVal.substring(0, existingVal.indexOf('&'));
+            let sel = document.querySelector(`img[src*="${existingVal}"]`)
+            if (sel) {
+              sel.setAttribute('producturl', newVal);
+              sel.setAttribute('productid', newId);
+            }
+          }, jsonObj.objContenu.lstElements[i].objElement.sUrlVignetteProduit, jsonObj.objContenu.lstElements[i].objElement.sUrlPageProduit, jsonObj.objContenu.lstElements[i].objElement.sIdUnique);
+        }
+      }
     }
     catch (error) {
       console.log(error);
