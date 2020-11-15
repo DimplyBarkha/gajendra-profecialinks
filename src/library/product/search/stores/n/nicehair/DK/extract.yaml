@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-gmp-list-name='searched_product_list' or @data-gmp-list-name="Untracked list"]//div[contains(@class,'product-list-data')]
+fields: 
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,'product-list-data')]/@data-product_id
+  - name: productUrl
+    SingleValue: false
+    xpath: //strong[@class='product-name']/a/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class='product-image']//a[@class='product-image']/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: name
+    SingleValue: false
+    xpath: //strong[@class='product-name']
+  - name: price
+    SingleValue: false
+    xpath: //div[@class='price-box']//div[contains(@class,'special-price')]//span[@class='price-including-tax']//span[@class='price']
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1  
+  - name: aggregateRating2
+    SingleValue: false
+    xpath: //div[@class='reviews']//div[@class='rating']/@style
+    regExp: .*width:(\d+)%
+    regExpReplace: $1
