@@ -12,6 +12,8 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //a[contains(@class, "ProductCardVertical__link")][1]/@href
+    regExp: (.+)
+    regExpReplace: https://www.citilink.ru$1
   - name: thumbnail
     singleValue: false
     xpath: //img[contains(@class, "ProductCardVertical__picture")]/@src
@@ -21,6 +23,9 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[@id="import_review_count"]
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="import_search_url"]
   - name: price
     singleValue: false
     xpath: //span[@class = "ProductCardVertical__price-current_current-price"]

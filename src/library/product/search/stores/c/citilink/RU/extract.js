@@ -37,6 +37,7 @@ module.exports = {
         }
         productRatings.forEach((rating, index) => {
           addHiddenDiv('import_average_rating', rating, containers.snapshotItem(index));
+          addHiddenDiv('import_search_url', location.href, containers.snapshotItem(index));
           addHiddenDiv('import_review_count', productReviews[index], containers.snapshotItem(index));
         });
       } catch (error) {
