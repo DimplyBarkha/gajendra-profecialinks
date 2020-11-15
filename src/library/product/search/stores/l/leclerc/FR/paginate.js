@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'leclerc',
-    nextLinkSelector: null,   
+    nextLinkSelector: null,
     domain: 'leclercdrive.fr',
     zipcode: '',
   },

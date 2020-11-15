@@ -8,7 +8,7 @@ module.exports = {
     domain: 'leclercdrive.fr',
     zipcode: '',
   },
-  implementation: async function implementation(
+  implementation: async function implementation (
     inputs,
     parameters,
     context,
@@ -23,16 +23,16 @@ module.exports = {
       const temp = "Utilitaires.widget.initOptions('ctl00_ctl00_mainMutiUnivers_main_ctl04_pnlElementProduit'";
       const startIndex = body.indexOf(temp);
       let rawtext = body.substring(startIndex + temp.length + 1);
-      const endIndex = rawtext.indexOf("}});");
+      const endIndex = rawtext.indexOf('}});');
       rawtext = rawtext.substring(0, endIndex + 2);
 
-      let jsonObj = JSON.parse(rawtext);
+      const jsonObj = JSON.parse(rawtext);
 
-      if (jsonObj && jsonObj.objContenu && jsonObj.objContenu.lstElements) {       
-        for (let i = 0; i < jsonObj.objContenu.lstElements.length; i++) {         
+      if (jsonObj && jsonObj.objContenu && jsonObj.objContenu.lstElements) {
+        for (let i = 0; i < jsonObj.objContenu.lstElements.length; i++) {
           await context.evaluate(function (existingVal, newVal, newId) {
             existingVal = existingVal.substring(0, existingVal.indexOf('&'));
-            let sel = document.querySelector(`img[src*="${existingVal}"]`)
+            const sel = document.querySelector(`img[src*="${existingVal}"]`);
             if (sel) {
               sel.setAttribute('producturl', newVal);
               sel.setAttribute('productid', newId);
@@ -40,10 +40,9 @@ module.exports = {
           }, jsonObj.objContenu.lstElements[i].objElement.sUrlVignetteProduit, jsonObj.objContenu.lstElements[i].objElement.sUrlPageProduit, jsonObj.objContenu.lstElements[i].objElement.sIdUnique);
         }
       }
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
     return await context.extract(productDetails, { transform });
-  }
+  },
 };
