@@ -1,20 +1,24 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: 'div.product-list div.product-tile'
 recordXPath: null
 fields:
   - name: id
     singleValue: false
+    xpath: //span[@class="sku"]
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //div[contains(@class,"name-remark-wrap")]/a
   - name: productUrl
     singleValue: false
+    xpath: //a[@class="product-image-wrap pdp-modal-link"]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //a[@class="product-image-wrap pdp-modal-link"]/img/@data-lazy-src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,8 +29,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //span[contains(@class,"kampanjpris")]/small
   - name: manufacturer
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class="manufacturer"]
   - name: soldBy
     singleValue: true
   - name: endorsementText
