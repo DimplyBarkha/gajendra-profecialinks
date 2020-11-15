@@ -25,3 +25,6 @@ fields:
     xpath: //li[contains(@class,'cd-p-item')]//span[contains(@class,'cd-p-rating-inner')]//@style
     regExp: (.*)width:(.*)%(.*)
     regExpReplace: $2
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]

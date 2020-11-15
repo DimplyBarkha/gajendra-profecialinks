@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'chemistdirect.co.uk',
     prefix: null,
-    url: 'https://www.chemistdirect.co.uk/prd-{id}',
+    url: 'https://www.chemistdirect.co.uk/search/go?w={id}',
     country: 'UK',
     store: 'chemistdirect',
     zipcode: '',

@@ -30,6 +30,17 @@ const transform = (data, context) => {
             ];
           }
 
+          if (row.alternateImages) {
+            row.alternateImages.forEach(item => {
+              if(item.text.indexOf("http") == -1)
+                item.text = "https:" + item.text;
+            });
+          }
+
+          if(row.listPrice){
+            row.listPrice[0].text = (row.listPrice[0].text).replace("Was","").trim()
+          }
+
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));

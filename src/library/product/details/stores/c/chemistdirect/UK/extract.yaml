@@ -14,41 +14,41 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//a[contains(@class,'gallery_thumbnail_image')])[position()>1]//img//@src
+    xpath: (//ul[contains(@class,'cd-product-thumb-list')]//li)[position()>1]//a//@href
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count((//ul[contains(@class,'cd-product-thumb-list')]//li)[position()>1]//a//@href)
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
     xpath: //meta[@name='keywords']//@content
   - name: category
     singleValue: false
-    xpath: (//div[contains(@class,'header_navigation')]//a)[position()>1]
+    xpath: (//ul[contains(@class,'cd-breadcrums-list')]//li//a)[position()>1]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[contains(@class,'product_info_detail')]//h1
+    xpath: (//h1[contains(@class,'cd-product-name')])
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: (//div[contains(@class,'product_detail_avp')])[1]
+    xpath: //span[contains(@class,'cd-p-savings')]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//div[@class='product_detail_price'])[1]
+    xpath: //span[@id='productPrice']
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[contains(@class,'product_detail_price_box')]//input[@type='submit']//@value
-    regExp: In den Warenkorb
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //span[contains(@class,'cd-product-stock')]
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[contains(@class,'header_navigation')]//span
+    xpath: (//h1[contains(@class,'cd-product-name')])
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']//@href
@@ -62,64 +62,51 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='product_description_application_area']
+    xpath: //div[@id='ProductDescription']
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@id='product_description_active_components']//p
+    xpath: //div[@id='Ingredients']
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //p[contains(@class,'products_description_subtitle')]
-    regExp: (.*):(.*)
-    regExpReplace: $2
-  - name: manufacturer
-    singleValue: false
-    xpath: //p[contains(@class,'products_description_subtitle')]
+    xpath: //meta[@itemprop="brand"]//@content
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    xpath: //div[contains(@class,'product_info_feedback_area')]//a
+    xpath: //meta[@itemprop="reviewCount"]//@content
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath: (//div[contains(@class,'product_review_rating_all_box_count')])[1]
+    xpath: //meta[@itemprop="ratingValue"]//@content
   - name: sku
     singleValue: false
-    xpath: //input[@id='product_pzn']//@value
+    xpath: //meta[@name='sailthru.sku']//@content
   - name: variantId
     singleValue: false
-    xpath: //input[@id='product_pzn']//@value
+    xpath: //meta[@itemprop="sku"]//@content
   - name: directions
     singleValue: false
-    xpath: //div[@id='product_description_dosage']//p
+    xpath: //div[@id='Usage/Instructions']
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-    xpath: //div[@id='product_description_contraindication']//p
-  - name: videos
-    singleValue: false
-    description: URLs of videos on page
-    xpath: //div[@id='gallery_products_video']//video//source[@type='video/mp4']//@src
-  - name: imageZoomFeaturePresent
-    singleValue: false
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    defaultValue: No
-    xpath: //div[contains(@class,'MagicZoomPup')]
+    xpath: //div[@id='Warnings']
   - name: promotion
     singleValue: false
     description: promotion text on product page
-    xpath: (//div[@id='view_image']//div[contains(@class,'product_image_overlay')])
+    xpath: //span[contains(@class,'cd-p-saved')]
+    regExp: /[0-9].+/
+    regExpReplace: $1
   - name: quantity
     singleValue: false
-    xpath: //a[contains(@class,'alternative_package_size_box active')]//div[contains(@class,'product_size')]
+    xpath: //span[contains(@class,'cd-product-qty')]
   - name: variantInformation
     singleValue: false
-    xpath: //div[@id='alternative_package_size_container']//a[contains(@class,'active')]//div[contains(@class,'product_size')]
+    xpath: (//button[contains(@class,'cd-product-kits-button')])[1]
   - name: variants
     singleValue: false
-    xpath: //div[@id='alternative_package_size_container']//a//div[contains(@class,'left_container')]
-  # - name: descriptionBullets
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'product_detail_highlights')]//li
+    xpath: //div[contains(@class,'mobile-show')]//div[contains(@class,'cd-product-kits-opts')]//a
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@id='ProductDescription']//ul//li)
