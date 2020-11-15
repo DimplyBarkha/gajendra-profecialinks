@@ -10,6 +10,13 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails, transform }) => {
+
+    try {
+      await context.click('#tab-link-products');
+    }
+    catch (error) {
+      console.log(error);
+    }
     await context.evaluate(async function () {
       const allProducts = document.querySelectorAll('li.product');
       let x;
@@ -43,7 +50,7 @@ module.exports = {
         const div = document.createElement('div');
         div.classList.add('ratingNumber');
         const element = product.querySelector('.bvReviewStars a.productRating');
-        const ratingNumber = element.getAttribute('title').match(/\d?.?\d/)[0];
+        const ratingNumber = element ? element.getAttribute('title').match(/\d?.?\d/)[0] : "";
         div.innerHTML = ratingNumber;
         product.appendChild(div);
       });
