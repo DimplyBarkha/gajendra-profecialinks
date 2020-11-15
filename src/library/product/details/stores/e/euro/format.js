@@ -65,7 +65,7 @@ const transform = (data) => {
       if (row.price) {
         row.price = [
           {
-            text: row.price[0].text.replace(' ', ','),
+            text: row.price[0].text.replace(' ', ''),
           },
         ];
       }

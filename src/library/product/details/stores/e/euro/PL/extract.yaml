@@ -55,7 +55,7 @@ fields:
     xpath: //div[@id='product-top']//div[@class='price-old']
   - name: price
     singleValue: false
-    xpath: //div[@id='product-top']//div[@class='price-normal selenium-price-normal']
+    xpath:  //div[@id='product-top']//div[@class='price-normal selenium-price-normal'] | //section[@id='product-top']//div[@class="product-price"]
   - name: availabilityText
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"availability")]

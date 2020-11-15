@@ -14,8 +14,8 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    const cssProduct = 'ul#menu-product';
-    const cssProductDetails = 'a[data-tab~="opis"]';
+    const cssProduct = '.product-header';
+    const cssProductDetails = 'a[href*="opis"]';
 
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
