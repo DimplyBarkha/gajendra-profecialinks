@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product-view-container")]
+fields:
+  - name: productUrl
+    xpath: //a[@class="umbrella"]/@href
+  - name: thumbnail
+    xpath: //div[contains(@class,"col-sm-5")]/div/img/@src
+  - name: name
+    xpath: //div[@class="product-title"]/@title
+  - name: id
+    xpath: //a[contains(@class,"fa-shopping-cart")]/@data-modal-js-addtocart 
+  - name: reviewCount
+    xpath: 
+    regExp: \d+
+  - name: ratingCount
+    xpath: //a[contains(@class,"fa-shopping-cart")]/@data-modal-rating-count
+    regExp: \d+
+  - name: price
+    singleValue: false
+    xpath: //a[contains(@class,"fa-shopping-cart")]/@data-modal-unit-price
+  - name: aggregateRating2
+    xpath: 
+    regExp:
+    regExpReplace: $1
+  - name: rankOrganic
+  - name: rank
+  - name: sponsored
+    defaultValue: false
