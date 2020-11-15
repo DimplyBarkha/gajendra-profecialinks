@@ -502,5 +502,12 @@ fields:
   - name: productUrl
     singleValue: true
     xpath: //html/head/link[@rel='canonical']/@href
+# Salsify Attributes 
+  - name: shownImages
+    xpath: //div[@class="oralb__row"]//img/@src
+  - name: highQualityImages
+    xpath: //div[@class="oralb__row"]//img/@src
+    regExp: (.*)(wid\=\d+)
+    regExpReplace: $1hei=800
 schema: product/details
 singleRecord: true
