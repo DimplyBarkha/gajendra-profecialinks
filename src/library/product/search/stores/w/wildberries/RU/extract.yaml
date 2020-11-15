@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"j-products-container")]//div[contains(@class,"j-card-item")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"j-card-item")]/@data-catalogercod1s
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"card-item")]//div[contains(@class,"dtlist-inner-brand-name")]//span[contains(@class,"goods-name")]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.wildberries.ru$1    
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//img[contains(@class,"thumbnail")][1]/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//span[contains(@itemprop,"aggregateRating")]/@class
+    regExp: (c-stars-line-lg j-stars stars-line-sm)(\s)(star)(\d.*)
+    regExpReplace: $4
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//span[contains(@itemprop,"aggregateRating")]/@class
+    regExp: (c-stars-line-lg j-stars stars-line-sm)(\s)(star)(\d.*)
+    regExpReplace: $4
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//span[contains(@class,"dtList-comments-count")]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//div[contains(@class,'cataloger-price')]
