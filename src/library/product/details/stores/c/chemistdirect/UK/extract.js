@@ -31,6 +31,7 @@ async function implementation(
     });
   };
   await context.evaluate(async ()=> {
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     GlobalE.ShippingSwitcher.Show()
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       var gle_selectedCountry = document.querySelector("#gle_selectedCountry");
