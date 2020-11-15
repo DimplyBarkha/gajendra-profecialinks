@@ -17,11 +17,20 @@ async function implementation (
   try{
     await context.waitForSelector('button#onetrust-accept-btn-handler');
     await context.click('button#onetrust-accept-btn-handler');
-    await context.waitForNavigation();
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   }catch(e){
     //
   }
+  for(let i=0;i<5;i++){
+    try{
+      await context.waitForSelector('div.more-data-loader__footer>button.more-data-loader__btn');
+      await context.click('div.more-data-loader__footer>button.more-data-loader__btn');
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    }catch(e){
+
+    }
+  }
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
@@ -43,9 +52,10 @@ module.exports = {
     country: 'CH',
     store: 'marionnaud',
     domain: 'marionnaud.ch',
-    url: null,
-    loadedSelector: null,
+    url: 'https://www.marionnaud.ch/de/search?text={searchTerms}',
+    loadedSelector: 'div.container-fluid>div.more-data-loader > div.container-fluid, container-fluid--max-width',
     noResultsXPath: null,
     zipcode: '',
   },
+  implementation,
 };
