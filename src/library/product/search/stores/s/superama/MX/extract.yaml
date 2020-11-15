@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class,"isotope-item")]
+fields:
+  - name: productUrl
+    xpath: //div[@class="upcImage"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.superama.com.mx$1
+    singleValue: false    
+  - name: thumbnail
+    xpath: //img[@class="lazyload"]/@src
+    # regExp: (.*)hd_280x(.*)
+    # regExpReplace: $1hd_560x$2
+    singleValue: false
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //p[@class="block-with-text"]/@title
+    singleValue: false
+    description: The product name
+  - name: price
+    xpath: //p[@class="upcPrice"]/text()[2]
+    singleValue: false
+    description: The offered price for the product
+  - name: id
+    xpath: //div[contains(@class,"add2CartTrigger")]/@data-upc
+    singleValue: false
+    description: Unique id (within this extractor)
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+    type: BOOLEAN
+    singleValue: false
