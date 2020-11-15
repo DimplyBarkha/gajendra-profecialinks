@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+#recordSelector: 'div.category-list-body.js_category-list-body.js_search-results div.cat-prod-row.js_category-list-item'
+recordXPath: //section[@class="category-list"]//div[contains(@class, "category-list-body")]//div[contains(@class, "js_category-list-item")]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.ceneo.pl$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: name
+    singleValue: false
+    xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__desc"]//strong[@class="cat-prod-row__name"]//a
+  - name: price
+    singleValue: false
+    xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__price"]//a//span[contains(@class,"price-format")]
+  - name: id
+    singleValue: false
+    xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a/@href
+    regExp: \d+
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="prod-review__stars"]//span[@class="product-score"]/text()   
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[@class="prod-review__stars"]//span[@class="product-score"]/text()
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="prod-review__stars"]//span[@class="prod-review__qo"]/a
+    regExp: \d+
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a/@href[contains(.,"promotion")]
+    singleValue: false
+    defaultValue: false
+    type: BOOLEAN    
