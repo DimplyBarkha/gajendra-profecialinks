@@ -1,35 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: '//div[@class = "ProductCardCategoryList__grid"]//section/div'
 fields:
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //div[@id="import_average_rating"]
-  - name: brandText
-    singleValue: false
-    xpath: //div[@id="import_product_brandName"]
   - name: id
     singleValue: false
-    xpath: //div[@id="import_product_id"]
+    xpath: //div[contains(@class, "ProductCardVertical")]/@data-product-id
   - name: name
     singleValue: false
-    xpath: //div[@id="import_product_name"]
-  - name: price
-    singleValue: false
-    xpath: //div[@id="import_product_price"]
+    xpath: //div[@class = "ProductCardVertical__name"]
   - name: productUrl
     singleValue: false
-    xpath: //div[@id="import_product_url"]
-  - name: rank
-    singleValue: false
-    xpath: //div[@id="import_product_rank"]
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@id="import_product_rank"]
-  - name: reviewCount
-    singleValue: false
-    xpath: //div[@id="import_product_reviews"]
+    xpath: //a[contains(@class, "ProductCardVertical__link")][1]/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[@id="import_product_thumbnail"]
+    xpath: //img[contains(@class, "ProductCardVertical__picture")]/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="import_average_rating"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@id="import_review_count"]
+  - name: price
+    singleValue: false
+    xpath: //span[@class = "ProductCardVertical__price-current_current-price"]

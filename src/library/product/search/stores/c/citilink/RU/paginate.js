@@ -7,8 +7,8 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.product_category_list div',
-    noResultsXPath: '//h2[contains(text(), "По Вашему запросу")]',
+    loadedSelector: 'div.ProductCardCategoryList__grid-container',
+    noResultsXPath: '//h1[contains(text(),"По Вашему запросу")]',
     openSearchDefinition: {
       template: 'https://www.citilink.ru/search/?text={searchTerms}&page={page}',
     },

@@ -11,9 +11,9 @@ fields:
     xpath: //div[@itemprop = "aggregateRating"]//span[@itemprop = "ratingValue"]//@content
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="preview_list_container"]//li[not(contains(@class, "selected"))]//img/@src
-    regExp: (.*)_.(.*)
-    regExpReplace: $1_b$2
+    xpath: //div[@class ="ImageGallery__nav"]//div[contains(@class, 'slick-cloned') and contains(@data-slick-index, "-")]//img/@src
+    regExp: (.*)_s.(.*)
+    regExpReplace: $1_b.$2
   - name: availabilityText
     singleValue: false
     xpath: //div[@id="import_availability_text"]
@@ -22,7 +22,10 @@ fields:
     xpath: //span[@itemprop = "brand"]/@content
   - name: category
     singleValue: false
-    xpath: //span[contains(@class, "navigation_item") and position() > 2]/@data-breadcrumb-name
+    xpath: //div[@class = "Breadcrumbs" and position() = 1]//a//span/text()
+  - name: subCategory
+    singleValue: false
+    xpath: //div[@class = "Breadcrumbs" and position() > 1]//a//span/text()
   - name: color
     singleValue: false
     xpath: //table[@class = "product_features"]//span[contains(text(), "Цвет")]/parent::th/following-sibling::td
@@ -34,13 +37,13 @@ fields:
     xpath: //table[@class = "product_features"]//span[contains(text(), "Страна производитель")]/parent::th/following-sibling::td
   - name: description
     singleValue: false
-    xpath: //div[@class = "specification_view product_view"]//h2[position() = 2]/following-sibling::div[position() = 1]/p
+    xpath: //div[@class = "AboutTab__description-text"]//p
   - name: image
     singleValue: false
-    xpath: //div[@class="image_gallery"]/div[@class="full_content"]/img/@src
+    xpath: //div[@class ="ImageGallery__content"]//div[contains(@class, 'slick-active')]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class="image_gallery"]/div[@class="full_content"]/img/@alt
+    xpath: //div[@class ="ImageGallery__content"]//div[contains(@class, 'slick-active')]//img/@alt
   - name: listPrice
     singleValue: false
     xpath: //div[@id="import_list_price"]
@@ -52,16 +55,16 @@ fields:
     xpath: //div/@data-flix-mpn
   - name: name
     singleValue: false
-    xpath: //div[@class = "product_header"]/h1/text()
+    xpath: //h1[contains(@class, "ProductHeader__title")]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class = "product_header"]/h1/text()
+    xpath: //h1[contains(@class, "ProductHeader__title")]
   - name: online_price_currency
     singleValue: false
     xpath: //span[@itemprop = "priceCurrency"]/@content
   - name: price
     singleValue: false
-    xpath: concat(//span[@itemprop = "priceCurrency"]/@content, //div[contains(@class,"price_break")])
+    xpath: //span[@class = "ProductHeader__price-default_current-price"]
   - name: productOtherInformation
     singleValue: false
     xpath: //p[@class = "short_description"]
@@ -76,10 +79,7 @@ fields:
     xpath: //span[@itemprop = "sku"]/@content
   - name: specifications
     singleValue: false
-    xpath: //table[@class = "product_features"]//tr[not(@class = "header_row")]//text()
-  - name: technicalInformationPdfPresent
-    singleValue: false
-    xpath: //div[@id="import_document_pdf"]
+    xpath: //div[@class = "Specifications__row"]
   - name: variantCount
     singleValue: false
     xpath: '0'
@@ -91,7 +91,7 @@ fields:
     xpath: //iframe[contains(@class, "full_video")]/@src
   - name: warranty
     singleValue: false
-    xpath: //table[@class = "product_features"]//span[contains(text(), "Гарантия")]/parent::th/following-sibling::td
+    xpath: //div[@id="import_product_warranty"]
   - name: weightNet
     singleValue: false
-    xpath: //table[@class = "product_features"]//span[contains(text(), "Вес")]/parent::th/following-sibling::td
+    xpath: //div[@id="import_product_weight"]
