@@ -1,0 +1,121 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    description: URL of the main product image
+    xpath: //div[not (contains(@class,'slick-vertical'))]/div[@class="slick-list"]//div[@class="slick-slide slick-active slick-current"]/div/div/img/@src
+    regExp: (.+_)(zoom)(.+)
+  - name: imageAlt
+    description: Alt text of the main product image
+    xpath: //div[not (contains(@class,'slick-vertical'))]/div[@class="slick-list"]//div[@class="slick-slide slick-active slick-current"]/div/div/img/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@class,'slick-vertical')]//div[contains(@class,'slick-slide')][position()>1]//img/@src
+    regExp: (.+_)(org)(.jpg)
+    regExpReplace: $1$2_zoom$3
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="breadcrumb full-width"]/a[position()>1]
+  - name: nameExtended
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: concat(//div[@class="pr-in-cn"]/h1/a, ' - ' , //div[@class="pr-in-nm"]/span)
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    xpath: //div[@class="pr-in-cn"]//span[@class="prc-org"]
+  - name: price
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[@class="pr-in-w"]//span[@class="prc-slg"]
+  - name: availabilityText
+    description: Availability as described on page for the selected variant. If there is no availability but the product can be added to cart, this field should be "In Stock"
+    xpath: //div[@id="product-detail-app"]//div[@class="add-to-bs-tx"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="pr-in-dt-cn"]//ul//li[contains(.,' ')] | //div[contains(@class,'pr-desc-content')]
+  - name: descriptionBullets
+    description: Number of ul > li tags in the description
+    xpath: count(//div[@class="pr-in-dt-cn"]//ul//li[contains(.,' ')] | //div[contains(@class,'pr-desc-content')]//ul//li)
+  - name: brandText
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //h1[@class="pr-in-br"]/a
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: //*[@id="product-detail-app"]/div/p/script[contains(.,'gtin13')]
+    regExp: (.+"gtin13":\s")(([^"])+)(.+)
+    regExpReplace: $2
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //*[@id="product-detail-app"]/div/p/script[contains(.,'sku')]
+    regExp: (.+"sku":\s")(([^"])+)(.+)
+    regExpReplace: $2
+  - name: variantId
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)(p-)(\d+)
+    regExpReplace: $3
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //a[@class="rvw-cnt-tx"]
+    regExp: (\d+)
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class="pr-rnr-sm"]/div[@class="pr-rnr-sm-p"]/span
+    regExp: (\d+)(\.)(\d+)
+    regExpReplace: $1,$3
+  - name: shippingInfo
+    description: Shipping information for the product
+    xpath: //div[@class="pr-in-dt-cn"]//ul//li[contains(.,'Bu ürün ')]
+  - name: variantCount
+    description: Number of variants listed
+    defaultValue: "0"
+  - name: color
+    description: A textual description of the colour
+    xpath: //th[contains(.,'Renk')]/following-sibling::td | //div[@class="item-key"][contains(.,'Renk')]/following-sibling::div | //ul//li[contains(.,'reng')]
+    regExp: ([A-Z])\w+
+  - name: manufacturerImages
+    description: Images within the third party description
+    xpath: //div[contains(@class,'pr-desc-content')]//img//@data-src
+    regExp: (.+})(.+)
+    regExpReplace: https://img-trendyol.mncdn.com$2
+  - name: name
+    description: The product name
+    xpath: //div[@class="pr-in-cn"]/h1[@class="pr-in-br"]/div[@class="pr-in-nm"]
+  # - name: productOtherInformation
+  #   description: Any other product information
+  #   xpath: //div[@class="pr-in-dt-cn"]//ul//li[contains(.,' ')]
+  - name: additionalDescBulletInfo
+    xpath: //div[@class="pr-in-dt-cn"]/ul//li
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
