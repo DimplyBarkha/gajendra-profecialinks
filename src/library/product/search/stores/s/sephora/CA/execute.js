@@ -38,9 +38,9 @@ module.exports = {
     country: 'CA',
     store: 'sephora',
     domain: 'sephora.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.sephora.com/search?keyword={searchTerms}',
+    loadedSelector: 'div.css-1bvyrmg, e65zztl0',
+    noResultsXPath: '//h1[contains(@class,"css-1wag3se") and contains(@class,"e65zztl0") and contains(text(),"0 Product results:")]',
     zipcode: '',
   },
 };
