@@ -5,5 +5,10 @@ parameters:
   store: leclerc
   zipcode: ""
 proxy:
-  zone: FRA
-  type: RESIDENTIAL
+  zone: ZFR
+  type: DATA_CENTER
+meta:
+  branches:
+    staging:
+      extractor: 21238b8f-4dff-4c75-a5ab-e31393ff1f15
+      legacyAccountId: c77cb423-f919-4092-848b-9915f9794e9c

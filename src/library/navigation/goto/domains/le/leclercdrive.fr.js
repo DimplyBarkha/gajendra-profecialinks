@@ -27,7 +27,6 @@ module.exports = {
         type: 'IMAGECAPTCHA',
       },
     });
-    await new Promise((resolve) => setTimeout(resolve, 70000));
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
     let captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), span.recaptcha-anchor";
@@ -51,9 +50,10 @@ module.exports = {
       // @ts-ignore
       // eslint-disable-next-line no-undef
       //await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-      await context.solveCaptcha({ type: 'RECAPTCHA', inputElement: '.recaptcha-anchor' });
+      await context.solveCaptcha({ type: 'IMAGECAPTCHA', inputElement: '.recaptcha-anchor' });
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation(timeout);
+      await new Promise((resolve) => setTimeout(resolve, 70000));   
     }
    
   },
