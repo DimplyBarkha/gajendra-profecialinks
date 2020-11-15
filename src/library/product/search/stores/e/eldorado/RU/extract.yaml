@@ -5,7 +5,7 @@ recordXPath: //ul[@data-dy="productsList"]//li[@data-dy="product"]
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //ul[@data-dy="productsList"]//li[@class="sc-1qkffly-0 itBgGy"]//a[@data-dy="title"]/@href
+    xpath: //ul[@data-dy="productsList"]//li//a[@data-dy="title"]/@href
   - name: sku
     singleValue: false
     xpath: //span[@data-dy="article"]
@@ -15,23 +15,23 @@ fields:
     xpath: //li[@data-dy="product"]/@data-id
   - name: reviewCount
     singleValue: false
-    xpath: //ul[@data-dy="productsList"]//li[@class="sc-1qkffly-0 itBgGy"]//a[@data-dy="review"]/text()
+    xpath: //ul[@data-dy="productsList"]//li//a[@data-dy="review"]/text()
     type: NUMBER
   - name: aggregateRating
     singleValue: false
     xpath: //div[@id="average_rating"]
   - name: name
     singleValue: false
-    xpath: //div[@class='sc-1qkffly-6 ivARVy']/a/text()
+    xpath: //ul[@data-dy="productsList"]//*[@data-dy="title"]/text()
   - name: brandText
     singleValue: false
-    xpath: //div[@class='sc-1qkffly-6 ivARVy']/a/text()
+    # xpath: //div[@class='sc-1qkffly-6 ivARVy']/a/text()
   - name: thumbnail
     singleValue: false
-    xpath: //ul[@data-dy="productsList"]//li[@class="sc-1qkffly-0 itBgGy"]//div[@class="sc-1qkffly-2 jyhudN"]/a/img/@src
+    xpath: //ul[@data-dy="productsList"]//li//a/img/@src
   - name: price
     singleValue: false
-    xpath: //ul[@data-dy="productsList"]//li[@class="sc-1qkffly-0 itBgGy"]//div[@class="sc-1qkffly-1 gBkNLX"]//span[@class="sc-1gnxlbs-1 lfjzQt"]
+    xpath: //ul[@data-dy="productsList"]//li//div[@type="available"]//span[1]
   - name: shippingInfo
     singleValue: false
-    xpath: //ul[@data-dy="productsList"]//li[@class="sc-1qkffly-0 itBgGy"]//div[@class="sc-1qkffly-1 gBkNLX"]//div[@class="y3nu4o-0 jOFIas"]
+    xpath: //ul[@data-dy="productsList"]//li//div[@class="y3nu4o-0 jOFIas"]
