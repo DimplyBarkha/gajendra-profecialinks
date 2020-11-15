@@ -10,7 +10,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div.container-fluid>div.more-data-loader > div.container-fluid, container-fluid--max-width',
     loadedXpath: null,
-    noResultsXPath: 'not(//div[@class="container-fluid"]/div[@class="more-data-loader"])',
+    noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
