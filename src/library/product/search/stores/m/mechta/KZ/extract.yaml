@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.catalog_items_list div.aa_sectiontov
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="aa_st_buycredit jq_aa_st_buycredit iprel"]/@jq_id
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[@class="ifont14 j_product_link"]/@href
+  - name: price
+    SingleValue: false
+    xpath: //span[@class="aa_std_bigprice icblack"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //a[@class="aa_st_imglink j_product_link"]/@style
+    regExp: background-image:\s*url\(\'(.+?)\'\)
+    regExpReplace: $1
+  - name: name
+    SingleValue: false
+    xpath: //a[@class="ifont14 j_product_link"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
