@@ -22,18 +22,37 @@ const transform = (data, context) => {
         let text = '';
         row.description.forEach(item => {
           let t = item.text.replace(/\n/g, '||')
-          // item.text.replace(" ","")
-          item.text = item.text.replace(/•/g, '||');
           item.text = item.text.replace(/More Information/, '');
           item.text = item.text.replace(/Description/, '');
         });
       }
 
       if (row.additionalDescBulletInfo) {
+        let rawText = row.additionalDescBulletInfo;
+        let arrayText = rawText[0].text.split('\n');
+        let formattedStr = '';
+        // console.log(text[0].text);
+        for (let i = 0; i < arrayText.length; i++) {
+          // console.log(arrayText[i]);
+          if (i % 2 == 0) {
+            formattedStr += arrayText[i] + ':';
+          }
+          else {
+            if (arrayText.length - 1 != i) {
+              formattedStr += arrayText[i] + '||';
+            }
+            else {
+              formattedStr += arrayText[i];
+            }
+          }
+        }
+        row.additionalDescBulletInfo[0].text = formattedStr;
+      }
+
+      if (row.nameExtended) {
         let text = '';
-        row.additionalDescBulletInfo.forEach(item => {
-          item.text = item.text.replace(/•/g, '||');
-          item.text = item.text.replace(/More Information/, '');
+        row.nameExtended.forEach(item => {
+          item.text = item.text.replace('.', ' ');
         });
       }
 

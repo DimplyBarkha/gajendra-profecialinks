@@ -17,7 +17,7 @@ fields:
     xpath: //div[@class="ProductVariantPrice"]//p[@class="ProductVariantPrice_MainPrice"]//strong
   - name: description
     singleValue: false
-    xpath: //div[@class="ProductVariantBriefDetailsB"]
+    xpath: concat(//div[@class="ProductVariantBriefDetailsB"]//p[@data-e2e="ProductVariantBriefDetails"], //div[@class="ProductTabs"]//div[@id="react-tabs-1"])
   - name: category
     singleValue: false
     xpath: //ol[@class="Breadcrumb"]//li[2]
@@ -50,10 +50,10 @@ fields:
     xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Dimensions')]//following-sibling::span//div
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div//article//div[@class="ProductVariantBriefDetailsB"]//ul//li)
+    xpath: count(//ul[@class="ProductFurtherInfo_attrTable"]//li[@class="ProductFurtherInfo_attrTable__item"])
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div//article//div[@class="ProductVariantBriefDetailsB"]//ul
+    xpath: //ul[@class="ProductFurtherInfo_attrTable"]
   - name: availabilityText
     singleValue: false
     xpath: //*[@id="app-dom-hook"]//div//div[4]//div//div//div[1]//div[4]//div//following-sibling::div
