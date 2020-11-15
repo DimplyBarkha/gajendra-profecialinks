@@ -14,10 +14,12 @@ fields:
     xpath: //div[@class="SearchResultsGrid-ListAddToCartAction"]//input[@name="productCodePost"]/@value
   - name: thumbnail
     singleValue: false
-    xpath: //a[contains(@class,"product-tile-inner__img")]/img/@src
+    xpath: //a[contains(@class,"product-tile-inner__img")]/img/@data-src
   - name: price
     singleValue: false
     xpath: //div[@class="SearchResultsGrid-ListAddToCartAction"]//input[@name="productPostPrice"]/@value
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"rating-stars")]/@data-rating
+    regExp: (.+)
+    regExpReplace: 0
