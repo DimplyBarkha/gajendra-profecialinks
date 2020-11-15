@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div//div[@class="prdct-cntnr-wrppr"]//div[@class="p-card-wrppr"]
 fields:
   - name: paid
-    singleValue: true
+    singleValue: false
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
   - name: brand
-    singleValue: true
+    singleValue: false
     description: The brand name
     example: Panasonic
   - name: category
@@ -16,64 +16,64 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
     xpath: //*[contains(@class,"p-card-wrppr")]//a/@href
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
     xpath: //*[contains(@class,"p-card-wrppr")]//*[@class="p-card-img"]/@src
   - name: name
     description: The product name
     xpath: //*[contains(@class,"p-card-wrppr")]//*[contains(@class,"prdct-desc-cntnr-ttl-w")]/span
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The model code of the product
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
     xpath: //*[contains(@class,"p-card-wrppr")]//div[@class="ratings"]
   - name: reviewCount
-    singleValue: true
+    singleValue: false
     description: The number of reviews
     xpath: //*[contains(@class,"p-card-wrppr")]//div[@class="ratings"]
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the product
     xpath: //*[contains(@class,"p-card-wrppr")]//*[@class="prc-box-sllng"] | //*[contains(@class,"p-card-wrppr")]//*[@class="prc-box-dscntd"]
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
   - name: soldBy
-    singleValue: true
+    singleValue: false
     description: The name of the seller of the item (if available)
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER    
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN    
   - name: id
-    singleValue: true
+    singleValue: false
     description: Unique id (within this extractor)
     xpath: //*[contains(@class,"p-card-wrppr")]/@data-id
   - name: aggregateRating2
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER 
     xpath: //*[contains(@class,"p-card-wrppr")]//div[@class="ratings"]/@sum
