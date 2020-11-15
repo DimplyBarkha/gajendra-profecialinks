@@ -10,7 +10,7 @@ module.exports = {
     loadedSelector: 'div.css-1bvyrmg, e65zztl0',
     noResultsXPath: '//h1[contains(@class,"css-1wag3se") and contains(@class,"e65zztl0") and contains(text(),"0 Product results:")]',
     openSearchDefinition: null,
-    domain: 'sephora.ca',
+    domain: 'sephora.com',
     zipcode: '',
   },
 };

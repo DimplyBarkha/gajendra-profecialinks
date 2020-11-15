@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'sephora',
     transform,
-    domain: 'sephora.ca',
+    domain: 'sephora.com',
     zipcode: '',
   },
 };
