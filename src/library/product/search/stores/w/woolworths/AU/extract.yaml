@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[contains(@class,"shelfProductTile")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@class="shelfProductTile-imageWrapper"]/img/@src
+    regExp: \d{4,}
+  - name: rankOrganic
+    singleValue: false 
+  - name: name
+    singleValue: false
+    xpath: //a[@class="shelfProductTile-imageWrapper"]/img/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="shelfProductTile-imageWrapper"]/@href 
+    regExp: (.+)
+    regExpReplace: https://www.woolworths.com.au$1
+  - name: thumbnail
+    singleValue: true
+    xpath: //a[@class="shelfProductTile-imageWrapper"]/img/@src 
+  - name: aggregateRating
+    singleValue: false
+    xpath: 
+  - name: reviewCount
+    singleValue: false
+    xpath: 
+  - name: price
+    singleValue: false
+    xpath: concat(//span[@class="price-symbol"],//span[@class="price-dollars"],'.',//span[@class="price-cents"])
+  - name: rank
+    singleValue: false
