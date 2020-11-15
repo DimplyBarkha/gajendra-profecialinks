@@ -6,7 +6,7 @@ module.exports = {
     store: 'jccampbellelectrics',
     domain: 'jccampbellelectrics.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"page-title")][contains(.,"the page was not found")]',
     zipcode: '',
   },
 };
