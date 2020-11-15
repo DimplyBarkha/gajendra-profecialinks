@@ -1,6 +1,5 @@
 
 module.exports = {
-  
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'CH',

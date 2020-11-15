@@ -9,6 +9,5 @@ module.exports = {
     loadedSelector: 'ul.list-page__content li',
     noResultsXPath: '//h1[contains(text(),"Aucun résultat trouvé")]',
     zipcode: "''",
-  },
-  
+  }, 
 };
