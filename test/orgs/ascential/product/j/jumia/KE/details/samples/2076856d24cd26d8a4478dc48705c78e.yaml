@@ -2,7 +2,7 @@ input:
   _url: http://jumia.co.ke
   SKU: CO453OT09PLFLNAFAMZ
 extractions:
-  - html: https://workbench.import.io/html/run=acf16475-887c-4dc9-b017-8bf4f76c526a/task=13f16c57-6124-4019-907d-a8a21a248985/e47ad025-eb89-42b1-9efc-145770ccd281.html
+  - html: https://workbench.import.io/html/run=5823e79e-3cb8-4ca4-9065-3744bcffcdb9/task=120c2b1b-751a-43c0-a9c3-73b3cb6b811b/d36afcbd-2b1e-474c-8192-98d1b3c25ed6.html
     extractionConfigId: product/details/stores/j/jumia/KE/extract
     data:
       - group:
@@ -87,31 +87,15 @@ extractions:
               - text: https://www.jumia.co.ke/coca-cola/
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/a[1]/@href
             specifications:
-              - text: "SKU: CO453OT09PLFLNAFAMZ"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[1]
-              - text: "Main Material: -"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[2]
-              - text: "Size (L x W x H cm): -"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[3]
-              - text: "Type: Carrefour Beverages"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[4]
-              - text: "Weight (kg): 500"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[5]
-              - text: "Shop Type: Jumia Mall/Food"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[6]
+              - text: "SKU: CO453OT09PLFLNAFAMZ,Main Material: -,Size (L x W x H cm): -,Type:
+                  Carrefour Beverages,Weight (kg): 500,Shop Type: Jumia
+                  Mall/Food"
+                xpath: /html/body/div[2]
             productOtherInformation:
-              - text: "Product Name: Fanta Orange Pet 500 ML"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[1]
-              - text: "Brand Name: Fanta"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[2]
-              - text: "Product Type: Beverages"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[3]
-              - text: "Quality: Top Quality"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[4]
-              - text: Affordable Price
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[5]
-              - text: Fanta Orange Soda- 500ml
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[2]/div[1]/div[1]
+              - text: "Product Name: Fanta Orange Pet 500 ML,Brand Name: Fanta,Product Type:
+                  Beverages,Quality: Top Quality,Affordable Price,Fanta Orange
+                  Soda- 500ml"
+                xpath: /html/body/div[3]
             image:
               - text: https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/16/310721/1.jpg?7065
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
@@ -130,8 +114,6 @@ extractions:
                 raw: "1"
                 locale: en_KE
                 value: 1
-            quantity:
-              - text: "1"
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -145,4 +127,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: No
         xpath: /html
-    timestamp: 1605181278369
+    timestamp: 1605514179720

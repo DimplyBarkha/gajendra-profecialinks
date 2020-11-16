@@ -64,7 +64,6 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    defaultValue: '1'
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
@@ -411,7 +410,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //h2[contains(text(), 'Specifications')]//following-sibling::ul/li
+    xpath: //div[@class='specadded']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -432,7 +431,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //h2[contains(text(), 'Key Features')]//following-sibling::div/ul/li | //h2[contains(text(), 'What’s in the box')]//following-sibling::div
+    xpath: //div[@class='otheradded']
   - name: packaging
     singleValue: true
     description: Packaging information

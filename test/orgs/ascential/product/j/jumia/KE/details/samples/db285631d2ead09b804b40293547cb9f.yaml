@@ -2,7 +2,7 @@ input:
   _url: http://jumia.co.ke
   SKU: LI908DR0DQYJ8NAFAMZ
 extractions:
-  - html: https://workbench.import.io/html/run=acf16475-887c-4dc9-b017-8bf4f76c526a/task=f0adcf0b-9b5a-40b0-827f-dfcaa922b917/5c778003-376c-4df9-af90-56b7c20e2807.html
+  - html: https://workbench.import.io/html/run=5823e79e-3cb8-4ca4-9065-3744bcffcdb9/task=e991527f-1992-489a-96d6-f58ba04398ba/1043234c-84dd-4099-8b81-9af9cca0da35.html
     extractionConfigId: product/details/stores/j/jumia/KE/extract
     data:
       - group:
@@ -108,29 +108,18 @@ extractions:
               - text: https://www.jumia.co.ke/-lipton/
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/a[1]/@href
             specifications:
-              - text: "SKU: LI908DR0DQYJ8NAFAMZ"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[1]
-              - text: "Main Material: -0"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[2]
-              - text: "Weight (kg): 450"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[3]
+              - text: "SKU: LI908DR0DQYJ8NAFAMZ,Main Material: -0,Weight (kg): 450"
+                xpath: /html/body/div[2]
             productOtherInformation:
               - text: Lipton Yellow Label loose black tea bags with a strong, rich taste,
-                  intense colour and invigorating aroma.
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[1]
-              - text: Golden Harvest of sun-ripened top tea leaves
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[2]
-              - text: Feel awakened and uplifting your mood
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[3]
-              - text: Get the best from your brew in 2 minutes, adding the tea bag first then
-                  water so the leaves can unleash their flavour.
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[4]
-              - text: Lipton Yellow Label Tea with only 100% Rainforest Alliance certified tea.
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[5]
-              - text: For a taste of sunshine, enjoy it hot
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[6]
-              - text: Lipton Yellow Label Black Loose Tea - 450g
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[2]/div[1]/div[1]
+                  intense colour and invigorating aroma.,Golden Harvest of
+                  sun-ripened top tea leaves,Feel awakened and uplifting your
+                  mood,Get the best from your brew in 2 minutes, adding the tea
+                  bag first then water so the leaves can unleash their
+                  flavour.,Lipton Yellow Label Tea with only 100% Rainforest
+                  Alliance certified tea.,For a taste of sunshine, enjoy it
+                  hot,Lipton Yellow Label Black Loose Tea - 450g
+                xpath: /html/body/div[3]
             image:
               - text: https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/23/09282/1.jpg?9305
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
@@ -152,8 +141,6 @@ extractions:
             coupon:
               - text: 49%
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[3]/div[1]/span[2]/@data-disc
-            quantity:
-              - text: "1"
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -167,4 +154,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: No
         xpath: /html
-    timestamp: 1605181276992
+    timestamp: 1605514179488

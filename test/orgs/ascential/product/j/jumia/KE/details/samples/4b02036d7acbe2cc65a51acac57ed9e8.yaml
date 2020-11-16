@@ -2,7 +2,7 @@ input:
   _url: http://jumia.co.ke
   SKU: CE996OT00I5C1NAFAMZ
 extractions:
-  - html: https://workbench.import.io/html/run=acf16475-887c-4dc9-b017-8bf4f76c526a/task=5bb7c4bf-328d-4076-8bd6-9be99f8b0b8d/3f496440-91fd-41a7-8fd7-b50f4b7a6b00.html
+  - html: https://workbench.import.io/html/run=5823e79e-3cb8-4ca4-9065-3744bcffcdb9/task=f1f8c7fe-0042-497d-a927-f26e7c1b8da3/f9f467b5-6b4e-4db5-94d8-5c88c0bc8fc6.html
     extractionConfigId: product/details/stores/j/jumia/KE/extract
     data:
       - group:
@@ -85,29 +85,14 @@ extractions:
               - text: https://www.jumia.co.ke/-ceres/
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/a[1]/@href
             specifications:
-              - text: "SKU: CE996OT00I5C1NAFAMZ"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[1]
-              - text: "Main Material: N/A"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[2]
-              - text: "Type: Carrefour Beverages"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[3]
-              - text: "Weight (kg): 1"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[4]
-              - text: "Shop Type: Jumia Mall/Food"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[3]/div[1]/ul[1]/li[5]
+              - text: "SKU: CE996OT00I5C1NAFAMZ,Main Material: N/A,Type: Carrefour
+                  Beverages,Weight (kg): 1,Shop Type: Jumia Mall/Food"
+                xpath: /html/body/div[2]
             productOtherInformation:
-              - text: "Product Name: Ceres Delight Juice Orange 1L"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[1]
-              - text: "Brand Name: Ceres"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[2]
-              - text: "Product Type: Beverages"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[3]
-              - text: "Quality: Top Quality"
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[4]
-              - text: Affordable Price
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[1]/div[1]/div[1]/ul[1]/li[5]
-              - text: Delight Juice Orange 1l
-                xpath: /html/body/div[1]/main[1]/div[3]/div[2]/section[1]/div[2]/article[2]/div[1]/div[1]
+              - text: "Product Name: Ceres Delight Juice Orange 1L,Brand Name: Ceres,Product
+                  Type: Beverages,Quality: Top Quality,Affordable Price,Delight
+                  Juice Orange 1l"
+                xpath: /html/body/div[3]
             image:
               - text: https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/00/846721/1.jpg?4616
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
@@ -129,8 +114,6 @@ extractions:
             coupon:
               - text: 21%
                 xpath: /html/body/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[3]/div[1]/span[2]/@data-disc
-            quantity:
-              - text: "1"
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -144,4 +127,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: No
         xpath: /html
-    timestamp: 1605181275893
+    timestamp: 1605514178666
