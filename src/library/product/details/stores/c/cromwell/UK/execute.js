@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'cromwell',
     domain: 'cromwell.co.uk',
-    loadedSelector: 'div.Root_MainContent.container-fluid.container',
+    loadedSelector: 'div.row.InfoB',
     noResultsXPath: null,
     zipcode: '',
   },
