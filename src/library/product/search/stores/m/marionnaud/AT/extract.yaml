@@ -1,23 +1,33 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,"more-data-loader")]//div[contains(@class,'product-tile__wrapper')]
 fields:
   - name: id
     singleValue: false
+    xpath: //@product-tile-id
   - name: searchUrl
     singleValue: true
   - name: name
+    xpath: //@product-tile-name
     singleValue: false
   - name: productUrl
-    singleValue: false
+    xpath: //@product-tile-url
   - name: gtin
+    xpath: //img[@class="product-tile__image"]/@src
+    regExp: \/medias.*\/(\d+)\.*
+    regExpReplace: $1
     singleValue: false
   - name: thumbnail
-    singleValue: false
+    xpath: //img[@class="product-tile__image"]/@src
+    regExp: (\/medias.*)
+    regExpReplace: https://www.marionnaud.at$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
+    xpath: //div[@data-ref="stars"]/@data-rating
+    regExp: (\d+)\.?\,?(\d+)?
+    regExpReplace: $1,$2
     singleValue: false
   - name: reviewCount
     singleValue: false
@@ -25,6 +35,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //@product-tile-price
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -43,6 +54,7 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
+    defaultValue: 'false'
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER
