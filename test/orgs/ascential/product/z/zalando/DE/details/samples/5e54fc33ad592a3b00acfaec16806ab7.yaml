@@ -1,0 +1,59 @@
+input:
+  _url: http://zalando.de
+  URL: https://en.zalando.de/carhartt-wip-philis-backpack-rucksack-black-c1454o003-q11.html
+extractions:
+  - html: https://workbench.import.io/html/run=6f2d5b79-5c13-4d6b-8b95-52facef16c3c/task=b3b86789-2d75-456c-b3b3-a96a8d4f2577/ac3c64df-bf4e-4cf6-b475-f7a0c329840a.html
+    extractionConfigId: product/details/stores/z/zalando/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://img01.ztat.net/article/spp-media-p1/a90572096be93fb49acd017086f53a8e/7811fb4386ec4b6f8d241cd9fae0beb2.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Carhartt WIP - PHILIS BACKPACK - Rucksack - black
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://img01.ztat.net/article/spp-media-p1/a60b35cef91c3e45b58cb974c4408ca5/9248e91fa544408ba2d4f7e56eb4c87f.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/551961cae04e308692c3aa860e61002e/85111301e1164b31bfb89dc63efb9771.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/90add05e3965362d9ad38a9d4f127848/50c1a4666d5c4e2e8e5bd535193506b3.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/b8b47184b8fa3e4c8fff6aa6fd377088/48b21155a04a4b908f6ce7fe8da4afee.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/be9c596ddfdd377d9fd1aff94035506a/d4cf1de4d4e04adfa0e06adb29ff8187.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+            nameExtended:
+              - text: Carhartt WIP - PHILIS BACKPACK - Rucksack - black
+                xpath: /html/body/div[9]
+            price:
+              - text: 87,45 €
+                xpath: /html/body/div[8]/@price
+            manufacturer:
+              - text: Carhartt WIP
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
+            sku:
+              - text: C1454O003-Q11
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
+            variantCount:
+              - text: "1"
+                xpath: /html/body/div[10]
+            color:
+              - text: black
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
+            name:
+              - text: PHILIS BACKPACK - Rucksack
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
+            brandLink:
+              - text: https://en.zalando.de/carhartt/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            materials:
+              - text: |-
+                  Outer material: Polyester
+                  Lining: Textile
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
+            imageZoomFeaturePresent:
+              - text: "true"
+                xpath: /html/body/div[11]
+        xpath: /html
+    timestamp: 1605001632921

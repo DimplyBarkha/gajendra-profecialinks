@@ -5,8 +5,8 @@ module.exports = {
     country: 'DE',
     store: 'zalando',
     domain: 'zalando.de',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'x-wrapper-re-1-5 button[id="picker-trigger"]',
+    noResultsXPath: '//section[@lang="en"]/h1[contains(text(), "We couldn")]',
     zipcode: '',
   },
 };
