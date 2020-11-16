@@ -15,10 +15,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
 
     let scrollTop = 0;
-    const scrollLimit = 7000;
+    const scrollLimit = 5000;
     while (scrollTop <= scrollLimit) {
       await stall(1000);
-      scrollTop += 1000;
+      scrollTop += 500;
       window.scroll(0, scrollTop);
     }
   });
