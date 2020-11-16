@@ -5,28 +5,46 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-quickview"]/a/@href
+    regExp: .*\/p\/(\d.*)
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-infos"]//div[@class="shelf-title"]
   - name: productUrl
     singleValue: false
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-quickview"]/a/@href
   - name: gtin
     singleValue: false
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-quickview"]/a/@href
+    regExp: .*\/p\/(\d.*)
+    regExpReplace: $1
   - name: thumbnail
     singleValue: false
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-image"]/img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-rating"]/div[@id="aggregateRatingNormalized"]
   - name: reviewCount
     singleValue: false
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-rating"]//span[contains(@class,"ts-shelf-rate-count")]/span
+    regExp: 0
+    regExpReplace: ""
   - name: ratingCount
     singleValue: false
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-rating"]//span[contains(@class,"ts-shelf-rate-count")]/span
+    regExp: 0
+    regExpReplace: ""
   - name: price
     singleValue: false
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-prices"]/div[@class="shelf-price-por"]/span
   - name: manufacturer
     singleValue: true
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-brand"]
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -35,14 +53,17 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/@data-rank-number
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/@data-rank-number
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
+    defaultValue: false
   # - name: totalRecordCount
-  #   singleValue: true 
+  #   singleValue: true
   #   type: NUMBER
