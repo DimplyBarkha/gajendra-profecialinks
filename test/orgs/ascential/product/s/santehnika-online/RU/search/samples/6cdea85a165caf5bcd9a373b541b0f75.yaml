@@ -1,0 +1,84 @@
+input:
+  keywords: салфетки
+  _url: http://santehnika-online.ru
+extractions:
+  - html: https://workbench.import.io/html/run=a5fa82b1-a9aa-40af-a2e0-876590479a0e/task=6ab1f73b-bcf8-4e84-9be6-c396d2276643/879a1ecc-fa75-498f-b98e-42d08fce12d2.html
+    extractionConfigId: product/search/stores/s/santehnika-online/RU/extract
+    data:
+      - group:
+          - id:
+              - text: "665679"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/@data-id
+            name:
+              - text: |-
+                  Салфетки Tork Premium Xpressnap
+                  15850 N4 21,6х16,5 (Блок: 8 уп. п…
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://santehnika-online.ru/product/salfetki_tork_premium_xpressnap_15850_n4_21_6kh16_5_blok_8_up_po_5_pachek_po_200_sht_/
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/@producturl
+            gtin:
+              - text: "242041"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/text()[5]
+            thumbnail:
+              - text: https://s41917.cdn.ngenix.net/imo/transform/profile=388x388/upload/iblock/0ad/0ad8dd4802c68574b4761b8c7244ca70.JPG
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/@productimg
+            price:
+              - text: 7 250 ₽
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/a[1]/button[1]/div[1]/div[1]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: ru_RU
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: ru_RU
+                value: 1
+            searchUrl:
+              - text: https://santehnika-online.ru/aksessuary_public/raskhodnye_materialy/salfetki/
+                xpath: /html/body/div[14]
+          - id:
+              - text: "665683"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/@data-id
+            name:
+              - text: |-
+                  Салфетки Tork Universal Xpressnap
+                  10840 N4 21,6х33 (Блок: 8 уп. по …
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://santehnika-online.ru/product/salfetki_tork_universal_xpressnap_10840_n4_21_6kh33_blok_8_up_po_5_pachek_po_225_sht_/
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]/@producturl
+            gtin:
+              - text: "242042"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[2]/text()[5]
+            thumbnail:
+              - text: https://s41917.cdn.ngenix.net/imo/transform/profile=388x388/upload/iblock/951/9511937a7fc671a4e09f761f765a0929.JPG
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/@productimg
+            price:
+              - text: 7 630 ₽
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/a[1]/button[1]/div[1]/div[1]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: ru_RU
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[2]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: ru_RU
+                value: 2
+            searchUrl:
+              - text: https://santehnika-online.ru/aksessuary_public/raskhodnye_materialy/salfetki/
+                xpath: /html/body/div[14]
+        xpath: /html
+    timestamp: 1605550410095
