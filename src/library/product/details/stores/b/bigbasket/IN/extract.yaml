@@ -1,0 +1,92 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@id="carousel"]/div[1]/img/@src
+    regExp: (.+)/p/(.+)/(.+)
+    regExpReplace: $1/p/xxl/$3
+  - name: imageAlt
+    xpath: //div[@id="carousel"]/div[1]/img/@alt
+  - name: category
+    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1]/text()
+  - name: name
+    xpath: //h1
+  - name: nameExtended
+    xpath: //h1 | //a[@context="brandlabel"]
+  - name: price
+    xpath: //td[@data-qa="productPrice"]
+  - name: listPrice
+    xpath: '//div[@id="price"]//td[contains(text(),"MRP: ")]/following-sibling::td'
+  - name: availabilityText
+    xpath: //div[@data-qa="addToBasket"]/span
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: brandText
+    xpath: //a[@context="brandlabel"]
+  - name: brandLink
+    xpath: //a[@context="brandlabel"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.bigbasket.com$1
+  - name: manufacturer
+    xpath: //body/@manufacture
+    regExp: :\s(.+)
+    regExpReplace: $1
+  - name: description
+    xpath: //span[contains(text(),"About the Product")]/parent::div/following-sibling::div[1]
+  - name: variantId
+    xpath: //div[@id='price']//table/tbody/@id
+  - name: variantInformation
+    xpath: //div[@class="variant-information"]
+  - name: variantCount
+    xpath: count(//div[@class="_1LiCn"]/div[position()>1])
+  - name: variants
+    xpath: //div[@class="variant"]
+  - name: alternateImages
+    xpath: //div[contains(@id,"thumb")][position()>1]//img/@src
+    regExp: (.+)/p/(.+)/(.+)
+    regExpReplace: $1/p/xxl/$3
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@id,"thumb")][position()>1]//img/@src)
+  - name: ratingCount
+    xpath: //div[contains(@class,"_1AXTE")]/span
+    regExp: (\d+)\s{1,}Reviews
+    regExpReplace: $1
+  - name: aggregateRating
+    xpath: //div[contains(@class,"_1AXTE")]/div
+  - name: countryOfOrigin
+    xpath: //body/@country
+    regExp: :\s(.+)
+    regExpReplace: $1
+  - name: ingredientsList
+    xpath: //span[contains(text(),"Ingredients")]/parent::div/following-sibling::div[1]
+  - name: promotion
+    xpath: "//td[contains(text(),'You Save: ')]/following-sibling::td"
+  - name: gtin
+    xpath: //body/@gtin
+    regExp: :\s(.+)
+    regExpReplace: $1
+  - name: firstVariant
+    xpath: //div[@class='first-variant']
+  - name: video
+    xpath: //iframe[contains(@src,'video')]/@src
+  - name: quantity
+    xpath: //div[@class="variant-information"]
+  - name: directions
+    xpath: //span[contains(text(),"HOW TO USE")]/parent::div/following-sibling::div[1] | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]
+    # //static
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: No
