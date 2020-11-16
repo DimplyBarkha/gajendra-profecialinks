@@ -40,10 +40,10 @@ const transform = (data) => {
         row.sku = [{ text: parseInt(sku) }];
       }
 
-      if (row.variantId) {
-        const variantId = row.variantId[0].text;
-        row.variantId = [{ text: parseInt(variantId) }];
-      }
+      // if (row.variantId) {
+      //   const variantId = row.variantId[0].text;
+      //   row.variantId = [{ text: parseInt(variantId) }];
+      // }
 
       if (row.mpc) {
         row.mpc = [{ text: row.mpc[0].text.replace('Modelo', '') }];

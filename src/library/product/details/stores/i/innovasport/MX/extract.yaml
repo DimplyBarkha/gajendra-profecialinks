@@ -45,7 +45,8 @@ fields:
     regExp: (.+)\/(\d+)
     regExpReplace: $2
   - name: variantId
-    xpath: //a/@data-option-code
+    type: text
+    xpath: //a[contains(@class, 'product-size__option')]/@data-option-code
   - name: alternateImages
     xpath: ancestor::html//div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[position()>1]/img/@src
     regExp: (.+)
