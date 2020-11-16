@@ -32,15 +32,7 @@ async function implementation(
       console.log(`${selector} did not load at all`)
     }
   }
-  // const checkExistance = async (selector) => {
-  //   return await context.evaluate(async (currentSelector) => {
-  //     return await Boolean(document.querySelector(currentSelector));
-  //   }, selector);
-  // };
   addOptionalWait('div[class="product-item-header"] > a');
-  // const selector = 'div[class="product-item-header"] > a';
-  // const isPresent = checkExistance(selector);
-  // console.log(`value of the selector ${isPresent}`)
   await context.evaluate(() => {
     const clickDiv = document.querySelector('div[class="product-item-header"] > a');
     if (clickDiv) {
@@ -51,21 +43,6 @@ async function implementation(
       cookiesDiv.click();
     }
   })
-  // if (isPresent) {
-  //   await context.click(selector);
-  //   console.log(`clicked the selector successfully ${selector}`)
-  //   await context.waitForNavigation({ timeout: 40000 });
-  // } else {
-  //   console.log(`not able to click the selector ${selector}`)
-  // }
-  // const cookieSelector = 'button[id="cookies-accept"]'
-  // const isButtonPresent = checkExistance(cookieSelector);
-  // if (isButtonPresent) {
-  //   await context.click(cookieSelector);
-  //   console.log(`${cookieSelector} -- clicked successfully`);
-  // } else {
-  //   console.log(`${cookieSelector} not clicked at all`);
-  // }
   return await context.extract(productDetails, { transform });
 }
 
