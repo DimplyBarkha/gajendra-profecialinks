@@ -8,15 +8,13 @@ fields:
     xpath: //a[@class="product-tile-srp__main-link"]/@data-anchor
   - name: name
     singleValue: false
-    manualSelector: h3.product-tile-srp__title
+    manualSelector: div.product-tile-srp__middle-content h3.product-tile-srp__title.grid--grid-view__item
   - name: productUrl
     singleValue: false
-    xpath: //a[@class="product-tile-srp__main-link"]/@href
-    regExp: (.*)
-    regExpReplace: https://www.canadiantire.ca$1
+    xpath: concat('https://www.canadiantire.ca', //a[@class="product-tile-srp__main-link"]/@href)
   - name: gtin
     singleValue: false
-    manualSelector: p.product-tile-srp__product-id
+    manualSelector: div.product-tile-srp__middle-content p.product-tile-srp__product-id.grid--grid-view__item
     regExp: ^#(.*)
     regExpReplace: $1
   - name: thumbnail
@@ -30,6 +28,8 @@ fields:
   - name: aggregateRating2
     singleValue: false
     manualSelector: div.bv-off-screen
+    regExp: (\d.*?)(\so)
+    regExpReplace: $1
   - name: reviewCount
     singleValue: false
     xpath: //meta[@itemprop='reviewCount']/@content
