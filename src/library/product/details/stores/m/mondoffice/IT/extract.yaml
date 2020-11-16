@@ -66,7 +66,7 @@ fields:
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
     xpath: //input[@id='articleQuantity']/@value
-  - name: rpc
+  - name: sku
     singleValue: true
     description: The store-specific product identifier
     xpath: //div[@class='col product-sku__ref']
