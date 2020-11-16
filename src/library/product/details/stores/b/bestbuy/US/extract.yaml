@@ -1,0 +1,62 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: shownImages
+    singleValue: true
+    xpath: //button[@class="image-button"]//img//@src
+    regExp: (.+\.jpg)
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1
+  - name: price
+    singleValue: true
+    xpath: (//div[@class="priceView-hero-price priceView-customer-price"]//span)[1]
+  - name: availabilityText
+    singleValue: true
+    xpath: //button[contains(@class, "btn btn-primary") and contains(@class, "add-to-cart-button")]
+    regExp: Add to Cart
+    regExpReplace: In Stock
+  - name: brandText
+    singleValue: true
+    xpath: //a[@class="btn btn-link v-medium btn-brand-link"]/text()
+  - name: description
+    singleValue: false
+    xpath: //div[@class="shop-product-description"]
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[@class="feature-body-container"]//p
+  - name: featureHighlights
+    singleValue: false
+    xpath: //div[@class="feature-body-container"]//h4
+  - name: mpc
+    singleValue: true
+    xpath: (//div[@class="model product-data"]//span)[2]
+  - name: questionsCount
+    singleValue: true
+    xpath: //li[@class="ugc-qna-stats ugc-stat"]
+    regExp: (\d+)
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@class="ugc-accordion-rating-review-count"]
+    regExp: ([^()]+)
+  - name: aggregateRating
+    singleValue: true
+    xpath: (//li[@class="ugc-stat customer-review-stats"])[1]//span[@class="ugc-c-review-average"]
+  - name: category
+    singleValue: false
+    xpath: //nav[@aria-label="breadcrumb"]//li//a
+  - name: highQualityImages
+    singleValue: true
+    xpath: //button[@class="image-button"]//img//@src
+    regExp: (.+\.jpg)
+  - name: sku
+    singleValue: true
+    xpath: (//div[@class="sku product-data"]//span)[2]
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
