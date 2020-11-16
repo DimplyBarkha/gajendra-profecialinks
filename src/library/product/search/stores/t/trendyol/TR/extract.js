@@ -41,6 +41,30 @@ module.exports = {
         document.querySelector('.prdct-cntnr-wrppr > div:nth-child(13)').scrollIntoView({ behavior: 'smooth' });
       });
     }
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 10000) {
+          await stall(1000);
+          scrollTop += 250;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 10000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await applyScroll(context);
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await delay(5000);
     await context.waitForSelector('div.srch-prdcts-cntnr img');
     await delay(5000);
