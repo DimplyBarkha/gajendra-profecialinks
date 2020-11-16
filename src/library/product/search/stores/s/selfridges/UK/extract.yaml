@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, "c-listing-items__item")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //button[contains(@class, "--wishlist")]/@data-product-id
+  - name: name
+    singleValue: false
+    xpath: concat(//h5[@class = "c-prod-card__cta-box-product-title"], ' ', //span[@class = "c-prod-card__cta-box-description"])
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class = "c-prod-card__cta-box-link-mask"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.selfridges.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class, "c-prod-card__images-image --img")]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class, "c-prod-card__cta-box-price")]
