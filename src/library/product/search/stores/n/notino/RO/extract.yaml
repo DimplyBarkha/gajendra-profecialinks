@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="productsList"]/li[@class="item"]
+  # //ul[@id="productsList"]/li[@class="item"]
+fields:
+- name: price
+  singleValue: false
+  xpath: //p[@class='price']//text()
+  regExp: (\d+)
+  regExpReplace: $1 RON
+   
+- name: name
+  singleValue: false
+  xpath: //h2[@class='title']//span[@class='name']
+    # //div[@id='pd_productText']
+    # concat(//h2[@class='title']//span[@class='name']//span//text(),' ',//h2[@class='title']//span[@class='name']//strong//text(),' ', //h2[@class='title']//span[@class='subname']//text())
+  
+- name: productUrl
+  singleValue: false
+  xpath: //li[@class='item']//@href
+  # regExp: (.+)
+  # regExpReplace: https://www.notino.ro$1
+- name: thumbnail
+  singleValue: false
+  xpath: //span[@class='img responsively-lazy' or @class='img']//@src
+#   regExp: (.+)
+#   regExpReplace: https://www.choithrams.com$1
+- name: id
+  singleValue: true
+  xpath: //@data-product-code
+    
+- name: searchUrl
+  singleValue: true
+  xpath: ancestor::html//div[@id='added-searchurl']

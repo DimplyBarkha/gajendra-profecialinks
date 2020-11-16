@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+# recordXPath: //td[@class="docs depth_1"]/table[1]/tbody/tr
+fields:
+  - name: productUrl
+    xpath: //a[@class="sc-1w9a1pg-5 sc-19ibhqc-3 gjliPR"]/@href
+    regExp: (.+)
+    regExpReplace: https://eldorado.ru$1
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //a[@class="sc-1w9a1pg-5 sc-19ibhqc-3 gjliPR"]/img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: (//div[@class="sc-1w9a1pg-12 sc-19ibhqc-13 hhdhoM"]//a)
+    description: The product name
+  - name: id
+    xpath: //span[@class="sc-19ibhqc-10 jCwEGn"]
+    description: The store-specific product identifier
+  - name: reviewCount
+    xpath: //a[@class="sc-1w9a1pg-11 sc-19ibhqc-9 bnWFSv ReviewLink"]
+  - name: price
+    xpath: //span[@class="sc-1xca1up-1 sc-3lsqu-1 kQIWtq"]
+    description: The offered price for the product
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+
