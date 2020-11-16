@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: product_image
     description: URL of the main product image
-    xpath: //picture[@class='img-responsive center-block']/img/@src
+    xpath: //div[@class='product-image-details']//img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -33,7 +33,7 @@ fields:
     singleValue: true
     type: CURRENCY
     description: The offered price for the selected product variant
-    xpath: (//div[@class='product-prices-wrapper']//span//text())[2]
+    xpath: //div[@class='product-content']/div[@class='product-prices-wrapper']/span/text()
   - name: availability
     singleValue: true
     type: TEXT
@@ -78,7 +78,7 @@ fields:
   - name: upc
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class='product-content']//@data-product-upc
+    xpath: //div[@class='product-content']//product-detail//@data-product-upc
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -86,7 +86,7 @@ fields:
   - name: rpc
     singleValue: true
     description: The store-specific product identifier
-    xpath: //product-detail/@data-product-id
+    xpath: //div[@class='container-fluid product-details-wrapper']/@data-bpn
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -149,10 +149,11 @@ fields:
   - name: product_description
     singleValue: true
     description: The product name
-    xpath: //product-detail/@data-product-name
+    xpath: //div[@class='product-content']//product-detail/@data-product-name
   - name: harvested_product_description
     singleValue: true
     description: The product name
+    xpath: //div[@class='product-content']//product-detail/@data-product-name
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
