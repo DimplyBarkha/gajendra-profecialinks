@@ -10,6 +10,7 @@ fields:
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
     xpath: //li[@itemtype="http://schema.org/Product"]//h2[@itemprop="name"]

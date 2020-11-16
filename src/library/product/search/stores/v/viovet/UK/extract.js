@@ -5,6 +5,18 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+
+    // add search url
+    const searchUrl = window.location.href;
+    addElementToDocument('searchUrl', searchUrl);
+
     const products = document.querySelectorAll('li[itemtype="http://schema.org/Product"]');
     const prefix = 'https://www.viovet.co.uk';
     const shortPrefix = 'https:';
