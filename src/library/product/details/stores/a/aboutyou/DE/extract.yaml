@@ -65,6 +65,7 @@ fields:
     xpath: ancestor::html//aside//div[@data-test-id="ProductImage"]//img/@src
   - name: videos
   - name: name
+    xpath: ancestor::html//div[@data-test-id="ProductName"]
   - name: coupon
   - name: brandLink
     xpath: ancestor::html//div[@data-test-id="SectionEnd"]//a[contains(@href,"brand")]/@href
