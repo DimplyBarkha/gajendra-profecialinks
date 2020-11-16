@@ -21,7 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class='brcbs col16 -pts -pbm']/a
+    xpath: //div[@class='brcbs col16 -pts -pbm']/a[position() > 1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
