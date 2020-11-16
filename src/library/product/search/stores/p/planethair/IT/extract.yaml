@@ -32,7 +32,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,'ty-price') and contains(@id, 'line')]
+    xpath: //span[contains(@class,'ty-price') and contains(@id, 'line')]/@price
   - name: manufacturer
     singleValue: true
     xpath: //input[contains(@name, '[brand]')]/@value

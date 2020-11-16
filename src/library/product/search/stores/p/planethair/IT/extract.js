@@ -4,12 +4,17 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
   await new Promise(resolve => setTimeout(resolve, 5000));
   await context.evaluate(() => {
+    const price = document.querySelectorAll('span[class*="ty-price"][id*="line"]')
+      ? document.querySelectorAll('span[class*="ty-price"][id*="line"]') : [];
+    price.forEach(e => e.setAttribute('price', e.innerText.replace('.', ',')));
+
     const ratings = document.querySelectorAll('span.ty-nowrap.ty-stars a')
       ? document.querySelectorAll('span.ty-nowrap.ty-stars a') : [];
     // @ts-ignore
     const ratingsWithChild = [...ratings].map(e => [...e.childNodes]);
-    const result = ratingsWithChild.map(e => e.filter(k => !k.classList[1].includes('empty')).length);
-    ratings.forEach((e, i) => e.setAttribute('ratings', result[i]));
+    const fullStars = ratingsWithChild.map(e => e.filter(k => !k.classList[1].includes('empty') && !k.classList[1].includes('half')).length);
+    const halfStars = ratingsWithChild.map(e => e.filter(k => k.classList[1].includes('half')).length * 0.5);
+    ratings.forEach((e, i) => e.setAttribute('ratings', fullStars[i] + halfStars[i]));
 
     function addProp (selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
