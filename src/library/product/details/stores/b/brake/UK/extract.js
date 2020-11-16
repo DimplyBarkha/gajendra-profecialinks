@@ -27,7 +27,7 @@ module.exports = {
       }
 
       function getServingSizeUom (value) {
-        const ServingSizeUom =  value.match(/\((\w+)\)/);
+        const ServingSizeUom = value.match(/\((\w+)\)/);
         const uomValue = ServingSizeUom ? ServingSizeUom[1] : null;
         return uomValue;
       }
@@ -36,12 +36,9 @@ module.exports = {
       const addToCartBtn = document.querySelector('div.product-details__price-panel.visible-md a.cart__add-button');
       const productAvailability = addToCartBtn ? 'In stock' : 'Out of stock';
       addElementToDocument('productAvailability', productAvailability);
-      
       // @ts-ignore
       const productBrand = window.dataLayer[1].ecommerce.detail.products[0].brand;
-      if (productBrand){
-        addElementToDocument('brand', productBrand);
-      }
+      if (productBrand)addElementToDocument('brand', productBrand);
       const discountedPrice = document.querySelector('div.product-details__price-panel.visible-md span.product-details-price--current-price.has-was-price');
       const priceBeforeDiscount = document.querySelector('div.product-details__price-panel  span.product-details-price--was-price');
       const listPrice = discountedPrice && priceBeforeDiscount ? priceBeforeDiscount.textContent : '';
@@ -67,20 +64,20 @@ module.exports = {
       const packSize = packSizeText ? packSizeText.replace(/Pack size: /, '') : '';
       addElementToDocument('packSizeid', packSize);
 
-      const fatInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Fat")]'); 
-      const fatPerServingUom = fatInfo ? getServingSizeUom(fatInfo): '';
-      const saturatedFatInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "saturates")]'); 
-      const saturatedFatPerServingUom = saturatedFatInfo ? getServingSizeUom(saturatedFatInfo): '';
-      const proteinInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Protein")]'); 
-      const proteintPerServingUom = proteinInfo ? getServingSizeUom(proteinInfo): '';
-      const sugarInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "sugars")]'); 
-      const sugarPerServingUom = sugarInfo ? getServingSizeUom(sugarInfo): '';
-      const fibreInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Fibre")]'); 
-      const fibrePerServingUom = fibreInfo ? getServingSizeUom(fibreInfo): '';
-      const carboInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Carbohydrates")]'); 
-      const carboPerServingUom = carboInfo ? getServingSizeUom(carboInfo): '';
-      const saltInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Salt")]'); 
-      const saltPerServingUom = saltInfo ? getServingSizeUom(saltInfo): '';
+      const fatInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Fat")]');
+      const fatPerServingUom = fatInfo ? getServingSizeUom(fatInfo) : '';
+      const saturatedFatInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "saturates")]');
+      const saturatedFatPerServingUom = saturatedFatInfo ? getServingSizeUom(saturatedFatInfo) : '';
+      const proteinInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Protein")]');
+      const proteintPerServingUom = proteinInfo ? getServingSizeUom(proteinInfo) : '';
+      const sugarInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "sugars")]');
+      const sugarPerServingUom = sugarInfo ? getServingSizeUom(sugarInfo) : '';
+      const fibreInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Fibre")]');
+      const fibrePerServingUom = fibreInfo ? getServingSizeUom(fibreInfo) : '';
+      const carboInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Carbohydrates")]');
+      const carboPerServingUom = carboInfo ? getServingSizeUom(carboInfo) : '';
+      const saltInfo = getEleByXpath('//div[@id="collapse2"]//th[contains(text(), "Salt")]');
+      const saltPerServingUom = saltInfo ? getServingSizeUom(saltInfo) : '';
 
       addElementToDocument('totalFatPerServingUom', fatPerServingUom);
       addElementToDocument('saturatedFatPerServingUom', saturatedFatPerServingUom);
@@ -89,7 +86,6 @@ module.exports = {
       addElementToDocument('fibrePerServingUom', fibrePerServingUom);
       addElementToDocument('carboPerServingUom', carboPerServingUom);
       addElementToDocument('saltPerServingUom', saltPerServingUom);
-
     });
     await context.extract(productDetails, { transform });
   },
