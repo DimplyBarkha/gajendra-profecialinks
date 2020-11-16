@@ -44,7 +44,8 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//td[contains(text(),"Denominação")]/following-sibling::td," ",//td[contains(text(),"Informação Adicional")]/following-sibling::td," ",//td[contains(text(),"Informação de Marketing")]/following-sibling::td," ",//div[@class="row"]//td[text()="Informações"]/following-sibling::td)
+    # xpath: concat(//td[contains(text(),"Denominação")]/following-sibling::td," ",//td[contains(text(),"Informação Adicional")]/following-sibling::td," ",//td[contains(text(),"Informação de Marketing")]/following-sibling::td," ",//div[@class="row"]//td[text()="Informações"]/following-sibling::td)
+    xpath: //td[contains(text(),"Denominação")]/following-sibling::td | //td[contains(text(),"Informação Adicional")]/following-sibling::td |//td[contains(text(),"Informação de Marketing")]/following-sibling::td |//div[@class="row"]//td[text()="Informações"]/following-sibling::td
   # - name: descriptionBullets
   #   singleValue: true
   #   description: Number of ul > li tags in the description

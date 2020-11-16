@@ -10,14 +10,20 @@ const cleanUp = (data, context) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.description) {
+        let text = '';
+        text = row.description.map((element) => element.text.trim()).join(' ');
+        row.description = [{ text }];
+      }
+      if (row.description) {
+        row.description[0].text = row.description[0].text.replace('/\\/g', " ");
+      }
       if (row.manufacturer) {
         row.manufacturer[0].text = row.manufacturer[0].text.split(',')[0];
       }
