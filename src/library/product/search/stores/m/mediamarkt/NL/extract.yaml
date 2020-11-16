@@ -33,6 +33,10 @@ fields:
     singleValue: true
     description: The product name
     xpath: //div[@class='product-wrapper']//h2/a
+  - name: rpc
+    singleValue: true
+    description: The rpc code of the product
+    xpath: //div[@class='product-wrapper']/@data-modelnumber
   - name: sku
     singleValue: true
     description: The store-specific product identifier
