@@ -3,17 +3,20 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
+  - name: image      
     singleValue: false
-    xpath: //div[@class="imagezoom"]/img/@src | //li[@class="productdetailsminigalleryimgsize"][position()=1]/a/@href
+    xpath:  //li[@class="productdetailsminigalleryimgsize"][position()=1]/a/@href | //div[@class="mainimg"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.naszezoo.pl$1
   - name: imageAlt
     singleValue: false
     xpath: //li[@class="productdetailsminigalleryimgsize"]/a/@title
   - name: alternateImages
     singleValue: false
     # xpath: //a[@class="gallery current"]/@href
-    
     xpath:  //li[@class="productdetailsminigalleryimgsize"][position()>1]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.naszezoo.pl$1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -39,8 +42,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="description"]/div//text()
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -54,9 +56,7 @@ fields:
     xpath: //td[@class="manufacturer"]/a/@title
   - name: quantity
     singleValue: false
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //input[@name="quantity"]/@value
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -68,10 +68,10 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
-    description: The store-specific product identifier
+    xpath: //h2[@id="prodCode"]/text()
   - name: variantId
     singleValue: false
-    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //input[@name="product_id"]/@value
   - name: mpc
     singleValue: false
     xpath: //h2[@id="prodCode"]/text()
@@ -84,10 +84,10 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    description: Content under "directions" header
+    xpath: //span[contains(text(),"SPOSÓB UŻYCIA:")]//../../text()
   - name: warnings
     singleValue: false
-    description: Content under "warnings" header
+    xpath: //strong[contains(text(),"UWAGA")]/text()
   - name: ratingCount
     singleValue: false
     description: The number of ratings
@@ -104,17 +104,19 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
-    description: Stated shipping dimensions
+    #xpath: //strong[contains(text(),"Wymiary:")]
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
+    xpath: count(//td[@class="select option_select option_truestock option_required"]//option[@value]/text())
     type: NUMBER
   - name: color
     singleValue: false
-    description: A textual description of the colour
+    xpath: //strong[contains(text(),"kolory:")]/../text() | //strong[contains(text(),"Kolor:")]
+    regExp: Kolor\W\W(.+) | (.+)
+    regExpReplace: $1$2
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -123,7 +125,9 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    description: Images within the third party description
+    xpath: //div[@class="resetcss"]/p/img[@height="183"]/@src
+    regExp: (.+)
+    regExpReplace: https://www.naszezoo.pl$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -198,10 +202,6 @@ fields:
     description: null
   - name: lbb
     singleValue: false
-    description: Check Lost by Box Requirements (just for Amazon and a couple of
-      other stores) - LBB occurs when a product is bought from someone other
-      than Amazon (on Amazon Website) - even though Amazon has the product "in
-      Stock"
   - name: lbbPrice
     singleValue: false
     description: null
@@ -219,7 +219,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    description: null
+    xpath:  count(//li[@class="productdetailsminigalleryimgsize"][position()>1]/a/@href)
     type: NUMBER
   - name: news
     singleValue: false
@@ -427,16 +427,15 @@ fields:
     singleValue: false
   - name: newDescription
     singleValue: false
-    description: In product page, information about a new version of the product -
-      new desription info
   - name: variantInformation
     singleValue: false
-    description: colour / scent / flavour / other
+    xpath: (//td[@class="basket"]//label[@class="label"])[1]/text()
   - name: firstVariant
     singleValue: false
+    xpath: (//td[@class="basket"]//label[@class="label"])[1]/../following-sibling::td//option[@value]
   - name: variants
     singleValue: false
-    description: null
+    xpath: //td[@class="select option_select option_truestock option_required"]//option[@value]/text()
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

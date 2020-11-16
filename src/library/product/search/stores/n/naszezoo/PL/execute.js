@@ -5,7 +5,7 @@ module.exports = {
     country: 'PL',
     store: 'naszezoo',
     domain: 'naszezoo.pl',
-    url: null,
+    url: 'https://www.naszezoo.pl/pl/searchquery/{searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

@@ -1,5 +1,28 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@class="innerbox cf"]/div
+fields:
+  - name: productUrl
+    xpath: //a[@class="prod-name"]/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.naszezoo.pl/$1
+  - name: thumbnail
+    xpath: //div[@class="product-box-img"]/img/@src
+    regExp: ^(.+)$
+    regExpReplace: https://www.naszezoo.pl/$1   
+  - name: name
+    xpath: //a[@class="prod-name"]/@title
+  - name: price
+    description: The offered price for the product
+    xpath: //em[@class="new-price"]
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //div[@class="product-box"]/@data-product-id
+    # regExp: \"id":"([^"]+)
+    # regExpReplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+
