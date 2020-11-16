@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class='row']//div[@class='article-title']//a[not(contains(@class,'article-video'))]/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class='row']//a[@class='title']//img/@src
+    xpath: //div[@class='row']//a[@class='title']//img//@src
   - name: name
     singleValue: true
     type: TEXT
@@ -26,7 +26,7 @@ fields:
     xpath: //div[@class='col-xl-6']//div[@class='rating ']/@data-rating
   - name: number_of_reviews
     type: NUMBER
-    xpath:  //div[@class='col-xl-6']//span[@class='rating-count']/span//text()
+    xpath:  //div[@class='row']/div[not(contains(@id,'sidebar-right'))]//span[@class='rating-count']/span//text()
   - name: price
     description: The offered price for the product
     type: CURRENCY
