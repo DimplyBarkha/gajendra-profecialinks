@@ -78,7 +78,7 @@ fields:
     regExpReplace: $3
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //span[@class="moreInfo"]//span[contains(.,"Prod. číslo:")]/following-sibling::*
+    xpath: //span[@class="moreInfo"]//span[contains(.,"Kód:")]/following-sibling::*
   - name: mpc
     description: The manufacturer model code (unique) of the product  
     xpath: //span[@class="moreInfo"]//span[contains(.,"Prod. číslo:")]/following-sibling::*
