@@ -6,7 +6,7 @@ module.exports = {
     store: 'costco',
     domain: 'costco.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="not_found_body"]',
     zipcode: '94209',
   },
 };

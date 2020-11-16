@@ -73,7 +73,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     };
 
     const bulletsCount = document.evaluate('count(//ul[@class="pdp-features"]/li | //h3[contains(text(), "Product Details")]/following-sibling::div[@class="product-info-description" and not(div[@id="wc-power-page"])]//li)', document).numberValue;
-    const availability = window.products[0][0] && window.products[0][0].inventory;
+    const availability = window.products ? window.products[0][0].inventory : ""
     const threeSixtyImage = document.evaluate('boolean(//button[@aria-label="Press to open 360 View"] | //div[@class="wc-mediaGalleryThreeSixty"])', document).booleanValue;
     console.log('threeSixtyImage', threeSixtyImage);
     addElement('threeSixtyImage', threeSixtyImage ? 'Yes' : 'No');
