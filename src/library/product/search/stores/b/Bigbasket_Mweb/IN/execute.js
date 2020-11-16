@@ -78,15 +78,15 @@ async function implementation (
   }, parameters.noResultsXPath);
 }
 module.exports = {
-    implements: 'product/search/execute',
-  parameterValues: {
-  country: 'IN',
-  store: 'Bigbasket_Mweb',
-  domain: 'bigbasket_Mweb.in',
-  url: 'https://www.bigbasket.com/ps/?q={searchTerms}',
-  loadedSelector: 'img[data-sizes="auto"]',
-  noResultsXPath: '//div[@class="uiv2-no-results-new"]',
-  zipcode: '',
+  implements: 'product/search/execute',
+    parameterValues: {
+    country: 'IN',
+    store: 'Bigbasket_Mweb',
+    domain: 'bigbasket_Mweb.in',
+    url: 'https://www.bigbasket.com/ps/?q={searchTerms}',
+    loadedSelector: 'img[data-sizes="auto"]',
+    noResultsXPath: '//div[@class="uiv2-no-results-new"]',
+    zipcode: '',
   },
   implementation,
 };
