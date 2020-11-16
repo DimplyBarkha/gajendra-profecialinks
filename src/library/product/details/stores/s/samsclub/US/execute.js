@@ -23,6 +23,7 @@ module.exports = {
         load_all_resources: true,
         images_enabled: true,
         css_enabled: true,
+        embed_iframes: true,
       });
       await new Promise(resolve => setTimeout(resolve, 10000));
     }

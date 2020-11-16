@@ -34,6 +34,7 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //div[@class="sc-oos-card-label"] | //div[@itemprop="offers"]//meta[@itemprop="availability"]/@content
+    regExp: InStock
   - name: description
     singleValue: true
     xpath: //div[@class="sc-full-description-long"]
@@ -109,10 +110,10 @@ fields:
     xpath: //button[@class="sc-image-viewer-img-button"]/img/@src
   - name: featureHighlights
     singleValue: false
-    xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//ul//li
+    xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//li
   - name: featureBullets
     singleValue: false
-    xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//ul//li
+    xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//li
   - name: specifications
     singleValue: true
     xpath: normalize-space(//body//@specification)
