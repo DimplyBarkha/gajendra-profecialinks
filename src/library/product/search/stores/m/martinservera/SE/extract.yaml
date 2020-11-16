@@ -6,19 +6,23 @@ fields:
   - name: id
     xpath: //div[@class="product-info-wrap"]//span[@class="sku"]
     singleValue: false
+    xpath: //span[@class="sku"]
   - name: searchUrl
     singleValue: true
   - name: name
     xpath: //a[@class="product-name pdp-modal-link"]
     singleValue: false
+    xpath: //div[contains(@class,"name-remark-wrap")]/a
   - name: productUrl
     xpath: //a[@class="product-name pdp-modal-link"]/@href
     singleValue: false
+    xpath: //a[@class="product-image-wrap pdp-modal-link"]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     xpath: //a[@class="product-image-wrap pdp-modal-link"]/img/@src
     singleValue: false
+    xpath: //a[@class="product-image-wrap pdp-modal-link"]/img/@data-lazy-src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -29,6 +33,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //span[contains(@class,"kampanjpris")]/small
   - name: manufacturer
     xpath: //div[@class="product-info-wrap"]//span[@class="manufacturer"]
     singleValue: true
