@@ -1,0 +1,57 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, 'products__list-item')]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, 'catalog-products__list-item')]/@data-id
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
+  - name: name
+    singleValue: false
+    xpath: //a[contains(@class, 'product__title')]/span/span[not(@style)]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class, 'product__title')]/@producturl
+  - name: gtin
+    singleValue: false
+    xpath: //li[contains(@class, 'product__code')]/text()[last()]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, 'products__list-item')]/@productimg
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, 'products__list-item')]//div[contains(@class, 'price--main')]/span[contains(@class, 'price-core')]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[contains(@class, 'products__list-item')]/@rankorganic
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[contains(@class, 'products__list-item')]/@rankorganic
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true
+  #   type: NUMBER

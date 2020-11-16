@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'santehnika-online.ru',
-    timeout: 50000,
     country: 'RU',
     store: 'santehnika-online',
+    domain: 'santehnika-online.ru',
     zipcode: '',
   },
 };
