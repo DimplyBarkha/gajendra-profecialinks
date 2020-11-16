@@ -44,7 +44,7 @@ fields:
     xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[contains(@id,"priceblock_dealprice")] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")] | //li[@class="swatchSelect"]//span[@class="olp-message a-color-price"]/span/text()[last()]
   - name: availabilityText
     singleValue: false
-    xpath: //*[normalize-space(@id)='availability']/span[not(span)] | //*[normalize-space(@id)='availability']/span/span[last()]
+    xpath: (//*[normalize-space(@id)='availability']/span[not(span)] | //*[normalize-space(@id)='availability']/span/span[last()] | //*[normalize-space(@id)='availability-string']/span[not(span)])[1]
     defaultValue: 'Out of Stock'
   # - name: unavailableMsg
   #   singleValue: false
@@ -179,7 +179,7 @@ fields:
   - name: sku
   - name: coupon
     singleValue: false
-    xpath: //div[@id="unclippedCouponSns"]//span[@class="a-color-success"] | //div[@id="price"][not(ancestor::html//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text() | //div[contains(@id, "promoPriceBlockMessage")][not(ancestor::html//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])]/*[not(name()="script" or name()="noscript")]
+    xpath: //div[@id="unclippedCouponSns"]//span[@class="a-color-success"] | //div[@id="price"][not(ancestor::html//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text() | //div[contains(@id, "promoPriceBlockMessage")][not(ancestor::html//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])]/*[not(name()="script" or name()="noscript")] | //div[contains(@class,"vpcApplyCoupon")]//span[contains(@class,"a-color-success")]
   - name: amazonChoice
     singleValue: false
     xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-text-primary")]
