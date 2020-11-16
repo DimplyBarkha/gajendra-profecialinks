@@ -57,25 +57,25 @@ async function implementation (
       let products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       let productsCount = products.snapshotLength;
       const seeAllSelector = document.querySelector('div[class="show-more"] > button');
-      while (productsCount <= 150 && seeAllSelector != null) {
+      while (productsCount <= 150 && seeAllSelector !== null) {
         console.log('Length: ' + productsCount);
         seeAllSelector.click();
         await stall(1000);
         products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         productsCount = products.snapshotLength;
       };
-  });
-};
-    await applyScroll(context);
-    await loadProducts(context);
-    console.log('Checking no results', parameters.noResultsXPath);
+    });
+  };
+  await applyScroll(context);
+  await loadProducts(context);
+  console.log('Checking no results', parameters.noResultsXPath);
     return await context.evaluate(function (xp) {
-        const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-        console.log(xp, r);
-        const e = r.iterateNext();
-        console.log(e);
-        return !e;
-    }, parameters.noResultsXPath);
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return !e;
+  }, parameters.noResultsXPath);
 }
 module.exports = {
     implements: 'product/search/execute',
