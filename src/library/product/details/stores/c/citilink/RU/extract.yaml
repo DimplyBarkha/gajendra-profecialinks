@@ -22,7 +22,7 @@ fields:
     xpath: //span[@itemprop = "brand"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class = "Breadcrumbs" and position() = 1]//a//span/text()
+    xpath: //div[@class = "Breadcrumbs"]//a//span/text()
   - name: subCategory
     singleValue: false
     xpath: //div[@class = "Breadcrumbs" and position() > 1]//a//span/text()
