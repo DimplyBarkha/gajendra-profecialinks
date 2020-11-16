@@ -3,6 +3,15 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: _input
+    singleValue: false
+  - name: _url
+    singleValue: false
+  - name: productUrl
+    singleValue: true
+    xpath: //ancestor::html//link[@rel="alternate" and @hreflang="en-ca"]/@href
+  - name: _pageTimeStamp
+    singleValue: false
   - name: image
     singleValue: true
     xpath: //div[@class="react-viewer-canvas"]/img/@src
@@ -17,34 +26,34 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumbs col-sm-12"]
+    # xpath: //div[@class="breadcrumbs col-sm-12"]
   - name: nameExtended
     singleValue: true
-    xpath: //div/h1[@class="pdp-product-name"]
+    # xpath: //div/h1[@class="pdp-product-name"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: //div[@class="product-price"]
-    regExp: (Standard)\s(Price)\$\s(\d+\.\d+)
-    regExpReplace: $3
+    # xpath: //div[@class="product-price"]
+    # regExp: (Standard)\s(Price)\$\s(\d+\.\d+)
+    # regExpReplace: $3
   - name: availabilityText
     singleValue: true 
-    xpath: //script[contains(@type,"application/ld+json")][1]
-    regExp: ("availability":)\s("https://schema.org/)(\w+)\"
-    regExpReplace: $3
-    defaultValue: Out of Stock
+    # xpath: //script[contains(@type,"application/ld+json")][1]
+    # regExp: ("availability":)\s("https://schema.org/)(\w+)\"
+    # regExpReplace: $3
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //body/@description
+    # xpath: //body/@description
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@class="react-tabs__tab-content"]/li)
+    # xpath: count(//div[@class="react-tabs__tab-content"]/li)
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //a[@class="brand-details"]
+    # xpath: //a[@class="brand-details"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -52,20 +61,20 @@ fields:
     singleValue: true
   - name: weightNet
     singleValue: true
-    xpath: //li/p
-    regExp: (Weight:)\s(\d+\s)(kg)
-    regExpReplace: $2$3
+    # xpath: //li/p
+    # regExp: (Weight:)\s(\d+\s)(kg)
+    # regExpReplace: $2$3
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
-    xpath: //script[contains(@type,"application/ld+json")][1]
-    regExp: ("gtin13":\s)\"(\d+)\"
-    regExpReplace: $2
+    # xpath: //script[contains(@type,"application/ld+json")][1]
+    # regExp: ("gtin13":\s)\"(\d+)\"
+    # regExpReplace: $2
   - name: sku
     singleValue: true
-    xpath: //span[@itemprop="productID"]
+    # xpath: //span[@itemprop="productID"]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -80,21 +89,21 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
-    xpath: //body/@directions
+    # xpath: //body/@directions
     singleValue: true
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //meta[@itemprop="reviewCount"]/@content
+    # xpath: //meta[@itemprop="reviewCount"]/@content
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-    xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
+    # xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -126,7 +135,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
-    xpath: //div/h1[@class="pdp-product-name"]
+    # xpath: //div/h1[@class="pdp-product-name"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -145,7 +154,7 @@ fields:
     singleValue: true   
   - name: nutritionInfo
     singleValue: true 
-    xpath: //body/@nutritionInfo
+    # xpath: //body/@nutritionInfo
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
@@ -216,7 +225,7 @@ fields:
     singleValue: true
     description: null
   - name: featureBullets
-    xpath: //div[@class="react-tabs__tab-content"]/li/text()
+    # xpath: //div[@class="react-tabs__tab-content"]/li/text()
     singleValue: false
     description: null
   - name: otherSellersName
@@ -506,13 +515,13 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-  - name: shownImages
-    xpath: //div[@class="thumbnail-wrapper"]/img/@src
-  - name: highQualityImages
-    xpath: //div[@class="thumbnail-wrapper"]/img/@src    
-  - name: eangtin
-    xpath: //script[contains(@type,"application/ld+json")][1]
-    regExp: ("gtin13":\s)\"(\d+)\"
-    regExpReplace: $2
-  - name: product_grocery_nutritionals
-    xpath: //body/@nutritionInfo
+  # - name: shownImages
+  #   xpath: //div[@class="thumbnail-wrapper"]/img/@src
+  # - name: highQualityImages
+  #   xpath: //div[@class="thumbnail-wrapper"]/img/@src    
+  # - name: eangtin
+  #   xpath: //script[contains(@type,"application/ld+json")][1]
+  #   regExp: ("gtin13":\s)\"(\d+)\"
+  #   regExpReplace: $2
+  # - name: product_grocery_nutritionals
+  #   xpath: //body/@nutritionInfo
