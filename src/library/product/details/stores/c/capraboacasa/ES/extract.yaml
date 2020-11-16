@@ -1,0 +1,68 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class, "col s12 m4 l4 no-padding sheet-image no-padding-on-medium-and-large")]/img/@src
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: false
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, "col s12 m4 l4 no-padding sheet-data no-padding-on-medium-and-large")]/h2
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class, "col s12 m4 l4 no-padding sheet-data no-padding-on-medium-and-large")]/h2
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="product"]/@data-productid
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product"]/@data-productid
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: false
+    xpath: //div[@class="sheet-product-price"]
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[@class="product-btn-classic"]/a[@class="add-product"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+  - name: quantity
+    singleValue: false
+    description: Quantity as described on the page
+    xpath: //div[contains(@class, "col s12 m4 l4 no-padding sheet-data no-padding-on-medium-and-large")]/h2
+    regExp: (\d.+)
+    regExpReplace: $1

@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product col s6 m3 l3 small-product "]
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product-btn-classic"]/a/@id
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-name"]/a/div
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-price"]
+    #regExp: €\s\d+,\d+
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product-name"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://capraboacasa.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-image hide-on-big-product center"]/a/img/@src
+    description: The URL for the product thumbnail image
+  - name: rank 
+  - name: rankOrganic
