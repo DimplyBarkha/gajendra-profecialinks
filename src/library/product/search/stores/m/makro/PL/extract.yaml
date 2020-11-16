@@ -1,0 +1,53 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div[class$="card-article-2--list-container-flex"] > span > div
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, "articlenumber")]/p/text()
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: true
+    xpath: //h4
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="title"]/@href
+    regExp: (.+)
+    regExpReplace: https://online.makro.pl$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: true
+    xpath: //picture/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //p[contains(@class, "price secondary")]/span/span/span
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+    defaultValue: false
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
