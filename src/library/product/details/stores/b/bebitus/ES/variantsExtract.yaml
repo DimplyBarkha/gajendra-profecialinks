@@ -6,42 +6,34 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //img[@class="windeln-zoom-image"]/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: 
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'slick-active')][position()>1]/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //li[contains(@class,'breadcrumbs-category')]//meta[@content='2']/preceding-sibling::span[1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@itemprop="name"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="product-info-price"]/div[@class="old-price"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class="product-info-price"]/div[@itemprop="price"]/@content
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //input[@itemprop="availability"]/@content 
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -57,12 +49,10 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[contains(@class,'product-selection-brand')]//a/font 
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
-    xpath: //ul[@class="product-variant-1"]/li
     singleValue: true
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
@@ -76,7 +66,6 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //h2[@class="product-description-ean"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -90,7 +79,6 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //div[@itemprop="name"]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -104,7 +92,6 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //div[@class="product-selection-ratings-stars"]//span[@itemprop="reviewCount"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -112,7 +99,6 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[@class="product-selection-ratings-stars"]//span[@itemprop="ratingValue"]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -125,7 +111,6 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: count(//ul[@class="product-variant-1"]/li) 
     type: NUMBER
   - name: color
     singleValue: true
@@ -424,11 +409,9 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
-    xpath: //div[@class="price-pro-unit"]
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-    xpath: //div[@class="price-pro-unit"]
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -450,7 +433,6 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //ul[@class="product-variant-1"]/li
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -462,7 +444,6 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //ul[@class="product-variant-1"]//a[@class="panel1"] 
   - name: variants
     singleValue: false
     description: null
