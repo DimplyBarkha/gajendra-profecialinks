@@ -1,12 +1,11 @@
 const { transform } = require('../shared');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-
   try {
     await context.waitForSelector('#language-region-set', { timeout: 10000 });
     await context.click('#language-region-set');

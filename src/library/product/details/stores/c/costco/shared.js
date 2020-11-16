@@ -5,17 +5,17 @@
  */
 const transform = (data) => {
   const clean = text => text.toString()
-  .replace(/\r\n|\r|\n/g, ' ')
-  .replace(/&amp;nbsp;/g, ' ')
-  .replace(/&amp;#160/g, ' ')
-  .replace(/\u00A0/g, ' ')
-  .replace(/\s{2,}/g, ' ')
-  .replace(/"\s{1,}/g, '"')
-  .replace(/\s{1,}"/g, '"')
-  .replace(/^ +| +$|( )+/g, ' ')
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
-  .replace(/[\x00-\x1F]/g, '')
-  .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
   console.log('transform called now');
   for (const { group } of data) {
@@ -33,20 +33,19 @@ const transform = (data) => {
         ];
       }
       if (row.manufacturerImages) {
-        
         const variantIds = [];
-        let dup = "";
+        let dup = '';
         let urls = [];
         row.manufacturerImages.forEach(item => {
-         urls =  row.manufacturerImages.filter(it => item.text === it.text);
-        if(urls && urls.length === 1 ){
-          variantIds.push(item);
-        }else{
-          if(dup !== item.text){
-            dup =  item.text;
+          urls = row.manufacturerImages.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
             variantIds.push(item);
+          } else {
+            if (dup !== item.text) {
+              dup = item.text;
+              variantIds.push(item);
+            }
           }
-        }
         });
         // row.variantId = variantIds;
       }
@@ -70,7 +69,7 @@ const transform = (data) => {
         }
       }
 
-      let myDesc = ''; 
+      let myDesc = '';
       if (row.myDescription) {
         for (const item of row.myDescription) {
           myDesc += clean(item.text);
@@ -97,7 +96,7 @@ const transform = (data) => {
           },
         ];
       }
-      
+
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -122,7 +121,7 @@ const transform = (data) => {
           item.text = newDesc;
         });
         row.specifications = nDesc;
-      }  
+      }
     }
   }
   // const clean = text => text.toString()

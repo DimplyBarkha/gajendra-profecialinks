@@ -33,7 +33,6 @@ const transform = (data, context) => {
           row.rankOrganic = [{ text: orgRankCounter }];
         }
         row.rank = [{ text: rankCounter }];
-
       } else {
         row.id = [{ text: '' }];
       }

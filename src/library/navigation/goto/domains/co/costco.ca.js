@@ -14,7 +14,7 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
 
-    const URL = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true, "cookie_jar":[{"name":"invCheckPostalCode","value":"${parameters.zipcode}"}]}[/!opt!]`
+    const URL = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true, "cookie_jar":[{"name":"invCheckPostalCode","value":"${parameters.zipcode}"}]}[/!opt!]`;
 
     await context.goto(URL, { timeout: timeout, waitUntil: 'networkidle0', checkBlocked: true });
 
