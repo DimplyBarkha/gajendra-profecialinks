@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -36,8 +36,7 @@ async function implementation(
           await stall(5000);
         }
       }
-      function stall(ms)
- {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -48,8 +47,7 @@ async function implementation(
   };
   const loadProducts = async function (contenxt) {
     await context.evaluate(async function () {
-      function stall(ms)
- {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
