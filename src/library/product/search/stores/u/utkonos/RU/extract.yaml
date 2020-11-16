@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: true
+    xpath: //span[contains(@class, "utk-product-code")]
+  - name: name
+    singleValue: true
+    xpath: //span[contains(@class, "d-sm-none")]
+  - name: productUrl
+    singleValue: true
+    xpath: //a[@class = "utk-product-card-image-link"]/@href
+  - name: thumbnail
+    singleValue: true
+    xpath: //img[@class = "utk-product-card-image"]/@src
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@id = "import-product-rating"]
+  - name: reviewCount
+    singleValue: true
+    xpath: //span[contains(@class, "product-rating-count")]
+  - name: price
+    singleValue: true
+    xpath: //span[contains(@class, "product-price")]
