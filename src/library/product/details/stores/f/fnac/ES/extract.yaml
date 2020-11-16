@@ -99,3 +99,9 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //dd[contains(@class, "f-shopBox-MPInfoSellerStatus")]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,"inpage_selector_info dyson_introduction") or contains(@class,"inpage_block inpage_selector_feature")]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: (//div[@class="dyson_visual"]/img/@srcset)[1] | (//ul[contains(@class,"features_grid")])[1]//img/@srcset
