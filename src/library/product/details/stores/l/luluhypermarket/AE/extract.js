@@ -46,23 +46,6 @@ module.exports = {
         return result;
       };
 
-      // Single Pipe Concatenation
-      const pipeSeparatorSingle = (id, data) => {
-        var singleSeparatorText = data.join(' | ');
-        addElementToDocument(id, singleSeparatorText);
-      };
-
-      // //Double Pipe Concatenation
-      // const pipeSeparatorDouble = (id, data) => {
-      //   var doubleSeparatorText = data.join(' || ');
-      //   addElementToDocument(id, doubleSeparatorText);
-      // };
-
-      const spaceSeparator = (id, data) => {
-        var spaceSeparatorText = data.join(' ');
-        addElementToDocument(id, spaceSeparatorText);
-      };
-
       const additionalBulletInfoContent = getAllXpath("//div[@class='description']//ul//li/text()", 'nodeValue');
       if (additionalBulletInfoContent !== null && additionalBulletInfoContent.length > 0) {
         var additionalBulletInfoText = additionalBulletInfoContent.join(' || ');
@@ -113,7 +96,7 @@ module.exports = {
       onlinePrice = 'AED ' + onlinePrice;
       addElementToDocument('addedonlinePrice', onlinePrice);
 
-      window.setTimeout(function() {
+      window.setTimeout(function () {
         const specificationsList = getAllXpath("//div[contains(@class,'inpage_selector_specification')]//table[1]//tbody//tr//th/text() | //div[contains(@class,'inpage_selector_specification')]//table[1]//tbody//tr//td/text()| //div[contains(@class,'inpage_selector_specification')]//div[@class='flix-tech-spacs-contents']//ul//li//div[@class='flix-dt']/text() | //div[contains(@class,'inpage_selector_specification')]//div[@class='flix-tech-spacs-contents']//ul//li//div[@class='flix-dd']/text() | //div[contains(@class,'inpage_selector_specification')]//div[@class='flix_mainspecs']//div[@class='flix-border-specs-right']//text()[normalize-space(.) and normalize-space(translate(/,'&#10;', '')) and normalize-space(translate(/,'&#09;', ''))]", 'nodeValue');
         if (specificationsList !== null && specificationsList.length > 0) {
           var specValue = specificationsList.join(' || ');
