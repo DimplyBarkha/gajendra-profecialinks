@@ -1,15 +1,16 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'US',
     store: 'walgreens',
-    nextLinkSelector: 'button[name="searchnextclick"]:not(.btn__disabled)',
-    mutationSelector: null,
-    spinnerSelector: 'div.wag-search-loading-icon',
-    loadedSelector: '//div[contains(@class, "wag-coupon-productcard")]',
-    noResultsXPath: '//h1[@id="zero-result-alert"]',
-    openSearchDefinition: null,
+    loadedSelector: 'div.product-container',
+    resultsDivSelector: 'div.card__product',
+    noResultsXPath: '//h1[contains(.,"have any matches")]',
+    openSearchDefinition: {
+      template: 'https://www.walgreens.com/search/results.jsp?Ntt={searchTerms}&No={index}',
+      pageIndexMultiplier: 72,
+      pageStartNb: 0,
+    },
     domain: 'walgreens.com',
   },
 };
