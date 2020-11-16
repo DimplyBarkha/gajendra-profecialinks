@@ -12,8 +12,8 @@ fields:
     singleValue: false
     xpath: //div[@class='title']
   - name: productUrl
-    singleValue: false
-    xpath: //div[contains(@class, 'product-gallery')]//a[contains(@href, '/product')]/@productUrl
+    # singleValue: true
+    xpath: //div[contains(@class, 'product-gallery')]//a[contains(@href, '/product')]/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail

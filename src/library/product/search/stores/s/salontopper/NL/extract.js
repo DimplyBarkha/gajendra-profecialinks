@@ -15,7 +15,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   await context.evaluate(() => {
     const prefix = 'https://www.salontopper.nl';
     const productUrl = document.querySelectorAll('div[class*="product-gallery"] a[href*="/product"]');
-    productUrl.forEach(e => e.setAttribute('productUrl', prefix.concat(e.getAttribute('href'))));
+    productUrl.forEach(e => e.setAttribute('producturl', prefix.concat(e.getAttribute('href'))));
 
     const imageUrl = document.querySelectorAll('div.image img');
     imageUrl.forEach(e => e.setAttribute('image', prefix.concat(e.getAttribute('src'))));
@@ -23,10 +23,25 @@ async function implementation (inputs, parameters, context, dependencies) {
     const titles = document.querySelectorAll('div.title')
       ? document.querySelectorAll('div.title') : [];
     // @ts-ignore
-    [...titles].map(e => {
-      const text = e.innerText.split(' ')[0];
-      e.setAttribute('brand', text);
-    });
+    const firstWordFromTitles = [...titles].map(e => e.innerText.split(' ')[0]);
+
+    // @ts-ignore
+    const fullTitleNames = [...document.querySelectorAll('a[href*="merken"]')].map(e => e.innerHTML);
+    // @ts-ignore
+    const fullTitleNamesNoDuplicates = [...new Set(fullTitleNames)];
+
+    function matchBrandName (a, b) {
+      const matches = [];
+
+      for (let i = 0; i < a.length; i++) {
+        for (let e = 0; e < b.length; e++) {
+          if (b[e].includes(a[i])) matches.push(b[e]);
+        }
+      }
+      return matches;
+    }
+    titles.forEach((e, i) => e.setAttribute('brand', matchBrandName(firstWordFromTitles, fullTitleNamesNoDuplicates)[i]));
+
     function addProp (selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
