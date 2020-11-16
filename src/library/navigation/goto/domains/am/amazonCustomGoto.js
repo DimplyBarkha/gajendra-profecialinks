@@ -3,16 +3,16 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
   // strategies can  be  turned on and off
   const fillRateStrategies = {
-    variantAPIAppendData: true,
-    nonVariantReload: true,
-    variantReload: true,
+    variantAPIAppendData: false,
+    nonVariantReload: false,
+    variantReload: false,
     acceptCookies: true,
     // missingDataRetry has dependants
-    missingDataRetry: true,
+    missingDataRetry: false,
     // dependant on missingDataRetry
     cleanCookieRetry: false,
     // dependant on missingDataRetry
-    salesRankBadgeRetry: true,
+    salesRankBadgeRetry: false,
     hourlyRetryLimit: false,
   };
   console.log('fillRateStrategies: ', fillRateStrategies);

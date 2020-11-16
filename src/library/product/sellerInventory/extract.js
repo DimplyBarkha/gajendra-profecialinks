@@ -1,6 +1,6 @@
 /**
  *
- * @param { { url?: string,  id?: string} } inputs
+ * @param { { url?: string,  id?: string, sellerId?: string } } inputs
  * @param { Record<string, any> } parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -18,7 +18,7 @@ async function implementation (
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-  await parameters.getStockFunc({ context, sellerId: inputs.sellerId });
+  await parameters.getStockFunc({ context, sellerId: inputs.sellerId, id: inputs.id });
   return await context.extract(sellerInventory, { transform });
 }
 

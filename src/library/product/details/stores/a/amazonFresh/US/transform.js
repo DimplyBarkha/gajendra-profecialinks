@@ -364,7 +364,6 @@ const transform = (data, context) => {
             fullDescriptionArr.shift();
           }
           row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') + ' ' + fullDescriptionArr.join(' ') }];
-          // row.description[0].text = row.description[0].text.startsWith('|| ') ? row.description[0].text.slice(2) : row.description[0].text;
         }
         if (row.amazonChoice && row.amazonChoice[0]) {
           if (row.amazonChoice[0].text.includes('Amazon')) {
@@ -417,11 +416,6 @@ const transform = (data, context) => {
               },
             ];
           }
-          // row.additionalDescBulletInfo.forEach(item => {
-          //   if (item.text.length > 0) {
-          //     item.text = item.text.startsWith(' || ') ? item.text : ' || ' + item.text;
-          //   }
-          // });
         }
         if (row.otherSellersPrime) {
           row.otherSellersPrime.forEach(item => {

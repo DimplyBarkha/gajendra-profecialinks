@@ -12,12 +12,13 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { id, zipcode } = inputs;
+  const { id, sellerId, zipcode } = inputs;
   const { sellerInventoryUrl } = parameters;
+  console.log("TESTTTT", sellerId, id)
   console.log('params', parameters);
   let url;
-  if (sellerInventoryUrl && id) {
-    url = sellerInventoryUrl.replace(/{id}/g, id);
+  if (sellerInventoryUrl && id && sellerId) {
+    url = sellerInventoryUrl.replace(/{id}/g, id).replace(/{sellerId}/g, sellerId);
   }
   await dependencies.goto({ url, zipcode });
 

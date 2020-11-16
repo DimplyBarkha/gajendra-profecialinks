@@ -1,10 +1,10 @@
 
 /**
  *
- * @param { { id: any, sellerId: any } } inputs
+ * @param { { id: any, sellerId: any, zipcode: any } } inputs
  * @param { { country: any, domain: any, store: any, zipcode: any, mergeType: any } } parameters
  * @param { ImportIO.IContext } context
- * @param { { execute: ImportIO.Action, extract: ImportIO.Action, findSeller: ImportIO.Action, paginate: ImportIO.Action } } dependencies
+ * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
 async function implementation (
   inputs,
@@ -12,40 +12,18 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { id, sellerId } = inputs;
-  const { country, domain, store, zipcode, mergeType } = parameters;
-  const { execute, extract, findSeller, paginate } = dependencies;
-  const sellerFound = await execute({ id, sellerId, zipcode });
+  const { sellerId } = inputs;
+  const { execute, extract } = dependencies;
+  // const url = URL;
+  const id = inputs.id;
+  const zipcode = inputs.zipcode || parameters.zipcode  
+  const productFound = await execute({ sellerId, id, zipcode: zipcode });
 
-  if (!sellerFound) {
-    console.log('No seller found.');
-    return;
-  }
-  let { results, foundSeller } = await findSeller({ id, sellerId });
-
-  console.log('Got initial number of sellers', results);
-
-  // check we have sellers available
-  if (results === 0) {
+  if (!productFound) {
+    console.log('No product found');
     return;
   }
 
-  let page = 2;
-  while (!foundSeller && await paginate({ id, sellerId, page, offset: results })) {
-    const data = await findSeller({ id, sellerId });
-    const count = data.results;
-    foundSeller = data.foundSeller;
-    if (count === 0) {
-      // no results
-      break;
-    }
-    results = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (results + count);
-    page++;
-  }
-  if (!foundSeller) {
-    console.log('No seller found.');
-    return;
-  }
   await extract({ id, sellerId });
 }
 
@@ -88,9 +66,7 @@ module.exports = {
   ],
   dependencies: {
     execute: 'action:product/sellerInventory/execute',
-    findSeller: 'action:product/sellerInventory/findSeller',
     extract: 'action:product/sellerInventory/extract',
-    paginate: 'action:product/sellerInventory/paginate',
   },
   path: './sellerInventory/stores/${store[0:1]}/${store}/${country}/sellerInventory',
   implementation,
