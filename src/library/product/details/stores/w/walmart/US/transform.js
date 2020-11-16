@@ -41,20 +41,22 @@ const transform = (data, context) => {
           row.asin = [{ text: row.asin[0].text.replace('Walmart', '').replace('#', '').trim() }];
         }
         if (row.variantIdOverRide) {
-          const id = row.variantIdOverRide[0].text.split('/').slice(-1)[0];
+          const id = row.variantIdOverRide[0].text.split('/').filter(wd => wd).slice(-1)[0];
           row.variantId = [{ text: `${id}` }];
         }
         if (row.variantId) {
           row.productUrl = [{ text: `https://www.walmart.com/ip/${row.variantId[0].text}` }];
         }
         if (row.lbb) {
-          if (!row.otherSellersName || (row.otherSellersName && row.otherSellersName.length < 2)) {
+          if (row.shippingInfo && row.shippingInfo[0].text.includes('Walmart')) {
+            row.lbb = [{ text: 'No' }]; // if product is sold by walmart it isn't an lbb
+          } else if (!row.otherSellersName || (row.otherSellersName && row.otherSellersName.length < 2)) {
             row.lbb = [{ text: 'No' }];
           } else if (row.otherSellersName && row.otherSellersPrice) {
             if (!row.otherSellersName.map(item => item.text).join(' ').includes('Walmart')) {
               row.lbb = [{ text: 'No' }];
             } else {
-            // check if Walmart has lowest price || fastest shipping, 'No' if so, otherwise 'Yes'
+            // check if Walmart has lowest price or the fastest shipping, 'No' if so, otherwise 'Yes'
               const walmartIdx = row.otherSellersName.map(item => item.text).indexOf('Walmart');
               const allPrices = row.otherSellersPrice.map(item => parseFloat(item.text.replace('$', '')));
 

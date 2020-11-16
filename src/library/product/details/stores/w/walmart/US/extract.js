@@ -68,7 +68,7 @@ module.exports = {
     // Iframe logic for aplus_images & enhanced_content if not picked up in API:
     await context.evaluate(async () => {
       // scroll to bottom of page, iframe should load if present!
-      //await window.scrollTo(0, document.body.scrollHeight);
+      // await window.scrollTo(0, document.body.scrollHeight);
     });
     const enhancedContentSelector = 'iframe#iframe-AboutThisItem-marketingContent';
     await context.waitForSelector(enhancedContentSelector, { timeout: 5000 })
@@ -138,7 +138,7 @@ module.exports = {
           }
         }
       }
-      const id = window.location.pathname.split('/').slice(-1)[0];
+      const id = window.location.pathname.split('/').filter(wd => wd).slice(-1)[0];
       addHiddenDiv('added-sku', id);
       const sellerUrl = `https://www.walmart.com/product/${id}/sellers`;
       const result = await getSellerInformation(sellerUrl);
