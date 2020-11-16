@@ -30,11 +30,7 @@ module.exports = {
 
     });
     const ratingSelecter = '#ratings-summary > div[itemprop=ratingValue]';
-    const reviewSelector = 'div.bv_numReviews_component_container';
-    const manufacturerImageSelector = 'div.wc-rf-banner-image-container';
-    await context.waitForSelector(ratingSelecter, { timeout: 30000 });
-    await context.waitForSelector(reviewSelector, { timeout: 30000 });
-    await context.waitForSelector(manufacturerImageSelector, { timeout: 30000 });
+    await context.waitForSelector(ratingSelecter, { timeout: 40000 });
     await context.extract(dependencies.productDetails);
   },
 };

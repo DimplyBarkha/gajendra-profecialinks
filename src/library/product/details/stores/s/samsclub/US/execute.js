@@ -16,7 +16,7 @@ module.exports = {
 
     if (productLink) {
       await context.goto(productLink, {
-        timeout: 30000,
+        timeout: 50000,
         waitUntil: 'load',
         checkBlocked: true,
         block_ads: false,
@@ -24,6 +24,7 @@ module.exports = {
         images_enabled: true,
         css_enabled: true,
       });
+      await new Promise(resolve => setTimeout(resolve, 10000));
     }
   },
 };
