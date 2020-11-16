@@ -37,7 +37,20 @@ module.exports = {
       });
       bulletDiv.textContent = bulletList.join('||');
       document.body.appendChild(bulletDiv);
-
+      // get SKU
+      let scriptContent = "";
+      let scriptNodes = document.querySelectorAll('script[type="application/ld+json"]');
+      scriptNodes.forEach(q => {
+          if(q.textContent.includes('mpn')) {
+              scriptContent = q.textContent;
+          }
+      });
+      if(scriptContent) {
+          scriptContent = JSON.parse(scriptContent);
+          if(scriptContent.hasOwnProperty("mpn")) {
+              document.body.insertAdjacentHTML('afterbegin', `<div id="sku" style="display: none">${scriptContent.mpn}</div>`)
+          }
+      }
       // Creating div with specifications with || separator
 
       const xpath = '(//h4[text()="Besonderheiten:"]/following-sibling::ul)[1]/li';
