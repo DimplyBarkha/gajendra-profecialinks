@@ -34,7 +34,7 @@ fields:
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //img[contains(@class,"plp__productTileImage")]/@alt
+    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//p[contains(@class,'productName')]
     description: The product name
   - name: sku
     singleValue: false
@@ -91,9 +91,9 @@ fields:
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating2
     singleValue: false
     xpath: //div[contains(@class,"plp__ratingContainerWrapper")]//div[contains(@class,"plp__ratingContainer")]/@aria-label
-
