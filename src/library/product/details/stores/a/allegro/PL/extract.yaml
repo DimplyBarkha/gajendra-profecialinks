@@ -10,9 +10,11 @@ fields:
   - name: category
     xpath: //div[contains(@data-role, 'breadcrumbs-list')]//div[contains(@data-role, 'breadcrumb-item') and position() > 1]/a
   - name: nameExtended
-    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"] | //div[@data-box-name='productRatingInfo']//h4
+    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"]
   - name: name
-    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"] | //div[@data-box-name='productRatingInfo']//h4
+    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"]
+  - name: nameExtendedFromH4
+    xpath: //div[@data-box-name='productRatingInfo']//h4
   - name: price
     xpath: //meta[@itemprop='price']/@content
   - name: availabilityText
