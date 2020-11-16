@@ -1,0 +1,79 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'sku-thumbnail-row')]//a[contains(@class,'mz-thumb-selected')]/@href
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'sku-thumbnail-row')]//a[not(contains(@class,'mz-thumb-selected'))]/@href
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-name-brand']
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='product-name-brand']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'product-main-info')]//button[contains(@class,'btnAddToCart')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'product-meta-container')]//span[contains(@class,'current')]//div[@class='FormattedAmount']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'product-meta-container')]//span[contains(@class,'secondary')]//div[@class='FormattedAmount']
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'product-description-container')]//div[@class='product-description']
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,'product-properties-container')]//ul//li//span[text()='Brand']//following-sibling::span//a
+  - name: brandLink
+    singleValue: false
+    xpath: //div[contains(@class,'product-properties-container')]//ul//li//span[text()='Brand']//following-sibling::span//a/@href
+  - name: alcoholContent
+    singleValue: false
+    xpath: //div[contains(@class,'product-properties-container')]//ul//li//span[text()='Alcohol Content']//following-sibling::span
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,'product-properties-container')]//ul//li//span[text()='GTIN']//following-sibling::span
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'product-properties-container')]//ul//li//span[text()='Product ID']//following-sibling::span
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'product-properties-container')]//ul//li//span[text()='Product ID']//following-sibling::span
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+    type: NUMBER
+  - name: specificationsKey
+    singleValue: false
+    xpath: //div[contains(@class,'product-properties-container')]//ul//li/span[@class='key']
+  - name: specificationsValue
+    singleValue: false
+    xpath: //div[contains(@class,'product-properties-container')]//ul//li/span[@class='val']
+  - name: specifications
+    singleValue: false
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,'product-properties-container')]//ul//li//span[text()='Origin']//following-sibling::span
+  - name: ratingCount
+    singleValue: false
+    #get from JSON in script
+    xpath: //script[contains(text(),'ratingCount')]
+  - name: aggregateRating
+    singleValue: false
+    #get from JSON in script
+    xpath: //script[contains(text(),'ratingValue')]
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'product-meta-container')]//div[contains(@class,'callout-text') or contains(@class,'ins-preview-wrapper')]
