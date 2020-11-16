@@ -5,7 +5,7 @@ module.exports = {
     country: 'UAE',
     store: 'acehardware',
     domain: 'aceuae.com',
-    url: 'https://www.aceuae.com/en-AE/search/?q={searchTerms}',
+    url: 'https://www.aceuae.com/en-AE/product-list/?key={searchTerms}',
     loadedXPath: '//div[contains(@class,"row-cols")]/div[@class="col"]',
     noResultsXPath: '//div[@class="search-no-result"]',
     zipcode: '',
