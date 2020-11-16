@@ -29,6 +29,9 @@ async function implementation (inputs, parameters, context, dependencies) {
   await new Promise((resolve) => setTimeout(resolve, 1500));
 
   await context.evaluate(() => {
+    const searchUrl = window.location.href;
+    document.querySelector('body').setAttribute('searchurl', searchUrl);
+
     const allProducts = document.querySelectorAll('div[class*="DvypSJ"]');
     allProducts.forEach((product, index) => {
       product.setAttribute('rank', `${index + 1}`);

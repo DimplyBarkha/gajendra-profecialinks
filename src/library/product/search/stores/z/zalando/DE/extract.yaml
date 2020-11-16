@@ -10,6 +10,7 @@ fields:
     regExpReplace: $1 
   - name: searchUrl
     singleValue: true
+    xpath: //ancestor::body/@searchurl
   - name: name
     singleValue: false
     xpath: //header/div[contains(@class,'hPW')]
