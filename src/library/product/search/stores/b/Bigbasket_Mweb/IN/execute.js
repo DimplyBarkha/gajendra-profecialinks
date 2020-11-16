@@ -63,8 +63,7 @@ async function implementation (
             seeAllSelector.click();
             await stall(1000);
             products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-            productsCount = products.snapshotLength;
-        }
+            productsCount = products.snapshotLength; }
         else {
           break;
         };
