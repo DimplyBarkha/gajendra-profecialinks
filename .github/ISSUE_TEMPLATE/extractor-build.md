@@ -143,7 +143,7 @@ example:
 - [ ] In workbench, the source parameter called `state` be set to `development`
 - [ ] Copy the extractor ID to the appropriate field in the newly created source(s)
 - [ ] Copy the extractor ID tright here: `copy-paste-the-extractor-ID-here-instead-of-this-text`
-- [ ] Create a `.csv` file with a sample set of inputs. The sample set must have between 50 and 100 inputs, or as many as available in the full input file (but never more than 100)
+- [ ] Create a `.csv` file with a sample set of inputs. The sample set must have a minimum of 50 unique inputs and a maximum of 100 inputs.
 - [ ] Upload sample input file to the appropriate path in the import.io AWS S3 bucket
 - [ ] Implement PR feedback
 - [ ] Commit latest code changes to branch with a commit message that includes the issue# (`#{:number}`)
@@ -162,7 +162,8 @@ This branch is now used to commit new changes. Similarly as before, always refer
 - [ ] Promote Source to `Staging` in Project Dash
 - [ ] Add `Staging` Label
 - [ ] In workbench, change the source parameter called `state` from `development` to `staging`
-- [ ] Check this to confirm that the source is now ready for manual QA
+- [ ] Create a `.csv` file with the full set of inputs
+- [ ] Upload full input file to the appropriate path in the import.io AWS S3 bucket
 - [ ] In workbench, change the source parameter called `state` from `staging` to `scaleTest`
 - [ ] System runs automated flow at scheduled time on the full input file, when this is done collect the resulting output `.csv` file
 - [ ] In workbench, revert the source parameter called `state` from `scaleTest` back to `staging`
