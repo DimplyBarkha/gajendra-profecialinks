@@ -7,22 +7,22 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  console.log("inputs:: ", inputs);
+  console.log("inputs --  core extract:: ", inputs);
   const { id } = inputs;
-  console.log("parameters:: ", parameters);
+  console.log("parameters --- core extract:: ", parameters);
   if (id) {
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     await context.waitForXPath('//div[@class="productBlock"]/a');
 
-    await context.waitForSelector('div.productBlock a');
+    // await context.waitForSelector('div.productBlock a');
     console.log('everything fine !!!');
     await context.evaluate(() => {
       const firstItem = document.querySelector('div.productBlock a');
-      firstItem.click();
+      if (firstItem) firstItem.click();
     });
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  }
     // await context.evaluate(async function () {
     //   function addHiddenDiv (id, content) {
     //     const newDiv = document.createElement('div');
@@ -32,7 +32,7 @@ async function implementation(
     //     document.body.appendChild(newDiv);
     //   }    
     // });
-  }
+
   // var variantLength = await context.evaluate(async () => {
   //   return (document.querySelectorAll('div.variant_options a.colorVariant')) ? document.querySelectorAll('div.variant_options a.colorVariant').length : 0;
   // });

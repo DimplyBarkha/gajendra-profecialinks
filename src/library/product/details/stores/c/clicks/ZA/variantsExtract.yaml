@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -12,4 +12,5 @@ fields:
     singleValue: false
     description: variant Url
     xpath: //select[@id="Size"]/option[position()>1]/@value | //a[@class="colorVariant"]/@name 
+    regExp: (.+)
     regExpReplace: https://clicks.co.za$1
