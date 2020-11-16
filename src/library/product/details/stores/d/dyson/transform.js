@@ -27,6 +27,22 @@ const transform = (data) => {
           }
         }
       }
+      if (row.alternateImages) {
+        const j = 0;
+        console.log(row.alternateImages.length + ' is the transform  length');
+        const altImages = [];
+
+        for (let i = 0; i < row.alternateImages.length; i++) {
+          if (!row.alternateImages[i].text.includes('image/gif')) { altImages.push(row.alternateImages[i].text); }
+        }
+        for (let i = 0; i < row.alternateImages.length; i++) {
+          if (i < altImages.length) { row.alternateImages[i].text = altImages[i]; } else {
+            row.alternateImages.splice(i, row.alternateImages.length);
+            break;
+          }
+        }
+      // console.log(altImages+' are images transformed');
+      }
       if (row.availabilityText && row.availabilityText[0]) {
         row.availabilityText = [
           { text: row.availabilityText[0].text ? 'In Stock' : 'Out of Stock' },
