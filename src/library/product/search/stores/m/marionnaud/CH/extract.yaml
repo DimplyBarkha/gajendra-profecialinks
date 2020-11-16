@@ -1,20 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@data-component="MasonryGrid"]//div[contains(@class, "product-tile__wrapper")]
 fields:
   - name: id
     singleValue: false
+    xpath: //a[contains(@class, "product-tile__name")]/@href
+    regExp: ([A-Z]{2}_\d+)
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //a[contains(@class, "product-tile__name")]
   - name: productUrl
     singleValue: false
+    xpath: //a[contains(@class, "product-tile__name")]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[@class="product-tile__image"]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,12 +30,15 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //a[contains(@class, "product-tile__price")]/span[1]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
+    xpath: //a[contains(@class, "product-tile__brand")]
   - name: soldBy
     singleValue: true
   - name: endorsementText
     singleValue: false
+    xpath: //div[contains(@class, "product-tile__label")]
   - name: rank
     singleValue: false
     description: search/listing rank
