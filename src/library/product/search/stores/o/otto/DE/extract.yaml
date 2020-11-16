@@ -17,6 +17,8 @@ fields:
   - name: price
     singleValue: single
     xpath: //span[@class='value']
+    regExp: (.+),(.+)
+    regExpReplace: $1.$2
   - name: manufacturer
     singleValue: false
     xpath: //div[@class= 'san_tile_content']/p
