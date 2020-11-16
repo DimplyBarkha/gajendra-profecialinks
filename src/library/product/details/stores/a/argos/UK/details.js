@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/details',
   parameterValues: {
     country: 'UK',
-    domain: 'argos.co.uk',
     store: 'argos',
+    domain: 'argos.co.uk',
     zipcode: 'SE19PD',
   },
 };
