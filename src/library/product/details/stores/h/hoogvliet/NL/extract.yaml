@@ -1,0 +1,88 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail-img')]//div[contains(@class,'product-image-container')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail-img')]//div[contains(@class,'product-image-container')]//img/@alt
+  - name: category
+    singleValue: false
+    xpath: //ol[@class='breadcrumbs-list']//li//a[not(contains(@class,'breadcrumbs-list-link-home'))]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'product-info')]//h1
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'product-info')]//h1
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'product-info')]//button[text()='Toevoegen']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    # Price is in different spans to merge it
+    xpath: //div[contains(@class,'product-info')]//div[contains(@class,'price-container')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'product-info')]//span[contains(@class,'ws-sale-price')]
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'longDescription')]//p
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'longDescription')]//ul//li
+  - name: descriptionBullets
+    singleValue: false    
+  - name: brandText
+    singleValue: false
+    # Get brand name from its JSON
+    xpath: //div[contains(@class,'product-info')]//button[text()='Toevoegen']/@data-track-click
+    #"brand" : "Buitengewoon",
+    regExp: \"brand\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,'product-info-block')]//h3[contains(text(),'Leverancier')]//following-sibling::p[1]
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'addToCart')]//input[@name="SKU"]/@value
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'addToCart')]//input[@name="SKU"]/@value
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'    
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'product-details')]//ul[contains(@class,'promotion-list')]//li//div
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,'product-info-block')]//h3[contains(text(),'Ingrediënten')]//following-sibling::p[1]
+  - name: specifications
+    singleValue: false
+    # get it in combination of h3 and p
+    xpath: //div[contains(@class,'product-info-block')]//div[@class='col-sm-6']
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,'product-info-block')]//h3[contains(text(),'Land van herkomst')]//following-sibling::p[1]
+  - name: storage
+    singleValue: false
+    xpath: //div[contains(@class,'product-info-block')]//h3[contains(text(),'Bewaar')]//following-sibling::p[1]
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,'unitPrice')]//div[contains(@class,'ratio-base-packing-unit')]
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //div[contains(@class,'price-per-unit')]
+    # Price per: kilo € 5.82
+    regExp: (.+?)€
+    regExpReplace: $1
