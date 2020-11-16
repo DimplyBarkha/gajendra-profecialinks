@@ -1,0 +1,49 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'product-grid__products')]//div[contains(@class,'grid-unit-xs--col-12') and contains(@class,'grid-unit-l--col-6') and contains(@class,'grid-unit-xl--col-4')]//div[contains(@class,'product-card') and contains(@class,'grid-container')]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//*[@class='sales-price__current']/text()
+    regExp: (.+)
+    regExpReplace: EUR $1    
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//div[@class='product-card__title']//h3/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//div[@class='product-card__title']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.coolblue.be$1     
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card')]//div[@class='product-card__image-container']//picture//source/@data-srcset | //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card')]//div[@class='product-card__image-container']//picture//source/@srcset
+    regExp: (.*)(,)(.*)
+    regExpReplace: $1
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//div[@class='product-card__title']//a/@href
+    regExp: ([^/nl/product/]+)(\/)
+    regExpReplace: $1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//meter/@value
+    regExp: (\d+)(\.)?(\d{1,2})?
+    regExpReplace: $1,$3
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//div[@class='review-rating']//span[contains(@class,'review-rating__reviews')]/a/text()
+    regExp: (\d*)
+    regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']    
+  # - name: ratingCount
+  #   singleValue: false
+  #   xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//div[@class='review-rating']//span[contains(@class,'review-rating__reviews')]/a/text()
+  #   regExp: (\d*)
+  #   regExpReplace: $1    
+  # - name: endorsementText
+  #   singleValue: false
+  #   xpath: concat(//div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__badge')]//div[@class='coolblues-choice-label']//span[1]/text(), '', //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__badge')]//div[@class='coolblues-choice-label']//span[2]/text())
