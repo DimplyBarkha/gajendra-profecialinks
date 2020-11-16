@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@data-comp,"ProductGrid")]//div[@class="css-dkxsdo"]//div[@class="css-12egk0t"]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //span[@data-at="sku_item_name" and @class="css-pelz90"]
+  - name: thumbnail
+    singleValue: false
+    xpath: //picture[@class="css-yq9732"]/img/@src
+  - name: id
+    singleValue: false
+    xpath: //a[@class="css-ix8km1" and contains(@data-comp,"ProductItem")]/@data-uid
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="css-ix8km1" and contains(@data-comp,"ProductItem")]/@href
+  - name: price
+    singleValue: false
+    xpath: //span[@data-at="sku_item_price_list"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="css-jp4jy6" and contains(@data-comp,"StarRating")]/@aria-label
