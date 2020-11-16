@@ -11,19 +11,21 @@ async function implementation (inputs, parameters, context, dependencies) {
     if (lang !== null) {
       // @ts-ignore
       lang.click();
+      await new Promise((resolve) => setTimeout(resolve, 2000));
     };
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    const langOpt = document.querySelector('label[for*="de"]');
+
+    const langOpt = document.querySelector('label[for="de-m"]');
     if (langOpt !== null) {
       // @ts-ignore
       langOpt.click();
+      await new Promise((resolve) => setTimeout(resolve, 2000));
     };
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    const langSave = document.querySelector('button[class*="_buttonPrimary"]');
+    const langSave = document.querySelector('div[class*="modal"] button[class*="_buttonPrimary"]');
     if (langSave !== null) {
       // @ts-ignore
       langSave.click();
+      await new Promise((resolve) => setTimeout(resolve, 2000));
     };
   });
   await new Promise((resolve) => setTimeout(resolve, 1500));
