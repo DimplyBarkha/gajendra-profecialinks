@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXpath: null
+#recordXPath: //div[@class="horizontal product-card c-product__has-quickview css-zcw7sa"]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product__specialprice__text']//span[2]
+    #regExp: (.+)\b(\d+)(\d{2})\b
+    #regExpReplace: $1$2.$3
+  - name: id
+    singleValue: false 
+    xpath: //div[@class='col-xs-8 col-sm-9 product__list__info']//a[@class='product-hash-scroll']/@id
+    #regExp: (.*)(=)(.*)
+    #regExpReplace: $3
+  - name: name
+    singleValue: false
+    xpath: //div[@class='col-xs-8 col-sm-9 product__list__info']//h3[@class='producttitle']/a/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='col-xs-8 col-sm-9 product__list__info']//a//@href
+    regExp: (.+)
+    regExpReplace: https://www.zooplus.it$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product__list__image col-xs-4 col-sm-3 text-center']/a/@href
+  - name: reviewCount
+    singleValue: true
+    xpath: //div[@class='product__rating__teaser']//span[@class='review__text hidden-xs']//font | //div[@class='product__rating__teaser']//span[@class='review__text hidden-xs']
+    regExp: (\d*)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: true
+    xpath: 
+    #regExp: (\d)
+    #regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+    #xpath: ancestor::html//div[@id='added-searchurl']
+
