@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class="b-productList__price"]//a//span[1]/text()   
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="b-productList__item__picture"]//a[@class="b-productList__item__img__link js-compare__link"]/@href
+    regExp: (/.+)
+    regExpReplace: https://www.komus.ru/$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="b-productList__item__picture"]//a[@class="b-productList__item__img__link js-compare__link"]//img//@src 
+  - name: aggregateRating    
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@class="i-dn b-block--print i-dib"]/text() 
+  - name: reviewCount
+    singleValue: false
+    type: NUMBER
+    xpath: //a[@class="b-link b-productParams--noprint b-productList__top_5"]
+  - name: name
+    singleValue: false
+    xpath: //a[@class='b-productList__item__descr--title']
+  - name: id
+    singleValue: false
+    xpath: //div/ul/li/@data-id
+  # - name: rankOrganic
+  #   singleValue: false
+  #   xpath: //div[@id='rankOrganic']
+  # - name: rank
+  #   singleValue: false
+  #   xpath: //div[@id='rankOrganic']
