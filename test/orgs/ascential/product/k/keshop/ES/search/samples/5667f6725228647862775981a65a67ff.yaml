@@ -1,0 +1,74 @@
+input:
+  keywords: Tintes
+  _url: http://keshop.com
+extractions:
+  - html: https://workbench.import.io/html/run=d0e73b50-4603-44a0-bb1d-2660bda94c5d/task=9615435e-bf9a-4f0f-95c8-d5c9597ca531/66bac1a4-b280-45c1-83da-e70bb5a22b90.html
+    extractionConfigId: product/search/stores/k/keshop/ES/extract
+    data:
+      - group:
+          - id:
+              - text: "2082"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/@data-id-product
+            searchUrl:
+              - text: https://www.keshop.com/es/#/dffullscreen/type%5B0%5D=product&query=Tintes&query_name=match_and
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/@searchurl
+            name:
+              - text: Travel Kit Bag Repair
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[1]
+            productUrl:
+              - text: https://www.keshop.com/es/moroccanoil-reparadora/travel-kit-bag-repair.html
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.keshop.com/es/3502-home_default/travel-kit-bag-repair.jpg
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: 33,05 €
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[3]/span[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[2]/text()[1]
+                type: NUMBER
+                raw: "5"
+                locale: es_ES
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[2]/text()[1]
+                type: NUMBER
+                raw: "5"
+                locale: es_ES
+                value: 5
+          - id:
+              - text: "321"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/@data-id-product
+            searchUrl:
+              - text: https://www.keshop.com/es/#/dffullscreen/type%5B0%5D=product&query=Tintes&query_name=match_and
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/@searchurl
+            name:
+              - text: Champú Reparador Hidratante - 250 ml
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]
+            productUrl:
+              - text: https://www.keshop.com/es/moroccanoil-reparadora/champu-reparador-hidratante-250-ml.html
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.keshop.com/es/3335-home_default/champu-reparador-hidratante-250-ml.jpg
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: 18,00 €
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[3]/span[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/div[2]/text()[1]
+                type: NUMBER
+                raw: "6"
+                locale: es_ES
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/div[2]/text()[1]
+                type: NUMBER
+                raw: "6"
+                locale: es_ES
+                value: 6
+        xpath: /html
+    timestamp: 1604993096369

@@ -1,0 +1,42 @@
+input:
+  keywords: henna
+  _url: http://keshop.com
+extractions:
+  - html: https://workbench.import.io/html/run=d0e73b50-4603-44a0-bb1d-2660bda94c5d/task=84e60ed7-a4b0-4bb6-8788-222f3565a96d/4859a482-a839-4311-a8e5-6905b8fad5d3.html
+    extractionConfigId: product/search/stores/k/keshop/ES/extract
+    data:
+      - group:
+          - id:
+              - text: "1409"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/a[1]/@data-id-product
+            searchUrl:
+              - text: https://www.keshop.com/es/#/dffullscreen/type%5B0%5D=product&query=henna&query_name=phonetic_text
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/@searchurl
+            name:
+              - text: OSiS+ Curl Honey - 150 ml
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[1]
+            productUrl:
+              - text: https://www.keshop.com/es/osis-rizos/osis-curl-honey-150-ml.html
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.keshop.com/es/2022-home_default/osis-curl-honey-150-ml.jpg
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            price:
+              - text: 7,85 €
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[3]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[2]/text()[1]
+                type: NUMBER
+                raw: "1"
+                locale: es_ES
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[2]/text()[1]
+                type: NUMBER
+                raw: "1"
+                locale: es_ES
+                value: 1
+        xpath: /html
+    timestamp: 1604993096897

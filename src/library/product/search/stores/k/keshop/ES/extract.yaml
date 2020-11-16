@@ -1,23 +1,32 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class='df-card product-container']
 fields:
   - name: id
     singleValue: false
+    xpath: //div[@class='df-card product-container']/div//a/@data-id-product
+    defaultValue: 'not-provided'
   - name: searchUrl
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='df-card product-container']/@searchurl
   - name: name
     singleValue: false
+    xpath: //div[@class='df-card product-container']//div[@class='product-name']
   - name: productUrl
     singleValue: false
+    xpath: //div[@class='df-card product-container']/a/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[@class='df-card product-container']/a//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
+    type: STRING
     singleValue: false
   - name: reviewCount
     singleValue: false
@@ -25,6 +34,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[@class='content_price']/span
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -35,10 +45,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //div[@class='df-card product-container']/div[@id='pd_rank']/text()
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //div[@class='df-card product-container']/div[@id='pd_rank']/text()
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
@@ -46,3 +58,4 @@ fields:
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER
+
