@@ -1,20 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@data-testid="product-block"]
 fields:
   - name: id
     singleValue: false
+    xpath: //div[@data-testid="product-block-product-name"]//a/@href
+    regExp: \/p\/(\d+)
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //div[@data-testid="product-block-product-name"]
   - name: productUrl
     singleValue: false
+    xpath: //div[@data-testid="product-block-image-link"]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[@data-testid="product-block-image"]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2

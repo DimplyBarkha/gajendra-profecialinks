@@ -5,9 +5,9 @@ module.exports = {
     country: 'RS',
     store: 'maxi',
     domain: 'maxi.rs',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.maxi.rs/online/search?q={searchTerms}',
+    loadedSelector: 'div[data-testid="search-results-list-wrapper"]',
+    noResultsXPath: '//div[@class="sc-3brks3-2 iyGbUN"]',
     zipcode: '',
   },
 };
