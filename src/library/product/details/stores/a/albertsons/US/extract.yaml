@@ -82,6 +82,7 @@ fields:
     singleValue: true
     description: The store-specific product identifier
   - name: variantId
+    xpath: //div[contains(@class,'product-content')]/product-detail/@data-product-id  
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
@@ -275,13 +276,13 @@ fields:
       based on per 100g serving
   - name: caloriesFromFatPerServing
     xpath: //th[contains(text(),"Calories From Fat")]/following-sibling::td[1]/text() 
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
   - name: totalFatPerServing
     xpath: //th[contains(text(),"Total Fat")]/following-sibling::td[1]/text()
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
@@ -292,7 +293,7 @@ fields:
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     xpath: //td[contains(text(),"Saturated Fat")]/following-sibling::td[1]/text()
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|)
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
@@ -303,7 +304,7 @@ fields:
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
     xpath: //td[contains(text(),"Trans Fat")]/following-sibling::td[1]/text() 
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
@@ -314,7 +315,7 @@ fields:
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
     xpath: //th[contains(text(),"Cholesterol")]/following-sibling::td[1]/text() 
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
@@ -347,7 +348,7 @@ fields:
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     xpath: //td[contains(text(),"Dietary")]/following-sibling::td[1]/text()  
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
@@ -358,7 +359,7 @@ fields:
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     xpath: //td[contains(text(),"Sugars")]/following-sibling::td[1]/text()
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|)
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
@@ -369,7 +370,7 @@ fields:
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     xpath: //th[contains(text(),"Protein")]/following-sibling::td[1]/text()
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|)
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
@@ -380,7 +381,7 @@ fields:
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     xpath: //th[contains(text(),"Vitamin A")]/following-sibling::td[1]/text()
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|)
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
@@ -391,7 +392,7 @@ fields:
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
     xpath: //th[contains(text(),"Vitamin C")]/following-sibling::td[1]/text() 
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
@@ -402,7 +403,7 @@ fields:
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
     xpath: //th[contains(text(),"Calcium")]/following-sibling::td[1]/text()
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|)
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
@@ -413,7 +414,7 @@ fields:
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
     xpath: //th[contains(text(),"Iron")]/following-sibling::td[1]/text() 
-    regExp: (\d+)(\.|)(\d+|) 
+    regExp: (<|>|)(\d+)(\.|)(\d+|)
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
@@ -478,8 +479,9 @@ fields:
     description: Price of the product split into certain units
   - name: pricePerUnitUom
     xpath: //div[@class="product-quantity"]/span
-    regExp: ([a-zA-z]+) 
-    singleValue: true
+    regExp: ([A-Z][a-z]+)(.|)(\w+)
+    # regExpReplace: $1
+    # singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
     xpath: concat(//div[@class="product-offer-desc"]/span[1],//div[@class="product-offer-desc"]/span[2])
