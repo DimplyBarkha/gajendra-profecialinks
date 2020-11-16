@@ -26,7 +26,7 @@ async function implementation (
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
-  // TODO: Check for not found?
+  // TODO: Checknot found?
 }
 
 module.exports = {
