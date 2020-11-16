@@ -32,38 +32,38 @@ async function implementation (
         scrollTop += 1000;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000 || productsCount > 160) {
-            await stall(10000);
-            await stall(5000);
+          await stall(10000);
+          await stall(5000);
         }
-    }
-    function stall(ms) {
-        return new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                        resolve();
-                    }, ms);
-                });
-            }
-        });
-    };
-    const loadProducts = async function (contenxt) {
-        await context.evaluate(async function () {
-            function stall(ms) {
-                return new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                        resolve();
-                    }, ms);
-                });
-            }
-            let products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-            let productsCount = products.snapshotLength;
-            const seeAllSelector = document.querySelector('div[class="show-more"] > button');
-            while (productsCount <= 150 && seeAllSelector !== null) {
-                console.log('Length: ' + productsCount);
-                seeAllSelector.click();
-                await stall(1000);
-                products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-                productsCount = products.snapshotLength;
-                console.log("count button");
+      }
+      function stall(ms) {
+          return new Promise((resolve, reject) => {
+                      setTimeout(() => {
+                          resolve();
+                      }, ms);
+                  });
+              }
+          });
+      };
+      const loadProducts = async function (contenxt) {
+          await context.evaluate(async function () {
+              function stall(ms) {
+                  return new Promise((resolve, reject) => {
+                      setTimeout(() => {
+                          resolve();
+                      }, ms);
+                  });
+              }
+              let products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+              let productsCount = products.snapshotLength;
+              const seeAllSelector = document.querySelector('div[class="show-more"] > button');
+              while (productsCount <= 150 && seeAllSelector !== null) {
+                  console.log('Length: ' + productsCount);
+                  seeAllSelector.click();
+                  await stall(1000);
+                  products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+                  productsCount = products.snapshotLength;
+                  console.log("count button");
             };
         });
     };
