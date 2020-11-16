@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="searchResultsContainer active"]//div[@class="product"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[contains(@class,"limp")]/@data-code
+  - name: rankOrganic
+    singleValue: false
+  - name: name
+    singleValue: false
+    xpath: //img[contains(@class,"prodImage")]/@alt
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="limpUrl gmt-click"]/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class,"prodImage")]/@src
+  - name: url
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+  - name: reviewCount
+    singleValue: false 
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,"newPrice")] | //span[contains(@class,"onlyPrice")] | //span[@class="klubbpris"]
+  - name: rank
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+    

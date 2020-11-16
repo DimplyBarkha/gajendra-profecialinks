@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="items"]//div[@qa="product"]
+fields:
+  - name: productUrl
+    xpath: //div[@qa="product_name"]//a/@ng-href
+    regExp: (\/\w+\/\d+)
+    regExpReplace: https://www.bigbasket.com$1
+  - name: thumbnail
+    xpath: //img[@data-sizes="auto"]/@src
+  - name: name
+    xpath: //a[contains(@class,"ng-binding")]
+  - name: id
+    xpath: //div[@qa="product_name"]//a/@ng-href
+    regExp: \/(\d+)
+    regExpReplace: $1
+  - name: reviewCount
+    xpath:  //span[contains(@ng-bind,"vm.selectedProduct.rating_info.rating_count")]
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@ng-bind,"vm.selectedProduct.sp.replace('.00', '')")]
+  - name: aggregateRating2
+    xpath: //span[contains(@ng-bind,"vm.selectedProduct.rating_info.avg_rating")]
+  - name: ratingCount
+    xpath: //span[contains(@ng-bind,"vm.selectedProduct.rating_info.avg_rating")]
+  - name: rankOrganic
+  - name: rank
+  - name: sponsored
