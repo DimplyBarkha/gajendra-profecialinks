@@ -1,26 +1,22 @@
+
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
-  const cleanUp = (data, context) => {
-    let dataStr = JSON.stringify(data);
-    dataStr = dataStr.replace(/(?:\\r\\n|\\r|\\n)/g, ' ')
-      .replace(/\r\n|\r|\n/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
-      .replace(/[\x00-\x1F]/g, '')
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-
-    return JSON.parse(dataStr);
-  };
+const transform = (data, context) => {
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
       if (row.nameExtended) {
@@ -30,7 +26,7 @@ const transform = (data) => {
         });
         row.nameExtended = [
           {
-            text: cleanUp(text),
+            text: clean(text),
           },
         ];
       }
@@ -47,7 +43,7 @@ const transform = (data) => {
         descriptionBottom = [text, ...descriptionBottom.map(({ text }) => text)];
         row.description = [
           {
-            text: cleanUp(descriptionBottom.join(' | ')).replace(/\s*Satisfaction Guarantee.*/i, ''),
+            text: clean(descriptionBottom.join(' | ')).replace(/\s*Satisfaction Guarantee.*/i, ''),
           },
         ];
       }
@@ -68,21 +64,34 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [
           {
-            text: cleanUp(text.replace(/<img.{1,300}">/g, '')),
+            text: clean(text.replace(/<img.{1,300}">/g, '')),
           },
         ];
       }
       if (row.promotion) {
         row.promotion.forEach(item => {
-          item.text = cleanUp(item.text);
+          item.text = clean(item.text);
         });
       }
       row.alternateImages && row.alternateImages.splice(0, 1);
       row.secondaryImageTotal = [{
         text: (row.alternateImages && row.alternateImages.length) || 0,
       }];
+      if (row.ratingCount) {
+        row.ratingCount.forEach(item => {
+          item.text = `${item.text.replace(',', '')}`;
+        });
+      }
+      if (row.retailerIdFallback && !row.retailerId) {
+        row.retailerId = row.retailer_id = row.retailerIdFallback;
+      }
+
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+      }));
     }
   }
   return data;
 };
+
 module.exports = { transform };
