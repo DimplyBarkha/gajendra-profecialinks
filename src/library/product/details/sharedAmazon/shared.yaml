@@ -6,6 +6,8 @@ fields:
   - name: image
     #singleValue: true
     xpath: (//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@src
+    regExp: (.+)\.[^\.]*(\.[^\.]+$)
+    regExpReplace: $1$2
   - name: imageAlt
     #singleValue: true
     xpath: (//img[@id="landingImage"])[1]/@alt | //div[@id="img-canvas"]/img[1]/@alt
@@ -56,7 +58,7 @@ fields:
     html: true
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
+    xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/ul/li)
   - name: backupBrand
     singleValue: false
     xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
@@ -463,7 +465,7 @@ fields:
     xpath: //div[@id="my-variants"]/ul/li
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@id="feature-bullets"]//ul/li
+    xpath: //*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/ul/li
   - name: prop65Warning
     #singleValue: true
     xpath: 
@@ -602,7 +604,7 @@ fields:
     xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img) and not(contains(@class, "a-color-secondary"))]
   - name: rawAdditionalDescBulletInfo
     singleValue: false
-    xpath: //div[@id="feature-bullets"]//ul/li
+    xpath: //*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/ul/li
   - name: amazonChoiceBoolean
     #singleValue: true
     xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-text-primary")]

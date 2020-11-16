@@ -13,7 +13,7 @@ fields:
     xpath: //*[normalize-space(text())='Hersteller']/following-sibling::*[1]
   - name: quantity
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Größe')]/following-sibling::*[1] | //*[contains(text(),"Stückzahl")]/following-sibling::*[1]
+    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Größe')]/following-sibling::*[1] | //*[contains(text(),"Stückzahl")]/following-sibling::*[1] | //*[contains(text(),"Netto-Volumen")][not(ancestor::html//*[contains(text(),"Stückzahl")]/following-sibling::*[1])]/following-sibling::*[1]
   - name: shippingWeight
     singleValue: false
     xpath: //*[normalize-space(text())="Verpackungsabmessungen"]/following-sibling::*[1][contains(.,';')]
@@ -32,7 +32,6 @@ fields:
   - name: countryOfOrigin
     xpath: //*[normalize-space(text())="Ursprungsland"]/following-sibling::*[1]
   - name: allergyAdvice
-    singleValue: true
     xpath: //*[normalize-space(text())="Allergie-Informationen"]/following-sibling::*[1]
   - name: warnings
     xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Warnhinweise"]] | //p[starts-with(normalize-space(text()),"Zur Kontrolle")]
@@ -49,7 +48,7 @@ fields:
     xpath: //*[contains(text(),"Aufbewahrung")]/following-sibling::*[1]
   - name: directions
     singleValue: false
-    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/p[not(normalize-space(.)="")] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/div[@class="TabPanel"]
+    xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Gebrauchsanweisung"]] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/p[not(normalize-space(.)="")] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/div[@class="TabPanel"]
   - name: legalDisclaimer
     singleValue: false
     xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Haftungsausschluss')]/p
@@ -152,7 +151,6 @@ fields:
   
 
   - name: technicalInformationPdfPresent
-    singleValue: true
     xpath: //div[contains(., 'technische')]//span[contains(., 'pdf') or contains(., 'PDF')]
     regExp: (.+)
     regExpReplace: Yes
@@ -162,7 +160,6 @@ fields:
     xpath: //table[contains(@id,"productDetails_detailBullets")]//tr/th[contains(text(),"Amazon Bestseller-Rang")]/../td//span[contains(text(), "Nr. 1 ")]
   
   - name: energyEfficiency
-    singleValue: true
     xpath: //*[contains(text(),"Energieeffizienzklasse")]/following-sibling::*[1]
 
   ## Did not find Examples.
