@@ -1,0 +1,160 @@
+input:
+  keywords: lipton ice tea
+  _url: http://makro.pl
+extractions:
+  - html: https://workbench.import.io/html/run=e072a829-7d44-48e0-bc55-30f60f5e32be/task=e573975d-fdd1-442f-a053-9ae407e988c9/82528a4b-928f-478d-ad3c-9986abfe66b9.html
+    extractionConfigId: product/search/stores/m/makro/PL/extract
+    data:
+      - group:
+          - id:
+              - text: "99260"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Lipton Ice Tea Peach Napój niegazowany 1,5 l
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X188383/0032/0023/Lipton-Ice-Tea-Peach-Napój-niegazowany-1-5-l
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_188341001003_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 38,63 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "99261"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Lipton Ice Tea Green Tea Napój niegazowany 1,5 l
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X665858/0032/0022/Lipton-Ice-Tea-Green-Tea-Napój-niegazowany-1-5-l
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_665816001002_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 38,63 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "99259"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Lipton Ice Tea Lemon Napój niegazowany 1,5 l 9 sztuk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X914736/0032/0023/Lipton-Ice-Tea-Lemon-Napój-niegazowany-1-5-l-9-sztuk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_914694001003_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 38,63 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "204474"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Lipton Ice Tea Green Tea Napój niegazowany 500 ml 12 sztuk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X204516/0032/0021/Lipton-Ice-Tea-Green-Tea-Napój-niegazowany-500-ml-12-sztuk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_204474001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 31,73 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "204475"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[5]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Lipton Ice Tea Lemon Napój niegazowany 500 ml 12 sztuk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[5]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X204517/0032/0021/Lipton-Ice-Tea-Lemon-Napój-niegazowany-500-ml-12-sztuk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[5]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_204475001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[5]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 31,73 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[5]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "204476"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Lipton Ice Tea Peach Napój niegazowany 500 ml 12 sztuk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X204518/0032/0021/Lipton-Ice-Tea-Peach-Napój-niegazowany-500-ml-12-sztuk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_204476001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 31,73 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "554520"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[7]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Lipton Ice Tea Green Napój niegazowany 330 ml 24 sztuki
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[7]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X705860/0032/0021/Lipton-Ice-Tea-Green-Napój-niegazowany-330-ml-24-sztuki
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[7]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_705818001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[7]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 41,03 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[7]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "554523"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Lipton Ice Tea Peach Napój niegazowany 330 ml 24 sztuki
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X705862/0032/0021/Lipton-Ice-Tea-Peach-Napój-niegazowany-330-ml-24-sztuki
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_705820001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 41,03 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "554522"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[9]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Lipton Ice Tea Lemon Napój niegazowany 330 ml 24 sztuki
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[9]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X705861/0032/0021/Lipton-Ice-Tea-Lemon-Napój-niegazowany-330-ml-24-sztuki
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[9]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_705819001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[9]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 41,03 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[9]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "23731"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[10]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Lipton Ice Tea Green Lime & Mint Napój niegazowany 500 ml 12 sztuk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[10]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X3003/0032/0021/Lipton-Ice-Tea-Green-Lime-Mint-Napój-niegazowany-500-ml-12-sztuk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[10]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_2961001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[10]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 31,73 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[10]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+        xpath: /html
+    timestamp: 1605531985562

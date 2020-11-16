@@ -1,0 +1,70 @@
+input:
+  keywords: majonez
+  _url: http://makro.pl
+extractions:
+  - html: https://workbench.import.io/html/run=e072a829-7d44-48e0-bc55-30f60f5e32be/task=b91def48-627c-4aab-b89c-beb4e48a5ab5/abd2ed3c-b543-4936-91a8-181e9ce8d296.html
+    extractionConfigId: product/search/stores/m/makro/PL/extract
+    data:
+      - group:
+          - id:
+              - text: "11282"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Fine Life Mild Salsa Dip Łagodny sos pomidorowo-paprykowy 315 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X386120/0033/0021/Fine-Life-Mild-Salsa-Dip-Łagodny-sos-pomidorowo-paprykowy-315-g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_386078002001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 6,79 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "179875"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Makro Chef Majonez sałatkowy 950 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X276607/0032/0021/Makro-Chef-Majonez-sałatkowy-950-g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_276565001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 10,79 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "937456"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Winiary Majonez Dekoracyjny 700 ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X111437/0032/0021/Winiary-Majonez-Dekoracyjny-700-ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_111395001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 9,06 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "180562"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Casa de Mexico Salsa Cheese Dip 300 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X276694/0032/0021/Casa-de-Mexico-Salsa-Cheese-Dip-300-g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_276652001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 13,06 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+        xpath: /html
+    timestamp: 1605531987610

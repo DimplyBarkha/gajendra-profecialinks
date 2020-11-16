@@ -1,0 +1,132 @@
+input:
+  keywords: kiełbasa
+  _url: http://makro.pl
+extractions:
+  - html: https://workbench.import.io/html/run=e072a829-7d44-48e0-bc55-30f60f5e32be/task=d54e6edb-f5a8-4a59-a09b-39460c3d13e9/45e76890-adeb-496d-8f13-bb6858222aae.html
+    extractionConfigId: product/search/stores/m/makro/PL/extract
+    data:
+      - group:
+          - id:
+              - text: "211106"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[2]/div[3]/p[1]/text()[1]
+            name:
+              - text: Tarczyński Kabanos Exclusive Easy drobiowy z dodatkiem wieprzowiny 95 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X299371/0032/0021/Tarczyński-Kabanos-Exclusive-Easy-drobiowy-z-dodatkiem-wieprzowiny-95-g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_299329001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 5,13 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[1]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "9365"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[2]/div[3]/p[1]/text()[1]
+            name:
+              - text: Sokołów Gold Kabanosy francuskie 360 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X384124/0032/0021/Sokołów-Gold-Kabanosy-francuskie-360-g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_384082001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 15,74 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[2]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "56902"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Pudliszki Fasolka po bretońsku z kiełbasą i boczkiem 600 g 4 sztuki
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X111052/0034/0021/Pudliszki-Fasolka-po-bretońsku-z-kiełbasą-i-boczkiem-600-g-4-sztuki
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_111010003001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 26,24 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[3]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "38377"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Krakus Kabanosy klasyczne 180 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X722405/0032/0023/Krakus-Kabanosy-klasyczne-180-g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_722363001003_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 10,49 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[4]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "466140"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[5]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Tarczyński Kabanos Extra drobiowy 105 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[5]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X341244/0032/0021/Tarczyński-Kabanos-Extra-drobiowy-105-g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[5]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_341202001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[5]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 6,50 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[5]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "466129"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Tarczyński Kabanos Extra wieprzowy 105 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X341243/0032/0021/Tarczyński-Kabanos-Extra-wieprzowy-105-g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_341201001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 6,50 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "163431"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[7]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: Tarczyński Kabanos Extra wieprzowy z dodatkiem wołowiny 130 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[7]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X257002/0032/0021/Tarczyński-Kabanos-Extra-wieprzowy-z-dodatkiem-wołowiny-130-g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[7]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_256960001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[7]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 7,76 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[7]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "567469"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[2]/div[2]/p[1]/text()[1]
+            name:
+              - text: TARCZYŃSKI KABANOS WIEPRZOWY EXTRA OKOŁO 300G
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h4[1]
+            productUrl:
+              - text: https://online.makro.pl/shop/pv/BTY-X721105/0032/0021/TARCZYŃSKI-KABANOS-WIEPRZOWY-EXTRA-OKOŁO-300G
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.metro-group.com/pl/pl_pim_721063001001_01.png?format=jpg&quality=80&dpi=72&w=90&h=90
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[1]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 51,44 zł
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[1]
+              - text: / kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/span[8]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[1]/span[1]/span[2]
+        xpath: /html
+    timestamp: 1605531985737

@@ -9,7 +9,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedXpath: '//h1//span[text() = "Wyniki wyszukiwania"]',
-    noResultsXPath: '//h3/span[text()="Brak wyników!"]',
+    noResultsXPath: '//h4/span[contains(text(), "Nie znaleziono wyników dla wprowadzonych kryteriów wyszukiwania")] | //h3/span[text()="Brak wyników!"]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
