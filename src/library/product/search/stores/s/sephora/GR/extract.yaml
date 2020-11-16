@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"primary") and contains(@class,"container-fluid")]/div[@class="row"]/div
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"product_info")]/div[@class="product_title"]/a/h3
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product_image"]/a/img[@class="img-fluid"]/@src
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"product-item") and contains(@class,"position-relative")]/@data-reference
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"product_info")]/div[@class="product_title"]/a/@href
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"product_price")]/span[contains(@class,"price")]
