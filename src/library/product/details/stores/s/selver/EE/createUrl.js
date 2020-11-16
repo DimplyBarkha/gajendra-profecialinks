@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'selver.ee',
     prefix: null,
-    url: null,
+    url: 'https://www.selver.ee/catalogsearch/result/?q={id}',
     country: 'EE',
     store: 'selver',
     zipcode: '',

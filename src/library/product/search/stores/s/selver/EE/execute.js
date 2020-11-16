@@ -5,9 +5,9 @@ module.exports = {
     country: 'EE',
     store: 'selver',
     domain: 'selver.ee',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.selver.ee/catalogsearch/result/?q={searchTerms}',
+    loadedSelector: 'ol[id="products-grid"] li',
+    noResultsXPath: '//p[@class="note-msg"]',
     zipcode: '',
   },
 };

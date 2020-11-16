@@ -1,5 +1,34 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //li[@data-product-id]
+fields:
+  - name: productUrl
+    xpath: //a[@class="product-image"]/@href
+    # regExp: (.+)
+    # regExpReplace: https://www.superama.com.mx/$1
+    singleValue: false    
+  - name: thumbnail
+    xpath: //a[@class="product-image"]/img/@src
+    # regExp: (.*)hd_280x(.*)
+    # regExpReplace: $1hd_560x$2
+    singleValue: false
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //a[@class="product-image"]/@title
+    singleValue: false
+    description: The product name
+  - name: price
+    xpath: //span[@class="unit-price"]
+    singleValue: false
+    description: The offered price for the product
+  - name: id
+    xpath: //ol/li/@data-product-id
+    singleValue: false
+    description: Unique id (within this extractor)
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+    type: BOOLEAN
+    singleValue: false
