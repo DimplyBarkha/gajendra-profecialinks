@@ -1,0 +1,114 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    description: URL of the main product image
+    xpath: //div[@class="imageCont"]/img/@data-src
+  - name: imageAlt
+    description: Alt text of the main product image
+    xpath: //div[@class="imageCont"]/img/@alt
+  - name: alternateImages
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="inner"]//a[position()>2]/img/@data-src
+  - name: metaKeywords
+    description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="breadcrumbs"]//a[not(@class="first")][not(@class="last")]
+  - name: nameExtended
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: normalize-space(//div[@id="h1c"]/h1)
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    xpath: //span[contains(@class,"price_compare")] | //tr[@class="priceCompare"]/td[@class="c2"]
+    regExp: '[0-9\s]+'
+  - name: price
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //span[@class="bigPrice price_withVat"] | //tr[@class="pricenormal"]/td[@class="c2"]
+    regExp: '[0-9\s]+'  
+  - name: availabilityText
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //a[contains(@class,"btnx")and contains(@class,"buy")]  
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock  
+  - name: description
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="nameextc"]//span
+  - name: descriptionBullets
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //script[@type="application/ld+json"]
+    regExp: (.+)(brand":\ ")(\w+)(".+)
+    regExpReplace: $3
+  - name: specifications
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[@class='allpar']//div[@class='row']
+  - name: manufacturer
+    description: Product manufacturer
+  - name: quantity
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    description: Net weight as described on the page
+    xpath: //div[@id="cpcm_cpc_mediaParams"]//div[contains(.,"Hmotnost")]/following-sibling::span[@class="value"]
+  - name: weightGross
+    description: Gross weight as described on the page
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: //script[@type="application/ld+json"]
+    regExp: (gtin13":\s?")(.+)"
+    regExpReplace: $2
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //script[@type="application/ld+json"]
+    regExp: (.+)(sku":\ ")(\w+)(".+)  
+    regExpReplace: $3
+  - name: variantId
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //script[@type="application/ld+json"]
+    regExp: (.+)(sku":\ ")(\w+)(".+)  
+    regExpReplace: $3
+  - name: mpc
+    description: The manufacturer model code (unique) of the product  
+    xpath: //span[@class="moreInfo"]//span[contains(.,"Prod. číslo:")]/following-sibling::*
+  - name: ratingCount
+    description: The number of ratings
+    type: NUMBER
+    xpath: //span[@class="ratingCount"]
+    regExp: '[0-9]+'  
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id="popis"]//div[contains(@class,"c12")]
+    type: NUMBER    
+  - name: manufacturerDescription
+    description: The extended description of the product supplied by the lister
+    xpath: //div[@id="celek"]
+  - name: manufacturerImages
+    description: Images within the third party description
+    xpath: //div[@id="celek"]//img/@src
+  - name: videos
+    description: URLs of videos on page
+    xpath: //div[@class="youtube articleVideoWrapper"]//iframe/@src  
+  - name: brandLink
+    description: null
+    xpath: //div[@class="blockMoreInfoG"]//span[not(contains(@id,"rowWarranty"))]/a/@href
+  - name: secondaryImageTotal
+    description: null
+    xpath: count(//div[@class="inner"]//a[position()>2]/img/@data-src)    
+  - name: warranty
+    description: Guarantee associated with the product
+    xpath: //span[@id="rowWarranty"]//a
+    regExp: '[0-9].+'
