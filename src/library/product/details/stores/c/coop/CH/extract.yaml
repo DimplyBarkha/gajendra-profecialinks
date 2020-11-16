@@ -5,14 +5,15 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //meta[@property="og:image"]/@content
+    xpath: (//img[contains(@class,"responsive-image")]/@src)[position()=1] | //meta[@property="og:image"]/@content
+    #  //meta[@property="og:image"]/@content
     # xpath: //a[contains(@class,"carousel__pagination-item")]/img/@src
   - name: imageAlt
     singleValue: false
     xpath: //a[@class="carousel__link carousel__link--preload"]/@title
   - name: alternateImages
     singleValue: false
-    xpath: (//img[@class="responsive-image carousel__pagination-item-img"]/@src)[position()>1]
+    xpath: (//img[contains(@class,"responsive-image")]/@src)[position()>1]
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -24,19 +25,22 @@ fields:
     xpath: //h1//p//text()
   - name: listPrice
     singleValue: false
-    xpath: //dd[contains(@class,"price-value--red productBasicInfo")]/text()
+    xpath: //span[@itemprop="price"]/text()
+    # xpath: //dd[contains(@class,"price-value--red productBasicInfo")]/text()
   - name: price
     singleValue: false
     xpath: //span[@itemprop="price"]//text()
   - name: availabilityText
     singleValue: false
-    xpath: //span[contains(text(),"Ce article n'est pas disponible pour les ventes en ligne actuellement")]
+    xpath: //span[contains(text(),"Dieses Produkt ist zurzeit online nicht verfügbar")]
+    # xpath: //span[contains(text(),"Ce article n'est pas disponible pour les ventes en ligne actuellement")]
     regExp: (.+)
     regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Description")]//following-sibling::div
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Beschreibung")]//following-sibling::div
+    # xpath: //div[@class="productInformation"]//div[contains(text(),"Description")]//following-sibling::div
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -55,13 +59,14 @@ fields:
     description: 
   - name: weightGross
     singleValue: false
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Poids")]//following-sibling::div/text()[2]
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Gewicht")]//following-sibling::div/text()[2]
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Numéro d'article")]//following-sibling::div
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Artikelnummer")]//following-sibling::div
+    # xpath: //div[@class="productInformation"]//div[contains(text(),"Numéro d'article")]//following-sibling::div
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
@@ -80,7 +85,8 @@ fields:
     description: Content under "directions" header
   - name: warnings
     singleValue: false
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Divers")]//following-sibling::div
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Sonstiges")]//following-sibling::div
+    # xpath: //div[@class="productInformation"]//div[contains(text(),"Divers")]//following-sibling::div
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="productBasicInfo__rating"]//span[@itemprop="reviewCount"]//text()
@@ -91,140 +97,16 @@ fields:
     singleValue: false
     xpath: //div[@class="rating"]//span[@class="visuallyhidden"]/text()
     regEx: \b(\w+)\b
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
-  - name: shippingDimensions
-    singleValue: false
-    description: Stated shipping dimensions
-  - name: shippingWeight
-    singleValue: false
-    description: Stated shipping weight
-  - name: variantCount
-    singleValue: false
-    description: Number of variants listed
-    type: NUMBER
-  - name: color
-    singleValue: false
-    description: A textual description of the colour
-  - name: colorCode
-    singleValue: false
-    description: A code description of the color (e.g. RGB hex)
-  - name: manufacturerDescription
-    singleValue: false
-    description: The extended description of the product supplied by the lister
-  - name: manufacturerImages
-    singleValue: false
-    description: Images within the third party description
-  - name: videos
-    singleValue: false
-    description: URLs of videos on page
   - name: name
     singleValue: false
     xpath: //h1//p//text()
-  - name: inStorePrice
-    singleValue: false
-    description: Price in the selected store
-  - name: asin
-    singleValue: false
-    description: null
-  - name: coupon
-    singleValue: false
-    description: Text of any coupon offer
-  - name: amazonChoice
-    singleValue: false
-    description: YES or Blank
-  - name: amazonChoiceCategory
-    singleValue: false
-    description: Text of link next to Amazon choice graphic
-  - name: brandLink
-    singleValue: false
-    description: null
-  - name: internationalShipping
-    singleValue: false
-    description: Text next to bullet point
-  - name: salesRank
-    singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
-      to be collapsed
-  - name: salesRankCategory
-    singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
-      to be collapsed
-  - name: subscriptionPrice
-    singleValue: false
-    description: Subscribe and save price
-  - name: subscribeAndSave
-    singleValue: false
-    description: YES/NO
-  - name: heroQuickPromoHeadline
-    singleValue: false
-    description: See image - top section hero area
-  - name: heroQuickPromoImageUrl
-    singleValue: false
-    description: null
-  - name: heroQuickPromoUrl
-    singleValue: false
-    description: null
-  - name: pasin
-    singleValue: false
-    description: Parent asin
-  - name: videoLength
-    singleValue: false
-    description: null
-  - name: ingredientImagePresent
-    singleValue: false
-    description: null
-  - name: factImagePresent
-    singleValue: false
-    description: null
-  - name: largeImageCount
-    singleValue: false
-    description: null
-    type: NUMBER
-  - name: variantAsins
-    singleValue: false
-    description: null
-  - name: primeFlag
-    singleValue: false
-    description: null
-  - name: lbb
-    singleValue: false
-    description: Check Lost by Box Requirements (just for Amazon and a couple of
-      other stores) - LBB occurs when a product is bought from someone other
-      than Amazon (on Amazon Website) - even though Amazon has the product "in
-      Stock"
-  - name: lbbPrice
-    singleValue: false
-    description: null
-  - name: featureBullets
-    singleValue: false
-    description: null
-  - name: otherSellersName
-    singleValue: false
-    description: null
-  - name: otherSellersPrice
-    singleValue: false
-    description: null
-  - name: otherSellersShipping
-    singleValue: false
-    description: null
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count((//img[@class="responsive-image carousel__pagination-item-img"]/@src)[position()>1])
-    type: NUMBER
-  - name: news
-    singleValue: false
-    description: null
-  - name: addonItem
-    singleValue: false
-    description: null
-  - name: fastTrack
-    singleValue: false
-    description: null
+    xpath: count((//img[contains(@class,"responsive-image")]/@src)[position()>1])
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Ingrédients")]//following-sibling::div
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Nährwerte")]//following-sibling::div
+    # xpath: //div[@class="productInformation"]//div[contains(text(),"Ingrédients")]//following-sibling::div
   - name: servingSize
     singleValue: false
     xpath: //a[@class="nutritionInformation-heading__option-link"]/text()
@@ -250,72 +132,51 @@ fields:
     type: NUMBER
   - name: totalFatPerServing
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"saturé gras")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fettsäuren")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"saturé gras")]//following::span[1]/span
   - name: totalFatPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Fat content
-  - name: saturatedFatPerServing
-    singleValue: false
-    description: Nutritional Information for Saturated Fat content - Usually based
-      on per 100g serving
-    type: NUMBER
-  - name: saturatedFatPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Saturated Fat content
-  - name: transFatPerServing
-    singleValue: false
-    description: Nutritional Information for Trans Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
-  - name: transFatPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Trans Fat content
-  - name: cholesterolPerServing
-    singleValue: false
-    description: Nutritional Information for Cholesterol content - Usually based on
-      per 100g serving
-    type: NUMBER
-  - name: cholesterolPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Cholesterol content
-  - name: sodiumPerServing
-    singleValue: false
-    description: Nutritional Information for Sodium content - Usually based on per
-      100g serving
-    type: NUMBER
-  - name: sodiumPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Sodium content
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fettsäuren")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: g
   - name: totalCarbPerServing
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Glucides")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kohlenhydrate")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Glucides")]//following::span[1]/span
   - name: totalCarbPerServingUom
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Glucides")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kohlenhydrate")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Glucides")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: dietaryFibrePerServing
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fibres alimentaires")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Nahrungsfasern (Ballaststoffe)")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fibres alimentaires")]//following::span[1]/span
   - name: dietaryFibrePerServingUom
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fibres alimentaires")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Nahrungsfasern (Ballaststoffe)")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fibres alimentaires")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: totalSugarsPerServing
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"dont sucres")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Zucker")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"dont sucres")]//following::span[1]/span
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"dont sucres")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Zucker")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"dont sucres")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: proteinPerServing
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Protéines")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Eiweiss")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Protéines")]//following::span[1]/span
   - name: proteinPerServingUom
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Protéines")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Eiweiss")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Protéines")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: vitaminAPerServing
@@ -328,45 +189,40 @@ fields:
     regExpReplace: mg
   - name: vitaminCPerServing
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamine C")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin C")]//following::span[1]/span
   - name: vitaminCPerServingUom
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamine C")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin C")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: mg
   - name: calciumPerServing
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kalzium")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
   - name: calciumPerServingUom
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kalzium")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
-  - name: ironPerServing
-    singleValue: false
-    description: Nutritional Information for Iron content - Usually based on per
-      100g serving
-    type: NUMBER
-  - name: ironPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Iron
-  - name: dietarySymbols
-    singleValue: false
-    description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnésium")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnesium")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnésium")]//following::span[1]/span
   - name: magnesiumPerServingUom
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnésium")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnesium")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnésium")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: mg
   - name: saltPerServing
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Sel")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Salz")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Sel")]//following::span[1]/span
   - name: saltPerServingUom
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Sel")]//following::span[1]/span
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Salz")]//following::span[1]/span
+    # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Sel")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: dietaryInformation
@@ -380,25 +236,16 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Stockage")]//following-sibling::div
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Lagerung")]//following-sibling::div
+    # xpath: //div[@class="productInformation"]//div[contains(text(),"Stockage")]//following-sibling::div
   - name: countryOfOrigin
     singleValue: false
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Pays de production")]//following-sibling::div/text()
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Produktionsland")]//following-sibling::div/text()
+    # xpath: //div[@class="productInformation"]//div[contains(text(),"Pays de production")]//following-sibling::div/text()
   - name: allergyAdvice
-    singleValue: false
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Ingrédients")]//following-sibling::div/b
-  - name: recyclingInformation
-    singleValue: false
-    description: Recycling information associated with the product
-  - name: productOtherInformation
-    singleValue: false
-    description: Any other product information
-  - name: packaging
-    singleValue: false
-    description: Packaging information
-  - name: additives
-    singleValue: false
-    description: List of additives in the product
+    singleValue: false 
+    xpath: //div[@class="productInformation"]//div[contains(text(),"Nährwerte")]//following-sibling::div/b
+    # xpath: //div[@class="productInformation"]//div[contains(text(),"Ingrédients")]//following-sibling::div/b
   - name: pricePerUnit
     singleValue: false
     xpath: //span[@itemprop="billingIncrement"]//text()
@@ -408,54 +255,6 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[@class="productBasicInfo__pricePanel"]//span[@class="productBasicInfo__price-text-saving-inner"]/text()
-  - name: alcoholContent
-    singleValue: false
-    description: Alcohol content information
-  - name: newVersion
-    singleValue: false
-    description: In product page, information about a new version of the product
-      (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
-  - name: newAsin
-    singleValue: false
-    description: In product page, information about a new version of the product -
-      new asin info
-  - name: newDescription
-    singleValue: false
-    description: In product page, information about a new version of the product -
-      new desription info
-  - name: variantInformation
-    singleValue: false
-    description: colour / scent / flavour / other
-  - name: firstVariant
-    singleValue: false
-    description: Unique identifier for a collection of variants. For a subset of
-      core feeds (43) we have a column "first_variant" that is populated with a
-      common code to link all variants for a product. method 1 (Preferred) = use
-      common tag (Could be parent sku) that is same value for all variants of a
-      product. method 2 = first_variant method technique, Identify the first
-      varient in the sequence and use this rpc to populate "first_variant" for
-      all variants of a product, this rpc becomes the common link between other
-      variants. method 3 = apply some logic to determine link between variants,
-      this will need analysis
-  - name: variants
-    singleValue: false
-    description: null
-  - name: additionalDescBulletInfo
-    singleValue: false
-    description: null
-  - name: prop65Warning
-    singleValue: false
-    description: null
-  - name: ageSuitability
-    singleValue: false
-    description: Recommended age displayed on the product page.
-      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
-    example: 4 - 99 years
-  - name: energyEfficiency
-    singleValue: false
-    description: Energy rating of a product.
-      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    example: A+, A+++, B
   - name: technicalInformationPdfPresent
     singleValue: false
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
