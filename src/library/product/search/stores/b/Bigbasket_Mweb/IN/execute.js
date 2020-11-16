@@ -4,22 +4,22 @@ async function implementation (
   context,
   dependencies,
 ) {
-    console.log('params', parameters);
-    const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-    const responseStatus = await context.goto(url, {
-        firstRequestTimeout: 10000,
-        waitUntil: 'load',
-        checkBlocked: false,
-    });
-    console.log('Status :', responseStatus.status);
-    console.log('URL :', responseStatus.url);
-    if (parameters.loadedSelector) {
-        await context.waitForFunction(function (sel, xp) {
-            return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-        }, {
-            timeout: 10000,
-        }, parameters.loadedSelector, parameters.noResultsXPath);
-    }
+  console.log('params', parameters);
+  const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  const responseStatus = await context.goto(url, {
+    firstRequestTimeout: 10000,
+    waitUntil: 'load',
+    checkBlocked: false,
+  });
+  console.log('Status :', responseStatus.status);
+  console.log('URL :', responseStatus.url);
+  if (parameters.loadedSelector) {
+    await context.waitForFunction(function (sel, xp) {
+        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, {
+        timeout: 10000,
+    }, parameters.loadedSelector, parameters.noResultsXPath);
+  }
     // Apply scroll
     const applyScroll = async function (context) {
         await context.evaluate(async function () {
