@@ -22,5 +22,5 @@ module.exports = {
     }
     await context.evaluate(addUrl);
     return await context.extract(productDetails, { transform: transformParam });
-  },  
+  },
 };
