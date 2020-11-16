@@ -59,14 +59,13 @@ async function implementation (
       const seeAllSelector = document.querySelector('div[class="show-more"] > button');
       while (productsCount <= 150) {
         console.log('Length: ' + productsCount);
-        if(seeAllSelector !== null){
-        seeAllSelector.click();
-        await stall(1000);
-        products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        productsCount = products.snapshotLength;
-        }
-        else
-        break;
+        if (seeAllSelector !== null) {
+          seeAllSelector.click();
+          await stall(1000);
+          products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          productsCount = products.snapshotLength; }
+        else {
+          break; };
       };
     });
   };
