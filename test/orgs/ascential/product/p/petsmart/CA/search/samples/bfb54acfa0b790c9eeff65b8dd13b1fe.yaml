@@ -1,0 +1,283 @@
+input:
+  keywords: small dog food
+  _url: http://petsmart.ca
+extractions:
+  - html: https://workbench.import.io/html/run=245165ab-9413-4f2d-98cd-d68aef0d26a1/task=9d31bd4d-c25b-4155-b0ef-f50e9f883f93/5fed9956-1ac7-4530-a980-bfb101b77482.html
+    extractionConfigId: product/search/stores/p/petsmart/CA/extract
+    data:
+      - group:
+          - name:
+              - text: Eukanuba Senior Small Breed Dog Food - Chicken
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/eukanuba-senior-small-breed-dog-food---chicken-53893.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5289692?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            price:
+              - text: $ 19.99 - 52.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+          - name:
+              - text: Eukanuba Adult Small Breed Dog Food - Chicken
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/eukanuba-adult-small-breed-dog-food---chicken-53894.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5289693?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            price:
+              - text: $ 19.99 - 52.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+          - name:
+              - text: Eukanuba Adult Small Bites Dog Food - Chicken
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/eukanuba-adult-small-bites-dog-food---chicken-53900.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5289721?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            price:
+              - text: $ 67.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+          - name:
+              - text: Purina ONE SmartBlend Small Dog Food - Beef
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/purina-one-smartblend-small-dog-food---beef-42286.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5264847?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rating
+                type: STRING
+            price:
+              - text: $ 9.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+          - name:
+              - text: Blue Buffalo Homestyle Recipe Small Breed Adult Dog Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/canned-food/blue-buffalo-homestyle-recipe-small-breed-adult-dog-food-59622.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5302960?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            price:
+              - text: $ 1.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+          - name:
+              - text: Royal Canin® Health Nutrition# Small size Aging12+ Dog Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/royal-canin-health-nutrition%23-small-size-aging12%2B-dog-food-58488.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5300733?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rating
+                type: STRING
+            price:
+              - text: $ 57.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+          - name:
+              - text: Nutrience® Infusion Small Breed Adult Dog Food - Chicken
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/nutrience-infusion-small-breed-adult-dog-food---chicken-38908.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5257536?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rating
+                type: STRING
+            price:
+              - text: $ 19.99 - 35.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+          - name:
+              - text: Nutrience® Grain Free Ocean Fish Small Breed Dog Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/nutrience-grain-free-ocean-fish-small-breed-dog-food-27326.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5229710?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            price:
+              - text: $ 27.99 - 44.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: en
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: en
+                value: 8
+          - name:
+              - text: Merrick® Classic Small Breed Recipe Adult Dog Food - Natural
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/merrick-classic-small-breed-recipe-adult-dog-food---natural-53943.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5287823?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,2
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/@rating
+                type: STRING
+            price:
+              - text: $ 25.99 - 46.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: en
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: en
+                value: 9
+          - name:
+              - text: Blue Buffalo Freedom Grain Free Chicken Small Breed Adult Dog Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/blue-buffalo-freedom-grain-free-chicken-small-breed-adult-dog-food-3302.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5173402?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/@rating
+                type: STRING
+            price:
+              - text: $ 23.99 - 47.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: en
+                value: 10
+            rankOrganic:
+              
