@@ -6,7 +6,9 @@ fields:
   - name: category
     singleValue: false
     xpath: //div//tm-breadcrumbs//ol//li[position()>1]//a
-  
+  - name: name
+    singleValue: false
+    xpath: //div//tg-row/tg-col//tm-buyer-options//h1
   - name: description
     singleValue: false
     xpath: //div[@class="tm-markdown"]
