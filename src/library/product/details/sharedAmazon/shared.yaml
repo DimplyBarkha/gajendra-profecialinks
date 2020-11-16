@@ -6,6 +6,8 @@ fields:
   - name: image
     #singleValue: true
     xpath: (//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@src
+    regExp: (.+)\.[^\.]*(\.[^\.]+$)
+    regExpReplace: $1$2
   - name: imageAlt
     #singleValue: true
     xpath: (//img[@id="landingImage"])[1]/@alt | //div[@id="img-canvas"]/img[1]/@alt
