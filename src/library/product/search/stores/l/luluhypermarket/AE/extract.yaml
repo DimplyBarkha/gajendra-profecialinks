@@ -1,0 +1,46 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//div[@class='product-pricing-section']//div[@class='price']//span/text()
+    regExp: (.+)
+    regExpReplace: AED $1    
+  - name: name
+    singleValue: false
+    xpath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//div[@id='product-title']
+  - name: productUrl
+    singleValue: false
+    xpath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//a[@class='js-gtm-product-link']/@href
+    regExp: (.+)
+    regExpReplace: https://www.luluhypermarket.com$1     
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//div[@class='plp-prod-img']//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.luluhypermarket.com$1
+  - name: id
+    singleValue: false
+    xpath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//a[@class='js-gtm-product-link']/@data-code
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']      
+  # - name: aggregateRating2
+  #   singleValue: false
+  #   type: NUMBER
+  #   xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//meter/@value
+  # - name: reviewCount
+  #   singleValue: false
+  #   xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//div[@class='review-rating']//span[contains(@class,'review-rating__reviews')]/a/text()
+  #   regExp: (\d*)
+  #   regExpReplace: $1
+  # - name: ratingCount
+  #   singleValue: false
+  #   xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//div[@class='review-rating']//span[contains(@class,'review-rating__reviews')]/a/text()
+  #   regExp: (\d*)
+  #   regExpReplace: $1    
+  # - name: endorsementText
+  #   singleValue: false
+  #   xpath: concat(//div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__badge')]//div[@class='coolblues-choice-label']//span[1]/text(), '', //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__badge')]//div[@class='coolblues-choice-label']//span[2]/text())
