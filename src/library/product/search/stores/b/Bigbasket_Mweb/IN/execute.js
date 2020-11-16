@@ -69,7 +69,7 @@ async function implementation (
   await applyScroll(context);
   await loadProducts(context);
   console.log('Checking no results', parameters.noResultsXPath);
-    return await context.evaluate(function (xp) {
+  return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
     const e = r.iterateNext();
@@ -79,14 +79,14 @@ async function implementation (
 }
 module.exports = {
     implements: 'product/search/execute',
-    parameterValues: {
-        country: 'IN',
-        store: 'Bigbasket_Mweb',
-        domain: 'bigbasket_Mweb.in',
-        url: 'https://www.bigbasket.com/ps/?q={searchTerms}',
-        loadedSelector: 'img[data-sizes="auto"]',
-        noResultsXPath: '//div[@class="uiv2-no-results-new"]',
-        zipcode: '',
-    },
-    implementation,
+  parameterValues: {
+  country: 'IN',
+  store: 'Bigbasket_Mweb',
+  domain: 'bigbasket_Mweb.in',
+  url: 'https://www.bigbasket.com/ps/?q={searchTerms}',
+  loadedSelector: 'img[data-sizes="auto"]',
+  noResultsXPath: '//div[@class="uiv2-no-results-new"]',
+  zipcode: '',
+  },
+  implementation,
 };
