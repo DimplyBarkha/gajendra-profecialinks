@@ -108,10 +108,10 @@ fields:
   # - name: shippingWeight
   #   singleValue: true
   #   description: Stated shipping weight
-  # - name: variantCount
-  #   singleValue: true
-  #   description: Number of variants listed
-  #   type: NUMBER
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    defaultValue: "0"
   # - name: color
   #   singleValue: true
   #   description: A textual description of the colour
@@ -560,9 +560,12 @@ fields:
   #   description: If 360 image is present in the carousel ['Yes','No']
   #   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   #   defaultValue: No
-  # - name: imageZoomFeaturePresent
-  #   singleValue: true
-  #   description: If Zoom feature is available for Main image or images in the
-  #     carousel,['Yes','No']
-  #   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  #   defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    xpath: //div[contains(@class,"zoomPad")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
