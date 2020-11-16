@@ -13,6 +13,13 @@ const transform = (data) => {
         });
         row.gtin = [{ text }];
       }
+      if (row.brandText) {
+        let text = '';
+        row.brandText.forEach(item => {
+          text = row.brandText.map(elm => elm.text).join('').replace(new RegExp('(.+name":\\s")(.+)(",\\s"url":\\s"https:\\/\\/www.ah.nl\\/producten\\/merk.+)', 'g'), '$2');
+        });
+        row.brandText = [{ text }];
+      }
       if (row.price && row.price[0]) {
         row.price[0].text = row.price[0].text.replace(/\./g, ',');
       }
@@ -25,6 +32,20 @@ const transform = (data) => {
           text = row.variants.map(elm => elm.text).join(' | ');
         });
         row.variants = [{ text }];
+      }
+      if (row.allergyAdvice) {
+        let text = '';
+        row.allergyAdvice.forEach(item => {
+          text = row.allergyAdvice.map(elm => elm.text).join(' ');
+        });
+        row.allergyAdvice = [{ text }];
+      }
+      if (row.productOtherInformation) {
+        let text = '';
+        row.productOtherInformation.forEach(item => {
+          text = row.productOtherInformation.map(elm => elm.text).join(' ');
+        });
+        row.productOtherInformation = [{ text }];
       }
     }
   }

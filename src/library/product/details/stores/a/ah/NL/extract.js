@@ -33,7 +33,7 @@ module.exports = {
               bulletText += ` || ${val.textContent}`;
             });
           } else {
-            text += `${item.textContent}`;
+            text += ` ${item.textContent}`;
           }
         });
       }

@@ -19,7 +19,7 @@ fields:
   - name: availabilityText
     xpath: //html/body/script[4]
     regExp: (.+availableOnline":false,"orderable.+)
-    regExpReplace: In Store Only
+    regExpReplace: In Store
     defaultValue: In stock
   - name: description
     xpath: //div[@id="desc"]
@@ -30,10 +30,12 @@ fields:
   - name: quantity
     xpath: //div[contains(@class,"product-card-header_unitInfo")]/text()
   - name: weightNet
-    xpath: //h4[contains(.,'gewicht')]/following-sibling::p[1]
+    xpath: //h4[contains(.,'gewicht')]/following-sibling::p[1][contains(.,'iter') or contains(.,'ram')]
   - name: gtin
     description: GTIN code (includes UPC/EAN)
     xpath: normalize-space(//script[@type="application/ld+json"][contains(.,'gtin13')][1])
+  - name: brandText
+    xpath: normalize-space(//script[@type="application/ld+json"][contains(.,'brand')][1])
   - name: sku
     xpath: //link[@rel="canonical"]//@href
     regExp: (wi\d+)
@@ -41,7 +43,7 @@ fields:
     xpath: //link[@rel="canonical"]//@href
     regExp: (wi\d+)
   - name: directions
-    xpath: //span[contains(.,'GEBRUIKSAANWIJZING')]
+    xpath: //span[contains(.,'GEBRUIKSAANWIJZING')] | //div[@class="product-info-usage"]//text()
   - name: variantCount
     xpath: count(//a[contains(@class,'product-recommendations')]//@href)
   - name: name
@@ -66,7 +68,7 @@ fields:
     regExp: g|%
   - name: saturatedFatPerServing
     xpath: //td[contains(.,'Waarvan verzadigd')]//following-sibling::td
-    regExp: ([0-9.]+)
+    regExp: ([^g]+)
   - name: saturatedFatPerServingUom
     xpath: //td[contains(.,'Waarvan verzadigd')]//following-sibling::td
     regExp: g
@@ -96,7 +98,7 @@ fields:
     regExp: g
   - name: proteinPerServing
     xpath: //td[contains(.,'Eiwitten')]//following-sibling::td[1]
-    regExp: ([0-9.]+)
+    regExp: ([^g]+)
   - name: proteinPerServingUom
     xpath: //td[contains(.,'Eiwitten')]//following-sibling::td[1]
     regExp: ([a-z]+)
