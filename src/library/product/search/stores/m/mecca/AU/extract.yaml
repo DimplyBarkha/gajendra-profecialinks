@@ -37,19 +37,20 @@ fields:
     singleValue: false
     xpath: //div[@class="search-results-page-product-pricing"]/span/text()
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //a[@class="brand-name"]/@title
   - name: soldBy
     singleValue: true
   - name: endorsementText
     singleValue: false
   - name: rank
-    singleValue: false
-    xpath: count(preceding-sibling::*[@data-itemid])+1
+    singleValue: true
+    xpath: //div[@class="product-tile"]/@rank
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
+    xpath: //div[@class="product-tile"]/@rank
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
