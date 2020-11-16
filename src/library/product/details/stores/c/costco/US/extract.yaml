@@ -25,9 +25,9 @@ fields:
     xpath: //li[position()>1]//span[@itemprop="name"]/text()
   - name: inStorePrice
     xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
-  - name: listPrice
-    singleValue: false
-    xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
+  # - name: listPrice
+  #   singleValue: false
+  #   xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
   - name: price
     singleValue: false
     # xpath: //meta[@property="product:price:amount"]/@content | //div[@class="online-price active"]//span[@class="currency"]
@@ -46,7 +46,11 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //ul[@class="pdp-features"]/li 
+    xpath: //div[@class="features-container form-group"]
+    # //ul[@class="pdp-features"]/li 
+  - name: myDescription
+    singleValue: false
+    xpath: //div[@id='product-desc']
   - name: descriptionBullets
     singleValue: false
     xpath: count(//ul[@class="pdp-features"]/li)
@@ -76,7 +80,7 @@ fields:
   #   regExp: (\d+)
   - name: mpc
     singleValue: false
-    xpath: //p[@class="model-number"]/span
+    xpath: //p[@class="model-number "]/span | //p[contains(@id,"product-body-model-number")]
   # - name: packSize
   #   singleValue: false
   #   xpath: //div[@class="row"]//div[contains(.,'Package Quantity (Count)')]/../div[2]
@@ -87,6 +91,10 @@ fields:
     xpath: //b[contains(.,'Directions:')]/..
   - name: warnings
     singleValue: false
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@itemprop="reviewCount"]
+    regExp: (.+)
   - name: ratingCount 
     singleValue: false
     xpath: //span[@itemprop="reviewCount"]
@@ -100,7 +108,7 @@ fields:
   #   xpath: //span[@itemprop="ratingValue"]
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="product-info-shipping"]/text()
+    # xpath: //div[@class="product-info-shipping"]/text()
   - name: shippingDimensions
     singleValue: false
     xpath: //span[contains(text(),"Additional Dimensions")]//following-sibling::ul//text()
@@ -117,7 +125,7 @@ fields:
     xpath: (//div[@class="product-info-description"])[1] | //div[@class="wc-rich-content-description"] | //h2[contains(@Class,"wc-first-header")]//following-sibling::div 
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
+    xpath: //div[@id = "manuf-images"] | //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
     # xpath: //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))] 
   - name: videos
     singleValue: false
@@ -139,7 +147,7 @@ fields:
     #xpath: //h2[contains(.,'Specifications')]/../div//table//tbody | //div[@class="product-info-specs body-copy"]//div[@class="row"]
   - name: warranty
     singleValue: false
-    xpath: //figure[@class="product-concierge"]/ul/li/p
+    xpath: //figure[@class="product-concierge"]/ul/li/p | //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div 
   # - name: storage
   #   singleValue: false
   # - name: countryOfOrigin
@@ -196,8 +204,9 @@ fields:
   # - name: customerServiceAvailability
   #   singleValue: false
   #   defaultValue: No
-  # - name: materials
-  #   singleValue: false
+  - name: materials
+    singleValue: false
+    xpath: //div[@class="product-info-specs body-copy"]//div[@class="row"]/div[contains(., "Material")]/following-sibling::div
   - name: Image360Present
     singleValue: false
     defaultValue: No

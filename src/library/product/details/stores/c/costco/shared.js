@@ -3,28 +3,28 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const cleanUp = (data, context) => {
+const transform = (data) => {
   const clean = text => text.toString()
-    .replace(/\r\n|\r|\n/g, ' ')
-    .replace(/&amp;nbsp;/g, ' ')
-    .replace(/&amp;#160/g, ' ')
-    .replace(/\u00A0/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
-    .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
-    .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
-  }))));
+  .replace(/\r\n|\r|\n/g, ' ')
+  .replace(/&amp;nbsp;/g, ' ')
+  .replace(/&amp;#160/g, ' ')
+  .replace(/\u00A0/g, ' ')
+  .replace(/\s{2,}/g, ' ')
+  .replace(/"\s{1,}/g, '"')
+  .replace(/\s{1,}"/g, '"')
+  .replace(/^ +| +$|( )+/g, ' ')
+  // eslint-disable-next-line no-control-regex
+  .replace(/[\x00-\x1F]/g, '')
+  .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+
+  console.log('transform called now');
   for (const { group } of data) {
     for (const row of group) {
       if (row.specifications) {
+        console.log('transform specs now');
         let text = '';
         row.specifications.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n{1,}/g, ' ').trim() + ' || ';
         });
         row.specifications = [
           {
@@ -38,7 +38,6 @@ const cleanUp = (data, context) => {
         let dup = "";
         let urls = [];
         row.manufacturerImages.forEach(item => {
-          //console.log('item:: ', item.text);
          urls =  row.manufacturerImages.filter(it => item.text === it.text);
         if(urls && urls.length === 1 ){
           variantIds.push(item);
@@ -49,8 +48,7 @@ const cleanUp = (data, context) => {
           }
         }
         });
-        row.variantId = variantIds;
-        
+        // row.variantId = variantIds;
       }
       if (row.allergyAdvice) {
         let text = '';
@@ -72,14 +70,30 @@ const cleanUp = (data, context) => {
         }
       }
 
+      let myDesc = ''; 
+      if (row.myDescription) {
+        for (const item of row.myDescription) {
+          myDesc += clean(item.text);
+        }
+      }
+
+      if (row.variantId) {
+        for (const item of row.variantId) {
+          const arr = item.text.split(' ');
+          if (arr.length > 1) {
+            item.text = arr[1];
+          }
+        }
+      }
+
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+          text += item.text.replace(/\n \n/g, ' || ');
         });
         row.description = [
           {
-            text: text.slice(0, -4),
+            text: text + '  ' + myDesc,
           },
         ];
       }
@@ -87,7 +101,8 @@ const cleanUp = (data, context) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text = text + (text ? ' ' : '') + item.text;
+          text = text + ' ' + item.text.replace(/\s{2,}/g, ' ').replace(/\n \n \n/g, ' ').replace(/\n \n/g, ' ').trim();
+          // text = text + (text ? ' ' : '') + item.text;
         });
         row.manufacturerDescription = [{ text }];
       }
@@ -110,8 +125,23 @@ const cleanUp = (data, context) => {
       }  
     }
   }
-  
+  // const clean = text => text.toString()
+  //   .replace(/\r\n|\r|\n/g, ' ')
+  //   .replace(/&amp;nbsp;/g, ' ')
+  //   .replace(/&amp;#160/g, ' ')
+  //   .replace(/\u00A0/g, ' ')
+  //   .replace(/\s{2,}/g, ' ')
+  //   .replace(/"\s{1,}/g, '"')
+  //   .replace(/\s{1,}"/g, '"')
+  //   .replace(/^ +| +$|( )+/g, ' ')
+  //   // eslint-disable-next-line no-control-regex
+  //   .replace(/[\x00-\x1F]/g, '')
+  //   .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  // data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+  //   el.text = clean(el.text);
+  // }))));
+
   return data;
 };
 
-module.exports = { cleanUp };
+module.exports = { transform };
