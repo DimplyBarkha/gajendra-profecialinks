@@ -36,22 +36,22 @@ async function implementation (
           await stall(5000);
         }
       }
-      function stall(ms) {
-          return new Promise((resolve, reject) => {
-                      setTimeout(() => {
-                          resolve();
-                      }, ms);
-                  });
-              }
-          });
-      };
-      const loadProducts = async function (contenxt) {
-          await context.evaluate(async function () {
-              function stall(ms) {
-                  return new Promise((resolve, reject) => {
-                      setTimeout(() => {
-                          resolve();
-                      }, ms);
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+          resolve();
+          }, ms);
+        });
+      }
+    });
+  };
+  const loadProducts = async function (contenxt) {
+    await context.evaluate(async function () {
+    function stall(ms) {
+      return new Promise((resolve, reject) => {
+      setTimeout(() => {
+      resolve();
+    }, ms);
                   });
               }
               let products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
