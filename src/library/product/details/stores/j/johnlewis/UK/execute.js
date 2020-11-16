@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'johnlewis',
     domain: 'johnlewis.com',
-    loadedSelector: 'ul.swiper-wrapper li.swiper-slide',
-    noResultsXPath: '//h1[@class="cms-title-text h1"]',
+    loadedSelector: null,
+    noResultsXPath: `//h1[@data-test='heading-term'][contains(.,"Sorry, we couldn't find any results for")]`,
     zipcode: '',
   },
 };
