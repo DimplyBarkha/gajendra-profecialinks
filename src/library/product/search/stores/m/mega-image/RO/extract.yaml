@@ -1,20 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@data-testid='search-results-list-wrapper']/ul[last()]/li
 fields:
   - name: id
     singleValue: false
+    xpath: //a[@data-testid="product-block-image-link"]/@href
+    regExp: (\d+)$
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //div[@data-testid='product-block-product-name']/a
   - name: productUrl
     singleValue: false
+    xpath: //a[@data-testid='product-block-image-link']/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[@data-testid='product-block-image']/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,8 +31,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[@data-testid='product-block-price']
   - name: manufacturer
     singleValue: true
+    xpath: //div[@data-testid='product-block-brand-name']
   - name: soldBy
     singleValue: true
   - name: endorsementText
