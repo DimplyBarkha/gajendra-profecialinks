@@ -43,10 +43,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //@rankorganic
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid

@@ -23,6 +23,14 @@ module.exports = {
     }
     await context.waitForNavigation();
 
+    // rank and rankOrganic
+    await context.evaluate(() => {
+      const products = document.querySelectorAll('div[data-component="MasonryGrid"] div.product-tile__wrapper');
+      products.forEach((product, index) => {
+        product.setAttribute('rankorganic', `${index + 1}`);
+      });
+    });
+
     // load more pagination implementation
     let isLoadMoreButtonPresent = await context.evaluate(async () => {
       const button = document.querySelector('button.more-data-loader__btn');
