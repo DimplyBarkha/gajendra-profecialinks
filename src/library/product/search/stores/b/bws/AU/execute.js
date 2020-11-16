@@ -11,9 +11,38 @@ async function implementation (
   context,
   dependencies,
 ) {
-  console.log('params', parameters);
+  console.log('params', parameters, inputs);
+
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
+
+  await context.waitForSelector('input[name=autoComplete]');
+  await context.setInputValue('input[name=autoComplete]',inputs.keywords);
+  await context.click('input[name=autoComplete]');
+  context.waitForNavigation();
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+  let scrollTop = 0;
+  while (scrollTop !== 200000) {
+    await stall(500);
+    scrollTop += 1000;
+    let oldScroll = await context.evaluate(() => {return document.querySelector('.row row-card-list').scrollHeight;});
+    await context.evaluate(() => {document.querySelector('.row row-card-list').scrollBy(0, document.querySelector('.row row-card-list').scrollHeight + 1000);});
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    let newScroll = await context.evaluate(() => {return document.querySelector('.row row-card-list').scrollHeight;});
+    if (newScroll === oldScroll || scrollTop == 200000) {
+      await stall(5000);
+      break;
+    }
+  }
+  function stall (ms) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, ms);
+    });
+  }
+
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
@@ -21,29 +50,7 @@ async function implementation (
   }
   console.log('Checking no results', parameters.noResultsXPath);
 
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  await applyScroll(context);
-
+  //end here
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
@@ -51,8 +58,6 @@ async function implementation (
     console.log(e);
     return !e;
   }, parameters.noResultsXPath);
-
-
 }
 
 module.exports = {

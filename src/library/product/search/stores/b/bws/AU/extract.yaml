@@ -1,5 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"row row-card-list")]//div[@class="productTile"]
+fields:
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,"container card-list-wrapper")]//div[@class="productTile_brandAndName"]//a/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,"container card-list-wrapper")]//a[position()=2]//div[contains(@class,"bws-product-image-lazy-transition-wrapper")]//img/@src
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[contains(@class,"container card-list-wrapper")]//a[position()=2]//div[contains(@class,"bws-product-image-lazy-transition-wrapper")]//img/@src
+  - name: price
+    SingleValue: false
+    xpath: //div[contains(@class,"container card-list-wrapper")]//div[contains(@class,"productTile_price ng-scope")]
+  - name: name
+    SingleValue: false
+    xpath: //div[contains(@class,"container card-list-wrapper")]//div[@class="productTile_brandAndName"]//a
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"container card-list-wrapper")]//div[@class="star-rating-info"]//span
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"container card-list-wrapper")]//div[contains(@class,"productTile_rating ng-pristine")]//span[@class="sr-only"]//span

@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: '//div[contains(class,"search-zero-results-wrapper text-center")]',
+    noResultsXPath: '//div[contains(@class,"search-zero-results-wrapper text-center")]',
     openSearchDefinition: null,
     domain: 'bws.com.au',
     zipcode: "''",
