@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div//div//section//article
+fields:
+  - name: productUrl
+    xpath: //div[contains(@class,"m09p_k4 mse2_56")]/a/@href|//div[contains(@class,"msts_9u ")]/a/@href
+  - name: thumbnail
+    xpath: //div[contains(@class,"mpof_ki")]/a/img/@src|//div[contains(@class,"msts_9u")]/a/ul/li[1]/img/@src
+  - name: name
+    xpath: //div[contains(@class,"m7er_k4")]//h2[contains(@class,"mgn2_14")]
+  - name: price
+    xpath: //span[@class="_1svub _lf05o"]
+    regExp: (\d+,\d+|\d+)
+    regExpReplace: $1
+  - name: rank   
+  - name: rankOrganic
+  - name: id
+    xpath: //@data-analytics-view-value
+  
