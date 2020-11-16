@@ -1,19 +1,23 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class, "product-tile product-has-data")]
 fields:
   - name: id
+    xpath: //div[@class="product-info-wrap"]//span[@class="sku"]
     singleValue: false
   - name: searchUrl
     singleValue: true
   - name: name
+    xpath: //a[@class="product-name pdp-modal-link"]
     singleValue: false
   - name: productUrl
+    xpath: //a[@class="product-name pdp-modal-link"]/@href
     singleValue: false
   - name: gtin
     singleValue: false
   - name: thumbnail
+    xpath: //a[@class="product-image-wrap pdp-modal-link"]/img/@src
     singleValue: false
   - name: aggregateRating
     singleValue: false
@@ -26,16 +30,19 @@ fields:
   - name: price
     singleValue: false
   - name: manufacturer
+    xpath: //div[@class="product-info-wrap"]//span[@class="manufacturer"]
     singleValue: true
   - name: soldBy
     singleValue: true
   - name: endorsementText
     singleValue: false
   - name: rank
+    xpath: //div[contains(@class,"product-tile product-has-data")]/@rank
     singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
+    xpath: //div[contains(@class,"product-tile product-has-data")]/@rank
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
