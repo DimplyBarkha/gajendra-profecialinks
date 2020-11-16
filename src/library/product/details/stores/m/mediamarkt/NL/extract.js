@@ -47,9 +47,6 @@ module.exports = {
       if (document.querySelector('.zoom')) {
         addElementToDocument('mm_imageZoomFeaturePresent', 'Yes');
       }
-
-      // Getting product url
-      addElementToDocument('mm_url', window.location);
     });
     await context.extract(productDetails);
   },
