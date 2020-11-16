@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="opbox-listing"]//article
+fields:
+  - name: productUrl
+    xpath: //div//a[@rel="nofollow"]/@href
+  - name: thumbnail
+    xpath: //a/img/@src
+  - name: name
+    xpath: //h2
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+  - name: price
+    xpath: //div[@class="mqu1_g3"]
+    regExp: (\d+,\d+)
+    regExpReplace: $1
+  - name: rank
+    type: NUMBER    
+  - name: rankOrganic
+    type: NUMBER
+  - name: id
+    xpath: //@data-analytics-view-value
