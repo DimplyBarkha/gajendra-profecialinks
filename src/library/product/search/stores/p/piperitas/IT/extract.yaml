@@ -1,19 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="col-lg-4 col-md-4 col-sm-4 col-xs-6 item card-col"]
 fields:
   - name: id
     singleValue: false
   - name: searchUrl
     singleValue: true
   - name: name
+    xpath: //span[@class="card__name"]/text()
     singleValue: false
   - name: productUrl
+    xpath: //a[contains(@class, "card__link")]/@href
     singleValue: false
   - name: gtin
     singleValue: false
   - name: thumbnail
+    xpath: //div[@class="margin-image"]/img/@src
     singleValue: false
   - name: aggregateRating
     singleValue: false
@@ -24,14 +27,17 @@ fields:
   - name: ratingCount
     singleValue: false
   - name: price
+    xpath: //span[@class="regular-price"]/span|//p[@class="special-price"]/span
     singleValue: false
   - name: manufacturer
-    singleValue: true
+    xpath: //span[@class="card__brand"]/text()
+    singleValue: false
   - name: soldBy
     singleValue: true
   - name: endorsementText
     singleValue: false
   - name: rank
+    xpath: //div[@class ="col-lg-4 col-md-4 col-sm-4 col-xs-6 item card-col"]/@rank
     singleValue: false
     description: search/listing rank
     type: NUMBER
