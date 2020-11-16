@@ -20,22 +20,22 @@ async function implementation (
       val.push(item.getAttribute('value'));
       item.setAttribute('url', window.location.href.replace(/[^htm]+$/g, `l?piid=${item.getAttribute('value')}`));
     });
-    if (!document.querySelector('div.VisualOptionCard > div > div > label > input')) {
-      try {
-        const data = window.WEBPACK_ENTRY_DATA.application.props.optionComboToPartId;
-        for (const i in data) {
-          val.push(i);
-        }
-        await stall(2000);
-        if (val.length === 0) {
-        // const skuId = document.querySelector("#form-add-to-cart > input[type=hidden]:nth-child(1)").getAttribute('value');
-          const sku = window.WEBPACK_ENTRY_DATA.application.props.sku;
-          val.push(sku);
-        }
-      } catch (err) {
-        console.log({ err });
+    // if (!document.querySelector('div.VisualOptionCard > div > div > label > input')) {
+    try {
+      const data = window.WEBPACK_ENTRY_DATA.application.props.optionComboToPartId;
+      for (const i in data) {
+        val.push(i);
       }
+      await stall(2000);
+      if (val.length === 0) {
+        // const skuId = document.querySelector("#form-add-to-cart > input[type=hidden]:nth-child(1)").getAttribute('value');
+        const sku = window.WEBPACK_ENTRY_DATA.application.props.sku;
+        val.push(sku);
+      }
+    } catch (err) {
+      console.log({ err });
     }
+    // }
     if (val.length === 0) {
       var URL = document.querySelector('[property="og:url"]') ? document.querySelector('[property="og:url"]').getAttribute('content') : '';
       var id = URL.replace(new RegExp('(.+)(keyword=|piid=|redir=)(.+)', 'g'), '$3');
@@ -65,13 +65,13 @@ async function implementation (
     for (let index = 0; index < val.length; index++) {
       const newlink = document.createElement('tr');
       newlink.setAttribute('class', 'append_variant');
-      newlink.setAttribute('variant_id', val[index]);
+      newlink.setAttribute('variant_id', val[index].replace(/-/g, '_'));
       tBody.appendChild(newlink);
 
       const id = document.createElement('td');
       id.setAttribute('class', 'id');
-      id.setAttribute('id', val[index]);
-      id.setAttribute('url', window.location.href.replace(/[^htm]+$/g, `l?piid=${val[index]}`));
+      id.setAttribute('id', val[index].replace(/-/g, '_'));
+      id.setAttribute('url', window.location.href.replace(/[^htm]+$/g, `l?piid=${val[index].replace(/-/g, '_')}`));
       newlink.appendChild(id);
     }
     await stall(3000);
