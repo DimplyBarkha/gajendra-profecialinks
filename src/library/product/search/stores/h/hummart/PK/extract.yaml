@@ -1,5 +1,23 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@class="ais-infinite-hits--item"]
+fields:
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="result-content"]/a[@itemprop="url"]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="result-content"]/a[@itemprop="url"]/@data-objectid
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="ratings"]//div[@class="price-wrapper"]//span[@itemprop="lowPrice"]
+  - name: listPrice
+    SingleValue: false
+    xpath: //div[@class="ratings"]//div[@class="price-wrapper"]//span[@itemprop="highPrice"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="result-content"]//img[@itemprop="image"]/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="result-content"]//h3[@itemprop="name"]
