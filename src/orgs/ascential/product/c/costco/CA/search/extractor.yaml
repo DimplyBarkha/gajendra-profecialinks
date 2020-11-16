@@ -1,11 +1,17 @@
+proxy:
+  zone: CAN
+  type: DATA_CENTER
 robot: product/search
 parameters:
   country: CA
   domain: costco.ca
   store: costco
-  zipcode: ""
+  zipcode: M5V 2A5
 meta:
   branches:
     dev:
       extractor: 870a014f-943d-4aa2-9dee-e48d1ef4507e
       legacyAccountId: 3bdc37aa-6cbf-4ef3-ab79-80ebff9e4671
+    Costco_CA_Search:
+      extractor: b521a1bb-5f6f-4acb-8d12-d2340f2be026
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

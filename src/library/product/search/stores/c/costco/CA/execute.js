@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
@@ -6,8 +5,8 @@ module.exports = {
     store: 'costco',
     domain: 'costco.ca',
     url: 'https://www.costco.ca/CatalogSearch?dept=All&keyword={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: '',
+    loadedSelector: '.product-tile-set div[id*="price-"]',
+    noResultsXPath: '//div[@id="no-results"]',
+    zipcode: 'M5V 2A5',
   },
 };

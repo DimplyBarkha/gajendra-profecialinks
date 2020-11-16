@@ -22,6 +22,9 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
+      if (!row.aggregateRating2 && row.aggregateRatingText) {
+        row.aggregateRating2 = row.aggregateRatingText;
+      }
       if (row.id && row.id[0] && productCodes.indexOf(row.id[0].text) === -1) {
         productCodes.push(row.id[0].text);
         rankCounter += 1;
@@ -30,6 +33,7 @@ const transform = (data, context) => {
           row.rankOrganic = [{ text: orgRankCounter }];
         }
         row.rank = [{ text: rankCounter }];
+
       } else {
         row.id = [{ text: '' }];
       }
@@ -38,6 +42,7 @@ const transform = (data, context) => {
       }));
     }
   }
+
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });
   context.setState({ productCodes });

@@ -3,31 +3,56 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: thumbnail
-    singleValue: false
-    xpath: //div[contains(@class,'product-img-holder')]//img[contains(@class,'img-responsive')]/@src
-  - name: id
-    singleValue: false
-    #xpath: //div[contains(@class,'thumbnail')]/@itemid
-    xpath: //div[@class="omniture"]//div[@class="scProdId"]/@sc.prodid
   - name: productUrl
-    singleValue: false
-    xpath: //span[@class="description"]//a/@href
+    xpath: //div[@class="caption"]//span[@class="description"]/a/@href
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //div[@class="thumbnail"]//img[contains(@class,"img")]/@data-src | //div[@class="thumbnail"]//img[contains(@class,"img")][not(@data-src)]/@src
+    description: The URL for the product thumbnail image
   - name: name
-    singleValue: false
-    xpath: //span[@class="description"]//a/text()
+    xpath: //div[@class="caption"]//span[@class="description"]/a
+    description: The product name
+  - name: aggregateRatingText
+    xpath: //div[@class='ratings row']/div/@aria-label
+    regExp: Rated\s([0-9\.]+)
+    regExpReplace: $1
+    description: The stated aggregate rating
   - name: aggregateRating2
-    singleValue: false
-    xpath: //meta[@itemprop='ratingValue']/@content
+    xpath: //div[@class='ratings row']/div/@aria-label
+    regExp: Rated\s([0-9\.]+)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
   - name: reviewCount
-    singleValue: false
-    xpath: //meta[@itemprop='reviewCount']/@content
+    xpath: //div[@class='ratings row']/div/@aria-label
+    regExp: (\d+) reviews
+    regExpReplace: $1
+    description: The number of reviews
   - name: price
-    singleValue: false
-    xpath: //div[@class="price"]/text()
-    
-
-
-  
-
-
+    xpath: //div[@class="caption"]//div[contains(@id,"price")] | //div[@class="caption"]//div[contains(@class,"price")] | //div[@class='price']
+    description: The offered price for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    xpath: //div[@class="criteo-sponsored"]
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    xpath: //div[@class='scProdId']/@sc.prodid
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
