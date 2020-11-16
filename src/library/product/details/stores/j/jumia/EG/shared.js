@@ -19,9 +19,7 @@ const transform = (data) => {
       }
 
       if (row.additionalDescBulletInfo) {
-        // for (let i = 0; i < row.description.length; i++) {
         row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
-        // }
       }
 
       if (row.specifications) {
@@ -42,6 +40,22 @@ const transform = (data) => {
         const material = row.materials[0].text;
         if (material.trim() === 'N/A') {
           delete row.materials;
+        }
+      }
+
+      if (row.price) {
+        let price = row.price[0].text;
+        if (price.includes('-')) {
+          price = price.split('-')[0];
+          row.price[0].text = price;
+        }
+      }
+
+      if (row.listPrice) {
+        let price = row.listPrice[0].text;
+        if (price.includes('-')) {
+          price = price.split('-')[0];
+          row.listPrice[0].text = price;
         }
       }
     }
