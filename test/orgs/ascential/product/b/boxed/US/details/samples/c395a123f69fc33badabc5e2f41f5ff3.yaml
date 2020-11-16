@@ -2,7 +2,7 @@ input:
   _url: http://boxed.com
   URL: https://www.boxed.com/product/3856/snyders-of-hanover-pretzel-rods-27-oz.
 extractions:
-  - html: https://workbench.import.io/html/run=e9c7716d-d3d9-4fb3-9d0c-103faddc548a/task=af536380-200c-48d5-bd82-29e00d7dbae3/d40b95ec-98a0-4fc1-92d3-3b3ccc832ec8.html
+  - html: https://workbench.import.io/html/run=6ac71806-3447-4756-8d18-ac39fd5e5d9f/task=7fe6bdd2-3eb1-4262-9bde-33d9ec331428/06ed1052-d589-486c-a5be-8e9909b4bb2f.html
     extractionConfigId: product/details/stores/b/boxed/US/extract
     data:
       - group:
@@ -17,9 +17,9 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/figure[1]/section[1]/div[1]/span[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1478447948680.jpg
-                xpath: /html/body/div[9]
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1478447948455.jpg
                 xpath: /html/body/div[10]
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/fit-in/512x400/filters:quality(100):max_bytes(200000):fill(white)/https://static-assets.boxed.com/1478447948455.jpg
+                xpath: /html/body/div[11]
             metaKeywords:
               - text: pretzel, party, snack, salty
                 xpath: /html/head[1]/meta[5]/@content
@@ -38,7 +38,7 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[2]/div[1]/span[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[9]
             description:
               - text: >-
                   Discover the pretzelbilities! Snyder's Pretzel Rods offer all
@@ -59,19 +59,19 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/a[1]
             quantity:
               - text: 27 oz
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
             sku:
               - text: "3856"
-                xpath: /html/head[1]/meta[9]/@sku
+                xpath: /html/body/@sku
             variantId:
               - text: "3856"
-                xpath: /html/head[1]/meta[9]/@sku
+                xpath: /html/body/@sku
             name:
               - text: Pretzel Rods
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[1]/h1[1]
             brandLink:
               - text: https://www.boxed.com/products/search/snyder's of hanover
-                xpath: /html/body/div[4]/@content
+                xpath: /html/body/div[5]/@content
             ingredientsList:
               - text: >-
                   Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron,
@@ -82,10 +82,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/section[1]/div[1]/article[1]/p[2]
             pricePerUnit:
               - text: $0.27
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[6]
             pricePerUnitUom:
               - text: oz
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[7]
             variantInformation:
               - text: "01"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[1]/section[1]/section[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
@@ -97,8 +97,8 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/section[2]/div[2]/p[1]/span[1]/a[2]/@policy
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[8]/@content
+                xpath: /html/body/div[9]/@content
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1605252395079
+    timestamp: 1605520670696

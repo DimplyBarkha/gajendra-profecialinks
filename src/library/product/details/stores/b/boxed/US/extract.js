@@ -71,10 +71,11 @@ module.exports = {
         addElementToDocument('isAvailable', 'In Stock', 'Yes');
       }
       const sku = document.querySelector('meta#meta-og-url')
-        ? document.querySelector('meta#meta-og-url') : '';
+        ? document.querySelector('meta#meta-og-url').getAttribute('content') : '';
       const regex = /\/(\d+)\//;
       // @ts-ignore
-      sku.setAttribute('sku', sku.getAttribute('content').match(regex)[1]);
+      document.querySelector('body').setAttribute('sku', sku.match(regex)[1]);
+      // sku.setAttribute('sku', sku.getAttribute('content').match(regex)[1]);
       const allImages = document.querySelectorAll("div>a[aria-label*='Slide']")
         ? document.querySelectorAll("div>a[aria-label*='Slide']") : null;
       if (allImages !== null && allImages.length !== undefined) {

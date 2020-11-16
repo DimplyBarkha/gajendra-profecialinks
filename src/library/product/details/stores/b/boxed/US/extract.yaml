@@ -87,12 +87,13 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //meta[@id='meta-og-url']/@sku
+  xpath: //ancestor::body/@sku
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //meta[@id='meta-og-url']/@sku
+  xpath: //ancestor::body/@sku
+  # xpath: //ancestor::html//meta[@id='meta-og-url']/@sku
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
