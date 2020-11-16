@@ -1,0 +1,89 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: (//img[@itemprop="image"])[1]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: (//img[@itemprop="image"])[1]/@alt
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumb"]/span/a/span[not(contains(text(),'LensOnline.nl'))]
+  - name: nameExtended
+    singleValue: true
+    xpath: //meta[@name="twitter:title"]/@content
+  - name: price
+    singleValue: true
+    type: CURRENCY
+    xpath: //html//div[@id='price']
+  - name: availabilityText
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //link[@itemprop="availability"]/@href
+  - name: description
+    singleValue: false
+    xpath: //html//div[@id='description']
+  - name: descriptionBullets
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[@id='descr']/div/ul/li)
+  - name: brandText
+    singleValue: true
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: quantity
+    singleValue: true
+    xpath: //tr[@class="row"]/td[contains(text(),'Verpakkingshoeveelheid')]/following-sibling::td/text()
+  - name: sku
+    singleValue: true
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: variantId
+    singleValue: true
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: ratingCount
+    singleValue: true
+    type: NUMBER
+    xpath: //span[@class="heading_comments__rating"]/span/text()
+  - name: aggregateRating
+    singleValue: true
+    type: NUMBER
+    xpath: //span[@itemprop="ratingValue"]/text()
+  - name: variantCount
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[@class="product_variants "]/div)
+  - name: name
+    singleValue: true
+    xpath: //meta[@name="twitter:title"]/@content
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="variant__text__name"]/text()
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //html//div[@id='addDescBulletInfo']
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    defaultValue: Yes
+  - name: materials
+    singleValue: true
+    xpath: //tr[@class="row a"]/td[contains(text(),'Materiaal')]/following-sibling::td/text()
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: No
