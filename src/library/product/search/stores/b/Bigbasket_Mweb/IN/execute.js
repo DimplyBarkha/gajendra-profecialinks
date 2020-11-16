@@ -47,26 +47,26 @@ async function implementation (
   };
   const loadProducts = async function (contenxt) {
     await context.evaluate(async function () {
-    function stall(ms) {
-      return new Promise((resolve, reject) => {
-      setTimeout(() => {
-      resolve();
-    }, ms);
-                  });
-              }
-              let products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-              let productsCount = products.snapshotLength;
-              const seeAllSelector = document.querySelector('div[class="show-more"] > button');
-              while (productsCount <= 150 && seeAllSelector !== null) {
-                  console.log('Length: ' + productsCount);
-                  seeAllSelector.click();
-                  await stall(1000);
-                  products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-                  productsCount = products.snapshotLength;
-                  console.log("count button");
-            };
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
         });
-    };
+      }
+      let products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      let productsCount = products.snapshotLength;
+      const seeAllSelector = document.querySelector('div[class="show-more"] > button');
+      while (productsCount <= 150 && seeAllSelector !== null) {
+          console.log('Length: ' + productsCount);
+          seeAllSelector.click();
+          await stall(1000);
+          products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          productsCount = products.snapshotLength;
+          console.log("count button");
+        };
+    });
+};
     await applyScroll(context);
     await loadProducts(context);
     console.log('Checking no results', parameters.noResultsXPath);
