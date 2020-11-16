@@ -28,7 +28,7 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'sbermarket',
-    transform: null,
+    transform: transform,
     domain: 'sbermarket.ru/metro',
     zipcode: "''",
   },
