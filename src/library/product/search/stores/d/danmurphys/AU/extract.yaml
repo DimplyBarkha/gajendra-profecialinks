@@ -1,5 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //ul[contains(@class,"row product-list ng-star-inserted")]//li[contains(@class,"js-list col-xs-6 col-lg-4 col-md-4 col-xl-3 ng-star-inserted")]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //ul//li[contains(@class,"js-list col-xs-6 col-lg-4 col-md-4 col-xl-3 ng-star-inserted")]//a[@class='ng-star-inserted']/@href
+  - name: id
+    SingleValue: false
+    xpath: //ul//li[contains(@class,"js-list col-xs-6 col-lg-4 col-md-4 col-xl-3 ng-star-inserted")]//div[contains(@class,"product-image-lazy-transition-wrapper SM ng-star-inserted")]//img/@alt
