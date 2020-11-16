@@ -1,0 +1,73 @@
+input:
+  keywords: Goldflex
+  _url: http://pistorone.ch
+extractions:
+  - html: https://workbench.import.io/html/run=c418c5af-5777-4e3e-bcec-b087ab95f1f6/task=2175e265-e421-4544-bd92-570f818cf61d/2da8f861-d76a-476c-a363-e27a7a2db420.html
+    extractionConfigId: product/search/stores/p/pistor/CH/extract
+    data:
+      - group:
+          - name:
+              - text: Goldflex 10, Pflanzenölcrème, Bibox, Sais, 12 lt (mit 10% Butter)
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[5]/span[1]/a[1]
+            productUrl:
+              - text: https://www.pistorone.ch//index.php/catalog2/products/3010/economat-kuchenprodgewurzekonserven/speisefette-fur-die-kuche/sais/goldflex-10-pflanzenolcr-sais?context=%2Fcatalog2
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[5]/span[1]/a[1]/@producturl
+            price:
+              - text: "102.12"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[7]/span[1]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/@index
+                type: NUMBER
+                raw: "1"
+                locale: de_CH
+                value: 1
+            id:
+              - text: "2701"
+            searchUrl:
+              - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Goldflex&viewchange=1&displaymode=list
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
+          - name:
+              - text: Goldflex, Pflanzenölcrème, Sais, 1 lt
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/td[5]/span[1]/a[1]
+            productUrl:
+              - text: https://www.pistorone.ch//index.php/catalog2/products/374/economat-kuchenprodgewurzekonserven/speisefette-fur-die-kuche/sais/goldflex-pflanzenol-6x1lt-sais?context=%2Fcatalog2
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/td[5]/span[1]/a[1]/@producturl
+            price:
+              - text: "54.18"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/td[7]/span[1]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/@index
+                type: NUMBER
+                raw: "2"
+                locale: de_CH
+                value: 2
+            id:
+              - text: "2701"
+            searchUrl:
+              - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Goldflex&viewchange=1&displaymode=list
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
+          - name:
+              - text: Goldflex, Pflanzenölcrème, Bibox, Sais
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/td[5]/span[1]/a[1]
+            productUrl:
+              - text: https://www.pistorone.ch//index.php/catalog2/products/8619/economat-kuchenprodgewurzekonserven/speisefette-fur-die-kuche/sais/goldflex-pflanzenolcreme-sais?context=%2Fcatalog2
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/td[5]/span[1]/a[1]/@producturl
+            price:
+              - text: "92.76"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/td[7]/span[1]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/@index
+                type: NUMBER
+                raw: "3"
+                locale: de_CH
+                value: 3
+            id:
+              - text: "2701"
+            searchUrl:
+              - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Goldflex&viewchange=1&displaymode=list
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
+        xpath: /html
+    timestamp: 1605518314881
