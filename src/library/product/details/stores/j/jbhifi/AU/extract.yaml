@@ -1,0 +1,141 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and contains(@class,'slick-active')]//img/@src
+    # regex to replace _large with 1200x1200
+    regExp: (.+?)_large(.+)
+    regExpReplace: $1$2
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and contains(@class,'slick-active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and not(contains(@class,'slick-active'))]//img/@src
+    #//div[@class='thumbnail-container']//div[contains(@class,'thumbnail--image-wrapper')]//img/@src
+  - name: category
+    singleValue: false
+    # delete first and last element in JS for home and product name
+    xpath: //div[@id='PageContainer']//ol//li
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //form[not(@id='product-form-mobile')]//span[@id='AddToCartText-']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    # for dollar symbol  $
+    xpath: //div[@class='product-cta']//div[@class='savings' or @class='simple']//span[@class='sale' or @class='price']//sup
+  - name: price1
+    singleValue: false
+    # for whole value   4249
+    xpath: //div[@class='product-cta']//div[@class='savings' or @class='simple']//span[@class='sale' or @class='price']/text()[1]
+  - name: price2
+    singleValue: false
+    # for decimal .
+    xpath: //div[@class='product-cta']//div[@class='savings' or @class='simple']//span[@class='sale' or @class='price']//span[@class='util-hide']
+  - name: price3
+    singleValue: false
+    # for decimal value 15 this will make it ($ 4249.15)
+    xpath: //div[@class='product-cta']//div[@class='savings' or @class='simple']//span[@class='sale'or @class='price']//span[@class='cents']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='product-cta']//div[@class="savings"]//span[text()='Ticket']//following-sibling::s
+  - name:  description
+    singleValue: false
+    xpath: //div[@id='tab-descriptions']//div[contains(@class,'description')]/p
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class='product-keyfeatures']//ul//li    
+  - name: descriptionBullets
+    singleValue: false    
+  - name: brandText
+    singleValue: false
+    xpath: //div[@itemprop='brand']//meta[@itemprop='name']/@content
+  - name: mpc
+    singleValue: false
+    xpath: //input[@id='productViewModel']/@value
+  - name: gtin
+    singleValue: false
+    xpath: //dt[@id='external-id']//meta[contains(@itemprop,'gtin')]/@content
+  - name: sku
+    singleValue: false
+    xpath: //dd[@data-sku]
+  - name: variantId
+    singleValue: false
+    xpath: //dd[@data-sku]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'    
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'warning-message') or contains(@class,'product-messages')]
+  - name: shippingDimensions1
+    singleValue: false
+    # height
+    xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Packaged Height')]//following-sibling::td
+  - name: shippingDimensions2
+    singleValue: false
+    # width
+    xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Packaged Width')]//following-sibling::td
+  - name: shippingDimensions3
+    singleValue: false
+    # depth
+    xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Packaged Depth')]//following-sibling::td
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='tab-details']//table//tr
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id='tab-details']//table//tr//th[contains(text(),"Manufacturer's warranty")]//following-sibling::td
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='tab-descriptions']//div[contains(@class,'description')]/div[@data-flix-embed-meta]//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='tab-descriptions']//div[contains(@class,'description')]/div[@data-flix-embed-meta]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='product-overview__highlights']//div[contains(@class,'star-review')]//span[@class='review-count']
+    regExp: ([\d\.]+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='product-overview__highlights']//div[contains(@class,'star-review')]//span[@class='review-rating']
+  - name: color
+    singleValue: false
+    xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'colour')]//following-sibling::td
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Product Weight')]//following-sibling::td
+  - name: weightGross
+    singleValue: false
+    xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Packaged Weight')]//following-sibling::td
+  - name: videos1
+    singleValue: false
+    # youtube videos
+    xpath: //iframe[contains(@src,'youtube')]/@src
+  - name: videos2
+    singleValue: false
+    # flix videos 
+    xpath: //a[@class='flix_jw_videoid']/@data-jw
+  - name: videos3
+    singleValue: false
+    # flix main videos Get it from value JSON in .JS file
+    xpath: //input[@class='flix-jw']/@value
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Energy star rating')]//following-sibling::td
