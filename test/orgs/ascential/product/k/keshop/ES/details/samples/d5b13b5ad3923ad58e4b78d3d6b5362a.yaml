@@ -1,0 +1,104 @@
+input:
+  _url: http://keshop.com
+  URL: https://www.keshop.com/es/redken-cerafill-maximize/cerafill-maximize-dense-fx-125-ml.html
+extractions:
+  - html: https://workbench.import.io/html/run=529ca356-4f84-48f3-951d-bc15a7fce04b/task=cb669300-cf6d-43ad-ad1c-f8ef76c6a328/6bbee1c5-b0d3-4930-a69b-bd303f37fdaa.html
+    extractionConfigId: product/details/stores/k/keshop/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.keshop.com/es/redken-cerafill-maximize/cerafill-maximize-dense-fx-125-ml.html
+                xpath: /html/head[1]/link[23]/@href
+            image:
+              - text: https://www.keshop.com/es/3322-large_default/cerafill-maximize-dense-fx-125-ml.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/img[1]/@src
+            imageAlt:
+              - text: Cerafill Maximize Dense Fx - 125 ml
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/img[1]/@alt
+            category:
+              - text: Redken
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+              - text: Cerafill Maximize
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[2]/a[1]
+            nameExtended:
+              - text: Cerafill Maximize Dense Fx - 125 ml
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
+            listPrice:
+              - text: 43,10 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[2]/span[1]/span[2]
+            price:
+              - text: 21,55 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/div[1]/div[2]/p[3]/span[1]
+            description:
+              - text: Tratamiento en spray para engrosar el cabello.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/p[1]
+            manufacturer:
+              - text: Redken
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            gtin:
+              - text: "884486177612"
+                xpath: /html/head[1]/script[5]/text()[1]
+            sku:
+              - text: "1187"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            variantId:
+              - text: "1187"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            mpc:
+              - text: "1187"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            aggregateRatingText:
+              - text: "8"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/img[1]/@src
+            manufacturerDescription:
+              - text: ¡Densifica tu cabello al instante! El tratamiento Cerafill Maximize Dense
+                  FX es un spray que aporta grosor y cuerpo al cabello fino o
+                  con tendencia a afinar, haciendo que tu melena se presente
+                  voluminosa.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            manufacturerImages:
+              - text: /modules/anlazyloading/views/img/loading.gif
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: /modules/anlazyloading/views/img/loading.gif
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: /modules/anlazyloading/views/img/loading.gif
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: /modules/anlazyloading/views/img/loading.gif
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-movil/sham-condi-fx-reta-ru.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            name:
+              - text: Cerafill Maximize Dense Fx - 125 ml
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
+            ingredientsList:
+              - text: "Aqua/Water - Alcohol Denat. - PVP - Propylene Glycol - Phenoxyethanol -
+                  Polycrylate-3 - Oleth-20 - Triethanolamine - Methylparaben -
+                  Parfum/Fragrance - Oleth-10 - Menthol - Benzyl Alcohol -
+                  Limonene - Linalool - 2-Olemido-1 - 3-Octadecanediol -
+                  Aminopropyl Triethoxysilane - Safflower Glucoside - Geraniol
+                  Patente Estadounidense/Brevet Americain: 5, 618.523;7.763.587
+                  (D165165/1)"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[10]
+            promotion:
+              - text: Envío Gratis
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            additionalDescBulletInfo:
+              - text: Tratamiento de densidad y grosor.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Ideal para cabello fino y con tendencia al afinamiento.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "2"
+            ratingCount:
+              - text: "5"
+        xpath: /
+    timestamp: 1605257665236

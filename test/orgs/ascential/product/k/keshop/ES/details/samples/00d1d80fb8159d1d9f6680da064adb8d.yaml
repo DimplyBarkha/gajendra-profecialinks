@@ -1,0 +1,116 @@
+input:
+  _url: http://keshop.com
+  URL: https://www.keshop.com/es/schwarzkopf-bc-sun-protect/bc-sun-protect-crema-acondicionadora-100ml.html
+extractions:
+  - html: https://workbench.import.io/html/run=529ca356-4f84-48f3-951d-bc15a7fce04b/task=cc485303-411b-4792-8f60-d5614e50477b/64ad6d2b-582d-43c2-b45d-1c2d3a5a2ad5.html
+    extractionConfigId: product/details/stores/k/keshop/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.keshop.com/es/schwarzkopf-bc-sun-protect/bc-sun-protect-crema-acondicionadora-100ml.html
+                xpath: /html/head[1]/link[23]/@href
+            image:
+              - text: https://www.keshop.com/es/4241-large_default/bc-sun-protect-crema-acondicionadora-100ml.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/img[1]/@src
+            imageAlt:
+              - text: BC Sun Protect Crema Acondicionadora - 100ml
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/img[1]/@alt
+            category:
+              - text: Schwarzkopf
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+              - text: BC Sun Protect
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[2]/a[1]
+            nameExtended:
+              - text: Crema Acondicionadora Sun Protect - 100 ml
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
+            listPrice:
+              - text: 15,73 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[2]/span[1]/span[2]
+            price:
+              - text: 7,85 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/div[1]/div[2]/p[3]/span[1]
+            description:
+              - text: Crema aftersun para cabellos sensibilizados por efecto del sol.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/p[1]
+            manufacturer:
+              - text: Schwarzkopf
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            gtin:
+              - text: "4045787462531"
+                xpath: /html/head[1]/script[5]/text()[1]
+            sku:
+              - text: "2305"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            variantId:
+              - text: "2305"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            mpc:
+              - text: "2305"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            aggregateRatingText:
+              - text: "10"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/img[1]/@src
+            manufacturerDescription:
+              - text: Tu cabello también necesita un cuidado aftersun. La Crema Acondicionadora
+                  de BC Sun Protect actúa como aftersun sobre los cabellos
+                  expuestos al sol. Aplicarla al final de tu rutina hará que tu
+                  cabello recupere hidratación, se desenrede con facilidad y
+                  quede suave y brillante, sin aportarle peso. Por si fuera
+                  poco, este producto también ayuda a que el cabello sea más
+                  manejable y menos encrespado.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            manufacturerImages:
+              - text: /modules/anlazyloading/views/img/loading.gif
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: /modules/anlazyloading/views/img/loading.gif
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: /modules/anlazyloading/views/img/loading.gif
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: /modules/anlazyloading/views/img/loading.gif
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: /modules/anlazyloading/views/img/loading.gif
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[5]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-movil/prep-hair-2in1-condi-sun-ru.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            name:
+              - text: Crema Acondicionadora Sun Protect - 100 ml
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
+            ingredientsList:
+              - text: Aqua/Water – Propylene Glycol – Dimethicone – Behenoyl PG-Trimonium
+                  Chloride – Hydroxyethylcellulose – Laureth-4 – Dimethiconol –
+                  Mauritia Flexuosa Fruit Oil – Benzophenone-4 – Tocopheryl
+                  Acetate – Laminaria Saccharina Extract – Hexylene Glycol –
+                  Phenoxyethanol – Parfum/Fragrance – Methylparaben – Panthenol
+                  – Cyclomethicone – Glycerin – Linalool – Limonene – Hexyl
+                  Cinnamal – Citric Acid – Hydrolyzed Keratin – Sodium Sulfate –
+                  Geraniol – Coumarin – Potassium Sorbate – Sodium Benzoate – CI
+                  15985 (Yellow 6)
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[8]
+            additionalDescBulletInfo:
+              - text: Devuelve la hidratación al cabello.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Facilita el desenredado.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Reduce el encrespamiento.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Su textura ligera no añade peso al cabello.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Aporta un brillo radiante.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: Cabello más suave y manejable.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "6"
+            ratingCount:
+              - text: "3"
+        xpath: /
+    timestamp: 1605257663889

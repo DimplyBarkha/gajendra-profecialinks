@@ -1,0 +1,68 @@
+input:
+  _url: http://keshop.com
+  URL: https://www.keshop.com/es/schwarzkopf-bc-excellium-control-para-cabellos-rebeldes-q10-omega-3/bc-champu-control-cabellos-rebeldes-1000-ml.html
+extractions:
+  - html: https://workbench.import.io/html/run=d2366803-0b8f-4d29-9575-7f0492c6183f/task=79afbd99-092c-43bf-af8c-ffffa7085c18/35b41111-930c-4e97-9969-c4f30cf307c3.html
+    extractionConfigId: product/details/stores/k/keshop/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.keshop.com/es/schwarzkopf-bc-excellium-control-para-cabellos-rebeldes-q10-omega-3/bc-champu-control-cabellos-rebeldes-1000-ml.html
+                xpath: /html/head[1]/link[23]/@href
+            image:
+              - text: https://www.keshop.com/es/1919-large_default/bc-champu-control-cabellos-rebeldes-1000-ml.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/img[1]/@src
+            imageAlt:
+              - text: BC Champú Control Cabellos Rebeldes - 1000 ml
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/img[1]/@alt
+            category:
+              - text: BC Excellium Control Para Cabellos Rebeldes Q10+ Omega 3
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[2]/a[1]
+            nameExtended:
+              - text: BC Champú Control Cabellos Rebeldes - 1000 ml - keshop.com
+                xpath: /html/head[1]/title[1]
+            listPrice:
+              - text: 34,49 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[2]/span[1]/span[2]
+            price:
+              - text: 18,25 €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]/span[1]
+            description:
+              - text: Limpia suavemente, devuelve al cabello grueso su juventud y protege el
+                  color. Nutre y controla el encrespamiento.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/p[1]
+            manufacturer:
+              - text: Schwarzkopf
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            gtin:
+              - text: "4045787311945"
+                xpath: /html/head[1]/script[5]/text()[1]
+            sku:
+              - text: "1342"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            mpc:
+              - text: "1342"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            aggregateRatingText:
+              - text: "10"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/img[1]/@ratingnormalized
+            name:
+              - text: BC Champú Control Cabellos Rebeldes - 1000 ml - keshop.com
+                xpath: /html/head[1]/title[1]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+            ratingCount:
+              - text: "1"
+        xpath: /
+    timestamp: 1605009724368

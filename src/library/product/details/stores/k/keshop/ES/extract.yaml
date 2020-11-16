@@ -1,7 +1,7 @@
 singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: null
+regionsSelector: 
+recordSelector: 
+recordXPath: 
 fields:
 - name: _input
   singleValue: false
@@ -9,13 +9,16 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //link[@rel='canonical']/@href
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
+  xpath: //div[@class='prod-container']//span[@id='view_full_size']/img/@src
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
+  xpath: //div[@class='prod-container']//span[@id='view_full_size']/img/@alt
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
@@ -25,38 +28,50 @@ fields:
   description: The <meta> keywords content
 - name: category
   singleValue: false
+  xpath: //span[@class='manufacturer_name']/a | //span[@class='category_name']/a
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
+  xpath: //span[@class='pproduct_name']
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
+  xpath: //span[@class='price-oldd']
   description: The stated undiscounted price for the product
-- name: price
+- name: price 
   singleValue: true
+  xpath: //span[@id='our_price_display']
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
+  xpath: //span[@id='quantityAvailableTxt'][1]
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  regExp: "En stock"
+  regExpReplace: In Stock
+  defaultValue: Out of Stock
 - name: description
   singleValue: false
+  xpath: //div[@id='short_description_content']/p
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//div[@id='info-prod']//ul/li)
 - name: brandText
   singleValue: true
+  xpath: //div[@id='product-brand']/a/img/@title
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
   singleValue: true
+  xpath: //span[@class='manufacturer_name']/a
   description: Product manufacturer
-- name: quantity
+- name: quantity 
   singleValue: true
   description: Quantity as described on the page
 - name: weightNet
@@ -68,15 +83,20 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
+  xpath: //script[@data-keepinline='true']/text()
+  regExp: (?<="ean":")\d+
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //input[@name='id_product']/@value
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //input[@name='id_product']/@value
 - name: mpc
-  singleValue: tru
+  singleValue: true
+  xpath: //input[@name='id_product']/@value
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -91,15 +111,22 @@ fields:
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
-- name: ratingCount
+- name: ratingCount 
   singleValue: true
   description: The number of ratings
+  xpath: count(//table[contains(@class, 'productComment')])
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
-- name: aggregateRating
+  xpath: //a[@class='comment_anchor']/img/@src
+  regExp: (?<=yellow\/)\d+
+- name: aggregateRating 
+  type: STRING
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //a[@class='comment_anchor']/img/@ratingnormalized
+  regExp: (\d).(\d)
+  regExpReplace: $1,$2
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -118,17 +145,21 @@ fields:
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
-- name: manufacturerDescription
+- name: manufacturerDescription 
   singleValue: false
   description: The extended description of the product supplied by the lister
-- name: manufacturerImages
+  xpath: //div[@id='info-prod']//div[@class='vc_row wpb_row vc_row-fluid'][1]//div[@class='wpb_wrapper']/div/div[@class='wpb_wrapper']/p[1]
+- name: manufacturerImages 
   singleValue: false
   description: Images within the third party description
+  xpath: //div[@class='wpb_wrapper']//img/@src
 - name: videos
   singleValue: false
+  xpath: //div[@class='wpb_video_wrapper']/iframe/@src
   description: URLs of videos on page
 - name: name
   singleValue: true
+  xpath: //span[@class='pproduct_name']
   description: The product name
 - name: inStorePrice
   singleValue: true
@@ -233,6 +264,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //h2[text()='Ingredientes:']/following-sibling::p[last()]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -362,7 +394,6 @@ fields:
   singleValue: true
   description: 
 - name: specifications
-  singleValue: true
   description: The physical dimensions of the product including packaging.
 - name: warranty
   singleValue: true
@@ -382,6 +413,7 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
+  xpath: //h2[text()='¿Cómo se aplica Bain Chromatique Sin Sulfatos?']/following-sibling::p[1]
 - name: packaging
   singleValue: true
   description: Packaging information
@@ -389,14 +421,15 @@ fields:
   singleValue: true
   description: List of additives in the product
 - name: pricePerUnit
-  singleValue: true
   description: Price of the product split into certain units
 - name: pricePerUnitUom
-  singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
+  xpath: //img[contains(@alt, 'Gratis')]/@alt
   description: promotion text on product page
+  regExp: (Envío Gratis)(.+)
+  regExpReplace: $1
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -412,7 +445,6 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
-  singleValue: true
   description: colour / scent / flavour / other
 - name: firstVariant
   singleValue: true
@@ -430,6 +462,7 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
+  xpath: //div[@id='info-prod']//ul/li
 - name: prop65Warning
   singleValue: true
   description: 
@@ -445,7 +478,7 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: 'No'
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
@@ -463,12 +496,12 @@ fields:
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
 - name: Image360Present
-  singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: 'No'
 - name: imageZoomFeaturePresent
   singleValue: true
+  defaultValue: 'No'
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  
