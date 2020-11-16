@@ -22,7 +22,8 @@ module.exports = {
         document.body.appendChild(catElement);
       };
 
-    const urlElem = document.querySelector('div#BackToBrowseAisledDiv a') ? (document.querySelector('div#BackToBrowseAisledDiv a').getAttribute('href').match(/(^.+)&flt/) ? document.querySelector('div#BackToBrowseAisledDiv a').getAttribute('href').match(/(^.+)&flt/)[1] : null) : null
+    const keywords = document.querySelector('div#title h2').innerHTML ? (document.querySelector('div#title h2').innerHTML.match(/for\s"([^"]+)/) ? (document.querySelector('div#title h2').innerHTML.match(/for\s"([^"]+)/)[1] ? document.querySelector('div#title h2').innerHTML.match(/for\s"([^"]+)/)[1].replace(/\s+/g, '+') : null) : null) : null
+    const urlElem = `https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=${keywords}&view=UnGrouped`
     addElementToDocument('pageURL', '', urlElem)  
 
     const domain = 'https://www.booker.co.uk'
