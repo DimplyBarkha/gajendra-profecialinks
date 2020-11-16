@@ -18,6 +18,53 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+
+      const scriptXpath = '//script[@type="application/ld+json"][contains(.,"productID") or contains(.,"sku")]';
+      let scriptElm = document.evaluate(scriptXpath, document, null, 7, null);
+
+      if (scriptElm.snapshotLength > 0) {
+        console.log('got the script for sku and variant id');
+        // we are taking the first script element
+        let scriptText = scriptElm.snapshotItem(0).textContent.trim();
+        let scriptJsonValue = {};
+        function isJson(str) {
+          try {
+              JSON.parse(str);
+          } catch (e) {
+              return false;
+          }
+          return true;
+        }
+        let isScriptJson = isJson(scriptText);
+        if(isScriptJson) {
+          scriptJsonValue = JSON.parse(scriptText);
+          console.log('we have the json from the text ' + scriptJsonValue)
+          let sku = '';
+          let variantId = '';
+          if(scriptJsonValue.hasOwnProperty('sku')) {
+            sku = scriptJsonValue.sku;
+            console.log('sku - ' + sku);
+          } else {
+            console.log('we do not have sku in the script json');
+          }
+          if(scriptJsonValue.hasOwnProperty('productID')) {
+            variantId = scriptJsonValue.productID;
+            console.log('variantId - ' + variantId);
+          } else {
+            console.log('we do not have sku in the script json');
+          }
+
+          addHiddenDiv('sku', sku);
+          addHiddenDiv('variantid', variantId);
+
+        } else {
+          console.log('we have the script, but the text cannot be converted to json');
+        }
+
+      } else {
+        console.log('we did not get the script for sky and variant id -- please try updating - scriptXpath or try with waiting for the script');
+      }
+
       const nameExtendedSelector = document.querySelector('meta[itemprop="name"]');
       if (!nameExtendedSelector) {
         const nameExtendedSelectorNew = document.querySelector('meta[property="og:title"]');

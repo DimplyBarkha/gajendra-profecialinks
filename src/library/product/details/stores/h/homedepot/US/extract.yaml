@@ -37,7 +37,7 @@ fields:
     singleValue: false
   - name: sku
     singleValue: false
-    xpath: //span[@itemprop="productID"]|//h2[@class="product-infobar__detail" and contains(text(),"Internet")]/text()[2]
+    xpath: //span[@itemprop="productID"]|//h2[@class="product-infobar__detail" and contains(text(),"Internet")]/text()[2] | //div[contains(@id,"sku")]
   - name: quantity
     singleValue: false
     xpath: //div[@id="specsContainer"]//div[contains(text(),'Package Quantity')]/following-sibling::div
@@ -111,7 +111,7 @@ fields:
     xpath: //div[contains(@class,'main_description')]|//div[@data-section="product-overview"]//div[contains(@class,'main-description')]
   - name: variantId
     singleValue: false
-    xpath: //span[@itemprop="productID"]|//h2[@class="product-infobar__detail" and contains(text(),"Internet")]/text()[2]
+    xpath: //span[@itemprop="productID"]|//h2[@class="product-infobar__detail" and contains(text(),"Internet")]/text()[2] | //div[@id="variantid"]
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[contains(@class,'main_description')]//li[not(center//img)]|//div[@data-section="product-overview"]//div[contains(@class,'main-description')]//li
