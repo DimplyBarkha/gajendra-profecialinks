@@ -65,7 +65,8 @@ async function implementation (
           products = document.evaluate('//img[@data-sizes="auto"]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           productsCount = products.snapshotLength; }
         else {
-          break; };
+          break; 
+        };
       };
     });
   };
