@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: section.card article.prd
-recordXPath: null
+recordSelector: null
+recordXPath: //section//article[contains(@class, "prd")]
 fields:
   - name: id
     singleValue: false
@@ -19,8 +19,8 @@ fields:
   - name: gtin
     singleValue: false
   - name: thumbnail
-    singleValue: false
-    xpath: //div[@class="img-c"]/img[@class="img"]/@src
+    singleValue: true
+    xpath: //a/@img
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -30,6 +30,9 @@ fields:
     regExpReplace: $1,$2
   - name: reviewCount
     singleValue: false
+    xpath: //div[@class="rev"]
+    regExp: \((\d+)\)$
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="rev"]

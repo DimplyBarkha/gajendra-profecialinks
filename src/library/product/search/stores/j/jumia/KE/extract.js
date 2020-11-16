@@ -18,18 +18,28 @@ module.exports = {
     if (closeNewsletterBtn) {
       await context.click('button[data-track-onclick="popupClose"]');
     }
-    await context.evaluate(async function () {
-      const body = document.body;
-      const html = document.documentElement;
-      const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-      let scrollTop = 0;
-      while (scrollTop <= pageHeight) {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        scrollTop += 200;
-        window.scroll(0, scrollTop);
-      }
+    // await context.evaluate(async function () {
+    //   const body = document.body;
+    //   const html = document.documentElement;
+    //   const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+    //   let scrollTop = 0;
+    //   while (scrollTop <= pageHeight) {
+    //     console.log('scrolling');
+    //     await new Promise((resolve) => setTimeout(resolve, 1000));
+    //     scrollTop += 200;
+    //     window.scroll(0, scrollTop);
+    //   }
+    // });
+
+    await context.evaluate(async () => {
+      const { products } = window.__STORE__ || [];
+      products.forEach(product => {
+        const productElem = document.querySelector(`a[data-id=${product.sku}]`);
+        productElem.setAttribute('img', product.image);
+      });
     });
+
     return await context.extract(productDetails, { transform });
   },
 };
