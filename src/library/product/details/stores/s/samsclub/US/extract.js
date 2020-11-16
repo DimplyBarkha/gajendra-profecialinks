@@ -8,27 +8,6 @@ module.exports = {
     domain: 'samsclub.com',
   },
   implementation: async ({ url }, { country, domain }, context, dependencies) => {
-
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall(ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-
     await context.evaluate(() => {
       const imgAlt = document.querySelector('button[class="sc-image-viewer-img-button"] img') ? document.querySelector('button[class="sc-image-viewer-img-button"] img').alt : null;
       document.body.setAttribute('imagealt', imgAlt);
@@ -50,6 +29,12 @@ module.exports = {
       document.body.setAttribute('specification', specification);
 
     });
+    const ratingSelecter = '#ratings-summary > div[itemprop=ratingValue]';
+    const reviewSelector = 'div.bv_numReviews_component_container';
+    const manufacturerImageSelector = 'div.wc-rf-banner-image-container';
+    await context.waitForSelector(ratingSelecter, { timeout: 30000 });
+    await context.waitForSelector(reviewSelector, { timeout: 30000 });
+    await context.waitForSelector(manufacturerImageSelector, { timeout: 30000 });
     await context.extract(dependencies.productDetails);
   },
 };

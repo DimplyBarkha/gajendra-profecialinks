@@ -15,7 +15,15 @@ module.exports = {
     });
 
     if (productLink) {
-      await context.goto(productLink, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+      await context.goto(productLink, {
+        timeout: 30000,
+        waitUntil: 'load',
+        checkBlocked: true,
+        block_ads: false,
+        load_all_resources: true,
+        images_enabled: true,
+        css_enabled: true,
+      });
     }
   },
 };

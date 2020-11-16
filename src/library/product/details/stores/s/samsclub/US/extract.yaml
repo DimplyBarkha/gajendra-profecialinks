@@ -109,10 +109,10 @@ fields:
     xpath: //button[@class="sc-image-viewer-img-button"]/img/@src
   - name: featureHighlights
     singleValue: false
-    xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//ul//li | //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//p
+    xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//ul//li
   - name: featureBullets
     singleValue: false
-    xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//ul//li | //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//p
+    xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//ul//li
   - name: specifications
     singleValue: true
     xpath: normalize-space(//body//@specification)
