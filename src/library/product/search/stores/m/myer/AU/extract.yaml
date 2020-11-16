@@ -1,0 +1,62 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@class='css-1s2ihhj']
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li[@class='css-1s2ihhj']/@id
+  - name: searchUrl
+    singleValue: false
+    xpath: //li[@class='css-1s2ihhj']/@searchurl
+  - name: name
+    singleValue: false
+    xpath: //span[@data-automation='product-name']
+  - name: productUrl
+    singleValue: false
+    xpath: //li[@class='css-1s2ihhj']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.myer.com.au$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@data-automation='image-placeholder']/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    type: STRING
+    singleValue: false
+    xpath: //meta[@itemprop='ratingValue']/@content
+    defaultValue: '0'
+    regExp: (\d)(\.)(\d+)
+    regExpReplace: $1,$3
+  - name: reviewCount
+    singleValue: false
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: ratingCount
+    singleValue: false
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: price
+    singleValue: false
+    xpath: //div[@data-automation='product-price']/p[last()]/span[last()]
+  - name: manufacturer
+    xpath: //span[@data-automation='product-brand']
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@id='search-page-center-middle']/div/div[@id='pd_rank']/text()
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[@id='search-page-center-middle']/div/div[@id='pd_rank']/text()
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
