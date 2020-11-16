@@ -41,18 +41,46 @@ const transform = (data) => {
         });
         row.dietarySymbols = [{ text: dietarySymbolsArr.join('|'), xpath: row.dietarySymbols[0].xpath }];
       }
-      if (row.shippingInfo) {
-        const shippingInfoArr = row.shippingInfo.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, ' ') : '|';
-        });
-        row.shippingInfo = [{ text: shippingInfoArr.join('|'), xpath: row.shippingInfo[0].xpath }];
-      }
       if (row.alternateImages) {
         const alternateImagesArr = row.alternateImages.map((item) => {
-          return { text: `${item.text.match(/(.*)60x60(.*)/)[1]}280x430${item.text.match(/(.*)60x60(.*)/)[2]}` };
+          if (item.text.match(/(.*)60,h_60(.*)/).length) {
+            return { text: `${item.text.match(/(.*)60,h_60(.*)/)[1]}280,h_430${item.text.match(/(.*)60,h_60(.*)/)[2]}` };
+          } else {
+            return '';
+          }
         });
-        const result = alternateImagesArr.slice(1);
-        row.alternateImages = result;
+        const alternateImagesResult = alternateImagesArr && alternateImagesArr.slice(1);
+        row.alternateImages = alternateImagesResult;
+      }
+      if (row.pricePerUnit) {
+        const pricePerUnitArr = row.pricePerUnit.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/(.*)\(([\d\,]+)([\s€\D]+)(\d+)(.*)/g, '$2/$4') : '|';
+        });
+        row.pricePerUnit = [{ text: pricePerUnitArr.join('|'), xpath: row.pricePerUnit[0].xpath }];
+      }
+      if (row.pricePerUnitUom) {
+        const pricePerUnitUomArr = row.pricePerUnitUom.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/.*\s(.*)\)/g, '$1') : '|';
+        });
+        row.pricePerUnitUom = [{ text: pricePerUnitUomArr.join('|'), xpath: row.pricePerUnitUom[0].xpath }];
+      }
+      if (row.brandLink) {
+        const brandLinkArr = row.brandLink.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/(.+)/g, 'https://dm.de$1') : '|';
+        });
+        row.brandLink = [{ text: brandLinkArr.join('|'), xpath: row.brandLink[0].xpath }];
+      }
+      if (row.termsAndConditions) {
+        const termsAndConditionsArr = row.termsAndConditions.map((item) => {
+          return (typeof (item.text) === 'string') && (item.text.includes('agb')) ? 'Yes' : 'No';
+        });
+        row.termsAndConditions = [{ text: termsAndConditionsArr.join(), xpath: row.termsAndConditions[0].xpath }];
+      }
+      if (row.imageZoomFeaturePresent) {
+        const imageZoomFeaturePresentArr = row.imageZoomFeaturePresent.map((item) => {
+          return (typeof (item.text) === 'string') && (item.text.includes('image')) ? 'Yes' : 'No';
+        });
+        row.imageZoomFeaturePresent = [{ text: imageZoomFeaturePresentArr.join(), xpath: row.imageZoomFeaturePresent[0].xpath }];
       }
     }
   }

@@ -11,7 +11,7 @@ fields:
     xpath: //meta[@property='og:url']/@content
   - name: nameExtended
     singleValue: true
-    xpath: normalize-space(//div[@data-dmid="detail-page-headline"])
+    xpath: concat(//div[@data-dmid="detail-page-headline"]//div[@data-dmid="detail-page-headline-brand-name"], "-", //div[@data-dmid="detail-page-headline"]//h1[@data-dmid="detail-page-headline-product-title"])
   - name: name
     singleValue: true
     xpath: //h1[@data-dmid='detail-page-headline-product-title']
@@ -19,11 +19,8 @@ fields:
     singleValue: true
     xpath: concat(//meta[@itemprop="price"]/@content, " ", //div[@data-dmid="decimal-price-container"]//span[@data-dmid="price-currency"])
   - name: availabilityText
-    xpath: //link[@itemprop="availability"]/@href
+    xpath: //div[@data-dmid="product-availability-container"]//span
     singleValue: true
-    regExp: InStock
-    regExpReplace: Lieferbar
-    defaultValue: Derzeit online nicht lieferbar
   - name: ingredientsList
     singleValue: true
     xpath: normalize-space(//button[@aria-label="Zutaten" or @aria-label="Inhaltsstoffe"]/following-sibling::div)
@@ -46,7 +43,7 @@ fields:
     xpath: //button[@aria-label="Verwendungshinweise"]//following-sibling::div//div[@data-dmid='product-detail-item-accordion-content-text']
   - name: warnings
     singleValue: true
-    xpath: //button[@aria-label='Wichtiger Hinweis']/following-sibling::div
+    xpath: //button[@aria-label="Wichtiger Hinweis"]/following-sibling::div | //button[@aria-label="Warnhinweise"]/following-sibling::div
   - name: alternateImages
     singleValue: false
     xpath: //div[@data-dmid="detail-image-slider-container"]//div[@data-dmid="thumbnail-container"]//button[@data-dmid="thumbnail-button"]//img/@src
@@ -56,9 +53,6 @@ fields:
     xpath: //div[@class='bv_numReviews_text'] | //div[@class='bv_numReviews_text'] | //div[@id="main-section-headline-container"]//div[@role="button"]//span[2]
     regExp: >-
       (?:([\d\.\,]+)\s?)|(\d+)
-  - name: shippingInfo
-    singleValue: true
-    xpath: //button[@aria-label="Anschrift des Unternehmens"]/..//div[@data-dmid="product-detail-accordion-inner-content"]
   - name: gtin
     singleValue: true
     xpath: //meta[@itemprop='gtin13']/@content
@@ -75,9 +69,7 @@ fields:
   - name: saltPerServingUom
     singleValue: true
     xpath: //td[text()='Salz Äquivalent']/following-sibling::td
-    regExp: >-
-      (?:([\d\.\,]+)\s?)(.*)|(\b(\w+)$)
-    regExpReplace: $2
+    regExp: (\b(\w+)$)
   - name: servingSize
     singleValue: true
     xpath: //button[@aria-label='Nährwerte']/..//div[@data-dmid="product-detail-accordion-inner-content"]//table/thead/tr/th[2]
@@ -113,8 +105,7 @@ fields:
   - name: saturatedFatPerServingUom
     singleValue: true
     xpath: //td[contains(.,'Fett, davon gesättigte Fettsäuren')]/following-sibling::td
-    regExp: (?:([\d\.\,]+)\s?)(.*)|(\b(\w+)$)
-    regExpReplace: $2
+    regExp: (\b(\w+)$)
   - name: sodiumPerServing
     singleValue: true
     xpath: //td[contains(., 'Natrium')]/following-sibling::td
@@ -177,8 +168,7 @@ fields:
   - name: vitaminCPerServingUom
     singleValue: true
     xpath: //td[text()='Vitamin C']/following-sibling::td
-    regExp: (?:([\d\.\,]+)\s?)(.*)
-    regExpReplace: $2
+    regExp: (\b(\w+)$)
   - name: calciumPerServing
     singleValue: true
     xpath: //td[text()='Calcium']/following-sibling::td
@@ -195,31 +185,22 @@ fields:
   - name: ironPerServingUom
     singleValue: true
     xpath: //td[text()='Eisen']/following-sibling::td
-    regExp: >- 
-      (?:([\d\.\,]+)\s?)(.*)
-    regExpReplace: $2
+    regExp: (\b(\w+)$)
   - name: dietarySymbols
     singleValue: false
     xpath: //div[@data-dmid='detail-first-section']/div[@data-dmid="label-slider-container"]//div[@data-dmid="label-container"]//img/@src | //div[@data-dmid='detail-first-section']//div[@data-dmid="label-slider-container"]//div[contains(@data-dmid, "label")]//div//div[contains(@class, "slick-list")]
   - name: pricePerUnit
     singleValue: true
     xpath: //div[@data-dmid='detail-page-base-price-container']/div[@data-dmid='product-base-price']
-    regExp: (.*)\((?:([\d\.\,]+)\s?)€(.*)
-    regExpReplace: $2
   - name: pricePerUnitUom
     singleValue: true
     xpath: //div[@data-dmid='detail-page-base-price-container']/div[@data-dmid='product-base-price']
-    regExp: >-
-      .*\s(.*)\)
-    regExpReplace: $1
   - name: imageAlt
     singleValue: true
     xpath: //button/img/@alt
   - name: brandLink
-    xpath: //div[@data-dmid="detail-page-headline-brand-name"]/a/@href
-    regExp: >-
-      (.+)
-    regExpReplace: https://dm.de$1
+    singleValue: true
+    xpath: //div[@data-dmid="main-section-headline-container"]//div[@data-dmid="detail-page-headline-brand-name"]//a/@href
   - name: termsAndConditions
     singleValue: true
     xpath: //a[contains(text(), 'AGB')]/@href
@@ -246,4 +227,29 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@data-dmid="detail-first-section"]//div//ul[@data-dmid="description-relevant-selling-points"]//li
-    
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //td[contains(.,'Eiweiß')]/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: proteinPerServingUom
+    singleValue: true
+    xpath: //td[contains(.,'Eiweiß')]/following-sibling::td
+    regExp: (\b(\w+)$)
+  - name: additives
+    singleValue: true
+    xpath: //button[@aria-label="Zusatzstoffe"]/..//div[@data-dmid="product-detail-accordion-inner-content"]
+  - name: variantCount
+    singleValue: true
+    xpath: count(//div[@data-dmid="product-variants-selection-container"]//..//div//a//div[@data-dmid="color-circle-button"])
+    defaultValue: 0
+  - name: magnesiumPerServing
+    singleValue: true
+    xpath: //td[text()='Magnesium']/following-sibling::td
+    regExp: (?:([\d\.\,]+)\s?)
+  - name: magnesiumPerServingUom
+    singleValue: true
+    xpath: //td[text()='Magnesium']/following-sibling::td
+    regExp: (\b(\w+)$)
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    xpath: //div[@data-dmid="detail-image-container"]//div[@data-dmid="image-container"]/div/img/@data-dmid

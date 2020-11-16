@@ -20,16 +20,16 @@ module.exports = {
       }
       if (document.querySelector('[data-dmid=load-more-products-button]') != null) {
         while (document.querySelector('[data-dmid=load-more-products-button]').textContent === 'Mehr laden') {
-          await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+          await new Promise((resolve, reject) => setTimeout(resolve, 25000));
           document.querySelector('[data-dmid=load-more-products-button]').click();
-          await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+          await new Promise((resolve, reject) => setTimeout(resolve, 25000));
           let scrollTop = 0;
           while (scrollTop !== 10000) {
-            await stall(8000);
+            await stall(500);
             scrollTop += 1000;
             window.scroll(0, scrollTop);
             if (scrollTop === 10000) {
-              await stall(8000);
+              await stall(5000);
               break;
             }
           }

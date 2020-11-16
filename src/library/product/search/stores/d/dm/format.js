@@ -29,7 +29,7 @@ const transform = (data, context) => {
         row.aggregateRating2.forEach(x => {
           rating += parseFloat(x.text);
         });
-        row.aggregateRating2 = [{ text: ((rating / 500) * 5).toFixed(2), xpath: '' }];
+        row.aggregateRating2 = [{ text: (((rating / 500) * 5).toFixed(2)).replace('.', ','), xpath: '' }];
       }
 
       rankCounter = rankCounter + 1;
