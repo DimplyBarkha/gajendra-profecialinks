@@ -5,8 +5,8 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class='tile']/a[contains(@href,'http') and not(contains(@title,'CASDON'))]//div[@class='price']/div/div[not(contains(@class,'sm'))]/text()
-    regExp: \d+\,\d+|\d+
+    xpath: //div[@class='tile']/a[contains(@href,'http') and not(contains(@title,'CASDON'))]//div[contains(@class,'price')]/div/div[not(contains(@class,'sm'))]/text()
+    regExp: (\d+(,)?(\d+)?)
   - name: id
     singleValue: false
     xpath: //div[@class='tile']/a[contains(@href,'http') and not(contains(@title,'CASDON'))]/@href
