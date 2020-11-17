@@ -138,3 +138,15 @@ fields:
     xpath: //span[contains(@class, "referencia")]
     regExp: Ref.\s*(.*)$
     regExpReplace: $1
+  - name: shippingPrice
+    singleValue: false
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //span[contains(@class, "price_unit")]
+    regExp: \((.*)\/(.*)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: //span[contains(@class, "price_unit")]
+    regExp: ([^\/]+$)
+    # regExpReplace: $2
