@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: 'div#product-results div.grid-row div.grid-cell'
+recordXPath: null
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id='product-results']//div[contains(@class, 'grid-row')]//div[contains(@class, 'grid-cell')]//a//img[@alt='product photo']/@src
+  - name: name
+    singleValue: false
+    xpath: //div[@id='product-results']//div[contains(@class, 'grid-row')]//div[contains(@class, 'grid-cell')]//div[contains(@class, 'fn-row')]//a/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id='product-results']//div[contains(@class, 'grid-row')]//div[contains(@class, 'grid-cell')]//div[contains(@class, 'fn-row')]//a/@href
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id='product-results']//div[contains(@class, 'grid-row')]//div[contains(@class, 'grid-cell')]//div[contains(@class, 'fn-row')]//a/@href
+    regExp: .*\/barcode\/(\d+)\/.*
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: //div[@id='product-results']//div[contains(@class, 'grid-row')]//div[contains(@class, 'grid-cell')]//div[contains(@class, 'cost-band')]//div//div[2]//strong
+  - name: id
+    singleValue: false
+    xpath: //div[@id='product-results']//div[contains(@class, 'grid-row')]//div[contains(@class, 'grid-cell')]//div[contains(@class, 'sku') and contains(@class, 'identifier')]//span[contains(@class, 'value')]/text()
