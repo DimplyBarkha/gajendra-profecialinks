@@ -439,10 +439,10 @@ fields:
     xpath: 
   - name: pricePerUnit
     #singleValue: true
-    xpath: //span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
+    xpath: //span[contains(@id, 'priceblock_dealprice') or contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: pricePerUnitUom
     #singleValue: true
-    xpath: //span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
+    xpath: //span[contains(@id, 'priceblock_dealprice') or contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: promotion
     singleValue: false
     xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li | (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price" or @id="primeNowDetailPagePrice_savings_price"] | //*[@id="regularprice_savings"]
