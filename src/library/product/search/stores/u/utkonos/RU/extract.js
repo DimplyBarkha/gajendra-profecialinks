@@ -33,6 +33,7 @@ module.exports = {
       }
       for (let i = 0; i < productRatings.length; i++) {
         addHiddenDiv('import-product-rating', productRatings[i], products[i]);
+        addHiddenDiv('import-search-url', location.href, products[i]);
       }
     });
     return await context.extract(data, { transform });
