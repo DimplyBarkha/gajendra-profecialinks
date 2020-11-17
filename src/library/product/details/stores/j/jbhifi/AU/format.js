@@ -55,16 +55,52 @@ const transform = (data) => {
       }
       if (row.image) {
         row.image.forEach(item => {
-          if ( item.text.indexOf('http') < 0) {
+          if (item.text.indexOf('http') < 0) {
             item.text = 'https:' + item.text;
           }
         });
       }
+      if (row.videos1) {
+        row.videos = [];
+        row.videos1.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
+          }
+          row.videos.push({ text: item.text });
+        });
+        delete row.videos1;
+      }
+      if (row.videos2) {
+        if (!(row.videos)) {
+          row.videos = [];
+        }
+        row.videos2.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
+          }
+          row.videos.push({ text: item.text });
+        });
+        delete row.videos2;
+      }
+      // if (row.videos3) {
+      //   if (!(row.videos)) {
+      //     row.videos = [];
+      //   }
+      //   row.videos3.forEach(item => {
+      //     if (item.text.indexOf('http') < 0) {
+      //       item.text = 'https:' + item.text;
+      //     }
+      //     row.videos.push({ text: item.text });
+      //   });
+      //   delete row.videos3;
+      // }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           if (item.text.indexOf('http') < 0) {
             item.text = 'https:' + item.text;
             item.text = item.text.replace('_100x100', '');
+            item.text = item.text.replace('_large', '');
+            item.text = item.text.replace('_small', '');
           }
         });
       }
@@ -74,6 +110,42 @@ const transform = (data) => {
           arrDesc.push(item.text);
         });
         row.description = [{ text: arrDesc.join(' ') }];
+      }
+      if (row.manufacturerDescription) {
+        var arrMfr = [];
+        row.manufacturerDescription.forEach(item => {
+          arrMfr.push(item.text);
+        });
+        row.manufacturerDescription = [{ text: arrMfr.join(' ') }];
+      }
+      if (row.manufacturerImages) {
+        var arrMfrImg = [];
+        row.manufacturerImages.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
+            arrMfrImg.push(item.text);
+          }
+        });
+        if (arrMfrImg.length) {
+          row.manufacturerImages = [{ text: arrMfrImg.join(' | ') }];
+        }
+      }
+      if (row.shippingDimensionsW) {
+        var length = '';
+        var width = row.shippingDimensionsW[0].text;
+        var height = '';
+        if (row.shippingDimensionsL) {
+          length = row.shippingDimensionsL[0].text;
+          delete row.shippingDimensionsL;
+        }
+        if (row.shippingDimensionsH) {
+          height = row.shippingDimensionsH[0].text;
+          delete row.shippingDimensionsH;
+        }
+        if (length && width && height) {
+          row.shippingDimensions = [{ text: length + 'x' + width + 'x' + height }];
+        }
+        delete row.shippingDimensionsW;
       }
       if (row.specifications) {
         var arrSpec = [];

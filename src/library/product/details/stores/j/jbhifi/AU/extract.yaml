@@ -8,8 +8,7 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: image
     singleValue: false
-    xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and contains(@class,'slick-active')]//img/@src
-    # regex to replace _large with 1200x1200
+    xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and contains(@class,'slick-active')]//img/@src    
     regExp: (.+?)_large(.+)
     regExpReplace: $1$2
   - name: imageAlt
@@ -17,11 +16,9 @@ fields:
     xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and contains(@class,'slick-active')]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and not(contains(@class,'slick-active'))]//img/@src
-    #//div[@class='thumbnail-container']//div[contains(@class,'thumbnail--image-wrapper')]//img/@src
+    xpath: //div[@data-ident='pdpImage' and contains(@class,'')]//figure[not(contains(@class,'slick-cloned')) and not(contains(@class,'slick-active'))]//img/@src    
   - name: category
-    singleValue: false
-    # delete first and last element in JS for home and product name
+    singleValue: false    
     xpath: //div[@id='PageContainer']//ol//li
   - name: name
     singleValue: false
@@ -83,18 +80,20 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,'warning-message') or contains(@class,'product-messages')]
-  - name: shippingDimensions1
+  - name: shippingDimensionsH
     singleValue: false
     # height
     xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Packaged Height')]//following-sibling::td
-  - name: shippingDimensions2
+  - name: shippingDimensionsW
     singleValue: false
     # width
     xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Packaged Width')]//following-sibling::td
-  - name: shippingDimensions3
+  - name: shippingDimensionsL
     singleValue: false
     # depth
     xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Packaged Depth')]//following-sibling::td
+  - name: shippingDimensions
+    singleValue: false
   - name: specifications
     singleValue: false
     xpath: //div[@id='tab-details']//table//tr
@@ -132,10 +131,11 @@ fields:
     singleValue: false
     # flix videos 
     xpath: //a[@class='flix_jw_videoid']/@data-jw
-  - name: videos3
+  # - name: videos3
+  #   singleValue: false    
+  #   xpath: //input[@class='flix-jw']/@value
+  - name: videos
     singleValue: false
-    # flix main videos Get it from value JSON in .JS file
-    xpath: //input[@class='flix-jw']/@value
   - name: energyEfficiency
     singleValue: false
     xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Energy star rating')]//following-sibling::td
