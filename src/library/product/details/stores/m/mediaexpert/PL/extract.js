@@ -8,7 +8,7 @@ module.exports = {
     transform,
     domain: 'mediaexpert.pl',
     zipcode: '',
-    noResultsXPath: '//div[contains(@class,"is-noResults")]',
+    noResultsXPath: null,
   },
   implementation: async (inputs, { country, domain, transform: transformParam }, context, { productDetails }) => {
     const productDetailsLink = await context.evaluate(function (inputs) {
@@ -25,6 +25,7 @@ module.exports = {
       }
     }, inputs);
     if (productDetailsLink) {
+      console.log('found product');
       const url = `https://www.mediaexpert.pl${productDetailsLink}`;
       await context.goto(url, {
         timeout: 60000,
@@ -67,10 +68,12 @@ module.exports = {
       };
       const enhancedConent = document.querySelector('div#description label.a-toggle_label');
       if (enhancedConent) {
+        // @ts-ignore
         enhancedConent.click();
         await applyScroll();
       }
     });
+
     return await context.extract(productDetails, { transform: transformParam });
   },
 };

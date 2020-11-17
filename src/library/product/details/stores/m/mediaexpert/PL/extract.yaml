@@ -43,11 +43,15 @@ fields:
   - name: reviewCount
     xpath: //div[contains(@class, 'is-productNameInfobar')]//div[contains(@class, 'c-reviews_count')]
   - name: manufacturerImages
-    xpath: //div[@class='prawa']//img/@src | //div[@class='is-description']//section[contains(@class, 'TFL_section') and not(contains(@class, 'TFL_top'))]//img/@src | //div[@id='description']//table//img[contains(@data-component,"lazyLoad")]/@src | //div[@class='is-description']//img[contains(@class,'is-loaded') and (@alt)]/@src | //div[@id='description']//*[contains(@class, 'product-page')]/img/@src | //div[contains(@class, 'is-description')]//div[@class='background-image']/img/@src | //div[contains(@class, 'esm-model-packshot') or contains(@class, 'esm-benefit') or contains(@class, 'esm-banner-section')]//div[contains(@class, 'esm-image')]/img/@src | //div[contains(@class, 'DELL_box') or contains(@class, 'dell_box')]/img/@src | //div[contains(@class, 'Rtable-cell')]/img/@src
+    xpath: //div[@class='prawa']//img/@src | //div[@class='is-description']//section[contains(@class, 'TFL_section') and not(contains(@class, 'TFL_top'))]//img/@src | //div[@id='description']//table//img[contains(@data-component,"lazyLoad")]/@src | //div[@class='is-description']//img[contains(@class,'is-loaded') and (@alt) and not(contains(@alt,'Ikona'))]/@src | //div[@id='description']//*[contains(@class, 'product-page')]/img/@src | //div[contains(@class, 'is-description')]//div[@class='background-image']/img/@src | //div[contains(@class, 'esm-model-packshot') or contains(@class, 'esm-benefit') or contains(@class, 'esm-banner-section')]//div[contains(@class, 'esm-image')]/img/@src | //div[contains(@class, 'DELL_box') or contains(@class, 'dell_box')]/img/@src | //div[contains(@class, 'Rtable-cell')]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.mediaexpert.pl$1
+  - name: aplusImages_fallBack
+    xpath: //div[@class='is-description']//img[@data-component="lazyLoad" and not(contains(@alt,'Ikona'))]/@src
     regExp: (.+)
     regExpReplace: https://www.mediaexpert.pl$1
   - name: manufacturerDescription
-    xpath: //div[@class='prawa'] | //div[@class='is-description']//section[contains(@class, 'TFL_section TFL_info')] | //div[@id='description']//table//td//img[contains(@data-component,"lazyLoad")]/../.. | //div[@class='is-description']//div[contains(@class, 'pure-u-1')]//p[contains(@class, 'text-justify')] | //div[@id='description']//*[contains(@class, 'product-page')]/div[contains(@class, 'feature-wrap')] |//div[@id='description']//div[@class='display-desktop' or @class='DELL_content'] | //div[@id='description']//div[contains(@class, 'Rtable-cell')] | //div[contains(@class, 'esm-benfits-section')]
+    xpath: //div[@class='prawa'] | //div[@class='is-description']//section[contains(@class, 'TFL_section TFL_info')] | //div[@id='description']//table//td//img[contains(@data-component,"lazyLoad")]/../.. | //div[@class='is-description']//div[contains(@class, 'pure-u-1')]//p[contains(@class, 'text-justify')] | //div[@id='description']//*[contains(@class, 'product-page')]/div[contains(@class, 'feature-wrap')] |//div[@id='description']//div[@class='display-desktop' or @class='DELL_content' or contains(@class, 'dell_content')] | //div[@id='description']//div[contains(@class, 'Rtable-cell')] | //div[contains(@class, 'esm-benfits-section')]
   - name: enhancedContent
     xpath: //div[contains(@class, 'is-description')]//div[contains(@class, 'text_editor')]
   - name: specifications
@@ -93,6 +97,8 @@ fields:
     xpath: //div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))][1]//div[contains(@class, 'c-offerBox_photo')]/@data-offer-id
   - name: videoFromEnhancedContent
     xpath: //link[contains(@href, 'https://www.youtube.com')]/@href
+  - name: haVideo
+    xpath: //div[@id='videoFromEnhancedContent']/@text()
   - name: skuAtLast
     xpath: //div[contains(@class, 'c-offerBox_compare is-desktopCustom')]/@data-offer-id
   - name: skuSecondary

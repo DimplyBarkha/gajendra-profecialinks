@@ -133,6 +133,10 @@ const transform = (data) => {
           row.sku = row.skuAtLast;
         }
       }
+
+      if (!row.manufacturerImages && row.aplusImages_fallBack) {
+        row.manufacturerImages = row.aplusImages_fallBack;
+      }
     }
   }
 
