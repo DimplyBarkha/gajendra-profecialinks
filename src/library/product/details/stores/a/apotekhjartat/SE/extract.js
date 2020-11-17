@@ -21,8 +21,12 @@ module.exports = {
     } finally {
       await context.evaluate(async () => {
         if (!window.location.href.toString().includes('soksida')) {
+          const createDivWithID = (id) => {
+            const div = document.createElement('div');
+            div.setAttribute('id', id);
+            return div;
+          };
           // Common Implementation
-
           const repl = document.querySelectorAll('.productMainUSP > li');
           for (let i = 0; i < repl.length; i++) {
             if (i !== 0) {
@@ -36,17 +40,14 @@ module.exports = {
             reqData.push(nodeElement.getAttribute('src').split('?')[0]);
             nodeElement = tempIterator.iterateNext();
           }
-          const div = document.createElement('div');
-          div.setAttribute('id', 'alt-img');
+
+          const div = createDivWithID('alt-img');
           div.innerText = reqData.join(' | ');
           document.body.append(div);
 
           const ing = document.getElementById('product-toc');
           if (ing) {
-            const secDiv = document.createElement('div');
-            secDiv.setAttribute('id', 'toc');
-            secDiv.append(ing);
-            document.body.append(secDiv);
+            document.body.append(createDivWithID('toc').append(ing));
           }
 
           // Implementation Only if PM-Doc is present
@@ -56,9 +57,7 @@ module.exports = {
             const hs = document.querySelectorAll('#pm-document>h2');
             hs[0].setAttribute('toc', 'start');
             hs[1].setAttribute('toc', 'end');
-
-            let secDiv = document.createElement('div');
-            secDiv.setAttribute('id', 'toc');
+            let secDiv = createDivWithID('toc');
             let flag = false;
             for (let i = 0; pmDoc.children[i].getAttribute('toc') !== 'end'; i++) {
               if (flag) { secDiv.append(pmDoc.children[i].cloneNode(true)); }
@@ -68,13 +67,11 @@ module.exports = {
 
             hs.forEach((h) => { if (h.innerText.includes('.')) { h.setAttribute('id', 'br'); } });
             const children = pmDoc.children;
-            secDiv = document.createElement('div');
-            secDiv.setAttribute('id', 'section');
+            secDiv = createDivWithID('section');
             for (let i = 0; i < children.length; i++) {
               if (children[i].id === 'br') {
                 document.body.append(secDiv);
-                secDiv = document.createElement('div');
-                secDiv.setAttribute('id', 'section');
+                secDiv = createDivWithID('section');
               }
               secDiv.appendChild(children[i].cloneNode(true));
             }
@@ -88,8 +85,7 @@ module.exports = {
                 reqData.push(nodeElement.textContent);
                 nodeElement = tempIterator.iterateNext();
               }
-              const div2 = document.createElement('div');
-              div2.setAttribute('id', id);
+              const div2 = createDivWithID(id);
               div2.innerText = reqData.join(' ');
               document.body.append(div2);
             };
