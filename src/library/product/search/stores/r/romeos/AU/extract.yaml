@@ -6,6 +6,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="TalkerGrid__Item"]//div[contains(@class, "talker talker--row")]/@id
+    regExp: line_(.+)
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
