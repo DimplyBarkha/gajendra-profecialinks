@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: //main[@id="app"]/div[@class="blaze-row"]//ul[@data-tagging="product"]//article
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //img/@src
+    regExp: (^.*)(?=\?)
+  - name: brandText
+    singleValue: false
+    xpath: //div[1]/a/div[2]/h3
+  - name: name
+    singleValue: false
+    xpath: //div[1]/a/div[2]/h2
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'nowrap')]/span
+  - name: id
+    singleValue: false
+    xpath: ./@id
+  - name: productUrl
+    singleValue: false
+    xpath: //div[1]/a/@href
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[contains(@class,'UI_Ratings_stars')]/@style
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@class,'UI_Ratings_count')]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@class,'UI_Ratings_count')]
