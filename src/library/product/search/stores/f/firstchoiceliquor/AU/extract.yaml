@@ -1,5 +1,32 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"cell small-6 medium-6 large-4")]
+fields:
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,"cell small-6 medium-6 large-4")]//a[@class="thumbnail"]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,"cell small-6 medium-6 large-4")]//div/@data-product-id
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[contains(@class,"cell small-6 medium-6 large-4")]//a[@class="thumbnail"]/@style
+  - name: price
+    SingleValue: false
+    xpath: //div[contains(@class,"cell small-6 medium-6 large-4")]//span[contains(@class,"acrossAnySix primary")]//div[@class="FormattedAmount"]
+  - name: listPrice
+    SingleValue: false
+    xpath: //div[contains(@class,"cell small-6 medium-6 large-4")]//span[contains(@class,"current secondary")]//div[@class="FormattedAmount"]
+  - name: name
+    SingleValue: false
+    xpath: //div[contains(@class,"cell small-6 medium-6 large-4")]//div[@class="product-name"]
+  - name: manufacturer
+    SingleValue: false
+    xpath: //div[contains(@class,"cell small-6 medium-6 large-4")]//div[@class="product-brand"]
+  - name: soldBy
+    SingleValue: false
+    xpath: //div[contains(@class,"cell small-6 medium-6 large-4")]//div[@class="product-brand"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"cell small-6 medium-6 large-4")]//div[@class="product-rating"]//div[@class="show-for-sr"]
