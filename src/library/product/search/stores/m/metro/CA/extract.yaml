@@ -17,9 +17,7 @@ fields:
   - name: price
     xpath: //span[@class="pi-price price-update"] | //span[contains(@class,"pi-price price-update pi-price-promo")][2]| //span[@class="pi-price price-update pi-price-promo" and following-sibling::span[@class="pi-unit pi-price-promo"]]
   - name: id
-    xpath: //div[@class="tile-product__top-section__details"]/a/@href
-    regExp: (.+)(/p/)(.+)
-    regExpReplace: $3
+    xpath: //div[@data-substitution-permission="NO"]/@data-product-code
   - name: searchUrl
     xpath: /@searchurl
 
