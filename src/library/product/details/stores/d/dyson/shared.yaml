@@ -15,7 +15,8 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     # xpath: //div[contains(@class,'gallery-images-slider')]//img/@data-src
-    xpath: //div[contains(@class,'gallery-images-slider')]//img/@src
+    # xpath: //div[contains(@class,'gallery-images-slider')]//img/@src
+    xpath: //div[@id='altImages']/text()
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
