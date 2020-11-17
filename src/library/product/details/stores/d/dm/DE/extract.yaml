@@ -253,3 +253,6 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     xpath: //div[@data-dmid="detail-image-container"]//div[@data-dmid="image-container"]/div/img/@data-dmid
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@data-dmid="product-variants-selection-container"]//div[@data-dmid="color-circle-button"]//div[@id="tooltip"]//div[@data-dmid="tooltip-inner-container"]//span

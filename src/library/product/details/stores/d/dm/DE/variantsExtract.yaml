@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop='sku']/@content
+    # //div[@id="detail-section"]//div[@data-dmid="sas-product-informations"]//span[@data-dmid="sas-product-dan"]
+  - name: variantUrl
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+    # //div[@data-dmid="main-section-attributes-container"]//div[@data-dmid="product-variants-selection-container"]//div/a/@href
+    # regExp: (\d+).html
+    # regExpReplace: $1
