@@ -3,7 +3,7 @@ module.exports = {
     parameterValues: {
         country: 'ES',
         store: 'mediamarkt',
-        nextLinkSelector: '.pagination-next>a',
+        nextLinkSelector: 'div[id="category"]>[class="pagination-wrapper cf"]:nth-of-type(2) >ul >li > a[rel="next"]',
         mutationSelector: null,
         spinnerSelector: null,
         loadedSelector: 'figure[class="photo-wrapper"]',
