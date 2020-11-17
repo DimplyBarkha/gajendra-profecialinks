@@ -35,7 +35,7 @@ module.exports = {
             }
             ratingValue += starValue;
           });
-          const ratingAttribute = ratingValue.toFixed(1).replace('.', ',');
+          const ratingAttribute = ratingValue.toFixed(1);
           product.setAttribute('rating', ratingAttribute);
         }
       });
