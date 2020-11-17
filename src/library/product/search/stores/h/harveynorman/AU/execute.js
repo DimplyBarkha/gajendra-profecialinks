@@ -60,7 +60,7 @@ module.exports = {
     country: 'AU',
     store: 'harveynorman',
     domain: 'harveynorman.com.au',
-    url: null,
+    url: 'https://www.harveynorman.com.au/catalogsearch/result/?q={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: "''",

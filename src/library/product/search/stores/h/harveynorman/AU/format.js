@@ -30,27 +30,11 @@ const transform = (data) => {
             item.text = 'https://www.sears.com' + item.text;
           });
         }
-        if (row.id) {
-          row.id.forEach(item => {
-            item.text = item.text.match(/p-(.*)/)[1];
-            item.text = 'p-' + item.text
-          });
-        }
         if (row.reviewCount) {
           row.reviewCount.forEach(item => {
             var tmp = item.text.replace('(', '');
             item.text = tmp.replace(')', '');
             item.text=parseInt(item.text);
-          });
-        }
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
-            item.text=parseInt(item.text);
-          });
-        }
-        if (row.soldBy) {
-          row.soldBy.forEach(item => {
-            item.text = item.text.replace('Sold by', '').trim();
           });
         }
         if (row.name) {
