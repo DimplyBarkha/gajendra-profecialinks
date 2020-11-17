@@ -2,8 +2,20 @@ const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
   await new Promise(resolve => setTimeout(resolve, 5000));
+
   await context.evaluate(() => {
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    const searchUrl = window.location.href;
+    addElementToDocument('searchurl', searchUrl);
+
     const price = document.querySelectorAll('span[class*="ty-price"][id*="line"]')
       ? document.querySelectorAll('span[class*="ty-price"][id*="line"]') : [];
     price.forEach(e => e.setAttribute('price', e.innerText.replace('.', ',')));
@@ -14,8 +26,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     const ratingsWithChild = [...ratings].map(e => [...e.childNodes]);
     const fullStars = ratingsWithChild.map(e => e.filter(k => !k.classList[1].includes('empty') && !k.classList[1].includes('half')).length);
     const halfStars = ratingsWithChild.map(e => e.filter(k => k.classList[1].includes('half')).length * 0.5);
-    ratings.forEach((e, i) => e.setAttribute('ratings', fullStars[i] + halfStars[i]));
-
+    ratings.forEach((e, i) => e.setAttribute('ratings', (fullStars[i] + halfStars[i]).toString().replace('.', ',')));
     function addProp (selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
