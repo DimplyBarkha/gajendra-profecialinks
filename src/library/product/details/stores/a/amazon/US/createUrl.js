@@ -6,6 +6,6 @@ module.exports = {
     prefix: 'dp',
     country: 'US',
     store: 'amazon',
-    url: 'https://www.amazon.com/dp/{id}?th=1&psc=1',
+    url: 'https://www.amazon.com/dp/{id}?th=1&psc=1&showDetailProductDesc=1',
   },
 };
