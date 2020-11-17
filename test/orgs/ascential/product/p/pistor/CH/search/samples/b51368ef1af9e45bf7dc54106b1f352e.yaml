@@ -2,7 +2,7 @@ input:
   keywords: Goldflex
   _url: http://pistorone.ch
 extractions:
-  - html: https://workbench.import.io/html/run=c418c5af-5777-4e3e-bcec-b087ab95f1f6/task=2175e265-e421-4544-bd92-570f818cf61d/2da8f861-d76a-476c-a363-e27a7a2db420.html
+  - html: https://workbench.import.io/html/run=29e45968-8458-48e2-bdc4-3d3cc8aa9bd1/task=d6ef3a0a-c73f-4c35-ba5b-4b62811a1d76/5b9a8bb7-f9a6-4133-bb66-7dc1295d15e0.html
     extractionConfigId: product/search/stores/p/pistor/CH/extract
     data:
       - group:
@@ -16,6 +16,13 @@ extractions:
               - text: "102.12"
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[7]/span[1]/span[1]
             rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/@index
+                type: NUMBER
+                raw: "1"
+                locale: de_CH
+                value: 1
+            rankOrganic:
               - text: "1"
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/@index
                 type: NUMBER
@@ -43,6 +50,13 @@ extractions:
                 raw: "2"
                 locale: de_CH
                 value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/@index
+                type: NUMBER
+                raw: "2"
+                locale: de_CH
+                value: 2
             id:
               - text: "2701"
             searchUrl:
@@ -64,10 +78,17 @@ extractions:
                 raw: "3"
                 locale: de_CH
                 value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/@index
+                type: NUMBER
+                raw: "3"
+                locale: de_CH
+                value: 3
             id:
               - text: "2701"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Goldflex&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
         xpath: /html
-    timestamp: 1605518314881
+    timestamp: 1605613939201
