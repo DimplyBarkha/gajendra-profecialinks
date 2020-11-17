@@ -1,10 +1,10 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'bestbuy',
-    transform: null,
+    transform: cleanUp,
     domain: 'bestbuy.com',
     zipcode: '',
   },

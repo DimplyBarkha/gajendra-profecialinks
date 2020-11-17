@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: shownImages
-    singleValue: true
+    singleValue: false
     xpath: //button[@class="image-button"]//img//@src
     regExp: (.+\.jpg)
   - name: nameExtended
@@ -43,12 +43,12 @@ fields:
     regExp: ([^()]+)
   - name: aggregateRating
     singleValue: true
-    xpath: (//li[@class="ugc-stat customer-review-stats"])[1]//span[@class="ugc-c-review-average"]
+    xpath: (//li[@class="ugc-stat customer-review-stats"])[1]//span[@class="ugc-c-review-average"] | //span[@class="overall-rating"]
   - name: category
     singleValue: false
     xpath: //nav[@aria-label="breadcrumb"]//li//a
   - name: highQualityImages
-    singleValue: true
+    singleValue: false
     xpath: //button[@class="image-button"]//img//@src
     regExp: (.+\.jpg)
   - name: sku
@@ -57,6 +57,9 @@ fields:
   - name: productUrl
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
-  - name: manufacturer
+  - name: variantInformation
     singleValue: true
-    description: Product manufacturer
+    xpath: concat(//div[@class="shop-product-variations"]//div[contains(@class, "variation-header modal-wrapper")]//span, //div[@class="shop-product-variations"]//div[contains(@class, "variation-header modal-wrapper")]//div, //div[@class="shop-product-variations"]//span[contains(@class, "variation-dropdown-tile")]//p)
+  - name: specifications
+    singleValue: true
+    xpath: //div[contains(@class, "spec-categories")]
