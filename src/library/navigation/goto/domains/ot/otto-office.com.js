@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'otto-office.com',
-    timeout: null,
+    timeout: "80000",
     country: 'DE',
     store: 'otto-office',
     zipcode: '',

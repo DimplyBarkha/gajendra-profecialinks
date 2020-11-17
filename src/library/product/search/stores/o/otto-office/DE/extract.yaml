@@ -3,9 +3,12 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: aggregateRating
+  - name: rank
     singleValue: false
-    xpath: //div[@class="ooB-rel item-rating-stars ooB-ib"]
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
   - name: id
     singleValue: false
     xpath: //div[@class="ooB-mb12 ooB-mt6 artikelnummer"]/span/span
@@ -18,16 +21,11 @@ fields:
     xpath: //a[@class="oo-link fftracking-productclick"]/@href
   - name: thumbnail
     singleValue: false
-    xpath: //a[@class="fftracking-productclick"]/img/@src
-  - name: aggregateRating
-    singleValue: true
+    xpath: //a[@class="fftracking-productclick"]/img/@data-srcset
   - name: reviewCount
     singleValue: true
     xpath: //div[@class="ooB-rel item-rating-stars ooB-ib"]
     # regExp: (\d+)
   - name: price
     singleValue: false
-    xpath: //span[@id="colorChange_2_0000297326__unit_price"]
-  - name: manufacturer
-    singleValue: true
-    xpath: //div[@class="ooB-mb6 ooB-mt6"]
+    xpath: //div[@class="preis_nichtgelb_rechts"]/p | //div[@class="oo-pricelabel_price"]/p
