@@ -1,11 +1,11 @@
-const {transform}=require('../FR/format')
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'FR',
+    country: 'SE',
     store: 'staples',
-    transform,
-    domain: 'jpg.fr',
+    transform: null,
+    domain: 'staples.se',
     zipcode: '',
   },
 };
