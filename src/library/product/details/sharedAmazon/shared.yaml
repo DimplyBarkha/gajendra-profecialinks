@@ -38,7 +38,7 @@ fields:
     xpath: //span[@id="productTitle"]
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
+    xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price" or @id="primeNowDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
   - name: price
     singleValue: false
     xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[contains(@id,"priceblock_dealprice")] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")] | //li[@class="swatchSelect"]//span[@class="olp-message a-color-price"]/span/text()[last()]
@@ -252,7 +252,7 @@ fields:
   - name: lbbPrice
   - name: featureBullets
     singleValue: false
-    xpath: //div[@id="feature-bullets"]//ul/li
+    xpath: //div[@id="feature-bullets"]//ul/li[not(@id)]
   - name: otherSellersName
     singleValue: false
     xpath: //body/@seller-name
@@ -417,14 +417,14 @@ fields:
     xpath: //div[@id="productDescription"]/p[b[contains(text(),"Warranty Information")]]/text()
   - name: storage
     #singleValue: true
-    xpath: //*[contains(text(),"Storage")]/following-sibling::*[1]
+    xpath: //*[normalize-space(text())="Storage"]
   - name: countryOfOrigin
     #singleValue: true
     xpath: //li[contains(.,"Origin:")] | //*[normalize-space(text())="Country of origin"]/following-sibling::*[1]
     regExp: '[^:]+$'
   - name: allergyAdvice
     #singleValue: true
-    xpath: //div[@id='important-information']//span[contains(text(),  "Safety Information")]/following-sibling::p[contains(text(),  "May Contain")]/text()
+    xpath: //*[normalize-space(.)="Sensitive Ingredient Information"]/following-sibling::*[1] | //span[starts-with(normalize-space(text()),"Allergen Information")] | //div[@id='important-information']//span[contains(text(),  "Safety Information")]/following-sibling::p[contains(text(),  "May Contain")]/text()
   - name: recyclingInformation
     #singleValue: true
     xpath: 
@@ -439,13 +439,13 @@ fields:
     xpath: 
   - name: pricePerUnit
     #singleValue: true
-    xpath: //tr[contains(@id, 'almDetailPagePrice_buying_price')]//span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
+    xpath: //span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: pricePerUnitUom
     #singleValue: true
-    xpath: //tr[contains(@id, 'almDetailPagePrice_buying_price')]//span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
+    xpath: //span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li | (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price"] | //*[@id="regularprice_savings"]
+    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li | (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price" or @id="primeNowDetailPagePrice_savings_price"] | //*[@id="regularprice_savings"]
   - name: alcoholContent
     xpath: //*[contains(text(),"Alcohol Content")]/following-sibling::*[1]
     regExp: '^[^\s]+'

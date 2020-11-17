@@ -127,7 +127,7 @@ const transform = (data, context) => {
       //   });
       // }
       if (row.manufacturerDescription && row.manufacturerDescription[0]) {
-        const regexIgnoreText = /(Read more|Mehr lesen)/g;
+        const regexIgnoreText = /(Read more|Mehr lesen|Leer mas)/g;
         const text = row.manufacturerDescription[0].text.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(regexIgnoreText, '').trim();
         row.manufacturerDescription = [{ text }];
       }
@@ -142,8 +142,6 @@ const transform = (data, context) => {
         const bonusDesc = row.extraDescription ? row.extraDescription.map(item => item.text.replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim()).join(' ').split(/From the Manufacturer|Brand Story/)[0] : '';
         if (row.description) {
           const text = row.description.map(item => item.text.replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim()).join(' ');
-          // const formattedText = '|| ' + text.join(' || ').trim().replace(/\|\| \|/g, '|');
-          // row.description = [{ text: formattedText + bonusDesc }];
           row.description = [{ text: [text, bonusDesc].join(' ').trim() }];
         } else {
           row.description = [{ text: bonusDesc }];
@@ -272,7 +270,7 @@ const transform = (data, context) => {
       if (!(row.quantity && row.quantity[0] && row.quantity[0].text) && (row.nameExtended && row.nameExtended[0] && row.nameExtended[0].text)) {
         const quantityText = row.nameExtended[0].text;
         const quantityRe = /(?:\s?([\d.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][.]?\s?[oO][zZ][.]?|FO|[mM][lL]|[oO][zZ][.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?)(?:\s?([\d.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][.]?\s?[oO][zZ][.]?|FO|[mM][lL]|[oO][zZ][.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?\s)*/;
-        const packQuantityRe = /([(]Pack of \d*[)])/;
+        const packQuantityRe = /([(]Pack of \d*[)])/i;
         const quantity = quantityRe.test(quantityText) ? quantityRe.exec(quantityText) : '';
         const packText = packQuantityRe.test(quantityText) ? packQuantityRe.exec(quantityText) : '';
         if (quantity && quantity[0]) {
@@ -288,7 +286,7 @@ const transform = (data, context) => {
         }
       }
       if (row.legalDisclaimer) {
-        const text = row.legalDisclaimer.map(elm => elm.text).join(' ');
+        const text = row.legalDisclaimer.map(elm => elm.text);
         row.legalDisclaimer = [{ text: Array.from(new Set(text)).join(' ') }];
       }
       if (row.directions) {
@@ -312,7 +310,7 @@ const transform = (data, context) => {
       row.variantId = row.asin;
       row.sku = row.asin;
       if (row.shippingWeight) {
-        row.grossWeight = row.shippingWeight;
+        row.weightGross = row.grossWeight = row.shippingWeight;
       }
       if (!row.packSize && row.packSizeFallback) {
         row.packSize = row.packSizeFallback;
@@ -324,6 +322,14 @@ const transform = (data, context) => {
         const packSize = row.quantity[0].text.match(/Pack\s+of\s+(\d+)/i);
         if (packSize) {
           row.packSize = [{ text: packSize[1] }];
+        }
+      }
+      if (!row.packSize) {
+        const packQuantityRe = /([(]Pack of \d*[)])/i;
+        const name = row.nameExtended[0].text;
+        const packText = packQuantityRe.test(name) ? packQuantityRe.exec(name) : '';
+        if (packText[2]) {
+          row.packSize = [{ text: packText[2] }];
         }
       }
       if (row.manufacturerVideos) {
