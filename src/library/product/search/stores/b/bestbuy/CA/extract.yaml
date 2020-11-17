@@ -13,13 +13,11 @@ fields:
     xpath: //div[@class="productItemName_3IZ3c"]/text()
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="col-xs-12_1GBy8 col-sm-4_NwItf col-lg-3_2V2hX x-productListItem productLine_2N9kG"]/div/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.bestbuy.ca/en-ca
+    xpath: //a[@itemprop="url"]/@href
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[@class="displayingImage_3xp0y"]/img/@src
+    xpath: //div[@class="productImageContainer_1V2HD touchActionManipulation_31CMi productItemImage_1en8J applyResponsiveSquareTrick_35RAF"]/div/div/img/@src
   - name: price
     singleValue: false
     description: The offered price for the product
@@ -28,7 +26,7 @@ fields:
     singleValue: false
     xpath: //div[@class="reviews_1KIjQ"]/span/meta/@content
   - name: reviews
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
   - name: shippinginfo1
     singleValue: false
@@ -36,4 +34,12 @@ fields:
   - name: shippinginfo2
     singleValue: false
     xpath: //p[@class="availabilityMessageSearchPickup_2eGze"]/text()
-  
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: rank
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: Seller
+    singleValue: false
+    xpath: //span[@class="marketplaceName_1acI5"]/text()
