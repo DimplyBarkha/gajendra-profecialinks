@@ -6,7 +6,6 @@ module.exports = {
     store: 'flaschenpost',
     transform: cleanUp,
     domain: 'flaschenpost.de',
-    zipcode: '48151',
   },
   implementation: async (inputs,
     parameters,
@@ -18,7 +17,7 @@ module.exports = {
     await context.evaluate(async () => {
       const usernameElements = document.querySelectorAll('#validZipcode');
       usernameElements.forEach(username => username.value = "48151");
-      document.querySelector('button[class="fp-button fp-button--primary zip--button"]').click()
+      document.querySelector('div[class="fp-modal_input"]>button').click()
       await new Promise(r => setTimeout(r, 6000));
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -27,8 +26,7 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-
-
+      
     });
     return await context.extract(productDetails, { transform });
   },
