@@ -79,8 +79,6 @@ const transform = (data, context) => {
         ratingCount: item => sg(item),
         color: item => sg(item),
         descriptionBullets: item => castToInt(sg(item)),
-        shippingInfo: array => [{ text: array.map(item => `${item.text}`).join(' ') }],
-        ingredientsList: array => [{ text: array.map(item => `${item.text}`).join(' ') }],
       };
 
       Object.entries(mappingObject).forEach(([key, fct]) => {
@@ -129,7 +127,7 @@ const transform = (data, context) => {
       //   });
       // }
       if (row.manufacturerDescription && row.manufacturerDescription[0]) {
-        const regexIgnoreText = /(Read more)/g;
+        const regexIgnoreText = /(Read more|Mehr lesen)/g;
         const text = row.manufacturerDescription[0].text.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(regexIgnoreText, '').trim();
         row.manufacturerDescription = [{ text }];
       }
@@ -216,11 +214,17 @@ const transform = (data, context) => {
       // } else {
       //   row.primeFlag = [{ text: 'NO' }];
       // }
+      if (row.shippingInfo) {
+        const text = Array.from(new Set(row.shippingInfo.map(item => item.text.trim())));
+        row.shippingInfo = [{ text: text.join(' ') }];
+      }
       if (row.ingredientsList) {
-        row.ingredientsList = [{ text: row.ingredientsList.map(item => `${item.text}`).join(' ') }];
+        const text = Array.from(new Set(row.ingredientsList.map(item => item.text.trim())));
+        row.ingredientsList = [{ text: text.join(' ') }];
       }
       if (!row.ingredientsList && row.ingredientsListFallback) {
-        row.ingredientsList = [{ text: row.ingredientsListFallback.map(item => `${item.text}`).join(' ') }];
+        const text = Array.from(new Set(row.ingredientsListFallback.map(item => item.text.trim())));
+        row.ingredientsList = [{ text: text.join(' ') }];
       }
       if (row.lowestPriceIn30Days) {
         row.lowestPriceIn30Days = [{ text: 'True' }];
@@ -285,15 +289,15 @@ const transform = (data, context) => {
       }
       if (row.legalDisclaimer) {
         const text = row.legalDisclaimer.map(elm => elm.text).join(' ');
-        row.legalDisclaimer = [{ text }];
+        row.legalDisclaimer = [{ text: Array.from(new Set(text)).join(' ') }];
       }
       if (row.directions) {
         const text = row.directions.map(elm => elm.text.trim());
         row.directions = [{ text: Array.from(new Set(text)).join(' ') }];
       }
       if (row.warnings) {
-        const text = row.warnings.map(elm => elm.text).join(' ');
-        row.warnings = [{ text }];
+        const text = row.warnings.map(elm => elm.text.trim());
+        row.warnings = [{ text: Array.from(new Set(text)).join(' ') }];
       }
       if (row.variantAsins) {
         const text = row.variantAsins.map(elm => elm.text).join(' | ');
