@@ -1,46 +1,46 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //*[@id="quickorder_product"]//table[@class="producttbl"]//tbody//tr
+recordSelector: '#twrapper > #tholder > #contentholder > #infoholder > #column2 > #tabholder > #productTab > #quickorder_product > table.producttbl > tbody > tr'
+recordXPath: '//div[@id="twrapper"]//div[@id="tholder"]//div[@id="contentholder"]//div[@id="infoholder"]//div[@id="column2"]//div[@id="productTab"]//*[@id="quickorder_product"]/table[@class="producttbl"]//tbody/tr'
 fields:
+  - name: alternateImages
+    xpath: ancestor::html//div[@id="imageholder"]//img[@id="lpic"]//following-sibling::img/@src | ancestor::html//div[@id="imageholder"]//img[@id="lpic"]//following-sibling::a/@href
+    regExp: (.+)
+    regExpReplace: https://www.arco.co.uk$1
   - name: image
-    xpath: //ancestor::html//div[@id="imageholder"]//img[@id="lpic"]/@src
+    xpath: ancestor::html//div[@id="contentholder"]//div[@id="imageholder"]//img[@id="lpic"]/@src
     regExp: (.+)
     regExpReplace: https://www.arco.co.uk$1
   - name: imageAlt
-    xpath: //ancestor::html//div[@id="imageholder"]//img[@id="lpic"]/@alt
-  - name: alternateImages
-    xpath: //ancestor::html//div[@id="imageholder"]//img[@id="lpic"]//following-sibling::img/@src | //ancestor::html//div[@id="imageholder"]//img[@id="lpic"]//following-sibling::a/@href
-    regExp: (.+)
-    regExpReplace: https://www.arco.co.uk$1
+    xpath: ancestor::html//div[@id="imageholder"]//img[@id="lpic"]/@alt
   - name: metaKeywords
   - name: category
-    xpath: //ancestor::html//div[@id="bcrumb"]//p
-    regExp: (.+:)(.+)
-    regExpReplace: $2
+    xpath: ancestor::html//div[@id="bcrumb"]//p/text()[1] | ancestor::html//div[@id="bcrumb"]//p/a | ancestor::html//div[@id="bcrumb"]//p/text()[3]
+    regExp: ([^>;]+)
+    regExpReplace: $1
   - name: nameExtended
     xpath: //td//span[@class="linedesc"]
   - name: listPrice
   - name: price
-    xpath: //td//div[@class="newprice"]
+    xpath: //td//div[contains(@class,"newprice")]
   - name: availabilityText
     xpath: //td//span[contains(@class,"stock")]
   - name: description
-    xpath: //ancestor::html//div[@class="descriptionholder"]
+    xpath: ancestor::html//div[@class="descriptionholder"]
   - name: descriptionBullets
     xpath: count(//div[@class="descriptionholder"]/text()[contains(.,"•")])
   - name: additionalDescBulletInfo
-    xpath: //ancestor::html//div[@class="descriptionholder"]/text()[contains(.,"•")]
+    xpath: ancestor::html//div[@class="descriptionholder"]/text()[contains(.,"•")]
   - name: brandText
-    xpath: //ancestor::html//div[@id="imageholder"]//img[@id="lpic"]/@alt
-    regExp: (\s.+)
+    xpath: ancestor::html//div[@id="imageholder"]//img[@id="lpic"][not(contains(@src,"noim.gif"))]/@alt | ancestor::html//div[@id="imageholder"]//img[last()][not(contains(@src,"noim.gif"))]/@alt
+    regExp: ^[^\s]*\s
   - name: manufacturer
   - name: quantity
   - name: weightNet
   - name: weightGross
   - name: gtin
   - name: sku
-    xpath: //ancestor::html/@id
+    xpath: ancestor::html/@id
     regExp: (.+)(-.+)
     regExpReplace: $1
   - name: variantId
@@ -55,18 +55,18 @@ fields:
   - name: aggregateRating
   - name: shippingInfo
   - name: shippingDimensions
-    xpath: //ancestor::html//div[@class="descriptionholder"]/text()[contains(.,"Dimensions")]
+    xpath: ancestor::html//div[@class="descriptionholder"]/text()[contains(.,"Dimensions")]
     regExp: (.+:)(.+)
     regExpReplace: $2
   - name: shippingWeight
   - name: variantCount
-    xpath: count(//table[@class="producttbl"]//tbody//tr[position()>1])
+    xpath: count(//table[@class="producttbl"]//tbody//tr)
   - name: color
   - name: colorCode
   - name: manufacturerDescription
-    xpath: //ancestor::html//div[@id="decorationholder"]
+    xpath: ancestor::html//div[@id="decorationholder"]
   - name: manufacturerImages
-    xpath: //ancestor::html//div[@id="decorationholder"]//img/@src
+    xpath: ancestor::html//div[@id="decorationholder"]//img/@src
     regExp: (.+)
     regExpReplace: https://www.arco.co.uk$1
   - name: videos
@@ -76,9 +76,9 @@ fields:
     xpath: count(//ancestor::html//div[@id="imageholder"]//img[@id="lpic"]//following-sibling::img/@src | //ancestor::html//div[@id="imageholder"]//img[@id="lpic"]//following-sibling::a/@href)
   - name: variantInformation
   - name: firstVariant
-    xpath: //ancestor::html//table[@class="producttbl"]//tbody//tr[1]//td[1]
+    xpath: ancestor::html//table[@class="producttbl"]//tbody//tr[1]//td[1]
   - name: variants
-    xpath: //ancestor::html//table[@class="producttbl"]//tbody//tr//td[1]
+    xpath: ancestor::html//div[@id="infoholder"]//h1/@variants
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions

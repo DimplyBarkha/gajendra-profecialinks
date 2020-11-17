@@ -10,17 +10,55 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text = item.text.replace('•', ' || ');
+          text = item.text.replace(/(•)/g, ' || ');
         });
         row.description = [{ text }];
+      }
+
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.additionalDescBulletInfo = [{ text }];
+      }
+
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text = item.text.replace(/(•)/g, ' || ');
+        });
+        row.additionalDescBulletInfo = [{ text }];
       }
 
       if (row.variants) {
         let text = '';
         row.variants.forEach(item => {
-          text = text + (text ? ' ' : '') + item.text;
+          if (item.text.includes(',')) {
+            text = item.text.replace(/,/g, ' | ');
+          } else {
+            text = item.text;
+          }
         });
-        row.variants = [{ text }];
+        row.variants = [
+          {
+            text,
+          },
+        ];
+      }
+
+      if (row.availabilityText) {
+        let text = '';
+        row.availabilityText.forEach(item => {
+          if (item.text.trim() === 'Awaiting stock') {
+            text = 'In Stock';
+          } else if (item.text.includes('subject to vendor availability')) {
+            text = 'In Stock';
+          } else {
+            text = item.text;
+          }
+        });
+        row.availabilityText = [{ text: text }];
       }
     }
   }
