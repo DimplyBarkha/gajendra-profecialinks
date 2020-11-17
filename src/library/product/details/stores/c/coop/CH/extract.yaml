@@ -5,7 +5,9 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//img[contains(@class,"responsive-image")]/@src)[position()=1] | //meta[@property="og:image"]/@content
+    xpath: (//div[contains(@class,"carousel__pagination--supermarket")]//img[contains(@class,"responsive-image")]/@src)[position()=1]
+    regExp: (.+)
+    regExpReplace: https:$1
     #  //meta[@property="og:image"]/@content
     # xpath: //a[contains(@class,"carousel__pagination-item")]/img/@src
   - name: imageAlt
@@ -13,7 +15,9 @@ fields:
     xpath: //a[@class="carousel__link carousel__link--preload"]/@title
   - name: alternateImages
     singleValue: false
-    xpath: (//img[contains(@class,"responsive-image")]/@src)[position()>1]
+    xpath: (//div[contains(@class,"carousel__pagination--supermarket")]//img[contains(@class,"responsive-image")]/@src)[position()>1]
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -60,6 +64,8 @@ fields:
   - name: weightGross
     singleValue: false
     xpath: //div[@class="productInformation"]//div[contains(text(),"Gewicht")]//following-sibling::div/text()[2]
+    regExp: Nettofüllmenge\W\W(.+)
+    regExpReplace: $1
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -96,13 +102,14 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="rating"]//span[@class="visuallyhidden"]/text()
-    regEx: \b(\w+)\b
+    regExp: Durchschnittliche Bewertung\W\W(.+)\svon
+    regExpReplace: $1
   - name: name
     singleValue: false
     xpath: //h1//p//text()
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count((//img[contains(@class,"responsive-image")]/@src)[position()>1])
+    xpath: count((//div[contains(@class,"carousel__pagination--supermarket")]//img[contains(@class,"responsive-image")]/@src)[position()>1])
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class="productInformation"]//div[contains(text(),"Nährwerte")]//following-sibling::div
@@ -186,7 +193,7 @@ fields:
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin A")]//following::span[1]/span
     regExp: (.+)
-    regExpReplace: mg
+    regExpReplace: g
   - name: vitaminCPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin C")]//following::span[1]/span
@@ -271,7 +278,7 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: materials
     singleValue: false
     description: Materials used to make the product

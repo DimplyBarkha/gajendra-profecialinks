@@ -8,7 +8,7 @@ module.exports = {
     // mutationSelector: null,
     // spinnerSelector: null,
     loadedSelector: 'ul.list-page__content li',
-    noResultsXPath: '//h1[contains(text(),"Aucun résultat trouvé")]',
+    noResultsXPath: '//h1[contains(text(),"Leider keine Treffer")]',
     // openSearchDefinition: null,
     domain: 'coop.ch',
     zipcode: "''",
