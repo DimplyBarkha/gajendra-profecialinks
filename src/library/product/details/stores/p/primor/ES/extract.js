@@ -81,6 +81,12 @@ async function implementation(
         addElementToDocument('id', abc);
         
       }
+      var rating = getXpath('//div[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]//@content', 'nodeValue');
+      if (rating != null){
+
+        rating = rating/2;
+        addElementToDocument('rating', rating);
+      }
 
 
     });

@@ -85,7 +85,7 @@ fields:
     xpath: //meta[@itemprop="ratingCount"]//@content
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]//@content
+    xpath: //html//div[@id='rating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
