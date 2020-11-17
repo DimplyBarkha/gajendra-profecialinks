@@ -1,0 +1,322 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="product-hero-image-container"]/img/@src
+    regExp: (.*)
+    regExpReplace: https://shop.coles.com.au$1
+    description: URL of the main product image
+  - name: imageAlt
+    xpath: //div[@class="product-hero-image-container"]/img/@alt
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    xpath: //div[@id='ii_name']
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    description: The stated undiscounted price for the product
+  - name: price
+    xpath: //div[contains(@class,"product-pricing-info")]//span[contains(@class,"accessibility-inline")]
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    xpath: //div[@id='ii_avail']
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+  - name: description
+    singleValue: false
+    xpath: //meta[contains(@name,'description')]/@content
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    description: Number of ul > li tags in the description
+  - name: brandText
+    xpath: //h1[@class="product-title"]//span[@class="product-brand"]
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: manufacturer
+    description: Product manufacturer
+  - name: quantity
+    xpath: //div[contains(@class,"product-information")]//span[@class="package-size"]
+    description: Quantity as described on the page
+  - name: weightNet
+    description: Net weight as described on the page
+  - name: weightGross
+    description: Gross weight as described on the page
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    xpath: //div[@id='ii_sku']
+    description: The store-specific product identifier
+  - name: variantId
+    xpath: //div[@id='ii_variantId']
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    xpath: //*[contains(text() , 'Servings Per Pack:')]/following-sibling::span
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    xpath: //div[contains(@class,'product-disclaimer')]//p[1]
+    description: Content under "legal disclaimer" header
+  - name: directions
+    xpath: //div[@id='ii_direction']
+    description: Content under "directions" header
+  - name: warnings
+    xpath: //div[@id='ii_warning']
+    description: Content under "warnings" header
+  - name: variantCount
+    defaultValue: '0'
+    description: Number of variants listed
+  - name: color
+    description: A textual description of the colour
+  - name: colorCode
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+  - name: name
+    xpath: //div[@id='ii_name']
+    description: The product name
+  - name: ingredientsList
+    xpath: //*[contains(text() , 'Ingredients:')]/following-sibling::p
+    description: List of Ingredients from site - can be string of data if no
+      discernible start/end point
+  - name: servingSize
+    xpath: //div[@id="ii_servingSize"]
+    description: The size of serving Nutritional information is based on.
+  - name: servingSizeUom
+    xpath: //div[@id="ii_servingSizeUom"]
+    description: Unit of measure of serving
+  - name: numberOfServingsInPackage
+    xpath: //*[contains(text() , 'Servings Per Pack:')]/following-sibling::span
+    description: Suggested number of servings of the product.
+  - name: caloriesPerServing
+    xpath: //tr[contains(. , 'Energy')]//td
+    description: Nutritional Information for Calories Per Serving content - Usually
+      based on per 100g serving
+  - name: caloriesFromFatPerServing
+    description: Nutritional Information for Calories From Fat content - Usually
+      based on per 100g serving
+  - name: totalFatPerServing
+    xpath: //div[@id='ii_totalFatPerServing']
+    description: Nutritional Information for Total Fat content - Usually based on
+      per 100g serving
+  - name: totalFatPerServingUom
+    xpath: //div[@id='ii_totalFatPerServingUom']
+    description: Unit of Measure Data for Total Fat content
+  - name: saturatedFatPerServing
+    xpath: //div[@id='ii_saturatedFatPerServing']
+    description: Nutritional Information for Saturated Fat content - Usually based
+      on per 100g serving
+  - name: saturatedFatPerServingUom
+    xpath: //div[@id='ii_saturatedFatPerServingUom']
+    description: Unit of Measure Data for Saturated Fat content
+  - name: transFatPerServing
+    xpath: //div[@id='ii_transFatPerServing']
+    description: Nutritional Information for Trans Fat content - Usually based on
+      per 100g serving
+  - name: transFatPerServingUom
+    xpath: //div[@id='ii_transFatPerServingUom']
+    description: Unit of Measure Data for Trans Fat content
+  - name: cholesterolPerServing
+    description: Nutritional Information for Cholesterol content - Usually based on
+      per 100g serving
+  - name: cholesterolPerServingUom
+    description: Unit of Measure Data for Cholesterol content
+  - name: sodiumPerServing
+    xpath: //div[@id='ii_sodiumPerServing']
+    description: Nutritional Information for Sodium content - Usually based on per
+      100g serving
+  - name: sodiumPerServingUom
+    xpath: //div[@id='ii_sodiumPerServingUom']
+    description: Unit of Measure Data for Sodium content
+  - name: totalCarbPerServing
+    xpath: //div[@id='ii_totalCarbPerServing']
+    description: Nutritional Information for Total Carbohydrate content - Usually
+      based on per 100g serving
+  - name: totalCarbPerServingUom
+    xpath: //div[@id='ii_totalCarbPerServingUom']
+    description: Unit of Measure Data for Total Carbohydrate content
+  - name: dietaryFibrePerServing
+    xpath: //div[@id='ii_dietaryFibrePerServing']
+    description: Nutritional Information for Dietary Fibre content - Usually based
+      on per 100g serving
+  - name: dietaryFibrePerServingUom
+    xpath: //div[@id='ii_dietaryFibrePerServingUom']
+    description: Unit of Measure Data for Dietary Fibre content
+  - name: totalSugarsPerServing
+    xpath: //div[@id='ii_totalSugarsPerServing']
+    description: Nutritional Information for Total Sugar content - Usually based on
+      per 100g serving
+  - name: totalSugarsPerServingUom
+    xpath: //div[@id='ii_totalSugarsPerServingUom']
+    description: Unit of Measure Data for Total Sugar content
+  - name: proteinPerServing
+    xpath: //div[@id='ii_proteinPerServing']
+    description: Nutritional Information for Protein content - Usually based on per
+      100g serving
+  - name: proteinPerServingUom
+    xpath: //div[@id='ii_proteinPerServingUom']
+    description: Unit of Measure Data for Protein
+  - name: vitaminAPerServing
+    xpath: //div[@id='ii_vitaminAPerServing']
+    description: Nutritional Information for Vitamin A content - Usually based on
+      per 100g serving
+  - name: vitaminAPerServingUom
+    xpath: //div[@id='ii_vitaminAPerServingUom']
+    description: Unit of Measure Data for Vitamin A
+  - name: vitaminCPerServing
+    xpath: //div[@id='ii_vitaminCPerServing']
+    description: Nutritional Information for Vitamin C content - Usually based on
+      per 100g serving
+  - name: vitaminCPerServingUom
+    xpath: //div[@id='ii_vitaminCPerServingUom']
+    description: Unit of Measure Data for Vitamin C
+  - name: calciumPerServing
+    xpath: //div[@id='ii_calciumPerServing']
+    description: Nutritional Information for Calcium content - Usually based on per
+      100g serving
+  - name: calciumPerServingUom
+    xpath: //div[@id='ii_calciumPerServingUom']
+    description: Unit of Measure Data for Calcium
+  - name: ironPerServing
+    xpath: //div[@id='ii_ironPerServing']
+    description: Nutritional Information for Iron content - Usually based on per
+      100g serving
+  - name: ironPerServingUom
+    xpath: //div[@id='ii_ironPerServingUom']
+    description: Unit of Measure Data for Iron
+  - name: dietarySymbols
+    xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Dietary:')]//following-sibling::span[contains(@data-ng-bind-html,'product')]
+    description: Information related to the dietary symbols of a specific product
+  - name: magnesiumPerServing
+    xpath: //div[@id='ii_magnesiumPerServing']
+    description: Nutritional Information for Magnesium content - Usually based on
+      per 100g serving
+  - name: magnesiumPerServingUom
+    xpath: //div[@id='ii_magnesiumPerServingUom']
+    description: Unit of Measure Data for Magnesium
+  - name: saltPerServing
+    description: Nutritional Information for Salt content - Usually based on per
+      100g serving
+  - name: saltPerServingUom
+    description: Unit of Measure Data for Salt
+  - name: dietaryInformation
+    xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Dietary:')]//following-sibling::span[contains(@data-ng-bind-html,'product')]
+    description: null
+  - name: specifications
+    xpath: //div[@id='ii_specifications']
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    description: Guarantee associated with the product
+  - name: storage
+    xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Storage Instructions:')]//following-sibling::span[contains(@data-ng-bind-html,'product')]
+    description: Suggested storage location for product
+  - name: countryOfOrigin
+    xpath: //p[contains(@data-ng-bind-html,'coo.cooallystmt')] | //div[contains(@class,'product-specific')]//div[contains(@class,'country-of-origin')]
+    description: The country from which the product originates
+  - name: allergyAdvice
+    xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Allergen:')]//following-sibling::*[contains(@data-ng-bind,'product')]
+    description: Allergy information associated with the product
+  - name: recyclingInformation
+    description: Recycling information associated with the product
+  - name: productOtherInformation
+    singleValue: false
+    description: Any other product information
+  - name: packaging
+    description: Packaging information
+  - name: additives
+    description: List of additives in the product
+  - name: pricePerUnit2
+    xpath: //div[@id='ii_pricePerUnit']
+    description: Price of the product split into certain units
+  - name: pricePerUnitUom
+    xpath: //div[@id='ii_pricePerUnitUom']
+    description: The unit of measurement used in price_per_unit
+  - name: promotion
+    xpath: //div[contains(@class,'product-information')]//span[contains(@class,'product-saving')]
+    description: promotion text on product page
+  - name: alcoholContent
+    xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Alcohol Volume Percentage:')]//following-sibling::*[contains(@data-ng-bind,'product')]
+    description: Alcohol content information
+  - name: newVersion
+    description: In product page, information about a new version of the product
+      (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+  - name: newAsin
+    description: In product page, information about a new version of the product -
+      new asin info
+  - name: newDescription
+    description: In product page, information about a new version of the product -
+      new desription info
+  - name: variantInformation
+    description: colour / scent / flavour / other
+  - name: firstVariant
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+  - name: variants
+    singleValue: false
+    description: null
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+  - name: prop65Warning
+    description: null
+  - name: ageSuitability
+    description: Recommended age displayed on the product page.
+      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+    example: 4 - 99 years
+  - name: energyEfficiency
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No

@@ -1,11 +1,11 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'shop.coles.com.au',
-    timeout: 60000,
+    prefix: null,
+    url: 'https://shop.coles.com.au/a/waurn-ponds/everything/search/{id}?pageNumber=1',
     country: 'AU',
-    // store: 'colesonline',
     store: 'colesonline_macquariePark',
     zipcode: '',
   },

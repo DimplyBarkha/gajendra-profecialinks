@@ -1,28 +1,30 @@
 
 module.exports = {
-  implements: 'product/search/execute',
+  implements: 'product/details/execute',
   parameterValues: {
     country: 'AU',
     store: 'colesonline_macquariePark',
     domain: 'shop.coles.com.au',
-    url: 'https://shop.coles.com.au/a/waurn-ponds/everything/search/{searchTerms}?pageNumber=1',
-    loadedSelector: "section[id*='product-list']",
-    noResultsXPath: "//span[contains(@id,'emptyCatalogEntryList')] | //h1[contains(@class,'heading-error-404')] | //div[contains(@class,'error-wrapper')]",
+    loadedSelector: 'div[class*="product-hero-image-container"] img',
+    noResultsXPath: "//h1[contains(@class,'error-heading')] | //nav[not(contains(@class,'ng-hide'))]//ol[contains(@id,'tablist')]//li",
     zipcode: '',
   },
   implementation,
 };
-// macquarie park
 async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  console.log('params', parameters);
-  let url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-  // await dependencies.goto({ url, zipcode: inputs.zipcode });
-  // -------------Search--------------------------
+  let { url, id } = inputs;
+  if (!url) {
+    if (!id) {
+      throw new Error('no id provided');
+    }
+    url = await dependencies.createUrl({ id });
+  }
+  // await dependencies.goto({ url, zipcode, storeId });
   const timeout = parameters.timeout ? parameters.timeout : 10000;
   await context.setBlockAds(false);
   await context.setLoadAllResources(true);
@@ -64,18 +66,23 @@ async function implementation (
     waitUntil: 'load',
     checkBlocked: false,
   });
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 6000));
+  const link = await context.evaluate(() => {
+    const link = document.querySelector("section[id*='product-list'] a[class*='product-image-link']") ? document.querySelector("section[id*='product-list'] a[class*='product-image-link']").getAttribute('href') : '';
+    return link;
+  });
+  console.log('Link:::', link);
+  await context.goto('https://shop.coles.com.au' + link, {
+    firstRequestTimeout: 60000,
+    timeout: 60000,
+    waitUntil: 'load',
+    checkBlocked: false,
+  });
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-  console.log('Checking no results', parameters.noResultsXPath);
-  return await context.evaluate(function (xp) {
-    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-    console.log(xp, r);
-    const e = r.iterateNext();
-    console.log(e);
-    return !e;
-  }, parameters.noResultsXPath);
+
+  // TODO: Check for not found?
 }
