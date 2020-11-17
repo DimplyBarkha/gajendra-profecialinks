@@ -10,11 +10,11 @@ async function implementation (
   await context.waitForSelector('#app-content');
   // Check if cookies pop-up appeared
   const doesPopupExist = await context.evaluate(function () {
-    return Boolean(document.querySelector('div.privacy-prompt-footer > a'));
+    return Boolean(document.querySelector('button[id="consent_prompt_submit"]'));
   });
 
   if (doesPopupExist) {
-    await context.click('div.privacy-prompt-footer > a');
+    await context.click('button[id="consent_prompt_submit"]');
   }
 
   try {
@@ -29,20 +29,19 @@ async function implementation (
     console.log('Click & Navigation error' + err);
   }
 
-  const doesShopAllLinkExist = await context.evaluate(function () {
-    return Boolean(document.evaluate('//div/a[contains(.,\'Shop all\')]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
-  });
-
-  if (doesShopAllLinkExist) {
-    await context.evaluate(function () {
-      document.evaluate('//div/a[contains(.,\'Shop all\')]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
-    });
+  try {
+    await context.waitForSelector('div[class*="text-wrapper"]>a[title="Shop all Dyson."]', { timeout: 30000 });
+    await context.click('div[class*="text-wrapper"]>a[title="Shop all Dyson."]');
+    await context.waitForNavigation({ timeout: 30000 });
+    console.log('clicked the button successfully');
+  } catch (e) {
+    console.log('not able to click the button');
   }
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 30000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
   console.log('Checking no results', parameters.noResultsXPath);
