@@ -2,7 +2,7 @@ input:
   keywords: shampoo
   _url: http://marionnaud.ch
 extractions:
-  - html: https://workbench.import.io/html/run=63ea34f9-37ac-40b2-b238-fe07c17fb5e3/task=b55e952f-488e-49d7-95e1-e8d444617ea4/7cf21b1e-8be9-40db-8877-04104c02d7d5.html
+  - html: https://workbench.import.io/html/run=97e520ac-e3c3-4863-997e-356eb5d771cb/task=03227761-267f-486c-8763-ca03e8d5e420/8a23c8d6-6e78-4bc7-b460-a012f41a5716.html
     extractionConfigId: product/search/stores/m/marionnaud/CH/extract
     data:
       - group:
@@ -529,19 +529,19 @@ extractions:
                 locale: de_DE
                 value: 15
           - id:
-              - text: BP_04511710
+              - text: BP_04514010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Pure Abundance™ Volumizing Shampoo
+              - text: Invati Men™ Exfoliating Shampoo
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/shampoo/p/BP_04511710
+              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/haare/shampoo/p/BP_04514010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8985464635422/Aveda-Shampoo-0018084829226-Pure-Abundance-Volumizing-Shampoo.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8985398444062/Aveda-Shampoo-0018084961438-Invati-Men-Exfoliating-Shampoo.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 32.00
+              - text: CHF 48.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
               - text: Aveda
@@ -564,19 +564,19 @@ extractions:
                 locale: de_DE
                 value: 16
           - id:
-              - text: BP_04514010
+              - text: BP_04511710
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Invati Men™ Exfoliating Shampoo
+              - text: Pure Abundance™ Volumizing Shampoo
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/haare/shampoo/p/BP_04514010
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/shampoo/p/BP_04511710
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8985398444062/Aveda-Shampoo-0018084961438-Invati-Men-Exfoliating-Shampoo.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8985464635422/Aveda-Shampoo-0018084829226-Pure-Abundance-Volumizing-Shampoo.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 48.00
+              - text: CHF 32.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
               - text: Aveda
@@ -724,6 +724,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]
+            rank:
+              - text: "21"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "21"
+                locale: de_DE
+                value: 21
+            rankOrganic:
+              - text: "21"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "21"
+                locale: de_DE
+                value: 21
           - id:
               - text: BP_44610710
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/a[2]/@href
@@ -745,6 +759,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]
+            rank:
+              - text: "22"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "22"
+                locale: de_DE
+                value: 22
+            rankOrganic:
+              - text: "22"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "22"
+                locale: de_DE
+                value: 22
           - id:
               - text: BP_29210010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[2]/a[2]/@href
@@ -766,6 +794,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[2]
+            rank:
+              - text: "23"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "23"
+                locale: de_DE
+                value: 23
+            rankOrganic:
+              - text: "23"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "23"
+                locale: de_DE
+                value: 23
           - id:
               - text: BP_29210030
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/a[2]/@href
@@ -787,6 +829,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[2]
+            rank:
+              - text: "24"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "24"
+                locale: de_DE
+                value: 24
+            rankOrganic:
+              - text: "24"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "24"
+                locale: de_DE
+                value: 24
           - id:
               - text: BP_64710030
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
@@ -808,6 +864,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[2]
+            rank:
+              - text: "25"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "25"
+                locale: de_DE
+                value: 25
+            rankOrganic:
+              - text: "25"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "25"
+                locale: de_DE
+                value: 25
           - id:
               - text: BP_64710040
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
@@ -829,6 +899,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[2]
+            rank:
+              - text: "26"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "26"
+                locale: de_DE
+                value: 26
+            rankOrganic:
+              - text: "26"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "26"
+                locale: de_DE
+                value: 26
           - id:
               - text: BP_64710020
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[2]/a[2]/@href
@@ -850,6 +934,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[2]
+            rank:
+              - text: "27"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "27"
+                locale: de_DE
+                value: 27
+            rankOrganic:
+              - text: "27"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "27"
+                locale: de_DE
+                value: 27
           - id:
               - text: BP_64710050
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
@@ -871,6 +969,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[2]
+            rank:
+              - text: "28"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "28"
+                locale: de_DE
+                value: 28
+            rankOrganic:
+              - text: "28"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "28"
+                locale: de_DE
+                value: 28
           - id:
               - text: BP_63286400
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
@@ -889,6 +1001,20 @@ extractions:
             manufacturer:
               - text: Mugler
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "29"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "29"
+                locale: de_DE
+                value: 29
+            rankOrganic:
+              - text: "29"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "29"
+                locale: de_DE
+                value: 29
           - id:
               - text: BP_04510410
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
@@ -910,6 +1036,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/div[2]
+            rank:
+              - text: "30"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "30"
+                locale: de_DE
+                value: 30
+            rankOrganic:
+              - text: "30"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "30"
+                locale: de_DE
+                value: 30
           - id:
               - text: BP_04510010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
@@ -931,6 +1071,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[2]
+            rank:
+              - text: "31"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "31"
+                locale: de_DE
+                value: 31
+            rankOrganic:
+              - text: "31"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "31"
+                locale: de_DE
+                value: 31
           - id:
               - text: BP_64710060
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[2]/@href
@@ -949,6 +1103,20 @@ extractions:
             manufacturer:
               - text: Nuggela & Sulé
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "32"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "32"
+                locale: de_DE
+                value: 32
+            rankOrganic:
+              - text: "32"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "32"
+                locale: de_DE
+                value: 32
           - id:
               - text: BP_67410010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[2]/a[2]/@href
@@ -970,6 +1138,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[2]
+            rank:
+              - text: "33"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "33"
+                locale: de_DE
+                value: 33
+            rankOrganic:
+              - text: "33"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "33"
+                locale: de_DE
+                value: 33
           - id:
               - text: BP_67414010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[2]/a[2]/@href
@@ -991,6 +1173,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[2]
+            rank:
+              - text: "34"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "34"
+                locale: de_DE
+                value: 34
+            rankOrganic:
+              - text: "34"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "34"
+                locale: de_DE
+                value: 34
           - id:
               - text: BP_04512120
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1012,6 +1208,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/div[2]
+            rank:
+              - text: "35"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "35"
+                locale: de_DE
+                value: 35
+            rankOrganic:
+              - text: "35"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "35"
+                locale: de_DE
+                value: 35
           - id:
               - text: BP_67413810
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1033,6 +1243,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/div[2]
+            rank:
+              - text: "36"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "36"
+                locale: de_DE
+                value: 36
+            rankOrganic:
+              - text: "36"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "36"
+                locale: de_DE
+                value: 36
           - id:
               - text: BP_67414210
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1054,6 +1278,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/div[2]
+            rank:
+              - text: "37"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "37"
+                locale: de_DE
+                value: 37
+            rankOrganic:
+              - text: "37"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "37"
+                locale: de_DE
+                value: 37
           - id:
               - text: BP_44012520
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[19]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1072,6 +1310,20 @@ extractions:
             manufacturer:
               - text: House 99
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[19]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "38"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[19]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "38"
+                locale: de_DE
+                value: 38
+            rankOrganic:
+              - text: "38"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[19]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "38"
+                locale: de_DE
+                value: 38
           - id:
               - text: BP_04049400
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[20]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1090,6 +1342,20 @@ extractions:
             manufacturer:
               - text: Azzaro
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[20]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "39"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[20]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "39"
+                locale: de_DE
+                value: 39
+            rankOrganic:
+              - text: "39"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[20]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "39"
+                locale: de_DE
+                value: 39
           - id:
               - text: BP_01218010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[21]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1108,6 +1374,20 @@ extractions:
             manufacturer:
               - text: American Crew ACUMEN
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[21]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "40"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[21]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "40"
+                locale: de_DE
+                value: 40
+            rankOrganic:
+              - text: "40"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[21]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "40"
+                locale: de_DE
+                value: 40
           - id:
               - text: BP_58693510
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1129,6 +1409,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]
+            rank:
+              - text: "41"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "41"
+                locale: de_DE
+                value: 41
+            rankOrganic:
+              - text: "41"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "41"
+                locale: de_DE
+                value: 41
           - id:
               - text: BP_47862010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1147,6 +1441,20 @@ extractions:
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "42"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "42"
+                locale: de_DE
+                value: 42
+            rankOrganic:
+              - text: "42"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "42"
+                locale: de_DE
+                value: 42
           - id:
               - text: BP_47863510
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1165,6 +1473,20 @@ extractions:
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "43"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "43"
+                locale: de_DE
+                value: 43
+            rankOrganic:
+              - text: "43"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "43"
+                locale: de_DE
+                value: 43
           - id:
               - text: BP_47860510
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[5]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1183,17 +1505,31 @@ extractions:
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[5]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "44"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "44"
+                locale: de_DE
+                value: 44
+            rankOrganic:
+              - text: "44"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "44"
+                locale: de_DE
+                value: 44
           - id:
-              - text: BP_84166130
+              - text: BP_84166140
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Hair Rituel by Sisley
+              - text: HAIR RITUEL BY SISLEY
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/revitalizing-straightening-shampoo/p/BP_84166130
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/color-perfecting-shampoo/p/BP_84166140
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8945292378142.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8960649068574.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 57.67
@@ -1201,17 +1537,31 @@ extractions:
             manufacturer:
               - text: Hair Rituel by Sisley
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "45"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "45"
+                locale: de_DE
+                value: 45
+            rankOrganic:
+              - text: "45"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "45"
+                locale: de_DE
+                value: 45
           - id:
-              - text: BP_84166140
+              - text: BP_84166130
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: HAIR RITUEL BY SISLEY
+              - text: Hair Rituel by Sisley
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[7]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/color-perfecting-shampoo/p/BP_84166140
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/revitalizing-straightening-shampoo/p/BP_84166130
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8960649068574.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8945292378142.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[7]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 57.67
@@ -1219,6 +1569,20 @@ extractions:
             manufacturer:
               - text: Hair Rituel by Sisley
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[7]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "46"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "46"
+                locale: de_DE
+                value: 46
+            rankOrganic:
+              - text: "46"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "46"
+                locale: de_DE
+                value: 46
           - id:
               - text: BP_84166110
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[8]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1237,6 +1601,20 @@ extractions:
             manufacturer:
               - text: Hair Rituel by Sisley
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[8]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "47"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[8]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "47"
+                locale: de_DE
+                value: 47
+            rankOrganic:
+              - text: "47"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[8]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "47"
+                locale: de_DE
+                value: 47
           - id:
               - text: BP_84166120
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1255,6 +1633,20 @@ extractions:
             manufacturer:
               - text: Hair Rituel by Sisley
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[9]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "48"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "48"
+                locale: de_DE
+                value: 48
+            rankOrganic:
+              - text: "48"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "48"
+                locale: de_DE
+                value: 48
           - id:
               - text: BP_47863810
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1273,6 +1665,20 @@ extractions:
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[10]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "49"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[10]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "49"
+                locale: de_DE
+                value: 49
+            rankOrganic:
+              - text: "49"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[10]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "49"
+                locale: de_DE
+                value: 49
           - id:
               - text: BP_47861510
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1291,6 +1697,20 @@ extractions:
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[11]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "50"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[11]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "50"
+                locale: de_DE
+                value: 50
+            rankOrganic:
+              - text: "50"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[11]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "50"
+                locale: de_DE
+                value: 50
           - id:
               - text: BP_47864310
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1309,6 +1729,20 @@ extractions:
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[12]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "51"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[12]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "51"
+                locale: de_DE
+                value: 51
+            rankOrganic:
+              - text: "51"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[12]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "51"
+                locale: de_DE
+                value: 51
           - id:
               - text: BP_67411010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[13]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1330,6 +1764,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[13]/div[1]/div[2]
+            rank:
+              - text: "52"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[13]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "52"
+                locale: de_DE
+                value: 52
+            rankOrganic:
+              - text: "52"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[13]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "52"
+                locale: de_DE
+                value: 52
           - id:
               - text: BP_67412810
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[14]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1351,6 +1799,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[14]/div[1]/div[2]
+            rank:
+              - text: "53"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[14]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "53"
+                locale: de_DE
+                value: 53
+            rankOrganic:
+              - text: "53"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[14]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "53"
+                locale: de_DE
+                value: 53
           - id:
               - text: BP_29210020
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[15]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1372,6 +1834,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[15]/div[1]/div[2]
+            rank:
+              - text: "54"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[15]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "54"
+                locale: de_DE
+                value: 54
+            rankOrganic:
+              - text: "54"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[15]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "54"
+                locale: de_DE
+                value: 54
           - id:
               - text: BP_27076420
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[16]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1390,6 +1866,20 @@ extractions:
             manufacturer:
               - text: DIOR
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[16]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "55"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[16]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "55"
+                locale: de_DE
+                value: 55
+            rankOrganic:
+              - text: "55"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[16]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "55"
+                locale: de_DE
+                value: 55
           - id:
               - text: BP_27096160
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[17]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1408,6 +1898,20 @@ extractions:
             manufacturer:
               - text: DIOR
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[17]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "56"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[17]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "56"
+                locale: de_DE
+                value: 56
+            rankOrganic:
+              - text: "56"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[17]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "56"
+                locale: de_DE
+                value: 56
           - id:
               - text: BP_62010210
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[18]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1426,6 +1930,20 @@ extractions:
             manufacturer:
               - text: Mootes
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[18]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "57"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[18]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "57"
+                locale: de_DE
+                value: 57
+            rankOrganic:
+              - text: "57"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[18]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "57"
+                locale: de_DE
+                value: 57
           - id:
               - text: BP_62010220
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[19]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1444,6 +1962,20 @@ extractions:
             manufacturer:
               - text: Mootes
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[19]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "58"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[19]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "58"
+                locale: de_DE
+                value: 58
+            rankOrganic:
+              - text: "58"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[19]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "58"
+                locale: de_DE
+                value: 58
           - id:
               - text: BP_62010230
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[20]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1462,6 +1994,20 @@ extractions:
             manufacturer:
               - text: Mootes
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[20]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "59"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[20]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "59"
+                locale: de_DE
+                value: 59
+            rankOrganic:
+              - text: "59"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[20]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "59"
+                locale: de_DE
+                value: 59
           - id:
               - text: BP_29210610
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[21]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1480,6 +2026,20 @@ extractions:
             manufacturer:
               - text: Elenature
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[21]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "60"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[21]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "60"
+                locale: de_DE
+                value: 60
+            rankOrganic:
+              - text: "60"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[3]/div[21]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "60"
+                locale: de_DE
+                value: 60
           - id:
               - text: BP_20090310
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1498,6 +2058,20 @@ extractions:
             manufacturer:
               - text: Clarins
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "61"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "61"
+                locale: de_DE
+                value: 61
+            rankOrganic:
+              - text: "61"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "61"
+                locale: de_DE
+                value: 61
           - id:
               - text: BP_09191000
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[3]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1516,6 +2090,20 @@ extractions:
             manufacturer:
               - text: Biotherm
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[3]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "62"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "62"
+                locale: de_DE
+                value: 62
+            rankOrganic:
+              - text: "62"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "62"
+                locale: de_DE
+                value: 62
           - id:
               - text: BP_04511920
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[4]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1537,6 +2125,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[4]/div[1]/div[2]
+            rank:
+              - text: "63"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "63"
+                locale: de_DE
+                value: 63
+            rankOrganic:
+              - text: "63"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "63"
+                locale: de_DE
+                value: 63
           - id:
               - text: BP_01220020
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[5]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1555,6 +2157,20 @@ extractions:
             manufacturer:
               - text: American Crew ACUMEN
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[5]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "64"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "64"
+                locale: de_DE
+                value: 64
+            rankOrganic:
+              - text: "64"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "64"
+                locale: de_DE
+                value: 64
           - id:
               - text: BP_64719010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1576,6 +2192,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[6]/div[1]/div[2]
+            rank:
+              - text: "65"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "65"
+                locale: de_DE
+                value: 65
+            rankOrganic:
+              - text: "65"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "65"
+                locale: de_DE
+                value: 65
           - id:
               - text: BP_20092330
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1597,17 +2227,31 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[7]/div[1]/div[2]
+            rank:
+              - text: "66"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "66"
+                locale: de_DE
+                value: 66
+            rankOrganic:
+              - text: "66"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "66"
+                locale: de_DE
+                value: 66
           - id:
-              - text: BP_67813530
+              - text: BP_67813540
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[8]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Pink Chocolate Macaroon
+              - text: Snow Angel
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[8]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/ko%CC%88rper/duschgel-/p/BP_67813530
+              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/duschgel-/p/BP_67813540
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[8]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8955990147102.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8955961344030.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[8]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 13.50
@@ -1615,17 +2259,31 @@ extractions:
             manufacturer:
               - text: Philosophy
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[8]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "67"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[8]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "67"
+                locale: de_DE
+                value: 67
+            rankOrganic:
+              - text: "67"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[8]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "67"
+                locale: de_DE
+                value: 67
           - id:
-              - text: BP_67813540
+              - text: BP_67813530
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Snow Angel
+              - text: Pink Chocolate Macaroon
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[9]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/duschgel-/p/BP_67813540
+              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/ko%CC%88rper/duschgel-/p/BP_67813530
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8955961344030.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8955990147102.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[9]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 13.50
@@ -1633,59 +2291,101 @@ extractions:
             manufacturer:
               - text: Philosophy
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[9]/div[1]/div[1]/div[2]/a[1]
-          - id:
-              - text: BP_47860110
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: Hair Amino Acid
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/amino-acid-conditioner/p/BP_47860110
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8849043423262.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 18.00
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Kiehl's
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "68"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "68"
+                locale: de_DE
+                value: 68
+            rankOrganic:
+              - text: "68"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "68"
+                locale: de_DE
+                value: 68
           - id:
               - text: BP_44611620
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
             name:
               - text: WALK ON THE BEACH
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[2]/a[2]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[2]/a[2]
             productUrl:
               - text: https://marionnaud.ch/de/marionnaud/haare/haare/pflegespu%CC%88lung/p/BP_44611620
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
               - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8947243089950.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 19.42
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[2]/a[4]/span[1]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
               - text: The Insiders
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[2]/a[1]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[1]/div[2]/a[1]
             endorsementText:
               - text: Beauty Favorite
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[2]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/div[2]
+            rank:
+              - text: "69"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "69"
+                locale: de_DE
+                value: 69
+            rankOrganic:
+              - text: "69"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[10]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "69"
+                locale: de_DE
+                value: 69
           - id:
-              - text: BP_04510420
+              - text: BP_47860110
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: Hair Amino Acid
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/amino-acid-conditioner/p/BP_47860110
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8849043423262.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 18.00
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[2]/a[4]/span[1]
+            manufacturer:
+              - text: Kiehl's
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "70"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "70"
+                locale: de_DE
+                value: 70
+            rankOrganic:
+              - text: "70"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[11]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "70"
+                locale: de_DE
+                value: 70
+          - id:
+              - text: BP_04512130
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Brilliant™ Conditioner
+              - text: Shampure™
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[12]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/haarconditioner/p/BP_04510420
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/haarconditioner/p/BP_04512130
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8985466798110.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8985358172190.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[12]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 36.00
+              - text: CHF 28.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[12]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
               - text: Aveda
@@ -1693,20 +2393,34 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[12]/div[1]/div[2]
+            rank:
+              - text: "71"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[12]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "71"
+                locale: de_DE
+                value: 71
+            rankOrganic:
+              - text: "71"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[12]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "71"
+                locale: de_DE
+                value: 71
           - id:
-              - text: BP_04512130
+              - text: BP_04514120
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[13]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Shampure™
+              - text: Pure-Formance™ Conditioner
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[13]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/haarconditioner/p/BP_04512130
+              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/haare/haarconditioner/p/BP_04514120
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[13]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8985358172190.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8985388318750.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[13]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 28.00
+              - text: CHF 36.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[13]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
               - text: Aveda
@@ -1714,38 +2428,66 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[13]/div[1]/div[2]
+            rank:
+              - text: "72"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[13]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "72"
+                locale: de_DE
+                value: 72
+            rankOrganic:
+              - text: "72"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[13]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "72"
+                locale: de_DE
+                value: 72
           - id:
-              - text: BP_04514120
+              - text: BP_62010410
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[14]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Pure-Formance™ Conditioner
+              - text: BEARD SOAP OCEAN DRIVE
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[14]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/haare/haarconditioner/p/BP_04514120
+              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/gesicht/bartseife/p/BP_62010410
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[14]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8985388318750.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8988906520606.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[14]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 36.00
+              - text: CHF 12.68
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[14]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
-              - text: Aveda
+              - text: Mootes
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[14]/div[1]/div[1]/div[2]/a[1]
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[14]/div[1]/div[2]
+            rank:
+              - text: "73"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[14]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "73"
+                locale: de_DE
+                value: 73
+            rankOrganic:
+              - text: "73"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[14]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "73"
+                locale: de_DE
+                value: 73
           - id:
-              - text: BP_62010410
+              - text: BP_62010420
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[15]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: BEARD SOAP OCEAN DRIVE
+              - text: BEARD SOAP MOUNTAIN PASS
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[15]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/gesicht/bartseife/p/BP_62010410
+              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/gesicht/bartseife-/p/BP_62010420
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[15]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8988906520606.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8988818243614.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[15]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 12.68
@@ -1756,17 +2498,31 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[15]/div[1]/div[2]
+            rank:
+              - text: "74"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[15]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "74"
+                locale: de_DE
+                value: 74
+            rankOrganic:
+              - text: "74"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[15]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "74"
+                locale: de_DE
+                value: 74
           - id:
-              - text: BP_62010420
+              - text: BP_62010430
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[16]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: BEARD SOAP MOUNTAIN PASS
+              - text: BEARD SOAP KNIGHT RIDER
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[16]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/gesicht/bartseife-/p/BP_62010420
+              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/gesicht/bartseife-/p/BP_62010430
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[16]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8988818243614.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8988810313758.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[16]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 12.68
@@ -1777,45 +2533,90 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[16]/div[1]/div[2]
+            rank:
+              - text: "75"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[16]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "75"
+                locale: de_DE
+                value: 75
+            rankOrganic:
+              - text: "75"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[16]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "75"
+                locale: de_DE
+                value: 75
           - id:
-              - text: BP_62010430
+              - text: BP_04510420
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[17]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: BEARD SOAP KNIGHT RIDER
+              - text: Brilliant™ Conditioner
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[17]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/gesicht/bartseife-/p/BP_62010430
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/haarconditioner/p/BP_04510420
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[17]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8988810313758.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8985466798110.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[17]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 12.68
+              - text: CHF 36.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[17]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
-              - text: Mootes
+              - text: Aveda
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[17]/div[1]/div[1]/div[2]/a[1]
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[17]/div[1]/div[2]
+            rank:
+              - text: "76"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[17]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "76"
+                locale: de_DE
+                value: 76
+            rankOrganic:
+              - text: "76"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[17]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "76"
+                locale: de_DE
+                value: 76
           - id:
-              - text: BP_47875520
+              - text: BP_44610330
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[18]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Body Men Cleansing
+              - text: STAY WITH ME COLOUR SAVER CONDITIONER
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[18]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/ko%CC%88rper/body-fuel-wash/p/BP_47875520
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/pflegespu%CC%88lung/p/BP_44610330
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[18]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8849002922014.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8944663953438.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[18]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 15.00
+              - text: CHF 19.42
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[18]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
-              - text: Kiehl's
+              - text: The Insiders
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[18]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: Beauty Favorite
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[18]/div[1]/div[2]
+            rank:
+              - text: "77"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[18]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "77"
+                locale: de_DE
+                value: 77
+            rankOrganic:
+              - text: "77"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[18]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "77"
+                locale: de_DE
+                value: 77
           - id:
               - text: BP_44610720
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[19]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1837,6 +2638,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[19]/div[1]/div[2]
+            rank:
+              - text: "78"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[19]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "78"
+                locale: de_DE
+                value: 78
+            rankOrganic:
+              - text: "78"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[19]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "78"
+                locale: de_DE
+                value: 78
           - id:
               - text: BP_49890130
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[20]/div[1]/div[1]/div[2]/a[2]/@href
@@ -1855,158 +2670,267 @@ extractions:
             manufacturer:
               - text: La Mer
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[20]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "79"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[20]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "79"
+                locale: de_DE
+                value: 79
+            rankOrganic:
+              - text: "79"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[20]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "79"
+                locale: de_DE
+                value: 79
           - id:
-              - text: BP_44610330
+              - text: BP_47875520
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[21]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: STAY WITH ME COLOUR SAVER CONDITIONER
+              - text: Body Men Cleansing
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[21]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/pflegespu%CC%88lung/p/BP_44610330
+              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/ko%CC%88rper/body-fuel-wash/p/BP_47875520
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[21]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8944663953438.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8849002922014.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[21]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 19.42
+              - text: CHF 15.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[21]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
-              - text: The Insiders
+              - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[21]/div[1]/div[1]/div[2]/a[1]
-            endorsementText:
-              - text: Beauty Favorite
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[21]/div[1]/div[2]
+            rank:
+              - text: "80"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[21]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "80"
+                locale: de_DE
+                value: 80
+            rankOrganic:
+              - text: "80"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[4]/div[21]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "80"
+                locale: de_DE
+                value: 80
           - id:
-              - text: BP_67414620
+              - text: BP_04514020
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Discover Va-Va-Volume
+              - text: Invati Men™ Scalp Revitalizer
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/geschenkset/p/BP_67414620
+              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/haare/haarpflege/p/BP_04514020
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8990078337054.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8985394479134.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 22.42
+              - text: CHF 95.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
-              - text: Percy & Reed
+              - text: Aveda
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[2]/a[1]
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[2]
+            rank:
+              - text: "81"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "81"
+                locale: de_DE
+                value: 81
+            rankOrganic:
+              - text: "81"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "81"
+                locale: de_DE
+                value: 81
           - id:
-              - text: BP_04514020
+              - text: BP_04049640
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Invati Men™ Scalp Revitalizer
+              - text: AZZARO WANTED
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/haare/haarpflege/p/BP_04514020
+              - text: https://marionnaud.ch/de/marionnaud/parfum-/ma%CC%88nnerparfum/eau-de-toilette/geschenkset/p/BP_04049640
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8985394479134.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8986066550814.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 95.00
+              - text: CHF 56.92
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
-              - text: Aveda
+              - text: Azzaro
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/div[1]/div[2]/a[1]
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/div[2]
-          - id:
-              - text: BP_04049640
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: AZZARO WANTED
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/parfum-/ma%CC%88nnerparfum/eau-de-toilette/geschenkset/p/BP_04049640
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8986066550814.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 56.92
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Azzaro
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[2]/a[1]
-            endorsementText:
-              - text: Neuheiten
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[2]
+            rank:
+              - text: "82"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "82"
+                locale: de_DE
+                value: 82
+            rankOrganic:
+              - text: "82"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "82"
+                locale: de_DE
+                value: 82
           - id:
               - text: BP_06929100
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[2]/a[2]/@href
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[2]/a[2]/@href
             name:
               - text: Dual Sided Silicone Blender
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[2]/a[2]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[2]/a[2]
             productUrl:
               - text: https://marionnaud.ch/de/marionnaud/make-up/pinsel/blender/p/BP_06929100
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[2]/a[2]/@href
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
               - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8985265700894.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 11.92
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[2]/a[4]/span[1]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
               - text: BareMinerals
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[2]/a[1]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "83"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "83"
+                locale: de_DE
+                value: 83
+            rankOrganic:
+              - text: "83"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "83"
+                locale: de_DE
+                value: 83
           - id:
-              - text: BP_56810610
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
+              - text: BP_67414620
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Moisturizing & Nourishing Magical Care
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[2]/a[2]
+              - text: Discover Va-Va-Volume
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/haarmaske/p/BP_56810610
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
+              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/geschenkset/p/BP_67414620
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8917940797470.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8990078337054.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 11.17
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Le Masque Switzerland
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[2]/a[1]
-          - id:
-              - text: BP_67410050
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: Perfectly Perfecting Wonder Treatment Oil +
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/haar-und-kopfhauto%CC%88l/p/BP_67410050
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8943104426014.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 29.17
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[2]/a[4]/span[1]
+              - text: CHF 22.42
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
               - text: Percy & Reed
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[2]/a[1]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: Neuheiten
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/div[2]
+            rank:
+              - text: "84"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "84"
+                locale: de_DE
+                value: 84
+            rankOrganic:
+              - text: "84"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "84"
+                locale: de_DE
+                value: 84
+          - id:
+              - text: BP_67410050
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: Perfectly Perfecting Wonder Treatment Oil +
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/haar-und-kopfhauto%CC%88l/p/BP_67410050
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8943104426014.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 29.17
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[2]/a[4]/span[1]
+            manufacturer:
+              - text: Percy & Reed
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[1]/div[2]/a[1]
             endorsementText:
               - text: Beauty Favorite
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[2]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/div[2]
+            rank:
+              - text: "85"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "85"
+                locale: de_DE
+                value: 85
+            rankOrganic:
+              - text: "85"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "85"
+                locale: de_DE
+                value: 85
           - id:
-              - text: BP_47863610
+              - text: BP_56810610
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: Moisturizing & Nourishing Magical Care
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/haarmaske/p/BP_56810610
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8917940797470.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 11.17
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[2]/a[4]/span[1]
+            manufacturer:
+              - text: Le Masque Switzerland
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "86"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "86"
+                locale: de_DE
+                value: 86
+            rankOrganic:
+              - text: "86"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "86"
+                locale: de_DE
+                value: 86
+          - id:
+              - text: BP_47861610
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[8]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Sunflower Color Preserving
+              - text: Hair Olive Fruit Oil Nourishing
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[8]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/kiehls-sunflower-color-preserving-conditioner/p/BP_47863610
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/kiehls-oil-fruit-oil-nourishing-conditioner/p/BP_47861610
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[8]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8849030119454.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8849052139550.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[8]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 36.00
@@ -2014,6 +2938,20 @@ extractions:
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[8]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "87"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[8]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "87"
+                locale: de_DE
+                value: 87
+            rankOrganic:
+              - text: "87"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[8]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "87"
+                locale: de_DE
+                value: 87
           - id:
               - text: BP_47863710
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2032,60 +2970,116 @@ extractions:
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[9]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "88"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "88"
+                locale: de_DE
+                value: 88
+            rankOrganic:
+              - text: "88"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "88"
+                locale: de_DE
+                value: 88
           - id:
-              - text: BP_47861610
+              - text: BP_49890120
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Hair Olive Fruit Oil Nourishing
+              - text: Le Pinceau Poudre
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[10]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/kiehls-oil-fruit-oil-nourishing-conditioner/p/BP_47861610
+              - text: https://marionnaud.ch/de/marionnaud/make-up/pinsel/pinsel/pinsel/p/BP_49890120
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8849052139550.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8978179620894.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[10]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 36.00
+              - text: CHF 55.42
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[10]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
-              - text: Kiehl's
+              - text: La Mer
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[10]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "89"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[10]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "89"
+                locale: de_DE
+                value: 89
+            rankOrganic:
+              - text: "89"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[10]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "89"
+                locale: de_DE
+                value: 89
           - id:
-              - text: BP_47867510
+              - text: BP_47863610
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Hair Care
+              - text: Sunflower Color Preserving
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[11]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/kiehls-magic-elixir-hair-restructuring-concentrate/p/BP_47867510
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/kiehls-sunflower-color-preserving-conditioner/p/BP_47863610
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8848991453214.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8849030119454.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[11]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 39.00
+              - text: CHF 36.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[11]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[11]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "90"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[11]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "90"
+                locale: de_DE
+                value: 90
+            rankOrganic:
+              - text: "90"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[11]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "90"
+                locale: de_DE
+                value: 90
           - id:
-              - text: BP_49890120
+              - text: BP_47867510
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Le Pinceau Poudre
+              - text: Hair Care
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[12]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/make-up/pinsel/pinsel/pinsel/p/BP_49890120
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/kiehls-magic-elixir-hair-restructuring-concentrate/p/BP_47867510
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8978179620894.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8848991453214.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[12]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 55.42
+              - text: CHF 39.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[12]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
-              - text: La Mer
+              - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[12]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "91"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[12]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "91"
+                locale: de_DE
+                value: 91
+            rankOrganic:
+              - text: "91"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[12]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "91"
+                locale: de_DE
+                value: 91
           - id:
               - text: BP_67414610
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[13]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2107,6 +3101,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[13]/div[1]/div[2]
+            rank:
+              - text: "92"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[13]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "92"
+                locale: de_DE
+                value: 92
+            rankOrganic:
+              - text: "92"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[13]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "92"
+                locale: de_DE
+                value: 92
           - id:
               - text: BP_67414630
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[14]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2128,24 +3136,55 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[14]/div[1]/div[2]
+            rank:
+              - text: "93"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[14]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "93"
+                locale: de_DE
+                value: 93
+            rankOrganic:
+              - text: "93"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[14]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "93"
+                locale: de_DE
+                value: 93
           - id:
-              - text: BP_47862110
+              - text: BP_44615310
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[15]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Damage Repairing & Rehydrating
+              - text: CURL COACH ANTI-FRIZZ HAIR TOWEL
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[15]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/damage-repairing-rehydrating-conditioner/p/BP_47862110
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/haartuch-/p/BP_44615310
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[15]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8848990535710.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8944836050974.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[15]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 41.00
+              - text: CHF 20.17
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[15]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
-              - text: Kiehl's
+              - text: The Insiders
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[15]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: Beauty Favorite
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[15]/div[1]/div[2]
+            rank:
+              - text: "94"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[15]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "94"
+                locale: de_DE
+                value: 94
+            rankOrganic:
+              - text: "94"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[15]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "94"
+                locale: de_DE
+                value: 94
           - id:
               - text: BP_47860610
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[16]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2164,27 +3203,52 @@ extractions:
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[16]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "95"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[16]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "95"
+                locale: de_DE
+                value: 95
+            rankOrganic:
+              - text: "95"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[16]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "95"
+                locale: de_DE
+                value: 95
           - id:
-              - text: BP_44615310
+              - text: BP_47862110
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[17]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: CURL COACH ANTI-FRIZZ HAIR TOWEL
+              - text: Damage Repairing & Rehydrating
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[17]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/haare/haare/haartuch-/p/BP_44615310
+              - text: https://marionnaud.ch/de/marionnaud/haare/haare/damage-repairing-rehydrating-conditioner/p/BP_47862110
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[17]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8944836050974.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8848990535710.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[17]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 20.17
+              - text: CHF 41.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[17]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
-              - text: The Insiders
+              - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[17]/div[1]/div[1]/div[2]/a[1]
-            endorsementText:
-              - text: Beauty Favorite
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[17]/div[1]/div[2]
+            rank:
+              - text: "96"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[17]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "96"
+                locale: de_DE
+                value: 96
+            rankOrganic:
+              - text: "96"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[17]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "96"
+                locale: de_DE
+                value: 96
           - id:
               - text: BP_04513110
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[18]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2206,6 +3270,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[18]/div[1]/div[2]
+            rank:
+              - text: "97"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[18]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "97"
+                locale: de_DE
+                value: 97
+            rankOrganic:
+              - text: "97"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[18]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "97"
+                locale: de_DE
+                value: 97
           - id:
               - text: BP_44615060
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[19]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2227,6 +3305,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[19]/div[1]/div[2]
+            rank:
+              - text: "98"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[19]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "98"
+                locale: de_DE
+                value: 98
+            rankOrganic:
+              - text: "98"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[19]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "98"
+                locale: de_DE
+                value: 98
           - id:
               - text: BP_44615080
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[20]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2248,6 +3340,20 @@ extractions:
             endorsementText:
               - text: Beauty Favorite
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[20]/div[1]/div[2]
+            rank:
+              - text: "99"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[20]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "99"
+                locale: de_DE
+                value: 99
+            rankOrganic:
+              - text: "99"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[20]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "99"
+                locale: de_DE
+                value: 99
           - id:
               - text: BP_01218020
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[21]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2266,6 +3372,20 @@ extractions:
             manufacturer:
               - text: American Crew ACUMEN
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[21]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "100"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[21]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "100"
+                locale: de_DE
+                value: 100
+            rankOrganic:
+              - text: "100"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[5]/div[21]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "100"
+                locale: de_DE
+                value: 100
           - id:
               - text: BP_04510020
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2287,6 +3407,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/div[2]
+            rank:
+              - text: "101"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "101"
+                locale: de_DE
+                value: 101
+            rankOrganic:
+              - text: "101"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "101"
+                locale: de_DE
+                value: 101
           - id:
               - text: BP_04511250
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[3]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2308,42 +3442,84 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[3]/div[1]/div[2]
+            rank:
+              - text: "102"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "102"
+                locale: de_DE
+                value: 102
+            rankOrganic:
+              - text: "102"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "102"
+                locale: de_DE
+                value: 102
           - id:
-              - text: BP_47870540
+              - text: BP_47870510
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[4]/div[1]/div[1]/div[2]/a[2]/@href
             name:
               - text: KIEHL’S CRÈME DE CORPS
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[4]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/ko%CC%88rper/ko%CC%88rpercreme-/p/BP_47870540
+              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/ko%CC%88rper/cre%CC%80me-de-corps/p/BP_47870510
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[4]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8986053410846.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8987569160222.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 118.00
+              - text: CHF 18.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[4]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[4]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "103"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "103"
+                locale: de_DE
+                value: 103
+            rankOrganic:
+              - text: "103"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "103"
+                locale: de_DE
+                value: 103
           - id:
-              - text: BP_47870510
+              - text: BP_47870540
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[5]/div[1]/div[1]/div[2]/a[2]/@href
             name:
               - text: KIEHL’S CRÈME DE CORPS
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[5]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/ko%CC%88rper/cre%CC%80me-de-corps/p/BP_47870510
+              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/ko%CC%88rper/ko%CC%88rpercreme-/p/BP_47870540
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[5]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8987569160222.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8986053410846.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[5]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 18.00
+              - text: CHF 118.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[5]/div[1]/div[1]/div[2]/a[4]/span[1]
             manufacturer:
               - text: Kiehl's
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[5]/div[1]/div[1]/div[2]/a[1]
+            rank:
+              - text: "104"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "104"
+                locale: de_DE
+                value: 104
+            rankOrganic:
+              - text: "104"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "104"
+                locale: de_DE
+                value: 104
           - id:
               - text: BP_47880290
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2365,6 +3541,20 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[6]/div[1]/div[2]
+            rank:
+              - text: "105"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "105"
+                locale: de_DE
+                value: 105
+            rankOrganic:
+              - text: "105"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "105"
+                locale: de_DE
+                value: 105
           - id:
               - text: BP_47880300
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
@@ -2386,5 +3576,19 @@ extractions:
             endorsementText:
               - text: Neuheiten
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[7]/div[1]/div[2]
+            rank:
+              - text: "106"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "106"
+                locale: de_DE
+                value: 106
+            rankOrganic:
+              - text: "106"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[6]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "106"
+                locale: de_DE
+                value: 106
         xpath: /html
-    timestamp: 1605530681871
+    timestamp: 1605615972925

@@ -23,14 +23,6 @@ module.exports = {
     }
     await context.waitForNavigation();
 
-    // rank and rankOrganic
-    await context.evaluate(() => {
-      const products = document.querySelectorAll('div[data-component="MasonryGrid"] div.product-tile__wrapper');
-      products.forEach((product, index) => {
-        product.setAttribute('rankorganic', `${index + 1}`);
-      });
-    });
-
     // load more pagination implementation
     let isLoadMoreButtonPresent = await context.evaluate(async () => {
       const button = document.querySelector('button.more-data-loader__btn');
@@ -43,7 +35,8 @@ module.exports = {
     let productsAmount = await context.evaluate(async () => {
       return document.querySelectorAll('div.more-data-loader div.product-tile').length;
     });
-    while (isLoadMoreButtonPresent && productsAmount < 150) {
+    let clicksAmount = 0;
+    while (isLoadMoreButtonPresent && productsAmount < 150 && clicksAmount < 15) {
       await context.click('button.more-data-loader__btn span');
       await context.waitForSelector('button.more-data-loader__btn', { timeout: 2000 });
       isLoadMoreButtonPresent = await context.evaluate(async () => {
@@ -52,7 +45,16 @@ module.exports = {
       productsAmount = await context.evaluate(async () => {
         return document.querySelectorAll('div.more-data-loader div.product-tile').length;
       });
+      clicksAmount++;
     }
+
+    // rank and rankOrganic
+    await context.evaluate(() => {
+      const products = document.querySelectorAll('div[data-component="MasonryGrid"] div.product-tile__wrapper');
+      products.forEach((product, index) => {
+        product.setAttribute('rankorganic', `${index + 1}`);
+      });
+    });
 
     var dataRef = await context.extract(productDetails, { transform });
 
