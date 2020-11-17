@@ -5,46 +5,46 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-quickview"]/a/@href
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-quickview"]/a/@href
     regExp: .*\/p\/(\d.*)
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-infos"]//div[@class="shelf-title"]
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-infos"]//div[@class="shelf-title"]
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-quickview"]/a/@href
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-quickview"]/a/@href
   - name: gtin
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-quickview"]/a/@href
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-quickview"]/a/@href
     regExp: .*\/p\/(\d.*)
     regExpReplace: $1
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-image"]/img/@src
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-image"]/img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-rating"]/div[@id="aggregateRatingNormalized"]
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-rating"]/div[@id="aggregateRatingNormalized"]
   - name: reviewCount
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-rating"]//span[contains(@class,"ts-shelf-rate-count")]/span
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-rating"]//span[contains(@class,"ts-shelf-rate-count")]/span
     regExp: 0
     regExpReplace: ""
   - name: ratingCount
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-rating"]//span[contains(@class,"ts-shelf-rate-count")]/span
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-rating"]//span[contains(@class,"ts-shelf-rate-count")]/span
     regExp: 0
     regExpReplace: ""
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-prices"]/div[@class="shelf-price-por"]/span
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-prices"]/div[@class="shelf-price-por"]/span
   - name: manufacturer
     singleValue: true
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]/div[@class="shelf-brand"]
+    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-brand"]
   - name: soldBy
     singleValue: true
   - name: endorsementText
