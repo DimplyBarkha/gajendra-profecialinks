@@ -14,6 +14,7 @@ module.exports = {
         country: 'US',
         store: 'amazon',
         transform,
+        zipcode: 'M3H0C3',
         domain: 'amazon.ca',
     },
     dependencies: {
