@@ -26,17 +26,14 @@ module.exports = {
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       const getAllXpath = (xpath, prop) => {
-        const Price1 = getAllXpath("//div[@class='kuSalePrice']/text()",'nodeValue');
-        const Price2 = getAllXpath("//span[@class='ku-coins']/text()",'nodeValue');
-        const Price3 = (Price1+'.'+Price2);
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
         for (let index = 0; index < nodeSet.snapshotLength; index++) {
-        const element = nodeSet.snapshotItem(index);
-        if (element) result.push(prop ? element[prop] : element.nodeValue);
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
         return result;
-        };
+      };
       let rankOrganic;
       try {
         rankOrganic = ((window.location.href).indexOf('offset=')) ? Number((window.location.href).replace(/.*offset=(.*)/, '$1')) : 0;
@@ -52,7 +49,13 @@ module.exports = {
       for (let i = 0; i < urlProduct.length; i++) {
         addHiddenDiv('rankOrganic', rankOrganic++, i);
       }
+      const Price1 = getAllXpath("//div[@class='kuSalePrice']/text()", 'nodeValue');
+      const Price2 = getAllXpath("//span[@class='ku-coins']/text()", 'nodeValue');
+      for (let a = 0; a < Price1.length; a++) {
+        addHiddenDiv('Price', Price1[a] + '.' + Price2[a], a);
 
+      }
+      const Price3 = (Price1 + '.' + Price2);
     });
     return await context.extract(productDetails, { transform });
   },

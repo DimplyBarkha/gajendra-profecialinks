@@ -5,7 +5,7 @@ module.exports = {
     country: 'FI',
     store: 'tokmanni',
     domain: 'tokmanni.fi',
-    url: 'https://www.tokmanni.fi/search/?q=Embo%20Design',
+    url: 'https://www.tokmanni.fi/search/?q=Tena%20Pants',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
