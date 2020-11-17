@@ -14,7 +14,7 @@ fields:
     regExpReplace: https://shop.coles.com.au$1
     description: The URL for the product thumbnail image
   - name: name
-    xpath: //h3[contains(@class,'product-title')]
+    xpath: //div[@id='ii_name']
     description: The product name
   - name: price
     xpath: //span[contains(@class,'price-container')]
