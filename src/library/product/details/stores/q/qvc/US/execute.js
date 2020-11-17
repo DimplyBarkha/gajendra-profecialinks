@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'qvc',
     domain: 'qvc.com',
-    loadedSelector: null,
+    loadedSelector: 'div[id="pageContent"]',
     noResultsXPath: null,
     zipcode: '',
   },
