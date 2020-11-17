@@ -1,45 +1,48 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[contains(@class, "products_grid ")]
+recordXPath: //li[contains(@class, 'products_grid ')]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, "product-description")]/@id
+    xpath: //div[contains(@class, 'product-description')]/@id|//li[@class='products_grid hl-product']/@data-parentsku
     regExp: (\d*)
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
-    xpath: //div[@class="prod_nameBlock"]/p
+    xpath: //li[contains(@class, 'products_grid ')]//p[not(@class)]
     singleValue: false
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="prod_img_block"]/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.kohls.com$1
+    xpath: //div[contains(@class, 'product-description')]/@id|//li[@class='products_grid hl-product']/@data-parentsku
+    regExp: (\d+)
+    regExpReplace: https://www.kohls.com/product/prd-$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="prod_img_block"]/a/img[1]/@data-herosrc
+    xpath: //div[@class='prod_img_block']/a/img[@data-herosrc]/@data-herosrc|//li[@class='products_grid hl-product']/div[@class='prod_img_block']/a/img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
-    xpath: //a[contains (@class,"stars")]/@title
+    xpath: //a[contains (@class,'stars')]/@title
     regExp: ^(\d\.?\d?)
     regExpReplace: $1
   - name: reviewCount
     singleValue: false
+    xpath: //span[@class='prod_ratingCount']/a
+    regExp: (\d+)
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
-    xpath: //span[@class="prod_ratingCount"]/a
-    regExp: (\d*)
+    xpath: //span[@class='prod_ratingCount']/a
+    regExp: (\d+)
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //span[contains (@class, "prod_price_amount")]
+    xpath: //span[contains (@class, 'prod_price_amount')]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -50,16 +53,18 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: //li[contains(@class, "products_grid ")]/@count
+    xpath: //li[contains(@class, 'products_grid ')]/@count
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //li[contains(@class, "products_grid ")]/@count
+    xpath: //li[contains(@class, 'products_grid ')]/@count
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
+    xpath: //li[@class='products_grid hl-product']
+    defaultValue: false
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER

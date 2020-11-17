@@ -2,30 +2,33 @@ input:
   keywords: 10 year old girl gifts
   _url: http://kohls.com
 extractions:
-  - html: https://workbench.import.io/html/run=5b6d29e7-1a64-4383-81a5-00ea813b2610/task=4810de0e-2858-4567-aed8-923dd1c621d9/938d3e6a-32c4-4a3e-ad33-d1af8d013a20.html
+  - html: https://workbench.import.io/html/run=8a4d117e-53fc-4ca4-b3e6-6cd2452ed742/task=58c8cb83-0032-4b2e-bc4e-2e413bcde3ea/ee5fa23c-2d6a-4f89-8123-2a2767dba776.html
     extractionConfigId: product/search/stores/k/kohls/US/extract
     data:
       - group:
           - id:
-              - text: "2264953"
+              - text: "2964441"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/@id
             name:
-              - text: VTech Magic Star Learning Table
+              - text: Fisher-Price Laugh & Learn Smart Stages Sis
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2264953/vtech-magic-star-learning-table.jsp?prdPV=1
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2964441
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2264953?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2964441?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.9"
+              - text: "4.7"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "79"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "33"
+              - text: "79"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $29.99
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/div[1]/span[2]
             rank:
               - text: "1"
@@ -35,25 +38,28 @@ extractions:
                 locale: en
                 value: 1
           - id:
-              - text: "2625972"
+              - text: "2264953"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/@id
             name:
-              - text: VTech Drop & Go Dump Truck
+              - text: VTech Magic Star Learning Table
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2625972/vtech-drop-go-dump-truck.jsp?prdPV=2
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2264953
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2625972?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2264953?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "5"
+              - text: "4.9"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "33"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "6"
+              - text: "33"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $14.24
+              - text: $34.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[1]/span[2]
             rank:
               - text: "2"
@@ -63,25 +69,28 @@ extractions:
                 locale: en
                 value: 2
           - id:
-              - text: "2964441"
+              - text: "2625972"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/@id
             name:
-              - text: Fisher-Price Laugh & Learn Smart Stages Sis
+              - text: VTech Drop & Go Dump Truck
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2964441/fisher-price-laugh-learn-smart-stages-sis.jsp?prdPV=3
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2625972
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2964441?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2625972?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.7"
+              - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "78"
+              - text: "7"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $10.49
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/div[1]/span[2]
             rank:
               - text: "3"
@@ -91,25 +100,28 @@ extractions:
                 locale: en
                 value: 3
           - id:
-              - text: "2625988"
+              - text: "2964418"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/@id
             name:
-              - text: VTech Wiggle & Crawl Ball
+              - text: Fisher-Price Laugh & Learn Smart Stages Puppy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2625988/vtech-wiggle-crawl-ball.jsp?prdPV=4
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2964418
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2625988?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2964418?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "4.6"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "86"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "15"
+              - text: "86"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $14.24
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/div[1]/span[2]
             rank:
               - text: "4"
@@ -119,25 +131,28 @@ extractions:
                 locale: en
                 value: 4
           - id:
-              - text: "2964418"
+              - text: "2048224"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/@id
             name:
-              - text: Fisher-Price Laugh & Learn Smart Stages Puppy
+              - text: Fisher-Price Laugh & Learn Count & Learn Bilingual ... Piggy Bank
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2964418/fisher-price-laugh-learn-smart-stages-puppy.jsp?prdPV=5
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2048224
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2964418?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2048224?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.6"
+              - text: "4.7"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "38"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "85"
+              - text: "38"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $10.49
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/div[1]/span[2]
             rank:
               - text: "5"
@@ -147,25 +162,28 @@ extractions:
                 locale: en
                 value: 5
           - id:
-              - text: "2048224"
+              - text: "4450825"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/@id
             name:
-              - text: Fisher-Price Laugh & Learn Count & Learn Bilingual ... Piggy Bank
+              - text: Fisher-Price® Linkimals Counting Koala
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2048224/fisher-price-laugh-learn-count-learn-bilingual-piggy-bank.jsp?prdPV=6
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4450825
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2048224?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4450825?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.7"
+              - text: "4.6"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "22"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "38"
+              - text: "22"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $10.49
+              - text: $24.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/div[1]/span[2]
             rank:
               - text: "6"
@@ -175,25 +193,28 @@ extractions:
                 locale: en
                 value: 6
           - id:
-              - text: "4450825"
+              - text: "2625988"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/@id
             name:
-              - text: Fisher-Price® Linkimals Counting Koala
+              - text: VTech Wiggle & Crawl Ball
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4450825/fisher-price-linkimals-counting-koala.jsp?prdPV=7
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2625988
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4450825?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2625988?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "4.6"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "21"
+              - text: "15"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $17.49
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/div[1]/span[2]
             rank:
               - text: "7"
@@ -203,25 +224,28 @@ extractions:
                 locale: en
                 value: 7
           - id:
-              - text: "2192419"
+              - text: "3267112"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/@id
             name:
-              - text: VTech Learn & Dance Interactive Zoo
+              - text: Baby / Toddler Girl Jumping Beans® 10-pack Solid Crew ... Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2192419/vtech-learn-dance-interactive-zoo.jsp?prdPV=8
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3267112
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2192419?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3267112?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.9"
+              - text: "3.5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "12"
+              - text: "2"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $17.09
+              - text: $12.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/div[1]/span[2]
             rank:
               - text: "8"
@@ -231,25 +255,28 @@ extractions:
                 locale: en
                 value: 8
           - id:
-              - text: "2970631"
+              - text: "4451212"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/@id
             name:
-              - text: Fisher-Price Laugh & Learn Magical Lights Fishbowl
+              - text: Fisher-Price Laugh & Learn Countin' Reps Dumbbell
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2970631/fisher-price-laugh-learn-magical-lights-fishbowl.jsp?prdPV=9
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4451212
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2970631?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4451212?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.8"
+              - text: "4.5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "49"
+              - text: "15"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $13.99
+              - text: $9.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/div[1]/span[2]
             rank:
               - text: "9"
@@ -259,25 +286,28 @@ extractions:
                 locale: en
                 value: 9
           - id:
-              - text: "3562349"
+              - text: "2970631"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/@id
             name:
-              - text: Fisher-Price Laugh & Learn Silly Sounds Light-Up ... Piano
+              - text: Fisher-Price Laugh & Learn Magical Lights Fishbowl
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3562349/fisher-price-laugh-learn-silly-sounds-light-up-piano.jsp?prdPV=10
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2970631
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3562349?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2970631?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "3.5"
+              - text: "4.8"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "50"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "4"
+              - text: "50"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $10.49
+              - text: $19.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/div[1]/span[2]
             rank:
               - text: "10"
@@ -287,25 +317,28 @@ extractions:
                 locale: en
                 value: 10
           - id:
-              - text: "4451212"
+              - text: "3562349"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/@id
             name:
-              - text: Fisher-Price Laugh & Learn Countin' Reps Dumbbell
+              - text: Fisher-Price Laugh & Learn Silly Sounds Light-Up ... Piano
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4451212/fisher-price-laugh-learn-countin-reps-dumbbell.jsp?prdPV=11
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3562349
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4451212?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3562349?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.5"
+              - text: "3.5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "15"
+              - text: "4"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $6.99
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/div[1]/span[2]
             rank:
               - text: "11"
@@ -315,25 +348,28 @@ extractions:
                 locale: en
                 value: 11
           - id:
-              - text: "3267112"
+              - text: "3267090"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/@id
             name:
-              - text: Baby / Toddler Girl Jumping Beans® 10-pack Solid Crew ... Socks
+              - text: Baby / Toddler Jumping Beans® 10-pack White Crew ... Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3267112/baby-toddler-girl-jumping-beans-10-pack-solid-crew-socks.jsp?prdPV=12
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3267090
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3267112?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3267090?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "3.5"
+              - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $11.20
+              - text: $12.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/div[1]/span[2]
             rank:
               - text: "12"
@@ -349,19 +385,22 @@ extractions:
               - text: Fisher-Price Laugh & Learn Busy Learning Tool Bench
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3562358/fisher-price-laugh-learn-busy-learning-tool-bench.jsp?prdPV=13
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3562358
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/@id
             thumbnail:
               - text: https://media.kohlsimg.com/is/image/kohls/3562358?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "4.7"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "25"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
               - text: "25"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $13.99
+              - text: $19.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/div[1]/span[2]
             rank:
               - text: "13"
@@ -371,25 +410,28 @@ extractions:
                 locale: en
                 value: 13
           - id:
-              - text: "4451218"
+              - text: "3677514"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/@id
             name:
-              - text: Fisher-Price Laugh & Learn Babble & Wobble Hub
+              - text: Winfun Magic Lights and Musical Play Gym
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4451218/fisher-price-laugh-learn-babble-wobble-hub.jsp?prdPV=14
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3677514
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4451218?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3677514?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.6"
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "20"
+              - text: "13"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $10.49
+              - text: $39.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/div[1]/span[2]
             rank:
               - text: "14"
@@ -399,25 +441,28 @@ extractions:
                 locale: en
                 value: 14
           - id:
-              - text: "4451217"
+              - text: "4451218"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/@id
             name:
-              - text: Fisher-Price Laugh & Learn Camping Fun Lantern
+              - text: Fisher-Price Laugh & Learn Babble & Wobble Hub
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4451217/fisher-price-laugh-learn-camping-fun-lantern.jsp?prdPV=15
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4451218
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4451217?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4451218?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "5"
+              - text: "4.6"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "20"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "1"
+              - text: "20"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $10.49
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/div[1]/span[2]
             rank:
               - text: "15"
@@ -427,25 +472,28 @@ extractions:
                 locale: en
                 value: 15
           - id:
-              - text: "4450824"
+              - text: "4451217"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/@id
             name:
-              - text: Fisher-Price® Linkimals Play Together Panda
+              - text: Fisher-Price Laugh & Learn Camping Fun Lantern
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4450824/fisher-price-linkimals-play-together-panda.jsp?prdPV=16
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4451217
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4450824?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4451217?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.2"
+              - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "24"
+              - text: "1"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $13.99
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/div[1]/span[2]
             rank:
               - text: "16"
@@ -455,26 +503,28 @@ extractions:
                 locale: en
                 value: 16
           - id:
-              - text: "4593820"
+              - text: "4450824"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/@id
             name:
-              - text: Baby Girl Columbia Hooded Snow Bunting
+              - text: Fisher-Price® Linkimals Play Together Panda
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4593820/baby-girl-columbia-hooded-snow-bunting.jsp?color=Pink
-                  Critter Print&prdPV=17
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4450824
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4593820_Pink_Critter_Print?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4450824?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "1"
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "27"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "1"
+              - text: "27"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $64.99
+              - text: $19.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/div[1]/span[2]
             rank:
               - text: "17"
@@ -484,25 +534,28 @@ extractions:
                 locale: en
                 value: 17
           - id:
-              - text: "1015557"
+              - text: "4593820"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/@id
             name:
-              - text: The First Years Stack & Count Cups
+              - text: Baby Girl Columbia Hooded Snow Bunting
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-1015557/the-first-years-stack-count-cups.jsp?prdPV=18
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4593820
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/1015557?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4593820_Pink_Critter_Print?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "5"
+              - text: "1"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "13"
+              - text: "1"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $6.00
+              - text: $64.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/div[1]/span[2]
             rank:
               - text: "18"
@@ -512,22 +565,25 @@ extractions:
                 locale: en
                 value: 18
           - id:
-              - text: "1168731"
+              - text: "1669501"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[4]/@id
             name:
-              - text: Kids Preferred Maya Plush Doll
+              - text: Kids Preferred Carly Baby Doll
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-1168731/kids-preferred-maya-plush-doll.jsp?prdPV=19
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-1669501
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/1168731?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/1669501?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "4.1"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "28"
+              - text: "15"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[4]/div[5]/span[2]/a[1]
             price:
               - text: $11.99
@@ -540,25 +596,28 @@ extractions:
                 locale: en
                 value: 19
           - id:
-              - text: "3267090"
+              - text: "4400840"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/@id
             name:
-              - text: Baby / Toddler Jumping Beans® 10-pack White Crew ... Socks
+              - text: Baby/Toddler Girl Jumping Beans® Deer Slipper Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3267090/baby-toddler-jumping-beans-10-pack-white-crew-socks.jsp?prdPV=20
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4400840
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3267090?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4400840?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $11.20
+              - text: $9.80
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/div[1]/span[2]
             rank:
               - text: "20"
@@ -568,25 +627,28 @@ extractions:
                 locale: en
                 value: 20
           - id:
-              - text: "4400840"
+              - text: "1276020"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/@id
             name:
-              - text: Baby/Toddler Girl Jumping Beans® Deer Slipper Socks
+              - text: Baby Girl Jumping Beans® 10-pk. Crew Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4400840/babytoddler-girl-jumping-beans-deer-slipper-socks.jsp?prdPV=21
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-1276020
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4400840?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/1276020?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "5"
+              - text: "4.6"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "1"
+              - text: "10"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $8.40
+              - text: $12.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/div[1]/span[2]
             rank:
               - text: "21"
@@ -596,25 +658,29 @@ extractions:
                 locale: en
                 value: 21
           - id:
-              - text: "4451215"
+              - text: "2059808"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/@id
             name:
-              - text: Fisher-Price Laugh & Learn Slice of Learning Pizza
+              - text: Baby Girl / Toddler Girl Jumping Beans® 6-pk. ... Scalloped Edge Knit
+                  Low-Cut Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4451215/fisher-price-laugh-learn-slice-of-learning-pizza.jsp?prdPV=22
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2059808
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4451215?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2059808?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.2"
+              - text: "3.8"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "12"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "20"
+              - text: "12"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $10.49
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/div[1]/span[2]
             rank:
               - text: "22"
@@ -630,19 +696,22 @@ extractions:
               - text: Fisher-Price Sort & Spill Learning Truck
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3561972/fisher-price-sort-spill-learning-truck.jsp?prdPV=23
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3561972
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/@id
             thumbnail:
               - text: https://media.kohlsimg.com/is/image/kohls/3561972?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "4.4"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
               - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $10.49
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/div[1]/span[2]
             rank:
               - text: "23"
@@ -658,14 +727,17 @@ extractions:
               - text: Disney Minnie Mouse Jingle Plush Toy by Kids ... Preferred
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-752198/disney-minnie-mouse-jingle-plush-toy-by-kids-preferred.jsp?prdPV=24
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-752198
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/@id
             thumbnail:
               - text: https://media.kohlsimg.com/is/image/kohls/752198?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "4.9"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "12"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
               - text: "12"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/div[5]/span[2]/a[1]
@@ -680,25 +752,28 @@ extractions:
                 locale: en
                 value: 24
           - id:
-              - text: "1669501"
+              - text: "2868693"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/@id
             name:
-              - text: Kids Preferred Carly Baby Doll
+              - text: Carter's Elephant Plush Security Blanket
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-1669501/kids-preferred-carly-baby-doll.jsp?prdPV=25
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2868693
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/1669501?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2868693?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4"
+              - text: "4.7"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "33"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "14"
+              - text: "33"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $11.99
+              - text: $12.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/div[1]/span[2]
             rank:
               - text: "25"
@@ -714,13 +789,13 @@ extractions:
               - text: Baby/Toddler Girl Jumping Beans® Unicorn Slipper ... Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4400879/babytoddler-girl-jumping-beans-unicorn-slipper-socks.jsp?prdPV=26
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4400879
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[4]/@id
             thumbnail:
               - text: https://media.kohlsimg.com/is/image/kohls/4400879?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $8.40
+              - text: $9.80
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[4]/div[1]/span[2]
             rank:
               - text: "26"
@@ -730,25 +805,28 @@ extractions:
                 locale: en
                 value: 26
           - id:
-              - text: "1168751"
+              - text: "2059829"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/@id
             name:
-              - text: Kids Preferred Samantha Plush Doll
+              - text: Baby Girl / Toddler Girl Jumping Beans® 6-pk. Mixed ... Media Crew Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-1168751/kids-preferred-samantha-plush-doll.jsp?prdPV=27
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2059829
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/1168751?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2059829?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "5"
+              - text: "2.9"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "4"
+              - text: "14"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $11.99
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/div[1]/span[2]
             rank:
               - text: "27"
@@ -758,25 +836,28 @@ extractions:
                 locale: en
                 value: 27
           - id:
-              - text: "1276020"
+              - text: "1168731"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/@id
             name:
-              - text: Baby Girl Jumping Beans® 10-pk. Crew Socks
+              - text: Kids Preferred Maya Plush Doll
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-1276020/jumping-beans-10-pk-fun-socks-baby.jsp?prdPV=28
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-1168731
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/1276020?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/1168731?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.6"
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "30"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "10"
+              - text: "30"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $11.20
+              - text: $11.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/div[1]/span[2]
             rank:
               - text: "28"
@@ -786,25 +867,28 @@ extractions:
                 locale: en
                 value: 28
           - id:
-              - text: "2868693"
+              - text: "2059726"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/@id
             name:
-              - text: Carter's Elephant Plush Security Blanket
+              - text: Baby Girl / Toddler Girl Jumping Beans® 6-pk. ... Scalloped Crew Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2868693/carters-elephant-plush-security-blanket.jsp?prdPV=29
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2059726
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2868693?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2059726?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.7"
+              - text: "4.6"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "33"
+              - text: "10"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $12.99
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/div[1]/span[2]
             rank:
               - text: "29"
@@ -814,25 +898,28 @@ extractions:
                 locale: en
                 value: 29
           - id:
-              - text: "4400839"
+              - text: "4451215"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/@id
             name:
-              - text: Baby/Toddler Girl Jumping Beans® Cat Slipper Socks
+              - text: Fisher-Price Laugh & Learn Slice of Learning Pizza
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4400839/babytoddler-girl-jumping-beans-cat-slipper-socks.jsp?prdPV=30
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4451215
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4400839?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4451215?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4"
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "20"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "1"
+              - text: "20"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $8.40
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/div[1]/span[2]
             rank:
               - text: "30"
@@ -842,25 +929,28 @@ extractions:
                 locale: en
                 value: 30
           - id:
-              - text: "3677514"
+              - text: "1168751"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/@id
             name:
-              - text: Winfun Magic Lights and Musical Play Gym
+              - text: Kids Preferred Samantha Plush Doll
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3677514/winfun-magic-lights-and-musical-play-gym.jsp?prdPV=31
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-1168751
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3677514?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/1168751?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.2"
+              - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "13"
+              - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $44.99
+              - text: $11.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/div[1]/span[2]
             rank:
               - text: "31"
@@ -870,25 +960,28 @@ extractions:
                 locale: en
                 value: 31
           - id:
-              - text: "2059829"
+              - text: "4400839"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/@id
             name:
-              - text: Baby Girl / Toddler Girl Jumping Beans® 6-pk. Mixed ... Media Crew Socks
+              - text: Baby/Toddler Girl Jumping Beans® Cat Slipper Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2059829/jumping-beans-6-pk-flower-heart-star-quarter-socks-baby-girl-toddler-girl.jsp?prdPV=32
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4400839
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2059829?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4400839?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "2.9"
+              - text: "4"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "14"
+              - text: "1"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $8.40
+              - text: $9.80
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/div[1]/span[2]
             rank:
               - text: "32"
@@ -898,25 +991,28 @@ extractions:
                 locale: en
                 value: 32
           - id:
-              - text: "104156"
+              - text: "3737277"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/@id
             name:
-              - text: The First Years® My First Rattle
+              - text: Baby Girl Jumping Beans® 6-Pack Ballet Crew Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-104156/the-first-years-my-first-rattle.jsp?prdPV=33
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3737277
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/104156?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3737277?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.9"
+              - text: "3.8"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "23"
+              - text: "8"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $7.50
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/div[1]/span[2]
             rank:
               - text: "33"
@@ -932,14 +1028,17 @@ extractions:
               - text: Lamaze® Octotunes Clip & Go
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3573975/lamaze-octotunes-clip-go.jsp?prdPV=34
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3573975
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/@id
             thumbnail:
               - text: https://media.kohlsimg.com/is/image/kohls/3573975?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "4"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/div[5]/span[2]/a[1]
@@ -954,26 +1053,28 @@ extractions:
                 locale: en
                 value: 34
           - id:
-              - text: "2059808"
+              - text: "1999718"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/@id
             name:
-              - text: Baby Girl / Toddler Girl Jumping Beans® 6-pk. ... Scalloped Edge Knit
-                  Low-Cut Socks
+              - text: Carter's Giraffe Rainstick Rattle Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2059808/jumping-beans-6-pk-scalloped-low-socks-baby-girl-toddler-girl.jsp?prdPV=35
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-1999718
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2059808?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/1999718?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "3.8"
+              - text: "4.9"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "12"
+              - text: "11"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $8.40
+              - text: $7.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/div[1]/span[2]
             rank:
               - text: "35"
@@ -983,25 +1084,28 @@ extractions:
                 locale: en
                 value: 35
           - id:
-              - text: "3456626"
+              - text: "4450831"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/@id
             name:
-              - text: Dr. Seuss Oh, The Place You'll Go Book
+              - text: Fisher-Price Hello Sunshine Rattle Ball
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3456626/dr-seuss-oh-the-place-youll-go-book.jsp?prdPV=36
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4450831
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3456626?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4450831?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "5"
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "18"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "2"
+              - text: "18"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $18.99
+              - text: $6.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/div[1]/span[2]
             rank:
               - text: "36"
@@ -1011,25 +1115,28 @@ extractions:
                 locale: en
                 value: 36
           - id:
-              - text: "4450831"
+              - text: "3012586"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/@id
             name:
-              - text: Fisher-Price Hello Sunshine Rattle Ball
+              - text: Fisher-Price Laugh & Learn Learn Around Town Bus
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4450831/fisher-price-hello-sunshine-rattle-ball.jsp?prdPV=37
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3012586
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4450831?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3012586?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.4"
+              - text: "4.7"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "25"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "18"
+              - text: "25"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $4.89
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/div[1]/span[2]
             rank:
               - text: "37"
@@ -1039,25 +1146,19 @@ extractions:
                 locale: en
                 value: 37
           - id:
-              - text: "3737277"
+              - text: "4400838"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[4]/@id
             name:
-              - text: Baby Girl Jumping Beans® 6-Pack Ballet Crew Socks
+              - text: Baby/Toddler Girl Jumping Beans® Sloth Slipper Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3737277/baby-girl-jumping-beans-6-pack-ballet-crew-socks.jsp?prdPV=38
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4400838
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3737277?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4400838?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "3.8"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "8"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $8.40
+              - text: $9.80
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[4]/div[1]/span[2]
             rank:
               - text: "38"
@@ -1067,19 +1168,19 @@ extractions:
                 locale: en
                 value: 38
           - id:
-              - text: "4400838"
+              - text: "4400846"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[4]/@id
             name:
-              - text: Baby/Toddler Girl Jumping Beans® Sloth Slipper Socks
+              - text: Baby/Toddler Girl Jumping Beans® Llama Slipper Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4400838/babytoddler-girl-jumping-beans-sloth-slipper-socks.jsp?prdPV=39
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4400846
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4400838?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4400846?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $8.40
+              - text: $9.80
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[4]/div[1]/span[2]
             rank:
               - text: "39"
@@ -1089,25 +1190,19 @@ extractions:
                 locale: en
                 value: 39
           - id:
-              - text: "3012586"
+              - text: "4505873"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[4]/@id
             name:
-              - text: Fisher-Price Laugh & Learn Learn Around Town Bus
+              - text: Warmies® Heatable Plush Sloth Neck Wrap
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3012586/fisher-price-laugh-learn-learn-around-town-bus.jsp?prdPV=40
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4505873
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3012586?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4505873?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "4.7"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "25"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $10.49
+              - text: $19.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[4]/div[1]/span[2]
             rank:
               - text: "40"
@@ -1117,19 +1212,28 @@ extractions:
                 locale: en
                 value: 40
           - id:
-              - text: "4400846"
+              - text: "1484343"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[43]/div[4]/@id
             name:
-              - text: Baby/Toddler Girl Jumping Beans® Llama Slipper Socks
+              - text: Baby Girl Jumping Beans® 10-pk. Solid Crew Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[43]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4400846/babytoddler-girl-jumping-beans-llama-slipper-socks.jsp?prdPV=41
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[43]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-1484343
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[43]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4400846?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/1484343?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[43]/div[1]/a[1]/img[1]/@data-herosrc
+            aggregateRating2:
+              - text: "3.5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[43]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[43]/div[4]/div[5]/span[2]/a[1]
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[43]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $8.40
+              - text: $12.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[43]/div[4]/div[1]/span[2]
             rank:
               - text: "41"
@@ -1139,25 +1243,28 @@ extractions:
                 locale: en
                 value: 41
           - id:
-              - text: "1484343"
+              - text: "4309440"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[44]/div[4]/@id
             name:
-              - text: Baby Girl Jumping Beans® 10-pk. Solid Crew Socks
+              - text: Baby Carter's 4 Pack Chenille Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[44]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-1484343/jumping-beans-10-pk-crew-socks-baby.jsp?prdPV=42
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[44]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4309440
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[44]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/1484343?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4309440?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[44]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "3.5"
+              - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[44]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[44]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "10"
+              - text: "8"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[44]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $11.20
+              - text: $12.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[44]/div[4]/div[1]/span[2]
             rank:
               - text: "42"
@@ -1167,25 +1274,28 @@ extractions:
                 locale: en
                 value: 42
           - id:
-              - text: "3199143"
+              - text: "2868768"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[45]/div[4]/@id
             name:
-              - text: Baby Carter's Unicorn Waggy Plush Toy
+              - text: Carter's Unicorn Plush Security Blanket
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[45]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3199143/baby-carters-unicorn-waggy-plush-toy.jsp?prdPV=43
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[45]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2868768
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[45]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3199143?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2868768?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[45]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.7"
+              - text: "4.9"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[45]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "69"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[45]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "3"
+              - text: "69"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[45]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $16.99
+              - text: $12.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[45]/div[4]/div[1]/span[2]
             rank:
               - text: "43"
@@ -1195,26 +1305,19 @@ extractions:
                 locale: en
                 value: 43
           - id:
-              - text: "3632489"
+              - text: "4309901"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[46]/div[4]/@id
             name:
-              - text: Baby Girl Columbia Girl's Steens Mountain Overlay ... Hoodie Fleece
-                  Full-Zip jacket
+              - text: Baby Girl Carter's 3 Pack Ruffled Cuff Crew Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[46]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3632489/baby-girl-columbia-girls-steens-mountain-overlay-hoodie-fleece-full-zip-jacket.jsp?color=Blackbloo&prdPV=44
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[46]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4309901
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[46]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3632489_Blackbloo?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4309901?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[46]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "4.7"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[46]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "3"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[46]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $24.99
+              - text: $10.50
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[46]/div[4]/div[1]/span[2]
             rank:
               - text: "44"
@@ -1224,25 +1327,28 @@ extractions:
                 locale: en
                 value: 44
           - id:
-              - text: "2868768"
+              - text: "3199143"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[47]/div[4]/@id
             name:
-              - text: Carter's Unicorn Plush Security Blanket
+              - text: Baby Carter's Unicorn Waggy Plush Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[47]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2868768/carters-unicorn-plush-security-blanket.jsp?prdPV=45
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[47]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3199143
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[47]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2868768?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3199143?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[47]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.9"
+              - text: "4.7"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[47]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[47]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "69"
+              - text: "3"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[47]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $12.99
+              - text: $16.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[47]/div[4]/div[1]/span[2]
             rank:
               - text: "45"
@@ -1252,25 +1358,28 @@ extractions:
                 locale: en
                 value: 45
           - id:
-              - text: "3576657"
+              - text: "2933533"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[48]/div[4]/@id
             name:
-              - text: Disney / Pixar Toy Story Buzz Lightyear Clip & Go by ... Lamaze
+              - text: Winfun Polar Fiesta Playmat
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[48]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3576657/disneys-toy-story-buzz-lightyear-clip-go-by-lamaze.jsp?prdPV=46
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[48]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2933533
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[48]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3576657?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2933533?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[48]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "5"
+              - text: "4.7"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[48]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[48]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "4"
+              - text: "3"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[48]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $15.00
+              - text: $20.39
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[48]/div[4]/div[1]/span[2]
             rank:
               - text: "46"
@@ -1280,25 +1389,28 @@ extractions:
                 locale: en
                 value: 46
           - id:
-              - text: "2933533"
+              - text: "1015557"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[49]/div[4]/@id
             name:
-              - text: Winfun Polar Fiesta Playmat
+              - text: The First Years Stack & Count Cups
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[49]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2933533/winfun-polar-fiesta-playmat.jsp?prdPV=47
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[49]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-1015557
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[49]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2933533?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/1015557?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[49]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.7"
+              - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[49]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[49]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "3"
+              - text: "14"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[49]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $19.99
+              - text: $6.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[49]/div[4]/div[1]/span[2]
             rank:
               - text: "47"
@@ -1308,19 +1420,19 @@ extractions:
                 locale: en
                 value: 47
           - id:
-              - text: "3632492"
+              - text: "4450829"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[50]/div[4]/@id
             name:
-              - text: Baby Girl Columbia Snowtop II Zip-Up Fleece Bunting
+              - text: Fisher-Price Stack and Rattle Birdie
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[50]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3632492/baby-girl-columbia-snowtop-ii-zip-up-fleece-blunting.jsp?prdPV=48
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[50]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4450829
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[50]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3632492_Palelilac?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4450829?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[50]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $29.99
+              - text: $14.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[50]/div[4]/div[1]/span[2]
             rank:
               - text: "48"
@@ -1330,8 +1442,8 @@ extractions:
                 locale: en
                 value: 48
         xpath: /html
-    timestamp: 1605015062955
-  - html: https://workbench.import.io/html/run=5b6d29e7-1a64-4383-81a5-00ea813b2610/task=4810de0e-2858-4567-aed8-923dd1c621d9/5bbd0279-28d1-4260-8989-30d6722ac97a.html
+    timestamp: 1605636142629
+  - html: https://workbench.import.io/html/run=8a4d117e-53fc-4ca4-b3e6-6cd2452ed742/task=58c8cb83-0032-4b2e-bc4e-2e413bcde3ea/abb94ff3-4e0b-4eb9-8c70-807824295938.html
     extractionConfigId: product/search/stores/k/kohls/US/extract
     data:
       - group:
@@ -1342,8 +1454,8 @@ extractions:
               - text: Guess How Much I Love You Children's Book
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4470558/guess-how-much-i-love-you-childrens-book.jsp?prdPV=49
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4470558
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/@id
             thumbnail:
               - text: https://media.kohlsimg.com/is/image/kohls/4470558?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[1]/a[1]/img[1]/@data-herosrc
@@ -1358,25 +1470,28 @@ extractions:
                 locale: en
                 value: 1
           - id:
-              - text: "4309440"
+              - text: "3576657"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/@id
             name:
-              - text: Baby Carter's 4 Pack Chenille Socks
+              - text: Disney / Pixar Toy Story Buzz Lightyear Clip & Go by ... Lamaze
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4309440/baby-carters-4-pack-chenille-bootie-socks.jsp?prdPV=50
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3576657
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4309440?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3576657?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "8"
+              - text: "4"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $11.20
+              - text: $15.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[1]/span[2]
             rank:
               - text: "2"
@@ -1386,19 +1501,19 @@ extractions:
                 locale: en
                 value: 2
           - id:
-              - text: "4309901"
+              - text: "4309606"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/@id
             name:
-              - text: Baby Girl Carter's 3 Pack Ruffled Cuff Crew Socks
+              - text: Baby Girl Carter's 3 Pack Striped & Bow Crew Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4309901/baby-girl-carters-3-pack-ruffled-cuff-crew-socks.jsp?prdPV=51
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4309606
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4309901?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4309606?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $9.80
+              - text: $10.50
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[3]/div[4]/div[1]/span[2]
             rank:
               - text: "3"
@@ -1408,25 +1523,19 @@ extractions:
                 locale: en
                 value: 3
           - id:
-              - text: "3529711"
+              - text: "4450835"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/@id
             name:
-              - text: Disney's Winnie the Pooh Tigger On-the-Go Activity ... Toy
+              - text: Fisher-Price® Stack & Roll Activity Set
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3529711/disneys-winnie-the-pooh-tigger-on-the-go-activity-toy.jsp?prdPV=52
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4450835
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3529711?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4450835?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "3"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $15.00
+              - text: $15.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[4]/div[4]/div[1]/span[2]
             rank:
               - text: "4"
@@ -1436,25 +1545,28 @@ extractions:
                 locale: en
                 value: 4
           - id:
-              - text: "2059726"
+              - text: "2722454"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/@id
             name:
-              - text: Baby Girl / Toddler Girl Jumping Beans® 6-pk. ... Scalloped Crew Socks
+              - text: Adorables Petals Unicorn Plush Toy by Manhattan Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2059726/jumping-beans-6-pk-scalloped-roll-cuff-socks-baby-girl-toddler-girl.jsp?prdPV=53
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2722454
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2059726?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2722454?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "4.6"
+              - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "10"
+              - text: "14"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $8.40
+              - text: $19.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[5]/div[4]/div[1]/span[2]
             rank:
               - text: "5"
@@ -1464,25 +1576,28 @@ extractions:
                 locale: en
                 value: 5
           - id:
-              - text: "3456747"
+              - text: "3529711"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/@id
             name:
-              - text: Dragons Love Tacos Book
+              - text: Disney's Winnie the Pooh Tigger On-the-Go Activity ... Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3456747/dragons-love-tacos-book.jsp?prdPV=54
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3529711
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3456747?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3529711?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $18.99
+              - text: $15.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[6]/div[4]/div[1]/span[2]
             rank:
               - text: "6"
@@ -1492,25 +1607,19 @@ extractions:
                 locale: en
                 value: 6
           - id:
-              - text: "2128459"
+              - text: "3857112"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/@id
             name:
-              - text: Winkel Box by Manhattan Toy
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/div[3]/p[1]
+              - text: Holiday Blocky Book
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/div[5]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2128459/winkel-box-by-manhattan-toy.jsp?prdPV=55
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3857112
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2128459?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3857112?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "4.8"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "33"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $15.99
+              - text: $5.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[7]/div[4]/div[1]/span[2]
             rank:
               - text: "7"
@@ -1520,25 +1629,28 @@ extractions:
                 locale: en
                 value: 7
           - id:
-              - text: "2722454"
+              - text: "3456747"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/@id
             name:
-              - text: Adorables Petals Unicorn Plush Toy by Manhattan Toy
+              - text: Dragons Love Tacos Book
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2722454/adorables-petals-unicorn-plush-toy-by-manhattan-toy.jsp?prdPV=56
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3456747
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2722454?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3456747?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "14"
+              - text: "3"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $15.99
+              - text: $18.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[8]/div[4]/div[1]/span[2]
             rank:
               - text: "8"
@@ -1548,25 +1660,19 @@ extractions:
                 locale: en
                 value: 8
           - id:
-              - text: "3576660"
+              - text: "3665497"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/@id
             name:
-              - text: Disney / Pixar Toy Story Bullseye Play & Grow by ... Lamaze
+              - text: Fat Brain Toys Spoolz
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3576660/disneys-toy-story-bullseye-play-grow-by-lamaze.jsp?prdPV=57
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3665497
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3576660?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3665497?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $15.00
+              - text: $24.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[9]/div[4]/div[1]/span[2]
             rank:
               - text: "9"
@@ -1576,19 +1682,28 @@ extractions:
                 locale: en
                 value: 9
           - id:
-              - text: "3857112"
+              - text: "3576660"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/@id
             name:
-              - text: Holiday Blocky Book
+              - text: Disney / Pixar Toy Story Bullseye Play & Grow by ... Lamaze
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3857112/holiday-blocky-book.jsp?prdPV=58
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3576660
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3857112?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3576660?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[1]/a[1]/img[1]/@data-herosrc
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/div[5]/span[2]/a[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $5.99
+              - text: $15.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[10]/div[4]/div[1]/span[2]
             rank:
               - text: "10"
@@ -1598,19 +1713,19 @@ extractions:
                 locale: en
                 value: 10
           - id:
-              - text: "4450835"
+              - text: "3665515"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/@id
             name:
-              - text: Fisher-Price® Stack & Roll Activity Set
+              - text: Fat Brain Toys Whirly Squigz
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4450835/fisher-price-stack-roll-activity-set.jsp?prdPV=59
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3665515
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4450835?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3665515?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $11.19
+              - text: $21.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[11]/div[4]/div[1]/span[2]
             rank:
               - text: "11"
@@ -1620,19 +1735,28 @@ extractions:
                 locale: en
                 value: 11
           - id:
-              - text: "4450829"
+              - text: "2128459"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/@id
             name:
-              - text: Fisher-Price Stack and Rattle Birdie
+              - text: Winkel Box by Manhattan Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4450829/fisher-price-stack-and-rattle-birdie.jsp?prdPV=60
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2128459
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4450829?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2128459?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[1]/a[1]/img[1]/@data-herosrc
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "33"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/div[5]/span[2]/a[1]
+            ratingCount:
+              - text: "33"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $10.49
+              - text: $15.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[12]/div[4]/div[1]/span[2]
             rank:
               - text: "12"
@@ -1642,25 +1766,19 @@ extractions:
                 locale: en
                 value: 12
           - id:
-              - text: "2128312"
+              - text: "4309597"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/@id
             name:
-              - text: Wimmer Ferguson Mind-Shapes by Manhattan Toy
+              - text: Baby Carter's 3 Pack Foldover Cuff Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2128312/wimmer-ferguson-mind-shapes-by-manhattan-toy.jsp?prdPV=61
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4309597
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2128312?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4309597?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "8"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $15.99
+              - text: $10.50
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[14]/div[4]/div[1]/span[2]
             rank:
               - text: "13"
@@ -1670,25 +1788,19 @@ extractions:
                 locale: en
                 value: 13
           - id:
-              - text: "2722427"
+              - text: "3292991"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/@id
             name:
-              - text: Adorables Rowan Bear Plush Toy by Manhattan Toy
+              - text: Disney Baby Belle Soft Book
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2722427/adorables-rowan-bear-plush-toy-by-manhattan-toy.jsp?prdPV=62
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3292991
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2722427?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3292991?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "6"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $15.99
+              - text: $10.50
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[15]/div[4]/div[1]/span[2]
             rank:
               - text: "14"
@@ -1698,19 +1810,28 @@ extractions:
                 locale: en
                 value: 14
           - id:
-              - text: "3665497"
+              - text: "2722427"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/@id
             name:
-              - text: Fat Brain Toys Spoolz
+              - text: Adorables Rowan Bear Plush Toy by Manhattan Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3665497/fat-brain-toys-spoolz.jsp?prdPV=63
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2722427
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3665497?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2722427?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[1]/a[1]/img[1]/@data-herosrc
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/div[5]/span[2]/a[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $24.99
+              - text: $19.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[16]/div[4]/div[1]/span[2]
             rank:
               - text: "15"
@@ -1720,19 +1841,28 @@ extractions:
                 locale: en
                 value: 15
           - id:
-              - text: "4309606"
+              - text: "3456626"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/@id
             name:
-              - text: Baby Girl Carter's 3 Pack Striped & Bow Crew Socks
+              - text: Dr. Seuss Oh, The Place You'll Go Book
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4309606/baby-girl-carters-3-pack-striped-bow-crew-socks.jsp?prdPV=64
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3456626
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4309606?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3456626?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[1]/a[1]/img[1]/@data-herosrc
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/div[5]/span[2]/a[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $9.80
+              - text: $18.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[17]/div[4]/div[1]/span[2]
             rank:
               - text: "16"
@@ -1742,19 +1872,28 @@ extractions:
                 locale: en
                 value: 16
           - id:
-              - text: "3665515"
+              - text: "157476"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/@id
             name:
-              - text: Fat Brain Toys Whirly Squigz
+              - text: Lamaze® My First Keys
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3665515/fat-brain-toys-whirly-squigz.jsp?prdPV=65
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-157476
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3665515?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/157476?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[1]/a[1]/img[1]/@data-herosrc
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "29"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/div[5]/span[2]/a[1]
+            ratingCount:
+              - text: "29"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $21.99
+              - text: $3.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[18]/div[4]/div[1]/span[2]
             rank:
               - text: "17"
@@ -1770,14 +1909,17 @@ extractions:
               - text: Adorables Theo Bunny Plush Toy by Manhattan Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2722432/adorables-theo-bunny-plush-toy-by-manhattan-toy.jsp?prdPV=66
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2722432
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/@id
             thumbnail:
               - text: https://media.kohlsimg.com/is/image/kohls/2722432?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "4.8"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
               - text: "4"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[19]/div[4]/div[5]/span[2]/a[1]
@@ -1792,19 +1934,19 @@ extractions:
                 locale: en
                 value: 18
           - id:
-              - text: "3492045"
+              - text: "4397198"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[4]/@id
             name:
-              - text: Carter’s Sweet Surprise Play Gym
+              - text: Baby Girl / Toddler Girl Jumping Beans® 6-pk. ... Character Crew Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3492045/skip-hop-sweet-surprise-play-gym.jsp?prdPV=67
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4397198
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3492045?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4397198?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $60.00
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[20]/div[4]/div[1]/span[2]
             rank:
               - text: "19"
@@ -1814,19 +1956,19 @@ extractions:
                 locale: en
                 value: 19
           - id:
-              - text: "4309597"
+              - text: "4397199"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/@id
             name:
-              - text: Baby Carter's 3 Pack Foldover Cuff Socks
+              - text: Baby Girl / Toddler Girl Jumping Beans® 6-pk. Garden ... Crew Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4309597/baby-carters-3-pack-foldover-cuff-socks.jsp?prdPV=68
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4397199
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4309597?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4397199?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $9.80
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[21]/div[4]/div[1]/span[2]
             rank:
               - text: "20"
@@ -1836,23 +1978,17 @@ extractions:
                 locale: en
                 value: 20
           - id:
-              - text: "2419558"
+              - text: "3419460"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/@id
             name:
-              - text: Little Jurassics Chomp Plush by Manhattan Toy
+              - text: The Peanut Shell Plush Llama
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2419558/little-jurassics-chomp-plush-by-manhattan-toy.jsp?prdPV=69
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3419460
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2419558?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3419460?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "5"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/div[5]/span[2]/a[1]
             price:
               - text: $17.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[22]/div[4]/div[1]/span[2]
@@ -1864,19 +2000,19 @@ extractions:
                 locale: en
                 value: 21
           - id:
-              - text: "3492047"
+              - text: "4394801"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/@id
             name:
-              - text: Carter’s Shoot For The Moon Play Gym
+              - text: Baby Girl Fruit of the Loom® 3-Pack White Bow ... Headwraps
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3492047/skip-hop-shoot-for-the-moon-play-gym.jsp?prdPV=70
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4394801
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3492047?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4394801?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $60.00
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[23]/div[4]/div[1]/span[2]
             rank:
               - text: "22"
@@ -1886,19 +2022,28 @@ extractions:
                 locale: en
                 value: 22
           - id:
-              - text: "3419460"
+              - text: "4470560"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/@id
             name:
-              - text: The Peanut Shell Plush Llama
+              - text: Good Night America Children's Book
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3419460/the-peanut-shell-plush-llama.jsp?prdPV=71
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4470560
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3419460?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4470560?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[1]/a[1]/img[1]/@data-herosrc
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/div[5]/span[2]/a[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $17.99
+              - text: $9.95
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[24]/div[4]/div[1]/span[2]
             rank:
               - text: "23"
@@ -1908,25 +2053,19 @@ extractions:
                 locale: en
                 value: 23
           - id:
-              - text: "2127197"
+              - text: "4397202"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/@id
             name:
-              - text: Skwish Color Burst by Manhattan Toy
+              - text: Baby Girl / Toddler Girl Jumping Beans® 6-pk. Unicorn ... Crew Socks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2127197/skwish-color-burst-by-manhattan-toy.jsp?prdPV=72
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4397202
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2127197?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4397202?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "2"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $13.99
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[25]/div[4]/div[1]/span[2]
             rank:
               - text: "24"
@@ -1936,19 +2075,19 @@ extractions:
                 locale: en
                 value: 24
           - id:
-              - text: "4470560"
+              - text: "3492045"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/@id
             name:
-              - text: Good Night America Children's Book
+              - text: Carter’s Sweet Surprise Play Gym
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4470560/good-night-america-childrens-book.jsp?prdPV=73
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3492045
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4470560?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3492045?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $9.95
+              - text: $60.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[27]/div[4]/div[1]/span[2]
             rank:
               - text: "25"
@@ -1958,25 +2097,28 @@ extractions:
                 locale: en
                 value: 25
           - id:
-              - text: "2419581"
+              - text: "2419558"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[4]/@id
             name:
-              - text: Little Jurassics Rory Plush by Manhattan Toy
+              - text: Little Jurassics Chomp Plush by Manhattan Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2419581/little-jurassics-rory-plush-by-manhattan-toy.jsp?prdPV=74
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2419558
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2419581?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2419558?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "3"
+              - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $17.99
+              - text: $22.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[28]/div[4]/div[1]/span[2]
             rank:
               - text: "26"
@@ -1986,25 +2128,19 @@ extractions:
                 locale: en
                 value: 26
           - id:
-              - text: "3677509"
+              - text: "4397196"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/@id
             name:
-              - text: Winfun Peekaboo Light up Bunny
+              - text: Baby Girl / Toddler Girl Jumping Beans® 6-pk. Ballet ... Sock Set
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3677509/winfun-peekaboo-light-up-bunny.jsp?prdPV=75
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4397196
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3677509?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4397196?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "4"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $24.99
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[29]/div[4]/div[1]/span[2]
             rank:
               - text: "27"
@@ -2014,25 +2150,19 @@ extractions:
                 locale: en
                 value: 27
           - id:
-              - text: "2419543"
+              - text: "3721335"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/@id
             name:
-              - text: Little Jurassics Herb Plush by Manhattan Toy
+              - text: The Peanut Shell Farmhouse Knit Plush Giraffe
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-2419543/little-jurassics-herb-plush-by-manhattan-toy.jsp?prdPV=76
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3721335
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/2419543?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3721335?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[1]/a[1]/img[1]/@data-herosrc
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/div[5]/span[1]/a[1]/@title
-            ratingCount:
-              - text: "6"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $17.99
+              - text: $16.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[30]/div[4]/div[1]/span[2]
             rank:
               - text: "28"
@@ -2042,19 +2172,19 @@ extractions:
                 locale: en
                 value: 28
           - id:
-              - text: "4433585"
+              - text: "3665491"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/@id
             name:
-              - text: Manhattan Toy Fruity Paws Momo Monkey Baby Soothing ... Lovie Teething Toy
+              - text: Fat Brain Toys Pail Pals
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4433585/manhattan-toy-fruity-paws-momo-monkey-baby-soothing-lovie-teething-toy.jsp?prdPV=77
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3665491
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4433585?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3665491?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $20.99
+              - text: $19.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[31]/div[4]/div[1]/span[2]
             rank:
               - text: "29"
@@ -2064,19 +2194,28 @@ extractions:
                 locale: en
                 value: 29
           - id:
-              - text: "3665491"
+              - text: "2419543"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/@id
             name:
-              - text: Fat Brain Toys Pail Pals
+              - text: Little Jurassics Herb Plush by Manhattan Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3665491/fat-brain-toys-pail-pals.jsp?prdPV=78
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2419543
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3665491?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2419543?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[1]/a[1]/img[1]/@data-herosrc
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/div[5]/span[2]/a[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $19.99
+              - text: $22.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[32]/div[4]/div[1]/span[2]
             rank:
               - text: "30"
@@ -2086,26 +2225,28 @@ extractions:
                 locale: en
                 value: 30
           - id:
-              - text: "4433587"
+              - text: "3677509"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/@id
             name:
-              - text: Manhattan Toy Space Themed Baby Travel Spiral with ... Baby-safe Mirror,
-                  Elastic Pull Cord and Rattle Chime
+              - text: Winfun Peekaboo Light up Bunny
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4433587/manhattan-toy-space-themed-baby-travel-spiral-with-baby-safe-mirror-elastic-pull-cord-and-rattle-chime.jsp?prdPV=79
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3677509
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4433587?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3677509?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
-              - text: "5"
+              - text: "4"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $17.99
+              - text: $22.39
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[33]/div[4]/div[1]/span[2]
             rank:
               - text: "31"
@@ -2115,19 +2256,19 @@ extractions:
                 locale: en
                 value: 31
           - id:
-              - text: "4433586"
+              - text: "4394806"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/@id
             name:
-              - text: Manhattan Toy Lemur Baby Travel Spiral
+              - text: Baby Girl Fruit of the Loom® 2-Pack Knotted ... Headwraps
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4433586/manhattan-toy-lemur-baby-travel-spiral.jsp?prdPV=80
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4394806
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4433586?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4394806?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $17.99
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[34]/div[4]/div[1]/span[2]
             rank:
               - text: "32"
@@ -2137,19 +2278,19 @@ extractions:
                 locale: en
                 value: 32
           - id:
-              - text: "3721335"
+              - text: "4394775"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/@id
             name:
-              - text: The Peanut Shell Farmhouse Knit Plush Giraffe
+              - text: Baby Girl Fruit of the Loom® 3-Pack Bow Headwraps
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3721335/the-peanut-shell-farmhouse-knit-plush-giraffe.jsp?prdPV=81
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4394775
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3721335?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4394775?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $16.99
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[35]/div[4]/div[1]/span[2]
             rank:
               - text: "33"
@@ -2159,25 +2300,28 @@ extractions:
                 locale: en
                 value: 33
           - id:
-              - text: "4433589"
+              - text: "3743684"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/@id
             name:
-              - text: Manhattan Toy Woolly Mammoth Stuffed Animal Plush ... Toy
+              - text: Baby Girl Fruit of the Loom® 4 Pack Floral Headwraps
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4433589/manhattan-toy-woolly-mammoth-stuffed-animal-plush-toy.jsp?prdPV=82
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3743684
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4433589?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/3743684?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[1]/a[1]/img[1]/@data-herosrc
             aggregateRating2:
               - text: "5"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/div[5]/span[2]/a[1]
             ratingCount:
-              - text: "2"
+              - text: "1"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $26.99
+              - text: $9.00
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[36]/div[4]/div[1]/span[2]
             rank:
               - text: "34"
@@ -2187,19 +2331,28 @@ extractions:
                 locale: en
                 value: 34
           - id:
-              - text: "4433584"
+              - text: "2419581"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/@id
             name:
-              - text: Manhattan Toy Fruity Paws Lemmy Lemur Baby Soothing ... Lovie Teething Toy
+              - text: Little Jurassics Rory Plush by Manhattan Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4433584/manhattan-toy-fruity-paws-lemmy-lemur-baby-soothing-lovie-teething-toy.jsp?prdPV=83
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-2419581
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4433584?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/2419581?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[1]/a[1]/img[1]/@data-herosrc
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/div[5]/span[2]/a[1]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $20.99
+              - text: $22.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[37]/div[4]/div[1]/span[2]
             rank:
               - text: "35"
@@ -2209,19 +2362,28 @@ extractions:
                 locale: en
                 value: 35
           - id:
-              - text: "4394801"
+              - text: "4433589"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/@id
             name:
-              - text: Baby Girl Fruit of the Loom 3 Pack White Bow ... Headwraps
+              - text: Manhattan Toy Woolly Mammoth Stuffed Animal Plush ... Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4394801/baby-girl-fruit-of-the-loom-3-pack-white-bow-headwraps.jsp?prdPV=84
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4433589
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4394801?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4433589?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[1]/a[1]/img[1]/@data-herosrc
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/div[5]/span[1]/a[1]/@title
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/div[5]/span[2]/a[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/div[5]/span[2]/a[1]
             price:
-              - text: $9.00
+              - text: $29.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[38]/div[4]/div[1]/span[2]
             rank:
               - text: "36"
@@ -2231,19 +2393,19 @@ extractions:
                 locale: en
                 value: 36
           - id:
-              - text: "4394806"
+              - text: "4433586"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/@id
             name:
-              - text: Baby Girl Fruit of the Loom 2 Pack Knotted Headwraps
+              - text: Manhattan Toy Lemur Baby Travel Spiral
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4394806/baby-girl-fruit-of-the-loom-2-pack-knotted-headwraps.jsp?prdPV=85
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4433586
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4394806?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4433586?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $9.00
+              - text: $19.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[39]/div[4]/div[1]/span[2]
             rank:
               - text: "37"
@@ -2253,19 +2415,19 @@ extractions:
                 locale: en
                 value: 37
           - id:
-              - text: "4394775"
+              - text: "4433585"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[4]/@id
             name:
-              - text: Baby Girl Fruit of the Loom 3 Pack Bow Headwraps
+              - text: Manhattan Toy Fruity Paws Momo Monkey Baby Soothing ... Lovie Teething Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4394775/baby-girl-fruit-of-the-loom-3-pack-bow-headwraps.jsp?prdPV=86
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4433585
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4394775?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4433585?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $9.00
+              - text: $23.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[40]/div[4]/div[1]/span[2]
             rank:
               - text: "38"
@@ -2275,20 +2437,19 @@ extractions:
                 locale: en
                 value: 38
           - id:
-              - text: "4433592"
+              - text: "4433584"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[4]/@id
             name:
-              - text: Manhattan Toy Toucan Crib and Baby Travel Accessory ... Brahm's Lullaby
-                  Pull Musical Toy
+              - text: Manhattan Toy Fruity Paws Lemmy Lemur Baby Soothing ... Lovie Teething Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-4433592/manhattan-toy-toucan-crib-and-baby-travel-accessory-brahms-lullaby-pull-musical-toy.jsp?prdPV=87
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4433584
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/4433592?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4433584?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $17.99
+              - text: $23.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[41]/div[4]/div[1]/span[2]
             rank:
               - text: "39"
@@ -2298,19 +2459,20 @@ extractions:
                 locale: en
                 value: 39
           - id:
-              - text: "3757434"
+              - text: "4433592"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[4]/@id
             name:
-              - text: L.O.L. Surprise! Hair Accessory Set
+              - text: Manhattan Toy Toucan Crib and Baby Travel Accessory ... Brahm's Lullaby
+                  Pull Musical Toy
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3757434/lol-surprise-hair-accessory-set.jsp?prdPV=88
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-4433592
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[4]/@id
             thumbnail:
-              - text: https://media.kohlsimg.com/is/image/kohls/3757434?wid=240&hei=240&op_sharpen=1
+              - text: https://media.kohlsimg.com/is/image/kohls/4433592?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $8.00
+              - text: $20.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[42]/div[4]/div[1]/span[2]
             rank:
               - text: "40"
@@ -2320,4 +2482,4 @@ extractions:
                 locale: en
                 value: 40
         xpath: /html
-    timestamp: 1605015062955
+    timestamp: 1605636142629

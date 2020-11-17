@@ -2,7 +2,7 @@ input:
   keywords: Straight Track Pack
   _url: http://kohls.com
 extractions:
-  - html: https://workbench.import.io/html/run=5b6d29e7-1a64-4383-81a5-00ea813b2610/task=8df91387-ef22-4591-bf01-186e5d23cac1/3b95bc1e-bc42-45e7-94cd-7de709625832.html
+  - html: https://workbench.import.io/html/run=8a4d117e-53fc-4ca4-b3e6-6cd2452ed742/task=5221109a-c172-4ce5-8f09-8534188faf6d/44003831-9eff-43b0-8dfc-e4d8ce1248ec.html
     extractionConfigId: product/search/stores/k/kohls/US/extract
     data:
       - group:
@@ -13,13 +13,13 @@ extractions:
               - text: Lionel Trains 4-pk. O Gauge Straight Train Tracks
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-1956773/lionel-trains-4-pk-o-gauge-straight-train-tracks.jsp?prdPV=1
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-1956773
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/@id
             thumbnail:
               - text: https://media.kohlsimg.com/is/image/kohls/1956773?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $18.99
+              - text: $21.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[1]/div[4]/div[1]/span[2]
             rank:
               - text: "1"
@@ -35,13 +35,13 @@ extractions:
               - text: Lionel White FasTrack 10" Straight 4-Pack
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[3]/p[1]
             productUrl:
-              - text: https://www.kohls.com/product/prd-3496114/lionel-white-fastrack-10-straight-4-pack.jsp?prdPV=2
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[1]/a[1]/@href
+              - text: https://www.kohls.com/product/prd-3496114
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/@id
             thumbnail:
               - text: https://media.kohlsimg.com/is/image/kohls/3496114?wid=240&hei=240&op_sharpen=1
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[1]/a[1]/img[1]/@data-herosrc
             price:
-              - text: $21.99
+              - text: $24.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/ul[1]/li[2]/div[4]/div[1]/span[2]
             rank:
               - text: "2"
@@ -51,4 +51,4 @@ extractions:
                 locale: en
                 value: 2
         xpath: /html
-    timestamp: 1605015055848
+    timestamp: 1605636127970
