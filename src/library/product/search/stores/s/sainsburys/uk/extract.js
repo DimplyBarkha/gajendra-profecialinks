@@ -2,10 +2,10 @@ const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'Ae',
-    store: 'lulu',
+    country: 'uk',
+    store: 'sainsburys',
     transform: cleanUp,
-    domain: 'luluhypermarket.com',
+    domain: 'sainsburys.co.uk',
     zipcode: '',
   },
   implementation,
@@ -19,10 +19,6 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
-      var elems = document.querySelectorAll(xpathforpagination);
-      elems[0].classList.add('pagination');
-    }
     //for rank
     function addHiddenDiv(id, content, index) {
       const newDiv = document.createElement('div');
@@ -53,48 +49,21 @@ async function implementation(
     for (let i = 0; i < urlProduct.length; i++) {
       addHiddenDiv('rankOrganic', rankOrganic++, i);
     }
-    // Method to Retrieve Xpath content of a Single Node
-    var getXpath = (xpath, prop) => {
-      var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-      let result;
-      if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-      else result = elem ? elem.singleNodeValue : '';
-      return result && result.trim ? result.trim() : result;
-    };
-    var pagination = getXpath("//ul[@class='pagination']/li[last()]/a/@class", 'nodeValue');
-    if (pagination === 'pagination__link') {
-      addclass('ul.pagination li:last-child a');
-    };
-    // for rank
-    function addElementToDocument(key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
-    // Method to Retrieve Xpath content of a Multiple Nodes
-    const getAllXpath = (xpath, prop) => {
-      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      const result = [];
-      for (let index = 0; index < nodeSet.snapshotLength; index++) {
-        const element = nodeSet.snapshotItem(index);
-        if (element) result.push(prop ? element[prop] : element.nodeValue);
+    let firstChildNode;
+    const aggregateRating = document.querySelectorAll("div[class='star-rating']")
+    for (let k = 0; k < aggregateRating.length; k++) {
+      let secondChildNode, thirdChildNode = 0;
+      firstChildNode = aggregateRating[k].childNodes;
+      for (let j = 0; j < firstChildNode.length; j++) {
+        secondChildNode = firstChildNode[j].firstChild;
+        // @ts-ignore
+        if (secondChildNode.childNodes.length) {
+          // @ts-ignore
+          thirdChildNode = thirdChildNode + secondChildNode.firstChild.firstChild.width.animVal.value;
+        }
       }
-      return result;
-    };
-    // for rank
-    // const sliceURL = (data) => {
-    //   var cnt = 0;
-    //   for (let index = 0; index < data.length; index++) {
-    //     if (data[0] != 0) {
-    //       cnt++;
-    //       addElementToDocument('altImages', cnt);
-    //     }
-    //   }
-    // };
-    // var backgroundURL = getAllXpath('//span[@class="product__name__productitemno"]/text()', 'nodeValue');
-    // sliceURL(backgroundURL);
+      addHiddenDiv('aggregateRating', thirdChildNode / 20, k);
+    }
   });
   //rank end
   return await context.extract(productDetails, { transform });

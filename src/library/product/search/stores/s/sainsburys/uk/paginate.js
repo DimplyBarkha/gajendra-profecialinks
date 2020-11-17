@@ -12,7 +12,7 @@ module.exports = {
     //   template: 'https://www.sainsburys.co.uk/gol-ui/SearchDisplayView?filters[keyword]={searchTerms}&pn={page}',
     // },
     domain: 'sainsburys.co.uk',
-  },
     noResultsXPath: null,
     zipcode: '',
-  };
+  },
+};
