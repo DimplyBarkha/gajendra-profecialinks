@@ -65,8 +65,11 @@ module.exports = {
       };
       const addDescInfo = getAllXpath("//div[@class='product attribute description wysiwyg-content']/div/p/text()", 'nodeValue');
       spaceSeparatorDouble(addDescInfo);
-
       addElementToDocument('description', spaceText + ' || ' + finalDescText);
+      // @ts-ignore
+      const mpnRaw = document.querySelectorAll("script[type='application/ld+json']")[0].innerText;
+      const parsedmpnRaw = JSON.parse(mpnRaw);
+      addElementToDocument('mpn', parsedmpnRaw.mpn);
     });
     await context.extract(productDetails, { transform: transformParam });
   },

@@ -17,6 +17,10 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
+      var rank = transform.rankCounter;
+      var rankOrganic1 = transform.rankCounter;
+      console.log(rank);
+      console.log(rankOrganic1);
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;

@@ -124,3 +124,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //html//div[@id='video']
+  - name: variantId
+    singleValue: false
+    xpath: //tr/th[(contains(text(),"SKU"))]/following-sibling::td/text()
+  - name: mpc
+    singleValue: false
+    xpath: //html//div[@id='mpn']
