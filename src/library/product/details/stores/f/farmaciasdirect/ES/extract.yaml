@@ -9,6 +9,14 @@ fields:
     xpath: (//div[contains(@class,"product-reference")])[position()=1]
     regExp: >-
       [0-9]+
+  - name: deliveryOptions
+    singleValue: false
+    xpath: //span[@class="shipping"]
+  - name: deliveryCharges
+    singleValue: false
+    xpath: //span[@class="shipping"]
+    regExp: (?<=de )(.+)(?=\.)
+    regExpReplace: $1
   - name: discounts
     singleValue: false
     xpath: //div[@class="stickers_container"]
@@ -30,9 +38,14 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
+    xpath: //div[@class='product-img']//img/@src
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
+  - name: imageCount
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@class='product-img']/parent::div/@data-count
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -46,18 +59,21 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    xpath: //div[@class='product-discount']/span[@class='regular-price']
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //span[contains(@class,'current-price-display')]
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
+    xpath: //div[@class='product-add-to-cart-container']//button[contains(@class,'add-to-cart') and not(@disabled)]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -67,10 +83,14 @@ fields:
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
+  - name: productUrls
+    singleValue: false
+    xpath: //div[@id="my-url"]  
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class='fd-product-brand']//img/@alt
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -261,6 +281,7 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //h3/strong[contains(text(),'Composición')]/parent::h3/following-sibling::p
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.

@@ -5,13 +5,15 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   const { productDetails } = dependencies;
 
   await context.evaluate(() => {
-    // function addHiddenDiv (id, content) {
-    //   const newDiv = document.createElement('div');
-    //   newDiv.id = id;
-    //   newDiv.textContent = content;
-    //   newDiv.style.display = 'none';
-    //   document.body.appendChild(newDiv);
-    // }
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+
+    addHiddenDiv('my-url', window.location.href);
   });
 
   return await context.extract(productDetails, { transform });
