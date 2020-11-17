@@ -5,7 +5,9 @@ recordXPath: //div[@class='item clearfix no-underline ajx item-link c d-4 p-m-6 
 fields:
   - name: name
     singleValue: false
-    xpath: //p[@class='item-description mbs0']/span
+    xpath: //div[@class='product-image c d-12']/a/@onclick
+    regExp: \"name\":\"(.*)\|(.*)\|(.*)\|(.*)\|(.*)\",\"id
+    regExpReplace: $1$3$4$5
   - name: productUrl
     singleValue: false
     xpath: //div[@class='product-image c d-12']/a/@href
