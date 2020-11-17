@@ -75,8 +75,8 @@ fields:
     description: The manufacturer model code (unique) of the product
     xpath: //div[@class='product-sku__reinsurance-container']/div/@data-upcean
   - name: retailer_product_code
-    singleValue: true
-    xpath: //div[@class='col product-sku__ref']
+    singleValue: false
+    xpath: //script
   - name: ean_gtin
     singleValue: true
     xpath: //div[@class='product-sku__reinsurance-container']/div/@data-upcean
@@ -112,4 +112,9 @@ fields:
   - name: variant_information
     singleValue: false
     xpath: //ul[@class='col wrap']/li
-
+  - name: size
+    singleValue: false
+    xpath: //div[@class='description-sku__attribute attribute-col-3']/ul/li
+  - name: harvest_product_description
+    singleValue: true
+    xpath: //div[@class='product-sku col x-large']/h1

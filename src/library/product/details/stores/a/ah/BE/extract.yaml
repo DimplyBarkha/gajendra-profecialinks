@@ -15,7 +15,7 @@ fields:
     xpath: //script[@type='application/ld+json']
   - name: product_description
     singleValue: true
-    xpath: //script[@type='application/ld+json']
+    xpath: //div/h1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -23,18 +23,18 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-  - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
-    xpath: //meta[@name='description']/@content
+#  - name: metaKeywords
+#    singleValue: true
+#    description: The <meta> keywords content
+#    xpath: //meta[@name='description']/@content
   - name: category
     singleValue: true
     description: The categories (e.g. from breadcrumbs)
     xpath: //nav/ol/li[2]
 
   - name: online_price
-    singleValue: true
-    xpath: //div[@class='product-card-hero_priceControls__2mRFt']/div/div
+    singleValue: false
+    xpath: //div[@class='product-card-hero_priceControls__2mRFt']/div/div[@data-testhook="price-amount"]/span
   - name: number_of_servings_in_package
     singleValue: true
     xpath: //tbody/tr[2]/td[@class='product-info-contents__contents-table-cell']
@@ -70,16 +70,23 @@ fields:
     xpath: //tbody/tr[8]/td[2]
   - name: salt_per_serving
     singleValue: true
-    xpath: //tbody/tr[9]/td[2]
+    xpath: //tbody/tr[7]/td[2]
   - name: salt_per_serving_uom
     singleValue: true
-    xpath: //tbody/tr[9]/td[2]
+    xpath: //tbody/tr[7]/td[2]
   - name: additional_desc_bullet_count
     singleValue: true
     xpath: //div[@id='additional_desc_bullet_count']
   - name: harvested_price
+    singleValue: false
+    xpath: //div[@class='product-card-hero_priceControls__2mRFt']/div/div[@data-testhook="price-amount"]/span
+  - name: price_per_unit
     singleValue: true
-    xpath: //div[@class='product-card-hero_priceControls__2mRFt']/div/div
+    xpath: //div[@class='product-card-header_unitInfo__2ncbP']/span
+  - name: price_per_unit_uom
+    singleValue: true
+    xpath: //div[@class='product-card-header_unitInfo__2ncbP']/span
+
   - name: harvested_list_price
     singleValue: true
     xpath: //div[@class='product-card-hero_priceControls__2mRFt']/div/div
@@ -93,7 +100,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='column xlarge-6 large-8 small-12 xlarge-offset-1']/div[@class='product-info-content-block product-info-ingredients']
+    xpath: //div[@class='column xlarge-6 large-8 small-12 xlarge-offset-1']/div[@class='product-info-content-block product-info-ingredients']/p
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -130,12 +137,12 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //script[@type='application/ld+json']
-  - name: packSize
-    singleValue: false
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
-    xpath: //span[@data-testhook='product-unit-size']
-
+  - name: size
+    singleValue: true
+    xpath: //div[@class='product-card-header_root__1GTl1']/div
+  - name: net_weight
+    singleValue: true
+    xpath: //div[@class='product-card-header_root__1GTl1']/div
   - name: variantCount
     singleValue: true
     description: Number of variants listed
@@ -157,6 +164,17 @@ fields:
     xpath: //script[@type='application/ld+json']
   - name: caloriesPerServing
     singleValue: true
-    description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
     xpath: //tbody/tr[1]/td[2]
+  - name: sub_Category
+    singleValue: false
+    xpath: //nav/ol/li
+  - name: online_price_currency
+    singleValue: true
+    xpath: //div[@class='product-card-header_unitInfo__2ncbP']/span
+  - name: storage
+    singleValue: false
+    xpath: //div[@class='column xlarge-6 large-8 small-12 xlarge-offset-1']/div[@class='collapsible-block-element_root__2MU-5 product-info_collapsibleBlock__3_8KM']
+  - name: Country_of_origin
+    singleValue: false
+    xpath: //div[@class='column xlarge-6 large-8 small-12 xlarge-offset-1']/div[@class='collapsible-block-element_root__2MU-5 product-info_collapsibleBlock__3_8KM']
