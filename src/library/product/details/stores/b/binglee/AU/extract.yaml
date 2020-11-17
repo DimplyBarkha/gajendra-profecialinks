@@ -64,8 +64,7 @@ fields:
     xpath: //meta[@id='sku']/@content
   - name: variantId
     singleValue: true
-    xpath: //script[contains(text(),'currentProductData')]
-    regExp: ("id":(\d+))
+    xpath: //meta[@id='sku']/@content
   - name: packSize
     singleValue: true
     description:
