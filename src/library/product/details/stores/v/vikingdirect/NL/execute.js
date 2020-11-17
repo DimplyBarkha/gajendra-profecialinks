@@ -6,7 +6,7 @@ module.exports = {
     store: 'vikingdirect',
     domain: 'vikingdirect.nl',
     loadedSelector: 'div[id="productPage"]',
-    noResultsXPath: '//div[@id="searchEmpty"]',
+    noResultsXPath: '//div[@id="searchEmpty"]|//div[contains(@class, "error__404")]',
     zipcode: '',
   },
 };

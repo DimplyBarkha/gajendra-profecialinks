@@ -1,0 +1,182 @@
+input:
+  _url: http://vikingdirect.nl
+  URL: https://www.vikingdirect.nl/nl/tork-papieren-handdoeken-1-laags-20-stuks-a-250-vellen-p-cs-20524?text=3481731
+extractions:
+  - html: https://workbench.import.io/html/run=da3ca832-444e-4f76-8ab0-e0b0b4c1e028/task=e427c06b-ec2a-42cc-8070-33ccb3860ab3/d88cf2c9-1a9e-41cb-a52a-f9b0e1701994.html
+    extractionConfigId: product/details/stores/v/vikingdirect/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.vikingdirect.nl/nl/tork-papieren-handdoeken-1-laags-20-stuks-a-250-vellen-p-cs-20524
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://static.viking.de/is/image/odeu13/%213481731_alt?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/@style
+            metaKeywords:
+              - text: Tork,Papieren,Handdoeken,Control,6682,1-laags,Z-vouw,Lichtgrijs,15,Stuks,à,240,Vellen,Schoonmaken,&,hygiëne,Hygiëne-artikelen,Papieren,handdoeken
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Catering & Schoonmaken
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/span[1]/text()[1]
+              - text: Schoonmaken & hygiëne
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/span[1]/text()[1]
+              - text: Hygiëne-artikelen
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/span[1]/text()[1]
+              - text: Papieren handdoeken
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[5]/a[1]/span[1]/text()[1]
+            nameExtended:
+              - text: Tork Papieren Handdoeken Control 6682 1-laags Z-vouw Lichtgrijs 15 Stuks à
+                  240 Vellen
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            listPrice:
+              - text: 48,39
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]
+            description:
+              - text: >-
+                  Deze advanced H3 gevouwen papieren handdoeken zijn perfect
+                  voor wc’s en kantines waar kwaliteit geldend is. Deze papieren
+                  handdoeken zijn gemaakt van 100% gerecycled materiaal en zijn
+                  ontworpen om verspilling tegen te gaan. Ze leveren waar voor
+                  hun geld en zijn te gebruiken in combinatie met alle Tork
+                  dispensers voor C-handdoeken. Elke handdoek kan makkelijk uit
+                  de dispenser verwijderd worden dankzij het zigzag patroon en
+                  ze zijn naast gebruiksvriendelijk ook nog eens zeer
+                  hygiënisch.
+                   
+                  Bij het pakken van een handdoek wordt automatisch de volgende handdoek binnen handbereik geplaatst, zodat u er makkelijk aan kunt en zich bovendien geen zorgen hoeft te maken om hygiëne.
+                   
+                  De reinigingsdoekjes zijn ook gecertificeerd voor contact met levensmiddelen.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Merkloos
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            manufacturer:
+              - text: Merkloos
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            quantity:
+              - text: 250 Vellen
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            gtin:
+              - text: "7322540304992"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: "3481731"
+                xpath: /html/body/div[4]/main[1]/div[3]/header[1]/@data-product-sku
+            variantId:
+              - text: "3481731"
+                xpath: /html/body/div[4]/main[1]/div[3]/header[1]/@data-product-sku
+            mpc:
+              - text: CS-20524
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/div[1]/div[1]/@title
+            color:
+              - text: Lichtgrijs
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            specifications:
+              - text: |-
+                  Artikelnummer
+                   
+                  CS-20524
+                   
+                   
+                   
+                   EAN/UPC
+                   
+                   7322540304992
+                   
+                   
+                   
+                  Afmetingen
+                   
+                   23 (B) x 25 (H) cm
+                   
+                   
+                   
+                  Doorspoelbaar
+                   
+                   Ja
+                   
+                   
+                   
+                  Inhoud
+                   
+                   250 Vellen
+                   
+                   
+                   
+                  Kleur
+                   
+                   Lichtgrijs
+                   
+                   
+                   
+                  Lagen
+                   
+                   1-laags
+                   
+                   
+                   
+                  Manufacturer Part No
+                   
+                   66329
+                   
+                   
+                   
+                  Materiaal
+                   
+                   Papier
+                   
+                   
+                   
+                  Merk
+                   
+                   Merkloos
+                   
+                   
+                   
+                  Model
+                   
+                   H3 Premium
+                   
+                   
+                   
+                  Product Type
+                   
+                   Papieren handdoeken
+                   
+                   
+                   
+                  Verkoopeenheid
+                   
+                   Pak
+                   
+                   
+                   
+                  Verpakkingshoeveelheid
+                   
+                   Pak 20
+                   
+                   
+                   
+                  Verpakkingsinhoud
+                   
+                   20 Stuks 250 Vellen
+                   
+                   
+                   
+                  Vouw type
+                   
+                   Z-vouw
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]
+            pricePerUnit:
+              - text: Pak
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+        xpath: /
+    timestamp: 1605632155083

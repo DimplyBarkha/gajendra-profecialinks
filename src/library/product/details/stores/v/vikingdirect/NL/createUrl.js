@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'vikingdirect.nl',
     prefix: null,
-    url: null,
+    url: 'https://www.vikingdirect.nl/nl/search?text={id}',
     country: 'NL',
     store: 'vikingdirect',
     zipcode: '',

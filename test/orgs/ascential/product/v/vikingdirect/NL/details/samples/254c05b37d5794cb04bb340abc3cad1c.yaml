@@ -1,0 +1,178 @@
+input:
+  _url: http://vikingdirect.nl
+  URL: https://www.vikingdirect.nl/nl/tork-papieren-handdoeken-marathon-2-laags-20-stuks-a-190-vellen-p-5155731?text=5155731
+extractions:
+  - html: https://workbench.import.io/html/run=da3ca832-444e-4f76-8ab0-e0b0b4c1e028/task=875dfb2c-1e46-4070-b47e-ed1797b63090/ac70bf9d-0b05-4ce9-b4a0-3f2a4e7364e3.html
+    extractionConfigId: product/details/stores/v/vikingdirect/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.vikingdirect.nl/nl/tork-papieren-handdoeken-marathon-2-laags-20-stuks-a-190-vellen-p-5155731
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://static.viking.de/is/image/odeu13/%215155731_alt?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/@style
+            alternateImages:
+              - text: https://static.viking.de/is/image/odeu13/%215155731_alt2?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[3]/div[1]/@style
+              - text: https://static.viking.de/is/image/odeu13/%215155731_v1?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[4]/div[1]/@style
+            metaKeywords:
+              - text: Tork,Papieren,handdoeken,H2,Xpress,Advanced,2-laags,M-vouw,Wit,20,Stuks,à,190,Vellen,Schoonmaken,&,hygiëne,Hygiëne-artikelen,Papieren
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Catering & Schoonmaken
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/span[1]/text()[1]
+              - text: Schoonmaken & hygiëne
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/span[1]/text()[1]
+              - text: Hygiëne-artikelen
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/span[1]/text()[1]
+              - text: Papieren handdoeken
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[5]/a[1]/span[1]/text()[1]
+            nameExtended:
+              - text: Tork Papieren handdoeken H2 Xpress Advanced 2-laags M-vouw Wit 20 Stuks à
+                  190 Vellen
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            listPrice:
+              - text: 72,59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]
+            description:
+              - text: >-
+                  Dit tweelaagse papier van Tork is ideaal voor dagelijks en
+                  veelvuldig gebruik. In openbare ruimtes in bijvoorbeeld
+                  kantoorpanden komen deze handdoekjes goed van pas. Ze hebben
+                  een hoog absorbtievermogen en maken uw handen goed schoon. De
+                  papieren handdoekjes hebben een enkele vouw. Hierdoor wordt de
+                  afgifte per vel beperkt en houdt u minder afval over.
+                   
+                  Deze papieren handdoekjes van Tork zijn geschikt voor de handdoekdispenser Marathon. De 2-laagse handdoekjes worden geleverd in een pak met 20 stuks à 190 vellen. U kunt hier dus een lange tijd mee vooruit. De papieren handdoekjes zijn voorzien van het Europese Ecolabel, waardoor u dus ook een steentje bijdraagt aan de bescherming van het milieu.
+                   
+                  Dankzij de Tork Easy Handling verpakking, zijn deze servetten eenvoudig te dragen en is de verpakking gemakkelijk te openen en weg te gooien.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Tork
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            manufacturer:
+              - text: Tork
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            quantity:
+              - text: 190 Vellen
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            gtin:
+              - text: "3133200037433"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: "5155731"
+                xpath: /html/body/div[4]/main[1]/div[3]/header[1]/@data-product-sku
+            variantId:
+              - text: "5155731"
+                xpath: /html/body/div[4]/main[1]/div[3]/header[1]/@data-product-sku
+            mpc:
+              - text: "5155731"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/div[1]/div[1]/@title
+            color:
+              - text: Wit
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            specifications:
+              - text: |-
+                  Artikelnummer
+                   
+                  5155731
+                   
+                   
+                   
+                   EAN/UPC
+                   
+                   3133200037433
+                   
+                   
+                   
+                  Afmetingen
+                   
+                   21 (B) x 21,5 (H) cm
+                   
+                   
+                   
+                  Inhoud
+                   
+                   190 Vellen
+                   
+                   
+                   
+                  Kleur
+                   
+                   Wit
+                   
+                   
+                   
+                  Lagen
+                   
+                   2-laags
+                   
+                   
+                   
+                  Manufacturer Part No
+                   
+                   471132
+                   
+                   
+                   
+                  Materiaal
+                   
+                   Papier
+                   
+                   
+                   
+                  Merk
+                   
+                   Tork
+                   
+                   
+                   
+                  Model
+                   
+                   H2 Xpress Advanced
+                   
+                   
+                   
+                  Product Type
+                   
+                   Papieren handdoeken
+                   
+                   
+                   
+                  Verkoopeenheid
+                   
+                   Pak
+                   
+                   
+                   
+                  Verpakkingshoeveelheid
+                   
+                   Pak 20
+                   
+                   
+                   
+                  Verpakkingsinhoud
+                   
+                   20 Stuks 190 Vellen
+                   
+                   
+                   
+                  Vouw type
+                   
+                   M-vouw
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]
+            pricePerUnit:
+              - text: Pak
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+        xpath: /
+    timestamp: 1605632156603
