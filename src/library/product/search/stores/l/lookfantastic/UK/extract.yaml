@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[contains(@class,'productListProducts_product')]
+recordXPath: //div[@class="productBlock "]
 fields:
   - name: id
     singleValue: false
@@ -24,7 +24,7 @@ fields:
     xpath: //div[@class="productBlock_imageContainer"]//img/@src
   - name: aggregateRating
     singleValue: false
-    xpath: //span[contains(@class,'productBlock_ratingValue')]
+    xpath: //span[@class="productBlock_rating"]//span[@class="productBlock_ratingValue"]/text()
   - name: reviewCount
     singleValue: false
     xpath: //span[contains(@class,'productBlock_reviewCount')]
@@ -36,7 +36,8 @@ fields:
   - name: soldBy
     singleValue: true
   - name: rank
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class="js-enhanced-ecommerce-data hidden"]/@data-product-position
   - name: endorsementText
     singleValue: true
 
