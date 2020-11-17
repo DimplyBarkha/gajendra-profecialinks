@@ -141,6 +141,10 @@ module.exports = {
       }
       addElementToDocument('descBulletInfo', descBulletInfo.join(' || '));
 
+      const manufacturerDesc = document.querySelector('div#product-tab-description')
+        ? document.querySelector('div#product-tab-description').innerText : '';
+      if (manufacturerDesc) addElementToDocument('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
+
       const legal = document.querySelector('*#footer-site div.e-maerket-notice.marg')
         ? document.querySelector('*#footer-site div.e-maerket-notice.marg').innerText : '';
       if (legal) addElementToDocument('legal', legal);
@@ -154,7 +158,8 @@ module.exports = {
       const videoWrapper = getElementByXpath('//div[@class="video-wrapper"]//iframe/@src')
         ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
         : '';
-      addElementToDocument('urlsForVideos', videoWrapper);
+      if (videoWrapper) addElementToDocument('urlsForVideos', videoWrapper);
+
       const cookies = document.querySelector('button#cookie-notification-accept');
       if (cookies) {
         cookies.click();
