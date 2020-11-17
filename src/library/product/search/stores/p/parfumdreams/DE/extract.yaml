@@ -5,11 +5,8 @@ recordXPath: //div[@class='item clearfix no-underline ajx item-link c d-4 p-m-6 
 fields:
   - name: name
     singleValue: false
-    xpath: //p[@class='item-description mbs0']
-  - name: manufacturer
-    singleValue: false
-    xpath: //p[@class='item-description mbs0']/span[1]
-  - name: url
+    xpath: //p[@class='item-description mbs0']/span
+  - name: productUrl
     singleValue: false
     xpath: //div[@class='product-image c d-12']/a/@href
     regExp: (^\/.+)
@@ -19,13 +16,20 @@ fields:
     xpath:  //div[@class='product-image c d-12']/a/img/@src
   - name: price
     singleValue: false
-    xpath: //span[@class='font-deep no-wrap']
+    xpath: //div[@class='product-image c d-12']/a/@onclick
+    regExp: \"priceInCurrency\":\"(.*)\",\"brand
+    regExpReplace: €$1
   - name: id
     singleValue: false
     xpath: //div[@class='product-image c d-12']/a/@onclick
     regExp: \"id\":(.*),\"simpleId\"
     regExpReplace: $1
   - name: rankOrganic
+    singleValue: false
+    xpath: //div[@class='product-image c d-12']/a/@onclick
+    regExp: \"position\":(.*)},
+    regExpReplace: $1
+  - name: rank
     singleValue: false
     xpath: //div[@class='product-image c d-12']/a/@onclick
     regExp: \"position\":(.*)},

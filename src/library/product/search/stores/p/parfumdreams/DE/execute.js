@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'parfumdreams',
     domain: 'parfumdreams.de',
-    url: 'https://en.parfumdreams.de/?m=5&search={searchTerms}',
+    url: 'https://en.parfumdreams.de/?m=5&search=Aftershave',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
