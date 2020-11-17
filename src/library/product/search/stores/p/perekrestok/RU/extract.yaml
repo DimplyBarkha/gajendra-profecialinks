@@ -2,36 +2,43 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: null
- - name: input
-   singleValue: true
-   description: The Json input
-   xpath: //input[@data-id="search"]/@value
- - name: price
-   singleValue: false
-   description: price of the each product 
-   xpath: 
- - name: productUrl
-   singleValue: false
-   description: The url of the product details page
-   xpath: 
- - name: manufacturer
-   singleValue: false
-   description: The manufacturer of the product
-   xpath: 
- - name: rating
-   singleValue: false
-   description: The manufacturer of the product
-   xpath: 
- - name: name
-   singleValue: false
-   description: name of the product
-   xpath: //a[@class="xf-product-title__link js-product__title  xf-product-title__link--additional "]/font/font
- - name: id
-   singleValue: false
-   description: unique id of products
-   xpath: 
- - name: thumbnail
-   singleValue: false
-   description: smaller image of the product
-   xpath:  
+fields: 
+  - name: input
+    singleValue: true
+    description: The Json input
+    xpath: //div[@class="xfnew-header__search-wrapper js-header-search-block"]/input/@value
+  - name: price
+    singleValue: false
+    description: price of the each product 
+    xpath: //div[@class="xf-product__cost xf-product-cost"]/div/span[@class="xf-price__rouble js-price-rouble"]
+  - name: productUrl
+    singleValue: false
+    description: The url of the product details page
+    xpath: //a[@class="xf-product__main-link"]/@href 
+    #regExp: (.*)$
+    regExp: (/.+)
+    regExpReplace: https://www.vprok.ru$1  
+  - name: searchUrl
+    singleValue: false
+    description: The url of the page
+    xpath:    
+  - name: quantity
+    singleValue: false
+    description: The quantity available for product
+    xpath: //div[@class="fo-form-switcher__label"]/label[@class="fo-form-switcher__name"]
+  - name: rating
+    singleValue: false
+    description: The rating count of the Product
+    xpath: //div[@class="xf-product__rating xf-product-rating "]/span[2]
+  - name: Name
+    singleValue: false
+    description: name of the product
+    xpath: //div[@class="xf-product__title xf-product-title"]/a 
+  - name: id
+    singleValue: false
+    description: unique id of products
+    xpath: //li[@class="js-catalog-product  xf-catalog__item"]/div/@data-id
+  - name: thumbnail
+    singleValue: false
+    description: smaller image of the product     
+    xpath: //div[@class="xf-product__picture xf-product-picture"]/a/img[1]/@src

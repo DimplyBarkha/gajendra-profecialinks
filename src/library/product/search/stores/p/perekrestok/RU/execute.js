@@ -5,9 +5,9 @@ module.exports = {
     country: 'RU',
     store: 'perekrestok',
     domain: 'vprok.ru',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.vprok.ru/catalog/search?text=libero',
+    loadedSelector: 'body',
+    noResultsXPath: null ,
     zipcode: '',
   },
 };

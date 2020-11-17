@@ -7,10 +7,6 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //div[@id="product-gallery"]/div/div/div[2]/div[1]/div/div/img/@src
-  - name: imageAlt
-    singleValue: true
-    description: Alt text of the main product image
-    xpath:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -21,12 +17,16 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@id="main-app"]/div[4]/section/ul/li[1]/a/span
+    xpath: //ul[@class="xf-caption__breadcrumbs xf-product-new-breadcrumbs"]/li[2]/a/span
+  - name: sub_category
+    singleValue: false
+    description: The sub_categories
+    xpath: //ul[@class="xf-caption__breadcrumbs xf-product-new-breadcrumbs"]/li/*[(contains(@href, "/catalog/"))]     
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="xf-product-new__title-container"]/h1
+    xpath:  //div[@class="xf-product-new__title-container"]/h1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -35,18 +35,24 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@class="js-price-rouble"]
+    xpath: //div[@class="xf-product-new__price-text "]/span/span[@class="xf-product-new__price-main-text"]/span[1]
+  - name: online_price_currency
+    singleValue: True
+    description: price Currencyy
+    xpath: //span[@class="xf-product-new__cost js-product__cost "]//span[@class="xf-product-new__rouble"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
     xpath: //div[@id="ui-id-2"]/div[2]/div[2]/div[3]/div/div/div[2]/button/span
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='xf-product-new-about-section__content']/span/font/font
+    xpath: //div[@class="xf-product-new-about-section__content"]/span[@id="custom_css"] 
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -55,16 +61,15 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath:  //div[@class="xf-product-new-sections"]/div[@class="xf-product-new-about"]/div[2]/div[1]/div[2]/div[2]/span[3]/div 
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: 
+    xpath: //div[@class="xf-product-new-sections"]/div[@class="xf-product-new-about"]/div[2]/div[1]/div[2]/div[1]/span[3]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    singleValue: true
-    description: Net weight as described on the page
-    xpath: //div[@id="main-app"]/div[4]/div[3]/div[2]/div[1]/div[1]/div/div[2]/div[1]/div[2]/div[5]/span[3]/div/font/font
+    xpath: //div[@class="xf-product-new-sections"]/div[@class="xf-product-new-about"]/div[2]/div[1]/div[2]/div[5]/span[3]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -85,7 +90,6 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //div[@id="main-app"]/div[4]/div[3]/div[2]/div[1]/div[1]/div/div[2]/div[1]/div[2]/div[5]/span[3]/div/font/font  
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -107,11 +111,11 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //span[@class="xf-product-new-statistics__rating-value"]
+    xpath: //span[@class="xf-product-new-statistics__rating-value"] 
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: 
+    xpath: //div[@id="ui-id-2"]/div[2]/div[2]/div[4]/div[2]/div/ul/li[1]/span
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -131,7 +135,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: 
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -159,6 +162,7 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //span[@class="xf-product-new__brand-text"]/a/@href   
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -399,9 +403,11 @@ fields:
   - name: storage
     singleValue: true
     description: Suggested storage location for product
+    xpath: //div[@class="xf-product-new-about__right"]/div[3]/div[2]/div/span[3]/div
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
+    xpath: //div[@class="xf-product-new-about__right"]/div[1]/div[2]/div[3]/span[3]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -420,13 +426,13 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
-    xpath: 
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //span[@class="xf-product-new__discount-text js-calculated-discount"]     
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -507,3 +513,4 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+    xpath:  //div[@class="xf-product-new-view__image-wrapper"]/div/img/@src  
