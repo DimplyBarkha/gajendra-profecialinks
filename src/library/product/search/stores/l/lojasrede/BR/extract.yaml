@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="linx-wrapper-buy-button"]//a/@data-pid
+  - name: name
+    singleValue: false
+    xpath: //a[@class="nm-product-name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="nm-product-name"]/@href
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="nm-product-img-container"]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="linx-rating linx-avaliacao50"]/span
+  - name: price
+    singleValue: false
+    xpath:  //div[@class="nm-price-container"]
+    type: CURRENCY
