@@ -7,7 +7,7 @@ fields:
 - name: id
   xpath: //div[@class="product-wrapper"]/@data-modelnumber
 - name: thumbnail
-  xpath: //div[@class="product-wrapper"]//img[@class="loaded"]/@src
+  xpath: //a[@class="photo clickable"]/img/@data-original
   regExp: (.+)
   regExpReplace: https:$1
 - name: name
