@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: ul.search-result-list li
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="sxa-search-results__image-wrap"]/img/@data-variantitemid
+    regExp: \{(.+)\}
+    regExpReplace: $1
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="sxa-search-results__content"]/a/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //img[@class="sxa-search-results__image"]/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="sxa-search-results__content"]/a
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
