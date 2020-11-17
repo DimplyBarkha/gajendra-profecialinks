@@ -27,9 +27,9 @@ fields:
   singleValue: false
   description: The <meta> keywords content
 - name: category
-  singleValue: true
+  singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: normalize-space(//div[@class="row breadcrumbs-section"]/@category)
+  xpath: //div[@class='row breadcrumbs-section']/ol/li[@class="breadcrumbs-category"]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
