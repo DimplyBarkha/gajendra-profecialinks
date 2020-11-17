@@ -350,7 +350,7 @@ fields:
   - name: dietaryInformation
     description: null
   - name: specifications
-    xpath: ancestor::html//p[@id="product_long_description"]/span[contains(text(),"Product Specifications")]/following-sibling::text()
+    xpath: ancestor::html//p[@id="product_long_description"]/span[contains(text(),"Product Specifications")]/following-sibling::text() | ancestor::html//p[@id="product_long_description"]/span[contains(text(),"Product Specifications")]/parent::p/following-sibling::ul/li/text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
     xpath: ancestor::html//p[@id="product_long_description"]/text()[contains(.,"guarantee")] | //p[@id="product_long_description"]/text()[contains(.,"waranty")] | //p[@id="product_long_description"]//span[contains(text(),"guarantee")] | //p[@id="product_long_description"]//span[contains(text(),"waranty")]
