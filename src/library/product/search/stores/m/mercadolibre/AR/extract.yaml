@@ -1,20 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[contains(@class,'layout__item')] 
 fields:
   - name: id
     singleValue: false
+    xpath: //@id
   - name: searchUrl
     singleValue: true
+    xpath: //li[contains(@class, 'button--current')]/a/@href
   - name: name
     singleValue: false
+    xpath: //h2[contains(@class, 'title')]
   - name: productUrl
     singleValue: false
+    xpath: //a[contains(@class, 'ui-search-item__group')]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[contains(@class, 'image__element')]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,20 +30,24 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //span[contains(@class, 'search-price__part')]
   - name: manufacturer
     singleValue: true
   - name: soldBy
     singleValue: true
+    xpath: //li[contains(@class,'layout__item')]/@soldBy
   - name: endorsementText
     singleValue: false
   - name: rank
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //li[contains(@class,'layout__item')]/@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //li[contains(@class,'layout__item')]/@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
