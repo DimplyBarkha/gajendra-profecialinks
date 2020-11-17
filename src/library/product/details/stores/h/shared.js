@@ -54,6 +54,14 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
 
   if (hasDescription) {
     await context.goto(url + 'description', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
+    const hasShowMore = await context.evaluate(function () {
+      return Boolean(document.evaluate("//span[@class='show-link']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
+    });
+
+    if (hasShowMore) {
+      await context.click('.show-link', {}, { timeout: 50000 });
+    }
+
     DescriptionDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -62,9 +70,11 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      const Description = getXpath('//hts-product-tab//div', 'innerText');
+      var Description = getXpath('//hts-product-tab//div', 'innerText');
+      Description = Description.replace('(Show less)', '');
       return Description;
     });
+
     enhanceMedia = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -191,7 +201,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       const NutritionString = ServingSize + '|' + ServingPerContainer + '|' + Calories + ' |' + CaloriesFromFat + ' |' + TotalFat + '|' + SaturatedFat + '|' + TransFat + '|' + Cholestrol + '|' + Sodium + '|' + Carbohydrate + '|' + DieteryFiber + '|' + TotalSugar + '|' + Protein + '|' + VitaminA + '|' + VitaminC + '|' + Calcium + '|' + Iron;
       return NutritionString.split('|');
     });
-  } 
+  }
   await context.goto(url, { timeout: 100000, waitUntil: 'load', checkBlocked: true });
   await context.evaluate(async function (nutritionDetails, IngredientDetails, DescriptionDetails, enhanceImage, enhanceContent, WarningDetails, DirectionDetails) {
     function addElementToDocument (key, value) {
