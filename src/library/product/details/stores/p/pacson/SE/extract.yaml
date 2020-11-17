@@ -35,7 +35,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class="breadcrumbs"]/li[position() >2 and position()<last()]/a
+    xpath: //ul[@class="breadcrumbs"]/li[position() >1 and position()<last()]/a
   # - name: sub_category
   #   singleValue: false
   #   description: The sub-categories (e.g. from breadcrumbs)
@@ -60,8 +60,8 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //a[@class="button buy-button product-detail__buy-button disabled"]
-    defaultValue: Out of Stock
+    xpath: //html//div[@id='availability']
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -400,8 +400,9 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@class="product-detail__specification"]/table/tbody/tr
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product

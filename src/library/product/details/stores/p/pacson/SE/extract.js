@@ -112,6 +112,14 @@ module.exports = {
         }
       }
 
+      var availability = getXpath('//a[@class="button buy-button product-detail__buy-button disabled"]/text()', 'nodeValue');
+      if (availability != null){
+        availability = "In stock";
+      } else {
+        availability = "Out of stock";
+      }
+      addElementToDocument('availability', availability);
+
     });
     await context.extract(productDetails);
   },
