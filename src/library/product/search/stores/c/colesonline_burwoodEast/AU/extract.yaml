@@ -1,1 +1,7 @@
 extends: ../../colesonline/AU/extract
+fields:
+  - name: id
+    xpath: //h3[contains(@class,'product-title')]/@data-partnumber
+    description: Unique id (within this extractor)
+    regExp: (.*?)P$
+    regExpReplace: $1
