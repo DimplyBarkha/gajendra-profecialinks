@@ -42,7 +42,6 @@ module.exports = {
       } catch (e) {
         console.log(e);
       }
-      // get material
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
