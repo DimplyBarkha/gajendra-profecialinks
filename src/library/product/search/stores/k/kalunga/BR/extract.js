@@ -17,19 +17,35 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-
     await context.evaluate(() => {
-      function onlyNumbersAndDot (string) {
-        return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, ".");string = Math.round( parseFloat(string) * 100) / 100;
+      const lastPage = document.querySelector('.ultima').getAttribute('data-page');
+      let inc = 1;
+      const url = 'https://www.kalunga.com.br/getBusca';
+      function getData () {
+        const formData = new FormData();
+        inc++;
+        const jsonStr = {
+          termo: location.pathname.replace('/busca/', ''),
+          pagina: inc,
+          ordenacao: 1,
+          fitroBusca: [],
+          classificacao: null,
+          grupo: null,
+        };
+        formData.append('json_str', JSON.stringify(jsonStr));
+        fetch(url, {
+          method: 'POST',
+          body: formData,
+        }).then(response => response.json())
+          .catch(error => console.error('Error:', error))
+          .then(response => {
+            if (inc < +lastPage) {
+              getData();
+              document.getElementById('divProdutoDepartamento').innerHTML += response.templateProdutos;
+            }
+          });
       }
-      const pages = document.querySelectorAll('.paginate-async > ul > li');
-      const a = [];
-      pages.forEach(e => {
-        a.push(e.innerText);
-      });
-      const b = a.filter(e => onlyNumbersAndDot(e));
-      const maxPageNumber = Math.max(...b);
-      console.log(maxPageNumber, 'ssss');
+      getData();
     });
 
     return await context.extract(productDetails, { transform });
