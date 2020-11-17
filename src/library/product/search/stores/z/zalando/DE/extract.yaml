@@ -9,7 +9,7 @@ fields:
     regExp: \-(.{13}).html
     regExpReplace: $1 
   - name: searchUrl
-    singleValue: false
+    singleValue: true
     xpath: //ancestor::html//div[@id='searchurl']@searchurl
   - name: name
     singleValue: false
