@@ -34,7 +34,7 @@ module.exports = {
   parameterValues: {
     country: 'CH',
     store: 'mediamarkt',
-    transform: null,
+    transform: transform,
     domain: 'mediamarkt.ch/fr',
     zipcode: "''",
   },
