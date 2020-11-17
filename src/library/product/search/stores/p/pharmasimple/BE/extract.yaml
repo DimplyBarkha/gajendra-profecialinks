@@ -22,9 +22,10 @@ fields:
     xpath: //a[@class="product_img_link"]/img/@src
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="ratingInner"]/@rating
   - name: aggregateRating2
     singleValue: false
+    xpath: //div[@class="ratingInner"]/@rating
+    type: STRING
   - name: reviewCount
     singleValue: false
   - name: ratingCount
