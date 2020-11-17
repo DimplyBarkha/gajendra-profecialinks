@@ -31,15 +31,14 @@ module.exports = {
         });
       }
     });
-    
+
     await context.evaluate(async function () {
       const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
       const products = document.querySelectorAll('article.product-listing-item.windeln-de');
       for (let i = 0; i < products.length; i++) {
-
         const aggRating = products[i].querySelector('div.ratings-plp span.ratings-stars-average') ? products[i].querySelector('div.ratings-plp span.ratings-stars-average').textContent : '';
         if (aggRating) products[i].setAttribute('aggrating', aggRating.replace(/(^\d+(\.?,?\d+)?).*/g, '$1').replace('.', ','));
-  
+
         const ratingCount = products[i].querySelector('div.ratings-stars') ? products[i].querySelector('div.ratings-stars').innerText.replace(/★|\(|\)|\s+/g, '') : '';
         if (ratingCount) products[i].setAttribute('ratingcount', ratingCount);
         products[i].setAttribute('rank', `${lastProductPosition + i}`);
