@@ -22,24 +22,21 @@ module.exports = {
       if (appendElements.length) {
         appendElements.forEach((element) => {
           element.setAttribute('searchurl', searchUrl);
-        })
+        });
       }
-
     });
-    try{
-      await context.waitForSelector('div[class="product-image-inner"]  img',{timeout : 40000});
+    try {
+      await context.waitForSelector('div[class="product-image-inner"]  img', { timeout: 40000 });
       console.log('selector loaded');
-    }
-    catch(e){
-      console.log('not able to load the selector')
+    } catch (e) {
+      console.log('not able to load the selector');
     }
     const res = await context.evaluate(() => {
       return Boolean(document.querySelector('.custom-product-overlay'));
-    })
+    });
     if (!res) {
       console.log('No products found for this search term');
     }
     return await context.extract(productDetails, { transform });
-  }
+  },
 };
-

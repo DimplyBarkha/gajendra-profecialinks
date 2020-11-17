@@ -44,8 +44,8 @@ fields:
 #  Should these be source specific formulas or in the extractor? 
   - name: id
     description: Unique id (within this extractor)
-    xpath: //div[@class="product-image-inner"]/a/@href
-    regExp: (\d+$)
+    xpath: //div[@class="product-id-value"]
+    regExp: (\d+)
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
