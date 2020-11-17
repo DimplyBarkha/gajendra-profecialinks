@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.product-grid div.col-xxl-3
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="product"]/@data-pid
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[@class="product-tile-link"]/@href
+  - name: price
+    SingleValue: false
+    xpath: //span[@class="price-tag"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //img[@class="tile-image"]/@src
+  - name: name
+    SingleValue: false
+    xpath: //a[@class="product-tile-link"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
+  - name: aggregateRating2
+    SingleValue: false
+    xpath: //div[contains(@class,"ratings")]/span[@class="sr-only"]
+    regExp: (.+?)\s+out\s+of
+    regExpReplace: $1
+  - name: reviewCount
+    SingleValue: false
+    xpath: //div[contains(@class,"ratings")]//div[contains(@class,"BVInlineRatings-count")]
+    type: NUMBER
+  - name: manufacturer
+    SingleValue: false
+    xpath: //div[@class="product-tile"]/@data-analytics-data
+    regExp: \"brand\":\"(.+?)\"
+    regExpReplace: $1
