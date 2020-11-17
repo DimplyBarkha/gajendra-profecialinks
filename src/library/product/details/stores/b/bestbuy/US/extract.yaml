@@ -23,7 +23,7 @@ fields:
     xpath: //a[@class="btn btn-link v-medium btn-brand-link"]/text()
   - name: description
     singleValue: false
-    xpath: //div[@class="shop-product-description"]
+    xpath: //div[@class="shop-product-description"]//div[contains(@class,"html-fragment")]
   - name: featureBullets
     singleValue: false
     xpath: //div[@class="feature-body-container"]//p
@@ -63,3 +63,13 @@ fields:
   - name: specifications
     singleValue: true
     xpath: //div[contains(@class, "spec-categories")]
+  - name: upc
+    singleValue: true
+    xpath: //div[contains(@class, "spec-categories")]
+    regExp: (UPC\s)(\d+)
+    regExpReplace: $2
+  - name: manufacturerImages
+    singleValue: true
+    xpath: //div[contains(@class, "spec-categories")]
+    regExp: (UPC\s)(\d+)
+    regExpReplace: $2
