@@ -64,6 +64,11 @@ async function implementation (
         if (primeFlag) {
           document.body.setAttribute('prime-flag', primeFlag);
         }
+        let shippingPrice = doc.querySelector('div[id^="aod-bottlingDepositFee-0"]+span>span') && doc.querySelector('div[id^="aod-bottlingDepositFee-0"]+span>span').textContent || '0.00';
+        if (shippingPrice) {
+          shippingPrice = shippingPrice.match(/\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?/) ? shippingPrice.match(/\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?/)[0] : '0.00'
+          document.body.setAttribute('shipping-price-main', shippingPrice);
+        }
       }
       const sellerData = Array.from(doc.querySelectorAll('#aod-offer')).map(offer => {
         const sellerPrice = offer.querySelector('div[id^="aod-price"] span[class="a-offscreen"]') && offer.querySelector('div[id^="aod-price"] span[class="a-offscreen"]').innerText || '';

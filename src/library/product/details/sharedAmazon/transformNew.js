@@ -317,6 +317,9 @@ const transform = (data, context) => {
       if (!row.packSize && row.packSizeFallback) {
         row.packSize = row.packSizeFallback;
       }
+      if (!row.packSize && row.packSizeFallback2) {
+        row.packSize = row.packSizeFallback2;
+      }
       if (!row.packSize && row.quantity) {
         const packSize = row.quantity[0].text.match(/Pack\s+of\s+(\d+)/i);
         if (packSize) {
@@ -334,6 +337,13 @@ const transform = (data, context) => {
       if (row.fastTrack) {
         const text = row.fastTrack[0].text.replace(/details/gi, '').trim();
         row.fastTrack[0].text = text;
+      }
+      if (!row.productForm && row.nameExtended) {
+        const regex = /\s+(GEL|CREMA|CREAM|SERUM|POLVO|CAPS|FLUID|LOCION|Loción|Cápsulas)/i;
+        const text = row.nameExtended[0].text.match(regex);
+        if (text) {
+          row.productForm = [{ text: text[0] }];
+        }
       }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
