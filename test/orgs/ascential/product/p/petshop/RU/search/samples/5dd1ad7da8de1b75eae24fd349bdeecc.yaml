@@ -2,246 +2,251 @@ input:
   keywords: Acana
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=85c6ab92-a109-4ec8-b5f6-5dafeda4e092/task=f4b81ac1-487d-4c2f-b3c2-3150de1ae4de/82cda8c7-1850-4740-9750-a3ecef200ec2.html
+  - html: https://workbench.import.io/html/run=b3f5fcbe-d6d0-4e14-a1e6-89e5262f0c82/task=d39eea95-d455-4ce6-aaba-28ad808e6e81/a6f10d6c-2d61-4eca-8f03-dd02156725af.html
     extractionConfigId: product/search/stores/p/petshop/RU/extract
     data:
       - group:
           - id:
-              - text: "387358"
+              - text: "300370"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[1]/@data-id
             name:
-              - text: Беззерновой корм для кошек, с ягненком
+              - text: Для щенков средних пород, с курицей
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[1]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/bezzernovoy_korm_dlya_koshek_s_yagnenkom_grasslands_cat_25212/
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/schenki/dlya_schenkov_vseh_porod_puppy_junior_58509_40438/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[1]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/5f/51/d1/367657_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/66/e6/06/297356_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[1]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[1]/div[4]/@data-rating
+              - text: 3,5
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[1]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 2 132
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[1]/div[5]/div[1]/span[1]
+              - text: 5 879
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[1]/div[5]/a[1]/span[2]/span[1]
+              - text: 1 548
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[1]/div[6]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[1]/div[3]/h2[1]/a[1]
           - id:
-              - text: "6467"
+              - text: "299194"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/@data-id
             name:
-              - text: Для щенков малых пород, с курицей
+              - text: Для собак низкокалорийный
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/schenki/dlya_schenkov_melkih_porod_puppy_small_breed_12451/
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/layt_dlya_sobak_light_fit_58434_40436/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/e6/33/ac/14892_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/78/07/51/297354_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/a[1]/img[1]/@data-big-image
             aggregateRating2:
               - text: "3"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/div[4]/@data-rating
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 3 558
+              - text: 5 797
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/div[5]/a[1]/span[2]/span[1]
-              - text: 1 609
+              - text: 3 643
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/div[6]/a[1]/span[2]/span[1]
+              - text: 3 459
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/div[7]/a[1]/span[2]/span[1]
+              - text: 1 608
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/div[8]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[2]/div[3]/h2[1]/a[1]
           - id:
-              - text: "299194"
+              - text: "6467"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/@data-id
             name:
-              - text: Для собак низкокалорийный
+              - text: Для щенков малых пород, с курицей
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/layt_dlya_sobak_light_fit_58434_40436/
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/schenki/dlya_schenkov_melkih_porod_puppy_small_breed_12451/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/78/07/51/297354_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/e6/33/ac/14892_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/a[1]/img[1]/@data-big-image
             aggregateRating2:
               - text: "3"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/div[4]/@data-rating
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 5 797
+              - text: 3 558
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/div[5]/a[1]/span[2]/span[1]
-              - text: 3 643
+              - text: 1 609
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/div[6]/a[1]/span[2]/span[1]
-              - text: 3 459
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/div[7]/a[1]/span[2]/span[1]
-              - text: 1 608
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/div[8]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[3]/div[3]/h2[1]/a[1]
           - id:
-              - text: "300370"
+              - text: "387358"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[4]/@data-id
             name:
-              - text: Для щенков средних пород, с курицей
+              - text: Беззерновой корм для кошек, с ягненком
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[4]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/schenki/dlya_schenkov_vseh_porod_puppy_junior_58509_40438/
+              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/bezzernovoy_korm_dlya_koshek_s_yagnenkom_grasslands_cat_25212/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[4]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/66/e6/06/297356_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/5f/51/d1/367657_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[4]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[4]/div[4]/@data-rating
+              - text: 3,5
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[4]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 5 879
+              - text: 4 783
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[4]/div[5]/a[1]/span[2]/span[1]
-              - text: 1 548
+              - text: 2 132
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[4]/div[6]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[1]/li[4]/div[3]/h2[1]/a[1]
           - id:
-              - text: "387340"
+              - text: "387366"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[1]/@data-id
             name:
-              - text: Беззерновой корм для собак с ягненком
+              - text: Беззерновой корм для кошек с рыбой
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[1]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/bezzernovoy_korm_dlya_sobak_s_yagnenkom_grasslands_dog_40605/
+              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/bezzernovoy_korm_dlya_koshek_s_ryboy_pacifica_cat_25215/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[1]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/b9/64/b6/367648_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/50/74/3b/367661_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[1]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[1]/div[4]/@data-rating
+              - text: 3,5
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[1]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 7 710
+              - text: 4 263
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[1]/div[5]/a[1]/span[2]/span[1]
-              - text: 4 689
+              - text: 2 031
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[1]/div[6]/a[1]/span[2]/span[1]
-              - text: 2 010
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[1]/div[7]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[1]/div[3]/h2[1]/a[1]
           - id:
-              - text: "387366"
+              - text: "387343"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[2]/@data-id
             name:
-              - text: Беззерновой корм для кошек с рыбой
+              - text: Для собак, с ягненком
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[2]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/bezzernovoy_korm_dlya_koshek_s_ryboy_pacifica_cat_25215/
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_s_yagnenkom_singles_40608/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[2]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/50/74/3b/367661_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/b9/10/43/367650_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[2]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[2]/div[4]/@data-rating
+              - text: 3,5
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[2]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 4 263
+              - text: 7 169
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[2]/div[5]/a[1]/span[2]/span[1]
-              - text: 2 031
+              - text: 4 260
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[2]/div[6]/a[1]/span[2]/span[1]
+              - text: 1 732
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[2]/div[7]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[2]/div[3]/h2[1]/a[1]
           - id:
-              - text: "387343"
+              - text: "387340"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[3]/@data-id
             name:
-              - text: Для собак, с ягненком
+              - text: Беззерновой корм для собак с ягненком
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[3]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_s_yagnenkom_singles_40608/
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/bezzernovoy_korm_dlya_sobak_s_yagnenkom_grasslands_dog_40605/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[3]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/b9/10/43/367650_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/b9/64/b6/367648_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[3]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[3]/div[4]/@data-rating
+              - text: 3,5
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[3]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 7 169
+              - text: 7 710
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[3]/div[5]/a[1]/span[2]/span[1]
-              - text: 4 260
+              - text: 4 689
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[3]/div[6]/a[1]/span[2]/span[1]
-              - text: 1 732
+              - text: 2 010
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[3]/div[7]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[3]/div[3]/h2[1]/a[1]
           - id:
-              - text: "341498"
+              - text: "299163"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[4]/@data-id
             name:
-              - text: Для активных собак, цыпленок
+              - text: Для собак крупных пород с курицей
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[4]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/korm_dlya_aktivnyh_sobak_cyplenok_sport_adzhiliti_heritage_75_25_40534/
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_adult_large_breed_58433_40433/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[4]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/9d/f8/07/326403_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/46/11/90/297361_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[4]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[4]/div[4]/@data-rating
+              - text: 3,5
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[4]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 6 075
+              - text: 5 879
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[4]/div[5]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[2]/li[4]/div[3]/h2[1]/a[1]
           - id:
-              - text: "480502"
+              - text: "341498"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[1]/@data-id
             name:
-              - text: Для щенков крупных пород, с курицей
+              - text: Для активных собак, цыпленок
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[1]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/schenki/dlya_schenkov_krupnyh_porod_s_kuricey_puppy_junior_59075_40825/
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/korm_dlya_aktivnyh_sobak_cyplenok_sport_adzhiliti_heritage_75_25_40534/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[1]/a[1]/@href
+            thumbnail:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/9d/f8/07/326403_325x400.jpg
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[1]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[1]/div[4]/@data-rating
+              - text: 3,5
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[1]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 8 051
+              - text: 6 075
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[1]/div[5]/a[1]/span[2]/span[1]
-              - text: 6 334
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[1]/div[6]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[1]/div[3]/h2[1]/a[1]
           - id:
-              - text: "299163"
+              - text: "480502"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[2]/@data-id
             name:
-              - text: Для собак крупных пород с курицей
+              - text: Для щенков крупных пород, с курицей
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[2]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_adult_large_breed_58433_40433/
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/schenki/dlya_schenkov_krupnyh_porod_s_kuricey_puppy_junior_59075_40825/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[2]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/46/11/90/297361_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/ce/e7/90/521645_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[2]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[2]/div[4]/@data-rating
+              - text: "3"
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[2]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 5 879
+              - text: 8 051
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[2]/div[5]/a[1]/span[2]/span[1]
+              - text: 6 334
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[2]/div[6]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[2]/div[3]/h2[1]/a[1]
@@ -259,7 +264,7 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[3]/a[1]/img[1]/@data-big-image
             aggregateRating2:
               - text: "3"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[3]/div[4]/@data-rating
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[3]/div[4]/@rating-formatted
                 type: STRING
             price:
               - text: 3 558
@@ -283,7 +288,7 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[4]/a[1]/img[1]/@data-big-image
             aggregateRating2:
               - text: "3"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[4]/div[4]/@data-rating
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[4]/div[4]/@rating-formatted
                 type: STRING
             price:
               - text: 4 810
@@ -294,46 +299,46 @@ extractions:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[3]/li[4]/div[3]/h2[1]/a[1]
           - id:
-              - text: "307190"
+              - text: "387362"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[1]/@data-id
             name:
-              - text: Для собак всех пород, старше 7лет с курицей
+              - text: Беззерновой корм для кошек с курицей
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[1]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/dogs/syxoi/pozhilye_7/korm_dlya_sobak_vseh_porod_starshe_7let_senor_dog_heritage_65_35_40456/
+              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/bezzernovoy_korm_dlya_koshek_s_kuricey_wild_prairie_cat_25214/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[1]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/fa/80/ee/304574_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/f5/bc/34/367660_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[1]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[1]/div[4]/@data-rating
+              - text: 3,5
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[1]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 5 505
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[1]/div[5]/div[1]/span[1]
+              - text: 1 824
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[1]/div[5]/a[1]/span[2]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[1]/div[3]/h2[1]/a[1]
           - id:
-              - text: "387362"
+              - text: "307190"
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[2]/@data-id
             name:
-              - text: Беззерновой корм для кошек с курицей
+              - text: Для собак всех пород, старше 7лет с курицей
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[2]/div[3]/div[1]
             productUrl:
-              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/bezzernovoy_korm_dlya_koshek_s_kuricey_wild_prairie_cat_25214/
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/pozhilye_7/korm_dlya_sobak_vseh_porod_starshe_7let_senor_dog_heritage_65_35_40456/
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[2]/a[1]/@href
             thumbnail:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/f5/bc/34/367660_325x400.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/fa/80/ee/304574_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[2]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[2]/div[4]/@data-rating
+              - text: "3"
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[2]/div[4]/@rating-formatted
                 type: STRING
             price:
-              - text: 1 824
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[2]/div[5]/a[1]/span[2]/span[1]
+              - text: 5 505
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[2]/div[5]/div[1]/span[1]
             manufacturer:
               - text: Acana
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[2]/div[3]/h2[1]/a[1]
@@ -351,7 +356,7 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[3]/a[1]/img[1]/@data-big-image
             aggregateRating2:
               - text: "3"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[3]/div[4]/@data-rating
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[3]/div[4]/@rating-formatted
                 type: STRING
             price:
               - text: "533"
@@ -372,8 +377,8 @@ extractions:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/51/8f/47/496704_325x400.jpg
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[4]/a[1]/img[1]/@data-big-image
             aggregateRating2:
-              - text: "3"
-                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[4]/div[4]/@data-rating
+              - text: 3,5
+                xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[4]/div[4]/@rating-formatted
                 type: STRING
             price:
               - text: 6 280
@@ -382,4 +387,4 @@ extractions:
               - text: PetSafe
                 xpath: /html/body/div[6]/div[1]/div[1]/article[1]/div[2]/ul[4]/li[4]/div[3]/h2[1]/a[1]
         xpath: /html
-    timestamp: 1605278524744
+    timestamp: 1605624148352

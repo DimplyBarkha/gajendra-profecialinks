@@ -26,16 +26,16 @@ fields:
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
-    type: STRING
-    xpath: //div[contains(@id, 'j_rating')]/@data-rating
     singleValue: false
+    type: STRING
+    xpath: //div[contains(@id, 'j_rating')]/@rating-formatted
   - name: reviewCount
     singleValue: false
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //*[@itemprop="price"]/span
+    xpath: //*[@itemprop='price']/span
   - name: manufacturer
     singleValue: false
     xpath: //a[contains(@class, 'j_product-brand')]
