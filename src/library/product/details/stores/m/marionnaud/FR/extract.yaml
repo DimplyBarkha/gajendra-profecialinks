@@ -30,7 +30,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //*[@id="top-bar"]/div[5]/div/div/ol/li[not(contains(@class, "back-btn"))] [not(contains(@class, "home"))]/text()
+    xpath: //*[@id="top-bar"]/div[5]/div/div/ol/li[not(contains(@class, "back-btn"))] [not(contains(@class, "home"))]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -44,7 +44,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@id='priceText']
+    xpath: //div[@id='price']
     type: TEXT
   - name: availabilityText
     singleValue: true
@@ -138,6 +138,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: 0
     type: NUMBER
   - name: color
     singleValue: true
@@ -151,6 +152,10 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+  - name: variantType
+    singleValue: true
+    description: variantType
+    xpath: //div[@class='size-box-wrapper']//span
   - name: videos
     singleValue: false
     description: URLs of videos on page
