@@ -46,12 +46,12 @@ fields:
       should be "In Stock"
     xpath: //div[@class="productSecondaryWrapper"]//*[@class="longOutofStock"]
     regExp: (.+)
-    regExpReplace: Out of Stock 
+    regExpReplace: Out of stock 
     defaultValue: "In Stock"
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //li[contains(@class,"ah-accordion-more")]//div[contains(@class,"holder")]/div/div[position()<3]
+    xpath: //li[contains(@class,"ah-accordion-more")]//div[contains(@class,"holder")]/div/*[not (contains(@class,"facts-list"))]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -108,11 +108,10 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     description: Content under "directions" header
-    xpath: //*[@id='directions']
+    xpath: //div[@id='directions']
   - name: warnings
-    singleValue: false
     description: Content under "warnings" header
-    xpath: //div[@id="warnings"]
+    xpath: //div[@id='warnings']
   - name: ratingCount
     singleValue: false
     description: The number of ratings
@@ -418,6 +417,7 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
+    xpath: //div[@id='storage']
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: false
