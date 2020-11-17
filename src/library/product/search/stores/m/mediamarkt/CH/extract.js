@@ -14,9 +14,9 @@ async function implementation (inputs, parameters, context, dependencies) {
       const pictureUrl = `https:${product.querySelector('aside.product-photo > figure > a > img').getAttribute('src')}`;
       const rating = product.querySelector('div.rating > div').getAttribute('class').match(/-(\d(-\d)?)/)[1].replace('-', '.');
       // @ts-ignore
-      const price = product.querySelector('div.price-box > div').innerText.replace(/\n/g, '');
+      const price = product.querySelector('div.price-box > div') ? product.querySelector('div.price-box > div').innerText.replace(/\n/g, '') : null;
       product.setAttribute('product-picture', pictureUrl);
-      product.setAttribute('product-price', `${price} ${currency}`);
+      if (price) product.setAttribute('product-price', `${price} ${currency}`);
       product.setAttribute('product-rating', rating);
     });
 
