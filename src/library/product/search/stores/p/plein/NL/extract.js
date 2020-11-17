@@ -1,4 +1,22 @@
 const { transform } = require('../shared');
+
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  //const { transform } = parameters;
+  const { productDetails } = dependencies;
+  try {
+    await context.waitForSelector('div.modal-footer')
+    await context.click('div.modal-footer>a')
+    //await context.click('div.modal-footer > button')
+  } catch (error) {
+    console.log('cookie pop up not loded', error);
+  }
+  return await context.extract(productDetails);
+}
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -8,4 +26,5 @@ module.exports = {
     domain: 'plein.nl',
     zipcode: "''",
   },
+  implementation,
 };
