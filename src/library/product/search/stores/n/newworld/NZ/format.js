@@ -30,6 +30,11 @@ const transform = (data) => {
           item.text = 'https://www.newworld.co.nz' + item.text;
         });
       }
+      if (row.thumbnail) {
+        row.thumbnail.forEach(item => {
+          item.text = 'https://www.newworld.co.nz' + item.text;
+        });
+      }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
