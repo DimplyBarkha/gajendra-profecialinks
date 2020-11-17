@@ -11,7 +11,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     const currency = document.querySelector('div.price-range-slider + div > label').innerText;
     const allProducts = document.querySelectorAll('ul.products-list > li:not([class])');
     allProducts.forEach((product, index) => {
-      const pictureUrl = `https:${product.querySelector('aside.product-photo > figure > a > img').getAttribute('src')}`;
+      const pictureUrl = `https:${product.querySelector('aside.product-photo > figure > a > img').getAttribute('data-original')}`;
       const rating = product.querySelector('div.rating > div').getAttribute('class').match(/-(\d(-\d)?)/)[1].replace('-', '.');
       // @ts-ignore
       const price = product.querySelector('div.price-box > div') ? product.querySelector('div.price-box > div').innerText.replace(/\n/g, '') : null;
