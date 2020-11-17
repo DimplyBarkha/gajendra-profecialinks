@@ -1,0 +1,121 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="slick-slide slick-current slick-active"]/img/@src
+    regExp: (.+)(?=\?)
+    regExpReplace: http:$1
+  - name: imageAlt
+    xpath: //div[@class="slick-slide slick-current slick-active"]/img/@alt
+  - name: alternateImages
+    xpath: //nav[@class="product-gallery-nav"]//li[contains(@class,"product-gallery-thumb")][not(contains(@class,"active"))]//img/@src
+    regExp: (.+)(?=\?)
+    regExpReplace: http:$1
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    xpath: //ol[@class="breadcrumb"]//li[@typeof="ListItem"][position()>1]
+  - name: nameExtended
+    xpath: //div[@class="rowContainer nopadding " or @class="rowContainer nopadding"]//h1
+  - name: price
+    xpath: //*[@itemprop="price"]
+  - name: availabilityText
+    xpath: //div[@id="ShopperActions"]//div[@class="visible-lg"]/button[@id="add2CartBtn"]/text()
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //div[contains(@class,"pdp-model-description")]/span[last()]/text()
+  - name: descriptionBullets
+  - name: brandText
+    xpath: //div[@class="pdp-panel"]//img/@alt
+  - name: manufacturer
+  - name: quantity
+  - name: weightNet
+    xpath: //div[@id="technical_speci"]//tr/th[contains(text(),"Weight (kg):")]/following-sibling::td
+  - name: weightGross
+  - name: gtin
+    xpath: //iframe[@id="eky-dyson-iframe"]/@src
+    regExp: (.+)(&ean=)(\d+)
+    regExpReplace: $3
+  - name: sku
+    xpath: //input[@name="gtmItemPartNum"]/@value
+  - name: variantId
+    xpath: //span[contains(@class,"titleItems_model_digit")]
+  - name: mpc
+    xpath: //span[contains(@class,"titleItems_model_digit")]
+  - name: packSize
+  - name: legalDisclaimer
+  - name: directions
+  - name: warnings
+  - name: ratingCount
+    xpath: //input[@name="totalReviews"]/@value
+  - name: aggregateRatingText
+    xpath: //article[@class="reviews-section"]//div[@class="text-center"]/p
+    regExp: (.+)( out.+)
+    regExpReplace: $1
+  - name: aggregateRating
+    xpath: //article[@class="reviews-section"]//div[@class="text-center"]/p
+    regExp: (.+)( out.+)
+    regExpReplace: $1
+  - name: shippingInfo
+    xpath: //div[@class="estimate text-black clearfix"]
+  - name: shippingDimensions
+  - name: shippingWeight
+  - name: variantCount
+    defaultValue: '0'
+  - name: color
+    xpath: //th[contains(text(),"olour")]/following-sibling::td
+  - name: colorCode
+  - name: manufacturerDescription
+    xpath: //body/@enhancedcontent | //div[@id="inpage_container"]//div[contains(@class,"inpage_block")]
+  - name: manufacturerImages
+    xpath: //body/@images
+  - name: videos
+    xpath: //div[contains(@class,"video-thumbs")]//div[contains(@id,"video_md")]//img/@src
+    regExp: (.+/vi/)(.+)(/.+)
+    regExpReplace: https://www.youtube.com/watch?v=$2
+  - name: name
+    xpath: //div[contains(@id,"Heading")]//h1
+  - name: asin
+  - name: coupon
+    xpath: //div[@id="pricespot-widget"]//p[contains(@class,"text-medium")]
+  - name: variantAsins
+  - name: lbb
+  - name: lbbPrice
+  - name: specifications
+    xpath: //table[contains(@class,"speci_area")]//tr
+  - name: warranty
+    xpath: //th[contains(.,"Warranty")]/following-sibling::td[1]
+  - name: storage
+  - name: countryOfOrigin
+  - name: allergyAdvice
+  - name: recyclingInformation
+  - name: productOtherInformation
+  - name: packaging
+  - name: promotion
+  - name: variantInformation
+  - name: firstVariant
+  - name: variants
+  - name: additionalDescBulletInfo
+  - name: technicalInformationPdfPresent
+    xpath: //div[@class="tile-content"]//a[contains(@href,"pdf")]
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: customerServiceAvailability
+    xpath: //div[contains(@class,"cust")]/h4
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: No
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    xpath: //span[contains(@class,"zoom") and contains(@id,"image")]//a
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: No
