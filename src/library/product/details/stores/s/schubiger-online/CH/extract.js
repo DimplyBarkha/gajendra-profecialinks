@@ -109,6 +109,35 @@ async function implementation (inputs, parameters, context, dependencies) {
   await fetchGtinFromScript();
   await openProductDetailsTab();
 
+  await context.evaluate( async function () {
+
+    async function timeout(ms) {
+    console.log('waiting for ' + ms + ' millisecs');
+    return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+  
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+  
+    const xpathForVideoSec = '//div[contains(@class,"tabs-tablist")]/a[contains(.,"Produktvideo")]'
+    let videoSecToClick = document.evaluate(xpathForVideoSec, document, null, 7, null);
+    if (videoSecToClick.snapshotLength > 0) {
+      console.log('we have the video section to click');
+      // we are considering the first element to click
+      videoSecToClick.snapshotItem(0).click();
+    } else {
+      console.log('Either the xpath for video sec is wrong or video is not loaded yet');
+    }
+  
+    await timeout(5000);
+  
+  });
+
   await new Promise((resolve) => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }
