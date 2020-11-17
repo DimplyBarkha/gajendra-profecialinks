@@ -79,7 +79,7 @@ fields:
     xpath: //div[@class='description']//p[5]
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='reviews_resumen']//span
+    xpath: translate(//div[@class='reviews_resumen']//span, '.', ',')
   - name: productUrl
     singleValue: false
     xpath: (//@href)[1]
@@ -102,12 +102,12 @@ fields:
     singleValue: false
     xpath: //div[@class='product__header dbtrustedshops']//h1
     regExp: (?:\s?(\s{1}?)([cC]omprimidos|[cC]capsulas|[gG]el|[lL]íquid[oa]|Liquid[\.]?).?)$|(?:\s?(\s?)([cC]omprimidos|[cC]capsulas|[gG]el|[lL]íquid[oa]|Liquid??).?\s)
-    regExpReplace: $1
+    # regExpReplace: $1
   - name: productSize
     singleValue: false
     xpath: //div[@class='product__header dbtrustedshops']//h1
-    regExp: (?:\s?([\d\.]+\s{0,1}?)([gG]|mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?).?)$|(?:\s?([\d\.]+\s?)([gG]|mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]??).?\s)
-    regExpReplace: $1
+    regExp: (?:\s?([\d\.]+\s{0,1}?)(ml|[gG]|mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?).?)$|(?:\s?([\d\.]+\s{0,1}?)(ml|[gG]|mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]??).?\s)
+    # regExpReplace: $1
   - name: ingredientsList
     singleValue: false
   - name: productDiscounts
