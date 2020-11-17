@@ -38,10 +38,15 @@ fields:
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
-  xpath: //div[@id="productDetailsPanel"]//div[@class="product-price-panel__price"]
+  xpath: //div[@id="productDetailsPanel"]//div[@class="product-price-panel__price-alt-vat"]
+  regExp: (\d+,\d+)
+  regExpReplace: $1
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
+  xpath: //div[@id="productDetailsPanel"]//div[@class="product-price-panel__price-alt-vat"]
+  regExp: (\d+,\d+)
+  regExpReplace: $1
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
@@ -62,13 +67,16 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
+  xpath: //td[contains(text(), "Merk")]/following-sibling::td
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
+  xpath: //td[contains(text(), "Merk")]/following-sibling::td
   singleValue: true
   description: Product manufacturer
 - name: quantity
+  xpath: //td[contains(text(), "Inhoud")]/following-sibling::td
   singleValue: true
   description: Quantity as described on the page
 - name: weightNet
@@ -78,12 +86,15 @@ fields:
   singleValue: true
   description: Gross weight as described on the page
 - name: gtin
+  xpath: //td[contains(text(), "EAN/UPC")]/following-sibling::td
   singleValue: true
   description: GTIN code (includes UPC/EAN)
 - name: sku
+  xpath: //td[contains(text(), "Artikelnummer")]/following-sibling::td
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
+  xpath: //td[contains(text(), "Artikelnummer")]/following-sibling::td
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
@@ -104,15 +115,22 @@ fields:
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
+  xpath: //div[@class="product-rating__reviews"]
+  regExp: (\d+)
+  regExpReplace: $1
   singleValue: true
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
+  xpath: //div[@class="stars"]/@title
+  regExp: ^(\d+)
+  regExpReplace: $1
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
+  xpath: //span[@class="product-display__dropship"]
   singleValue: true
   description: Shipping information for the product
 - name: shippingDimensions
@@ -125,6 +143,7 @@ fields:
   singleValue: true
   description: Number of variants listed
 - name: color
+  xpath: //td[contains(text(), "Kleur")]/following-sibling::td
   singleValue: true
   description: A textual description of the colour
 - name: colorCode
@@ -158,6 +177,7 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
+  xpath: //span[@class="product__brand-name"]/@brandLink
   singleValue: true
   description: 
 - name: internationalShipping
@@ -374,6 +394,7 @@ fields:
   singleValue: true
   description: 
 - name: specifications
+  xpath: //div[@id="contentproductSpecifications"]//tbody
   singleValue: true
   description: The physical dimensions of the product including packaging.
 - name: warranty
@@ -401,6 +422,7 @@ fields:
   singleValue: true
   description: List of additives in the product
 - name: pricePerUnit
+  xpath: //div[@id="productDetailsPanel"]//div[@class="product-price-panel__price-per"]
   singleValue: true
   description: Price of the product split into certain units
 - name: pricePerUnitUom
@@ -454,6 +476,9 @@ fields:
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
   example: A+, A+++, B
 - name: technicalInformationPdfPresent
+  xpath: //a[@class="product-attachments-table__link"]/@href
+  regExp: (.+)
+  regExpReplace: https:$1
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
