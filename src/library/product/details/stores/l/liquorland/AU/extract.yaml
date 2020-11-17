@@ -9,6 +9,9 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class,'sku-thumbnail-row')]//a[contains(@class,'mz-thumb-selected')]/@href
+  - name: image2
+    singleValue: false
+    xpath: //div[@class='image-container  ']//div[@class='current-image']/@style
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,'sku-thumbnail-row')]//a[not(contains(@class,'mz-thumb-selected'))]/@href
@@ -53,8 +56,7 @@ fields:
     xpath: //div[contains(@class,'product-properties-container')]//ul//li//span[text()='Product ID']//following-sibling::span
   - name: variantCount
     singleValue: false
-    defaultValue: 0
-    type: NUMBER
+    defaultValue: '0'    
   - name: specificationsKey
     singleValue: false
     xpath: //div[contains(@class,'product-properties-container')]//ul//li/span[@class='key']

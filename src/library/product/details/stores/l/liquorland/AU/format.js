@@ -30,9 +30,27 @@ const transform = (data) => {
           item.text = 'https://www.liquorland.com.au' + item.text;
         });
       }
+      if (row.image) {
+        delete row.image2;
+      }
+      else if (row.image2) {
+        row.image = [{ text: row.image2[0].text }];
+        delete row.image2;
+      }
       if (row.alternateImages) {
         row.image = [{ text: row.alternateImages[0].text }];
         row.alternateImages.splice(0, 1);
+      }
+      if (row.ratingCount) {
+        var ratingObj = JSON.parse(row.ratingCount[0].text);
+        if (ratingObj.aggregateRating) {
+          if (ratingObj.aggregateRating.ratingCount) {
+            row.ratingCount = [{ text: ratingObj.aggregateRating.ratingCount }];
+          }
+          if (ratingObj.aggregateRating.ratingValue) {
+            row.aggregateRating = [{ text: ratingObj.aggregateRating.ratingValue }];
+          }
+        }
       }
       if (row.specificationsKey) {
         var arrSpec = [];
