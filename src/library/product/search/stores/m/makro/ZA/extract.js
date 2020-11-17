@@ -1,4 +1,4 @@
-const {transform}=require('../ZA/format');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
