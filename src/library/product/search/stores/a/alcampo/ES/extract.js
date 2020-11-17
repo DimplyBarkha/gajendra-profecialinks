@@ -22,12 +22,32 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
     }
 
+    await context.evaluate(async () => {
+      // scroll
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+
+      let scrollTop = 0;
+      const scrollLimit = 10000;
+      while (scrollTop <= scrollLimit) {
+        await stall(1000);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+      }
+    });
+
     await context.evaluate(() => {
       const manufacturer = document.querySelectorAll('.marca');
       const price = document.querySelectorAll('.priceContainer');
       const productUrlAll = document.querySelectorAll('a.productMainLink.productTooltipClass');
       let productUrl;
-      // let productUrlIteration;
+      const productImage = document.querySelectorAll('div[class="thumb cut-alt-img"]>img');
+      let image;
       let priceIteration;
       let manufacturerIteration;
       let words;
@@ -35,14 +55,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       // there are same number of products so i < price.length will work for i < manufacturer.length
 
       for (let i = 0; i < price.length; i++) {
+        image = productImage[i].src;
         priceIteration = price[i].textContent;
 
         priceIteration = priceIteration.replace(/\s\s+/g, '');
         priceIteration = priceIteration.replace('Unidad', '');
-
-        document.querySelectorAll('.priceContainer')[i].setAttribute('price', priceIteration);
-
-        // productUrlIteration = productUrlAll[i].href;
 
         if (productUrlAll[i].href.includes('https')) {
           productUrl = productUrlAll[i].href;
@@ -62,34 +79,13 @@ async function implementation (inputs, parameters, context, dependencies) {
           manufacturerIteration = words[0] + ' ' + words[1];
         };
 
+        document.querySelectorAll('.priceContainer')[i].setAttribute('price', priceIteration);
         document.querySelectorAll('.marca')[i].setAttribute('manufacturer', manufacturerIteration);
-
+        document.querySelectorAll('div[class="thumb cut-alt-img"]')[i].setAttribute('imageurl', image);
         document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rank', `${i + 1}`);
         // @ts-ignore
         document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rankorganic', `${i + 1}`);
       };
-    });
-
-    await context.evaluate(async () => {
-      // scroll
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-
-      var match = document.querySelectorAll('li.product-item--row.js_item_root')
-        .length;
-
-      let scrollTop = 0;
-      const scrollLimit = match * 334;
-      while (scrollTop <= scrollLimit) {
-        scrollTop += 1006;
-        window.scroll(0, scrollTop);
-        await stall(10000);
-      }
     });
 
     // if nextLinkSelector is null extract page and break loop, else click in it
