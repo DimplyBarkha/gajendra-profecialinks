@@ -1,0 +1,72 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //ul[@id='image-gallery1']//div[contains(@data-id,'-1')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //ul[@id='image-gallery1']//div[contains(@data-id,'-1')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@id='image-gallery1']//div[not(contains(@data-id,'-1'))]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //div[@class='breadcrumb-section']//ol[contains(@class,'breadcrumb')]//li//span[@class='nounderline' and not (text()='Shop online')]
+  - name: name
+    singleValue: false
+    xpath: //h1//div[@class='prod-title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1//div[@class='prod-title']
+  - name: availabilityText
+    singleValue: false
+    xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//button[contains(@class,'btn_add_to_cart')]//span[text()='Toevoegen']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//div[@class='prod-price-sec']//span[@class='prod-price']  
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Productomschrijving']//parent::div//following-sibling::div
+  - name: brandText
+    singleValue: false
+    xpath: //h1//div[@class='prod-brand']
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='fabrikant']//parent::div//following-sibling::div
+  - name: sku
+    singleValue: false
+    xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//div//input[@type='hidden' and @class='productcode']/@value
+  - name: variantId
+    singleValue: false
+    xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//div//input[@type='hidden' and @class='productcode']/@value  
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='foursection-content']//div[@class='dataDecode']//tr
+  - name: promotion
+    singleValue: false
+    xpath: //span[@class="prod-promotions"]//p[@class='promotion']
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Ingrediënten']//parent::div//following-sibling::div[1]  
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Land van oorsprong']//parent::div//following-sibling::div
+  - name: storage
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Bewaring']//parent::div//following-sibling::div[1]
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//div[@class='prod-price-sec']//span[@class='prod-price']
