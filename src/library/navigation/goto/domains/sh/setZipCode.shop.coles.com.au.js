@@ -4,7 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     domain: 'shop.coles.com.au',
-    store: 'colesonline',
+    // store: 'colesonline',
+    store: 'colesonline_macquariePark',
     zipcode: '',
   },
 };
