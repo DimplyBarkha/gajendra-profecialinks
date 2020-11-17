@@ -54,6 +54,9 @@ fields:
   - name: reviewCount
     singleValue: false
     description: The number of reviews
+    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//p[@class="plp__reviewTxt__3yo2n"]
+    regExp: ^.*?\([^\d]*(\d+)[^\d]*\).*$
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //p[@data-testid="price-container"]
