@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-auto-id="productList"]/section//article[@data-auto-id="productTile"]
+recordXPath: //div[@data-auto-id="productList"]//article[@data-auto-id="productTile"]
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class,"_3TqU78D")]/@href
+    xpath: //a/@href
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
@@ -43,7 +43,7 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    xpath: //article[@data-auto-id="productTile"]/@id
+    xpath: //@id
     description: Unique id (within this extractor)
     regExp: product-(\d+)
     regExpReplace: $1
