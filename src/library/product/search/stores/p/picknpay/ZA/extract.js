@@ -13,6 +13,8 @@ async function implementation (inputs, parameters, context, dependencies) {
       document.body.appendChild(catElement);
     }
 
+    await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+
     // add search url
     const searchUrl = window.location.href;
     addElementToDocument('searchUrl', searchUrl);
@@ -48,6 +50,8 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
       product.setAttribute('price', price);
     });
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 1500));
   });
 
   return await context.extract(productDetails, { transform });
