@@ -37,7 +37,9 @@ fields:
   - name: description
     xpath: //span[contains(text(),"About")]/parent::div/following-sibling::div[1]
   - name: variantId
-    xpath: //div[@id='price']//table/tbody/@id
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (\/)([0-9-\d?]+)
+    regExpReplace: $2
   - name: variantInformation
     xpath: //h1/@size
   - name: variantCount
@@ -45,17 +47,17 @@ fields:
   - name: variants
     xpath: //h1/@variants
   - name: alternateImages
-    xpath: //div[contains(@id,"thumb")][position()>1]//img/@src
+    xpath: //div[contains(@id,"carousel")]/div[position()>1]//img/@src
     regExp: (.+)/p/(.+)/(.+)
     regExpReplace: $1/p/xxl/$3
   - name: secondaryImageTotal
-    xpath: count(//div[contains(@id,"thumb")][position()>1]//img/@src)
+    xpath: count(//div[contains(@id,"carousel")]/div[position()>1]//img/@src)
   - name: ratingCount
-    xpath: //div[contains(@class,"_1AXTE")]/span
+    xpath: //span[contains(text(),"Ratings")]
     regExp: (\d+)\s{1,}Reviews
     regExpReplace: $1
   - name: aggregateRating
-    xpath: //div[contains(@class,"_1AXTE")]/div
+    xpath: //span[contains(text(),"Ratings")]/preceding-sibling::div
   - name: countryOfOrigin
     xpath: //h1/@country
     regExp: :\s(.+)
