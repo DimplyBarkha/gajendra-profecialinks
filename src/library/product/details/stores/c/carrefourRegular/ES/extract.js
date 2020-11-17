@@ -34,6 +34,9 @@ module.exports = {
         }
       }
       await infiniteScroll();
+      const manufacturerDesc = document.querySelector('div.product-details > div.product-details__features')
+        ? document.querySelector('div.product-details > div.product-details__features').innerText : '';
+      if (manufacturerDesc) addHiddenDiv('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
       const manufactureImage = [];
       let finalImages = [];
       const aplusImages = document.querySelector("div[id*='inpage_container'] img") ? document.querySelectorAll("div[id*='inpage_container'] img") : [];

@@ -106,7 +106,8 @@ fields:
     description: A textual description of the colour
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@id,'inpage_container')]
+    # xpath: //div[contains(@id,'inpage_container')]
+    xpath: //div[@id='manufacturerDesc']
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
