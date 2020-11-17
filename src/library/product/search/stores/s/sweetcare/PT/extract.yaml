@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@id='searchItems']//li
+recordXPath: (//ul[@id='searchItems']//li)[position()>1]
 fields: 
   - name: id
     singleValue: false
