@@ -22,6 +22,9 @@ async function implementation (
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
 
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+
     const searchUrl = window.location.href;
     addElementToDocument('searchUrl', searchUrl);
 
