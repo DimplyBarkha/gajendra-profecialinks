@@ -6,8 +6,8 @@ module.exports = {
     store: 'plein',
     domain: 'plein.nl',
     url: 'https://www.plein.nl/zoeken?search={searchTerms}',
-    loadedSelector: 'div.clear.product-grid-view',
-    // noResultsXPath: null,
+    loadedSelector: 'div.product-view-container',
+    // noResultsXPath: '//div[contains(text()," Tip")]',
     zipcode: "''",
   },
 };
