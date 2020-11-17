@@ -15,7 +15,7 @@ fields:
     xpath: //div[@data-testid="product-block-product-name"]
   - name: productUrl
     singleValue: false
-    xpath: //div[@data-testid="product-block-image-link"]/@href
+    xpath: //a[@data-testid="product-block-image-link"]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -31,8 +31,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[@data-testid="product-block-price"]
   - name: manufacturer
     singleValue: true
+    xpath: //div[@data-testid="product-block-brand-name"]/a
   - name: soldBy
     singleValue: true
   - name: endorsementText

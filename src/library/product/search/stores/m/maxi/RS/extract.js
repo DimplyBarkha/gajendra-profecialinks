@@ -4,6 +4,15 @@ async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  // accept policy
+  try {
+    await context.click('div[class="v8o5b9-9 ifwxYc"] button');
+  } catch (exp) {
+    console.log('Click accept button error' + exp);
+  }
+
+  // variant with nextlink page selector
+
   // await context.evaluate(async () => {
   //   // add search url
   //   const searchUrl = window.location.href;
@@ -15,32 +24,34 @@ async function implementation(inputs, parameters, context, dependencies) {
   //   productsClass.setAttribute('target', 'toadd');
   // });
 
-  await context.evaluate(async () => {
-    await stall(3000);
+  // variant with scrolling
 
-    var isNextLinkPresent;
-    var productsAmount;
+  // await context.evaluate(async () => {
+  //   await stall(3000);
 
-    // scroll
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
+  //   var isNextLinkPresent;
+  //   var productsAmount;
 
-    var scrollTop = 0;
-    do {
-      scrollTop += 500;
-      window.scroll(0, scrollTop);
+  //   // scroll
+  //   function stall (ms) {
+  //     return new Promise((resolve, reject) => {
+  //       setTimeout(() => {
+  //         resolve();
+  //       }, ms);
+  //     });
+  //   }
 
-      await stall(1000);
-      isNextLinkPresent = document.querySelector('a[class="ak6cwf-16 ktouRL"]');
-      productsAmount = document.querySelectorAll(
-        'div[data-testid="product-block"]').length;
-    } while (isNextLinkPresent && productsAmount < 100);
-  });
+  //   var scrollTop = 0;
+  //   do {
+  //     scrollTop += 500;
+  //     window.scroll(0, scrollTop);
+
+  //     await stall(1000);
+  //     isNextLinkPresent = document.querySelector('a[class="ak6cwf-16 ktouRL"]');
+  //     productsAmount = document.querySelectorAll(
+  //       'div[data-testid="product-block"]').length;
+  //   } while (isNextLinkPresent && productsAmount < 20);
+  // });
 
   return await context.extract(productDetails, { transform });
 }
