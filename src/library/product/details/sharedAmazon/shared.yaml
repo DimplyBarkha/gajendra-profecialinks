@@ -417,7 +417,8 @@ fields:
     xpath: //div[@id="productDescription"]/p[b[contains(text(),"Warranty Information")]]/text()
   - name: storage
     #singleValue: true
-    xpath: //*[normalize-space(text())="Storage"]
+    xpath: //*[normalize-space(text())="Storage"]/following-sibling::*[1]
+
   - name: countryOfOrigin
     #singleValue: true
     xpath: //li[contains(.,"Origin:")] | //*[normalize-space(text())="Country of origin"]/following-sibling::*[1]
