@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'images')]//img/@srcset
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'images')]//img/@alt
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,'altHead head1')]
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'altHead head1')]
+  - name: price
+    singleValue: false
+    xpath: //div[@class='prices']/ins
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='prices']/del  
+  - name: weightNet
+    singleValue: false
+    xpath: //header[contains(@class,'detailHeader')]/h2
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: gtin
+    singleValue: false
+    xpath: //meta[@itemprop='gtin13']/@content
+  - name: sku
+    singleValue: false
+    xpath: //section[@data-type='details']/@data-product
+  - name: variantId
+    singleValue: false
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: servingSize
+    singleValue: false
+    xpath: //span[@data-resource-id='per-100']
+  - name: servingSizeUom
+    singleValue: false
+    xpath: //span[@class='nutrient-portion-uom']
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //tr[td[text()='Energie']]/td[contains(@class,'amount')]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //tr[td[text()='Vetten']]/td[contains(@class,'amount')]
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //tr[td[text()='Koolhydraten']]/td[contains(@class,'amount')]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //tr[td[text()='Eiwitten']]/td[contains(@class,'amount')]
+  - name: totalSugarPerServing
+    singleValue: false
+    xpath: //tr[td[text()='Suikers']]/td[contains(@class,'amount')]
+  - name: saltPerServing
+    singleValue: false
+    xpath: //tr[td[text()='Zout']]/td[contains(@class,'amount')]
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //tr[td[text()='Voedingsvezel']]/td[contains(@class,'amount')]
+  - name: ingredientsList
+    singleValue: false
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'crumbs')]//a[not(contains(@class,'back'))][not(contains(@href,'product'))]//span[contains(@itemprop,'title')][not(text()='Home')]
+  - name: description
+    singleValue: false
+    xpath: //dd[contains(@class,'active')]/p
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'logoList')]/p
+  - name: descriptionBullets
+    singleValue: false    
