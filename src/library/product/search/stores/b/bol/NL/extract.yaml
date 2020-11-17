@@ -39,8 +39,8 @@ fields:
     xpath: //ul[@class='product-creator']/li/a
   - name: soldBy
     singleValue: false
-    xpath: //div[@data-test="plazaseller-link"]
-    regExp: '\w+\.\w+'
+    xpath: //wsp-buy-block[@class='product-item__options hit-area']/div[@data-test="plazaseller-link"]
+    regExp: (?<=door )\w+.* # '\w+\.\w+'
   - name: endorsementText
     singleValue: false
   - name: rank
