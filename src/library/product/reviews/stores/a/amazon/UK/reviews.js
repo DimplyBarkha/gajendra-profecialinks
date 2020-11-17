@@ -1,8 +1,9 @@
+
 module.exports = {
-  extends: 'navigation/goto/domains/am/amazon',
+  implements: 'product/reviews',
   parameterValues: {
     country: 'UK',
-    domain: 'amazon.co.uk',
     store: 'amazon',
+    domain: 'amazon.co.uk',
   },
 };
