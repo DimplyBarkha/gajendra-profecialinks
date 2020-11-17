@@ -31,15 +31,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   await new Promise((resolve) => setTimeout(resolve, 1500));
 
   await context.evaluate(() => {
-    function addElementToDocument (key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
-    const searchUrl = window.location.href;
-    addElementToDocument('searchurl', searchUrl);
     const names = document.querySelectorAll('header div[class*="hPW"]')
       ? document.querySelectorAll('header div[class*="hPW"]') : [];
     names.forEach(e => e.setAttribute('name', e.innerText.replace('- -', '')));

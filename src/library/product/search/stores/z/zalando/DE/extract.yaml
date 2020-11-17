@@ -10,7 +10,7 @@ fields:
     regExpReplace: $1 
   - name: searchUrl
     singleValue: true
-    xpath: //ancestor::html//div[@id='searchurl']@searchurl
+    xpath: (//ancestor::html//link[@rel='alternate'][@hreflang]//@href)[position()=1]
   - name: name
     singleValue: false
     xpath: //header/div[contains(@class,'hPW')]/@name
