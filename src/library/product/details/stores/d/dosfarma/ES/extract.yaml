@@ -95,7 +95,7 @@ fields:
     singleValue: false
   - name: productDosage
     singleValue: false
-    xpath: //div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]//p[contains(text(), "dosis diaria recomendada")]
+    xpath: //div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]//p[contains(text(), "dosis diaria recomendada") or contains(text(), "administrar")]
     regExp: (?:\s?([\d\.]+\s{1}?)(mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?).?)$|(?:\s?([\d\.]+\s?)(mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]??).?\s)
     regExpReplace: $1
   - name: productForm
@@ -106,7 +106,7 @@ fields:
   - name: productSize
     singleValue: false
     xpath: //div[@class='product__header dbtrustedshops']//h1
-    regExp: (?:\s?([\d\.]+\s{0,1}?)(ml|[gG]|mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?).?)$|(?:\s?([\d\.]+\s{0,1}?)(ml|[gG]|mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]??).?\s)
+    regExp: (([\d\.]+\s{0,1}?)(ml|[gG]|mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?).?)$|(([\d\.]+\s{0,1}?)(ml|[gG]|mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]??).?\s)
     # regExpReplace: $1
   - name: ingredientsList
     singleValue: false
@@ -148,5 +148,4 @@ fields:
   - name: pricePerUnitUom
     singleValue: true
     xpath: //span[contains(@class, "price_unit")]
-    regExp: ([^\/]+$)
-    # regExpReplace: $2
+    regExp: (?<=\/\s)(.*)(?=\))
