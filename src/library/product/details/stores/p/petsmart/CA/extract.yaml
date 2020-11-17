@@ -18,52 +18,50 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //div[@class="react-viewer-canvas"]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="thumbnail-wrapper"]/img/@src
+    xpath: //div[@class="slick-list"]//div[contains(@class, "slick-slide") and not(contains(@class, "cloned"))]//img/@src
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    # xpath: //div[@class="breadcrumbs col-sm-12"]
+    xpath: //div[@class="breadcrumb"]
   - name: nameExtended
     singleValue: true
-    # xpath: //div/h1[@class="pdp-product-name"]
+    xpath: //h1[@class="pdp-product-name"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //span[@class="product-price-discount"]//span[@class="product-price-standard"]/text()
   - name: price
     singleValue: true
-    # xpath: //div[@class="product-price"]
-    # regExp: (Standard)\s(Price)\$\s(\d+\.\d+)
-    # regExpReplace: $3
+    xpath: //div[@class="product-price"]/span[@class="product-price-standard"]/text() | //div[@class="product-price"]//span[@class="product-price-sales"]/text()
   - name: availabilityText
-    singleValue: true 
-    # xpath: //script[contains(@type,"application/ld+json")][1]
-    # regExp: ("availability":)\s("https://schema.org/)(\w+)\"
-    # regExpReplace: $3
-    # defaultValue: Out of Stock
+    singleValue: true
   - name: description
     singleValue: false
-    # xpath: //body/@description
+    xpath: (//div[@id="react-tabs-1"]//div[@class="react-tabs__tab-content"]/*/text())[position()>1]
   - name: descriptionBullets
     singleValue: true
-    # xpath: count(//div[@class="react-tabs__tab-content"]/li)
+    xpath: count(//div[@class="react-tabs__tab-content"]/li)
     type: NUMBER
   - name: brandText
     singleValue: true
-    # xpath: //a[@class="brand-details"]
+    xpath: //a[@class="brand-details"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //a[@class="brand-details"]
   - name: quantity
     singleValue: true
+    xpath: //div[@id="size"]
   - name: weightNet
     singleValue: true
-    # xpath: //li/p
-    # regExp: (Weight:)\s(\d+\s)(kg)
-    # regExpReplace: $2$3
+    xpath: (//div[@id="react-product-description"]//li)[position()=last()]/p
+    regExp: (Weight:\ )(.+)
+    regExpReplace: $2
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -89,7 +87,7 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
-    # xpath: //body/@directions
+    xpath: //li[@id="react-tabs-4"]/@directions
     singleValue: true
   - name: warnings
     singleValue: true
@@ -142,8 +140,6 @@ fields:
   - name: asin
     singleValue: true
     description: null
-  - name: allergens
-    singleValue: true
   - name: featureHighlights
     singleValue: true
   - name: questionsCount
@@ -154,7 +150,6 @@ fields:
     singleValue: true   
   - name: nutritionInfo
     singleValue: true 
-    # xpath: //body/@nutritionInfo
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
@@ -254,12 +249,17 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //li[@id="react-tabs-2"]/@ingredients
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
+    xpath: //li[@id="react-tabs-2"]/@servingsize
+    regExp: \/(.+g)
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
+    xpath: //li[@id="react-tabs-2"]/@servingsize
+    regExp: \/(.+g)
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
@@ -350,6 +350,7 @@ fields:
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     type: NUMBER
+    xpath: //li[@id="react-tabs-2"]/@nutritional
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
@@ -513,8 +514,8 @@ fields:
     singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+    xpath: //body/@zoompresent
   # - name: shownImages
   #   xpath: //div[@class="thumbnail-wrapper"]/img/@src
   # - name: highQualityImages
