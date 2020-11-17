@@ -5,9 +5,10 @@ recordXPath: //section[@class="category-list"]//div[contains(@class, "category-l
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a/@href
+    xpath: //div[contains(@class,"cat-prod-row")]/@data-pid
+    #//div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a/@href
     regExp: (.+)
-    regExpReplace: https://www.ceneo.pl$1
+    regExpReplace: https://www.ceneo.pl/$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a//img/@src
@@ -21,7 +22,8 @@ fields:
     xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__price"]//a//span[contains(@class,"price-format")]
   - name: id
     singleValue: false
-    xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a/@href
+    xpath: //div[contains(@class,"cat-prod-row")]/@data-pid
+    #//div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a/@href
     regExp: \d+
   - name: aggregateRating
     singleValue: false
