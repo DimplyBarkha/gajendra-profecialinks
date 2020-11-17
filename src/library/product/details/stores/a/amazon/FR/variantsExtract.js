@@ -46,6 +46,7 @@ module.exports = {
         store: 'amazon',
         transform: null,
         domain: 'amazon.fr',
+        zipcode: '75019',
     },
     dependencies: {
         variants: 'extraction:product/details/stores/a/amazon/FR/variantsExtract',

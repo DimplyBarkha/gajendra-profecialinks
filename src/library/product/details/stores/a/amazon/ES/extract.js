@@ -7,6 +7,7 @@ module.exports = {
         store: 'amazon',
         transform,
         domain: 'amazon.es',
+        zipcode: '28010',
     },
     dependencies: {
         productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
