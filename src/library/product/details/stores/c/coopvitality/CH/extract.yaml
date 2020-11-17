@@ -64,7 +64,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //html//div[@id='brand']
+    # xpath: //html//div[@id='brand']
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -86,9 +86,11 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class="product attribute sku"]/div/text()
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@class="product attribute sku"]/div/text()
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -144,6 +146,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //div[@class="page-title-wrapper product"]/h1/span/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
