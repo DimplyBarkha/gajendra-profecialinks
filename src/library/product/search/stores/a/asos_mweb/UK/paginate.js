@@ -1,4 +1,14 @@
 
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  // Hack: Getting rid of default pagination
+  return false;
+}
+
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
@@ -8,4 +18,5 @@ module.exports = {
     noResultsXPath: '//h2[contains(@class,"grid-text__title")][contains(text(),"NOTHING MATCHES YOUR SEARCH")]',
     domain: 'asos.com',
   },
+  implementation,
 };
