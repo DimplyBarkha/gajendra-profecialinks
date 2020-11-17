@@ -49,36 +49,36 @@ fields:
     singleValue: true
     type: CURRENCY
     xpath: //b[@class="fp-price-is-special-offer"]/text()
-  - name: ingredientsList
-    singleValue: false
-    xpath: //tbody/tr
-  - name: caloriesPerServing
-    singleValue: false
-    xpath: //tbody/tr[2]/td[position()>1]
-  - name: totalFatPerServing
-    singleValue: false
-    type: NUMBER
-    xpath: //tbody/tr[3]/td[position()>1]
-  - name: saturatedFatPerServing
-    singleValue: false
-    description: Nutritional Information for Saturated Fat content - Usually based
-      on per 100g serving
-    type: NUMBER
-    xpath: //tbody/tr[4]/td[position()>1]
-  - name: totalSugarsPerServing
-    singleValue: false
-    type: NUMBER
-    xpath: //tbody/tr[6]/td[position()>1]
-  - name: proteinPerServing
-    singleValue: false
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving
-    type: NUMBER
-    xpath: //tbody/tr[7]/td[position()>1]
-  - name: saltPerServing
-    singleValue: false
-    type: NUMBER
-    xpath: //tbody/tr[8]/td[position()>1]
+  # - name: ingredientsList
+  #   singleValue: false
+  #   xpath: //tbody/tr
+  # - name: caloriesPerServing
+  #   singleValue: false
+  #   xpath: //tbody/tr[2]/td[position()>1]
+  # - name: totalFatPerServing
+  #   singleValue: false
+  #   type: NUMBER
+  #   xpath: //tbody/tr[3]/td[position()>1]
+  # - name: saturatedFatPerServing
+  #   singleValue: false
+  #   description: Nutritional Information for Saturated Fat content - Usually based
+  #     on per 100g serving
+  #   type: NUMBER
+  #   xpath: //tbody/tr[4]/td[position()>1]
+  # - name: totalSugarsPerServing
+  #   singleValue: false
+  #   type: NUMBER
+  #   xpath: //tbody/tr[6]/td[position()>1]
+  # - name: proteinPerServing
+  #   singleValue: false
+  #   description: Nutritional Information for Protein content - Usually based on per
+  #     100g serving
+  #   type: NUMBER
+  #   xpath: //tbody/tr[7]/td[position()>1]
+  # - name: saltPerServing
+  #   singleValue: false
+  #   type: NUMBER
+  #   xpath: //tbody/tr[8]/td[position()>1]
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
