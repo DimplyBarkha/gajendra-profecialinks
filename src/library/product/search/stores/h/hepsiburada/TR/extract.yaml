@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,'product-list')]//li
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a//@href
+    regExp: (.+)
+    regExpReplace: https://www.hepsiburada.com$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[contains(@class,"carousel-lazy-item")][1]//@data-src
+    regExp: (.+)(280-413)(.+)
+    regExpReplace: $1600-600$3
+  - name: name
+    description: The product name
+    xpath: //h3//@title
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //span[@class="number-of-reviews"]
+    regExp: \d+
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //span[@class="number-of-reviews"]
+    regExp: \d+
+  - name: price
+    description: The offered price for the product
+    xpath: //span[@class="price product-price"] | //div[@class="price-value"]
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //div//a//@data-sku
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class="product-detail"]//span[@class="ratings active"]//@aggregaterating
+  - name: searchUrl
+    xpath: ancestor::html//ul[contains(@class,"product-list")]/@url
+  - name: manufacturer
+    xpath: //span/button/@data-product
+    regExp: brandName[":\s]+([\w\d-&\s]+)",
+    regExpReplace: $1 
