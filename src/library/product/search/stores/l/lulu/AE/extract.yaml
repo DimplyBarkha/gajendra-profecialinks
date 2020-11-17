@@ -2,46 +2,58 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: 
+fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="SearchResultsGrid-ListAddToCartAction"]//input[@name="productCodePost"]/@value
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[starts-with(@id,'ii_rank')]
+    xpath: //input[@name="productCodePost"]/@value
+    # regExp: \:(.*)
+    # regExpReplace: $1
+  # - name: rankOrganic
+  #   singleValue: false
+  #   xpath: //form/input[@name="fp"]/@value
   - name: name
     singleValue: false
-    xpath: //span[@itemprop="name"]
+    xpath: //div[@class="plp-prod-name"]/text()
   - name: productUrl
     singleValue: false
-    xpath: //a[@itemprop="url"]/@href
-  - name: gtin
-    singleValue: false
-    xpath: //form/@name
-    regExp: cart(\w+)_.*
-    regExpReplace: $1
+    xpath: //a[@class="js-gtm-product-link"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.luluhypermarket.com$1
+    
+  # - name: gtin
+  #   singleValue: false
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="plp-prod-img"]/img/@src
-    # regExp: (.*)
-    # regExpReplace: https://www.medikamente-per-klick.de$1
+  - name: url
+    singleValue: false
+    regExp: (.+)
+    regExpReplace: https://www.luluhypermarket.com$1
+    xpath: //form[@class="searchPOSForm clearfix"]/@action
+  # - name: aggregateRating
+  #   singleValue: false
+  #   xpath: //div[@id="pd_aggregateRating"]
+  # - name: reviewCount
+  #   singleValue: false
+  #   xpath: //div[@class="rating"]/span/a
   - name: price
     singleValue: false
-    xpath: //div[starts-with(@id,'ii_price')]
-  - name: aggregateRating
-    singleValue: false
-    xpath: //span[@itemprop="ratingValue"]
-  - name: reviewCount
-    singleValue: false
-    xpath: //span[@class="reviewers"]
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@id='pd_manufacturer']
-  - name: soldBy
-    singleValue: false
+    xpath: //div[@class="price"]/span/text()
+    # regExp: (\d+)\.(\d+)\,(\d+)(.*)
+    # regExpReplace: $1$2.$3$4
+  # - name: manufacturer
+  #   singleValue: false
+  #   xpath: //div[@class="description"]/text()[3] | //div[@class="description"]/font[2]/font
+  # - name: soldBy
+  #   singleValue: false
   - name: rank
     singleValue: false
-    xpath: //div[starts-with(@id,'ii_rank')]
-  - name: endorsementText
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: rankOrganic
     singleValue: false
-
+    xpath: //div[@id="rankOrganic"]/text()
+  # - name: endorsementText
+  #   singleValue: false
+  # - name: ratingCount
+  #   singleValue: false
+  #   xpath: //div[@class="rating"]/span/a

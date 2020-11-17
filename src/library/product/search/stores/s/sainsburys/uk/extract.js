@@ -2,10 +2,10 @@ const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'uk',
-    store: 'sainsburys',
+    country: 'Ae',
+    store: 'lulu',
     transform: cleanUp,
-    domain: 'sainsburys.co.uk',
+    domain: 'luluhypermarket.com',
     zipcode: '',
   },
   implementation,
@@ -47,7 +47,7 @@ async function implementation(
     if (!rankOrganic) {
       rankOrganic = 1;
     } else {
-      rankOrganic = (dup * 66) + 1;
+      rankOrganic = (dup * 40) + 1;
     }
     const urlProduct = document.querySelectorAll('a[class="pt__link"]');
     for (let i = 0; i < urlProduct.length; i++) {

@@ -6,7 +6,7 @@ module.exports = {
     store: 'sainsburys',
     domain: 'sainsburys.co.uk',
     url: 'https://www.sainsburys.co.uk/gol-ui/SearchDisplayView?filters[keyword]={searchTerms}',
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },

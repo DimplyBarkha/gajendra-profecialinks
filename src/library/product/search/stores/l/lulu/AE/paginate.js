@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'AE',
+    country: 'Ae',
     store: 'lulu',
     nextLinkSelector: null,
     mutationSelector: null,
