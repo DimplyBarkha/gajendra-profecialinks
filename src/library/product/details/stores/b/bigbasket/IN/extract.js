@@ -15,7 +15,7 @@ module.exports = {
   ) => {
     await context.evaluate(async function () {
       const finalArray = [];
-      let first;
+      let first = '';
       const data = window.__PRELOADED_STATE__;
 
       function getElementsByXPath (xpath, parent) {
