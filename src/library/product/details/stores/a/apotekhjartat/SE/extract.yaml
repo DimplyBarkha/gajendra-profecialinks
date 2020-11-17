@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //ul[@class="slides"]/li[contains(@class,"active-slide")]/img/@src
+    xpath: //meta[@property="og:image"]/@content
     regExp: (.+)(?=\?)
   - name: imageAlt
     singleValue: false
