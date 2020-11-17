@@ -14,6 +14,10 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     }
 
     addHiddenDiv('my-url', window.location.href);
+
+    const packText = document.evaluate("concat(//section[@class='product-features']//dd[@class='value'],//section[@class='product-features']//dt[@class='name'])", document, null, XPathResult.STRING_TYPE, null).stringValue.replace('Presentacion', '');
+
+    addHiddenDiv('my-pack', packText);
   });
 
   return await context.extract(productDetails, { transform });

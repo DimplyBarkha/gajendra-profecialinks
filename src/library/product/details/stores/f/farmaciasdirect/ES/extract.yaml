@@ -119,6 +119,8 @@ fields:
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //div[@id='my-pack']
+    # xpath: concat(//section[@class='product-features']//dd[@class='value'],' ',//section[@class='product-features']//dt[@class='name'])
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
