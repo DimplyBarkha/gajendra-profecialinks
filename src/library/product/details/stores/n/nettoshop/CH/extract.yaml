@@ -106,7 +106,8 @@ fields:
   - name: specifications
     singleValue: false
     # xpath: //div[contains(@class,'c-accordion__text')]
-    xpath: //div[@class="c-product-specifications ember-view"]
+    # xpath: //div[@class="c-product-specifications ember-view"]
+    xpath: //strong[contains(.,'Produktdaten')]//following-sibling::text()
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin12")]
