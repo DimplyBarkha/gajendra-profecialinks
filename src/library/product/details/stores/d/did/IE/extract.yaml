@@ -75,7 +75,7 @@ fields:
     xpath: //table[@id='product_comparison']//tbody//th//span[contains(text(), "Brand")]//parent::th//parent::tr/td
   - name: videos
     singleValue: false
-    xpath: //div[@id='panel-wrapper']//iframe/@src
+    xpath: //iframe[contains(@id,'flix-iframe')]/@src
   - name: termsAndConditions
     singleValue: false
     xpath: //p//strong[contains(text(), 'Terms applying to cancellation:')]//parent::p//following-sibling::p[contains(text(),'cancellation')]
@@ -84,7 +84,9 @@ fields:
     defaultValue: 1
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: .inpage_selector_feature
+    xpath: //div[@id='flix-inpage']//div[contains(@class,'flix-std')]//div[contains(@class,'content') or contains(@class,'flix-std-title')] | //div[@id='flix-inpage']//div[contains(@class,'description') or contains(@class,'postcard') or contains(@class,'gridtext')]
   - name: manufacturerImages
     singleValue: false
-    manualSelector: img.flix-img-responsive
+    xpath: //div[@id='inpage_container']//img/@data-flixsrcset
+    regExp: (.+)200w
+    regExpReplace: https:$1
