@@ -6,7 +6,7 @@ module.exports = {
     store: 'stockmann',
     domain: 'stockmann.com',
     url: 'https://www.stockmann.com/haku?q={searchTerms}',
-    loadedSelector: 'div.products-view-body',
-    noResultsXPath: '//div[contains(@class,"sp-message-not-found")]',
+    loadedSelector: 'div.product-grid',
+    noResultsXPath: '//div[contains(@class,"no-results")]',
   },
 };
