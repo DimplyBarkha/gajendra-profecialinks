@@ -150,7 +150,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@itemprop="video"]//meta[@itemprop="contentUrl"]/@content
+    xpath: //div[@itemprop="video"]//meta[@itemprop="contentUrl"]/@content | //body//@video
     description: URLs of videos on page
   - name: name
     singleValue: true

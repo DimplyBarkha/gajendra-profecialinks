@@ -17,10 +17,21 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 
   await context.evaluate(function () {
     console.log('Scrolling to the bottom of page.');
-    document.querySelector('#footer-widget').scrollIntoView({ behavior: 'smooth' })
+    document.querySelector('#footer-widget') ? document.querySelector('#footer-widget').scrollIntoView({ behavior: 'smooth' }) : "" ;
   });
 
   await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
+  //video
+  await context.evaluate(function () {
+    const value = document.querySelector('div.wc-video-gallery > iframe#wcframable1-0') ? document.querySelector('div.wc-video-gallery > iframe') : '';
+    if (value !== '') {
+      var doc = value.ownerDocument;
+      var video = doc.body.querySelector('video');
+      if (video) {
+        document.body.setAttribute('video', doc.body.querySelector('video').getAttribute('src'));
+      }
+    }
+  });
 
   await context.evaluate(function () {
     const addElement = (id, content) => {
@@ -31,7 +42,8 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 
       document.body.appendChild(el);
     };
-
+    
+    
     // const sku = products[0].map(e => { return e.partNumber}).join(" | ")
     //   document.body.setAttribute('variantId',sku);
     //    }
