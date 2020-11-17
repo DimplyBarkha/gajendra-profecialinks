@@ -126,7 +126,7 @@ fields:
     xpath: //div[@class="ytp-bound-time-right"]
   - name: featureBullets
     singleValue: false
-    description: null
+    xpath: count(//div[@class="rte"]/ul/li)
   - name: secondaryImageTotal
     singleValue: true
     xpath: count(//li//a[@class="fancybox"]//img//@src)
