@@ -39,11 +39,11 @@ fields:
 - name: price
   singleValue: true
   xpath: //span[@data-test="product-pod-price"]/span
-  # regExp: (\d+\.?\d+)
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: false
+  type: STRING
   xpath: //button[@data-origincomponent="AddToTrolley"]/@data-shortdescription
   regExp: (.+)
   regExpReplace: In Stock
@@ -104,10 +104,11 @@ fields:
   xpath: //h3[text()="Warnings"]/following-sibling::ul
   description: Content under "warnings" header
 - name: ratingCount
-  singleValue: true
+  singleValue: false
   type: STRING
-  xpath: //div[@class="bv-header"]//span[@class="bv-content-pagination-pages-current"]/text()
-  regExp: ([^\s]\d+[^\s])
+  xpath: //span[@class="ratingText___2kURz"]/span/text()
+  # xpath: //div[@class="bv-header"]//span[@class="bv-content-pagination-pages-current"]/text()
+  # regExp: ([^\s]\d+[^\s])
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
@@ -260,8 +261,8 @@ fields:
 - name: servingSizeUom
   singleValue: true
   xpath: //th[text()="Typical values"]/following-sibling::td[1]
-  regExp: \d+(\w+)
-  regExpReplace: $1
+  regExp: (\d+(\w+))
+  regExpReplace: $2
   description: Unit of measure of serving
 - name: numberOfServingsInPackage
   singleValue: true
@@ -442,7 +443,7 @@ fields:
   description: Allergy information associated with the product
 - name: recyclingInformation
   singleValue: false
-  xpath: //td[@class="yes___24QAi"]/preceding::td[1]
+  xpath: //td[contains(@class, 'yes')]/preceding::td[1]
   description: Recycling information associated with the product
 - name: productOtherInformation
   singleValue: false
@@ -457,7 +458,7 @@ fields:
 - name: pricePerUnit
   singleValue: true
   xpath: //span[@class="pricePerUnit___1L8TG"]
-  regExp: ([^(]\w+[.]\w[^/])
+  regExp: ([^(].?\d+.?\w+)
   description: Price of the product split into certain units
 - name: pricePerUnitUom
   singleValue: true

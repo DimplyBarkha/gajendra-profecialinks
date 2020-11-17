@@ -28,7 +28,7 @@ module.exports = {
       return productLink;
     });
     if (detailsPage) {
-      await context.goto('https://www.waitrose.com/' + detailsPage);
+      await context.goto('https://www.waitrose.com' + detailsPage);
       await context.waitForNavigation();
     }
     var data = await context.extract(productDetails, { transform });

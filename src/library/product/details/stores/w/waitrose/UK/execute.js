@@ -6,7 +6,7 @@ module.exports = {
     store: 'waitrose',
     domain: 'waitrose.com',
     loadedSelector: 'section[class="productDetailContainer___1TUHx"], a[data-origincomponent="ProductPod"]',
-    noResultsXPath: '//h1[@class="problem___1gdZ-"]',
+    noResultsXPath: '//h1[@class="problem___1gdZ-"] | // button[@aria-label="Load more"]',
     zipcode: '',
   },
 };
