@@ -1,13 +1,15 @@
+const { transform } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'PL',
     store: 'makro',
-    transform: null,
+    transform,
     domain: 'makro.pl',
     zipcode: '',
   },
-  implementation: async (inputs, parameters, context, { productDetails }) => {
+  implementation: async (inputs, { transform }, context, { productDetails }) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     if (await context.evaluate(() => !!document.querySelector('div.cookie-law-footer button'))) {
@@ -23,6 +25,6 @@ module.exports = {
       loadMoreButton = await context.evaluate(async () => !!document.querySelector('a[class$="load-more-articles"]'));
     }
 
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
