@@ -16,7 +16,7 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="image-container"]/figure/picture/img/@src
+    xpath: //meta[@itemprop="image"]/@content
     description: The URL for the product thumbnail image
     regExp: (.+)
     regExpReplace: https:$1
