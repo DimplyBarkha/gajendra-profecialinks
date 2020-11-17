@@ -1,13 +1,16 @@
 extends: ../shared
 fields:
-  - name: productUrl
-    singleValue: false
-    xpath: //h2/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.co.uk$1
-  - name: price
-    singleValue: false
-    xpath: //span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[contains(@cel_widget_id,"MAIN-SEARCH_RESULTS")]//div[contains(@class, "sg-col-inner")]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[contains(@cel_widget_id,"MAIN-SEARCH_RESULTS")]//div[contains(@class, "a-section")]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
   - name: reviewCount
     singleValue: true
-    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
+  - name: subscribe
+    xpath: //*[contains(@dir,"auto") and contains(text(), "ubscribe")]/text()
+  - name: aggregateRating2
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stars")]/@aria-label
+    regExp: ^([^\s]+)
+    # used in transform.
+  - name: domain
+    defaultValue: 'amazon.co.uk'

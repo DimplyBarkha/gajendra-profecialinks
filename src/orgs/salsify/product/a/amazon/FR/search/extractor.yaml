@@ -4,8 +4,14 @@ parameters:
   domain: amazon.fr
   store: amazon
   zipcode: ""
+proxy:
+  zone: ZFR
+  type: DATA_CENTER
 meta:
   branches:
+    development:
+      extractor: 235a6b8a-e1e9-40ea-b8c0-d3b33b75b789
+      legacyAccountId: c77cb423-f919-4092-848b-9915f9794e9c
     staging:
       extractor: 6486e9c3-e873-4b28-a187-a53f92a9bf17
       legacyAccountId: c77cb423-f919-4092-848b-9915f9794e9c

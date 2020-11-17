@@ -3,9 +3,14 @@ parameters:
   country: DE
   domain: amazon.de
   store: amazon
-  zipcode: ""
+proxy:
+  zone: ZDE
+  type: DATA_CENTER
 meta:
   branches:
+    development:
+      extractor: 0806ef21-676e-4295-955f-93e25a1a093d
+      legacyAccountId: c77cb423-f919-4092-848b-9915f9794e9c
     staging:
       extractor: 2df8b312-120a-42c4-8656-bd9772797599
       legacyAccountId: c77cb423-f919-4092-848b-9915f9794e9c

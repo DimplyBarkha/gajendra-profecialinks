@@ -19,6 +19,7 @@ const transform = (data, context) => {
   const state = context.getState();
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
+  let sponsRankCounter = state.sponsRankCounter || 0;
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
@@ -26,9 +27,13 @@ const transform = (data, context) => {
       if (!row.sponsored) {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];
+      } else {
+        sponsRankCounter = sponsRankCounter + 1;
+        row.rankSponsored = [{ text: sponsRankCounter }];
       }
       row.rank = [{ text: rankCounter }];
 
+      /* not using the function.
       const filterStringToAfterSecondIndex = (string, text) => {
         const wordSize = text.length;
         let count = 0;
@@ -40,14 +45,14 @@ const transform = (data, context) => {
           }
         }
         return string.slice(secondIdx);
-      };
+      }; */
 
       if (row.productUrl && row.productUrl[0].text) {
+        const domain = row.domain[0].text;
         const url = row.productUrl[0].text;
-        if (url.split('amazon.com').length > 2) {
-          row.productUrl = [{ text: filterStringToAfterSecondIndex(url, 'https://www.amazon.com') }];
-        } else if (url.split('amazon.de').length > 2) {
-          row.productUrl = [{ text: filterStringToAfterSecondIndex(url, 'https://www.amazon.de') }];
+        const splitData = url.split(domain).map(elm => elm.split('amazon-adsystem.com')).flat();
+        if (splitData.length > 2) {
+          row.productUrl = [{ text: 'https://www.' + domain + splitData[2] }];
         }
       }
 
@@ -55,22 +60,98 @@ const transform = (data, context) => {
         row.name = [{ text: row.sponsName[0].text }];
         delete row.sponsName;
       }
+      if (row.sponsThumbnail && !row.name) {
+        row.thumbnail = [{ text: row.sponsThumbnail[0].text }];
+        delete row.sponsThumbnail;
+      }
 
       if (row.sponsRatingCount && !row.ratingCount) {
-        row.ratingCount = [{ text: row.sponsRatingCount[0].text }];
-        row.reviewCount = [{ text: row.sponsRatingCount[0].text }];
+        let replace = ['.', '.'];
+        if (row.sponsorReplace) {
+          replace = row.sponsorReplace[0].text.split('|');
+        }
+        row.ratingCount = [{ text: row.sponsRatingCount[0].text.replace(replace[0], replace[1]) }];
+        row.reviewCount = [{ text: row.sponsRatingCount[0].text.replace(replace[0], replace[1]) }];
         delete row.sponsRatingCount;
       }
 
       if (row.sponsAgRating && !row.aggregateRating2) {
-        row.aggregateRating2 = [{ text: row.sponsAgRating[0].text }];
+        let replace = ['.', '.'];
+        if (row.sponsorReplace) {
+          replace = row.sponsorReplace[0].text.split('|');
+        }
+        row.aggregateRating2 = [{ text: row.sponsAgRating[0].text.replace(replace[0], replace[1]) }];
         delete row.sponsAgRating;
       }
-
+      delete row.sponsorReplace;
       if (row.sponsThumbnail && !row.thumbnail) {
         row.thumbnail = [{ text: row.sponsThumbnail[0].text }];
       }
 
+      const subscribe = Boolean(row.sub_and_save);
+      row.subscribe = [{
+        text: subscribe.toString(),
+        type: 'BOOLEAN',
+        value: subscribe,
+      }];
+      if (row.badgeType) {
+        let pantry = false;
+        let prime = false;
+        row.badgeType.forEach(badge => {
+          if (badge.text.includes('rime')) {
+            prime = true;
+          }
+          if (badge.text.includes('antry')) {
+            pantry = true;
+          }
+        });
+        row.pantry = [{
+          text: pantry.toString(),
+          type: 'BOOLEAN',
+          value: pantry,
+        }];
+        row.prime = [{
+          text: prime.toString(),
+          type: 'BOOLEAN',
+          value: prime,
+        }];
+      } else {
+        row.pantry = [{
+          text: 'false',
+          type: 'BOOLEAN',
+          value: false,
+        }];
+        row.prime = [{
+          text: 'false',
+          type: 'BOOLEAN',
+          value: false,
+        }];
+      }
+      if (row.moreBuyingOptionsPrice && !row.price) {
+        row.price = [{ text: row.moreBuyingOptionsPrice[0].text }];
+      }
+      if (row.price) {
+        if (row.price.length > 1) {
+          row.minPrice = [{
+            text: row.price[0],
+          }];
+          row.maxPrice = [{
+            text: row.price[1],
+          }];
+        }
+      }
+      if (row.listPrice) {
+        if (row.listPrice.length > 1) {
+          row.minListPrice = [{
+            text: row.price[0],
+          }];
+          row.maxListPrice = [{
+            text: row.price[1],
+          }];
+        }
+      }
+      delete row.sponsorReplace;
+      delete row.domain;
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
@@ -78,6 +159,7 @@ const transform = (data, context) => {
   }
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });
+  context.setState({ sponsRankCounter });
   context.setState({ productCodes });
   console.log(productCodes);
   return data;

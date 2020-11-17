@@ -1,29 +1,19 @@
 extends: ../shared
 fields:
-  - name: productUrl
-    singleValue: false
-    xpath: //h2/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.es$1
   - name: aggregateRating2
     singleValue: false
-    xpath: //span[contains(@aria-label,"estrellas")]/@aria-label
-    regExp: (.+) de
-    regExpReplace: $1
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"estrellas")]/@aria-label
+    regExp: ^([^\s]+)
   - name: ratingCount
     singleValue: false
     xpath: //span[contains(@aria-label,"estrellas")]/following-sibling::span[1]
   - name: reviewCount
     singleValue: false
     xpath: //span[contains(@aria-label,"estrellas")]/following-sibling::span[1]
-  - name: price
-    singleValue: false
-    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
-  - name: endorsementText
-    singleValue: false
-    xpath: //span[contains(@class, "a-badge-label") and @id]
-  - name: sponsored
-    singleValue: false
-    xpath: //span[@class='s-label-popover-default']/span[text() = "Patrocinado"]
-    description: Is sponsored/paid
-    type: BOOLEAN
+  - name: subscribe
+    xpath: //*[contains(@dir,"auto") and contains(text(), "uscríbete")]/text()
+    # used in transform.
+  - name: sponsorReplace
+    defaultValue: '.|,'
+  - name: domain
+    defaultValue: 'amazon.es'

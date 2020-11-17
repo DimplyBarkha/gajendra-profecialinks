@@ -1,7 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //div[@data-component-type="s-search-result"]
-# recordXPath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"] | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div | //div[contains(@class,"_multi-card-creative-desktop_DesktopGridColumn_gridColumn")] | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div | //div[contains(@data-component-type,"s-search-result") and @data-asin]
+recordXPath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"] | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div[div[@data-asin]] | //div[contains(@class,"_multi-card-creative-desktop_DesktopGridColumn_gridColumn")] | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div | //div[contains(@data-component-type,"s-search-result") and @data-asin]
 # recordXPath: //div[contains(@class,"_multi-card-creative-desktop_DesktopGrid") and contains(@class,"__")] | //div[contains(@data-component-type,"s-search-result") and @data-asin]
 recordSelector: null
 fields:
@@ -9,15 +8,17 @@ fields:
     singleValue: false
     xpath: ancestor::html//div[@id='searchUrl']
   - name: sponsName
-    xpath: //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/span | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div/span | //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@alt | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@aria-label
+    xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div[div[@data-asin]]/a[@data-click-asin]/@aria-label | //img[contains(@class,"multi-card-creative-desktop_Image")]/@alt | a[@data-click-type]/@aria-label | //*[@data-click-el="title"] | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/span | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div/span | //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@alt | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@aria-label
   - name: sponsRatingCount
     xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div//div[@data-click-el="rating"] | //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div//div[@data-click-el="rating"]
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,"a-price _multi-card-creative-desktop_Price")]/span[1] | //span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+    xpath: //*[@data-click-el="price"]/@aria-label | //span[contains(@class,"a-price _multi-card-creative-desktop_Price")]/span[1] | //span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+  - name: moreBuyingOptionsPrice
+    xpath: //span[@dir="auto"][following-sibling::span[@data-action="s-show-all-offers-display"]][not(contains(@class,"a-color-secondary"))]
   - name: name
     singleValue: true
-    xpath: //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@alt | //h2 
+    xpath: //img[contains(@class,"multi-card-creative-desktop_Image")]/@alt | //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/div/img/@alt | //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@alt | //h2 
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
@@ -25,27 +26,25 @@ fields:
     xpath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/span | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div/span | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@aria-label | //div[contains(@data-component-type,"s-search-result") and @data-asin and contains(@class, "AdHolder")] | //div[contains(@class,"_multi-card-creative-desktop_DesktopGridColumn_gridColumn")]
   - name: productUrl
     singleValue: false
-    xpath: //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/@href | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]/@href | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@href | //div[@class="a-section a-spacing-none"]/a[contains(@class,"_multi-card-creative-desktop_Link")]/@href | //h2/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.com$1
+    xpath: //a[@data-click-type] | //div[@class="a-section a-spacing-none"]/a[contains(@class,"_multi-card-creative-desktop_Link")] | //h2/a
+    type: LINK
   - name: gtin
     singleValue: true
     xpath:
   - name: sponsThumbnail
     singleValue: false
-    xpath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/div/img/@src | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]//img/@src | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a//img/@src | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//img/@src
+    xpath: //img[contains(@class,"_multi-card-creative-desktop_Image")]/@src | //div[@data-click-el="img"]//img/@src | //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/div/img/@src | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]//img/@src | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a//img/@src | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//img/@src
+    regExp: (.+)\.[^\.]*(\.[^\.]+$)
+    regExpReplace: $1$2
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@src | //img[@class="s-image"]/@src
-    regExpReplace: $1
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stars")]/@aria-label
-    regExp: (.+) out of
-    regExpReplace: $1
+    regExp: (.+)\.[^\.]*(\.[^\.]+$)
+    regExpReplace: $1$2
   - name: sponsAgRating
     singleValue: false
     xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//@data-rating | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div//@data-rating
+  # Will remove ratingCount and reviewCount later since the Xpath only works for US/CA(english).
   - name: ratingCount
     singleValue: true
     xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
@@ -67,6 +66,7 @@ fields:
   - name: id
     singleValue: true
     xpath: //@data-asin
-  - name: productType
-    singleValue: false
-    xpath: //a[contains(@class,'a-size-base a-link-normal a-text-bold')]
+  - name: badgeType
+    xpath: //img[@data-click-el="prime"]/@alt | //span[@data-click-el="badge"] | //span[@data-component-type="s-status-badge-component"]/@data-component-props | //i[@aria-label="Amazon Pantry"]/@aria-label | //i[@aria-label="Amazon Prime"]/@aria-label
+  - name: listPrice
+    xpath: //*[@data-click-el="savings"]/span[1] | //span[contains(@class, "a-price") and @data-a-strike="true"]/span[@class="a-offscreen"]

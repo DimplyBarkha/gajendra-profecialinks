@@ -3,6 +3,6 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'amazon.com',
-    store: 'amazon'
+    store: 'amazon',
   },
 };

@@ -1,14 +1,17 @@
 robot: product/search
-proxy:
-  zone: USA
-  type: DATA_CENTER
 parameters:
   country: UK
   domain: amazon.co.uk
   store: amazon
   zipcode: ""
+proxy:
+  zone: ZUK
+  type: DATA_CENTER
 meta:
   branches:
+    development:
+      extractor: e545352b-524b-421c-a8cd-069ac9f4ac82
+      legacyAccountId: c77cb423-f919-4092-848b-9915f9794e9c
     staging:
       extractor: ec967a9b-fdd0-41f2-82bd-b82089d4eb3f
       legacyAccountId: c77cb423-f919-4092-848b-9915f9794e9c

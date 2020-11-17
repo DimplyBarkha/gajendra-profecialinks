@@ -3,8 +3,15 @@ parameters:
   country: ES
   domain: amazon.es
   store: amazon
+  zipcode: ""
+proxy:
+  zone: ZES
+  type: DATA_CENTER
 meta:
   branches:
+    development:
+      extractor: 5e7b7d89-4b7d-483e-b3fd-1c37df579132
+      legacyAccountId: c77cb423-f919-4092-848b-9915f9794e9c
     staging:
       extractor: ad1d2627-aff0-4ecf-83db-81c0f2907e9b
       legacyAccountId: c77cb423-f919-4092-848b-9915f9794e9c
