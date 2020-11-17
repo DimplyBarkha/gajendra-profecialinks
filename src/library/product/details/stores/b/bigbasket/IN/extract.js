@@ -14,6 +14,10 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
+      const finalArray = [];
+      let first;
+      const data = window.__PRELOADED_STATE__;
+
       function getElementsByXPath (xpath, parent) {
         const results = [];
         const query = document.evaluate(xpath, parent || document,
@@ -25,38 +29,25 @@ module.exports = {
         return results.filter(e => e);
       }
       const dataArr = getElementsByXPath('//*[contains(@id,"about")]/div[2]/div//div/text() | //*[@id="about_3"]/div[2]/div/div//p');
-      const CountryOfOrigin = dataArr.find(element => element.includes('Country'));
-      const MarketedBy = dataArr.find(element => element.includes('Marketed by') || element.includes('Address :') || element.includes('Manufactured') || element.includes('Manufacturer'));
+      const country = dataArr.find(element => element.includes('Country'));
+      const manufacture = dataArr.find(element => element.includes('Marketed by') || element.includes('Address :') || element.includes('Manufactured') || element.includes('Manufacturer'));
       const gtin = dataArr.find(element => element.includes('EAN'));
-      document.body.setAttribute('gtin', gtin);
-      document.body.setAttribute('country', CountryOfOrigin);
-      document.body.setAttribute('manufacture', MarketedBy);
+      const size = data && data.product && data.product.variants && data.product.variants[0].w;
 
-      const data = window.__PRELOADED_STATE__;
+      if (data && data.product && data.product.variants.length > 1) {
+        first = data && data.product && data.product.variants[0].id;
+      }
 
-      const variant = data && data.product && data.product.variants && data.product.variants[0].w;
-     if(variant) {
-      const newlink = document.createElement('div');
-      newlink.setAttribute('class', 'variant-information');
-      newlink.innerText = variant;
-      document.body.appendChild(newlink);
-     }
-      
-      if(data && data.product && data.product.variants.length > 1){
-        var firstVariant = data && data.product && data.product.variants[0].id;
-        const newlink = document.createElement('div');
-        newlink.setAttribute('class', 'first-variant');
-        newlink.innerText = firstVariant;
-        document.body.appendChild(newlink);
+      const variants = data && data.product && data.product.variants.map(e => e.id).slice(1);
+      const obj = { country, manufacture, gtin, size, variants, first };
+
+      finalArray.push(obj);
+
+      if (finalArray) {
+        for (const key in finalArray[0]) {
+          document.querySelector('h1').setAttribute(key, finalArray[0][key]);
         }
-
-      const variantArr = data && data.product && data.product.variants.map(e => e.id).slice(1);
-      variantArr.forEach(element => {
-        const newlink = document.createElement('div');
-        newlink.setAttribute('class', 'variant');
-        newlink.innerText = element;
-        document.body.appendChild(newlink);
-      });
+      }
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

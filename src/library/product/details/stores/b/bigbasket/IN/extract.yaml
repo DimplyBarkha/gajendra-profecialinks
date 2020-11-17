@@ -31,19 +31,19 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.bigbasket.com$1
   - name: manufacturer
-    xpath: //body/@manufacture
+    xpath: //h1/@manufacture
     regExp: :\s(.+)
     regExpReplace: $1
   - name: description
-    xpath: //span[contains(text(),"About the Product")]/parent::div/following-sibling::div[1]
+    xpath: //span[contains(text(),"About")]/parent::div/following-sibling::div[1]
   - name: variantId
     xpath: //div[@id='price']//table/tbody/@id
   - name: variantInformation
-    xpath: //div[@class="variant-information"]
+    xpath: //h1/@size
   - name: variantCount
     xpath: count(//div[@class="_1LiCn"]/div[position()>1])
   - name: variants
-    xpath: //div[@class="variant"]
+    xpath: //h1/@variants
   - name: alternateImages
     xpath: //div[contains(@id,"thumb")][position()>1]//img/@src
     regExp: (.+)/p/(.+)/(.+)
@@ -57,7 +57,7 @@ fields:
   - name: aggregateRating
     xpath: //div[contains(@class,"_1AXTE")]/div
   - name: countryOfOrigin
-    xpath: //body/@country
+    xpath: //h1/@country
     regExp: :\s(.+)
     regExpReplace: $1
   - name: ingredientsList
@@ -65,17 +65,21 @@ fields:
   - name: promotion
     xpath: "//td[contains(text(),'You Save: ')]/following-sibling::td"
   - name: gtin
-    xpath: //body/@gtin
+    xpath: //h1/@gtin
     regExp: :\s(.+)
     regExpReplace: $1
   - name: firstVariant
-    xpath: //div[@class='first-variant']
+    xpath: //h1/@first
   - name: video
     xpath: //iframe[contains(@src,'video')]/@src
   - name: quantity
-    xpath: //div[@class="variant-information"]
+    xpath: //h1/@size
   - name: directions
     xpath: //span[contains(text(),"HOW TO USE")]/parent::div/following-sibling::div[1] | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]
+  - name: manufacturerDescription
+    xpath: //div[@class="main-template"]
+  - name: manufacturerImages
+    xpath: //div[@class="main-template"]//img/@src
     # //static
   - name: technicalInformationPdfPresent
     defaultValue: No
