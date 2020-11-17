@@ -6,14 +6,14 @@ module.exports = {
     store: 'mega-image',
     domain: 'mega-image.ro',
     url: 'https://www.mega-image.ro/search?q={searchTerms}',
-    loadedSelector: 'ul.search-results-container:last-child',
-    noResultsXPath: 'div.sc-3brks3-2.iyGbUN',
+    loadedSelector: 'ul.search-results-container',
+    noResultsXPath: '//span[text()="Nu am gasit"]',
     zipcode: '',
   },
   implementation: async function (inputs, parameters, context, dependencies) {
     const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
     await dependencies.goto({ url, zipcode: inputs.zipcode });
-    // Check if cookies pop-up appeared
+    // Check if cookies pop-up appeared and accept it
     const doesPopupExist = await context.evaluate(function () {
       return Boolean(document.querySelector('div.v8o5b9-9.ifwxYc'));
     });

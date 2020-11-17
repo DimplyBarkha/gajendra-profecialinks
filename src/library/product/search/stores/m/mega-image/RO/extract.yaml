@@ -1,26 +1,28 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-testid='search-results-list-wrapper']/ul[last()]/li
+recordXPath: //div[@class='extra-info']/div[@class='product']
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@data-testid="product-block-image-link"]/@href
-    regExp: (\d+)$
-    regExpReplace: $1
+    xpath: //div[@class='extra-info']/div[@class='product']/@id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[@data-testid='product-block-product-name']/a
+    xpath: //div[@class='extra-info']/div[@class='product']/@name
   - name: productUrl
     singleValue: false
-    xpath: //a[@data-testid='product-block-image-link']/@href
+    xpath: //div[@class='extra-info']/div[@class='product']/@product-url
+    regExp: (.+)$
+    regExpReplace: https://www.mega-image.ro/$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //img[@data-testid='product-block-image']/@src
+    xpath: //div[@class='extra-info']/div[@class='product']/@thumbnail
+    regExp: (.+)$
+    regExpReplace: https://www.mega-image.ro/$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -31,10 +33,12 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@data-testid='product-block-price']
+    xpath: //div[@class='extra-info']/div[@class='product']/@price
+    regExp: ^(\d+,?\d+)
+    regExpReplace: $1
   - name: manufacturer
-    singleValue: true
-    xpath: //div[@data-testid='product-block-brand-name']
+    singleValue: false
+    xpath: //div[@class='extra-info']/div[@class='product']/@manufacturer
   - name: soldBy
     singleValue: true
   - name: endorsementText
