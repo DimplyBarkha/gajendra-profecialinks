@@ -24,9 +24,13 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@class='b-price-section']/span[@class='b-product-tile-price-outer b-product-tile-price-outer--line-through']/span
+    regExp: (.+),(.+)
+    regExpReplace: $1.$2
   - name: price
     singleValue: false
     xpath: //div[@class='b-price-section']/span[@class='b-product-tile-price-outer']/span
+    regExp: (.+),(.+)
+    regExpReplace: $1.$2
   - name: description
     singleValue: false
     xpath: //div[@class='b-details-content']
@@ -42,9 +46,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: (//div[@class='b-pdp-carousel-item'])[position()>=1 and position()<= 4]/picture/img/@src
-  - name: sku
-    singleValue: false
-    xpath: (//td[@class='b-fact-value js-fact-value'])[5]
+  # - name: sku
+  #   singleValue: false
+  #   xpath: (//td[@class='b-fact-value js-fact-value'])[5]
   - name: mpc
     singleValue:  false
     xpath: (//td[@class='b-fact-value js-fact-value'])[2]
@@ -54,3 +58,9 @@ fields:
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
+  - name: nameExtended
+    singleValue: false
+    xpath: //html//div[@id='description']
+    #xpath: concat(//div[@class="js-target"]/a/text(),' ',(//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1])
+    # regExp: \\n(.+)\\n(.+)
+    # regExpReplace: $1$2
