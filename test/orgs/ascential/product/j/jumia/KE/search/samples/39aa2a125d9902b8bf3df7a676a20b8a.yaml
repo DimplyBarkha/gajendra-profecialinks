@@ -2,7 +2,7 @@ input:
   keywords: Geisha soap
   _url: http://jumia.co.ke
 extractions:
-  - html: https://workbench.import.io/html/run=e911121c-237b-4341-8560-a19733237bbd/task=ef514556-f1b2-484f-8d10-2de57b278c0f/1d019071-7607-448d-aed7-afcb6725671e.html
+  - html: https://workbench.import.io/html/run=e38bfe23-13e5-4fdd-95e7-cda2f8d8cb1e/task=479dbc86-1782-4411-b1a6-6feab6380bcd/0beb6e35-1a8a-49b7-806b-ba3cee3e7c16.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
@@ -20,7 +20,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
             aggregateRating2:
               - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "26"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]
@@ -44,7 +44,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
             aggregateRating2:
               - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "28"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
@@ -68,7 +68,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
             aggregateRating2:
               - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "18"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]
@@ -107,7 +107,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@img
             aggregateRating2:
               - text: 4,5
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "23"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
@@ -130,8 +130,8 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/90/210721/1.jpg?7744
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@img
             aggregateRating2:
-              - text: 5,
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]/div[1]
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "9"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]
@@ -155,7 +155,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@img
             aggregateRating2:
               - text: 4,5
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "2"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]
@@ -166,4 +166,4 @@ extractions:
               - text: KSh 106
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[1]
         xpath: /html
-    timestamp: 1605599252190
+    timestamp: 1605608996435

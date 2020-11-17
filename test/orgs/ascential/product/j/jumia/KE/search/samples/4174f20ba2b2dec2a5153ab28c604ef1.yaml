@@ -2,7 +2,7 @@ input:
   keywords: Surface cleaners
   _url: http://jumia.co.ke
 extractions:
-  - html: https://workbench.import.io/html/run=e911121c-237b-4341-8560-a19733237bbd/task=a4d5859d-57e3-4d4b-9bda-7ad7ad8177ca/edf83f96-7654-44ae-b8d3-8262b06c5d5e.html
+  - html: https://workbench.import.io/html/run=e38bfe23-13e5-4fdd-95e7-cda2f8d8cb1e/task=52a6ae67-aa91-4f4c-ab2d-f7ec7c693a6e/e8839815-555e-4022-bc46-0cdf00cbe851.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
@@ -20,7 +20,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
             aggregateRating2:
               - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[4]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "39"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[4]
@@ -28,7 +28,7 @@ extractions:
               - text: "39"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[4]
             price:
-              - text: KSh 415
+              - text: KSh 465
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]
           - id:
               - text: DE012HL0E639SNAFAMZ
@@ -43,7 +43,7 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/23/7988/1.jpg?2970
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
             price:
-              - text: KSh 400
+              - text: KSh 465
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
           - id:
               - text: AI393HL03R69VNAFAMZ
@@ -59,8 +59,8 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/06/306691/1.jpg?3546
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
             aggregateRating2:
-              - text: 4,
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[3]/div[1]
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[3]
@@ -71,43 +71,43 @@ extractions:
               - text: KSh 10,900
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[1]
           - id:
-              - text: CI442HL10R5TKNAFAMZ
+              - text: DE012CP0COW5FNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@data-id
             name:
-              - text: Cif Floor/surface Cream Lemon 250ml Cif
+              - text: Dettol Surface Cleaner Lemon - 900Ml
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/cif-floorsurface-cream-lemon-250ml-cif-23433716.html
+              - text: https://www.jumia.co.ke/surface-cleaner-lemon-900ml-dettol-mpg226187.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/61/733432/1.jpg?6794
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@img
-            aggregateRating2:
-              - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]/div[1]
-            reviewCount:
-              - text: "5"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]
-            ratingCount:
-              - text: "5"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]
-            price:
-              - text: KSh 171
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[1]
-          - id:
-              - text: DE012CP0COW5FNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@data-id
-            name:
-              - text: Dettol Surface Cleaner Lemon - 900Ml
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/surface-cleaner-lemon-900ml-dettol-mpg226187.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@href
-            thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/21/316803/1.jpg?5941
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@img
             price:
               - text: KSh 1,000
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[1]
+          - id:
+              - text: CI442HL10R5TKNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@data-id
+            name:
+              - text: Cif Floor/surface Cream Lemon 250ml Cif
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/cif-floorsurface-cream-lemon-250ml-cif-23433716.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/61/733432/1.jpg?6794
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@img
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@aggregate_rating2
+            reviewCount:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
+            price:
+              - text: KSh 171
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[1]
           - id:
               - text: BR272OT13QRICNAFAMZ
@@ -123,7 +123,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@img
             aggregateRating2:
               - text: 4,5
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "4"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]
@@ -179,7 +179,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@img
             aggregateRating2:
               - text: 4,3
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[2]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "6"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[2]
@@ -425,8 +425,8 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/04/140002/1.jpg?8112
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@img
             aggregateRating2:
-              - text: 5,
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/div[3]/div[1]
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/div[3]
@@ -467,8 +467,8 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/22/957012/1.jpg?3063
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@img
             aggregateRating2:
-              - text: 5,
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/div[3]/div[1]
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/div[3]
@@ -530,35 +530,35 @@ extractions:
               - text: KSh 9,927
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840OT0AJ8RRNAFAMZ
+              - text: GE840OT0H30FBNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@data-id
             name:
               - text: Generic Scrub surface usb charging electronic lighter men and women
-                  windproof personality double fire electronic
-                  igniter(#Champagne gold)
+                  windproof personality double fire electronic igniter(#Matt
+                  silver)
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-igniterchampagne-gold-19939671.html
+              - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-ignitermatt-silver-19939682.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/17/693991/1.jpg?6185
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/28/693991/1.jpg?6183
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@img
             price:
               - text: KSh 8,713
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840OT0H30FBNAFAMZ
+              - text: GE840OT0AJ8RRNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@data-id
             name:
               - text: Generic Scrub surface usb charging electronic lighter men and women
-                  windproof personality double fire electronic igniter(#Matt
-                  silver)
+                  windproof personality double fire electronic
+                  igniter(#Champagne gold)
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-ignitermatt-silver-19939682.html
+              - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-igniterchampagne-gold-19939671.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/28/693991/1.jpg?6183
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/17/693991/1.jpg?6185
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@img
             price:
               - text: KSh 8,713
@@ -627,8 +627,8 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/97/3543/1.jpg?7781
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/@img
             aggregateRating2:
-              - text: 5,
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/div[2]/div[4]/div[1]
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/div[2]/div[4]
@@ -666,8 +666,8 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/95/799621/1.jpg?3412
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@img
             aggregateRating2:
-              - text: 4,
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/div[2]/div[2]/div[1]
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/div[2]/div[2]
@@ -818,8 +818,8 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/86/065121/1.jpg?9032
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@img
             aggregateRating2:
-              - text: 4,
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/div[4]/div[1]
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/div[4]
@@ -862,8 +862,8 @@ extractions:
               - text: KSh 12,890
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/div[1]
         xpath: /html
-    timestamp: 1605599270849
-  - html: https://workbench.import.io/html/run=e911121c-237b-4341-8560-a19733237bbd/task=a4d5859d-57e3-4d4b-9bda-7ad7ad8177ca/d8e498ed-abdc-47f4-83e7-3a2f3ac7119a.html
+    timestamp: 1605609016268
+  - html: https://workbench.import.io/html/run=e38bfe23-13e5-4fdd-95e7-cda2f8d8cb1e/task=52a6ae67-aa91-4f4c-ab2d-f7ec7c693a6e/85bc5cc3-5d9f-425a-a7c0-75d72a8c8972.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
@@ -913,8 +913,8 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/86/065121/1.jpg?9032
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
             aggregateRating2:
-              - text: 4,
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[4]/div[1]
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[4]
@@ -1274,8 +1274,8 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/31/295652/1.jpg?1791
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@img
             aggregateRating2:
-              - text: 5,
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[4]/div[1]
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@aggregate_rating2
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[4]
@@ -1398,35 +1398,35 @@ extractions:
               - text: KSh 999
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840AU0WRMFONAFAMZ
+              - text: GE840AU0SS2CANAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@data-id
             name:
-              - text: "Generic Kaneed Sl-915 Car Dash Duster Washable Microfiber Interior And
+              - text: "Generic KANEED SL-915 Car Dash Duster Washable Microfiber Interior And
                   Exterior Surface Cleaner Wax Treated Professional Detailing
-                  Tool, Size: 34 X 19cm"
+                  Tool, Size: 34 X 19cm(Blue)"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-kaneed-sl-915-car-dash-duster-washable-microfiber-interior-and-exterior-surface-cleaner-wax-treated-professional-detailing-tool-size-34-x-19cm-563055.html
+              - text: https://www.jumia.co.ke/generic-kaneed-sl-915-car-dash-duster-washable-microfiber-interior-and-exterior-surface-cleaner-wax-treated-professional-detailing-tool-size-34-x-19cmblue-5683384.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/55/0365/1.jpg?3946
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/48/33865/1.jpg?5478
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@img
             price:
               - text: KSh 199
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840AU0SS2CANAFAMZ
+              - text: GE840AU0WRMFONAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/@data-id
             name:
-              - text: "Generic KANEED SL-915 Car Dash Duster Washable Microfiber Interior And
+              - text: "Generic Kaneed Sl-915 Car Dash Duster Washable Microfiber Interior And
                   Exterior Surface Cleaner Wax Treated Professional Detailing
-                  Tool, Size: 34 X 19cm(Blue)"
+                  Tool, Size: 34 X 19cm"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-kaneed-sl-915-car-dash-duster-washable-microfiber-interior-and-exterior-surface-cleaner-wax-treated-professional-detailing-tool-size-34-x-19cmblue-5683384.html
+              - text: https://www.jumia.co.ke/generic-kaneed-sl-915-car-dash-duster-washable-microfiber-interior-and-exterior-surface-cleaner-wax-treated-professional-detailing-tool-size-34-x-19cm-563055.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/48/33865/1.jpg?5478
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/55/0365/1.jpg?3946
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/@img
             price:
               - text: KSh 199
@@ -1656,8 +1656,8 @@ extractions:
               - text: KSh 6,338
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/div[2]
         xpath: /html
-    timestamp: 1605599270849
-  - html: https://workbench.import.io/html/run=e911121c-237b-4341-8560-a19733237bbd/task=a4d5859d-57e3-4d4b-9bda-7ad7ad8177ca/a574aa5e-cdc3-42c6-9010-af0ba50e5e51.html
+    timestamp: 1605609016268
+  - html: https://workbench.import.io/html/run=e38bfe23-13e5-4fdd-95e7-cda2f8d8cb1e/task=52a6ae67-aa91-4f4c-ab2d-f7ec7c693a6e/277cfa4a-7be2-4a21-b62c-411df9621c7e.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
@@ -1837,4 +1837,4 @@ extractions:
               - text: KSh 413
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/div[2]
         xpath: /html
-    timestamp: 1605599270849
+    timestamp: 1605609016268
