@@ -47,7 +47,9 @@ module.exports = {
 
           const ing = document.getElementById('product-toc');
           if (ing) {
-            document.body.append(createDivWithID('toc').append(ing));
+            const tocDiv = createDivWithID('toc');
+            tocDiv.append(ing);
+            document.body.append(tocDiv);
           }
 
           // Implementation Only if PM-Doc is present
