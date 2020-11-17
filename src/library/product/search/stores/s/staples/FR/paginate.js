@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'staples',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div#Pager>span.next',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
