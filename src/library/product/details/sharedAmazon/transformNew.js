@@ -139,9 +139,9 @@ const transform = (data, context) => {
         }
       }
       if (row.description || row.extraDescription) {
-        const bonusDesc = row.extraDescription ? row.extraDescription.map(item => item.text.replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim()).join(' ').split(/From the Manufacturer|Brand Story/)[0] : '';
+        const bonusDesc = row.extraDescription ? row.extraDescription.map(item => item.text.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim()).join(' ').split(/From the Manufacturer|Brand Story/)[0] : '';
         if (row.description) {
-          const text = row.description.map(item => item.text.replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim()).join(' ');
+          const text = row.description.map(item => item.text.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim()).join(' ');
           row.description = [{ text: [text, bonusDesc].join(' ').trim() }];
         } else {
           row.description = [{ text: bonusDesc }];
