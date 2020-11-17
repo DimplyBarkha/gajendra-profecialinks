@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class*="imageContainer"]>img',
+    loadedSelector: null,
     noResultsXPath: '//div[contains(@class,"layout")]/div[contains(@class,"searchNotFound")]',
     openSearchDefinition: null,
     zipcode: '',
