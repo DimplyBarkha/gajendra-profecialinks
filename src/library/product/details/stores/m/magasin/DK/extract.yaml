@@ -79,6 +79,7 @@ fields:
     regExpReplace: https://www.magasin.dk$1
   - name: videos
     singleValue: false
+    xpath: //div[@id="videoUrl"]
   - name: name
     singleValue: true
     xpath: //h1[@class='pdp__title js-productName']
@@ -129,6 +130,7 @@ fields:
     singleValue: true
   - name: manufacturerImages
     singleValue: false
+    xpath: //div[@class="content-asset"]/section//img//@data-srcset
   - name: upc
     singleValue: true
     xpath: //li[contains(text(),'EAN')]/text()
@@ -149,3 +151,6 @@ fields:
   - name: variants
     singleValue: false
     xpath:
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="manuDesc"]
