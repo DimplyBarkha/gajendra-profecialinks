@@ -70,6 +70,4 @@ fields:
     regExpReplace: $2
   - name: manufacturerImages
     singleValue: true
-    xpath: //div[contains(@class, "spec-categories")]
-    regExp: (UPC\s)(\d+)
-    regExpReplace: $2
+    xpath: //div[contains(@class,"manufacturer-content-wrapper")]
