@@ -5,7 +5,7 @@ module.exports = {
     store: "intermarche",
     domain: "intermarche.com",
     url:
-      "https://www.intermarche.com/rechercheproduits/11770/recherche/{nuggets}",
+      "https://www.intermarche.com/rechercheproduits/11770/recherche/{searchTerms}",
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: "",
