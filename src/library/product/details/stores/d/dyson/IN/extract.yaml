@@ -1,14 +1,96 @@
-extends: ../shared 
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordxpath: null
+# fields:
+#   - name: image
+#     singleValue: false
+#     xpath: //div[contains(@class,'hgroup__main-image')]/img/@src | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@src
+#   - name: alternateImages
+#     singleValue: false
+  #   xpath: //div[contains(@aria-describedby,"slick-slide")]/picture/img/@src
+    # xpath: //div[contains(@class,"product__claim-section__gallery--images")]/img/@src
+  # - name: imageAlt
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'hgroup__main-image')]/img/@alt
+  # - name: category
+  #   singleValue: false
+  #   manualSelector: footer ol.crumb__list > li:first-child~li > a
+  # - name: nameExtended
+  #   singleValue: false
+  #   xpath: //h2[contains(@class,"rating-set__title")] | //h1[contains(@class,"hgroup__motif__h1-cdn-img-replace")] | //div[contains(@class,"hgroup hero")] //h1
+  # - name: listPrice
+  #   singleValue: false
+  #   manualSelector: div.hero__content__preorder-container > div.price-mrp > strike
+  # - name: price
+  #   singleValue: false
+  #   xpath: //div[contains(@class,"card__pricing")]//*[@class="price"] | //*[contains(@class,"price__is")]//*[@class="price"]
+  # - name: availabilityText
+  #   singleValue: false
+  #   manualSelector: button[title*="Add to cart"]
+  #   type: BOOLEAN
+    #regExp: (.*)
+    #regExpReplace: In Stock
+    #defaultValue: Out of Stock
+  # - name: description
+  #   singleValue: false
+  #   xpath: //div[contains(@class,"hgroup product__claims") ] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
+  # - name: weightNet 
+  #   singleValue: false
+  #   xpath: //span[contains(@class,"spec") and *[contains(text(),"Weight")]]//span
+  # - name: variantId
+  #   singleValue: false
+  #   xpath: //div[@id='added_sku']
+  # - name: ratingCount
+  #   singleValue: false
+  #   manualSelector: div.rating span[itemprop="reviewCount"], div.hgroup span[itemprop="reviewCount"]
+  # - name: aggregateRating
+  #   singleValue: false
+  #   xpath: //div[contains(@id,"aggrating")]
+    # xpath: (//span[contains(@class,"rating__data__value")] | //div[contains(@class,"hgroup")]//span[@itemprop="ratingValue"])[1]
+  # - name: videos
+  #   singleValue: false
+  #   xpath: //video/source[@src]/@src
+  # - name: name
+  #   singleValue: false
+  #   xpath: //h2[contains(@class,"rating-set__title")] | //*[contains(@class,"hgroup__motif__h1-cdn-img-replace")] | //div[contains(@class,"hgroup hero")] //h1
+  # - name: specifications
+  #   singleValue: false
+  #   manualSelector: div#added_specs
+  # - name: warranty 
+  #   singleValue: false
+  #   xpath: //strong[contains(text(),"warranty")]
+  # - name: promotion
+  #   singleValue: false
+  #   manualSelector: div.product__price .price__save
+  # - name: manufacturerDescription
+  #   singleValue: false
+  #   manualSelector: div.promos__list
+  # - name: manufacturerImages
+  #   singleValue: false
+  #   xpath: //div[contains(@class,"promos__list")]//img/@src
+  # - name: termsAndConditions #localedependent
+  #   xpath: //h2[contains(@class,"rating-set__title")] | //*[contains(@class,"hgroup__motif__h1-cdn-img-replace")] | //div[contains(@class,"hgroup hero")] //h1
+  #   regExp: (.+)
+  #   regExpReplace: No
+  #   singleValue: false
+  #   description: Terms and conditions information text ['Yes','No']
+  #   defaultValue: No
+
 fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class,'hgroup__main-image')]/img/@src | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@src
-  - name: alternateImages
-    singleValue: false
-    xpath: //div[contains(@class,"product__claim-section__gallery--images")]/img/@src
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,'hgroup__main-image')]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@aria-describedby,"slick-slide")]/picture/img/@src
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+    xpath: //meta[contains(@name, "keywords")]/@content
   - name: category
     singleValue: false
     manualSelector: footer ol.crumb__list > li:first-child~li > a
@@ -18,52 +100,480 @@ fields:
   - name: listPrice
     singleValue: false
     manualSelector: div.hero__content__preorder-container > div.price-mrp > strike
+    #regExp: ([^a-zA-Z:\s]{3,})
+    #regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //div[contains(@class,"card__pricing")]//*[@class="price"] | //*[contains(@class,"price__is")]//*[@class="price"]
+  - name: currencyOverride
+    singleValue: true
+    xpath: //div[@id='added_currency']
   - name: availabilityText
     singleValue: false
     manualSelector: button[title*="Add to cart"]
     type: BOOLEAN
-    #regExp: (.*)
-    #regExpReplace: In Stock
-    #defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class,"hgroup product__claims") ] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    type: NUMBER
+    xpath: count(//div[@id="added_descBullets"]//li)
+    #xpath: count(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//*[contains(text(), '•')] | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//li)
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    #xpath: //div[@id='added_brandtext']
+    defaultValue: Dyson
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    defaultValue: Dyson
+  - name: quantity #missing
+    singleValue: true
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
   - name: weightNet 
     singleValue: false
     xpath: //span[contains(@class,"spec") and *[contains(text(),"Weight")]]//span
+    #regExpReplace: $1
+    # xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]])[1]
+  - name: weightGross #localedependent#missing
+    singleValue: true
+    description: Gross weight as described on the page
+    regExp: ([0-9,\.]+.+)
+    regExpReplace: $1
+    #xpath: //ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]]
+  - name: gtin #missing
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@id='added_sku']
   - name: variantId
     singleValue: false
     xpath: //div[@id='added_sku']
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //div[@id='added_sku']
+  - name: packSize #missing
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer #missing
+    singleValue: true
+    description: Content under "legal disclaimer" header
+  - name: directions #missing
+    singleValue: true
+    description: Content under "directions" header
+  - name: warnings #missing
+    singleValue: true
+    description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
     manualSelector: div.rating span[itemprop="reviewCount"], div.hgroup span[itemprop="reviewCount"]
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+    regExp: (^.{3,3})
+    regExpReplace: $1
+    xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'author'))][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')])[1]/@aria-label
   - name: aggregateRating
     singleValue: false
-    xpath: //span[contains(@class,"rating__data__value")] | //div[contains(@class,"hgroup")]//span[@itemprop="ratingValue"] div 20
+    xpath: //div[contains(@id,"aggrating")]
+  - name: shippingInfo #localedependent
+    singleValue: true
+    description: Shipping information for the product
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ')] or .//*[contains(text(),'elivery')]])[1]
+  - name: shippingDimensions #missing
+    singleValue: true
+    description: Stated shipping dimensions
+  - name: shippingWeight #missing
+    singleValue: true
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    type: NUMBER
+    defaultValue: 0
+    xpath: count(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)
+  - name: color
+    singleValue: true
+    description: A textual description of the colour
+    xpath: //div[@id='added_color']
+  - name: colorCode #missing
+    singleValue: true
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div.promos__list
+    #xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])]//*[contains(concat(' ',normalize-space(@class),' '),' h1 ') or contains(concat(' ',normalize-space(@class),' '),' h2 ') or contains(concat(' ',normalize-space(@class),' '),' h3 ') or contains(concat(' ',normalize-space(@class),' '),' h4 ') or contains(concat(' ',normalize-space(@class),' '),' h5 ') or contains(concat(' ',normalize-space(@class),' '),' h6 ') or contains(concat(' ',normalize-space(@class),' '),' body ') or contains(concat(' ',normalize-space(@class),' '),' js-text-body ') or contains(concat(' ',normalize-space(@class),' '),' typography-body ')][not(contains(concat(' ',normalize-space(@class),' '),' typography-body--small '))]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,"promos__list")]//img/@src
+    #xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src
   - name: videos
     singleValue: false
     xpath: //video/source[@src]/@src
+    #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src
+    #regExp: (.+)
+    #regExpReplace: https://www.dyson.co.uk$1
   - name: name
     singleValue: false
     xpath: //h2[contains(@class,"rating-set__title")] | //*[contains(@class,"hgroup__motif__h1-cdn-img-replace")] | //div[contains(@class,"hgroup hero")] //h1
+  - name: inStorePrice #missing
+    singleValue: true
+    description: Price in the selected store
+  - name: asin #missing
+    singleValue: true
+    description: null
+  - name: coupon #missing
+    singleValue: true
+    description: Text of any coupon offer
+  - name: amazonChoice #missing
+    singleValue: true
+    description: YES or Blank
+  - name: amazonChoiceCategory #missing
+    singleValue: true
+    description: Text of link next to Amazon choice graphic
+  - name: brandLink #missing
+    singleValue: true
+    description: null
+  - name: internationalShipping #missing
+    singleValue: true
+    description: Text next to bullet point
+  - name: salesRank #missing
+    singleValue: false
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: salesRankCategory #missing
+    singleValue: false
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: subscriptionPrice #missing
+    singleValue: true
+    description: Subscribe and save price
+  - name: subscribeAndSave #missing
+    singleValue: true
+    description: YES/NO
+  - name: heroQuickPromoHeadline #missing
+    singleValue: true
+    description: See image - top section hero area
+  - name: heroQuickPromoImageUrl #missing
+    singleValue: true
+    description: null
+  - name: heroQuickPromoUrl #missing
+    singleValue: true
+    description: null
+  - name: pasin #missing
+    singleValue: true
+    description: Parent asin
+  - name: videoLength #missing
+    singleValue: false
+    description: null
+  - name: ingredientImagePresent #missing
+    singleValue: true
+    description: null
+  - name: factImagePresent #missing
+    singleValue: true
+    description: null
+  - name: largeImageCount #missing
+    singleValue: true
+    description: null
+    type: NUMBER
+  - name: variantAsins #missing
+    singleValue: true
+    description: null
+  - name: primeFlag #missing
+    singleValue: true
+    description: null
+  - name: lbb #missing
+    singleValue: true
+    description: Check Lost by Box Requirements (just for Amazon and a couple of
+      other stores) - LBB occurs when a product is bought from someone other
+      than Amazon (on Amazon Website) - even though Amazon has the product "in
+      Stock"
+  - name: lbbPrice #missing
+    singleValue: true
+    description: null
+  - name: featureBullets #missing
+    singleValue: false
+    description: null
+  - name: otherSellersName #missing
+    singleValue: false
+    description: null
+  - name: otherSellersPrice #missing
+    singleValue: false
+    description: null
+  - name: otherSellersShipping #missing
+    singleValue: false
+    description: null
+  - name: secondaryImageTotal #missing
+    singleValue: true
+    description: null
+    type: NUMBER
+  - name: news #missing
+    singleValue: true
+    description: null
+  - name: addonItem #missing
+    singleValue: true
+    description: null
+  - name: fastTrack #missing
+    singleValue: true
+    description: null
+  - name: ingredientsList #outOfScope
+    singleValue: true
+    description: List of Ingredients from site - can be string of data if no
+      discernible start/end point
+  - name: servingSize #outOfScope
+    singleValue: true
+    description: The size of serving Nutritional information is based on.
+  - name: servingSizeUom #outOfScope
+    singleValue: true
+    description: Unit of measure of serving
+  - name: numberOfServingsInPackage #outOfScope
+    singleValue: true
+    description: Suggested number of servings of the product.
+    type: NUMBER
+  - name: caloriesPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Calories Per Serving content - Usually
+      based on per 100g serving
+  - name: caloriesFromFatPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Calories From Fat content - Usually
+      based on per 100g serving
+    type: NUMBER
+  - name: totalFatPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Total Fat content - Usually based on
+      per 100g serving
+    type: NUMBER
+  - name: totalFatPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Total Fat content
+  - name: saturatedFatPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Saturated Fat content - Usually based
+      on per 100g serving
+    type: NUMBER
+  - name: saturatedFatPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Saturated Fat content
+  - name: transFatPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Trans Fat content - Usually based on
+      per 100g serving
+    type: NUMBER
+  - name: transFatPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Trans Fat content
+  - name: cholesterolPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Cholesterol content - Usually based on
+      per 100g serving
+    type: NUMBER
+  - name: cholesterolPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Cholesterol content
+  - name: sodiumPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Sodium content - Usually based on per
+      100g serving
+    type: NUMBER
+  - name: sodiumPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Sodium content
+  - name: totalCarbPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Total Carbohydrate content - Usually
+      based on per 100g serving
+    type: NUMBER
+  - name: totalCarbPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Total Carbohydrate content
+  - name: dietaryFibrePerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Dietary Fibre content - Usually based
+      on per 100g serving
+    type: NUMBER
+  - name: dietaryFibrePerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Dietary Fibre content
+  - name: totalSugarsPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Total Sugar content - Usually based on
+      per 100g serving
+    type: NUMBER
+  - name: totalSugarsPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Total Sugar content
+  - name: proteinPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Protein content - Usually based on per
+      100g serving
+    type: NUMBER
+  - name: proteinPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Protein
+  - name: vitaminAPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Vitamin A content - Usually based on
+      per 100g serving
+    type: NUMBER
+  - name: vitaminAPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Vitamin A
+  - name: vitaminCPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Vitamin C content - Usually based on
+      per 100g serving
+    type: NUMBER
+  - name: vitaminCPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Vitamin C
+  - name: calciumPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Calcium content - Usually based on per
+      100g serving
+    type: NUMBER
+  - name: calciumPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Calcium
+  - name: ironPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Iron content - Usually based on per
+      100g serving
+    type: NUMBER
+  - name: ironPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Iron
+  - name: dietarySymbols #outOfScope
+    singleValue: true
+    description: Information related to the dietary symbols of a specific product
+  - name: magnesiumPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Magnesium content - Usually based on
+      per 100g serving
+    type: NUMBER
+  - name: magnesiumPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Magnesium
+  - name: saltPerServing #outOfScope
+    singleValue: true
+    description: Nutritional Information for Salt content - Usually based on per
+      100g serving
+    type: NUMBER
+  - name: saltPerServingUom #outOfScope
+    singleValue: true
+    description: Unit of Measure Data for Salt
+  - name: dietaryInformation #outOfScope
+    singleValue: true
+    description: null
   - name: specifications
     singleValue: false
     manualSelector: div#added_specs
   - name: warranty 
     singleValue: false
     xpath: //strong[contains(text(),"warranty")]
+  - name: storage #missing
+    singleValue: true
+    description: Suggested storage location for product
+  - name: countryOfOrigin #missing
+    singleValue: true
+    description: The country from which the product originates
+  - name: allergyAdvice #outOfScope
+    singleValue: true
+    description: Allergy information associated with the product
+  - name: recyclingInformation #missing
+    singleValue: true
+    description: Recycling information associated with the product
+  - name: productOtherInformation
+    singleValue: false
+    description: Any other product information
+    xpath: //div[@id='added_productOtherInformation']
+    #xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification ')]//li
+  - name: packaging #missing
+    singleValue: true
+    description: Packaging infoxrmation
+  - name: additives #missing
+    singleValue: true
+    description: List of additives in the product
+  - name: pricePerUnit #missing
+    singleValue: true
+    description: Price of the product split into certain units
+  - name: pricePerUnitUom #missing
+    singleValue: true
+    description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
     manualSelector: div.product__price .price__save
-  - name: manufacturerDescription
+  - name: alcoholContent #missing
+    singleValue: true
+    description: Alcohol content information
+  - name: newVersion #missing
+    singleValue: true
+    description: In product page, information about a new version of the product
+      (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+  - name: newAsin #missing
+    singleValue: true
+    description: In product page, information about a new version of the product -
+      new asin info
+  - name: newDescription #todo
+    singleValue: true
+    description: In product page, information about a new version of the product -
+      new desription info
+  - name: variantInformation
+    singleValue: true
+    description: colour / scent / flavour / other
+    xpath: //div[@id='added_variantinformation']
+  - name: firstVariant
+    singleValue: true
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@alt
+  - name: variants
     singleValue: false
-    manualSelector: div.promos__list
-  - name: manufacturerImages
+    description: null
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img/@alt
+  - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,"promos__list")]//img/@src
+    description: null
+    xpath: //div[@id="added_descBullets"]//li
+    #xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//*[contains(text(), '•')] | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//li
+  - name: prop65Warning #missing
+    singleValue: true
+    description: null
+  - name: ageSuitability #missing
+    singleValue: true
+    description: Recommended age displayed on the product page.
+      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+    example: 4 - 99 years
+  - name: energyEfficiency #todo
+    singleValue: true
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+    regExp: (.*)
+    regExpReplace: Yes
+    xpath: (//a[contains(concat(' ',normalize-space(@href),' '),'.pdf')])[1]
   - name: termsAndConditions #localedependent
     xpath: //h2[contains(@class,"rating-set__title")] | //*[contains(@class,"hgroup__motif__h1-cdn-img-replace")] | //div[contains(@class,"hgroup hero")] //h1
     regExp: (.+)
@@ -71,4 +581,35 @@ fields:
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
+  - name: privacyPolicy #localedependent
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: Yes
+    #xpath: ((//ul[contains(concat(' ',normalize-space(@class),' '),' footer__list--secondary ')]//li[.//*[contains(text(), 'Privacy')]])[1]//a)[1]/text()
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' talk-to-dyson ')])[1]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: materials #missing
+    singleValue: true
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present #missing
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent #missing
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
+  - name: enhancedContentHTML #todo
+    singleValue: true
+    defaultValue: No
+
  
