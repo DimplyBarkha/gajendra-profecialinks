@@ -9,11 +9,11 @@ fields:
     regExp: \-(.{13}).html
     regExpReplace: $1 
   - name: searchUrl
-    singleValue: true
-    xpath: //ancestor::body/@searchurl
+    singleValue: false
+    xpath: //ancestor::html//div[@id='searchurl']@searchurl
   - name: name
     singleValue: false
-    xpath: //header/div[contains(@class,'hPW')]
+    xpath: //header/div[contains(@class,'hPW')]/@name
   - name: productUrl
     singleValue: false
     xpath: //article/a/@href  
