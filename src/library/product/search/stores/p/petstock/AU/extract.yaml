@@ -9,7 +9,7 @@ fields:
     description: Unique id (within this extractor)
   - name: name
     singleValue: false
-    xpath: //a[@itemprop="url"]/@title
+    xpath: //div[contains(@class, "hide")]/@data-name
     description: The product name
   - name: productUrl
     singleValue: false
@@ -46,7 +46,8 @@ fields:
     xpath: //div[@class="price"]/meta[@itemprop="price"][1]/@content
     description: The offered price for the product
   - name: manufacturer
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class, "hide")]/@data-brand
     description: Product manufacturer
   - name: soldBy
     singleValue: true
