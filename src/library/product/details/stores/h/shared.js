@@ -55,11 +55,11 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
   if (hasDescription) {
     await context.goto(url + 'description', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
     const hasShowMore = await context.evaluate(function () {
-      return Boolean(document.evaluate("//span[@class='show-link']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
+      return Boolean(document.evaluate("//hts-product-tab//span[@class='show-link']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
     });
 
     if (hasShowMore) {
-      await context.click('.show-link', {}, { timeout: 50000 });
+      await context.click('hts-product-tab span[class="show-link"]', {}, { timeout: 50000 });
     }
 
     DescriptionDetails = await context.evaluate(async function () {
