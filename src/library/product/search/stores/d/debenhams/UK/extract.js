@@ -31,6 +31,16 @@ async function implementation(
   };
   await context.evaluate(async function() {
     
+    let URL = window.location.href;
+    const recordSelector = document.querySelectorAll("div.t-product-list__product");
+    recordSelector.forEach(x => {
+      const div = document.createElement("div");
+      div.className = "custom-attr-product-search-url";
+      div.style.display = "none";
+      div.textContent = URL;
+      x.appendChild(div);
+    });
+
   });
   await applyScroll(context);
   return await context.extract(productDetails, {transform});

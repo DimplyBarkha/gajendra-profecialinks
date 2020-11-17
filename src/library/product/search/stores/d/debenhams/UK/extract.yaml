@@ -22,3 +22,6 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//div[contains(@class, 'dbh-image')]//img/@src
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[contains(@class, 't-product-list__product')]//div[@class='custom-attr-product-search-url']/text()
