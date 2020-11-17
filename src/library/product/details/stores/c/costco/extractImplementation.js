@@ -32,6 +32,10 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       document.body.appendChild(el);
     };
 
+    // const sku = products[0].map(e => { return e.partNumber}).join(" | ")
+    //   document.body.setAttribute('variantId',sku);
+    //    }
+
     const populateSpecs = () => {
       const specs = document.querySelectorAll('.product-info-specs .row');
       let text = '';
