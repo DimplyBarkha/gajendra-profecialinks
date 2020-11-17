@@ -1,4 +1,5 @@
 const { transform } = require('../../../../shared');
+// @ts-ignore
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
@@ -6,15 +7,17 @@ async function implementation (inputs, parameters, context, dependencies) {
   await new Promise(resolve => setTimeout(resolve, 5000));
 
   await context.evaluate(() => {
-    function addElementToDocument (key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
-    const searchUrl = window.location.href;
-    addElementToDocument('searchurl', searchUrl);
+    const products = document.querySelectorAll('div[class="ty-column3"] > div[class*="list__item"]')
+      ? document.querySelectorAll('div[class="ty-column3"] > div[class*="list__item"]') : [];
+    products.forEach((e, i) => {
+      const searchUrl = document.querySelector('input[name="redirect_url"]')
+        ? document.querySelector('input[name="redirect_url"]') : '';
+      const prefix = 'https://www.planethair.it/';
+      // @ts-ignore
+      e.setAttribute('searchurl', prefix.concat(searchUrl.getAttribute('value')));
+    });
+
+    // @ts-ignore
 
     const price = document.querySelectorAll('span[class*="ty-price"][id*="line"]')
       ? document.querySelectorAll('span[class*="ty-price"][id*="line"]') : [];
