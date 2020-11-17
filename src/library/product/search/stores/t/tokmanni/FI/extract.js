@@ -8,6 +8,7 @@ module.exports = {
     domain: 'tokmanni.fi',
     zipcode: '',
   },
+  // @ts-ignore
   implementation: async (inputs,
     parameters,
     context,
@@ -21,32 +22,38 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        // const originalDiv = document.querySelectorAll("div[class='list-item relative']")[index];
-        // originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+        const originalDiv = document.querySelectorAll("div[class='klevuImgWrap']")[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      // var skuID = document.querySelector('div.klevuImgWrap a').getAttribute('onmousedown').split(',');
-      // var id = skuID[8];
-      // var id1 = id.split(':');
-      // id = id1[1];
-      // id=id.replace('}', "")
-      // console.log(id)
-      // addHiddenDiv('skuid', id)
-      let rankOrganic;
-      let url = window.location.href;
-      let checkPageNumber = url.split('&')[1];
-      try {
-        if (checkPageNumber.startsWith('page=')) {
-          rankOrganic = checkPageNumber.replace('page=', '');
+      const getAllXpath = (xpath, prop) => {
+        const Price1 = getAllXpath("//div[@class='kuSalePrice']/text()",'nodeValue');
+        const Price2 = getAllXpath("//span[@class='ku-coins']/text()",'nodeValue');
+        const Price3 = (Price1+'.'+Price2);
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
+        return result;
+        };
+      let rankOrganic;
+      try {
+        rankOrganic = ((window.location.href).indexOf('offset=')) ? Number((window.location.href).replace(/.*offset=(.*)/, '$1')) : 0;
       }
       catch (err) {
       }
       if (!rankOrganic) {
         rankOrganic = 1;
       } else {
-        rankOrganic = (parseInt(rankOrganic) * 36) + 1;
+        rankOrganic = rankOrganic + 1;
       }
+      const urlProduct = document.querySelectorAll("div[class='klevuImgWrap']");
+      for (let i = 0; i < urlProduct.length; i++) {
+        addHiddenDiv('rankOrganic', rankOrganic++, i);
+      }
+
     });
     return await context.extract(productDetails, { transform });
   },
-};
+}

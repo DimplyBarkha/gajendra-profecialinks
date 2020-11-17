@@ -32,10 +32,16 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
+    xpath: //div[@class="kuSalePrice"]
+    # type: CURRENCY
+    # regExp: (.+)
+    # regExpReplace: €$1
   - name: rankOrganic
     singleValue: true
+    xpath: //div[@id='rankOrganic']/text()
   - name: rank
     singleValue: true
+    xpath: //div[@id='rankOrganic']/text()
   - name: sponsored
     singleValue: true
     defaultValue: false
