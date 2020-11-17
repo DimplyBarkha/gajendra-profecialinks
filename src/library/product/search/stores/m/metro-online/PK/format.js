@@ -29,18 +29,7 @@ const transform = (data, context) => {
           orgRankCounter += 1;
           row.rankOrganic = [{ text: orgRankCounter }];
         }
-  
-        if (row.id) {
-          row.id.forEach(item => {
-            var matches = /.+\/(\d+)/isg.exec(item.text);
-            if (matches){
-                item.text = matches[1];
-            }
-            else{
-                delete row.id;
-            }
-          });
-        }
+
         if (row.productUrl) {
             row.productUrl.forEach(item => {
               item.text = "https://metro-online.pk" + item.text;

@@ -7,6 +7,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //h6[@class='productname']//a/@href
+    regExp: (.+)\/(\d+)
+    regExpReplace: $2
   - name: productUrl
     singleValue: false
     xpath: //h6[@class='productname']//a/@href

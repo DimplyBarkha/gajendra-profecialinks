@@ -32,7 +32,7 @@ async function implementation (
     });
   };
   await applyScroll(context);
-  return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails, { transform: parameters.transform });
 }
 module.exports = {
   implements: 'product/search/extract',
