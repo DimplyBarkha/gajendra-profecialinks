@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div.c-product-grid',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'gall.nl',
