@@ -5,7 +5,7 @@ module.exports = {
     country: 'FI',
     store: 'tokmanni',
     domain: 'tokmanni.fi',
-    url: 'https://www.tokmanni.fi/search/?q=Tena%20Pants',
+    url: 'https://www.tokmanni.fi/search/?q={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
