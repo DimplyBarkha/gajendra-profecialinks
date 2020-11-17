@@ -59,7 +59,7 @@ fields:
     xpath: //h1[contains(@class,"product-title")]
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,"el-product-video-slider")]//video[contains(@class,'el-videoplayer')]/@src | //ul[contains(@class,"b-video-list")]//li//div[@class="b-video-item-tile"]/@data-videoid
+    xpath: //div[contains(@class,"el-product-video-slider")]//video[contains(@class,'el-videoplayer')]/@src | //ul[contains(@class,"b-video-list")]//li//div[@class="b-video-item-tile"]/@data-videoid | //body/@video-src
     # regExp: (.+)
     # regExpReplace: https://www.elgiganten.dk$1
   - name: shippingInfo
@@ -96,7 +96,7 @@ fields:
     defaultValue: Out of Stock
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,'tab-specs-row')]//div[contains(@class,'spec-wrap')]/dl/dd/table/tbody/tr
+    xpath: //dl[@class="spec-section"]/dd//tr
   - name: productOtherInformation
     singleValue: false
   - name: aggregateRating2

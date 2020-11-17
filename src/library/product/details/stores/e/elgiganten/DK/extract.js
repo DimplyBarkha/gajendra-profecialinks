@@ -50,16 +50,33 @@ module.exports = {
     await applyScroll(context);
     try {
       await context.waitForSelector('iframe.videoly-box', { timeout: 30000 });
+      await context.evaluate(()=>{
+        let videoData = [...document.querySelector('iframe.videoly-box').contentDocument.querySelectorAll('ul.b-video-list li  div.b-video-item-tile')];
+        let videoArr=[];
+        for(let i = 0 ; i < videoData.length ; i++){
+          console.log('video number', i+1);
+          videoArr.push('https://www.youtube.com/watch?v='+videoData[i].getAttribute('data-videoid'));
+        }
+        let videos = videoArr.join(' | ');
+        document.querySelector('body').setAttribute('video-src',videos);
+      })
     } catch (error) {
       console.log('No video ');
     }  
+    
+    try{
+      await context.waitForSelector('a[data-template="ProductSpecificationTab"], #product-read-more-specs');
+      await context.click('a[data-template="ProductSpecificationTab"],  #product-read-more-specs');
+    }catch(e){
+      console.log('Specification not present');
+    }
 
-    await context.evaluate(async function () {
-      const videoData = document.querySelectorAll('iframe.videoly-box').length > 1 ? document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0] : null;
-      if (videoData) {
-        document.body.appendChild(videoData);
-      }
-    });
+    // await context.evaluate(async function () {
+    //   const videoData = document.querySelectorAll('iframe.videoly-box').length > 1 ? document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0] : null;
+    //   if (videoData) {
+    //     document.body.appendChild(videoData);
+    //   }
+    // });
 
     const { transform } = parameters;
     const { productDetails } = dependencies;

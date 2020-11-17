@@ -71,7 +71,7 @@ const transform = (data) => {
         let video = [];
         row.videos.forEach(item => {
 
-          if (item.text.split('/').length > 1) {
+          if (item.text.split('video').length > 1) {
             video.push({
               text: 'https://www.elgiganten.dk' + item.text,
               xpath: item.xpath
