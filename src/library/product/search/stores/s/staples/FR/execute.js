@@ -14,7 +14,6 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   try{
     await context.waitForSelector('div#btnCookieContainer input[type=button].accept-all-cookies');
     await new Promise((resolve, reject) => setTimeout(resolve, 1500));
