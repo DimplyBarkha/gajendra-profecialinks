@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -11,12 +11,12 @@ async function implementation(
     if (button) {
       // @ts-ignore
       button.click();
-      console.log(`cookie button clicked succesfully`)
-      await new Promise((res) => setTimeout(res, 10000));
+      console.log('cookie button clicked succesfully');
+      await new Promise((resolve) => setTimeout(resolve, 10000));
     } else {
-      console.log(`not able to click the cookies button`);
+      console.log('not able to click the cookies button');
     }
-  })
+  });
   // written code for custom pagination to solve the product repeatation issue
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
@@ -54,7 +54,7 @@ async function implementation(
           clickButton.click();
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -74,7 +74,7 @@ async function implementation(
         }
       });
     }
-  })
+  });
   return await context.extract(productDetails, { transform });
 }
 const { transform } = require('../../../../shared');
