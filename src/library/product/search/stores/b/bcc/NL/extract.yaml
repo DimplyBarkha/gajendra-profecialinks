@@ -6,11 +6,7 @@ fields:
   - name: id
     description: Unique id (within this extractor)
     xpath: //@data-wishitem-sku
-    singleValue: false
-  - name: rpc
-    description: RPC
-    xpath: //@data-wishitem-sku
-    singleValue: false
+    singleValue: true
   - name: name
     description: The product name
     xpath: //h3[@class='h2']
@@ -18,6 +14,8 @@ fields:
   - name: productUrl
     description: The URL for the product details page
     xpath: //a[@class='lister-product__titlelink']/@href
+    regExp: (.+)
+    regExpReplace: https://bcc.nl$1
     singleValue: false
   - name: gtin
     description: GTIN code (includes UPC/EAN)
