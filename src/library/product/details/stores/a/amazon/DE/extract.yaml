@@ -45,7 +45,7 @@ fields:
     xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Bestandteile')]/p
   - name: storage
     singleValue: false
-    xpath: //*[contains(text(),"Aufbewahrung")]/following-sibling::*[1]
+    xpath: //*[normalize-space(text())="Aufbewahrung"]/following-sibling::*[1]
   - name: directions
     singleValue: false
     xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Gebrauchsanweisung"]] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/p[not(normalize-space(.)="")] | //div[@id='importantInformation_feature_div']//div[contains(.,'Gebrauchsanweisung')]/div[@class="TabPanel"]
@@ -162,6 +162,9 @@ fields:
   - name: energyEfficiency
     xpath: //*[contains(text(),"Energieeffizienzklasse")]/following-sibling::*[1]
 
+  - name: imageZoomFeaturePresent
+    #singleValue: true
+    xpath: //span[@id="canvasCaption" and contains(text(),  "Maus über")] | //span[@id="canvasCaption" and contains(text(),  "Roll over")]
   ## Did not find Examples.
   # - name: lowestPriceIn30DaysBoolean
   #   singleValue: true
