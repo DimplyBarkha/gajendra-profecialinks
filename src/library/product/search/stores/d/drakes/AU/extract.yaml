@@ -6,6 +6,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="TalkerGrid__Item"]//div[contains(@class, "talker talker--row")]/@id
+    regExp: line_(.+)
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
@@ -40,14 +42,12 @@ fields:
     singleValue: false
   - name: rank
     singleValue: false
-    xpath: //@rank
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
