@@ -114,6 +114,13 @@ module.exports = {
 
     await context.evaluate(async () => {
       const body = document.querySelector('body');
+
+      const jsonWithGtinElement = document.querySelector('head > script[type="application/ld+json"]');
+      if (jsonWithGtinElement) {
+        const gtin = JSON.parse(jsonWithGtinElement.innerHTML).gtin13 ? JSON.parse(jsonWithGtinElement.innerHTML).gtin13 : '';
+        body.setAttribute('gtin', gtin);
+      }
+
       const zoomPresent = document.querySelector(
         'div.product-info-row li[data-key="zoomIn"]',
       )

@@ -42,10 +42,10 @@ fields:
     singleValue: true
   - name: description
     singleValue: false
-    xpath: (//div[@id="react-tabs-1"]//div[@class="react-tabs__tab-content"]/*/text())[position()>1]
+    xpath: //div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]/p[1]/text() | //div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]/li/text()
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@class="react-tabs__tab-content"]/li)
+    xpath: count(//div[contains(@class, "react-tabs__tab-content")]/li)
     type: NUMBER
   - name: brandText
     singleValue: true
@@ -56,7 +56,7 @@ fields:
     xpath: //a[@class="brand-details"]
   - name: quantity
     singleValue: true
-    xpath: //div[@id="size"]
+    xpath: //div[@id="size"]//strong
   - name: weightNet
     singleValue: true
     xpath: (//div[@id="react-product-description"]//li)[position()=last()]/p
@@ -67,15 +67,13 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
-    # xpath: //script[contains(@type,"application/ld+json")][1]
-    # regExp: ("gtin13":\s)\"(\d+)\"
-    # regExpReplace: $2
   - name: sku
     singleValue: true
-    # xpath: //span[@itemprop="productID"]
+    xpath: //span[@itemprop="productID"]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //span[@itemprop="productID"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -92,16 +90,17 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
+    xpath: //div[@id="react-tabs-1"]//*[contains(text(), "Warning")]/following-sibling::text()[1]
   - name: ratingCount
     singleValue: true
-    # xpath: //meta[@itemprop="reviewCount"]/@content
+    xpath: //meta[@itemprop="reviewCount"]/@content
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-    # xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
+    xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -116,9 +115,11 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: count(//div[@class="variant-select"]//option)
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@id="react-tabs-1"]//*[contains(text(), "Color")]/following-sibling::text()[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -131,9 +132,11 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[@id="react-tabs-1"]//video/@src
   - name: name
     singleValue: true
-    # xpath: //div/h1[@class="pdp-product-name"]
+    xpath: //h1[@class="pdp-product-name"]
+    ###################################################################
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -220,7 +223,6 @@ fields:
     singleValue: true
     description: null
   - name: featureBullets
-    # xpath: //div[@class="react-tabs__tab-content"]/li/text()
     singleValue: false
     description: null
   - name: otherSellersName
@@ -245,6 +247,7 @@ fields:
   - name: fastTrack
     singleValue: true
     description: null
+    ########################################################################
   - name: ingredientsList
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
@@ -516,13 +519,12 @@ fields:
       carousel,['Yes','No']
     defaultValue: No
     xpath: //body/@zoompresent
+  - name: eangtin
+    singleValue: true
+    xpath: //body/@gtin
   # - name: shownImages
   #   xpath: //div[@class="thumbnail-wrapper"]/img/@src
   # - name: highQualityImages
   #   xpath: //div[@class="thumbnail-wrapper"]/img/@src    
-  # - name: eangtin
-  #   xpath: //script[contains(@type,"application/ld+json")][1]
-  #   regExp: ("gtin13":\s)\"(\d+)\"
-  #   regExpReplace: $2
   # - name: product_grocery_nutritionals
   #   xpath: //body/@nutritionInfo
