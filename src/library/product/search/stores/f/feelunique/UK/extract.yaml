@@ -16,7 +16,9 @@ fields:
     regExpReplace: https://www.feelunique.com$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="Product-image-wrapper"]/img/@src
+    xpath: //div[@class="Product-image-wrapper"]/img/@data-src
+    regExp: (//.*)
+    regExpReplace: https:$1
   - name: aggregateRating2
     singleValue: false
     xpath: //span[@class="Rating-average"]/@data-aggregate-rating
