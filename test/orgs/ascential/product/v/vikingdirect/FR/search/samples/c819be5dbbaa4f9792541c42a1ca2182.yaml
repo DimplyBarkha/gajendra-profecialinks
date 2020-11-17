@@ -1,0 +1,69 @@
+input:
+  Keywords: Distributeur rouleau de papier de toilette
+  _url: http://vikingdirect.fr
+extractions:
+  - html: https://workbench.import.io/html/run=81db6d56-eed5-47fc-9be3-7fe71fb41208/task=003f6eac-2e5c-47c9-8355-4a9ed44afc92/0a8247ca-89e6-4fd8-b360-7e9544334c66.html
+    extractionConfigId: product/search/stores/v/vikingdirect/FR/extract
+    data:
+      - group:
+          - id:
+              - text: Q20-2883692
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/text()[1]
+            name:
+              - text: Distributeur à dévidage central Rouleau Tork Elevation 24 x 23 x 36 cm
+                  Blanc
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
+            productUrl:
+              - text: https://www.vikingdirect.fr/a/pb/Distributeur-a-devidage-central-Rouleau-Tork-Elevation-24-x-23-x-36-cm-Blanc/id=2883692/?pr=Q20
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://odeu.scene7.com/is/image/odeu11/2883692?$md$
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 72,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: fr_FR
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: fr_FR
+                value: 1
+          - id:
+              - text: Q20-585860
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/text()[1]
+            name:
+              - text: Distributeur métal Rouleau Rossignol 13 x 14 x 31 cm Blanc
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
+            productUrl:
+              - text: https://www.vikingdirect.fr/a/pb/Distributeur-metal-Rouleau-Rossignol-13-x-14-x-31-cm-Blanc/id=585860/?pr=Q20
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://odeu.scene7.com/is/image/odeu11/585860?$md$
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 24,49 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: fr_FR
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: fr_FR
+                value: 2
+        xpath: /html
+    timestamp: 1605256532038

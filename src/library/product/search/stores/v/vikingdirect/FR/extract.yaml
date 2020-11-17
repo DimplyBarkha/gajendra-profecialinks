@@ -1,49 +1,39 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.card__product
+recordSelector: div.skuListSku
 recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //@data-id
+    xpath: //div[@class="skuListSkuNumber"]/text()
+    regExp: Référence :\s+(.+)
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
-    xpath: ancestor::html//div[@id='filtered-url']
   - name: name
     singleValue: false
-    xpath: //div[@name="product-title"]
+    xpath: //div[@class="skuListSkuImg photo"]//img/@title
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"product__text")]/a//@href
+    xpath: //div[@class="skuListSkuImg photo"]//a/@href
     regExp: (.+)
-    regExpReplace: https://www.walgreens.com$1
+    regExpReplace: https://www.vikingdirect.fr$1
   - name: gtin
     singleValue: false
-    xpath: //@data-upc
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"card__product")]//a//*[contains(@class,"product__img")]//img/@src
-    regExp: ^(.*[\/])
-    regExpReplace: https:$1300.jpg
+    xpath: //div[@class="skuListSkuImg photo"]//img/@src
   - name: aggregateRating
     singleValue: false
-    xpath: //*[contains(@class,"product__rating")]//img//@title
-    regExp: >-
-      ^.{0,3}
   - name: aggregateRating2
     singleValue: false
-    xpath: //*[contains(@class,"product__rating")]//img//@title
-    regExp: >-
-      ^.{0,3}
   - name: reviewCount
     singleValue: false
-    xpath: //*[contains(@class,"product__rating")]//figcaption
-    regExp: (\d+)
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"product__details")]//*[contains(@class,"price__contain")]//*[contains(@class,"product__price")]/text()
+    xpath: //div[@class="skuListPriceCol"]//div[@class="skuPricing"]/div[@class="skuNewPricing"]/span[@class="bigPrice"]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -53,13 +43,17 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
+    xpath: //@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //*[contains(@class,"card__product")]//*[contains(@class,"sponsored")]//span
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
