@@ -112,13 +112,13 @@ module.exports = {
         images.forEach((img, index) => {
           // Skip the first image
           if (index) {
-            injectElementToBody(`image-${index}`, `https:${img}`);
+            injectElementToBody(`image-${index}`, `${img}`);
           }
         });
 
         const videos = (productInfo && productInfo.media && productInfo.media.videos) || [];
         videos.forEach((vid, index) => {
-          injectElementToBody(`video-${++index}`, (vid.includes('mp4') || vid.includes('m4v')) ? `https:${vid}` : `https:${vid}/mp4_480p`);
+          injectElementToBody(`video-${++index}`, (vid.includes('mp4') || vid.includes('m4v')) ? `${vid}` : `${vid}/mp4_480p`);
         });
 
         const sku = document.querySelector('span[itemprop="sku"]').getAttribute('content');

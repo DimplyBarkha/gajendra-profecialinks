@@ -61,11 +61,11 @@ fields:
     description: Product manufacturer
   - name: quantity
     xpath: //li[contains(text(), "Size")]
-    regExp: (?![Size\s]).+
+    regExp: (?![Size:\s]).+
   - name: weightNet
     xpath: //li[contains(text(), "Weight")]
     regExp: >-
-      [0-9\.]+(kg|KG|Kg)
+      [0-9\.]+(kg|KG|Kg|g)
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -397,7 +397,8 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
+    xpath: //div[@itemprop="description"]//ul[contains(.,'Size') or contains(.,'size')]//li
     description: The physical dimensions of the product including packaging.
   - name: warranty
     xpath: //li[contains(text(), "year") and contains(text(), "guarantee")]
@@ -485,6 +486,9 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //ul[@data-test="product-documents"]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
