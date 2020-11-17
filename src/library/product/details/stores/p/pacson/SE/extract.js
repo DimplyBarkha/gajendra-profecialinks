@@ -120,6 +120,28 @@ module.exports = {
       }
       addElementToDocument('availability', availability);
 
+      var spec = getAllXpath('//div[@class="product-detail__specification"]/table/tbody/tr', 'nodeValue');
+      var specification = "";
+
+      var val1 = getAllXpath('//div[@class="product-detail__specification"]/table/tbody/tr[1]/th/text()', 'nodeValue');
+
+      if( val1 != null){
+        var val = val1.join(": ");
+        specification = specification + val;
+      }
+      
+      var val2;
+      val2 = getAllXpath('//div[@class="product-detail__specification"]/table/tbody/tr[position()>1 and position()<= last()]/td/text()', 'nodeValue');
+      var s = ""
+      for ( let i =0 ; i< val2.length; i=i+2){
+        s = s + " " +val2[i]+": "+val2[i+1]+" || ";
+      }
+      if(s!=null){
+        specification = specification+" || "+s;
+        specification = specification.slice(0,-3);
+        addElementToDocument('specification', specification);
+      }
+      
     });
     await context.extract(productDetails);
   },

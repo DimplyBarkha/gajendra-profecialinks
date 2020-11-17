@@ -402,7 +402,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@class="product-detail__specification"]/table/tbody/tr
+    xpath: //html//div[@id='specification']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
