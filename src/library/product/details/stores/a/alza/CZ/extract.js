@@ -38,15 +38,13 @@ module.exports = {
       });
       try {
         await context.waitForSelector('.g-recaptcha');
-        for (let i = 0; i < 4; i++) {
+        const max_retries = 3;
+        for (let i = 0; i < max_retries; i++) {
           const isCaptcha = await context.evaluate(() => {
             return Boolean(document.querySelector('.g-recaptcha'));
           });
           if (isCaptcha) {
             await context.waitForNavigation({ timeout });
-            // @ts-ignore
-            // eslint-disable-next-line no-undef
-            // await context.evaluate(() => grecaptcha.execute());
             await context.solveCaptcha({
               type: 'RECAPTCHA',
               inputElement: '.captcha-handler',
@@ -65,9 +63,6 @@ module.exports = {
             window.location.reload();
           });
           await context.waitForNavigation({ timeout });
-          // @ts-ignore
-          // eslint-disable-next-line no-undef
-          // await context.evaluate(() => grecaptcha.execute());
           await context.solveCaptcha({
             type: 'RECAPTCHA',
             inputElement: '.captcha-handler',
@@ -80,19 +75,9 @@ module.exports = {
       } catch (e) {
         console.log(e.message);
       }
-      await context.waitForNavigation();
     } catch (e) {
       console.log('No such product exists');
     }
-    // try {
-    //   await context.evaluate(() => {
-    //     document.querySelector('#cpcm_cpc_mediaDescription').scrollIntoView({behavior: "smooth"})
-    //   })
-    //   await context.waitForXPath('//div[@id="celek"]//img', {timeout: 50000})
-    // } catch (e) {
-    //   console.log(e.message);
-    // }
-
     return await context.extract(productDetails, { transform });
   },
 };
