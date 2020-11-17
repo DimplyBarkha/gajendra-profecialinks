@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'ul.products.jsProductList.list-view',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'ahlsell.se',
