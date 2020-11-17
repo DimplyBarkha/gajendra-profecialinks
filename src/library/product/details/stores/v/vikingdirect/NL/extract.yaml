@@ -8,6 +8,7 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
+  xpath: //link[@rel="canonical"]/@href
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
@@ -18,19 +19,26 @@ fields:
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
+  xpath: //div[@class="s7thumb"]/@style
+  regExp: (https:+.{1,})"
+  regExpReplace: $1
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
+  xpath: //meta[@name="keywords"]/@content
   singleValue: true
   description: The <meta> keywords content
 - name: category
+  xpath: //ol/li[@class="breadcrumb-item"]//text()
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
+  xpath: //h1[@itemprop="name"]
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
+  xpath: //div[@id="productDetailsPanel"]//div[@class="product-price-panel__price"]
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
@@ -38,11 +46,15 @@ fields:
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
+  xpath: //span[@class="product-stock-message__title"][contains(text(), "Momenteel op voorraad")]
+  regExp: (.+)
+  regExpReplace: "In Stock"
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
+  xpath: //div[@itemprop="description"]
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
