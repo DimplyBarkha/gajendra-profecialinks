@@ -1,11 +1,11 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'BR',
     store: 'kalunga',
-    transform: transform,
+    transform,
     domain: 'kalunga.com.br',
     zipcode: '',
   },
@@ -19,35 +19,17 @@ module.exports = {
     const { productDetails } = dependencies;
 
     await context.evaluate(() => {
-      function addHiddenDiv (className, content, index) {
-        console.log(`className: ${className}, content: ${content}, index: ${index}`);
-        const newDiv = document.createElement('div');
-        newDiv.classList.add(className);
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll('div.blocoproduto')[index];
-        // originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-        if (!originalDiv.querySelector(`.${className}`)) {
-          originalDiv.appendChild(newDiv);
-        }
+      function onlyNumbersAndDot (string) {
+        return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, ".");string = Math.round( parseFloat(string) * 100) / 100;
       }
-
-      const products = document.querySelectorAll('div.blocoproduto');
-
-      products.forEach((product, index) => {
-        // Gets aggregate rating
-        const aggregateRating = product.querySelector('span.reviews__star_text').innerHTML.match(/\d/g);
-        addHiddenDiv('kalunga_aggregateRating', aggregateRating, index);
-
-        //Gets product url
-        const productUrl = product.querySelector('a.blocoproduto__link').href
-        addHiddenDiv('kalunga_productUrl', productUrl, index);
-
-        // Gets product sku
-        const sku = productUrl.split('/').pop();
-        addHiddenDiv('kalunga_sku', sku, index);
-
+      const pages = document.querySelectorAll('.paginate-async > ul > li');
+      const a = [];
+      pages.forEach(e => {
+        a.push(e.innerText);
       });
+      const b = a.filter(e => onlyNumbersAndDot(e));
+      const maxPageNumber = Math.max(...b);
+      console.log(maxPageNumber, 'ssss');
     });
 
     return await context.extract(productDetails, { transform });
