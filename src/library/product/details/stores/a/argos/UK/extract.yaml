@@ -451,8 +451,10 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     description: colour / scent / flavour / other
+    xpath: //p[contains(@class,'ColourPickerstyles')]//text()
+    regExp: ([^\s]+$)
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -467,6 +469,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[contains(@id,'variant')]
   - name: additionalDescBulletInfo
     xpath: //div[@id="addition-description"]
   - name: prop65Warning
@@ -516,4 +519,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes

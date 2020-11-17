@@ -121,6 +121,11 @@ module.exports = {
           injectElementToBody(`video-${++index}`, (vid.includes('mp4') || vid.includes('m4v')) ? `${vid}` : `${vid}/mp4_480p`);
         });
 
+        const variants = (productInfo && productInfo.variants.attributes && productInfo.variants.attributes.variants) || [];
+        variants.forEach((variant, index) => {
+          injectElementToBody(`variant-${++index}`, `${variant.partNumber}`);
+        });
+
         const sku = document.querySelector('span[itemprop="sku"]').getAttribute('content');
 
         const aplusUrl = `https://ws.cnetcontent.com/d90c7492/script/86f5427d30?cpn=${sku}&lang=en_gb&market=UK&host=www.argos.co.uk&nld=1`;

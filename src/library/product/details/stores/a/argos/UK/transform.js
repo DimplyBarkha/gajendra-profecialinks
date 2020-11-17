@@ -44,6 +44,22 @@ const transform = (data) => {
         });
       }
 
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text = row.variants.map(elm => elm.text).join(' | ');
+        });
+        row.variants = [{ text }];
+      }
+
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text = row.specifications.map(elm => elm.text).join(' ');
+        });
+        row.specifications = [{ text }];
+      }
+
       if (row.aggregateRatingText) {
         row.aggregateRatingText.forEach(item => {
           item.text = Number(item.text) ? Number(item.text).toFixed(1) : item.text;
