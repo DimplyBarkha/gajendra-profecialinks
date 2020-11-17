@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: product_image
+    singleValue: true
+    xpath: //div[contains(@class,'product-photo-main')]/img/@src
+  - name: product_description
+    singleValue: true
+    xpath: //div[contains(@class,'product-top')]/h1
+  - name: online_price
+    singleValue: true
+    xpath: //span[@class='price']/strong
+  - name: sku
+    singleValue: true
+    xpath: //div[contains(@class,'product-top')]/p[normalize-space()]/text()
+  - name: net_weight
+    singleValue: true
+    xpath: //span[@class='size']
+  - name: manufacturer_name
+    singleValue: true
+    xpath: //table/tbody/tr/td[text()='Výrobce/dodavatel']/../td[2]
+  - name: brand
+    singleValue: true
+    xpath: //div[@class='product-producer']/img/@src   
+  - name: country_of_origin
+    singleValue: true
+    xpath: //table/tbody/tr[2]/td/../td[2]    
+  - name: category
+    singleValue: true
+    xpath: //ul[@class='breadcrumbs']/li[2]
+  - name: sub_category
+    singleValue: false
+    xpath: //ul[@class='breadcrumbs']/li[position()>2]  
+  - name: availability
+    singleValue: true
+    xpath: //p[@class='delivery delivery-0']
