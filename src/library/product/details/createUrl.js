@@ -17,6 +17,7 @@ async function implementation (
 
   if (parameters.url) {
     const url = parameters.url.replace('{id}', encodeURIComponent(id));
+    console.log('url created is - ' + url);
     return url;
   }
   let gotoUrl = `https://${domain}`;

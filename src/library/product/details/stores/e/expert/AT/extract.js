@@ -81,39 +81,39 @@ module.exports = {
 
     const scriptXpath = '//script[contains(@type, "application/ld+json") and contains(text(), "Product")]';
     const isScriptLoaded = await context.evaluate(async function (xpath, reloadSec, maxTime) {
-      window.scrollTo(0,document.body.scrollHeight);
+      window.scrollTo(0, document.body.scrollHeight);
       async function timeout(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
-      //let element = document.querySelector(selector);
+      // let element = document.querySelector(selector);
       let element = document.evaluate(xpath, document, null, 7, null);
       let elementVal = {};
-      if(element.snapshotLength > 0) {
+      if (element.snapshotLength > 0) {
         elementVal = element.snapshotItem(0);
       }
       let count = 0;
       while (elementVal === null) {
         count = count + reloadSec;
         element = document.evaluate(xpath, document, null, 7, null);
-        if(element && element.snapshotLength > 0) {
+        if (element && element.snapshotLength > 0) {
           elementVal = element.snapshotItem(0);
         }
         await timeout(reloadSec);
         if (count >= maxTime) {
-          console.log("script with rating info not found");
+          console.log('script with rating info not found');
           return false;
         }
       }
       return true;
     }, scriptXpath, 500, 30000);
 
-    if(isScriptLoaded) {
+    if (isScriptLoaded) {
       ratingReviews = await sharedhelpers.getEleByXpath('//script[contains(@type, "application/ld+json") and contains(text(), "Product")]');
     }
 
     console.log('ratingReviews');
     console.log(ratingReviews);
-    if(ratingReviews) {
+    if (ratingReviews) {
       ratingReviews = Object.keys(JSON.parse(ratingReviews)).length ? JSON.parse(ratingReviews) : null;
     } else {
       console.log('script containing rating is not loaded');
@@ -125,6 +125,116 @@ module.exports = {
     if (ratingReviews) {
       sharedhelpers.addHiddenInfo('iio_rating', ratingReviews && ratingReviews.aggregateRating && ratingReviews.aggregateRating.ratingValue ? ratingReviews.aggregateRating.ratingValue.replace('.', ',') : '');
       sharedhelpers.addHiddenInfo('iio_rating_count', ratingReviews && ratingReviews.aggregateRating && ratingReviews.aggregateRating.reviewCount ? ratingReviews.aggregateRating.reviewCount : '');
+    }
+
+    await context.evaluate(async function () {
+      async function timeout(ms) {
+        console.log('waiting for ' + ms + ' millisecs');
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+      const externalContentXpath = '//div[contains(@class,"container-product-detail")]//li[@id="tab-nav-external-content"]/a[contains(.,"Hersteller-Info")]';
+      let tabToClick = document.evaluate(externalContentXpath, document, null, 7, null);
+      if(tabToClick.snapshotLength > 0) {
+        console.log('we have the tab to click for videos');
+        // if more than more tab shows up - we will be clicking only the first one
+        tabToClick.snapshotItem(0).click();
+      } else {
+        console.log('either the "Hersteller-Info" tab is not loaded yet or it is not present in the page itself');
+        console.log('waiting to check again');
+        await timeout(2000);
+      }
+      // await timeout(15000);
+    });
+
+
+    const videoXpath = '//iframe[contains(@title,"Flix-media-video")]//@src | //iframe[contains(@title,"Flix-media-video")]//@_src';
+    let videoUrlArray = [];
+
+    const isVideoLoaded = await context.evaluate(async function (xpath, reloadSec, maxTime) {
+      window.scrollTo(0, document.body.scrollHeight);
+      async function timeout(ms) {
+        console.log('waiting for ' + ms + ' millisecs');
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+      // let element = document.querySelector(selector);
+      let element = document.evaluate(xpath, document, null, 7, null);
+      let count = 0;
+      while (element.snapshotLength === 0) {
+        count = count + reloadSec;
+        element = document.evaluate(xpath, document, null, 7, null);
+        if (element && element.snapshotLength > 0) {
+          break;
+        }
+        await timeout(reloadSec);
+        if (count >= maxTime) {
+          console.log('iframe with video not found');
+          return false;
+        }
+      }
+      return true;
+    }, videoXpath, 500, 30000);
+
+    if(isVideoLoaded) {
+
+      console.log('video is loaded - ' + isVideoLoaded);
+    
+      videoUrlArray = await context.evaluate(async function (videoXpath) {
+        let urlArray = [];
+        let videoUrlElms = document.evaluate(videoXpath, document, null, 7, null);
+        if(videoUrlElms.snapshotLength > 0) {
+          for(let index = 0; index < videoUrlElms.snapshotLength; index++) {
+            if(videoUrlElms.snapshotItem(index)) {
+              // sharedhelpers.addHiddenInfo(`video-${index + 1}`, videoUrlElms.snapshotItem(index).textContent.trim());
+              urlArray.push(videoUrlElms.snapshotItem(index).textContent.trim());
+            } else {
+              console.log('we do not have the video url for ' + index + ' th element');
+            }
+          }
+        } else {
+          console.log("we do not have video");
+        }
+        return urlArray;
+      }, videoXpath);
+    
+      console.log('we have ' + videoUrlArray.length + ' video links from external tab');
+    
+      if (videoUrlArray) {
+        for(let index = 0; index < videoUrlArray.length; index++ ) {
+          await sharedhelpers.addHiddenInfo(`video-${index + 1}`, videoUrlArray[index]);
+        }
+      }
+    
+    } else {
+      console.log('video is loaded - ' + isVideoLoaded);
+      console.log('we do not have any video extracted from the external tab');
+    }
+
+    const galleryVideoXpath = '//div[contains(@class, "image-holder slick-slide")]//video/@src';
+    let galleryVideoUrls = [];
+    galleryVideoUrls = await context.evaluate(async function (videoXpath) {
+      let urlArray = [];
+      let videoUrlElms = document.evaluate(videoXpath, document, null, 7, null);
+      if(videoUrlElms.snapshotLength > 0) {
+        for (let index = 0; index < videoUrlElms.snapshotLength; index++) {
+          if (videoUrlElms.snapshotItem(index)) {
+            // sharedhelpers.addHiddenInfo(`galleryVideo-${index + 1}`, videoUrlElms.snapshotItem(index).textContent.trim());
+            urlArray.push('https://www.expert.at' + videoUrlElms.snapshotItem(index).textContent.trim());
+          } else {
+            console.log('we do not have the video url for ' + index + ' th element in the gallery');
+          }
+        }
+      } else {
+        console.log("we do not have video in gallery - if you see in the webpage - check with galleryVideoXpath");
+      }
+      return urlArray;
+    }, galleryVideoXpath);
+
+    if (galleryVideoUrls) {
+      for(let index = 0; index < galleryVideoUrls.length; index++ ) {
+        await sharedhelpers.addHiddenInfo(`galleryVideo-${index + 1}`, galleryVideoUrls[index]);
+      }
+    } else {
+      console.log('nothing')
     }
 
     await context.waitForFunction(function (sel) {
