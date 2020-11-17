@@ -25,8 +25,8 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.iamge) {
-        row.iamge.forEach(item => {
+      if (row.image) {
+        row.image.forEach(item => {
           item.text = 'https://drive.carrefour.eu' + item.text;
         });
       }

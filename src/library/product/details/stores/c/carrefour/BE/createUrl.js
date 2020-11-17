@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'carrefour.eu',
     prefix: null,
-    url: 'https://drive.carrefour.eu/p/{id}',
+    url: 'https://drive.carrefour.eu/fr/p/{id}',
     country: 'BE',
     store: 'carrefour',
     zipcode: '',
