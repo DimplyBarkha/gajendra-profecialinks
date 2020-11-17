@@ -22,7 +22,7 @@ const cleanUp = (data, context) => {
         row.description = [{ text }];
       }
       if (row.description) {
-        row.description[0].text = row.description[0].text.replace('/\\/g', " ");
+        row.description[0].text = row.description[0].text.replace('/\\/g', ' ');
       }
       if (row.manufacturer) {
         row.manufacturer[0].text = row.manufacturer[0].text.split(',')[0];
