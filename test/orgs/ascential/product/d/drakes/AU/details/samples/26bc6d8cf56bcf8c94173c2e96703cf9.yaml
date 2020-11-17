@@ -2,28 +2,9 @@ input:
   _url: http://drakes.com.au
   URL: https://074.drakes.com.au/lines/beef-mince-extra-lean-approx-weight-500g-1
 extractions:
-  - html: https://workbench.import.io/html/run=bfc5e9a4-b78b-42c7-9c87-6d8ad34e2e7c/task=bee77bcc-8a22-407e-8373-62009ebe1f06/cdfce572-2afa-4495-92e0-9139dc470f58.html
+  - html: https://workbench.import.io/html/run=c96cd257-1d02-4acf-9382-641e51c71b98/task=932d8dcc-fc7b-4321-9511-ebec8493ba9b/78d47e19-5a85-4cca-8cab-1c6ec2f2e497.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
-      - group:
-          - legalDisclaimer:
-              - text: Approximate price per 500g is based on typical size (0.5 kg). Actual size
-                  may vary.
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
-            availabilityText:
-              - text: In Stock
-          - legalDisclaimer:
-              - text: Drakes Online Castle Plaza aims to include in the product list up to date
-                  pictures of the products and accurate ingredients, nutritional
-                  information and other information. However, product detail may
-                  change from time to time and there may be a delay in making
-                  updates. When precise information is important, we recommend
-                  that you read the label on the products you purchase or
-                  contact the manufacturer of the product.
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]
-            availabilityText:
-              - text: In Stock
-        xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
       - group:
           - image:
               - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImE3MzllNzYwZjg3M2VjYWQ1MDM3YmRmZGYzNjY0YTUwLmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=c399a20ec69d77384076472d7754e16cd463a1bf5a9a203859a2170af7a63804
@@ -34,41 +15,55 @@ extractions:
             nameExtended:
               - text: Drakes 5 Star Butchers Choice Extra Lean Beef Mince
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+            legalDisclaimer:
+              - text: Approximate price per 500g is based on typical size (0.5 kg). Actual size
+                  may vary.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
+              - text: Drakes Online Castle Plaza aims to include in the product list up to date
+                  pictures of the products and accurate ingredients, nutritional
+                  information and other information. However, product detail may
+                  change from time to time and there may be a delay in making
+                  updates. When precise information is important, we recommend
+                  that you read the label on the products you purchase or
+                  contact the manufacturer of the product.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]
             name:
               - text: Drakes 5 Star Butchers Choice Extra Lean Beef Mince
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
             countryOfOrigin:
               - text: Australian Grown
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            variantId:
+              - text: beef-mince-extra-lean-approx-weight-500g-1
+                xpath: /html/body/div[3]
             price:
               - text: Approximately $8.75
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
             description:
               - text: Price shown is based on approx. weight. Weight may vary between 400g and
                   600g.
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[5]
             availabilityText:
               - text: In Stock
           - description:
               - text: Australian Grown
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[6]
             servingSize:
               - text: per 500g
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[7]
             servingSizeUom:
               - text: g
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[8]
             weightNet:
               - text: 500g
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[9]
             pricePerUnit:
               - text: $17.50 per kg
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[10]
             pricePerUnitUom:
               - text: kg
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             availabilityText:
               - text: In Stock
         xpath: /html/body
-        htmlExtraction: https://crawl-assets.import.io/html/run=bfc5e9a4-b78b-42c7-9c87-6d8ad34e2e7c/task=bee77bcc-8a22-407e-8373-62009ebe1f06/cdfce572-2afa-4495-92e0-9139dc470f58.html
-    timestamp: 1605274749390
+    timestamp: 1605627448195

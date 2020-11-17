@@ -18,6 +18,9 @@ module.exports = {
         document.querySelector('body').appendChild(div);
       }
 
+      const variantID = window.location.href.replace('https://074.drakes.com.au/lines/', '');
+      addElementToDom(variantID, 'variantID');
+
       const discountedPrice = document.querySelector('.MoreInfo__Header .MoreInfo__Banner__Price .MoreInfo__Price')
         ? document.querySelector('.MoreInfo__Header .MoreInfo__Banner__Price .MoreInfo__Price').innerText
         : '';
