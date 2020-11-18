@@ -63,7 +63,7 @@ fields:
     xpath: //div[contains(@class,'product-name')]//h1//text()
   - name: specifications
     singleValue: false
-    xpath: //meta[contains(@itemprop, "description")]/@content
+    xpath: //div[@id="product-tabs"]//p
   - name: warranty
     singleValue: false
     xpath: //div[contains(@class,'feature-wrapper')]//div[contains(@class,'feature')][4]
