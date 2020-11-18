@@ -68,7 +68,7 @@ module.exports = {
     }
 
     try {
-      await context.waitForXPath('//div[@id="slides"]', { timeout });
+      await context.waitForXPath('//div[@id="slides"] | //div[contains(@class,"grille")]//div[contains(@class,"col1")] ', { timeout });
     } catch (error) {
       console.log('error: ', error);
     }
