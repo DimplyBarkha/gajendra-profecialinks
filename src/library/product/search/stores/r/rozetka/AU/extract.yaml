@@ -1,5 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //ul[@class="catalog-grid"]/li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="goods-tile__inner"]/@data-goods-id
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="goods-tile__picture"]/img[contains(@class,"lazy_img_hover")]/@src
+  - name: name
+    singleValue: false
+    xpath: //span[@class="goods-tile__title"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="goods-tile__picture"]/@href
+  - name: price
+    singleValue: false
+    xpath: //div[@class="goods-tile__prices"]//div[contains(@class,"goods-tile__price")]/p/span
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="goods-tile__stars"]/child::*[@height="12"]/@aria-label
+  - name: reviewCount
+    singleValue: false
+    xpath:  //span[@class="goods-tile__reviews-link"]
+  - name: ratingCount
+    singleValue: false
+    xpath:  //span[@class="goods-tile__reviews-link"]
