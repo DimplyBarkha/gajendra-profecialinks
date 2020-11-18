@@ -1,33 +1,42 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="product_listing_tab"]//ul/li
+recordXPath: //div[@id="product_listing_tab"]//ul//li
 fields:
   - name: rank
   - name: rankOrganic
   - name: sponsored
     defaultValue: false
   - name: id
+    singleValue: false
     xpath: //div[starts-with(@class,"product-tile-model")]
   - name: name
+    singleValue: false
     xpath: //*[@class="product-tile-name"]
   - name: price
+    singleValue: false
     xpath: //span[contains(@class,"price")]
   - name: gtin
   - name: productUrl
-    xpath: //div[@class="product-tile-imagewrap"]//a[@class="disp-block"]/@href
+    singleValue: false
+    xpath: //div[@class="product-tile-imagewrap"]//a[@class="disp-block"]//@href
   - name: thumbnail
-    xpath: //div[@class="product-tile-thumb"]/img[1]/@data-src
+    singleValue: false
+    xpath: //div[@class="product-tile-thumb"]//img[1]//@data-src
     regExp: (.+)(?=\?)
     regExpReplace: http:$1
   - name: ratingCount
+    singleValue: false
     xpath: //div[contains(@class,"reviews-stars-link")]//a
     regExp: \d+
   - name: reviewCount
+    singleValue: false
     xpath: //div[contains(@class,"reviews-stars-link")]//a
     regExp: \d+
   - name: manufacturer
-    xpath: //span[@class="product-tile-quickview"]//input[contains(@id,"manufacturer")]/@value
+    singleValue: false
+    xpath: //span[@class="product-tile-quickview"]//input[contains(@id,"manufacturer")]//@value
   - name: aggregateRating2
+    singleValue: false
     xpath: //div[@class="rating"]
 
