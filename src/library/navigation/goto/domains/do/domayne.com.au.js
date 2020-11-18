@@ -14,8 +14,12 @@ module.exports = {
     dependencies
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-    await context.setLoadImages(false);
-    await context.setLoadAllResources(false);
+    // await context.setLoadImages(false);
+    // await context.setLoadAllResources(false);
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setAntiFingerprint(false);
     /**
      * Adding goto in try catch as the webpage keeps on loading indefinitely
      * even if we give huge time out and eventually throws timeout error
