@@ -7,9 +7,9 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.promotions) {
-        const offer = row.promotions[0].text;
-        row.promotions[0].text = offer.replace(',-', '');
+      if (row.promotion) {
+        const offer = row.promotion[0].text;
+        row.promotion[0].text = offer.replace(',-', '');
       }
 
       if (row.imageAlt) {
