@@ -1,4 +1,4 @@
-/**
+  /**
  *
  * @param { { keywords: string, zipcode: string } } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
@@ -20,6 +20,8 @@ async function implementation (
   } catch (error) {
     console.log(error);
   }
+
+  await dependencies.goto({ url, zipcode: inputs.zipcode });
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -43,7 +45,7 @@ module.exports = {
     store: 'mumzworld',
     domain: 'mumzworld.com',
     url: 'https://saudi.mumzworld.com/sa-en/#search={searchTerms}&page=0&minReviewsCount=0&minPrice=0&curmaxPrice=99999&refinements=%5B%5D',
-    loadedSelector: 'div#hits ul[class *="products-grid"]',
+    loadedSelector: 'ul[class *="products-grid"]',
     noResultsXPath: null,
     zipcode: '',
   },
