@@ -17,7 +17,7 @@ const transform = (data) => {
               tmpVariations.variantUrl = [];
               tmpVariations.variant = [];
               tmpVariations.variantId.push({ text: variation.id });
-              tmpVariations.variantUrl.push({ text: 'https://www.currys.co.uk/' + variation.url });
+              tmpVariations.variantUrl.push({ text: 'https://www.magazineluiza.com.br' + variation.url });
               tmpVariations.variant.push({ text: variation.value });
               variations.push(tmpVariations);
             });
