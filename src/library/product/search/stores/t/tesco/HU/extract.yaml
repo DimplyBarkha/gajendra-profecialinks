@@ -6,8 +6,8 @@ fields:
   - name: id
     SingleValue: false
     xpath: //a[@class="details-box"]/@href
-    regExp: .+/(.+?)\?
-    regExpReplace: In Stock    
+    regExp: .+\/(.+?)\?
+    regExpReplace: $1
   - name: productUrl
     SingleValue: false
     xpath: //a[@class="details-box"]/@href
