@@ -8,7 +8,7 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.variantId) {
-        const vData = JSON.parse(row.variantId[0].text);
+        var vData = JSON.parse(row.variantId[0].text);
         if (vData.attributes) {
           vData.attributes.forEach(variation => {
             var tmpVariations = {};
@@ -26,9 +26,8 @@ const transform = (data) => {
       }
     }
   }
-  if (variations.length) {
-    data[0].group = variations;
-  }
+  data[0].group = variations;
+
   return data;
 };
 
