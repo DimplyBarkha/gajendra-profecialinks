@@ -30,13 +30,13 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="pt__cost__total undefined"]/text() | //div[@class="pt__cost__total--promo undefined"]/text()
-  # - name: rankOrganic
-  #   singleValue: false
-  #   xpath: //div[@id="rankOrganic"]/text()
-  # - name: rank
-  #   singleValue: false
-  #   xpath: //div[@id="rankOrganic"]/text()
-  #   # type: NUMBER
-  # - name: aggregateRating
-  #   singleValue: false
-  #   xpath: //html//div[@id="aggregateRating"]
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: rank
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+    # type: NUMBER
+  - name: aggregateRating
+    singleValue: false
+    xpath: //html//div[@id="aggregateRating"]
