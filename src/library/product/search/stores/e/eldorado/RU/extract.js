@@ -34,7 +34,17 @@ async function implementation(
       const originalDiv = document.querySelectorAll('li[data-dy="product"]')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
+    // for rating
+    function addHiddenDiv1(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('span[class="tevqf5-0 cbJQML"]')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
     let rankOrganic;
+    let count;
     let url = window.location.href;
     let checkPageNumber = url.split('offset=')[1];
     // console.log('checkPageNumber----------',checkPageNumber)
@@ -67,6 +77,18 @@ async function implementation(
     for (let i = 0; i < urlProduct.length; i++) {
       addHiddenDiv('rankOrganic', rankOrganic++, i);
     }
+    var parent = document.querySelector(".tevqf5-0 cbJQML");
+    var nodesSameClass = parent.querySelectorAll(".tevqf5-2 fBryir");
+    console.log(nodesSameClass.length);
+
+    var children = document.querySelectorAll('.tevqf5-0 cbJQML .tevqf5-2 fBryir');
+    // count = 1;
+    // const urlProduct1 = document.querySelectorAll('span[class="tevqf5-0 cbJQML"]');
+    // console.log(urlProduct1,'urlProduct1-------------------')
+    // for (let i = 0; i < urlProduct1.length; i++) {
+    //   count= count + 1;
+    //   addHiddenDiv1('rating', count);
+    // }
 
 
     // Method to Retrieve Xpath content of a Single Node
