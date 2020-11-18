@@ -23,6 +23,5 @@ module.exports = {
     if (lastResponseData.status === 403) {
       return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
     }
-    
   },
 };

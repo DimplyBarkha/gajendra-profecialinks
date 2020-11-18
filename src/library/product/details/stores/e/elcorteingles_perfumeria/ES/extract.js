@@ -11,13 +11,12 @@ module.exports = {
   },
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     try {
       await context.evaluate(async function () {
         // function to append the elements to DOM
-        function addElementToDocument(key, value) {
+        function addElementToDocument (key, value) {
           const catElement = document.createElement('div');
           catElement.id = key;
           catElement.textContent = value;
@@ -26,7 +25,7 @@ module.exports = {
         }
 
         // function to get the json data from the string
-        function findJsonData(scriptSelector, startString, endString) {
+        function findJsonData (scriptSelector, startString, endString) {
           try {
             const xpath = `//script[contains(.,'${scriptSelector}')]`;
             const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -42,7 +41,7 @@ module.exports = {
         }
 
         // function to get the json data from the textContent
-        function findJsonObj(scriptSelector, video) {
+        function findJsonObj (scriptSelector, video) {
           if (video) {
             var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
             return result;
@@ -77,7 +76,7 @@ module.exports = {
           }
         };
 
-        function setAttributes(el, attrs) {
+        function setAttributes (el, attrs) {
           for (var key in attrs) {
             el.setAttribute(key, attrs[key]);
           }
@@ -98,7 +97,7 @@ module.exports = {
           return result && result.trim ? result.trim() : result;
         };
 
-        function getPathDirections(xpathToExecute) {
+        function getPathDirections (xpathToExecute) {
           var result = [];
           var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
@@ -106,11 +105,10 @@ module.exports = {
           }
           return result;
         }
-        let directions = getPathDirections('//div[contains(@class,"product_detail-description-in-image")]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::*');
-        addElementToDocument('directions', directions ? directions.join(" ") : "");
+        const directions = getPathDirections('//div[contains(@class,"product_detail-description-in-image")]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::*');
+        addElementToDocument('directions', directions ? directions.join(' ') : '');
 
-
-        function nameExtended() {
+        function nameExtended () {
           const getXpath = (xpath, prop) => {
             const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
             let result;
@@ -119,12 +117,12 @@ module.exports = {
             return result && result.trim ? result.trim() : result;
           };
 
-          let name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : "";
-          return name
+          const name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : '';
+          return name;
         }
 
         // For FirstVariant
-        let firstVariant = getXpath('//div[@id="variants_container"]//select//option[@color][1]/@value', 'nodeValue')
+        const firstVariant = getXpath('//div[@id="variants_container"]//select//option[@color][1]/@value', 'nodeValue');
         addElementToDocument('firstVariant', firstVariant);
 
         // elements from data Layer object
@@ -178,16 +176,15 @@ module.exports = {
           }
         }
 
-        function variantInformation(variantsData) {
+        function variantInformation (variantsData) {
           if (variantsData.variant[1]) {
             if (variantsData.variant[0]) {
-              return variantsData.variant[1].value + "-" + variantsData.variant[0].value
+              return variantsData.variant[1].value + '-' + variantsData.variant[0].value;
             }
           } else {
-            return variantsData.variant[1] ? variantsData.variant[1].value : "" + "" + variantsData.variant[0] ? variantsData.variant[0].value : ""
+            return variantsData.variant[1] ? variantsData.variant[1].value : '' + '' + variantsData.variant[0] ? variantsData.variant[0].value : '';
           }
         }
-
 
         // Number of reviews and rating
         const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
@@ -204,48 +201,45 @@ module.exports = {
         addElementToDocument('ratingCount', responseRatingCount);
         addElementToDocument('aggregateRating', responseReviewRating);
 
-
         const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${storeId}&original_store=0`;
         const apiDataResponse = await makeApiCall(productsData, {});
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
         addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? "-" + JSON.parse(apiDataResponse).discount + "%" : "");
+        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? '-' + JSON.parse(apiDataResponse).discount + '%' : '');
 
-
-        //Append a UL and LI tag append the variant info in the DOM
-        let variants = JSON.parse(apiDataResponse)._delivery_options[0].skus
-        console.log(variants, "Data")
-        let targetElement = document.querySelector('body');
-        let newUl = document.createElement('ul');
-        newUl.id = "variantsadd";
+        // Append a UL and LI tag append the variant info in the DOM
+        const variants = JSON.parse(apiDataResponse)._delivery_options[0].skus;
+        console.log(variants, 'Data');
+        const targetElement = document.querySelector('body');
+        const newUl = document.createElement('ul');
+        newUl.id = 'variantsadd';
         targetElement.appendChild(newUl);
-        let ul = document.querySelector("#variantsadd");
-        let name = nameExtended();
+        const ul = document.querySelector('#variantsadd');
+        const name = nameExtended();
         try {
           if (variants.length) {
             for (let i = 0; i < variants.length; i++) {
-              let listItem = document.createElement("li");
-              console.log(name, "value")
+              const listItem = document.createElement('li');
+              console.log(name, 'value');
               setAttributes(listItem, {
-                nameExtended: `${nameExtended()} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0] ? "-" : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""} `,
-                quantity: `${variants[i].variant ? variants[i].variant.filter(e => { return e.title.toLowerCase() === "medida" }).length === 1 ? variants[i].variant.filter(e => { return e.title.toLowerCase() === "medida" })[0].value : "" : ""}`,
-                color: `${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0].title.toLowerCase() === "color" ? variants[i].variant[0].value : "" : ""}`,
-                gtin: variants[i].gtin ? variants[i].gtin : "",
-                retailer_product_code: variants[i].id.trim(""),
-                title: variants[i].variant ? variantInformation(variants[i]) : "",
-                variantDetails: variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0] ? variants.map((e) => { return e.id.trim(" ") }).join(' | ') : "" : "" : "",
-                variantcount: variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0] ? variants.map((e) => { return e.id.trim(" ") }).length : "" : "" : ""
-              })
+                nameExtended: `${nameExtended()} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : '' : ''} ${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0] ? '-' : '' : ''} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : '' : ''} `,
+                quantity: `${variants[i].variant ? variants[i].variant.filter(e => { return e.title.toLowerCase() === 'medida'; }).length === 1 ? variants[i].variant.filter(e => { return e.title.toLowerCase() === 'medida'; })[0].value : '' : ''}`,
+                color: `${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0].title.toLowerCase() === 'color' ? variants[i].variant[0].value : '' : ''}`,
+                gtin: variants[i].gtin ? variants[i].gtin : '',
+                retailer_product_code: variants[i].id.trim(''),
+                title: variants[i].variant ? variantInformation(variants[i]) : '',
+                variantDetails: variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0] ? variants.map((e) => { return e.id.trim(' '); }).join(' | ') : '' : '' : '',
+                variantcount: variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0] ? variants.map((e) => { return e.id.trim(' '); }).length : '' : '' : '',
+              });
               ul.appendChild(listItem);
             }
           }
         } catch (err) {
-          console.log(err, "api");
-          throw "API Needs a change"
+          console.log(err, 'api');
+          throw 'API Needs a change';
         }
 
-
-        function ratingFromDOM() {
+        function ratingFromDOM () {
           const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
           let ratingCount;
           if (reviewsCount) {
@@ -270,7 +264,7 @@ module.exports = {
           }
         }
 
-        function allergyAdvice() {
+        function allergyAdvice () {
           const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           if (element) {
@@ -281,16 +275,15 @@ module.exports = {
         } allergyAdvice();
 
         // Function to remove the `\n` from the textContent
-        function textContent(element, attributeName) {
+        function textContent (element, attributeName) {
           const text = (element && element.innerText.trim()
-            .replace(' ', "\n")
+            .replace(' ', '\n')
             .split('\n')
             .filter((ele) => ele)
             .join(' ')) ||
             '';
           addElementToDocument(attributeName, text);
         }
-
 
         const description = document.querySelector('.product_detail-description-in-image');
         textContent(description, 'bulletDescription');
@@ -303,15 +296,13 @@ module.exports = {
           specXpath.forEach(e => {
             specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)} `);
           });
-          addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
+          addElementToDocument('bulletDescription', specifcations.join(' ').replace(/\,/g, ' '));
         } else {
           specXpath.forEach(e => {
             specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
           });
-          addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
+          addElementToDocument('bulletDescription', specifcations.join(' ').replace(/\,/g, ' '));
         }
-
-
       });
     } catch (error) {
       console.log('Evaluation Failed', error);
