@@ -72,8 +72,8 @@ fields:
     singleValue: true
     xpath: //div[@class='product__header dbtrustedshops']//h1//text()
     # xpath: //div[@id='quantity']
-    regExp: (?:\s?([\d\.]+\s{1}?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s)
-    regExpReplace: $1$2$3$4
+    regExp: (([\d\.]+\s{0,1}?)([sS]ticks|[cC]omprimidos|[cC]capsulas|[gG]el|[lL]íquid[oa]|Liquid[\.]?).?)$|(([\d\.]+\s{0,1}?)([sS]ticks|[cC]omprimidos|[cC]capsulas|[gG]el|[lL]íquid[oa]|Liquid??).?\s)
+    # regExpReplace: $1
   - name: directions
     singleValue: true
     xpath: //div[@class='description']//p[4]
