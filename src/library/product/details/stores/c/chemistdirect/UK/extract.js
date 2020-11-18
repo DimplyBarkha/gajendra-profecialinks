@@ -32,7 +32,7 @@ async function implementation(
   };
   await context.evaluate(async ()=> {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    GlobalE.ShippingSwitcher.Show()
+      GlobalE.ShippingSwitcher.Show()
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       var gle_selectedCountry = document.querySelector("#gle_selectedCountry");
       gle_selectedCountry.value = "GB";
@@ -68,6 +68,11 @@ async function implementation(
     const result = [];
     const reviews = document.querySelectorAll('#reviews li a');
     const descriptions = document.querySelectorAll("div.cd-tabs div.cd-product-tabs");
+    //@ts-ignore
+    const manufacturer = window.universal_variable.product.manufacturer;
+
+    addHiddenDiv("document_manufacturer",manufacturer);
+
     // select query selector and loop and add div
     for (let i = 0; i < reviews.length; i++) {
       //@ts-ignore
