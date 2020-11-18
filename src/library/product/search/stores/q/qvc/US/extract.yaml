@@ -30,11 +30,11 @@ fields:
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-  - name: aggregateRating2
+   - name: aggregateRating2
     singleValue: false
     type: STRING
     xpath: //div[@class="stars"]/@title
-    regExp: ^(\d)\.(\d+)
+    regExp: ^\d\.\d+
     regExpReplace: $1,$2
   - name: reviewCount
     singleValue: false
