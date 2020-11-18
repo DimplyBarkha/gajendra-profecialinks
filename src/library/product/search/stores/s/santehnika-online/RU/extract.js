@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 
 async function implementation (
   inputs,
@@ -22,7 +22,7 @@ async function implementation (
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
     const searchUrl = window.location.href;
@@ -48,7 +48,7 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'santehnika-online',
-    transform: cleanUp,
+    transform,
     domain: 'santehnika-online.ru',
     zipcode: '',
   },

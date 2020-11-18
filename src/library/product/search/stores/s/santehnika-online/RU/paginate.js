@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'span[class*="pagination__icon--next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'html body',
+    loadedSelector: 'div[class*=\'products__list-item\']',
     noResultsXPath: '//div[@class="p-search-b-search-result"]',
     resultsDivSelector: null,
     openSearchDefinition: null,
