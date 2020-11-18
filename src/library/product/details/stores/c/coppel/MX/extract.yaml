@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@aria-label="breadcrumb guidance region"]/li[2]/a//text()
+    xpath: //div[@id="widget_breadcrumb"]/ul/li[position()>1]/a/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -59,11 +59,11 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(text(),'Colour:')]/following-sibling::td/text()
+    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Marca:')]/following-sibling::td
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Brand:')]/following-sibling::td[1]
+    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Marca:')]/following-sibling::td
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -73,13 +73,18 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Weight')]/following-sibling::td[1]
+    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Peso:')]/following-sibling::td
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id="gtin_added"]
+  - name: eangtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id="gtin_added"]  
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -119,6 +124,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //div[@class='key-coppel mp_seller_info']/span/b/text()
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -129,10 +135,11 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Colour:')]/following-sibling::td[1]//text()
+    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Color:')]/following-sibling::td
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -241,7 +248,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    xpath: //ul[@id="ProductAngleImagesAreaList"]/count(li)
+    xpath: //div[@id="secondaryImgcount_added"]
     type: NUMBER
   - name: news
     singleValue: true
@@ -404,9 +411,11 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="specs_added"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //table[@class='table table-bordered']/tbody/tr/td[contains(.,'Garantía:')]/following-sibling::td
   - name: storage
     singleValue: true
     description: Suggested storage location for product

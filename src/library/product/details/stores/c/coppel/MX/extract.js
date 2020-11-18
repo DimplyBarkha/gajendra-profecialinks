@@ -52,6 +52,14 @@ module.exports = {
         console.log(sku[1]);
         }
 
+        const gtinXpath = getXpath("//input[@id='gtin']/@value",'nodeValue');
+        console.log("gtin: ", gtinXpath);
+        if(gtinXpath != null  ){
+          const gtinValue = gtinXpath ? gtinXpath.split(':') : [];
+          addElementToDocument('gtin_added',gtinValue[1]);
+          console.log(gtinValue[1]);
+          }
+
         const altImgXpath = getAllXpath("//*[contains(@id,'WC_CachedProductOnlyDisplay_links_')]/@href",'nodeValue').join(' | ');
         console.log("AltImgXpath:", altImgXpath);
         addElementToDocument('altImgs_added',altImgXpath);
@@ -59,6 +67,14 @@ module.exports = {
         const aplusImages = getAllXpath("//*[@id='inpage_container']//img/@data-flixsrcset",'nodeValue').join(' | ');
         console.log("Aplus Images:", aplusImages);
         addElementToDocument('aplusImages_added',aplusImages);
+
+        const allSpecs = getAllXpath("//*[@class='flix-svg-text flix-d-p']/text()",'nodeValue').join('|');
+        console.log("Specifications:", allSpecs);
+        addElementToDocument('specs_added',allSpecs);
+
+        const secondaryImg = altImgXpath.split('|');
+        console.log("secondaryImg total:", secondaryImg.length);
+        addElementToDocument('secondaryImgcount_added',secondaryImg.length);
   
    });
   await context.extract(productDetails, { transform: transformParam });
