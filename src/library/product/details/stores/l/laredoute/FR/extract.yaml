@@ -90,9 +90,14 @@ fields:
     xpath: //span[contains(@class, 'enable-stars')]/@class
     regExp: rating-(.*)
     regExpReplace: $1
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //div[@class="flixmedia flixmedia--expanded"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //img[contains(@class,"additional-img")]//@src
+    xpath: //div[@class="flixmedia flixmedia--expanded"]//img//@data-flixsrcset
+    regExp: ((.+)( 200w))
+    regExpReplace: $2
   - name: brandLink
     singleValue: true
     xpath: //div[contains(@class,"pdp-title-zone")]/div/a/@href

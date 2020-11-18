@@ -27,7 +27,9 @@ async function implementation(
 
   try {
     await context.click('button[id*=productDescriptionShowMore]');
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await context.click('div.flixmedia_expandBtn.flixmedia_expandBtn--more');
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   } catch (e) {
     console.log("some error occurred while clicking show more button")
   }
