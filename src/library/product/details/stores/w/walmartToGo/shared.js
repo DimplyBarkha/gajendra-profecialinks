@@ -82,9 +82,6 @@ const transform = (data, context) => {
           item.text = `${item.text.replace(',', '')}`;
         });
       }
-      if (row.retailerIdFallback && !row.retailerId) {
-        row.retailerId = row.retailer_id = row.retailerIdFallback;
-      }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

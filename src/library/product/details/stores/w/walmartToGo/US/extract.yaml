@@ -9,11 +9,11 @@ fields:
     xpath: //div[contains(@class,'StoreSelection__banners')]//div[contains(@class,'AddressPanel')]/@name
   - name: drive
     xpath: //body/@zipcode
+  - name: drive_id
+    xpath: //body/@zipcode
   - name: retailerId
     xpath: //body/@storeid
   - name: retailer_id
-    xpath: //body/@storeid
-  - name: retailerIdFallback
     xpath: //body/@storeid
   - name: image
     description: URL of the main product image
@@ -51,6 +51,9 @@ fields:
     singleValue: false
     xpath: //div[@data-automation-id="ingredients"]//div
   - name: variantId
+    singleValue: false
+    xpath: //body/@rpc
+  - name: retailer_product_code
     singleValue: false
     xpath: //body/@rpc
   - name: directions
@@ -270,11 +273,6 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//tbody/tr
-  - name: retailer_id
-    xpath: //span[@id="glow-ingress-line2"]
-    singleValue: false
-    regExp: .*?\s+(\w+).*
-    regExpReplace: $1
   - name: coupon
     singleValue: false
     xpath: //label[@id='couponBadge']|//tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]/div[@id="unclippedCoupon"] | //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]//div[contains(@class,"vpcApplyCoupon")]
