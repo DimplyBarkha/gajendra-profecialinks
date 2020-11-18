@@ -1,0 +1,151 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'showcase-product__container-img')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'showcase-product__container-img')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    # remove duplicate
+    xpath: //div[contains(@class,'carousel-product__item')]//img[contains(@class,'carousel-product__item-img')]/@src
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumb']//li//a[not(contains(@class,'breadcrumb__icon-home'))]
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='header-product__title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='header-product__title']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'wrapper-product__informations')]//button[contains(@class,'button__buy-product-detail')]//span[text()='Adicionar à sacola']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    # it will return 2 spans one for currency and another for price
+    xpath: //div[@class='price-template']//div[contains(@class,'price-template__cash')]//div//span[not(contains(@class,'price-template__discount')) and not(normalize-space()='à vista')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='price-template']//div[contains(@class,'price-template__from')]
+  - name: gtin
+    singleValue: false    
+    xpath: //script[contains(text(),'"ean"')]
+    regExp: \"ean\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: description
+    singleValue: false
+    # do not include <table> and <iframe> elements
+    xpath: //div[@itemprop='description']
+  - name: brandText
+    singleValue: false
+    xpath: //small[@class='header-product__code']/a[not(contains(@class,'js-floater-menu-link'))]
+  - name: brandLink
+    singleValue: false
+    xpath: //small[@class='header-product__code']/a[not(contains(@class,'js-floater-menu-link'))]/@href
+  - name: mpc
+    singleValue: false
+    xpath: //table[contains(@class,'description__box')]//td[text()='Informações técnicas']//following-sibling::td//table//td[contains(normalize-space(),'Referência')]//following-sibling::td
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'js-header-product')]/@data-product
+    # # "sku": "222251600"
+    # regExp: \"sku\"\s*:\s*\"(.+?)\"
+    # regExpReplace: $1
+  - name: variantId
+    singleValue: false
+  - name: variants    
+    singleValue: false
+  - name: variantsTemp
+    # Other product variant id
+    singleValue: false
+    xpath: //div[@class='information-values__variation']//button/@data-id
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='information-values__variation-colors-container']//button[contains(@aria-label,'selecionada')]/@title
+  - name: variantCount    
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='price-template']//div[contains(@class,'price-template__cash')]//div//span[contains(@class,'price-template__discount')]    
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class='seller__indentifier']//meta[@itemprop='name']/@content
+  - name: specifications
+    singleValue: false
+    xpath: //table[@class='description__box']//tr
+  - name: warranty
+    singleValue: false
+    xpath: //table[contains(@class,'description__box')]//td[text()='Garantia']//following-sibling::td//table//td[contains(@class,'description__information-box-right')]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //head[not(descendant::*[local-name() = 'img'])]//following-sibling::body//img[not(contains(@src,'adservice'))]/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //head[not(descendant::*[local-name() = 'img'])]//following-sibling::body
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='interaction-client__rating-info']//span[@class='js-rating-value']//following-sibling::span
+    # remove brackets (415)
+    regExp: ([\d\.]+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='interaction-client__rating-info']//span[@class='js-rating-value']
+    # replace , by .  4,7 -> 4.7
+    regExp: (,)
+    regExpReplace: $1
+  - name: color
+    singleValue: false
+    xpath: //table[contains(@class,'description__box')]//td[text()='Cor']//following-sibling::td//table//td[contains(@class,'description__information-box-right')]
+  - name: weightNet
+    singleValue: false
+    xpath: //td[normalize-space()='Peso do produto']//following-sibling::td
+  - name: weightGross
+    singleValue: false
+    xpath: //td[normalize-space()='Peso do produto com embalagem']//following-sibling::td
+  - name: shippingWeight
+    singleValue: false
+    xpath: //td[normalize-space()='Peso do produto com embalagem']//following-sibling::td
+  - name: videos
+    singleValue: false
+    xpath: //iframe[contains(@src,'youtube') or contains(@data-src,'youtube')]/@*[name()='src' or name()='data-src']
+  - name: shippingDimensionsW
+    singleValue: false
+    # Width
+    xpath: //table[contains(@class,'description__box')]//td[contains(text(),'Dimensões') and contains(text(),'embalagem')]//following-sibling::td//table//td[contains(normalize-space(),'Largura')]//following-sibling::td    
+  - name: shippingDimensionsH
+    singleValue: false
+    # Height
+    xpath: //table[contains(@class,'description__box')]//td[contains(text(),'Dimensões') and contains(text(),'embalagem')]//following-sibling::td//table//td[contains(normalize-space(),'Altura')]//following-sibling::td    
+  - name: shippingDimensionsL
+    singleValue: false
+    # Depth
+    xpath: //table[contains(@class,'description__box')]//td[contains(text(),'Dimensões') and contains(text(),'embalagem')]//following-sibling::td//table//td[contains(normalize-space(),'Profundidade')]//following-sibling::td    
+  - name: materials
+    singleValue: false
+    xpath: //table[contains(@class,'description__box')]//td[text()='Material']//following-sibling::td[contains(@class,'description__information-right')]//td[contains(@class,'description__information-box-right')]
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //table[contains(@class,'description__box')]//td[text()='Eficiência energética']//following-sibling::td[contains(@class,'description__information-right')]//td[contains(@class,'description__information-box-right')]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //table[contains(@class,'description__box')]//td[text()='Ingredientes']//following-sibling::td[contains(@class,'description__information-right')]//td[contains(@class,'description__information-box-right')]
+  - name: storage
+    singleValue: false
+    xpath: //table[contains(@class,'description__box')]//td[text()='Armazenamento']//following-sibling::td[contains(@class,'description__information-right')]//td[contains(@class,'description__information-box-right')]
+  - name: quantity
+    singleValue: false
+    xpath: //table[contains(@class,'description__box')]//td[text()='Quantidade']//following-sibling::td[contains(@class,'description__information-right')]//td[contains(@class,'description__information-box-right')]
