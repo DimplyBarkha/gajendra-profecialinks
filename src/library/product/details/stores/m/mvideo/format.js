@@ -73,7 +73,7 @@ const transform = (data) => {
           item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
         });
       }
-      if (row.variants) {
+      if (row.variants && row.variantId) {
         var temp_arr = [];
         row.variants.forEach(item => {
           item.text = item.text.replace(/.+-(\d+)/g, '$1');
