@@ -74,6 +74,18 @@ module.exports = {
       }
     });
 
+    const videos = await context.evaluateInFrame('#samsung_m_01 > div > div.sam_card-365.sam_card-category-23 > div:nth-child(5) > div:nth-child(2) > iframe',
+      function () {
+        console.log('start of evaluate');
+        const a = document.querySelector('link[rel="canonical"]');
+        // console.log(JSON.stringify(a));
+        console.log('end of evaluate');
+        return !a ? 'notfound' : a;
+      },
+    );
+    // console.log(JSON.stringify(videos));
+    console.log('count of videos', videos)
+    console.log('printed Videos');
     return await context.extract(productDetails, { transform: transformParam });
   },
 };

@@ -96,7 +96,7 @@ fields:
   - name: firstVariant
     xpath: //div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))][1]//div[contains(@class, 'c-offerBox_photo')]/@data-offer-id
   - name: videoFromEnhancedContent
-    xpath: //link[contains(@href, 'https://www.youtube.com')]/@href
+    xpath: //link[@rel="canonical"]/@href
   - name: haVideo
     xpath: //div[@id='videoFromEnhancedContent']/@text()
   - name: skuAtLast
