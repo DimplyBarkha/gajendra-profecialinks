@@ -235,7 +235,7 @@ fields:
     description: null
   - name: featureBullets
     singleValue: false
-    xpath: //ul[@class="pdp-features"]/li
+    xpath: //ul[@class="pdp-features"]/li | //div[@class="product-info-description"]//span[contains(text(),'Features:')]/following::ul[1]/li
     description: null
   - name: otherSellersName
     singleValue: false
