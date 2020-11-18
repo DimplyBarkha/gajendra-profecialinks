@@ -93,7 +93,7 @@ fields:
 #   singleValue: true
 #   description: The number of packs in the product offer (if stated separately on the
 #     site to quantity)
-#   xpath: //td[@id="attributequantit_key"]
+#   xpath: //td[@id="attributequantit__emball_ekey"]
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -124,9 +124,10 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-- name: color
-  singleValue: true
-  description: A textual description of the colour
+# - name: color
+#   singleValue: true
+#   description: A textual description of the colour
+#   xpath: //td[@id='attributecouleurkey']
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -139,12 +140,15 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
-- name: name
-  singleValue: true
-  description: The product name
-- name: inStorePrice
-  singleValue: true
-  description: Price in the selected store
+  xpath: //video/@src #todo
+# - name: name
+#   singleValue: true
+#   description: The product name
+#   xpath: //h1[@class='sku_Title']
+# - name: inStorePrice
+#   singleValue: true
+#   description: Price in the selected store
+#   xpath: //span[@class='bigPrice']
 - name: asin
   singleValue: true
   description: 
@@ -192,6 +196,7 @@ fields:
 - name: videoLength
   singleValue: false
   description: 
+  xpath: #todo
 - name: ingredientImagePresent
   singleValue: true
   description: 
@@ -373,9 +378,10 @@ fields:
 - name: dietaryInformation
   singleValue: true
   description: 
-- name: specifications
-  singleValue: true
-  description: The physical dimensions of the product including packaging.
+# - name: specifications
+#   singleValue: true
+#   description: The physical dimensions of the product including packaging.
+#   xpath: //td[@id="attributedimensionskey"]
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
@@ -479,8 +485,9 @@ fields:
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
-- name: imageZoomFeaturePresent
-  singleValue: true
-  description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
-  example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+# - name: imageZoomFeaturePresent
+#   singleValue: true
+#   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+#   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+#   defaultValue: 'Yes'
+#   xpath: //div[@class="s7highlight"]
