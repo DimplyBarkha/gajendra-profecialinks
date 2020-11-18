@@ -71,14 +71,20 @@ const transform = (data) => {
         if (jsonObj.sku) {
           row.variantId = row.sku = [{ text: jsonObj.sku }];
         }
-        row.variants = [{ text: row.sku[0].text }];
-      }
-      if (row.variantsTemp) {
-        row.variantsTemp.forEach(item => {
-          row.variants.push({ text: item.text });
-        });
-        delete row.variantsTemp;
-        row.variantCount = [{ text: row.variants.length }];
+        var arrVariantIds = [];
+        if (jsonObj.attributes) {
+          var attributeObj = jsonObj.attributes;
+          for (var i = 0; i < attributeObj.length; i++) {
+            var tempObj = attributeObj[i];
+            if (tempObj.id) {
+              arrVariantIds.push(tempObj.id);
+            }
+          }
+        }
+        if (arrVariantIds.length) {
+          row.variants = [{ text: arrVariantIds.join(' | ') }];
+          row.variantCount = [{ text: arrVariantIds.length }];
+        }
       }
       if (row.promotion) {
         row.promotion.forEach(item => {

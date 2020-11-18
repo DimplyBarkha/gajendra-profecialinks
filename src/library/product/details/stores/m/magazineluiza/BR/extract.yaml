@@ -65,11 +65,7 @@ fields:
   - name: variantId
     singleValue: false
   - name: variants    
-    singleValue: false
-  - name: variantsTemp
-    # Other product variant id
-    singleValue: false
-    xpath: //div[@class='information-values__variation']//button/@data-id
+    singleValue: false  
   - name: variantInformation
     singleValue: false
     xpath: //div[@class='information-values__variation-colors-container']//button[contains(@aria-label,'selecionada')]/@title
