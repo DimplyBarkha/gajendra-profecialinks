@@ -37,7 +37,7 @@ fields:
     xpath: //meta[@itemprop="brand"]/@content
   - name: quantity
     singleValue: true
-    xpath: //tr[@class="row"]/td[contains(text(),'Verpakkingshoeveelheid')]/following-sibling::td/text()
+    xpath: //tr[@class="row"]/td[contains(text(),'Verpakkingshoeveelheid')]/following-sibling::td/text() | //h1[@class="product_name"]/span
   - name: sku
     singleValue: true
     xpath: //meta[@itemprop="sku"]/@content
@@ -87,3 +87,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: No
+  - name: manufacturer
+    singleValue: false
+    xpath: //tr[@class="row a"]/td[contains(text(),'Producent')]/following-sibling::td/text()
+  - name: variantInformation
+    singleValue: false
+    xpath: //html//div[@id='variant']
