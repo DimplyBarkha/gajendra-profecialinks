@@ -5,8 +5,8 @@ module.exports = {
     country: 'DE',
     store: 'deichmann',
     domain: 'deichmann.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'main[data-template="ProductDetailsPageTemplate"]',
+    noResultsXPath: "//section[contains(@class,'m-search-in-store--desktop')]",
     zipcode: '',
   },
 };

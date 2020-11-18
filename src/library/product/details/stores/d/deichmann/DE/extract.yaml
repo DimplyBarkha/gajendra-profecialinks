@@ -5,4 +5,141 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: 
+    description: URL of the main product image
+    xpath: (//div[contains(@class,'product-item')]//div[contains(@class,'m-product-image')]//img//@src)[1]
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: (//div[contains(@class,'product-item')]//div[contains(@class,'m-product-image')]//img//@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: (//div[contains(@class,'product-item')]//div[contains(@class,'m-product-image')]//img//@src)[position() > 1]
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[contains(@class,'css-1qm1lh')]//h1
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //div[contains(@class,'css-1qm1lh')]//h1
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //p[@id='product-price-original']
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: (//strong[contains(@class,'price')]//p)[1]
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: (//div[@id='buy-box']//button)[1]
+    regExp: Comprar
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@id='product-description']
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //p[contains(@class,'css-1v3yibb')]//a[contains(@class,'css-1h2b4k5')]
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: (//figure[@data-testid='star-rating']/span/text())[1]
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //figure[@data-testid='star-rating']/div/@title
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //figure[@data-testid='star-rating']/div/@title
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+    xpath: (//div[contains(text(),'Cor')]/following::span)[1]
+  - name: _url
+    singleValue: false
+    xpath: //div[@id='document_url']
+  - name: url
+    singleValue: false
+    xpath: //div[@id='document_url']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id='document_url']
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[@id='product-detail-list-0']//div[contains(@class,'row')] | //div[@id='product-detail-list-1']//div[contains(@class,'row')]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    defaultValue: No
+    xpath: //div[contains(@class,'magnify-container')]
+  - name: sku
+    singleValue: false
+    xpath: //div[@id='document_sku']
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id='document_product']
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[contains(@class,'document_video')]//p
+  - name: customerServiceAvailability
+    singleValue: false
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+    xpath: (//div[contains(text(),'Telefone')]/following::span)[1]
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id='document_ean']
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[contains(@class,'pd-image-full')]//img//@src | //div[@id="product-special-content"]//img//@src
+  - name: secondaryImageTotal
+  - name: warranty
+    singleValue: false
+    description: Guarantee associated with the product
+    xpath: (//div[contains(text(),'Garantia')]/following::span)[1]
+  - name: termsAndConditions
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+    xpath: //div[@id='more-information']
+  - name: shippingInfo
+    singleValue: false
+    xpath: //p[@id='sold-by']//a
+  - name: productOtherInformation
+    singleValue: false
+    description: Any other product information
+    xpath: //div[contains(@class,'css-1fj0as8')]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id='document_variant']
+  - name: variants
+    singleValue: false
+    xpath: //select[@id='select-sku']//option
+  - name: metaKeywords
+    singleValue: false
+    description: The <meta> keywords content
+    xpath: //meta[@name='keywords']//@content   
+  - name: quantity
+    singleValue: false
+    xpath: (//div[contains(text(),'Tamanho da tela')]/following::span)[1]
+  - name: promotion
+    singleValue: false
+    xpath: //span[@id='discount-stamp']
