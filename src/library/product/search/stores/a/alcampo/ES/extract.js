@@ -79,12 +79,11 @@ async function implementation (inputs, parameters, context, dependencies) {
           manufacturerIteration = words[0] + ' ' + words[1];
         };
 
+        document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rank', `${i + 1}`);
+        document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rankorganic', `${i + 1}`);
         document.querySelectorAll('.priceContainer')[i].setAttribute('price', priceIteration);
         document.querySelectorAll('.marca')[i].setAttribute('manufacturer', manufacturerIteration);
         document.querySelectorAll('div[class="thumb cut-alt-img"]')[i].setAttribute('imageurl', image);
-        document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rank', `${i + 1}`);
-        // @ts-ignore
-        document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rankorganic', `${i + 1}`);
       };
     });
 
