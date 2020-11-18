@@ -1,6 +1,4 @@
-async function implementation (inputs, parameters, context, dependencies) {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-}
+
 module.exports = {
   implements: 'product/search',
   parameterValues: {
@@ -9,5 +7,4 @@ module.exports = {
     domain: 'petlove.com.br',
     zipcode: '',
   },
-  implementation,
 };
