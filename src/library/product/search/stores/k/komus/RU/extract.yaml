@@ -5,12 +5,13 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class="b-productList__price"]//a//span[1]/text()   
+    type: CURRENCY
+    xpath: //div[@id='altImage1']    
   - name: productUrl
     singleValue: false
     xpath: //div[@class="b-productList__item__picture"]//a[@class="b-productList__item__img__link js-compare__link"]/@href
     regExp: (/.+)
-    regExpReplace: https://www.komus.ru/$1
+    regExpReplace: https://www.komus.ru$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="b-productList__item__picture"]//a[@class="b-productList__item__img__link js-compare__link"]//img//@src 
