@@ -5,4 +5,59 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //h3[@itemprop='alternateName']//text()
+    xpath: //div[@id='content-center']//a//img[@itemprop='image']/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='content-center']//a//img[@itemprop='image']/@alt
+  - name: name
+    singleValue: false
+    xpath: //div[@id='content-center']//div[contains(@class, 'page-header')]//h1//span[@itemprop='name']/text()
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@id='content-center']//div[contains(@class, 'page-header')]//h1//span[@itemprop='name']/text()
+  - name: sku
+    singleValue: false
+    xpath: //div[@id='content-center']//div[contains(@class, 'page-header')]//h1//small[contains(@class, 'sku')]
+    regExp: .*\((\d+)\).*
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, 'panel-body')]//ul//li//span[@itemprop='price']/text()
+    regExp: ^(.*)$
+    regExpReplace: £$1
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class, 'panel-body')]//ul//li//span[@itemprop='manufacturer']/text()
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, 'product-section')]//span[@itemprop='description']
+  - name: brandText
+    singleValue: false
+    xpath: (//div[contains(@class, 'product-section')]//strong[contains(text(), 'Brand')]/..//span)[1]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id='content-center']//h3[contains(text(), 'Ingredients')]/..//p
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@id='content-center']//h5[contains(text(), 'Disclaimer')]/..
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='content-center']//h3[contains(text(), 'Product Images')]/..//img/@src
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[@id='content-center']//h3[contains(text(), 'Allergy Advice')]/following-sibling::*
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: (//div[contains(@class, 'product-section')]//strong[contains(text(), 'Country of Origin')]/..//span)[1]
+  - name: storage
+    singleValue: false
+    xpath: //div[@id='content-center']//strong[contains(text(), 'Storage')]/following-sibling::*/text()
+  - name: warnings
+    singleValue: false
+    xpath: //div[@id='content-center']//strong[contains(text(), 'Warning')]/following-sibling::*/text()
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class, 'breadcrumb')]//li
