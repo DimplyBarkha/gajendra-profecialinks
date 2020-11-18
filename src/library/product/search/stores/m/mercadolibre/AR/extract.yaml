@@ -8,7 +8,7 @@ fields:
     xpath: //@id
   - name: searchUrl
     singleValue: true
-    xpath: //li[contains(@class, 'button--current')]/a/@href
+    xpath: //@searchurl
   - name: name
     singleValue: false
     xpath: //h2[contains(@class, 'title')]
@@ -35,7 +35,7 @@ fields:
     singleValue: true
   - name: soldBy
     singleValue: true
-    xpath: //li[contains(@class,'layout__item')]/@soldBy
+    xpath: //@soldby
   - name: endorsementText
     singleValue: false
   - name: rank

@@ -5,11 +5,15 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
+    const searchUrl = window.location.href;
+    document.querySelectorAll('li[class*="layout__item"]').forEach(e => e.setAttribute('searchurl', searchUrl));
     const products = document.querySelectorAll('li[class*="layout__item"]');
     products.forEach((product, index) => {
-      // set product url
-      const productIdArr = document.querySelector('head script:not([type]):not([src])').textContent.match(/dimension49",(.*)\)/)[1].split(',');
-
+      // set product id
+      const allAcriptTags = document.querySelectorAll('head script:not([type]):not([src])');
+      // @ts-ignore
+      const scriptWithId = [...allAcriptTags].filter(e => e.textContent.includes('dimension49"'));
+      const productIdArr = scriptWithId[0].textContent.match(/dimension49", "(.*)"\)/)[1].split(',');
       // @ts-ignore
       product.setAttribute('id', productIdArr[index]);
 
@@ -20,8 +24,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       const soldBy = product.querySelector('p[class*="store-label"]')
         // @ts-ignore
         ? product.querySelector('p[class*="store-label"]').innerText.split(' ') : null;
-      if (soldBy !== null) soldBy.splice(0, 2).join(' ');
-      product.setAttribute('soldBy', soldBy);
+      if (soldBy !== null) {
+        soldBy.splice(0, 2).join(' ');
+        product.setAttribute('soldBy', soldBy);
+      }
     });
   });
 
