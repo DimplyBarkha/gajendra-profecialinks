@@ -8,7 +8,7 @@ module.exports = {
     store: 'bijenkorf',
     zipcode: '',
   },
-  /*implementation: async ({ url }, parameters, context, dependencies) => {
+  /* implementation: async ({ url }, parameters, context, dependencies) => {
     url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":80000,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     await context.goto(url, {
       block_ads: false,
@@ -18,5 +18,5 @@ module.exports = {
       waitUntil: 'load',
       first_request_timeout: 60000,
     });
-  },*/
+  }, */
 };
