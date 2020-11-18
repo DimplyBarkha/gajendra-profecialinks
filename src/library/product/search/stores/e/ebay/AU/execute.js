@@ -5,9 +5,9 @@ module.exports = {
     country: 'AU',
     store: 'ebay',
     domain: 'ebay.com.au',
-    url: 'https://www.ebay.com.au/sch/i.html?_nkw={searchTerms}&_sacat=0&_ipg=200',
-    loadedSelector: 'ul.srp-results > li[data-view]',
-    noResultsXPath: '//h3[contains(@class,"srp-save-null-search__heading")]',
+    url: 'http://www.ebaystores.com.au/dyson-australia/_i.html?rt=nc&_nkw={searchTerms}&_sid=1630776705&_trksid=p4634.c0.m14.l1581',
+    loadedSelector: 'div.p-box',
+    noResultsXPath: "//span[contains(@class,'countClass') and contains(concat(' ',text(),' '),' 0 ')]",
     zipcode: '',
   },
 };

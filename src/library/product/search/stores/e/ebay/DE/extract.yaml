@@ -1,5 +1,11 @@
-extends: ../shared
+extends: ../shared1
 fields:
   - name: decimalSeperator
     singleValue: false
     defaultValue: EU
+  - name: listPrice
+    singleValue: false
+    manualSelector: div.cmpa > span.vl
+  - name: price
+    singleValue: false
+    xpaht: //div[@class="bin"]/span[@class="vl"] | //div[@class="bin"]/span[@class="fp"]

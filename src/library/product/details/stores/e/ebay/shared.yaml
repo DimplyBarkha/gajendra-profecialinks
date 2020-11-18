@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: nameExtended
     singleValue: false
-    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2]) 
+    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2])
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
@@ -34,7 +34,7 @@ fields:
     xpath: //div[contains(@class,"itemAttr")]//table//tr[td[contains(@class,"attrLabels")]]
   - name: availabilityText
     singleValue: false
-    xpath: //*[contains(@id,"binBtn_btn")]/@class
+    xpath: //*[contains(@id,"binBtn_btn")]/@class | //div[@class='item-action']/a[1]
     regExp: (.+)
     regExpReplace: 'In Stock'
     defaultValue: 'Out of Stock'
@@ -49,10 +49,10 @@ fields:
     xpath: //span[@itemprop="reviewCount"]/@content | //a[@id="_rvwlnk"]
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@itemprop="ratingValue"]/@content | //a[contains(@class,"reviews-star-rating")]/@aria-label
+    xpath: //span[@itemprop="ratingValue"]/@content | //a[contains(@class,"reviews-star-rating")]/@aria-label | //div[@class='reviews-hover card']//span[@class='review--start--rating']
   - name: category
     singleValue: false
-    manualSelector: li.bc-w > a[itemprop="item"]:not([title]) > span
+    manualSelector: li.bc-w > a[itemprop="item"]:not([title]) > span, nav[class='breadcrumb clearfix'] ol li:nth-child(2n+3)
   - name: brandText
     singleValue: false
     xpath: normalize-space(//td[not(contains(text(),'Compatible')) and contains(translate(text(),'BRAND','brand'),'brand') or contains(translate(text(),'MARCA','marca'),'marca') or contains(translate(text(),'MARKE','marke'),'marke')]/following-sibling::td)
@@ -60,7 +60,7 @@ fields:
     singleValue: false
   - name: weightNet
     singleValue: false
-    xpath: //div[span[contains(@class,"title") and contains(text(),'Weight')]]/@data-title | //td[contains(translate(text(),'WEIGHT','weight'),'weight')]/following-sibling::td
+    xpath: //div[span[contains(@class,"title") and contains(text(),'Weight')]]/@data-title | //td[contains(translate(text(),'WEIGHT','weight'),'weight')]/following-sibling::td 
   - name: weightGross
     singleValue: false
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)

@@ -7,7 +7,7 @@ module.exports = {
     domain: 'ebaystores.ca',
     url: 'http://www.ebaystores.ca/Dyson-Canada/_i.html?_nkw={searchTerms}&_ipg=200',
     loadedSelector: 'div.tpgv > div.wp',
-    noResultsXPath: null,
+    noResultsXPath: "//span[contains(@class,'cnt') and contains(concat(' ',text(),' '),' 0 ')]",
     zipcode: '',
   },
 };
