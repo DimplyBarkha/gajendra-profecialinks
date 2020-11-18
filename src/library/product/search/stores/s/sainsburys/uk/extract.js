@@ -43,7 +43,7 @@ async function implementation(
     if (!rankOrganic) {
       rankOrganic = 1;
     } else {
-      rankOrganic = (dup * 40) + 1;
+      rankOrganic = (dup * 90) + 1;
     }
     const urlProduct = document.querySelectorAll('a[class="pt__link"]');
     for (let i = 0; i < urlProduct.length; i++) {
