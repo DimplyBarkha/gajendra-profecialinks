@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="-mx-2"]//div[contains(@class,"collection-product")]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,"collection-product-link")]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[contains(@class,"collection-product-link")]//span[contains(@class,"block-image") and contains(@class,"absolute ")]/@style
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"product-price-container")]//span[contains(@class,"now-price")]/text()
+  - name: name
+    singleValue: false
+    xpath: //a[contains(@class,"collection-product-link")]//div[contains(@class,"yotpo") and contains(@class,"yotpo bottomLine")]/@data-name
+  - name: id
+    singleValue: false
+    xpath: //a[contains(@class,"collection-product-link")]//div[contains(@class,"yotpo") and contains(@class,"yotpo bottomLine")]/@data-product-id
+  
