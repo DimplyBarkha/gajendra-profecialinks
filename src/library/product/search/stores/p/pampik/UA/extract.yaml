@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: "//ul[@id='products-list']//li[@class='listing__item']"
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='sc-data']/@data-id
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='new-product-item-link']/@href
+    regExp: (.+)
+    regExpReplace: https://pampik.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //span[@class='new-product-item-img-box']//span[@class='new-product-item-img']//img/@src
+    regExp: (.+)
+    regExpReplace: https://pampik.com$1
+  - name: name
+    singleValue: false
+    xpath: //span[@class='new-product-item-center']//a[@class='new-product-item__name']  
+  - name: price
+    singleValue: false
+    xpath: //span[@class='new-product-item-price']//span[@class='new-product-item-price__current']
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class='new-product-item-estim__review']
+    regExp: (.+)(отзы.+)
+    regExpReplace: $1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[@itemprop='reviewRating']//span[@class='current_rating']
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='sc-data']/@data-brand
+  - name: rank
+    singleValue: false
+    xpath: //div[@class='sc-data']/@data-position
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@class='sc-data']/@data-position
