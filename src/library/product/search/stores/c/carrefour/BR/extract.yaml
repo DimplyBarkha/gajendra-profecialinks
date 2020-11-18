@@ -14,7 +14,7 @@ fields:
   - name: name
     xpath: //h2[contains(@class,"productName")]
   - name: price
-    xpath: //span[contains(@class,"PriceValue")]/span
+    xpath: //span[contains(@class,"PriceValue")][not(contains(@class,"strike"))]/span
     regExp: (\d+)(,)(\d+)
   - name: id
     xpath: //a[contains(@class,"Link")]/@href
