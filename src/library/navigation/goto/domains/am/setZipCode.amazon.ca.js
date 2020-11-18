@@ -5,6 +5,7 @@ module.exports = {
     parameterValues: {
         country: 'CA',
         domain: 'amazon.ca',
+        zipcode: 'M3H0C3'
     },
     dependencies: {
         Helpers: 'module:helpers/helpers',
