@@ -1,0 +1,42 @@
+input:
+  _url: http://pistorone.ch
+  URL: https://www.pistorone.ch/index.php/catalog2/products/6323/economat-kuchenprodgewurzekonserven/knorr-sortiment-gv/grundsaucen/sauce-demi-glace-6x4-kg-knorr?context=%2Fcatalog2
+extractions:
+  - html: https://workbench.import.io/html/run=08cc32b5-40b5-476e-bb74-839d7b8df01d/task=490e08b0-ca2a-4997-835e-a3020ae997df/cba9160c-30a3-4c63-9186-566975ece24c.html
+    extractionConfigId: product/details/stores/p/pistor/CH/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/th[1]/span[1]/div[2]
+            quantity:
+              - text: Ct à 24 kg
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[2]/td[1]
+            brandText:
+              - text: Knorr
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[3]/td[1]
+            sku:
+              - text: "5455"
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]
+            listPrice:
+              - text: "556.32"
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            image:
+              - text: https://www.psassets.ch/thumbs/ed/e1/e23148a794873a479b7fae74d402-005455.jpg
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/img[1]/@src
+            category:
+              - text: Knorr-Sortiment GV
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Grundsaucen
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: Sauce Demi-Glace, Pulver, Knorr, 6 x 4 kg
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.pistorone.ch/index.php/catalog2/products/6323/economat-kuchenprodgewurzekonserven/knorr-sortiment-gv/grundsaucen/sauce-demi-glace-6x4-kg-knorr?
+                xpath: /html/body/div[5]/@content
+            name:
+              - text: Sauce Demi-Glace
+                xpath: /html/body/div[6]/@content
+        xpath: /html
+    timestamp: 1605684774301

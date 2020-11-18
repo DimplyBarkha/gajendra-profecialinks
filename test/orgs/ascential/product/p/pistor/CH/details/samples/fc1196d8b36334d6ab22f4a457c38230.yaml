@@ -1,0 +1,45 @@
+input:
+  _url: http://pistorone.ch
+  URL: https://www.pistorone.ch/index.php/catalog2/products/4011341/economat-kuchenprodgewurzekonserven/teigwaren/asiatische-nudeln/miehoen-reisnudeln-12x250g?context=%2Fcatalog2
+extractions:
+  - html: https://workbench.import.io/html/run=08cc32b5-40b5-476e-bb74-839d7b8df01d/task=b1a351d6-bc72-4be2-be53-3e0a75659a2b/9bfc2b27-a052-4729-8947-351991b44341.html
+    extractionConfigId: product/details/stores/p/pistor/CH/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/th[1]/span[1]/div[2]
+            quantity:
+              - text: Karton à 12 Pack
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[2]/td[1]
+            brandText:
+              - text: GO-TAN
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[3]/td[1]
+            sku:
+              - text: "40200"
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]
+            promotion:
+              - text: 1 Palette à 72 Karton (864 Pack) 2.00/Pack
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/div[1]
+            listPrice:
+              - text: "31.20"
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            image:
+              - text: https://www.psassets.ch/thumbs/a9/c6/4a1523d2d6859c3c965ca86b344a-040200.jpg
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/img[1]/@src
+            category:
+              - text: Teigwaren
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Asiatische Nudeln
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: Miehoen Reisnudeln, GO-TAN, 250 g
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.pistorone.ch/index.php/catalog2/products/4011341/economat-kuchenprodgewurzekonserven/teigwaren/asiatische-nudeln/miehoen-reisnudeln-12x250g?
+                xpath: /html/body/div[5]/@content
+            name:
+              - text: Miehoen Reisnudeln
+                xpath: /html/body/div[6]/@content
+        xpath: /html
+    timestamp: 1605684772478

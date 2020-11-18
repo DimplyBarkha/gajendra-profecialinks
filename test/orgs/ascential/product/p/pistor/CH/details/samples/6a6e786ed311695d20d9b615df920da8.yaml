@@ -1,0 +1,42 @@
+input:
+  _url: http://pistorone.ch
+  URL: https://www.pistorone.ch/index.php/catalog2/products/7898881/economat-kuchenprodgewurzekonserven/ketchup/hellmanns/hellmanns-ketchup-5kg?context=%2Fcatalog2
+extractions:
+  - html: https://workbench.import.io/html/run=08cc32b5-40b5-476e-bb74-839d7b8df01d/task=a12624a8-e3d1-4bcf-ba43-9d09b1259f2b/59209f6f-53b9-419e-8285-d0e22573a26f.html
+    extractionConfigId: product/details/stores/p/pistor/CH/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/th[1]/span[1]/div[2]
+            quantity:
+              - text: Ke à 5 kg
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[2]/td[1]
+            brandText:
+              - text: Hellmann's
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[3]/td[1]
+            sku:
+              - text: "45206"
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]
+            listPrice:
+              - text: "20.90"
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            image:
+              - text: https://www.psassets.ch/thumbs/70/15/4e4ad4a835fe3e003fe191fbe932-045206.jpg
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/img[1]/@src
+            category:
+              - text: Ketchup
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Hellmann's
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: Hellmann's Ketchup, Kessel
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.pistorone.ch/index.php/catalog2/products/7898881/economat-kuchenprodgewurzekonserven/ketchup/hellmanns/hellmanns-ketchup-5kg?
+                xpath: /html/body/div[5]/@content
+            name:
+              - text: Hellmann's Ketchup
+                xpath: /html/body/div[6]/@content
+        xpath: /html
+    timestamp: 1605684780060

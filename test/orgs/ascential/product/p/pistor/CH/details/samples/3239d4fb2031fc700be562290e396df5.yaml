@@ -1,0 +1,46 @@
+input:
+  _url: http://pistorone.ch
+  URL: https://www.pistorone.ch/index.php/catalog2/products/8976135/economat-kuchenprodgewurzekonserven/knorr-sortiment-gv/knorr-essentials/tomatensauce-knorr-essentials?context=%2Fcatalog2
+extractions:
+  - html: https://workbench.import.io/html/run=08cc32b5-40b5-476e-bb74-839d7b8df01d/task=4141fc73-5f5d-4033-91e1-d1152c46aab5/685217eb-a8ef-444a-bee9-f56b5f290816.html
+    extractionConfigId: product/details/stores/p/pistor/CH/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: Artikel verfügbar ab 26.11.2020
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/th[1]/span[1]/div[3]
+            quantity:
+              - text: Ke à 7 kg
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[2]/td[1]
+            brandText:
+              - text: Knorr
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[3]/td[1]
+            sku:
+              - text: "45461"
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]
+            listPrice:
+              - text: "183.82"
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            image:
+              - text: https://www.psassets.ch/thumbs/28/f7/8fee4e8ed2e9657f434a0f9eddd7-045461.jpg
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/img[1]/@src
+            category:
+              - text: Knorr-Sortiment GV
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Saucen
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Knorr-Sortiment GV
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/a[1]
+              - text: Knorr Essentials
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/ul[2]/li[2]/a[1]
+            nameExtended:
+              - text: Tomatensauce, Pulver, Knorr
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.pistorone.ch/index.php/catalog2/products/8976135/economat-kuchenprodgewurzekonserven/knorr-sortiment-gv/knorr-essentials/tomatensauce-knorr-essentials?
+                xpath: /html/body/div[5]/@content
+            name:
+              - text: Tomatensauce
+                xpath: /html/body/div[6]/@content
+        xpath: /html
+    timestamp: 1605684781908

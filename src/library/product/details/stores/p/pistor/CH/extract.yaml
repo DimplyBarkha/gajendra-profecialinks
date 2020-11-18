@@ -7,12 +7,15 @@ fields:
   singleValue: false
 - name: _url
   singleValue: false
+  xpath: //div[@id="url"]/@content
 - name: productUrl
   singleValue: false
+  xpath: //div[@id="url"]/@content
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
+  xpath: //div[@class='prodimg ']/img/@src | //div[@class='prodimg']/img/@src
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
@@ -25,13 +28,16 @@ fields:
   description: The <meta> keywords content
 - name: category
   singleValue: false
+  xpath: //ul[@class="catnodes"]/li/a
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
+  xpath: //h3[@id="detail_title"]
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
+  xpath: //span[@class="order total"]//span[@class="line_total "] | //span[@class="order total"]//span[@class="line_total"]
   description: The stated undiscounted price for the product
 - name: price
   singleValue: true
@@ -39,6 +45,7 @@ fields:
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
+  xpath: //div[@class="available_from_info prod_order_info"]
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
@@ -51,6 +58,7 @@ fields:
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
+  xpath: //tr[@id="tr_make"]/td
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
@@ -58,6 +66,7 @@ fields:
   description: Product manufacturer
 - name: quantity
   singleValue: true
+  xpath: //table[@class="sub"]//tr/th[contains(text(),'Colisinhalt')]/following-sibling::td
   description: Quantity as described on the page
 - name: weightNet
   singleValue: true
@@ -70,6 +79,7 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   singleValue: true
+  xpath: //tr[@id="tr_extartnr"]/td
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
@@ -129,6 +139,7 @@ fields:
   description: URLs of videos on page
 - name: name
   singleValue: true
+  xpath: //div[@id="product_name"]/@content
   description: The product name
 - name: inStorePrice
   singleValue: true
@@ -396,6 +407,7 @@ fields:
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
+  xpath: //div[@class="hurdle"]
   description: promotion text on product page
 - name: alcoholContent
   singleValue: true
