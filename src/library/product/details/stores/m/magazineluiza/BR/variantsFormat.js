@@ -4,33 +4,27 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const variations = [];
+  var variations = [];
   for (const { group } of data) {
     for (const row of group) {
       if (row.variantId) {
-        var scriptJSON = JSON.parse(row.variantId[0].text);
-        if (scriptJSON.attributes) {
-          var objectsInVariants = scriptJSON.attributes;
-          for( var i = 0; i < objectsInVariants.length; i++ ) {
-            var item = objectsInVariants[i];
-            const tmpVariations = {};
-            tmpVariations.variantId = [];
-            tmpVariations.variantUrl = [];
-            tmpVariations.variant = [];
-            if (item.id) {
-              tmpVariations.variantId.push({ text: item.id });
-            }
-            if (item.url) {
-              tmpVariations.variantUrl.push({ text: item.url });
-            }
-            if (item.value) {
-              tmpVariations.variant.push({ text: item.value });
-            }
-            if (tmpVariations.variantId.length) {
+        row.variantId.forEach(item => {
+          const vData = JSON.parse(item.text);
+          if (vData.attributes) {
+            vData.attributes.forEach(variation => {
+              var tmpVariations = {};
+              tmpVariations.variantId = [];
+              tmpVariations.variantUrl = [];
+              tmpVariations.variant = [];
+              tmpVariations.variantId.push({ text: variation.id });
+              tmpVariations.variantUrl.push({ text: 'https://www.currys.co.uk/' + variation.url });
+              tmpVariations.variant.push({ text: variation.value });
               variations.push(tmpVariations);
-            }
-          });
-        }
+            });
+          } else {
+            delete row.variantId;
+          }
+        });
       }
     }
   }
