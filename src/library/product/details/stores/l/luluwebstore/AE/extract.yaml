@@ -1,0 +1,89 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: (//img[@class="lazyOwl"]/@src)[1]
+    regExp: (.+)
+    regExpReplace: https://www.luluhypermarket.com$1
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    regExp: (.+)
+    regExpReplace: https://www.luluhypermarket.com$1
+    xpath: //span[@class="thumbnail"]/img/@src
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: (//div[@class="breadcrum-font"]/ol/li/a/text())[7]
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: (//ul[@class="list-inline"]/li/span)[3]/text()|(//ul[@class="list-inline"]/li/span)[4]/text()
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //span[@class="stock-available"]/text()
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="col-md-6 col-sm-6 pd-features-section"]/text()  
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    xpath: //div[@class="description"]/ul/li/text()
+    # type: NUMBER
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+    xpath: //input[@class="form-control input-number js-qty-selector-input"]/@value
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //input[@id="productEAN"]/@value
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //input[@id="productCode"]/@value
+  # - name: legalDisclaimer
+  #   singleValue: true
+  #   description: Content under "legal disclaimer" header
+  # - name: directions
+  #   singleValue: true
+  #   description: Content under "directions" header
+  # - name: warnings
+  #   singleValue: true
+  #   description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    xpath: (//div[@class="rating-stars pull-left js-ratingCalc "]/@data-rating)[1]
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: (//div[@class="rating-stars pull-left js-ratingCalc "]/@data-rating)[1]
+    type: NUMBER
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+    xpath: //p[@class="delivery-expect-date"]/text()
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: (//img[@class="lazyOwl"]/@title)[1]

@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //input[@name="productCodePost"]/@value
+    # type: NUMBER
+    # regExp: \d+
+    # regExpReplace: ''
+  - name: name
+    singleValue: false
+    xpath: //input[@name="productNamePost"]/@value
+  - name: productUrl
+    singleValue: false
+    regExp: (/.+)
+    regExpReplace: https://www.luluhypermarket.com$1
+    xpath: //a[@class="js-gtm-product-link"]/@href
+  - name: thumbnail
+    singleValue: false
+    regExp: (/.+)
+    regExpReplace: https://www.luluhypermarket.com$1
+    xpath: //div[@class="plp-prod-img"]/img/@src
+  - name: url
+    singleValue: false
+    xpath: //form[@class="searchPOSForm clearfix"]/@action
+    regExp: (/.+)
+    regExpReplace: https://www.luluhypermarket.com$1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price"]/span/text()
+  - name: rankOrganic
+    singleValue: false
+    xpath: //html//div[@id="rankOrganic"]/text()
+  - name: rank
+    singleValue: false
+    xpath: //html//div[@id="rankOrganic"]/text()
+    # type: NUMBER
