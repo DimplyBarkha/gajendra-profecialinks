@@ -1,5 +1,26 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: 'div.product-container .element-wrapper'
 recordXPath: null
-fields: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //a[@class="details-box"]/@href
+    regExp: .+/(.+?)\?
+    regExpReplace: In Stock    
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[@class="details-box"]/@href
+  - name: price
+    SingleValue: false
+    xpath: //b[@class="new-price"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="image"]/img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="title"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
