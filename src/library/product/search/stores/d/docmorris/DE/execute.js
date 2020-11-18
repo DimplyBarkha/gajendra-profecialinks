@@ -1,5 +1,4 @@
 
-
 async function implementation (
   inputs,
   parameters,
@@ -8,17 +7,17 @@ async function implementation (
 ) {
   const { productDetails } = dependencies;
   const { transform } = parameters;
-  await context.evaluate(async function(context) {
-    await context.waitForSelector('a[class="cmpboxbtn cmpboxbtnyes"]', { timeout:70000 })
+  await context.evaluate(async function (context) {
+    await context.waitForSelector('a[class="cmpboxbtn cmpboxbtnyes"]', { timeout : 70000 });
     const cookieSelector = document.querySelector('a[class = "cmpboxbtn cmpboxbtnyes"]');
-    if(cookieSelector) {
+    if (cookieSelector) {
       cookieSelector.click();
     }
-   return await context.extract(productDetails, { transform })
- },
+    return await context.extract(productDetails, { transform })
+  },
 
 
-async function implementation (
+  async function implementation (
   inputs,
   parameters,
   context,
