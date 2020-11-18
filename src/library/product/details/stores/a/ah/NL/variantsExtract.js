@@ -6,36 +6,37 @@ async function implementation (
 ) {
   const { createUrl, variants } = dependencies;
   await context.evaluate(async function () {
-    function getListOfElementsByXPath (xpath) {
-      const result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
-      return result;
+    function getElementsByXPath (xpath, parent) {
+      const results = [];
+      const query = document.evaluate(xpath, parent || document,
+        null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+        const node = query.snapshotItem(i) && query.snapshotItem(i).textContent && query.snapshotItem(i).textContent.trim().replace(/(.+)(wi\d+)(.+)/g, '$2');
+        results.push(node);
+      }
+      return results.filter(e => e);
     }
-    const arr = [];
-    const results = getListOfElementsByXPath("//a[contains(@class,'product-recommendations')]//@href");
-    while (node = results.iterateNext()) {
-      arr.push(node.value.replace(/(.+)(wi\d+)(.+)/g, '$2'));
-    }
-    if (arr.length === 0) {
+    const dataArr = getElementsByXPath('//a[contains(@class,"product-recommendations")]//@href');
+    if (dataArr.length === 0) {
       const id = window.location.href.replace(/(.+)(wi\d+)(.+)/g, '$2');
-      arr.push(id);
+      dataArr.push(id);
     }
-    console.log(arr);
-    if (arr.length) {
+    if (dataArr.length) {
       const table = document.createElement('table');
       document.body.appendChild(table);
       const tBody = document.createElement('tbody');
       table.appendChild(tBody);
 
-      for (let index = 0; index < arr.length; index++) {
+      for (let index = 0; index < dataArr.length; index++) {
         const newlink = document.createElement('tr');
         newlink.setAttribute('class', 'append_variant');
-        newlink.setAttribute('variant_id', arr[index]);
+        newlink.setAttribute('variant_id', dataArr[index]);
         tBody.appendChild(newlink);
 
         const id = document.createElement('td');
         id.setAttribute('class', 'id');
-        id.setAttribute('id', arr[index]);
-        id.setAttribute('url', `https://www.ah.nl/producten/product/${arr[index]}`);
+        id.setAttribute('id', dataArr[index]);
+        id.setAttribute('url', `https://www.ah.nl/producten/product/${dataArr[index]}`);
         newlink.appendChild(id);
       }
     }
