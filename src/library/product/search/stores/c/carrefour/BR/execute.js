@@ -6,19 +6,14 @@ async function implementation(
 ) {
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  console.log(`here we come till goto file`)
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  try {
-    await context.waitForSelector('div[class*="galleryItem"', { timeout: 40000 });
-    console.log('selector loaded successfully');
-    return true;
-  } catch (e) {
-    console.log(`selector did not load at all`)
+  console.log(`here we are crossing the goto file`)
+  if (parameters.loadedSelector) {
+    await context.waitForFunction(function (sel, xp) {
+      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-  // if (parameters.loadedSelector) {
-  //   await context.waitForFunction(function (sel, xp) {
-  //     return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-  //   }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
-  // }
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);

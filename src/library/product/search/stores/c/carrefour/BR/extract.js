@@ -1,4 +1,4 @@
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -54,7 +54,7 @@ async function implementation (
           clickButton.click();
         }
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
