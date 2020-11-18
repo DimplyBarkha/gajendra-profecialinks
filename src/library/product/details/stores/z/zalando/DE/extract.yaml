@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[starts-with(@id, "addedVariant")]
+recordXPath: //div[starts-with(@id, "added_variant")]
 fields:
 - name: _input
   singleValue: false
@@ -31,11 +31,11 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: ancestor::html//div[@id="nameExtended"]
+  xpath: "@name_extended"
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: "@listPrice"
+  xpath: "@list_price"
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
@@ -46,7 +46,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: "@availabilityText"
+  xpath: "@availability_text"
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -76,12 +76,12 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   description: The store-specific product identifier
-  xpath: ancestor::html//div[@class="z-pdp__escape-grid"]//button//span[text()="Details"]/ancestor::h2/following-sibling::div//span[text()="Article number"]/following-sibling::span
+  xpath: ancestor::html//div[@class="z-pdp__escape-grid"]//button//span[text()="Details" or text()="Highlights"]/ancestor::h2/following-sibling::div//span[text()="Article number"]/following-sibling::span
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: "@variantId"
+  xpath: "@variant_id"
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
@@ -89,26 +89,30 @@ fields:
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: ancestor::html//x-wrapper-re-1-3/h1
+  regExp: (\d+) (pack|PACK)
+  regExpReplace: $1
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
   singleValue: true
   description: Content under "directions" header
+  xpath: html//div[@class="z-pdp__escape-grid"]//button//span[contains(text(), "care")]/ancestor::h2/following-sibling::div//span[contains(text(), "Care instructions")]/following-sibling::span
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
   description: The number of ratings
-  xpath: "@ratingCount"
+  xpath: "@rating_count"
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: "@aggregateRating"
+  xpath: "@aggregate_rating"
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -121,7 +125,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-  xpath: ancestor::html//div[@id="variantCount"]
+  xpath: ancestor::html//div[@id="variant_count"]
 - name: color
   description: A textual description of the colour
   xpath: ancestor::html//x-wrapper-re-1-3/div[last()]/div/span[contains(text(), "Colour")]/following-sibling::span
@@ -486,4 +490,4 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: false
-  xpath: ancestor::html//div[@id="imageZoomFeaturePresent"]
+  xpath: boolean(ancestor::html//div[@id="image_zoom_feature_present"])

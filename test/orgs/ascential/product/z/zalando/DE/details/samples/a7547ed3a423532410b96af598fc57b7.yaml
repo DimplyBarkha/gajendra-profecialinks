@@ -2,59 +2,70 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/rains-bum-bag-mini-bum-bag-ri054h00q-g11.html
 extractions:
-  - html: https://workbench.import.io/html/run=67f0ecf8-a429-42f0-8583-b3a041943777/task=9d750a21-c83f-4b31-8749-39dc6edab811/c06709f1-0b8b-4893-b17e-b4e6c395dedf.html
+  - html: https://workbench.import.io/html/run=2ad984fe-53e9-443b-90a7-c596237e74e6/task=164c1eeb-3a13-4c63-b54e-9d2808869fcc/ddc1c22a-af1a-48dc-abe4-c36ef0d0a1db.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
           - image:
               - text: https://img01.ztat.net/article/spp-media-p1/75a6cb1763db30eda6f309ceaef4f032/c50c441f4fdb4e41b64f97e7f73bdc71.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Rains - Bum bag - coral
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/f6b87ca9d5b13bfda29007641d55809d/c4f91d910af44aa681cb0179b3274752.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/2a9aced5331e3aa4b6f820d08d7ab63e/3319d3b3492d49c783d90a33ee8908f6.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/8bc50000f22d35148f13ca91dfe35d1d/d5333426e08c4c059a31a6cd8c92c404.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/1163873340dd3fdead366cefeb8d31a3/e81f19a117ff4bb18af8f45dba9373e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/17101858a3c23f5a889c84730bab2918/2341d1e4ae214690865e265092ef687d.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Rains - Bum bag - coral
-                xpath: /html/body/div[9]
-            price:
+              - text: Rains - Bum bag
+                xpath: /html/body/div[7]/@name_extended
+            listPrice:
               - text: 45,65 €
-                xpath: /html/body/div[8]/@price
+                xpath: /html/body/div[7]/@list_price
+            price:
+              - text: 36,65 €
+                xpath: /html/body/div[7]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[7]/@availability_text
             manufacturer:
               - text: Rains
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: RI054H00Q-G11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
+            ratingCount:
+              - text: "16"
+                xpath: /html/body/div[7]/@rating_count
+            aggregateRating:
+              - text: 4,8
+                xpath: /html/body/div[7]/@aggregate_rating
             variantCount:
               - text: "1"
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[8]
             color:
               - text: coral
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
             name:
               - text: Bum bag
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
               - text: https://en.zalando.de/rains/
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             materials:
               - text: |-
                   Outer material: Polyurethane
                   Lining: Textile
                   Fabric: Faux leather
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-                xpath: /html/body/div[11]
         xpath: /html
-    timestamp: 1605000306500
+    timestamp: 1605685963404

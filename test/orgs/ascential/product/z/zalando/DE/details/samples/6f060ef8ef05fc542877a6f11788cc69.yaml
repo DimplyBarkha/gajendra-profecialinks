@@ -2,7 +2,7 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
 extractions:
-  - html: https://workbench.import.io/html/run=6f2d5b79-5c13-4d6b-8b95-52facef16c3c/task=111f1ea4-5632-4f21-b7bf-c7aeaeaae7e7/a2579fe0-48e3-47ea-af99-03ce1030b4b3.html
+  - html: https://workbench.import.io/html/run=2ad984fe-53e9-443b-90a7-c596237e74e6/task=798cbcaa-d6bd-4178-95bc-b0ef74223e09/021def22-ac9c-4f27-9077-44870b9967c6.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
@@ -24,20 +24,35 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
-                xpath: /html/body/div[17]
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - 40
+                xpath: /html/body/div[9]/@name_extended
+            listPrice:
+              - text: 99,90 €
+                xpath: /html/body/div[9]/@list_price
             price:
-              - text: 85,65 €
+              - text: 81,36 €
                 xpath: /html/body/div[9]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[9]/@availability_text
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: TO112O067-A11
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
+            variantId:
+              - text: "0400000"
+                xpath: /html/body/div[9]/@variant_id
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[9]/@rating_count
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[9]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[17]
             color:
               - text: white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
@@ -48,23 +63,23 @@ extractions:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             promotion:
-              - text: 14% off
+              - text: 3% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
             variants:
               - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -77,7 +92,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-                xpath: /html/body/div[19]
           - image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg?imwidth=762&filter=packshot
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
@@ -96,20 +110,35 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
-                xpath: /html/body/div[17]
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - 41
+                xpath: /html/body/div[10]/@name_extended
+            listPrice:
+              - text: 96,95 €
+                xpath: /html/body/div[10]/@list_price
             price:
-              - text: 72,45 €
+              - text: 57,95 €
                 xpath: /html/body/div[10]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[10]/@availability_text
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: TO112O067-A11
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
+            variantId:
+              - text: "0410000"
+                xpath: /html/body/div[10]/@variant_id
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[10]/@rating_count
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[10]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[17]
             color:
               - text: white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
@@ -120,23 +149,23 @@ extractions:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             promotion:
-              - text: 14% off
+              - text: 3% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
             variants:
               - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -149,7 +178,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-                xpath: /html/body/div[19]
           - image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg?imwidth=762&filter=packshot
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
@@ -168,20 +196,35 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
-                xpath: /html/body/div[17]
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - 42
+                xpath: /html/body/div[11]/@name_extended
+            listPrice:
+              - text: 96,95 €
+                xpath: /html/body/div[11]/@list_price
             price:
-              - text: 72,45 €
+              - text: 57,95 €
                 xpath: /html/body/div[11]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[11]/@availability_text
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: TO112O067-A11
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
+            variantId:
+              - text: "0420000"
+                xpath: /html/body/div[11]/@variant_id
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[11]/@rating_count
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[11]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[17]
             color:
               - text: white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
@@ -192,23 +235,23 @@ extractions:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             promotion:
-              - text: 14% off
+              - text: 3% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
             variants:
               - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -221,7 +264,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-                xpath: /html/body/div[19]
           - image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg?imwidth=762&filter=packshot
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
@@ -240,20 +282,35 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
-                xpath: /html/body/div[17]
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - 43
+                xpath: /html/body/div[12]/@name_extended
+            listPrice:
+              - text: 96,95 €
+                xpath: /html/body/div[12]/@list_price
             price:
-              - text: 72,45 €
+              - text: 57,95 €
                 xpath: /html/body/div[12]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[12]/@availability_text
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: TO112O067-A11
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
+            variantId:
+              - text: "0430000"
+                xpath: /html/body/div[12]/@variant_id
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[12]/@rating_count
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[12]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[17]
             color:
               - text: white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
@@ -264,23 +321,23 @@ extractions:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             promotion:
-              - text: 14% off
+              - text: 3% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
             variants:
               - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -293,7 +350,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-                xpath: /html/body/div[19]
           - image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg?imwidth=762&filter=packshot
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
@@ -312,20 +368,35 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
-                xpath: /html/body/div[17]
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - 44
+                xpath: /html/body/div[13]/@name_extended
+            listPrice:
+              - text: 96,95 €
+                xpath: /html/body/div[13]/@list_price
             price:
-              - text: 72,45 €
+              - text: 57,95 €
                 xpath: /html/body/div[13]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[13]/@availability_text
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: TO112O067-A11
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
+            variantId:
+              - text: "0440000"
+                xpath: /html/body/div[13]/@variant_id
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[13]/@rating_count
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[13]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[17]
             color:
               - text: white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
@@ -336,23 +407,23 @@ extractions:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             promotion:
-              - text: 14% off
+              - text: 3% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
             variants:
               - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -365,7 +436,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-                xpath: /html/body/div[19]
           - image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg?imwidth=762&filter=packshot
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
@@ -384,20 +454,35 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
-                xpath: /html/body/div[17]
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - 45
+                xpath: /html/body/div[14]/@name_extended
+            listPrice:
+              - text: 96,95 €
+                xpath: /html/body/div[14]/@list_price
             price:
-              - text: 72,45 €
+              - text: 57,95 €
                 xpath: /html/body/div[14]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[14]/@availability_text
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: TO112O067-A11
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
+            variantId:
+              - text: "0450000"
+                xpath: /html/body/div[14]/@variant_id
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[14]/@rating_count
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[14]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[17]
             color:
               - text: white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
@@ -408,23 +493,23 @@ extractions:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             promotion:
-              - text: 14% off
+              - text: 3% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
             variants:
               - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -437,7 +522,6 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-                xpath: /html/body/div[19]
           - image:
               - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg?imwidth=762&filter=packshot
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
@@ -456,20 +540,35 @@ extractions:
               - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
-                xpath: /html/body/div[17]
+              - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - 46
+                xpath: /html/body/div[16]/@name_extended
+            listPrice:
+              - text: 99,90 €
+                xpath: /html/body/div[16]/@list_price
             price:
-              - text: 85,65 €
+              - text: 97,36 €
                 xpath: /html/body/div[16]/@price
+            availabilityText:
+              - text: Only 1 left
+                xpath: /html/body/div[16]/@availability_text
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: TO112O067-A11
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/span[2]
+            variantId:
+              - text: "0460000"
+                xpath: /html/body/div[16]/@variant_id
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[16]/@rating_count
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[16]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[17]
             color:
               - text: white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
@@ -480,23 +579,23 @@ extractions:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             promotion:
-              - text: 14% off
+              - text: 3% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
             variants:
               - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
               - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -509,6 +608,5 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-                xpath: /html/body/div[19]
         xpath: /html
-    timestamp: 1605001658984
+    timestamp: 1605685982340
