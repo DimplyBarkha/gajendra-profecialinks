@@ -1,0 +1,197 @@
+input:
+  _url: http://mifarma.es
+  URL: https://www.mifarma.es/nenuco-canastilla-bebe
+extractions:
+  - html: https://workbench.import.io/html/run=6c7430a7-2b79-406f-91b0-a3d219ef26e4/task=56ea6087-ee34-4790-9f25-b464d9804e68/17346f90-d13f-4b58-9b46-f270053473e0.html
+    extractionConfigId: product/details/stores/m/mifarma/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mifarma.es/nenuco-canastilla-bebe
+                xpath: /html/head[1]/link[32]/@href
+            image:
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/9d6758f7fb7476b09aa51a3fa7ce618a/3/0/3080166_.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Nenuco Canastilla Bebe
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@alt
+            category:
+              - text: Infantil
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/text()[1]
+              - text: Higiene
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/text()[1]
+            nameExtended:
+              - text: Nenuco Canastilla Bebé
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            price:
+              - text: 59,43€
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[3]/p[1]/span[1]/@correctprice
+            description:
+              - text: Diverida, original y completa canastilla de bebé, con 8 productos
+                  imprescindibles para el aseo y el cuidado de los más pequeños
+                  de la casa.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/p[1]
+            brandText:
+              - text: Nenuco
+                xpath: /html/body/div[1]/span[12]
+            sku:
+              - text: "3080166"
+                xpath: /html/body/script[69]/text()[1]
+            directions:
+              - text: ": En cada cambio del pañal, limpiar bien el culito del bebé con agua
+                  templada secando sin frotar. Aplicar a continuación una capa
+                  fina de Eryplast Pasta al agua para calmar y proteger
+                  eficazmente la delicada piel del bebé."
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[3]/p[2]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/span[13]
+            aggregateRatingText:
+              - text: "0"
+                xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
+                type: STRING
+            manufacturerDescription:
+              - text: ", con un divertido diseño y 8 productos que no pueden faltar en el
+                  neceser del cualquier niño:"
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[2]/text()[1]
+              - text: Su fórmula enriquecida con leche de almendras dulces hidrata la piel de tu
+                  bebé y no la irrita.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
+              - text: Ideal para la higiene del bebé desde el nacimiento.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
+              - text: Deja la piel del bebé limpia, suave e hidratada.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[6]/text()[1]
+              - text: Producto testado dermatológicamente.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[7]/text()[1]
+              - text: La
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[9]/text()[1]
+              - text: ideal para el bebé desde el primer día de vida, gracias a su aroma freco y
+                  limpio.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[9]/text()[2]
+              - text: Con pH neutro que respeta la suavidad natural de la piel de los más
+                  pequeños de la casa, sin resecarla.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[10]/text()[1]
+              - text: En formato de 600ml perfecta para toda la familia.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[11]/text()[1]
+              - text: que aporta hasta 24 horas de hidratacón a la piel del bebé.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[13]/text()[1]
+              - text: Su textura es cremosa y de fácil absorción, lo que hará de un masaje un
+                  placer sensorial completo.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[14]/text()[1]
+              - text: Con fragancia original Nenuco.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[15]/text()[1]
+              - text: Testadada clínica y dermatológicamente.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[16]/text()[1]
+              - text: Gracias al
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[18]/text()[1]
+              - text: ", formulado con miel y camomila, podrás lavar el delicado cabellode tu
+                  bebé desde el primer día de vida."
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[18]/text()[2]
+              - text: Se aclara fácilmente y
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[19]/text()[1]
+              - text: .
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[19]/text()[2]
+              - text: Respeta el cuero cabelludo del bebé y no lo irrita.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[20]/text()[1]
+              - text: Su fórmula hipoalergénica ha sido clínicamente testada bajo control
+                  dermatológico y oftalmológico para minimizar el riesgo de
+                  alergias.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[21]/text()[1]
+              - text: Indicado para uso diario de la higiene del bebé desde el nacimiento.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[22]/text()[1]
+              - text: Aroma freco y limpio.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[24]/text()[1]
+              - text: En práctico formato de spray de 240 ml, ideal para llevar en el bolso y
+                  salir a pasear o de viaje.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[25]/text()[1]
+              - text: con la original y fresca fragancia a Nenuco.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[27]/text()[1]
+              - text: Indicada para bebés desde el nacimiento.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[28]/text()[1]
+              - text: Cuida la delicada y fŕagil piel de los más pequeños de la casa.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[29]/text()[1]
+              - text: Aporta una agradable sensación de frescor.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[30]/text()[1]
+              - text: Dermatológicamente testada.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[31]/text()[1]
+              - text: Formato de 400ml en bote de cristal.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[32]/text()[1]
+              - text: Desarrollada para calmar y proteger las posibles irritaciones de la
+                  delicada piel del lactante y del bebé.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[34]/text()[1]
+              - text: Prevención y tratamiento de la dermatitis del pañal.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[35]/text()[1]
+              - text: Alivio de exoceduras e irritaciones leves de la piel.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[36]/text()[1]
+              - text: Con antienzimas.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[37]/text()[1]
+              - text: "La fórmula exclusiva de Eryplast Pasta al agua permite calmar y protege
+                  frente a las rojeces e irritaciones del culito:"
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[38]/text()[1]
+              - text: 1. Evita la irritación de la piel gracias a su acción contra las enzimas
+                  irritantes presentes en heces y orina. 2. Crea una barrera
+                  protectora absorbente.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[39]/text()[1]
+              - text: 3. Permite una transpiración manteniendo seco el área del pañal.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[40]/text()[1]
+              - text: 4. Devuelve el pH de la piel a su nivel natural.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[41]/text()[1]
+              - text: 5. Mantiene hidratada la piel.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[42]/text()[1]
+              - text: 6. Regenera la piel. Eryplast Pasta al agua calma la irritación y protege
+                  la delicada piel del lactante y del bebé.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[43]/text()[1]
+              - text: "Eryplast Pasta al agua contiene: -Acetato de Oleilo y Ácido Fítico,
+                  antienzimas que neutralizan las enzimas presentes en heces y
+                  orina, responsables de la irritación. -Oxido de Zinc. Barrera
+                  absorbente. -D-Pantenol. Regenerante. -Glicerina. Hidratante."
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[44]/text()[1]
+              - text: El uso diario de Eryplast Pasta al agua permite calmar y proteger de forma
+                  duradera la piel sensible del bebé. Eryplast Pasta al agua es
+                  hipoalergénica y ha sido testada bajo control dermatológico.
+                  Eryplast Pasta al agua está formulada sin perfume pero deja
+                  sobre la piel del bebé un agradable olor.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[45]/text()[1]
+              - text: Gracias a sus ingredientes hidratantes, estas toallitas cuidan y protegen
+                  la delicada piel del bebé, manteniéndola suave.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[47]/text()[1]
+              - text: Especialmente indicadas para pieles sensibles.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[48]/text()[1]
+              - text: .
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[49]/text()[1]
+              - text: Con el olor original a Nenuco.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[50]/text()[1]
+              - text: Su fórmula ha sido clínicamente testada bajo estricto control
+                  dermatológico.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[51]/text()[1]
+            name:
+              - text: Nenuco Canastilla Bebé
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            ingredientsList:
+              - text: "Baño Hidratante Nenuco 750ml: Aqua, Sodium Laureth Sulfate, PEG-7
+                  Glyceryl Cocoate, Cocamidopropyl Betaine, Cocamide DEA, Sodium
+                  Chloride, Parfum, Styrene/Acrylates Copolymer, Glycerin,
+                  Polyquaternium-7, Propylene Glycol, Citric Acid, Tetrasodium
+                  EDTA, Linalool, Hexyl Cinnamal, Sodium Benzoate,
+                  Benzylsalicylate, Limonene, Citronellol, Alpha
+                  Isomethylionone, Methylisothiazolinone, Prunus Amiygdalus
+                  Dulcis Fruit Extract, Prunus Amygdalus Dulcis Oil, Zea Mays
+                  Starch, Iodopropynyl Butylcarbamate, Gluconolactone,
+                  Polyglyceryl-4 Caprate, Tocopherol, Xanthan Gum, Potassium
+                  Sorbate, Calcium Gluconate."
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
+            availabilityText:
+              - text: Out of Stock
+            variantCount:
+              - text: "0"
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresents:
+              - text: No
+            weightGross:
+              - text: 4.2300 kg
+        xpath: /
+    timestamp: 1605278420457

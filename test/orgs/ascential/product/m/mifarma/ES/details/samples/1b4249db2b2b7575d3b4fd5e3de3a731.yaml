@@ -1,0 +1,101 @@
+input:
+  _url: http://mifarma.es
+  URL: https://www.mifarma.es/preservativo-control-adapta-extra-lube-12unidades
+extractions:
+  - html: https://workbench.import.io/html/run=6c7430a7-2b79-406f-91b0-a3d219ef26e4/task=b3d85c17-b198-4aeb-9458-32e9d1045c46/04d0df1c-d8b7-4007-a279-b24bf4cb1436.html
+    extractionConfigId: product/details/stores/m/mifarma/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mifarma.es/preservativo-control-adapta-extra-lube-12unidades
+                xpath: /html/head[1]/link[32]/@href
+            image:
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/9d6758f7fb7476b09aa51a3fa7ce618a/1/7/178239_.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Preservativo Control Adapta Nature Extra Lube 12 Uds
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/1800x/7991b0a10959e5a6fe23085fbcedc5d2/1/7/178239_6.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[3]/@src
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/1800x/7991b0a10959e5a6fe23085fbcedc5d2/1/7/178239_7.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[4]/@src
+            category:
+              - text: Vida Íntima
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/text()[1]
+              - text: Preservativos
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/text()[1]
+            nameExtended:
+              - text: Preservativo Control Adapta Nature Extra Lube 12 Uds
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            listPrice:
+              - text: 7,95 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
+            price:
+              - text: 5,40 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
+            description:
+              - text: Preservativos Control para tener una mayor lubricación en tus relaciones
+                  sexuales y garantizar la comodidad. La caja contiene 12
+                  condones.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/p[1]
+            brandText:
+              - text: Control
+                xpath: /html/body/div[1]/span[12]
+            quantity:
+              - text: 12 Uds
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            sku:
+              - text: "178239"
+                xpath: /html/body/script[69]/text()[1]
+            directions:
+              - text: Leer detenidamente las instrucciones contenidas en el envase.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[2]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/span[13]
+            aggregateRatingText:
+              - text: "0"
+                xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
+                type: STRING
+            manufacturerDescription:
+              - text: Preservativos con mayor lubricación para favorecer relaciones más cómodas
+                  y satisfactorias.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
+              - text: "- Liso, anatómico, transparente, extra lubricado y con depósito."
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
+              - text: "- Anchura nominal 54 mm."
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[6]/text()[1]
+              - text: "- Permite una perfecta adaptabilidad (ADAPTA Technology), haciendo tu
+                  relación sexual más satisfactoria."
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[7]/text()[1]
+              - text: Contiene 12 unidades.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[8]/text()[1]
+              - text: La seguridad de Control está garantizada por rigurosos controles de
+                  calidad, incluido un control electrónico unitario.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[9]/text()[1]
+              - text: Los preservativos Control son eficaces como contraceptivo y protegen
+                  frente a infecciones de transmisión sexual (ITS).
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[10]/text()[1]
+            name:
+              - text: Preservativo Control Adapta Nature Extra Lube 12 Uds
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            ingredientsList:
+              - text: Fabricado en látex de caucho natural.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
+            variantCount:
+              - text: "0"
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresents:
+              - text: No
+            weightGross:
+              - text: 0.1000 kg
+        xpath: /
+    timestamp: 1605278419675
