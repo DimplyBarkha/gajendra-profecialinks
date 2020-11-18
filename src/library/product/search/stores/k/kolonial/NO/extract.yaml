@@ -1,0 +1,76 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: brand
+    singleValue: true
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[@class="add-to-cart-group"]/@data-product
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product-list-item "]//a/@href
+    regExp: (/.+)
+    regExpReplace: https://kolonial.no$1
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="product-list-item "]//img/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //h3[@class="name"]//div[@class="name-main wrap-two-lines"]
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    defaultValue: ''
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    defaultValue: ''
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //div[@class="product-list-item "]//p[@class="price label label-price"]
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+  - name: nameExtended
+    singleValue: true
+  - name: aggregateRating
+    singleValue: true
+  - name: aggregateRating2
+    singleValue: true
+  - name: rank
+    singleValue: false
+    description: search/listing rank   
+  - name: rankOrganic
+    singleValue: true  
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    
+
