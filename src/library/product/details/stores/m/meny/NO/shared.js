@@ -22,6 +22,10 @@ const transform = (data) => {
       if (row.price) {
         row.price[0].text = row.price[0].text.replace(',', '.');
       }
+
+      if (row.pricePerUnit) {
+        row.pricePerUnit[0].text = row.pricePerUnit[0].text.replace(',', '.');
+      }
     }
   }
 
