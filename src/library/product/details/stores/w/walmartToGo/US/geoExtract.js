@@ -52,6 +52,7 @@ async function implementation (
   await context.evaluate(({ zipcode, storeId }) => {
     document.body.setAttribute('zipcode', zipcode);
     document.body.setAttribute('storeid', storeId);
+    document.body.setAttribute('rpc', window.location.pathname.match(/[^\/]+$/)[0]);
   }, { zipcode, storeId });
   return await context.extract(productDetails, { transform });
 }

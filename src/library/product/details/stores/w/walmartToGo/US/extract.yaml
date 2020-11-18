@@ -52,9 +52,7 @@ fields:
     xpath: //div[@data-automation-id="ingredients"]//div
   - name: variantId
     singleValue: false
-    xpath: //script[@id="__input"]
-    regExp: RPC":"([^"]+)
-    regExpReplace: $1
+    xpath: //body/@rpc
   - name: directions
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
