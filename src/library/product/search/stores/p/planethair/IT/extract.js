@@ -93,7 +93,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
       if ((await context.evaluate(() => {
         return document.querySelector('div#pagination_contents > div.ty-pagination a[class*="next"]');
-      }) === null || (nextLinkPage === '17' && nextLinkPage !== ''))) {
+      }) === null || (nextLinkPage === '10' && nextLinkPage !== ''))) {
         return context.extract(productDetails, { transform });
       } else {
         await context.extract(productDetails, { transform });
