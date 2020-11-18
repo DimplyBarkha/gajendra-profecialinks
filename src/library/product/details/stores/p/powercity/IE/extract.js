@@ -54,7 +54,7 @@ async function implementation (
 
     const enhancedContent = await context.evaluate(async function () {
       let enhancedContent = {};
-      enhancedContent.description = document.body.innerText;
+      enhancedContent.description = document.body.innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' ');
       enhancedContent.videos = [];
       [...document.querySelectorAll('video')].forEach(q => {
         if (q.hasAttribute("src")) {
@@ -67,6 +67,13 @@ async function implementation (
           enhancedContent.images.push(q.getAttribute('src'));
         }
       })
+      const specifications = document.querySelectorAll('div#specifications');
+      enhancedContent.specArr = [];
+      if (specifications) {
+        specifications.forEach(e => {
+          enhancedContent.specArr.push(e.innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
+        });
+      }
       return enhancedContent;
     });
 
@@ -89,6 +96,7 @@ async function implementation (
       enhancedContent.images.forEach(q => {
         addHiddenDiv('enhancedContentImages', `https://media.flixfacts.com/eyekandy/dyson/v11/en/${q}`);
       });
+      addHiddenDiv('specifications', enhancedContent['specArr'].join(' || '))
     }, enhancedContent);
   }
   await context.extract(productDetails, transform);
