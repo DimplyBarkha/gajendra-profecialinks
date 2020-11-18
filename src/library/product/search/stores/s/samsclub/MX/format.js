@@ -38,7 +38,7 @@ const transform = (data) => {
       if (row.price) {
         if (row.price_decimal) {
           row.price.forEach(item => {
-            item.text = item.text + '.' + row.price_decimal[0].text;
+            item.text = item.text + ',' + row.price_decimal[0].text;
           });
           delete row.price_decimal;
         }
