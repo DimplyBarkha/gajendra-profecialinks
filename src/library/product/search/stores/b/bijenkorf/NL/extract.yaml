@@ -11,6 +11,7 @@ fields:
     singleValue: true
     description: The brand name
     example: Panasonic
+    xpath: //h2[contains(@class,"brand")]
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -53,6 +54,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //h2[contains(@class,"brand")]
   - name: soldBy
     singleValue: true
     description: The name of the seller of the item (if available)
