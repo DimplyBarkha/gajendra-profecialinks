@@ -71,6 +71,26 @@ async function implementation(
     await context.click('button.ui-dialog-titlebar-close');
   }
   await context.waitForNavigation({ waitUntil: 'load' });
+  await context.evaluate(async function () {
+
+    let URL = window.location.href;
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.innerHTML = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('.hproduct')[index];
+      originalDiv.appendChild(newDiv);
+      console.log("child appended " + index);
+    }
+    const result = [];
+    const product = document.querySelectorAll('.hproduct');
+    // select query selector and loop and add div
+    for (let i = 0; i < product.length; i++) {
+      addHiddenDiv('page_url', URL, i);
+    }
+    return result;
+  });
   await applyScroll(context);
   return await context.extract(productDetails, { transform });
 }

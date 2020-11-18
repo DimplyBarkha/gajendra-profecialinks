@@ -23,3 +23,6 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@id='product-results']//div[contains(@class, 'grid-row')]//div[contains(@class, 'grid-cell')]//div[contains(@class, 'sku') and contains(@class, 'identifier')]//span[contains(@class, 'value')]/text()
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]
