@@ -51,11 +51,10 @@ fields:
     description: The number of reviews
   - name: price
     description: The offered price for the product
-    xpath: translate(//div[contains(@class,'price-amount') and not(contains(@class,'was'))],'.',',')
+    xpath: //div[contains(@class,'price-amount') and not(contains(@class,'was'))]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: translate(//div[contains(@class,'price-amount_was')],'.',',')
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
