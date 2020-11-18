@@ -97,11 +97,11 @@ fields:
   - name: colorCode
     xpath :  
   - name: manufacturerDescription
-    xpath : //div[@id="enhancedContent"]   
+    xpath : //div[@class="inpage_selector_feature"]   
   - name: manufacturerImages
-    xpath : //div[@id="enhancedContent"]//div[@class="thumbnails"]//div[contains(@class,"thumbnail")]//@data-img-src | //div[@id="enhancedContent"]//div[@class="thumbnails"]//div[contains(@class,"thumbnail")]//@data-highres-img | //div[@id="enhancedContent"]//img[contains(@src,"assets")]//@src
-    regExp: (https:)?(.+)
-    regExpReplace: https:$2  
+    xpath : //div[@class="inpage_selector_feature"]//img//@data-flixsrcset
+    regExp: ((.+)( 200w))
+    regExpReplace: $2  
   - name: termsAndConditions
     xpath : 
   - name: additionalDescBulletInfo
