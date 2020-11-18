@@ -5,20 +5,20 @@ recordXPath: null # //div[@class="mq-grid-item"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="mq-grid-item"]/article/@id
+    xpath: //div[@class="productInfo"]/@productid
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //h2[@class='mq-product-title']
+    xpath: //div[@class="productInfo"]/@name
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="mq-product-img"]/div/a/@producturl
+    xpath:  //div[@class="productInfo"]/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="v-lazy-image-loaded"]/@src
+    xpath: //div[@class="productInfo"]/@image
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -29,7 +29,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class='mq-product-prices']/@price
+    xpath: //div[@class="productInfo"]/@price
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -40,12 +40,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: //div[@class="mq-grid-item"]/@rank
+    xpath: //div[@class="productinfo"]/@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //div[@class="mq-grid-item"]/@rank
+    xpath: //div[@class="productinfo"]/@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
