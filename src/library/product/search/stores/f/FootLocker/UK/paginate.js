@@ -1,10 +1,9 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'UK',
     store: 'FootLocker',
-    nextLinkSelector: '.text-center > div >span',
+    nextLinkSelector: '.text-center > div > span',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,

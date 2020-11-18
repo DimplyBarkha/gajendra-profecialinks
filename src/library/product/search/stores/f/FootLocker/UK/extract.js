@@ -22,9 +22,9 @@ module.exports = {
         while (scrollTop !== 20000) {
           scrollTop += 500;
           window.scroll(0, scrollTop);
-          await stall(1000);
+          await stall(3000);
         }
-        function stall (ms) {
+        function stall(ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -34,20 +34,17 @@ module.exports = {
       });
     };
     await applyScroll(context);
-  
-    async function getProductsCount (context) {
+    async function getProductsCount(context) {
       return context.evaluate(async function () {
         const products = document.evaluate('//div[@class="fl-product-tile--basic"]//picture[@class="fl-picture"]/img/@srcset', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         return products.snapshotLength;
       });
     }
-  
     let productsCount = 0;
     while (productsCount < 150) {
       const doesLoadMoreExists = await context.evaluate(function () {
         return Boolean(document.querySelector('.text-center > div >span'));
       });
-  
       if (doesLoadMoreExists) {
         await context.evaluate(async function () {
           console.log('Clicking on load more button');
@@ -64,7 +61,6 @@ module.exports = {
         break;
       }
     }
-  
     return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
   }
 };
