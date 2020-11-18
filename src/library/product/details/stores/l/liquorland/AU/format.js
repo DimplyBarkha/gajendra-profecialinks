@@ -41,6 +41,15 @@ const transform = (data) => {
         row.image = [{ text: row.alternateImages[0].text }];
         row.alternateImages.splice(0, 1);
       }
+      if (row.image) {
+        row.image.forEach(item => {
+          item.text = item.text.replace('background-image: url("', '');
+          item.text = item.text.replace('");', '');
+          if ( item.text.indexOf('http') < 0 ) {
+            item.text = 'https://www.liquorland.com.au' + item.text;
+          }
+        });
+      }
       if (row.ratingCount) {
         var ratingObj = JSON.parse(row.ratingCount[0].text);
         if (ratingObj.aggregateRating) {
