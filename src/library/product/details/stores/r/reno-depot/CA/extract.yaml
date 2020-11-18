@@ -109,8 +109,9 @@ fields:
     singleValue: true
     xpath: //h1[@itemprop="name"]
   - name: specifications
-    singleValue: true
-    xpath: //div[@id="specifications"]
+    # singleValue: true
+    # xpath: //div[@id="specifications"]
+    xpath: //div[contains(@id,"product_specs")]/div[contains(@class,"details")]/span
   - name: warranty
     singleValue: true
     xpath: //div[@id="warranty"]
