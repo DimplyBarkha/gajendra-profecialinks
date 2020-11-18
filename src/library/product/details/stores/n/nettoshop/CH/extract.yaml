@@ -88,7 +88,7 @@ fields:
     regExp: (https:)?(.+)
     regExpReplace: https:$2
   - name: manufacturerDescription
-    xpath: //div[@class="manufactureDescription"]
+    xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-Text-block" ) or contains(@class,"inpage_ftgridtext")]//div/text() | //div[@id="inpage_container"]//div[contains(@class,"content")]
     #xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-Text-block" ) or contains(@class,"inpage_ftgridtext")]
     #xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-Text-block" ) or contains(@class,"flix-std-content") or contains(@class,"inpage_block") or contains(@class,"flix-std-content") or contains(@class,"inpage_ftgridtext")]
   - name: description
