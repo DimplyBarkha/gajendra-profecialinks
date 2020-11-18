@@ -11,7 +11,7 @@ fields:
     # regExpReplace: ''
   - name: name
     singleValue: false
-    xpath: //input[@name="productNamePost"]/@value
+    xpath: //div[@class="plp-prod-name"]/text()
   - name: productUrl
     singleValue: false
     regExp: (/.+)
