@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: "//ul[@class='row listing--grid']//li[@data-impression]"
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='card--product']//div[@class='flex-grow-1']//a/@href
+    regExp: (.+)-(\d+)
+    regExpReplace: $2
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='card--product']//div[@class='flex-grow-1']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.nordicfeel.se$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'image--gray')]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.nordicfeel.se$1
+  - name: name
+    singleValue: false
+    xpath: //div[@class='card--product--details']//span[@class='card--product--name']  
+  - name: price
+    singleValue: false
+    xpath: //div[@class='card--product--price']//span[@class='price-default ' or contains(@class,'price-campaign')]  
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class='card--product--rating']//div[@class='stars']//i[@class='icon-star icon-star--active']
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='card--product--details']//span[@class='card--product--brand']
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: false
