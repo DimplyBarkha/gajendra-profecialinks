@@ -132,11 +132,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //ul[@class='inpage_features_grid']//li//div[@class='inpage_ftgridtext']
+    xpath: //div[contains(@class,"flix-std-featureslist")]|//ul[@class='inpage_features_grid']//li//div[@class='inpage_ftgridtext']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //ul[@class='inpage_features_grid']//li//img//@srcset
+    xpath: //ul[@class='inpage_features_grid']//li//img//@srcset|(//div[contains(@class,"flix-std-featureslist")]//div[@class="flix-background-image"]/img/@src)
   - name: videos
     singleValue: false
     xpath: //div[@class='component cms-customcode-component']//iframe//@src | //iframe[contains(@title,"Flix-media-video")]//@src
