@@ -23,10 +23,10 @@ fields:
     xpath: //html//div[@id='URL']
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class="star-rating"]
+    xpath: //span[@class="reviews"]
   - name: ratingCount
     singleValue: false
-    xpath: //span[@class="reviews"]
+    xpath: //html//div[@id="aggregateRating"]
   - name: price
     singleValue: false
     xpath: //div[@class="pt__cost__total undefined"]/text() | //div[@class="pt__cost__total--promo undefined"]/text()
