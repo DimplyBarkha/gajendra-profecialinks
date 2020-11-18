@@ -10,6 +10,8 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     xpath: //img/@srcset
+    regExp: (.+)
+    regExpReplace: https://www.bringmeister.de/$1
     description: The URL for the product thumbnail image
   - name: name
     xpath: //span[@class="css-d9sin2 e1gyaih30"]
@@ -21,6 +23,7 @@ fields:
   - name: price
     xpath: (//p[@class="DQd30"][2])
     regExp: ^[^\s]+
+    type: CURRENCY
     description: The offered price for the product
   - name: quantity
     singleValue: true
@@ -34,3 +37,4 @@ fields:
     singleValue: false
     type: NUMBER
     xpath: //div[@id='rankOrganic']
+    
