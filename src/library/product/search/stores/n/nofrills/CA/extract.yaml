@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: "//div[@class='product-grid__results__products']//ul[@data-cruller='product-tile-group']//li[@class='product-tile-group__list__item']"
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='product-tracking']/@data-track-product-id
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product-tile__details']//h3[@class='product-tile__details__info__name']//a[@class='product-tile__details__info__name__link']/@href
+    regExp: (.+)
+    regExpReplace: https://www.nofrills.ca$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-tile__thumbnail']//div[@class='product-tile__thumbnail__image']//img/@src    
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-tile__details']//h3[@class='product-tile__details__info__name']//a[@class='product-tile__details__info__name__link']  
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-tile__details']//li[@class='selling-price-list__item']//span[@class='price selling-price-list__item__price selling-price-list__item__price--now-price']  
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: false

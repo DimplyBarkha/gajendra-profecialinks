@@ -1,0 +1,48 @@
+/**
+ *
+ * @param { { keywords: string, zipcode: string } } inputs
+ * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
+ * @param { ImportIO.IContext } context
+ * @param { { goto: ImportIO.Action} } dependencies
+ */
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  console.log('params', parameters);
+  const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  await dependencies.goto({ url, zipcode: inputs.zipcode });
+  try {
+    await context.click("div[class='region-selector'] ul[class='region-selector__regions-list'] li:nth-of-type(1) button");
+  }catch (e) {
+    console.log(e);
+  }  
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+  console.log('Checking no results', parameters.noResultsXPath);
+
+  
+
+  return await context.evaluate(function (xp) {
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return !e;
+  }, parameters.noResultsXPath);
+}
+module.exports = {
+  implements: 'product/search/execute',
+  parameterValues: {
+    country: 'CA',
+    store: 'nofrills',
+    domain: 'nofrills.ca',
+    url: "https://www.nofrills.ca/search?search-bar={searchTerms}",
+    loadedSelector: "div[class='product-grid__results__products'] ul[data-cruller='product-tile-group'] li[class='product-tile-group__list__item'] div[class='product-tile__thumbnail'] img",
+    noResultsXPath: "//div[@class='search-no-results']//h2",
+    zipcode: '',
+  },
+  implementation,
+};
