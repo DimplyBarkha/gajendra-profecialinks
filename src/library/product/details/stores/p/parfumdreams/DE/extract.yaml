@@ -11,21 +11,26 @@ fields:
     xpath: //p[@itemprop='description']  
   - name: price
     singleValue: true
-    xpath: //div[@class='font-headline mbs05']/text()
+    xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/form/div[1]/div[3]/div[1]/text()
     regExp: (€.+)\*
     regExpReplace: $1
   - name: listPrice
     singleValue: false
-    xpath: //span[@class='line font-headline-sub no-wrap']/text()
+    xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/form/div[1]/div[3]/div[1]/div/span
   - name: image
     singleValue: true
     xpath: //img[@role='presentation']/@src
   - name: manufacturer
     singleValue: true
     xpath: //h1[@class='hide-text']
+  - name: brandText
+    singleValue: true
+    xpath: //h1[@class='hide-text']
   - name: sku
     singleValue: true
     xpath: //div[@id='articlenumberDiv']
+    regExp: Item no, (.*)
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: true
     xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div/div[2]/div/a/text()
@@ -35,3 +40,9 @@ fields:
   - name: weightNet
     singleValue: true
     xpath: //div[@class='font-headline description mbs1']
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@class='variation-alt-images clearfix']/div/a/img/@alt
+  - name: variantId
+    singleValue: true
+    xpath: //div[@class='variation-alt-images clearfix']/div/@data-variation-id
