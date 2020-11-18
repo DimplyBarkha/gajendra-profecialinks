@@ -6,7 +6,7 @@ recordSelector: null
 fields:
   - name: searchUrl
     singleValue: false
-    xpath: ancestor::html//div[@id='searchUrl']
+    xpath: ancestor::html//body/@current_page_url
   - name: sponsName
     xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div[div[@data-asin]]/a[@data-click-asin]/@aria-label | //img[contains(@class,"multi-card-creative-desktop_Image")]/@alt | a[@data-click-type]/@aria-label | //*[@data-click-el="title"] | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/span | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div/span | //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@alt | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@aria-label
   - name: sponsRatingCount

@@ -37,6 +37,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
   const pageContext = async () => {
     return await context.evaluate(() => {
       console.log('context.evaluate');
+      document.body.setAttribute('current_page_url', window.location.href);
       const selectors = {
         hasProdDetails: '#prodDetails, #detailBullets_feature_div',
         hasSalesRank: '#detailBullets_feature_div a[href*="bestsellers"], #detailBullets a[href*="bestsellers"], #prodDetails a[href*="bestsellers"], #SalesRank',
@@ -525,6 +526,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     if (!!parseInt(shouldHaveData.details) || page.hasProdDetails) {
       context.counter.set('expected', 1);
     }
+
     // check for blank  page
     console.log('final blank page check');
     page = await pageContextCheck(await pageContext());
