@@ -7,38 +7,37 @@ fields:
 
   - name: image
     singleValue: true
-    xpath: //div[contains(@class,"b-product-images__main")]//picture/img[@itemprop="image"]/@data-src
-
+    # xpath: //div[contains(@class,"b-product-images__main")]//picture/img[@itemprop="image"]/@data-src
+    xpath: //div[@class='slider-view']//picture/img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //div[contains(@class,"b-product-images__main")]//picture/img[@itemprop="image"]/@alt
-
+    # xpath: //div[contains(@class,"b-product-images__main")]//picture/img[@itemprop="image"]/@alt
+    xpath: //div[@class='slider-view']//picture/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: (//div[@class="b-product-thumbnails"]//picture/img/@src)[position()>1]
-    regExp: (.+)(\?)(.+)
-    regExpReplace: $1
-
+    # xpath: (//div[@class="b-product-thumbnails"]//picture/img/@src)[position()>1]
+    # regExp: (.+)(\?)(.+)
+    # regExpReplace: $1
+    xpath: //div[@class='slider-outer']//div[@class='slick-track']/div[position()>1]//img/@src
   - name: _url
     singleValue: true
-    xpath: //link[@rel="alternate"][1]/@href
-
+    # xpath: //link[@rel="alternate"][1]/@href
+    xpath: //link[@rel="canonical"][1]/@href
   - name: category
     singleValue: false
-    xpath: ((//div[@class="b-breadcrumbs"]//ol//li//span[@itemprop="name"])[position()>1])[position()<last()]
-
+    # xpath: ((//div[@class="b-breadcrumbs"]//ol//li//span[@itemprop="name"])[position()>1])[position()<last()]
+    xpath: //ol[@class='breadcrumb']//li[position()>1 and position()<last()]
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@class="b-product__name"]//span
-
+    # xpath: //h1[@class="b-product__name"]//span
+    xpath: //h1[@class="product-title"]//text()
   - name: listPriceCurrency
     singleValue: true
-    xpath: //span[@itemprop="priceCurrency"]
-
+    # xpath: //span[@itemprop="priceCurrency"]
+    xpath: //div[contains(@class,'product-detail')]//span[@class='currency']
   - name: listPrice 
     singleValue: true
     xpath: //div[@class="b-product__pricing"]//span[@itemprop="highPrice"]
-
   - name: brandLink
     singleValue: true
     xpath: //a[@class="b-product__brand-link"]/@href
@@ -47,19 +46,19 @@ fields:
 
   - name: price
     singleValue: true
-    xpath: //div[@class="b-product__pricing"]//span[@itemprop="lowPrice"]
-
+    # xpath: //div[@class="b-product__pricing"]//span[@itemprop="lowPrice"]
+    xpath: //div[contains(@class,'product-detail')]//span[@class='price']/span[1]
   - name: availabilityText
     singleValue: false
     xpath: //button[@id="add-to-cart"]/@title
     regExp: (.*)
-    regExpReplace: InStock
-    defaultValue: InStock
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
 
   - name: description
     singleValue: false
-    xpath: //div[@class="b-desc-product"]/ul//li
-
+    # xpath: //div[@class="b-desc-product"]/ul//li
+    xpath: //div[contains(@class,'product-overview')]//ul[@class='list-dots']/li
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class="b-desc-product"]/ul//li)
@@ -74,8 +73,10 @@ fields:
 
   - name: sku
     singleValue: false
-    xpath: //meta[@itemprop="sku"]/@content
-
+    # xpath: //meta[@itemprop="sku"]/@content
+    xpath: //p[contains(@class,'pdp-description-reference')]
+    regExp: (SKU:)(.+)
+    regExpReplace: $2
   - name: videos
     singleValue: false
     xpath: //div[@class="b-video"]//iframe[contains(@id,"Youtube_api")]/@src
@@ -86,11 +87,15 @@ fields:
 
   - name: variantId 
     singleValue: true
-    xpath: //meta[@itemprop="productID"]/@content
+    # xpath: //meta[@itemprop="productID"]/@content
+    xpath: //script[@type='application/json']
+    regExp: (.+)(productId":")(.+)(","name)
+    regExpReplace: $3
 
   - name: priceCurrency
     singleValue: true
-    xpath: //span[@itemprop="priceCurrency"]
+    # xpath: //span[@itemprop="priceCurrency"]
+    xpath: //div[contains(@class,'product-detail')]//span[@class='currency']
 
   - name: specifications
     singleValue: true
@@ -98,9 +103,11 @@ fields:
 
   - name: warranty
     singleValue: false
-    xpath: //div[@class="b-desc-product"]/ul//span[contains(text(),"warranty")]
-    regExp: (.+)manufacturer warranty(.+)
-    regExpReplace: $1
+    # xpath: //div[@class="b-desc-product"]/ul//span[contains(text(),"warranty")]
+    xpath: //ul[@class='list-dots']/li[contains(text(),'warranty')]
+    # regExp: (.+)manufacturer warranty(.+)
+    regExp: (.+)(warranty)(.+)
+    regExpReplace: $1$2
 
   - name: productOtherInformation
     singleValue: true
