@@ -5,9 +5,9 @@ module.exports = {
     country: 'IE',
     store: 'tesco',
     domain: 'tesco.ie',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.tesco.ie/groceries/product/search/default.aspx?searchBox={searchTerms}',
+    loadedSelector: 'ul.products li',
+    noResultsXPath: '//p[contains(.,"No products are available")]',
     zipcode: '',
   },
 };

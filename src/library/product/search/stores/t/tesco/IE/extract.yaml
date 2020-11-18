@@ -1,5 +1,26 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: 'ul.products li'
 recordXPath: null
-fields: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //ul[contains(@class,"products")]//li//h3[@class="inBasketInfoContainer"]//a/@id
+    regExp: h-(.+)
+    regExpReplace: $1
+  - name: productUrl
+    SingleValue: false
+    xpath: //ul[contains(@class,"products")]//li//h3[@class="inBasketInfoContainer"]//a/@href
+  - name: price
+    SingleValue: false
+    xpath: //ul[contains(@class,"products")]//li//span[@class="linePrice"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //ul[contains(@class,"products")]//li//span[@class="image"]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //ul[contains(@class,"products")]//li//h3[@class="inBasketInfoContainer"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
