@@ -45,7 +45,7 @@ fields:
     xpath: //meta[@property="product:retailer_item_id"]/@content        
   - name: description
     singleValue: false
-    xpath: (//div[@class="product-full-description"]//article//div[@class="lnd_wrapper"]//div[@class="lnd_text lnd_col-8"]//div[@class="lnd_content"])[1]/h3
+    xpath: (//div[@class="product-full-description"]//article//div[@class="lnd_wrapper"]//div[@class="lnd_text lnd_col-8"]//div[@class="lnd_content"])[1]/..
   - name: aggregateRatingText
     singleValue: false
     xpath: //div[@class="product-review"]//span[@class="product-review__score"]/text()
@@ -66,7 +66,8 @@ fields:
     xpath: //section[@id="productTechSpecs"]//div[@class="specs-group"]//tr[contains(.,"Producent")]//td//ul//li/a    
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="product-full-description"]//article//div[@class="lnd_wrapper"]//div[@class="lnd_text lnd_col-8"]//div[@class="lnd_content"]/h3
+    xpath: //div[@class="product-full-description"]
+      #//div[@class="product-full-description"]//article//div[@class="lnd_wrapper"]//div[@class="lnd_text lnd_col-8"]//div[@class="lnd_content"]/h3
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@class="product-full-description"]//img/@data-original
@@ -78,6 +79,8 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class="product-offer-summary-2020__shop-logo"]/a/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1 
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
