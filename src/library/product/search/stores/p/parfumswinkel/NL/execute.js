@@ -61,9 +61,9 @@ module.exports = {
     country: 'NL',
     store: 'parfumswinkel',
     domain: 'parfumswinkel.nl',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.parfumswinkel.nl/catalogsearch/result/index/?q={searchTerms}',
+    loadedSelector: 'div.col.p-0.pl-lg-1.catalog-products',
+    noResultsXPath: '//div[contains(@class,"no-results-container col-12")]',
     zipcode: "''",
   },
 };

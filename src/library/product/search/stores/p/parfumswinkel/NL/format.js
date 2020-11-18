@@ -27,35 +27,18 @@ const transform = (data) => {
       for (const row of group) {
         if (row.productUrl) {
           row.productUrl.forEach(item => {
-            item.text = 'https://www.sears.com' + item.text;
+            item.text = item.text;
           });
         }
-        if (row.id) {
-          row.id.forEach(item => {
-            item.text = item.text.match(/p-(.*)/)[1];
-            item.text = 'p-' + item.text
-          });
-        }
-        if (row.reviewCount) {
-          row.reviewCount.forEach(item => {
-            var tmp = item.text.replace('(', '');
-            item.text = tmp.replace(')', '');
-            item.text=parseInt(item.text);
-          });
-        }
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
-            item.text=parseInt(item.text);
-          });
-        }
-        if (row.soldBy) {
-          row.soldBy.forEach(item => {
-            item.text = item.text.replace('Sold by', '').trim();
-          });
+        if (row.price) {
+            row.price.forEach(item => {
+              item.text = item.text.replace(/\s\n/g, '').trim();
+              item.text = item.text.replace('Vanaf', '').trim();
+            });
         }
         if (row.name) {
           row.name.forEach(item => {
-            item.text = item.text.replace(/\s\n/g, '').trim();
+            item.text = item.text.replace(/\s\n/g, '');
           });
         }
         row.rank = row.rankOrganic = [{ "text": rank }];
