@@ -1,16 +1,5 @@
 
-module.exports = {
-  implements: 'product/search/execute',
-  parameterValues: {
-    country: 'DE',
-    store: 'docmorris',
-    domain: 'docmorris.de',
-    url: 'https://www.docmorris.de/search?query={searchTerms}&page=0&resultsPerPage=108',
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: '',
-  },
-};
+
 async function implementation (
   inputs,
   parameters,
@@ -51,11 +40,6 @@ async function implementation (
       timeout: 10000,
     }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-//   context.waitForSelector('a[class = "cmpboxbtn cmpboxbtnyes"]');
-//   let cookieSelector = document.querySelector('a[class = "cmpboxbtn cmpboxbtnyes"]');
-//   if(cookieSelector) {
-//     cookieSelector.click();
-// }
   // Apply scroll
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
@@ -89,20 +73,6 @@ async function implementation (
           }, ms);
         });
       }
-      // let products = document.evaluate('//div[contains(@class,"image-wrap")]/img/@data-src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      // let productsCount = products.snapshotLength;
-      // const seeAllSelector = document.querySelector('div[class="show-more"] > button.pagination > ul > li:nth-child(3)');
-      // while (productsCount <= 150) {
-      //   console.log('Length: ' + productsCount);
-      //   if (seeAllSelector !== null) {
-      //     seeAllSelector.click();
-      //     await stall(1000);
-      //     products = document.evaluate('//div[contains(@class,"image-wrap")]/img/@data-src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      //     productsCount = products.snapshotLength;
-      //   } else {
-      //     break;
-      //   };
-      // };
     });
   };
   await applyScroll(context);
@@ -117,3 +87,16 @@ async function implementation (
   }, parameters.noResultsXPath);
 }
   )}
+  module.exports = {
+    implements: 'product/search/execute',
+    parameterValues: {
+      country: 'DE',
+      store: 'docmorris',
+      domain: 'docmorris.de',
+      url: 'https://www.docmorris.de/search?query={searchTerms}&page=0&resultsPerPage=108',
+      loadedSelector: null,
+      noResultsXPath: null,
+      zipcode: '',
+    },
+    implementation
+  };
