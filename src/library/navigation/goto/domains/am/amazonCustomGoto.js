@@ -437,7 +437,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
     page = await acceptCookiesIfNecessary(page);
 
-    if (lastResponseData && (lastResponseData.url.includes('elasticbeanstalk') || lastResponseData.url.includes('www.primevideo.com'))) {
+    if (lastResponseData && lastResponseData.url && (lastResponseData.url.includes('elasticbeanstalk') || lastResponseData.url.includes('www.primevideo.com'))) {
       context.counter.set('primevideo', 1);
     }
 

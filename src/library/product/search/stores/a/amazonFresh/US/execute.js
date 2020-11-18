@@ -17,7 +17,7 @@ async function implementation (
 
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(async (xp) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
+    // await new Promise((resolve) => setTimeout(resolve, 4000));
 
     return document.evaluate(xp, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
   }, parameters.noResultsXPath);
