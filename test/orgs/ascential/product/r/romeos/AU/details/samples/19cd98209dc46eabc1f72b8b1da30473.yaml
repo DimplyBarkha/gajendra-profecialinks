@@ -1,0 +1,42 @@
+input:
+  _url: http://martinplace.romeosonline.com.au
+  URL: https://martinplace.romeosonline.com.au/lines/v-energy-drink-raspberry-lemonade-500ml-can
+extractions:
+  - html: https://workbench.import.io/html/run=50505330-17f4-4041-8428-a666d482db09/task=34e8ebcd-0679-408f-a7fa-950cb6f6100c/12623716-bf1c-4de0-8aad-d17ec9e6b62d.html
+    extractionConfigId: product/details/stores/r/romeos/AU/extract
+    data:
+      - group:
+          - nameExtended:
+              - text: V Energy Drink Raspberry Lemonade 500ml Can
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: $4.86
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/strong[1]
+            name:
+              - text: V Energy Drink Raspberry Lemonade 500ml Can
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+            pricePerUnit:
+              - text: $9.72
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
+            image:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImE3N2Y5NzBmY2FhOWZhYmZiOTc3MmYyMzE4MGRiOTcxIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=2bb7890fe6d7b0c0c6a522be31c78077be0aa570ca4c8aa5549ccf80761262dc
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Eyjpzci6ime3n2y5nzbmy2fhowzhymziotc3mmyymze4mgriotcxiiwic3rvcmfnzsi6inb1ymxpy19zdg9yzsj9?signature=2bb7890fe6d7b0c0c6a522be31c78077be0aa570ca4c8aa5549ccf80761262dc
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            legalDisclaimer:
+              - text: Romeo’s Martin Place aims to include in the product list up to date
+                  pictures of the products and accurate ingredients, nutritional
+                  information and other information. However, product detail may
+                  change from time to time and there may be a delay in making
+                  updates. When precise information is important, we recommend
+                  that you read the label on the products you purchase or
+                  contact the manufacturer of the product.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
+            availabilityText:
+              - text: In Stock
+        xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
+    timestamp: 1605689894490

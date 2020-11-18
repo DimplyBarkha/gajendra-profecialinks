@@ -1,0 +1,48 @@
+input:
+  _url: http://martinplace.romeosonline.com.au
+  URL: https://martinplace.romeosonline.com.au/lines/schw-tonic-water-4x300ml
+extractions:
+  - html: https://workbench.import.io/html/run=50505330-17f4-4041-8428-a666d482db09/task=9a260db4-e78b-49ed-bb22-4fcc03477e24/494c7079-6244-4e28-b42a-835b1710a952.html
+    extractionConfigId: product/details/stores/r/romeos/AU/extract
+    data:
+      - group:
+          - nameExtended:
+              - text: Schweppes Mixers 300ml Tonic Water 4 Pack
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: $4.50
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/strong[1]
+            name:
+              - text: Schweppes Mixers 300ml Tonic Water 4 Pack
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+            coupon:
+              - text: Save $2.15
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]
+            pricePerUnit:
+              - text: $3.75
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
+            image:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6Ijc0NmM5ZTRjYjdjNTBmNDJkZDg5MjY4M2FjZWU4YTFiIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=1e6ce220bebb2263d77a2218146d6125823df1d132a5184a38ba68c641cdab30
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Eyjpzci6ijc0nmm5ztrjyjdjntbmndjkzdg5mjy4m2fjzwu4ytfiiiwic3rvcmfnzsi6inb1ymxpy19zdg9yzsj9?signature=1e6ce220bebb2263d77a2218146d6125823df1d132a5184a38ba68c641cdab30
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            legalDisclaimer:
+              - text: Romeo’s Martin Place aims to include in the product list up to date
+                  pictures of the products and accurate ingredients, nutritional
+                  information and other information. However, product detail may
+                  change from time to time and there may be a delay in making
+                  updates. When precise information is important, we recommend
+                  that you read the label on the products you purchase or
+                  contact the manufacturer of the product.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
+            listPrice:
+              - text: $6.65
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In Stock
+        xpath: /html
+    timestamp: 1605689895714

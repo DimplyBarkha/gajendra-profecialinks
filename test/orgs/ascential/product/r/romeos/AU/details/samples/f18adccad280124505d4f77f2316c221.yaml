@@ -1,0 +1,42 @@
+input:
+  _url: http://martinplace.romeosonline.com.au
+  URL: https://martinplace.romeosonline.com.au/lines/barista-bros-milk-choc-500ml
+extractions:
+  - html: https://workbench.import.io/html/run=50505330-17f4-4041-8428-a666d482db09/task=6721eeeb-9511-4003-b031-a2c64856b937/09b99ff9-e854-4997-a241-34c83a4493af.html
+    extractionConfigId: product/details/stores/r/romeos/AU/extract
+    data:
+      - group:
+          - nameExtended:
+              - text: Barista Bros Flavoured Milk Chocolate 500ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: $3.44
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/strong[1]
+            name:
+              - text: Barista Bros Flavoured Milk Chocolate 500ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+            pricePerUnit:
+              - text: $6.88
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
+            image:
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImMwNDc4NGRjNTU4MTRiM2EyY2IzNTEzYjM5MjE2YWNkIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=d5ef5afa72cce4576e18be73839fdab4008c73e6f3573d6c96cdb83e48ef8de3
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Eyjpzci6immwndc4ngrjntu4mtrim2eyy2izntezyjm5mje2ywnkiiwic3rvcmfnzsi6inb1ymxpy19zdg9yzsj9?signature=d5ef5afa72cce4576e18be73839fdab4008c73e6f3573d6c96cdb83e48ef8de3
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            legalDisclaimer:
+              - text: Romeo’s Martin Place aims to include in the product list up to date
+                  pictures of the products and accurate ingredients, nutritional
+                  information and other information. However, product detail may
+                  change from time to time and there may be a delay in making
+                  updates. When precise information is important, we recommend
+                  that you read the label on the products you purchase or
+                  contact the manufacturer of the product.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
+            availabilityText:
+              - text: In Stock
+        xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
+    timestamp: 1605689893942
