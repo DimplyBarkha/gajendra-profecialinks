@@ -28,3 +28,15 @@ fields:
     regExp: (.+)(,)(.+)
     regExpReplace: $1.$3
     type: CURRENCY
+  - name: aggregateRating2
+    singleValue: false
+    regExp: (.+)(\d)(\d)
+    regExpReplace: $2.$3
+    type: NUMBER
+    xpath: //div[contains(@class,'linx-rating')]/@class
+  - name: rank
+    singleValue: false
+    xpath: //html//div[@id='rankOrganic']
+  - name: rankOrganic
+    singleValue: false
+    xpath: //html//div[@id='rankOrganic']
