@@ -9,7 +9,21 @@ module.exports = {
     domain: 'sharafdg.com',
     zipcode: '',
   },
-  implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+  implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
+    let pId=inputs.id;
+    console.log(inputs.id+' is product id in extract.js');
+    let searchUrl=`https://uae.sharafdg.com/?q=${pId}&post_type=product`;
+    await context.goto(searchUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: false });
+    let productUrl= await context.evaluate(async function () {
+      let productUrl=null;
+       if(document.querySelector('div[class="product-container"] div[class*="carousel-details"]')){
+          productUrl=document.querySelector('div[class="product-container"] div[class*="carousel-details"] a').getAttribute('href');
+      }
+      return productUrl;
+    });
+    if(productUrl!==null){
+        await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: false });
+    }
     await context.evaluate(async function () {
       await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     });
