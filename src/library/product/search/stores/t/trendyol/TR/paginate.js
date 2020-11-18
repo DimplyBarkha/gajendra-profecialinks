@@ -65,7 +65,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.image-container > div.p-card-img-wr > img.p-card-img',
+    loadedSelector: 'div.srch-prdcts-cntnr img',
     noResultsXPath: '//*[@class="srch-no-rslt"]',
     openSearchDefinition: {
       template: 'https://www.trendyol.com/tum--urunler?q={searchTerms}&qt={searchTerms}&st={searchTerms}&pi={page}',

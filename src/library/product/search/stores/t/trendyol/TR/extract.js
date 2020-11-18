@@ -62,9 +62,9 @@ module.exports = {
         }
       });
     };
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await applyScroll(context);
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await delay(5000);
     await context.waitForSelector('div.srch-prdcts-cntnr img');
     await delay(5000);

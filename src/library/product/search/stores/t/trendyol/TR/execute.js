@@ -28,7 +28,7 @@ module.exports = {
     store: 'trendyol',
     domain: 'trendyol.com',
     url: 'https://www.trendyol.com/tum--urunler?q={searchTerms}&qt={searchTerms}&st={searchTerms}',
-    loadedSelector: 'div.image-container > div.p-card-img-wr > img.p-card-img',
+    loadedSelector: 'div.srch-prdcts-cntnr img',
     noResultsXPath: '//*[@class="srch-no-rslt"]',
     zipcode: '',
   },
