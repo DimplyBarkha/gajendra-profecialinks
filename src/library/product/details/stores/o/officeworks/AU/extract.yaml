@@ -14,22 +14,29 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //div[@aria-hidden="false"]/div[contains(@class,'ImageZoom')]/img[@hide='0']/@src
+  regExp: (\/\/images.*)
+  regExpReplace: https:$1
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //div[@aria-hidden="false"]/div[contains(@class,'ImageZoom')]/img[@hide='0']/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[@id='alternateImg']
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: (//li[contains(@class,'Breadcrumbs__BreadcrumbsItem')]/a)[position() > 1]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@data-ref="product-title"]
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -37,51 +44,63 @@ fields:
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //span[contains(@class,'PriceText__ProductPrice')]
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //div[@id='availability']
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //div[contains(@class,"FeaturesTab") and not(contains(@class,'Attachment'))] | //li[contains(@class,'FeaturesTab__FabPoint')] | //div[@data-ref='features-fabtext-bottom']/li
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//li[contains(@class,'FeaturesTab__FabPoint')])
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //div[@itemprop="brand"]/meta/@content
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //dt[contains(text(),'Pack/Carton Quantity')]/following-sibling::dd
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
+  xpath: //dt[contains(text(),'Product Weight')]/following-sibling::dd
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
+  xpath: //meta[@itemprop="gtin13"]/@content
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //meta[@itemprop="sku"]/@content
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //meta[@itemprop="sku"]/@content
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
+  xpath: //dt[contains(text(),'Model Number')]/following-sibling::dd
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //dt[contains(text(),'Units Per Pack')]/following-sibling::dd
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -94,12 +113,17 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //meta[@itemprop="reviewCount"]/@content
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
+  xpath: //button[@id="ratings-summary"]/@aria-label
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@itemprop="ratingValue"]
+  regExp: (\d+)\.?\,?(\d+)?
+  regExpReplace: $1,$2
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -112,9 +136,12 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: //div[@id='variantCount']
+  defaultValue: "0"
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: //h3[text()='Barrel']/following-sibling::ul/li//dt[contains(text(),'Colour')]/following-sibling::dd | (//div[@data-ref="family-colour-label"]/text())[2]
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -364,8 +391,8 @@ fields:
   singleValue: true
   description: 
 - name: specifications
-  singleValue: true
   description: The physical dimensions of the product including packaging.
+  xpath: //div[@id='product-spec']
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
@@ -375,6 +402,7 @@ fields:
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
+  xpath: //dt[contains(text(),'Country of Manufacture')]/following-sibling::dd
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
@@ -416,6 +444,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  xpath: (//div[@data-ref="family-colour-label"]/text())[2] | //dt[contains(text(),'Units Per Pack')]/following-sibling::dd
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -427,8 +456,8 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
-  singleValue: false
   description: 
+  xpath: //div[@id='variants']
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
@@ -464,6 +493,7 @@ fields:
   singleValue: true
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  xpath: //dt[contains(text(),'Material')]/following-sibling::dd
 - name: Image360Present
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
@@ -474,3 +504,4 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: false
+  xpath: boolean(//div[contains(@class,'ImageZoom')])
