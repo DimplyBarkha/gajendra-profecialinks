@@ -6,15 +6,16 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_initialImage")]/@src
+    xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_zoomImage")]/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_initialImage")]/@alt
+    xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_zoomImage")]/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="slick-track"]//a[contains(@class,"RICHFXColorChangeLink")]//img[contains(@class,"RICHFXColorChangeView")]/@src
+    #xpath: //div[@class="slick-track"]//a[contains(@class,"RICHFXColorChangeLink")]//img[contains(@class,"RICHFXColorChangeView")]/@src
+    xpath: //div[@class="slick-track"]//a[contains(@class,"RICHFXColorChangeLink") and not(contains(@data-slick-index,"0"))]//img[contains(@class,"RICHFXColorChangeView") ]/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -88,15 +89,17 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     #xpath: //p[contains(@id,'product-body-item-number')]//span/@data-sku
-    xpath: //div[@class="row"]//div[contains(@class,"item-model-number")]//span/@data-model-number
+    #xpath: //div[@class="row"]//div[contains(@class,"item-model-number")]//span/@data-model-number | //p[contains(@id,'product-body-item-number')]//span/@data-sku
+    xpath: //div[@id="skuValue"]/text()
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //p[contains(@id,'product-body-item-number')]//span/@data-sku
+    xpath: //p[contains(@id,'product-body-item-number')]//span/@data-sku 
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@class="row"]//div[contains(@class,"item-model-number")]//span/@data-model-number
+    #xpath: //div[@class="row"]//div[contains(@class,"item-model-number")]//span/@data-model-number
+    xpath: //div[@id="skuValue"]/text()
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -156,7 +159,8 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id="html5videostage"]//video/@src
+    xpath: //div[@class="flix-videodiv inpage_selector_video"]//iframe/@src | //div[@id="html5videostage"]//video/@src
+    #xpath: //div[@id="videoURL"]/text()
   - name: name
     singleValue: true
     description: The product name

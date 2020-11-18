@@ -59,13 +59,54 @@ module.exports = {
       const tabDescInfo = getAllXpath(tabDescInfoXpath, 'nodeValue');
       const bulletsXpath = "//div[@class='product-info-description']/ul/li/text()";
       const bulletsInfo = getAllXpath(bulletsXpath, 'nodeValue').join(' || ');
+      const modelXpath = "//div[contains(@class,'item-model-number')]//span/@data-model-number";
+      const modelInfo = getXpath(modelXpath, 'nodeValue');
+      const tabDescInfoNew = [];
+      let model;
+      let flag = false;
+      tabDescInfo.forEach(function (element) {
+        if (element.includes('Model')) {
+          flag = true;
+          model = element.replace('Model: ', '');
+        }
+        let info = element.replace('\n', '');
+        info = info.replace('\t', '');
+        info = info.trim();
+        if (info.length > 0) {
+          tabDescInfoNew.push(info);
+        }
+      });
+      if (!flag) {
+        tabDescInfoNew.push('Model: ' + modelInfo);
+      }
+
       let finalDescInfo;
-      if (tabDescInfo[1].length > 0 && featureDescInfo.length > 0) {
+      if (featureDescInfo.length > 0) {
         addElementToDocument('featureBullets', featureDescInfo);
+        finalDescInfo = 'Features: || ' + featureDescInfo + ' || ' + tabDescInfoNew.join('||');
+      }
+      if (bulletsInfo.length > 0) {
         addElementToDocument('additionalDescBulletInfo', bulletsInfo);
-        finalDescInfo = featureDescInfo + ' || ' + tabDescInfo[1] + ' || ' + bulletsInfo;
-        finalDescInfo = finalDescInfo.replace('\n', '||');
-        addElementToDocument('added_descriptionText', finalDescInfo);
+        finalDescInfo = finalDescInfo + ' || ' + bulletsInfo;
+      }
+      finalDescInfo = finalDescInfo.replace('\n', '||');
+      addElementToDocument('added_descriptionText', finalDescInfo);
+
+      // xpath for sku
+      const skuValue = getXpath('//div[@class="row"]//div[contains(@class,"item-model-number")]//span/@data-model-number', 'nodeValue');
+      if (skuValue !== null) {
+        addElementToDocument('skuValue', skuValue);
+      } else {
+        addElementToDocument('skuValue', model);
+      }
+
+      // xpath for video
+      let videoURL = getXpath('//div[@class="flix-videodiv inpage_selector_video"]//iframe/@src', 'nodeValue');
+      if (videoURL !== null) {
+        addElementToDocument('videoURL', videoURL);
+      } else {
+        videoURL = getXpath('//div[@id="html5videostage"]//video/@src', 'nodeValue');
+        addElementToDocument('videoURL', videoURL);
       }
 
       // xpath for specificationValue
@@ -117,7 +158,6 @@ module.exports = {
       }
 
       const aggregateRating = getXpath("//span[@itemprop='ratingValue']", 'innerText');
-      console.log('aggregateRating', aggregateRating);
       if (aggregateRating) {
         addElementToDocument('added_aggregateRating', aggregateRating.replace('.', ','));
       }
