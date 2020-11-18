@@ -32,6 +32,7 @@ async function implementation (
     const productUrls = document.querySelectorAll('a[class*="shelf-product-title"]');
 
     for (let i = 0; i < allProducts.length; i++) {
+      allProducts[i].scrollIntoView();
       addProp('li.shelf-item', i, 'rankOrganic', `${i + 1}`);
       addProp('li.shelf-item', i, 'productUrl', 'https://www.jumbo.cl' + productUrls[i].getAttribute('href'));
     }
