@@ -36,7 +36,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: //script[@type="application/ld+json"][contains(text(),'"availability":"http://schema.org/InStock"')] | //div[@data-test="mms-delivery-online-availability_AVAILABLE"]//div/span[contains(@class,'Availabilitystyled')]
+    xpath: //button[@id='pdp-add-to-cart-button'] | //div[@data-test="mms-delivery-online-availability_AVAILABLE"]//div/span[contains(@class,'Availabilitystyled')] | //div[@data-test="mms-delivery-online-availability_PARTIAL_AVAILABLE"]//div/span[contains(@class,'Availabilitystyled')]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
