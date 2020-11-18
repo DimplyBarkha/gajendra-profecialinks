@@ -23,7 +23,7 @@ fields:
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
-  xpath: //a[@class="thumbcell"]/img[@class="thumb"]/@src
+  xpath: //img[@class="thumb"]/@src
   regExp: (.+)
   regExpReplace: https:$1
   description: Other product images (not in manufacturer description)
@@ -87,6 +87,7 @@ fields:
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
+  xpath: //div[@class="itemNo"]
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
@@ -107,7 +108,7 @@ fields:
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: false
-  xpath: //span[@class="BVRRNumber"]
+  xpath: //a[@title="Read all reviews"]//span[@class="BVRRNumber"]
   type: STRING
   description: The number of ratings
 - name: aggregateRatingText
@@ -132,7 +133,7 @@ fields:
   description: Number of variants listed
 - name: color
   singleValue: true
-  xpath: //span[@class="selectedColor"]'
+  xpath: //ul[@aria-label="Color"]/li[@ats="Y"]/@data-original-title
   description: A textual description of the colour
 - name: colorCode
   singleValue: true
@@ -255,7 +256,7 @@ fields:
   description: 
 - name: ingredientsList
   singleValue: false
-  xpath: concat(//div[contains(@class, "accIngredients")]//div[@class="accordionText"]/span)
+  xpath: //div[contains(@class, "accIngredients ")]//div[@class="accordionText"]
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
 - name: servingSize
@@ -438,7 +439,7 @@ fields:
     desription info
 - name: variantInformation
   singleValue: true
-  xpath: //ul[@aria-label="Color" or @aria-label="Option"]/li[@ats="Y"]/@data-original-title
+  xpath: //ul[@aria-label="Color" or @aria-label="Option"]/li[@ats="Y" and @state="selected"]/@data-original-title
   description: colour / scent / flavour / other
 - name: firstVariant
   singleValue: true
