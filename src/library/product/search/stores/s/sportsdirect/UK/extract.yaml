@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="navlist"]/li
+fields:
+  # - name: id
+  #   singleValue: true
+  #   xpath: //div[@id='pd_id']
+  - name: name
+    xpath: //span[contains(@class,"productdescriptionbrand")] | //span[contains(@class,"productdescriptionname")]
+  - name: productUrl
+    xpath: //@li-url
+    regExp: (.+)
+    regExpReplace: https://www.sportsdirect.com$1
+  - name: thumbnail
+    xpath: //div[contains(@class,"productimage")]//a/div/img/@src
+  - name: price
+    xpath: //@li-price
+  - name: searchUrl
+    xpath: //@searchurl
+  - name: aggregateRating
+    xpath: //div[contains(@class,"reviews-container")]/div/div/a/@aria-label
+    # regExp: (.+)\sout
+    # regExpReplace: $1
+  - name: reviewCount
+    xpath: //div[contains(@class,"numReviews")]
+    # regExp: (\d+)
