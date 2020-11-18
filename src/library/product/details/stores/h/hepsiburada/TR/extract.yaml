@@ -1,0 +1,95 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    description: URL of the main product image
+    xpath: //div[@id="productDetailsCarousel"]//img[@class="product-image"][1]//@src
+  - name: imageAlt
+    description: Alt text of the main product image
+    xpath: //div[@id="productDetailsCarousel"]//img[@class="product-image"][1]//@alt
+  - name: alternateImages
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@id="productThumbnailsCarousel"]//div[@class="owl-stage"]//div[position()>1]//img//@src
+    regExp: (.+\/)(\d+\/)(.+)
+    regExpReplace: $1600/$3
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@class="breadcrumbs"]//li[position()>1]/a//@title
+  - name: nameExtended
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[@id="productDescriptionContent"]/p
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    xpath: //del[@class="product-old-price price old active"]
+  - name: price
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: concat(//span[@itemprop="price"]/@content,' ',//span[@itemprop="priceCurrency"])
+  - name: availabilityText
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //span[@class="addToCartButton"]//span[contains(.,'Sepete Ekle')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@id="productDescriptionContent"]
+  - name: descriptionBullets
+    description: Number of ul > li tags in the description
+    xpath: count(//div[@id="productDescriptionContent"]//ul//li)
+  - name: brandText
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[contains(@class,'product-information')]//span[@class="brand-name"]
+  - name: weightNet
+    description: Net weight as described on the page
+    xpath: //li[contains(.,'Ağırlık:')] | //li[contains(.,'ağırlığı')] | //p[contains(.,'Ağırlık:')]
+    regExp: (\d.+)
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //meta[@itemprop="sku"]//@content
+  - name: variantId
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //form[@id="addToCartForm"]//input[@name="productId"]//@value
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //div[@id="comments-container"]//span
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //span[@class="rating-star"]
+  - name: variantCount
+    description: Number of variants listed
+    defaultValue: "0"
+  - name: color
+    description: A textual description of the colour
+    xpath: //div[@id="productTechSpecContainer"]//tr[contains(.,'Renk')]//following-sibling::td
+  - name: manufacturerDescription
+    description: The extended description of the product supplied by the lister
+    xpath: //div[@id="productDescriptionContent"]//div[contains(@class,'contain-md')]
+  - name: manufacturerImages
+    description: Images within the third party description
+    xpath: //div[contains(@class,'container')]//div[@class="row"]/div//img//@src
+  - name: videos
+    description: URLs of videos on page
+    xpath: //div[@class="desc-video"]//@data-video
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@id="productDescriptionContent"]/p
+  - name: specifications
+    description: The physical dimensions of the product including packaging.
+    xpath: //p[contains(.,'Teknik Özellikler')]/following-sibling::ul[1] | //div[@id="productTechSpecContainer"]/table[contains(@class,"data-list tech-spec") and not (contains(.,'Marka'))]//tr//text()
+  - name: warranty
+    description: Guarantee associated with the product
+    xpath: //th[contains(.,'Garanti Süresi (Ay)')]/following-sibling::td
+  - name: imageZoomFeaturePresent
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes

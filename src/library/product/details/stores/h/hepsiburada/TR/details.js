@@ -1,10 +1,10 @@
+
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'hepsiburada.com',
-    timeout: 50000,
     country: 'TR',
     store: 'hepsiburada',
+    domain: 'hepsiburada.com',
     zipcode: '',
   },
 };

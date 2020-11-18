@@ -1,8 +1,10 @@
+
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'hepsiburada.com',
-    timeout: 50000,
+    prefix: 'product',
+    url: null,
     country: 'TR',
     store: 'hepsiburada',
     zipcode: '',
