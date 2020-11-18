@@ -148,7 +148,9 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id="product-tab-description"]/div/div[@class="image-wrapper"]/img/@src
+    xpath: //div[@class="inpage_selector_feature"]//img//@data-flixsrcset
+    regExp: ((.+)( 200w))
+    regExpReplace: $2
   - name: videos
     singleValue: false
     description: URLs of videos on page
