@@ -80,7 +80,7 @@ module.exports = {
         const a = document.querySelector('link[rel="canonical"]');
         // console.log(JSON.stringify(a));
         console.log('end of evaluate');
-        return !a ? 'notfound' : a;
+        // return !a ? 'notfound' : a;
       },
     );
     // console.log(JSON.stringify(videos));
