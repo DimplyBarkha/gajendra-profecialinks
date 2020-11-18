@@ -24,6 +24,7 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
+    xpath: //div[@id="ii_produrl"]
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
@@ -75,10 +76,12 @@ fields:
     singleValue: true
     description: search/listing rank
     type: NUMBER
+    xpath: //div[@id="ii_rankOrganic"]
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //div[@id="ii_rankOrganic"]
   - name: sponsored
     singleValue: true
     description: Is sponsored/paid

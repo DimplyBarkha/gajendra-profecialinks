@@ -3,8 +3,7 @@ module.exports = {
   parameterValues: {
     domain: "intermarche.com",
     prefix: null,
-    url:
-      "https://www.intermarche.com/rechercheproduits/11770/recherche/{searchTerms}/product/{id}",
+    url: null,
     country: "FR",
     store: "intermarche",
     zipcode: "",
