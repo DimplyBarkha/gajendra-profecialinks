@@ -54,7 +54,7 @@ fields:
     xpath: (//td[@class='b-fact-value js-fact-value'])[2]
   - name: variantInformation
     singleValue: false
-    xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value)[1]
+    xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value)
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
@@ -64,3 +64,6 @@ fields:
     #xpath: concat(//div[@class="js-target"]/a/text(),' ',(//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1])
     # regExp: \\n(.+)\\n(.+)
     # regExpReplace: $1$2
+  - name: quantity
+    singleValue: false
+    xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value)
