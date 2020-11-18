@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[@id="contentSegment"]/article
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[@class="awk-wishlist"]/@id
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="image-product"]/a/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.conforama.fr$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="image-product"]/a/img/@src
+  - name: name
+    singleValue: false
+    xpath: //html//div[@id='prodName']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="BVBrowserWebkit"]/span[@class="stars"]/@data
+  - name: price
+    singleValue: false
+    xpath: //html//div[@id='price']
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="avisBaazar"]/a/text()
+  - name: soldBy
+    singleValue: false
+    xpath: //p[@class="sold-other"]/strong/a/text()
