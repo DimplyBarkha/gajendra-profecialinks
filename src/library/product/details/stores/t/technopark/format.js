@@ -89,7 +89,7 @@ const transform = (data) => {
       // Price
       if (row.price && row.price[0]) {
         console.log('row.price[0]:: ', row.price[0]);
-        row.price[0].text = row.price[0].text.replace(/\s/, ',');
+        row.price[0].text = row.price[0].text.replace(/\s/, '');
         console.log('row.price[0].text', row.price[0].text);
       }
     }
