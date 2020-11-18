@@ -30,14 +30,13 @@ const transform = (data) => {
           item.text = item.text.replace(':', '.').trim();
         });
       }
-      if (row.additionalDescBulletInfo) {
+      if (row.description) {
         var arrBullets = [];
-        row.additionalDescBulletInfo.forEach(item => {
+        row.description.forEach(item => {
           arrBullets.push(item.text);
         });
         if (arrBullets.length) {
-          row.additionalDescBulletInfo = [{ text: arrBullets.join(' || ') }];
-          row.descriptionBullets = [{ text: arrBullets.length }];
+          row.description = [{ text: arrBullets.join(' ') }];
         }
       }
       if (row.sku) {
