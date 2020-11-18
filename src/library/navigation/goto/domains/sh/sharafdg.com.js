@@ -7,7 +7,8 @@ module.exports = {
     country: 'UAE',
     store: 'sharafdg',
     zipcode: '',
-  },implementation: async (inputs, { country, domain }, context, dependencies) => {
+  },
+  implementation: async (inputs, { country, domain }, context, dependencies) => {
     // console.log(id+' is the product ID');
   },
 };
