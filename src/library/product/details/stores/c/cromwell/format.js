@@ -56,6 +56,16 @@ const transform = (data, context) => {
         });
       }
 
+      if (row.availabilityText) {
+        let newText = 'In Stock';
+        row.availabilityText.forEach(item => {
+          if (item.text === 'Discontinued') {
+            newText = 'Out Of Stock';
+          }
+        });
+        row.availabilityText = [{ text: newText }];
+      }
+
       if (row.alternateImages) {
         const baseUrl = row.alternateImages[0].text.match(/url\("([^?]+)/)[1];
         row.alternateImages = row.alternateImages.slice(1).map((elm, index) => {
