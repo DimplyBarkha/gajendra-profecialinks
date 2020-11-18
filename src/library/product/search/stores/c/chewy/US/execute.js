@@ -6,8 +6,8 @@ module.exports = {
     store: 'chewy',
     domain: 'chewy.com',
     url: 'https://www.chewy.com/s?query={searchTerms}',
-    // loadedSelector: 'section.results-products.js-tracked-product-list',
-    // noResultsXPath: '//h1[@class="cw-type__body cw-padding--none"]',
+    loadedSelector: 'section.results-products.js-tracked-product-list',
+    noResultsXPath: '//h1[@class="cw-type__body cw-padding--none"]',
     zipcode: '',
   },
 };

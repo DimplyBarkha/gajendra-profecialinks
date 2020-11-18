@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: //a[@data-zoom-id="Zoomer"][position()=1]/@href
     regExp: (.+)
-    regExpReplace: https://www.chewy.com$1
+    regExpReplace: https:$1
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -15,13 +15,17 @@ fields:
     singleValue: false
     xpath: //a[@data-zoom-id="Zoomer"][position()>1]/@href
     regExp: (.+)
-    regExpReplace: https://www.chewy.com$1
+    regExpReplace: https:$1
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //ul//li[@itemprop="itemListElement"]/a/span/text()
+    #xpath: //span[@class="js-pdp-facet-selection"]/text()
+    xpath: //div[@class="ga-eec__category-hierarchy"]
+    #manualSelector: span.js-pdp-facet-selection
+    # regExp: (.+)
+    # regExpReplace: $1
   - name: nameExtended
     singleValue: false
     xpath: //meta[@property="og:title"]/@content
@@ -51,11 +55,12 @@ fields:
     xpath: //div[contains(text(),"Brand")]//../following-sibling::div//text()
   - name: manufacturer
     singleValue: false
-    description: Product manufacturer
+    xpath: //script[contains(text(),"rootCategoryId")]
+    regExp: brand\W\s\W([^']+)
+    regExpReplace: $1
   - name: quantity
     singleValue: false
-    xpath: //span[contains(text(),"Count")]/following-sibling::span
-    regExpReplace: $1$2$3$4
+    xpath: //label[contains(text(),"Size")]/following-sibling::span/text()
   - name: weightNet
     singleValue: false
     xpath: //div[contains(text(),"Weight")]/following-sibling::div[class="value"]//text()
@@ -84,7 +89,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    xpath: //article[@id="Feeding-Instructions"]//text()
+    xpath: //article[@id="Feeding-Instructions"]
   - name: warnings
     singleValue: false
     xpath: //div[@class="popover-content"]/p/text()
@@ -118,10 +123,13 @@ fields:
     xpath: //div[@role="radiogroup"]/div[1]/@data-qe-id
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="pdp-ext-section"]//div[@class="pdp-ext-content"]
+    xpath: //div[contains(@class,"cw-row__item chewy-plus__split-row__content")] | //div[@class="cw-row__item chewy-plus__content"]
+    #xpath: //div[@class="pdp-ext-section"]//div[@class="pdp-ext-content"]| //div[contains(@class,"cw-row__item chewy-plus__split-row__content")]//div
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="pdp-ext-section"]//img/@src
+    xpath: //div[@class="container"]//img/@src
+    # regExp: (.+)
+    # regExpReplace: https:$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -177,12 +185,12 @@ fields:
     singleValue: false
   - name: totalFatPerServing
     singleValue: false
-    xpath: //td[contains(text(),"Crude Fat")]/following-sibling::td
-    regExp: (.+)\W\s
+    xpath: (//td[contains(text(),"Fat")]/following-sibling::td)[1]
+    regExp: (.+)%
     regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
-    xpath: //td[contains(text(),"Crude Fat")]/following-sibling::td
+    xpath: (//td[contains(text(),"Fat")]/following-sibling::td)[1]
     regExp: (.+)
     regExpReplace: '%'
   - name: saturatedFatPerServing
@@ -215,7 +223,7 @@ fields:
   - name: dietaryFibrePerServing
     singleValue: false
     xpath:  //td[contains(text(),"Fiber")]/following-sibling::td
-    regExp: (.+)\W\s
+    regExp: (.+)%
     regExpReplace: $1
   - name: dietaryFibrePerServingUom
     singleValue: false
@@ -230,7 +238,7 @@ fields:
   - name: proteinPerServing
     singleValue: false
     xpath: //td[contains(text(),"Protein")]/following-sibling::td
-    regExp: (.+)\W\s
+    regExp: (.+)%
     regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false

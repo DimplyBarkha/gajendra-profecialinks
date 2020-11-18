@@ -10,11 +10,11 @@ fields:
     singleValue: false
   - name: thumbnail
     xpath: //article/a/div/img/@data-src
-    # regExp: (.+)
-    # regExpReplace: https://www.chewy.com$1 
+    regExp: (.+)
+    regExpReplace: https:$1 
     singleValue: false
   - name: name
-    xpath: //div[@class="content"]/h2//text()
+    xpath: //article/a/div/img/@alt
     singleValue: false
   - name: price
     xpath: //p[@class="price"]/strong

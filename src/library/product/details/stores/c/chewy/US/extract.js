@@ -26,15 +26,15 @@ async function implementation(
 
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 
-  await context.evaluate(async function () {
-    function addHiddenDiv(id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-  });
+  // await context.evaluate(async function () {
+  //   function addHiddenDiv(id, content) {
+  //     const newDiv = document.createElement('div');
+  //     newDiv.id = id;
+  //     newDiv.textContent = content;
+  //     newDiv.style.display = 'none';
+  //     document.body.appendChild(newDiv);
+  //   }
+  // });
   var variantLength = await context.evaluate(async () => {
     return (document.querySelectorAll('div.cw-form-button-toggle__wrapper label')) ? document.querySelectorAll('div.cw-form-button-toggle__wrapper label').length : 0;
   });

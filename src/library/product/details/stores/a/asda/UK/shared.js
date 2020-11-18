@@ -34,13 +34,7 @@ const transform = (data) => {
         row.description = [{ text }];
       }
 
-      if (row.manufacturerDescription) {
-        let text = '';
-        row.manufacturerDescription.forEach(item => {
-          text = text + (text ? ' ' : '') + item.text;
-        });
-        row.manufacturerDescription = [{ text }];
-      }
+      
 
       if (row.caloriesPerServing) {
         let text = '';

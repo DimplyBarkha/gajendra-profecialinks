@@ -26,6 +26,13 @@ const transform = (data) => {
         },
         ];
       }
+
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription = [{
+          text: row.manufacturerDescription.reduce((item, currentItem) => `${item} | ${currentItem.text.replace(/(\s*\n\s\n)+/g, ': ')}`, '').slice(4),
+        },
+        ];
+      }
       if (row.variants) {
         let text = '';
         row.variants.forEach(item => {
@@ -40,13 +47,54 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n*\s\n)+/g, ' |');
       }
-      if (row.manufacturerImages) {
-        row.manufacturerImages[0].text = row.manufacturerImages[0].text.replace(/(\n*\s\n)+/g, ' |');
+      
+      if (row.category) {
+        let text = '';
+        let arr = [];
+        const categs = [];
+        row.category.forEach(item => {
+          arr = item.text.split('/');
+        });
+        arr.forEach(elem => {
+          categs.push({text: elem});
+        });
+        row.category = categs;
       }
 
-      if (row.manufacturerDescription) {
-        row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/(\n*\s\n)+/g, ' |');
+      if (row.manufacturerImages) {
+        let video = [];
+        row.manufacturerImages.forEach(item => {
+          if (item.text.indexOf('https:') === -1) {
+            item.text = `https${item.text}`;
+          }
+        });
       }
+
+      
+      // if (row.description) {
+      //   let text = '';
+      //   row.description.forEach(item => {
+      //     text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+      //   });
+      //   row.description = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
+      // if (row.directions) {
+      //   let text = '';
+      //   row.directions.forEach(item => {
+      //     text += `${item.text.replace(/\n \n/g, ' ')}  `;
+      //   });
+      //   row.directions = [
+      //     {
+      //       text: text.slice(0, -2),
+      //     },
+      //   ];
+      // }
+      
+            
     }
     const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
