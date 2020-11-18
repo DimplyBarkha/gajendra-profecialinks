@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'slick-active')][position()>1]/img/@src
+    xpath: //div[contains(@id,"productImage")][contains(@style,"block;")]//div[contains(@id,"productThumbs")]//div[contains(@class,"slick-list")]/div/div[position()>1]/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -46,9 +46,10 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: normalize-space(//div[@id="product-informations"])
+    singleValue: true
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -77,6 +78,7 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
     xpath: //h2[@class="product-description-ean"]
+    regExp: (\d+)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -103,7 +105,6 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    type: NUMBER
     xpath: //div[@class="product-selection-ratings-stars"]//span[@itemprop="reviewCount"]
   - name: aggregateRatingText
     singleValue: true
@@ -111,7 +112,6 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
     xpath: //div[@class="product-selection-ratings-stars"]//span[@itemprop="ratingValue"]
   - name: shippingInfo
     singleValue: true
@@ -123,7 +123,7 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
+    singleValue: false
     description: Number of variants listed
     xpath: count(//ul[@class="product-variant-1"]/li) 
     type: NUMBER
@@ -140,11 +140,15 @@ fields:
     singleValue: false
     description: Images within the third party description
   - name: videos
-    singleValue: false
+    # singleValue: false
     description: URLs of videos on page
+    xpath: //div[contains(@class,'video-wrapper')]/@data-video-id
+    regExp: (.+)
+    regExpReplace: https://youtu.be/$1
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[@itemprop="name"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -163,6 +167,7 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //div[@class="product-selection-brand"]/a/@href
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -234,6 +239,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: true
+    xpath: count( //div[contains(@id,"productImage")][contains(@style,"block;")]//div[contains(@id,"productThumbs")]//div[contains(@class,"slick-list")]/div/div[position()>1]/img/@src)
     description: null
     type: NUMBER
   - name: news
@@ -425,10 +431,14 @@ fields:
     singleValue: true
     description: Price of the product split into certain units
     xpath: //div[@class="price-pro-unit"]
+    regExp: (.+)(€ por)(.+)
+    regExpReplace: $1
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
     xpath: //div[@class="price-pro-unit"]
+    regExp: (.+)(€ por)(.+)
+    regExpReplace: $3
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -448,7 +458,7 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     description: colour / scent / flavour / other
     xpath: //ul[@class="product-variant-1"]/li
   - name: firstVariant
@@ -513,4 +523,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
