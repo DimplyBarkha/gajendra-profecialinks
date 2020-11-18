@@ -1,14 +1,3 @@
-const { transform } = require('../shared');
-module.exports = {
-  implements: 'product/search/extract',
-  parameterValues: {
-    country: 'DE',
-    store: 'docmorris',
-    transform,
-    domain: 'docmorris.de',
-    zipcode: '',
-  },
-};
 
 async function implementation (
   inputs,
@@ -27,3 +16,16 @@ async function implementation (
   });
   return await context.extract(productDetails, { transform });
 }
+
+const { transform } = require('../shared');
+module.exports = {
+  implements: 'product/search/extract',
+  parameterValues: {
+    country: 'DE',
+    store: 'docmorris',
+    transform,
+    domain: 'docmorris.de',
+    zipcode: '',
+  },
+  implementation,
+};
