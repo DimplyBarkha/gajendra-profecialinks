@@ -22,7 +22,7 @@ async function implementation (
   parameters,
   context,
   dependencies,
-) {
+  ) {
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   const responseStatus = await context.goto(url, {
