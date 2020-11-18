@@ -14,22 +14,24 @@ module.exports = {
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
 
     const mainURL = await context.evaluate(function () {
-      console.log("main URL")
+      console.log('main URL');
       return document.URL;
     });
-
+    // navigation to iframe
     try {
       const navigateLink = await context.evaluate(function () {
-        console.log("getting navlink")
+        console.log('getting navlink');
         return document.querySelector('#loadbeeTabContent').getAttribute('src');
       });
 
       if (navigateLink) {
-        console.log(navigateLink, "Iframe Details")
-        console.log("Nagivating to Enahnced content");
+        console.log(navigateLink, 'Iframe Details');
+        console.log('Nagivating to Enahnced content');
 
         await context.goto(navigateLink, {
-          timeout: 20000, waitUntil: 'load', checkBlocked: true,
+          timeout: 20000,
+          waitUntil: 'load',
+          checkBlocked: true,
         });
 
         console.log('In Enhanced content areas');
@@ -38,8 +40,15 @@ module.exports = {
           return document.querySelector('.container').innerHTML;
         });
 
-        console.log('Got otherSellersTable here');
+        const manufacturerDescription = await context.evaluate(function () {
+          return document.querySelector('.container').innerText;
+        });
 
+        const manufacturerImages = await context.evaluate(function () {
+          return [...document.querySelectorAll('img')].map(img => img.src).filter(Boolean).join(' | ');
+        });
+
+        console.log('Got otherSellersTable here');
         console.log('mainURL' + mainURL);
 
         await context.goto(mainURL, {
@@ -51,14 +60,37 @@ module.exports = {
           random_move_mouse: true,
         });
 
+        // adding innerHtml of iframe to DOM
         await context.evaluate(function (eleInnerHtml) {
           const cloneNode = document.createElement('div');
-          cloneNode.setAttribute("id", "enhancedContent");
+          cloneNode.setAttribute('id', 'enhancedContentFromIframe');
           cloneNode.innerHTML = eleInnerHtml;
           document.querySelector('div.product_detail-description-in-image').appendChild(cloneNode);
         }, otherSellersTable);
-      }
 
+        await context.evaluate(function (value) {
+          const { manufacturerDescription, manufacturerImages } = value;
+
+          function addElementToDocument (key, value) {
+            const catElement = document.createElement('div');
+            catElement.id = key;
+            catElement.textContent = value;
+            catElement.style.display = 'none';
+            document.body.appendChild(catElement);
+          }
+
+          // manufacturerDescription
+          console.log(`manufacturerDescription: ${manufacturerDescription}`);
+          addElementToDocument('manufacturerDescription', manufacturerDescription);
+
+          // manufacturerImage
+          console.log(`manufacturerImages: ${manufacturerImages}`);
+          addElementToDocument('manufacturerImages', manufacturerImages);
+        }, {
+          manufacturerDescription: manufacturerDescription,
+          manufacturerImages: manufacturerImages,
+        });
+      }
     } catch (err) {
       console.log('Additional other sellers error -' + JSON.stringify(err));
       await context.goto(mainURL, {
@@ -78,10 +110,9 @@ module.exports = {
     }
 
     try {
-
       await context.evaluate(async function () {
         // function to append the elements to DOM
-        function addElementToDocument(key, value) {
+        function addElementToDocument (key, value) {
           const catElement = document.createElement('div');
           catElement.id = key;
           catElement.textContent = value;
@@ -90,7 +121,7 @@ module.exports = {
         }
 
         // function to get the json data from the string
-        function findJsonData(scriptSelector, startString, endString) {
+        function findJsonData (scriptSelector, startString, endString) {
           try {
             const xpath = `//script[contains(.,'${scriptSelector}')]`;
             const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -106,7 +137,7 @@ module.exports = {
         }
 
         // function to get the json data from the textContent
-        function findJsonObj(scriptSelector, video) {
+        function findJsonObj (scriptSelector, video) {
           if (video) {
             var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
             return result;
@@ -141,7 +172,7 @@ module.exports = {
           }
         };
 
-        function setAttributes(el, attrs) {
+        function setAttributes (el, attrs) {
           for (var key in attrs) {
             el.setAttribute(key, attrs[key]);
           }
@@ -150,16 +181,16 @@ module.exports = {
         const imageData = findJsonObj('image');
         // Check for the data and append to DOM
         if (imageData) {
-          addElementToDocument('product_image', `${imageData.image.length === 0 ? "" : "https:"}${imageData.image.slice(-1)[0] === undefined ? "" : imageData.image.slice(-1)[0]}`);
+          addElementToDocument('product_image', `${imageData.image.length === 0 ? '' : 'https:'}${imageData.image.slice(-1)[0] === undefined ? '' : imageData.image.slice(-1)[0]}`);
           addElementToDocument('product_description', imageData.description);
         } else {
-          let sliderImage = document.querySelectorAll('.image-layout-slides-group div')[0].querySelector('img').getAttribute('src');
-          let linkImage = document.querySelectorAll('link[as="image"]')[0].getAttribute('href');
+          const sliderImage = document.querySelectorAll('.image-layout-slides-group div')[0].querySelector('img').getAttribute('src');
+          const linkImage = document.querySelectorAll('link[as="image"]')[0].getAttribute('href');
           if (sliderImage) {
-            console.log("slider here")
+            console.log('slider here');
             addElementToDocument('product_image', `https:${sliderImage}`);
           } else {
-            console.log("link here")
+            console.log('link here');
             addElementToDocument('product_image', `https:${linkImage}`);
           }
         }
@@ -172,7 +203,7 @@ module.exports = {
           return result && result.trim ? result.trim() : result;
         };
 
-        function nameExtended() {
+        function nameExtended () {
           const getXpath = (xpath, prop) => {
             const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
             let result;
@@ -181,13 +212,13 @@ module.exports = {
             return result && result.trim ? result.trim() : result;
           };
 
-          let name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : "";
-          return name
+          const name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : '';
+          return name;
         }
 
-        //Directions 
+        // Directions
 
-        function getPathDirections(xpathToExecute) {
+        function getPathDirections (xpathToExecute) {
           var result = [];
           var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
@@ -195,11 +226,11 @@ module.exports = {
           }
           return result;
         }
-        let directions = getPathDirections('//div[contains(@class,"product_detail-description-in-image")]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::*');
-        addElementToDocument('directions', directions ? directions.join(" ") : "");
+        const directions = getPathDirections('//div[contains(@class,"product_detail-description-in-image")]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::*');
+        addElementToDocument('directions', directions ? directions.join(' ') : '');
 
         // For FirstVariant
-        let firstVariant = getXpath('//div[@id="variants_container"]//select//option[@color][1]/@value', 'nodeValue')
+        const firstVariant = getXpath('//div[@id="variants_container"]//select//option[@color][1]/@value', 'nodeValue');
         addElementToDocument('firstVariant', firstVariant);
 
         // elements from data Layer object
@@ -222,10 +253,10 @@ module.exports = {
               addElementToDocument('listPrice', '');
             } else {
               if (dataObj[0].product.price.o_price) {
-                addElementToDocument('listPrice', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.o_price ? dataObj[0].product.price.o_price.toString().replace('.', ','): "");
+                addElementToDocument('listPrice', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.o_price ? dataObj[0].product.price.o_price.toString().replace('.', ',') : '');
               } else {
                 if (dataObj[0].product.price.original) {
-                  addElementToDocument('listPrice', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.original ? dataObj[0].product.price.original.toString().replace('.', ','): "");
+                  addElementToDocument('listPrice', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.original ? dataObj[0].product.price.original.toString().replace('.', ',') : '');
                 } else {
                   addElementToDocument('listPrice', '');
                 }
@@ -234,10 +265,10 @@ module.exports = {
 
             // Check for  Price
             if (dataObj[0].product.price.o_price) {
-              addElementToDocument('price', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.f_price ? dataObj[0].product.price.f_price.toString().replace('.', ',') : "");
+              addElementToDocument('price', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.f_price ? dataObj[0].product.price.f_price.toString().replace('.', ',') : '');
             } else {
               if (dataObj[0].product.price.final) {
-                addElementToDocument('price', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.final ? dataObj[0].product.price.final.toString().replace('.', ',') : "");
+                addElementToDocument('price', dataObj[0] && dataObj[0].product && dataObj[0].product.price && dataObj[0].product.price.final ? dataObj[0].product.price.final.toString().replace('.', ',') : '');
               } else {
                 addElementToDocument('price', '');
               }
@@ -253,23 +284,23 @@ module.exports = {
           }
         }
 
-        function variantInformation(variantsData) {
+        function variantInformation (variantsData) {
           if (variantsData.variant[1]) {
             if (variantsData.variant[0]) {
-              return variantsData.variant[0].value + "-" + variantsData.variant[1].value
+              return variantsData.variant[0].value + '-' + variantsData.variant[1].value;
             }
           } else {
-            return variantsData.variant[1] ? variantsData.variant[1].value : "" + "" + variantsData.variant[0] ? variantsData.variant[0].value : ""
+            return variantsData.variant[1] ? variantsData.variant[1].value : '' + '' + variantsData.variant[0] ? variantsData.variant[0].value : '';
           }
         }
 
-        function getStock(variants) {
+        function getStock (variants) {
           if (variants) {
-            if (variants.status.toLocaleLowerCase() === "add") {
+            if (variants.status.toLocaleLowerCase() === 'add') {
               return 'In Stock';
-            } else if (variants.status.toLocaleLowerCase() === "available") {
+            } else if (variants.status.toLocaleLowerCase() === 'available') {
               return 'In Stock';
-            } else if (variants.status.toLocaleLowerCase() === "mixed") {
+            } else if (variants.status.toLocaleLowerCase() === 'mixed') {
               return 'In Stock';
             } else {
               return 'Out Of Stock';
@@ -294,50 +325,47 @@ module.exports = {
         addElementToDocument('ratingCount', responseRatingCount);
         addElementToDocument('aggregateRating', responseReviewRating);
 
-
         const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${storeId}&original_store=0`;
         const apiDataResponse = await makeApiCall(productsData, {});
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
         addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? "-" + JSON.parse(apiDataResponse).discount + "%" : "");
+        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? '-' + JSON.parse(apiDataResponse).discount + '%' : '');
 
-
-        //Append a UL and LI tag append the variant info in the DOM
-        let variants = JSON.parse(apiDataResponse)._delivery_options[0].skus
-        let targetElement = document.querySelector('body');
-        let newUl = document.createElement('ul');
-        newUl.id = "variantsadd";
+        // Append a UL and LI tag append the variant info in the DOM
+        const variants = JSON.parse(apiDataResponse)._delivery_options[0].skus;
+        const targetElement = document.querySelector('body');
+        const newUl = document.createElement('ul');
+        newUl.id = 'variantsadd';
         targetElement.appendChild(newUl);
 
-        let ul = document.querySelector("#variantsadd");
-        console.log("ul created", ul)
-        console.log("Variants", variants)
+        const ul = document.querySelector('#variantsadd');
+        console.log('ul created', ul);
+        console.log('Variants', variants);
         try {
           if (variants.length) {
             for (let i = 0; i < variants.length; i++) {
-              let listItem = document.createElement("li");
-              console.log(i, "value")
+              const listItem = document.createElement('li');
+              console.log(i, 'value');
               setAttributes(listItem, {
-                nameExtended: `${nameExtended()}  ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""} ${variants[i].variant ? variants[i].variant[1] ? "-" : "" : ""} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""}`,
-                quantity: `${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""}`,
-                color: variants[i].variant ? variants[i].variant[0].value : "",
-                gtin: variants[i].gtin ? variants[i].gtin : "",
-                retailer_product_code: variants[i].id.trim(""),
+                nameExtended: `${nameExtended()}  ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : '' : ''} ${variants[i].variant ? variants[i].variant[1] ? '-' : '' : ''} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : '' : ''}`,
+                quantity: `${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : '' : ''}`,
+                color: variants[i].variant ? variants[i].variant[0].value : '',
+                gtin: variants[i].gtin ? variants[i].gtin : '',
+                retailer_product_code: variants[i].id.trim(''),
                 stock: getStock(variants[i]),
-                title: variants[i].variant ? variantInformation(variants[i]) : "",
-                variantDetails: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).map((e) => { return e.id }).join(' | ') : "" : "",
-                variantcount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).length : 0 : 0
-              })
+                title: variants[i].variant ? variantInformation(variants[i]) : '',
+                variantDetails: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value; }).map((e) => { return e.id; }).join(' | ') : '' : '',
+                variantcount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value; }).length : 0 : 0,
+              });
               ul.appendChild(listItem);
             }
           }
         } catch (err) {
-          console.log(err, "api");
-          throw "API Needs a change"
+          console.log(err, 'api');
+          throw 'API Needs a change';
         }
 
-
-        function ratingFromDOM() {
+        function ratingFromDOM () {
           const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
           let ratingCount;
           if (reviewsCount) {
@@ -362,7 +390,7 @@ module.exports = {
           }
         }
 
-        function allergyAdvice() {
+        function allergyAdvice () {
           const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           if (element) {
@@ -370,19 +398,19 @@ module.exports = {
             const allergyAdvice = allElements.map(i => i.textContent).join(' ');
             addElementToDocument('allergyAdvice ', allergyAdvice);
           }
-        } allergyAdvice();
+        }
+        allergyAdvice();
 
         // Function to remove the `\n` from the textContent
-        function textContent(element, attributeName) {
+        function textContent (element, attributeName) {
           const text = (element && element.innerText.trim()
-            .replace(' ', "\n")
+            .replace(' ', '\n')
             .split('\n')
             .filter((ele) => ele)
             .join(' ')) ||
-            '';
+                        '';
           addElementToDocument(attributeName, text);
         }
-
 
         const description = document.querySelector('.product_detail-description-in-image');
         textContent(description, 'bulletDescription');
@@ -395,14 +423,13 @@ module.exports = {
           specXpath.forEach(e => {
             specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)} `);
           });
-          addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
+          addElementToDocument('bulletDescription', specifcations.join(' ').replace(/\,/g, ' '));
         } else {
           specXpath.forEach(e => {
             specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
           });
-          addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
+          addElementToDocument('bulletDescription', specifcations.join(' ').replace(/\,/g, ' '));
         }
-
       });
     } catch (error) {
       console.log('Evaluation Failed', error);
