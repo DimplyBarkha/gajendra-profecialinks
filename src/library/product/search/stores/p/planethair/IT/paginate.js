@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'planethair',
-    nextLinkSelector: 'div#pagination_contents > div.ty-pagination a[class*="next"]',
+    nextLinkSelector: null, // 'div#pagination_contents > div.ty-pagination a[class*="next"]'
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
