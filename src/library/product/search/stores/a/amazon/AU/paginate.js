@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div.s-main-slot.s-result-list.s-search-results.sg-row',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'amazon.com.au',

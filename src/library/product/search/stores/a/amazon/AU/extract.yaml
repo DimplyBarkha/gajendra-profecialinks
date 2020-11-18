@@ -1,5 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin")]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,"s-latency-cf-section")]//span[contains(@class,"rush-component")]//a/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,"sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin")]/@data-asin
+  - name: name
+    SingleValue: false
+    xpath: //div[contains(@class,"s-latency-cf-section")]//a[contains(@class,"a-link-normal a-text-normal")]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[contains(@class,"s-latency-cf-section")]//span[contains(@class,"rush-component")]//img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"s-latency-cf-section")]//div[contains(@class,"a-row a-size-small")]//span[position()=1]/@aria-label
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"s-latency-cf-section")]//div[contains(@class,"a-row a-size-small")]//span[position()=2]/@aria-label
+  - name: price 
+    SingleValue: false 
+    xpath: //div[contains(@class,"s-latency-cf-section")]//span[@class='a-price']//span[@class='a-offscreen']
