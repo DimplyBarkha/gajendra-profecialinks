@@ -10,10 +10,10 @@ const transform = (data) => {
       if (row.variantId) {
         var scriptJSON = JSON.parse(row.variantId[0].text);
         if (scriptJSON.attributes) {
-          var objectsInVariants = scriptJSON.attributes.length;
-          for( var i = 0; i < objectsInVariants; i++ ) {
+          var objectsInVariants = scriptJSON.attributes;
+          for( var i = 0; i < objectsInVariants.length; i++ ) {
             var item = objectsInVariants[i];
-            var tmpVariations = {};
+            const tmpVariations = {};
             tmpVariations.variantId = [];
             tmpVariations.variantUrl = [];
             tmpVariations.variant = [];
