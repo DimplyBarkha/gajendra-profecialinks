@@ -6,7 +6,7 @@ module.exports = {
     store: 'metro-online',
     nextLinkSelector: "div[class='no-pagination-selector']",
     mutationSelector: null,
-    spinnerSelector: null,//"div[class='loadmorebtn ng-hide']",
+    spinnerSelector: "div[class='loadmorebtn'] div[class='loadmoreloader']",
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
