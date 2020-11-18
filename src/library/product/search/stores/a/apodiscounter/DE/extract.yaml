@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: "//div[@class='product_listing_single_row_wrapper']"
+recordXPath: "//div[contains(@class,'product_listing_single_row_wrapper')]"
 fields: 
-  - name: _url
+  - name: searchUrl
     singleValue: false 
-    xpath: //link[@rel="canonical"]//@href
+    xpath: //div[@id='page_url']
   - name: id
     singleValue: false
     xpath: //div[contains(@class,'product_listing_base_price')]//span[position()=1]
