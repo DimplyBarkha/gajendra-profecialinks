@@ -23,9 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@analytics-tag='product image']/ul/li[2]/a/img/@src
-  regExp: \"([A-z:\/\.\d]+)
-  regExpReplace: $1
+  xpath: //div[@analytics-tag='product image']/ul/li/following-sibling::li/a/img/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -33,39 +31,37 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //div[contains (@class,'jum-product-characteristics')]/@category
+  xpath: //title
+  regExp: '- (.+)$'
+  regExpReplace: $1
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //h1[@itemprop='name']
+  xpath: //meta[@name="description"]/@content
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: //div[contains (@class,'jum-product-characteristics')]/@price
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //div[contains (@class,'jum-product-characteristics')]/@price
+  xpath: concat(//span[@class='jum-product-price__current-price--larger'],',',//span[@class='jum-product-price__current-price--larger']/following-sibling::span)
+  #empty
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //div[@class='pb-right']//div[contains(@class, 'onlinePurchase')][1]
-  regExp: (.+)
-  regExpReplace: In Stock
-  defaultValue: Out of Stock
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: (//div[contains(@class, 'jum-nutritional-info jum-product-info-item')])[1]/font/font
+  xpath: //div[contains(@class, 'jum-nutritional-info')]/text()|//div[@class='jum-summary-description']/p
+  #empty
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//div[@itemprop='description'][not(//span[@itemprop='review']//div[@itemprop='description'])])
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -75,39 +71,43 @@ fields:
   singleValue: true
   description: Product manufacturer
   xpath: //div[contains(@class, 'jum-product-brand-info jum-product-info-item')]//a/@href
+  #empty
 - name: quantity
   singleValue: true
   description: Quantity as described on the page'
-  defaultValue: "1"
+  #empty
 - name: weightNet
   singleValue: true
-  description: Net weight as described on the page
-  xpath: //span[contains(text(), 'Poids net')]/ancestor::td/text()
+  description: Net weight as described on the pag
+  #empty
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
-  xpath: //span[@data-testautomation='pdp-subtitle']/font/font
+  #empty
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: //span[@itemprop='gtin13']
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //div[contains (@class,'jum-product-characteristics')]/@id
+  xpath: //div[@data-jum-product-details]/@data-jum-product-details
+  regExp: id":"(\w+)"
+  regExpReplace: $1
+  #empty
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //span[@itemprop='sku']
+  #empty
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
-  xpath: //span[@itemprop='productID']
+  #empty
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  #empty
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -120,24 +120,18 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
-  xpath: (//a[contains(text(), 'Avis clients')]/span)[1]
-  regExp: (\d+)
-  regExpReplace: $1
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
-  xpath: (//div[@class='BVRRRatingNormalOutOf'])[1]
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: (//div[@class='BVRRRatingNormalOutOf']/span[@class='BVRRNumber BVRRRatingNumber'])[1]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
-  xpath: //span[contains(text(), 'Dimensions l x h x p  :')]/ancestor::td/text()
 - name: shippingWeight
   singleValue: true
   description: Stated shipping weight
@@ -147,7 +141,6 @@ fields:
 - name: color
   singleValue: true
   description: A textual description of the colour
-  xpath: //span[contains(text(), 'Coloris')]/ancestor::td/text()
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -157,26 +150,22 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-  xpath: //div[@itemprop='description']//img/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
-  xpath: //div[@itemprop='description']//video/@src
 - name: name
   singleValue: true
   description: The product name
-  xpath: //div[contains (@class,'jum-product-characteristics')]/@name
+  xpath: //meta[@name="description"]/@content
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
-  xpath: //div[@class='pb-left']//p[@class='fix-price']
 - name: asin
   singleValue: true
   description: 
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
-  xpath: (//span[@class='priceDiscount on'])[1]
 - name: amazonChoice
   singleValue: true
   description: YES or Blank
@@ -185,7 +174,6 @@ fields:
   description: Text of link next to Amazon choice graphic
 - name: brandLink
   singleValue: true
-  xpath: //body[@brandhref]/@brandhref
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -217,7 +205,6 @@ fields:
   description: Parent asin
 - name: videoLength
   singleValue: false
-  xpath: //div[@itemprop='description']//video/@duration
 - name: ingredientImagePresent
   singleValue: true
   description: 
@@ -268,17 +255,20 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
-  singleValue: true
+  singleValue: false
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
   xpath: //div[contains(@class, 'jum-ingredients-info')]/ul/li
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
-  xpath: //tbody/tr[last()]/th
+  xpath: //thead/tr/th[last()]
 - name: servingSizeUom
   singleValue: true
   description: Unit of measure of serving
+  xpath: //thead/tr/th[last()]
+  regExp: (ml|g)
+  #empty
 - name: numberOfServingsInPackage
   singleValue: true
   description: Suggested number of servings of the product.
@@ -286,7 +276,8 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: //th[text()='Energie']/following-sibling::td[1]
+  xpath: //th[contains(text(), 'Energie')]/parent::tr/following-sibling::tr[1]/td[last()]
+  #empty
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -295,42 +286,48 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  xpath: //th[text()='Vetten']/following-sibling::td[1]
+  xpath: //th[contains(text(), 'Vetten')]/following-sibling::td[last()]
+  regExp: ^(\d+\.?\d*)
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content
-  xpath: //th[text()='Vetten']/following-sibling::td[1]
+  xpath: //th[contains(text(), 'Vetten')]/following-sibling::td[last()]
+  regExp: ([a-zA-Z]+)
 - name: saturatedFatPerServing
   singleValue: true
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
-  xpath: //th[text()='waarvan verzadigde vetzuren']/following-sibling::td[1]
-  regExp: (\d+\.?\d)
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'waarvan verzadigde vetzuren')]/following-sibling::td[last()]
+  regExp: ^(\d+\.?\d*)
 - name: saturatedFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Saturated Fat content
-  xpath: //th[text()='waarvan verzadigde vetzuren']/following-sibling::td[1]
-  regExp: ([^0-9.\s])
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'waarvan verzadigde vetzuren')]/following-sibling::td[last()]
+  regExp: ([a-zA-Z]+)
+  #empty
 - name: transFatPerServing
   singleValue: true
   description: Nutritional Information for Trans Fat content - Usually based on per
     100g serving
+  #empty
 - name: transFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Trans Fat content
+  #empty
 - name: cholesterolPerServing
   singleValue: true
   description: Nutritional Information for Cholesterol content - Usually based on
     per 100g serving
+  #empty
 - name: cholesterolPerServingUom
   singleValue: true
   description: Unit of Measure Data for Cholesterol content
+  #empty
 - name: sodiumPerServing
   singleValue: true
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
+  #empty
 - name: sodiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Sodium content
@@ -338,89 +335,92 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
-  xpath: //th[text()='Koolhydraten']/following-sibling::td[1]
-  regExp: (\d+\.?\d)
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'Koolhydraten')]/following-sibling::td[last()]
+  regExp: ^(\d+\.?\d*)
 - name: totalCarbPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Carbohydrate content
-  xpath: //th[text()='Koolhydraten']/following-sibling::td[1]
-  regExp: ([^0-9.\s])
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'Koolhydraten')]/following-sibling::td[last()]
+  regExp: ([a-zA-Z]+)
 - name: dietaryFibrePerServing
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
-  xpath: //th[text()='Vezels']/following-sibling::td[1]
-  regExp: (\d+\.?\d)
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'Vezels')]/following-sibling::td[last()]
+  regExp: ^(\d+\.?\d*)
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
-  xpath: //th[text()='Vezels']/following-sibling::td[1]
-  regExp: ([^0-9.\s])
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'Vezels')]/following-sibling::td[last()]
+  regExp: ([a-zA-Z]+)
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
-  xpath: //th[text()='waarvan suikers']/following-sibling::td[1]
-  regExp: (\d+\.?\d)
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'waarvan suikers')]/following-sibling::td[last()]
+  regExp: ^(\d+\.?\d*)
 - name: totalSugarsPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
-  xpath: //th[text()='waarvan suikers']/following-sibling::td[1]
-  regExp: ([^0-9.\s])
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'waarvan suikers')]/following-sibling::td[last()]
+  regExp: ([a-zA-Z]+)
 - name: proteinPerServing
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
-  xpath: //th[text()='Eiwitten']/following-sibling::td[1]
-  regExp: (\d+\.?\d)
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'Eiwitten')]/following-sibling::td[last()]
+  regExp: ^(\d+\.?\d*)
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
-  xpath: //th[text()='Eiwitten']/following-sibling::td[1]
-  regExp: ([^0-9.\s])
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'Eiwitten')]/following-sibling::td[last()]
+  regExp: ([a-zA-Z]+)
+  #empty
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
+  #empty
 - name: vitaminAPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin A
+  #empty
 - name: vitaminCPerServing
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
+  #empty
 - name: vitaminCPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin C
+  #empty
 - name: calciumPerServing
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
+  #empty
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
+  #empty
 - name: ironPerServing
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
+  #empty
 - name: ironPerServingUom
   singleValue: true
   description: Unit of Measure Data for Iron
+  #empty
 - name: dietarySymbols
   singleValue: true
   description: Information related to the dietary symbols of a specific product
+  #empty
 - name: magnesiumPerServing
   singleValue: true
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
+  #empty
 - name: magnesiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Magnesium
@@ -428,21 +428,22 @@ fields:
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
-  xpath: //th[text()='Zout']/following-sibling::td[1]
-  regExp: (\d+\.?\d)
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'Zout')]/following-sibling::td[last()]
+  regExp: ^(\d+\.?\d*)
 - name: saltPerServingUom
   singleValue: true
   description: Unit of Measure Data for Salt
-  xpath: //th[text()='Zout']/following-sibling::td[1]
-  regExp: ([^0-9.\s])
-  regExpReplace: $1
+  xpath: //th[contains(text(), 'Zout')]/following-sibling::td[last()]
+  regExp: ([a-zA-Z]+)
+  #empty
 - name: dietaryInformation
   singleValue: true
   description: 
+  #empty
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
+  #empty
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
@@ -458,10 +459,12 @@ fields:
 - name: recyclingInformation
   singleValue: true
   description: Recycling information associated with the product
-  xpath: (//div[contains(@class, 'jum-product-usage-safety')])[1]/ul/li
+  xpath: //div[contains(@class, 'jum-product-usage-safety')][1]/ul/li
+  #check
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
+  xpath: //div[contains(@class, 'jum-product-storage jum-product-info-item')]/p
 - name: packaging
   singleValue: true
   description: Packaging information
@@ -471,13 +474,13 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
-  xpath: //span[contains(@class, 'jum-product-price__unit-price')]/span/following-sibling::span
-  regExp: (\d+\,?\d+)\/
-  regExpReplace: $1
+  xpath: //span[contains(@class, 'jum-product-price__unit-price')]/span[not(contains(@class,'hidden'))]
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
-  xpath: //div[contains (@class,'jum-product-characteristics')]/@pricePerUnitUom
+  xpath: //span[contains(@class, 'jum-product-price__unit-price')]/span[not(contains(@class,'hidden'))]
+  regExp: (\w+)$
+  #empty
 - name: promotion
   singleValue: true
   description: promotion text on product page
@@ -513,7 +516,6 @@ fields:
   description: 
 - name: additionalDescBulletInfo
   singleValue: false
-  xpath: //div[@class='best-points bottom']|//div[@class='features-table enable-slidedown']
 - name: prop65Warning
   singleValue: true
   description: 
@@ -529,20 +531,19 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  xpath: //li[@class='notice-pdf-a']/@pdfpresent
   defaultValue: No
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -551,9 +552,9 @@ fields:
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: No
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: Yes
+  defaultValue: No

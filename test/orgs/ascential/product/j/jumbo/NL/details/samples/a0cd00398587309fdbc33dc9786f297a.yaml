@@ -1,0 +1,132 @@
+input:
+  id: 191655FLS
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=58e6ef92-c9ae-42fa-8967-7eef7601c40b/task=dda899b3-a5b0-4965-bfed-5f7c1619bbde/6dda8777-f88b-47d3-bde0-331a0a5d78ba.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/jumbo-original-olijfolie-1l/191655FLS/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/060220190035_191655FLS-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Jumbo Original Olijfolie 1L
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/060220190034_191655FLS-9_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+            category:
+              - text: Olijfolie warme toepassing
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Jumbo Original Olijfolie 1L
+                xpath: /html/head[1]/meta[8]/@content
+            description:
+              - text: >-
+                  Olijfolie - bestaande uit geraffineerde olijfoliën en
+                  olijfoliën van de eerste persing.
+
+                  Olie die uitsluitend bestaat uit geraffineerde olijfolie en rechtstreeks uit olijven verkregen olie.
+
+                  Deze plantaardige olie bevat veel onverzadigd vet dat goed is voor de gezondheid. Daarnaast staat olijfolie in de Schijf van Vijf.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+              - text: Classico original olijfolie
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[2]/text()[1]
+            brandText:
+              - text: http://Jumbo.com
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[9]/p[1]/a[1]/@href
+            manufacturer:
+              - text: http://Jumbo.com
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[9]/p[1]/a[1]/@href
+            sku:
+              - text: 191655FLS
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[1]/@data-jum-product-details
+            name:
+              - text: Jumbo Original Olijfolie 1L
+                xpath: /html/head[1]/meta[8]/@content
+            servingSize:
+              - text: per 15 ml
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/thead[1]/tr[1]/th[3]
+            servingSizeUom:
+              - text: ml
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/thead[1]/tr[1]/th[3]
+            caloriesPerServing:
+              - text: kcal 123
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServing:
+              - text: "13.7"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
+            saturatedFatPerServing:
+              - text: "2.3"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
+            totalCarbPerServing:
+              - text: "0.0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
+            dietaryFibrePerServing:
+              - text: "0.0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
+            totalSugarsPerServing:
+              - text: "0.0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
+            proteinPerServing:
+              - text: "0.0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[8]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[8]/td[2]
+            saltPerServing:
+              - text: "0.0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[9]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[9]/td[2]
+            recyclingInformation:
+              - text: "Recycling: Pakking: Plastic - Doorgaans gerecycled"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[6]/ul[1]/li[1]
+            productOtherInformation:
+              - text: "Ten minste houdbaar tot einde: zie fles. Koel en donker bewaren. Niet in
+                  de koelkast of in het directe zonlicht plaatsen. Olijfolie kan
+                  troebel worden bij minder dan 12°C. Dit is normaal. De olie
+                  wordt weer helder bij kamertemperatuur. Dit heeft geen invloed
+                  op de kwaliteit."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[7]/p[1]
+            pricePerUnit:
+              - text: 4,99/liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: 4,99
+        xpath: /
+    timestamp: 1605717085430
