@@ -1,4 +1,4 @@
-ksingleRecord: true
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -22,11 +22,9 @@ fields:
   - name: retailerIdFallback
     xpath: //body/@store-id
   - name: image
-    singleValue: true
     description: URL of the main product image
     xpath: //div[@class='prod-ProductImage']//img/@src
   - name: imageAlt
-    singleValue: true
     description: Alt text of the main product image
     xpath: //div[@class='prod-ProductImage']//img/@alt
   - name: alternateImages

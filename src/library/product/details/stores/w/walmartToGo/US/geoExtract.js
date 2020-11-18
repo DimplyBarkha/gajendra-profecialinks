@@ -12,8 +12,7 @@ async function implementation (
   async function setStoreInteraction ({ zipcode, storeId }) {
     await context.click('button[label="Change store"]');
     await context.waitForSelector('input[name="postalCode"]');
-    // await context.setInputValue('input[name="postalCode"]', zipcode);
-    await context.evaluate((zipcode) => { document.querySelector('input[name="postalCode"]').value = zipcode; }, zipcode);
+    await context.setInputValue('input[name="postalCode"]', zipcode);
     await context.click('button[data-automation-id="zipSearchBtn"]');
     await context.waitForSelector('[data-automation-id="selectFlyoutItem"]');
     const retry = await context.evaluate((storeId) => {
