@@ -3,9 +3,8 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //ul[@id="navlist"]/li
 fields:
-  # - name: id
-  #   singleValue: true
-  #   xpath: //div[@id='pd_id']
+  - name: id
+    xpath: //@li-productid
   - name: name
     xpath: //span[contains(@class,"productdescriptionbrand")] | //span[contains(@class,"productdescriptionname")]
   - name: productUrl
@@ -19,9 +18,9 @@ fields:
   - name: searchUrl
     xpath: //@searchurl
   - name: aggregateRating
-    xpath: //div[contains(@class,"reviews-container")]/div/div/a/@aria-label
+    xpath: //div[@data-bv-show="inline_rating"]/@rating
     # regExp: (.+)\sout
     # regExpReplace: $1
   - name: reviewCount
-    xpath: //div[contains(@class,"numReviews")]
+    xpath: //div[@data-bv-show="inline_rating"]/@review
     # regExp: (\d+)
