@@ -252,8 +252,9 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    singleValue: true
+    # singleValue: true
     description: null
+    xpath: count(//div[@id="product-detail-wrapper"]//div[contains(@class,"el-product-image-slider")]//*[contains(@id,"slick-slide")][not(contains(@class,'slick-active'))]//img//@src)
     type: NUMBER
   - name: news
     singleValue: true
