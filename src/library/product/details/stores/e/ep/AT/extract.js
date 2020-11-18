@@ -26,6 +26,39 @@ async function implementation (
     console.log('Video in product information is not present');
   }
 
+  // this script load late - hence waiting for it to ensure page loads properly.
+  const xpathForScript = '//div[@id="details-tab"]//div[contains(@class,"product-details-tab")]//div[contains(@id,"flix-inpage")]//*[contains(@type,"text/javascript")]';
+
+  const isScriptLoaded = await context.evaluate(async function (xpathForScript, reloadSec, maxTime) {
+    let element = document.evaluate(xpathForScript, document, null, 7, null);
+    window.scrollTo(0, document.body.scrollHeight);
+    async function timeout(ms) {
+      console.log('waiting for ' + ms + ' millisecs');
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    let count = 0;
+    while (element.snapshotLength === 0) {
+      count = count + reloadSec;
+      element = document.evaluate(xpathForScript, document, null, 7, null);
+      if (element && element.snapshotLength > 0) {
+        console.log('script found');
+        break;
+      }
+      await timeout(reloadSec);
+      if (count >= maxTime) {
+        console.log('script not found');
+        return false;
+      }
+    }
+    return true;
+  }, xpathForScript, 500, 30000);
+
+  if (isScriptLoaded) {
+    console.log('we have the script - which takes most time to load')
+  } else {
+    console.log('script is not loaded yet - check with xpathForScript');
+  }
+
   return await context.extract(productDetails, { transform });
 }
 
