@@ -26,12 +26,14 @@ fields:
     description: The offered price for the product
     xpath: //div[@class="campaign-banner__info offer"]/div[2]/span | //span[@class="price-section__price"]
     regExp: '\d+\.\d+'
-  # - name: rank
-  #   description: search/listing rank
-  #   type: NUMBER
-  # - name: rankOrganic
-  #   description: The position (rank) within the list excluding sponsored/paid results
-  #   type: NUMBER
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@id="rankOrganic"]
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[@id="rankOrganic"]
   - name: sponsored
     description: Is sponsored/paid
     defaultValue: false
@@ -40,6 +42,6 @@ fields:
     description: Unique id (within this extractor)
     xpath: //h3/span[2]
   - name: aggregateRating
-    xpath: //div[@class="star-rating__front"]/@style
+    xpath: //div[@id="aggregateRating"]
     type: NUMBER
   - name: hasVariants
