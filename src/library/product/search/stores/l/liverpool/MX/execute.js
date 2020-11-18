@@ -5,7 +5,7 @@ module.exports = {
     country: 'MX',
     store: 'liverpool',
     domain: 'liverpool.mx',
-    url: 'https://www.liverpool.com.mx/tienda?s=acondicionador%20para%20cabello%20rizado',
+    url: 'https://www.liverpool.com.mx/tienda?s={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',

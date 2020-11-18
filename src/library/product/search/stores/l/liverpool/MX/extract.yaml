@@ -15,11 +15,11 @@ fields:
   - name: id
     singleValue: true
     description: The product id
-    # xpath: //script[@type="application/ld+json"]
+    xpath: //script[@type="application/ld+json"]/@skuId
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    # xpath: //script[@type="application/ld+json"]/@skuId
+    xpath: //script[@type="application/ld+json"]/@skuId
   - name: price
     singleValue: true
     description: The offered price for the product
