@@ -96,7 +96,7 @@ fields:
     singleValue: true
     description: Content under "directions" header
   - name: warnings
-    xpath: //p[contains(text(),"WARNING")]/following-sibling::ul/li
+    xpath: //p[contains(text(),"WARNING")]/following-sibling::ul/li | //ul//li[contains(.,'Warning')]
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
@@ -125,8 +125,10 @@ fields:
     description: Number of variants listed
     type: NUMBER
   - name: color
-    singleValue: true
+    singleValue: false
     description: A textual description of the colour
+    xpath: //p[contains(@class,'ColourPickerstyles')]//text()
+    regExp: ([^\s]+$)
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -237,6 +239,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[contains(@id,'image')])
     type: NUMBER
   - name: news
     singleValue: true
