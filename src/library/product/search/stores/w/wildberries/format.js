@@ -17,17 +17,17 @@ const transform = (data, context) => {
                 : "";
           }
   
-          if (row.thumbnail) {
-            let loadedImageUrl = "";
-            row.thumbnail.map((item) => {
-              loadedImageUrl += `https:${item.text}`;
-            });
-            row.thumbnail = [
-              {
-                text: loadedImageUrl,
-              },
-            ];
-          }
+          // if (row.thumbnail) {
+          //   let loadedImageUrl = "";
+          //   row.thumbnail.map((item) => {
+          //     loadedImageUrl += `https:${item.text}`;
+          //   });
+          //   row.thumbnail = [
+          //     {
+          //       text: loadedImageUrl,
+          //     },
+          //   ];
+          // }
   
           if (!row.sponsored) {
             orgRankCounter = orgRankCounter + 1;

@@ -16,7 +16,7 @@ async function implementation (
         scrollTop += 1000;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
-          await stall(5000);
+          await stall(2000);
           break;
         }
       }
@@ -29,7 +29,7 @@ async function implementation (
       }
     });
   };
-  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
   await context.setLoadAllResources()
   await applyScroll(context);
   return await context.extract(productDetails, { transform });

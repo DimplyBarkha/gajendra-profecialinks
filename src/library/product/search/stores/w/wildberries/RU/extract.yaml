@@ -8,7 +8,8 @@ fields:
     xpath: //div[contains(@class,"j-card-item")]/@data-catalogercod1s
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,"card-item")]//div[contains(@class,"dtlist-inner-brand-name")]//span[contains(@class,"goods-name")]
+    xpath: //div[contains(@class,"card-item")]//div[contains(@class,"dtlist-inner-brand-name")]
+    #//span[contains(@class,"goods-name")]
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//a/@href
@@ -16,7 +17,11 @@ fields:
     regExpReplace: https://www.wildberries.ru$1    
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//img[contains(@class,"thumbnail")][1]/@src
+    xpath: //div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//img[contains(@class,"thumbnail")]/@data-original | //div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//img[contains(@class,"thumbnail")][1]/@src
+    # | :|//div[contains(@class,"dtList-inner")]//img[contains(@class,"thumbnail")][1]/@src
+    # |//div[contains(@class,"dtList-inner")]//img[contains(@class,"thumbnail")][1]/@src
+    regExp: (.+)
+    regExpReplace: https:$1    
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"products-container")]//div[contains(@class,"card-item")]//div[contains(@class,"dtList-inner")]//span[contains(@itemprop,"aggregateRating")]/@class
