@@ -53,7 +53,7 @@ fields:
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
-  # defaultValue: "In Stock"
+  defaultValue: "Out of Stock"
   xpath: //button[@class="gn-button gn-button--buy basketControls__add"]
   regExp: (.+)
   regExpReplace: "In Stock"
@@ -99,8 +99,8 @@ fields:
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
-  xpath: //meta[@property="og:url"]/@content
-  regExp: \d{4,}
+  xpath: //img[@class="bop-gallery__image"]//@src
+  regExp: \d{5,}
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
