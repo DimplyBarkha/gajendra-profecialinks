@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="fl-category--productlist"]/div[@data-ajaxcontent="productlist"]/div[contains(@class,"fl-category")]
+fields:
+  - name: productUrl
+    xpath: //div[@class="fl-product-tile--basic"]/a/@href
+  - name: thumbnail
+    xpath: //div[@class="fl-product-tile--basic"]//picture[@class="fl-picture"]/img/@srcset
+    regExp: (.+)
+    regExpReplace: http:$1
+  - name: name
+    xpath: //span[@class="fl-product-tile--name"]/span[@itemprop="name"]
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //div[@data-testid="fl-rating"]//span[@class="fl-rating--count"]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: price
+    xpath: //div[contains(@class,"fl-price")]//meta[@itemprop="price"]/@content
+  - name: rank
+  - name: rankOrganic
+  - name: id
+    xpath: //div[@class="fl-product-tile--basic"]/a/@href
+    regExp: =(\d+)
+    regExpReplace: $1
+  - name: aggregateRating2
+    xpath: //div[@data-testid="fl-rating"]/@class
+    regExp: (\d+)(\d+)
+    regExpReplace: $1.$2
+
