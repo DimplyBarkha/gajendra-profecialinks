@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //td[contains(@class,"products depth_1")]/table/tbody/tr
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //td[contains(@class,"product_url")]
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    regExp: (.+)/tr(.+)resize/(.+)
+    regExpReplace: $1/$3
+    xpath: //td[contains(@class,"image_url")]
+  - name: name
+    description: The product name
+    xpath: //td[@class="name depth_2"]
+  - name: sku
+    xpath: //td[@class="sku depth_2"]
+    description: The store-specific product identifier
+  - name: aggregateRating2
+    xpath: //td[@class="rating depth_2"]
+    description: The stated aggregate rating
+  - name: ratingCount
+    xpath: //td[contains(@class,"rating_count ")]
+    description: The number of ratings
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //td[contains(@class,"rating_count ")]
+  - name: price
+    description: The offered price for the 
+    xpath: //td[contains(@class,"final_price")]
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //td[contains(@class,"parent_id ")]
