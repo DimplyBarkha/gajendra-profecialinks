@@ -9,7 +9,7 @@ fields:
     regExpReplace: https://www.bringmeister.de/$1
     description: The URL for the product details page
   - name: thumbnail
-    xpath: //img/@srcset
+    xpath: //div[@class="css-1nj8hlg er7sitt0"]//@src
     regExp: (.+)
     regExpReplace: https://www.bringmeister.de/$1
     description: The URL for the product thumbnail image
