@@ -7,6 +7,8 @@ fields:
     singleValue: false
     xpath: //div[@data-widget='webSale']//div[contains(text(),'Товар закончился')]
     defaultValue: 'In Stock'
+    regExp: (.*)
+    regExpReplace: 'Out of stock'
   - name: nameExtended
     singleValue: false
     xpath: //div[@data-widget='webProductHeading']//h1
