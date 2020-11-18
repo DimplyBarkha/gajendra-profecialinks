@@ -71,6 +71,7 @@ async function implementation (
             }, ms);
           });
         }
+        await stall(1000);
       });
     };
     await applyScroll(context);
