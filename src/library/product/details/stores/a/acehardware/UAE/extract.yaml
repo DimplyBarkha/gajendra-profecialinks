@@ -37,7 +37,9 @@ fields:
     xpath: //div[contains(@class,'product-detail')]//span[@class='currency']
   - name: listPrice 
     singleValue: true
-    xpath: //div[@class="b-product__pricing"]//span[@itemprop="highPrice"]
+    #xpath: //div[@class="b-product__pricing"]//span[@itemprop="highPrice"]
+    xpath: //div[contains(@class,"product-price")]//span[contains(@class,"original-price")]
+    regExp: (\d+(\.)?(\,)?(\d+)?)
   - name: brandLink
     singleValue: true
     xpath: //a[@class="b-product__brand-link"]/@href
@@ -47,7 +49,8 @@ fields:
   - name: price
     singleValue: true
     # xpath: //div[@class="b-product__pricing"]//span[@itemprop="lowPrice"]
-    xpath: //div[contains(@class,'product-detail')]//span[@class='price']/span[1]
+    xpath: //div[contains(@class,'product-detail')]//span[@class='price' or @class='price offter']/span[1]
+    #xpath: //div[contains(@class,'product-detail')]//span[@class='price']/span[1]
   - name: availabilityText
     singleValue: false
     xpath: //button[@id="add-to-cart"]/@title
