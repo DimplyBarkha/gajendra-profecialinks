@@ -9,18 +9,18 @@ fields:
     xpath: (//div[contains(@class,"product-reference")])[position()=1]
     regExp: >-
       [0-9]+
-  - name: deliveryOptions
+  - name: shippingInfo
     singleValue: false
     xpath: //span[@class="shipping"]
-  - name: deliveryCharges
+  - name: shippingPrice
     singleValue: false
     xpath: //span[@class="shipping"]
     regExp: (?<=de )(.+)(?=\.)
     regExpReplace: $1
-  - name: discounts
+  - name: productDiscount
     singleValue: false
     xpath: //div[@class="stickers_container"]
-  - name: promotions
+  - name: promotion
     singleValue: false
     xpath: //div[@class="stickers_container"]
   - name: category
@@ -83,7 +83,7 @@ fields:
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
-  - name: productUrls
+  - name: productUrl
     singleValue: false
     xpath: //div[@id="my-url"]  
   - name: brandText
@@ -95,11 +95,11 @@ fields:
     singleValue: false
     description: Product manufacturer
     xpath: //div[@class='product-manufacturer']
-  - name: quantity
-    singleValue: false
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+  # - name: quantity
+  #   singleValue: false
+  #   description: Quantity as described on the page
+  #   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+  #   regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -115,7 +115,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-  - name: packSize
+  - name: quantity
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
@@ -147,12 +147,12 @@ fields:
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
-  - name: shippingDimensions
-    singleValue: false
-    description: Stated shipping dimensions
+  # - name: shippingInfo
+  #   singleValue: false
+  #   description: Shipping information for the product
+  # - name: shippingDimensions
+  #   singleValue: false
+  #   description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
@@ -462,9 +462,6 @@ fields:
   - name: pricePerUnitUom
     singleValue: false
     description: The unit of measurement used in price_per_unit
-  - name: promotion
-    singleValue: false
-    description: promotion text on product page
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
