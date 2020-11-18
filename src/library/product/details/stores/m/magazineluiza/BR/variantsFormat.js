@@ -11,7 +11,7 @@ const transform = (data) => {
         var scriptJSON = JSON.parse(row.variantId[0].text);
         if (scriptJSON.attributes) {
           var objectsInVariants = scriptJSON.attributes.length;
-          for( var i = 0; i < objectsInVariants.length; i++ ) {
+          for( var i = 0; i < objectsInVariants; i++ ) {
             var item = objectsInVariants[i];
             var tmpVariations = {};
             tmpVariations.variantId = [];
