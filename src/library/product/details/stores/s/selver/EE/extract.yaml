@@ -19,7 +19,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
+    xpath: //li[@itemprop="itemListElement"][position()>1][position()<last()]//span/text()
   - name: nameExtended
     singleValue: false
     xpath: //img[@itemprop="image"]/@title
@@ -41,11 +41,10 @@ fields:
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-    type: NUMBER
+    # type: NUMBER
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //th[contains(text(),"Tootja")]/following-sibling::td
   - name: manufacturer
     singleValue: false
     xpath: //th[contains(text(),"Tootja")]/following-sibling::td
@@ -66,7 +65,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
-    xpath: //th[contains(text(),"Ribakood")]/following-sibling::td
+    xpath: //div[@id="simple-product-wrapper"]/@data-product-id
   - name: variantId
     singleValue: false
     xpath: //th[contains(text(),"Ribakood")]/following-sibling::td
@@ -89,14 +88,14 @@ fields:
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    type: NUMBER
+    # type: NUMBER
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    # type: NUMBER
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -109,7 +108,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    type: NUMBER
+    # type: NUMBER
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -187,7 +186,7 @@ fields:
   - name: largeImageCount
     singleValue: false
     description: null
-    type: NUMBER
+    # type: NUMBER
   - name: variantAsins
     singleValue: false
     description: null
@@ -218,7 +217,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
-    type: NUMBER
+    # type: NUMBER
   - name: news
     singleValue: false
     description: null
@@ -240,16 +239,15 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: false
     description: Suggested number of servings of the product.
-    type: NUMBER
+    # type: NUMBER
   - name: caloriesPerServing
     singleValue: false
-    description: Nutritional Information for Calories Per Serving content - Usually
-      based on per 100g serving
+    xpath: //th[contains(text(),"Energiasisaldus ")]/following-sibling::td
   - name: caloriesFromFatPerServing
     singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: totalFatPerServing
     singleValue: false
     xpath: //th[contains(text(),"Rasvad")]/following-sibling::td
@@ -270,7 +268,7 @@ fields:
     singleValue: false
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: transFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Trans Fat content
@@ -278,7 +276,7 @@ fields:
     singleValue: false
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: cholesterolPerServingUom
     singleValue: false
     description: Unit of Measure Data for Cholesterol content
@@ -286,7 +284,7 @@ fields:
     singleValue: false
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: sodiumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Sodium content
@@ -304,7 +302,7 @@ fields:
     singleValue: false
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: dietaryFibrePerServingUom
     singleValue: false
     description: Unit of Measure Data for Dietary Fibre content
@@ -334,7 +332,7 @@ fields:
     singleValue: false
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: vitaminCPerServingUom
     singleValue: false
     description: Unit of Measure Data for Vitamin C
@@ -342,7 +340,7 @@ fields:
     singleValue: false
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
   - name: calciumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Calcium

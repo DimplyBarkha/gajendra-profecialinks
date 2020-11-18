@@ -10,8 +10,8 @@ fields:
     singleValue: false    
   - name: thumbnail
     xpath: //a[@class="product-image"]/img/@src
-    # regExp: (.*)hd_280x(.*)
-    # regExpReplace: $1hd_560x$2
+    regExp: (.+)
+    regExpReplace: https:$1
     singleValue: false
     description: The URL for the product thumbnail image
   - name: name
