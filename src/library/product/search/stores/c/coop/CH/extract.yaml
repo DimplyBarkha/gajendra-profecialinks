@@ -31,5 +31,9 @@ fields:
     regExp: \W\s(.+) sur 5
     regExpReplace: $1
   - name: reviewCount
+    SingleValue: false
+    xpath: //span[@itemprop="reviewCount"]/text()
+  - name: ratingCount
+    SingleValue: false
     xpath: //span[@itemprop="reviewCount"]/text()
     

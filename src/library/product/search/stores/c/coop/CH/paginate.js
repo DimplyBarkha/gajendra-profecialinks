@@ -4,7 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'CH',
     store: 'coop',
-    nextLinkSelector: 'a.list-page__trigger.list-page__trigger--inactive',
+    nextLinkSelector: 'a[style="display: block;"]',
+    //nextLinkSelector: 'span.list-page__trigger__text',
     // mutationSelector: null,
     // spinnerSelector: null,
     loadedSelector: 'ul.list-page__content li',
