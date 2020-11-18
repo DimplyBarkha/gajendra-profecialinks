@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'vikingdirect',
     domain: 'vikingdirect.fr',
-    loadedSelector: null,
+    loadedSelector: 'div[id="contentContainer"]',
     noResultsXPath: null,
     zipcode: '',
   },
