@@ -11,15 +11,16 @@ fields:
     xpath: //div[@id='content-center']//a//img[@itemprop='image']/@alt
   - name: name
     singleValue: false
-    xpath: //div[@id='content-center']//div[contains(@class, 'page-header')]//h1//span[@itemprop='name']/text()
+    xpath: //div[contains(@class,'page-header')]//h1
   - name: nameExtended
     singleValue: false
-    xpath: //div[@id='content-center']//div[contains(@class, 'page-header')]//h1//span[@itemprop='name']/text()
+    xpath: //div[contains(@class,'panel-body')]//h3[@itemprop="alternateName"]
   - name: sku
     singleValue: false
-    xpath: //div[@id='content-center']//div[contains(@class, 'page-header')]//h1//small[contains(@class, 'sku')]
-    regExp: .*\((\d+)\).*
-    regExpReplace: $1
+    xpath: //div[contains(@class,'hproduct')]//small[contains(@class,'sku')]//span
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'hproduct')]//small[contains(@class,'sku')]//span
   - name: price
     singleValue: false
     xpath: //div[contains(@class, 'panel-body')]//ul//li//span[@itemprop='price']/text()
@@ -27,7 +28,7 @@ fields:
     regExpReplace: £$1
   - name: manufacturer
     singleValue: false
-    xpath: //div[contains(@class, 'panel-body')]//ul//li//span[@itemprop='manufacturer']/text()
+    xpath: //div[contains(@class, 'panel-body')]//ul//li//span[@itemprop='manufacturer']/text() | //div[contains(@class, 'product-section')]//strong[contains(text(),'Manufacturer')]//following-sibling::span
   - name: description
     singleValue: false
     xpath: //div[contains(@class, 'product-section')]//span[@itemprop='description']
@@ -36,7 +37,7 @@ fields:
     xpath: (//div[contains(@class, 'product-section')]//strong[contains(text(), 'Brand')]/..//span)[1]
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@id='content-center']//h3[contains(text(), 'Ingredients')]/..//p
+    xpath: //div[contains(@class, 'product-section')]//h3[contains(text(),'Ingredients')]//following-sibling::p//text()
   - name: legalDisclaimer
     singleValue: false
     xpath: //div[@id='content-center']//h5[contains(text(), 'Disclaimer')]/..
@@ -60,4 +61,111 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: category
     singleValue: false
-    xpath: //ol[contains(@class, 'breadcrumb')]//li
+    xpath: (//ol[@class='breadcrumb']//li)[position()>1 and position()<last()]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class, 'panel-body')]//ul//li//span[contains(text(), 'Status:')]//following-sibling::span
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,'hproduct')]//div[contains(@class,'identifier')]//span[contains(text(),'EAN')]//following-sibling::span
+  - name: packSize
+    singleValue: false
+    xpath: //div[contains(@class,'hproduct')]//ul[contains(@class,'list-unstyled')]//span[contains(text(), 'Pack Size:')]//following-sibling::span
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@class, 'product-section')]//strong[contains(text(),'Preparation')]//following-sibling::span
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: servingSize
+    singleValue: false
+    xpath: (//div[@id='product-nutrition']//thead//th)[2]
+    regExp: ( .*\d)
+    regExpReplace: $1
+  - name: servingSizeUom
+    singleValue: false
+    xpath: (//div[@id='product-nutrition']//thead//th)[2]
+    regExp: (.*\d)(.*[^*])
+    regExpReplace: $2
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Energy')]//following-sibling::td[1]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Fat')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $1
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Fat')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $2
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'saturates')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $1
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'saturates')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $2
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Carbohydrate')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $1
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Carbohydrate')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $2
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Fibre')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $1
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Fibre')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $2
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'sugar')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $1
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'sugar')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $2
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Protein')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $1
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Protein')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $2
+  - name: saltPerServing
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Salt')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $1
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Salt')]//following-sibling::td[1]
+    regExp: (.*\d)(.*)
+    regExpReplace: $2
+  - name: alcoholContent
+    singleValue: false
+    xpath: (//div[contains(@class, 'product-section')]//h3[contains(text(),'Alcohol Information')]//..)[1]
+  - name: vitaminCPerServing
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Vitamin C')]//following-sibling::td[1]
+  - name: vitaminCPerServingUom
+    singleValue: false
+    xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Vitamin C')]//following-sibling::td[1]
