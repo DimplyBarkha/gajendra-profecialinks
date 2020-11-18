@@ -5,7 +5,7 @@ recordXPath: //tr[@id]
 fields:
   - name: id
     singleValue: false
-    xpath: normalize-space(//td/span/@productid)
+    xpath: //td/span/@productid
   - name: searchUrl
     singleValue: false
     xpath: (ancestor::html//th[@class='displaymode']/a/@href)[1]

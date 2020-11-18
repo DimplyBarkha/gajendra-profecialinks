@@ -2,11 +2,14 @@ input:
   keywords: Goldflex
   _url: http://pistorone.ch
 extractions:
-  - html: https://workbench.import.io/html/run=29e45968-8458-48e2-bdc4-3d3cc8aa9bd1/task=d6ef3a0a-c73f-4c35-ba5b-4b62811a1d76/5b9a8bb7-f9a6-4133-bb66-7dc1295d15e0.html
+  - html: https://workbench.import.io/html/run=c9631dfc-ea90-45b6-82c7-f0907eb3f9e2/task=174c590e-f631-4d61-b4d7-a1d32ff420ca/b39f92a1-a8f7-4ffe-b878-adab74704ccf.html
     extractionConfigId: product/search/stores/p/pistor/CH/extract
     data:
       - group:
-          - name:
+          - id:
+              - text: "2701"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[4]/span[1]/@productid
+            name:
               - text: Goldflex 10, Pflanzenölcrème, Bibox, Sais, 12 lt (mit 10% Butter)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[5]/span[1]/a[1]
             productUrl:
@@ -29,12 +32,13 @@ extractions:
                 raw: "1"
                 locale: de_CH
                 value: 1
-            id:
-              - text: "2701"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Goldflex&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "13867"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/td[4]/span[1]/@productid
+            name:
               - text: Goldflex, Pflanzenölcrème, Sais, 1 lt
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/td[5]/span[1]/a[1]
             productUrl:
@@ -57,12 +61,13 @@ extractions:
                 raw: "2"
                 locale: de_CH
                 value: 2
-            id:
-              - text: "2701"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Goldflex&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "2700"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/td[4]/span[1]/@productid
+            name:
               - text: Goldflex, Pflanzenölcrème, Bibox, Sais
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/td[5]/span[1]/a[1]
             productUrl:
@@ -85,10 +90,8 @@ extractions:
                 raw: "3"
                 locale: de_CH
                 value: 3
-            id:
-              - text: "2701"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Goldflex&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
         xpath: /html
-    timestamp: 1605613939201
+    timestamp: 1605705824616

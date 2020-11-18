@@ -2,11 +2,14 @@ input:
   keywords: Pasta
   _url: http://pistorone.ch
 extractions:
-  - html: https://workbench.import.io/html/run=29e45968-8458-48e2-bdc4-3d3cc8aa9bd1/task=0f708d80-e2f0-41c3-9931-24102b2f6ebf/47236c85-9cbd-428f-bfc8-7cc29db7dabd.html
+  - html: https://workbench.import.io/html/run=c9631dfc-ea90-45b6-82c7-f0907eb3f9e2/task=bfa4f035-5847-468c-9310-16644c6b9186/46e0307f-5143-427f-9aa6-f99bf5ad6af1.html
     extractionConfigId: product/search/stores/p/pistor/CH/extract
     data:
       - group:
-          - name:
+          - id:
+              - text: "10756"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[4]/span[1]/@productid
+            name:
               - text: TK-Agnolotti Alpenkräuter, Hilcona, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[5]/span[1]/a[1]
             productUrl:
@@ -29,12 +32,13 @@ extractions:
                 raw: "1"
                 locale: de_CH
                 value: 1
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16765"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/td[4]/span[1]/@productid
+            name:
               - text: "TK-Agnolotti Bärlauch, Hilcona, 2 x 2 kg, Saison: März-Mai"
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/td[5]/span[1]/a[1]
             productUrl:
@@ -57,12 +61,13 @@ extractions:
                 raw: "2"
                 locale: de_CH
                 value: 2
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "4265"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/td[4]/span[1]/@productid
+            name:
               - text: "TK-Agnolotti Kürbis, Hilcona, 2 x 2 kg, Saison: August-November"
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/td[5]/span[1]/a[1]
             productUrl:
@@ -85,12 +90,13 @@ extractions:
                 raw: "3"
                 locale: de_CH
                 value: 3
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16776"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[4]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli spinaci, CH Bio, Hilcona, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[4]/td[5]/span[1]/a[1]
             productUrl:
@@ -113,12 +119,13 @@ extractions:
                 raw: "4"
                 locale: de_CH
                 value: 4
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16389"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[5]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cannelloni nonna, Buitoni, 3 x 2 kg (gefüllt mit Ricotta und Spinat)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[5]/td[5]/span[1]/a[1]
             productUrl:
@@ -141,12 +148,13 @@ extractions:
                 raw: "5"
                 locale: de_CH
                 value: 5
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16838"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[6]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cannelloni alla zucca, 3 x 2 kg, ca. 120 St. (mit Kürbisfüllung)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[6]/td[5]/span[1]/a[1]
             productUrl:
@@ -169,12 +177,13 @@ extractions:
                 raw: "6"
                 locale: de_CH
                 value: 6
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16795"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[7]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cannelloni carne, Hilcona, ca. 50 g/St.
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[7]/td[5]/span[1]/a[1]
             productUrl:
@@ -197,12 +206,13 @@ extractions:
                 raw: "7"
                 locale: de_CH
                 value: 7
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41569"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[8]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cannelloni mediterraneo, Hilcona, ca. 50 g/St.
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[8]/td[5]/span[1]/a[1]
             productUrl:
@@ -225,12 +235,13 @@ extractions:
                 raw: "8"
                 locale: de_CH
                 value: 8
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16376"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[9]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cannelloni mozzarella pomodoro, Buitoni, 3 x 2 kg (gefüllt mit Tomaten
                   und Mozzarella)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[9]/td[5]/span[1]/a[1]
@@ -254,12 +265,13 @@ extractions:
                 raw: "9"
                 locale: de_CH
                 value: 9
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "4143"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[10]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cannelloni Padrone, frigemo, 3 x 2 kg, ca. 45 g/St.
                   (Broccoli-Spinat-Ricotta-Füllung)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[10]/td[5]/span[1]/a[1]
@@ -283,12 +295,13 @@ extractions:
                 raw: "10"
                 locale: de_CH
                 value: 10
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16793"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[11]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cannelloni ricotta e spinaci, Hilcona, ca. 45 g/St.
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[11]/td[5]/span[1]/a[1]
             productUrl:
@@ -311,12 +324,13 @@ extractions:
                 raw: "11"
                 locale: de_CH
                 value: 11
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16388"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[12]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cannelloni, Buitoni, 3 x 2 kg (gefüllt mit Schweizer Rindfleisch)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[12]/td[5]/span[1]/a[1]
             productUrl:
@@ -339,12 +353,13 @@ extractions:
                 raw: "12"
                 locale: de_CH
                 value: 12
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "4140"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[13]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cannelloni San Marco, frigemo, 3 x 2 kg (Schweizer
                   Rindfleisch-Gemüse-Füllung)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[13]/td[5]/span[1]/a[1]
@@ -368,12 +383,13 @@ extractions:
                 raw: "13"
                 locale: de_CH
                 value: 13
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16377"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[14]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cannelloni mediterraneo, Buitoni, 3 x 2 kg (gefüllt mit Gemüse)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[14]/td[5]/span[1]/a[1]
             productUrl:
@@ -396,12 +412,13 @@ extractions:
                 raw: "14"
                 locale: de_CH
                 value: 14
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10735"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[15]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cappelletti con carne, Caterline, 2 x 2 kg (Rindfleisch)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[15]/td[5]/span[1]/a[1]
             productUrl:
@@ -424,12 +441,13 @@ extractions:
                 raw: "15"
                 locale: de_CH
                 value: 15
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10435"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[16]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cappellini pomodoro e basilico
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[16]/td[5]/span[1]/a[1]
             productUrl:
@@ -452,12 +470,13 @@ extractions:
                 raw: "16"
                 locale: de_CH
                 value: 16
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16829"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[17]/td[4]/span[1]/@productid
+            name:
               - text: TK-Capuns Val Lumnezia, Kadi, ca. 40 St. à 50 g
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[17]/td[5]/span[1]/a[1]
             productUrl:
@@ -480,12 +499,13 @@ extractions:
                 raw: "17"
                 locale: de_CH
                 value: 17
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16830"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[18]/td[4]/span[1]/@productid
+            name:
               - text: TK-Capuns Vegi, Kadi, ca. 40 St. à 50 g
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[18]/td[5]/span[1]/a[1]
             productUrl:
@@ -508,12 +528,13 @@ extractions:
                 raw: "18"
                 locale: de_CH
                 value: 18
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10753"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[19]/td[4]/span[1]/@productid
+            name:
               - text: TK-Cuorelli Ratatouille, Hilcona, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[19]/td[5]/span[1]/a[1]
             productUrl:
@@ -536,12 +557,13 @@ extractions:
                 raw: "19"
                 locale: de_CH
                 value: 19
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16076"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[20]/td[4]/span[1]/@productid
+            name:
               - text: TK-Dreifarbige Penne, Surgital, 4 x 1 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[20]/td[5]/span[1]/a[1]
             productUrl:
@@ -564,12 +586,13 @@ extractions:
                 raw: "20"
                 locale: de_CH
                 value: 20
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41641"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[21]/td[4]/span[1]/@productid
+            name:
               - text: TK-Eierspätzli, glutenfrei, laktosefrei, Pastinella, 10 x 300 g
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[21]/td[5]/span[1]/a[1]
             productUrl:
@@ -592,12 +615,13 @@ extractions:
                 raw: "21"
                 locale: de_CH
                 value: 21
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16386"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[22]/td[4]/span[1]/@productid
+            name:
               - text: TK-Eierspätzli, Buitoni, 3 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[22]/td[5]/span[1]/a[1]
             productUrl:
@@ -620,12 +644,13 @@ extractions:
                 raw: "22"
                 locale: de_CH
                 value: 22
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16968"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[23]/td[4]/span[1]/@productid
+            name:
               - text: TK-Express Lasagne Bolognese, vorgratiniert, Hilcona, 20 x 400 g
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[23]/td[5]/span[1]/a[1]
             productUrl:
@@ -648,12 +673,13 @@ extractions:
                 raw: "23"
                 locale: de_CH
                 value: 23
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41701"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[24]/td[4]/span[1]/@productid
+            name:
               - text: TK-Fagottini Rohschinken, PRIMA PASTA, 2 x 2 kg (gefüllt mit Rohschinken
                   und Grana Padano)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[24]/td[5]/span[1]/a[1]
@@ -677,12 +703,13 @@ extractions:
                 raw: "24"
                 locale: de_CH
                 value: 24
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41702"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[25]/td[4]/span[1]/@productid
+            name:
               - text: TK-Fagottini Tartufo, PRIMA PASTA, 2 x 2 kg (gefüllt mit Ricotta, mit
                   weissem Trüffel-Geschmack)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[25]/td[5]/span[1]/a[1]
@@ -706,12 +733,13 @@ extractions:
                 raw: "25"
                 locale: de_CH
                 value: 25
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16073"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[26]/td[4]/span[1]/@productid
+            name:
               - text: TK-Farfalle, Surgital, 4 x 1 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[26]/td[5]/span[1]/a[1]
             productUrl:
@@ -734,12 +762,13 @@ extractions:
                 raw: "26"
                 locale: de_CH
                 value: 26
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41640"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[27]/td[4]/span[1]/@productid
+            name:
               - text: TK-Fiori, glutenfrei, laktosefrei, assortiert, Pastinella, 3 x 1 kg (Fiori
                   Ricotta Spinat, Fiori Tomaten Mozzarella, Fiori Rindfleisch)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[27]/td[5]/span[1]/a[1]
@@ -763,12 +792,13 @@ extractions:
                 raw: "27"
                 locale: de_CH
                 value: 27
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41637"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[28]/td[4]/span[1]/@productid
+            name:
               - text: TK-Fiori Ricotta Spinat, glutenfrei, laktosefrei, Pastinella, 3 x 1 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[28]/td[5]/span[1]/a[1]
             productUrl:
@@ -791,12 +821,13 @@ extractions:
                 raw: "28"
                 locale: de_CH
                 value: 28
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41639"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[29]/td[4]/span[1]/@productid
+            name:
               - text: TK-Fiori Rindfleisch, glutenfrei, laktosefrei, Pastinella, 3 x 1 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[29]/td[5]/span[1]/a[1]
             productUrl:
@@ -819,12 +850,13 @@ extractions:
                 raw: "29"
                 locale: de_CH
                 value: 29
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41638"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[30]/td[4]/span[1]/@productid
+            name:
               - text: TK-Fiori Tomaten Mozzarella, glutenfrei, laktosefrei, Pastinella, 3 x 1 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[30]/td[5]/span[1]/a[1]
             productUrl:
@@ -847,12 +879,13 @@ extractions:
                 raw: "30"
                 locale: de_CH
                 value: 30
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "26500"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[31]/td[4]/span[1]/@productid
+            name:
               - text: TK-Fusilli, vegan, vorgekocht, Hilcona, Ø 12 mm, L 45 mm
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[31]/td[5]/span[1]/a[1]
             productUrl:
@@ -875,12 +908,13 @@ extractions:
                 raw: "31"
                 locale: de_CH
                 value: 31
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16072"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[32]/td[4]/span[1]/@productid
+            name:
               - text: TK-Fusilli, Surgital, 4 x 1 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[32]/td[5]/span[1]/a[1]
             productUrl:
@@ -903,12 +937,13 @@ extractions:
                 raw: "32"
                 locale: de_CH
                 value: 32
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41676"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[33]/td[4]/span[1]/@productid
+            name:
               - text: "TK-Girasoli Bärlauch, Pastinella, 2 x 2 kg, Saison: März-Mai"
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[33]/td[5]/span[1]/a[1]
             productUrl:
@@ -931,12 +966,13 @@ extractions:
                 raw: "33"
                 locale: de_CH
                 value: 33
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41715"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[34]/td[4]/span[1]/@productid
+            name:
               - text: TK-Girasoli Rauchlachs, Pastinella, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[34]/td[5]/span[1]/a[1]
             productUrl:
@@ -959,12 +995,13 @@ extractions:
                 raw: "34"
                 locale: de_CH
                 value: 34
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "26597"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[35]/td[4]/span[1]/@productid
+            name:
               - text: TK-Girasoli Ziegenkäse Honig, Pastinella, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[35]/td[5]/span[1]/a[1]
             productUrl:
@@ -987,12 +1024,13 @@ extractions:
                 raw: "35"
                 locale: de_CH
                 value: 35
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41636"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[36]/td[4]/span[1]/@productid
+            name:
               - text: "TK-Girasoli Spargel Rohschinken, Pastinella, 2 x 2 kg, Saison: März-Mai"
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[36]/td[5]/span[1]/a[1]
             productUrl:
@@ -1015,12 +1053,13 @@ extractions:
                 raw: "36"
                 locale: de_CH
                 value: 36
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10421"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[37]/td[4]/span[1]/@productid
+            name:
               - text: TK-Lasagne Bolognese, Hilcona, 2 x 15 Portionen à 300 g
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[37]/td[5]/span[1]/a[1]
             productUrl:
@@ -1043,12 +1082,13 @@ extractions:
                 raw: "37"
                 locale: de_CH
                 value: 37
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10423"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[38]/td[4]/span[1]/@productid
+            name:
               - text: TK-Lasagne Gemüse, Hilcona, 2 x 15 Portionen
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[38]/td[5]/span[1]/a[1]
             productUrl:
@@ -1071,12 +1111,13 @@ extractions:
                 raw: "38"
                 locale: de_CH
                 value: 38
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10422"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[39]/td[4]/span[1]/@productid
+            name:
               - text: TK-Lasagne ricotta e spinaci, 2 x 15 Portionen
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[39]/td[5]/span[1]/a[1]
             productUrl:
@@ -1099,12 +1140,13 @@ extractions:
                 raw: "39"
                 locale: de_CH
                 value: 39
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41549"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[40]/td[4]/span[1]/@productid
+            name:
               - text: TK-Lasagne verdi Alfredo, frigemo, 10 x 360 g (Schweizer
                   Rindfleisch-Tomaten-Füllung, Béchamelsauce)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[40]/td[5]/span[1]/a[1]
@@ -1128,12 +1170,13 @@ extractions:
                 raw: "40"
                 locale: de_CH
                 value: 40
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41550"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[41]/td[4]/span[1]/@productid
+            name:
               - text: TK-Lasagne verdi Alfredo, frigemo, 4 x 2 kg (Schweizer
                   Rindfleisch-Tomaten-Füllung, Béchamelsauce)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[41]/td[5]/span[1]/a[1]
@@ -1157,12 +1200,13 @@ extractions:
                 raw: "41"
                 locale: de_CH
                 value: 41
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "40988"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[42]/td[4]/span[1]/@productid
+            name:
               - text: TK-Lasagne verdi al forno, Buitoni, 10 x 360 g (gefüllt mit Tomaten,
                   Schweizer Rindfleisch und Béchamelsauce)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[42]/td[5]/span[1]/a[1]
@@ -1186,12 +1230,13 @@ extractions:
                 raw: "42"
                 locale: de_CH
                 value: 42
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "40990"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[43]/td[4]/span[1]/@productid
+            name:
               - text: TK-Lasagne verdura, Buitoni, 10 x 360 g (gefüllt mit Gemüse und
                   Béchamelsauce)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[43]/td[5]/span[1]/a[1]
@@ -1215,12 +1260,13 @@ extractions:
                 raw: "43"
                 locale: de_CH
                 value: 43
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16967"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[44]/td[4]/span[1]/@productid
+            name:
               - text: TK-Lasagne verdura, vorgratiniert, Hilcona, 20 x 400 g
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[44]/td[5]/span[1]/a[1]
             productUrl:
@@ -1243,12 +1289,13 @@ extractions:
                 raw: "44"
                 locale: de_CH
                 value: 44
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41019"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[45]/td[4]/span[1]/@productid
+            name:
               - text: TK-Lasagne al forno, Buitoni, 4 x 2 kg (gefüllt mit Tomaten, Schweizer
                   Rindfleisch und Béchamelsauce)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[45]/td[5]/span[1]/a[1]
@@ -1272,12 +1319,13 @@ extractions:
                 raw: "45"
                 locale: de_CH
                 value: 45
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41642"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[46]/td[4]/span[1]/@productid
+            name:
               - text: TK-Medagliano Karotten Kräuter, vegan, Pastinella, 3 x 1 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[46]/td[5]/span[1]/a[1]
             productUrl:
@@ -1300,12 +1348,13 @@ extractions:
                 raw: "46"
                 locale: de_CH
                 value: 46
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41635"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[47]/td[4]/span[1]/@productid
+            name:
               - text: TK-Mezzelune Pilz, Pastinella, 3 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[47]/td[5]/span[1]/a[1]
             productUrl:
@@ -1328,12 +1377,13 @@ extractions:
                 raw: "47"
                 locale: de_CH
                 value: 47
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41634"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[48]/td[4]/span[1]/@productid
+            name:
               - text: TK-Mezzelune Tomaten Mozzarella, Pastinella, 3 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[48]/td[5]/span[1]/a[1]
             productUrl:
@@ -1356,12 +1406,13 @@ extractions:
                 raw: "48"
                 locale: de_CH
                 value: 48
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41592"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[49]/td[4]/span[1]/@productid
+            name:
               - text: TK-Noodles Ramen dünn
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[49]/td[5]/span[1]/a[1]
             productUrl:
@@ -1384,12 +1435,13 @@ extractions:
                 raw: "49"
                 locale: de_CH
                 value: 49
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16769"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[50]/td[4]/span[1]/@productid
+            name:
               - text: TK-Pastaspitzen mit Appenzellerkäse, Hilcona, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[50]/td[5]/span[1]/a[1]
             productUrl:
@@ -1412,12 +1464,13 @@ extractions:
                 raw: "50"
                 locale: de_CH
                 value: 50
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "14525"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[51]/td[4]/span[1]/@productid
+            name:
               - text: TK-Penne, Hilcona
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[51]/td[5]/span[1]/a[1]
             productUrl:
@@ -1440,12 +1493,13 @@ extractions:
                 raw: "51"
                 locale: de_CH
                 value: 51
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "40442"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[52]/td[4]/span[1]/@productid
+            name:
               - text: TK-Penne Integrale, Hilcona
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[52]/td[5]/span[1]/a[1]
             productUrl:
@@ -1468,12 +1522,13 @@ extractions:
                 raw: "52"
                 locale: de_CH
                 value: 52
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16071"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[53]/td[4]/span[1]/@productid
+            name:
               - text: TK-Penne rigate, Surgital, 4 x 1 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[53]/td[5]/span[1]/a[1]
             productUrl:
@@ -1496,12 +1551,13 @@ extractions:
                 raw: "53"
                 locale: de_CH
                 value: 53
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41665"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[54]/td[4]/span[1]/@productid
+            name:
               - text: TK-Penne rigate precotte, Surgital, 27 x 250 g
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[54]/td[5]/span[1]/a[1]
             productUrl:
@@ -1524,12 +1580,13 @@ extractions:
                 raw: "54"
                 locale: de_CH
                 value: 54
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "26705"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[55]/td[4]/span[1]/@productid
+            name:
               - text: TK-Pizokel, Hilcona, 2 x 2.5 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[55]/td[5]/span[1]/a[1]
             productUrl:
@@ -1552,12 +1609,13 @@ extractions:
                 raw: "55"
                 locale: de_CH
                 value: 55
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16009"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[56]/td[4]/span[1]/@productid
+            name:
               - text: TK-Pizokel, frigemo, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[56]/td[5]/span[1]/a[1]
             productUrl:
@@ -1580,12 +1638,13 @@ extractions:
                 raw: "56"
                 locale: de_CH
                 value: 56
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16966"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[57]/td[4]/span[1]/@productid
+            name:
               - text: TK-Quark-Pizokel mit Lauch, Hilcona, 2 x 2.5 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[57]/td[5]/span[1]/a[1]
             productUrl:
@@ -1608,12 +1667,13 @@ extractions:
                 raw: "57"
                 locale: de_CH
                 value: 57
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16775"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[58]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli carne, Hilcona, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[58]/td[5]/span[1]/a[1]
             productUrl:
@@ -1636,12 +1696,13 @@ extractions:
                 raw: "58"
                 locale: de_CH
                 value: 58
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "4133"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[59]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli Casalinga, frigemo, 2 x 2 kg (Schweizer
                   Rindfleisch-Spinat-Füllung)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[59]/td[5]/span[1]/a[1]
@@ -1665,12 +1726,13 @@ extractions:
                 raw: "59"
                 locale: de_CH
                 value: 59
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10739"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[60]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli con funghi porcini, Caterline, 4 x 1 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[60]/td[5]/span[1]/a[1]
             productUrl:
@@ -1693,12 +1755,13 @@ extractions:
                 raw: "60"
                 locale: de_CH
                 value: 60
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "40391"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[61]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli Gemüse Dal, vegan, Hilcona, 2 x 2 kg (Petersilien-Teigwaren mit
                   Gemüse, Kichererbsen und Linsen)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[61]/td[5]/span[1]/a[1]
@@ -1722,12 +1785,13 @@ extractions:
                 raw: "61"
                 locale: de_CH
                 value: 61
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "40268"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[62]/td[4]/span[1]/@productid
+            name:
               - text: "TK-Ravioli Hirsch, Hilcona, 2 x 2 kg, Saison: September-November"
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[62]/td[5]/span[1]/a[1]
             productUrl:
@@ -1750,12 +1814,13 @@ extractions:
                 raw: "62"
                 locale: de_CH
                 value: 62
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10438"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[63]/td[4]/span[1]/@productid
+            name:
               - text: TK-Raviolini formaggio, Hilcona
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[63]/td[5]/span[1]/a[1]
             productUrl:
@@ -1778,12 +1843,13 @@ extractions:
                 raw: "63"
                 locale: de_CH
                 value: 63
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "40390"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[64]/td[4]/span[1]/@productid
+            name:
               - text: TK-Raviolini Ratatouille, vegan, Hilcona
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[64]/td[5]/span[1]/a[1]
             productUrl:
@@ -1806,12 +1872,13 @@ extractions:
                 raw: "64"
                 locale: de_CH
                 value: 64
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10439"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[65]/td[4]/span[1]/@productid
+            name:
               - text: TK-Raviolini verdura, Hilcona
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[65]/td[5]/span[1]/a[1]
             productUrl:
@@ -1834,12 +1901,13 @@ extractions:
                 raw: "65"
                 locale: de_CH
                 value: 65
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16778"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[66]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli pesto, Hilcona, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[66]/td[5]/span[1]/a[1]
             productUrl:
@@ -1862,12 +1930,13 @@ extractions:
                 raw: "66"
                 locale: de_CH
                 value: 66
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10733"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[67]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli pomodoro e mozzarella, Caterline, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[67]/td[5]/span[1]/a[1]
             productUrl:
@@ -1890,12 +1959,13 @@ extractions:
                 raw: "67"
                 locale: de_CH
                 value: 67
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "10757"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[68]/td[4]/span[1]/@productid
+            name:
               - text: "TK-Ravioli Raclette, Hilcona, 2 x 2 kg, Saison: Mitte Oktober-Ende
                   Januar"
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[68]/td[5]/span[1]/a[1]
@@ -1919,12 +1989,13 @@ extractions:
                 raw: "68"
                 locale: de_CH
                 value: 68
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41681"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[69]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli Ratatouille, Pastinella, 3 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[69]/td[5]/span[1]/a[1]
             productUrl:
@@ -1947,12 +2018,13 @@ extractions:
                 raw: "69"
                 locale: de_CH
                 value: 69
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16254"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[70]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli Ricotta und Spinat, Surgital, 25 x 250 g
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[70]/td[5]/span[1]/a[1]
             productUrl:
@@ -1975,12 +2047,13 @@ extractions:
                 raw: "70"
                 locale: de_CH
                 value: 70
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "4243"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[71]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli rucola, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[71]/td[5]/span[1]/a[1]
             productUrl:
@@ -2003,12 +2076,13 @@ extractions:
                 raw: "71"
                 locale: de_CH
                 value: 71
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41716"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[72]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli Spinat, Pastinella, 3 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[72]/td[5]/span[1]/a[1]
             productUrl:
@@ -2031,12 +2105,13 @@ extractions:
                 raw: "72"
                 locale: de_CH
                 value: 72
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "26707"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[73]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli mit Spinat, Seidentofu und Mandeln, vegan, vorgekocht, Hilcona,
                   2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[73]/td[5]/span[1]/a[1]
@@ -2060,12 +2135,13 @@ extractions:
                 raw: "73"
                 locale: de_CH
                 value: 73
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "41703"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[74]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioli Tomate Mozzarella, PRIMA PASTA, 2 x 2 kg (gefüllt mit Ricotta,
                   Mozzarella, Tomaten und Basilikum)
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[74]/td[5]/span[1]/a[1]
@@ -2089,12 +2165,13 @@ extractions:
                 raw: "74"
                 locale: de_CH
                 value: 74
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16774"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[75]/td[4]/span[1]/@productid
+            name:
               - text: TK-Raviolo 5 formaggi, Hilcona, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[75]/td[5]/span[1]/a[1]
             productUrl:
@@ -2117,12 +2194,13 @@ extractions:
                 raw: "75"
                 locale: de_CH
                 value: 75
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "26706"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[76]/td[4]/span[1]/@productid
+            name:
               - text: TK-Raviolo Gemüse im Spinatteig, Hilcona, 2 x 2 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[76]/td[5]/span[1]/a[1]
             productUrl:
@@ -2145,12 +2223,13 @@ extractions:
                 raw: "76"
                 locale: de_CH
                 value: 76
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "26061"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[77]/td[4]/span[1]/@productid
+            name:
               - text: TK-Ravioloni Trüffel, Pastinella, 2 x 1.75 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[77]/td[5]/span[1]/a[1]
             productUrl:
@@ -2173,12 +2252,13 @@ extractions:
                 raw: "77"
                 locale: de_CH
                 value: 77
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16958"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[78]/td[4]/span[1]/@productid
+            name:
               - text: "TK-Raviolo Pfifferlinge, Hilcona, 2 x 2 kg, Saison: September-November"
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[78]/td[5]/span[1]/a[1]
             productUrl:
@@ -2201,12 +2281,13 @@ extractions:
                 raw: "78"
                 locale: de_CH
                 value: 78
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16788"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[79]/td[4]/span[1]/@productid
+            name:
               - text: TK-Rigatoni, Hilcona
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[79]/td[5]/span[1]/a[1]
             productUrl:
@@ -2229,12 +2310,13 @@ extractions:
                 raw: "79"
                 locale: de_CH
                 value: 79
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
-          - name:
+          - id:
+              - text: "16074"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[80]/td[4]/span[1]/@productid
+            name:
               - text: TK-Rigatoni, Surgital, 4 x 1 kg
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[80]/td[5]/span[1]/a[1]
             productUrl:
@@ -2257,10 +2339,8 @@ extractions:
                 raw: "80"
                 locale: de_CH
                 value: 80
-            id:
-              - text: "10756"
             searchUrl:
               - text: https://www.pistorone.ch/index.php/locale:de_CH/ctx:L2NhdGFsb2cy/search?add_article=Pasta&viewchange=1&displaymode=list
                 xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/th[3]/a[1]/@href
         xpath: /html
-    timestamp: 1605613942115
+    timestamp: 1605705826509
