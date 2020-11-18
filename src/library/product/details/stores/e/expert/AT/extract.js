@@ -63,6 +63,29 @@ module.exports = {
       return document.querySelector('li#tab-nav-external-content');
     });
 
+    const xpathForSpecification = '//div[contains(@class,"container-product-detail")]//div[contains(@id,"tab-content")]//div[contains(@class,"product_features")]//ul/li';
+
+    await context.evaluate(async function (xpathForSpecification) {
+      const newDiv = document.createElement('div');
+      newDiv.id = 'specification';
+      document.body.appendChild(newDiv);
+      let specElms = document.evaluate(xpathForSpecification, document, null, 7, null);
+      if(specElms.snapshotLength > 0) {
+        for (let index = 0; index < specElms.snapshotLength; index++) {
+          if (specElms.snapshotItem(index)) {
+            let newSpecli = document.createElement('div');
+            newSpecli.id = 'spec-' + index;
+            newSpecli.textContent = specElms.snapshotItem(index).textContent.trim().replace(/\s/g, "");
+            newDiv.appendChild(newSpecli);
+          } else {
+            console.log('we do not have the specification for ' + index + ' th element in the details tab');
+          }
+        }
+      } else {
+        console.log("we do not have specification - please check with xpathForSpecification");
+      }
+    }, xpathForSpecification)
+
     if (loadManufactuter) {
       await context.evaluate(async function () {
         if (document.querySelector('a[href="#tab-external-content"]')) {
