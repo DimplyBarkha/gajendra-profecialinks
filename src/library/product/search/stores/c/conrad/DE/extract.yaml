@@ -21,6 +21,9 @@ fields:
   - name: manufacturer
     xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//a[@class="ctaLink__brandLogo"]//picture//img/@title
     singleValue: false
+  - name: soldBy
+    xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//div[@class="product__sellerWrapper"]
+    singleValue: false
   - name: aggregateRating
     xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//div[@class="product__ratingWrapper"]//div[@class="product__ratingBase"]/@title | //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//div[@class="product__ratingWrapper"]//div[@class="product__ratingBase"]/@tabindex
     singleValue: false
