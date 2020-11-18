@@ -41,8 +41,10 @@ module.exports = {
         addElementToDocument('added_variantId', variantId);
       }
       const pricePerUnit = getXpath('//div[@class="push-to-bottom"]//span[@class="grey compare-price"]//text()', 'nodeValue');
-      addElementToDocument('added_pricePerUnit', pricePerUnit.split(' ')[2].replace(',', '.'));
-      addElementToDocument('added_pricePerUnitUom', pricePerUnit.split(' ')[3]);
+      if (pricePerUnit != null) {
+        addElementToDocument('added_pricePerUnit', pricePerUnit.split(' ')[2].replace(',', '.'));
+        addElementToDocument('added_pricePerUnitUom', pricePerUnit.split(' ')[3]);
+      }
       const priceCurrency = getXpath('//meta[@itemprop="priceCurrency"]//@content', 'nodeValue');
       const price = getXpath('//meta[@itemprop="price"]//@content', 'nodeValue');
       addElementToDocument('added_onlinePrice', priceCurrency + price);
