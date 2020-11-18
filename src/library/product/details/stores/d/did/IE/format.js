@@ -17,6 +17,13 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.manufacturerDescription = [{ text }];
+      }
       if (row.specifications) {
         let text = '';
         for (var i = 0; i < row.specifications.length; i = i + 2) {
