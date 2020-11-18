@@ -29,6 +29,11 @@ fields:
     SingleValue: false
     xpath: //span[@class="review-count"]
     type: NUMBER
-  - name: manufacturer
+  - name: gtin
     SingleValue: false
-    xpath: //div[contains(@class,"product-preamble")]//img/@alt
+    xpath:  //div[contains(@class,"product-tile__container")]//script[@type="application/ld+json"]
+    regExp: \"gtin13\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  # - name: manufacturer
+  #   SingleValue: false
+  #   xpath: //div[contains(@class,"product-preamble")]//img/@alt
