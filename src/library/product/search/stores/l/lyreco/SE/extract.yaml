@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singlevalue: false
+    xpath: //p[@class="prod_desc title title_xxs min-height-md-5"]//a[@id="productDetails"]
+  - name: image
+    singlevalue: false
+    xpath: //div[@id='listProductSearch']//img[@class="w-100 h-auto pt-1"]/@src
+  - name: id
+    singlevalue: false
+    xpath: //div[@class="col d-flex product2comp pt-1 px-0 grid__item border "]/@data-lineid
+  - name: url
+    singlevalue: true
+    xpath: //link[@rel="next"]/@href
+  - name: productUrl
+    singlevalue: false
+    xpath: //div[@id="listProductSearch"]//a[@id="productDetails"]/@href
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: rank
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
