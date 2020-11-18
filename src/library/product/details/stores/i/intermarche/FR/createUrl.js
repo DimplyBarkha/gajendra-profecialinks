@@ -1,12 +1,12 @@
-
 module.exports = {
-  implements: 'product/details/createUrl',
+  implements: "product/details/createUrl",
   parameterValues: {
-    domain: 'intermarche.com',
+    domain: "intermarche.com",
     prefix: null,
-    url: null,
-    country: 'FR',
-    store: 'intermarche',
-    zipcode: '',
+    url:
+      "https://www.intermarche.com/rechercheproduits/11770/recherche/{searchTerms}/product/{id}",
+    country: "FR",
+    store: "intermarche",
+    zipcode: "",
   },
 };
