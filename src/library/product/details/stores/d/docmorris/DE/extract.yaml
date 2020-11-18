@@ -1,0 +1,113 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: 'section.tab1'
+recordXPath: '//section[contains(@class,"tab1")]'
+fields:
+  - name: image
+    xpath: //div[@class="container-fluid"]//div//img[@data-initial-size="large"]/@src
+    regExp: (.+)
+    regExpReplace: https://www.docmorris.de$1
+  - name: imageAlt
+    xpath: //div[@class="container-fluid"]//div//img[@data-initial-size="large"]/@alt
+  - name: alternateImages
+  - name: metaKeywords
+  - name: category
+    xpath: ancestor::html//ul[@itemprop="breadcrumb"]//li[position()>1]//a//span[@itemprop="name"]
+  - name: nameExtended
+    xpath: concat(//h1[@itemprop="name"],' - ',//table[@class="product-detail-table"]//td[contains(.,"Packungsgröße:")]/following-sibling::td[1])
+  - name: listPrice
+    xpath: (//div[@class="content"]//table[@class="price-box"]//del[@class="uvp"])[1]
+  - name: price
+    xpath: (//div[@class="content"]//table[@class="price-box"]//span[@class="price"])[1]
+  - name: availabilityText
+    xpath: (//div[contains(@class,"trigger")]//p[contains(@class,"product-detail-table-availability")])[1]
+  - name: description
+    xpath: //div[contains(@class,"product-marketingText-wrap")]
+  - name: descriptionBullets
+    xpath: count(//div[contains(@class,"product-marketingText-wrap")]//li)
+  - name: brandText
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(@class,"product-marketingText-wrap")]//li/text()[1]
+  - name: manufacturer
+    xpath: (//table[@class="product-detail-table"]//td[contains(.,"Anbieter")]/following-sibling::td[1])[1]
+  - name: quantity
+    xpath: (//table[@class="product-detail-table"]//td[contains(.,"Packungsgröße")]/following-sibling::td[1])[1]
+  - name: weightNet
+  - name: weightGross
+  - name: gtin
+  - name: sku
+    xpath: (//table[@class="product-detail-table"]//td[contains(.,"PZN")]/following-sibling::td[1])[1]
+  - name: variantId
+  - name: mpc
+  - name: packSize
+    xpath: (//table[@class="product-detail-table"]//td[contains(.,"Packungsgröße")]/following-sibling::td[1])[1]
+  - name: legalDisclaimer
+  - name: directions
+    xpath: //div[contains(.,"Anwendungsgebiete")]/parent::div/following-sibling::div[contains(@class,"ccordion-content")][1]
+  - name: warnings
+    xpath: //div[@class="risikenhinweis"]
+  - name: ratingCount
+    xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[@class="rating__totalCount"]
+  - name: reviewCount
+    xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[@class="rating__totalCount"]
+  - name: aggregateRatingText
+    xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[contains(@class,"rating__averageRating")]
+  - name: aggregateRating
+    xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[contains(@class,"rating__averageRating")]
+  - name: shippingInfo
+  - name: shippingDimensions
+  - name: shippingWeight
+  - name: variantCount
+    xpath: count(//div[contains(@class,"product-specify")]//select[@id="selectPZNMobile"][@name="pzn"]//option[not(contains(@disabled,"disabled"))])
+  - name: color
+  - name: colorCode
+  - name: manufacturerDescription
+    xpath: //div[contains(@class,"box__shadow")]//a[contains(.," Beipackzettel")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.docmorris.de$1
+  - name: manufacturerImages
+  - name: videos
+  - name: name
+    xpath: //h1[@itemprop="name"]
+  - name: brandLink
+  - name: ingredientsList
+    xpath: //span[@class="pds__ingredient"]
+  - name: dietaryInformation
+  - name: specifications
+  - name: warranty
+  - name: storage
+  - name: countryOfOrigin
+  - name: allergyAdvice
+  - name: recyclingInformation
+  - name: productOtherInformation
+  - name: packaging
+  - name: additives
+  - name: pricePerUnit2
+    xpath: (//table[@class="price-box"]//td[@class="baseprice"][2])[1]
+    regExp: (.+)(/)(\s)?(\d+)?(\s)?(\w{1,2})?
+    regExpReplace: $1$2$3$4
+  - name: pricePerUnitUom
+    xpath: (//table[@class="price-box"]//td[@class="baseprice"][2])[1]
+    regExp: (.+)(/)(\s)?(\d+)?(\s)?(\w{1,2})?
+    regExpReplace: $6
+  - name: promotion
+  - name: alcoholContent
+  - name: variantInformation
+    xpath: ancestor::html//div[contains(@class,"product-specify")]//select[@id="selectPZNMobile"][@name="pzn"]//option[not(contains(@disabled,"disabled"))]
+  - name: firstVariant
+    xpath: ancestor::html//div[contains(@class,"product-specify")]//select[@id="selectPZNMobile"][@name="pzn"]//option[not(contains(@disabled,"disabled"))][1]/@value[1]
+  - name: variants
+    xpath: ancestor::html//div[contains(@class,"product-specify")]//select[@id="selectPZNMobile"][@name="pzn"]//option[not(contains(@disabled,"disabled"))]/@value
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: No

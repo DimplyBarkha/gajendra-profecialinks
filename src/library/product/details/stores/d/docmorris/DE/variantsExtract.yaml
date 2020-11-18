@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: '//div[contains(@class,"product-col")]//select[@id="selectPZNMobile"]//option[not(contains(@disabled,"disabled"))][not(contains(@selected,"selected"))] | (//input[@name="selectedProductPzn"])[1]'
+fields:
+  - name: variantId
+    xpath: //@value
+  - name: variantUrl
+    xpath: //@value
+    regExp: (.+)
+    regExpReplace: https://www.docmorris.de/search?query=$1
