@@ -8,57 +8,72 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
-  singleValue: (//meta[@itemprop="url"]/@content)[1]
+  singleValue: true
+  xpath: (//meta[@itemprop="url"]/@content)[1]
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //img[@class="pdp-image-main-img"]/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //img[@class="pdp-image-main-img"]/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //li[@class="slider-image alt"]/div/img/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
+  xpath: //ancestor::html//meta[@name="keywords"]/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //li[@class="pdp-breadcrumb-name"]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@class="product-title"]
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
+  xpath: //span[@class="pdpprice-row1-reg-price pdpprice-row1-reg-price-striked"]
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //p[@class="pdpprice-row2"]
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //div[@id="availability"]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //div[@id="productDetailsTabContent"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//div[@id="productDetailsTabContent"]//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //meta[@itemprop="brand"]/@content
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //meta[@itemprop="brand"]/@content
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  # xpath: //span[@class="size-swatch"]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -68,15 +83,18 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
+  xpath: (//div[@class="wc-fragment wc-no-focus"]/@data-gtin)[1]
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //div[@class="pdp-main-bazarvoice-ratings"]/div/@data-bv-productid
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //div[@class="pdp-main-bazarvoice-ratings"]/div/@data-bv-productid
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -94,12 +112,15 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //div[@class="bv_numReviews_text"]
+  regExp: \d+
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@class="bv_avgRating_component_container notranslate"]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -112,24 +133,30 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: count(//div[contains(@class,"pdp-product-swatch-outer")]) + count(//a[contains(@class,"pdp-size-swatch")])
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: //span[@class="sel-color-swatch"]
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //div[@id="PDP_web_collage"]
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+  xpath: //div[@id="PDP_web_collage"]//img/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //video/@src
 - name: name
   singleValue: true
   description: The product name
+  xpath: //h1[@class="product-title"]
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -139,6 +166,7 @@ fields:
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
+  xpath: //ul[@class="subpricinglist tag-nostyle-fatc-excl-price"]
 - name: amazonChoice
   singleValue: true
   description: YES or Blank
@@ -414,6 +442,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  xpath: //span[@class="sel-color-swatch"]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -426,7 +455,7 @@ fields:
     between variants, this will need analysis
 - name: variants
   singleValue: false
-  description: 
+  description: //div[contains(@class,"pdp-product-swatch")]/a/@data-skucolor | //a[contains(@class,"pdp-size-swatch")]/@title
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
