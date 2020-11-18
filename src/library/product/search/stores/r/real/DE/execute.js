@@ -7,7 +7,7 @@ module.exports = {
     domain: 'real.de',
     url: 'https://www.real.de/item/search/?search_value={searchTerms}&valueKey_search_value=',
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="alert -warning"]',
     zipcode: '',
   },
 };
