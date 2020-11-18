@@ -60,7 +60,7 @@ fields:
     regExpReplace:
   - name: price
     singleValue: false
-    xpath: //div[@class="product-price"]/span[@class="price"]/span[1]
+    xpath: //div[@class="product-price"]/span[contains(@class,"price") and not(contains(@class,"original"))]/span[1]
     regExp:
     regExpReplace:
   - name: manufacturer
