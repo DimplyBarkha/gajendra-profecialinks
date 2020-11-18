@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id='product_images']//div[@class='owl-item']//img//@src
+  - name: sku
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,'breadcrumb')]//li[position() >1]/a/span
+  - name: nameExtended
+    singleValue: false
+    xpath: //header[contains(@class,'product__header')]//h1
+  - name: name
+    singleValue: false
+    xpath: //header[contains(@class,'product__header')]//h1
+  - name: price
+    singleValue: false
+    xpath: //div[@id='main_price']//span[contains(@class,'product__price')]//span  
+  - name: listprice
+    singleValue: false
+    xpath: //div[@id='main_price']//span[contains(@class,'product__discount')]//span
+  - name: availabilityText
+    singleValue: false
+    xpath: //button[@id='pi_add_product_to_cart']
+    defaultValue: "In stock"
+  - name: description
+    singleValue: false
+    xpath: //div[@class='p0 py2-sm']//div[@class='prod__desc']
+  - name: ratingCount
+    sinngleValue: false
+    xpath: //div[@id='reviews_list']//div[contains(@class,'bg-white')]//div[contains(@class,'mt2')]//span//strong
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id='reviews_list']//div[contains(@class,'bg-white')]//div[1]//strong
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='product_images']//div[@class='owl-item']//img//@alt
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@id='opciones_desktop']//div[contains(@class,'js-opcion')]//input//@data-variant
