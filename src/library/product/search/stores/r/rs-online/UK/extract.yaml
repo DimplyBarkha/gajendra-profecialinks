@@ -17,6 +17,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="fixedImageColumn"]//img/@src|//figure[@class="image_10iIwerB"]/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
     type: NUMBER
@@ -28,3 +30,9 @@ fields:
     singleValue: false
     xpath: //span[@class="col-xs-12 price text-left"]|//span[@data-qa="price"]
     type: CURRENCY
+  - name: rank
+    singleValue: false
+    xpath: //html//div[@id='rankOrganic']/text()
+  - name: rankOrganic
+    singleValue: false
+    xpath: //html//div[@id='rankOrganic']/text()
