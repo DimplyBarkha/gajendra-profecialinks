@@ -24,7 +24,6 @@ module.exports = {
       products.forEach((product) => {
         const productElem = document.querySelector(`a[data-id="${product.sku}"]`);
         productElem.setAttribute('img', product.image);
-        if (product.rating.average) productElem.setAttribute('aggregate_rating2', product.rating.average.toString().replace('.', ','));
       });
     });
 

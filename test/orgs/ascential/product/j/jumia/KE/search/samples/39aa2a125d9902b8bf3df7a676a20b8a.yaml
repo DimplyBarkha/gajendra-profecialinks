@@ -2,7 +2,7 @@ input:
   keywords: Geisha soap
   _url: http://jumia.co.ke
 extractions:
-  - html: https://workbench.import.io/html/run=110b1387-09a4-47ad-a5de-5be82b20e78f/task=00a074c6-3f66-4a0c-bb71-67fd662381e6/44dddc61-7200-40d8-9275-adddc0f5e6c3.html
+  - html: https://workbench.import.io/html/run=cbc55402-81af-42c8-828c-b39fa71a01e9/task=2cac3f20-e789-43d8-a137-616db47f0960/2701aef4-cd82-48bc-91af-2aed545cbc29.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
@@ -20,7 +20,8 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
             aggregateRating2:
               - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@aggregate_rating2
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
             reviewCount:
               - text: "26"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]
@@ -44,7 +45,8 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
             aggregateRating2:
               - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@aggregate_rating2
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
             reviewCount:
               - text: "28"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
@@ -68,7 +70,8 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
             aggregateRating2:
               - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@aggregate_rating2
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
             reviewCount:
               - text: "18"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]
@@ -79,43 +82,44 @@ extractions:
               - text: KSh 86
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[1]
           - id:
-              - text: GE855DR1JVJT7NAFAMZ
+              - text: GE855HB0TRDQ1NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@data-id
             name:
-              - text: Geisha Aloe Vera And Honey Family Soap - 225g
+              - text: Geisha Soap Pink Value Pack 90gx4
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/geisha-aloe-vera-and-honey-family-soap-225g-19805839.html
+              - text: https://www.jumia.co.ke/geisha-soap-pink-value-pack-90gx4-16368994.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/93/850891/1.jpg?8515
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@img
-            price:
-              - text: KSh 172
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[1]
-          - id:
-              - text: GE855HB0TRDQ1NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@data-id
-            name:
-              - text: Geisha Soap Pink Value Pack 90gx4
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/geisha-soap-pink-value-pack-90gx4-16368994.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@href
-            thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/49/986361/1.jpg?5177
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@img
             aggregateRating2:
               - text: 4,5
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@aggregate_rating2
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
             reviewCount:
               - text: "23"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]
             ratingCount:
               - text: "23"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]
             price:
               - text: KSh 131
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE855DR1JVJT7NAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@data-id
+            name:
+              - text: Geisha Aloe Vera And Honey Family Soap - 225g
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/geisha-aloe-vera-and-honey-family-soap-225g-19805839.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/93/850891/1.jpg?8515
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@img
+            price:
+              - text: KSh 172
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[1]
           - id:
               - text: GE855HB1HPJ1DNAFAMZ
@@ -130,8 +134,9 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/90/210721/1.jpg?7744
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@img
             aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@aggregate_rating2
+              - text: 5,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
             reviewCount:
               - text: "9"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]
@@ -155,7 +160,8 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@img
             aggregateRating2:
               - text: 4,5
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@aggregate_rating2
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
             reviewCount:
               - text: "2"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]
@@ -165,5 +171,35 @@ extractions:
             price:
               - text: KSh 106
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE855ST17E4WFNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@data-id
+            name:
+              - text: Geisha Coconut Milk & Honey Soap - 225g
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/geisha-coconut-milk-honey-soap-225g-32038827.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/72/883023/1.jpg?5872
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@img
+            price:
+              - text: KSh 210
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE840ST15HC1RNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@data-id
+            name:
+              - text: Generic Geisha Lemon & Honey Soap - 225g
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-geisha-lemon-honey-soap-225g-32037696.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/69/673023/1.jpg?0767
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@img
+            price:
+              - text: KSh 280
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[1]
         xpath: /html
-    timestamp: 1605612635443
+    timestamp: 1605696146850

@@ -2,7 +2,7 @@ input:
   keywords: Surface cleaners
   _url: http://jumia.co.ke
 extractions:
-  - html: https://workbench.import.io/html/run=110b1387-09a4-47ad-a5de-5be82b20e78f/task=f113f605-169b-46e4-bbe9-ac57f515cebe/7ffb1333-9843-41e9-9683-858c8b027f61.html
+  - html: https://workbench.import.io/html/run=cbc55402-81af-42c8-828c-b39fa71a01e9/task=e2c8764e-b8fe-45d6-be52-90c45a2dc792/94486f80-35f9-4782-8ece-2539a4987b63.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
@@ -20,12 +20,13 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
             aggregateRating2:
               - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@aggregate_rating2
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[4]/div[1]
+                type: STRING
             reviewCount:
-              - text: "39"
+              - text: "40"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[4]
             ratingCount:
-              - text: "39"
+              - text: "40"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[4]
             price:
               - text: KSh 465
@@ -59,8 +60,9 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/06/306691/1.jpg?3546
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
             aggregateRating2:
-              - text: "4"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@aggregate_rating2
+              - text: 4,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[3]/div[1]
+                type: STRING
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[3]
@@ -99,7 +101,8 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@img
             aggregateRating2:
               - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@aggregate_rating2
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
             reviewCount:
               - text: "5"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
@@ -123,7 +126,8 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@img
             aggregateRating2:
               - text: 4,5
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@aggregate_rating2
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
             reviewCount:
               - text: "4"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]
@@ -134,76 +138,77 @@ extractions:
               - text: KSh 171
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[1]
           - id:
-              - text: AI393HL13WPBKNAFAMZ
+              - text: GL184OT03TEJLNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@data-id
+            name:
+              - text: Glassolene Glass&Shiny Surfaces Cleaner Citrus500ml
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/glassolene-glassshiny-surfaces-cleaner-citrus500ml-12701460.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/06/410721/1.jpg?3626
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@img
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]
+            price:
+              - text: KSh 162
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[1]
+          - id:
+              - text: AI393HL13WPBKNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@data-id
             name:
               - text: AICO Industrial 20L Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy
                   Efficient. For Cleaning Carpets Wet Surfaces
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/aico-industrial-20l-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfaces-23803076.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/67/030832/1.jpg?5210
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@img
-            price:
-              - text: KSh 12,900
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[1]
-          - id:
-              - text: AI393HL0L5T1QNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@data-id
-            name:
-              - text: AICO Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy Efficient. For
-                  Cleaning Carpets, Wet Surfaces,Upholstery...
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfacesupholstery...-aico-mpg208238.html
+              - text: https://www.jumia.co.ke/aico-industrial-20l-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfaces-23803076.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/35/542862/1.jpg?1684
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/67/030832/1.jpg?5210
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@img
             price:
-              - text: KSh 12,450
+              - text: KSh 12,900
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/div[2]/div[1]
           - id:
-              - text: GL184OT03TEJLNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@data-id
-            name:
-              - text: Glassolene Glass&Shiny Surfaces Cleaner Citrus500ml
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/glassolene-glassshiny-surfaces-cleaner-citrus500ml-12701460.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/06/410721/1.jpg?3626
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@img
-            aggregateRating2:
-              - text: 4,3
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@aggregate_rating2
-            reviewCount:
-              - text: "6"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[2]
-            ratingCount:
-              - text: "6"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[2]
-            price:
-              - text: KSh 162
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[1]
-          - id:
               - text: AI393HL0MM3P0NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@data-id
             name:
               - text: AICO 20 liters Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy Efficient.
                   For Cleaning Carpets, Wet Surfaces,Upholstery...
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/20-liters-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfacesupholstery...-aico-mpg177614.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/37/982772/1.jpg?3465
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@img
             price:
               - text: KSh 11,800
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[1]
+          - id:
+              - text: AI393HL0L5T1QNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@data-id
+            name:
+              - text: AICO Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy Efficient. For
+                  Cleaning Carpets, Wet Surfaces,Upholstery...
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfacesupholstery...-aico-mpg208238.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/35/542862/1.jpg?1684
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@img
+            price:
+              - text: KSh 12,450
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/div[1]
           - id:
               - text: GE840CP08Y7F8NAFAMZ
@@ -254,36 +259,36 @@ extractions:
               - text: KSh 43
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840HL1I0ZEENAFAMZ
+              - text: DE012CP1I39MPNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/@data-id
+            name:
+              - text: Dettol Multi Purpose Surface Cleaner - Lavender
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/dettol-multi-purpose-surface-cleaner-lavender-31715809.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/90/851713/1.jpg?5941
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/@img
+            price:
+              - text: KSh 1,000
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE840HL1I0ZEENAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/@data-id
             name:
               - text: Generic Pallet Sponge Cleaning Brush Kitchen Appliances Table Surface
                   Decontamination
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-pallet-sponge-cleaning-brush-kitchen-appliances-table-surface-decontamination-24154709.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/90/745142/1.jpg?2600
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/@img
-            price:
-              - text: KSh 107
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/div[2]/div[2]
-          - id:
-              - text: DE012CP1I39MPNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/@data-id
-            name:
-              - text: Dettol Multi Purpose Surface Cleaner - Lavender
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/dettol-multi-purpose-surface-cleaner-lavender-31715809.html
+              - text: https://www.jumia.co.ke/generic-pallet-sponge-cleaning-brush-kitchen-appliances-table-surface-decontamination-24154709.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/90/851713/1.jpg?5941
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/90/745142/1.jpg?2600
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/@img
             price:
-              - text: KSh 1,000
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/div[2]/div[1]
+              - text: KSh 107
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/div[2]/div[2]
           - id:
               - text: GE840FD050K3FNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/@data-id
@@ -300,184 +305,196 @@ extractions:
               - text: KSh 997
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840CP18QCVONAFAMZ
+              - text: AI393HL07TMW2NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@data-id
+            name:
+              - text: AICO L Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy Efficient. For
+                  Cleaning Carpets, Wet Surfaces,Upholstery...
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/l-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfacesupholstery...-aico-mpg174208.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/13/140002/1.jpg?8112
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@img
+            aggregateRating2:
+              - text: 5,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/div[3]/div[1]
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/div[3]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/div[3]
+            price:
+              - text: KSh 12,990
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE840CP18QCVONAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@data-id
             name:
               - text: Generic 3pcs Power Scrubber Brush Drill Brush Clean for Bathroom Surfaces
                   Tub Grout-Blue
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-3pcs-power-scrubber-brush-drill-brush-clean-for-bathroom-surfaces-tub-grout-blue-25823157.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/75/132852/1.jpg?8572
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@img
             price:
               - text: KSh 273
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/div[2]/div[2]
           - id:
               - text: GE840CP1KHR3ENAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@data-id
             name:
               - text: Generic Pallet Sponge Cleaning Brush Kitchen Appliances ble Surface
                   Deconmination-light green
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-pallet-sponge-cleaning-brush-kitchen-appliances-ble-surface-deconmination-light-green-26768849.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/94/886762/1.jpg?1726
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@img
-            price:
-              - text: KSh 41
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840CP1HCSKONAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@data-id
-            name:
-              - text: Generic Pallet Sponge Cleaning Brush Kitchen Appliances Table Surface
-                  Decontamination
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-pallet-sponge-cleaning-brush-kitchen-appliances-table-surface-decontamination-25561698.html
+              - text: https://www.jumia.co.ke/generic-pallet-sponge-cleaning-brush-kitchen-appliances-ble-surface-deconmination-light-green-26768849.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/89/616552/1.jpg?6384
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/94/886762/1.jpg?1726
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@img
             price:
-              - text: KSh 121
+              - text: KSh 41
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/div[2]/div[2]
           - id:
-              - text: AL895HL141MSGNAFAMZ
+              - text: AI393HL19YTJANAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@data-id
+            name:
+              - text: AICO 20 liters Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy Efficient.
+                  For Cleaning Carpets, Wet Surfaces,Upholstery...
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/aico-20-liters-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfacesupholstery...-20370277.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/77/207302/1.jpg?9242
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@img
+            aggregateRating2:
+              - text: 4,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/div[3]/div[1]
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/div[3]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/div[3]
+            price:
+              - text: KSh 11,000
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/div[1]
+          - id:
+              - text: AI393HL13GKB6NAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@data-id
+            name:
+              - text: AICO 20 liters Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy Efficient.
+                  For Cleaning Carpets, Wet Surfaces,Upholstery...
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/aico-20-liters-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfacesupholstery...-24877266.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/66/277842/1.jpg?3427
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@img
+            aggregateRating2:
+              - text: 4,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/div[3]/div[1]
+                type: STRING
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/div[3]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/div[3]
+            price:
+              - text: KSh 11,800
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/div[1]
+          - id:
+              - text: AL895HL141MSGNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@data-id
             name:
               - text: Generic Pallet Sponge Cleaning Brush Kitchen Appliances Table Surface
                   Decontamination light green
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-pallet-sponge-cleaning-brush-kitchen-appliances-table-surface-decontamination-light-green-23806276.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/67/260832/1.jpg?9423
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@img
             price:
               - text: KSh 44
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/div[2]/div[2]
           - id:
               - text: AL895HL1LB7C0NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@data-id
             name:
               - text: Generic Pallet Sponge Cleaning Brush Kitchen Appliances Table Surface
                   Decontamination light pink
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-pallet-sponge-cleaning-brush-kitchen-appliances-table-surface-decontamination-light-pink-23806269.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/96/260832/1.jpg?9423
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@img
             price:
               - text: KSh 107
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840CP10U592NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@data-id
-            name:
-              - text: Generic 3pcs Power Scrubber Brush Drill Clean for Bathroom Surfaces Tub
-                  Grout Blue
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-3pcs-power-scrubber-brush-drill-clean-for-bathroom-surfaces-tub-grout-blue-26627816.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/61/872662/1.jpg?4508
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@img
-            price:
-              - text: KSh 315
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/div[2]/div[2]
           - id:
               - text: GE840CP17VR3INAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@data-id
             name:
               - text: Generic TA Pallet Sponge Cleaning Brush Kitchen Appliances Table Surface
                   Decontamination-light green
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-ta-pallet-sponge-cleaning-brush-kitchen-appliances-table-surface-decontamination-light-green-24940737.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/73/704942/1.jpg?6559
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@img
-            price:
-              - text: KSh 41
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/div[2]/div[2]
-          - id:
-              - text: AI393HL02GQG2NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@data-id
-            name:
-              - text: AICO HIGH QUALITY Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy
-                  Efficient. For Cleaning Carpets, Wet Surfaces,Upholstery...
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/aico-high-quality-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfacesupholstery...-20004140.html
+              - text: https://www.jumia.co.ke/generic-ta-pallet-sponge-cleaning-brush-kitchen-appliances-table-surface-decontamination-light-green-24940737.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/04/140002/1.jpg?8112
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/73/704942/1.jpg?6559
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@img
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@aggregate_rating2
-            reviewCount:
-              - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/div[3]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/div[3]
             price:
-              - text: KSh 13,500
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/div[1]
+              - text: KSh 41
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840CP10U592NAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@data-id
+            name:
+              - text: Generic 3pcs Power Scrubber Brush Drill Clean for Bathroom Surfaces Tub
+                  Grout Blue
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-3pcs-power-scrubber-brush-drill-clean-for-bathroom-surfaces-tub-grout-blue-26627816.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/61/872662/1.jpg?4508
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@img
+            price:
+              - text: KSh 315
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[2]
           - id:
               - text: GE840OT1A992FNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@data-id
             name:
               - text: Generic Scrub surface usb charging electronic lighter men and women
                   windproof personality double fire electronic igniter(#Black
                   scrub)
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-igniterblack-scrub-19939677.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/77/693991/1.jpg?6183
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@img
-            price:
-              - text: KSh 8,713
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[2]
-          - id:
-              - text: AI393HL0DO1QSNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@data-id
-            name:
-              - text: AICO L Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy Efficient. For
-                  Cleaning Carpets, Wet Surfaces,Upholstery...
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/l-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfacesupholstery...-aico-mpg174208.html
+              - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-igniterblack-scrub-19939677.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/22/957012/1.jpg?3063
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/77/693991/1.jpg?6183
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@img
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@aggregate_rating2
-            reviewCount:
-              - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/div[3]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/div[3]
             price:
-              - text: KSh 13,000
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/div[1]
+              - text: KSh 8,713
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/div[2]
           - id:
               - text: GE840OT0N1CH3NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/@data-id
@@ -496,122 +513,130 @@ extractions:
               - text: KSh 9,927
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840OT0FW57RNAFAMZ
+              - text: AI393HL02GQG2NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@data-id
+            name:
+              - text: AICO HIGH QUALITY Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy
+                  Efficient. For Cleaning Carpets, Wet Surfaces,Upholstery...
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/aico-high-quality-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfacesupholstery...-20004140.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/04/140002/1.jpg?8112
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@img
+            aggregateRating2:
+              - text: 5,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/div[3]/div[1]
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/div[3]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/div[3]
+            price:
+              - text: KSh 13,500
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE840OT0FW57RNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@data-id
             name:
               - text: Generic Scrub surface usb charging electronic lighter men and women
                   windproof personality double fire electronic igniter(#Matt
                   blue)
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-ignitermatt-blue-19939662.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/26/693991/1.jpg?6128
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@img
             price:
               - text: KSh 8,713
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840CP1HCSKONAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@data-id
+            name:
+              - text: Generic Pallet Sponge Cleaning Brush Kitchen Appliances Table Surface
+                  Decontamination
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-pallet-sponge-cleaning-brush-kitchen-appliances-table-surface-decontamination-25561698.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/89/616552/1.jpg?6384
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@img
+            price:
+              - text: KSh 121
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/div[2]/div[2]
           - id:
               - text: GE840OT1G7L47NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@data-id
             name:
               - text: Generic High-end Electronic Lighter USB Charging Double Fire Arc Lighter
                   Metal Windproof Ice Surface Can Point Pipe Cigar
                   Lighter(#silver)
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-high-end-electronic-lighter-usb-charging-double-fire-arc-lighter-metal-windproof-ice-surface-can-point-pipe-cigar-lightersilver-19939678.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/87/693991/1.jpg?6183
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@img
             price:
               - text: KSh 9,927
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/div[2]/div[2]
           - id:
               - text: GE840OT0AJ8RRNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/@data-id
             name:
               - text: Generic Scrub surface usb charging electronic lighter men and women
                   windproof personality double fire electronic
                   igniter(#Champagne gold)
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-igniterchampagne-gold-19939671.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/17/693991/1.jpg?6185
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/@img
             price:
               - text: KSh 8,713
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/div[2]/div[2]
           - id:
               - text: GE840OT0H30FBNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@data-id
             name:
               - text: Generic Scrub surface usb charging electronic lighter men and women
                   windproof personality double fire electronic igniter(#Matt
                   silver)
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-ignitermatt-silver-19939682.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/28/693991/1.jpg?6183
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@img
             price:
               - text: KSh 8,713
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/div[2]/div[2]
           - id:
               - text: GE840OT0YCKYVNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/@data-id
             name:
               - text: Generic High-end Electronic Lighter USB Charging Double Fire Arc Lighter
                   Metal Windproof Ice Surface Can Point Pipe Cigar Lighter(#red)
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-high-end-electronic-lighter-usb-charging-double-fire-arc-lighter-metal-windproof-ice-surface-can-point-pipe-cigar-lighterred-19939675.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/57/693991/1.jpg?6183
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/@img
-            price:
-              - text: KSh 9,927
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840OT0LUH9JNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@data-id
-            name:
-              - text: Generic High-end Electronic Lighter USB Charging Double Fire Arc Lighter
-                  Metal Windproof Ice Surface Can Point Pipe Cigar
-                  Lighter(#black)
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-high-end-electronic-lighter-usb-charging-double-fire-arc-lighter-metal-windproof-ice-surface-can-point-pipe-cigar-lighterblack-19939663.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/36/693991/1.jpg?6128
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@img
-            price:
-              - text: KSh 9,927
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840OT1KZ1YFNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/@data-id
-            name:
-              - text: Generic Scrub surface usb charging electronic lighter men and women
-                  windproof personality double fire electronic igniter(#Matt
-                  black)
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-ignitermatt-black-19939659.html
+              - text: https://www.jumia.co.ke/generic-high-end-electronic-lighter-usb-charging-double-fire-arc-lighter-metal-windproof-ice-surface-can-point-pipe-cigar-lighterred-19939675.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/95/693991/1.jpg?6128
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/57/693991/1.jpg?6183
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/@img
             price:
-              - text: KSh 8,713
+              - text: KSh 9,927
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/div[2]/div[2]
           - id:
               - text: GE840HL1LYN24NAFAMZ
@@ -627,8 +652,9 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/97/3543/1.jpg?7781
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/@img
             aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/@aggregate_rating2
+              - text: 5,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/div[2]/div[4]/div[1]
+                type: STRING
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/div[2]/div[4]
@@ -639,76 +665,77 @@ extractions:
               - text: KSh 226
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/div[2]/div[2]
           - id:
-              - text: BR272CP043RUTNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/@data-id
-            name:
-              - text: Carrefour Mr.Sheen Surface Cold & Disinfectant 1L
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/carrefour-mr.sheen-surface-cold-disinfectant-1l-33549860.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/06/894533/1.jpg?3201
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/@img
-            price:
-              - text: KSh 619
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/div[2]/div[1]
-          - id:
-              - text: TR365HL1L1BGLNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@data-id
-            name:
-              - text: Tropikal Premium Surface Cleaner Lav Bberry 275ml
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/tropikal-premium-surface-cleaner-lav-bberry-275ml-12699759.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/95/799621/1.jpg?3412
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@img
-            aggregateRating2:
-              - text: "4"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@aggregate_rating2
-            reviewCount:
-              - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/div[2]/div[2]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/div[2]/div[2]
-            price:
-              - text: KSh 323
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/div[2]/div[1]
-          - id:
               - text: GE840CP0YUH60NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/@data-id
             name:
               - text: Generic OR Pallet Sponge Cleaning Brush Kitchen Appliances Table Surface
                   Decontamination light pink
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-or-pallet-sponge-cleaning-brush-kitchen-appliances-table-surface-decontamination-light-pink-27882585.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/58/528872/1.jpg?0363
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/@img
             price:
               - text: KSh 94
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/div[2]/div[2]
           - id:
               - text: GE840CP1BNXTKNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@data-id
             name:
               - text: Generic OR Pallet Sponge Cleaning Brush Kitchen Appliances Table Surface
                   Decontamination light green
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-or-pallet-sponge-cleaning-brush-kitchen-appliances-table-surface-decontamination-light-green-27885008.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/80/058872/1.jpg?0728
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@img
             price:
               - text: KSh 42
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/div[2]/div[2]
+          - id:
+              - text: BR272CP043RUTNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/@data-id
+            name:
+              - text: Carrefour Mr.Sheen Surface Cold & Disinfectant 1L
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/carrefour-mr.sheen-surface-cold-disinfectant-1l-33549860.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/06/894533/1.jpg?3201
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/@img
+            price:
+              - text: KSh 549
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/div[2]/div[1]
+          - id:
+              - text: TR365HL1L1BGLNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@data-id
+            name:
+              - text: Tropikal Premium Surface Cleaner Lav Bberry 275ml
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/tropikal-premium-surface-cleaner-lav-bberry-275ml-12699759.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/95/799621/1.jpg?3412
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@img
+            aggregateRating2:
+              - text: 4,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[3]/div[1]
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[3]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[3]
+            price:
+              - text: KSh 194
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[1]
           - id:
               - text: SA496OT0DD735NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@data-id
@@ -757,220 +784,226 @@ extractions:
               - text: KSh 519
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[42]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840PB163U5NNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/@data-id
-            name:
-              - text: Generic Smart Robot Vacuum Cleaner New Pure Clean Automatic Multi-Surface
-                  Dust Sweeper
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-smart-robot-vacuum-cleaner-new-pure-clean-automatic-multi-surface-dust-sweeper-32922707.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/722923/1.jpg?4362
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/@img
-            price:
-              - text: KSh 1,099
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/div[2]/div[2]
-          - id:
               - text: GE840AU01BNZ2NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/@data-id
             name:
               - text: Generic Pressure Washer Rotary Surface Patio Cleaner for KARCHER K Series
                   K2 K3 K4
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-20932220.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/02/223902/1.jpg?0163
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/@img
             price:
               - text: KSh 5,843
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840LS0V2IWPNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/@data-id
-            name:
-              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
-                  Scraper-white And Blue-S
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-s-31958125.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/52/185913/1.jpg?7548
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/@img
-            price:
-              - text: KSh 562
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/div[2]/div[2]
           - id:
               - text: AL895AU1F8O9TNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/@data-id
             name:
               - text: Generic High Pressure Air Pulse Car Cleaning Gun Surface Interior Exterior
                   Cleaner
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-gun-surface-interior-exterior-cleaner-12156068.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/86/065121/1.jpg?9032
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/@img
             aggregateRating2:
-              - text: "4"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@aggregate_rating2
+              - text: 4,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/div[2]/div[4]/div[1]
+                type: STRING
             reviewCount:
               - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/div[4]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/div[2]/div[4]
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/div[4]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/div[2]/div[4]
             price:
               - text: KSh 1,000
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/div[2]/div[2]
           - id:
               - text: GE840PB07NCFVNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/@data-id
             name:
               - text: Generic Magnetic Double Sides Window Glass Wiper Cleaner Surface Cleaning
                   Brush 15-24mm
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-magnetic-double-sides-window-glass-wiper-cleaner-surface-cleaning-brush-15-24mm-32564821.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/12/846523/1.jpg?7247
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/@img
             price:
               - text: KSh 1,599
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/div[2]/div[2]
           - id:
               - text: AI393HA0G49HGNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@data-id
             name:
               - text: AICO Industrial 20L Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy
                   Efficient. For Cleaning Carpets Wet Surfaces
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/industrial-20l-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfaces-aico-mpg218404.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/27/072772/1.jpg?7225
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@img
             price:
               - text: KSh 12,890
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE840OT1KZ1YFNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@data-id
+            name:
+              - text: Generic Scrub surface usb charging electronic lighter men and women
+                  windproof personality double fire electronic igniter(#Matt
+                  black)
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-ignitermatt-black-19939659.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/95/693991/1.jpg?6128
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@img
+            price:
+              - text: KSh 8,713
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840OT0LUH9JNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@data-id
+            name:
+              - text: Generic High-end Electronic Lighter USB Charging Double Fire Arc Lighter
+                  Metal Windproof Ice Surface Can Point Pipe Cigar
+                  Lighter(#black)
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-high-end-electronic-lighter-usb-charging-double-fire-arc-lighter-metal-windproof-ice-surface-can-point-pipe-cigar-lighterblack-19939663.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/36/693991/1.jpg?6128
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@img
+            price:
+              - text: KSh 9,927
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/div[2]
         xpath: /html
-    timestamp: 1605612655036
-  - html: https://workbench.import.io/html/run=110b1387-09a4-47ad-a5de-5be82b20e78f/task=f113f605-169b-46e4-bbe9-ac57f515cebe/8efe3bb5-49bb-4413-94aa-ee46f69a1bef.html
+    timestamp: 1605696166048
+  - html: https://workbench.import.io/html/run=cbc55402-81af-42c8-828c-b39fa71a01e9/task=e2c8764e-b8fe-45d6-be52-90c45a2dc792/a7cf2f61-8c60-419a-bf37-d7c3cd8dc605.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
           - id:
-              - text: AI393HA0G49HGNAFAMZ
+              - text: GE840OT0LUH9JNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@data-id
+            name:
+              - text: Generic High-end Electronic Lighter USB Charging Double Fire Arc Lighter
+                  Metal Windproof Ice Surface Can Point Pipe Cigar
+                  Lighter(#black)
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-high-end-electronic-lighter-usb-charging-double-fire-arc-lighter-metal-windproof-ice-surface-can-point-pipe-cigar-lighterblack-19939663.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/36/693991/1.jpg?6128
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
+            price:
+              - text: KSh 9,927
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840OT1KZ1YFNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@data-id
+            name:
+              - text: Generic Scrub surface usb charging electronic lighter men and women
+                  windproof personality double fire electronic igniter(#Matt
+                  black)
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-scrub-surface-usb-charging-electronic-lighter-men-and-women-windproof-personality-double-fire-electronic-ignitermatt-black-19939659.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/95/693991/1.jpg?6128
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
+            price:
+              - text: KSh 8,713
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
+          - id:
+              - text: AI393HA0G49HGNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@data-id
             name:
               - text: AICO Industrial 20L Wet & Dry Vacuum Cleaner , WD 3 Premium, Energy
                   Efficient. For Cleaning Carpets Wet Surfaces
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/industrial-20l-wet-dry-vacuum-cleaner-wd-3-premium-energy-efficient.-for-cleaning-carpets-wet-surfaces-aico-mpg218404.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/27/072772/1.jpg?7225
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
             price:
               - text: KSh 12,890
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[1]
           - id:
               - text: GE840PB07NCFVNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@data-id
             name:
               - text: Generic Magnetic Double Sides Window Glass Wiper Cleaner Surface Cleaning
                   Brush 15-24mm
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-magnetic-double-sides-window-glass-wiper-cleaner-surface-cleaning-brush-15-24mm-32564821.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/12/846523/1.jpg?7247
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@img
             price:
               - text: KSh 1,599
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]
           - id:
               - text: AL895AU1F8O9TNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@data-id
             name:
               - text: Generic High Pressure Air Pulse Car Cleaning Gun Surface Interior Exterior
                   Cleaner
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-gun-surface-interior-exterior-cleaner-12156068.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/86/065121/1.jpg?9032
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@img
             aggregateRating2:
-              - text: "4"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@aggregate_rating2
+              - text: 4,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[4]/div[1]
+                type: STRING
             reviewCount:
               - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[4]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[4]
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[4]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[4]
             price:
               - text: KSh 1,000
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840LS0V2IWPNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@data-id
-            name:
-              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
-                  Scraper-white And Blue-S
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-s-31958125.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/52/185913/1.jpg?7548
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@img
-            price:
-              - text: KSh 562
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
           - id:
               - text: GE840AU01BNZ2NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@data-id
             name:
               - text: Generic Pressure Washer Rotary Surface Patio Cleaner for KARCHER K Series
                   K2 K3 K4
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-20932220.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/02/223902/1.jpg?0163
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@img
-            price:
-              - text: KSh 5,843
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840PB163U5NNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@data-id
-            name:
-              - text: Generic Smart Robot Vacuum Cleaner New Pure Clean Automatic Multi-Surface
-                  Dust Sweeper
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-smart-robot-vacuum-cleaner-new-pure-clean-automatic-multi-surface-dust-sweeper-32922707.html
+              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-20932220.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/722923/1.jpg?4362
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/02/223902/1.jpg?0163
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@img
             price:
-              - text: KSh 1,099
+              - text: KSh 5,843
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]
           - id:
               - text: GE840OT177YY3NAFAMZ
@@ -1005,414 +1038,415 @@ extractions:
               - text: KSh 413
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840LS0CUVIHNAFAMZ
+              - text: GE840AU0FF6UENAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@data-id
             name:
-              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
-                  Scraper-white And Blue-M
+              - text: "Generic KANEED SL-915 Car Dash Duster Washable Microfiber Interior And
+                  Exterior Surface Cleaner Wax Treated Professional Detailing
+                  Tool, Size: 34 X 19cm"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-m-31959512.html
+              - text: https://www.jumia.co.ke/generic-kaneed-sl-915-car-dash-duster-washable-microfiber-interior-and-exterior-surface-cleaner-wax-treated-professional-detailing-tool-size-34-x-19cm-5920952.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/21/595913/1.jpg?8569
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/25/90295/1.jpg?5173
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@img
             price:
-              - text: KSh 1,026
+              - text: KSh 199
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840LS0K4A09NAFAMZ
+              - text: GE840LS0CUVIHNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@data-id
             name:
               - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
-                  Scraper-white And Blue-S
+                  Scraper-white And Blue-M
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-s-31919733.html
+              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-m-31959512.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/33/791913/1.jpg?8221
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/21/595913/1.jpg?8569
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@img
             price:
-              - text: KSh 281
+              - text: KSh 1,026
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840AU04OK53NAFAMZ
+              - text: GE840LS0V2IWPNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@data-id
             name:
-              - text: Generic Pressure Washer Rotary Surface Patio Cleaner for KARCHER K Series
-                  K2 K3 K4
+              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
+                  Scraper-white And Blue-S
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-11346870.html
+              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-s-31958125.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/07/864311/1.jpg?4803
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/52/185913/1.jpg?7548
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@img
             price:
-              - text: KSh 1,469
+              - text: KSh 562
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840LS10Q4F6NAFAMZ
+              - text: GE840PB163U5NNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[12]/a[1]/@data-id
             name:
-              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
-                  Scraper-white and blue
+              - text: Generic Smart Robot Vacuum Cleaner New Pure Clean Automatic Multi-Surface
+                  Dust Sweeper
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[12]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-26948616.html
+              - text: https://www.jumia.co.ke/generic-smart-robot-vacuum-cleaner-new-pure-clean-automatic-multi-surface-dust-sweeper-32922707.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[12]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/61/684962/1.jpg?3292
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/722923/1.jpg?4362
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[12]/a[1]/@img
             price:
-              - text: KSh 750
+              - text: KSh 1,099
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[12]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840AU15X02ZNAFAMZ
+              - text: GE840LS0K4A09NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/@data-id
             name:
-              - text: Generic Pressure Washer Rotary Surface Patio Cleaner for KARCHER K Series
-                  K2 K3 K4
+              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
+                  Scraper-white And Blue-S
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-11040407.html
+              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-s-31919733.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/404011/1.jpg?7685
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/33/791913/1.jpg?8221
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/@img
             price:
-              - text: KSh 1,469
+              - text: KSh 281
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840AU019OG1NAFAMZ
+              - text: GE840OT16JON3NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/@data-id
-            name:
-              - text: Generic Pressure Washer Rotary Surface Patio Cleaner for KARCHER K Series
-                  K2 K3 K4
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-10213120.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/02/131201/1.jpg?1492
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/@img
-            price:
-              - text: KSh 1,469
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840LS01LJQANAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/@data-id
-            name:
-              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
-                  Scraper-white and blue
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-26948620.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/02/684962/1.jpg?3291
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/@img
-            price:
-              - text: KSh 290
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840IP0U79GBNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/@data-id
-            name:
-              - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
-                  Surface Residual Shovel Hand Tools
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-32372705.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/50/727323/1.jpg?2852
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/@img
-            price:
-              - text: KSh 999
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840OT1LYLHRNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@data-id
             name:
               - text: Generic Black Aquarium Fish Tank Surface Skimmer Oil Film Remover Water
                   Protein Cleaner
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-black-aquarium-fish-tank-surface-skimmer-oil-film-remover-water-protein-cleaner-17225379.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@href
+              - text: https://www.jumia.co.ke/generic-black-aquarium-fish-tank-surface-skimmer-oil-film-remover-water-protein-cleaner-17226417.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/97/352271/1.jpg?1708
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@img
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/71/462271/1.jpg?1939
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/@img
             price:
               - text: KSh 519
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[14]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840AU04OK53NAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/@data-id
+            name:
+              - text: Generic Pressure Washer Rotary Surface Patio Cleaner for KARCHER K Series
+                  K2 K3 K4
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-11346870.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/07/864311/1.jpg?4803
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/@img
+            price:
+              - text: KSh 1,469
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[15]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840AU1LZRHZNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/@data-id
+            name:
+              - text: Generic Pressure Washer Rotary Surface Patio Cleaner for KARCHER K Series
+                  K2 K3 K4
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-11760479.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/97/406711/1.jpg?8885
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/@img
+            price:
+              - text: KSh 1,469
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[16]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840LS10Q4F6NAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@data-id
+            name:
+              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
+                  Scraper-white and blue
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-26948616.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/61/684962/1.jpg?3292
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/@img
+            price:
+              - text: KSh 750
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840IP0TN4FRNAFAMZ
+              - text: GE840LS01LJQANAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@data-id
+            name:
+              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
+                  Scraper-white and blue
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-26948620.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/02/684962/1.jpg?3291
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@img
+            price:
+              - text: KSh 290
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840IP0U79GBNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@data-id
             name:
               - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
                   Surface Residual Shovel Hand Tools
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-32372705.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/50/727323/1.jpg?2852
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@img
+            price:
+              - text: KSh 999
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840AU15X02ZNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@data-id
+            name:
+              - text: Generic Pressure Washer Rotary Surface Patio Cleaner for KARCHER K Series
+                  K2 K3 K4
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-11040407.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/404011/1.jpg?7685
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@img
+            price:
+              - text: KSh 1,469
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840OT1LYLHRNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@data-id
+            name:
+              - text: Generic Black Aquarium Fish Tank Surface Skimmer Oil Film Remover Water
+                  Protein Cleaner
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-black-aquarium-fish-tank-surface-skimmer-oil-film-remover-water-protein-cleaner-17225379.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/97/352271/1.jpg?1708
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@img
+            price:
+              - text: KSh 519
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840AU019OG1NAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@data-id
+            name:
+              - text: Generic Pressure Washer Rotary Surface Patio Cleaner for KARCHER K Series
+                  K2 K3 K4
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-10213120.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/02/131201/1.jpg?1492
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@img
+            price:
+              - text: KSh 1,469
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840IP0TN4FRNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@data-id
+            name:
+              - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
+                  Surface Residual Shovel Hand Tools
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-30778794.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/49/787703/1.jpg?9738
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@img
             price:
               - text: KSh 469
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840CA0X4CPJNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@data-id
+            name:
+              - text: Generic Magnetic Double Sides Window Glass Wiper Cleaner Surface Cleaning
+                  Brush 20-30MM
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-magnetic-double-sides-window-glass-wiper-cleaner-surface-cleaning-brush-20-30mm-32403655.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/55/630423/1.jpg?9737
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@img
+            price:
+              - text: KSh 1,969
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840CA0UV1SDNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@data-id
+            name:
+              - text: Generic Magnetic Double Sides Window Glass Wiper Cleaner Surface Cleaning
+                  Brush 20-30MM
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-magnetic-double-sides-window-glass-wiper-cleaner-surface-cleaning-brush-20-30mm-33173815.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/51/837133/1.jpg?4892
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@img
+            price:
+              - text: KSh 1,969
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[2]
           - id:
               - text: GE840LS00KDQ9NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@data-id
             name:
               - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
                   Scraper-white And Blue-M
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-m-31905900.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/00/950913/1.jpg?4988
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@img
             price:
               - text: KSh 513
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/div[2]
           - id:
               - text: GE840CA0HISSRNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/@data-id
             name:
               - text: Generic Magnetic Double Sides Window Glass Wiper Cleaner Surface Cleaning
                   Brush 20-30MM
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-magnetic-double-sides-window-glass-wiper-cleaner-surface-cleaning-brush-20-30mm-30603492.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/29/430603/1.jpg?0053
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/@img
             price:
               - text: KSh 1,969
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/div[2]/div[2]
           - id:
               - text: GE840LS0M09SSNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@data-id
             name:
               - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
                   Scraper-white and blue
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-25246963.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/36/964252/1.jpg?9955
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@img
             price:
               - text: KSh 290
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840CA0X4CPJNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@data-id
-            name:
-              - text: Generic Magnetic Double Sides Window Glass Wiper Cleaner Surface Cleaning
-                  Brush 20-30MM
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-magnetic-double-sides-window-glass-wiper-cleaner-surface-cleaning-brush-20-30mm-32403655.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/55/630423/1.jpg?9737
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/@img
-            price:
-              - text: KSh 1,969
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840CA0UV1SDNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@data-id
-            name:
-              - text: Generic Magnetic Double Sides Window Glass Wiper Cleaner Surface Cleaning
-                  Brush 20-30MM
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-magnetic-double-sides-window-glass-wiper-cleaner-surface-cleaning-brush-20-30mm-33173815.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/51/837133/1.jpg?4892
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@img
-            price:
-              - text: KSh 1,969
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840OT0XOJFZNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@data-id
-            name:
-              - text: Generic Black Aquarium Fish Tank Surface Skimmer Oil Film Remover Water
-                  Protein Cleaner
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-black-aquarium-fish-tank-surface-skimmer-oil-film-remover-water-protein-cleaner-17227565.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/56/572271/1.jpg?2849
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@img
-            price:
-              - text: KSh 519
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840OP0IMRVONAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@data-id
-            name:
-              - text: Generic OR High Pressure Air Pulse Car Cleaning Surface Interior Exterior
-                  Cleaner white
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-or-high-pressure-air-pulse-car-cleaning-surface-interior-exterior-cleaner-white-25659213.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/31/295652/1.jpg?1791
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@img
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@aggregate_rating2
-            reviewCount:
-              - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[4]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[4]
-            price:
-              - text: KSh 844
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840OT0N0R33NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@data-id
-            name:
-              - text: Generic Black Aquarium Fish Tank Surface Skimmer Oil Film Remover Water
-                  Protein Cleaner
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-black-aquarium-fish-tank-surface-skimmer-oil-film-remover-water-protein-cleaner-17266683.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/38/666271/1.jpg?7650
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@img
-            price:
-              - text: KSh 519
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/div[2]
           - id:
               - text: GE840AU0O89T2NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@data-id
             name:
               - text: Generic High Pressure Air Pulse Car Cleaning Gun Surface Interior Exterior
                   Cleaner
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-gun-surface-interior-exterior-cleaner-24769604.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/40/696742/1.jpg?1502
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/@img
-            price:
-              - text: KSh 1,000
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840AU1GZGP4NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@data-id
-            name:
-              - text: Generic High Pressure Air Pulse Car Cleaning Gun Surface Interior Exterior
-                  Cleaner white & black
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-gun-surface-interior-exterior-cleaner-white-black-23649988.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/88/994632/1.jpg?8943
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/@img
-            price:
-              - text: KSh 1,010
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840AU1LZRHZNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@data-id
-            name:
-              - text: Generic Pressure Washer Rotary Surface Patio Cleaner for KARCHER K Series
-                  K2 K3 K4
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-11760479.html
+              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-gun-surface-interior-exterior-cleaner-24769604.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/97/406711/1.jpg?8885
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/40/696742/1.jpg?1502
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@img
             price:
-              - text: KSh 1,469
+              - text: KSh 1,000
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840OT16JON3NAFAMZ
+              - text: GE840OT0XOJFZNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@data-id
             name:
               - text: Generic Black Aquarium Fish Tank Surface Skimmer Oil Film Remover Water
                   Protein Cleaner
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-black-aquarium-fish-tank-surface-skimmer-oil-film-remover-water-protein-cleaner-17226417.html
+              - text: https://www.jumia.co.ke/generic-black-aquarium-fish-tank-surface-skimmer-oil-film-remover-water-protein-cleaner-17227565.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/71/462271/1.jpg?1939
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/56/572271/1.jpg?2849
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/@img
             price:
               - text: KSh 519
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[30]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840CP13KSEQNAFAMZ
+              - text: GE840OT0N0R33NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@data-id
             name:
-              - text: Generic High Pressure Air Pulse Car Cleaning Surface Interior Exterior
-                  Cleaner-white & black
+              - text: Generic Black Aquarium Fish Tank Surface Skimmer Oil Film Remover Water
+                  Protein Cleaner
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-surface-interior-exterior-cleaner-white-black-26947466.html
+              - text: https://www.jumia.co.ke/generic-black-aquarium-fish-tank-surface-skimmer-oil-film-remover-water-protein-cleaner-17266683.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/66/474962/1.jpg?2869
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/38/666271/1.jpg?7650
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/@img
             price:
-              - text: KSh 1,126
+              - text: KSh 519
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[31]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840IP0M8BWFNAFAMZ
+              - text: GE840OP0IMRVONAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/@data-id
             name:
-              - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
-                  Surface Residual Shovel Hand Tools
+              - text: Generic OR High Pressure Air Pulse Car Cleaning Surface Interior Exterior
+                  Cleaner white
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-32204373.html
+              - text: https://www.jumia.co.ke/generic-or-high-pressure-air-pulse-car-cleaning-surface-interior-exterior-cleaner-white-25659213.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/37/340223/1.jpg?4149
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/31/295652/1.jpg?1791
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/@img
+            aggregateRating2:
+              - text: 5,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/div[2]/div[4]/div[1]
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/div[2]/div[4]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/div[2]/div[4]
             price:
-              - text: KSh 999
+              - text: KSh 844
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[32]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840AU0SS2CANAFAMZ
+              - text: GE840AU1GZGP4NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@data-id
             name:
-              - text: "Generic KANEED SL-915 Car Dash Duster Washable Microfiber Interior And
-                  Exterior Surface Cleaner Wax Treated Professional Detailing
-                  Tool, Size: 34 X 19cm(Blue)"
+              - text: Generic High Pressure Air Pulse Car Cleaning Gun Surface Interior Exterior
+                  Cleaner white & black
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-kaneed-sl-915-car-dash-duster-washable-microfiber-interior-and-exterior-surface-cleaner-wax-treated-professional-detailing-tool-size-34-x-19cmblue-5683384.html
+              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-gun-surface-interior-exterior-cleaner-white-black-23649988.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/48/33865/1.jpg?5478
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/88/994632/1.jpg?8943
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/@img
             price:
-              - text: KSh 199
+              - text: KSh 1,010
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[33]/a[1]/div[2]/div[2]
           - id:
               - text: GE840AU0WRMFONAFAMZ
@@ -1432,54 +1466,53 @@ extractions:
               - text: KSh 199
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[34]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840AU0FF6UENAFAMZ
+              - text: GE840AU0SS2CANAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/@data-id
             name:
               - text: "Generic KANEED SL-915 Car Dash Duster Washable Microfiber Interior And
                   Exterior Surface Cleaner Wax Treated Professional Detailing
-                  Tool, Size: 34 X 19cm"
+                  Tool, Size: 34 X 19cm(Blue)"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-kaneed-sl-915-car-dash-duster-washable-microfiber-interior-and-exterior-surface-cleaner-wax-treated-professional-detailing-tool-size-34-x-19cm-5920952.html
+              - text: https://www.jumia.co.ke/generic-kaneed-sl-915-car-dash-duster-washable-microfiber-interior-and-exterior-surface-cleaner-wax-treated-professional-detailing-tool-size-34-x-19cmblue-5683384.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/25/90295/1.jpg?5173
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/48/33865/1.jpg?5478
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/@img
             price:
               - text: KSh 199
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[35]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840AU1CYTT0NAFAMZ
+              - text: GE840CP13KSEQNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/@data-id
             name:
-              - text: "Generic Kaneed Sl-915 Car Dash Duster Washable Microfiber Interior And
-                  Exterior Surface Cleaner Wax Treated Professional Detailing
-                  Tool, Size: 34 X 19cm(blue)"
+              - text: Generic High Pressure Air Pulse Car Cleaning Surface Interior Exterior
+                  Cleaner-white & black
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-kaneed-sl-915-car-dash-duster-washable-microfiber-interior-and-exterior-surface-cleaner-wax-treated-professional-detailing-tool-size-34-x-19cmblue-564228.html
+              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-surface-interior-exterior-cleaner-white-black-26947466.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/82/2465/1.jpg?4274
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/66/474962/1.jpg?2869
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/@img
             price:
-              - text: KSh 199
+              - text: KSh 1,126
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[36]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840LS0OTGBMNAFAMZ
+              - text: GE840IP0M8BWFNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@data-id
             name:
-              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
-                  Scraper-white and blue
+              - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
+                  Surface Residual Shovel Hand Tools
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-26948614.html
+              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-32204373.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/41/684962/1.jpg?3292
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/37/340223/1.jpg?4149
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/@img
             price:
-              - text: KSh 530
+              - text: KSh 999
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[37]/a[1]/div[2]/div[2]
           - id:
               - text: GE840OT1E68WFNAFAMZ
@@ -1498,35 +1531,37 @@ extractions:
               - text: KSh 519
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840OP113MN3NAFAMZ
+              - text: GE840AU1CYTT0NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@data-id
             name:
-              - text: Generic Pressure Washer Rotary Surface Patio Cleaner For K
+              - text: "Generic Kaneed Sl-915 Car Dash Duster Washable Microfiber Interior And
+                  Exterior Surface Cleaner Wax Treated Professional Detailing
+                  Tool, Size: 34 X 19cm(blue)"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-k-30151326.html
+              - text: https://www.jumia.co.ke/generic-kaneed-sl-915-car-dash-duster-washable-microfiber-interior-and-exterior-surface-cleaner-wax-treated-professional-detailing-tool-size-34-x-19cmblue-564228.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/62/315103/1.jpg?4032
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/82/2465/1.jpg?4274
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@img
             price:
-              - text: KSh 4,470
+              - text: KSh 199
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840LS044U7WNAFAMZ
+              - text: GE840LS0OTGBMNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@data-id
             name:
               - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
                   Scraper-white and blue
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-25244960.html
+              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-26948614.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/06/944252/1.jpg?9786
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/41/684962/1.jpg?3292
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@img
             price:
-              - text: KSh 750
+              - text: KSh 530
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/div[2]/div[2]
           - id:
               - text: GE840IP1DQ9BNNAFAMZ
@@ -1545,52 +1580,52 @@ extractions:
               - text: KSh 999
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[41]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840CP0AZEI1NAFAMZ
+              - text: GE840IP1ALB19NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[42]/a[1]/@data-id
             name:
-              - text: Generic High Pressure Air Pulse Car Cleaning Surface Interior Exterior
-                  Cleaner-white & Black
+              - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
+                  Surface Residual Shovel Hand Tools
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[42]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-surface-interior-exterior-cleaner-white-black-31974481.html
+              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-31465287.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[42]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/18/447913/1.jpg?4036
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/78/256413/1.jpg?9420
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[42]/a[1]/@img
             price:
-              - text: KSh 1,088
+              - text: KSh 999
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[42]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840IP1ALB19NAFAMZ
+              - text: GE840IP124RGNNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/@data-id
             name:
               - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
                   Surface Residual Shovel Hand Tools
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-31465287.html
+              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-32674046.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/78/256413/1.jpg?9420
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/64/047623/1.jpg?0927
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/@img
             price:
               - text: KSh 999
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[43]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840IP124RGNNAFAMZ
+              - text: GE840LS044U7WNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/@data-id
             name:
-              - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
-                  Surface Residual Shovel Hand Tools
+              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
+                  Scraper-white and blue
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-32674046.html
+              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-25244960.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/64/047623/1.jpg?0927
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/06/944252/1.jpg?9786
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/@img
             price:
-              - text: KSh 999
+              - text: KSh 750
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[44]/a[1]/div[2]/div[2]
           - id:
               - text: GE840CA075IRVNAFAMZ
@@ -1609,104 +1644,102 @@ extractions:
               - text: KSh 1,969
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840CP072U1MNAFAMZ
+              - text: GE840OP0JZX2JNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@data-id
             name:
-              - text: Generic High Pressure Air Pulse Car Cleaning Surface Interior Exterior
-                  Cleaner-white & black
+              - text: Generic Pressure Washer Rotary Surface Patio Cleaner For K
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-surface-interior-exterior-cleaner-white-black-26598811.html
+              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-k-32588533.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/11/889562/1.jpg?6566
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/33/588523/1.jpg?8979
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@img
             price:
-              - text: KSh 1,126
+              - text: KSh 4,967
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840OP0JZX2JNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@data-id
-            name:
-              - text: Generic Pressure Washer Rotary Surface Patio Cleaner For K
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-k-32588533.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/33/588523/1.jpg?8979
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@img
-            price:
-              - text: KSh 4,967
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/div[2]
-          - id:
               - text: GE840AU0B6F9QNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@data-id
             name:
               - text: Generic Pressure Washer Rotary Surface Patio Cleaner For KARCHER K Series
                   K2 K3 K4
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-20557781.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/18/775502/1.jpg?1089
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@img
             price:
               - text: KSh 6,338
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840OP113MN3NAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@data-id
+            name:
+              - text: Generic Pressure Washer Rotary Surface Patio Cleaner For K
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-k-30151326.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/62/315103/1.jpg?4032
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@img
+            price:
+              - text: KSh 4,470
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/div[2]
         xpath: /html
-    timestamp: 1605612655036
-  - html: https://workbench.import.io/html/run=110b1387-09a4-47ad-a5de-5be82b20e78f/task=f113f605-169b-46e4-bbe9-ac57f515cebe/7def5da1-4fa4-4f6c-a28a-94ace01fa9a8.html
+    timestamp: 1605696166048
+  - html: https://workbench.import.io/html/run=cbc55402-81af-42c8-828c-b39fa71a01e9/task=e2c8764e-b8fe-45d6-be52-90c45a2dc792/cbcf548d-9ea7-4315-bf39-d47a4aa46044.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
           - id:
-              - text: GE840AU0B6F9QNAFAMZ
+              - text: GE840OP113MN3NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@data-id
+            name:
+              - text: Generic Pressure Washer Rotary Surface Patio Cleaner For K
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-k-30151326.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/62/315103/1.jpg?4032
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
+            price:
+              - text: KSh 4,470
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840AU0B6F9QNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@data-id
             name:
               - text: Generic Pressure Washer Rotary Surface Patio Cleaner For KARCHER K Series
                   K2 K3 K4
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-20557781.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/18/775502/1.jpg?1089
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
-            price:
-              - text: KSh 6,338
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840OP0JZX2JNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@data-id
-            name:
-              - text: Generic Pressure Washer Rotary Surface Patio Cleaner For K
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-k-32588533.html
+              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-karcher-k-series-k2-k3-k4-20557781.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/33/588523/1.jpg?8979
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/18/775502/1.jpg?1089
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
             price:
-              - text: KSh 4,967
+              - text: KSh 6,338
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840CP072U1MNAFAMZ
+              - text: GE840OP0JZX2JNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@data-id
             name:
-              - text: Generic High Pressure Air Pulse Car Cleaning Surface Interior Exterior
-                  Cleaner-white & black
+              - text: Generic Pressure Washer Rotary Surface Patio Cleaner For K
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-surface-interior-exterior-cleaner-white-black-26598811.html
+              - text: https://www.jumia.co.ke/generic-pressure-washer-rotary-surface-patio-cleaner-for-k-32588533.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/11/889562/1.jpg?6566
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/33/588523/1.jpg?8979
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
             price:
-              - text: KSh 1,126
+              - text: KSh 4,967
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]
           - id:
               - text: GE840CA075IRVNAFAMZ
@@ -1725,52 +1758,52 @@ extractions:
               - text: KSh 1,969
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840IP124RGNNAFAMZ
+              - text: GE840LS044U7WNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@data-id
             name:
-              - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
-                  Surface Residual Shovel Hand Tools
+              - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
+                  Scraper-white and blue
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-32674046.html
+              - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-25244960.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/64/047623/1.jpg?0927
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/06/944252/1.jpg?9786
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@img
             price:
-              - text: KSh 999
+              - text: KSh 750
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840IP1ALB19NAFAMZ
+              - text: GE840IP124RGNNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@data-id
             name:
               - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
                   Surface Residual Shovel Hand Tools
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-31465287.html
+              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-32674046.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/78/256413/1.jpg?9420
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/64/047623/1.jpg?0927
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@img
             price:
               - text: KSh 999
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840CP0AZEI1NAFAMZ
+              - text: GE840IP1ALB19NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@data-id
             name:
-              - text: Generic High Pressure Air Pulse Car Cleaning Surface Interior Exterior
-                  Cleaner-white & Black
+              - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
+                  Surface Residual Shovel Hand Tools
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-surface-interior-exterior-cleaner-white-black-31974481.html
+              - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-31465287.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/18/447913/1.jpg?4036
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/78/256413/1.jpg?9420
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@img
             price:
-              - text: KSh 1,088
+              - text: KSh 999
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]
           - id:
               - text: GE840IP1DQ9BNNAFAMZ
@@ -1789,52 +1822,84 @@ extractions:
               - text: KSh 999
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840IP0X3BNXNAFAMZ
+              - text: GE840CP072U1MNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@data-id
+            name:
+              - text: Generic High Pressure Air Pulse Car Cleaning Surface Interior Exterior
+                  Cleaner-white & black
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-surface-interior-exterior-cleaner-white-black-26598811.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/11/889562/1.jpg?6566
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@img
+            price:
+              - text: KSh 1,126
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840IP0X3BNXNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@data-id
             name:
               - text: Generic Portable Cleaning Shovel Practical Floor Cleaner Tile Cleaner
                   Surface Residual Shovel Hand Tools
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-portable-cleaning-shovel-practical-floor-cleaner-tile-cleaner-surface-residual-shovel-hand-tools-31428555.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/55/582413/1.jpg?1751
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@img
             price:
               - text: KSh 999
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840CP0AZEI1NAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@data-id
+            name:
+              - text: Generic High Pressure Air Pulse Car Cleaning Surface Interior Exterior
+                  Cleaner-white & Black
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-high-pressure-air-pulse-car-cleaning-surface-interior-exterior-cleaner-white-black-31974481.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/18/447913/1.jpg?4036
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@img
+            price:
+              - text: KSh 1,088
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/div[2]
           - id:
               - text: GE840LS0B5R5ONAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[12]/a[1]/@data-id
             name:
               - text: Generic Durable Double Surface Magnetic Aquarium Fish Tank Glass Cleaner
                   Scraper-white and blue
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[12]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-durable-double-surface-magnetic-aquarium-fish-tank-glass-cleaner-scraper-white-and-blue-25244781.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[12]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/18/744252/1.jpg?9798
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[12]/a[1]/@img
             price:
               - text: KSh 530
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[12]/a[1]/div[2]/div[2]
           - id:
               - text: GE840LS1B9JAWNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/@data-id
             name:
               - text: Generic OR Durable Double Surface Magnetic Aquarium Fish Tank Gl Cleaner
                   Scraper white and blue
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-or-durable-double-surface-magnetic-aquarium-fish-tank-gl-cleaner-scraper-white-and-blue-27868397.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/79/386872/1.jpg?4268
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/@img
             price:
               - text: KSh 413
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[13]/a[1]/div[2]/div[2]
         xpath: /html
-    timestamp: 1605612655036
+    timestamp: 1605696166048

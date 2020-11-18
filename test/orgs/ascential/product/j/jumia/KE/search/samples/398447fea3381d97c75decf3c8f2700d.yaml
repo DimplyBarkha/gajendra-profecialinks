@@ -2,7 +2,7 @@ input:
   keywords: ice tea
   _url: http://jumia.co.ke
 extractions:
-  - html: https://workbench.import.io/html/run=110b1387-09a4-47ad-a5de-5be82b20e78f/task=bd235091-e599-4ec4-aa57-cc29e37e9cec/749fb600-9f95-411d-8343-193aa90c445d.html
+  - html: https://workbench.import.io/html/run=cbc55402-81af-42c8-828c-b39fa71a01e9/task=06292557-ba24-4ea7-bbe0-80b2e7c69e4a/26ad3059-daf1-45b2-857e-7740fb8c51b8.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
@@ -19,8 +19,9 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/68/445952/1.jpg?6506
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
             aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@aggregate_rating2
+              - text: 5,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[3]/div[1]
+                type: STRING
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[3]
@@ -43,8 +44,9 @@ extractions:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/81/154531/1.jpg?1546
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
             aggregateRating2:
-              - text: "3"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@aggregate_rating2
+              - text: 3,
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
             reviewCount:
               - text: "3"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
@@ -400,34 +402,34 @@ extractions:
               - text: KSh 7,571
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840HA0ZHWBXNAFAMZ
+              - text: GE840HA09JM2LNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@data-id
             name:
-              - text: Generic 400Ml 5Cup Dutch Coffee Cold Water Glass Drip Ice Maker ZHI
+              - text: Generic HOT-Glass Cold Ice Water Drip Coffee Maker Brew Pot Drip ZHI
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-400ml-5cup-dutch-coffee-cold-water-glass-drip-ice-maker-zhi-31612695.html
+              - text: https://www.jumia.co.ke/generic-hot-glass-cold-ice-water-drip-coffee-maker-brew-pot-drip-zhi-31613061.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/59/621613/1.jpg?4661
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/16/031613/1.jpg?4775
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@img
             price:
-              - text: KSh 5,851
+              - text: KSh 5,623
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840HA09JM2LNAFAMZ
+              - text: GE840HA0ZHWBXNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/@data-id
             name:
-              - text: Generic HOT-Glass Cold Ice Water Drip Coffee Maker Brew Pot Drip ZHI
+              - text: Generic 400Ml 5Cup Dutch Coffee Cold Water Glass Drip Ice Maker ZHI
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-hot-glass-cold-ice-water-drip-coffee-maker-brew-pot-drip-zhi-31613061.html
+              - text: https://www.jumia.co.ke/generic-400ml-5cup-dutch-coffee-cold-water-glass-drip-ice-maker-zhi-31612695.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/16/031613/1.jpg?4775
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/59/621613/1.jpg?4661
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/@img
             price:
-              - text: KSh 5,623
+              - text: KSh 5,851
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[27]/a[1]/div[2]/div[2]
           - id:
               - text: GE840HA1MASSTNAFAMZ
@@ -745,8 +747,8 @@ extractions:
               - text: KSh 9,056
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/div[2]
         xpath: /html
-    timestamp: 1605612662426
-  - html: https://workbench.import.io/html/run=110b1387-09a4-47ad-a5de-5be82b20e78f/task=bd235091-e599-4ec4-aa57-cc29e37e9cec/68f939ac-c720-47ed-a4cc-c66f09d8f8c1.html
+    timestamp: 1605696177079
+  - html: https://workbench.import.io/html/run=cbc55402-81af-42c8-828c-b39fa71a01e9/task=06292557-ba24-4ea7-bbe0-80b2e7c69e4a/dfeaab3e-fe6a-4f55-a9a7-e0b5b3ccaadd.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
@@ -1006,66 +1008,65 @@ extractions:
               - text: KSh 13,295
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[17]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840FD130IZBNAFAMZ
+              - text: KE866DB1ELX81NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@data-id
             name:
-              - text: Generic Dining 6 Pieces Long Handle Mixing Tea,Coffee,Ice Spoons
+              - text: Kenyan Originals Passion Fruit Ice Tea
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-dining-6-pieces-long-handle-mixing-teacoffeeice-spoons-32692556.html
+              - text: https://www.jumia.co.ke/kenyan-originals-passion-fruit-ice-tea-33630058.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/65/529623/1.jpg?3241
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/85/003633/1.jpg?5937
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/@img
             price:
-              - text: KSh 674 - KSh 2,322
+              - text: KSh 792
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[18]/a[1]/div[2]/div[1]
           - id:
-              - text: GE840FD134OOHNAFAMZ
+              - text: GE840FD130IZBNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@data-id
+            name:
+              - text: Generic Dining 6 Pieces Long Handle Mixing Tea,Coffee,Ice Spoons
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-dining-6-pieces-long-handle-mixing-teacoffeeice-spoons-32692556.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/65/529623/1.jpg?3241
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@img
+            price:
+              - text: KSh 674 - KSh 2,322
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE840FD134OOHNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@data-id
             name:
               - text: Generic Cold Drip Ice Coffee Maker Filter Dutch Syphon Brew Water Portable
                   Glass Machine
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-cold-drip-ice-coffee-maker-filter-dutch-syphon-brew-water-portable-glass-machine-33632756.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/65/723633/1.jpg?3532
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/@img
-            price:
-              - text: KSh 2,208
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[19]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840HL15MF2VNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@data-id
-            name:
-              - text: Generic Stainless Steel Vietnamese Iced And Hot Coffee Filter Cup
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-stainless-steel-vietnamese-iced-and-hot-coffee-filter-cup-13201996.html
+              - text: https://www.jumia.co.ke/generic-cold-drip-ice-coffee-maker-filter-dutch-syphon-brew-water-portable-glass-machine-33632756.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/69/910231/1.jpg?0343
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/65/723633/1.jpg?3532
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/@img
             price:
-              - text: KSh 1,999
+              - text: KSh 2,208
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[20]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840HL00X1VVNAFAMZ
+              - text: GE840HL15MF2VNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@data-id
             name:
-              - text: Generic Flower Spoons Set Mini 410 Stainless Steel Cutlery Dessert Honey
-                  Cake Spoon Creative Tea Coffee Ice- cream Fruit Spoons Scoop
+              - text: Generic Stainless Steel Vietnamese Iced And Hot Coffee Filter Cup
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-flower-spoons-set-mini-410-stainless-steel-cutlery-dessert-honey-cake-spoon-creative-tea-coffee-ice-cream-fruit-spoons-scoop-19024510.html
+              - text: https://www.jumia.co.ke/generic-stainless-steel-vietnamese-iced-and-hot-coffee-filter-cup-13201996.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/01/542091/1.jpg?5351
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/69/910231/1.jpg?0343
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/@img
             price:
-              - text: KSh 39
+              - text: KSh 1,999
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[21]/a[1]/div[2]/div[2]
           - id:
               - text: GE840HA0YOCIFNAFAMZ
@@ -1083,50 +1084,51 @@ extractions:
               - text: KSh 1,452
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[22]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840HA1JKNUFNAFAMZ
+              - text: GE840HL00X1VVNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@data-id
             name:
-              - text: Generic ICESTCHEF Silicone Coffee Tamper Holder Manual Barista Coffe
+              - text: Generic Flower Spoons Set Mini 410 Stainless Steel Cutlery Dessert Honey
+                  Cake Spoon Creative Tea Coffee Ice- cream Fruit Spoons Scoop
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-icestchef-silicone-coffee-tamper-holder-manual-barista-coffe-30924339.html
+              - text: https://www.jumia.co.ke/generic-flower-spoons-set-mini-410-stainless-steel-cutlery-dessert-honey-cake-spoon-creative-tea-coffee-ice-cream-fruit-spoons-scoop-19024510.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/93/342903/1.jpg?4883
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/01/542091/1.jpg?5351
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/@img
             price:
-              - text: KSh 1,452
+              - text: KSh 39
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[23]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840HA18QSCNNAFAMZ
+              - text: GE840HA1JKNUFNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@data-id
             name:
               - text: Generic ICESTCHEF Silicone Coffee Tamper Holder Manual Barista Coffe
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-icestchef-silicone-coffee-tamper-holder-manual-barista-coffe-30925157.html
+              - text: https://www.jumia.co.ke/generic-icestchef-silicone-coffee-tamper-holder-manual-barista-coffe-30924339.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/75/152903/1.jpg?4795
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/93/342903/1.jpg?4883
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/@img
             price:
               - text: KSh 1,452
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[24]/a[1]/div[2]/div[2]
           - id:
-              - text: KE866DB15IRI9NAFAMZ
+              - text: GE840HA18QSCNNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@data-id
             name:
-              - text: Kenyan Originals Hibiscus & Lime Ice Tea Cans (6x330ml)
+              - text: Generic ICESTCHEF Silicone Coffee Tamper Holder Manual Barista Coffe
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/kenyan-originals-hibiscus-lime-ice-tea-cans-6x330ml-31793796.html
+              - text: https://www.jumia.co.ke/generic-icestchef-silicone-coffee-tamper-holder-manual-barista-coffe-30925157.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/69/739713/1.jpg?7936
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/75/152903/1.jpg?4795
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/@img
             price:
-              - text: KSh 720
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[1]
+              - text: KSh 1,452
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[25]/a[1]/div[2]/div[2]
           - id:
               - text: BR272DR0R631ANAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[26]/a[1]/@data-id
@@ -1174,19 +1176,19 @@ extractions:
               - text: KSh 428 - KSh 854
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[28]/a[1]/div[2]/div[1]
           - id:
-              - text: KE866DB1ELX81NAFAMZ
+              - text: KE866DB15IRI9NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@data-id
             name:
-              - text: Kenyan Originals Passion Fruit Ice Tea
+              - text: Kenyan Originals Hibiscus & Lime Ice Tea Cans (6x330ml)
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/kenyan-originals-passion-fruit-ice-tea-33630058.html
+              - text: https://www.jumia.co.ke/kenyan-originals-hibiscus-lime-ice-tea-cans-6x330ml-31793796.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/85/003633/1.jpg?5937
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/69/739713/1.jpg?7936
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/@img
             price:
-              - text: KSh 792
+              - text: KSh 720
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[29]/a[1]/div[2]/div[1]
           - id:
               - text: GE840HL1CFH51NAFAMZ
@@ -1329,45 +1331,47 @@ extractions:
               - text: KSh 45
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[38]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840HL0BL51NNAFAMZ
+              - text: BR272DR1222M8NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@data-id
             name:
-              - text: Generic Stainless Steel Shovel Shaped Fruit Salad Fork Dessert Cake Fork
-                  Coffee Tea Spoon Ice Cream Dessert Spoon Kid Kitchen Tableware
+              - text: Carrefour Hibiscus & Lime Ice Tea 330Ml Kenyan Orig
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-stainless-steel-shovel-shaped-fruit-salad-fork-dessert-cake-fork-coffee-tea-spoon-ice-cream-dessert-spoon-kid-kitchen-tableware-19026491.html
+              - text: https://www.jumia.co.ke/carrefour-hibiscus-lime-ice-tea-330ml-kenyan-orig-21122936.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/19/462091/1.jpg?5671
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@img
-            price:
-              - text: KSh 81
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[2]
-          - id:
-              - text: BR272DR1222M8NAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@data-id
-            name:
-              - text: Carrefour Hibiscus & Lime Ice Tea 330Ml Kenyan Orig
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/carrefour-hibiscus-lime-ice-tea-330ml-kenyan-orig-21122936.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@href
-            thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/63/922112/1.jpg?2436
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/@img
             aggregateRating2:
               - text: 3,5
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@aggregate_rating2
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[2]/div[1]
+                type: STRING
             reviewCount:
               - text: "2"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[2]
             ratingCount:
               - text: "2"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[2]
             price:
               - text: KSh 156
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/div[2]/div[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[39]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE840MW080R0WNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@data-id
+            name:
+              - text: Generic PLstar Cosmos Brand 2019 New Fashion Men/Women hoodies Arizona Ice
+                  Tea 3d Print Hoodie streetwear Casual Hooded Sweatshirt(color
+                  as the picture)
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-plstar-cosmos-brand-2019-new-fashion-menwomen-hoodies-arizona-ice-tea-3d-print-hoodie-streetwear-casual-hooded-sweatshirtcolor-as-the-picture-25917431.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/13/471952/1.jpg?4914
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/@img
+            price:
+              - text: KSh 4,661
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[40]/a[1]/div[2]/div[2]
           - id:
               - text: GE840HL0784B2NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[41]/a[1]/@data-id
@@ -1445,108 +1449,106 @@ extractions:
               - text: KSh 160
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[45]/a[1]/div[2]/div[2]
           - id:
-              - text: GE840HL1L8N0NNAFAMZ
+              - text: GE840HL0BL51NNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@data-id
+            name:
+              - text: Generic Stainless Steel Shovel Shaped Fruit Salad Fork Dessert Cake Fork
+                  Coffee Tea Spoon Ice Cream Dessert Spoon Kid Kitchen Tableware
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-stainless-steel-shovel-shaped-fruit-salad-fork-dessert-cake-fork-coffee-tea-spoon-ice-cream-dessert-spoon-kid-kitchen-tableware-19026491.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/19/462091/1.jpg?5671
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@img
+            price:
+              - text: KSh 81
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840HL1L8N0NNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@data-id
             name:
               - text: Generic Creative 304 Stainless Steel Spoon Musical Guitar Pattern Ice
                   Cream Dessert Tea Coffee Party Small Gift Tableware
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-creative-304-stainless-steel-spoon-musical-guitar-pattern-ice-cream-dessert-tea-coffee-party-small-gift-tableware-19114169.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/96/141191/1.jpg?4253
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@img
             price:
               - text: KSh 165
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[46]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/div[2]
           - id:
               - text: GE840HL1BBK2VNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@data-id
             name:
               - text: Generic Flower Spoons Set Mini 410 Stainless Steel Cutlery Dessert Honey
                   Cake Spoon Creative Tea Coffee Ice- cream Fruit Spoons Scoop
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-flower-spoons-set-mini-410-stainless-steel-cutlery-dessert-honey-cake-spoon-creative-tea-coffee-ice-cream-fruit-spoons-scoop-19118497.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/79/481191/1.jpg?5196
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/@img
-            price:
-              - text: KSh 42
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[47]/a[1]/div[2]/div[2]
-          - id:
-              - text: GE840MW080R0WNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@data-id
-            name:
-              - text: Generic PLstar Cosmos Brand 2019 New Fashion Men/Women hoodies Arizona Ice
-                  Tea 3d Print Hoodie streetwear Casual Hooded Sweatshirt(color
-                  as the picture)
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-plstar-cosmos-brand-2019-new-fashion-menwomen-hoodies-arizona-ice-tea-3d-print-hoodie-streetwear-casual-hooded-sweatshirtcolor-as-the-picture-25917431.html
+              - text: https://www.jumia.co.ke/generic-flower-spoons-set-mini-410-stainless-steel-cutlery-dessert-honey-cake-spoon-creative-tea-coffee-ice-cream-fruit-spoons-scoop-19118497.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/13/471952/1.jpg?4914
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/79/481191/1.jpg?5196
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/@img
             price:
-              - text: KSh 4,661
+              - text: KSh 42
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/div[2]
         xpath: /html
-    timestamp: 1605612662426
-  - html: https://workbench.import.io/html/run=110b1387-09a4-47ad-a5de-5be82b20e78f/task=bd235091-e599-4ec4-aa57-cc29e37e9cec/0c31480d-89c4-48f8-ba8b-47f397e210fe.html
+    timestamp: 1605696177079
+  - html: https://workbench.import.io/html/run=cbc55402-81af-42c8-828c-b39fa71a01e9/task=06292557-ba24-4ea7-bbe0-80b2e7c69e4a/10b2c11e-de52-48a2-bb23-22d4d7f7b885.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
           - id:
-              - text: GE840MW080R0WNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@data-id
-            name:
-              - text: Generic PLstar Cosmos Brand 2019 New Fashion Men/Women hoodies Arizona Ice
-                  Tea 3d Print Hoodie streetwear Casual Hooded Sweatshirt(color
-                  as the picture)
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/generic-plstar-cosmos-brand-2019-new-fashion-menwomen-hoodies-arizona-ice-tea-3d-print-hoodie-streetwear-casual-hooded-sweatshirtcolor-as-the-picture-25917431.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/13/471952/1.jpg?4914
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
-            price:
-              - text: KSh 4,661
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]
-          - id:
               - text: GE840HL1BBK2VNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@data-id
             name:
               - text: Generic Flower Spoons Set Mini 410 Stainless Steel Cutlery Dessert Honey
                   Cake Spoon Creative Tea Coffee Ice- cream Fruit Spoons Scoop
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-flower-spoons-set-mini-410-stainless-steel-cutlery-dessert-honey-cake-spoon-creative-tea-coffee-ice-cream-fruit-spoons-scoop-19118497.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/79/481191/1.jpg?5196
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
             price:
               - text: KSh 42
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]
           - id:
               - text: GE840HL1L8N0NNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@data-id
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@data-id
             name:
               - text: Generic Creative 304 Stainless Steel Spoon Musical Guitar Pattern Ice
                   Cream Dessert Tea Coffee Party Small Gift Tableware
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/h3[1]
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/h3[1]
             productUrl:
               - text: https://www.jumia.co.ke/generic-creative-304-stainless-steel-spoon-musical-guitar-pattern-ice-cream-dessert-tea-coffee-party-small-gift-tableware-19114169.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@href
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@href
             thumbnail:
               - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/96/141191/1.jpg?4253
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
             price:
               - text: KSh 165
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
+          - id:
+              - text: GE840HL0BL51NNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@data-id
+            name:
+              - text: Generic Stainless Steel Shovel Shaped Fruit Salad Fork Dessert Cake Fork
+                  Coffee Tea Spoon Ice Cream Dessert Spoon Kid Kitchen Tableware
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/generic-stainless-steel-shovel-shaped-fruit-salad-fork-dessert-cake-fork-coffee-tea-spoon-ice-cream-dessert-spoon-kid-kitchen-tableware-19026491.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/19/462091/1.jpg?5671
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
+            price:
+              - text: KSh 81
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]
           - id:
               - text: GE840HL02TRMCNAFAMZ
@@ -2264,8 +2266,8 @@ extractions:
               - text: KSh 104
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/div[2]
         xpath: /html
-    timestamp: 1605612662426
-  - html: https://workbench.import.io/html/run=110b1387-09a4-47ad-a5de-5be82b20e78f/task=bd235091-e599-4ec4-aa57-cc29e37e9cec/7d8a1e87-31b0-443a-9127-95e0350e9cd8.html
+    timestamp: 1605696177079
+  - html: https://workbench.import.io/html/run=cbc55402-81af-42c8-828c-b39fa71a01e9/task=06292557-ba24-4ea7-bbe0-80b2e7c69e4a/a111298c-1b98-43ca-a581-97ae7c68ac4d.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
@@ -3025,4 +3027,4 @@ extractions:
               - text: KSh 246
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[48]/a[1]/div[2]/div[2]
         xpath: /html
-    timestamp: 1605612662426
+    timestamp: 1605696177079
