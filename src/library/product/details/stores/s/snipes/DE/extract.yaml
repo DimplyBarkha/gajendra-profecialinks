@@ -24,13 +24,13 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@class='b-price-section']/span[@class='b-product-tile-price-outer b-product-tile-price-outer--line-through']/span
-    regExp: (.+)
-    regExpReplace: $1
+    regExp: (.+),(.+)
+    regExpReplace: $1,$2
   - name: price
     singleValue: false
     xpath: //div[@class='b-price-section']/span[@class='b-product-tile-price-outer']/span
-    regExp: (.+)
-    regExpReplace: $1
+    regExp: (.+),(.+)
+    regExpReplace: $1,$2
   - name: description
     singleValue: false
     xpath: //div[@class='b-details-content']
