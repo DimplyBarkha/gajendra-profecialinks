@@ -5,19 +5,19 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class="a eq"]//following-sibling::span/span[1]
+    xpath: //span[@class="c1 cb"]/text()
   - name: name
     singleValue: true
-    xpath: //span[@class="et es ex"]/text()
+    xpath: //span[@class="ev k ew ef"]/text()
     type: TEXT
   - name: productUrl
     singleValue: false
-    xpath: //a[@id="product-card-2"]/@href
+    xpath: //a[@class="c8 d2"]/@href
     regExp: ^(.+)$
     regExpReplace: https://www.kicks.se$1
   - name: thumbnail
     singleValue: false
-    xpath: //img[@title="Perfect Blush 09 Rose Nude"]/@src
+    xpath: //div[@class="c5 dh di dj ca"]/img/@src
   - name: ratingCount
     singleValue: false
     type: NUMBER
