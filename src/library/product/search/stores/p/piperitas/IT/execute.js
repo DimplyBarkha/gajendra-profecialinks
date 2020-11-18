@@ -7,7 +7,7 @@ module.exports = {
     domain: 'piperitas.com',
     url: 'https://piperitas.com/catalogsearch/result/index/?q={searchTerms}',
     loadedSelector: 'div[class="category-products"]',
-    noResultsXPath: '//p[@class="note-msg"][contains(text(), "Ci spiace, non ci sono prodotti per ora.")]',
+    noResultsXPath: '//div[@class="product-view"]|//p[@class="note-msg"][contains(text(), "Ci spiace, non ci sono prodotti per ora.")]',
     zipcode: '',
   },
 };
