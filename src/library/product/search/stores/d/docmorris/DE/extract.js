@@ -18,12 +18,12 @@ async function implementation (
 ) {
   const { productDetails } = dependencies;
   const { transform } = parameters;
-  await context.evaluate(async function(context) {
-    //next page button click
+  await context.evaluate(async function (context) {
+    // next page button click
     const seeAllSelector = document.querySelector('span[class="gicon-bracketright-green"]');
-    if(seeAllSelector) {
+    if (seeAllSelector) {
       seeAllSelector.click();
     }
   });
-   return await context.extract(productDetails, { transform })
- }
+  return await context.extract(productDetails, { transform });
+}
