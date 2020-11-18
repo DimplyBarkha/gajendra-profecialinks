@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: "//ul[@class='products-grid last']//li[contains(@class,'item last')]"
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='price-box normal-price']//span[@class='regular-price']/@id | //div[@class='price-box normal-price']//p[@class='minimal-price' or @class='special-price']//span[@class='price']/@id
+    regExp: .*product.*price-(\d+).*
+    regExpReplace: $1
+  - name: productUrl
+    singleValue: false
+    xpath: //h2[@class='product-name']//a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class='product-image']//img/@src
+  - name: name
+    singleValue: false
+    xpath: //h2[@class='product-name']//a  
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price-box normal-price']//span[@class='regular-price'] | //div[@class='price-box normal-price']//p[@class='minimal-price' or @class='special-price']
+  - name: ratingCount
+    singleValue: false
+    xpath: //ul[@class='products-grid last']//li[contains(@class,'item last')]//div[@class='rate-summary-wrapper']//div[@class='ratings']//span[@class='amount']//a
+    regExp: (.*\()(.*)(\).*)
+    regExpReplace: $2
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class='rate-summary-wrapper']//div[@class='ratings']//div[@class='rating']/@style
+    regExp: width:(\d+)%
+    regExpReplace: $1  
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: false
