@@ -11,7 +11,7 @@ fields:
   - name: thumbnail
     xpath: //a[@class="product-page-link"]//img/@src
     regExp: (.+)
-    regExpReplace: https://www.cleanitsupply.com/$1
+    regExpReplace: https:$1
     singleValue: false
     description: The URL for the product thumbnail image
   - name: name
