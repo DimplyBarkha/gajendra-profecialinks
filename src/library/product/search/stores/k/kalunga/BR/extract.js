@@ -21,7 +21,14 @@ module.exports = {
       const lastPage = document.querySelector('.ultima').getAttribute('data-page');
       let inc = 1;
       const url = 'https://www.kalunga.com.br/getBusca';
-      function getData () {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      async function getData () {
         const formData = new FormData();
         inc++;
         const jsonStr = {
@@ -33,21 +40,27 @@ module.exports = {
           grupo: null,
         };
         formData.append('json_str', JSON.stringify(jsonStr));
-        fetch(url, {
+        await fetch(url, {
           method: 'POST',
           body: formData,
         }).then(response => response.json())
           .catch(error => console.error('Error:', error))
           .then(response => {
             if (inc < +lastPage) {
-              getData();
-              document.getElementById('divProdutoDepartamento').innerHTML += response.templateProdutos;
+              try {
+                document.getElementById('divProdutoDepartamento').innerHTML += response.templateProdutos;
+                getData();
+              } catch (e) {
+                console.log(e);
+              }
+            } else {
+              addElementToDocument('finish', 'finish');
             }
           });
       }
       getData();
     });
-
+    await context.waitForSelector('#finish');
     return await context.extract(productDetails, { transform });
   },
 };
