@@ -1,3 +1,4 @@
+
 singleRecord: true
 regionsSelector: null
 recordSelector: null
@@ -78,12 +79,18 @@ fields:
     xpath: //h1[@class='c-product-detail__product-name']
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="c-product-tour__item-content"]//img/@data-flixsrcset
+    xpath: //div[@class="manufactureImages"]
+    #xpath: //div[@id="inpage_container"]//img/@src
+    #xpath: //div[@class="c-product-tour__item-content"]//img/@data-flixsrcset
       #//div[@class="c-product-tour__item-content"]//img/@srcset
     #//ul[@class="inpage_features_grid"]//li/div/img/@srcset
     #xpath: //img[contains(@data-src,'//www.nettoshop.ch/img/common_manufacturer')]/@src
-    #regExp: (.+)
-    #regExpReplace: https:$1
+    regExp: (https:)?(.+)
+    regExpReplace: https:$2
+  - name: manufacturerDescription
+    xpath: //div[@class="manufactureDescription"]
+    #xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-Text-block" ) or contains(@class,"inpage_ftgridtext")]
+    #xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-Text-block" ) or contains(@class,"flix-std-content") or contains(@class,"inpage_block") or contains(@class,"flix-std-content") or contains(@class,"inpage_ftgridtext")]
   - name: description
     singleValue: false
     xpath: //div[contains(@class,'c-accordion__text')]
@@ -130,6 +137,6 @@ fields:
     defaultValue: 0
   - name: videos
     singleValue: false
-    xpath: //div[@class="c-youtube-embed ember-view"]//@src 
+    xpath: //div[@class="productVideos"] 
     # //div[@class="flix-videodiv "]//@src 
     
