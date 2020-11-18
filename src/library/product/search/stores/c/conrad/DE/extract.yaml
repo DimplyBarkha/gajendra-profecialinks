@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//a[@class="product__title"]
+    singleValue: false
+  - name: id
+    xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//a[@class="product__title"]/@href
+    singleValue: false
+  - name: thumbnail
+    xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td[1]//div[@class="product__imageDetail"]//picture/img/@src
+    singleValue: false
+  - name: productUrl
+    xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//a[@class="product__title"]/@href
+    singleValue: false
+  - name: price
+    xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td[@data-column="3"]//div[contains(@class,"productPriceAndQuantity")]//p[@class="product__currentPrice"]
+    singleValue: false
+  - name: manufacturer
+    xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//a[@class="ctaLink__brandLogo"]//picture//img/@title
+    singleValue: false
+  - name: aggregateRating
+    xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//div[@class="product__ratingWrapper"]//div[@class="product__ratingBase"]/@title | //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//div[@class="product__ratingWrapper"]//div[@class="product__ratingBase"]/@tabindex
+    singleValue: false
+  - name: reviewCount
+    xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//div[@class="product__ratingWrapper"]//div[@class="product__ratingBase"]//p
+    regExp: (\d)
+    regExpReplace: $1
+    singleValue: false
