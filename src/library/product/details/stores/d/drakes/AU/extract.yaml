@@ -43,7 +43,7 @@ fields:
       add to basket this is the price they would be charged
     xpath: //div[@id="discountedPrice"]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     description: Availability as described on page for the selected variant. If there
       is no availability but the product can be added to cart, this field should be
       "In Stock"
@@ -69,7 +69,7 @@ fields:
     description: Quantity as described on the page
     xpath: //div[@id="quantity"]
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
     xpath: //div[@id="weightNet"]
   - name: weightGross
@@ -81,6 +81,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div[@id="variantID"]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
@@ -90,9 +91,10 @@ fields:
     singleValue: tru
     description: The manufacturer model code (unique) of the product
   - name: packSize
-    singleValue: true
+    singleValue: false
     description: The number of packs in the product offer (if stated separately on the
       site to quantity)
+    xpath: //div[@id="packSize"]
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -249,11 +251,11 @@ fields:
       start/end point
     xpath: //div[@id="ingredient"]
   - name: servingSize
-    singleValue: true
+    singleValue: false
     description: The size of serving Nutritional information is based on.
     xpath: //div[@id="servingSize"]
   - name: servingSizeUom
-    singleValue: true
+    singleValue: false
     description: Unit of measure of serving
     xpath: //div[@id="units"]
   - name: numberOfServingsInPackage
@@ -407,11 +409,11 @@ fields:
     singleValue: true
     description: List of additives in the product
   - name: pricePerUnit
-    singleValue: true
+    singleValue: false
     description: Price of the product split into certain units
     xpath: //div[@id="pricePerUnit"]
   - name: pricePerUnitUom
-    singleValue: true
+    singleValue: false
     description: The unit of measurement used in price_per_unit
     xpath: //div[@id="pricePerUnitUnit"]
   - name: promotion

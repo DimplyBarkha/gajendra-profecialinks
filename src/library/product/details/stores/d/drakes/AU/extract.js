@@ -38,11 +38,13 @@ module.exports = {
         addElementToDom(listedPrice, 'listedPrice');
       }
 
-      const details = document.querySelector('.MoreInfo__Details') ? document.querySelector('.MoreInfo__Details').innerText : '';
-      addElementToDom(details, 'description');
+      let details = document.querySelector('.MoreInfo__Details') ? document.querySelector('.MoreInfo__Details').innerText : '';
 
       const imageDetails = document.querySelector('.MoreInfo__Cool') ? document.querySelector('.MoreInfo__Cool').innerText : '';
-      addElementToDom(imageDetails, 'description');
+      if (imageDetails) {
+        details = `${details}\n${imageDetails}`;
+      }
+      addElementToDom(details, 'description');
 
       let quantity = document.querySelector('.MoreInfo__Banner .MoreInfo__Banner__Controls div.qi')
         ? document.querySelector('.MoreInfo__Banner .MoreInfo__Banner__Controls div.qi').getAttribute('data-quantity-input')
@@ -69,10 +71,19 @@ module.exports = {
         const name = document.querySelector('.MoreInfo__Banner__Name') ? document.querySelector('.MoreInfo__Banner__Name').innerText : '';
         const weightNet = name.slice(name.lastIndexOf(' ') + 1, name.length);
         if (regexWeight.test(weightNet)) {
-          const units = weightNet.replace(/(\d*)/g, '');
-          addElementToDom(units, 'units');
-          addElementToDom(`per ${weightNet}`, 'servingSize');
-          addElementToDom(weightNet, 'weightNet');
+          if (weightNet.includes('x')) {
+            const components = weightNet.split('x');
+            const units = components[1].replace(/(\d*)/g, '');
+            addElementToDom(units, 'units');
+            addElementToDom(`per ${parseFloat(components[0]) * parseFloat(components[1].replace(/\D/g, ''))}${units}`, 'servingSize');
+            addElementToDom(`${parseFloat(components[0]) * parseFloat(components[1].replace(/\D/g, ''))}${units}`, 'weightNet');
+            addElementToDom(components[0], 'packSize');
+          } else {
+            const units = weightNet.replace(/(\d*)/g, '');
+            addElementToDom(units, 'units');
+            addElementToDom(`per ${weightNet}`, 'servingSize');
+            addElementToDom(weightNet, 'weightNet');
+          }
         }
       }
 

@@ -2,7 +2,7 @@ input:
   _url: http://drakes.com.au
   URL: https://074.drakes.com.au/lines/beef-mince-extra-lean-approx-weight-500g-1
 extractions:
-  - html: https://workbench.import.io/html/run=c96cd257-1d02-4acf-9382-641e51c71b98/task=932d8dcc-fc7b-4321-9511-ebec8493ba9b/78d47e19-5a85-4cca-8cab-1c6ec2f2e497.html
+  - html: https://workbench.import.io/html/run=c9a8533d-3ac5-4f68-9f9a-2f2d5447a493/task=442d84ea-31a0-4e66-ac16-31ece97f9d5b/57592d89-f9b9-4ed3-acf0-8dfbc1747caf.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
@@ -33,6 +33,9 @@ extractions:
             countryOfOrigin:
               - text: Australian Grown
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: beef-mince-extra-lean-approx-weight-500g-1
+                xpath: /html/body/div[3]
             variantId:
               - text: beef-mince-extra-lean-approx-weight-500g-1
                 xpath: /html/body/div[3]
@@ -66,4 +69,4 @@ extractions:
             availabilityText:
               - text: In Stock
         xpath: /html/body
-    timestamp: 1605627448195
+    timestamp: 1605709147015

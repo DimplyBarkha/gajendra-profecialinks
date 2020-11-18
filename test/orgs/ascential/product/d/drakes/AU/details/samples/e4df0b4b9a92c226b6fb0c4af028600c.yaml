@@ -2,7 +2,7 @@ input:
   _url: http://drakes.com.au
   URL: https://074.drakes.com.au/lines/my-muscle-chef-crumbed-chicken-with-roast-veg-300g
 extractions:
-  - html: https://workbench.import.io/html/run=c96cd257-1d02-4acf-9382-641e51c71b98/task=1aba9e79-027e-44f8-a872-8417045a2baf/a9786bef-f020-4645-8a7b-95f2d695f867.html
+  - html: https://workbench.import.io/html/run=c9a8533d-3ac5-4f68-9f9a-2f2d5447a493/task=eaa10592-5329-44ba-9c5a-b7b0b76bef45/d243016f-ab85-4879-a5b7-bb5a6608bfbc.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
@@ -30,6 +30,9 @@ extractions:
             coupon:
               - text: Save $1.50
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]/span[1]/span[1]
+            sku:
+              - text: my-muscle-chef-crumbed-chicken-with-roast-veg-300g
+                xpath: /html/body/div[3]
             variantId:
               - text: my-muscle-chef-crumbed-chicken-with-roast-veg-300g
                 xpath: /html/body/div[3]
@@ -63,4 +66,4 @@ extractions:
             availabilityText:
               - text: In Stock
         xpath: /html/body
-    timestamp: 1605627450731
+    timestamp: 1605709149474

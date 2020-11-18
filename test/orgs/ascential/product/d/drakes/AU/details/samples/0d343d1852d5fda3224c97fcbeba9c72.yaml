@@ -2,7 +2,7 @@ input:
   _url: http://drakes.com.au
   URL: https://074.drakes.com.au/lines/cadbury-peanuts-milk-chocolate-coated-330g
 extractions:
-  - html: https://workbench.import.io/html/run=c96cd257-1d02-4acf-9382-641e51c71b98/task=99f1a076-dcd4-409c-ab1a-c4abefc52510/10b43293-5ac5-43cf-a5da-63094c2417cf.html
+  - html: https://workbench.import.io/html/run=c9a8533d-3ac5-4f68-9f9a-2f2d5447a493/task=4965843a-daff-42e3-85a4-1c2e082c62f9/a6836430-d783-4af9-8e02-0b20251c6fec.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
@@ -30,6 +30,9 @@ extractions:
             coupon:
               - text: Save $1.00
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]/span[1]/span[1]
+            sku:
+              - text: cadbury-peanuts-milk-chocolate-coated-330g
+                xpath: /html/body/div[3]
             variantId:
               - text: cadbury-peanuts-milk-chocolate-coated-330g
                 xpath: /html/body/div[3]
@@ -56,4 +59,4 @@ extractions:
             availabilityText:
               - text: In Stock
         xpath: /html/body
-    timestamp: 1605627450044
+    timestamp: 1605709149516

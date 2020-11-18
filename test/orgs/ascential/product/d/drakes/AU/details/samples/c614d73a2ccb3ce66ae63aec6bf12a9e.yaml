@@ -1,22 +1,22 @@
 input:
   _url: http://drakes.com.au
-  URL: https://074.drakes.com.au/lines/bakers-collection-fruit-cake-dark-700g
+  URL: https://062.drakes.com.au/lines/schweppes-lemonade-10x375ml
 extractions:
-  - html: https://workbench.import.io/html/run=c9a8533d-3ac5-4f68-9f9a-2f2d5447a493/task=e3f20349-5cfb-483a-9759-425e1f835cf8/fbdd86a5-979b-496f-8ad7-495d3ed0ed26.html
+  - html: https://workbench.import.io/html/run=c9a8533d-3ac5-4f68-9f9a-2f2d5447a493/task=318501ab-77c5-4daa-a1e0-d4d7075bda8e/0c701123-77fa-4245-8fb3-431009e3d682.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
           - image:
-              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6IjAyYjY0NGI2NjMxMjU3YzM1ZTk5ODVkYmYyMTg5ZWZhLmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=5fe0053108a78092c60c0c0e1df5c00ff4d329147c8ecd98231f20cc56ae7fb5
+              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6IjA4ZmRkOWI3NGVjZWIyMzg2NGM2YTY5Mjk0NThiZWZlLmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=a4c99f0ade69550e821077ecb0a566db461d53c59f9a73d08d06e613bd2c634d
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
-              - text: Eyjpzci6ijayyjy0ngi2njmxmju3yzm1ztk5odvkymyymtg5zwzhlmpwzyisinn0b3jhz2uioijwdwjsawnfc3rvcmuifq?signature=5fe0053108a78092c60c0c0e1df5c00ff4d329147c8ecd98231f20cc56ae7fb5
+              - text: Eyjpzci6ija4zmrkowi3ngvjzwiymzg2ngm2yty5mjk0nthizwzllmpwzyisinn0b3jhz2uioijwdwjsawnfc3rvcmuifq?signature=a4c99f0ade69550e821077ecb0a566db461d53c59f9a73d08d06e613bd2c634d
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
             nameExtended:
-              - text: Bakers Collection Dark Fruit Cake 700g
+              - text: Schweppes Lemonade Cans 10x375ml
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
             legalDisclaimer:
-              - text: Drakes Online Castle Plaza aims to include in the product list up to date
+              - text: Drakes Online Golden Grove aims to include in the product list up to date
                   pictures of the products and accurate ingredients, nutritional
                   information and other information. However, product detail may
                   change from time to time and there may be a delay in making
@@ -25,35 +25,41 @@ extractions:
                   contact the manufacturer of the product.
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
             name:
-              - text: Bakers Collection Dark Fruit Cake 700g
+              - text: Schweppes Lemonade Cans 10x375ml
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+            coupon:
+              - text: Save $4.82
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]/span[1]/span[1]
             sku:
-              - text: bakers-collection-fruit-cake-dark-700g
+              - text: https://062.drakes.com.au/lines/schweppes-lemonade-10x375ml
                 xpath: /html/body/div[3]
             variantId:
-              - text: bakers-collection-fruit-cake-dark-700g
+              - text: https://062.drakes.com.au/lines/schweppes-lemonade-10x375ml
                 xpath: /html/body/div[3]
             price:
-              - text: $6.00
+              - text: $8.20
                 xpath: /html/body/div[4]
             availabilityText:
               - text: In Stock
           - servingSizeUom:
-              - text: g
+              - text: ml
                 xpath: /html/body/div[7]
             servingSize:
-              - text: per 700g
+              - text: per 3750ml
                 xpath: /html/body/div[8]
             weightNet:
-              - text: 700g
+              - text: 3750ml
                 xpath: /html/body/div[9]
-            pricePerUnit:
-              - text: $0.84 per 100g
+            packSize:
+              - text: "10"
                 xpath: /html/body/div[10]
-            pricePerUnitUom:
-              - text: g
+            pricePerUnit:
+              - text: $2.21 per litre
                 xpath: /html/body/div[11]
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[12]
             availabilityText:
               - text: In Stock
         xpath: /html/body
-    timestamp: 1605709147321
+    timestamp: 1605709152081
