@@ -17,8 +17,14 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await context.waitForSelector('.paginate-async');
     await context.evaluate(() => {
-      const lastPage = document.querySelector('.ultima').getAttribute('data-page');
+      let lastPage = 1;
+      try {
+        lastPage = document.querySelector('.ultima').getAttribute('data-page');
+      } catch (e) {
+        lastPage = 1;
+      }
       let inc = 1;
       const url = 'https://www.kalunga.com.br/getBusca';
       function addElementToDocument (key, value) {

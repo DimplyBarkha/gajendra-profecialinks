@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'kalunga.com.br',
     prefix: null,
-    url: 'https://www.kalunga.com.br/',
+    url: null,
     country: 'BR',
     store: 'kalunga',
     zipcode: '',

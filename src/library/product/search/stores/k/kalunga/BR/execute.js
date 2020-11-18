@@ -9,5 +9,5 @@ module.exports = {
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
-  }
+  },
 };
