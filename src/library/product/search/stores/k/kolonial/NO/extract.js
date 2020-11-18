@@ -8,7 +8,9 @@ module.exports = {
     domain: 'kolonial.no',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -39,6 +41,6 @@ module.exports = {
       // }
       ranking(rank);
     });
-    await context.extract(productDetails, { transform: transformParam });
+    return await context.extract(productDetails, { transform });
   },
 };
