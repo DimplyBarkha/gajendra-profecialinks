@@ -9,27 +9,37 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //link[@rel='canonical']/@href
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //div[@class='image-viewer__pre-load-image']//img/@src
+  regExp: (.+)
+  regExpReplace: https:$1
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //div[@class='image-viewer__pre-load-image']//img/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[@id='s7viewer_swatches_listbox']/div[position()>1]/div/@style
+  regExp: (?<=url\(\").+(?=fit)
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
+  xpath: //meta[@name='keywords']/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //ol[@class='breadcrumb']/li[position()>1]/a
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@itemprop='name']
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -37,15 +47,18 @@ fields:
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //div[@id='productDetailsPanel']//div[@class='product-price-panel__price']
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //span[@class='product-stock-message__title']
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //div[@class='product__intro']//p
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -53,28 +66,34 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //a[@itemprop='brand']
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //a[@itemprop='brand']
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
+  xpath: //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Gewicht')]/following-sibling::td
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
+  xpath: //td[@itemprop='gtin13']
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //div[@id='productDetailsPanel']/@data-article-number
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //div[@id='productDetailsPanel']/@data-article-number
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
@@ -94,15 +113,19 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //div[@class='product-rating__reviews']/text()
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
+  xpath: //div[@class='stars']/@title
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@class='stars']/@title
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //div[@id='contentproductDeliveryInfo']
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -115,12 +138,14 @@ fields:
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Kleur')]/following-sibling::td | //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Farbe')]/following-sibling::td
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //p[@class='product-details__description--word-wrap']
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -130,6 +155,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
+  xpath: //h1[@itemprop='name']
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -364,6 +390,7 @@ fields:
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
+  xpath: //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Afmetingen')]/following-sibling::td | //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Maße')]/following-sibling::td
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
@@ -445,23 +472,23 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: 'No'
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: 'No'
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: 'No'
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: 'No'
 - name: materials
   singleValue: true
   description: Materials used to make the product
-  example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  example: //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Material')]/following-sibling::td
 - name: Image360Present
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
@@ -471,4 +498,7 @@ fields:
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: 'No'
+  xpath: //div[@id='s7viewer_zoomInButton']/@id
+  regExp: (.+?)
+  regExpReplace: 'Yes'
