@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'costco.com',
-    timeout: 20000,
+    timeout: 50000,
     country: 'US',
     store: 'costco',
     zipcode: '98188',

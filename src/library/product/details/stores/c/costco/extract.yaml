@@ -83,15 +83,15 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //p[@id="product-body-item-number"]/span | //div[@class="product-numbers"]/span[1]
+    xpath: //p[@id="product-body-item-number"]/span | //div[@class="product-numbers"]/span[1] | //span[@id="item-no"]
+    regExp: (\d+)
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
     xpath: //p[@id="product-body-item-number"]/span 
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    xpath: //p[@id="product-body-model-number"]//span/@data-model-number 
-    # xpath: //span[@class="model-number"]/span | //div[@class="product-info-description"]/text()
+    xpath: (//span/@data-model-number | //p[@id="product-body-model-number"])[1]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -463,6 +463,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
+    xpath: //div[contains(@class,"swatches")]//span[contains(@class,"variant")]
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
@@ -528,6 +529,10 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: shownImages
-    xpath: //img[@id="productImage"]/@src
+    singleValue: false
+    xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))]//img/@src | //img[@id="productImage"]/@src
+    regExp: .+(?=\&recipe(Id|Name)=\d+)
   - name: highQualityImages
-    xpath: //img[@id="productImage"]/@src    
+    singleValue: false
+    xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))]//img/@src | //img[@id="productImage"]/@src
+    regExp: .+(?=\&recipe(Id|Name)=\d+)
