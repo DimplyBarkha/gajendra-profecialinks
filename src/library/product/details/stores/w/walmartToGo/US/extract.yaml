@@ -8,19 +8,13 @@ fields:
   - name: online_store
     xpath: //div[contains(@class,'StoreSelection__banners')]//div[contains(@class,'AddressPanel')]/@name
   - name: drive
-    xpath: //script[@id="__input"]
-    regExp: postcode":"([^"]+)
-    regExpReplace: $1
+    xpath: //body/@zipcode
   - name: retailerId
-    xpath: //script[@id="__input"]
-    regExp: StoreID":"([^"]+)
-    regExpReplace: $1
+    xpath: //body/@storeid
   - name: retailer_id
-    xpath: //script[@id="__input"]
-    regExp: StoreID":"([^"]+)
-    regExpReplace: $1
+    xpath: //body/@storeid
   - name: retailerIdFallback
-    xpath: //body/@store-id
+    xpath: //body/@storeid
   - name: image
     description: URL of the main product image
     xpath: //div[@class='prod-ProductImage']//img/@src
@@ -43,7 +37,7 @@ fields:
     xpath: //div[contains(@class,'ProductPage__title')]//span[@data-automation-id="salePrice"]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@data-automation-id="add-to-cart"]
+    xpath: //div[@data-automation-id="productPageTile"]//div[@data-automation-id="add-to-cart"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -283,10 +277,6 @@ fields:
     singleValue: false
     regExp: .*?\s+(\w+).*
     regExpReplace: $1
-  - name: drive
-    singleValue: false
-    xpath: //span[@id="glow-ingress-line2"]
-    regExp: .*?\s+(\w+).*
   - name: coupon
     singleValue: false
     xpath: //label[@id='couponBadge']|//tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]/div[@id="unclippedCoupon"] | //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]//div[contains(@class,"vpcApplyCoupon")]

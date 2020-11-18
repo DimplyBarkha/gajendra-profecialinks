@@ -49,7 +49,10 @@ async function implementation (
     console.log('Error: ', err);
     throw new Error('Could not set store.');
   }
-
+  await context.evaluate(({ zipcode, storeId }) => {
+    document.body.setAttribute('zipcode', zipcode);
+    document.body.setAttribute('storeid', storeId);
+  }, { zipcode, storeId });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
