@@ -1,0 +1,45 @@
+input:
+  RPC: 11313
+  _url: http://pistorone.ch
+extractions:
+  - html: https://workbench.import.io/html/run=d385eec9-603e-40be-93d5-f189d02149bc/task=88d133a0-2525-4f95-86fb-d8e18450e521/9ae69ad0-5806-4bef-9b63-a41ee1a23c43.html
+    extractionConfigId: product/details/stores/p/pistor/CH/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/th[1]/span[1]/div[2]
+            quantity:
+              - text: Ct à 12 lt
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[2]/td[1]
+            brandText:
+              - text: Knorr
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[3]/td[1]
+            sku:
+              - text: "11313"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]
+            listPrice:
+              - text: "64.68"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            price:
+              - text: "64.68"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            image:
+              - text: https://www.psassets.ch/thumbs/fe/1b/114f56637a22a88256a78df8e86d-011313.jpg
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/img[1]/@src
+            category:
+              - text: Salatsaucen/Dressings
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Knorr
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: French Dressing mit Kräutern, Bibox, Knorr
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            productUrl:
+              - text: https://pistorone.ch/index.php/catalog2/products/10684/economat-kuchenprodgewurzekonserven/salatsaucendressings/knorr/french-dressing/french-dresskraut-12lt-knorr?context=%2Fcatalog2
+                xpath: /html/body/div[5]/@content
+            name:
+              - text: French Dressing mit Kräutern
+                xpath: /html/body/div[6]/@content
+        xpath: /html
+    timestamp: 1605779800923

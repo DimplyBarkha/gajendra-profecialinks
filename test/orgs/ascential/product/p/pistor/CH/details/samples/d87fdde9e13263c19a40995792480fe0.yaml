@@ -1,0 +1,46 @@
+input:
+  RPC: 14836
+  _url: http://pistorone.ch
+extractions:
+  - html: https://workbench.import.io/html/run=d385eec9-603e-40be-93d5-f189d02149bc/task=e0ecd1db-4389-4eab-aecc-aeb1451b367b/e7ad248b-21e5-455d-8e00-73dcebbf17f9.html
+    extractionConfigId: product/details/stores/p/pistor/CH/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/th[1]/span[1]/div[2]
+            quantity:
+              - text: Ct à 5 kg
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[2]/td[1]
+            brandText:
+              - text: PHASE Professional
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[3]/td[1]
+            sku:
+              - text: "14836"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]
+            listPrice:
+              - text: "36.70"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            price:
+              - text: "36.70"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            image:
+              - text: https://www.psassets.ch/thumbs/ea/41/0a2693afc847cd70f9e628307256-014836.jpg
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/img[1]/@src
+            category:
+              - text: Speisemargarine
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Butteralternative
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: PHASE Professional, wie Butter zu verwenden, 20 x 250 g (pflanzliches
+                  Streichfett 72%, mit Buttermilch)
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            productUrl:
+              - text: https://pistorone.ch/index.php/catalog2/products/6361241/frischprodukte/speisemargarine/butteralternative/phase-professional-wie-butter?context=%2Fcatalog2
+                xpath: /html/body/div[5]/@content
+            name:
+              - text: PHASE Professional
+                xpath: /html/body/div[6]/@content
+        xpath: /html
+    timestamp: 1605779798418

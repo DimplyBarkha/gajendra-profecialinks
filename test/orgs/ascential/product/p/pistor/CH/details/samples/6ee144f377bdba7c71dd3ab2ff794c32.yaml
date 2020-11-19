@@ -1,0 +1,45 @@
+input:
+  RPC: 536019
+  _url: http://pistorone.ch
+extractions:
+  - html: https://workbench.import.io/html/run=d385eec9-603e-40be-93d5-f189d02149bc/task=a5f9dc65-29c3-4a2b-b690-41e46c4bb288/28237932-4adb-4171-ab21-14a4d2c99eff.html
+    extractionConfigId: product/details/stores/p/pistor/CH/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: Artikel verfügbar ab 26.11.2020
+                xpath: /html/body/div[1]/div[5]/div[2]/div[1]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[5]/span[1]/span[1]/div[3]
+          - image:
+              - text: https://www.psassets.ch/thumbs/3d/19/d967f8b84107641c8747e03a74bb-536019.jpg
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/img[1]/@src
+            category:
+              - text: Rotweine
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Schweiz
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: Aigle les Murailles, Chablais AOC, Henri Badoux, 2019, 70 cl
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            listPrice:
+              - text: "106.80"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            price:
+              - text: "106.80"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            availabilityText:
+              - text: Artikel verfügbar ab 26.11.2020
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/th[1]/span[1]/div[3]
+            quantity:
+              - text: Ct à 6 Fl
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[2]/td[1]
+            sku:
+              - text: "536019"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[3]/td[1]
+            productUrl:
+              - text: https://pistorone.ch/index.php/catalog2/products/10265396/wein/rotweine/schweiz/waadt/aigle-murailles-rot-70cl-2019?context=%2Fcatalog2
+                xpath: /html/body/div[5]/@content
+            name:
+              - text: Aigle les Murailles
+                xpath: /html/body/div[6]/@content
+        xpath: /html/body
+    timestamp: 1605779805025

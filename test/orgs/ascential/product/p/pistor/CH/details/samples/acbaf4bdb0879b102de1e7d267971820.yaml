@@ -1,0 +1,45 @@
+input:
+  RPC: 3215
+  _url: http://pistorone.ch
+extractions:
+  - html: https://workbench.import.io/html/run=d385eec9-603e-40be-93d5-f189d02149bc/task=d6a0405a-9afd-4444-849c-7ec148721031/f6fd3b28-15df-4ab2-8e25-9fb7f1dc51ed.html
+    extractionConfigId: product/details/stores/p/pistor/CH/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/th[1]/span[1]/div[2]
+            quantity:
+              - text: Ct à 10 kg
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[2]/td[1]
+            brandText:
+              - text: Knorr
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[3]/td[1]
+            sku:
+              - text: "3215"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]
+            listPrice:
+              - text: "259.80"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            price:
+              - text: "259.80"
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[2]/tbody[1]/tr[1]/td[1]/span[1]/span[1]/span[1]
+            image:
+              - text: https://www.psassets.ch/thumbs/a4/a7/84acba15aae478eb91088c41f826-003215.jpg
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/img[1]/@src
+            category:
+              - text: Knorr-Sortiment GV
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Bouillons
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+            nameExtended:
+              - text: Gemüse-Extrakt, ohne Fett, Granulat, Knorr, 2 x 5 kg
+                xpath: /html/body/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            productUrl:
+              - text: https://pistorone.ch/index.php/catalog2/products/11545/economat-kuchenprodgewurzekonserven/knorr-sortiment-gv/bouillons/gemuse/gemuse-extrakt-2-x-5-kg-knorr?context=%2Fcatalog2
+                xpath: /html/body/div[5]/@content
+            name:
+              - text: Gemüse-Extrakt
+                xpath: /html/body/div[6]/@content
+        xpath: /html
+    timestamp: 1605779798992
