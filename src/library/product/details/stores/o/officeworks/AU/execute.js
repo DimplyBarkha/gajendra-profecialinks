@@ -6,7 +6,7 @@ module.exports = {
     store: 'officeworks',
     domain: 'officeworks.com.au',
     loadedSelector: 'div[class*=Product__LoadingWrapper]',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@data-at="content-page-not-found-header"]//h3',
     zipcode: '',
   },
 };
