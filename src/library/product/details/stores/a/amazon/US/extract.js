@@ -64,13 +64,26 @@ async function implementation (
         if (primeFlag) {
           document.body.setAttribute('prime-flag', primeFlag);
         }
+        let shippingPrice = doc.querySelector('div[id^="aod-bottlingDepositFee-0"]+span>span') && doc.querySelector('div[id^="aod-bottlingDepositFee-0"]+span>span').textContent;
+        if (shippingPrice) {
+          shippingPrice = shippingPrice.match(/\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?/) && shippingPrice.match(/\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?/)[0];
+          document.body.setAttribute('shipping-price-main', shippingPrice);
+        }
+        const seller = doc.querySelector('#aod-pinned-offer #aod-offer-soldBy a');
+        if (seller) {
+          const sellerId = seller.href.match(/seller=(\w+)/);
+          if (sellerId) {
+            document.body.setAttribute('seller-id-main', sellerId[1]);
+          }
+        }
       }
       const sellerData = Array.from(doc.querySelectorAll('#aod-offer')).map(offer => {
         const sellerPrice = offer.querySelector('div[id^="aod-price"] span[class="a-offscreen"]') && offer.querySelector('div[id^="aod-price"] span[class="a-offscreen"]').innerText || '';
         const sellerName = offer.querySelector('div[id="aod-offer-soldBy"] a, div[id="aod-offer-soldBy"] div[class="a-fixed-left-grid-col a-col-right"] > span[class="a-size-small a-color-base"]') && offer.querySelector('div[id="aod-offer-soldBy"] a,div[id="aod-offer-soldBy"] div[class="a-fixed-left-grid-col a-col-right"] > span[class="a-size-small a-color-base"]').innerText || '';
         const shippingPrice = offer.querySelector('div[id^="aod-bottlingDepositFee"]+span>span') && offer.querySelector('div[id^="aod-bottlingDepositFee"]+span>span').textContent || '0.00';
+        const sellerId = offer.querySelector('#aod-offer-soldBy a') && offer.querySelector('#aod-offer-soldBy a').href;
         const sellerPrime = offer.querySelector('div[id^="aod-bottlingDepositFee"]+span>a') && 'YES' || 'NO';
-        return { sellerPrice, sellerName, shippingPrice, sellerPrime };
+        return { sellerPrice, sellerName, shippingPrice, sellerPrime, sellerId };
       });
       data = data.concat(sellerData);
       notLastPage = Number(totalCount) > data.length;
@@ -85,10 +98,16 @@ async function implementation (
       return price.match(/\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?/) ? price.match(/\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?/)[0] : '0.00';
     }).join('|');
     const sellerPrime = data.map(seller => seller.sellerPrime.trim()).join('|');
+    const sellerId = data.map(seller => {
+      if (seller.sellerId && seller.sellerId.match(/seller=(\w+)/)) {
+        return seller.sellerId.match(/seller=(\w+)/)[1];
+      }
+    }).join('|');
     document.body.setAttribute('seller-price', sellerPrice);
     document.body.setAttribute('seller-name', sellerName);
     document.body.setAttribute('shipping-price', shippingPrice);
     document.body.setAttribute('seller-prime', sellerPrime);
+    document.body.setAttribute('seller-id', sellerId);
     console.log(data);
     return data;
   }
@@ -147,7 +166,7 @@ async function implementation (
   try {
     await context.evaluate(getOtherSellerInfo);
   } catch (err) {
-    console.log('Error while adding other seller info');
+    console.log('Error while adding other seller info. Error: ', err);
   }
   await context.extract(productDetails, { transform });
 }
