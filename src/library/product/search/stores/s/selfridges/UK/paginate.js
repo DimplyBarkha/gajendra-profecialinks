@@ -13,6 +13,7 @@ module.exports = {
     openSearchDefinition: {
       template: 'https://www.selfridges.com/US/en/cat/?freeText={searchTerms}&pn={page}',
       pageOffset: 0,
+      pageStartNb: 1,
     },
     domain: 'selfridges.uk',
     zipcode: "''",
