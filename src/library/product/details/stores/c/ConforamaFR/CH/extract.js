@@ -36,9 +36,17 @@ module.exports = {
         let dataScript = document.querySelectorAll('script[type="application/ld+json"]')[2].innerText;
         dataScript = JSON.parse(dataScript);
         addHiddenDiv('availabilty', dataScript.offers.availability, 0);
-
+        addHiddenDiv('brand', dataScript.brand.name, 0);
       } catch (error) {
       }
+      try {
+        // @ts-ignore
+        let skuScript = document.querySelectorAll('script[type="application/ld+json"]')[2].innerText;
+        skuScript = JSON.parse(skuScript);
+        addHiddenDiv('sku', skuScript.sku, 0);
+      } catch (error) {
+      }
+
     });
     return await context.extract(productDetails, { transform });
   },
