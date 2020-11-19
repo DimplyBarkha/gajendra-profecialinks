@@ -9,6 +9,10 @@ fields:
     xpath: //div[@class="c-media-container__image-wrapper"]//img//@src
     regExp: (.+)
     regExpReplace: https:$1
+  - name: productUrl
+    singleValue: true
+    description: URL of the product
+    xpath: //meta[@property="og:url"]/@content
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -16,7 +20,9 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //img[@class="c-carousel__img"]
+    xpath: //img[@class="c-carousel__img"]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -63,7 +69,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: (//span[@class="c-breadcrumbs__item-text"])[last()]
+    xpath: //div[@class="c-brand-logo"]/img/@alt
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -87,10 +93,6 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //div//p[@class="c-product-code"]
-  - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
-    xpath: //div//p[@class="c-product-code"]
   - name: name
     singleValue: true
     description: This is the name of the product (Title) - Should contain the full product description as it appears on the website.
@@ -108,7 +110,7 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-  - name: ratingCount
+  - name: reviewCount
     singleValue: true
     description: The number of ratings
     type: NUMBER
@@ -126,7 +128,7 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: (//table[@class="table table-striped product-details-table"][13]//span[@class="product-details-overview-specification"])[2]
+    xpath: //table[@class="table table-striped product-details-table"]/tbody//td//span[contains(text(),"Диаметр")]/ancestor::*[position()=2]//td[2]/span/text()
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -464,6 +466,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //table[@class="table table-striped product-details-table"]/tbody//td//span[contains(text(),"Цвет")]/ancestor::*[position()=2]//td[2]/span/text()
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -514,7 +517,7 @@ fields:
   - name: materials
     singleValue: true
     description: Materials used to make the product
-    xpath: (//table[@class="table table-striped product-details-table"][10]//span[@class="product-details-overview-specification"])[2]
+    xpath: //table[@class="table table-striped product-details-table"]/tbody//td//span[contains(text(),"корпуса")]/ancestor::*[position()=2]//td[2]/span/text()
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
