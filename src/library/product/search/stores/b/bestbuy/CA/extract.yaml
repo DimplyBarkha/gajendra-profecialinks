@@ -14,6 +14,8 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //a[@itemprop="url"]/@href
+    regExp: (/.+)
+    regExpReplace: https://www.bestbuy.ca/en-ca/$1
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
@@ -22,24 +24,16 @@ fields:
     singleValue: false
     description: The offered price for the product
     xpath: //span[@class="screenReaderOnly_3anTj large_3aP7Z"]/text()
-  - name: rating
+  - name: aggregateRating
     singleValue: false
     xpath: //div[@class="reviews_1KIjQ"]/span/meta/@content
-  - name: reviews
+  - name: reviewCount
     singleValue: false
     xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
-  - name: shippinginfo1
-    singleValue: false
-    xpath: //span[@class="container_3LC03"]/text()
-  - name: shippinginfo2
-    singleValue: false
-    xpath: //p[@class="availabilityMessageSearchPickup_2eGze"]/text()
   - name: rankOrganic
     singleValue: false
-    xpath: //div[@id="rankOrganic"]/text()
   - name: rank
     singleValue: false
-    xpath: //div[@id="rankOrganic"]/text()
-  - name: Seller
+  - name: soldBy
     singleValue: false
     xpath: //span[@class="marketplaceName_1acI5"]/text()
