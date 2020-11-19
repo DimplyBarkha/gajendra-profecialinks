@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'elgiganten.se',
     prefix: null,
-    url: null,
+    url: 'https://www.elgiganten.se/search?SearchTerm={id}',
     country: 'SE',
     store: 'elgiganten',
     zipcode: '',
