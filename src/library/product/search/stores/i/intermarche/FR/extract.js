@@ -45,7 +45,7 @@ module.exports = {
           "/product/" +
           product[i].parentNode.dataset.id;
         addHiddenDiv("ii_produrl", url, i);
-        addHiddenDiv("ii_rankOrganic", i + 1, i + 1);
+        addHiddenDiv("ii_rankOrganic", i + 1, i);
       }
     });
     return await context.extract(productDetails, { transform });
