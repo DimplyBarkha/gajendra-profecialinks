@@ -9,7 +9,7 @@ module.exports = {
     domain: 'martinplace.romeosonline.com.au',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
+  implementation: async (inputs, { transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       const addElementToDom = (element, id) => {
         const div = document.createElement('div');

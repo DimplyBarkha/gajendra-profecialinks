@@ -2,7 +2,7 @@ input:
   _url: http://martinplace.romeosonline.com.au
   URL: https://martinplace.romeosonline.com.au/lines/v-energy-drink-raspberry-lemonade-500ml-can
 extractions:
-  - html: https://workbench.import.io/html/run=50505330-17f4-4041-8428-a666d482db09/task=34e8ebcd-0679-408f-a7fa-950cb6f6100c/12623716-bf1c-4de0-8aad-d17ec9e6b62d.html
+  - html: https://workbench.import.io/html/run=a529c3c4-7fa8-4440-98e4-b4bb3e0df272/task=d66b91ce-db24-4296-afe8-5594e8f7b0bb/e7d143c8-1936-4efd-b0f4-79b41d4473b2.html
     extractionConfigId: product/details/stores/r/romeos/AU/extract
     data:
       - group:
@@ -12,9 +12,12 @@ extractions:
             price:
               - text: $4.86
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/strong[1]
+            variantId:
+              - text: V Energy Drink Raspberry Lemonade 500ml Can
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
             name:
               - text: V Energy Drink Raspberry Lemonade 500ml Can
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
             pricePerUnit:
               - text: $9.72
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/span[2]
@@ -39,4 +42,4 @@ extractions:
             availabilityText:
               - text: In Stock
         xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
-    timestamp: 1605689894490
+    timestamp: 1605770081550

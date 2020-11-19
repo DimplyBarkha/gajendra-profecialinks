@@ -82,6 +82,7 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
       sku
+    xpath: //div[@class="MoreInfo__Banner__Name"]/h1
   - name: mpc
     singleValue: tru
     description: The manufacturer model code (unique) of the product
@@ -138,7 +139,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class="MoreInfo__Banner__Name"]
+    xpath: //div[@class="MoreInfo__Banner__Name"]/h1
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store

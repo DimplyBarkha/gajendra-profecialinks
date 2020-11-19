@@ -2,7 +2,7 @@ input:
   _url: http://martinplace.romeosonline.com.au
   URL: https://martinplace.romeosonline.com.au/lines/mother-energy-drink-sugar-free-4x500ml
 extractions:
-  - html: https://workbench.import.io/html/run=50505330-17f4-4041-8428-a666d482db09/task=32694cb6-7b51-4138-9570-629c079da1fe/ad88c2b8-0b20-447a-bda2-fd345aa6e4cf.html
+  - html: https://workbench.import.io/html/run=a529c3c4-7fa8-4440-98e4-b4bb3e0df272/task=f3491af1-fe45-48bc-928d-cd6bdf6cc4f9/6603c6ed-41a2-46ad-9604-03d53ace01ee.html
     extractionConfigId: product/details/stores/r/romeos/AU/extract
     data:
       - group:
@@ -12,9 +12,12 @@ extractions:
             price:
               - text: $6.85
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/strong[1]
+            variantId:
+              - text: Mother Energy Drink Sugar Free 4x500ml
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
             name:
               - text: Mother Energy Drink Sugar Free 4x500ml
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
             coupon:
               - text: Save $3.55
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]
@@ -45,4 +48,4 @@ extractions:
             availabilityText:
               - text: In Stock
         xpath: /html
-    timestamp: 1605689891874
+    timestamp: 1605770080986

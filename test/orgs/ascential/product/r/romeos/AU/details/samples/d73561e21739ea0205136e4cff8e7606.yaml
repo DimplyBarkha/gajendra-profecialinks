@@ -2,7 +2,7 @@ input:
   _url: http://martinplace.romeosonline.com.au
   URL: https://martinplace.romeosonline.com.au/lines/schw-tonic-water-4x300ml
 extractions:
-  - html: https://workbench.import.io/html/run=50505330-17f4-4041-8428-a666d482db09/task=9a260db4-e78b-49ed-bb22-4fcc03477e24/494c7079-6244-4e28-b42a-835b1710a952.html
+  - html: https://workbench.import.io/html/run=a529c3c4-7fa8-4440-98e4-b4bb3e0df272/task=4a25eb6f-9254-4f1d-a764-3653ec7e6d93/2f8a4269-c356-4bbf-a8bf-59ed1ff3d0d9.html
     extractionConfigId: product/details/stores/r/romeos/AU/extract
     data:
       - group:
@@ -12,9 +12,12 @@ extractions:
             price:
               - text: $4.50
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[2]/strong[1]
+            variantId:
+              - text: Schweppes Mixers 300ml Tonic Water 4 Pack
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
             name:
               - text: Schweppes Mixers 300ml Tonic Water 4 Pack
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]/h1[1]
             coupon:
               - text: Save $2.15
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]
@@ -45,4 +48,4 @@ extractions:
             availabilityText:
               - text: In Stock
         xpath: /html
-    timestamp: 1605689895714
+    timestamp: 1605770083174
