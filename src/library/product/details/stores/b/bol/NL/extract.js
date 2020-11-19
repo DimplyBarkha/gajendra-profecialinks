@@ -4,12 +4,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  if (parameters.loadedSelector) {
-    await context.waitForFunction(function (sel, xp) {
-      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
-  }
-
   // if we're on search site we should click and select first item
   var detailsPage = await context.evaluate(async () => {
     if (
@@ -80,14 +74,24 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     // convert rating
     var rawRating = document.querySelector(
-      'div[class="rating-horizontal__average-score"]');
+      'div[class="rating-horizontal__average-score"]',
+    );
     if (rawRating) {
       var text = document.querySelector(
-        'div[class="rating-horizontal__average-score"]').textContent;
+        'div[class="rating-horizontal__average-score"]',
+      ).textContent;
       rawRating.setAttribute('rating', text.toString().replace('.', ','));
     }
+
+    // add availability
+    var availabilityText = document.querySelector(
+      'div[class="buy-block__highlight h-boxedright--xxs"]')
+      ? document.querySelector('div[class="buy-block__highlight h-boxedright--xxs"]').textContent
+      : document.querySelector('div[class="buy-block__title"]') ? document.querySelector(
+        'div[class="buy-block__title"]').textContent : null;
+
+    addElementToDom(availabilityText, 'availability');
   });
-  await context.extract(productDetails);
 
   return await context.extract(productDetails, { transform });
 }
