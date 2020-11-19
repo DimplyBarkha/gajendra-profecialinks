@@ -13,7 +13,7 @@ fields:
     description: Alt text of the main product image
   - name: imageCount
     singleValue: true
-    xpath: count((//li[contains(@class, "thumb-container")]//img/@src))
+    xpath: count((//li[contains(@class, "thumb-container")]//img/@src)[position() < last()]|(//div[@class='product-cover']//@src)[1])
 
 
   - name: category
@@ -137,8 +137,8 @@ fields:
   - name: sku
     singleValue: true
     xpath: //span[contains(@class, "referencia")]
-    regExp: Ref.\s*(.*)$
-    regExpReplace: $1
+    regExp: ([^Ref.](.*))
+    # regExpReplace: $1
   - name: shippingPrice
     singleValue: true
   - name: pricePerUnit

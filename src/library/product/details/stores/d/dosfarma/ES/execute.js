@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'dosfarma',
     domain: 'dosfarma.com',
-    loadedSelector: null,
+    loadedSelector: 'div.product_primary',
     noResultsXPath: null,
     zipcode: '',
   },
