@@ -122,12 +122,17 @@ module.exports = {
         ? getElementByXpath('//*[@id="product-intro"]//div[@class="pickup-from-store"]').textContent
         : '';
       if (shipingInfo) addElementToDocument('shipingInfo', shipingInfo);
-
-      const specifications = document.querySelectorAll('pwr-product-specifications > div');
-      const specArr = [];
+      // need to click the specifications tab to get the data 
+      let specTabButton = document.evaluate('//div[contains(@class,"product-information")]//h3[contains(.,"Tekniset tiedo")]',document).iterateNext();
+      if(specTabButton) {
+        specTabButton.click();
+      }
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      let specifications = document.querySelectorAll('pwr-product-specifications > div');
+      let specArr = [];
       if (specifications) {
         specifications.forEach(e => {
-          specArr.push(e.innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
+          specArr.push(e.innerText.replace(/\n/g, '').replace(/\s{2,}/g, ' '));
         });
       }
       addElementToDocument('specifications', specArr.join(' || '));
