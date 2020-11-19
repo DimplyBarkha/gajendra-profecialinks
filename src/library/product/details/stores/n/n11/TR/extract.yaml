@@ -75,3 +75,10 @@ fields:
   - name: image_alt
     singleValue: false
     xpath: //div[@class='nameHolder']/h1
+  - name: rpc
+    singleValue: true
+    xpath: //input[@class='skuId']/@value
+  - name: variantId
+    singleValue: true
+    xpath: //input[@class='productId']/@value
+
