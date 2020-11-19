@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="nm-search-results-container"]/ul[@class="neemu-products-container nm-view-type-grid"]//li[@class="nm-product-item"]
+fields:
+  - name: rankOrganic
+    SingleValue: false
+  - name: rank
+    SingleValue: false    
+  - name: id
+    SingleValue: false
+    xpath: //li[@class="nm-product-item"]/@data-pid
+  - name: name
+    SingleValue: false
+    xpath: //li[@class="nm-product-item"]//div[@class="nm-product-info"]//h2[@class="nm-product-name"]//a
+  - name: productUrl
+    SingleValue: false
+    xpath: //li[@class="nm-product-item"]//div[@class="nm-product-img-container"]//a[@class="nm-product-img-link"]/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //li[@class="nm-product-item"]//div[@class="nm-product-img-container"]//a[@class="nm-product-img-link"]//img[@class="nm-product-img"]/@src
+  - name: reviewCount
+    SingleValue: false
+    xpath: //div[@class="nm-product-info"]//span[@class="ts-shelf-right ts-shelf-rate-count ts-shelf-rate-enabled"]
+  - name: ratingCount
+    SingleValue: false
+    xpath: //div[@class="nm-product-info"]//span[@class="ts-shelf-right ts-shelf-rate-count ts-shelf-rate-enabled"]
+  - name: price
+    SingleValue: false
+    xpath: //li[@class="nm-product-item"]//div[@class="nm-product-info"]//a[@class="nm-offer"]//div[@class="nm-price-value"]
+  - name: brandText
+    SingleValue: false
+    xpath: //div[@class="linx-category"]//a[@class="linx-brand"]
