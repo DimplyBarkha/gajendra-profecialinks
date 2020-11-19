@@ -2,7 +2,7 @@ input:
   keywords: arabica
   _url: http://mega-image.ro
 extractions:
-  - html: https://workbench.import.io/html/run=2ef3edd6-f102-4f2a-8ec8-e23db01de1e3/task=5197c3ab-bcf7-4a25-b66f-ee757b47701f/f4ee767b-c0f3-4c5c-b100-576e8c81c14b.html
+  - html: https://workbench.import.io/html/run=01401380-0d51-4100-9cf2-275dd3d06c26/task=4e75312e-8ba0-4244-8820-6a8f4289bdfb/3eb3e3a1-5211-40c0-918f-204d0013012f.html
     extractionConfigId: product/search/stores/m/mega-image/RO/extract
     data:
       - group:
@@ -19,8 +19,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hf3/hf3/8914323472414.jpg
                 xpath: /html/body/div[2]/div[1]/@thumbnail
             price:
-              - text: 39,27
-                xpath: /html/body/div[2]/div[1]/@price
+              - text: "39.27"
+                xpath: /html/body/div[2]/div[1]/text()[1]
+                type: STRING
             manufacturer:
               - text: Illy
                 xpath: /html/body/div[2]/div[1]/@manufacturer
@@ -37,8 +38,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hdc/hac/8929357922334.jpg
                 xpath: /html/body/div[2]/div[2]/@thumbnail
             price:
-              - text: 20,39
-                xpath: /html/body/div[2]/div[2]/@price
+              - text: "20.39"
+                xpath: /html/body/div[2]/div[2]/text()[1]
+                type: STRING
             manufacturer:
               - text: Davidoff
                 xpath: /html/body/div[2]/div[2]/@manufacturer
@@ -55,8 +57,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h4c/h3c/8962008743966.jpg
                 xpath: /html/body/div[2]/div[3]/@thumbnail
             price:
-              - text: 29,90
-                xpath: /html/body/div[2]/div[3]/@price
+              - text: "29.9"
+                xpath: /html/body/div[2]/div[3]/text()[1]
+                type: STRING
             manufacturer:
               - text: Mount Hagen
                 xpath: /html/body/div[2]/div[3]/@manufacturer
@@ -73,8 +76,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h61/h3b/8959890718750.jpg
                 xpath: /html/body/div[2]/div[4]/@thumbnail
             price:
-              - text: 29,90
-                xpath: /html/body/div[2]/div[4]/@price
+              - text: "29.9"
+                xpath: /html/body/div[2]/div[4]/text()[1]
+                type: STRING
             manufacturer:
               - text: Mount Hagen
                 xpath: /html/body/div[2]/div[4]/@manufacturer
@@ -91,8 +95,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hc9/h74/8937374941214.jpg
                 xpath: /html/body/div[2]/div[5]/@thumbnail
             price:
-              - text: 36,74
-                xpath: /html/body/div[2]/div[5]/@price
+              - text: "36.74"
+                xpath: /html/body/div[2]/div[5]/text()[1]
+                type: STRING
             manufacturer:
               - text: Illy
                 xpath: /html/body/div[2]/div[5]/@manufacturer
@@ -109,8 +114,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h90/h96/8914291425310.jpg
                 xpath: /html/body/div[2]/div[6]/@thumbnail
             price:
-              - text: 32,99
-                xpath: /html/body/div[2]/div[6]/@price
+              - text: "32.99"
+                xpath: /html/body/div[2]/div[6]/text()[1]
+                type: STRING
             manufacturer:
               - text: Illy
                 xpath: /html/body/div[2]/div[6]/@manufacturer
@@ -127,8 +133,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h9f/h73/8841689858078.jpg
                 xpath: /html/body/div[2]/div[7]/@thumbnail
             price:
-              - text: 37,09
-                xpath: /html/body/div[2]/div[7]/@price
+              - text: "37.09"
+                xpath: /html/body/div[2]/div[7]/text()[1]
+                type: STRING
             manufacturer:
               - text: Illy
                 xpath: /html/body/div[2]/div[7]/@manufacturer
@@ -145,8 +152,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h2b/h7a/8913544544286.jpg
                 xpath: /html/body/div[2]/div[8]/@thumbnail
             price:
-              - text: 27,99
-                xpath: /html/body/div[2]/div[8]/@price
+              - text: "27.99"
+                xpath: /html/body/div[2]/div[8]/text()[1]
+                type: STRING
             manufacturer:
               - text: Caffe Vergnano 1882
                 xpath: /html/body/div[2]/div[8]/@manufacturer
@@ -163,8 +171,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h3e/hb9/8913546903582.jpg
                 xpath: /html/body/div[2]/div[9]/@thumbnail
             price:
-              - text: 27,99
-                xpath: /html/body/div[2]/div[9]/@price
+              - text: "27.99"
+                xpath: /html/body/div[2]/div[9]/text()[1]
+                type: STRING
             manufacturer:
               - text: Caffe Vergnano 1882
                 xpath: /html/body/div[2]/div[9]/@manufacturer
@@ -181,64 +190,68 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h5f/h27/8807425671198.jpg
                 xpath: /html/body/div[2]/div[10]/@thumbnail
             price:
-              - text: 35,88
-                xpath: /html/body/div[2]/div[10]/@price
+              - text: "35.88"
+                xpath: /html/body/div[2]/div[10]/text()[1]
+                type: STRING
             manufacturer:
               - text: Malongo
                 xpath: /html/body/div[2]/div[10]/@manufacturer
           - id:
-              - text: "24559"
+              - text: "24572"
                 xpath: /html/body/div[2]/div[11]/@id
             name:
-              - text: Cafea prajita si macinata supremo 250g
+              - text: Cafea prajita si macinata Supremo 500g
                 xpath: /html/body/div[2]/div[11]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-supremo-250g/p/24559
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Supremo-500g/p/24572
                 xpath: /html/body/div[2]/div[11]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h67/h6b/8981293989918.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hb8/haa/8981275869214.jpg
                 xpath: /html/body/div[2]/div[11]/@thumbnail
             price:
-              - text: 11,70
-                xpath: /html/body/div[2]/div[11]/@price
+              - text: "22"
+                xpath: /html/body/div[2]/div[11]/text()[1]
+                type: STRING
             manufacturer:
               - text: Doncafe
                 xpath: /html/body/div[2]/div[11]/@manufacturer
           - id:
-              - text: "19367"
+              - text: "24559"
                 xpath: /html/body/div[2]/div[12]/@id
             name:
-              - text: Cafea macinata Moka Etiopia 250g
+              - text: Cafea prajita si macinata supremo 250g
                 xpath: /html/body/div[2]/div[12]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-Moka-Etiopia-250g/p/19367
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-supremo-250g/p/24559
                 xpath: /html/body/div[2]/div[12]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h23/hb4/8970975281182.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h67/h6b/8981293989918.jpg
                 xpath: /html/body/div[2]/div[12]/@thumbnail
             price:
-              - text: 61,16
-                xpath: /html/body/div[2]/div[12]/@price
-            manufacturer:
-              - text: Malongo
-                xpath: /html/body/div[2]/div[12]/@manufacturer
-          - id:
-              - text: "24572"
-                xpath: /html/body/div[2]/div[13]/@id
-            name:
-              - text: Cafea prajita si macinata Supremo 500g
-                xpath: /html/body/div[2]/div[13]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Supremo-500g/p/24572
-                xpath: /html/body/div[2]/div[13]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hb8/haa/8981275869214.jpg
-                xpath: /html/body/div[2]/div[13]/@thumbnail
-            price:
-              - text: 19,80
-                xpath: /html/body/div[2]/div[13]/@price
+              - text: "13"
+                xpath: /html/body/div[2]/div[12]/text()[1]
+                type: STRING
             manufacturer:
               - text: Doncafe
+                xpath: /html/body/div[2]/div[12]/@manufacturer
+          - id:
+              - text: "19367"
+                xpath: /html/body/div[2]/div[13]/@id
+            name:
+              - text: Cafea macinata Moka Etiopia 250g
+                xpath: /html/body/div[2]/div[13]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-Moka-Etiopia-250g/p/19367
+                xpath: /html/body/div[2]/div[13]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h23/hb4/8970975281182.jpg
+                xpath: /html/body/div[2]/div[13]/@thumbnail
+            price:
+              - text: "61.16"
+                xpath: /html/body/div[2]/div[13]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Malongo
                 xpath: /html/body/div[2]/div[13]/@manufacturer
           - id:
               - text: "22083"
@@ -253,8 +266,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hc7/h5d/8971651907614.jpg
                 xpath: /html/body/div[2]/div[14]/@thumbnail
             price:
-              - text: 4,13
-                xpath: /html/body/div[2]/div[14]/@price
+              - text: "4.59"
+                xpath: /html/body/div[2]/div[14]/text()[1]
+                type: STRING
             manufacturer:
               - text: Morena Cafe
                 xpath: /html/body/div[2]/div[14]/@manufacturer
@@ -271,8 +285,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h6c/hf1/8914293194782.jpg
                 xpath: /html/body/div[2]/div[15]/@thumbnail
             price:
-              - text: 32,99
-                xpath: /html/body/div[2]/div[15]/@price
+              - text: "32.99"
+                xpath: /html/body/div[2]/div[15]/text()[1]
+                type: STRING
             manufacturer:
               - text: Illy
                 xpath: /html/body/div[2]/div[15]/@manufacturer
@@ -289,8 +304,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h74/hdf/8970058858526.jpg
                 xpath: /html/body/div[2]/div[16]/@thumbnail
             price:
-              - text: 3,32
-                xpath: /html/body/div[2]/div[16]/@price
+              - text: "3.69"
+                xpath: /html/body/div[2]/div[16]/text()[1]
+                type: STRING
             manufacturer:
               - text: Rio Cafe
                 xpath: /html/body/div[2]/div[16]/@manufacturer
@@ -307,8 +323,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hf9/he1/8988442689566.jpg
                 xpath: /html/body/div[2]/div[17]/@thumbnail
             price:
-              - text: 24,80
-                xpath: /html/body/div[2]/div[17]/@price
+              - text: "24.8"
+                xpath: /html/body/div[2]/div[17]/text()[1]
+                type: STRING
             manufacturer:
               - text: Destination
                 xpath: /html/body/div[2]/div[17]/@manufacturer
@@ -325,8 +342,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h4a/h62/8872171733022.jpg
                 xpath: /html/body/div[2]/div[18]/@thumbnail
             price:
-              - text: 18,40
-                xpath: /html/body/div[2]/div[18]/@price
+              - text: "18.4"
+                xpath: /html/body/div[2]/div[18]/text()[1]
+                type: STRING
             manufacturer:
               - text: Movenpick
                 xpath: /html/body/div[2]/div[18]/@manufacturer
@@ -343,8 +361,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h4c/h14/8937341059102.jpg
                 xpath: /html/body/div[2]/div[19]/@thumbnail
             price:
-              - text: 20,35
-                xpath: /html/body/div[2]/div[19]/@price
+              - text: "20.35"
+                xpath: /html/body/div[2]/div[19]/text()[1]
+                type: STRING
             manufacturer:
               - text: Gourmet
                 xpath: /html/body/div[2]/div[19]/@manufacturer
@@ -361,8 +380,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/haf/hd7/8926880923678.jpg
                 xpath: /html/body/div[2]/div[20]/@thumbnail
             price:
-              - text: 9,99
-                xpath: /html/body/div[2]/div[20]/@price
+              - text: "9.99"
+                xpath: /html/body/div[2]/div[20]/text()[1]
+                type: STRING
             manufacturer:
               - text: Starbucks
                 xpath: /html/body/div[2]/div[20]/@manufacturer
@@ -379,8 +399,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h71/h51/8937342238750.jpg
                 xpath: /html/body/div[2]/div[21]/@thumbnail
             price:
-              - text: 18,87
-                xpath: /html/body/div[2]/div[21]/@price
+              - text: "18.87"
+                xpath: /html/body/div[2]/div[21]/text()[1]
+                type: STRING
             manufacturer:
               - text: Gourmet
                 xpath: /html/body/div[2]/div[21]/@manufacturer
@@ -397,8 +418,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h99/h32/8915705102366.jpg
                 xpath: /html/body/div[2]/div[22]/@thumbnail
             price:
-              - text: 27,99
-                xpath: /html/body/div[2]/div[22]/@price
+              - text: "27.99"
+                xpath: /html/body/div[2]/div[22]/text()[1]
+                type: STRING
             manufacturer:
               - text: Taylors
                 xpath: /html/body/div[2]/div[22]/@manufacturer
@@ -415,8 +437,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h25/he7/8960006455326.jpg
                 xpath: /html/body/div[2]/div[23]/@thumbnail
             price:
-              - text: 24,90
-                xpath: /html/body/div[2]/div[23]/@price
+              - text: "24.9"
+                xpath: /html/body/div[2]/div[23]/text()[1]
+                type: STRING
             manufacturer:
               - text: Mount Hagen
                 xpath: /html/body/div[2]/div[23]/@manufacturer
@@ -433,8 +456,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h36/hbb/8915703332894.jpg
                 xpath: /html/body/div[2]/div[24]/@thumbnail
             price:
-              - text: 27,99
-                xpath: /html/body/div[2]/div[24]/@price
+              - text: "27.99"
+                xpath: /html/body/div[2]/div[24]/text()[1]
+                type: STRING
             manufacturer:
               - text: Taylors
                 xpath: /html/body/div[2]/div[24]/@manufacturer
@@ -451,8 +475,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h69/h48/8970120986654.jpg
                 xpath: /html/body/div[2]/div[25]/@thumbnail
             price:
-              - text: 24,30
-                xpath: /html/body/div[2]/div[25]/@price
+              - text: "27"
+                xpath: /html/body/div[2]/div[25]/text()[1]
+                type: STRING
             manufacturer:
               - text: Ecuator Cafe
                 xpath: /html/body/div[2]/div[25]/@manufacturer
@@ -469,8 +494,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/heb/hd8/8970140319774.jpg
                 xpath: /html/body/div[2]/div[26]/@thumbnail
             price:
-              - text: 29,99
-                xpath: /html/body/div[2]/div[26]/@price
+              - text: "29.99"
+                xpath: /html/body/div[2]/div[26]/text()[1]
+                type: STRING
             manufacturer:
               - text: Illy
                 xpath: /html/body/div[2]/div[26]/@manufacturer
@@ -487,8 +513,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/he6/hb7/8973975846942.jpg
                 xpath: /html/body/div[2]/div[27]/@thumbnail
             price:
-              - text: 12,50
-                xpath: /html/body/div[2]/div[27]/@price
+              - text: "12.5"
+                xpath: /html/body/div[2]/div[27]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[27]/@manufacturer
@@ -505,8 +532,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h93/h06/8988444000286.jpg
                 xpath: /html/body/div[2]/div[28]/@thumbnail
             price:
-              - text: 24,60
-                xpath: /html/body/div[2]/div[28]/@price
+              - text: "24.6"
+                xpath: /html/body/div[2]/div[28]/text()[1]
+                type: STRING
             manufacturer:
               - text: Destination
                 xpath: /html/body/div[2]/div[28]/@manufacturer
@@ -523,8 +551,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hea/h92/8926879678494.jpg
                 xpath: /html/body/div[2]/div[29]/@thumbnail
             price:
-              - text: 10,10
-                xpath: /html/body/div[2]/div[29]/@price
+              - text: "10.1"
+                xpath: /html/body/div[2]/div[29]/text()[1]
+                type: STRING
             manufacturer:
               - text: Starbucks
                 xpath: /html/body/div[2]/div[29]/@manufacturer
@@ -541,8 +570,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hff/hf5/8906215587870.jpg
                 xpath: /html/body/div[2]/div[30]/@thumbnail
             price:
-              - text: 22,00
-                xpath: /html/body/div[2]/div[30]/@price
+              - text: "22"
+                xpath: /html/body/div[2]/div[30]/text()[1]
+                type: STRING
             manufacturer:
               - text: Salomoni
                 xpath: /html/body/div[2]/div[30]/@manufacturer
@@ -559,8 +589,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h00/he8/8846717485086.jpg
                 xpath: /html/body/div[2]/div[31]/@thumbnail
             price:
-              - text: 12,50
-                xpath: /html/body/div[2]/div[31]/@price
+              - text: "12.5"
+                xpath: /html/body/div[2]/div[31]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[31]/@manufacturer
@@ -577,8 +608,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h00/h22/8970056564766.jpg
                 xpath: /html/body/div[2]/div[32]/@thumbnail
             price:
-              - text: 29,99
-                xpath: /html/body/div[2]/div[32]/@price
+              - text: "29.99"
+                xpath: /html/body/div[2]/div[32]/text()[1]
+                type: STRING
             manufacturer:
               - text: Illy
                 xpath: /html/body/div[2]/div[32]/@manufacturer
@@ -595,8 +627,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h67/h8b/8946411143198.jpg
                 xpath: /html/body/div[2]/div[33]/@thumbnail
             price:
-              - text: 7,99
-                xpath: /html/body/div[2]/div[33]/@price
+              - text: "7.99"
+                xpath: /html/body/div[2]/div[33]/text()[1]
+                type: STRING
             manufacturer:
               - text: Starbucks
                 xpath: /html/body/div[2]/div[33]/@manufacturer
@@ -613,8 +646,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h34/hf5/8996302716958.jpg
                 xpath: /html/body/div[2]/div[34]/@thumbnail
             price:
-              - text: 30,00
-                xpath: /html/body/div[2]/div[34]/@price
+              - text: "30"
+                xpath: /html/body/div[2]/div[34]/text()[1]
+                type: STRING
             manufacturer:
               - text: Manufaktura
                 xpath: /html/body/div[2]/div[34]/@manufacturer
@@ -631,8 +665,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h73/h99/8996321722398.jpg
                 xpath: /html/body/div[2]/div[35]/@thumbnail
             price:
-              - text: 30,00
-                xpath: /html/body/div[2]/div[35]/@price
+              - text: "30"
+                xpath: /html/body/div[2]/div[35]/text()[1]
+                type: STRING
             manufacturer:
               - text: Manufaktura
                 xpath: /html/body/div[2]/div[35]/@manufacturer
@@ -649,8 +684,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h58/h5c/8906226532382.jpg
                 xpath: /html/body/div[2]/div[36]/@thumbnail
             price:
-              - text: 24,91
-                xpath: /html/body/div[2]/div[36]/@price
+              - text: "24.91"
+                xpath: /html/body/div[2]/div[36]/text()[1]
+                type: STRING
             manufacturer:
               - text: Salomoni
                 xpath: /html/body/div[2]/div[36]/@manufacturer
@@ -667,8 +703,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h0d/h0f/8996310581278.jpg
                 xpath: /html/body/div[2]/div[37]/@thumbnail
             price:
-              - text: 30,00
-                xpath: /html/body/div[2]/div[37]/@price
+              - text: "30"
+                xpath: /html/body/div[2]/div[37]/text()[1]
+                type: STRING
             manufacturer:
               - text: Manufaktura
                 xpath: /html/body/div[2]/div[37]/@manufacturer
@@ -685,8 +722,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h25/h09/8996308615198.jpg
                 xpath: /html/body/div[2]/div[38]/@thumbnail
             price:
-              - text: 30,00
-                xpath: /html/body/div[2]/div[38]/@price
+              - text: "30"
+                xpath: /html/body/div[2]/div[38]/text()[1]
+                type: STRING
             manufacturer:
               - text: Manufaktura
                 xpath: /html/body/div[2]/div[38]/@manufacturer
@@ -703,8 +741,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h4c/h4e/8996283875358.jpg
                 xpath: /html/body/div[2]/div[39]/@thumbnail
             price:
-              - text: 25,00
-                xpath: /html/body/div[2]/div[39]/@price
+              - text: "25"
+                xpath: /html/body/div[2]/div[39]/text()[1]
+                type: STRING
             manufacturer:
               - text: Manufaktura
                 xpath: /html/body/div[2]/div[39]/@manufacturer
@@ -721,8 +760,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h7d/hf9/8996311891998.jpg
                 xpath: /html/body/div[2]/div[40]/@thumbnail
             price:
-              - text: 25,00
-                xpath: /html/body/div[2]/div[40]/@price
+              - text: "25"
+                xpath: /html/body/div[2]/div[40]/text()[1]
+                type: STRING
             manufacturer:
               - text: Manufaktura
                 xpath: /html/body/div[2]/div[40]/@manufacturer
@@ -739,8 +779,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/ha6/h91/8909929611294.jpg
                 xpath: /html/body/div[2]/div[41]/@thumbnail
             price:
-              - text: 21,69
-                xpath: /html/body/div[2]/div[41]/@price
+              - text: "21.69"
+                xpath: /html/body/div[2]/div[41]/text()[1]
+                type: STRING
             manufacturer:
               - text: Lavazza
                 xpath: /html/body/div[2]/div[41]/@manufacturer
@@ -757,8 +798,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h0a/h65/8909923385374.jpg
                 xpath: /html/body/div[2]/div[42]/@thumbnail
             price:
-              - text: 29,99
-                xpath: /html/body/div[2]/div[42]/@price
+              - text: "29.99"
+                xpath: /html/body/div[2]/div[42]/text()[1]
+                type: STRING
             manufacturer:
               - text: Lavazza
                 xpath: /html/body/div[2]/div[42]/@manufacturer
@@ -775,8 +817,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h82/hae/8909883998238.jpg
                 xpath: /html/body/div[2]/div[43]/@thumbnail
             price:
-              - text: 45,44
-                xpath: /html/body/div[2]/div[43]/@price
+              - text: "45.44"
+                xpath: /html/body/div[2]/div[43]/text()[1]
+                type: STRING
             manufacturer:
               - text: Lavazza
                 xpath: /html/body/div[2]/div[43]/@manufacturer
@@ -793,8 +836,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h3e/hfa/8869103206430.jpg
                 xpath: /html/body/div[2]/div[44]/@thumbnail
             price:
-              - text: 90,49
-                xpath: /html/body/div[2]/div[44]/@price
+              - text: "90.49"
+                xpath: /html/body/div[2]/div[44]/text()[1]
+                type: STRING
             manufacturer:
               - text: Lavazza
                 xpath: /html/body/div[2]/div[44]/@manufacturer
@@ -826,8 +870,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h8f/h89/8834684780574.jpg
                 xpath: /html/body/div[2]/div[46]/@thumbnail
             price:
-              - text: 13,57
-                xpath: /html/body/div[2]/div[46]/@price
+              - text: "13.57"
+                xpath: /html/body/div[2]/div[46]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[46]/@manufacturer
@@ -844,8 +889,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h8a/ha4/8980078952478.jpg
                 xpath: /html/body/div[2]/div[47]/@thumbnail
             price:
-              - text: 17,29
-                xpath: /html/body/div[2]/div[47]/@price
+              - text: "17.29"
+                xpath: /html/body/div[2]/div[47]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[47]/@manufacturer
@@ -862,8 +908,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hee/h7e/8884502822942.jpg
                 xpath: /html/body/div[2]/div[48]/@thumbnail
             price:
-              - text: 29,99
-                xpath: /html/body/div[2]/div[48]/@price
+              - text: "29.99"
+                xpath: /html/body/div[2]/div[48]/text()[1]
+                type: STRING
             manufacturer:
               - text: Taylors
                 xpath: /html/body/div[2]/div[48]/@manufacturer
@@ -880,8 +927,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h1f/h7f/8834723774494.jpg
                 xpath: /html/body/div[2]/div[49]/@thumbnail
             price:
-              - text: 18,23
-                xpath: /html/body/div[2]/div[49]/@price
+              - text: "18.23"
+                xpath: /html/body/div[2]/div[49]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[49]/@manufacturer
@@ -898,8 +946,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/haf/hd5/8973948911646.jpg
                 xpath: /html/body/div[2]/div[50]/@thumbnail
             price:
-              - text: 24,15
-                xpath: /html/body/div[2]/div[50]/@price
+              - text: "24.15"
+                xpath: /html/body/div[2]/div[50]/text()[1]
+                type: STRING
             manufacturer:
               - text: Nescafe
                 xpath: /html/body/div[2]/div[50]/@manufacturer
@@ -916,8 +965,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h3d/hf0/8834670428190.jpg
                 xpath: /html/body/div[2]/div[51]/@thumbnail
             price:
-              - text: 20,43
-                xpath: /html/body/div[2]/div[51]/@price
+              - text: "20.48"
+                xpath: /html/body/div[2]/div[51]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[51]/@manufacturer
@@ -934,8 +984,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hff/h23/8834707259422.jpg
                 xpath: /html/body/div[2]/div[52]/@thumbnail
             price:
-              - text: 5,28
-                xpath: /html/body/div[2]/div[52]/@price
+              - text: "5.28"
+                xpath: /html/body/div[2]/div[52]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[52]/@manufacturer
@@ -952,8 +1003,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/haa/h5c/8843085742110.jpg
                 xpath: /html/body/div[2]/div[53]/@thumbnail
             price:
-              - text: 19,30
-                xpath: /html/body/div[2]/div[53]/@price
+              - text: "19.3"
+                xpath: /html/body/div[2]/div[53]/text()[1]
+                type: STRING
             manufacturer:
               - text: Lavazza
                 xpath: /html/body/div[2]/div[53]/@manufacturer
@@ -970,8 +1022,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h99/h9c/8991533334558.jpg
                 xpath: /html/body/div[2]/div[54]/@thumbnail
             price:
-              - text: 14,00
-                xpath: /html/body/div[2]/div[54]/@price
+              - text: "14"
+                xpath: /html/body/div[2]/div[54]/text()[1]
+                type: STRING
             manufacturer:
               - text: Jacobs
                 xpath: /html/body/div[2]/div[54]/@manufacturer
@@ -988,8 +1041,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hec/h38/8991467012126.jpg
                 xpath: /html/body/div[2]/div[55]/@thumbnail
             price:
-              - text: 14,00
-                xpath: /html/body/div[2]/div[55]/@price
+              - text: "14"
+                xpath: /html/body/div[2]/div[55]/text()[1]
+                type: STRING
             manufacturer:
               - text: Jacobs
                 xpath: /html/body/div[2]/div[55]/@manufacturer
@@ -1006,80 +1060,81 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h94/h3e/8974022770718.jpg
                 xpath: /html/body/div[2]/div[56]/@thumbnail
             price:
-              - text: 17,89
-                xpath: /html/body/div[2]/div[56]/@price
+              - text: "17.89"
+                xpath: /html/body/div[2]/div[56]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize Bio
                 xpath: /html/body/div[2]/div[56]/@manufacturer
           - id:
-              - text: "95001"
+              - text: "58495"
                 xpath: /html/body/div[2]/div[57]/@id
             name:
-              - text: Cafea Espresso Elegant Aroma, 10 capsule
+              - text: Cafea Espresso Armonico, 10 capsule
                 xpath: /html/body/div[2]/div[57]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Elegant-Aroma-10-capsule/p/95001
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Armonico-10-capsule/p/58495
                 xpath: /html/body/div[2]/div[57]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hcf/h52/8834704900126.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h36/hca/8962066087966.jpg
                 xpath: /html/body/div[2]/div[57]/@thumbnail
-            price:
-              - text: 12,50
-                xpath: /html/body/div[2]/div[57]/@price
             manufacturer:
-              - text: Tchibo
+              - text: Lavazza
                 xpath: /html/body/div[2]/div[57]/@manufacturer
           - id:
-              - text: "49199"
+              - text: "95001"
                 xpath: /html/body/div[2]/div[58]/@id
             name:
-              - text: Cafea Lungo Colombia, 12 capsule
+              - text: Cafea Espresso Elegant Aroma, 10 capsule
                 xpath: /html/body/div[2]/div[58]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Lungo-Colombia-12-capsule/p/49199
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Elegant-Aroma-10-capsule/p/95001
                 xpath: /html/body/div[2]/div[58]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h1d/h91/8834794618910.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hcf/h52/8834704900126.jpg
                 xpath: /html/body/div[2]/div[58]/@thumbnail
             price:
-              - text: 22,29
-                xpath: /html/body/div[2]/div[58]/@price
-            manufacturer:
-              - text: Nescafe
-                xpath: /html/body/div[2]/div[58]/@manufacturer
-          - id:
-              - text: "95003"
-                xpath: /html/body/div[2]/div[59]/@id
-            name:
-              - text: Cafea Espresso Intense Aroma, 10 capsule
-                xpath: /html/body/div[2]/div[59]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Intense-Aroma-10-capsule/p/95003
-                xpath: /html/body/div[2]/div[59]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hd0/hc9/8834705489950.jpg
-                xpath: /html/body/div[2]/div[59]/@thumbnail
-            price:
-              - text: 12,50
-                xpath: /html/body/div[2]/div[59]/@price
+              - text: "12.5"
+                xpath: /html/body/div[2]/div[58]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
+                xpath: /html/body/div[2]/div[58]/@manufacturer
+          - id:
+              - text: "49199"
+                xpath: /html/body/div[2]/div[59]/@id
+            name:
+              - text: Cafea Lungo Colombia, 12 capsule
+                xpath: /html/body/div[2]/div[59]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Lungo-Colombia-12-capsule/p/49199
+                xpath: /html/body/div[2]/div[59]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h1d/h91/8834794618910.jpg
+                xpath: /html/body/div[2]/div[59]/@thumbnail
+            price:
+              - text: "22.55"
+                xpath: /html/body/div[2]/div[59]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Nescafe
                 xpath: /html/body/div[2]/div[59]/@manufacturer
           - id:
-              - text: "72837"
+              - text: "95003"
                 xpath: /html/body/div[2]/div[60]/@id
             name:
-              - text: Cafea prajita si macinata Milano Style 250g
+              - text: Cafea Espresso Intense Aroma, 10 capsule
                 xpath: /html/body/div[2]/div[60]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Milano-Style-250g/p/72837
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Intense-Aroma-10-capsule/p/95003
                 xpath: /html/body/div[2]/div[60]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h15/h3f/8834725543966.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hd0/hc9/8834705489950.jpg
                 xpath: /html/body/div[2]/div[60]/@thumbnail
             price:
-              - text: 14,36
-                xpath: /html/body/div[2]/div[60]/@price
+              - text: "12.5"
+                xpath: /html/body/div[2]/div[60]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[60]/@manufacturer
@@ -1096,871 +1151,972 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/ha5/hc8/8961957888030.jpg
                 xpath: /html/body/div[2]/div[61]/@thumbnail
             price:
-              - text: 13,52
-                xpath: /html/body/div[2]/div[61]/@price
+              - text: "13.52"
+                xpath: /html/body/div[2]/div[61]/text()[1]
+                type: STRING
             manufacturer:
               - text: Lavazza
                 xpath: /html/body/div[2]/div[61]/@manufacturer
           - id:
-              - text: "92885"
+              - text: "72837"
                 xpath: /html/body/div[2]/div[62]/@id
             name:
-              - text: Cafea macinata si prajita 100g
+              - text: Cafea prajita si macinata Milano Style 250g
                 xpath: /html/body/div[2]/div[62]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-si-prajita-100g/p/92885
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Milano-Style-250g/p/72837
                 xpath: /html/body/div[2]/div[62]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hcc/h53/8883072565278.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h15/h3f/8834725543966.jpg
                 xpath: /html/body/div[2]/div[62]/@thumbnail
             price:
-              - text: 5,18
-                xpath: /html/body/div[2]/div[62]/@price
+              - text: "14.36"
+                xpath: /html/body/div[2]/div[62]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Fortuna
+              - text: Tchibo
                 xpath: /html/body/div[2]/div[62]/@manufacturer
           - id:
-              - text: "30329"
+              - text: "92885"
                 xpath: /html/body/div[2]/div[63]/@id
             name:
-              - text: Cafea Boabe Barista Expert American 500g
+              - text: Cafea macinata si prajita 100g
                 xpath: /html/body/div[2]/div[63]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-Boabe-Barista-Expert-American-500g/p/30329
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-si-prajita-100g/p/92885
                 xpath: /html/body/div[2]/div[63]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hae/h3e/8996320411678.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hcc/h53/8883072565278.jpg
                 xpath: /html/body/div[2]/div[63]/@thumbnail
             price:
-              - text: 27,99
-                xpath: /html/body/div[2]/div[63]/@price
-            manufacturer:
-              - text: Doncafe
-                xpath: /html/body/div[2]/div[63]/@manufacturer
-          - id:
-              - text: "88440"
-                xpath: /html/body/div[2]/div[64]/@id
-            name:
-              - text: Cafea macinata si prajita 250g
-                xpath: /html/body/div[2]/div[64]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-si-prajita-250g/p/88440
-                xpath: /html/body/div[2]/div[64]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h3d/hd6/8883200491550.jpg
-                xpath: /html/body/div[2]/div[64]/@thumbnail
-            price:
-              - text: 12,44
-                xpath: /html/body/div[2]/div[64]/@price
+              - text: "5.18"
+                xpath: /html/body/div[2]/div[63]/text()[1]
+                type: STRING
             manufacturer:
               - text: Fortuna
+                xpath: /html/body/div[2]/div[63]/@manufacturer
+          - id:
+              - text: "30329"
+                xpath: /html/body/div[2]/div[64]/@id
+            name:
+              - text: Cafea Boabe Barista Expert American 500g
+                xpath: /html/body/div[2]/div[64]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-Boabe-Barista-Expert-American-500g/p/30329
+                xpath: /html/body/div[2]/div[64]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/hae/h3e/8996320411678.jpg
+                xpath: /html/body/div[2]/div[64]/@thumbnail
+            price:
+              - text: "27.99"
+                xpath: /html/body/div[2]/div[64]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Doncafe
                 xpath: /html/body/div[2]/div[64]/@manufacturer
           - id:
-              - text: "30459"
+              - text: "88440"
                 xpath: /html/body/div[2]/div[65]/@id
             name:
-              - text: Cafea macinata 04 Mild 250g
+              - text: Cafea macinata si prajita 250g
                 xpath: /html/body/div[2]/div[65]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-04-Mild-250g/p/30459
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-si-prajita-250g/p/88440
                 xpath: /html/body/div[2]/div[65]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h3e/h4d/8996315168798.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h3d/hd6/8883200491550.jpg
                 xpath: /html/body/div[2]/div[65]/@thumbnail
             price:
-              - text: 9,90
-                xpath: /html/body/div[2]/div[65]/@price
+              - text: "12.44"
+                xpath: /html/body/div[2]/div[65]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Perla
+              - text: Fortuna
                 xpath: /html/body/div[2]/div[65]/@manufacturer
           - id:
-              - text: "26528"
+              - text: "30459"
                 xpath: /html/body/div[2]/div[66]/@id
             name:
-              - text: Capsule cafea cold brew 12x9.7g
+              - text: Cafea macinata 04 Mild 250g
                 xpath: /html/body/div[2]/div[66]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Capsule-cafea-cold-brew-12x9-7g/p/26528
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-04-Mild-250g/p/30459
                 xpath: /html/body/div[2]/div[66]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/he5/hbe/8978784387102.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h3e/h4d/8996315168798.jpg
                 xpath: /html/body/div[2]/div[66]/@thumbnail
             price:
-              - text: 25,65
-                xpath: /html/body/div[2]/div[66]/@price
+              - text: "9.9"
+                xpath: /html/body/div[2]/div[66]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Nescafe
+              - text: Perla
                 xpath: /html/body/div[2]/div[66]/@manufacturer
           - id:
-              - text: "49206"
+              - text: "26528"
                 xpath: /html/body/div[2]/div[67]/@id
             name:
-              - text: Cafea Espresso Honduras, 12 caspule
+              - text: Capsule cafea cold brew 12x9.7g
                 xpath: /html/body/div[2]/div[67]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Honduras-12-caspule/p/49206
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Capsule-cafea-cold-brew-12x9-7g/p/26528
                 xpath: /html/body/div[2]/div[67]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hf5/h76/8966565658654.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/he5/hbe/8978784387102.jpg
                 xpath: /html/body/div[2]/div[67]/@thumbnail
             price:
-              - text: 23,30
-                xpath: /html/body/div[2]/div[67]/@price
+              - text: "25.65"
+                xpath: /html/body/div[2]/div[67]/text()[1]
+                type: STRING
             manufacturer:
               - text: Nescafe
                 xpath: /html/body/div[2]/div[67]/@manufacturer
           - id:
-              - text: "30328"
+              - text: "49206"
                 xpath: /html/body/div[2]/div[68]/@id
             name:
-              - text: Cafea boabe Rendez-vous 1kg
+              - text: Cafea Espresso Honduras, 12 caspule
                 xpath: /html/body/div[2]/div[68]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-Rendez-vous-1kg/p/30328
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Honduras-12-caspule/p/49206
                 xpath: /html/body/div[2]/div[68]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h0d/h61/8996322377758.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hf5/h76/8966565658654.jpg
                 xpath: /html/body/div[2]/div[68]/@thumbnail
             price:
-              - text: 57,45
-                xpath: /html/body/div[2]/div[68]/@price
+              - text: "23.52"
+                xpath: /html/body/div[2]/div[68]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Fortuna
+              - text: Nescafe
                 xpath: /html/body/div[2]/div[68]/@manufacturer
           - id:
-              - text: "9175"
+              - text: "30328"
                 xpath: /html/body/div[2]/div[69]/@id
             name:
-              - text: Cafea Rich Italian 227g
+              - text: Cafea boabe Rendez-vous 1kg
                 xpath: /html/body/div[2]/div[69]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-Rich-Italian-227g/p/9175
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-Rendez-vous-1kg/p/30328
                 xpath: /html/body/div[2]/div[69]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hae/h82/8884662534174.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h0d/h61/8996322377758.jpg
                 xpath: /html/body/div[2]/div[69]/@thumbnail
             price:
-              - text: 28,49
-                xpath: /html/body/div[2]/div[69]/@price
+              - text: "57.45"
+                xpath: /html/body/div[2]/div[69]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Taylors of Harrogate
+              - text: Fortuna
                 xpath: /html/body/div[2]/div[69]/@manufacturer
           - id:
-              - text: "30416"
+              - text: "9175"
                 xpath: /html/body/div[2]/div[70]/@id
             name:
-              - text: Cafea macinata 07 Columbia 250g
+              - text: Cafea Rich Italian 227g
                 xpath: /html/body/div[2]/div[70]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-07-Columbia-250g/p/30416
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-Rich-Italian-227g/p/9175
                 xpath: /html/body/div[2]/div[70]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h8b/h28/8996269916190.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hae/h82/8884662534174.jpg
                 xpath: /html/body/div[2]/div[70]/@thumbnail
-            price:
-              - text: 16,90
-                xpath: /html/body/div[2]/div[70]/@price
-            manufacturer:
-              - text: Perla
-                xpath: /html/body/div[2]/div[70]/@manufacturer
-          - id:
-              - text: "49200"
-                xpath: /html/body/div[2]/div[71]/@id
-            name:
-              - text: Cafea Peru 12 capsule
-                xpath: /html/body/div[2]/div[71]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Peru-12-capsule/p/49200
-                xpath: /html/body/div[2]/div[71]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h80/h0d/8966568280094.jpg
-                xpath: /html/body/div[2]/div[71]/@thumbnail
-            price:
-              - text: 23,30
-                xpath: /html/body/div[2]/div[71]/@price
-            manufacturer:
-              - text: Nescafe
-                xpath: /html/body/div[2]/div[71]/@manufacturer
-          - id:
-              - text: "93696"
-                xpath: /html/body/div[2]/div[72]/@id
-            name:
-              - text: Cafea prajita si macinata Intense 250g
-                xpath: /html/body/div[2]/div[72]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Intense-250g/p/93696
-                xpath: /html/body/div[2]/div[72]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h66/h9d/8834680651806.jpg
-                xpath: /html/body/div[2]/div[72]/@thumbnail
-            price:
-              - text: 10,51
-                xpath: /html/body/div[2]/div[72]/@price
-            manufacturer:
-              - text: Tchibo
-                xpath: /html/body/div[2]/div[72]/@manufacturer
-          - id:
-              - text: "48779"
-                xpath: /html/body/div[2]/div[73]/@id
-            name:
-              - text: Cafea Grande Intenso, 16 capsule
-                xpath: /html/body/div[2]/div[73]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Grande-Intenso-16-capsule/p/48779
-                xpath: /html/body/div[2]/div[73]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h4b/hb4/8966483345438.jpg
-                xpath: /html/body/div[2]/div[73]/@thumbnail
-            price:
-              - text: 23,00
-                xpath: /html/body/div[2]/div[73]/@price
-            manufacturer:
-              - text: Nescafe
-                xpath: /html/body/div[2]/div[73]/@manufacturer
-          - id:
-              - text: "2020"
-                xpath: /html/body/div[2]/div[74]/@id
-            name:
-              - text: Cafea Colombia Andes, 10 capsule
-                xpath: /html/body/div[2]/div[74]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Colombia-Andes-10-capsule/p/2020
-                xpath: /html/body/div[2]/div[74]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h27/hc6/8940568510494.jpg
-                xpath: /html/body/div[2]/div[74]/@thumbnail
-            price:
-              - text: 18,89
-                xpath: /html/body/div[2]/div[74]/@price
-            manufacturer:
-              - text: L'or
-                xpath: /html/body/div[2]/div[74]/@manufacturer
-          - id:
-              - text: "3308"
-                xpath: /html/body/div[2]/div[75]/@id
-            name:
-              - text: Cafea boabe Rich italian 227g
-                xpath: /html/body/div[2]/div[75]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-Rich-italian-227g/p/3308
-                xpath: /html/body/div[2]/div[75]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/he9/h4c/8884530348062.jpg
-                xpath: /html/body/div[2]/div[75]/@thumbnail
-            price:
-              - text: 28,49
-                xpath: /html/body/div[2]/div[75]/@price
             manufacturer:
               - text: Taylors of Harrogate
+                xpath: /html/body/div[2]/div[70]/@manufacturer
+          - id:
+              - text: "30416"
+                xpath: /html/body/div[2]/div[71]/@id
+            name:
+              - text: Cafea macinata 07 Columbia 250g
+                xpath: /html/body/div[2]/div[71]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-07-Columbia-250g/p/30416
+                xpath: /html/body/div[2]/div[71]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h8b/h28/8996269916190.jpg
+                xpath: /html/body/div[2]/div[71]/@thumbnail
+            price:
+              - text: "16.9"
+                xpath: /html/body/div[2]/div[71]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Perla
+                xpath: /html/body/div[2]/div[71]/@manufacturer
+          - id:
+              - text: "49200"
+                xpath: /html/body/div[2]/div[72]/@id
+            name:
+              - text: Cafea Peru 12 capsule
+                xpath: /html/body/div[2]/div[72]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Peru-12-capsule/p/49200
+                xpath: /html/body/div[2]/div[72]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h80/h0d/8966568280094.jpg
+                xpath: /html/body/div[2]/div[72]/@thumbnail
+            price:
+              - text: "23.52"
+                xpath: /html/body/div[2]/div[72]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Nescafe
+                xpath: /html/body/div[2]/div[72]/@manufacturer
+          - id:
+              - text: "93696"
+                xpath: /html/body/div[2]/div[73]/@id
+            name:
+              - text: Cafea prajita si macinata Intense 250g
+                xpath: /html/body/div[2]/div[73]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Intense-250g/p/93696
+                xpath: /html/body/div[2]/div[73]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h66/h9d/8834680651806.jpg
+                xpath: /html/body/div[2]/div[73]/@thumbnail
+            price:
+              - text: "10.51"
+                xpath: /html/body/div[2]/div[73]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Tchibo
+                xpath: /html/body/div[2]/div[73]/@manufacturer
+          - id:
+              - text: "48779"
+                xpath: /html/body/div[2]/div[74]/@id
+            name:
+              - text: Cafea Grande Intenso, 16 capsule
+                xpath: /html/body/div[2]/div[74]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Grande-Intenso-16-capsule/p/48779
+                xpath: /html/body/div[2]/div[74]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h4b/hb4/8966483345438.jpg
+                xpath: /html/body/div[2]/div[74]/@thumbnail
+            price:
+              - text: "23"
+                xpath: /html/body/div[2]/div[74]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Nescafe
+                xpath: /html/body/div[2]/div[74]/@manufacturer
+          - id:
+              - text: "2020"
+                xpath: /html/body/div[2]/div[75]/@id
+            name:
+              - text: Cafea Colombia Andes, 10 capsule
+                xpath: /html/body/div[2]/div[75]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Colombia-Andes-10-capsule/p/2020
+                xpath: /html/body/div[2]/div[75]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h27/hc6/8940568510494.jpg
+                xpath: /html/body/div[2]/div[75]/@thumbnail
+            price:
+              - text: "16.48"
+                xpath: /html/body/div[2]/div[75]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: L'or
                 xpath: /html/body/div[2]/div[75]/@manufacturer
           - id:
-              - text: "25137"
+              - text: "3308"
                 xpath: /html/body/div[2]/div[76]/@id
             name:
-              - text: Cafea Style Lungo, 10 capsule
+              - text: Cafea boabe Rich italian 227g
                 xpath: /html/body/div[2]/div[76]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Style-Lungo-10-capsule/p/25137
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-Rich-italian-227g/p/3308
                 xpath: /html/body/div[2]/div[76]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/ha9/he9/8935924072478.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/he9/h4c/8884530348062.jpg
                 xpath: /html/body/div[2]/div[76]/@thumbnail
             price:
-              - text: 17,38
-                xpath: /html/body/div[2]/div[76]/@price
+              - text: "28.49"
+                xpath: /html/body/div[2]/div[76]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Davidoff
+              - text: Taylors of Harrogate
                 xpath: /html/body/div[2]/div[76]/@manufacturer
           - id:
-              - text: "25139"
+              - text: "25137"
                 xpath: /html/body/div[2]/div[77]/@id
             name:
-              - text: Cafea Elegance Gentle Roast, 10 capsule
+              - text: Cafea Style Lungo, 10 capsule
                 xpath: /html/body/div[2]/div[77]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Elegance-Gentle-Roast-10-capsule/p/25139
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Style-Lungo-10-capsule/p/25137
                 xpath: /html/body/div[2]/div[77]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hd9/h44/8935925252126.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/ha9/he9/8935924072478.jpg
                 xpath: /html/body/div[2]/div[77]/@thumbnail
             price:
-              - text: 17,76
-                xpath: /html/body/div[2]/div[77]/@price
+              - text: "17.38"
+                xpath: /html/body/div[2]/div[77]/text()[1]
+                type: STRING
             manufacturer:
               - text: Davidoff
                 xpath: /html/body/div[2]/div[77]/@manufacturer
           - id:
-              - text: "22091"
+              - text: "25139"
                 xpath: /html/body/div[2]/div[78]/@id
             name:
-              - text: Cafea Espresso Cremoso 16 capsule
+              - text: Cafea Elegance Gentle Roast, 10 capsule
                 xpath: /html/body/div[2]/div[78]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Cremoso-16-capsule/p/22091
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Elegance-Gentle-Roast-10-capsule/p/25139
                 xpath: /html/body/div[2]/div[78]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h53/hc2/8970127212574.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hd9/h44/8935925252126.jpg
                 xpath: /html/body/div[2]/div[78]/@thumbnail
             price:
-              - text: 24,37
-                xpath: /html/body/div[2]/div[78]/@price
+              - text: "17.76"
+                xpath: /html/body/div[2]/div[78]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Lavazza
+              - text: Davidoff
                 xpath: /html/body/div[2]/div[78]/@manufacturer
           - id:
-              - text: "86447"
+              - text: "22091"
                 xpath: /html/body/div[2]/div[79]/@id
             name:
-              - text: Cafea prajita si macinata 250g
+              - text: Cafea Espresso Cremoso 16 capsule
                 xpath: /html/body/div[2]/div[79]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-250g/p/86447
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Cremoso-16-capsule/p/22091
                 xpath: /html/body/div[2]/div[79]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h90/h42/8949680734238.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h53/hc2/8970127212574.jpg
                 xpath: /html/body/div[2]/div[79]/@thumbnail
             price:
-              - text: 9,28
-                xpath: /html/body/div[2]/div[79]/@price
+              - text: "24.37"
+                xpath: /html/body/div[2]/div[79]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Doncafe
+              - text: Lavazza
                 xpath: /html/body/div[2]/div[79]/@manufacturer
           - id:
-              - text: "27876"
+              - text: "86447"
                 xpath: /html/body/div[2]/div[80]/@id
             name:
-              - text: Cafea macinata Signature Blend 200g
+              - text: Cafea prajita si macinata 250g
                 xpath: /html/body/div[2]/div[80]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-Signature-Blend-200g/p/27876
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-250g/p/86447
                 xpath: /html/body/div[2]/div[80]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h39/h2b/8978768658462.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h90/h42/8949680734238.jpg
                 xpath: /html/body/div[2]/div[80]/@thumbnail
             price:
-              - text: 19,99
-                xpath: /html/body/div[2]/div[80]/@price
+              - text: "9.28"
+                xpath: /html/body/div[2]/div[80]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Costa
+              - text: Doncafe
                 xpath: /html/body/div[2]/div[80]/@manufacturer
           - id:
-              - text: "58868"
+              - text: "27876"
                 xpath: /html/body/div[2]/div[81]/@id
             name:
-              - text: Cafea macinata House 200g
+              - text: Cafea macinata Signature Blend 200g
                 xpath: /html/body/div[2]/div[81]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-aromata/Cafea-macinata-House-200g/p/58868
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-Signature-Blend-200g/p/27876
                 xpath: /html/body/div[2]/div[81]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h7b/h7a/8926848745502.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h39/h2b/8978768658462.jpg
                 xpath: /html/body/div[2]/div[81]/@thumbnail
             price:
-              - text: 24,90
-                xpath: /html/body/div[2]/div[81]/@price
-            manufacturer:
-              - text: Starbucks
-                xpath: /html/body/div[2]/div[81]/@manufacturer
-          - id:
-              - text: "45214"
-                xpath: /html/body/div[2]/div[82]/@id
-            name:
-              - text: Cafea decofeinizata 100g
-                xpath: /html/body/div[2]/div[82]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-decofeinizata/Cafea-decofeinizata-100g/p/45214
-                xpath: /html/body/div[2]/div[82]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h16/hdd/8949711667230.jpg
-                xpath: /html/body/div[2]/div[82]/@thumbnail
-            price:
-              - text: 6,52
-                xpath: /html/body/div[2]/div[82]/@price
-            manufacturer:
-              - text: Doncafe
-                xpath: /html/body/div[2]/div[82]/@manufacturer
-          - id:
-              - text: "27873"
-                xpath: /html/body/div[2]/div[83]/@id
-            name:
-              - text: Cafea boabe Signature Blend 500g
-                xpath: /html/body/div[2]/div[83]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-Signature-Blend-500g/p/27873
-                xpath: /html/body/div[2]/div[83]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/he2/h3b/8978771935262.jpg
-                xpath: /html/body/div[2]/div[83]/@thumbnail
-            price:
-              - text: 37,99
-                xpath: /html/body/div[2]/div[83]/@price
+              - text: "19.99"
+                xpath: /html/body/div[2]/div[81]/text()[1]
+                type: STRING
             manufacturer:
               - text: Costa
-                xpath: /html/body/div[2]/div[83]/@manufacturer
+                xpath: /html/body/div[2]/div[81]/@manufacturer
           - id:
-              - text: "30553"
-                xpath: /html/body/div[2]/div[84]/@id
+              - text: "58868"
+                xpath: /html/body/div[2]/div[82]/@id
             name:
-              - text: Cafea espresso 08 Napoli 10 capsule 50g
-                xpath: /html/body/div[2]/div[84]/@name
+              - text: Cafea macinata House 200g
+                xpath: /html/body/div[2]/div[82]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-espresso-08-Napoli-10-capsule-50g/p/30553
-                xpath: /html/body/div[2]/div[84]/@product-url
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-aromata/Cafea-macinata-House-200g/p/58868
+                xpath: /html/body/div[2]/div[82]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hcb/h20/8996334239774.jpg
-                xpath: /html/body/div[2]/div[84]/@thumbnail
+              - text: https://www.mega-image.ro//medias/sys_master/h7b/h7a/8926848745502.jpg
+                xpath: /html/body/div[2]/div[82]/@thumbnail
             price:
-              - text: 10,90
-                xpath: /html/body/div[2]/div[84]/@price
+              - text: "26.49"
+                xpath: /html/body/div[2]/div[82]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Perla
-                xpath: /html/body/div[2]/div[84]/@manufacturer
+              - text: Starbucks
+                xpath: /html/body/div[2]/div[82]/@manufacturer
           - id:
-              - text: "45207"
-                xpath: /html/body/div[2]/div[85]/@id
+              - text: "45214"
+                xpath: /html/body/div[2]/div[83]/@id
             name:
-              - text: Cafea prajita si macinata 100g
-                xpath: /html/body/div[2]/div[85]/@name
+              - text: Cafea decofeinizata 100g
+                xpath: /html/body/div[2]/div[83]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-100g/p/45207
-                xpath: /html/body/div[2]/div[85]/@product-url
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-decofeinizata/Cafea-decofeinizata-100g/p/45214
+                xpath: /html/body/div[2]/div[83]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h1f/h17/8949728575518.jpg
-                xpath: /html/body/div[2]/div[85]/@thumbnail
+              - text: https://www.mega-image.ro//medias/sys_master/h16/hdd/8949711667230.jpg
+                xpath: /html/body/div[2]/div[83]/@thumbnail
             price:
-              - text: 3,60
-                xpath: /html/body/div[2]/div[85]/@price
+              - text: "6.52"
+                xpath: /html/body/div[2]/div[83]/text()[1]
+                type: STRING
             manufacturer:
               - text: Doncafe
+                xpath: /html/body/div[2]/div[83]/@manufacturer
+          - id:
+              - text: "27873"
+                xpath: /html/body/div[2]/div[84]/@id
+            name:
+              - text: Cafea boabe Signature Blend 500g
+                xpath: /html/body/div[2]/div[84]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-Signature-Blend-500g/p/27873
+                xpath: /html/body/div[2]/div[84]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/he2/h3b/8978771935262.jpg
+                xpath: /html/body/div[2]/div[84]/@thumbnail
+            price:
+              - text: "37.99"
+                xpath: /html/body/div[2]/div[84]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Costa
+                xpath: /html/body/div[2]/div[84]/@manufacturer
+          - id:
+              - text: "30553"
+                xpath: /html/body/div[2]/div[85]/@id
+            name:
+              - text: Cafea espresso 08 Napoli 10 capsule 50g
+                xpath: /html/body/div[2]/div[85]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-espresso-08-Napoli-10-capsule-50g/p/30553
+                xpath: /html/body/div[2]/div[85]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/hcb/h20/8996334239774.jpg
+                xpath: /html/body/div[2]/div[85]/@thumbnail
+            price:
+              - text: "10.9"
+                xpath: /html/body/div[2]/div[85]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Perla
                 xpath: /html/body/div[2]/div[85]/@manufacturer
           - id:
-              - text: "16097"
+              - text: "45207"
                 xpath: /html/body/div[2]/div[86]/@id
             name:
-              - text: Cafea prajita si macinata decofeinizata 250g
+              - text: Cafea prajita si macinata 100g
                 xpath: /html/body/div[2]/div[86]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-decofeinizata/Cafea-prajita-si-macinata-decofeinizata-250g/p/16097
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-100g/p/45207
                 xpath: /html/body/div[2]/div[86]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h9a/h6b/8834711978014.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h1f/h17/8949728575518.jpg
                 xpath: /html/body/div[2]/div[86]/@thumbnail
             price:
-              - text: 13,65
-                xpath: /html/body/div[2]/div[86]/@price
+              - text: "3.6"
+                xpath: /html/body/div[2]/div[86]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Tchibo
+              - text: Doncafe
                 xpath: /html/body/div[2]/div[86]/@manufacturer
           - id:
-              - text: "48025"
+              - text: "16097"
                 xpath: /html/body/div[2]/div[87]/@id
             name:
-              - text: Cafea boabe Caffe Crema 1kg
+              - text: Cafea prajita si macinata decofeinizata 250g
                 xpath: /html/body/div[2]/div[87]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-Caffe-Crema-1kg/p/48025
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-decofeinizata/Cafea-prajita-si-macinata-decofeinizata-250g/p/16097
                 xpath: /html/body/div[2]/div[87]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/heb/h30/8829129752606.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h9a/h6b/8834711978014.jpg
                 xpath: /html/body/div[2]/div[87]/@thumbnail
             price:
-              - text: 66,77
-                xpath: /html/body/div[2]/div[87]/@price
+              - text: "13.65"
+                xpath: /html/body/div[2]/div[87]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[87]/@manufacturer
           - id:
-              - text: "57437"
+              - text: "48025"
                 xpath: /html/body/div[2]/div[88]/@id
             name:
-              - text: Cafea boabe Barista Espresso 500g
+              - text: Cafea boabe Caffe Crema 1kg
                 xpath: /html/body/div[2]/div[88]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-Barista-Espresso-500g/p/57437
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-Caffe-Crema-1kg/p/48025
                 xpath: /html/body/div[2]/div[88]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h32/h7d/8910765850654.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/heb/h30/8829129752606.jpg
                 xpath: /html/body/div[2]/div[88]/@thumbnail
             price:
-              - text: 36,99
-                xpath: /html/body/div[2]/div[88]/@price
+              - text: "66.77"
+                xpath: /html/body/div[2]/div[88]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[88]/@manufacturer
           - id:
-              - text: "25135"
+              - text: "57437"
                 xpath: /html/body/div[2]/div[89]/@id
             name:
-              - text: Cafea Prestige Intense Roast, 10 capsule
+              - text: Cafea boabe Barista Espresso 500g
                 xpath: /html/body/div[2]/div[89]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Prestige-Intense-Roast-10-capsule/p/25135
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-Barista-Espresso-500g/p/57437
                 xpath: /html/body/div[2]/div[89]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h79/hbb/8935922303006.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h32/h7d/8910765850654.jpg
                 xpath: /html/body/div[2]/div[89]/@thumbnail
             price:
-              - text: 17,33
-                xpath: /html/body/div[2]/div[89]/@price
+              - text: "36.99"
+                xpath: /html/body/div[2]/div[89]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Davidoff
+              - text: Tchibo
                 xpath: /html/body/div[2]/div[89]/@manufacturer
           - id:
-              - text: "24885"
+              - text: "25135"
                 xpath: /html/body/div[2]/div[90]/@id
             name:
-              - text: Cafea prajita si macinata Stil Oriental 250g
+              - text: Cafea Prestige Intense Roast, 10 capsule
                 xpath: /html/body/div[2]/div[90]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Stil-Oriental-250g/p/24885
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Prestige-Intense-Roast-10-capsule/p/25135
                 xpath: /html/body/div[2]/div[90]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/ha7/h9b/8973972897822.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h79/hbb/8935922303006.jpg
                 xpath: /html/body/div[2]/div[90]/@thumbnail
             price:
-              - text: 20,39
-                xpath: /html/body/div[2]/div[90]/@price
+              - text: "17.33"
+                xpath: /html/body/div[2]/div[90]/text()[1]
+                type: STRING
             manufacturer:
               - text: Davidoff
                 xpath: /html/body/div[2]/div[90]/@manufacturer
           - id:
-              - text: "48797"
+              - text: "24885"
                 xpath: /html/body/div[2]/div[91]/@id
             name:
-              - text: Cafea Essenza di Moka, 16 capsule
+              - text: Cafea prajita si macinata Stil Oriental 250g
                 xpath: /html/body/div[2]/div[91]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Essenza-di-Moka-16-capsule/p/48797
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Stil-Oriental-250g/p/24885
                 xpath: /html/body/div[2]/div[91]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hb1/h3e/8966469255198.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/ha7/h9b/8973972897822.jpg
                 xpath: /html/body/div[2]/div[91]/@thumbnail
             price:
-              - text: 24,15
-                xpath: /html/body/div[2]/div[91]/@price
+              - text: "20.39"
+                xpath: /html/body/div[2]/div[91]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Nescafe
+              - text: Davidoff
                 xpath: /html/body/div[2]/div[91]/@manufacturer
           - id:
-              - text: "29100"
+              - text: "48797"
                 xpath: /html/body/div[2]/div[92]/@id
             name:
-              - text: Cafea prajita si macinata 250g
+              - text: Cafea Essenza di Moka, 16 capsule
                 xpath: /html/body/div[2]/div[92]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-250g/p/29100
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Essenza-di-Moka-16-capsule/p/48797
                 xpath: /html/body/div[2]/div[92]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h97/hf4/8834696642590.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hb1/h3e/8966469255198.jpg
                 xpath: /html/body/div[2]/div[92]/@thumbnail
             price:
-              - text: 26,23
-                xpath: /html/body/div[2]/div[92]/@price
+              - text: "24.15"
+                xpath: /html/body/div[2]/div[92]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Davidoff
+              - text: Nescafe
                 xpath: /html/body/div[2]/div[92]/@manufacturer
           - id:
-              - text: "30390"
+              - text: "29100"
                 xpath: /html/body/div[2]/div[93]/@id
             name:
-              - text: Cafea Espresso 7 Classico, 10 capsule 52g
+              - text: Cafea prajita si macinata 250g
                 xpath: /html/body/div[2]/div[93]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-7-Classico-10-capsule-52g/p/30390
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-250g/p/29100
                 xpath: /html/body/div[2]/div[93]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/ha7/hca/8991527763998.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h97/hf4/8834696642590.jpg
                 xpath: /html/body/div[2]/div[93]/@thumbnail
             price:
-              - text: 14,00
-                xpath: /html/body/div[2]/div[93]/@price
-            manufacturer:
-              - text: Jacobs
-                xpath: /html/body/div[2]/div[93]/@manufacturer
-          - id:
-              - text: "1664"
-                xpath: /html/body/div[2]/div[94]/@id
-            name:
-              - text: Cafea prajita si macinata Fine & well-balanced 250g
-                xpath: /html/body/div[2]/div[94]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Fine-and-well-balanced-250g/p/1664
-                xpath: /html/body/div[2]/div[94]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hd4/h0b/8991507054622.jpg
-                xpath: /html/body/div[2]/div[94]/@thumbnail
-            price:
-              - text: 10,03
-                xpath: /html/body/div[2]/div[94]/@price
-            manufacturer:
-              - text: Tchibo
-                xpath: /html/body/div[2]/div[94]/@manufacturer
-          - id:
-              - text: "13346"
-                xpath: /html/body/div[2]/div[95]/@id
-            name:
-              - text: Cafea boabe 500g
-                xpath: /html/body/div[2]/div[95]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-500g/p/13346
-                xpath: /html/body/div[2]/div[95]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h66/h50/8912219439134.jpg
-                xpath: /html/body/div[2]/div[95]/@thumbnail
-            price:
-              - text: 50,85
-                xpath: /html/body/div[2]/div[95]/@price
+              - text: "26.23"
+                xpath: /html/body/div[2]/div[93]/text()[1]
+                type: STRING
             manufacturer:
               - text: Davidoff
+                xpath: /html/body/div[2]/div[93]/@manufacturer
+          - id:
+              - text: "30390"
+                xpath: /html/body/div[2]/div[94]/@id
+            name:
+              - text: Cafea Espresso 7 Classico, 10 capsule 52g
+                xpath: /html/body/div[2]/div[94]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-7-Classico-10-capsule-52g/p/30390
+                xpath: /html/body/div[2]/div[94]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/ha7/hca/8991527763998.jpg
+                xpath: /html/body/div[2]/div[94]/@thumbnail
+            price:
+              - text: "14"
+                xpath: /html/body/div[2]/div[94]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Jacobs
+                xpath: /html/body/div[2]/div[94]/@manufacturer
+          - id:
+              - text: "1664"
+                xpath: /html/body/div[2]/div[95]/@id
+            name:
+              - text: Cafea prajita si macinata Fine & well-balanced 250g
+                xpath: /html/body/div[2]/div[95]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Fine-and-well-balanced-250g/p/1664
+                xpath: /html/body/div[2]/div[95]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/hd4/h0b/8991507054622.jpg
+                xpath: /html/body/div[2]/div[95]/@thumbnail
+            price:
+              - text: "10.03"
+                xpath: /html/body/div[2]/div[95]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Tchibo
                 xpath: /html/body/div[2]/div[95]/@manufacturer
           - id:
-              - text: "64838"
+              - text: "13346"
                 xpath: /html/body/div[2]/div[96]/@id
             name:
-              - text: Cafea prajita si macinata 250g
+              - text: Cafea boabe 500g
                 xpath: /html/body/div[2]/div[96]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-250g/p/64838
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-boabe-500g/p/13346
                 xpath: /html/body/div[2]/div[96]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hcb/h90/8834669248542.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h66/h50/8912219439134.jpg
                 xpath: /html/body/div[2]/div[96]/@thumbnail
             price:
-              - text: 20,39
-                xpath: /html/body/div[2]/div[96]/@price
+              - text: "50.85"
+                xpath: /html/body/div[2]/div[96]/text()[1]
+                type: STRING
             manufacturer:
               - text: Davidoff
                 xpath: /html/body/div[2]/div[96]/@manufacturer
           - id:
-              - text: "89882"
+              - text: "64838"
                 xpath: /html/body/div[2]/div[97]/@id
             name:
-              - text: Cafea prajita si macinata African Blue 250g
+              - text: Cafea prajita si macinata 250g
                 xpath: /html/body/div[2]/div[97]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-African-Blue-250g/p/89882
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-250g/p/64838
                 xpath: /html/body/div[2]/div[97]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h64/h52/8980084850718.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hcb/h90/8834669248542.jpg
                 xpath: /html/body/div[2]/div[97]/@thumbnail
             price:
-              - text: 17,29
-                xpath: /html/body/div[2]/div[97]/@price
+              - text: "20.39"
+                xpath: /html/body/div[2]/div[97]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Tchibo
+              - text: Davidoff
                 xpath: /html/body/div[2]/div[97]/@manufacturer
           - id:
-              - text: "89892"
+              - text: "89882"
                 xpath: /html/body/div[2]/div[98]/@id
             name:
-              - text: Cafea prajita si macinata Brazil Mild 250g
+              - text: Cafea prajita si macinata African Blue 250g
                 xpath: /html/body/div[2]/div[98]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Brazil-Mild-250g/p/89892
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-African-Blue-250g/p/89882
                 xpath: /html/body/div[2]/div[98]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hba/h0d/8980079607838.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h64/h52/8980084850718.jpg
                 xpath: /html/body/div[2]/div[98]/@thumbnail
             price:
-              - text: 17,29
-                xpath: /html/body/div[2]/div[98]/@price
+              - text: "17.29"
+                xpath: /html/body/div[2]/div[98]/text()[1]
+                type: STRING
             manufacturer:
               - text: Tchibo
                 xpath: /html/body/div[2]/div[98]/@manufacturer
           - id:
-              - text: "23404"
+              - text: "89892"
                 xpath: /html/body/div[2]/div[99]/@id
             name:
-              - text: Cafea prajita boabe Colombia Supremo 200g
+              - text: Cafea prajita si macinata Brazil Mild 250g
                 xpath: /html/body/div[2]/div[99]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-prajita-boabe-Colombia-Supremo-200g/p/23404
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-prajita-si-macinata-Brazil-Mild-250g/p/89892
                 xpath: /html/body/div[2]/div[99]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h1f/hd1/8970947428382.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hba/h0d/8980079607838.jpg
                 xpath: /html/body/div[2]/div[99]/@thumbnail
+            price:
+              - text: "17.29"
+                xpath: /html/body/div[2]/div[99]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Frez
+              - text: Tchibo
                 xpath: /html/body/div[2]/div[99]/@manufacturer
           - id:
-              - text: "24698"
+              - text: "23404"
                 xpath: /html/body/div[2]/div[100]/@id
             name:
-              - text: Cafea espresso 16 capsule 88g
+              - text: Cafea prajita boabe Colombia Supremo 200g
                 xpath: /html/body/div[2]/div[100]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-espresso-16-capsule-88g/p/24698
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-prajita-boabe-Colombia-Supremo-200g/p/23404
                 xpath: /html/body/div[2]/div[100]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h1e/ha4/8975354495006.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h1f/hd1/8970947428382.jpg
                 xpath: /html/body/div[2]/div[100]/@thumbnail
-            price:
-              - text: 24,48
-                xpath: /html/body/div[2]/div[100]/@price
             manufacturer:
-              - text: Nescafe
+              - text: Frez
                 xpath: /html/body/div[2]/div[100]/@manufacturer
           - id:
-              - text: "90339"
+              - text: "24698"
                 xpath: /html/body/div[2]/div[101]/@id
             name:
-              - text: Cafea macinata cu aroma de praline belgiene 200g
+              - text: Cafea espresso 16 capsule 88g
                 xpath: /html/body/div[2]/div[101]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-cu-aroma-de-praline-belgiene-200g/p/90339
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-espresso-16-capsule-88g/p/24698
                 xpath: /html/body/div[2]/div[101]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hc3/h53/8976486039582.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h1e/ha4/8975354495006.jpg
                 xpath: /html/body/div[2]/div[101]/@thumbnail
             price:
-              - text: 28,99
-                xpath: /html/body/div[2]/div[101]/@price
+              - text: "24.48"
+                xpath: /html/body/div[2]/div[101]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Dolce Bacio
+              - text: Nescafe
                 xpath: /html/body/div[2]/div[101]/@manufacturer
           - id:
-              - text: "96541"
+              - text: "90339"
                 xpath: /html/body/div[2]/div[102]/@id
             name:
-              - text: Cafea Lungo Intenso, 16 capsule
+              - text: Cafea macinata cu aroma de praline belgiene 200g
                 xpath: /html/body/div[2]/div[102]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Lungo-Intenso-16-capsule/p/96541
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-cu-aroma-de-praline-belgiene-200g/p/90339
                 xpath: /html/body/div[2]/div[102]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h9d/h7e/8966444679198.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hc3/h53/8976486039582.jpg
                 xpath: /html/body/div[2]/div[102]/@thumbnail
             price:
-              - text: 22,72
-                xpath: /html/body/div[2]/div[102]/@price
+              - text: "28.99"
+                xpath: /html/body/div[2]/div[102]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Nescafe
+              - text: Dolce Bacio
                 xpath: /html/body/div[2]/div[102]/@manufacturer
           - id:
-              - text: "5902"
+              - text: "30570"
                 xpath: /html/body/div[2]/div[103]/@id
             name:
-              - text: Cafea Ristretto Ardenza, 16 capsule
+              - text: Cafea Etiopia 10 capsule
                 xpath: /html/body/div[2]/div[103]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Ristretto-Ardenza-16-capsule/p/5902
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Etiopia-10-capsule/p/30570
                 xpath: /html/body/div[2]/div[103]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h7c/hca/8966557138974.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hf4/he8/9003233574942.jpg
                 xpath: /html/body/div[2]/div[103]/@thumbnail
             price:
-              - text: 24,15
-                xpath: /html/body/div[2]/div[103]/@price
+              - text: "11.9"
+                xpath: /html/body/div[2]/div[103]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Nescafe
+              - text: Perla
                 xpath: /html/body/div[2]/div[103]/@manufacturer
           - id:
-              - text: "5904"
+              - text: "96541"
                 xpath: /html/body/div[2]/div[104]/@id
             name:
-              - text: Cafea Ristretto, 16 capsule
+              - text: Cafea Lungo Intenso, 16 capsule
                 xpath: /html/body/div[2]/div[104]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Ristretto-16-capsule/p/5904
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Lungo-Intenso-16-capsule/p/96541
                 xpath: /html/body/div[2]/div[104]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h73/hd6/8966552879134.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h9d/h7e/8966444679198.jpg
                 xpath: /html/body/div[2]/div[104]/@thumbnail
             price:
-              - text: 24,48
-                xpath: /html/body/div[2]/div[104]/@price
+              - text: "23"
+                xpath: /html/body/div[2]/div[104]/text()[1]
+                type: STRING
             manufacturer:
               - text: Nescafe
                 xpath: /html/body/div[2]/div[104]/@manufacturer
           - id:
-              - text: "96368"
+              - text: "5902"
                 xpath: /html/body/div[2]/div[105]/@id
             name:
-              - text: Cafea prajita si macinata Irish Cream 125g
+              - text: Cafea Ristretto Ardenza, 16 capsule
                 xpath: /html/body/div[2]/div[105]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-aromata/Cafea-prajita-si-macinata-Irish-Cream-125g/p/96368
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Ristretto-Ardenza-16-capsule/p/5902
                 xpath: /html/body/div[2]/div[105]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h14/hbd/8976502489118.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h7c/hca/8966557138974.jpg
                 xpath: /html/body/div[2]/div[105]/@thumbnail
             price:
-              - text: 16,54
-                xpath: /html/body/div[2]/div[105]/@price
+              - text: "24.15"
+                xpath: /html/body/div[2]/div[105]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Dolce Bacio
+              - text: Nescafe
                 xpath: /html/body/div[2]/div[105]/@manufacturer
           - id:
-              - text: "23434"
+              - text: "5904"
                 xpath: /html/body/div[2]/div[106]/@id
             name:
-              - text: Cafea prajita boabe Ethiopia Sidamo 200g
+              - text: Cafea Ristretto, 16 capsule
                 xpath: /html/body/div[2]/div[106]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-prajita-boabe-Ethiopia-Sidamo-200g/p/23434
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Ristretto-16-capsule/p/5904
                 xpath: /html/body/div[2]/div[106]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h92/h91/8970929668126.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h73/hd6/8966552879134.jpg
                 xpath: /html/body/div[2]/div[106]/@thumbnail
             price:
-              - text: 14,00
-                xpath: /html/body/div[2]/div[106]/@price
+              - text: "24.48"
+                xpath: /html/body/div[2]/div[106]/text()[1]
+                type: STRING
             manufacturer:
-              - text: Frez
+              - text: Nescafe
                 xpath: /html/body/div[2]/div[106]/@manufacturer
           - id:
-              - text: "96551"
+              - text: "96368"
                 xpath: /html/body/div[2]/div[107]/@id
             name:
-              - text: Cafea Lungo Decaffeinato, 16 capsule
+              - text: Cafea prajita si macinata Irish Cream 125g
                 xpath: /html/body/div[2]/div[107]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Lungo-Decaffeinato-16-capsule/p/96551
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-aromata/Cafea-prajita-si-macinata-Irish-Cream-125g/p/96368
                 xpath: /html/body/div[2]/div[107]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h87/h49/8966470238238.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h14/hbd/8976502489118.jpg
                 xpath: /html/body/div[2]/div[107]/@thumbnail
             price:
-              - text: 24,15
-                xpath: /html/body/div[2]/div[107]/@price
-            manufacturer:
-              - text: Nescafe
-                xpath: /html/body/div[2]/div[107]/@manufacturer
-          - id:
-              - text: "72034"
-                xpath: /html/body/div[2]/div[108]/@id
-            name:
-              - text: Cafea Espresso Intenso, 16 capsule
-                xpath: /html/body/div[2]/div[108]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Intenso-16-capsule/p/72034
-                xpath: /html/body/div[2]/div[108]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/heb/h01/8966490882078.jpg
-                xpath: /html/body/div[2]/div[108]/@thumbnail
-            price:
-              - text: 23,00
-                xpath: /html/body/div[2]/div[108]/@price
-            manufacturer:
-              - text: Nescafe
-                xpath: /html/body/div[2]/div[108]/@manufacturer
-          - id:
-              - text: "96367"
-                xpath: /html/body/div[2]/div[109]/@id
-            name:
-              - text: Cafea prajita si macinata Caramel 125g
-                xpath: /html/body/div[2]/div[109]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-aromata/Cafea-prajita-si-macinata-Caramel-125g/p/96367
-                xpath: /html/body/div[2]/div[109]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hb3/h03/8972838666270.jpg
-                xpath: /html/body/div[2]/div[109]/@thumbnail
-            price:
-              - text: 16,70
-                xpath: /html/body/div[2]/div[109]/@price
+              - text: "16.54"
+                xpath: /html/body/div[2]/div[107]/text()[1]
+                type: STRING
             manufacturer:
               - text: Dolce Bacio
+                xpath: /html/body/div[2]/div[107]/@manufacturer
+          - id:
+              - text: "23434"
+                xpath: /html/body/div[2]/div[108]/@id
+            name:
+              - text: Cafea prajita boabe Ethiopia Sidamo 200g
+                xpath: /html/body/div[2]/div[108]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-boabe/Cafea-prajita-boabe-Ethiopia-Sidamo-200g/p/23434
+                xpath: /html/body/div[2]/div[108]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h92/h91/8970929668126.jpg
+                xpath: /html/body/div[2]/div[108]/@thumbnail
+            price:
+              - text: "28"
+                xpath: /html/body/div[2]/div[108]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Frez
+                xpath: /html/body/div[2]/div[108]/@manufacturer
+          - id:
+              - text: "96551"
+                xpath: /html/body/div[2]/div[109]/@id
+            name:
+              - text: Cafea Lungo Decaffeinato, 16 capsule
+                xpath: /html/body/div[2]/div[109]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Lungo-Decaffeinato-16-capsule/p/96551
+                xpath: /html/body/div[2]/div[109]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h87/h49/8966470238238.jpg
+                xpath: /html/body/div[2]/div[109]/@thumbnail
+            price:
+              - text: "24.15"
+                xpath: /html/body/div[2]/div[109]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Nescafe
                 xpath: /html/body/div[2]/div[109]/@manufacturer
+          - id:
+              - text: "72034"
+                xpath: /html/body/div[2]/div[110]/@id
+            name:
+              - text: Cafea Espresso Intenso, 16 capsule
+                xpath: /html/body/div[2]/div[110]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Capsule/Cafea-Espresso-Intenso-16-capsule/p/72034
+                xpath: /html/body/div[2]/div[110]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/heb/h01/8966490882078.jpg
+                xpath: /html/body/div[2]/div[110]/@thumbnail
+            price:
+              - text: "23"
+                xpath: /html/body/div[2]/div[110]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Nescafe
+                xpath: /html/body/div[2]/div[110]/@manufacturer
+          - id:
+              - text: "96367"
+                xpath: /html/body/div[2]/div[111]/@id
+            name:
+              - text: Cafea prajita si macinata Caramel 125g
+                xpath: /html/body/div[2]/div[111]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-aromata/Cafea-prajita-si-macinata-Caramel-125g/p/96367
+                xpath: /html/body/div[2]/div[111]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/hb3/h03/8972838666270.jpg
+                xpath: /html/body/div[2]/div[111]/@thumbnail
+            price:
+              - text: "16.7"
+                xpath: /html/body/div[2]/div[111]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Dolce Bacio
+                xpath: /html/body/div[2]/div[111]/@manufacturer
+          - id:
+              - text: "30535"
+                xpath: /html/body/div[2]/div[112]/@id
+            name:
+              - text: Cafea macinata Etiopia 250g
+                xpath: /html/body/div[2]/div[112]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Cafea-cereale-si-mic-dejun/Cafea/Cafea-macinata/Cafea-macinata-Etiopia-250g/p/30535
+                xpath: /html/body/div[2]/div[112]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h0d/h2c/9003240128542.jpg
+                xpath: /html/body/div[2]/div[112]/@thumbnail
+            price:
+              - text: "16.9"
+                xpath: /html/body/div[2]/div[112]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Perla
+                xpath: /html/body/div[2]/div[112]/@manufacturer
         xpath: /html
-    timestamp: 1605613467378
+    timestamp: 1605802416345

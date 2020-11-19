@@ -2,7 +2,7 @@ input:
   keywords: supa
   _url: http://mega-image.ro
 extractions:
-  - html: https://workbench.import.io/html/run=2ef3edd6-f102-4f2a-8ec8-e23db01de1e3/task=0e0aa913-0977-4bcc-bd9d-87c30908eb8e/e7d881af-82b2-4dfe-9e0d-def3ca015c59.html
+  - html: https://workbench.import.io/html/run=01401380-0d51-4100-9cf2-275dd3d06c26/task=4285e2e4-7c7e-4b42-a9a5-7951d608ffef/b9932e64-1b87-4e34-a260-a74ebc1b4919.html
     extractionConfigId: product/search/stores/m/mega-image/RO/extract
     data:
       - group:
@@ -19,8 +19,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h92/h47/8991444008990.jpg
                 xpath: /html/body/div[2]/div[1]/@thumbnail
             price:
-              - text: 9,50
-                xpath: /html/body/div[2]/div[1]/@price
+              - text: "9.5"
+                xpath: /html/body/div[2]/div[1]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[1]/@manufacturer
@@ -37,8 +38,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h44/h99/8806234882078.jpg
                 xpath: /html/body/div[2]/div[2]/@thumbnail
             price:
-              - text: 4,61
-                xpath: /html/body/div[2]/div[2]/@price
+              - text: "4.61"
+                xpath: /html/body/div[2]/div[2]/text()[1]
+                type: STRING
             manufacturer:
               - text: Knorr
                 xpath: /html/body/div[2]/div[2]/@manufacturer
@@ -55,8 +57,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h21/h7c/8935840579614.jpg
                 xpath: /html/body/div[2]/div[3]/@thumbnail
             price:
-              - text: 1,38
-                xpath: /html/body/div[2]/div[3]/@price
+              - text: "1.38"
+                xpath: /html/body/div[2]/div[3]/text()[1]
+                type: STRING
             manufacturer:
               - text: Maggi
                 xpath: /html/body/div[2]/div[3]/@manufacturer
@@ -73,26 +76,28 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h50/hea/8947457097758.jpg
                 xpath: /html/body/div[2]/div[4]/@thumbnail
             price:
-              - text: 4,39
-                xpath: /html/body/div[2]/div[4]/@price
+              - text: "4.39"
+                xpath: /html/body/div[2]/div[4]/text()[1]
+                type: STRING
             manufacturer:
               - text: Knorr
                 xpath: /html/body/div[2]/div[4]/@manufacturer
           - id:
-              - text: "7459"
+              - text: "76521"
                 xpath: /html/body/div[2]/div[5]/@id
             name:
-              - text: Supa instant cu fidea mix de legume 60g
+              - text: Produs instant cu fidea si gust de ciuperci 60g
                 xpath: /html/body/div[2]/div[5]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Supa-instant-cu-fidea-mix-de-legume-60g/p/7459
+              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Produs-instant-cu-fidea-si-gust-de-ciuperci-60g/p/76521
                 xpath: /html/body/div[2]/div[5]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hc4/h30/8935793786910.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h22/h82/8827027423262.jpg
                 xpath: /html/body/div[2]/div[5]/@thumbnail
             price:
-              - text: 1,31
-                xpath: /html/body/div[2]/div[5]/@price
+              - text: "1.38"
+                xpath: /html/body/div[2]/div[5]/text()[1]
+                type: STRING
             manufacturer:
               - text: Maggi
                 xpath: /html/body/div[2]/div[5]/@manufacturer
@@ -109,46 +114,49 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h76/h16/8947462144030.jpg
                 xpath: /html/body/div[2]/div[6]/@thumbnail
             price:
-              - text: 4,12
-                xpath: /html/body/div[2]/div[6]/@price
+              - text: "4.12"
+                xpath: /html/body/div[2]/div[6]/text()[1]
+                type: STRING
             manufacturer:
               - text: Knorr
                 xpath: /html/body/div[2]/div[6]/@manufacturer
           - id:
-              - text: "76521"
+              - text: "23346"
                 xpath: /html/body/div[2]/div[7]/@id
             name:
-              - text: Produs instant cu fidea si gust de ciuperci 60g
+              - text: Taietei cu sos chilli 111g
                 xpath: /html/body/div[2]/div[7]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Produs-instant-cu-fidea-si-gust-de-ciuperci-60g/p/76521
+              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Taietei-cu-sos-chilli-111g/p/23346
                 xpath: /html/body/div[2]/div[7]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h22/h82/8827027423262.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h1f/h18/8812288311326.jpg
                 xpath: /html/body/div[2]/div[7]/@thumbnail
             price:
-              - text: 1,38
-                xpath: /html/body/div[2]/div[7]/@price
-            manufacturer:
-              - text: Maggi
-                xpath: /html/body/div[2]/div[7]/@manufacturer
-          - id:
-              - text: "23346"
-                xpath: /html/body/div[2]/div[8]/@id
-            name:
-              - text: Taietei cu sos chilli 111g
-                xpath: /html/body/div[2]/div[8]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Taietei-cu-sos-chilli-111g/p/23346
-                xpath: /html/body/div[2]/div[8]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h1f/h18/8812288311326.jpg
-                xpath: /html/body/div[2]/div[8]/@thumbnail
-            price:
-              - text: 4,55
-                xpath: /html/body/div[2]/div[8]/@price
+              - text: "4.55"
+                xpath: /html/body/div[2]/div[7]/text()[1]
+                type: STRING
             manufacturer:
               - text: Nissin
+                xpath: /html/body/div[2]/div[7]/@manufacturer
+          - id:
+              - text: "7459"
+                xpath: /html/body/div[2]/div[8]/@id
+            name:
+              - text: Supa instant cu fidea mix de legume 60g
+                xpath: /html/body/div[2]/div[8]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Supa-instant-cu-fidea-mix-de-legume-60g/p/7459
+                xpath: /html/body/div[2]/div[8]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/hc4/h30/8935793786910.jpg
+                xpath: /html/body/div[2]/div[8]/@thumbnail
+            price:
+              - text: "1.31"
+                xpath: /html/body/div[2]/div[8]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Maggi
                 xpath: /html/body/div[2]/div[8]/@manufacturer
           - id:
               - text: "21963"
@@ -163,8 +171,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hb5/ha9/8991509676062.jpg
                 xpath: /html/body/div[2]/div[9]/@thumbnail
             price:
-              - text: 10,50
-                xpath: /html/body/div[2]/div[9]/@price
+              - text: "10.5"
+                xpath: /html/body/div[2]/div[9]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[9]/@manufacturer
@@ -181,62 +190,66 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h5d/hb2/8991443353630.jpg
                 xpath: /html/body/div[2]/div[10]/@thumbnail
             price:
-              - text: 10,50
-                xpath: /html/body/div[2]/div[10]/@price
+              - text: "10.5"
+                xpath: /html/body/div[2]/div[10]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[10]/@manufacturer
           - id:
-              - text: "5954"
+              - text: "5955"
                 xpath: /html/body/div[2]/div[11]/@id
             name:
-              - text: Supa instant cu galuste si legume 49g
+              - text: Supa de pui cu fidea 50g
                 xpath: /html/body/div[2]/div[11]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Supa-instant-cu-galuste-si-legume-49g/p/5954
+              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Supa-de-pui-cu-fidea-50g/p/5955
                 xpath: /html/body/div[2]/div[11]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hf9/hff/8966305480734.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h41/ha5/8966306791454.jpg
                 xpath: /html/body/div[2]/div[11]/@thumbnail
             price:
-              - text: 3,53
-                xpath: /html/body/div[2]/div[11]/@price
+              - text: "3.49"
+                xpath: /html/body/div[2]/div[11]/text()[1]
+                type: STRING
             manufacturer:
               - text: Maggi
                 xpath: /html/body/div[2]/div[11]/@manufacturer
           - id:
-              - text: "5955"
+              - text: "65873"
                 xpath: /html/body/div[2]/div[12]/@id
             name:
-              - text: Supa de pui cu fidea 50g
+              - text: Supa de vacuta cu fidea 56g
                 xpath: /html/body/div[2]/div[12]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Supa-de-pui-cu-fidea-50g/p/5955
+              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Supa-de-vacuta-cu-fidea-56g/p/65873
                 xpath: /html/body/div[2]/div[12]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h41/ha5/8966306791454.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h2a/h0e/8966501367838.jpg
                 xpath: /html/body/div[2]/div[12]/@thumbnail
             price:
-              - text: 3,49
-                xpath: /html/body/div[2]/div[12]/@price
+              - text: "3.53"
+                xpath: /html/body/div[2]/div[12]/text()[1]
+                type: STRING
             manufacturer:
               - text: Maggi
                 xpath: /html/body/div[2]/div[12]/@manufacturer
           - id:
-              - text: "65873"
+              - text: "5954"
                 xpath: /html/body/div[2]/div[13]/@id
             name:
-              - text: Supa de vacuta cu fidea 56g
+              - text: Supa instant cu galuste si legume 49g
                 xpath: /html/body/div[2]/div[13]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Supa-de-vacuta-cu-fidea-56g/p/65873
+              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Supa-instant-cu-galuste-si-legume-49g/p/5954
                 xpath: /html/body/div[2]/div[13]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h2a/h0e/8966501367838.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hf9/hff/8966305480734.jpg
                 xpath: /html/body/div[2]/div[13]/@thumbnail
             price:
-              - text: 3,53
-                xpath: /html/body/div[2]/div[13]/@price
+              - text: "3.53"
+                xpath: /html/body/div[2]/div[13]/text()[1]
+                type: STRING
             manufacturer:
               - text: Maggi
                 xpath: /html/body/div[2]/div[13]/@manufacturer
@@ -253,8 +266,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hb9/hda/8874304897054.jpg
                 xpath: /html/body/div[2]/div[14]/@thumbnail
             price:
-              - text: 1,44
-                xpath: /html/body/div[2]/div[14]/@price
+              - text: "1.44"
+                xpath: /html/body/div[2]/div[14]/text()[1]
+                type: STRING
             manufacturer:
               - text: Vifon
                 xpath: /html/body/div[2]/div[14]/@manufacturer
@@ -271,8 +285,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h21/hb7/8874291003422.jpg
                 xpath: /html/body/div[2]/div[15]/@thumbnail
             price:
-              - text: 1,47
-                xpath: /html/body/div[2]/div[15]/@price
+              - text: "1.47"
+                xpath: /html/body/div[2]/div[15]/text()[1]
+                type: STRING
             manufacturer:
               - text: Vifon
                 xpath: /html/body/div[2]/div[15]/@manufacturer
@@ -289,8 +304,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hdb/h36/8873152610334.jpg
                 xpath: /html/body/div[2]/div[16]/@thumbnail
             price:
-              - text: 1,44
-                xpath: /html/body/div[2]/div[16]/@price
+              - text: "1.44"
+                xpath: /html/body/div[2]/div[16]/text()[1]
+                type: STRING
             manufacturer:
               - text: Vifon
                 xpath: /html/body/div[2]/div[16]/@manufacturer
@@ -307,8 +323,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h7c/h1c/8991510331422.jpg
                 xpath: /html/body/div[2]/div[17]/@thumbnail
             price:
-              - text: 10,50
-                xpath: /html/body/div[2]/div[17]/@price
+              - text: "10.5"
+                xpath: /html/body/div[2]/div[17]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[17]/@manufacturer
@@ -325,8 +342,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h51/h77/8966455492638.jpg
                 xpath: /html/body/div[2]/div[18]/@thumbnail
             price:
-              - text: 3,01
-                xpath: /html/body/div[2]/div[18]/@price
+              - text: "3.01"
+                xpath: /html/body/div[2]/div[18]/text()[1]
+                type: STRING
             manufacturer:
               - text: Maggi
                 xpath: /html/body/div[2]/div[18]/@manufacturer
@@ -343,8 +361,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h31/hec/8812306006046.jpg
                 xpath: /html/body/div[2]/div[19]/@thumbnail
             price:
-              - text: 19,09
-                xpath: /html/body/div[2]/div[19]/@price
+              - text: "19.09"
+                xpath: /html/body/div[2]/div[19]/text()[1]
+                type: STRING
             manufacturer:
               - text: Miso
                 xpath: /html/body/div[2]/div[19]/@manufacturer
@@ -361,8 +380,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h0b/hee/8968559198238.jpg
                 xpath: /html/body/div[2]/div[20]/@thumbnail
             price:
-              - text: 8,22
-                xpath: /html/body/div[2]/div[20]/@price
+              - text: "8.22"
+                xpath: /html/body/div[2]/div[20]/text()[1]
+                type: STRING
             manufacturer:
               - text: Desiam
                 xpath: /html/body/div[2]/div[20]/@manufacturer
@@ -379,8 +399,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/he7/h85/8935933706270.jpg
                 xpath: /html/body/div[2]/div[21]/@thumbnail
             price:
-              - text: 2,10
-                xpath: /html/body/div[2]/div[21]/@price
+              - text: "2.1"
+                xpath: /html/body/div[2]/div[21]/text()[1]
+                type: STRING
             manufacturer:
               - text: Maggi
                 xpath: /html/body/div[2]/div[21]/@manufacturer
@@ -397,8 +418,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h77/h9d/8966496780318.jpg
                 xpath: /html/body/div[2]/div[22]/@thumbnail
             price:
-              - text: 1,31
-                xpath: /html/body/div[2]/div[22]/@price
+              - text: "1.31"
+                xpath: /html/body/div[2]/div[22]/text()[1]
+                type: STRING
             manufacturer:
               - text: Maggi
                 xpath: /html/body/div[2]/div[22]/@manufacturer
@@ -415,8 +437,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h18/hd3/8935937310750.jpg
                 xpath: /html/body/div[2]/div[23]/@thumbnail
             price:
-              - text: 2,00
-                xpath: /html/body/div[2]/div[23]/@price
+              - text: "2"
+                xpath: /html/body/div[2]/div[23]/text()[1]
+                type: STRING
             manufacturer:
               - text: Maggi
                 xpath: /html/body/div[2]/div[23]/@manufacturer
@@ -433,80 +456,85 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h43/h32/8915800195102.jpg
                 xpath: /html/body/div[2]/div[24]/@thumbnail
             price:
-              - text: 8,40
-                xpath: /html/body/div[2]/div[24]/@price
+              - text: "8.4"
+                xpath: /html/body/div[2]/div[24]/text()[1]
+                type: STRING
             manufacturer:
               - text: Nissin
                 xpath: /html/body/div[2]/div[24]/@manufacturer
           - id:
-              - text: "16368"
+              - text: "66382"
                 xpath: /html/body/div[2]/div[25]/@id
             name:
-              - text: Fidea instant cu gust de pui picant 60g
+              - text: Fidea instant cu gust de legume 60g
                 xpath: /html/body/div[2]/div[25]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Fidea-instant-cu-gust-de-pui-picant-60g/p/16368
+              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Fidea-instant-cu-gust-de-legume-60g/p/66382
                 xpath: /html/body/div[2]/div[25]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hd9/haa/8809175285790.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h4d/h64/8968619950110.jpg
                 xpath: /html/body/div[2]/div[25]/@thumbnail
             price:
-              - text: 1,40
-                xpath: /html/body/div[2]/div[25]/@price
+              - text: "1.4"
+                xpath: /html/body/div[2]/div[25]/text()[1]
+                type: STRING
             manufacturer:
               - text: Rollton
                 xpath: /html/body/div[2]/div[25]/@manufacturer
           - id:
-              - text: "66382"
+              - text: "52957"
                 xpath: /html/body/div[2]/div[26]/@id
             name:
-              - text: Fidea instant cu gust de legume 60g
+              - text: Instant noodle de pui 62g
                 xpath: /html/body/div[2]/div[26]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Fidea-instant-cu-gust-de-legume-60g/p/66382
+              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Instant-noodle-de-pui-62g/p/52957
                 xpath: /html/body/div[2]/div[26]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h4d/h64/8968619950110.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/hf1/h11/8935919288350.jpg
                 xpath: /html/body/div[2]/div[26]/@thumbnail
             price:
-              - text: 1,40
-                xpath: /html/body/div[2]/div[26]/@price
-            manufacturer:
-              - text: Rollton
-                xpath: /html/body/div[2]/div[26]/@manufacturer
-          - id:
-              - text: "52957"
-                xpath: /html/body/div[2]/div[27]/@id
-            name:
-              - text: Instant noodle de pui 62g
-                xpath: /html/body/div[2]/div[27]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Instant-noodle-de-pui-62g/p/52957
-                xpath: /html/body/div[2]/div[27]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/hf1/h11/8935919288350.jpg
-                xpath: /html/body/div[2]/div[27]/@thumbnail
-            price:
-              - text: 1,98
-                xpath: /html/body/div[2]/div[27]/@price
+              - text: "1.98"
+                xpath: /html/body/div[2]/div[26]/text()[1]
+                type: STRING
             manufacturer:
               - text: Maggi
-                xpath: /html/body/div[2]/div[27]/@manufacturer
+                xpath: /html/body/div[2]/div[26]/@manufacturer
           - id:
               - text: "66383"
-                xpath: /html/body/div[2]/div[28]/@id
+                xpath: /html/body/div[2]/div[27]/@id
             name:
               - text: Fidea instant cu gust de pui 60g
-                xpath: /html/body/div[2]/div[28]/@name
+                xpath: /html/body/div[2]/div[27]/@name
             productUrl:
               - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Fidea-instant-cu-gust-de-pui-60g/p/66383
-                xpath: /html/body/div[2]/div[28]/@product-url
+                xpath: /html/body/div[2]/div[27]/@product-url
             thumbnail:
               - text: https://www.mega-image.ro//medias/sys_master/h09/hd6/8804590649374.jpg
+                xpath: /html/body/div[2]/div[27]/@thumbnail
+            price:
+              - text: "1.4"
+                xpath: /html/body/div[2]/div[27]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Rollton
+                xpath: /html/body/div[2]/div[27]/@manufacturer
+          - id:
+              - text: "16368"
+                xpath: /html/body/div[2]/div[28]/@id
+            name:
+              - text: Fidea instant cu gust de pui picant 60g
+                xpath: /html/body/div[2]/div[28]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Ingrediente-culinare/Sare-condimente-si-produse-instant/Supa-instant/Fidea-instant-cu-gust-de-pui-picant-60g/p/16368
+                xpath: /html/body/div[2]/div[28]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/hd9/haa/8809175285790.jpg
                 xpath: /html/body/div[2]/div[28]/@thumbnail
             price:
-              - text: 1,40
-                xpath: /html/body/div[2]/div[28]/@price
+              - text: "1.4"
+                xpath: /html/body/div[2]/div[28]/text()[1]
+                type: STRING
             manufacturer:
               - text: Rollton
                 xpath: /html/body/div[2]/div[28]/@manufacturer
@@ -523,8 +551,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hf9/ha1/8804594515998.jpg
                 xpath: /html/body/div[2]/div[29]/@thumbnail
             price:
-              - text: 1,38
-                xpath: /html/body/div[2]/div[29]/@price
+              - text: "1.38"
+                xpath: /html/body/div[2]/div[29]/text()[1]
+                type: STRING
             manufacturer:
               - text: Rollton
                 xpath: /html/body/div[2]/div[29]/@manufacturer
@@ -541,8 +570,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hc7/hc2/8915798687774.jpg
                 xpath: /html/body/div[2]/div[30]/@thumbnail
             price:
-              - text: 8,82
-                xpath: /html/body/div[2]/div[30]/@price
+              - text: "8.82"
+                xpath: /html/body/div[2]/div[30]/text()[1]
+                type: STRING
             manufacturer:
               - text: Nissin
                 xpath: /html/body/div[2]/div[30]/@manufacturer
@@ -559,8 +589,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/ha7/ha9/8958354325534.jpg
                 xpath: /html/body/div[2]/div[31]/@thumbnail
             price:
-              - text: 1,40
-                xpath: /html/body/div[2]/div[31]/@price
+              - text: "1.4"
+                xpath: /html/body/div[2]/div[31]/text()[1]
+                type: STRING
             manufacturer:
               - text: Rollton
                 xpath: /html/body/div[2]/div[31]/@manufacturer
@@ -607,8 +638,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hf8/h3f/8866230075422.jpg
                 xpath: /html/body/div[2]/div[34]/@thumbnail
             price:
-              - text: 4,45
-                xpath: /html/body/div[2]/div[34]/@price
+              - text: "4.52"
+                xpath: /html/body/div[2]/div[34]/text()[1]
+                type: STRING
             manufacturer:
               - text: Rollton
                 xpath: /html/body/div[2]/div[34]/@manufacturer
@@ -640,8 +672,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h3a/h28/8803846357022.jpg
                 xpath: /html/body/div[2]/div[36]/@thumbnail
             price:
-              - text: 1,00
-                xpath: /html/body/div[2]/div[36]/@price
+              - text: "1"
+                xpath: /html/body/div[2]/div[36]/text()[1]
+                type: STRING
             manufacturer:
               - text: Fagaras
                 xpath: /html/body/div[2]/div[36]/@manufacturer
@@ -658,8 +691,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h71/h82/8976511008798.jpg
                 xpath: /html/body/div[2]/div[37]/@thumbnail
             price:
-              - text: 4,29
-                xpath: /html/body/div[2]/div[37]/@price
+              - text: "4.29"
+                xpath: /html/body/div[2]/div[37]/text()[1]
+                type: STRING
             manufacturer:
               - text: "365"
                 xpath: /html/body/div[2]/div[37]/@manufacturer
@@ -676,8 +710,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hd4/ha7/8958422417438.jpg
                 xpath: /html/body/div[2]/div[38]/@thumbnail
             price:
-              - text: 12,14
-                xpath: /html/body/div[2]/div[38]/@price
+              - text: "12.14"
+                xpath: /html/body/div[2]/div[38]/text()[1]
+                type: STRING
             manufacturer:
               - text: Auga
                 xpath: /html/body/div[2]/div[38]/@manufacturer
@@ -694,8 +729,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h66/h5a/8958440767518.jpg
                 xpath: /html/body/div[2]/div[39]/@thumbnail
             price:
-              - text: 12,14
-                xpath: /html/body/div[2]/div[39]/@price
+              - text: "12.14"
+                xpath: /html/body/div[2]/div[39]/text()[1]
+                type: STRING
             manufacturer:
               - text: Auga
                 xpath: /html/body/div[2]/div[39]/@manufacturer
@@ -712,8 +748,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h83/hbd/8968524070942.jpg
                 xpath: /html/body/div[2]/div[40]/@thumbnail
             price:
-              - text: 14,10
-                xpath: /html/body/div[2]/div[40]/@price
+              - text: "13.57"
+                xpath: /html/body/div[2]/div[40]/text()[1]
+                type: STRING
             manufacturer:
               - text: Enso
                 xpath: /html/body/div[2]/div[40]/@manufacturer
@@ -730,8 +767,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h6d/hbc/8807976304670.jpg
                 xpath: /html/body/div[2]/div[41]/@thumbnail
             price:
-              - text: 7,33
-                xpath: /html/body/div[2]/div[41]/@price
+              - text: "7.33"
+                xpath: /html/body/div[2]/div[41]/text()[1]
+                type: STRING
             manufacturer:
               - text: Rapunzel
                 xpath: /html/body/div[2]/div[41]/@manufacturer
@@ -763,8 +801,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hb6/h07/8824144691230.jpg
                 xpath: /html/body/div[2]/div[43]/@thumbnail
             price:
-              - text: 1,88
-                xpath: /html/body/div[2]/div[43]/@price
+              - text: "1.88"
+                xpath: /html/body/div[2]/div[43]/text()[1]
+                type: STRING
             manufacturer:
               - text: Whiskas
                 xpath: /html/body/div[2]/div[43]/@manufacturer
@@ -781,46 +820,49 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h9b/h65/8958423072798.jpg
                 xpath: /html/body/div[2]/div[44]/@thumbnail
             price:
-              - text: 12,14
-                xpath: /html/body/div[2]/div[44]/@price
+              - text: "12.14"
+                xpath: /html/body/div[2]/div[44]/text()[1]
+                type: STRING
             manufacturer:
               - text: Auga
                 xpath: /html/body/div[2]/div[44]/@manufacturer
           - id:
-              - text: "55056"
+              - text: "11648"
                 xpath: /html/body/div[2]/div[45]/@id
             name:
-              - text: Supa de morcovi 400g
+              - text: Cub pentru supa cu legume Original bio 84g
                 xpath: /html/body/div[2]/div[45]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Natural-and-sanatos/Alimentatie-sanatoasa/Conserve/Supa-de-morcovi-400g/p/55056
+              - text: https://www.mega-image.ro//Natural-and-sanatos/Alimentatie-sanatoasa/Ingrediente-pentru-gatit/Cub-pentru-supa-cu-legume-Original-bio-84g/p/11648
                 xpath: /html/body/div[2]/div[45]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h0d/h36/8911402336286.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h48/h85/8964498522142.jpg
                 xpath: /html/body/div[2]/div[45]/@thumbnail
             price:
-              - text: 12,14
-                xpath: /html/body/div[2]/div[45]/@price
-            manufacturer:
-              - text: Auga
-                xpath: /html/body/div[2]/div[45]/@manufacturer
-          - id:
-              - text: "11648"
-                xpath: /html/body/div[2]/div[46]/@id
-            name:
-              - text: Cub pentru supa cu legume Original bio 84g
-                xpath: /html/body/div[2]/div[46]/@name
-            productUrl:
-              - text: https://www.mega-image.ro//Natural-and-sanatos/Alimentatie-sanatoasa/Ingrediente-pentru-gatit/Cub-pentru-supa-cu-legume-Original-bio-84g/p/11648
-                xpath: /html/body/div[2]/div[46]/@product-url
-            thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h48/h85/8964498522142.jpg
-                xpath: /html/body/div[2]/div[46]/@thumbnail
-            price:
-              - text: 9,45
-                xpath: /html/body/div[2]/div[46]/@price
+              - text: "9.45"
+                xpath: /html/body/div[2]/div[45]/text()[1]
+                type: STRING
             manufacturer:
               - text: Rapunzel
+                xpath: /html/body/div[2]/div[45]/@manufacturer
+          - id:
+              - text: "55056"
+                xpath: /html/body/div[2]/div[46]/@id
+            name:
+              - text: Supa de morcovi 400g
+                xpath: /html/body/div[2]/div[46]/@name
+            productUrl:
+              - text: https://www.mega-image.ro//Natural-and-sanatos/Alimentatie-sanatoasa/Conserve/Supa-de-morcovi-400g/p/55056
+                xpath: /html/body/div[2]/div[46]/@product-url
+            thumbnail:
+              - text: https://www.mega-image.ro//medias/sys_master/h0d/h36/8911402336286.jpg
+                xpath: /html/body/div[2]/div[46]/@thumbnail
+            price:
+              - text: "12.14"
+                xpath: /html/body/div[2]/div[46]/text()[1]
+                type: STRING
+            manufacturer:
+              - text: Auga
                 xpath: /html/body/div[2]/div[46]/@manufacturer
           - id:
               - text: "75703"
@@ -835,8 +877,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/ha4/h40/8909037174814.jpg
                 xpath: /html/body/div[2]/div[47]/@thumbnail
             price:
-              - text: 4,10
-                xpath: /html/body/div[2]/div[47]/@price
+              - text: "4.16"
+                xpath: /html/body/div[2]/div[47]/text()[1]
+                type: STRING
             manufacturer:
               - text: Knorr
                 xpath: /html/body/div[2]/div[47]/@manufacturer
@@ -853,8 +896,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h72/h1c/8964483776542.jpg
                 xpath: /html/body/div[2]/div[48]/@thumbnail
             price:
-              - text: 8,90
-                xpath: /html/body/div[2]/div[48]/@price
+              - text: "8.9"
+                xpath: /html/body/div[2]/div[48]/text()[1]
+                type: STRING
             manufacturer:
               - text: Rapunzel
                 xpath: /html/body/div[2]/div[48]/@manufacturer
@@ -865,50 +909,53 @@ extractions:
               - text: Supa din carcasa de pui cu plante aromatice 220ml
                 xpath: /html/body/div[2]/div[49]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Mezeluri-carne-si-ready-meal/Carne-proaspata/Carne-de-vita/Supa-din-carcasa-de-pui-cu-plante-aromatice-220ml/p/26611
+              - text: https://www.mega-image.ro//Mezeluri-carne-si-ready-meal/Carne-proaspata/Carne-de-pasare/Supa-din-carcasa-de-pui-cu-plante-aromatice-220ml/p/26611
                 xpath: /html/body/div[2]/div[49]/@product-url
             thumbnail:
               - text: https://www.mega-image.ro//medias/sys_master/h66/h30/8825998016542.jpg
                 xpath: /html/body/div[2]/div[49]/@thumbnail
             price:
-              - text: 13,99
-                xpath: /html/body/div[2]/div[49]/@price
+              - text: "13.99"
+                xpath: /html/body/div[2]/div[49]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[49]/@manufacturer
           - id:
-              - text: "81424"
+              - text: "26617"
                 xpath: /html/body/div[2]/div[50]/@id
             name:
-              - text: Pasta Tom Kha pentru supa 110g
+              - text: Supa din os de vitel cu plante aromatice 220ml
                 xpath: /html/body/div[2]/div[50]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Ingrediente-culinare/Sosuri-si-paste-de-tomate/Sosuri-preparate/Pasta-Tom-Kha-pentru-supa-110g/p/81424
+              - text: https://www.mega-image.ro//Mezeluri-carne-si-ready-meal/Carne-proaspata/Carne-de-vita/Supa-din-os-de-vitel-cu-plante-aromatice-220ml/p/26617
                 xpath: /html/body/div[2]/div[50]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h17/hac/8949686698014.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h4a/h6d/8825990938654.jpg
                 xpath: /html/body/div[2]/div[50]/@thumbnail
             price:
-              - text: 4,99
-                xpath: /html/body/div[2]/div[50]/@price
+              - text: "13.99"
+                xpath: /html/body/div[2]/div[50]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[50]/@manufacturer
           - id:
-              - text: "26617"
+              - text: "81424"
                 xpath: /html/body/div[2]/div[51]/@id
             name:
-              - text: Supa din os de vitel cu plante aromatice 220ml
+              - text: Pasta Tom Kha pentru supa 110g
                 xpath: /html/body/div[2]/div[51]/@name
             productUrl:
-              - text: https://www.mega-image.ro//Mezeluri-carne-si-ready-meal/Carne-proaspata/Carne-de-vita/Supa-din-os-de-vitel-cu-plante-aromatice-220ml/p/26617
+              - text: https://www.mega-image.ro//Ingrediente-culinare/Sosuri-si-paste-de-tomate/Sosuri-preparate/Pasta-Tom-Kha-pentru-supa-110g/p/81424
                 xpath: /html/body/div[2]/div[51]/@product-url
             thumbnail:
-              - text: https://www.mega-image.ro//medias/sys_master/h4a/h6d/8825990938654.jpg
+              - text: https://www.mega-image.ro//medias/sys_master/h17/hac/8949686698014.jpg
                 xpath: /html/body/div[2]/div[51]/@thumbnail
             price:
-              - text: 13,99
-                xpath: /html/body/div[2]/div[51]/@price
+              - text: "4.99"
+                xpath: /html/body/div[2]/div[51]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[51]/@manufacturer
@@ -925,8 +972,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h29/h11/8826000965662.jpg
                 xpath: /html/body/div[2]/div[52]/@thumbnail
             price:
-              - text: 13,99
-                xpath: /html/body/div[2]/div[52]/@price
+              - text: "13.99"
+                xpath: /html/body/div[2]/div[52]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[52]/@manufacturer
@@ -943,8 +991,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hf0/hd6/8949678243870.jpg
                 xpath: /html/body/div[2]/div[53]/@thumbnail
             price:
-              - text: 4,99
-                xpath: /html/body/div[2]/div[53]/@price
+              - text: "4.99"
+                xpath: /html/body/div[2]/div[53]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[53]/@manufacturer
@@ -960,9 +1009,6 @@ extractions:
             thumbnail:
               - text: https://www.mega-image.ro//medias/sys_master/ha6/hcb/8807083376670.jpg
                 xpath: /html/body/div[2]/div[54]/@thumbnail
-            price:
-              - text: 10,99
-                xpath: /html/body/div[2]/div[54]/@price
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[54]/@manufacturer
@@ -979,8 +1025,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hfe/h7e/8909032456222.jpg
                 xpath: /html/body/div[2]/div[55]/@thumbnail
             price:
-              - text: 4,80
-                xpath: /html/body/div[2]/div[55]/@price
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[55]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize
                 xpath: /html/body/div[2]/div[55]/@manufacturer
@@ -997,8 +1044,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hb4/he1/8947571884062.jpg
                 xpath: /html/body/div[2]/div[56]/@thumbnail
             price:
-              - text: 9,59
-                xpath: /html/body/div[2]/div[56]/@price
+              - text: "9.59"
+                xpath: /html/body/div[2]/div[56]/text()[1]
+                type: STRING
             manufacturer:
               - text: Delhaize Bio
                 xpath: /html/body/div[2]/div[56]/@manufacturer
@@ -1015,8 +1063,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hc2/hbe/8937501032478.jpg
                 xpath: /html/body/div[2]/div[57]/@thumbnail
             price:
-              - text: 6,29
-                xpath: /html/body/div[2]/div[57]/@price
+              - text: "6.29"
+                xpath: /html/body/div[2]/div[57]/text()[1]
+                type: STRING
             manufacturer:
               - text: Panzani
                 xpath: /html/body/div[2]/div[57]/@manufacturer
@@ -1033,8 +1082,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h12/h7e/8807128989726.jpg
                 xpath: /html/body/div[2]/div[58]/@thumbnail
             price:
-              - text: 13,09
-                xpath: /html/body/div[2]/div[58]/@price
+              - text: "13.09"
+                xpath: /html/body/div[2]/div[58]/text()[1]
+                type: STRING
             manufacturer:
               - text: Ardo
                 xpath: /html/body/div[2]/div[58]/@manufacturer
@@ -1051,8 +1101,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hb6/h39/8931310108702.jpg
                 xpath: /html/body/div[2]/div[59]/@thumbnail
             price:
-              - text: 3,30
-                xpath: /html/body/div[2]/div[59]/@price
+              - text: "3.3"
+                xpath: /html/body/div[2]/div[59]/text()[1]
+                type: STRING
             manufacturer:
               - text: Gusturi romanesti
                 xpath: /html/body/div[2]/div[59]/@manufacturer
@@ -1069,8 +1120,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h1d/h67/8987178795038.jpg
                 xpath: /html/body/div[2]/div[60]/@thumbnail
             price:
-              - text: 3,40
-                xpath: /html/body/div[2]/div[60]/@price
+              - text: "3.4"
+                xpath: /html/body/div[2]/div[60]/text()[1]
+                type: STRING
             manufacturer:
               - text: Gusturi romanesti
                 xpath: /html/body/div[2]/div[60]/@manufacturer
@@ -1087,8 +1139,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/hbc/h86/8887710482462.jpg
                 xpath: /html/body/div[2]/div[61]/@thumbnail
             price:
-              - text: 2,39
-                xpath: /html/body/div[2]/div[61]/@price
+              - text: "2.47"
+                xpath: /html/body/div[2]/div[61]/text()[1]
+                type: STRING
             manufacturer:
               - text: Vegeta
                 xpath: /html/body/div[2]/div[61]/@manufacturer
@@ -1105,8 +1158,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h26/hf7/8807155204126.jpg
                 xpath: /html/body/div[2]/div[62]/@thumbnail
             price:
-              - text: 22,25
-                xpath: /html/body/div[2]/div[62]/@price
+              - text: "22.25"
+                xpath: /html/body/div[2]/div[62]/text()[1]
+                type: STRING
             manufacturer:
               - text: Ardo
                 xpath: /html/body/div[2]/div[62]/@manufacturer
@@ -1123,8 +1177,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h32/hd9/8916908900382.jpg
                 xpath: /html/body/div[2]/div[63]/@thumbnail
             price:
-              - text: 36,99
-                xpath: /html/body/div[2]/div[63]/@price
+              - text: "36.99"
+                xpath: /html/body/div[2]/div[63]/text()[1]
+                type: STRING
             manufacturer:
               - text: Sistema
                 xpath: /html/body/div[2]/div[63]/@manufacturer
@@ -1141,8 +1196,9 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h40/h03/8916870103070.jpg
                 xpath: /html/body/div[2]/div[64]/@thumbnail
             price:
-              - text: 26,49
-                xpath: /html/body/div[2]/div[64]/@price
+              - text: "26.49"
+                xpath: /html/body/div[2]/div[64]/text()[1]
+                type: STRING
             manufacturer:
               - text: Sistema
                 xpath: /html/body/div[2]/div[64]/@manufacturer
@@ -1159,10 +1215,11 @@ extractions:
               - text: https://www.mega-image.ro//medias/sys_master/h21/h25/8918703112222.jpg
                 xpath: /html/body/div[2]/div[65]/@thumbnail
             price:
-              - text: 34,87
-                xpath: /html/body/div[2]/div[65]/@price
+              - text: "34.87"
+                xpath: /html/body/div[2]/div[65]/text()[1]
+                type: STRING
             manufacturer:
               - text: Sistema
                 xpath: /html/body/div[2]/div[65]/@manufacturer
         xpath: /html
-    timestamp: 1605613470316
+    timestamp: 1605802418502
