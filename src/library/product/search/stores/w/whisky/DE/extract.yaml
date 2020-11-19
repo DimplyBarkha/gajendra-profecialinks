@@ -8,7 +8,7 @@ fields:
     xpath: //a[@class='outer-product-link']/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class='article-left article-thumbnail']//a/img//@src
+    xpath: //div[@class='article-left article-thumbnail']//a/img//@data-src
   - name: name
     singleValue: true
     type: TEXT
@@ -20,12 +20,9 @@ fields:
     regExp: '(\"id\"\:\ ")([^"]+)'
     regExpReplace: $2
   - name: manufacturer
-    type: TEXT
-    # xpath: (//select[@name='searchmanufacturer']//option)[1]//text()
   - name: rating
     xpath: //div[@class='article-left article-thumbnail']//div[@class='rating ']/@data-rating
   - name: number_of_reviews
-    type: NUMBER
     xpath: //div[@class='article-left article-thumbnail']//a/span[@class='rating-count']/span/text()
   - name: price
     description: The offered price for the product
