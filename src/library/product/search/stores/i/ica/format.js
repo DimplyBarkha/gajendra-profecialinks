@@ -32,9 +32,13 @@ const transform = (data) => {
         }
         if(row.price){
           row.price.forEach(item => {
-            let reviewCountData=item.text.replace('Ord. Pris','');
-            let reviewCountData1=reviewCountData.split('/');
-            item.text=reviewCountData[0];
+            // let reviewCountData=item.text.replace('Ord. Pris','');
+            // let reviewCountData1=reviewCountData.split('/');
+            // item.text=reviewCountData[0];
+            //item.text = item.text.replace('Ord. Pris kr','');
+            item.text = item.text.replace(/[a-zA-Z]/g,'');
+            item.text = item.text.replace(/[,]/g,'.').trim();
+            console.log('Price here',item.text);
           });
         }
         row.rank = [{ "text": rank }];
