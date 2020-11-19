@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: '//body//div[@class="products"]'
 fields:
   - name: productUrl
-    xpath: //@productUrl
+    xpath: //@producturl
   - name: thumbnail
     xpath: //@thumbnail
     regExp: (.*)allegroimg.com/(.*?)/(.*)
@@ -24,6 +24,6 @@ fields:
   - name: rank
   - name: rankOrganic
   - name: sponsored
-    xpath: ''
+    xpath: //@sponsored
   - name: nameExtended
-    xpath: //@nameExtended
+    xpath: //@nameextended

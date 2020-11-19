@@ -31,6 +31,7 @@ async function implementation (
           let imageUrl = getElements()[i].querySelector(
             'a[rel=\'nofollow\'] img, ul li:nth-child(1) img'
           );
+          console.log(elements[i]);
           let data = {
             productUrl: elements[i].querySelector('h2>a').getAttribute('href'),
             thumbnail: imageUrl.getAttribute('src'),
@@ -41,24 +42,26 @@ async function implementation (
               'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span'
             )
               ? elements[i].querySelector(
-                  'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span'
-                ).textContent
+                'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span'
+              ).textContent
               : '',
-            manufacturer: getElementByXpath(
-              '//div[contains(@class,\"mgn2_13 mpof_5r\")]//*[contains(text(), \'Marka\')]/following::*[1]'
-            ),
             nameExtended: elements[i].querySelector('h2>a').textContent,
+            sponsored: getSponcered(elements[i])
           };
           appendElement(elements[i], data);
         } catch (error) {
           console.log(error);
         }
       }
-      
     }
 
-    function getElementByXpath(path) {
-      return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    function getSponcered(element) {
+      let value = element.getAttribute('data-analytics-view-custom-index0');
+      let isSponsored = element.getAttribute('data-analytics-view-label') === 'showSponsoredItems' ? true : false;
+
+      if (value && isSponsored) {
+        return element.getAttribute('data-analytics-view-label');
+      }
     }
 
     function appendElement(node, data) {
