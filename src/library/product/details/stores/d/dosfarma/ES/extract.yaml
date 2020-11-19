@@ -11,6 +11,9 @@ fields:
     singleValue: true
     xpath: //div[@class='product-cover']//@alt
     description: Alt text of the main product image
+  - name: imageCount
+    singleValue: true
+    xpath: count((//li[contains(@class, "thumb-container")]//img/@src))
 
 
   - name: category
