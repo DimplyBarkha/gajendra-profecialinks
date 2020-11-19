@@ -7,6 +7,6 @@ module.exports = {
     domain: 'douglas.de',
     url: 'https://www.douglas.de/search.html?query={searchTerms}',
     loadedSelector: 'div.rd__product-list',
-    noResultsXPath: '//h3',
+    noResultsXPath: '//h3[contains(text(),"0 Treffer")]',
   },
 };

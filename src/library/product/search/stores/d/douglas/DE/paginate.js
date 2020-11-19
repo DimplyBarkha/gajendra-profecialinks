@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'douglas',
-    nextLinkSelector: 'section.rd__product-overview__pagination > div > a.rd__pagination__next',
+    nextLinkSelector: 'section.rd__product-overview__pagination > div > a.rd__pagination__next[aria-disabled="false"]',
     spinnerSelector: 'div.rd__product-list div.rd__logo-spinner',
     domain: 'douglas.de',
   },
