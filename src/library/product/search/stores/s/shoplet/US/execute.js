@@ -14,7 +14,20 @@ async function implementation (
 ) {
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-  await dependencies.goto({ url, zipcode: inputs.zipcode });
+
+  //await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+
+  await dependencies.goto({ 
+    url, zipcode: inputs.zipcode,
+    firstRequestTimeout: 60000,
+    timeout: 60000,
+    waitUntil: 'load',
+    checkBlocked: false,
+    antiCaptchaOptions: {
+      provider: '2-captcha',
+       type: 'GEETEST',
+    },
+   });
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -38,9 +51,9 @@ module.exports = {
     store: 'shoplet',
     domain: 'shoplet.com',
     url: 'https://www.shoplet.com/{searchTerms}/usrch',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.padTop30',
+    noResultsXPath: '//h2[text()="There were no results for your search."]',
     zipcode: '',
   },
-  implementation
+  implementation,
 };

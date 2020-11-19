@@ -1,5 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"product-block") and contains(@class,"quickTrigger")]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="regular-title"]/a/span
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="regular-title"]/a/@href
+  - name: id
+    singleValue: false
+    xpath: //div[@class="info"]/p[contains(@class,"sku")]/@data-sku
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="image-box"]/a/img/@src
+  - name: price
+    singleValue: false
+    xpath: //p[contains(@class,"price")]/span[contains(@class,"number")]/text()
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="info"]/p[@class="rating-wrapper"]/span/@class
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="info"]/p[@class="rating-wrapper"]/i
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="info"]/p[@class="rating-wrapper"]/i
