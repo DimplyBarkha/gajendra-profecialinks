@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'RU',
     store: 'komus',
-    transform: cleanUp,
+    transform: transform,
     domain: 'komus.ru',
     zipcode: '',
   }, implementation: async (inputs,
@@ -38,28 +38,7 @@ module.exports = {
           if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
         return result;
-      };
-      let rankOrganic;
-      let url = window.location.href;
-      let checkPageNumber = url.split('&')[1];
-      try {
-        if (checkPageNumber.startsWith('page=')) {
-          rankOrganic = checkPageNumber.replace('page=', '');
-        }
-      }
-      catch (err) {
-      }
-      var dup = Number(rankOrganic);
-      dup = dup - 1;
-      if (!rankOrganic) {
-        rankOrganic = 1;
-      } else {
-        rankOrganic = (dup * 30) + 1;
-      }
-      const urlProduct = document.querySelectorAll('div[class="b-productList__item__picture"]');
-      for (let i = 0; i < urlProduct.length; i++) {
-        addHiddenDiv('rankOrganic', rankOrganic++, i);
-      }
+      };      
       const sliceURL1 = (data) => {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(" ")) {
