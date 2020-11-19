@@ -25,28 +25,6 @@ const transform = (data) => {
     for (const { group } of data) {
       let rank = 1;
       for (const row of group) {
-        if (row.productUrl) {
-          row.productUrl.forEach(item => {
-            item.text = 'https://www.sears.com' + item.text;
-          });
-        }
-        if (row.reviewCount) {
-          row.reviewCount.forEach(item => {
-            var tmp = item.text.replace('(', '');
-            item.text = tmp.replace(')', '');
-            item.text=parseInt(item.text);
-          });
-        }
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
-            item.text=parseInt(item.text);
-          });
-        }
-        if (row.soldBy) {
-          row.soldBy.forEach(item => {
-            item.text = item.text.replace('Sold by', '').trim();
-          });
-        }
         if (row.name) {
           row.name.forEach(item => {
             item.text = item.text.replace(/\s\n/g, '').trim();

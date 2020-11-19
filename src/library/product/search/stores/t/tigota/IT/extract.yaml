@@ -1,5 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@id="clerk-search-results"]//li[contains(@class,"item product product-item")]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@id="clerk-search-results"]//a[@class="product-item-link"]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@id="clerk-search-results"]//li[contains(@class,"item product product-item")]/@data-sku
+  - name: name
+    SingleValue: false
+    xpath: //div[@id="clerk-search-results"]//a[@class="product-item-link"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@id="clerk-search-results"]//span[@class="product-image-wrapper"]//img/@src
+  - name: soldBy
+    SingleValue: false
+    xpath: //div[@id="clerk-search-results"]//div[@class="manufacturer "]
+  - name: manufacturer
+    SingleValue: false
+    xpath: //div[@id="clerk-search-results"]//div[@class="manufacturer "]
+  - name: price 
+    SingleValue: false 
+    xpath: //div[@id="clerk-search-results"]//span[@data-price-type="finalPrice"]
+  - name: listPrice
+    SingleValue: false
+    xpath: //div[@id="clerk-search-results"]//span[@class="old-price"]
