@@ -31,7 +31,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat((//div[contains(@class, "product-title")]/h1),' ',(//div[contains(@class, "variation  active")]))
+    xpath: //div[contains(@class, "product-title")]/h1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -40,18 +40,16 @@ fields:
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@id,"product-detail-wrapper")]//div[contains(@class,'product-price')]/span
-    regExp: (\d*)( *)(\d*)(,*)(\d*)
-    regExpReplace: $1$3$4$5
+    xpath: //div[@id="product-detail-wrapper"]//meta[@itemprop="price"]/@content
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //*[contains(@class, "items-in-stock align-left")]/span
-    regExp: (.+nettlager)
-    regExpReplace: "In Stock"
-    defaultValue: "Out of Stock"
+    xpath: //div[@id="product-detail-wrapper"]//link[@itemprop="availability"]/@href
+    regExp: (Discontinued)
+    regExpReplace: "Out of Stock"
+    defaultValue: "In Stock"
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -95,7 +93,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //meta[@itemprop="productID"]/@content
+    xpath: //script/@data-eky-mpn
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -146,11 +144,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    manualSelector: div[class*="product-inspiration-wrapper"]
+    manualSelector: div[class*="product-inspiration-wrapper"], div[class*="product-more-info"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class,"article-text article-free-html")]/img/@src
+    xpath: //div[contains(@class,"product-more-info")]//img/@src | //div[contains(@class,"article-text article-free-html")]/img/@src
     regExp: (.+)
     regExpReplace: https://elkjop.no$1
   - name: videos
