@@ -61,9 +61,9 @@ module.exports = {
     country: 'CO',
     store: 'tiendasjumbo',
     domain: 'tiendasjumbo.co',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.tiendasjumbo.co/buscar?q={searchTerms}',
+    loadedSelector: 'section.grid',
+    noResultsXPath: '//section[@class="not-found-terms"]',
     zipcode: "''",
   },
 };
