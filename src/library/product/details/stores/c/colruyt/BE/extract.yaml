@@ -34,7 +34,7 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
-    xpath: (//div[contains(@class,"product__order order")])[1]
+    xpath: //div[contains(@class,"product__order order")]//div[1]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -59,7 +59,7 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    xpath: //p[contains(@class,"brutto")]
+    xpath: //div[@id="quantity_added"]
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
@@ -71,7 +71,7 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    xpath: //span[contains(@id,"current_gtin")]
+    xpath: //div[@id="gtin_added"]
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
@@ -90,6 +90,7 @@ fields:
       the site to quantity)
   - name: legalDisclaimer
     singleValue: false
+    xpath: //div[@id="legalDisclaimer_added"]
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
@@ -237,7 +238,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: (//span[contains(@class,"caption")]/following-sibling::text())[1]
+    xpath: //div[@id="ingredientsList_added"]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
@@ -252,7 +253,7 @@ fields:
     description: Suggested number of servings of the product.
   - name: caloriesPerServing
     singleValue: false
-    xpath: //div[contains(@class,"value-left")]//span[contains(text(),"Énergie kcal")]/following-sibling::span[contains(@class,"val-nbr")]
+    xpath: //div[@id="caloriesPerServing_added"]
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
@@ -261,7 +262,7 @@ fields:
       based on per 100g serving
   - name: totalFatPerServing
     singleValue: false
-    xpath: //div[contains(@class,"value-left")]//span[contains(text(),"Total graisses")]/following-sibling::span[contains(@class,"val-nbr")]
+    xpath: //div[@id="totalFatPerServing_added"]
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
   - name: totalFatPerServingUom
@@ -269,7 +270,7 @@ fields:
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     singleValue: false
-    xpath: //div[contains(@class,"value-left")]//span[contains(text(),"Graisses saturées")]/following-sibling::span[contains(@class,"val-nbr")]
+    xpath: //div[@id="saturatedFatPerServing_added"]
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
   - name: saturatedFatPerServingUom
@@ -298,7 +299,7 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    xpath: //div[contains(@class,"value-left")]//span[contains(text(),"Total glucides")]/following-sibling::span[contains(@class,"val-nbr")]
+    xpath: //div[@id="totalCarbPerServing_added"]
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
   - name: totalCarbPerServingUom
@@ -313,7 +314,7 @@ fields:
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     singleValue: false
-    xpath: //div[contains(@class,"value-left")]//span[contains(text(),"Sucres")]/following-sibling::span[contains(@class,"val-nbr")]
+    xpath: //div[@id="totalSugarsPerServing_added"]
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
   - name: totalSugarsPerServingUom
@@ -321,7 +322,7 @@ fields:
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: false
-    xpath: //div[contains(@class,"value-left")]//span[contains(text(),"Protéines")]/following-sibling::span[contains(@class,"val-nbr")]
+    xpath: //div[@id="proteinPerServing_added"]
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
   - name: proteinPerServingUom
@@ -367,6 +368,7 @@ fields:
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     singleValue: false
+    xpath: //div[@id="saltPerServing_added"]
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
   - name: saltPerServingUom
@@ -383,6 +385,7 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
+    xpath: //div[@id="storage_added"]
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: false

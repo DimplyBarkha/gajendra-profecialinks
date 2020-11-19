@@ -26,6 +26,11 @@ const transform = (data) => {
           priceItem.text = priceItem.text.replace('/pc.', '').replace(',', '.');
         });
       }
+      if (row.servingSize) {
+        row.servingSize.forEach((servingSizeItem) => {
+          servingSizeItem.text = servingSizeItem.text.replace('Valeur nutritive moyenne par', '').trim();
+        });
+      }
       if (row.sku) {
         row.sku.forEach((skuItem) => {
           skuItem.text = skuItem.text.replace(/[^\d]/gm, '');
