@@ -10,21 +10,21 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text = row.description.map(elm => elm.text).join(' ').replace(/•/g, '||');
+          text = row.description.map(elm => elm.text).join(' ').replace(/•/g, '||').replace(/·/g, '||');
         });
         row.description = [{ text }];
       }
-      if (row.warranty) {
-        let text = '';
-        row.warranty.forEach(item => {
-          text += item.text.concat(' Ay');
-        });
-        row.warranty = [
-          {
-            text: text,
-          },
-        ];
-      }
+      // if (row.warranty) {
+      //   let text = '';
+      //   row.warranty.forEach(item => {
+      //     text += item.text.concat(' Ay');
+      //   });
+      //   row.warranty = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
       if (row.specifications) {
         let text = '';
         let count = 0;

@@ -9,6 +9,8 @@ fields:
   - name: imageAlt
     description: Alt text of the main product image
     xpath: //div[@id="productDetailsCarousel"]//img[@class="product-image"][1]//@alt
+  - name: secondaryImageTotal
+    xpath: count(//div[@id="productThumbnailsCarousel"]//div[@class="owl-stage"]//div[position()>1]//img//@src)
   - name: alternateImages
     description: Other product images (not in manufacturer description)
     xpath: //div[@id="productThumbnailsCarousel"]//div[@class="owl-stage"]//div[position()>1]//img//@src
@@ -36,13 +38,12 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
+  - name: descriptionBullets
+    description: Number of ul > li tags in the description
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[@id="productDescriptionContent"]
-  - name: descriptionBullets
-    description: Number of ul > li tags in the description
-    xpath: count(//div[@id="productDescriptionContent"]//ul//li)
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
@@ -51,6 +52,8 @@ fields:
     description: Net weight as described on the page
     xpath: //li[contains(.,'Ağırlık:')] | //li[contains(.,'ağırlığı')] | //p[contains(.,'Ağırlık:')]
     regExp: (\d.+)
+  - name: gtin
+    xpath: //body//@upc
   - name: sku
     description: The store-specific product identifier
     xpath: //meta[@itemprop="sku"]//@content
@@ -93,3 +96,9 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
+  - name: otherSellersName
+    xpath: //a[contains(@class,'merchant-name')]
+  - name: otherSellersPrice
+    xpath: //tr//span[contains(@class,'product-price')]
+  - name: firstVariant
+    xpath: //form[@id="addToCartForm"]//input[@name="productId"]//@value
