@@ -1,0 +1,100 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-carousel')]//div[@class='slick-track']//div[contains(@class,'slick-slide') and contains(@class,'slick-current') and not(contains(@class,'slick-cloned'))]//img/@src
+    # remove width and height from URL https://s7d9.scene7.com/is/image/marmot/73060_1819_P001?wid=180&hei=180
+    regExp: (\?wid=180\&hei=180) 
+    regExpReplace: $1
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-carousel')]//div[@class='slick-track']//div[contains(@class,'slick-slide') and contains(@class,'slick-current') and not(contains(@class,'slick-cloned'))]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-carousel')]//div[@class='slick-track']//div[contains(@class,'slick-slide') and not(contains(@class,'slick-current')) and not(contains(@class,'slick-cloned'))]//img/@src
+    # remove width and height from URL https://s7d9.scene7.com/is/image/marmot/73060_1819_P001?wid=180&hei=180
+    regExp: (\?wid=180\&hei=180) 
+    regExpReplace: $1
+  - name: category
+    singleValue: false
+    xpath: //ol[@class='breadcrumb']//li//a[not(text()='Home')]
+  - name: name
+    singleValue: false
+    xpath: //div[@class='pdp-tile']//h5[contains(@class,'product-name')]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='pdp-tile']//h5[contains(@class,'product-name')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='attributes']//div[contains(@class,'tile')]//div[contains(@class,'cart-and-ipay')]//button[normalize-space()='Add to Cart']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'prices-add-to-cart-actions') and not(contains(@class,'mobile'))]//div[@class='prices']//span[@class='price-tag']//span[contains(@class,'sales')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'prices-add-to-cart-actions') and not(contains(@class,'mobile'))]//div[@class='prices']//span[@class='price-tag']//span[contains(@class,'strike')]
+  - name:  description
+    singleValue: false
+    xpath: //div[@class='value content' and not(ancestor::div[contains(@class,'reviews')])]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@class='value content' and not(preceding-sibling::h5[contains(text(),'Specifications')])]//li
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail')]/@data-pid
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail')]/@data-pid
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail')]/@data-pid
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+    type: NUMBER
+  - name: variantInformation
+    singleValue: false
+    # variant information color and size
+    xpath: //*[(contains(@class,'size-display-value') or contains(@class,'color-display-value')) and not(contains(text(),'Select a size'))]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='pdp-tile']//span[contains(@class,'badge-secondary')]
+  - name: specifications
+    singleValue: false
+    xpath: //h5[normalize-space()='Specifications']//following-sibling::ul//li
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //head[not(descendant::*[contains(@href,'Sites-marmot-Site')])]//following-sibling::body//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //head[not(descendant::*[contains(@href,'Sites-marmot-Site')])]//following-sibling::body
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='pdp-tile']//meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='pdp-tile']//div[@itemprop="ratingValue"]
+  - name: color
+    singleValue: false
+    xpath: //span[contains(@class,'color-display-value')]
+  - name: weightNet
+    singleValue: false
+    xpath: //h5[normalize-space()='Specifications']//following-sibling::ul//li[contains(text(),'Product Weight')]
+    # remove text Product Weight:
+    regExp: (Product Weight\:) 
+    regExpReplace: $1
+  - name: materials
+    singleValue: false
+    xpath: //h5[normalize-space()='Specifications']//following-sibling::ul//li[contains(text(),'Main Fabric')]
+    # remove text Main Fabric:
+    regExp: (Main Fabric:\) 
+    regExpReplace: $1
