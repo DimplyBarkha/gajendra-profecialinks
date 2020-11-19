@@ -40,11 +40,11 @@ async function implementation (
               'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span',
             )
               ? elements[i].querySelector(
-                'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span'
+                'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span',
               ).textContent
               : '',
             nameExtended: elements[i].querySelector('h2>a').textContent,
-            sponsored: getSponcered(elements[i])
+            sponsored: getSponcered(elements[i]),
           };
           appendElement(elements[i], data);
         } catch (error) {
@@ -53,9 +53,9 @@ async function implementation (
       }
     }
 
-    function getSponcered(element) {
-      let value = element.getAttribute('data-analytics-view-custom-index0');
-      let isSponsored = element.getAttribute('data-analytics-view-label');
+    function getSponcered (element) {
+      const value = element.getAttribute('data-analytics-view-custom-index0');
+      const isSponsored = element.getAttribute('data-analytics-view-label');
       console.log(isSponsored);
       if (value && isSponsored) {
         return element.getAttribute('data-analytics-view-label');
