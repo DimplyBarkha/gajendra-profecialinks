@@ -1,24 +1,24 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null # .mq-grid-item
+recordSelector: null #.mq-grid-item
 recordXPath: null # //div[@class="mq-grid-item"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="productInfo"]/@productid
+    xpath: //div[@class="productinfo"]/@productid
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[@class="productInfo"]/@name
+    xpath: //div[@class="productinfo"]/@name
   - name: productUrl
     singleValue: false
-    xpath:  //div[@class="productInfo"]/@producturl
+    xpath: //div[@class="productinfo"]/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="productInfo"]/@image
+    xpath: //div[@class="productinfo"]/@image
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -29,7 +29,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class="productInfo"]/@price
+    xpath: //div[@class="productinfo"]/@price
   - name: manufacturer
     singleValue: true
   - name: soldBy
