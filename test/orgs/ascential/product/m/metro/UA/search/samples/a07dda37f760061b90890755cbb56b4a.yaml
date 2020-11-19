@@ -1,0 +1,1274 @@
+input:
+  keywords: харчування
+  _url: http://metro.ua
+extractions:
+  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=5e8ae9d2-0920-4819-9ed4-db7b3dad64a9/fe58b18e-ded3-4fe8-8a21-75a2558791d5.html
+    extractionConfigId: product/search/stores/m/metro/UA/extract
+    data:
+      - group:
+          - name:
+              - text: Готовый сухой завтрак NESTLÉ® CHOCO CORN FLAKES с какао без глютена 450г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/05900020026439/dry_breakfast-nestle-450g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/12112020.1605180474.ad72436478c_2020-11-12_Tatyana_L/12112020.1605180474.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 59.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок яблочно-грушевый с мякотью Чудо-Чадо от 4-х месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820003687697/juice-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1590593274.ad72436478c_2020-05-27_Tatiana/src.1590593274.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 6.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок бананово-яблочный с мякотью без сахара Чудо-Чадо от 6-ти месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820003688281/juice-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1590593592.ad72436478c_2020-05-27_Tatiana/src.1590593592.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 6.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре из груш и чернослива Чудо-Чадо от 5-ти месяцев 90г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253858/puree-chudo-chado-90g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.3415068538.ad72436478c_2020-05-27_Tatiana/src.3415068538.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 11.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре яблочно-персиковое Чудо-Чадо от 5-ти месяцев 90г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253636/puree-chudo-chado-90g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.3415068138.ad72436478c_2020-05-27_Tatiana/src.3415068138.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 11.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок персиковый с мякотью Чудо-Чадо от 4-х месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016251687/juice-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.1590594625.ad72436478c_2020-05-27_Tatiana/src.1590594625.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 6.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре из груш и яблок без сахара Чудо-Чадо от 4-х месяцев 90г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253612/puree-chudo-chado-90g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415067938.ad72436478c_2020-05-27_Tatiana/src.3415067938.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 11.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре яблочно-банановое без сахара Чудо-Чадо от 6-ти месяцев 90 г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253643/puree-chudo-chado-90g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.3415068238.ad72436478c_2020-05-27_Tatiana/src.3415068238.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 11.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок яблочно-персиковый с мякотью Чудо-Чадо от 4-х месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016251731/juice-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.1590594888.ad72436478c_2020-05-27_Tatiana/src.1590594888.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 6.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре Чудо-Чадо Вітамінний салатик з вітаміном С від 8-ми місяців 90г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253896/puree-chudo-chado-90g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.3415068738.ad72436478c_2020-05-27_Tatiana/src.3415068738.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 11.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок яблочно-абрикосовый с мякотью Чудо-Чадо от 4-х месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016251762/juice-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1590595043.ad72436478c_2020-05-27_Tatiana/src.1590595043.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 6.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре из яблок, моркови и айвы Чудо-Чадо Румяные щечки от 5-ти месяцев 90г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253629/puree-chudo-chado-90g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415068038.ad72436478c_2020-05-27_Tatiana/src.3415068038.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 11.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок Чудо-Чадо виноградно-яблочный без сахара с 6-ти месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016251748/juice-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1590594909.ad72436478c_2020-05-27_Tatiana/src.1590594909.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 6.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре Чудо-Чадо Фруктовий салатик зі злаками та смаком печива без цукру від
+                  6-ти місяців 90г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253650/puree-chudo-chado-90g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.3415068338.ad72436478c_2020-05-27_Tatiana/src.3415068338.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 11.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок яблочный без сахара Чудо-Чадо от 4-х месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820003687703/juice-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1590593246.ad72436478c_2020-05-27_Tatiana/src.1590593246.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 6.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре Ложка в ладошке из мяса индейки 100г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04815396000178/puree-lozhka_v_kadoshke-100g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/bell.1603972560.ad72436478c_2020-10-29_Tatyana_L/bell.1603972560.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 24.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре Ложка в ладошке говядина+индейка 100г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04815396000130/puree-lozhka_v_kadoshke-100g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/bell.1603971921.ad72436478c_2020-10-29_Tatyana_L/bell.1603971921.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 24.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Хлеб Dr.Schar Pan Rustico злаковый без глютена 250г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/08008698024188/bread-schar-250g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/m.1600436728.ad72436478c_2020-09-18_Svetlana/m.1600436728.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 75.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[1]/div[1]
+          - name:
+              - text: Булочки Dr. Schar Бон Матин сладкие 200г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/08008698001059/bun-schar-200g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1579859322.ad72436478c_2020-01-24_Tatiana/src.1579859322.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 80.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[1]/div[1]
+          - name:
+              - text: Хлебцы Schar Fette Croccanti 150г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/08008698007303/crispbread-schar-150g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/11.1578746432.ad72436478c_2020-01-11_Svetlana/11.1578746432.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 74.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Хлебцы Tasty Style Киноа кукурузно-рисовые 100г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820193090543/crispbread-tasty_style-100g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/done.1591969501.ad72436478c_2020-06-12_Svetlana/done.1591969501.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 22.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Молоко Злагода 3.2% для детского питания от 9 месяцев 200г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820202530428/milk-zlagoda-200g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/upload.version_1.0.fd66f9c8e178d40c46f482481211584a.150x150.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 15.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Молоко Селянське Малышам для детского питания 3,2% 950г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820003485781/milk-selianske-950g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/upload.version_1.0.60efd6b5c1e07798238446a6cece0f7e.150x150.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 33.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Бифидойогурт Простоквашино Бифилакт Яблоко-груша 2,4% 207г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820226161813/yogurt-prostokvashyno-207g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/upload.version_1.0.9472109c14721f29514c09b9a519916a.150x150.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 15.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Бифидойогурт Простоквашино Бифилакт Персик 2,4% 207г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820226161790/yogurt-prostokvashyno-207g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/upload.version_1.0.c65fcfaa6dd1dfcaf250264811f50bb9.150x150.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 15.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сосиски Organic Meat для питания детей дошкольного и школьного возраста
+                  органические высший сорт
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820207700055/sausages-organic_meat-350g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1586780970.ad72436478c_2020-04-13_Listex/src.1586780970.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 107.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сардельки Organic Meat органические для питания детей дошкольного и
+                  школьного возраста высший сорт
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820207700048/wiener-organic_meat-420g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/upload.version_1.0.f40e9588aebdaeca4a82b682bd0fbfa2.150x150.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 132.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Смесь мучная Schar Mixit универсальная 500г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/08008698010358/flour-schar-500g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1579877984.ad72436478c_2020-01-24_Tatiana/src.1579877984.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 92.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Завтраки сухие зерновые АХА Гранола с орехами в карамели 40г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820008129215/granola-axa-40g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/20191114.1573749861.ad72436478c_2019-11-14_Tatiana/20191114.1573749861.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 8.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Завтраки сухие зерновые АХА Гранола с лесными ягодами 40г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820008129222/granola-axa-40g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/20191114.1573749961.ad72436478c_2019-11-14_Tatiana/20191114.1573749961.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 8.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[1]/div[2]
+        xpath: /html
+    timestamp: 1605786416838
+  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=5e8ae9d2-0920-4819-9ed4-db7b3dad64a9/a44ffb56-ac31-4874-b58b-7f13b12b0f11.html
+    extractionConfigId: product/search/stores/m/metro/UA/extract
+    data:
+      - group:
+          - name:
+              - text: Завтраки сухие зерновые АХА Гранола с тропическими фруктами 40г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820008129239/granola-axa-40g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/20191114.1573750061.ad72436478c_2019-11-14_Tatiana/20191114.1573750061.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 8.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Завтраки сухие зерновые АХА Гранола с шоколадом 320г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820008129246/granola-axa-320g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/20191114.1573750161.ad72436478c_2019-11-14_Tatiana/20191114.1573750161.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 69.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Отруби Nordic пшеничные 160г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/06411200108368/bran-nordic-160g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/0207.1593678814.ad72436478c_2020-07-02_Tatiana/0207.1593678814.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 33.25 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Хлопья овсяные Elovena без глютена 500г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/06411200111566/flakes-provena-500g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.1592230214.ad72436478c_2020-06-15_Tatiana/src.1592230214.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 89.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Хлопья мультизерновые AXA Гармония обогащенные минералами 500г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820008125224/flakes-axa-500g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/20191114.1573745761.ad72436478c_2019-11-14_Tatiana/20191114.1573745761.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 62.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Смесь Schar для выпечки хлеба 1кг
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/08008698004845/blend-schar-1000g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.1579861807.ad72436478c_2020-01-24_Tatiana/src.1579861807.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 246.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Битки Екона соевые кусочки 200г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04823025900232/rissole-econa-200g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/hand.1579268300.ad72436478c_2020-01-17_Svetlana/hand.1579268300.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 39.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Гуляш Екона соевый кубики 200г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04823025900300/goulash-econa-200g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/hand.1579687040.ad72436478c_2020-01-22_Alina/hand.1579687040.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 31.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Фарш Екона соевый 200г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04823025900249/mince-econa-200g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1600350909.ad72436478c_2020-09-23_Alina/src.1600350909.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 26.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок HiPP яблочно-виноградный детский без сахара низкоаллергенный с 4
+                  месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/09062300102472/juice-hipp-200ml-hungary/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/20180424.1524570531.ad72436478c_2018-04-24_Tatiana/20180424.1524570531.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 40.20 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-грушево-черничный страйп 14г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820206080745/candy-bob_snail-14g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/21112019.1574323833.ad72436478c_2019-11-21_Tatyana_L/21112019.1574323833.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 10.30 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[1]/div[1]
+          - name:
+              - text: Конфеты Bob Snail грушево-ананасовый страйп 14г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820206080912/candy-bob_snail-14g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/21112019.1574324092.ad72436478c_2019-11-21_Tatyana_L/21112019.1574324092.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 10.30 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[1]/div[1]
+          - name:
+              - text: Конфеты Bob Snail грушево-манговый страйп 14г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820206080752/candy-bob_snail-14g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/21112019.1574323963.ad72436478c_2019-11-21_Tatyana_L/21112019.1574323963.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 10.30 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[1]/div[1]
+          - name:
+              - text: Конфеты Bob Snail яблочно-малиновые натуральные 120г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820162520460/candy-bob_snail-120g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/21112019.1574322899.ad72436478c_2019-11-21_Tatyana_L/21112019.1574322899.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 65.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-грушевые натуральные 120г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820162520194/candy-bob_snail-120g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/21112019.1574321369.ad72436478c_2019-11-21_Tatyana_L/21112019.1574321369.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 52.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-черносмородиновый страйп 14г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820206080929/candy-bob_snail-14g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/21112019.1574324223.ad72436478c_2019-11-21_Tatyana_L/21112019.1574324223.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 9.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-клубничный страйп 14г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820206080721/candy-bob_snail-14g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/21112019.1574323551.ad72436478c_2019-11-21_Tatyana_L/21112019.1574323551.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 9.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-малиновый страйп 14г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820206080738/candy-bob_snail-14g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/21112019.1574323692.ad72436478c_2019-11-21_Tatyana_L/21112019.1574323692.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 9.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-вишневый страйп 14г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820206080622/candy-bob_snail-14g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/21112019.1574323274.ad72436478c_2019-11-21_Tatyana_L/21112019.1574323274.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 9.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail грушево-яблочный страйп 14г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820206080714/candy-bob_snail-14g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/21112019.1574323408.ad72436478c_2019-11-21_Tatyana_L/21112019.1574323408.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 9.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-клубничные в молочном шоколаде без сахара 60г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219341369/candy-bob_snail-60g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1601375815.ad72436478c_2020-09-29_Alina/src.1601375815.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 49.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail манговые в молочном шоколаде без сахара 60г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219341352/candy-bob_snail-60g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1600349000.ad72436478c_2020-09-23_Alina/src.1600349000.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 49.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-малиновые в черном шоколаде без сахара 60г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219341345/candy-bob_snail-60g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1600349043.ad72436478c_2020-09-23_Alina/src.1600349043.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 49.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-вишневые в черном шоколаде без сахара 60г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219341338/candy-bob_snail-60g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/Cartfresh-Laptop-1.1579866418.ad72436478c_2020-01-27_Auchan_Pavel_Alexey/Cartfresh-Laptop-1.1579866418.SND186F2.obj.0.11.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 49.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-вишневые натуральные 120г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820162520354/candy-bob_snail-120g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/21112019.1574321929.ad72436478c_2019-11-21_Tatyana_L/21112019.1574321929.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 65.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочно-клубничные натуральные 120г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820162520422/candy-bob_snail-120g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/21112019.1574322611.ad72436478c_2019-11-21_Tatyana_L/21112019.1574322611.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 65.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Bob Snail яблочные натуральные 120г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820162520156/candy-bob_snail-120g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/20201018.1602876677.ad72436478c_2020-10-18_Auchan_Pavel_Alexey/20201018.1602876677.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 52.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Конфеты Бисквит-шоколад Вафельные на фруктозе с арахисом глазированные
+                  200г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820112367893/candy-biscuit-chocolate-200g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/upload.version_1.0.915c79f7b4de8aa2dce0e572cc7c6a2e.150x150.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 28.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[1]/div[1]
+          - name:
+              - text: Печенье Dr.Schar Maria 125г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/08008698010402/cookies-schar-125g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1579867592.ad72436478c_2020-01-24_Tatiana/src.1579867592.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 49.30 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[1]/div[1]
+          - name:
+              - text: Галеты Provena овсянные с темным шоколадом без глютена 160г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/06411200109129/biscuit-provena-160g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.1592228714.ad72436478c_2020-06-15_Tatiana/src.1592228714.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 96.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[1]/div[2]
+        xpath: /html
+    timestamp: 1605786416838
+  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=5e8ae9d2-0920-4819-9ed4-db7b3dad64a9/7f018d5d-77b3-4e88-ade8-ae96b3ebe4f8.html
+    extractionConfigId: product/search/stores/m/metro/UA/extract
+    data:
+      - group:
+          - name:
+              - text: Смесь семян Golden Kings of Ukraine Здоровье 100г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820043013012/seeds-golden_kings_of_ukraine-100g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/upload.version_1.0.395f9eae4644d01c99247eed0d60909f.150x150.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 30.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Вафли Dr.Schar в темном шоколаде с какао 40г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/08008698005293/waffles-schar-40g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/done.1580488196.ad72436478c_2020-01-31_Svetlana/done.1580488196.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 35.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Мармелад Bob Snail груша-малина-свекла без сахара 108г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219341529/fruit_jellies-raspberry-bob_snail-108g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/Cartfresh-Laptop-1.1579870587.ad72436478c_2020-01-27_Auchan_Pavel_Alexey/Cartfresh-Laptop-1.1579870587.SND186F2.obj.0.9.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 59.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Мармелад Bob Snail яблоко-манго-тыква-чиа без сахара 108г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219341277/fruit_jellies-bob_snail-108g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/Cartfresh-Laptop-1.1579870525.ad72436478c_2020-01-27_Auchan_Pavel_Alexey/Cartfresh-Laptop-1.1579870525.SND186F2.obj.0.9.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 59.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Мармелад Bob Snail яблоко-груша-лимон без сахара 108г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219341253/fruit_jellies-bob_snail-108g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/m.1602243792.ad72436478c_2020-10-09_Svetlana/m.1602243792.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 59.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Мармелад Bob Snail яблоко-груша-лимон без сахара 38г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820206081070/fruit_jellies-bob_snail-38g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/21112019.1574324351.ad72436478c_2019-11-21_Tatyana_L/21112019.1574324351.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 21.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Мармелад Bob Snail груша-апельсин без сахара 108г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219342113/fruit_jellies-bob_snail-108g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/m.1602244093.ad72436478c_2020-10-09_Svetlana/m.1602244093.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 59.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Мармелад Bob Snail фруктово-ягодный Яблоко-Вишня без сахара 38г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219340072/fruit_jellies-bob_snail-38g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/21112019.1574324485.ad72436478c_2019-11-21_Tatyana_L/21112019.1574324485.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 21.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Мармелад Bob Snail фруктово-овощной Яблоко-Морковь без сахара 38г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219340706/fruit_jellies-bob_snail-38g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/21112019.1574324636.ad72436478c_2019-11-21_Tatyana_L/21112019.1574324636.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 21.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Мармелад Bob Snail яблоко-вишня без сахара 108г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219341246/fruit_jellies-bob_snail-108g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/Cartfresh-Laptop-1.1579870654.ad72436478c_2020-01-27_Auchan_Pavel_Alexey/Cartfresh-Laptop-1.1579870654.SND186F2.obj.0.9.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 59.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Мармелад Bob Snail яблоко-манго-тыква-чиа 38г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820219340713/fruit_jellies-bob_snail-38g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/21112019.1574324764.ad72436478c_2019-11-21_Tatyana_L/21112019.1574324764.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 21.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Мармелад Kondissima Надийка на фруктозе 200г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820008836298/fruit_jellies-kondissima-200g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/done.1580826609.ad72436478c_2020-02-04_Svetlana/done.1580826609.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 32.20 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Зефир Kondissima на фруктозе 150г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820008837240/marshmallow-yasen-150g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/upload.version_1.0.201edbfe5e23bd1ac852527ea3559ac0.150x150.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 19.40 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Тарелка Canpol из меламина на присоске
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/05903407045191/plate-canpol_babies/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/done.1598970896.ad72436478c_2020-09-01_Svetlana/done.1598970896.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 229.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок яблочный прямого отжима без сахара Чудо-Чадо от 6-ти месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820003689011/juice-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.3415066038.ad72436478c_2020-05-27_Tatiana/src.3415066038.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 10.30 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок яблочно-морковный прямого отжима без сахара Чудо-Чадо от 6-ти месяцев
+                  200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820003689028/juice-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415066138.ad72436478c_2020-05-27_Tatiana/src.3415066138.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 10.30 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Сок яблоко-ягода прямого отжима без сахара Чудо-Чадо от 8-ми месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820003689035/juice-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.3415066238.ad72436478c_2020-05-27_Tatiana/src.3415066238.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 10.30 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[1]/div[1]
+          - name:
+              - text: Молоко с бананом Чудо-Чадо от 12-ти месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253957/beverage-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415068838.ad72436478c_2020-05-27_Tatiana/src.3415068838.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 14.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Молоко с малиной Чудо-Чадо от 12-ти месяцев 200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253964/beverage-chudo-chado-200ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415068938.ad72436478c_2020-05-27_Tatiana/src.3415068938.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 14.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Набор соков 3+1 Чудо-Чадо яблоко-груша 4x200мл
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253810/juice-chudo-chado-800ml-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/mega.1592407740.ad72436478c_2020-06-17_Julia/mega.1592407740.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 26.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре Bambolina из яблок и банана 90г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04813163002158/puree-bambolina-90g-belarus/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/group.1605441148.ad72436478c_2020-11-17_Tatyana_L/group.1605441148.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 18.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[1]/div[1]
+          - name:
+              - text: Пюре из яблок и слив Чудо-Чадо от 4-х месяцев 170г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016251465/puree-chudo-chado-170g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415066738.ad72436478c_2020-05-27_Tatiana/src.3415066738.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 16.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Детское питание для детей с 3-х месяцев Чудо-Чадо Пюре из груш натуральное
+                  без сахара 90г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253315/puree-chudo-chado-90g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/20190513.1557738833.ad72436478c_2019-05-13_Tatiana/20190513.1557738833.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 10.25 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре Чудо-Чадо Фруктовый салатик со злаками и вкусом печенья с 6 месяцев
+                  без сахара 170г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253841/puree-chudo-chado-170g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.3415068438.ad72436478c_2020-05-27_Tatiana/src.3415068438.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 16.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре Чудо-Чадо из яблок и чернослива для детей от 4-х мес 170г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253865/puree-chudo-chado-170g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415068638.ad72436478c_2020-05-27_Tatiana/src.3415068638.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 16.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре из яблок моркови и айвы Чудо-Чадо Румяные щечки от 5-ти месяцев 170г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016251434/puree-chudo-chado-170g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.3415066538.ad72436478c_2020-05-27_Tatiana/src.3415066538.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 16.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре из тыквы и яблок Чудо-Чадо от 4-х месяцев 170г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820003688267/puree-chudo-chado-170g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.3415065638.ad72436478c_2020-05-27_Tatiana/src.3415065638.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 16.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре из персиков и яблок Чудо-Чадо от 4-х месяцев 170г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820003688274/puree-chudo-chado-170g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415065738.ad72436478c_2020-05-27_Tatiana/src.3415065738.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 16.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре из яблок и абрикос Чудо-Чадо от 4-х месяцев 170г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016251427/puree-chudo-chado-170g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415066438.ad72436478c_2020-05-27_Tatiana/src.3415066438.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 16.50 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре из яблок без сахара Чудо-Чадо от 4-х месяцев 130г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253254/puree-chudo-chado-130g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415067538.ad72436478c_2020-05-27_Tatiana/src.3415067538.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 10.25 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[1]/div[2]
+        xpath: /html
+    timestamp: 1605786416838
+  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=5e8ae9d2-0920-4819-9ed4-db7b3dad64a9/7bb5b9c8-e270-4772-b4d2-2ce4e35c9bca.html
+    extractionConfigId: product/search/stores/m/metro/UA/extract
+    data:
+      - group:
+          - name:
+              - text: Пюре из груш и яблок без сахара Чудо-Чадо от 4-х месяцев 170г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016251458/puree-chudo-chado-170g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415066638.ad72436478c_2020-05-27_Tatiana/src.3415066638.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 16.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре из персиков и яблок Чудо-Чадо от 4-х месяцев 130г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016253278/puree-chudo-chado-130g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/3.1593633207.ad72436478c_2020-07-02_Auchan_Pavel_Alexey/3.1593633207.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 10.25 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре из яблок без сахара Чудо-Чадо от 4-х месяцев 170г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016251410/puree-chudo-chado-170g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415066338.ad72436478c_2020-05-27_Tatiana/src.3415066338.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 16.60 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Пюре Ложка в ладошке брокколи 100г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04815396000772/puree-lozhka_v_kadoshke-100g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/bell.1603973658.ad72436478c_2020-10-29_Tatyana_L/bell.1603973658.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 16.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Смесь молочная Нестле Нан 2 Гипоаллергенный сухая для детей с 6 месяцев
+                  400г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/07613031251742/mix_milk-nestle-400g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/20190815.1565885170.ad72436478c_2019-08-15_Tatiana/20190815.1565885170.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 259.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Смесь молочная Нестле Нан 1 Гипоаллергенный сухая для детей с рождения
+                  400г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/07613031251728/blend-nestle-400g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/20190815.1565885069.ad72436478c_2019-08-15_Tatiana/20190815.1565885069.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 259.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Смесь молочная Нестле Нан 2 сухая для детей с 6 месяцев 800г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/07613032477530/substitute_for_breast_milk-nestle-800g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.1588721942.ad72436478c_2020-06-23_Tatiana/src.1588721942.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 369.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Смесь молочная Нестле Нан 1 сухая для детей с рождения 800г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/07613032405700/substitute_for_breast_milk-nestle-800g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.1588721642.ad72436478c_2020-06-23_Tatiana/src.1588721642.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 369.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Смесь сухая Nutrilon Комфорт 2 300г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/05900852038525/mix_milk-nutrilon-300g-poland/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/upload.version_1.0.deb1c84e60148b5859b30798e8f4f2cd.150x150.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 198.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Каша Bebi Premium фруктово-злаковое ассорти 250г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/03838600048774/pap-bebi-250g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/src.1581598164.ad72436478c_2020-02-13_Tatiana/src.1581598164.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 69.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Каша молочно-гречневая Чудо-Чадо от 6-ти месяцев 200г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016254015/pap-chudo-chado-200g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415069138.ad72436478c_2020-05-27_Tatiana/src.3415069138.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 14.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Каша молочно-злаковая с персиком Чудо-Чадо от 6-ти месяцев 200г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820016254022/pap-chudo-chado-200g-ukraine/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-url
+            thumbnail:
+              - text: https://img3.zakaz.ua/src.3415069238.ad72436478c_2020-05-27_Tatiana/src.3415069238.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 15.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[1]/div[2]
+          - name:
+              - text: Игрушка Энергия игра Что к чему? Продукты питания
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/04820121187444/toy-kiev_toy_factory/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/done.1598967111.ad72436478c_2020-09-01_Svetlana/done.1598967111.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 59.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[1]/div[2]
+        xpath: /html
+    timestamp: 1605786416838

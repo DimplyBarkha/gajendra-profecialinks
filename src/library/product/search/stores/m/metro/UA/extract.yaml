@@ -1,20 +1,24 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class, "products-box__list-item")]
 fields:
   - name: id
     singleValue: false
+    xpath: //a/@data-productKey
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //span[contains(@class, 'product-tile')]
   - name: productUrl
     singleValue: false
+    xpath: //@product-url
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[contains(@class,"product-tile__image")]/img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,6 +29,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[@data-marker="Discounted Price"]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -35,10 +40,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid

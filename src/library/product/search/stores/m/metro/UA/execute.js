@@ -5,9 +5,9 @@ module.exports = {
     country: 'UA',
     store: 'metro',
     domain: 'metro.ua',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://metro.zakaz.ua/ru/search?q={searchTerms}',
+    loadedSelector: 'div.products-box',
+    noResultsXPath: '//span[contains(text(), "Мы не смогли найти результаты")]',
     zipcode: '',
   },
 };

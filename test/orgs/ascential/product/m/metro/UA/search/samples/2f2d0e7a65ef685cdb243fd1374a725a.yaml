@@ -1,0 +1,22 @@
+input:
+  keywords: вологий корм для котів
+  _url: http://metro.ua
+extractions:
+  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=8c5758dd-28bc-40e6-8498-a6209e43b8de/bc8bf114-4e45-4c0d-ba0a-570f334256ab.html
+    extractionConfigId: product/search/stores/m/metro/UA/extract
+    data:
+      - group:
+          - name:
+              - text: Корм Purina One Sterilcat с индейкой и зеленой фасолью для кошек 85г
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
+            productUrl:
+              - text: https://metro.zakaz.ua/ru/products/07613038273358/food-purina_one-85g/
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-url
+            thumbnail:
+              - text: https://img2.zakaz.ua/1.1588582493.ad72436478c_2020-05-04_Tatyana_L/1.1588582493.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 23.90 грн
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
+        xpath: /html
+    timestamp: 1605786388686
