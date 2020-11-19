@@ -504,8 +504,12 @@ fields:
     defaultValue:  EUR
   - name: shownImages
     xpath: //div[contains(@class,"swiper-slide")]//img/@srcset
+    regExp: (.+.png)\?sw=260&sh=260&sm=fit 960w
+    regExpReplace: $1
   - name: highQualityImages
     xpath: //div[contains(@class,"swiper-slide")]//img/@srcset
+    regExp: (.+.png)\?sw=260&sh=260&sm=fit 960w
+    regExpReplace: $1
   - name: mpn
     xpath: //script[contains(@type,"application/ld+json")]
     regExp : (mpn)\"\:\"(\d+)
@@ -518,3 +522,7 @@ fields:
     regExp : (InStock)
     regExpReplace : $1
   - name: sponsoredProductUrls
+  - name: productUrl
+    xpath: //link[@rel='canonical']/@href
+    regExp: (.*)
+    regExpReplace: https://www.carrefour.it$1
