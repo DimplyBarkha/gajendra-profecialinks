@@ -56,42 +56,18 @@ async function implementation (
   addHiddenDiv('gtinValue', gtinValue)
  
    // @ts-ignore
-   let warningInfo="";
-     // @ts-ignore
-   if(document.getElementsByClassName('prodInfoTxtData')[1].textContent.includes("WARNING")){
-    alert('hi')
-    // @ts-ignore
-     warningInfo = document.getElementsByClassName('prodInfoTxtData')[1].textContent
-    addHiddenDiv('warningInfo', warningInfo);
-   }
-   else{
-     warningInfo=""
-     addHiddenDiv('warningInfo', warningInfo);
-   }
-   // @ts-ignore
-  // var getProductName=splitProductInfo[2]
-  // var productNameData=getProductName.split('=')
-  // var productName=productNameData[1]
-  // addElementToDocument('productName', productName)
-
-    const price = document.querySelector('div.finalPrice');
-     // @ts-ignore
-    if (price && price.textContent) {
-       // @ts-ignore
-      let priceText = price.textContent;
-      if (priceText.includes('€')) {
-        priceText = priceText.replace('€', '.');
-        priceText=priceText+'€'
-      }
-      addHiddenDiv('priceText', priceText);
-    }
-
-    // let priceValue=finalPrice
-    // if(priceValue.includes('€')){
-    //   priceValue=priceValue.replace('€', '.');
-    //   let priceText=priceValue+'€'
-    //   addHiddenDiv('priceText', priceText);
-    // }
+  //  let warningInfo="";
+  //    // @ts-ignore
+  //  if(document.getElementsByClassName('prodInfoTxtData')[1].textContent.includes("WARNING")){
+  //   alert('hi')
+  //   // @ts-ignore
+  //    warningInfo = document.getElementsByClassName('prodInfoTxtData')[1].textContent
+  //   addHiddenDiv('warningInfo', warningInfo);
+  //  }
+  //  else{
+  //    warningInfo=""
+  //    addHiddenDiv('warningInfo', warningInfo);
+  //  }
     
   });
 
