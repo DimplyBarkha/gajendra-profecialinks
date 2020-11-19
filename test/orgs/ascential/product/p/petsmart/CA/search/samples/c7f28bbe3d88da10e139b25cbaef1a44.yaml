@@ -1,0 +1,668 @@
+input:
+  keywords: crunch
+  _url: http://petsmart.ca
+extractions:
+  - html: https://workbench.import.io/html/run=05f94e62-3acb-4b4b-9a5c-9d6f89673303/task=59e818ce-271d-4101-82c7-149ad9a3a6bf/b2a315bb-0437-499c-923e-5deed395a56f.html
+    extractionConfigId: product/search/stores/p/petsmart/CA/extract
+    data:
+      - group:
+          - id:
+              - text: "55098"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Petstages® Crunch Veggie Pepper Dog Chew Toy
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/toys/interactive-toys/petstages-crunch-veggie-pepper-dog-chew-toy-55098.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5293373?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            price:
+              - text: $ 9.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+          - id:
+              - text: "57490"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Top Paw® Tuff Firehose Crunch House Dog Toy - Squeaker
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/toys/plush-toys/top-paw-tuff-firehose-crunch-house-dog-toy---squeaker-57490.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5297047?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "2.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rating
+                type: STRING
+            price:
+              - text: $ 13.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+          - id:
+              - text: "55779"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies® Party Mix™ Ocean Crunch Cat Treat - Ocean Whitefish,
+                  Shrimp, Crab & Tuna
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mixandtrade-ocean-crunch-cat-treat---ocean-whitefish-shrimp-crab-and-tuna-55779.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5289891?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rating
+                type: STRING
+            price:
+              - text: $ 3.29 - 7.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+          - id:
+              - text: "4156"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Vitakraft® Crunch Sticks Apple & Honey Parrot Treat
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/bird/food-and-treats/treats/vitakraft-crunch-sticks-apple-and-honey-parrot-treat-4156.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5075767?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            price:
+              - text: $ 8.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+          - id:
+              - text: "256"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Vitakraft® Crunch Sticks Honey & Calcium Chinchilla Treat
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/small-pet/food-treats-and-hay/treats/vitakraft-crunch-sticks-honey-and-calcium-chinchilla-treat-256.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5073039?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rating
+                type: STRING
+            price:
+              - text: $ 6.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+          - id:
+              - text: "59547"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies® Party Mix™ Seaside Crunch Cat Treat - Salmon
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mixandtrade-seaside-crunch-cat-treat---salmon-59547.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5300669?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rating
+                type: STRING
+            price:
+              - text: $ 7.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+          - id:
+              - text: "260"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Vitakraft® Crunch Sticks Popped Grains & Honey Guinea Pig Treat
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/small-pet/food-treats-and-hay/treats/vitakraft-crunch-sticks-popped-grains-and-honey-guinea-pig-treat-260.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5086590?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rating
+                type: STRING
+            price:
+              - text: $ 6.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+          - id:
+              - text: "53069"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies® Party Mix™ Gourmet Crunch Cat Treat - Chicken
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mixandtrade-gourmet-crunch-cat-treat---chicken-53069.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5289369?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/@rating
+                type: STRING
+            price:
+              - text: $ 3.29 - 7.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: en
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: en
+                value: 8
+          - id:
+              - text: "59550"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies® Party Mix™ Cheezy Craze Crunch Cat Treat - Cheese
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mixandtrade-cheezy-craze-crunch-cat-treat---cheese-59550.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5300672?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/@rating
+                type: STRING
+            price:
+              - text: $ 7.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: en
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: en
+                value: 9
+          - id:
+              - text: "59549"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies® Party Mix™ Mixed Grill Crunch Cat Treat - Chicken
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mixandtrade-mixed-grill-crunch-cat-treat---chicken-59549.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5300671?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/@rating
+                type: STRING
+            price:
+              - text: $ 7.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: en
+                value: 10
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: en
+                value: 10
+          - id:
+              - text: "59546"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies® Party Mix™ Chicken Lovers Crunch Cat Treat - Chicken
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mixandtrade-chicken-lovers-crunch-cat-treat---chicken-59546.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5300668?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/@rating
+                type: STRING
+            price:
+              - text: $ 3.29
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "11"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: en
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: en
+                value: 11
+          - id:
+              - text: "53070"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies® Party Mix™ Seaside Crunch Cat Treat, Jumbo - Fish
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mixandtrade-seaside-crunch-cat-treat-jumbo---fish-53070.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5289703?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/@rating
+                type: STRING
+            price:
+              - text: $ 3.29
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: en
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: en
+                value: 12
+          - id:
+              - text: "59548"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies® Party Mix™ Gravy-liciuos Crunch Cat Treat - Turkey &
+                  Gravy
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mixandtrade-gravy-liciuos-crunch-cat-treat---turkey-and-gravy-59548.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5300670?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/@rating
+                type: STRING
+            price:
+              - text: $ 7.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "13"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: en
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: en
+                value: 13
+          - id:
+              - text: "55780"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies® Party Mix™ Original Crunch Cat Treat - Chicken, Liver &
+                  Turkey
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mixandtrade-original-crunch-cat-treat---chicken-liver-and-turkey-55780.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5205058?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/@rating
+                type: STRING
+            price:
+              - text: $ 3.29 - 7.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "14"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: en
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: en
+                value: 14
+          - id:
+              - text: "32121"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Charlee Bear Bear Crunch Dog Treat - Natural, Grain Free, Bacon &
+                  Blueberry
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/treats/biscuits-and-bakery/charlee-bear-bear-crunch-dog-treat---natural-grain-free-bacon-and-blueberry-32121.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5239429?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/@rating
+                type: STRING
+            price:
+              - text: $ 5.59
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "15"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: en
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: en
+                value: 15
+          - id:
+              - text: "32122"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Charlee Bear Bear Crunch Natural, Grain Free, Chicken, Pumpkin & Apple Dog
+                  Treat
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/treats/biscuits-and-bakery/charlee-bear-bear-crunch-natural-grain-free-chicken-pumpkin-and-apple-dog-treat-32122.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5239430?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/@rating
+                type: STRING
+            price:
+              - text: $ 5.59
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "16"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: en
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: en
+                value: 16
+          - id:
+              - text: "21202"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies Party Mix® Cat Treats
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mix-cat-treats-21202.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5138992?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/@rating
+                type: STRING
+            price:
+              - text: $ 1.89
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "17"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: en
+                value: 17
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: en
+                value: 17
+          - id:
+              - text: "55100"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/a[1]/div[1]/@data-itemid
+            name:
+              - text: KONG® CrunchAir™ Cruncher Tennis Ball Dog Toy - 3 Pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/toys/interactive-toys/kong-crunchairandtrade-cruncher-tennis-ball-dog-toy---3-pack-55100.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5293375?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "2.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/@rating
+                type: STRING
+            price:
+              - text: $ 7.49 - 8.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "18"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: en
+                value: 18
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: en
+                value: 18
+          - id:
+              - text: "28199"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Purina® Friskies® Party Mix™ Mixed Grill Cat Treat - Chicken, Beef &
+                  Salmon
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/treats/purina-friskies-party-mixandtrade-mixed-grill-cat-treat---chicken-beef-and-salmon-28199.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5232501?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/@rating
+                type: STRING
+            price:
+              - text: $ 3.29
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "19"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: en
+                value: 19
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: en
+                value: 19
+          - id:
+              - text: "20966"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/a[1]/div[1]/@data-itemid
+            name:
+              - text: Northern Wheat Free Adult Dog Biscuits
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/treats/biscuits-and-bakery/northern-wheat-free-adult-dog-biscuits-20966.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5205048?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/@rating
+                type: STRING
+            price:
+              - text: $ 10.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "20"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/@rankorganic
+                type: NUMBER
+                raw: "20"
+                locale: en
+                value: 20
+            rankOrganic:
+              - text: "20"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/@rankorganic
+                type: NUMBER
+                raw: "20"
+                locale: en
+                value: 20
+        xpath: /html
+    timestamp: 1605774399707

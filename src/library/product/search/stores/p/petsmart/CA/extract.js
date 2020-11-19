@@ -13,6 +13,16 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
 
+    await context.waitForNavigation();
+    await context.evaluate(async () => {
+      const closePopupButton = document.querySelector('div._HP_promoModal__close--light');
+      if (closePopupButton) {
+        // didn't work with context.click() outside context.evaluate()
+        // @ts-ignore
+        closePopupButton.click();
+      }
+    });
+
     await context.evaluate(async () => {
       const currentUrl = window.location.href;
       document.querySelector('body').setAttribute('searchurl', currentUrl);
