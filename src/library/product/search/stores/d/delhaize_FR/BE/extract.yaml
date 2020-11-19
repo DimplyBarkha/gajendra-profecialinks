@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class, "ProductList")]//li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //ul[contains(@class, "ProductList")]//li//div/@data-item-id
+  - name: rankOrganic
+  - name: name
+    singleValue: false
+    xpath: //ul[contains(@class, "ProductList")]//li//div[contains(@class,"description")]
+  - name: productUrl
+    singleValue: false
+    xpath: //ul[contains(@class, "ProductList")]//li//a[contains(@class,"component-image")]/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.delhaize.be$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[contains(@class, "ProductList")]//li//a[contains(@class,"component-image")]//img/@src
+    regExp: (\/.*)
+    regExpReplace: https:$1
+  - name: price
+    singleValue: false
+    xpath: //ul[contains(@class, "ProductList")]//li//span[contains(@class,"quantity-price")]
+  - name: manufacturer
+    singleValue: false
+    xpath: //ul[contains(@class, "ProductList")]//li//p[contains(@class,"ellipsis") and contains(@class,"title")]
+  - name: searchUrl
+    singleValue: false
+    xpath: //ul[contains(@class, "ProductList")]//li[contains(@class,"data-item")]//div[@id="page_url"]
