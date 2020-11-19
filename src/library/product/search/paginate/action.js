@@ -48,9 +48,9 @@ async function implementation (
   }
 
   if (nextLinkSelector) {
-      const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
-      if (!hasNextLink) return false;
-      nextLink = nextLinkSelector;
+    const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
+    if (!hasNextLink) return false;
+    nextLink = nextLinkSelector;
   }
 
   if (nextLinkXpath) {
@@ -71,7 +71,7 @@ async function implementation (
   const { pager } = dependencies;
 
   const success = openSearchDefinition ? false : await pager({ keywords, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
-  
+
   if (success) {
     return true;
   }
@@ -86,7 +86,7 @@ async function implementation (
   });
 
   if (!url && openSearchDefinition) {
-    const { pageStartNb=1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
+    const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
     const pageNb = page + pageStartNb - 1;
     url = template
       .replace('{searchTerms}', encodeURIComponent(keywords))
