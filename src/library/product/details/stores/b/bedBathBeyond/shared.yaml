@@ -185,3 +185,18 @@ fields:
     description: URLs of videos on page
   - name: manufacturerVideos
     xpath: ancestor::html//body/@video
+    # Salsify
+  - name: shownImages
+    singleValue: false
+    xpath: td[@class="image"] | td[@class="alternateImages"]
+    regExp: ([^,]+)
+    regExpReplace: https://b3h2.scene7.com/is/image/BedBathandBeyond/$1?$&wid=2000&hei=2000
+  - name: highQualityImages
+    singleValue: false
+    xpath: td[@class="image"] | td[@class="alternateImages"]
+    regExp: ([^,]+)
+    regExpReplace: https://b3h2.scene7.com/is/image/BedBathandBeyond/$1?$&wid=2000&hei=2000
+  - name: featureBullets
+    xpath: ancestor::html//div[@id="productDetails"]//ul/li
+    singleValue: false
+    description: null
