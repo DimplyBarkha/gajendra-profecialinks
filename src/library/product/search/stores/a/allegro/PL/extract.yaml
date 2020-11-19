@@ -7,7 +7,7 @@ fields:
     xpath: //@producturl
   - name: thumbnail
     xpath: //@thumbnail
-    regExp: (.*)allegroimg.com/(.*?)/(.*)
+    regExp: (.)allegroimg.com/(.*?)/(.)
     regExpReplace: $1allegroimg.com/original/$3
   - name: name
     xpath: //@name
