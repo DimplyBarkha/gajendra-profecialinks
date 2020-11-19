@@ -14,10 +14,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(async () => {
-      document.getElementById('certificatesTabLink').click();
-      await new Promise(r => setTimeout(r, 6000));
-
+    await context.evaluate(async () => {      
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
@@ -54,6 +51,9 @@ module.exports = {
         singleRating = singleRating.toFixed(1);
         addElementToDocument('aggregateRating', singleRating);
       }
+      document.getElementById('certificatesTabLink').click();
+      document.getElementById('reviewsTabLink').click();
+      await new Promise(r => setTimeout(r, 6000));
 
     });
     return await context.extract(productDetails, { transform });
