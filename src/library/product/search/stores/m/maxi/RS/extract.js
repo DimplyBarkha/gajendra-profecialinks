@@ -1,8 +1,16 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  await context.evaluate(async () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 3000);
+    });
+  });
 
   // accept policy
   try {
@@ -11,18 +19,18 @@ async function implementation(inputs, parameters, context, dependencies) {
     console.log('Click accept button error' + exp);
   }
 
-  // variant with nextlink page selector
+  // variant with nextlink page selector == null
 
-  // await context.evaluate(async () => {
-  //   // add search url
-  //   const searchUrl = window.location.href;
-  //   const regex = /pageNumber=(\d+)/gm;
-  //   const siteNumber = regex.exec(searchUrl);
-  //   const productsSelector = 'ul[data-pagenumber="' + siteNumber[1] + '"]';
+  await context.evaluate(async () => {
+    // add search url
+    const searchUrl = window.location.href;
+    const regex = /pageNumber=(\d+)/gm;
+    const siteNumber = regex.exec(searchUrl);
+    const productsSelector = 'ul[data-pagenumber="' + siteNumber[1] + '"]';
 
-  //   var productsClass = document.querySelector(productsSelector);
-  //   productsClass.setAttribute('target', 'toadd');
-  // });
+    var productsClass = document.querySelector(productsSelector);
+    productsClass.setAttribute('target', 'toadd');
+  });
 
   // variant with scrolling
 
