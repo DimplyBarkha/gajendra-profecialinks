@@ -17,8 +17,44 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    //need to check if it redirects to product page or listing page
+    const isSearchPage = await context.evaluate(async function() {
+      const searchPageSelector = '.srp-results  li';
+      if(document.querySelector(searchPageSelector)) {
+        console.log("Now in a search page");
+        return true;
+      } else {
+        console.log("Not on a search page");
+        return false;
+      }
+    });
 
-    //  await context.goto(inputs.domain, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    const isProdPage = await context.evaluate(async function() {
+      const prodPageSelector = "div#CenterPanelInternal";
+      if(document.querySelector(prodPageSelector)) {
+        console.log("Now in a prod page");
+        return true;
+      } else {
+        console.log("Not on a prod page");
+        return false;
+      }
+    });
+    let prodUrl = "";
+    if(isSearchPage && !isProdPage) {
+      prodUrl = await context.evaluate(async function() {
+        if(document.querySelector('.srp-results  li[class*=s-item] a[class*=link]') && document.querySelector('.srp-results  li[class*=s-item] a[class*=link]').hasAttribute('href')) {
+          return document.querySelector('.srp-results  li[class*=s-item] a[class*=link]').getAttribute('href');
+        } else {
+          return "";
+        }
+      })
+    }
+    if(prodUrl) {
+      await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    } else {
+      throw new Error("Prod URL not found");
+    }
+    
     const pId = inputs.id;
     let productUrl = null;
     productUrl = await context.evaluate(async function (pId) {

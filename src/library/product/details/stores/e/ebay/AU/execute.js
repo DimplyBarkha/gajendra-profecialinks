@@ -5,8 +5,8 @@ module.exports = {
     country: 'AU',
     store: 'ebay',
     domain: 'ebay.com.au',
-    loadedSelector: 'div#CenterPanelInternal',
-    noResultsXPath: '//p[contains(text(),"We looked everywhere")]',
+    loadedSelector: '.srp-results  li',
+    noResultsXPath: null,
     zipcode: '',
   },
 };
