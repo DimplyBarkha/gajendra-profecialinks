@@ -2,7 +2,7 @@ input:
   _url: http://spar.no
   URL: https://spar.no/nettbutikk/varer/middag/pasta/bandspagetti/tagliatelle-7035620041631
 extractions:
-  - html: https://workbench.import.io/html/run=acc3a368-a4cb-4a84-9248-bf38ee60382d/task=a6610ba3-14cb-4c31-80f7-976e1c980eed/c7f99a8b-bcd5-41d2-b82f-2436deeb6f91.html
+  - html: https://workbench.import.io/html/run=428726eb-652e-460d-a92f-51e486bb2dfd/task=b23e38d7-060b-48cb-9963-7088f28b1ab5/ac7b4a0f-5c9f-4e79-9460-646244b5ace8.html
     extractionConfigId: product/details/stores/s/spar/NO/extract
     data:
       - group:
@@ -74,9 +74,6 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
               - text: produktdetaljer
                 xpath: /html/body/main[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
-            listPrice:
-              - text: FÃ¸r kr  19,90
-                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]/text()[1]
             name:
               - text: Tagliatelle
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/h1[1]
@@ -96,16 +93,13 @@ extractions:
                   Soya
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[2]
             pricePerUnit:
-              - text: kr 55,72
-                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[2]
+              - text: kr 79,60
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
             pricePerUnitUom:
               - text: kg
-                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[2]
-            promotion:
-              - text: Skiguttas favoritter -30%
-                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/p[2]/a[1]
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
             nameExtended:
-              - text: Eldorado Tagliatelle - 7035620041631
+              - text: Eldorado Tagliatelle
                 xpath: /html/body/div[4]
             availabilityText:
               - text: In Stock
@@ -115,10 +109,8 @@ extractions:
                   Opprinnelsesland: Italia || EAN: 7035620041631"
                 xpath: /html/body/div[6]
             price:
-              - text: kr 13,93
-            descriptionBullets:
-              - text: "4"
+              - text: kr 19,90
             inStorePrice:
-              - text: kr 13,93
+              - text: kr 19,90
         xpath: /html
-    timestamp: 1603796927249
+    timestamp: 1605098362035

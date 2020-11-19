@@ -5,8 +5,8 @@ module.exports = {
     country: 'NO',
     store: 'spar',
     domain: 'spar.no',
-    loadedSelector: 'body',
-    noResultsXPath: '//div[@class="cw-section"]/h1[contains(text(), "Ukjent vare")]',
+    loadedSelector: 'div.cw-product-detail-wrapper__product',
+    noResultsXPath: '//div[@class="cw-section"]/h1[contains(text(), "Ukjent vare")] | //div[@class="content"]//h1[contains(text(),"Uff")]',
     zipcode: '',
   },
 };

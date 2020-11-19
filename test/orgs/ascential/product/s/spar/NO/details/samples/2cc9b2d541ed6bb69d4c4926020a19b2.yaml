@@ -2,7 +2,7 @@ input:
   _url: http://spar.no
   URL: https://spar.no/nettbutikk/varer/hygiene-og-helse/bind-og-tamponger/bind/libresse-normal-7310790088311
 extractions:
-  - html: https://workbench.import.io/html/run=acc3a368-a4cb-4a84-9248-bf38ee60382d/task=3d14d18b-0767-4030-83b2-98f37f196377/e40860ed-32ff-4269-b1e3-a6cd2389524d.html
+  - html: https://workbench.import.io/html/run=428726eb-652e-460d-a92f-51e486bb2dfd/task=4b428bf2-078e-4b1d-8ab0-f6cc4145d184/5978ea97-2d34-4c0d-8567-8334bf238239.html
     extractionConfigId: product/details/stores/s/spar/NO/extract
     data:
       - group:
@@ -39,21 +39,25 @@ extractions:
               - text: stk
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
             nameExtended:
-              - text: Libresse Normal - 7310790088311
+              - text: Libresse Normal
                 xpath: /html/body/div[4]
+            quantity:
+              - text: 16stk
+                xpath: /html/body/div[5]
+            packSize:
+              - text: 16stk
+                xpath: /html/body/div[5]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[6]
             description:
               - text: "Bind 16stk || Essity norway as dagligvare || Merke: Libresse ||
                   Opprinnelsesland: Slovakia || Opphavssted: Sverige || EAN:
                   7310790088311"
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[7]
             price:
               - text: kr 25,50
-            descriptionBullets:
-              - text: "5"
             inStorePrice:
               - text: kr 25,50
         xpath: /html/body
-    timestamp: 1603796927324
+    timestamp: 1605098365265

@@ -1,0 +1,113 @@
+input:
+  _url: http://spar.no
+  URL: https://spar.no/nettbutikk/varer/meieri-og-egg/flote/kremflote/kremflote-37-7038010041914
+extractions:
+  - html: https://workbench.import.io/html/run=428726eb-652e-460d-a92f-51e486bb2dfd/task=56689091-f548-4817-a791-fe7343701ecd/a6d9b4a6-6ec4-425f-91bb-07e09ffbed5f.html
+    extractionConfigId: product/details/stores/s/spar/NO/extract
+    data:
+      - group:
+          - image:
+              - text: https://res.cloudinary.com/norgesgruppen/image/upload/c_pad,b_white,f_auto,h_900,q_50,w_900/v1601166493/Product/7038010041914.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Kremfløte 37%
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Nettbutikk
+                xpath: /html/body/main[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: produktdetaljer
+                xpath: /html/body/main[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+            brandText:
+              - text: Tine
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[2]
+            manufacturer:
+              - text: Tine sa
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[1]/strong[1]
+            gtin:
+              - text: "7038010041914"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[5]
+            variantId:
+              - text: "7038010041914"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[5]
+            name:
+              - text: Kremfløte 37%
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/h1[1]
+            ingredientsList:
+              - text: Kremfløte
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/p[1]
+            servingSizeUom:
+              - text: gram
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/button[1]
+            caloriesPerServing:
+              - text: 353 kcal
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
+            totalFatPerServing:
+              - text: "37"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
+            saturatedFatPerServing:
+              - text: "24"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            totalCarbPerServing:
+              - text: 2,9
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[5]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[5]
+            totalSugarsPerServing:
+              - text: 2,9
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[6]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[6]
+            proteinPerServing:
+              - text: 2,1
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[7]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[7]
+            saltPerServing:
+              - text: 0,1
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[8]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[8]
+            allergyAdvice:
+              - text: |-
+                  Allergener
+                  Inneholder:
+                  Melk
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[2]
+            pricePerUnit:
+              - text: kr 66,67
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
+            pricePerUnitUom:
+              - text: l
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
+            nameExtended:
+              - text: Tine Kremfløte 37%
+                xpath: /html/body/div[4]
+            quantity:
+              - text: 3dl Tine
+                xpath: /html/body/div[5]
+            packSize:
+              - text: 3dl Tine
+                xpath: /html/body/div[5]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[6]
+            description:
+              - text: "3dl Tine || Tine sa || Merke: Tine || Opprinnelsesland: Norge ||
+                  Opphavssted: Norge || EAN: 7038010041914"
+                xpath: /html/body/div[7]
+            price:
+              - text: kr 20,00
+            inStorePrice:
+              - text: kr 20,00
+        xpath: /html/body
+    timestamp: 1605098365617

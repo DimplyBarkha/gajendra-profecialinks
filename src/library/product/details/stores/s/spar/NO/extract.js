@@ -10,7 +10,6 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await context.waitForNavigation();
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
@@ -24,14 +23,15 @@ module.exports = {
       const brandXpath = '//li[@class="ws-manufacturer-info__item"][strong[contains(.,"Merke")]]/text()[2]';
       const brandElem = document.evaluate(brandXpath, document, null, XPathResult.STRING_TYPE, null);
       const brandName = brandElem ? brandElem.stringValue : '';
-      const eanXpath = '//li[@class="ws-manufacturer-info__item"][strong[contains(.,"EAN")]]/text()[2]';
-      const eanElem = document.evaluate(eanXpath, document, null, XPathResult.STRING_TYPE, null);
-      const eanNumber = eanElem ? eanElem.stringValue : '';
       const productName = document.querySelector('h1[itemprop="name"]') ? document.querySelector('h1[itemprop="name"]').innerText : '';
       if (!productName.match(brandName)) {
-        addElementToDocument('nameExtended', `${brandName} ${productName} - ${eanNumber}`);
-      } else addElementToDocument('nameExtended', `${productName} - ${eanNumber}`);
+        addElementToDocument('nameExtended', `${brandName} ${productName}`);
+      } else addElementToDocument('nameExtended', productName);
 
+      const size = document.querySelector('p.cw-product__variant') ? document.querySelector('p.cw-product__variant').innerText : '';
+      const unit = document.querySelector('p.cw-product__price-unit') ? document.querySelector('p.cw-product__price-unit').innerText.replace(/^.*\/(.*)$/g, '$1') : '';
+      const re = new RegExp(`^.*\\s(\\d+(\\.?,?\\d+)?\\s?${unit}).*$`, 'g');
+      if (unit.length && size.match(unit)) addElementToDocument('size', size.replace(re, '$1'));
       const addToCartBtn = document.querySelector('div.cw-product__details button.ws-add-to-cart__button--add') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availability', addToCartBtn);
 
@@ -45,6 +45,7 @@ module.exports = {
         addElementToDocument('description', concatDesc);
       };
     });
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.extract(productDetails, { transform });
   },
 };

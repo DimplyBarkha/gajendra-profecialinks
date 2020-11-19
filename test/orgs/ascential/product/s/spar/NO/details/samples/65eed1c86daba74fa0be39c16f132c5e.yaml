@@ -2,7 +2,7 @@ input:
   _url: http://spar.no
   URL: https://spar.no/nettbutikk/varer/hygiene-og-helse/bind-og-tamponger/tamponger/ob-procomfort-3574660245615
 extractions:
-  - html: https://workbench.import.io/html/run=acc3a368-a4cb-4a84-9248-bf38ee60382d/task=211da8e9-c789-41b8-b965-8006734fb8d3/158e280e-42a5-40e3-9260-940f7c0fc118.html
+  - html: https://workbench.import.io/html/run=428726eb-652e-460d-a92f-51e486bb2dfd/task=763cf28e-0015-4352-bb60-fe4991518c69/d602dd19-4168-4ec4-8b76-f8cf3733f28b.html
     extractionConfigId: product/details/stores/s/spar/NO/extract
     data:
       - group:
@@ -39,20 +39,24 @@ extractions:
               - text: stk
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
             nameExtended:
-              - text: O.b. Ob Procomfort - 3574660245615
+              - text: O.b. Ob Procomfort
                 xpath: /html/body/div[4]
+            quantity:
+              - text: 16stk
+                xpath: /html/body/div[5]
+            packSize:
+              - text: 16stk
+                xpath: /html/body/div[5]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[6]
             description:
               - text: "Normal 16stk || Johnson & johnson consumer nordic || Merke: O.b. ||
                   Opprinnelsesland: Frankrike || EAN: 3574660245615"
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[7]
             price:
               - text: kr 15,90
-            descriptionBullets:
-              - text: "4"
             inStorePrice:
               - text: kr 15,90
         xpath: /html/body
-    timestamp: 1603796924368
+    timestamp: 1605098360975

@@ -72,6 +72,7 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //div[@id='size']
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -99,6 +100,7 @@ fields:
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //div[@id='size']
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
