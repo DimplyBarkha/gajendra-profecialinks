@@ -5,8 +5,8 @@ recordXPath: '//section[contains(@class,"tab1")]'
 fields:
   - name: image
     xpath: //div[@class="container-fluid"]//div//img[@data-initial-size="large"]/@src
-    regExp: (.+)
-    regExpReplace: https://www.docmorris.de$1
+    regExp: (.+)(/large/)(.+)
+    regExpReplace: https://www.docmorris.de$1/$3
   - name: imageAlt
     xpath: //div[@class="container-fluid"]//div//img[@data-initial-size="large"]/@alt
   - name: alternateImages
@@ -22,12 +22,12 @@ fields:
   - name: availabilityText
     xpath: (//div[contains(@class,"trigger")]//p[contains(@class,"product-detail-table-availability")])[1]
   - name: description
-    xpath: //div[contains(@class,"product-marketingText-wrap")]
+    xpath: //div[contains(@class,"product-description")]//ul//li | //div[contains(@class,"product-marketingText-wrap")]
   - name: descriptionBullets
-    xpath: count(//div[contains(@class,"product-marketingText-wrap")]//li)
+    xpath: count(//div[contains(@class,"product-description")]//ul//li)
   - name: brandText
   - name: additionalDescBulletInfo
-    xpath: //div[contains(@class,"product-marketingText-wrap")]//li/text()[1]
+    xpath: //div[contains(@class,"product-description")]//ul//li
   - name: manufacturer
     xpath: (//table[@class="product-detail-table"]//td[contains(.,"Anbieter")]/following-sibling::td[1])[1]
   - name: quantity
@@ -43,9 +43,9 @@ fields:
     xpath: (//table[@class="product-detail-table"]//td[contains(.,"Packungsgröße")]/following-sibling::td[1])[1]
   - name: legalDisclaimer
   - name: directions
-    xpath: //div[contains(.,"Anwendungsgebiete")]/parent::div/following-sibling::div[contains(@class,"ccordion-content")][1]
+    xpath: ancestor::html//div[contains(.,"Anwendungsgebiete")]/parent::div/following-sibling::div[contains(@class,"accordion-content")][1]
   - name: warnings
-    xpath: //div[@class="risikenhinweis"]
+    xpath: ancestor::html//div[contains(.,"Warnhinweise")]/parent::div/following-sibling::div[contains(@class,"accordion-content")][1] | //div[@class="risikenhinweis"]
   - name: ratingCount
     xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[@class="rating__totalCount"]
   - name: reviewCount
@@ -62,16 +62,17 @@ fields:
   - name: color
   - name: colorCode
   - name: manufacturerDescription
-    xpath: //div[contains(@class,"box__shadow")]//a[contains(.," Beipackzettel")]/@href
+    xpath: //div[contains(@class,"box__shadow")]//a[contains(.," Beipackzettel") or contains(.,"Weitere Produktinformationen")]/@href
     regExp: (.+)
     regExpReplace: https://www.docmorris.de$1
   - name: manufacturerImages
   - name: videos
+    xpath: //div[contains(@class,"product-video-container")]//iframe/@src
   - name: name
     xpath: //h1[@itemprop="name"]
   - name: brandLink
   - name: ingredientsList
-    xpath: //span[@class="pds__ingredient"]
+    xpath: //h2[contains(.,"Wirkstoffe")] | //h2[contains(.,"Wirkstoffe")]/following-sibling::p[1]//span[@class="pds__ingredient"]
   - name: dietaryInformation
   - name: specifications
   - name: warranty

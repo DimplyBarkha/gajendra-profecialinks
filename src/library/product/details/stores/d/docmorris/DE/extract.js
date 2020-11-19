@@ -22,6 +22,10 @@ async function implementation (
       }
     };
     optionalWait('div.container-fluid img[data-initial-size="large"]');
+    const directionsTab = document.querySelector('li[class="tab2"] a');
+    if (directionsTab) {
+      directionsTab.click();
+    }
   });
   return await context.extract(productDetails, { transform });
 }

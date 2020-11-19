@@ -27,7 +27,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text = text + (text ? ' ' : '') + item.text;
+          text = text + (`||${text}` ? ' || ' : ' ') + item.text;
         });
         row.description = [{ text }];
       }
@@ -38,6 +38,14 @@ const transform = (data) => {
           text = text + (text ? ' ' : '') + item.text;
         });
         row.ingredientsList = [{ text }];
+      }
+
+      if (row.warnings) {
+        let text = '';
+        row.warnings.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.warnings = [{ text }];
       }
 
       if (row.variants) {
