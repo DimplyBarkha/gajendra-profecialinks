@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'iga',
-    nextLinkSelector: 'a#body_0_main_1_GrocerySearch_TemplateResult_PaginationTop_NextPageBtn',
+    nextLinkSelector: 'div[class="palm--soft--top"] ul[class*="nav nav--block pagination"] li a[class="icon--arrow-skinny-right"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
