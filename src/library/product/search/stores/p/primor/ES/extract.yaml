@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="wishlist"]//a//@rel
   - name: rankOrganic
     singleValue: true
-    xpath: //li//meta[@itemprop="position"]//@content
+    # xpath: //li//meta[@itemprop="position"]//@content
   - name: name
     singleValue: false
     xpath: //h5[@class="product-name"]//a//@title
@@ -16,12 +16,12 @@ fields:
     singleValue: false
     xpath: //h5[@class="product-name"]//a//@href
   - name: gtin
-    singleValue: true
+    singleValue: false
     xpath: //h5[@class="product-name"]//a//@onclick
     regExp: (\d{8,17})
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="product-image-container"]/a[@class="product-image product_img_link"]/img[@itemprop="image"]/@src
+    xpath: //html//div[@id="image"]
   - name: price
     singleValue: false
     xpath: //span[@class="price product-price pull-left "]//span[2]
@@ -34,4 +34,4 @@ fields:
     singleValue: true
   - name: rank
     singleValue: false
-    xpath: //li//meta[@itemprop="position"]//@content
+    # xpath: //li//meta[@itemprop="position"]//@content
