@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    xpath: //div[contains(@class,"variantinfos")]/@variantid
+    # regExp: (.+)p\/(\d+)
+    regExpReplace: $2
+  - name: variantUrl 
+    xpath: //div[contains(@class,"variantinfos")]/@varianturl
