@@ -2,10 +2,10 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'BE',
+    country: 'NL',
     store: 'carrefour',
     domain: 'carrefour.eu',
-    loadedSelector: 'div#product-detail-container',
+    loadedSelector: 'div.product-details',
     noResultsXPath: "//div[@class='search-empty']",
     zipcode: '',
   },
