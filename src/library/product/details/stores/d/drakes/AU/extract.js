@@ -18,7 +18,7 @@ module.exports = {
         document.querySelector('body').appendChild(div);
       }
 
-      const variantID = window.location.href.replace('https://074.drakes.com.au/lines/', '');
+      const variantID = window.location.href.replace(`${window.location.origin}/lines/`, '');
       addElementToDom(variantID, 'variantID');
 
       const discountedPrice = document.querySelector('.MoreInfo__Header .MoreInfo__Banner__Price .MoreInfo__Price')
@@ -58,31 +58,33 @@ module.exports = {
       const weightPrice = document.querySelector('.MoreInfo__Banner__Price .MoreInfo__PriceUnit')
         ? document.querySelector('.MoreInfo__Banner__Price .MoreInfo__PriceUnit').innerText
         : '';
-      const regexWeight = /(\d*)(\w+)/g;
-      if (weightPrice.includes('per')) {
-        addElementToDom(weightPrice, 'servingSize');
-        const weightNet = weightPrice.replace('per ', '');
-        if (regexWeight.test(weightNet)) {
-          const units = weightNet.replace(/(\d*)/g, '');
-          addElementToDom(units, 'units');
-          addElementToDom(weightNet, 'weightNet');
-        }
-      } else {
-        const name = document.querySelector('.MoreInfo__Banner__Name') ? document.querySelector('.MoreInfo__Banner__Name').innerText : '';
-        const weightNet = name.slice(name.lastIndexOf(' ') + 1, name.length);
-        if (regexWeight.test(weightNet)) {
-          if (weightNet.includes('x')) {
-            const components = weightNet.split('x');
-            const units = components[1].replace(/(\d*)/g, '');
-            addElementToDom(units, 'units');
-            addElementToDom(`per ${parseFloat(components[0]) * parseFloat(components[1].replace(/\D/g, ''))}${units}`, 'servingSize');
-            addElementToDom(`${parseFloat(components[0]) * parseFloat(components[1].replace(/\D/g, ''))}${units}`, 'weightNet');
-            addElementToDom(components[0], 'packSize');
-          } else {
+      if (weightPrice) {
+        const regexWeight = /(\d*)(\w+)/g;
+        if (weightPrice.includes('per')) {
+          addElementToDom(weightPrice, 'servingSize');
+          const weightNet = weightPrice.replace('per ', '');
+          if (regexWeight.test(weightNet)) {
             const units = weightNet.replace(/(\d*)/g, '');
             addElementToDom(units, 'units');
-            addElementToDom(`per ${weightNet}`, 'servingSize');
             addElementToDom(weightNet, 'weightNet');
+          }
+        } else {
+          const name = document.querySelector('.MoreInfo__Banner__Name') ? document.querySelector('.MoreInfo__Banner__Name').innerText : '';
+          const weightNet = name.slice(name.lastIndexOf(' ') + 1, name.length);
+          if (regexWeight.test(weightNet)) {
+            if (weightNet.includes('x')) {
+              const components = weightNet.split('x');
+              const units = components[1].replace(/(\d*)/g, '');
+              addElementToDom(units, 'units');
+              addElementToDom(`per ${parseFloat(components[0]) * parseFloat(components[1].replace(/\D/g, ''))}${units}`, 'servingSize');
+              addElementToDom(`${parseFloat(components[0]) * parseFloat(components[1].replace(/\D/g, ''))}${units}`, 'weightNet');
+              addElementToDom(components[0], 'packSize');
+            } else {
+              const units = weightNet.replace(/(\d*)/g, '');
+              addElementToDom(units, 'units');
+              addElementToDom(`per ${weightNet}`, 'servingSize');
+              addElementToDom(weightNet, 'weightNet');
+            }
           }
         }
       }
@@ -104,8 +106,10 @@ module.exports = {
         ? document.querySelector('.MoreInfo__Banner__Price .MoreInfo__UnitPricing').innerText.replace('(', '').replace(')', '')
         : '';
       addElementToDom(pricePerUnit, 'pricePerUnit');
-      const pricePerUnitUnit = pricePerUnit.match(/per (\d*)?([a-z]*)/)[2];
-      addElementToDom(pricePerUnitUnit, 'pricePerUnitUnit');
+      if (pricePerUnit) {
+        const pricePerUnitUnit = pricePerUnit.match(/per (\d*)?([a-z]*)/)[2];
+        addElementToDom(pricePerUnitUnit, 'pricePerUnitUnit');
+      }
     });
     await context.extract(productDetails);
   },
