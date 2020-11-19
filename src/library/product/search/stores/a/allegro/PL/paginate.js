@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'allegro',
-    loadedSelector: 'section > article[data-item] ul>li:nth-child(1)>img',
+    loadedSelector: 'section > article[data-item]',
     url: {
       indexOffset: 0,
       template: 'https://allegro.pl/listing?string={searchTerms}&p={startIndex}',

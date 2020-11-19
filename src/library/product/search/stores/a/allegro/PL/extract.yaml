@@ -1,64 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//section//article[@data-item]'
+recordXPath: '//body//div[@class="products"]'
 fields:
   - name: productUrl
-    singleValue: true
-    description: The URL for the product details page
-    xpath: //h2/a/@href
+    xpath: //@productUrl
   - name: thumbnail
-    singleValue: true
-    description: The URL for the product thumbnail image
-    # xpath: //section//article[@data-item]//a[@rel="nofollow"]/img[@alt]/@src | //section//article[@data-item]//ul/li[1]/img/@src
-    # xpath: //ul/li[1]/img/@src
-    xpath: //section//article[@data-item]/@image-url
+    xpath: //@thumbnail
+    regExp: (.*)allegroimg.com/(.*?)/(.*)
+    regExpReplace: $1allegroimg.com/original/$3
   - name: name
-    singleValue: true
-    description: The product name
-    xpath: //h2/a
+    xpath: //@name
   - name: id
-    singleValue: true
-    description: The store-specific product identifier
-    xpath: //section//article[@data-item]/@data-analytics-view-value
+    xpath: //@id
   - name: price
-    singleValue: true
-    description: The offered price for the product
-    manualSelector: div.mpof_92>div
+    xpath: //@price
   - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-    manualSelector: span[style] + span.mqu1_ae
+    xpath: //@listPrice
+    regExp: (^\d)(.*)
+    regExpReplace: $1$2
   - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-    xpath: //div[contains(@class,"mgn2_13 mpof_5r")]//*[contains(text(), 'Marka')]/following::*[1]
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-    xpath: //span[contains(@class,"mp7g_oh")]
+    xpath: //@manufacturer
   - name: rank
-    singleValue: true
-    description: search/listing rank
-    type: NUMBER
   - name: rankOrganic
-    singleValue: true
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
   - name: sponsored
-    singleValue: true
-    description: Is sponsored/paid
-    type: BOOLEAN
-    xpath: //section//article[@data-analytics-view-label="showSponsoredItems"]
-  - name: id
-    singleValue: true
-    description: Unique id (within this extractor)
+    xpath: ''
   - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //h2/a
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //@nameExtended
