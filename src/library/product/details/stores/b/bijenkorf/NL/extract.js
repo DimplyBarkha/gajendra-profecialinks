@@ -9,7 +9,31 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  const isSelectorAvailable = async (cssSelector) => {
+    console.log(`Is selector available: ${cssSelector}`);
+    return await context.evaluate(function (selector) {
+      return !!document.querySelector(selector);
+    }, cssSelector);
+  };
+
+  const cssProduct ='div.lister-productitem__wrapper';
+  const cssProductDetails = 'div.dbk-productdetail--maininfo'
+  const productAvailable = await isSelectorAvailable('div.lister-productitem__wrapper');
+  console.log(`productAvailable: ${productAvailable}`);
+  if (productAvailable) {
+    await context.click(cssProduct);
+    await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+    await context.waitForSelector(cssProductDetails);
+    const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
+    console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
+    if (!productDetailsAvailable) {
+      throw new Error('ERROR: Failed to load product details page');
+    }
+    console.log('navigation complete!!');
+  }
+
   try {
+    await context.click('button.dbk-accordion__header');
     await context.click('button.dbk-accordion__header');
     await context.waitForSelector('div.dbk-accordion__body');
     await context.waitForSelector('footer.dbk-footer');

@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'debijenkorf.nl',
     prefix: null,
-    url: null,
+    url: 'https://www.debijenkorf.nl/product-lister-page.html?SearchTerm={id}',
     country: 'NL',
     store: 'bijenkorf',
     zipcode: '',
