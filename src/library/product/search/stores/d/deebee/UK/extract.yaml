@@ -19,7 +19,7 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[@id='product-results']//div[contains(@class, 'grid-row')]//div[contains(@class, 'grid-cell')]//div[contains(@class, 'cost-band')]//div//div[2]//strong
+    xpath: //div[@id='product-results']//div[contains(@class, 'grid-row')]//div[contains(@class, 'grid-cell')]//div[contains(@class, 'cost-band')]//div//div[1]//strong
   - name: id
     singleValue: false
     xpath: //div[@id='product-results']//div[contains(@class, 'grid-row')]//div[contains(@class, 'grid-cell')]//div[contains(@class, 'sku') and contains(@class, 'identifier')]//span[contains(@class, 'value')]/text()
