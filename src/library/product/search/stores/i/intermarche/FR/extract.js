@@ -24,7 +24,21 @@ module.exports = {
       const product = document.getElementsByClassName(
         "productTileV2Styled__TileWrapper-sc-19ad4vz-0"
       );
+      function delay(delayInms) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(2);
+          }, delayInms);
+        });
+      }
 
+      async function sample() {
+        console.log("a");
+        console.log("waiting...");
+        let delayres = await delay(6000);
+        console.log("b");
+      }
+      sample();
       for (let i = 0; i < product.length; i++) {
         const url =
           product[i].parentNode.baseURI +
