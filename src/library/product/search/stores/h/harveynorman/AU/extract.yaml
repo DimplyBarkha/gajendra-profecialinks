@@ -1,31 +1,31 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.product-item
 recordXPath: //div[@class="product-item"]
-fields:
-  - name: productUrl
-    singleValue: false
-    xpath: //div[@class="product-item"]//div[@class="photo-box"]/a/@href
+fields: 
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="product-item"]//div[@class="photo-box"]/a/img/@src    
+    xpath: //div[@class="photo-box"]//img/@src
   - name: name
     singleValue: false
-    xpath: //div[@class="product-item"]//div[@class="info"]/a
+    xpath: //div[@class="info"]/a
   - name: price
     singleValue: false
-    xpath: //div[@class="product-item"]//span[@class="price"]
+    xpath: //span[@class="price"]
   - name: id
     singleValue: false
-    xpath: //div[@class="product-item"]/div/@data-pid
-  - name: aggregateRating
+    xpath: //div[contains(@class,'product-info-item')]/@data-pid
+  - name: productUrl
     singleValue: false
-    xpath: //dd[contains(@class, "bv-primarySummary-rating-container")]/@title
-    type: NUMBER
+    xpath: //div[@class='info']/a/@href
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //dd[contains(@class,'bv-rating-ratio')][1]/@title
+  - name: reviewCount
+    singleValue: false
+    xpath: //dd[contains(@class,'bv-rating-ratio-count')]/@title
   - name: ratingCount
     singleValue: false
-    xpath: //dd[contains(@class, "bv-rating-ratio-count")]/@title
-    type: NUMBER
-  - name: metaKeywords
-    singleValue: false
-    xpath: //meta[@name="keywords"]/@content
+    xpath: //dd[contains(@class,'bv-rating-ratio-count')]/@title

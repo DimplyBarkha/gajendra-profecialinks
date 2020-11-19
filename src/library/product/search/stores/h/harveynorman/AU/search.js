@@ -5,6 +5,6 @@ module.exports = {
     country: 'AU',
     store: 'harveynorman',
     domain: 'harveynorman.com.au',
-    zipcode: '',
+    zipcode: "''",
   },
 };
