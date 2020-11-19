@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'argos.co.uk',
-    timeout: null,
+    prefix: null,
+    url: 'https://www.argos.co.uk/product/{id}',
     country: 'UK',
     store: 'argos',
     zipcode: 'SE19PD',

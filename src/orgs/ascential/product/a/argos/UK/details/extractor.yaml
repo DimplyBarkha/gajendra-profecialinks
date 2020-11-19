@@ -1,0 +1,23 @@
+robot: product/details
+parameters:
+  country: UK
+  domain: argos.co.uk
+  store: argos
+  zipcode: SE19PD
+proxy:
+  zone: ZUK
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
+meta:
+  branches:
+    osm_argos_uk_core:
+      extractor: 3eb1f760-893b-4e96-933e-23d69cb2c4bc
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    DS-argos_uk_core:
+      extractor: 71a3a5ad-d317-4193-ae6d-25de8ae66e7f
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
