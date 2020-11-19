@@ -11,6 +11,14 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+          break;
+        }
+      }
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement("div");
         newDiv.id = id;
