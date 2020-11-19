@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'eldorado.ru',
     prefix: null,
-    url: null,
+    url: 'https://www.eldorado.ru/cat/detail/{id}/',
     country: 'RU',
     store: 'eldorado',
     zipcode: '',
