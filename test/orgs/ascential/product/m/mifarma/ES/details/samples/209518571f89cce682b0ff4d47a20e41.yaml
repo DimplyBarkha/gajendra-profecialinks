@@ -1,0 +1,92 @@
+input:
+  _url: http://mifarma.es
+  URL: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
+extractions:
+  - html: https://workbench.import.io/html/run=6c7430a7-2b79-406f-91b0-a3d219ef26e4/task=43ddc1dd-08c8-4164-b7a4-0aa21ee38f0c/69f0054b-3961-4aa6-8370-e000feb1601f.html
+    extractionConfigId: product/details/stores/m/mifarma/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
+                xpath: /html/head[1]/link[32]/@href
+            image:
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/9d6758f7fb7476b09aa51a3fa7ce618a/1/8/189473_.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Pasta Dentifrica Natural Lacer Natur 100ml
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@alt
+            category:
+              - text: Higiene y Salud
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/text()[1]
+              - text: Dental
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/text()[1]
+              - text: Dentífricos
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/text()[1]
+            nameExtended:
+              - text: Pasta Dentífrica Natural Lacer Natur 100ml
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            listPrice:
+              - text: 8,35 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
+            price:
+              - text: 5,85 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
+            description:
+              - text: Pasta de dientes a base de ingredientes de origen natural. Previene la
+                  caries y la aparición de placa. Apto para niños mayores de 7
+                  años y adultos. Formato 100ml.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/p[1]
+            brandText:
+              - text: Lacer
+                xpath: /html/body/div[1]/span[12]
+            quantity:
+              - text: 100ml
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            sku:
+              - text: "189473"
+                xpath: /html/body/script[69]/text()[1]
+            directions:
+              - text: Cepillarse los dientes al menos tres veces al día y después de cada
+                  comida.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[2]/text()[1]
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[1]/span[13]
+            aggregateRatingText:
+              - text: 4,7272727272727
+                xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
+            aggregateRating:
+              - text: 4,7272727272727
+                xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
+                type: STRING
+            manufacturerDescription:
+              - text: Su fórmula, con extractos naturales vegetales, previene la placa dental y
+                  ayuda a mantener una boca y unos dientes sanos.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
+              - text: Protege contra las caries.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
+              - text: Indicado para
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
+              - text: .
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[2]
+              - text: Formato 100ml.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[6]/text()[1]
+            name:
+              - text: Pasta Dentífrica Natural Lacer Natur 100ml
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            ingredientsList:
+              - text: No contiene mentol. Sin gluten.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
+            variantCount:
+              - text: "0"
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresents:
+              - text: No
+            weightGross:
+              - text: 0.1200 kg
+        xpath: /
+    timestamp: 1605278415052

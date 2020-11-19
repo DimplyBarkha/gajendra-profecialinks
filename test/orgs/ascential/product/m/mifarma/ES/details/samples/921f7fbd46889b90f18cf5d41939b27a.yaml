@@ -1,0 +1,105 @@
+input:
+  _url: http://mifarma.es
+  URL: https://www.mifarma.es/lacer-interdentales-extrafino-recto-10-unidades-formato-ahorro
+extractions:
+  - html: https://workbench.import.io/html/run=6c7430a7-2b79-406f-91b0-a3d219ef26e4/task=e55768fa-9e90-4d68-8cb5-cb56b8eca2d1/a53dbb61-1dea-48b8-8c69-81acedcfb8f7.html
+    extractionConfigId: product/details/stores/m/mifarma/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mifarma.es/lacer-interdentales-extrafino-recto-10-unidades-formato-ahorro
+                xpath: /html/head[1]/link[32]/@href
+            image:
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/9d6758f7fb7476b09aa51a3fa7ce618a/1/6/163240_.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Lacer Interdentales Extrafino Recto 10 Unidades Formato Ahorro
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@alt
+            category:
+              - text: Higiene y Salud
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/text()[1]
+              - text: Dental
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/text()[1]
+              - text: Cepillos
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/text()[1]
+            nameExtended:
+              - text: Lacer Interdentales Extrafino Recto 10 Unidades
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            listPrice:
+              - text: 7,87 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
+            price:
+              - text: 4,30 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
+            description:
+              - text: Interdengtal extrafino recto con el cuello flexible y dirigible que
+                  facilita su uso. Además es de fácil agarre. 10 unidades.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/p[1]
+            brandText:
+              - text: Lacer
+                xpath: /html/body/div[1]/span[12]
+            quantity:
+              - text: 10 Unidades
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            sku:
+              - text: "163240"
+                xpath: /html/body/script[69]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/span[13]
+            aggregateRatingText:
+              - text: "0"
+                xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[1]/span[14]/@ratingvalueconverted
+                type: STRING
+            manufacturerDescription:
+              - text: Cepillos interdentales con filamentos Tynex texturizados. Interdental
+                  recto, de fácil agarre para una mejor guía.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
+              - text: Cuello flexible y dirigible que facilita su uso.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
+              - text: El cuello del cepillo fija fuertemente el alambre para evitar su
+                  desprendimiento.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
+              - text: Flexible para facilitar el acceso a los morales.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[6]/text()[1]
+              - text: Alambre quirúrgico de alta resistencia a la rotura y de larga duración.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[7]/text()[1]
+              - text: Recubrimiento de poliuretano.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[8]/text()[1]
+              - text: Higiénico, evita que las bacterias se depositen en el alambre.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[9]/text()[1]
+              - text: Sin efecto galvánico en implantes y prótesis dentales al evitar el
+                  contacto metal contra metal.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[10]/text()[1]
+              - text: Posee un mango antideslizante, para un control total incluso con las manos
+                  mojadas.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[11]/text()[1]
+              - text: Cada cepillo dispone de su propio capuchón para una mayor higiene y para
+                  poder llevarlo a cualquier sitio.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[12]/text()[1]
+              - text: Diámetro prensado de 0,6 mm.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[13]/text()[1]
+              - text: 'Diámetro prensado: " resultado de presionar sobre el cepillo interdental,
+                  de forma que los filamentos se inclinen sobre el alambre, su
+                  valoración indicará el espacio más pequeño sobre el que
+                  podemos actuar."'
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[14]/text()[1]
+            name:
+              - text: Lacer Interdentales Extrafino Recto 10 Unidades
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            variantCount:
+              - text: "0"
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresents:
+              - text: No
+            weightGross:
+              - text: 0.3000 kg
+        xpath: /
+    timestamp: 1605278415404
