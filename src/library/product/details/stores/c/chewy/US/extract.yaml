@@ -28,7 +28,7 @@ fields:
     # regExpReplace: $1
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@property="og:title"]/@content
+    xpath: //div[@id="product-title"]//h1
   - name: listPrice
     singleValue: false
     xpath: normalize-space(//li[@class="list-price"]//p[@class="price"])
@@ -49,15 +49,11 @@ fields:
     xpath: count(//section[@class="descriptions__content cw-tabs__content--left"]/ul//li)
   - name: brandText
     singleValue: false
-    # xpath: //div[@class="sfw-attribute-buttons"]/@dataattributes   
-    # regExp: brand"\W"([^"]+)\W
-    # regExpReplace: $1 
-    xpath: //div[contains(text(),"Brand")]//../following-sibling::div//text()
-  - name: manufacturer
-    singleValue: false
     xpath: //script[contains(text(),"rootCategoryId")]
     regExp: brand\W\s\W([^']+)
     regExpReplace: $1
+  - name: manufacturer
+    singleValue: false
   - name: quantity
     singleValue: false
     xpath: //label[contains(text(),"Size")]/following-sibling::span/text()
@@ -69,15 +65,17 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    # xpath: //div[@class="sfw-attribute-buttons"]/@dataattributes   
-    # regExp: gtin"\W"([0-9]+)
-    # regExpReplace: $1    
+    xpath: //div[@class="sfw-attribute-buttons"]/@dataattributes  
+    regExp: gtin"\W"([0-9]+)
+    regExpReplace: $1    
   - name: sku
     singleValue: false
-    xpath: //div[@class="value js-part-number"]/span
+    xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: false
-    xpath: //div[@class="value js-part-number"]/span
+    xpath: //script[contains(text(),"rootCategoryId")] 
+    regExp: productId\W\s([^,]+)
+    regExpReplace: $1 
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -135,7 +133,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    xpath: //meta[@property="og:title"]/@content
+    xpath: //div[@id="product-title"]//h1
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -307,27 +305,6 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
-  - name: allergyAdvice
-    singleValue: false
-    description: Allergy information associated with the product
-  - name: recyclingInformation
-    singleValue: false
-    description: Recycling information associated with the product
-  - name: productOtherInformation
-    singleValue: false
-    description: Any other product information
-  - name: packaging
-    singleValue: false
-    description: Packaging information
-  - name: additives
-    singleValue: false
-    description: List of additives in the product
-  - name: pricePerUnit
-    singleValue: false
-    description: Price of the product split into certain units
-  - name: pricePerUnitUom
-    singleValue: false
-    description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
     xpath: concat(//li[@class='you-save']/p/text(), //p[@class='price']/text())
@@ -348,7 +325,9 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
-    xpath: //label[contains(text(),"Size")]/following-sibling::span/text()
+    # xpath: //div[@id="my-variantInf"][last()] 
+    # xpath: //label[@class="cw-form-button-toggle__label"]/span[@class=""]
+    xpath: //label[@class="cw-form-button-toggle__label"][@aria-checked="true"]/span[@class=""][last()]
   - name: variants
     singleValue: false
     xpath: //div[@role="radiogroup"]/div/@data-qe-id
