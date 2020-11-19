@@ -1,5 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@class="pl__wrap"]//li[contains(@class,"pl__item pl__item--list")]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="pl__wrap"]//a[@class="pb__link"]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="pl__wrap"]//span[@class="p-analytics"]/@data-analytics-id
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="pl__wrap"]//a[@class="pb__link"]//h2
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="pl__wrap"]//div[@class="pb__img__wrap"]//img/@src
+  - name: price 
+    SingleValue: false 
+    xpath: //div[@class="pl__wrap"]//div[@class="pb__cell pb__price"]
+  - name: soldBy
+    SingleValue: false
+    xpath: //div[@class="pl__wrap"]//span[@class="p-analytics"]/@data-analytics-dimension9
+  - name: manufacturer
+    SingleValue: false
+    xpath: //div[@class="pl__wrap"]//span[@class="p-analytics"]/@data-analytics-dimension9

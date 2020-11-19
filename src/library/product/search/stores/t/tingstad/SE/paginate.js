@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div.pl__wrap',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'tingstad.se',

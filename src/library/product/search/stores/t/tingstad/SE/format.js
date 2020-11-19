@@ -30,6 +30,11 @@ const transform = (data) => {
             item.text = 'https://www.tingstad.com' + item.text;
           });
         }
+        if (row.thumbnail) {
+            row.thumbnail.forEach(item => {
+              item.text = 'https://www.tingstad.com' + item.text;
+            });
+          }
         if (row.reviewCount) {
           row.reviewCount.forEach(item => {
             var tmp = item.text.replace('(', '');
