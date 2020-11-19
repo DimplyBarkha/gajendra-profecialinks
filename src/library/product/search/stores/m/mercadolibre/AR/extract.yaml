@@ -19,7 +19,7 @@ fields:
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //img[contains(@class, 'image__element')]/@src
+    xpath: //div[@class="slick-slide slick-active"]/img/@data-src  | //div[@class="slick-slide slick-active"]/img[contains(@src, 'static')]/@src     
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
