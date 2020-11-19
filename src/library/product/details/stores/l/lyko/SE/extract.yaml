@@ -26,7 +26,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id="large-image"]//picture/img/@alt
+    xpath: concat(//h1/div[position()=2], ' ', //h1/div[position()=3])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -34,7 +34,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//span[@class="_1QH0od _1WSW3U"])[1]
+    xpath: (//span[@class="_1QH0od _1WSW3U"])[1] | (//span[@class="_1QH0od"])[1]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -58,14 +58,14 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    defaultValue: Lyko
+    xpath: //li[@itemprop="itemListElement"][2]/a
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: (//div[@class="_3nkA-i"]/text()[3])
+    xpath: ((//div[@class="_3nkA-i"]/text())[3])
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -115,7 +115,6 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: (//div[@class="_18llgM"])[1]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
