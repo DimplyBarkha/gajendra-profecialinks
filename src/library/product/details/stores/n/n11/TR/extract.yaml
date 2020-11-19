@@ -3,9 +3,6 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: rpc
-    singleValue: true
-    xpath: //p[@class='unf-p-seller-note-text']/font/font
   - name: image
     singleValue: true
     xpath: //div[@class='proDetailArea']/div/figure/div/div/div/a/img/@src
@@ -48,9 +45,9 @@ fields:
   - name: url
     singleValue: true
     xpath: //link[@rel='canonical']/@href
-  - name: rpc
+  - name: varianId
     singleValue: true
-    xpath: //input[@name='skuId']/@value
+    xpath: //input[@class='productId']/@value
   - name: brand
     singleValue: true
     xpath: //script[@type='text/javascript']/@data-flix-brand
