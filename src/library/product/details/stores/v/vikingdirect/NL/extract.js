@@ -6,6 +6,15 @@ async function implementation(inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
+
+    const price = document.querySelector('div[id="productDetailsPanel"] div[class="product-price-panel__price-alt-vat"]')
+      ? document.querySelector('div[id="productDetailsPanel"] div[class="product-price-panel__price-alt-vat"]').textContent : '';
+    const regex = /(\d+,\d+)/;
+    // @ts-ignore
+    document.querySelector('body').setAttribute('price', price.match(regex)[1]);
+
+
+
     const products = document.querySelectorAll('span[class="product__brand-name"]')
     const prefix = 'https://www.vikingdirect.nl';
     // const shortPrefix = 'https:';

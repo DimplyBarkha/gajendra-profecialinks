@@ -41,22 +41,16 @@ fields:
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
-  xpath: //div[@id="productDetailsPanel"]//div[@class="product-price-panel__price-alt-vat"]
-  regExp: (\d+,\d+)
-  regExpReplace: $1
+  xpath: //ancestor::body/@price
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
-  xpath: //div[@id="productDetailsPanel"]//div[@class="product-price-panel__price-alt-vat"]
-  regExp: (\d+,\d+)
-  regExpReplace: $1
+  xpath: //ancestor::body/@price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
-  xpath: //span[@class="product-stock-message__title"][contains(text(), "Momenteel op voorraad")]
-  regExp: (.+)
-  regExpReplace: "In Stock"
+  xpath: //span[@class="product-stock-message__title"]
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
