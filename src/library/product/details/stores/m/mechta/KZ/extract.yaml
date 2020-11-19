@@ -1,0 +1,98 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    # for product with multiple images
+    singleValue: false
+    xpath: //div[@class='swiper-wrapper']//div[contains(@class,'swiper-slide')]//a/@href
+  - name: imageAlt
+    # for product with multiple images
+    singleValue: false
+    xpath: //div[@class='swiper-wrapper']//div[contains(@class,'swiper-slide')]//a/@title  
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='swiper-wrapper']//div[contains(@class,'swiper-slide')]//a/@href
+  - name: category
+    singleValue: false
+    xpath: //div[@class='bx-breadcrumb']//a
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='iwr']//span[not(contains(@class,'element-article'))]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='iwr']//span[not(contains(@class,'element-article'))]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'aa_e_right')]//div[contains(@class,'aa_buy') and normalize-space()='Купить']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'aa_e_right')]//span[@class='ok_pr']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'aa_e_right')]//s[@class='ok_pr_disc']
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'aa_detailtov_opis')]/text()
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Бренд:']//parent::div//following-sibling::div
+  - name: sku
+    singleValue: false
+    xpath: //h1[@class='iwr']//span[contains(@class,'element-article')]      
+  - name: variantId
+    singleValue: false    
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'aa_e_right')]//div[@class='aa_e_bonus']
+  - name: specificationsKey
+    singleValue: false
+    xpath: //div[@class='aa_dtpropname ifleft']
+  - name: specificationsValue
+    singleValue: false
+    # specification = specification1 : specification 2 |
+    xpath: //div[@class='aa_dtpropname ifleft']//following-sibling::div
+  - name: specifications
+    singleValue: false
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Гарантия:']//parent::div//following-sibling::div
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'aa_detailtov_opis')]//img[not(contains(@class,'ipabs'))]/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'aa_detailtov_opis')]//div[contains(@class,'market')]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Страна производитель:']//parent::div//following-sibling::div
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Цвет:']//parent::div//following-sibling::div
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Вес без упаковки (нетто), кг:']//parent::div//following-sibling::div
+  - name: videos
+    singleValue: false
+    # Youtube videos
+    xpath: //iframe[contains(@src,'youtube')]/@src
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[contains(@class,'aa_dt_p')]//span[contains(normalize-space(),'Габариты устройства')]//parent::div//following-sibling::div
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Класс энергопотребления:']//parent::div//following-sibling::div
+  - name: materials
+    singleValue: false
+    xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Материал:']//parent::div//following-sibling::div
