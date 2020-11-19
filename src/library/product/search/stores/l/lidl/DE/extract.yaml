@@ -5,9 +5,9 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@id="import_product_urls"]
-    regExp: (.*)\/(.*)\?(.*)
-    regExpReplace: $2
+    xpath: //div[@id="import_product_ids"]
+    regExp: product_0*(\d*)
+    regExpReplace: $1
   - name: rankOrganic
     singleValue: false
     xpath: //div[@id="import_product_rank"]

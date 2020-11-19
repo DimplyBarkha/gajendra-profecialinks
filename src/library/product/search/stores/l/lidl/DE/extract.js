@@ -22,14 +22,16 @@ module.exports = {
       const params = new URLSearchParams(location.href);
       const page = parseInt(params.get('page')) || 1;
       const products = document.evaluate('count(//li[contains(@class, "product-grid__item")])', document, null, XPathResult.ANY_TYPE).numberValue;
+      const productIds = document.evaluate('//li[contains(@class, "product-grid__item")]//a/@id', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       const productURLs = document.evaluate('//li[contains(@class, "product-grid__item")]//a/@href', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       const productNames = document.evaluate('//li[contains(@class, "product-grid__item")]//a/span/strong/text()', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       const productImages = document.evaluate('//li[contains(@class, "product-grid__item")]//a/img/@src', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       const productItems = document.evaluate('//li[contains(@class, "product-grid__item")]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
 
-      const urls = [], names = [], images = [], ratings = [], ratingCounts = [], prices = [];
+      const ids = [], urls = [], names = [], images = [], ratings = [], ratingCounts = [], prices = [];
 
       for (let i = 0; i < products; i++) {
+        ids.push(productIds.snapshotItem(i).nodeValue);
         urls.push(productURLs.snapshotItem(i).nodeValue);
         names.push(productNames.snapshotItem(i).nodeValue);
         images.push(productImages.snapshotItem(i).nodeValue);
@@ -50,6 +52,7 @@ module.exports = {
         }
       }
       for (let index = 0; index < products; index++) {
+        addHiddenDiv('import_product_ids', ids[index]);
         addHiddenDiv('import_product_urls', urls[index]);
         addHiddenDiv('import_product_names', names[index]);
         addHiddenDiv('import_product_images', images[index]);
