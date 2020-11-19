@@ -10,15 +10,6 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    await context.evaluate(async () => {
-      // @ts-ignore
-      if (window !== undefined) {
-        return window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      }
-    });
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
       // function addElementToDocument (key, value, src) {
       //   const catElement = document.createElement('div');
@@ -28,13 +19,10 @@ module.exports = {
       //   catElement.style.display = 'none';
       //   document.body.appendChild(catElement);
       // }
+      // adding first variant
+      // const productIds = [...document.querySelectorAll('select[class="autoredirect"] option')].map(e => e.getAttribute('value').split('-').pop());
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-    await context.evaluate(async function () {
-      const openIngredients = document.querySelector('a[href="#ingredients"]');
-      // @ts-ignore
-      if (openIngredients) openIngredients.click();
-    });
+
     await context.extract(productDetails, { transform });
   },
 

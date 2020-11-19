@@ -447,6 +447,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //select[@class='autoredirect']/option
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -490,6 +491,9 @@ fields:
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
     defaultValue: No
+    xpath: //a[contains(@href, 'privacy-policy')]
+    regExp: .*
+    regExpReplace: Yes
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
