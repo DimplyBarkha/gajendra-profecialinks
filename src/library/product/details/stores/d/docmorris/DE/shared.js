@@ -32,6 +32,14 @@ const transform = (data) => {
         row.description = [{ text }];
       }
 
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text = item.text.replace(/\|\|([^\|\|]*)$/, '$1');
+        });
+        row.description = [{ text }];
+      }
+
       if (row.ingredientsList) {
         let text = '';
         row.ingredientsList.forEach(item => {
