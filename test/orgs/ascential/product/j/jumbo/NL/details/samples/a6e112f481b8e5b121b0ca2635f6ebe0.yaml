@@ -1,0 +1,151 @@
+input:
+  id: 100072FLS
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=3c2760c7-0ca2-4cf9-b98d-107f58ba0d06/task=cf9f6ec7-b081-4b27-ae0a-4aeabf388d3a/2b26ddbf-18c2-414c-817f-fa09ef2ac6fc.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/fanta-orange-1,-5l/100072FLS/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/031020200019_100072FLS-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Fanta Orange 1, 5L
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/031020200025_100072FLS-5_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+            category:
+              - text: Flessen sinas
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Fanta Orange 1, 5L
+                xpath: /html/head[1]/meta[8]/@content
+            description:
+              - text: Proef de fruitige sinassmaak van Fanta. Fanta Orange is een combinatie van
+                  sprankelend water en echt sinaasappelsap. De 1,5L PET fles is
+                  de ideale verpakking om deze frisdrank uit te schenken.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+              - text: Frisdrank met sinaasappelsap, met suiker en zoetstoffen.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[2]/text()[1]
+            brandText:
+              - text: http://fanta.nl
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[12]/p[1]/a[1]/@href
+            manufacturer:
+              - text: http://fanta.nl
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[12]/p[1]/a[1]/@href
+            quantity:
+              - text: 1.5 l
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            sku:
+              - text: 100072FLS
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
+            name:
+              - text: Fanta Orange 1, 5L
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: Sprankelend water
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[1]
+              - text: suiker
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[2]
+              - text: sinaasappelsap uit sapconcentraat (6%)
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[3]
+              - text: "voedingszuren: citroenzuur, appelzuur, natriumcitraat"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[4]
+              - text: "conserveermiddel: kaliumsorbaat"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[5]
+              - text: natuurlijke sinaasappelaroma's met andere natuurlijke aroma's
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[6]
+              - text: "antioxidant: ascorbinezuur"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[7]
+              - text: "zoetstoffen: acesulfaam-K, aspartaam"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[8]
+              - text: "stabilisator: guarpitmeel"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[9]
+              - text: wortelconcentraat
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[10]
+              - text: "kleurstof: carotenen"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[11]
+            servingSize:
+              - text: "Per: 250ml (%*)"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[3]
+            servingSizeUom:
+              - text: ml
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[3]
+            caloriesPerServing:
+              - text: 83kcal (4%)
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
+            saturatedFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
+            totalCarbPerServing:
+              - text: "20"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
+            totalSugarsPerServing:
+              - text: "19"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
+            proteinPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
+            saltPerServing:
+              - text: "0.03"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[8]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[8]/td[2]
+            storage:
+              - text: "Ten minste houdbaar tot: zie hals/dop. Koel, droog, geurvrij en uit het
+                  zonlicht bewaren."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[8]/p[1]
+            recyclingInformation:
+              - text: "Recycling: Fles: Retourneerbaar|Dop: Recyclebaar"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[7]/ul[1]/li[1]
+            productOtherInformation:
+              - text: Society of the Plastics Industry (SPI) - 1 PET
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/p[1]
+            additives:
+              - text: Bevat Zoetstoffen
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[9]/p[1]
+            pricePerUnit:
+              - text: 1,19/liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: 1,79
+        xpath: /
+    timestamp: 1605791852367

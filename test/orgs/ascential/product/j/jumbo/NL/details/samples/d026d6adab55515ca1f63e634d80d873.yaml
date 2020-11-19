@@ -1,0 +1,30 @@
+input:
+  id: 100064FLS
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=3c2760c7-0ca2-4cf9-b98d-107f58ba0d06/task=ee37022e-0f53-4be9-84ac-24bc3db675bd/d6820a31-0e38-42da-bd11-332cc6b798ca.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - nameExtended:
+              - text: Jumbo Groceries
+                xpath: /html/head[1]/meta[8]/@content
+            name:
+              - text: Jumbo Groceries
+                xpath: /html/head[1]/meta[8]/@content
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: ","
+        xpath: /
+    timestamp: 1605791813618

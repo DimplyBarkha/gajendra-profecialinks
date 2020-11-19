@@ -2,7 +2,7 @@ input:
   id: 191655FLS
   _url: http://jumbo.com
 extractions:
-  - html: https://workbench.import.io/html/run=58e6ef92-c9ae-42fa-8967-7eef7601c40b/task=dda899b3-a5b0-4965-bfed-5f7c1619bbde/6dda8777-f88b-47d3-bde0-331a0a5d78ba.html
+  - html: https://workbench.import.io/html/run=3c2760c7-0ca2-4cf9-b98d-107f58ba0d06/task=8addb9f3-ce34-4f84-bd4e-d8928724e7e4/f7a54cae-fda7-47d3-b7b3-0ef356302008.html
     extractionConfigId: product/details/stores/j/jumbo/NL/extract
     data:
       - group:
@@ -41,6 +41,9 @@ extractions:
             manufacturer:
               - text: http://Jumbo.com
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[9]/p[1]/a[1]/@href
+            quantity:
+              - text: 1000 ml
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
             sku:
               - text: 191655FLS
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[1]/@data-jum-product-details
@@ -98,16 +101,16 @@ extractions:
             saltPerServingUom:
               - text: g
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[9]/td[2]
-            recyclingInformation:
-              - text: "Recycling: Pakking: Plastic - Doorgaans gerecycled"
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[6]/ul[1]/li[1]
-            productOtherInformation:
+            storage:
               - text: "Ten minste houdbaar tot einde: zie fles. Koel en donker bewaren. Niet in
                   de koelkast of in het directe zonlicht plaatsen. Olijfolie kan
                   troebel worden bij minder dan 12°C. Dit is normaal. De olie
                   wordt weer helder bij kamertemperatuur. Dit heeft geen invloed
                   op de kwaliteit."
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[7]/p[1]
+            recyclingInformation:
+              - text: "Recycling: Pakking: Plastic - Doorgaans gerecycled"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[6]/ul[1]/li[1]
             pricePerUnit:
               - text: 4,99/liter
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
@@ -129,4 +132,4 @@ extractions:
             price:
               - text: 4,99
         xpath: /
-    timestamp: 1605717085430
+    timestamp: 1605791822327

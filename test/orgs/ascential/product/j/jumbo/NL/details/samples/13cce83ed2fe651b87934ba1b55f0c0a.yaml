@@ -1,0 +1,104 @@
+input:
+  id: 102408PAK
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=3c2760c7-0ca2-4cf9-b98d-107f58ba0d06/task=a5a0174a-ce5a-4ed3-be56-b926b8efa99e/11dc47cc-83d1-406f-9e50-598d43e909e6.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/melkunie-havermoutpap-1l/102408PAK/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/061120191446_102408PAK-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Melkunie Havermoutpap 1L
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/071120190159_102408PAK-7_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+            category:
+              - text: Pap
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Melkunie Havermoutpap 1L
+                xpath: /html/head[1]/meta[8]/@content
+            description:
+              - text: Met Melkunie havermoutpap creëer je een goede start van de dag!
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+              - text: HAVERMOUTPAP, GEPASTEURISEERD
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[2]/text()[1]
+            brandText:
+              - text: http://WWW.MELKUNIE.NL
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[13]/p[2]/a[1]/@href
+            manufacturer:
+              - text: http://WWW.MELKUNIE.NL
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[13]/p[2]/a[1]/@href
+            quantity:
+              - text: 1 liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            sku:
+              - text: 102408PAK
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
+            directions:
+              - text: |-
+                  Voor een lekkere variatie
+                  Voeg blauwe bessen toe of een handje noten en rozijnen.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[8]/p[1]
+            manufacturerDescription:
+              - text: >-
+                  Melkunie zuivel sinds 1872.
+
+                  Melkunie vindt het belangrijk om verspilling tegen te gaan. Vind jij dat ook? Kijk dan op www.melkunie.nl voor nog meer tips.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[13]/p[1]
+            name:
+              - text: Melkunie Havermoutpap 1L
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: Melk
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[1]
+              - text: wei
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[2]
+              - text: 6% havermout
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[3]
+              - text: zout
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[4]
+            storage:
+              - text: "Ten minste houdbaar tot: zie datum bovenzijde. Gekoeld bewaren (max.
+                  7°C)."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[9]/p[1]
+            allergyAdvice:
+              - text: Bevat Melk
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/ul[1]/li[1]
+              - text: Bevat Haver
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/ul[1]/li[2]
+            recyclingInformation:
+              - text: "Recycling: Verpakking: Karton - Doorgaans gerecycled"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[7]/ul[1]/li[1]
+            productOtherInformation:
+              - text: FSC - Mix - www.fsc.org - Mix Karton van verantwoorde herkomst - FSC
+                  C081801
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[11]/p[1]
+            pricePerUnit:
+              - text: 1,79/liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: 1,79
+        xpath: /
+    timestamp: 1605791814576

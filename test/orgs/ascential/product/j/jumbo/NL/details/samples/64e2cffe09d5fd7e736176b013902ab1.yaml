@@ -1,0 +1,116 @@
+input:
+  id: 101281DS
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=3c2760c7-0ca2-4cf9-b98d-107f58ba0d06/task=3da253bd-a862-495d-a1d5-073d0ed08539/dfafd638-f8cf-41ec-8890-981642e6305c.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/pickwick-spices-zoethout-zwarte-thee-20-stuks/101281DS/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/250920202356_101281DS-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Pickwick Spices Zoethout Zwarte Thee 20 Stuks
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/250920202356_101281DS-5_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+              - text: https://static-images.jumbo.com/product_images/250920202355_101281DS-9_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+            category:
+              - text: Zwarte thee
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Pickwick Spices Zoethout Zwarte Thee 20 Stuks
+                xpath: /html/head[1]/meta[8]/@content
+            description:
+              - text: >-
+                  Heerlijke blend van oolong en zwarte thee, verrijkt met
+                  zoethout. Geniet van de warme zoete smaak! 
+
+                  - Theesoort: zwarte thee 
+
+                  - Zoet van smaak 
+
+                  - Verrijkt met zoethout
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+              - text: Zoethout met oolong en zwarte thee.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[2]/text()[1]
+            brandText:
+              - text: http://www.de.nl
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/p[2]/a[1]/@href
+              - text: http://www.pickwicktea.com
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/p[3]/a[1]/@href
+            manufacturer:
+              - text: http://www.de.nl
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/p[2]/a[1]/@href
+              - text: http://www.pickwicktea.com
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/p[3]/a[1]/@href
+            quantity:
+              - text: 20 x 2 g
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            sku:
+              - text: 101281DS
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
+            manufacturerDescription:
+              - text: >-
+                  In een wereld waarin we steeds drukker zijn, is het fijn om
+                  even bij te komen met een heerlijk kopje Pickwick thee. Alleen
+                  of gezellig samen. Drink een kop thee om even te ontspannen.
+                  Of praat weer eens goed bij met een vriend of vriendin. Neem
+                  er de tijd voor. Je geeft dan aandacht aan wat er écht toe
+                  doet. 
+
+                  Geniet tijdens deze momenten van onze blends met een rijke smaak en heerlijk aroma.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/p[1]
+            manufacturerImages:
+              - text: https://static-images.jumbo.com/product_images/101281DS-241_180x180.png
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/div[1]/figure[1]/img[1]/@data-jum-src
+              - text: https://static-images.jumbo.com/product_images/101281DS-242_180x180.png
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/div[1]/figure[2]/img[1]/@data-jum-src
+              - text: https://static-images.jumbo.com/product_images/101281DS-244_180x180.png
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/div[1]/figure[3]/img[1]/@data-jum-src
+            name:
+              - text: Pickwick Spices Zoethout Zwarte Thee 20 Stuks
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: Zoethout (70%)
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[5]/ul[1]/li[1]
+              - text: oolong thee
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[5]/ul[1]/li[2]
+              - text: zwarte thee
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[5]/ul[1]/li[3]
+            storage:
+              - text: "Donker en droog bewaren. Ten minste houdbaar tot einde: zie verpakking."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[7]/p[1]
+            recyclingInformation:
+              - text: "Recycling: Doos: Recyclebaar"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[1]
+            productOtherInformation:
+              - text: EKO-KOM
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[8]/p[1]
+            pricePerUnit:
+              - text: 0,09/stuk
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: stuk
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: 1,73
+        xpath: /
+    timestamp: 1605791814956
