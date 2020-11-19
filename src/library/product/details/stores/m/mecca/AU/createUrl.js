@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mecca.com.au',
     prefix: null,
-    url: null,
+    url: 'https://www.mecca.com.au/{id}.html',
     country: 'AU',
     store: 'mecca',
     zipcode: '',

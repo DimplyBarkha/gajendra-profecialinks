@@ -5,8 +5,8 @@ module.exports = {
     country: 'AU',
     store: 'mecca',
     domain: 'mecca.com.au',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#core-product-information',
+    noResultsXPath: "//span[contains(text(),'Page not found')]",
     zipcode: '',
   },
 };
