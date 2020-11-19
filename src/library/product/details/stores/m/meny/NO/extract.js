@@ -15,6 +15,6 @@ module.exports = {
         throw new Error('Product not found for given input');
       }
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
