@@ -19,7 +19,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
   const extractor = gotoInput.sourceId ? gotoInput.sourceId : '';
   const MAX_CAPTCHAS = gotoInput.MAX_CAPTCHAS ? gotoInput.MAX_CAPTCHAS : 3;
-  const MAX_SESSION_RETRIES =gotoInput.MAX_SESSION_RETRIES ? gotoInput.MAX_SESSION_RETRIES : 2;
+  const MAX_SESSION_RETRIES = gotoInput.MAX_SESSION_RETRIES ? gotoInput.MAX_SESSION_RETRIES : 2;
   // HOURLY_RETRY_LIMIT is a variable  depending on throughput and proxy pool volumee
   // We may need to expand the "key" to be project&extractor specific beecause projects have custom domain limits
   const HOURLY_RETRY_LIMIT = gotoInput.HOURLY_RETRY_LIMIT ? gotoInput.HOURLY_RETRY_LIMIT : 90000;
@@ -33,7 +33,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
   const pageContext = async () => {
     return await context.evaluate(() => {
       console.log('context.evaluate');
-      document.body.setAttribute('current_page_url', window.location.href);
+      
       const selectors = {
         hasProdDetails: '#prodDetails, #detailBullets_feature_div',
         hasSalesRank: '#detailBullets_feature_div a[href*="bestsellers"], #detailBullets a[href*="bestsellers"], #prodDetails a[href*="bestsellers"], #SalesRank',
@@ -63,6 +63,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       elementChecks.isOffersPage = window.location.href.includes('offer-listing');
       elementChecks.hasVariants = !!window.isTwisterPage;
       elementChecks.windowLocation = window.location;
+      document.body.setAttribute('current_page_url', window.location.href);
       return elementChecks;
     });
   };
