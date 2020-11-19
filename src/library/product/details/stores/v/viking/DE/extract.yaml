@@ -114,14 +114,17 @@ fields:
   singleValue: true
   description: The number of ratings
   xpath: //div[@class='product-rating__reviews']/text()
+  regExp: (?<=\()\d+
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
   xpath: //div[@class='stars']/@title
+  regExp: .+(?= von)
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
   xpath: //div[@class='stars']/@title
+  regExp: .+(?= von)
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
