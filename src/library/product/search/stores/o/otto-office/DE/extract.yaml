@@ -18,7 +18,7 @@ fields:
     xpath: //a[@class="oo-link fftracking-productclick"]/b
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="ooB-rel gallerymiddle"]/a/@href
+    xpath: //div[@class="ooB-rel gallerymiddle"]/span/a/@href | //div[@class="ooB-rel gallerymiddle"]/a/@href
   - name: thumbnail
     singleValue: false
     xpath: //a[@class="fftracking-productclick"]/img/@data-srcset
