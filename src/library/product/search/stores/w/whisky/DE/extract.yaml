@@ -5,14 +5,14 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[@class='row']//a[@class='title']/@href
+    xpath: //a[@class='outer-product-link']/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class='row']//a[@class='title']/img/@src
+    xpath: //div[@class='article-left article-thumbnail']//a/img//@src
   - name: name
     singleValue: true
     type: TEXT
-    xpath: //div[@class='row']//a[@class='title']/@title
+    xpath: //a[@class='outer-product-link']/@title
   - name: id
     singleValue: true
     description: The store-specific product identifier
@@ -23,13 +23,11 @@ fields:
     type: TEXT
     # xpath: (//select[@name='searchmanufacturer']//option)[1]//text()
   - name: rating
-    xpath: //div[@class='col-xl-6']//div[@class='rating ']/@data-rating
+    xpath: //div[@class='article-left article-thumbnail']//div[@class='rating ']/@data-rating
   - name: number_of_reviews
     type: NUMBER
-    xpath:  //div[@class='row']/div[not(contains(@id,'sidebar-right'))]//span[@class='rating-count']/span//text()
+    xpath: //div[@class='article-left article-thumbnail']//a/span[@class='rating-count']/span/text()
   - name: price
     description: The offered price for the product
     type: CURRENCY
-    xpath: //div[@class="article-metadata"]//span[(contains(@class,'article-price-default article-club-hidden'))]//text()
-    # regExp: '\d+(\.\d+)?'
-    # regExpReplace: $1
+    xpath: //div[@class='infinite-scroll']//div[@class='article-price']//span[@class='article-price-default article-club-hidden']//text()
