@@ -1,8 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: (//div[@data-productlist-name="assortment overview"])[1]
+recordXPath: //a[@class="card card--article"]
 fields:
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="added_search_url"]
   - name: paid
     singleValue: false
     description: Whether this is a sponsored/paid result
@@ -22,12 +25,15 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
+    xpath: //@href
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
+    xpath: //div[contains(@class,"card__image")]//img/@src
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
+    xpath: //div[contains(@class,"card__body")]//p[contains(@class,"card__text")]
     description: The product name
   - name: sku
     singleValue: false
@@ -37,6 +43,7 @@ fields:
     description: The model code of the product
   - name: gtin
     singleValue: false
+    xpath: //@gtin
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
     singleValue: false
@@ -49,6 +56,7 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: false
+    xpath: //span[contains(@class,"price-info__price")]
     description: The offered price for the product
   - name: listPrice
     singleValue: false
