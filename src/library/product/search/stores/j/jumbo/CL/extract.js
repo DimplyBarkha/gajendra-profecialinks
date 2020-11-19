@@ -33,6 +33,7 @@ async function implementation (
 
     for (let i = 0; i < allProducts.length; i++) {
       allProducts[i].scrollIntoView();
+      await new Promise((resolve, reject) => setTimeout(resolve, 500));
       addProp('li.shelf-item', i, 'rankOrganic', `${i + 1}`);
       addProp('li.shelf-item', i, 'productUrl', 'https://www.jumbo.cl' + productUrls[i].getAttribute('href'));
     }
