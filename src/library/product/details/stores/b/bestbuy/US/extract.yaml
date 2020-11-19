@@ -65,9 +65,10 @@ fields:
     xpath: //div[contains(@class, "spec-categories")]
   - name: upc
     singleValue: true
-    xpath: //div[contains(@class, "spec-categories")]
-    regExp: (UPC\s)(\d+)
-    regExpReplace: $2
+    xpath: //body//@upc
   - name: manufacturerImages
     singleValue: true
     xpath: //div[contains(@class,"manufacturer-content-wrapper")]
+  - name: videos
+    singleValue: false
+    xpath: //body//@video
