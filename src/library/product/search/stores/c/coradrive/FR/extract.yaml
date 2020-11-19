@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"grille")]//div[contains(@class,"col1")]  
+recordXPath: //div[contains(@class,"grille")]/div[contains(@class,"col1") and .//div[contains(@class,"picture")]//img[contains(@class,"photo")]/@src]
 fields:
   - name: paid
     singleValue: false
@@ -22,7 +22,7 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class,"picture")]/@href
+    xpath: //a[contains(@class,"picture") and @title]/@href
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class,"picture")]//img[contains(@class,"photo")]/@src
