@@ -10,7 +10,6 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async () => {
       // function to append the elements to DOM
       function addElementToDocument (key, value) {
@@ -21,10 +20,16 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      const alternateImg = document.querySelectorAll('div[aria-hidden=true] div[class*=ImageZoom] img[hide="1"]');
-      alternateImg.forEach(element => {
-        addElementToDocument('alternateImg', `https:${element.getAttribute('src')}`);
-      });
+      const alternateImg = document.querySelectorAll("img[class*='abs__ProductThumb']");
+      let imgArr = [];
+      for (let i = 1; i < alternateImg.length; i++) {
+        const img = alternateImg[i].getAttribute('src').replace('size=60', 'size=300').replace('JPEG_150x150', 'JPEG_300x300');
+        imgArr.push(`https:${img}`);
+      }
+      addElementToDocument('alternateImg', imgArr.join(' | '));
+
+      const aggRating = document.querySelector('div[itemprop=ratingValue]') ? document.querySelector('div[itemprop=ratingValue]').innerText.replace('.', ',') : '';
+      addElementToDocument('aggRating', aggRating);
 
       const specTabs = document.querySelectorAll('li[class*=SpecificationsTab__SpecsListItem]');
       let specArr = [];
@@ -35,31 +40,8 @@ module.exports = {
 
       const availability = document.querySelector('meta[itemprop="availability"][content="http://schema.org/InStock"]') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availability', availability);
-
-      const variantPackQty = document.querySelectorAll('a[data-ref*=family-pack]').length !== 0 ? document.querySelectorAll('a[data-ref*=family-pack]').length : 1;
-      const variantColor = document.querySelectorAll('div[data-ref*=family-colour] a').length !== 0 ? document.querySelectorAll('div[data-ref*=family-colour] a').length : 1;
-      const variantSize = document.querySelectorAll('a[data-ref*=family-size]').length !== 0 ? document.querySelectorAll('a[data-ref*=family-size]').length : 1;
-      const variantCount = variantPackQty * variantColor * variantSize;
-      addElementToDocument('variantCount', variantCount);
-
-      let variantsArr = [];
-      if (variantPackQty > 1) {
-        document.querySelectorAll('a[data-ref*=family-pack]').forEach(element => {
-          variantsArr.push(`Pack Quantity: ${element.innerText}`);
-        });
-      }
-      if (variantColor > 1) {
-        document.querySelectorAll('div[data-ref*=family-colour] a').forEach(element => {
-          variantsArr.push(`Colour: ${element.innerText}`);
-        });
-      }
-      if (variantSize > 1) {
-        document.querySelectorAll('a[data-ref*=family-size]').forEach(element => {
-          variantsArr.push(`Size: ${element.innerText}`);
-        });
-      }
-      addElementToDocument('variants', variantsArr.join(' || '));
     });
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.extract(productDetails, { transform });
   },
 };

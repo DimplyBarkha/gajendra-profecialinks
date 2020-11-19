@@ -1,0 +1,120 @@
+input:
+  _url: http://officeworks.com.au
+  URL: https://www.officeworks.com.au/shop/officeworks/p/oxford-australian-concise-dictionary-5th-edition-ox95568868
+extractions:
+  - html: https://workbench.import.io/html/run=0b2d5715-69de-44a8-a24f-c59ac69ffaec/task=4e04e60b-70f4-4944-a17d-b1a041408e75/2fd99654-d05f-428a-8643-ec4e5b752a21.html
+    extractionConfigId: product/details/stores/o/officeworks/AU/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/OX95568868_australian_concise_oxford_dictionary_5th_edition.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@src
+            imageAlt:
+              - text: Oxford Australian Concise Dictionary 5th Edition
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@alt
+            category:
+              - text: Education
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]
+              - text: Books
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]
+              - text: Dictionaries & Thesauruses
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]
+            nameExtended:
+              - text: Oxford Australian Concise Dictionary 5th Edition
+                xpath: /html/body/div[3]/div[7]/div[1]/div[4]/div[1]/h1[1]
+            price:
+              - text: $44.95
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: This Oxford Australian Concise Dictionary is a great tool to use when
+                  writing and is designed for both students and adults. It
+                  contains over 99,000 headwords which allows for accurate
+                  checking of meanings and their correct usage and
+                  pronunciation.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: You can check the meaning of words along with their correct usage and
+                  pronunciation.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: It's suitable for ages 8 and above.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: It has a soft, paperback cover.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: It contains over 99,000 headwords.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: There is pronunciation tips given for most headwords using the
+                  International Phonetic Alphabet
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: This dictionary has been revised and is now in its 5th edition.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
+              - text: By purchasing this product, you are contributing to the Restoring
+                  Australia initiative in which Officeworks will plant 2 trees
+                  for every 1 used, based on the weight of paper-based products
+                  that customers buy at Officeworks.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]
+            brandText:
+              - text: Oxford University Press
+                xpath: /html/body/div[3]/div[7]/div[1]/div[1]/meta[1]/@content
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/dl[1]/dd[1]
+            weightNet:
+              - text: 1.704 kg
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/dl[1]/dd[1]
+            gtin:
+              - text: "9780195568868"
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[4]/@content
+            sku:
+              - text: OX95568868
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            variantId:
+              - text: OX95568868
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            packSize:
+              - text: "1"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/dl[1]/dd[1]
+            aggregateRatingText:
+              - text: |-
+                  No rating value
+                   average rating value is 0.0 of 5.
+                   Read 0 Reviews
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/button[1]/@aria-label
+            videos:
+              - text: https://www.youtube.com/embed/xChdYGCxZoM?rel=0
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/iframe[1]/@src
+            name:
+              - text: Oxford Australian Concise Dictionary 5th Edition
+                xpath: /html/body/div[3]/div[7]/div[1]/div[4]/div[1]/h1[1]
+            countryOfOrigin:
+              - text: Australia
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/dl[1]/dd[1]
+            variantInformation:
+              - text: |-
+                  Units Per Pack/Carton
+                  1
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/dl[1]
+            materials:
+              - text: Paper
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/dl[1]/dd[1]
+            specifications:
+              - text: Australian MadeYes || Barcode9780195568868 || BrandOxford University Press
+                  || Forest CertificationForest Stewardship Council (FSC)
+                  Certified || Forestry Compliance RatingLegal - No
+                  certification || Learning Age Range8 and above || Learning
+                  Skills FocusLiteracy || MaterialPaper || Media TypeBook ||
+                  Number of Pages/Sheets1728 || Product Dimensions (mm)65W x
+                  150D x 235H mm || Product Weight (kg)1.704 kg || Reference
+                  Source AuthorBruce Moore || Country of ManufactureAustralia ||
+                  Part Number9780195568868 || Pack/Carton Quantity1 || Total
+                  Individual Units1 || Units Per Pack/Carton1
+                xpath: /html/body/div[9]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[10]
+            variantCount:
+              - text: "0"
+            descriptionBullets:
+              - text: "7"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1605795537224

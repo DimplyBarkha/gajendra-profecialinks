@@ -121,9 +121,7 @@ fields:
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //div[@itemprop="ratingValue"]
-  regExp: (\d+)\.?\,?(\d+)?
-  regExpReplace: $1,$2
+  xpath: //div[@id='aggRating']
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -136,12 +134,11 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-  xpath: //div[@id='variantCount']
   defaultValue: "0"
 - name: color
   singleValue: true
   description: A textual description of the colour
-  xpath: //h3[text()='Barrel']/following-sibling::ul/li//dt[contains(text(),'Colour')]/following-sibling::dd | (//div[@data-ref="family-colour-label"]/text())[2]
+  xpath: //dt[contains(text(),'Descriptive Colour')]/following-sibling::dd
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -444,7 +441,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
-  xpath: (//div[@data-ref="family-colour-label"]/text())[2] | //dt[contains(text(),'Units Per Pack')]/following-sibling::dd
+  xpath: ((//div[@data-ref="family-colour-label"]/text())[2] | //dl[dt[contains(text(),'Units Per Pack')]])[1]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -457,7 +454,6 @@ fields:
     between variants, this will need analysis
 - name: variants
   description: 
-  xpath: //div[@id='variants']
 - name: additionalDescBulletInfo
   singleValue: false
   description: 

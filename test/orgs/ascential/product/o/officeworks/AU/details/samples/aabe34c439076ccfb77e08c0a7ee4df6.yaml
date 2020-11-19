@@ -1,0 +1,107 @@
+input:
+  _url: http://officeworks.com.au
+  URL: https://www.officeworks.com.au/shop/officeworks/p/tipp-ex-easy-correction-tape-ti8290362?scrollTop=false
+extractions:
+  - html: https://workbench.import.io/html/run=0b2d5715-69de-44a8-a24f-c59ac69ffaec/task=241fdd40-3d67-46e2-a530-92d159ee6869/69876b5b-f0fc-4725-8065-52a2b8baa9d8.html
+    extractionConfigId: product/details/stores/o/officeworks/AU/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/TI8290362_tipp_ex_easy_correction_tape.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@src
+            imageAlt:
+              - text: Tipp-Ex Easy Correction Tape
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@alt
+            category:
+              - text: Office Supplies
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]
+              - text: Stationery
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]
+              - text: Correction Products
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]
+              - text: Correction Tape
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]
+            nameExtended:
+              - text: Tipp-Ex Easy Correction Tape
+                xpath: /html/body/div[3]/div[7]/div[1]/div[4]/div[1]/h1[1]
+            price:
+              - text: $3.70
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: This Tipp-Ex Easy Correction Tape has a clear tip and a side dispensing
+                  mechanism so you'll be able to see exactly where you're
+                  applying it. It goes on dry so you can place the tape over
+                  mistakes and re-write over the area right away.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: It contains 12 m of tape so you don't have to worry about running out
+                  quickly.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: You can use it on most paper types to amend errors.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: The side dispenser system allows you to see what you're correcting as
+                  you're applying the tape.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+            brandText:
+              - text: Tipp-Ex
+                xpath: /html/body/div[3]/div[7]/div[1]/div[1]/meta[1]/@content
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/dl[1]/dd[1]
+            gtin:
+              - text: "3086126644547"
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[4]/@content
+            sku:
+              - text: TI8290362
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            variantId:
+              - text: TI8290362
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            packSize:
+              - text: "1"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/dl[1]/dd[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
+            aggregateRatingText:
+              - text: |-
+                  1.5 out of 5 stars. Read reviews for 
+                   average rating value is 1.5 of 5.
+                   Read 2 Reviews
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/button[1]/@aria-label
+            color:
+              - text: White
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/dl[1]/dd[1]
+            name:
+              - text: Tipp-Ex Easy Correction Tape
+                xpath: /html/body/div[3]/div[7]/div[1]/div[4]/div[1]/h1[1]
+            countryOfOrigin:
+              - text: France
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/dl[1]/dd[1]
+            variantInformation:
+              - text: |-
+                  Units Per Pack/Carton
+                  1
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/dl[1]
+            alternateImages:
+              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/TI8290362_B_tipp_ex_easy_correction_tape.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                xpath: /html/body/div[7]
+            aggregateRating:
+              - text: 1,5
+                xpath: /html/body/div[8]
+            specifications:
+              - text: Barcode3086126644547 || BrandTipp-Ex || Descriptive ColourWhite || Tape
+                  Length (m)12 || Tape Width (mm)5 mm || Country of
+                  ManufactureFrance || Part Number8290362 || Pack/Carton
+                  Quantity1 || Total Individual Units1 || Units Per Pack/Carton1
+                xpath: /html/body/div[9]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[10]
+            variantCount:
+              - text: "0"
+            descriptionBullets:
+              - text: "3"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1605795535478

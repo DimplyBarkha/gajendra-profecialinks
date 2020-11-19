@@ -1,0 +1,121 @@
+input:
+  _url: http://officeworks.com.au
+  URL: https://www.officeworks.com.au/shop/officeworks/p/bic-4-colour-shine-ballpoint-pen-1-0mm-assorted-4-pack-bi959384as
+extractions:
+  - html: https://workbench.import.io/html/run=0b2d5715-69de-44a8-a24f-c59ac69ffaec/task=9bf80c7c-5134-43b9-a4c7-a5d58ff1dd9f/e43a2e5a-b83d-46e2-a41b-1e7a41253318.html
+    extractionConfigId: product/details/stores/o/officeworks/AU/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI959384AS_bic_4_colour_shine_ballpoint_pen_1_0mm_assorted_4_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@src
+            imageAlt:
+              - text: BIC 4 Colour Shine Ballpoint Pen 1.0mm Assorted 4 Pack
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@alt
+            category:
+              - text: Office Supplies
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]
+              - text: Pens
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]
+              - text: Ballpoint Pens
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]
+            nameExtended:
+              - text: BIC 4 Colour Shine Ballpoint Pen 1.0mm Assorted 4 Pack
+                xpath: /html/body/div[3]/div[7]/div[1]/div[4]/div[1]/h1[1]
+            price:
+              - text: $15.93
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: These BIC 4 Colour Shine Ballpoint Pens make it easy to colour code your
+                  notes as you can switch colours without reaching for a
+                  different pen. The pens have a sleek and shiny design with a
+                  round barrel and a pocket clip, making them easy to keep handy
+                  when you're on the go.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: Each colour features a medium 1.0 mm nib.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: They're perfect for everyday note taking, especially when colour coding.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: The ink is oil-based and flows smoothly as you write.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: You can comfortably grasp the pens thanks to the round barrel design.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Each colour contains enough ink to write for approximately 2 km.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: These pens each contain blue, red, green and black ink in the same barrel.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
+              - text: There are 4 pens included in the pack.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]
+            brandText:
+              - text: Bic
+                xpath: /html/body/div[3]/div[7]/div[1]/div[1]/meta[1]/@content
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6]/ul[1]/li[1]/dl[1]/dd[1]
+            gtin:
+              - text: "9310025593847"
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[4]/@content
+            sku:
+              - text: BI959384AS
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            variantId:
+              - text: BI959384AS
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            packSize:
+              - text: "4"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6]/ul[1]/li[3]/dl[1]/dd[1]
+            aggregateRatingText:
+              - text: |-
+                  No rating value
+                   average rating value is 0.0 of 5.
+                   Read 0 Reviews
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/button[1]/@aria-label
+            color:
+              - text: Assorted
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/dl[1]/dd[1]
+            videos:
+              - text: https://www.youtube.com/embed/YTYUeje_Rp4?rel=0
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/iframe[1]/@src
+            name:
+              - text: BIC 4 Colour Shine Ballpoint Pen 1.0mm Assorted 4 Pack
+                xpath: /html/body/div[3]/div[7]/div[1]/div[4]/div[1]/h1[1]
+            countryOfOrigin:
+              - text: France
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/dl[1]/dd[1]
+            variantInformation:
+              - text: |-
+                  Units Per Pack/Carton
+                  4
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6]/ul[1]/li[3]/dl[1]
+            materials:
+              - text: Plastic
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/dl[1]/dd[1]
+            alternateImages:
+              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI959384AS_B_bic_4_colour_shine_ballpoint_pen_1_0mm_assorted_4_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                  |
+                  https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI959384AS_C_bic_4_colour_shine_ballpoint_pen_1_0mm_assorted_4_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                  |
+                  https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI959384AS_D_bic_4_colour_shine_ballpoint_pen_1_0mm_assorted_4_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                  |
+                  https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI959384AS_E_bic_4_colour_shine_ballpoint_pen_1_0mm_assorted_4_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                xpath: /html/body/div[7]
+            specifications:
+              - text: Barcode9310025593847 || BrandBic || Descriptive ColourAssorted || Ink
+                  TypeOil-based || Soft GripN/A || Writing ColourBlack, Blue,
+                  Green, Red || ColourSilver,Purple,Pink || MaterialPlastic ||
+                  Country of ManufactureFrance || Part Number959384 ||
+                  RetractableYes || Pocket ClipYes || Pack/Carton Quantity1 ||
+                  Total Individual Units4 || Units Per Pack/Carton4 || Size
+                  (mm)1 || Size DescriptionMedium || TypeBallpoint
+                xpath: /html/body/div[9]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[10]
+            variantCount:
+              - text: "0"
+            descriptionBullets:
+              - text: "7"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1605795537201

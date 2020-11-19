@@ -1,0 +1,122 @@
+input:
+  _url: http://officeworks.com.au
+  URL: https://www.officeworks.com.au/shop/officeworks/p/bic-cristal-original-ballpoint-pen-black-10-pack-bi103633bk
+extractions:
+  - html: https://workbench.import.io/html/run=0b2d5715-69de-44a8-a24f-c59ac69ffaec/task=23b8a825-234a-4166-9212-b092b114f891/a4dfbc8b-e64b-4e8e-a22c-c49fd5cc7f78.html
+    extractionConfigId: product/details/stores/o/officeworks/AU/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI103633BK_bic_cristal_original_ballpoint_pen_black_10_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@src
+            imageAlt:
+              - text: BIC Cristal Original Ballpoint Pen Black 10 Pack
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@alt
+            category:
+              - text: Office Supplies
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]
+              - text: Pens
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]
+              - text: Ballpoint Pens
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]
+            nameExtended:
+              - text: BIC Cristal Original Ballpoint Pen Black 10 Pack
+                xpath: /html/body/div[3]/div[7]/div[1]/div[4]/div[1]/h1[1]
+            price:
+              - text: $4.00
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: These BIC Cristal Original Ballpoint Pens have a classic design with a
+                  hexagonal barrel, making them comfortable for everyday writing
+                  and drawing. The blue and black pens contain enough ink to
+                  write for approximately 2 km, making them a great option for
+                  everyday use.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: Each pen features a 1.0 mm nib for medium lines.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: They're ideal for everyday use when jotting down notes.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: These pens contain oil-based ink which flows smoothly.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: The hexagonal barrels make these pens easy to hold.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: These pens have an extra-long writing length of over 2 km, making them
+                  perfect for everyday use.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: These pens contain black ink.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
+              - text: There are 10 pens included in the pack.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]
+            brandText:
+              - text: Bic
+                xpath: /html/body/div[3]/div[7]/div[1]/div[1]/meta[1]/@content
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6]/ul[1]/li[1]/dl[1]/dd[1]
+            gtin:
+              - text: "9310025003636"
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[4]/@content
+            sku:
+              - text: BI103633BK
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            variantId:
+              - text: BI103633BK
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            packSize:
+              - text: "10"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6]/ul[1]/li[3]/dl[1]/dd[1]
+            aggregateRatingText:
+              - text: |-
+                  No rating value
+                   average rating value is 0.0 of 5.
+                   Read 0 Reviews
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/button[1]/@aria-label
+            color:
+              - text: Black
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/dl[1]/dd[1]
+            videos:
+              - text: https://www.youtube.com/embed/bBemIVc5eIA?rel=0
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/iframe[1]/@src
+            name:
+              - text: BIC Cristal Original Ballpoint Pen Black 10 Pack
+                xpath: /html/body/div[3]/div[7]/div[1]/div[4]/div[1]/h1[1]
+            countryOfOrigin:
+              - text: France
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/dl[1]/dd[1]
+            variantInformation:
+              - text: |-
+                  Units Per Pack/Carton
+                  10
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6]/ul[1]/li[3]/dl[1]
+            materials:
+              - text: Plastic
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/dl[1]/dd[1]
+            alternateImages:
+              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI103633BK_B_bic_cristal_original_ballpoint_pen_black_10_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                  |
+                  https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI103633BK_C_bic_cristal_original_ballpoint_pen_black_10_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                  |
+                  https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI103633BK_D_bic_cristal_original_ballpoint_pen_black_10_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                  |
+                  https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI103633BK_E_bic_cristal_original_ballpoint_pen_black_10_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                xpath: /html/body/div[7]
+            specifications:
+              - text: Barcode9310025003636 || BrandBic || Descriptive ColourBlack || Ink
+                  TypeOil-based || Soft GripN/A || Writing ColourBlack ||
+                  ColourClear || MaterialPlastic || Country of ManufactureFrance
+                  || Part Number946622 || RetractableNo || Pocket ClipYes ||
+                  Pack/Carton Quantity1 || Total Individual Units10 || Units Per
+                  Pack/Carton10 || Size (mm)1 || Size DescriptionMedium ||
+                  TypeBallpoint
+                xpath: /html/body/div[9]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[10]
+            variantCount:
+              - text: "0"
+            descriptionBullets:
+              - text: "7"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1605795535732
