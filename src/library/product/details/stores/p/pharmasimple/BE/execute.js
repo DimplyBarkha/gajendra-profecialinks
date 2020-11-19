@@ -5,8 +5,8 @@ module.exports = {
     country: 'BE',
     store: 'pharmasimple',
     domain: 'pharmasimple.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="primary_block row"]',
+    noResultsXPath: '//div[@class="pagenotfound"]',
     zipcode: '',
   },
 };
