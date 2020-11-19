@@ -5,8 +5,8 @@ recordXPath: //li[@data-product-id]
 fields:
   - name: productUrl
     xpath: //a[@class="product-image"]/@href
-    # regExp: (.+)
-    # regExpReplace: https://www.superama.com.mx/$1
+    # regExp: (.+)\W€\W
+    # regExpReplace: $1
     singleValue: false    
   - name: thumbnail
     xpath: //a[@class="product-image"]/img/@src
@@ -19,8 +19,10 @@ fields:
     singleValue: false
     description: The product name
   - name: price
-    xpath: //span[@class="unit-price"]
+    xpath: //span[@class="price"]
     singleValue: false
+    regExp: ^([\S]+)
+    regExpReplace: $1
     description: The offered price for the product
   - name: id
     xpath: //ol/li/@data-product-id
