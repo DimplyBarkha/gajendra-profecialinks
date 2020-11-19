@@ -21,23 +21,30 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   });
 
   await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
-  //video
+  
+  // video
   await context.evaluate(function () {
-    const value = document.querySelector('div.wc-video-gallery > iframe#wcframable1-0') ? document.querySelector('div.wc-video-gallery > iframe') : '';
-    if (value !== '') {
-      var doc = value.ownerDocument;
-      var video = doc.body.querySelector('video');
-      if (video) {
-        document.head.setAttribute('video', doc.body.querySelector('video').getAttribute('src'));
-      }
+    let iframe = document.querySelector('div.wc-video-gallery > iframe#wcframable1-0') ? document.querySelector('div.wc-video-gallery > iframe') : '';
+    if (iframe !== '') {
+      let videoSpan = document.evaluate(`//video//@src`, iframe.contentDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+      document.body.setAttribute('videospan', videoSpan.textContent);
     }
   });
 
   await context.evaluate(function () {
-    let iframe = document.querySelector('div.wc-video-gallery > iframe#wcframable1-0') ? document.querySelector('div.wc-video-gallery > iframe') : '';
+    let videoButton = document.querySelector("button.wc-ribbon-button");
+    if (videoButton) {
+      videoButton.click();
+    }
+  });
+
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+  await context.evaluate(function () {
+    let iframe = document.querySelector('div.wc-mb-overlay-content > iframe') ? document.querySelector('div.wc-mb-overlay-content > iframe') : '';
     if (iframe !== '') {
-    let videoSpan = document.evaluate(`//video//@src`, iframe.contentDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
-    document.body.setAttribute('videospan', videoSpan.textContent);
+      let videoSpan = document.evaluate(`//video//@src`, iframe.contentDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+      document.body.setAttribute('videospan', videoSpan.textContent);
     }
   });
 
