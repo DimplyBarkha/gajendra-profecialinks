@@ -36,11 +36,17 @@ async function implementation(
     await applyScroll(context);
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     const loadMoreButton = await context.evaluate(async function () {
-      const button = document.querySelector('button.search-listings-module_load-more_OwyvW');
+      let button = document.querySelector('button.search-listings-module_load-more_OwyvW');
+      const pCards = document.querySelectorAll('div.product-card');
+
+      if (pCards && pCards.length >= 150) {
+        button = null;
+      }
       console.log('nilesh', button);
       return button ? true : false;
     });
     console.log('loadMoreButton', loadMoreButton)
+
     if (loadMoreButton) {
       await context.click('button.search-listings-module_load-more_OwyvW');
       loadMore = true;
