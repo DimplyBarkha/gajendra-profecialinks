@@ -27,17 +27,19 @@ const transform = (data) => {
       for (let row of group) {    
           if(row.productUrl){
               row.productUrl.forEach(item=>{
-                  item.text="https://www.shoplet.com/"+item.text;
+                  item.text="https://www.shoplet.com"+item.text;
               })
           }
             if(row.aggregateRating){
                 let starNo=0;
                 row.aggregateRating.forEach(item=>{
+                    //console.log('item.text :',item.text);
                     let tmlArr=item.text.split(' ');
+                    //console.log('tmlArr :',tmlArr);
                     if(tmlArr.length==2){
                         if(tmlArr[1]=='icon-star'){
                             starNo++;
-                        }else if(tmlArr[1]=='icon-star'){
+                        }else if(tmlArr[1]=='icon-star-half'){
                             starNo=starNo+0.5;
                         }
                     }

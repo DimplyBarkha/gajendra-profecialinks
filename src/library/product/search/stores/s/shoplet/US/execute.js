@@ -24,8 +24,7 @@ async function implementation (
     waitUntil: 'load',
     checkBlocked: false,
     antiCaptchaOptions: {
-      provider: '2-captcha',
-       type: 'GEETEST',
+      type: 'RECAPTCHA',
     },
    });
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));

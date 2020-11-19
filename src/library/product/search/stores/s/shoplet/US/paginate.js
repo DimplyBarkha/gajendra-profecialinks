@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'shoplet',
     nextLinkSelector: null,
-    nextLinkXpath: null,
+    nextLinkXpath: '//ul[contains(@class,"pagination ")]/li[contains(@class,"next")]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.padTop30',
