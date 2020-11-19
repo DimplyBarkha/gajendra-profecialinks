@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class, "box-variants")]//label[@class="radio-button-item"]
 fields:
 - name: _input
   singleValue: false
@@ -14,45 +14,47 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //div[@id="product-carousel"]//div[position()=1]/div/img/@src
+  xpath: //ol[@id="alternate_images"]/li[position()=1]/@image
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: //div[@id="product-carousel"]//div[position()=1]/div/img/@alt
+  xpath: //ol[@id="alternate_images"]/li[position()=1]/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@id="product-carousel"]//div[position()>1]/div/img/@src
+  xpath: //ol[@id="alternate_images"]/li[position()>1]/@image
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
-  xpath: //meta[@name="keywords"]
+  xpath: ancestor::html//meta[@name="keywords"]
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //div[@class="breadcrumb"]//li[position()>1]//span
+  xpath: ancestor::html//div[@class="breadcrumb"]//li[position()>1]//span
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //div[@id="name_extended"]
+  xpath: //@name_extended
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: //div[@class="variant-list-price"]
+  xpath: //@list_price
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //@price
 - name: availabilityText
-  singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //@availability_text
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: ancestor::html//div[@class="product-resume" or @itemprop="description"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -60,6 +62,7 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //@brand
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -76,12 +79,15 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN)
 - name: sku
-  singleValue: true
   description: The store-specific product identifier
+  xpath: ancestor::html//div[contains(@class, "code-label")]
+  regExp: 'Cod: (\d+)'
+  regExpReplace: $1
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //input[@name="variantSku"]/@value
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
@@ -99,14 +105,15 @@ fields:
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
-  singleValue: true
   description: The number of ratings
+  xpath: ancestor::html//div[@class="summary-review"]//div[@class="stars"]/following-sibling::div[contains(@class, "label")]
+  regExp: ^\d+
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
-  singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: ancestor::html//div[@class="summary-review"]//div[@class="stars"]/preceding-sibling::div
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -119,9 +126,11 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: //@variant_count
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: ancestor::html//tr[th[text()="Cor"]]/td
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -131,12 +140,15 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+  xpath: ancestor::html//div[@class="product-content"]//img/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //ol[@id="videos"]/li/@video
 - name: name
   singleValue: true
   description: The product name
+  xpath: //@product_name
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -146,6 +158,7 @@ fields:
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
+  xpath: //@coupon_text
 - name: amazonChoice
   singleValue: true
   description: YES or Blank
@@ -153,8 +166,10 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
-  singleValue: true
   description: 
+  xpath: ancestor::html//div[@class="breadcrumb"]//li[contains(@class, "brand")]/a/@href
+  regExp: (.+)
+  regExpReplace: https://www.petlove.com.br$1
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -167,11 +182,11 @@ fields:
   description: Amazon best selling rank from product details (linked back) - needs
     to be collapsed
 - name: subscriptionPrice
-  singleValue: true
   description: Subscribe and save price
+  xpath: ancestor::html//div[contains(@class, "product-price-subscription")]/div[@class="product-price"]
 - name: subscribeAndSave
-  singleValue: true
   description: YES/NO
+  xpath: boolean(ancestor::html//div[contains(@class, "product-price-subscription")]/div[@class="product-price"])
 - name: heroQuickPromoHeadline
   singleValue: true
   description: See image - top section hero area
@@ -240,12 +255,16 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //tr[th[text()="Composição"]]/td
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
 - name: servingSizeUom
   singleValue: true
   description: Unit of measure of serving
+  xpath: ancestor::html//tr/th[contains(text(), "Enriquecimento por ")]
+  regExp: Enriquecimento por (.+)
+  regExpReplace: $1
 - name: numberOfServingsInPackage
   singleValue: true
   description: Suggested number of servings of the product.
@@ -253,6 +272,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
+  xpath: ancestor::html//
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -286,12 +306,16 @@ fields:
   singleValue: true
   description: Unit of Measure Data for Cholesterol content
 - name: sodiumPerServing
-  singleValue: true
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
+  xpath: ancestor::html//tr[th[contains(text(), "Níveis de garantia")]]//tr[td[contains(text(), "Sódio")]]/td[2]
+  regExp: ^(\d+)\.?(\d+) (\w+)\/Kg
+  regExpReplace: $1$2
 - name: sodiumPerServingUom
-  singleValue: true
   description: Unit of Measure Data for Sodium content
+  xpath: ancestor::html//tr[th[contains(text(), "Níveis de garantia")]]//tr[td[contains(text(), "Sódio")]]/td[2]
+  regExp: ^(\d+)\.?(\d+) (\w+)\/Kg
+  regExpReplace: $3
 - name: totalCarbPerServing
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
@@ -331,6 +355,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
+  xpath: ancestor::html//tr[th[contains(text(), "Enriquecimento por ")]]//tr[td[text()="Vitamina C"]]/td[2]
 - name: vitaminCPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin C
@@ -434,6 +459,7 @@ fields:
 - name: variants
   singleValue: false
   description: 
+  xpath: //div[contains(@class, "label-title")]
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
@@ -469,13 +495,14 @@ fields:
   singleValue: true
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  xpath: ancestor::html//tr[th[text()="Material"]]/td
 - name: Image360Present
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
 - name: imageZoomFeaturePresent
-  singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: false
+  xpath: boolean(ancestor::html//div[contains(@class, "product-gallery text-center")]//i[@id="product-zoom"])
