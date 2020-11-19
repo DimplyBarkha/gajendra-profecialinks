@@ -74,8 +74,7 @@ async function implementation (
       document.body.appendChild(div);
     }
 
-    function stall (ms)
-    {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -94,5 +93,5 @@ module.exports = {
     domain: 'allegro.pl',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
