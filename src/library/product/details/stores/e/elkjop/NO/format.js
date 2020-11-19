@@ -11,7 +11,7 @@ const transform = (data) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
+    .replace(/"\s{1,}/g, '" ')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     .replace(/\\"/gm, '"')
