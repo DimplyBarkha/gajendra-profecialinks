@@ -16,7 +16,6 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
       document.getElementById('certificatesTabLink').click();
-      document.getElementById('reviewsTabLink').click();
       await new Promise(r => setTimeout(r, 6000));
 
       function addElementToDocument(key, value) {
