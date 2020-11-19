@@ -27,10 +27,8 @@ fields:
     singleValue: true
     xpath: //h1[@class='hide-text']
   - name: sku
-    singleValue: true
-    xpath: //div[@id='articlenumberDiv']
-    regExp: Item no, (.*)
-    regExpReplace: $1
+    singleValue: false
+    xpath: //div[@id='articlenumberDiv']/text()
   - name: aggregateRating
     singleValue: true
     xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div/div[2]/div/a/text()
