@@ -1,6 +1,4 @@
 const { transform } = require('../../../../../search/shared');
-
-
 async function implementation (
   inputs,
   parameters,
@@ -10,7 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    function getElements() {
+    function getElements () {
       return document.querySelectorAll('section article[data-item=\'true\']');
     }
     const isListview = document.querySelector('div[data-analytics-interaction-value="regular"]');
@@ -28,21 +26,21 @@ async function implementation (
         try {
           elements[i].scrollIntoView();
           await stall(1500);
-          let imageUrl = getElements()[i].querySelector(
-            'a[rel=\'nofollow\'] img, ul li:nth-child(1) img'
+          const imageUrl = getElements()[i].querySelector(
+            'a[rel=\'nofollow\'] img, ul li:nth-child(1) img',
           );
           console.log(elements[i]);
-          let data = {
+          const data = {
             productUrl: elements[i].querySelector('h2>a').getAttribute('href'),
             thumbnail: imageUrl.getAttribute('src'),
             name: elements[i].querySelector('h2>a[href]').textContent,
             id: elements[i].getAttribute('data-analytics-view-value'),
             price: elements[i].querySelector('span._1svub').textContent,
             listPrice: elements[i].querySelector(
-              'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span'
+              'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span',
             )
               ? elements[i].querySelector(
-                'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span'
+                'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span',
               ).textContent
               : '',
             nameExtended: elements[i].querySelector('h2>a').textContent,
@@ -87,19 +85,6 @@ async function implementation (
   });
   return await context.extract(productDetails, { transform });
 }
-
-module.exports = {
-  implements: 'product/search/extract',
-  parameterValues: {
-    country: 'PL',
-    store: 'allegro',
-    transform,
-    domain: 'allegro.pl',
-    zipcode: '',
-  },
-  implementation
-};
-
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
