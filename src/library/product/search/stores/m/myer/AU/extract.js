@@ -45,8 +45,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   };
   await addSearchUrl(context);
   return await context.extract(productDetails, { transform });
-
-}
+};
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -56,5 +55,5 @@ module.exports = {
     domain: 'myer.com.au',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
