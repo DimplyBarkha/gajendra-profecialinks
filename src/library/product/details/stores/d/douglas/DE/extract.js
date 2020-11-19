@@ -51,16 +51,28 @@ module.exports = {
 
       const variantContainerLeftPan = document.querySelector('div.rd__product-details__picker__list');
       if (variantContainerLeftPan) {
+        let moreVariantsAvailable = document.querySelector('div.rd__product-details__picker__list__show-more');
+        if (moreVariantsAvailable) {
+          // @ts-ignore
+          moreVariantsAvailable.click();
+        }
         let initialVairantTobeClicked = null;
         const initialVariant = document.querySelector('div.rd__product-details__picker-dropdown__collapse-title  img');
 
         if (initialVariant !== null) {
           const initialVariantIdentifier = initialVariant.getAttribute('alt');
-          initialVairantTobeClicked = getEleByXpath(`//div[@data-wt-content="changeVariantColor"]//img[contains(@alt, "${initialVariantIdentifier}")]`);
+          initialVairantTobeClicked = getEleByXpath(`//div[@data-wt-content="changeVariantColor"]//img[@alt= "${initialVariantIdentifier}"]`);
+          if (initialVairantTobeClicked === null) {
+            initialVairantTobeClicked = getEleByXpath(`//div[@data-wt-content="changeVariantColor"]//img[contains(@alt, "${initialVariantIdentifier}")]`);
+          }
         }
 
         if (initialVairantTobeClicked === null) {
           initialVairantTobeClicked = document.querySelector('div.rd__blob--checked');
+        }
+
+        if (initialVairantTobeClicked === null) {
+          initialVairantTobeClicked = document.querySelector('div.rd__product-details__picker__list__item.rd__product-details__picker__list__item--selected');
         }
 
         const variants = variantContainerLeftPan.querySelectorAll('div.rd__product-details__picker__list__item');

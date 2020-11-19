@@ -79,7 +79,11 @@ const transform = (data) => {
         }
 
         if (row.descriptionliChunck) {
-          row.description = row.description.concat(row.descriptionliChunck);
+          let liChunk = row.descriptionliChunck;
+          for (let i = 0; i < liChunk.length; i++) {
+            liChunk[i].text = `|| ${liChunk[i].text}`;
+          }
+          row.description = row.description.concat(liChunk);
         }
       }
 

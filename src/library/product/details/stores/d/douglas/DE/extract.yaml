@@ -21,7 +21,7 @@ fields:
     singleValue: false
     xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
   - name: descriptionChunck
-    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/h2 | //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/text()
+    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/h2 | //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/div | //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/text()
   - name: descriptionliChunck
     xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/ul/li   
   - name: descriptionBullets
