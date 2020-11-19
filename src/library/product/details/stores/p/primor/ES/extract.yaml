@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class="breadcrumb clearfix"]//a[position()>1 and position()<=last()] | //div[@class="breadcrumb clearfix"]/text()
   - name: nameExtended
     singleValue: true
-    xpath: concat(//div[@class="titulos-ficha-mobile h-md-up"]/h4/a/text(),'- ',//div[@class="titulos-ficha-mobile h-md-up"]/h3/text())
+    xpath: concat(//div[@class="titulos-ficha-mobile h-md-up"]/h4/a/text(),'- ',//div[@class="titulos-ficha-mobile h-md-up"]/h3/text(),' - ',//li[@class="selected"]/span[@class="attribute-name"]/text())
   - name: listPrice
     singleValue: true
     xpath: //html//div[@id='desc2']
@@ -57,7 +57,7 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
-    xpath: //meta[@itemprop="mpn"]/@content
+    # xpath: //meta[@itemprop="mpn"]/@content
   - name: sku
     singleValue: true
     xpath: //meta[@itemprop="sku"]/@content

@@ -21,7 +21,7 @@ fields:
     regExp: (\d{8,17})
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="product-image-container"]//a//img//@src
+    xpath: //div[@class="product-image-container"]/a[@class="product-image product_img_link"]/img[@itemprop="image"]/@src
   - name: price
     singleValue: false
     xpath: //span[@class="price product-price pull-left "]//span[2]
