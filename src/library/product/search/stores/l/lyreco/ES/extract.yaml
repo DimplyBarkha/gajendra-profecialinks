@@ -22,10 +22,3 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //a[@class="fftracking-productclick"]/img/@data-srcset
-  - name: reviewCount
-    singleValue: true
-    xpath: //div[@class="ooB-rel item-rating-stars ooB-ib"]
-    # regExp: (\d+)
-  - name: price
-    singleValue: false
-    xpath: //div[@class="preis_nichtgelb_rechts"]/p | //div[@class="oo-pricelabel_price"]/p
