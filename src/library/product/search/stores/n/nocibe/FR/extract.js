@@ -1,6 +1,6 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -25,7 +25,7 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   await context.evaluate(async () => {
     // scroll
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -33,15 +33,6 @@ async function implementation(inputs, parameters, context, dependencies) {
       });
     }
 
-    // scrolling
-    // var rawNumber = document.querySelector(
-    //   'div.pagine__count span.pagine__total'
-    // )
-    //   ? document.querySelector('div.pagine__count span.pagine__total')
-    //       .textContent
-    //   : document.querySelector('div.pagine__count span.pagine__number')
-    //       .textContent;
-    // var match = parseInt(rawNumber);
     var match = document.querySelectorAll('div[class="product-item__content"]')
       .length;
 
@@ -78,18 +69,18 @@ async function implementation(inputs, parameters, context, dependencies) {
     var info = document.querySelectorAll('div[class="product-item__content"]');
     info.forEach((element) => {
       var obj = element.querySelector(
-        '.product-item__price .product-item__only-price'
+        '.product-item__price .product-item__only-price',
       )
         ? element.querySelector(
-            '.product-item__price .product-item__only-price'
-          ).textContent
+          '.product-item__price .product-item__only-price',
+        ).textContent
         : element.querySelector(
-            '.product-item__price .product-item__last-price'
-          )
-        ? element.querySelector(
-            '.product-item__price .product-item__last-price'
+          '.product-item__price .product-item__last-price',
+        )
+          ? element.querySelector(
+            '.product-item__price .product-item__last-price',
           ).childNodes[2].nodeValue
-        : '';
+          : '';
       element.setAttribute('price', obj);
     });
   });
