@@ -1,0 +1,20 @@
+robot: product/search
+parameters:
+  country: DE
+  domain: amazon.de
+  store: amazonMsReviews
+  zipcode: ""
+proxy:
+  zone: ZDE
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_de_reviews:
+      extractor: 188f9540-cf15-42da-bcf0-13645561d19f
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 28c6df4e-8ade-45a3-98f8-0d840bed6a89
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: cfcea12c-c4c1-4a74-906a-a0b387f60784
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146

@@ -4,6 +4,7 @@
  *  keywords: string,
  *  page: number,
  *  offset: number,
+ *  id: string,
  * }} inputs
  * @param {{
  *  nextLinkSelector: string,
@@ -98,7 +99,7 @@ async function implementation (
   }
 
   console.log('Going to url', url);
-  await dependencies.goto({ url });
+  await dependencies.goto({ url, inputs });
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());

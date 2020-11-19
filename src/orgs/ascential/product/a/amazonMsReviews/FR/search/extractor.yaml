@@ -1,0 +1,23 @@
+robot: product/search
+parameters:
+  country: FR
+  domain: amazon.fr
+  store: amazonMsReviews
+  zipcode: ""
+meta:
+  branches:
+    ms_ext_amazon_fr_reviews:
+      extractor: 1d77860a-87ff-48fa-b95d-b5032df4cd25
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: 79b7de0b-e63a-4e8a-85bb-f061c90aec01
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: fa480663-17c0-4149-b7ca-b254cb187a9b
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
+    mse-staging:
+      extractor: ab40e10a-b1b8-4231-9380-789c11da36d7
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    latest_goto_test:
+      extractor: 7f354a26-b1ed-42f7-af9e-e7d7c29ef32b
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

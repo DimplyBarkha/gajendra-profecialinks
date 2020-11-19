@@ -18,7 +18,7 @@ async function implementation (
     }
     url = await dependencies.createUrl({ id });
   }
-  await dependencies.goto({ url, zipcode, storeId });
+  await dependencies.goto({ url, zipcode, storeId, inputs });
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -26,7 +26,14 @@ async function implementation (
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
-  // TODO: Check for not found?
+  console.log('Checking no results', parameters.noResultsXPath);
+  return await context.evaluate(function (xp) {
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return !e;
+  }, parameters.noResultsXPath);
 }
 
 module.exports = {
@@ -75,6 +82,12 @@ module.exports = {
     {
       name: 'storeId',
       description: 'storeId for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'zipcode',
+      description: 'zipcode to set  location',
       type: 'string',
       optional: true,
     },

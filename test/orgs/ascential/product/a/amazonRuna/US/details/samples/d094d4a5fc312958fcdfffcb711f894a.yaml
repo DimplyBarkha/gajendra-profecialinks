@@ -1,0 +1,339 @@
+input:
+  id: B000LNT6BU
+  _url: https://amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=463b8a72-5e9b-4ea0-9465-0e076a07d7a5/task=da5268a3-f914-477d-87d2-2b580b09a721/8e1cc033-e549-4aa3-853a-2868d47ccb49.html
+    extractionConfigId: product/details/stores/a/amazonRuna/US/extract
+    data:
+      - group:
+          - metaKeywords:
+              - text: Air Wick Scented Oil Refill, Lavender & Chamomile, 0.67oz, Air
+                  Freshener,Air Wick,RAC78297
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Health & Household
+                xpath: /html/body/div[1]/div[2]/div[7]/div[1]/ul[1]/li[1]
+              - text: Household Supplies
+                xpath: /html/body/div[1]/div[2]/div[7]/div[1]/ul[1]/li[3]
+              - text: Air Fresheners
+                xpath: /html/body/div[1]/div[2]/div[7]/div[1]/ul[1]/li[5]
+              - text: Electric
+                xpath: /html/body/div[1]/div[2]/div[7]/div[1]/ul[1]/li[7]
+            price:
+              - text: $4.44
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+              - text: $4.44
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            availabilityText:
+              - text: In Stock.
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[1]/div[1]
+            description:
+              - text: Plug in air freshener brings continuous and long-lasting fragrance into
+                  your home
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[1]
+              - text: Ideal for your bedrooms, bathrooms, living rooms, hallways, kitchens and
+                  office spaces
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[2]
+              - text: Refills for use in all Air Wick scented oil plug in air freshener warmers
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[3]
+              - text: Lavender & Chamomile Scent
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[4]
+              - text: Part of the Air Wick Essential Oils Fragrance Collection
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[5]
+              - text: "Air Wick Scented Oils plug in air freshener refills are designed to add a
+                  consistent and long-lasting fresh fragrance to any bedroom,
+                  bathroom, hallways, kitchens, living rooms, dens or office
+                  spaces. This features a characterful fragrance of aromatic
+                  Lavender essence rounded off with gentle Chamomile and
+                  precious woods. This scented oil plug in air freshener refill
+                  is simple to use: just plug in the scented oil warmer into
+                  your wall outlet and insert this refill. When the oil runs
+                  out, you can choose to replace it with the same fragrance or a
+                  different one."
+                xpath: /html/body/div[1]/div[2]/div[8]/div[27]/div[2]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[1]/text()[1]
+            brandText:
+              - text: Air Wick
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[2]/div[1]/a[1]
+            weightGross:
+              - text: 0.3 ounces
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[2]/text()[1]
+            gtin:
+              - text: 062338782973 062338784731 062338773971 642125323741
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[6]/text()[1]
+            variantId:
+              - text: RAC78297
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[7]/text()[1]
+            mpc:
+              - text: RAC78297
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[7]/text()[1]
+            directions:
+              - text: Use instructions:1. Unplug warmer. Remove empty bottle by gently pulling
+                  down from unit. Unscrew cap from new bottle.2. Insert
+                  fragrance bottle into warmer by pushing bottle up into device
+                  until click can be heard.3. Plug warmer upright into outlet.
+                  Rotate plug if necessary. Unit will leak if plugged in
+                  sideways or upside down. When unplugged, keep unit upright.4.
+                  To adjust fragrance intensity, rotate dial on top of warmer
+                  unit. Largest dot = max, setting.
+                xpath: /html/body/div[1]/div[2]/div[8]/div[30]/div[1]/div[1]/div[3]/p[2]/text()[1]
+            shippingInfo:
+              - text: Ships from and sold by Amazon.com.
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]
+            manufacturerDescription:
+              - text: "Key Features Lavender A characterful fragrance of aromatic Lavender
+                  essence rounded off with gentle Chamomile and precious woods.
+                  Relax and renew with lavender fragrances from Air Wick. Long
+                  Lasting Fragrance *Enjoy long-lasting fragrance for up to 45
+                  days per refill based on low setting! How to Use 1) Remove
+                  top. 2) Insert refill. 3) Plug in. 4) Adjust and enjoy! Choose
+                  the Perfect Fragrance Air Wick offers a variety of fragrances,
+                  including: Floral, Lavender, Linen, Tropical, Fresh, Fruity,
+                  and Gourmand. Consider Using In... Bedroom, Living Room,
+                  Bathroom, Kitchen, Laundry, Office. Product of the Year!
+                  *Winner Air Care Category. Survey of 40,000 people by TNS. Our
+                  best control ever! The adjustability on AWSO can’t be beat,
+                  get the perfect level of fragrance for your home. Contains
+                  Natural Essential Oils Air Wick scented oil fragrances contain
+                  natural essential oils, sourced from around the world."
+            manufacturerImages:
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/43470268-4b42-4ead-aed0-e3ad2ef4b3d2._SR970,300_.jpg
+                xpath: /html/body/div[1]/div[2]/div[8]/div[24]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/1a7dd46a-eeec-40dd-832c-9181b355b729._SR300,300_.jpg
+                xpath: /html/body/div[1]/div[2]/div[8]/div[24]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/23dfd0bc-6187-4638-8144-d0bb1129e809._SL220__.jpg
+                xpath: /html/body/div[1]/div[2]/div[8]/div[24]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/f549c70d-2bad-411f-8311-c34829459729._SL220__.jpg
+                xpath: /html/body/div[1]/div[2]/div[8]/div[24]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/c24915e5-f45f-4426-9ac3-cf5bd6254b69._SL220__.jpg
+                xpath: /html/body/div[1]/div[2]/div[8]/div[24]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/22427833-f4f6-4540-8e68-bbdca7e04b75._SL220__.jpg
+                xpath: /html/body/div[1]/div[2]/div[8]/div[24]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/8406dfbe-da54-4bf0-a42c-05c65ff79a79._SL300__.jpg
+                xpath: /html/body/div[1]/div[2]/div[8]/div[24]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/e7476ce3-b6c2-4a75-8e9d-27a804d97a75._SL300__.jpg
+                xpath: /html/body/div[1]/div[2]/div[8]/div[24]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/div[1]/p[1]/img[1]/@data-src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/abf47fc4-37a8-497e-82e1-37c7174eab5b._SL300__.jpg
+                xpath: /html/body/div[1]/div[2]/div[8]/div[24]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/div[1]/p[1]/img[1]/@data-src
+            brandLink:
+              - text: https://www.amazon.com/stores/Air+Wick/page/55722A4A-3564-4F41-8512-43323D99B7CF?ref_=ast_bln
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[2]/div[1]/a[1]/@href
+            internationalShipping:
+              - text: This item can be shipped to select countries outside of the U.S.
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[4]/text()[1]
+            salesRank:
+              - text: 339,677
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[9]/text()[2]
+              - text: "577"
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[9]/ul[1]/li[1]/span[1]
+            salesRankCategory:
+              - text: "Health & Household "
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[9]/text()[2]
+              - text: Electric Air Fresheners
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[9]/ul[1]/li[1]/span[2]/a[1]
+            variantAsins:
+              - text: B000LNT6BU
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/ul[1]/li[1]/@data-defaultasin
+              - text: B0051QFR1A
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/ul[1]/li[2]/@data-defaultasin
+            featureBullets:
+              - text: Plug in air freshener brings continuous and long-lasting fragrance into
+                  your home
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[1]
+              - text: Ideal for your bedrooms, bathrooms, living rooms, hallways, kitchens and
+                  office spaces
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[2]
+              - text: Refills for use in all Air Wick scented oil plug in air freshener warmers
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[3]
+              - text: Lavender & Chamomile Scent
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[4]
+              - text: Part of the Air Wick Essential Oils Fragrance Collection
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[36]/div[1]/ul[1]/li[5]
+            otherSellersShipping2:
+              - text: + Free Shipping
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[11]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]/div[1]/div[1]/span[3]
+              - text: + Free Shipping
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[11]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/div[1]/div[1]/span[3]
+              - text: + Free Shipping
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[11]/div[2]/div[1]/div[1]/div[4]/div[1]/span[2]/div[1]/div[1]/span[3]
+            otherSellersPrime:
+              - text: + Free Shipping
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[11]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]/div[1]/div[1]/span[3]
+              - text: + Free Shipping
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[11]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/div[1]/div[1]/span[3]
+              - text: + Free Shipping
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[11]/div[2]/div[1]/div[1]/div[4]/div[1]/span[2]/div[1]/div[1]/span[3]
+            fastTrack:
+              - text: |-
+                  Fastest delivery: Tomorrow 
+                   Order within 18 hrs and 41 mins
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]
+            numberOfServingsInPackage:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/div[1]/span[1]
+            Image360Present:
+              - text: YES
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[3]/div[1]/script[1]
+            largeImageCount:
+              - text: >-
+                  P.when('A').register("ImageBlockATF", function(A){
+
+                  var data = {
+
+                  'colorImages': { 'initial': [{"hiRes":null,"thumb":"https://images-na.ssl-images-amazon.com/images/I/41J-NMUJp8L._AC_US40_.jpg","large":"https://images-na.ssl-images-amazon.com/images/I/41J-NMUJp8L._AC_.jpg","main":{"https://images-na.ssl-images-amazon.com/images/I/41J-NMUJp8L._AC_SY355_.jpg":[355,355],"https://images-na.ssl-images-amazon.com/images/I/41J-NMUJp8L._AC_SY450_.jpg":[450,450],"https://images-na.ssl-images-amazon.com/images/I/41J-NMUJp8L._AC_SX425_.jpg":[425,425],"https://images-na.ssl-images-amazon.com/images/I/41J-NMUJp8L._AC_SX466_.jpg":[466,466],"https://images-na.ssl-images-amazon.com/images/I/41J-NMUJp8L._AC_.jpg":[500,500]},"variant":"MAIN","lowRes":null}]},
+
+                  'colorToAsin': {'initial': {}},
+
+                  'holderRatio': 1.0,
+
+                  'holderMaxHeight': 700,
+
+                  'heroImage': {'initial': []},
+
+                  'heroVideo': {'initial': []},
+
+                  'spin360ColorData': {'initial': {}},
+
+                  'spin360ColorEnabled': {'initial': 0},
+
+                  'spin360ConfigEnabled': false,
+
+                  'spin360LazyLoadEnabled': false,
+
+                  'showroomEnabled': false,
+
+                  'showroomViewModel': {'initial': {}},
+
+                  'playVideoInImmersiveView':true,
+
+                  'useTabbedImmersiveView':true,
+
+                  'totalVideoCount':'0',
+
+                  'videoIngressATFSlateThumbURL':'',
+
+                  'mediaTypeCount':'0',
+
+                  'atfEnhancedHoverOverlay' : true,
+
+                  'winningAsin': 'B000LNT6BU',
+
+                  'weblabs' : {},
+
+                  'aibExp3Layout' : 2,
+
+                  'aibRuleName' : 'frank-powered',
+
+                  'acEnabled' : true,
+
+                  'dp60VideoPosition': 0,
+
+                  'dp60VariantList': '',
+
+                  'dp60VideoThumb': '',
+
+                  'dp60MainImage': 'https://images-na.ssl-images-amazon.com/images/I/41J-NMUJp8L._AC_SY355_.jpg',
+
+                  'airyConfig' :A.$.parseJSON('{"jsUrl":"https://images-na.ssl-images-amazon.com/images/G/01/vap/video/airy2/prod/2.0.1460.0/js/airy.skin._CB485981857_.js","cssUrl":"https://images-na.ssl-images-amazon.com/images/G/01/vap/video/airy2/prod/2.0.1460.0/css/beacon._CB485971591_.css","swfUrl":"https://images-na.ssl-images-amazon.com/images/G/01/vap/video/airy2/prod/2.0.1460.0/flash/AiryBasicRenderer._CB485925577_.swf","foresterMetadataParams":{"marketplaceId":"ATVPDKIKX0DER","method":"HealthAndBeauty.ImageBlock","requestId":"D0TDS38FGBTXCAHBYBCG","session":"134-2291956-7696358","client":"Dpx"}}')
+
+                  };
+
+                  A.trigger('P.AboveTheFold'); // trigger ATF event.
+
+                  return data;
+
+                  });
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[3]/div[1]/script[1]/text()[1]
+            name:
+              - text: Air Wick Scented Oil Refill, Lavender & Chamomile, 0.67oz, Air Freshener
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[1]/div[1]/h1[1]/span[1]
+            nameExtended:
+              - text: Air Wick Scented Oil Refill, Lavender & Chamomile, 0.67oz, Air Freshener
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[1]/div[1]/h1[1]
+            lbb:
+              - text: YES
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            lbbPrice:
+              - text: $4.44
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            image:
+              - text: data:image/webp;base64,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
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Air Wick Scented Oil Refill, Lavender &amp; Chamomile, 0.67oz, Air
+                  Freshener
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "5"
+            legalDisclaimer:
+              - text: Statements regarding dietary supplements have not been evaluated by the
+                  FDA and are not intended to diagnose, treat, cure, or prevent
+                  any disease or health condition.
+                xpath: /html/body/div[1]/div[2]/div[8]/div[30]/div[1]/div[1]/div[4]/p[2]/text()[1]
+            warnings:
+              - text: 'Caution: eye and skin irritant.Keep out of reach of children. Read
+                  precautions on back.Important. Risk of electrical shock. This
+                  product is not a toy. Intended for adult use only. Use warmer
+                  only in properly functioning 120 volt electrical outlet. Do
+                  not use with extension cords. Do not place fragrance oil both
+                  or cap on finished wood surf aces or place any object within
+                  12" (30 cm) above warmer. Do not plug anything in above it. Do
+                  not disassemble or modify unit in any way. Only for use with
+                  Air Wick air freshener warmers.Keep out of reach of children.
+                  Caution: eye and skin irritant. Prolonged or frequent skin
+                  contact may cause an allergic, reaction. Avoid contact wt
+                  eyes, skin and clothing. Do not ingest.First aid treatment: if
+                  in eyes, rinse eyes with water. Remove any contact lenses and
+                  continue to rinse eyes for at least 15 minutes. If on skin,
+                  wash area with soap and water. If irritation persists, get
+                  medical attention. Discontinue use immediately and get medical
+                  attention if a reaction develops. If swallowed, do not induce
+                  vomiting. Call a physician or Poison Control Center
+                  immediately. Contains fragrance oils. Wash hands after
+                  handling.'
+                xpath: /html/body/div[1]/div[2]/div[8]/div[30]/div[1]/div[1]/div[1]/p[2]/text()[1]
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[3]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "3.9"
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[3]/div[1]/span[1]/span[1]/@title
+            shippingDimensions:
+              - text: 5.9 x 1.6 x 2.9 inches
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[1]/text()[1]
+            shippingWeight:
+              - text: "0.3 ounces "
+                xpath: /html/body/div[1]/div[2]/div[8]/div[28]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[2]/text()[1]
+            variantCount:
+              - text: "2"
+            pasin:
+              - text: B00FCX8MXW
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/ul[1]/li[2]/@data-dp-url
+            primeFlag:
+              - text: Yes - Shipped and Sold
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[1]/div[5]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/a[1]
+            secondaryImageTotal:
+              - text: "0"
+            ingredientsList:
+              - text: Please visit our North American Product Information website to view a full
+                  ingredient list for this product.
+                xpath: /html/body/div[1]/div[2]/div[8]/div[30]/div[1]/div[1]/div[2]/p[2]
+            additionalDescBulletInfo:
+              - text: "5"
+            firstVariant:
+              - text: B00FCX8MXW
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/ul[1]/li[2]/@data-dp-url
+            variantInformation:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[8]/div[5]/div[4]/div[28]/div[1]/form[1]/div[1]/div[1]/span[1]
+            amazonChoice:
+              - text: No
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+            imageZoomFeaturePresent:
+              - text: NO
+        xpath: /html
+    timestamp: 1593422312828
