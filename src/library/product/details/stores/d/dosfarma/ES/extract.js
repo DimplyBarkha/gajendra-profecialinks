@@ -1,10 +1,11 @@
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'ES',
     store: 'dosfarma',
-    transform: null,
+    transform,
     domain: 'dosfarma.com',
     zipcode: '',
   },
