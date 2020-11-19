@@ -127,7 +127,7 @@ const transform = (data, context) => {
       //   });
       // }
       if (row.manufacturerDescription && row.manufacturerDescription[0]) {
-        const regexIgnoreText = /(Read more|Mehr lesen|Leer mas)/g;
+        const regexIgnoreText = /(Read more|Mehr lesen|Leer mas|Ver más)/g;
         const text = row.manufacturerDescription[0].text.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(regexIgnoreText, '').trim();
         row.manufacturerDescription = [{ text }];
       }

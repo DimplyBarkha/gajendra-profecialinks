@@ -3,12 +3,12 @@ fields:
   - name: backupBrand
     singleValue: false
     xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt | //a[@id="brand"]
-    regExp: '(Marca:\s+(.+)$|Visit la Store de (.+)|^(.+)$)'
+    regExp: '(Marca:\s+(.+)$|Visit\w* la Store de (.+)|^(.+)$)'
     regExpReplace: $2$3$4
   - name: brandText
     singleValue: false
     xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt | //a[@id="brand"]
-    regExp: '(Marca:\s+(.+)$|Visit la Store de (.+)|^(.+)$)'
+    regExp: '(Marca:\s+(.+)$|Visit\w* la Store de (.+)|^(.+)$)'
     regExpReplace: $2$3$4
   - name: manufacturer
     singleValue: false
@@ -55,8 +55,8 @@ fields:
   - name: packSize
     singleValue: false
     xpath: //h1[@id='title'] | (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Peso')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Peso')]/* | //label[contains(text(), 'Peso')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Número de unidades en el paquete')]/../td | //td[contains(text(),'Cantidad')]/following-sibling::*[1]
-    regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
-    regExpReplace: $3
+    regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?|(\d+)\s[Uu]nidad|(Duplo)
+    regExpReplace: $3$4$5
     # Issue with extends not able to use same name(packsizeFallback)  
   - name: packSizeFallback2
     xpath: //span[contains(@class,"selection")][contains(.,"Unidad") or contains(.,"unidad")]
@@ -66,10 +66,10 @@ fields:
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'direcciÃ³n')]/../p[text()]/text() | //*[contains(text(), "direcciÃ³n")]/following-sibling::*[text()]/text() | //*[contains(text(), "dirección")]/following-sibling::*[text()]/text()
   - name: ingredientsList
-    xpath: //div[@id="productDescription"]/p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Ingredientes")]]
+    xpath: //div[@id="productDescription"]/p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Ingredientes")]] | //div[not(ancestor::html//div[@id="productDescription"]/p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Ingredientes")]])][@data-feature-name="productOverview"]//td[contains(.,"Ingredientes")]/following-sibling::*[1]/span[1]
   - name: productForm
     xpath: //*[normalize-space(.)='Forma del producto']/following-sibling::*[1]
-  - name: productDose
+  - name: productDosage
     xpath: //span[@id="productTitle"]
     regExp: ([^\s]+)\s*(?=dosis)
     regExpReplace: $1
