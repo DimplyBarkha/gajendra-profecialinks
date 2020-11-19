@@ -2,7 +2,7 @@ input:
   keywords: idole
   _url: http://myer.com.au
 extractions:
-  - html: https://workbench.import.io/html/run=f0e8dbf4-96bd-4530-8768-f1d6ac402124/task=9dd635f4-3306-489e-974c-cb73794cb1ad/f39c6fc1-10a3-4cbe-b8fb-be85f9ce3de3.html
+  - html: https://workbench.import.io/html/run=58f22db5-d2c4-4954-ab5b-c07dfea0dc7e/task=d10e8d75-9344-4a56-82de-4b945c2abe4d/9ecf5997-9c0f-4485-a51b-720d1fb0438b.html
     extractionConfigId: product/search/stores/m/myer/AU/extract
     data:
       - group:
@@ -27,143 +27,227 @@ extractions:
             manufacturer:
               - text: Lancôme
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[2]/text()[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_AU
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[2]/text()[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_AU
+                value: 1
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
-              - text: "435952090"
+              - text: "143285860"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/@searchurl
             name:
-              - text: Teint Idole Ultra Cushion
+              - text: Idole EDP 100ml
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
-              - text: https://www.myer.com.au/p/lancome-teint-idole-ultra-cushion
+              - text: https://www.myer.com.au/p/lubin-idole-edp-143285860-143286220
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/11/21/435952090/435952090_Colour_435956320_1_360x464.jpg
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/151/1449/100/1/143285860/143285860_1_360x464.jpg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
-              - text: $65.00 to $95.00
+              - text: $299.00
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[1]/p[1]/span[2]
             manufacturer:
-              - text: Lancôme
+              - text: Lubin
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[2]/text()[1]
+                type: NUMBER
+                raw: "2"
+                locale: en_AU
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[2]/text()[1]
+                type: NUMBER
+                raw: "2"
+                locale: en_AU
+                value: 2
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
-              - text: "787711960"
+              - text: "435952090"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/@searchurl
             name:
-              - text: Idole Parfum 50ml Set
+              - text: Teint Idole Ultra Cushion
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
-              - text: https://www.myer.com.au/p/lanc-244me-idole-parfum-50ml-set
+              - text: https://www.myer.com.au/p/lancome-teint-idole-ultra-cushion
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/div[1]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/720/18/787711960/787711960_1_360x464.jpg
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/11/21/435952090/435952090_Colour_435956320_1_360x464.jpg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
-              - text: $138.00
+              - text: $65.00 to $95.00
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/div[1]/div[1]/p[1]/span[2]
             manufacturer:
               - text: Lancôme
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/div[1]/h3[1]/a[1]/div[2]/span[1]
-            aggregateRating2:
-              - text: "0"
-                type: STRING
-          - id:
-              - text: "787712590"
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/@id
-            searchUrl:
-              - text: https://www.myer.com.au/search?query=idole
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/@searchurl
-            name:
-              - text: Idole Parfum 75ml Set
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/h3[1]/a[1]/div[2]/span[2]
-            productUrl:
-              - text: https://www.myer.com.au/p/lanc-244me-idole-parfum-75ml-set
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/h3[1]/a[1]/@href
-            thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/720/18/787712590/787712590_1_360x464.jpg
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
-            price:
-              - text: $158.00
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/div[1]/p[1]/span[2]
-            manufacturer:
-              - text: Lancôme
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/div[2]/text()[1]
+                type: NUMBER
+                raw: "3"
+                locale: en_AU
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/div[2]/text()[1]
+                type: NUMBER
+                raw: "3"
+                locale: en_AU
+                value: 3
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
               - text: "394903000"
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/@id
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/@searchurl
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/@searchurl
             name:
               - text: Teint Idole Ultra 24H Compact
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/h3[1]/a[1]/div[2]/span[2]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
               - text: https://www.myer.com.au/p/teint-idole-ultra-24h-compact-394903000-394904800
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/h3[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/h3[1]/a[1]/@href
             thumbnail:
               - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/12/17/394903000/394903000_Colour_394904710_1_360x464.jpg
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
               - text: $75.00
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/div[1]/p[1]/span[2]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/div[1]/p[1]/span[2]
             manufacturer:
               - text: Lancôme
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/h3[1]/a[1]/div[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[2]/text()[1]
+                type: NUMBER
+                raw: "4"
+                locale: en_AU
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[2]/text()[1]
+                type: NUMBER
+                raw: "4"
+                locale: en_AU
+                value: 4
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
               - text: "555283540"
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/@id
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/@searchurl
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/@searchurl
             name:
               - text: Teint Idole Ultra Wear Stick
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/h3[1]/a[1]/div[2]/span[2]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
               - text: https://www.myer.com.au/p/lanc--212;me-lanc--212;me-teint-idole-ultra-wear-stick-010-beige-porcelaine
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/h3[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/h3[1]/a[1]/@href
             thumbnail:
               - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/11/21/555283540/555283540_Colour_555272200_1_360x464.jpg
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
               - text: $56.00
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[1]/p[1]/span[2]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/div[1]/p[1]/span[2]
             manufacturer:
               - text: Lancôme
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/h3[1]/a[1]/div[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[2]/text()[1]
+                type: NUMBER
+                raw: "5"
+                locale: en_AU
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[2]/text()[1]
+                type: NUMBER
+                raw: "5"
+                locale: en_AU
+                value: 5
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
               - text: "798217930"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/@id
+            searchUrl:
+              - text: https://www.myer.com.au/search?query=idole
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/@searchurl
+            name:
+              - text: Starlight UW Idol Moulded Bra
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/h3[1]/a[1]/div[2]/span[2]
+            productUrl:
+              - text: https://www.myer.com.au/p/freya-starlight-uw-idol-moulded-bra
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/25/250/2947/30/1/798217930/798217930_1_360x464.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $79.95
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[1]/p[1]/span[2]
+            manufacturer:
+              - text: Freya
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[2]/text()[1]
+                type: NUMBER
+                raw: "6"
+                locale: en_AU
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[2]/text()[1]
+                type: NUMBER
+                raw: "6"
+                locale: en_AU
+                value: 6
+            aggregateRating2:
+              - text: "0"
+                type: STRING
+          - id:
+              - text: 798217930_801952660
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[7]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[7]/@searchurl
             name:
-              - text: Starlight UW Idol Moulded Bra
+              - text: Starlight Underwire Idol Moulded Bra
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[7]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
-              - text: https://www.myer.com.au/p/freya-starlight-uw-idol-moulded-bra
+              - text: https://www.myer.com.au/p/freya-starlight-underwire-idol-moulded-bra
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[7]/div[1]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/25/250/2947/30/1/798217930/798217930_1_360x464.jpg
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/25/250/2947/30/1/798217930_801952660/798217930_801952660_1_360x464.jpg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[7]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
               - text: $79.95
@@ -171,95 +255,151 @@ extractions:
             manufacturer:
               - text: Freya
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[7]/div[1]/h3[1]/a[1]/div[2]/span[1]
-            aggregateRating2:
-              - text: "0"
-                type: STRING
-          - id:
-              - text: 798217930_801952660
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/@id
-            searchUrl:
-              - text: https://www.myer.com.au/search?query=idole
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/@searchurl
-            name:
-              - text: Starlight Underwire Idol Moulded Bra
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/h3[1]/a[1]/div[2]/span[2]
-            productUrl:
-              - text: https://www.myer.com.au/p/freya-starlight-underwire-idol-moulded-bra
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/h3[1]/a[1]/@href
-            thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/25/250/2947/30/1/798217930_801952660/798217930_801952660_1_360x464.jpg
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
-            price:
-              - text: $79.95
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/div[1]/p[1]/span[2]
-            manufacturer:
-              - text: Freya
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[7]/div[2]/text()[1]
+                type: NUMBER
+                raw: "7"
+                locale: en_AU
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[7]/div[2]/text()[1]
+                type: NUMBER
+                raw: "7"
+                locale: en_AU
+                value: 7
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
               - text: 277565860_277562890
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/@id
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/@searchurl
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/@searchurl
             name:
               - text: Idol Moulded Balconnet Bra AA1050
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/h3[1]/a[1]/div[2]/span[2]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
               - text: https://www.myer.com.au/p/idol-moulded-balconnet-bra-aa1050-277565860-277562890
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/h3[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/h3[1]/a[1]/@href
             thumbnail:
               - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/25/250/2947/30/1/277565860_277562890/277565860_277562890_1_360x464.jpg
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
               - text: $74.95
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/div[1]/p[1]/span[2]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/div[1]/p[1]/span[2]
             manufacturer:
               - text: Freya
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/h3[1]/a[1]/div[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[2]/text()[1]
+                type: NUMBER
+                raw: "8"
+                locale: en_AU
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[2]/text()[1]
+                type: NUMBER
+                raw: "8"
+                locale: en_AU
+                value: 8
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
               - text: "507073060"
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/@id
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/@searchurl
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/@searchurl
             name:
               - text: Teint Idole Ultra Wear Foundation
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[1]/h3[1]/a[1]/div[2]/span[2]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
               - text: https://www.myer.com.au/p/teint-idole-ultra-24h-foundation-30ml-983941312
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[1]/h3[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/h3[1]/a[1]/@href
             thumbnail:
               - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/12/17/507073060/507073060_Colour_507076660_1_1_360x464.jpg
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
               - text: $64.00
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[1]/div[1]/p[1]/span[2]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/div[1]/p[1]/span[2]
             manufacturer:
               - text: Lancôme
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[1]/h3[1]/a[1]/div[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[2]/text()[1]
+                type: NUMBER
+                raw: "9"
+                locale: en_AU
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[2]/text()[1]
+                type: NUMBER
+                raw: "9"
+                locale: en_AU
+                value: 9
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
               - text: "722535490"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/@id
+            searchUrl:
+              - text: https://www.myer.com.au/search?query=idole
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/@searchurl
+            name:
+              - text: Idol Black Suede Heeled Shoe
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[1]/h3[1]/a[1]/div[2]/span[2]
+            productUrl:
+              - text: https://www.myer.com.au/p/sandler-idol-black-suede-heled-shoe
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/20/202/1133/91/3/722535490/722535490_2_360x464.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $149.95
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[1]/div[1]/p[1]/span[2]
+            manufacturer:
+              - text: Sandler
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[2]/text()[1]
+                type: NUMBER
+                raw: "10"
+                locale: en_AU
+                value: 10
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[10]/div[2]/text()[1]
+                type: NUMBER
+                raw: "10"
+                locale: en_AU
+                value: 10
+            aggregateRating2:
+              - text: "0"
+                type: STRING
+          - id:
+              - text: "722535400"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[11]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[11]/@searchurl
             name:
-              - text: Idol Black Suede Heeled Shoe
+              - text: Idol Black Patent Heeled Shoe
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[11]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
-              - text: https://www.myer.com.au/p/sandler-idol-black-suede-heled-shoe
+              - text: https://www.myer.com.au/p/sandler-idol-black-patent-heled-shoe
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[11]/div[1]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/20/202/1133/91/3/722535490/722535490_2_360x464.jpg
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/20/202/1133/91/3/722535400/722535400_1_360x464.jpg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[11]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
               - text: $149.95
@@ -267,23 +407,37 @@ extractions:
             manufacturer:
               - text: Sandler
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[11]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "11"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[11]/div[2]/text()[1]
+                type: NUMBER
+                raw: "11"
+                locale: en_AU
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[11]/div[2]/text()[1]
+                type: NUMBER
+                raw: "11"
+                locale: en_AU
+                value: 11
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
-              - text: "722535400"
+              - text: "722535580"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[12]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[12]/@searchurl
             name:
-              - text: Idol Black Patent Heeled Shoe
+              - text: Idol Nude Glove Heeled Shoe
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[12]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
-              - text: https://www.myer.com.au/p/sandler-idol-black-patent-heled-shoe
+              - text: https://www.myer.com.au/p/sandler-idol-nude-glove-heled-shoe
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[12]/div[1]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/20/202/1133/91/3/722535400/722535400_1_360x464.jpg
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/20/202/1133/91/3/722535580/722535580_1_360x464.jpg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[12]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
               - text: $149.95
@@ -291,128 +445,250 @@ extractions:
             manufacturer:
               - text: Sandler
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[12]/div[1]/h3[1]/a[1]/div[2]/span[1]
-            aggregateRating2:
-              - text: "0"
-                type: STRING
-          - id:
-              - text: "722535580"
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/@id
-            searchUrl:
-              - text: https://www.myer.com.au/search?query=idole
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/@searchurl
-            name:
-              - text: Idol Nude Glove Heeled Shoe
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[1]/h3[1]/a[1]/div[2]/span[2]
-            productUrl:
-              - text: https://www.myer.com.au/p/sandler-idol-nude-glove-heled-shoe
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[1]/h3[1]/a[1]/@href
-            thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/20/202/1133/91/3/722535580/722535580_1_360x464.jpg
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
-            price:
-              - text: $149.95
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[1]/div[1]/p[1]/span[2]
-            manufacturer:
-              - text: Sandler
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "12"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[12]/div[2]/text()[1]
+                type: NUMBER
+                raw: "12"
+                locale: en_AU
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[12]/div[2]/text()[1]
+                type: NUMBER
+                raw: "12"
+                locale: en_AU
+                value: 12
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
               - text: "555282730"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/@id
+            searchUrl:
+              - text: https://www.myer.com.au/search?query=idole
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/@searchurl
+            name:
+              - text: Teint Idole Ultra Wear Camoflauge Concealer
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[1]/h3[1]/a[1]/div[2]/span[2]
+            productUrl:
+              - text: https://www.myer.com.au/p/lancome-teint-idole-ultra-wear-camoflauge-concealer
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/11/21/555282730/555282730_Colour_555271480_1_360x464.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $43.40 to $62.00
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[1]/div[1]/p[1]/span[2]
+            manufacturer:
+              - text: Lancôme
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "13"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[2]/text()[1]
+                type: NUMBER
+                raw: "13"
+                locale: en_AU
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[13]/div[2]/text()[1]
+                type: NUMBER
+                raw: "13"
+                locale: en_AU
+                value: 13
+            aggregateRating2:
+              - text: "0"
+                type: STRING
+          - id:
+              - text: "787711960"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[14]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[14]/@searchurl
             name:
-              - text: Teint Idole Ultra Wear Camoflauge Concealer
+              - text: Idole Parfum 50ml Set (valued at $164)
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[14]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
-              - text: https://www.myer.com.au/p/lancome-teint-idole-ultra-wear-camoflauge-concealer
+              - text: https://www.myer.com.au/p/lanc-244me-idole-parfum-50ml-set
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[14]/div[1]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/11/21/555282730/555282730_Colour_555271480_1_360x464.jpg
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/720/18/787711960/787711960_1_360x464.jpg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[14]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
-              - text: $43.40 to $62.00
+              - text: $138.00
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[14]/div[1]/div[1]/p[1]/span[2]
             manufacturer:
               - text: Lancôme
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[14]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "14"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[14]/div[2]/text()[1]
+                type: NUMBER
+                raw: "14"
+                locale: en_AU
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[14]/div[2]/text()[1]
+                type: NUMBER
+                raw: "14"
+                locale: en_AU
+                value: 14
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
-              - text: 277565860_277561000
+              - text: "787712590"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[15]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[15]/@searchurl
             name:
-              - text: Idol Underwire Moulded Balcony Bra AA1050
+              - text: Idole Parfum 75ml Set (valued at $204.50)
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[15]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
-              - text: https://www.myer.com.au/p/idol-moulded-balconnet-bra-aa1050-277565860-277561000
+              - text: https://www.myer.com.au/p/lanc-244me-idole-parfum-75ml-set
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[15]/div[1]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/25/277565860_277561000/277565860_277561000_1_360x464.jpg
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1452/720/18/787712590/787712590_1_360x464.jpg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[15]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
-              - text: $74.95
+              - text: $158.00
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[15]/div[1]/div[1]/p[1]/span[2]
             manufacturer:
-              - text: Freya
+              - text: Lancôme
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[15]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "15"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[15]/div[2]/text()[1]
+                type: NUMBER
+                raw: "15"
+                locale: en_AU
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[15]/div[2]/text()[1]
+                type: NUMBER
+                raw: "15"
+                locale: en_AU
+                value: 15
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
-              - text: "722535220"
+              - text: 277565860_277561000
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[16]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[16]/@searchurl
             name:
-              - text: Sandler Idol Black Glove Heeled Shoe
+              - text: Idol Underwire Moulded Balcony Bra AA1050
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[16]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
-              - text: https://www.myer.com.au/p/sandler-sandler-idol-black-glove-heled-shoe
+              - text: https://www.myer.com.au/p/idol-moulded-balconnet-bra-aa1050-277565860-277561000
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[16]/div[1]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/20/202/1133/91/3/722535220/722535220_1_360x464.jpg
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/25/277565860_277561000/277565860_277561000_1_360x464.jpg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[16]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
-              - text: $149.95
+              - text: $74.95
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[16]/div[1]/div[1]/p[1]/span[2]
             manufacturer:
-              - text: Sandler
+              - text: Freya
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[16]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "16"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[16]/div[2]/text()[1]
+                type: NUMBER
+                raw: "16"
+                locale: en_AU
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[16]/div[2]/text()[1]
+                type: NUMBER
+                raw: "16"
+                locale: en_AU
+                value: 16
             aggregateRating2:
               - text: "0"
                 type: STRING
           - id:
-              - text: "708131530"
+              - text: "722535220"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[17]/@id
             searchUrl:
               - text: https://www.myer.com.au/search?query=idole
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[17]/@searchurl
             name:
-              - text: Pure Color Envy Kissable Lip Shine
+              - text: Sandler Idol Black Glove Heeled Shoe
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[17]/div[1]/h3[1]/a[1]/div[2]/span[2]
             productUrl:
-              - text: https://www.myer.com.au/p/este-lauder-pure-color-envy-kissable-lip-shine
+              - text: https://www.myer.com.au/p/sandler-sandler-idol-black-glove-heled-shoe
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[17]/div[1]/h3[1]/a[1]/@href
             thumbnail:
-              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1456/11/22/708131530/708131530_Colour_708117310_1_360x464.jpg
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/20/202/1133/91/3/722535220/722535220_1_360x464.jpg
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[17]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
             price:
-              - text: $47.00
+              - text: $149.95
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[17]/div[1]/div[1]/p[1]/span[2]
             manufacturer:
-              - text: Estée Lauder
+              - text: Sandler
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[17]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "17"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[17]/div[2]/text()[1]
+                type: NUMBER
+                raw: "17"
+                locale: en_AU
+                value: 17
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[17]/div[2]/text()[1]
+                type: NUMBER
+                raw: "17"
+                locale: en_AU
+                value: 17
+            aggregateRating2:
+              - text: "0"
+                type: STRING
+          - id:
+              - text: "708131530"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[18]/@id
+            searchUrl:
+              - text: https://www.myer.com.au/search?query=idole
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[18]/@searchurl
+            name:
+              - text: Pure Color Envy Kissable Lip Shine
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[18]/div[1]/h3[1]/a[1]/div[2]/span[2]
+            productUrl:
+              - text: https://www.myer.com.au/p/este-lauder-pure-color-envy-kissable-lip-shine
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[18]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/15/150/1456/11/22/708131530/708131530_Colour_708117310_1_360x464.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[18]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $47.00
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[18]/div[1]/div[1]/p[1]/span[2]
+            manufacturer:
+              - text: Estée Lauder
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[18]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "18"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[18]/div[2]/text()[1]
+                type: NUMBER
+                raw: "18"
+                locale: en_AU
+                value: 18
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[18]/div[2]/text()[1]
+                type: NUMBER
+                raw: "18"
+                locale: en_AU
+                value: 18
             aggregateRating2:
               - text: "0"
                 type: STRING
         xpath: /html
-    timestamp: 1605527074966
+    timestamp: 1605785638721
