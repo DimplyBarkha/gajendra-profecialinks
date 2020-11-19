@@ -65,10 +65,6 @@ fields:
     regExpReplace: $2
   - name: manufacturer
     singleValue: false
-    description: Product manufacturer
-    xpath: //*[contains(@ng-controller,"richDataController")]
-    regExp: brand([:"\s]+)([\w\d\s-\W]+)(")
-    regExpReplace: $2
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
@@ -439,9 +435,15 @@ fields:
   - name: pricePerUnit
     singleValue: false
     description: Price of the product split into certain units
+    xpath: //div[contains(@class,"product-detail-content")]//div[contains(@class,"priceInner")]//div[contains(@ng-show,"Unit")]
+    regExp: ([\d]+):([\d]*)
+    regExpReplace: $1.$2
   - name: pricePerUnitUom
     singleValue: false
     description: The unit of measurement used in price_per_unit
+    xpath: //div[contains(@class,"product-detail-content")]//div[contains(@class,"priceInner")]//div[contains(@ng-show,"Unit")]
+    regExp: \/(.+)
+    regExpReplace: $1
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,"productMainImageHolder")]//div[contains(@class,"flyer_container")]
@@ -522,7 +524,10 @@ fields:
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: false
+    singleValue: true
+    xpath: //div[@class='flexslider']//text()
+    regExp: (.+)
+    regExpReplace: 'Yes'
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
