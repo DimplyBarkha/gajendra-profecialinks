@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: false
+    singleValue: true
     xpath: //div[@class="js_prd_swiper-slide prd_swiper-slide js_prd_zoomWrapper swiper-slide-visible swiper-slide-active"]/a/img/@src
   - name: nameExtended
     singleValue: true
@@ -16,10 +16,10 @@ fields:
     singleValue: true
     xpath: count(//div[@class='prd_module prd_module--noLine prd_sellingPoints js_prd_sellingPoints']/ul/li)
   - name: description
-    singleValue: false
+    singleValue: true
     xpath: concat(//div[@class="prd_module prd_module--noLine prd_sellingPoints js_prd_sellingPoints"],//div[@class="prd_moreBox js_prd_moreBox"]//div[@class="prd_moreBox__content js_prd_moreBox__content"])
   - name: gtin
-    singleValue: false
+    singleValue: true
     xpath: //meta[@itemprop='gtin13']/@content
   - name: sku
     singleValue: true
@@ -28,5 +28,5 @@ fields:
     singleValue: true
     xpath: //div[@class='exactag js_exactag']/@data-variationid
   - name: mpc
-    singleValue:  true
+    singleValue: true
     xpath: //div[@class='exactag js_exactag']/@data-productid
