@@ -15,7 +15,7 @@ fields:
 - name: _pageTimeStamp
   singleValue: false
 - name: image
-  xpath: //img[@class="bop-gallery__image"]//@src
+  xpath: //img[@role="presentation"]/@src
   regExp: (.+)
   regExpReplace: http://groceries.morrisons.com$1
   singleValue: true
@@ -38,7 +38,7 @@ fields:
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  xpath: concat(//section[@class="bop-section bop-intro"]/header[@class="bop-title"]/h2//text(), " ", //section[@class="bop-section bop-intro"]/header[@class="bop-title"]//span/text())
+  xpath: //header[@class="bop-title"]/h2
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
@@ -53,15 +53,12 @@ fields:
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
-  defaultValue: "Out of Stock"
-  xpath: //button[@class="gn-button gn-button--buy basketControls__add"]
-  regExp: (.+)
-  regExpReplace: "In Stock"
+  xpath: //div[@id='isAvailable']
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: normalize-space(//div[@class="gn-accordionElement__wrapper"])
+  xpath: //div[@class="gn-accordionElement__wrapper"]
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
