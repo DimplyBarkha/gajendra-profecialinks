@@ -34,11 +34,11 @@ module.exports = {
           const price = priceRow ? priceRow.innerText : '';
 
           addedVariant.setAttribute('price', price);
-          addedVariant.setAttribute('listPrice', listPrice);
+          addedVariant.setAttribute('list_price', listPrice);
 
           const availabilityElem = document.querySelector('div.availability p.in-stock-msg');
           const availabilityText = availabilityElem ? 'In stock' : 'Out of Stock';
-          addedVariant.setAttribute('availabilityText', availabilityText);
+          addedVariant.setAttribute('availability_text', availabilityText);
 
           const mainImage = getEleByXpath('//div[@id="thumbnails"]//li[position()=1]//img/@data-lgimg');
           const matchRegEx = /{"url":"(.+)", "title/;
@@ -53,8 +53,8 @@ module.exports = {
             const imageUrl = matchUrl ? matchUrl[1] : '';
             alternateImages.push(imageUrl);
           };
-          if (productImg) addedVariant.setAttribute('productImg', productImg);
-          if (productImgAlt) addedVariant.setAttribute('productImgAlt', productImgAlt);
+          if (productImg) addedVariant.setAttribute('product_img', productImg);
+          if (productImgAlt) addedVariant.setAttribute('product_img_alt', productImgAlt);
           if (alternateImages.length) {
             alternateImages.map(image => {
               const secondaryImageLink = document.createElement('a');
@@ -78,7 +78,7 @@ module.exports = {
 
           const quantityElement = document.querySelector('div.product-contents');
           const quantityText = quantityElement ? quantityElement.textContent.trim() : '';
-          addedVariant.setAttribute('quantityText', quantityText);
+          addedVariant.setAttribute('quantity_text', quantityText);
 
           const color = document.querySelector('a.select-color-element.swatchanchor.selected');
           const colorText = color ? color.textContent.trim() : '';
@@ -86,23 +86,29 @@ module.exports = {
             'span.swatchanchor.selected.bubble span.color-bubble').getAttribute('style') : '';
           const colorCodeTxt = colorCode ? colorCode.replace(/background-color: /, '').replace(/;/, '') : '';
 
-          addedVariant.setAttribute('colorText', colorText);
-          addedVariant.setAttribute('colorCodeTxt', colorCodeTxt);
+          addedVariant.setAttribute('color_text', colorText);
+          addedVariant.setAttribute('color_code_txt', colorCodeTxt);
 
           const brandLink = document.querySelector('div.brand-logo a') ? document.querySelector('div.brand-logo a').getAttribute('href') : '';
           const brandLinkText = brandLink ? 'https://www.planetparfum.com' + brandLink : '';
-          addedVariant.setAttribute('brandLink', brandLinkText);
+          addedVariant.setAttribute('brand_link', brandLinkText);
 
-          const pricePerUnit = document.querySelector('p.per-litre b');
-          const pricePerUnitText = pricePerUnit ? pricePerUnit.textContent : '';
-          const pricePerUnitUom = pricePerUnitText ? pricePerUnitText.replace(/Prix par (.+):/, '$1') : '';
-          addedVariant.setAttribute('pricePerUnitUom', pricePerUnitUom);
+          const pricePerUnit = document.querySelector('p.per-litre');
+          const pricePerUnitText = pricePerUnit ? pricePerUnit.innerText : '';
+          const procePerUnitValue = pricePerUnitText ? pricePerUnitText.replace(/Prix par litre:(.*)/, '$1') : '';
+          const productUnit = document.querySelector('p.per-litre b');
+          const productUnitText = productUnit ? productUnit.textContent : '';
+          const pricePerUnitUom = productUnitText ? productUnitText.replace(/Prix par (.+):/, '$1') : '';
+          addedVariant.setAttribute('price_per_unit', procePerUnitValue);
+          addedVariant.setAttribute('price_per_unit_uom', pricePerUnitUom);
 
           document.body.appendChild(addedVariant);
         },
         { i },
       );
     }
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
     await context.extract(productDetails, { transform });
   },

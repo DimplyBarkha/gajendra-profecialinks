@@ -15,11 +15,11 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: "@productImg"
+  xpath: "@product_img"
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: "@productImgAlt"
+  xpath: "@product_img_alt"
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
@@ -39,7 +39,7 @@ fields:
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: "@listPrice"
+  xpath: "@list_price"
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
@@ -50,7 +50,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: "@availabilityText"
+  xpath: "@availability_text"
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -69,7 +69,7 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: "@quantityText"
+  xpath: "@quantity_text"
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -129,11 +129,11 @@ fields:
 - name: color
   singleValue: true
   description: A textual description of the colour
-  xpath: "@colorText"
+  xpath: "@color_text"
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
-  xpath: "@colorCodeTxt"
+  xpath: "@color_code_txt"
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
@@ -163,7 +163,7 @@ fields:
 - name: brandLink
   singleValue: true
   description:
-  xpath: "@brandLink"
+  xpath: "@brand_link"
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -406,10 +406,10 @@ fields:
   description: List of additives in the product
 - name: pricePerUnit
   description: Price of the product split into certain units
-  xpath: ancestor::html//p[contains(@class, "per-litre")]/text()
+  xpath: "@price_per_unit"
 - name: pricePerUnitUom
   description: The unit of measurement used in price_per_unit
-  xpath: "@pricePerUnitUom"
+  xpath: "@price_per_unit_uom"
 - name: promotion
   description: promotion text on product page
   xpath: ancestor::html//div[@class="col-2 product-add-to-cart"]//span[@class="ma-promo-texte"]
