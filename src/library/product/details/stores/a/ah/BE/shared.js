@@ -5,6 +5,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+
   function onlyNumbersAndDot (string) {
     return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, ".");string = Math.round( parseFloat(string) * 100) / 100;
   }
