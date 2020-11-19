@@ -1,4 +1,5 @@
 const getStockFunc = async function ({ context, sellerId, id }) {
+
   const pageContext = async () => {
     return await context.evaluate(() => {
       console.log('context.evaluate');
@@ -22,9 +23,10 @@ const getStockFunc = async function ({ context, sellerId, id }) {
         is500Page: 'img[src*="500-title"], a[href*="503_logo"], a img[src*="503.png"], a[href*="ref=cs_503_link"]',
         hasTitle: 'title, #gouda-common-atf h1',
         hasProdsToDeleteInCart: 'div[data-asin] div[class*=removed]:not([style=""]) + div input[value*="Delete"], .sc-list-item-content input[data-action=delete]',
-        hasAdOnModal: '#attach-popover-lgtbox:not([style*="display: none"])',
+        hasAddOnModal: '#attach-popover-lgtbox:not([style*="display: none"])',
         hasToCartFromModal: 'input[type=submit][aria-labelledby*="cart"]',
         hasItemsInCart: '#nav-cart-count:not([class*="cart-0"])',
+        hasdropDownQuantity: '[import=element] span[data-action*=dropdown]',
       };
 
       const elementChecks = {};
@@ -48,26 +50,35 @@ const getStockFunc = async function ({ context, sellerId, id }) {
       const quantityEl = document.evaluate(productXpath, document, null, XPathResult.ANY_TYPE, null).iterateNext();
       if (quantityEl) {
         quantityEl.parentElement.setAttribute('import', 'element');
-        if (quantityEl.parentElement.querySelector('.sc-action-quantity>span>span.a-dropdown-container')) {
-          return 'drop';
-        }
-        return 'input';
+        return true
       }
     }, sellerId, id);
   };
 
+  const artifactCartItems = async () => {
+    return await context.evaluate(async () => {
+      return !!document.querySelector('div[data-asin]:not([import]):not([data-removed]) input[value*="Delete"]')
+    })
+  }
+
   let page = await pageContext();
-  // add product to cart
-  // Switch from sub & save offer.
-  await context.evaluate(() => { if (document.querySelector('#buyNew_cbb')) { document.querySelector('#buyNew_cbb').click(); } });
+
+  await context.evaluate(() => { 
+    if (document.querySelector('#buyNew_cbb')) { 
+      document.querySelector('#buyNew_cbb').click(); 
+    } 
+    if (document.querySelector('#buybox-see-all-buying-choices-announce')) {
+      document.querySelector('#beuybox-see-all-buying-choices-announce').click(); 
+    }
+  });
+
   await context.click('#add-to-cart-button:not([style*="not-allowed"])');
   await context.waitForNavigation();
-  // await context.waitForSelector('#attachAccessoryModal_feature_div,input[type=submit][aria-labelledby*="cart"],#hlb-view-cart-announce');
 
   page = await pageContext();
 
   // decline add ons from pop out modal with cart button or addons
-  if (page.hasAdOnModal) {
+  if (page.hasAddOnModal) {
     await new Promise(resolve => setTimeout(resolve, 1000));
     await context.evaluate(() => {
       document.querySelector('#attach-popover-lgtbox:not([style*="display: none"])').click();
@@ -93,9 +104,16 @@ const getStockFunc = async function ({ context, sellerId, id }) {
 
   if (page.isCartPage) {
     await context.waitForSelector('span.quantity span span,input.sc-quantity-textfield');
-    const seller = await productSellerFound(sellerId, id);
-    if (seller) {
-      if (seller === 'drop') {
+    if (await productSellerFound(sellerId, id)) {
+      while (await artifactCartItems()) {
+        if(await productSellerFound(sellerId, id)){
+          console.log('artifact delete')
+          await context.click('div[data-asin]:not([import]):not([data-removed]) input[value*="Delete"]');
+          await new Promise(resolve => setTimeout(resolve,5000));
+        }
+      }
+      page = await pageContext();
+      if (page.hasdropDownQuantity) {
         await context.click('[import=element] span[data-action*=dropdown]');
         await context.waitForSelector('li.quantity-option:last-child a');
         await context.click('li.quantity-option:last-child a');
@@ -108,11 +126,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
         await new Promise(resolve => setTimeout(resolve, 2000));
         document.body.setAttribute('quantity', document.querySelector('span.sc-number-of-items').innerText.match(/[0-9]{1,}/g)[0]);
       });
-      while (page.hasProdsToDeleteInCart) {
-        await context.click('div[data-asin] div[class*=removed]:not([style=""]) + div input[value*="Delete"], .sc-list-item-content input[data-action=delete]');
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        page = await pageContext();
-      }
+      await productSellerFound(sellerId, id)
     }
   }
 };

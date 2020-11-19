@@ -3,30 +3,26 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
   // strategies can  be  turned on and off
   const fillRateStrategies = {
-    variantAPIAppendData: false,
-    nonVariantReload: false,
-    variantReload: false,
-    acceptCookies: true,
+    variantAPIAppendData: gotoInput.variantAPIAppendData ? gotoInput.variantAPIAppendData : false,
+    nonVariantReload: gotoInput.nonVariantReload ? gotoInput.nonVariantReload : false,
+    variantReload: gotoInput.variantReload ? gotoInput.variantReload : false,
+    acceptCookies: gotoInput.acceptCookies ? gotoInput.acceptCookies : false,
     // missingDataRetry has dependants
-    missingDataRetry: false,
+    missingDataRetry: gotoInput.missingDataRetry ? gotoInput.missingDataRetry : false,
     // dependant on missingDataRetry
-    cleanCookieRetry: false,
+    cleanCookieRetry: gotoInput.cleanCookieRetry ? gotoInput.cleanCookieRetry : false,
     // dependant on missingDataRetry
-    salesRankBadgeRetry: false,
-    hourlyRetryLimit: false,
+    salesRankBadgeRetry: gotoInput.salesRankBadgeRetry ? gotoInput.salesRankBadgeRetry : false,
+    hourlyRetryLimit: gotoInput.hourlyRetryLimit ? gotoInput.hourlyRetryLimit : false,
   };
   console.log('fillRateStrategies: ', fillRateStrategies);
 
-  // input.extractor ||
-  const extractor = '';
-  // parseInt(input.maxCaptchas) ||
-  const MAX_CAPTCHAS = 3;
-  // parseInt(input.maxSessionRetries) ||
-  const MAX_SESSION_RETRIES = 2;
+  const extractor = gotoInput.sourceId ? gotoInput.sourceId : '';
+  const MAX_CAPTCHAS = gotoInput.MAX_CAPTCHAS ? gotoInput.MAX_CAPTCHAS : 3;
+  const MAX_SESSION_RETRIES =gotoInput.MAX_SESSION_RETRIES ? gotoInput.MAX_SESSION_RETRIES : 2;
   // HOURLY_RETRY_LIMIT is a variable  depending on throughput and proxy pool volumee
   // We may need to expand the "key" to be project&extractor specific beecause projects have custom domain limits
-  // parseInt(input.hourlyRetryLimit) ||
-  const HOURLY_RETRY_LIMIT = 90000;
+  const HOURLY_RETRY_LIMIT = gotoInput.HOURLY_RETRY_LIMIT ? gotoInput.HOURLY_RETRY_LIMIT : 90000;
 
   let page;
   let captchas = 0;
@@ -37,6 +33,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
   const pageContext = async () => {
     return await context.evaluate(() => {
       console.log('context.evaluate');
+      document.body.setAttribute('current_page_url', window.location.href);
       const selectors = {
         hasProdDetails: '#prodDetails, #detailBullets_feature_div',
         hasSalesRank: '#detailBullets_feature_div a[href*="bestsellers"], #detailBullets a[href*="bestsellers"], #prodDetails a[href*="bestsellers"], #SalesRank',

@@ -207,6 +207,7 @@ module.exports = {
       collectManufDesc();
     }, skuFromUrl);
 
+<<<<<<< Updated upstream
     async function buttonCheck () {
       return await context.evaluate(function () {
         const buttons = document.querySelectorAll('div.swatch-scroll > div.css-1dbjc4n');
@@ -233,13 +234,50 @@ module.exports = {
           context.click(btn);
           new Promise(resolve => setTimeout(resolve, 5000));
         });
+=======
+    async function buttonCheck() {
+      return await context.evaluate(function() {
+         const buttons = document.querySelectorAll('div.swatch-scroll > div.css-1dbjc4n')
+         if(buttons != null) {
+           const variants = [];
+           buttons.forEach((variantBtn) => {
+            variants.push(variantBtn)
+           })
+             return variants;
+         } else {
+             return false
+         }
+     });
+  }
+  
+      
+  
+    async function variantClick() {
+      const variantNums = [];
+      // const button = document.querySelector('div.css-1dbjc4n.r-1yd45rl.r-rs99b7.r-1loqt21.r-1bq2mok.r-1inuy60.r-1m04atk.r-1pyaxff.r-glunga.r-1otgn73.r-eafdt9.r-1i6wzkk.r-lrvibr')
+      // debugger
+      context.click('div.css-1dbjc4n.r-1yd45rl.r-rs99b7.r-1loqt21.r-1bq2mok.r-1inuy60.r-1m04atk.r-1pyaxff.r-glunga.r-1otgn73.r-eafdt9.r-1i6wzkk.r-lrvibr')
+      if(buttonCheck()){
+        const btns = await buttonCheck()
+        btns.forEach((btn) => {
+          context.click(btn);
+          new Promise(resolve => setTimeout(resolve, 5000));
+        })
+>>>>>>> Stashed changes
       }
     }
     // const variantCollections = document.querySelectorAll('div.swatch-scroll > div.css-1dbjc4n');
     // if(variantCollections) {
     //   variantClick('div.swatch-scroll > div.css-1dbjc4n')
     // }
+<<<<<<< Updated upstream
     await variantClick();
+=======
+      await variantClick()
+    
+
+
+>>>>>>> Stashed changes
 
     return await context.extract(productDetails, { transform: transformParam });
   },

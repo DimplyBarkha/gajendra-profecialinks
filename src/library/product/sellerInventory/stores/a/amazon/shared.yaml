@@ -4,4 +4,11 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: productStock
-    xpath: /html/body/@quantity
+    singleRecord: true
+    xpath: //html/body/@quantity
+  - name: name
+    singleRecord: false
+    xpath: //html//*[@import="element"]//span[contains(@class, "product-title")]
+  - name: productPrice
+    singleRecord: false
+    xpath: //html//*[@import="element"]//span[contains(@class, "product-price")]
