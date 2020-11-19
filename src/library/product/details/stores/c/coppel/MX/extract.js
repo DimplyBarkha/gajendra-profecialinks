@@ -64,11 +64,11 @@ module.exports = {
         console.log("AltImgXpath:", altImgXpath);
         addElementToDocument('altImgs_added',altImgXpath);
 
-        const aplusImages = getAllXpath("//*[@id='inpage_container']//img/@data-flixsrcset",'nodeValue').join(' | ');
-        console.log("Aplus Images:", aplusImages);
-        addElementToDocument('aplusImages_added',aplusImages);
+        const aplusImagesXpath = getAllXpath("//div[contains(@id,'inpage_container')]//div[@class='flix_feat']/img/@src",'nodeValue');
+        console.log("Aplus Images:", aplusImagesXpath);
+        addElementToDocument('aplusImages_added',aplusImagesXpath);
 
-        const allSpecs = getAllXpath("//*[@class='flix-svg-text flix-d-p']/text()",'nodeValue').join('|');
+        const allSpecs = getAllXpath("//span[@class='flix-svg-text flix-d-p']/text()",'nodeValue').join('|');
         console.log("Specifications:", allSpecs);
         addElementToDocument('specs_added',allSpecs);
 
