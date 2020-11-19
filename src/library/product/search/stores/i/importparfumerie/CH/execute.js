@@ -61,9 +61,9 @@ module.exports = {
     country: 'CH',
     store: 'importparfumerie',
     domain: 'importparfumerie.ch',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.impo.ch/de/search/?text={searchTerms}',
+    loadedSelector: 'div.list-page.spacing-top-10.spacing-bottom-10',
+    noResultsXPath: '//div[contains(text(),"Geben Sie einen anderen Begriff ein und suchen Sie erneut.")]',
     zipcode: "''",
   },
 };

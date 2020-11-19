@@ -30,16 +30,21 @@ const transform = (data) => {
             item.text = 'https://www.impo.ch' + item.text;
           });
         }
-        if (row.reviewCount) {
-          row.reviewCount.forEach(item => {
-            var tmp = item.text.replace('(', '');
-            item.text = tmp.replace(')', '');
-            item.text=parseInt(item.text);
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text=parseFloat(item.text);
           });
         }
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
-            item.text=parseInt(item.text);
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace(/\s\n/g, '').trim();
+            item.text = item.text.replace('CHF', '').trim();
+          });
+        }
+        if (row.listPrice) {
+          row.listPrice.forEach(item => {
+            item.text = item.text.replace(/\s\n/g, '').trim();
+            item.text = item.text.replace('statt', '').trim();
           });
         }
         if (row.name) {
