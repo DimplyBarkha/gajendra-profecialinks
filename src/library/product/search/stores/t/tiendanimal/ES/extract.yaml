@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'mt3')]//div[contains(@class,'flex')]//div[contains(@class,'teaser__item')]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@class='wrap']//a[contains(@class,'teaser__title')]//@href
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class='wrap']//a[contains(@class,'teaser__title')]//@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class='left']//picture//img//@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class='wrap']//a//span
+  - name: price
+    SingleValue: false
+    xpath: //div[@class='wrap']//div[@class='right']//div[contains(@class,'mt2')]//span[1]
+  - name: listPrice
+    SingleValue: false
+    xpath: //div[@class='wrap']//div[@class='right']//div[contains(@class,'mt2')]//span[2]  
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1
