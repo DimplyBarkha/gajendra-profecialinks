@@ -50,6 +50,18 @@ module.exports = {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
 
+      const nameExtendedSelector1 = document.querySelector('#header-page h1');
+      const nameExtendedSelector2 = document.querySelector('.webheader');
+
+      let nameExtended = [];
+      if (nameExtendedSelector1) {
+        nameExtended.push(nameExtendedSelector1.innerText);
+      }
+      if (nameExtendedSelector2) {
+        nameExtended.push(nameExtendedSelector2.innerText);
+      }
+      addElementToDocument('fetchedNameExtended', nameExtended.join(' '));
+
       const images = document.querySelectorAll('div.product-main-card div.product-image-container img');
       if (images) {
         for (let index = 0; index < images.length; index++) {
@@ -76,7 +88,7 @@ module.exports = {
 
       const brand = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Produsent")]/following-sibling::div')
         ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Produsent")]/following-sibling::div').textContent
-        : getElementByXpath("//div[contains(@class, 'brand-logo')]/img/@alt") ? getElementByXpath("//div[contains(@class, 'brand-logo')]/img").alt : '';
+        : getElementByXpath("//div[contains(@class, 'brand-logo')]//img/@alt") ? getElementByXpath("//div[contains(@class, 'brand-logo')]//img").alt : '';
       if (brand) addElementToDocument('brand', brand);
 
       const eangtin = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"EAN")]/following-sibling::div')
@@ -84,8 +96,8 @@ module.exports = {
         : '';
       if (eangtin) addElementToDocument('eangtin', eangtin);
 
-      let stock = getElementByXpath('//*[@id="product-intro"]//pwr-product-stock-label[2]/span/@class')
-        ? getElementByXpath('//*[@id="product-intro"]//pwr-product-stock-label[2]/span/@class').textContent
+      let stock = getElementByXpath('//*[@id="product-intro"]//pwr-product-stock-label[1]/span/@class')
+        ? getElementByXpath('//*[@id="product-intro"]//pwr-product-stock-label[1]/span/@class').textContent
         : '';
 
       if (stock) {
