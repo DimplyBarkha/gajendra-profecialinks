@@ -40,19 +40,11 @@ async function implementation (
               'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span',
             )
               ? elements[i].querySelector(
-<<<<<<< HEAD
                 'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span'
               ).textContent
               : '',
             nameExtended: elements[i].querySelector('h2>a').textContent,
             sponsored: getSponcered(elements[i])
-=======
-                'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span',
-              ).textContent
-              : '',
-            nameExtended: elements[i].querySelector('h2>a').textContent,
-            sponsored: getSponcered(elements[i]),
->>>>>>> 4f7e0ed62f54e834ed45303dd4cfd85c012d2b9f
           };
           appendElement(elements[i], data);
         } catch (error) {
