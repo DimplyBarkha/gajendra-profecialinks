@@ -2,35 +2,44 @@ input:
   keywords: розчинна кава
   _url: http://metro.ua
 extractions:
-  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=ca167286-2443-4d9a-8f77-e67932b63fce/bfdaa335-d3a5-414b-9126-8716bd38f43e.html
+  - html: https://workbench.import.io/html/run=28a8ca16-e13b-43a9-acb8-0f6bbab1e157/task=4e09f5da-9641-431c-b483-3dc171b84e4e/d68ec671-f8e7-445d-92f9-0a400eba4fff.html
     extractionConfigId: product/search/stores/m/metro/UA/extract
     data:
       - group:
-          - name:
+          - id:
+              - text: "08719325224184"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-id
+            name:
               - text: Кофе Ambassador Blue Label растворимый 400г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08719325224184/coffee-ambassador-400g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20181010.1539168439.ad72436478c_2018-10-10_Tatiana/20181010.1539168439.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20181010.1539168439.ad72436478c_2018-10-10_Tatiana/20181010.1539168439.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
             price:
               - text: 168.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613035818644"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Classic растворимый 350г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613035818644/coffee-nescafe-350g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/1.1603718212.ad72436478c_2020-10-26_Tatyana_L/1.1603718212.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/1.1603718212.ad72436478c_2020-10-26_Tatyana_L/1.1603718212.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
             price:
               - text: 149.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613039266113"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Classic Black Roast растворимый гранулированный 55г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -42,7 +51,10 @@ extractions:
             price:
               - text: 39.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613035524811"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Gold растворимый 120г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -54,19 +66,25 @@ extractions:
             price:
               - text: 87.60 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613035585881"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Classic растворимый 60г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613035585881/coffee-nescafe-60g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/src.1597318780.ad72436478c_2020-08-13_Tatyana_L/src.1597318780.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/src.1597318780.ad72436478c_2020-08-13_Tatyana_L/src.1597318780.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[1]/img[1]/@src
             price:
               - text: 29.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613035524835"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Gold растворимый 60г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -78,7 +96,10 @@ extractions:
             price:
               - text: 49.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08711000504802"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-id
+            name:
               - text: Кофе Jacobs Tassimo latte macchiato caramel 268г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -90,55 +111,70 @@ extractions:
             price:
               - text: 139.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08719325127508"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-id
+            name:
               - text: Кофе Ambassador Blue Label растворимый 205г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08719325127508/coffee-ambassador-205g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/20181010.1539167939.ad72436478c_2018-10-10_Tatiana/20181010.1539167939.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/20181010.1539167939.ad72436478c_2018-10-10_Tatiana/20181010.1539167939.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[1]/img[1]/@src
             price:
               - text: 115.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08719325224245"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-id
+            name:
               - text: Кофе Ambassador Blue Label растворимый сублимированный 510г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08719325224245/coffee-ambassador-510g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/upload.version_1.0.8d6a369ac948af34a0c65053b8f3a7c3.150x150.jpeg
+              - text: https://img2.zakaz.ua/upload.version_1.0.8d6a369ac948af34a0c65053b8f3a7c3.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[1]/img[1]/@src
             price:
               - text: 280.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599107966"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-id
+            name:
               - text: Кофе Carte Noire Classic растворимый 95г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08714599107966/coffee-carte_noire-95g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/m.1605610574.ad72436478c_2020-11-17_Svetlana/m.1605610574.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/m.1605610574.ad72436478c_2020-11-17_Svetlana/m.1605610574.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[1]/img[1]/@src
             price:
               - text: 229.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820187043692"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-id
+            name:
               - text: Кофе растворимый Carte Noire 26шт*2г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820187043692/coffee-carte_noire-2g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20170906.1504713258.ad72436478c_2017-09-06_Alexey/20170906.1504713258.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20170906.1504713258.ad72436478c_2017-09-06_Alexey/20170906.1504713258.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[1]/img[1]/@src
             price:
               - text: 106.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599104170"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-id
+            name:
               - text: Кофе Carte Noire Сlassic растворимый сублимированный 210г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -150,43 +186,55 @@ extractions:
             price:
               - text: 279.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04008167070610"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-id
+            name:
               - text: Кофе Dallmayr растворимый 250г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04008167070610/coffee-dallmayr-250g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/upload.version_1.0.fc24e69a347bc187d41b1eafe64e986e.150x150.jpeg
+              - text: https://img3.zakaz.ua/upload.version_1.0.fc24e69a347bc187d41b1eafe64e986e.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[1]/img[1]/@src
             price:
               - text: 269.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04008167270508"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-id
+            name:
               - text: Кофе Dallmayr растворимый Gold 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04008167270508/coffee-dallmayr-200g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/s.1593603254.ad72436478c_2020-07-01_Svetlana/s.1593603254.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/s.1593603254.ad72436478c_2020-07-01_Svetlana/s.1593603254.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[1]/img[1]/@src
             price:
               - text: 194.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04008167070504"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-id
+            name:
               - text: Кофе Dallmayr растворимый Gold 100г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04008167070504/coffee-dallmayr-100g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/25032020.1585124940.ad72436478c_2020-03-25_Tatyana_L/25032020.1585124940.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/25032020.1585124940.ad72436478c_2020-03-25_Tatyana_L/25032020.1585124940.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[1]/img[1]/@src
             price:
               - text: 109.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599106297"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-id
+            name:
               - text: Напиток кофейный растворимый Jacobs Mokka Classic в стиках 10*21,9г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -198,7 +246,10 @@ extractions:
             price:
               - text: 95.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599106365"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-id
+            name:
               - text: Напиток кофейный растворимый Jacobs Cappuccino Classic в стиках 10*18,7г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -210,7 +261,10 @@ extractions:
             price:
               - text: 95.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599101667"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-id
+            name:
               - text: Кофе Jacobs Monarch натуральный растворимый 30г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -222,19 +276,25 @@ extractions:
             price:
               - text: 49.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599105917"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-id
+            name:
               - text: Кофе Jacobs Monarch растворимый 170г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08714599105917/coffee-jacobs-170g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/upload.version_1.0.53d47257cc3663da0c60b24f04d20379.150x150.jpeg
+              - text: https://img3.zakaz.ua/upload.version_1.0.53d47257cc3663da0c60b24f04d20379.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[1]/img[1]/@src
             price:
               - text: 189.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599105795"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/@product-id
+            name:
               - text: Кофе Jacobs Barista Editions Americano растворимый с частицами обжаренных
                   мелко смолотых кофейных зерен 250г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[2]/span[1]
@@ -247,43 +307,55 @@ extractions:
             price:
               - text: 263.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08711000500002"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/@product-id
+            name:
               - text: Кофе Jacobs Monarch Капучино молотый 260г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08711000500002/coffee-jacobs-260g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20180914.1536922240.ad72436478c_2018-09-14_Tatiana/20180914.1536922240.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20180914.1536922240.ad72436478c_2018-09-14_Tatiana/20180914.1536922240.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[1]/img[1]/@src
             price:
               - text: 139.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599104415"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-id
+            name:
               - text: Напиток кофейный Jacobs 3в1 Лесной орех растворимый в стиках 24*15г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08714599104415/coffee-jacobs-15g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/src.1582194740.ad72436478c_2020-02-20_Tatiana/src.1582194740.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/src.1582194740.ad72436478c_2020-02-20_Tatiana/src.1582194740.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[1]/img[1]/@src
             price:
               - text: 141.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599105771"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-id
+            name:
               - text: Кофе растворимый Jacobs Barista Espresso 150г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08714599105771/coffee-jacobs-150g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/upload.version_1.0.cf9f0f035b19d60bef14a40856c8d30c.150x150.jpeg
+              - text: https://img3.zakaz.ua/upload.version_1.0.cf9f0f035b19d60bef14a40856c8d30c.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[1]/img[1]/@src
             price:
               - text: 164.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "08714599104385"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/@product-id
+            name:
               - text: Напиток кофейный Jacobs 3в1 Карамель растворимый в стиках 24*15г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -295,19 +367,25 @@ extractions:
             price:
               - text: 141.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599108932"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/@product-id
+            name:
               - text: Кофе Jacobs Monarch растворимый 500г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08714599108932/coffee-jacobs-500g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/m.1605611161.ad72436478c_2020-11-17_Svetlana/m.1605611161.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/m.1605611161.ad72436478c_2020-11-17_Svetlana/m.1605611161.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[1]/img[1]/@src
             price:
               - text: 479.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599108895"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/@product-id
+            name:
               - text: Кофе Jacobs Monarch растворимый 220+60г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -319,19 +397,25 @@ extractions:
             price:
               - text: 249.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820206290021"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/@product-id
+            name:
               - text: Кофе Jacobs Monarch растворимый 26*1.8г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820206290021/coffee-jacobs-1.8g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/20170906.1504716267.ad72436478c_2017-09-06_Alexey/20170906.1504716267.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/20170906.1504716267.ad72436478c_2017-09-06_Alexey/20170906.1504716267.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[1]/img[1]/@src
             price:
               - text: 112.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "08714599105825"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/@product-id
+            name:
               - text: Кофе растворимый Jacobs Barista Аmericano 155г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -343,37 +427,46 @@ extractions:
             price:
               - text: 220.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08711000500552"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/@product-id
+            name:
               - text: Кофе Jacobs Tassimo Эспрессо молотый 119г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08711000500552/coffee-jacobs-118.4g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20180914.1536922718.ad72436478c_2018-09-14_Tatiana/20180914.1536922718.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20180914.1536922718.ad72436478c_2018-09-14_Tatiana/20180914.1536922718.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[1]/img[1]/@src
             price:
               - text: 139.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820206290823"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/@product-id
+            name:
               - text: Кофе Jacobs Monarch растворимый сублимированный без кофеина 95г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820206290823/coffee-jacobs-95g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20200713.1594382167.ad72436478c_2020-07-13_Auchan_Youlia_Alexey/20200713.1594382167.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20200713.1594382167.ad72436478c_2020-07-13_Auchan_Youlia_Alexey/20200713.1594382167.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[1]/img[1]/@src
             price:
               - text: 122.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[1]/div[1]
         xpath: /html
-    timestamp: 1605786408951
-  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=ca167286-2443-4d9a-8f77-e67932b63fce/def774ee-174c-4951-b952-789380c0a131.html
+    timestamp: 1605794383915
+  - html: https://workbench.import.io/html/run=28a8ca16-e13b-43a9-acb8-0f6bbab1e157/task=4e09f5da-9641-431c-b483-3dc171b84e4e/7b2e2cfa-c752-4da6-a608-144bb29abc54.html
     extractionConfigId: product/search/stores/m/metro/UA/extract
     data:
       - group:
-          - name:
+          - id:
+              - text: "04820206290953"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-id
+            name:
               - text: Кофе Jacobs Monarch растворимый сублимированный 170г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -385,7 +478,10 @@ extractions:
             price:
               - text: 185.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820206290939"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-id
+            name:
               - text: Кофе Jacobs Monarch растворимый сублимированный 90г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -397,7 +493,10 @@ extractions:
             price:
               - text: 86.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820206290144"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/@product-id
+            name:
               - text: Кофе Jacobs Monarch растворимый 300г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -409,7 +508,10 @@ extractions:
             price:
               - text: 288.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "08714599107584"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-id
+            name:
               - text: Кофе Jacobs 3в1 растворимый шоколад 15г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -421,7 +523,10 @@ extractions:
             price:
               - text: 117.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "08714599107607"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-id
+            name:
               - text: Кофе Jacobs 3в1 растворимый ваниль 15г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -433,7 +538,10 @@ extractions:
             price:
               - text: 114.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "08714599105788"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-id
+            name:
               - text: Кофе Jacobs Barista Editions Americano растворимый с частицами обжаренных
                   мелко смолотых кофейных зерен 150г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[2]/span[1]
@@ -446,19 +554,25 @@ extractions:
             price:
               - text: 164.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "08711000365458"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-id
+            name:
               - text: Кофе L'or Classique растворимый 100г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08711000365458/coffee-l`or-100g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/20190227.1551273276.ad72436478c_2019-02-27_Tatiana/20190227.1551273276.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/20190227.1551273276.ad72436478c_2019-02-27_Tatiana/20190227.1551273276.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[1]/img[1]/@src
             price:
               - text: 149.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599105054"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-id
+            name:
               - text: Кофе L'or Classique растворимый сублимированный 205г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -470,31 +584,40 @@ extractions:
             price:
               - text: 214.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613036536417"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Gold растворимый стик 25*1,8г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613036536417/coffee-nescafe-1.8g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/dnipro.1585668416.ad72436478c_2020-03-31_Svetlana/dnipro.1585668416.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/dnipro.1585668416.ad72436478c_2020-03-31_Svetlana/dnipro.1585668416.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[1]/img[1]/@src
             price:
               - text: 73.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "07613036703789"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Espresso растворимый стик 25*1,8г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613036703789/coffee-nescafe-1.8g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/1.1603719971.ad72436478c_2020-10-26_Tatyana_L/1.1603719971.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/1.1603719971.ad72436478c_2020-10-26_Tatyana_L/1.1603719971.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[1]/img[1]/@src
             price:
               - text: 124.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07891000079829"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Classic растворимый 475г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -506,19 +629,25 @@ extractions:
             price:
               - text: 215.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613036303798"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Espresso растворимый стеклянная банка 100г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613036303798/coffee-nescafe/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/05032020.1583416611.ad72436478c_2020-03-05_Tatyana_L/05032020.1583416611.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/05032020.1583416611.ad72436478c_2020-03-05_Tatyana_L/05032020.1583416611.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[1]/img[1]/@src
             price:
               - text: 169.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "07613037095982"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Gold растворимый 165г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -530,7 +659,10 @@ extractions:
             price:
               - text: 151.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613030039792"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Gold растворимый 500г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -542,43 +674,55 @@ extractions:
             price:
               - text: 319.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613035692978"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Espresso растворимый 60г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613035692978/coffee-nescafe-60g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/1.1603717833.ad72436478c_2020-10-26_Tatyana_L/1.1603717833.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/1.1603717833.ad72436478c_2020-10-26_Tatyana_L/1.1603717833.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[1]/img[1]/@src
             price:
               - text: 81.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613036749466"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Gold растворимый 190г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613036749466/coffee-nescafe-190g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/1.1603720737.ad72436478c_2020-10-26_Tatyana_L/1.1603720737.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/1.1603720737.ad72436478c_2020-10-26_Tatyana_L/1.1603720737.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[1]/img[1]/@src
             price:
               - text: 197.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613036748988"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Gold растворимый 95г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613036748988/coffee-nescafe-95g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/1.1603716308.ad72436478c_2020-10-26_Tatyana_L/1.1603716308.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/1.1603716308.ad72436478c_2020-10-26_Tatyana_L/1.1603716308.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[1]/img[1]/@src
             price:
               - text: 117.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "05410001005549"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Gold Origins Colombia растворимый 100г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -590,55 +734,70 @@ extractions:
             price:
               - text: 127.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613035585867"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Classic растворимый 120г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613035585867/coffee-nescafe-120g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/1.1603717372.ad72436478c_2020-10-26_Tatyana_L/1.1603717372.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/1.1603717372.ad72436478c_2020-10-26_Tatyana_L/1.1603717372.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[1]/img[1]/@src
             price:
               - text: 64.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "07613036449755"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Classic растворимый стик 25*1,8г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613036449755/coffee-nescafe-1.8g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/1.1603719495.ad72436478c_2020-10-26_Tatyana_L/1.1603719495.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/1.1603719495.ad72436478c_2020-10-26_Tatyana_L/1.1603719495.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[1]/img[1]/@src
             price:
               - text: 52.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "07613039279724"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/@product-id
+            name:
               - text: Напиток кофейный NESCAFÉ® Cappuccino растворимый стик 20*16г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613039279724/coffee-nescafe-320g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/08092020.1599548162.ad72436478c_2020-09-08_Tatyana_L/08092020.1599548162.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/08092020.1599548162.ad72436478c_2020-09-08_Tatyana_L/08092020.1599548162.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[1]/img[1]/@src
             price:
               - text: 79.80 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613035735491"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Classic растворимый 250г + 50г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613035735491/coffee-nescafe-300g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/1.1603718017.ad72436478c_2020-10-26_Tatyana_L/1.1603718017.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/1.1603718017.ad72436478c_2020-10-26_Tatyana_L/1.1603718017.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[1]/img[1]/@src
             price:
               - text: 123.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "07613035878433"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Gold растворимый 280г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -650,19 +809,25 @@ extractions:
             price:
               - text: 259.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613039280119"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/@product-id
+            name:
               - text: Напиток NESCAFÉ® Latte c добавлением кофе растворимый стик 20*16г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613039280119/coffee-nescafe-320g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/08092020.1599548263.ad72436478c_2020-09-08_Tatyana_L/08092020.1599548263.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/08092020.1599548263.ad72436478c_2020-09-08_Tatyana_L/08092020.1599548263.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[1]/img[1]/@src
             price:
               - text: 79.80 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613038758671"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Classic растворимый 170г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -674,7 +839,10 @@ extractions:
             price:
               - text: 94.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613035526259"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Gold растворимый 210г +50г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -686,7 +854,10 @@ extractions:
             price:
               - text: 209.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613035692954"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/@product-id
+            name:
               - text: Кофе NESCAFÉ® Espresso растворимый 120г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -698,19 +869,25 @@ extractions:
             price:
               - text: 152.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "04046234767599"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/@product-id
+            name:
               - text: Кофе Tchibo Голд Селекшн с/б 100г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04046234767599/coffee-tchibo-100g-poland/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/16042020.1587048544.ad72436478c_2020-04-16_Tatyana_L/16042020.1587048544.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/16042020.1587048544.ad72436478c_2020-04-16_Tatyana_L/16042020.1587048544.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[1]/img[1]/@src
             price:
               - text: 99.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04046234767650"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/@product-id
+            name:
               - text: Кофе растворимый Tchibo gold 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -722,25 +899,31 @@ extractions:
             price:
               - text: 179.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08719325020601"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/@product-id
+            name:
               - text: Кофе Чорна Карта Gold растворимый 500г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08719325020601/coffee-chernaya_karta-500g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/card.1539160636.ad72436478c_2018-10-10_Tatiana/card.1539160636.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/card.1539160636.ad72436478c_2018-10-10_Tatiana/card.1539160636.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[1]/img[1]/@src
             price:
               - text: 239.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[1]/div[2]
         xpath: /html
-    timestamp: 1605786408951
-  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=ca167286-2443-4d9a-8f77-e67932b63fce/008f40ff-b1d9-4905-a5e9-9bf0a0da21d6.html
+    timestamp: 1605794383915
+  - html: https://workbench.import.io/html/run=28a8ca16-e13b-43a9-acb8-0f6bbab1e157/task=4e09f5da-9641-431c-b483-3dc171b84e4e/2fdca61a-68b3-4996-95cc-7ccbdc39db4c.html
     extractionConfigId: product/search/stores/m/metro/UA/extract
     data:
       - group:
-          - name:
+          - id:
+              - text: "08714599106396"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-id
+            name:
               - text: Напиток кофейный растворимый Jacobs Cappuccino без добавления сахара в
                   стиках 10*14г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
@@ -748,12 +931,15 @@ extractions:
               - text: https://metro.zakaz.ua/ru/products/08714599106396/beverage-jacobs-14g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/src.1582195340.ad72436478c_2020-02-20_Tatiana/src.1582195340.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/src.1582195340.ad72436478c_2020-02-20_Tatiana/src.1582195340.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
             price:
               - text: 95.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08714599107423"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-id
+            name:
               - text: Кофе Jacobs 3в1 растворимый соленый карамель 21,3г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -765,7 +951,10 @@ extractions:
             price:
               - text: 82.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08887290101189"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/@product-id
+            name:
               - text: Кофе растворимый MacCoffe 3в1 20г*50шт банка
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -777,43 +966,55 @@ extractions:
             price:
               - text: 145.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08887290101028"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-id
+            name:
               - text: Напиток кофейный Маккофе 3в1 ориджинал растворимый в стиках 100х20г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08887290101028/beverage-maccoffee-2000g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/dnipro.1585671022.ad72436478c_2020-03-31_Svetlana/dnipro.1585671022.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/dnipro.1585671022.ad72436478c_2020-03-31_Svetlana/dnipro.1585671022.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[1]/img[1]/@src
             price:
               - text: 279.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "08887290101011"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-id
+            name:
               - text: Напиток кофейный MacCoffee Original 3в1 растворимый в пакетиках 50*20г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08887290101011/beverage-maccoffee-20g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/dnipro.1585670848.ad72436478c_2020-03-31_Svetlana/dnipro.1585670848.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/dnipro.1585670848.ad72436478c_2020-03-31_Svetlana/dnipro.1585670848.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[1]/img[1]/@src
             price:
               - text: 137.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820000570756"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-id
+            name:
               - text: Напиток Галка Животворный с эхинацеей растворимый порошкообразный 100г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820000570756/beverage-galca-100g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/09062020.1591715662.ad72436478c_2020-06-09_Tatyana_L/09062020.1591715662.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/09062020.1591715662.ad72436478c_2020-06-09_Tatyana_L/09062020.1591715662.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[1]/img[1]/@src
             price:
               - text: 14.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820000570435"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-id
+            name:
               - text: Напиток кофейный Галка Галич-Ранок с экстрактом из корня цикория
                   растворимый порошкообразный 100г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[2]/span[1]
@@ -826,19 +1027,25 @@ extractions:
             price:
               - text: 13.30 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820000570657"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-id
+            name:
               - text: Напиток кофейный Галка Люкс с экстрактом из корня цикория растворимый 100г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820000570657/beverage-galca-100g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/09062020.1591715544.ad72436478c_2020-06-09_Tatyana_L/09062020.1591715544.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/09062020.1591715544.ad72436478c_2020-06-09_Tatyana_L/09062020.1591715544.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[1]/img[1]/@src
             price:
               - text: 15.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820000574204"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-id
+            name:
               - text: Напиток растворимый Галка Животворный со стевией 100г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -850,7 +1057,10 @@ extractions:
             price:
               - text: 13.30 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "05900910000945"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-id
+            name:
               - text: Напиток капучино Ла феста со сливочным вкусом растворимый в стиках
                   10х12.5г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[2]/span[1]
@@ -863,7 +1073,10 @@ extractions:
             price:
               - text: 42.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613036624008"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-id
+            name:
               - text: Какао-напиток Nestlé® NESQUIK® OPTI-START быстрорастворимый стик 13,5г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -875,29 +1088,35 @@ extractions:
             price:
               - text: 4.30 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "07613035702493"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-id
+            name:
               - text: Какао-напиток NESTLÉ® NESQUIK® OPTI-START быстрорастворимый 380г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613035702493/beverage-nesquik-380g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/06042020.1586175846.ad72436478c_2020-04-06_Tatyana_L/06042020.1586175846.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/06042020.1586175846.ad72436478c_2020-04-06_Tatyana_L/06042020.1586175846.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[1]/img[1]/@src
             price:
               - text: 67.80 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "07613036624015"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-id
+            name:
               - text: Какао-напиток Nestlé® NESQUIK® OPTI-START быстрорастворимый стик 28*13,5г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613036624015/beverage-nesquik-13.5g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/upload.version_1.0.0fe3478f893e0dd75a18e550d7916cc2.150x150.jpeg
+              - text: https://img3.zakaz.ua/upload.version_1.0.0fe3478f893e0dd75a18e550d7916cc2.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[1]/img[1]/@src
             price:
               - text: 123.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[1]/div[2]
         xpath: /html
-    timestamp: 1605786408951
+    timestamp: 1605794383915

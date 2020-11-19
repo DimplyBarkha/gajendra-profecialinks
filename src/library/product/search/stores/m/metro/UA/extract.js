@@ -11,6 +11,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     allProducts.forEach((product) => {
       const productUrl = product.querySelector('a.product-tile').getAttribute('href');
       product.setAttribute('product-url', prefix.concat(productUrl));
+      product.setAttribute('product-id', product.querySelector('a.product-tile').getAttribute('data-productKey'));
     });
   });
   return await context.extract(productDetails, { transform });

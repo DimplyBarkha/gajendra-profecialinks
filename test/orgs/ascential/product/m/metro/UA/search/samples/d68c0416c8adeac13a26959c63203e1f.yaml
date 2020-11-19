@@ -2,11 +2,14 @@ input:
   keywords: каши
   _url: http://metro.ua
 extractions:
-  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=78e1de0b-ecdc-4d06-a319-ce3c10924400/c2bf2f7d-f015-404e-b631-6e724f56c95c.html
+  - html: https://workbench.import.io/html/run=28a8ca16-e13b-43a9-acb8-0f6bbab1e157/task=2388a8bf-cc41-458c-8fa5-4c26e1ccbe05/6b69ccb0-b58f-46d4-8451-5a85f7958b34.html
     extractionConfigId: product/search/stores/m/metro/UA/extract
     data:
       - group:
-          - name:
+          - id:
+              - text: "06416597838454"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-id
+            name:
               - text: Хлопья овсяные Нордик с пшеничными отрубями 600г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -18,19 +21,25 @@ extractions:
             price:
               - text: 51.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "06411200210320"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-id
+            name:
               - text: Каша овсяная Nordic белый шоколад и клубника 210г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/06411200210320/pap-nordic-210g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/src.1592230814.ad72436478c_2020-06-15_Tatiana/src.1592230814.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/src.1592230814.ad72436478c_2020-06-15_Tatiana/src.1592230814.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
             price:
               - text: 69.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "06416597838461"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/@product-id
+            name:
               - text: Хлопья овсяные Нордик с отрубями 600г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -42,55 +51,70 @@ extractions:
             price:
               - text: 51.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "06411200210313"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-id
+            name:
               - text: Каша овсяная Nordic темный шоколад и малина 210г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/06411200210313/pap-nordic-210g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/src.1592230714.ad72436478c_2020-06-15_Tatiana/src.1592230714.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/src.1592230714.ad72436478c_2020-06-15_Tatiana/src.1592230714.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[1]/img[1]/@src
             price:
               - text: 69.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: metro24027242010110
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-id
+            name:
               - text: Хлопья овсяные Nordic с отрубями и семенами льна 600г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/metro24027242010110/pap-nordic-600g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/upload.version_1.0.3ca8c1d2faabb7c9b93a54d230ee4045.150x150.jpeg
+              - text: https://img3.zakaz.ua/upload.version_1.0.3ca8c1d2faabb7c9b93a54d230ee4045.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[1]/img[1]/@src
             price:
               - text: 76.70 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "06416597838508"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-id
+            name:
               - text: Хлопья злаковые Нордик 4 вида зерновых с овсяными отрубями 600г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/06416597838508/pap-nordic-600g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/src.1592231514.ad72436478c_2020-06-15_Tatiana/src.1592231514.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/src.1592231514.ad72436478c_2020-06-15_Tatiana/src.1592231514.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[1]/img[1]/@src
             price:
               - text: 51.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820201770061"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-id
+            name:
               - text: Каша Street Kasha Гречневая с грибами 50г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820201770061/pap-street_kasha-50g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/Hand.1581892152.ad72436478c_2020-02-17_Victoria/Hand.1581892152.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/Hand.1581892152.ad72436478c_2020-02-17_Victoria/Hand.1581892152.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[1]/img[1]/@src
             price:
               - text: 19.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04008713010282"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-id
+            name:
               - text: Хлопья овсяные Брюгген Хаферфлокен из цельного зерна 500г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -102,7 +126,10 @@ extractions:
             price:
               - text: 30.60 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04008713011289"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-id
+            name:
               - text: Хлопья овсяные Bruggen 500г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -114,7 +141,10 @@ extractions:
             price:
               - text: 30.60 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "04008713702804"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-id
+            name:
               - text: Хлопья овсяные Брюгген из цельного зерна 500г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -126,7 +156,10 @@ extractions:
             price:
               - text: 30.60 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "04008713701371"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-id
+            name:
               - text: Хлопья Bruggen овсяные 500г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -138,7 +171,10 @@ extractions:
             price:
               - text: 30.60 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "06411200107897"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-id
+            name:
               - text: Каша овсяная Provena без глютена 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -150,31 +186,40 @@ extractions:
             price:
               - text: 99.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008123503"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-id
+            name:
               - text: Каша овсяная АХА моментального приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820008123503/pap-axa-40g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20191114.1573744961.ad72436478c_2019-11-14_Tatiana/20191114.1573744961.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20191114.1573744961.ad72436478c_2019-11-14_Tatiana/20191114.1573744961.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[1]/img[1]/@src
             price:
               - text: 5.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008128485"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-id
+            name:
               - text: Каша овсяная AXA со сливками и брусникой моментального приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820008128485/pap-axa-40g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/20191114.1573748661.ad72436478c_2019-11-14_Tatiana/20191114.1573748661.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/20191114.1573748661.ad72436478c_2019-11-14_Tatiana/20191114.1573748661.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[1]/img[1]/@src
             price:
               - text: 9.60 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008129888"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-id
+            name:
               - text: Каша Axa гречневая с овощам 45г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -186,31 +231,40 @@ extractions:
             price:
               - text: 14.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008126016"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-id
+            name:
               - text: Каша овсяная АХАс курагой быстрого приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820008126016/pap-axa-40g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/20191114.1573746561.ad72436478c_2019-11-14_Tatiana/20191114.1573746561.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/20191114.1573746561.ad72436478c_2019-11-14_Tatiana/20191114.1573746561.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[1]/img[1]/@src
             price:
               - text: 7.10 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008129864"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-id
+            name:
               - text: Каша Axa Булгур с овощами 45г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820008129864/pap-axa-45g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/upload.version_1.0.8e29e625311efaac1e6ea5ac25ad6484.150x150.jpeg
+              - text: https://img3.zakaz.ua/upload.version_1.0.8e29e625311efaac1e6ea5ac25ad6484.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[1]/img[1]/@src
             price:
               - text: 14.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008128546"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-id
+            name:
               - text: Каша овсяная AXA Premium Яблоко-Груша со вкусом штруделя моментального
                   приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[2]/span[1]
@@ -218,36 +272,45 @@ extractions:
               - text: https://metro.zakaz.ua/ru/products/04820008128546/pap-axa-40g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/20191114.1573748861.ad72436478c_2019-11-14_Tatiana/20191114.1573748861.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/20191114.1573748861.ad72436478c_2019-11-14_Tatiana/20191114.1573748861.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[1]/img[1]/@src
             price:
               - text: 8.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008123251"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-id
+            name:
               - text: Каша овсяная AXA с черникой моментального приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820008123251/pap-axa-40g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20191114.1573744561.ad72436478c_2019-11-14_Tatiana/20191114.1573744561.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20191114.1573744561.ad72436478c_2019-11-14_Tatiana/20191114.1573744561.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[1]/img[1]/@src
             price:
               - text: 8.10 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008123268"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/@product-id
+            name:
               - text: Каша овсяная AXA с клубникой моментального приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820008123268/pap-axa-40g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20191114.1573744661.ad72436478c_2019-11-14_Tatiana/20191114.1573744661.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20191114.1573744661.ad72436478c_2019-11-14_Tatiana/20191114.1573744661.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[1]/img[1]/@src
             price:
               - text: 8.10 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008123282"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/@product-id
+            name:
               - text: Каша АХА овсяная с яблоком и корицей быстрого приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -259,31 +322,40 @@ extractions:
             price:
               - text: 7.10 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820152182364"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-id
+            name:
               - text: Каша овсяная QuickEat с яблоком и клюквой 55г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820152182364/pap-zhmenka-55g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/1.1574245056.ad72436478c_2019-11-20_Listex/1.1574245056.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/1.1574245056.ad72436478c_2019-11-20_Listex/1.1574245056.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[1]/img[1]/@src
             price:
               - text: 23.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820152182357"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-id
+            name:
               - text: Каша овсяная QuickEat с яблоком и черникой 55г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820152182357/pap-zhmenka-55g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/1.1574244955.ad72436478c_2019-11-20_Listex/1.1574244955.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/1.1574244955.ad72436478c_2019-11-20_Listex/1.1574244955.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[1]/img[1]/@src
             price:
               - text: 23.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820152182388"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/@product-id
+            name:
               - text: Каша овсяная QuickEat с манго и кокосом 55г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -295,19 +367,25 @@ extractions:
             price:
               - text: 23.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820152182371"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/@product-id
+            name:
               - text: Каша овсяная QuickEat с персиком и миндалем 55г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820152182371/pap-zhmenka-55g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/1.1574245160.ad72436478c_2019-11-20_Listex/1.1574245160.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/1.1574245160.ad72436478c_2019-11-20_Listex/1.1574245160.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[1]/img[1]/@src
             price:
               - text: 23.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: metro24271804010100
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/@product-id
+            name:
               - text: Хлопья овсяные Nordic 1,5кг
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -319,43 +397,55 @@ extractions:
             price:
               - text: 69.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "06411200110651"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/@product-id
+            name:
               - text: Овес резаный Nordic 500г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/06411200110651/pap-oat-nordic-500g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/1.1593686792.ad72436478c_2020-07-02_Tatiana/1.1593686792.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/1.1593686792.ad72436478c_2020-07-02_Tatiana/1.1593686792.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[1]/img[1]/@src
             price:
               - text: 29.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "05900852047442"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/@product-id
+            name:
               - text: Каша Milupa Nutricia молочная мультизлаковая 210г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/05900852047442/pap-milupa-210g-poland/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/src.1605180139.ad72436478c_2020-11-12_Tatyana/src.1605180139.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/src.1605180139.ad72436478c_2020-11-12_Tatyana/src.1605180139.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[1]/img[1]/@src
             price:
               - text: 44.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "05900852931178"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/@product-id
+            name:
               - text: Каша Milupa молочная рисовая 210г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/05900852931178/pap-milupa-210g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/src.1600763848.ad72436478c_2020-09-22_YuliaT/src.1600763848.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/src.1600763848.ad72436478c_2020-09-22_YuliaT/src.1600763848.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[1]/img[1]/@src
             price:
               - text: 49.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "05900852039003"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/@product-id
+            name:
               - text: Каша Milupa гречневая безмолочная 170г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -368,36 +458,45 @@ extractions:
               - text: 42.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[1]/div[1]
         xpath: /html
-    timestamp: 1605786407995
-  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=78e1de0b-ecdc-4d06-a319-ce3c10924400/5c48b017-4f65-4515-bfc0-952d39a9d126.html
+    timestamp: 1605794381721
+  - html: https://workbench.import.io/html/run=28a8ca16-e13b-43a9-acb8-0f6bbab1e157/task=2388a8bf-cc41-458c-8fa5-4c26e1ccbe05/73b02566-ace8-496a-9135-4d14e4c5d857.html
     extractionConfigId: product/search/stores/m/metro/UA/extract
     data:
       - group:
-          - name:
+          - id:
+              - text: "05900852930058"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-id
+            name:
               - text: Каша Milura рисовая безмолочная 170г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/05900852930058/pap-milupa-170g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/src.1600758720.ad72436478c_2020-09-22_YuliaT/src.1600758720.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/src.1600758720.ad72436478c_2020-09-22_YuliaT/src.1600758720.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
             price:
               - text: 36.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "05900852930096"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-id
+            name:
               - text: Каша Milupa манная 210г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/05900852930096/pap-milupa-210g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/src.1600762044.ad72436478c_2020-09-22_YuliaT/src.1600762044.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/src.1600762044.ad72436478c_2020-09-22_YuliaT/src.1600762044.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
             price:
               - text: 49.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "05900852930089"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/@product-id
+            name:
               - text: Каша безмолочная Milupa сухая быстрорастворимая овсяная 170г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -409,7 +508,10 @@ extractions:
             price:
               - text: 42.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "05900852930041"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-id
+            name:
               - text: Каша молочная Milupa сухая быстрорастворимая манная с фруктами 210г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -421,19 +523,25 @@ extractions:
             price:
               - text: 44.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "05900852930034"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-id
+            name:
               - text: Каша Milupa безмолочная мультизлаковая 170г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/05900852930034/pap-milupa-210g-poland/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/src.1600757868.ad72436478c_2020-09-22_YuliaT/src.1600757868.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/src.1600757868.ad72436478c_2020-09-22_YuliaT/src.1600757868.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[1]/img[1]/@src
             price:
               - text: 42.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "04820008129352"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-id
+            name:
               - text: Каша овсяная АХА со сливками какао и лесными ягодами моментального
                   приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[2]/span[1]
@@ -446,19 +554,25 @@ extractions:
             price:
               - text: 6.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008126283"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-id
+            name:
               - text: Каша АХА овсяная cо сливками и клубникой моментального приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820008126283/pap-axa-40g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/20191114.1573746961.ad72436478c_2019-11-14_Tatiana/20191114.1573746961.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/20191114.1573746961.ad72436478c_2019-11-14_Tatiana/20191114.1573746961.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[1]/img[1]/@src
             price:
               - text: 6.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008126313"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-id
+            name:
               - text: Каша овсяная AXA со сливками малиной и ежевикой моментального
                   приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[2]/span[1]
@@ -466,12 +580,15 @@ extractions:
               - text: https://metro.zakaz.ua/ru/products/04820008126313/pap-axa-40g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20191114.1573747061.ad72436478c_2019-11-14_Tatiana/20191114.1573747061.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20191114.1573747061.ad72436478c_2019-11-14_Tatiana/20191114.1573747061.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[1]/img[1]/@src
             price:
               - text: 6.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008126344"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-id
+            name:
               - text: Каша АХА овсяная cо сливками и лесными ягодами 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -483,7 +600,10 @@ extractions:
             price:
               - text: 6.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008128515"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-id
+            name:
               - text: Каша овсяная АХА Premium со сливками и орехами в карамели моментального
                   приготовления 40г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[2]/span[1]
@@ -491,24 +611,30 @@ extractions:
               - text: https://metro.zakaz.ua/ru/products/04820008128515/pap-axa-40g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20191114.1573748761.ad72436478c_2019-11-14_Tatiana/20191114.1573748761.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20191114.1573748761.ad72436478c_2019-11-14_Tatiana/20191114.1573748761.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[1]/img[1]/@src
             price:
               - text: 6.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820008129871"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-id
+            name:
               - text: Каша Axa Кускус с томатами 45г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820008129871/pap-axa-45g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/upload.version_1.0.5dcc5a754b3b1fea08aab734872eee01.150x150.jpeg
+              - text: https://img2.zakaz.ua/upload.version_1.0.5dcc5a754b3b1fea08aab734872eee01.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[1]/img[1]/@src
             price:
               - text: 14.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "03838471019897"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-id
+            name:
               - text: Каша Bebi безмолочная гречка 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -520,7 +646,10 @@ extractions:
             price:
               - text: 68.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "03838471023283"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-id
+            name:
               - text: Каша детская молочная Беби Премиум Три Злака с малиной и мелиссой для
                   сладких снов с пребиотиками с 6 месяцев 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[2]/span[1]
@@ -533,7 +662,10 @@ extractions:
             price:
               - text: 79.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "03838471035606"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-id
+            name:
               - text: Каша Bebi Premium безмолочная 5 злаков с бананами 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -545,19 +677,25 @@ extractions:
             price:
               - text: 52.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "03838471016483"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-id
+            name:
               - text: Каша Bebi Premium безмолочная овсяная для детей с 5 месяцев 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/03838471016483/pap-bebi-200g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/src.1581595337.ad72436478c_2020-02-13_Tatiana/src.1581595337.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/src.1581595337.ad72436478c_2020-02-13_Tatiana/src.1581595337.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[1]/img[1]/@src
             price:
               - text: 53.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "03838600048774"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-id
+            name:
               - text: Каша Bebi Premium фруктово-злаковое ассорти 250г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -569,31 +707,40 @@ extractions:
             price:
               - text: 69.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "03838471023269"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-id
+            name:
               - text: Каша Bebi Premium 3 злака яблоко ромашка 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/03838471023269/pap-bebi-200g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/src.1581596851.ad72436478c_2020-02-13_Tatiana/src.1581596851.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/src.1581596851.ad72436478c_2020-02-13_Tatiana/src.1581596851.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[1]/img[1]/@src
             price:
               - text: 79.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "03838471020985"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-id
+            name:
               - text: Каша Bebi Premium 7 злаків з чорницею 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/03838471020985/pap-bebi-200g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/src.1581596548.ad72436478c_2020-02-13_Tatiana/src.1581596548.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/src.1581596548.ad72436478c_2020-02-13_Tatiana/src.1581596548.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[1]/img[1]/@src
             price:
               - text: 71.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "03838471019996"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-id
+            name:
               - text: Каша детская Беби Премиум Гречка курага яблоко молочная сухая
                   быстрорастворимая с 5 месяцев 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[2]/span[1]
@@ -601,12 +748,15 @@ extractions:
               - text: https://metro.zakaz.ua/ru/products/03838471019996/pap-bebi-200g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/src.1581596346.ad72436478c_2020-02-13_Tatiana/src.1581596346.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/src.1581596346.ad72436478c_2020-02-13_Tatiana/src.1581596346.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[1]/img[1]/@src
             price:
               - text: 71.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "03838471018906"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/@product-id
+            name:
               - text: Каша детская Беби Печенье с грушами для полдника молочная пшеничная сухая
                   быстрорастворимая с 6 месяцев 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[2]/span[1]
@@ -619,7 +769,10 @@ extractions:
             price:
               - text: 79.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "03838600076319"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/@product-id
+            name:
               - text: Каша Bebi Premium молочная овсяная 250г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -631,7 +784,10 @@ extractions:
             price:
               - text: 76.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "03838471019972"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-id
+            name:
               - text: Каша Bebi Premium молочная гречневая 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -643,19 +799,25 @@ extractions:
             price:
               - text: 71.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613287016461"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-id
+            name:
               - text: Каша Gerber безмолочная овсянная с пшеницей c 6 для детей с 6 месяцев 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613287016461/pap-gerber-200g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/novus2020804.1596541043.ad72436478c_2020-08-04_Alina/novus2020804.1596541043.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/novus2020804.1596541043.ad72436478c_2020-08-04_Alina/novus2020804.1596541043.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[1]/img[1]/@src
             price:
               - text: 75.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613036531535"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/@product-id
+            name:
               - text: Безмолочная каша Gerber Organic Пшенично-овсяная с ванильным вкусом 240г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -667,7 +829,10 @@ extractions:
             price:
               - text: 93.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[24]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613036531443"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/@product-id
+            name:
               - text: Молочная каша Gerber Organic Пшенично-овсяная 240г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -679,31 +844,40 @@ extractions:
             price:
               - text: 93.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[25]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613036531498"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/@product-id
+            name:
               - text: Молочная каша Gerber Organic Пшенично-овсяная с бананом для детей 240г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613036531498/pap-gerber-240g-spain/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/upload.version_1.0.8f7d9dbcac522e0f21ee4b5d05f632f1.150x150.jpeg
+              - text: https://img2.zakaz.ua/upload.version_1.0.8f7d9dbcac522e0f21ee4b5d05f632f1.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[1]/img[1]/@src
             price:
               - text: 93.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[26]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613039834336"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/@product-id
+            name:
               - text: Каша Gerber молочная мультизлаковая для детей с 6 месяцев 240г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613039834336/pap-gerber-240g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/07.1596806975.ad72436478c_2020-08-07_YuliaT/07.1596806975.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/07.1596806975.ad72436478c_2020-08-07_YuliaT/07.1596806975.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[1]/img[1]/@src
             price:
               - text: 75.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[27]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613039834053"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/@product-id
+            name:
               - text: Каша Gerber молочная овсяная-пшеничная с бананом и манго для детей с 6
                   месяцев 240г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[2]/span[1]
@@ -716,37 +890,46 @@ extractions:
             price:
               - text: 75.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[28]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613039834244"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/@product-id
+            name:
               - text: Каша молочная Gerber мультизлаковая с йогуртом, бананом и грушей 240г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613039834244/pap-gerber-240g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/07.1596806574.ad72436478c_2020-08-07_YuliaT/07.1596806574.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/07.1596806574.ad72436478c_2020-08-07_YuliaT/07.1596806574.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[1]/img[1]/@src
             price:
               - text: 75.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[29]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613287016430"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/@product-id
+            name:
               - text: Каша Gerber безмолочная мультизлаковая c 6 для детей с 6 месяцев 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613287016430/pap-gerber-200g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/novus2020804.1596545298.ad72436478c_2020-08-04_Alina/novus2020804.1596545298.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/novus2020804.1596545298.ad72436478c_2020-08-04_Alina/novus2020804.1596545298.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[1]/img[1]/@src
             price:
               - text: 75.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[30]/a[1]/div[4]/div[1]/div[2]
         xpath: /html
-    timestamp: 1605786407995
-  - html: https://workbench.import.io/html/run=6bb133df-bea6-478e-b037-09a6f8bc36fa/task=78e1de0b-ecdc-4d06-a319-ce3c10924400/9249e463-9ff9-4cb7-a3f7-66d4ab1772ba.html
+    timestamp: 1605794381721
+  - html: https://workbench.import.io/html/run=28a8ca16-e13b-43a9-acb8-0f6bbab1e157/task=2388a8bf-cc41-458c-8fa5-4c26e1ccbe05/2ca8fead-f274-49a2-9f3c-1bae492d8de7.html
     extractionConfigId: product/search/stores/m/metro/UA/extract
     data:
       - group:
-          - name:
+          - id:
+              - text: "09062300132998"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/@product-id
+            name:
               - text: Каша Hipp спокойной ночи молочная манная с фруктами 190г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -758,19 +941,25 @@ extractions:
             price:
               - text: 66.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300140252"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-id
+            name:
               - text: Каша молочная Hipp пшеничная с фруктами 250г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/09062300140252/pap-hipp-250g-croatia/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/upload.version_1.0.10168eb4f8d7816484e81dfbd0a81f53.150x150.jpeg
+              - text: https://img3.zakaz.ua/upload.version_1.0.10168eb4f8d7816484e81dfbd0a81f53.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
             price:
               - text: 111.00 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300133179"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/@product-id
+            name:
               - text: Каша Hipp спокойной ночи молочная с печеньем 190г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -782,7 +971,10 @@ extractions:
             price:
               - text: 66.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[3]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300140238"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-id
+            name:
               - text: Каша HiPP Спокойной ночи молочная органическая с печеньем для детей с 6
                   месяцев 250г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[2]/span[1]
@@ -790,24 +982,30 @@ extractions:
               - text: https://metro.zakaz.ua/ru/products/09062300140238/pap-hipp-250g-croatia/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/done.1585324665.ad72436478c_2020-03-27_Svetlana/done.1585324665.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/done.1585324665.ad72436478c_2020-03-27_Svetlana/done.1585324665.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[1]/img[1]/@src
             price:
               - text: 126.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[4]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300140139"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-id
+            name:
               - text: Каша Hipp молочная чернослив 250г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/09062300140139/pap-hipp-250g-croatia/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/upload.version_1.0.f8d4ad5f3c2bba014f4fae8a646ecfe6.150x150.jpeg
+              - text: https://img2.zakaz.ua/upload.version_1.0.f8d4ad5f3c2bba014f4fae8a646ecfe6.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[1]/img[1]/@src
             price:
               - text: 119.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[5]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300139768"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/@product-id
+            name:
               - text: Каша HiPP безмолочная органическая Мультизлаковая 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -819,7 +1017,10 @@ extractions:
             price:
               - text: 111.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[6]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300125990"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-id
+            name:
               - text: Каша HiPP Овсяная безмолочная органическая без сахара для детей с 5
                   месяцев 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[2]/span[1]
@@ -827,36 +1028,45 @@ extractions:
               - text: https://metro.zakaz.ua/ru/products/09062300125990/pap-hipp-200g-croatia/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20191119.1521439320.ad72436478c_2019-11-19_Tatiana/20191119.1521439320.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20191119.1521439320.ad72436478c_2019-11-19_Tatiana/20191119.1521439320.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[1]/img[1]/@src
             price:
               - text: 111.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[7]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300140153"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-id
+            name:
               - text: Каша Hipp кукурузная с фруктами 250г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/09062300140153/pap-hipp-250g-croatia/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/upload.version_1.0.654fba1246f8966af896968f322ae6b9.150x150.jpeg
+              - text: https://img3.zakaz.ua/upload.version_1.0.654fba1246f8966af896968f322ae6b9.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[1]/img[1]/@src
             price:
               - text: 119.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[8]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300140122"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-id
+            name:
               - text: Каша Hipp молочная гречневая с пребиотиками для детей с 4 месяцев 250г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/09062300140122/pap-hipp-250g-croatia/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/upload.version_1.0.5b671a2adbd6b367b227f90f691208ff.150x150.jpeg
+              - text: https://img3.zakaz.ua/upload.version_1.0.5b671a2adbd6b367b227f90f691208ff.150x150.jpeg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[1]/img[1]/@src
             price:
               - text: 119.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[9]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300140276"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/@product-id
+            name:
               - text: Каша молочная Hipp Organic Спокойной ночи овсяная с яблоком для детей с 5
                   месяцев 250г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[2]/span[1]
@@ -869,7 +1079,10 @@ extractions:
             price:
               - text: 126.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[10]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300126003"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/@product-id
+            name:
               - text: Каша безмолочная HiPP рисовая 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -881,19 +1094,25 @@ extractions:
             price:
               - text: 111.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[11]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300114468"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-id
+            name:
               - text: Каша детская HiPP Гречневая безмолочная с 4 месяцев 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/09062300114468/pap-hipp-200g-croatia/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/20191119.1521439116.ad72436478c_2019-11-19_Tatiana/20191119.1521439116.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/20191119.1521439116.ad72436478c_2019-11-19_Tatiana/20191119.1521439116.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[1]/img[1]/@src
             price:
               - text: 111.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[12]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "09062300139911"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-id
+            name:
               - text: Каша Hipp кукурузная безмолочная органическая для детей с 4 месяцев без
                   добавления сахара 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[2]/span[1]
@@ -901,24 +1120,30 @@ extractions:
               - text: https://metro.zakaz.ua/ru/products/09062300139911/pap-hipp-200g-croatia/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/20191119.1521440308.ad72436478c_2019-11-19_Tatiana/20191119.1521440308.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/20191119.1521440308.ad72436478c_2019-11-19_Tatiana/20191119.1521440308.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[1]/img[1]/@src
             price:
               - text: 111.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[13]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08716677006376"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-id
+            name:
               - text: Каша Kabrita 7 злаков на козьем молоке с бананом 180г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/08716677006376/pap-kabrita-180g/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/20190924.1569340792.ad72436478c_2019-09-24_Tatiana/20190924.1569340792.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/20190924.1569340792.ad72436478c_2019-09-24_Tatiana/20190924.1569340792.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[1]/img[1]/@src
             price:
               - text: 186.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[14]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "08716677006345"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/@product-id
+            name:
               - text: Каша гречневая Kabrita на козьем молоке 180г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -930,19 +1155,25 @@ extractions:
             price:
               - text: 186.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[15]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613033071805"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-id
+            name:
               - text: Молочная каша Nestle Рис кукуруза с яблоком бананом и абрикосом 230г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/07613033071805/pap-nestle-230g-poland/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/src.1585654218.ad72436478c_2020-03-31_Tatiana/src.1585654218.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/src.1585654218.ad72436478c_2020-03-31_Tatiana/src.1585654218.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[1]/img[1]/@src
             price:
               - text: 59.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[16]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "07613031557080"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/@product-id
+            name:
               - text: Безмолочная кукурузная каша Nestle 160г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -954,7 +1185,10 @@ extractions:
             price:
               - text: 41.50 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[17]/a[1]/div[4]/div[1]/div[1]
-          - name:
+          - id:
+              - text: "05900852042799"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-id
+            name:
               - text: Каша молочная сухая Milupa мультизлаковая быстрорастворимая с яблоком и
                   грушей для детей от 7-ми месяцев 210г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[2]/span[1]
@@ -962,24 +1196,30 @@ extractions:
               - text: https://metro.zakaz.ua/ru/products/05900852042799/pap-milupa-210g-poland/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/src.1600725629.ad72436478c_2020-09-22_YuliaT/src.1600725629.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/src.1600725629.ad72436478c_2020-09-22_YuliaT/src.1600725629.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[1]/img[1]/@src
             price:
               - text: 56.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[18]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820016254015"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-id
+            name:
               - text: Каша молочно-гречневая Чудо-Чадо от 6-ти месяцев 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04820016254015/pap-chudo-chado-200g-ukraine/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/@product-url
             thumbnail:
-              - text: https://img3.zakaz.ua/src.3415069138.ad72436478c_2020-05-27_Tatiana/src.3415069138.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img2.zakaz.ua/src.3415069138.ad72436478c_2020-05-27_Tatiana/src.3415069138.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[1]/img[1]/@src
             price:
               - text: 14.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[19]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04820016254022"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/@product-id
+            name:
               - text: Каша молочно-злаковая с персиком Чудо-Чадо от 6-ти месяцев 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -991,7 +1231,10 @@ extractions:
             price:
               - text: 15.90 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[20]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04823005206293"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/@product-id
+            name:
               - text: Каша Яготинське молочно-пшеничная 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -1003,19 +1246,25 @@ extractions:
             price:
               - text: 16.20 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[21]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04823005206286"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-id
+            name:
               - text: Каша Яготинське молочно-рисовая 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[2]/span[1]
             productUrl:
               - text: https://metro.zakaz.ua/ru/products/04823005206286/pap-yagotynske_for_children-200g-ukraine/
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/@product-url
             thumbnail:
-              - text: https://img2.zakaz.ua/2.1578075148.ad72436478c_2020-01-03_Tatiana/2.1578075148.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
+              - text: https://img3.zakaz.ua/2.1578075148.ad72436478c_2020-01-03_Tatiana/2.1578075148.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[1]/img[1]/@src
             price:
               - text: 16.20 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[22]/a[1]/div[4]/div[1]/div[2]
-          - name:
+          - id:
+              - text: "04823005206279"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/@product-id
+            name:
               - text: Каша Яготинське молочно-гречневая 200г
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[2]/span[1]
             productUrl:
@@ -1028,4 +1277,4 @@ extractions:
               - text: 16.20 грн
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[23]/a[1]/div[4]/div[1]/div[2]
         xpath: /html
-    timestamp: 1605786407995
+    timestamp: 1605794381721
