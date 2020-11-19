@@ -52,8 +52,10 @@ module.exports = {
 
     keywords = (Keywords) || (keywords) || (Brands) || (brands);
     console.log('zip:' + zipcode);
-    // do the search
+
     const resultsReturned = await execute({ keywords, zipcode });
+
+    // do the search
 
     if (!resultsReturned) {
       console.log('No results were returned');
