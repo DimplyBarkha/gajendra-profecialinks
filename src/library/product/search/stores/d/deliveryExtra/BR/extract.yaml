@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'MuiGrid-container MuiGrid-spacing-xs-2')]//div[contains(@class,'product-cardstyles__Container')]
+fields:
+  - name: productUrl
+    xpath: //a[contains(@class,'hyperlinkstyles__Link-j02w35-0 hXBJsz')]/@href
+    regExp: (.*)
+    regExpReplace: https://www.clubeextra.com.br$1
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //img[contains(@class,'product-cardstyles__Image-sc')]/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    description: The product name
+    xpath: //text[contains(@class,'product-cardstyles__Text-sc')]
+  - name: price
+    xpath: //div[contains(@class,'seal-sale-box-divided__Value') or contains(@class,'price-tag-normalstyle__LabelPrice-sc')]
+    description: The offered price for the product
+  - name: rank
+    description: search/listing rank
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //a[contains(@class,'hyperlinkstyles__Link-j02w35-0 hXBJsz')]/@href
+    regExp: produto\/(\d+)
+    regExpReplace: $1
