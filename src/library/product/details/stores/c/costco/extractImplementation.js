@@ -17,7 +17,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 
   await context.evaluate(function () {
     console.log('Scrolling to the bottom of page.');
-    document.querySelector('#footer-widget') ? document.querySelector('#footer-widget').scrollIntoView({ behavior: 'smooth' }) : "" ;
+    document.querySelector('#footer-widget') ? document.querySelector('#footer-widget').scrollIntoView({ behavior: 'smooth' }) : "";
   });
 
   await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
@@ -28,8 +28,16 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       var doc = value.ownerDocument;
       var video = doc.body.querySelector('video');
       if (video) {
-        document.body.setAttribute('video', doc.body.querySelector('video').getAttribute('src'));
+        document.head.setAttribute('video', doc.body.querySelector('video').getAttribute('src'));
       }
+    }
+  });
+
+  await context.evaluate(function () {
+    let iframe = document.querySelector('div.wc-video-gallery > iframe#wcframable1-0') ? document.querySelector('div.wc-video-gallery > iframe') : '';
+    if (iframe !== '') {
+    let videoSpan = document.evaluate(`//video//@src`, iframe.contentDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+    document.body.setAttribute('videospan', videoSpan.textContent);
     }
   });
 
@@ -42,8 +50,8 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 
       document.body.appendChild(el);
     };
-    
-    
+
+
     // const sku = products[0].map(e => { return e.partNumber}).join(" | ")
     //   document.body.setAttribute('variantId',sku);
     //    }

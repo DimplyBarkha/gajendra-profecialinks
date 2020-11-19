@@ -150,7 +150,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@itemprop="video"]//meta[@itemprop="contentUrl"]/@content | //body//@video
+    xpath: //div[@itemprop="video"]//meta[@itemprop="contentUrl"]/@content | //head//@video | //body//@videospan
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -463,7 +463,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
-    xpath: //div[contains(@class,"swatches")]//span[contains(@class,"variant")]
+    xpath: //div[@id="product-details"]//label[contains(@for, "productOption")]
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
@@ -536,3 +536,10 @@ fields:
     singleValue: false
     xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))]//img/@src | //img[@id="productImage"]/@src
     regExp: .+(?=\&recipe(Id|Name)=\d+)
+  - name: sponsoredProductUrls
+    singleValue: false
+    xpath: //h2[contains(text(),'Sponsored Products')]/following::div[@id="hl-prodgroup-viewItem-Carousel"]//a[1]//@href
+    regExp: (.+)
+    regExpReplace: https:$1
+
+

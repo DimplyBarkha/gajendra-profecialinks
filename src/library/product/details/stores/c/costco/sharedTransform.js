@@ -44,6 +44,22 @@ const transform = (data, context) => {
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));
+  const state = context.getState();
+  let orgRankCounter = state.orgRankCounter || 0;
+  let rankCounter = state.rankCounter || 0;
+  const productCodes = state.productCodes || [];
+  for (const { group } of data) {
+    for (const row of group) {
+      rankCounter += 1;
+      row.salesRank = [{ text: rankCounter }];
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+      }));
+    }
+  }
+  context.setState({ rankCounter });
+  context.setState({ productCodes });
+  console.log(productCodes);
   return data;
 };
 
