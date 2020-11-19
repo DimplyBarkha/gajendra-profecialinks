@@ -16,6 +16,8 @@ fields:
     xpath: //li[contains(@class, "imageThumbnail")][position()>1]//img/@src | //img[contains(@class,"ig-thumb-inner") and not(contains(@class,"selected"))]/@src | (//span[@data-action="thumb-action"]//img/@src)[position()>1]
     regExp: (.+)\.[^\.]*(\.[^\.]+$)
     regExpReplace: $1$2
+  - name: imageCount
+    xpath: count((//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@src | //li[contains(@class, "imageThumbnail")][position()>1]//img/@src | //img[contains(@class,"ig-thumb-inner") and not(contains(@class,"selected"))]/@src | (//span[@data-action="thumb-action"]//img/@src)[position()>1])
   - name: largeImageCount
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockATF")]/text()
@@ -113,6 +115,10 @@ fields:
     singleValue: false
     xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")])[1] | (//div[@id='importantInformation_feature_div']//div[contains(.,'Safety Information')]/p)
   - name: ratingCount
+    singleValue: false
+    # xpath: //div[@id="averageCustomerReviews_feature_div"]//*[@id="acrCustomerReviewText"]/text()
+    xpath: //*[@id="acrCustomerReviewText"]/text()
+  - name: reviewCount
     singleValue: false
     # xpath: //div[@id="averageCustomerReviews_feature_div"]//*[@id="acrCustomerReviewText"]/text()
     xpath: //*[@id="acrCustomerReviewText"]/text()
@@ -418,6 +424,7 @@ fields:
   - name: storage
     #singleValue: true
     xpath: //*[normalize-space(text())="Storage"]/following-sibling::*[1]
+
   - name: countryOfOrigin
     #singleValue: true
     xpath: //li[contains(.,"Origin:")] | //*[normalize-space(text())="Country of origin"]/following-sibling::*[1]
@@ -445,7 +452,7 @@ fields:
     xpath: //span[contains(@id, 'priceblock_dealprice') or contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li | (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price" or @id="primeNowDetailPagePrice_savings_price"] | //*[@id="regularprice_savings"]
+    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li | (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price" or @id="primeNowDetailPagePrice_savings_price"] | //*[@id="regularprice_savings"] | //*[@id="dealprice_savings"]
   - name: alcoholContent
     xpath: //*[contains(text(),"Alcohol Content")]/following-sibling::*[1]
     regExp: '^[^\s]+'
@@ -698,3 +705,15 @@ fields:
   - name: shippingPrice
     singleValue: false
     xpath: //body/@shipping-price-main
+
+
+  - name: sellerId
+    xpath: //body/@seller-id-main
+  - name: otherSellerId
+    xpath: //body/@seller-id
+    regExp: '[^|]+'
+  - name: productDiscount
+    xpath: //*[@id="regularprice_savings"] | //*[@id="dealprice_savings"]
+    # xpath: //*[contains(@class,"priceBlockSavingsString")]
+    # regExp: '\(([\d,.%\s]+)\)'
+    # regExpReplace: $1
