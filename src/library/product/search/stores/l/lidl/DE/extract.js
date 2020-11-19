@@ -54,6 +54,7 @@ module.exports = {
       for (let index = 0; index < products; index++) {
         addHiddenDiv('import_product_ids', ids[index]);
         addHiddenDiv('import_product_urls', urls[index]);
+        addHiddenDiv('import_product_searches', location.href);
         addHiddenDiv('import_product_names', names[index]);
         addHiddenDiv('import_product_images', images[index]);
         addHiddenDiv('import_product_rating', ratings[index]);
