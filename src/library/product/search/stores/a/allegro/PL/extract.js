@@ -31,7 +31,6 @@ async function implementation (
           let imageUrl = getElements()[i].querySelector(
             'a[rel=\'nofollow\'] img, ul li:nth-child(1) img'
           );
-          console.log(elements[i]);
           let data = {
             productUrl: elements[i].querySelector('h2>a').getAttribute('href'),
             thumbnail: imageUrl.getAttribute('src'),
@@ -57,8 +56,8 @@ async function implementation (
 
     function getSponcered(element) {
       let value = element.getAttribute('data-analytics-view-custom-index0');
-      let isSponsored = element.getAttribute('data-analytics-view-label') === 'showSponsoredItems' ? true : false;
-
+      let isSponsored = element.getAttribute('data-analytics-view-label');
+      console.log(isSponsored);
       if (value && isSponsored) {
         return element.getAttribute('data-analytics-view-label');
       }
