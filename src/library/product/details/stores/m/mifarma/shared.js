@@ -72,6 +72,12 @@ const transform = (data) => {
           },
         ];
       }
+
+      if (row.price && row.listPrice) {
+        const discountPercentOff = ((1 - (parseFloat(row.price[0].text) / parseFloat(row.listPrice[0].text))) * 100).toFixed(2);
+        row.productDiscount = [{ text: String(discountPercentOff) }];
+      }
+
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach((item, i) => {

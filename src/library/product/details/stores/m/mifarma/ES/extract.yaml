@@ -10,6 +10,11 @@ fields:
 - name: productUrl
   singleValue: false
   xpath: //link[@rel='canonical']/@href
+- name: productForm
+  singleValue: false
+  xpath: //meta[@property='og:title']/@content
+  regExp: >-
+    ([CÁPSULAS|Cápsulas|GR|gr|COMPRIMIDOS|Comprimidos|ML|ml]+$)
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -70,6 +75,7 @@ fields:
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //meta[@property='product:brand']/@content
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
