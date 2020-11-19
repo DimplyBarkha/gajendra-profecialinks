@@ -1,5 +1,23 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@id="results-boxes"]/a
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="title-wrap"]/div/p
+  - name: id
+    singleValue: false
+    xpath: //a/@data-dy-product-id
+  - name: productUrl
+    singleValue: false
+    xpath: //a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="item-image"]/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"price-row") and not(contains(@class,"old-price"))]//span[contains(@class,"money-sign")]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="yotpo-stars"]/span[@class="sr-only"]
