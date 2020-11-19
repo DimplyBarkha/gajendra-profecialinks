@@ -6,7 +6,7 @@ fields:
   - name: name
     singleValue: false
     # manualSelector: div[class='detail-product'] h3
-    xpath: //div[@class='detail-product']/h3
+    xpath: //div[contains(@class,'detail-product')]//h3
   - name: brandText
     singleValue: false
     description: The brand name
@@ -39,7 +39,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@class='price-product']
+    xpath: //div[contains(@class,'price-product')]
   # - name: listPrice
   #   singleValue: false
   #   description: The stated undiscounted price for the product
@@ -60,7 +60,7 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //div[@class='detail-product']/h3/a[1]/@tcproductclick
+    xpath: //div[contains(@class,'detail-product')]/h3/a[1]/@tcproductclick
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
