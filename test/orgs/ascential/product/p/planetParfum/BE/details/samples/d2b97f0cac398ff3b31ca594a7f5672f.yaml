@@ -1,0 +1,379 @@
+input:
+  RPC: 12782_457
+  _url: http://planetparfum.com
+extractions:
+  - html: https://workbench.import.io/html/run=2326a762-7aaa-4346-be13-c85c175881d6/task=76d12539-0272-4421-bc71-a8b1070845ea/9d256162-11ed-4608-87a2-069b33a4b296.html
+    extractionConfigId: product/details/stores/p/planetParfum/BE/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwe74592e4/thumbnails/20015902_C1.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/a[1]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw65754f25/thumbnails/20015902_C2.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/a[2]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw10df4709/thumbnails/20015902_C3.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/a[3]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw823bae99/thumbnails/20015902_C4.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/a[4]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwcd9a4990/thumbnails/20015902_C5.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/a[5]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw94e009ad/thumbnails/20015902_C6.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/a[6]/@href
+            productUrl:
+              - text: https://www.planetparfum.com/fr/product/1-million/20015903.html
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            image:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw6178d8ae/zoom/20015902_M.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/@product_img
+            imageAlt:
+              - text: 1 Million zoom | Planetparfum.com
+                xpath: /html/body/div[3]/@product_img_alt
+            metaKeywords:
+              - text: 1 Million
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Parfums
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[2]/a[1]
+              - text: Pour lui
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[3]/a[1]
+              - text: Fragrances
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: PACO RABANNE - 1 Million - Eau de Toilette - 50 ml - Vaporisateur
+                xpath: /html/body/div[3]/@name_extended
+            listPrice:
+              - text: 64,90 €
+                xpath: /html/body/div[3]/@list_price
+            price:
+              - text: 51,92 €
+                xpath: /html/body/div[3]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[3]/@availability_text
+            description:
+              - text: >-
+                  1 Million Eau de Toilette de Paco Rabanne. L'art d'être
+                  flamboyant. Aimer le danger et les coups d'éclat. N'obéir à
+                  personne. Sauf à ses fantasmes. 1 MILLION Eau de Toilette
+                  intrigue, bouscule, bad boy. Et séduit littéralement.
+                  Gentleman. Un beau Cuir épicé au charme insolent qui sait
+                  provoquer la chance. Déroutant.
+
+                  Cuir-épicé insolent. Captiver d'abord, conquérir ensuite. Rose-cannelle au masculin. Cuir blond, bois blanc. Chaud! 
+                   
+                   Famille olfactive : Cuir- Epicé- Frais 
+                   
+                   Composition : Notes de tête: mandarine sanguine & menthe poivrée - Notes de coeur: absolu de rose & cannelle - Notes de base: accord de cuir & ambre kétal 
+                   
+                   Prix par litre: 589,50 €
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+            brandText:
+              - text: PACO RABANNE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            quantity:
+              - text: 50 ml
+                xpath: /html/body/div[3]/@quantity_text
+            sku:
+              - text: "20015903"
+                xpath: /html/body/div[1]/@data-gtm-data
+            variantId:
+              - text: 50 ml - Vaporisateur
+                xpath: /html/body/div[3]/@variant_id
+            directions:
+              - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
+                  Toilette 1 Million, vaporisez directement sur les parties les
+                  plus chaudes de la peau (cou et poignets) ou appliquez
+                  directement sur vos vêtements. Pour un parfum de longue durée
+                  qui dure toute la journée, vous pouvez également utiliser les
+                  produits de bain 1 Million pour tout le corps.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
+            shippingInfo:
+              - text: >-
+                  La livraison est offerte en magasin et sur toutes les
+                  commandes à partir de 50 € d'achat, quel que soit le mode de
+                  livraison choisi (à domicile ou au bureau, dans un magasin
+                  Planet Parfum, ou en point de retrait). Nous livrons partout
+                  en Belgique en 24h : commandez avant 17h pour une livraison le
+                  surlendemain (hors weekends et jours fériés).
+                   
+                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
+            variantCount:
+              - text: "3"
+            name:
+              - text: 1 Million
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/h1[1]
+            brandLink:
+              - text: https://www.planetparfum.com/fr/marques/paco-rabanne/
+                xpath: /html/body/div[3]/@brand_link
+            ingredientsList:
+              - text: ALCOHOL DENAT. - PARFUM (FRAGRANCE) - AQUA (WATER) - BUTYLPHENYL
+                  METHYLPROPIONAL - COUMARIN - LIMONENE - HYDROXYCITRONELLAL -
+                  ALPHA-ISOMETHYL IONONE - LINALOOL - BENZYL ALCOHOL - CINNAMAL
+                  - EUGENOL - CITRAL - ISOEUGENOL - CITRONELLOL.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+            pricePerUnit:
+              - text: 1.298,00 €
+                xpath: /html/body/div[3]/@price_per_unit
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[3]/@price_per_unit_uom
+            promotion:
+              - text: -20% sur tous les parfums et coffrets
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
+            variants:
+              - text: 50 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
+              - text: 100 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/label[1]/div[1]/div[1]
+              - text: 200 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/label[1]/div[1]/div[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - alternateImages:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw6e7f4fe3/thumbnails/20015901_C1.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[4]/a[1]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw2cbc2f37/thumbnails/20015901_C2.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[4]/a[2]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw53e928ec/thumbnails/20015901_C3.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[4]/a[3]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw62534f7e/thumbnails/20015901_C4.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[4]/a[4]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw1f0ca5b7/thumbnails/20015901_C5.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[4]/a[5]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw08d65311/thumbnails/20015901_C6.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[4]/a[6]/@href
+            productUrl:
+              - text: https://www.planetparfum.com/fr/product/1-million/20015903.html
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            image:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw44179b2a/zoom/20015901_M.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[4]/@product_img
+            imageAlt:
+              - text: 1 Million zoom | Planetparfum.com
+                xpath: /html/body/div[4]/@product_img_alt
+            metaKeywords:
+              - text: 1 Million
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Parfums
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[2]/a[1]
+              - text: Pour lui
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[3]/a[1]
+              - text: Fragrances
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: PACO RABANNE - 1 Million - Eau de Toilette - 100 ml - Vaporisateur
+                xpath: /html/body/div[4]/@name_extended
+            listPrice:
+              - text: 85,90 €
+                xpath: /html/body/div[4]/@list_price
+            price:
+              - text: 68,72 €
+                xpath: /html/body/div[4]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[4]/@availability_text
+            description:
+              - text: >-
+                  1 Million Eau de Toilette de Paco Rabanne. L'art d'être
+                  flamboyant. Aimer le danger et les coups d'éclat. N'obéir à
+                  personne. Sauf à ses fantasmes. 1 MILLION Eau de Toilette
+                  intrigue, bouscule, bad boy. Et séduit littéralement.
+                  Gentleman. Un beau Cuir épicé au charme insolent qui sait
+                  provoquer la chance. Déroutant.
+
+                  Cuir-épicé insolent. Captiver d'abord, conquérir ensuite. Rose-cannelle au masculin. Cuir blond, bois blanc. Chaud! 
+                   
+                   Famille olfactive : Cuir- Epicé- Frais 
+                   
+                   Composition : Notes de tête: mandarine sanguine & menthe poivrée - Notes de coeur: absolu de rose & cannelle - Notes de base: accord de cuir & ambre kétal 
+                   
+                   Prix par litre: 589,50 €
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+            brandText:
+              - text: PACO RABANNE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            quantity:
+              - text: 100 ml
+                xpath: /html/body/div[4]/@quantity_text
+            variantId:
+              - text: 100 ml - Vaporisateur
+                xpath: /html/body/div[4]/@variant_id
+            directions:
+              - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
+                  Toilette 1 Million, vaporisez directement sur les parties les
+                  plus chaudes de la peau (cou et poignets) ou appliquez
+                  directement sur vos vêtements. Pour un parfum de longue durée
+                  qui dure toute la journée, vous pouvez également utiliser les
+                  produits de bain 1 Million pour tout le corps.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
+            shippingInfo:
+              - text: >-
+                  La livraison est offerte en magasin et sur toutes les
+                  commandes à partir de 50 € d'achat, quel que soit le mode de
+                  livraison choisi (à domicile ou au bureau, dans un magasin
+                  Planet Parfum, ou en point de retrait). Nous livrons partout
+                  en Belgique en 24h : commandez avant 17h pour une livraison le
+                  surlendemain (hors weekends et jours fériés).
+                   
+                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
+            variantCount:
+              - text: "3"
+            name:
+              - text: 1 Million
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/h1[1]
+            brandLink:
+              - text: https://www.planetparfum.com/fr/marques/paco-rabanne/
+                xpath: /html/body/div[4]/@brand_link
+            ingredientsList:
+              - text: ALCOHOL DENAT. - PARFUM (FRAGRANCE) - AQUA (WATER) - BUTYLPHENYL
+                  METHYLPROPIONAL - COUMARIN - LIMONENE - HYDROXYCITRONELLAL -
+                  ALPHA-ISOMETHYL IONONE - LINALOOL - BENZYL ALCOHOL - CINNAMAL
+                  - EUGENOL - CITRAL - ISOEUGENOL - CITRONELLOL.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+            pricePerUnit:
+              - text: 859,00 €
+                xpath: /html/body/div[4]/@price_per_unit
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[4]/@price_per_unit_uom
+            promotion:
+              - text: -20% sur tous les parfums et coffrets
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
+            variants:
+              - text: 50 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
+              - text: 100 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/label[1]/div[1]/div[1]
+              - text: 200 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/label[1]/div[1]/div[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - alternateImages:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwf3ed8f4a/thumbnails/20015903_C1.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[6]/a[1]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dweb20ffeb/thumbnails/20015903_C2.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[6]/a[2]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw6874ecbf/thumbnails/20015903_C3.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[6]/a[3]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwae3c5196/thumbnails/20015903_C4.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[6]/a[4]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw25ee4825/thumbnails/20015903_C5.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[6]/a[5]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw803d19f4/thumbnails/20015903_C6.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[6]/a[6]/@href
+            productUrl:
+              - text: https://www.planetparfum.com/fr/product/1-million/20015903.html
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            image:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw34329dec/zoom/20015903_M.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[6]/@product_img
+            imageAlt:
+              - text: 1 Million zoom | Planetparfum.com
+                xpath: /html/body/div[6]/@product_img_alt
+            metaKeywords:
+              - text: 1 Million
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Parfums
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[2]/a[1]
+              - text: Pour lui
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[3]/a[1]
+              - text: Fragrances
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: PACO RABANNE - 1 Million - Eau de Toilette - 200 ml - Vaporisateur
+                xpath: /html/body/div[6]/@name_extended
+            listPrice:
+              - text: 117,90 €
+                xpath: /html/body/div[6]/@list_price
+            price:
+              - text: 94,32 €
+                xpath: /html/body/div[6]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[6]/@availability_text
+            description:
+              - text: >-
+                  1 Million Eau de Toilette de Paco Rabanne. L'art d'être
+                  flamboyant. Aimer le danger et les coups d'éclat. N'obéir à
+                  personne. Sauf à ses fantasmes. 1 MILLION Eau de Toilette
+                  intrigue, bouscule, bad boy. Et séduit littéralement.
+                  Gentleman. Un beau Cuir épicé au charme insolent qui sait
+                  provoquer la chance. Déroutant.
+
+                  Cuir-épicé insolent. Captiver d'abord, conquérir ensuite. Rose-cannelle au masculin. Cuir blond, bois blanc. Chaud! 
+                   
+                   Famille olfactive : Cuir- Epicé- Frais 
+                   
+                   Composition : Notes de tête: mandarine sanguine & menthe poivrée - Notes de coeur: absolu de rose & cannelle - Notes de base: accord de cuir & ambre kétal 
+                   
+                   Prix par litre: 589,50 €
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+            brandText:
+              - text: PACO RABANNE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            quantity:
+              - text: 200 ml
+                xpath: /html/body/div[6]/@quantity_text
+            sku:
+              - text: "20015903"
+                xpath: /html/body/div[1]/@data-gtm-data
+            variantId:
+              - text: 200 ml - Vaporisateur
+                xpath: /html/body/div[6]/@variant_id
+            directions:
+              - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
+                  Toilette 1 Million, vaporisez directement sur les parties les
+                  plus chaudes de la peau (cou et poignets) ou appliquez
+                  directement sur vos vêtements. Pour un parfum de longue durée
+                  qui dure toute la journée, vous pouvez également utiliser les
+                  produits de bain 1 Million pour tout le corps.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
+            shippingInfo:
+              - text: >-
+                  La livraison est offerte en magasin et sur toutes les
+                  commandes à partir de 50 € d'achat, quel que soit le mode de
+                  livraison choisi (à domicile ou au bureau, dans un magasin
+                  Planet Parfum, ou en point de retrait). Nous livrons partout
+                  en Belgique en 24h : commandez avant 17h pour une livraison le
+                  surlendemain (hors weekends et jours fériés).
+                   
+                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
+            variantCount:
+              - text: "3"
+            name:
+              - text: 1 Million
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/h1[1]
+            brandLink:
+              - text: https://www.planetparfum.com/fr/marques/paco-rabanne/
+                xpath: /html/body/div[6]/@brand_link
+            ingredientsList:
+              - text: ALCOHOL DENAT. - PARFUM (FRAGRANCE) - AQUA (WATER) - BUTYLPHENYL
+                  METHYLPROPIONAL - COUMARIN - LIMONENE - HYDROXYCITRONELLAL -
+                  ALPHA-ISOMETHYL IONONE - LINALOOL - BENZYL ALCOHOL - CINNAMAL
+                  - EUGENOL - CITRAL - ISOEUGENOL - CITRONELLOL.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+            pricePerUnit:
+              - text: 589,50 €
+                xpath: /html/body/div[6]/@price_per_unit
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[6]/@price_per_unit_uom
+            promotion:
+              - text: -20% sur tous les parfums et coffrets
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
+            variants:
+              - text: 50 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
+              - text: 100 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/label[1]/div[1]/div[1]
+              - text: 200 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/label[1]/div[1]/div[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1605798173597

@@ -1,0 +1,105 @@
+input:
+  RPC: 14808_457
+  _url: http://planetparfum.com
+extractions:
+  - html: https://workbench.import.io/html/run=2326a762-7aaa-4346-be13-c85c175881d6/task=14c40b0f-e83a-4409-b41d-2f77809665aa/245ff111-2c87-4178-8d8e-e91df512a4a0.html
+    extractionConfigId: product/details/stores/p/planetParfum/BE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.planetparfum.com/fr/product/haute-exigence-jour-toutes-peaux/20023064.html
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            image:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwc36a9193/zoom/20023064_M.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[4]/@product_img
+            imageAlt:
+              - text: Haute Exigence Jour Toutes Peaux zoom | Planetparfum.com
+                xpath: /html/body/div[4]/@product_img_alt
+            metaKeywords:
+              - text: Haute Exigence Jour Toutes Peaux
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Soins visage
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[2]/a[1]
+              - text: Crèmes jour et nuit
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[3]/a[1]
+              - text: Crème jour
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: CLARINS - Haute Exigence Jour Toutes Peaux - Crème Jour
+                xpath: /html/body/div[4]/@name_extended
+            price:
+              - text: 89,90 €
+                xpath: /html/body/div[4]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[4]/@availability_text
+            description:
+              - text: >-
+                  L'unique soin qui combine une action redensifiante à tous les
+                  niveaux et une action embellissante de la peau immédiate. Pour
+                  les femmes de plus de 50 ans dont la peau est fragilisée par
+                  les modifications hormonales et qui souhaitent combattre les
+                  rides et la perte de densité de la peau. 
+                   
+                   Texture : Crème 
+                   
+                   Type de peau : Peaux normales
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+            brandText:
+              - text: CLARINS
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            quantity:
+              - text: 50 ml
+                xpath: /html/body/div[4]/@quantity_text
+            sku:
+              - text: "20023064"
+                xpath: /html/body/div[1]/@data-gtm-data
+            directions:
+              - text: Appliquer chaque matin sur le visage et le cou parfaitement nettoyés en
+                  effectuant des pressions du centre du visage vers l'extérieur.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
+            shippingInfo:
+              - text: >-
+                  La livraison est offerte en magasin et sur toutes les
+                  commandes à partir de 50 € d'achat, quel que soit le mode de
+                  livraison choisi (à domicile ou au bureau, dans un magasin
+                  Planet Parfum, ou en point de retrait). Nous livrons partout
+                  en Belgique en 24h : commandez avant 17h pour une livraison le
+                  surlendemain (hors weekends et jours fériés).
+                   
+                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
+            variantCount:
+              - text: "0"
+            name:
+              - text: Haute Exigence Jour Toutes Peaux
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/h1[1]
+            brandLink:
+              - text: https://www.planetparfum.com/fr/marques/clarins/
+                xpath: /html/body/div[4]/@brand_link
+            ingredientsList:
+              - text: AQUA/WATER/EAU, CAPRYLIC/CAPRIC TRIGLYCERIDE, GLYCERIN, CETEARYL ALCOHOL,
+                  BUTYROSPERMUM PARKII (SHEA) BUTTER, HYDROGENATED
+                  COCO-GLYCERIDES, PENTYLENE GLYCOL, GLYCERYL STEARATE, PEG-100
+                  STEARATE, CETEARYL GLUCOSIDE, DIMETHICONE, PHENOXYETHANOL,
+                  ASCORBYL GLUCOSIDE, STEARETH-21, PARFUM/FRAGRANCE,
+                  TROMETHAMINE, CARBOMER, TOCOPHERYL ACETATE,
+                  ETHYLHEXYLGLYCERIN, BUTYLENE GLYCOL, DIMETHICONOL, SODIUM
+                  HYALURONATE, DISODIUM EDTA, MICA, CI 77120/BARIUM SULFATE,
+                  SUCROSE PALMITATE, CI 77891/TITANIUM DIOXIDE, HARUNGANA
+                  MADAGASCARIENSIS EXTRACT, TOCOPHEROL, OLEA EUROPAEA (OLIVE)
+                  FRUIT EXTRACT, GLYCERYL LINOLEATE, THERMUS THERMOPHILLUS
+                  FERMENT, LAPSANA COMMUNIS FLOWER/LEAF/STEM EXTRACT, POTASSIUM
+                  SORBATE, CAMELLIA SINENSIS LEAF EXTRACT, CITRIC ACID,
+                  PROPANEDIOL, PECTIN, RHODIOLA ROSEA ROOT EXTRACT, GUAR
+                  HYDROXYPROPYLTRIMONIUM CHLORIDE, SODIUM LAURYL SULFATE, CI
+                  14700/RED 4, ACETYL TETRAPEPTIDE-2, DEXTRAN, [V2609A]. Nos
+                  formules pouvant être amenées à évoluer, veuillez vous
+                  reporter également à la liste d'ingrédients figurant sur
+                  l'emballage du produit & faisant seule foi.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1605798158789

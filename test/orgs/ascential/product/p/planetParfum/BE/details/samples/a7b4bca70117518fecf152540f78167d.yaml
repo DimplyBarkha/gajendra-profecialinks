@@ -1,0 +1,235 @@
+input:
+  RPC: 12764_457
+  _url: http://planetparfum.com
+extractions:
+  - html: https://workbench.import.io/html/run=2326a762-7aaa-4346-be13-c85c175881d6/task=405ac089-de7c-42ba-9ffe-26f8bb0ce05f/4234100c-7e65-422f-a687-86afb45841ea.html
+    extractionConfigId: product/details/stores/p/planetParfum/BE/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw27e60cc5/thumbnails/20019631_C1.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/a[1]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw0449e478/thumbnails/20019631_C2.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/a[2]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw7691539c/thumbnails/20019631_C3.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/a[3]/@href
+            productUrl:
+              - text: https://www.planetparfum.com/fr/product/pour-homme/20015874.html
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            image:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwb382afcf/zoom/20019631_M.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/@product_img
+            imageAlt:
+              - text: Pour Homme zoom | Planetparfum.com
+                xpath: /html/body/div[3]/@product_img_alt
+            metaKeywords:
+              - text: Pour Homme
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Parfums
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[2]/a[1]
+              - text: Pour lui
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[3]/a[1]
+              - text: Fragrances
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: PACO RABANNE - Pour Homme - Eau de Toilette - 50 ml - Vaporisateur
+                xpath: /html/body/div[3]/@name_extended
+            listPrice:
+              - text: 52,50 €
+                xpath: /html/body/div[3]/@list_price
+            price:
+              - text: 42,00 €
+                xpath: /html/body/div[3]/@price
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[3]/@availability_text
+            description:
+              - text: >-
+                  PACO RABANNE POUR HOMME Eau de Toilette, 1973. Pionnier des «
+                  fougères aromatiques » et future icône.
+
+                  Impossible de l'oublier. Une odeur de peau fraîchement rasée, sur fond de tabac miellé. Fougère vintage. Viril, subtil, charismatique. Le charme fou des grands classiques. Fougère aromatique-charismatique. Fraîcheur virile au charme fou. Lavande + estragon. Géranium piqué de girofle. Bois et tabac miellé. Sauvage… 
+                   
+                   Famille olfactive : Fougère Aromatique 
+                   
+                   Composition : Notes de tête: Lavande, thym & estragon - Notes de coeur: Géranium, girofle & fève tonka - Notes de base: Tabac, mousse de chêne & musc 
+                   
+                   Prix par litre: 835,00 €
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+            brandText:
+              - text: PACO RABANNE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            quantity:
+              - text: 50 ml
+                xpath: /html/body/div[3]/@quantity_text
+            sku:
+              - text: "20015874"
+                xpath: /html/body/div[1]/@data-gtm-data
+            variantId:
+              - text: 50 ml - Vaporisateur
+                xpath: /html/body/div[3]/@variant_id
+            directions:
+              - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
+                  Toilette Pour Homme, vaporisez directement sur les parties les
+                  plus chaudes de la peau (cou et poignets) ou appliquez
+                  directement sur vos vêtements. Pour un parfum de longue durée
+                  qui dure toute la journée, vous pouvez également utiliser les
+                  produits de bain Pour Homme pour tout le corps.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
+            shippingInfo:
+              - text: >-
+                  La livraison est offerte en magasin et sur toutes les
+                  commandes à partir de 50 € d'achat, quel que soit le mode de
+                  livraison choisi (à domicile ou au bureau, dans un magasin
+                  Planet Parfum, ou en point de retrait). Nous livrons partout
+                  en Belgique en 24h : commandez avant 17h pour une livraison le
+                  surlendemain (hors weekends et jours fériés).
+                   
+                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
+            variantCount:
+              - text: "2"
+            name:
+              - text: Pour Homme
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/h1[1]
+            brandLink:
+              - text: https://www.planetparfum.com/fr/marques/paco-rabanne/
+                xpath: /html/body/div[3]/@brand_link
+            ingredientsList:
+              - text: ALCOHOL DENAT. - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - COUMARIN -
+                  BUTYLPHENYL METHYLPROPIONAL - HYDROXYCITRONELLAL -
+                  ALPHA-ISOMETHYL IONONE - EUGENOL - LINALOOL - GERANIOL -
+                  CITRONELLOL - HEXYL CINNAMAL - BENZYL BENZOATE - CITRAL -
+                  EVERNIA PRUNASTRI (OAKMOSS) EXTRACT - BENZYL SALICYLATE - AMYL
+                  CINNAMAL - CINNAMYL ALCOHOL - BENZYL ALCOHOL - CINNAMAL.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+            pricePerUnit:
+              - text: 1.050,00 €
+                xpath: /html/body/div[3]/@price_per_unit
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[3]/@price_per_unit_uom
+            promotion:
+              - text: -20% sur tous les parfums et coffrets
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
+            variants:
+              - text: 50 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
+              - text: 100 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/label[1]/div[1]/div[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - alternateImages:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw5305659b/thumbnails/20015874_C1.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[5]/a[1]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwdffe0518/thumbnails/20015874_C2.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[5]/a[2]/@href
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwead6d9a1/thumbnails/20015874_C3.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[5]/a[3]/@href
+            productUrl:
+              - text: https://www.planetparfum.com/fr/product/pour-homme/20015874.html
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            image:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwbad345db/zoom/20015874_M.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[5]/@product_img
+            imageAlt:
+              - text: Pour Homme zoom | Planetparfum.com
+                xpath: /html/body/div[5]/@product_img_alt
+            metaKeywords:
+              - text: Pour Homme
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Parfums
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[2]/a[1]
+              - text: Pour lui
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[3]/a[1]
+              - text: Fragrances
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: PACO RABANNE - Pour Homme - Eau de Toilette - 100 ml - Vaporisateur
+                xpath: /html/body/div[5]/@name_extended
+            listPrice:
+              - text: 83,50 €
+                xpath: /html/body/div[5]/@list_price
+            price:
+              - text: 66,80 €
+                xpath: /html/body/div[5]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[5]/@availability_text
+            description:
+              - text: >-
+                  PACO RABANNE POUR HOMME Eau de Toilette, 1973. Pionnier des «
+                  fougères aromatiques » et future icône.
+
+                  Impossible de l'oublier. Une odeur de peau fraîchement rasée, sur fond de tabac miellé. Fougère vintage. Viril, subtil, charismatique. Le charme fou des grands classiques. Fougère aromatique-charismatique. Fraîcheur virile au charme fou. Lavande + estragon. Géranium piqué de girofle. Bois et tabac miellé. Sauvage… 
+                   
+                   Famille olfactive : Fougère Aromatique 
+                   
+                   Composition : Notes de tête: Lavande, thym & estragon - Notes de coeur: Géranium, girofle & fève tonka - Notes de base: Tabac, mousse de chêne & musc 
+                   
+                   Prix par litre: 835,00 €
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+            brandText:
+              - text: PACO RABANNE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            quantity:
+              - text: 100 ml
+                xpath: /html/body/div[5]/@quantity_text
+            variantId:
+              - text: 100 ml - Vaporisateur
+                xpath: /html/body/div[5]/@variant_id
+            directions:
+              - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
+                  Toilette Pour Homme, vaporisez directement sur les parties les
+                  plus chaudes de la peau (cou et poignets) ou appliquez
+                  directement sur vos vêtements. Pour un parfum de longue durée
+                  qui dure toute la journée, vous pouvez également utiliser les
+                  produits de bain Pour Homme pour tout le corps.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
+            shippingInfo:
+              - text: >-
+                  La livraison est offerte en magasin et sur toutes les
+                  commandes à partir de 50 € d'achat, quel que soit le mode de
+                  livraison choisi (à domicile ou au bureau, dans un magasin
+                  Planet Parfum, ou en point de retrait). Nous livrons partout
+                  en Belgique en 24h : commandez avant 17h pour une livraison le
+                  surlendemain (hors weekends et jours fériés).
+                   
+                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
+            variantCount:
+              - text: "2"
+            name:
+              - text: Pour Homme
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/h1[1]
+            brandLink:
+              - text: https://www.planetparfum.com/fr/marques/paco-rabanne/
+                xpath: /html/body/div[5]/@brand_link
+            ingredientsList:
+              - text: ALCOHOL DENAT. - PARFUM (FRAGRANCE) - AQUA (WATER) - LIMONENE - COUMARIN -
+                  BUTYLPHENYL METHYLPROPIONAL - HYDROXYCITRONELLAL -
+                  ALPHA-ISOMETHYL IONONE - EUGENOL - LINALOOL - GERANIOL -
+                  CITRONELLOL - HEXYL CINNAMAL - BENZYL BENZOATE - CITRAL -
+                  EVERNIA PRUNASTRI (OAKMOSS) EXTRACT - BENZYL SALICYLATE - AMYL
+                  CINNAMAL - CINNAMYL ALCOHOL - BENZYL ALCOHOL - CINNAMAL.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+            pricePerUnit:
+              - text: 835,00 €
+                xpath: /html/body/div[5]/@price_per_unit
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[5]/@price_per_unit_uom
+            promotion:
+              - text: -20% sur tous les parfums et coffrets
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
+            variants:
+              - text: 50 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
+              - text: 100 ml - Vaporisateur
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/label[1]/div[1]/div[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1605798164326

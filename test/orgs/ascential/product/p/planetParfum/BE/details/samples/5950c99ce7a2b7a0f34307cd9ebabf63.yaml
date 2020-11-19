@@ -1,0 +1,193 @@
+input:
+  RPC: 14519_409
+  _url: http://planetparfum.com
+extractions:
+  - html: https://workbench.import.io/html/run=2326a762-7aaa-4346-be13-c85c175881d6/task=9673ada1-9d1d-463f-9379-aa3288bebfbb/53382cfd-f219-44d5-9be0-0ad1ecd1a635.html
+    extractionConfigId: product/details/stores/p/planetParfum/BE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.planetparfum.com/fr/product/ombre-hypnose-mono-mate/20014426.html
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            image:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw8848a982/zoom/20014423_M.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[3]/@product_img
+            imageAlt:
+              - text: Ombre Hypnôse Mono Mate zoom | Planetparfum.com
+                xpath: /html/body/div[3]/@product_img_alt
+            metaKeywords:
+              - text: Ombre Hypnôse Mono Mate
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Maquillage
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[2]/a[1]
+              - text: Yeux
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[3]/a[1]
+              - text: Fards à paupières
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: LANCÔME - Ombre Hypnôse Mono Mate - Ombre à Paupières - 102 Beige Nu
+                xpath: /html/body/div[3]/@name_extended
+            price:
+              - text: 30,90 €
+                xpath: /html/body/div[3]/@price
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[3]/@availability_text
+            description:
+              - text: Des ombres à paupières pour des maquillages naturels de jour aux looks
+                  smoky du soir, utilisez Ombre Hypnôse pour un regard intense
+                  et spectaculaire! Que vous optiez pour un look délicat, avec
+                  une légère touche de couleur, ou pour un look de star plus osé
+                  et intense, notre formule offre une tenue parfaite et une
+                  couvrance douce, homogène et superposable à chaque
+                  application.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+            brandText:
+              - text: LANCÔME
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            sku:
+              - text: "20014423"
+                xpath: /html/body/div[1]/@data-gtm-data
+            variantId:
+              - text: 102 Beige Nu
+                xpath: /html/body/div[3]/@variant_id
+            shippingInfo:
+              - text: >-
+                  La livraison est offerte en magasin et sur toutes les
+                  commandes à partir de 50 € d'achat, quel que soit le mode de
+                  livraison choisi (à domicile ou au bureau, dans un magasin
+                  Planet Parfum, ou en point de retrait). Nous livrons partout
+                  en Belgique en 24h : commandez avant 17h pour une livraison le
+                  surlendemain (hors weekends et jours fériés).
+                   
+                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]
+            variantCount:
+              - text: "2"
+            color:
+              - text: 102 Beige Nu
+                xpath: /html/body/div[3]/@color_text
+            colorCode:
+              - text: "#D7B7A2"
+                xpath: /html/body/div[3]/@color_code_txt
+            name:
+              - text: Ombre Hypnôse Mono Mate
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/h1[1]
+            brandLink:
+              - text: https://www.planetparfum.com/fr/marques/lancome/
+                xpath: /html/body/div[3]/@brand_link
+            ingredientsList:
+              - text: >-
+                  CALCIUM ALUMINUM BOROSILICAT - CETEARYL ETHYLHEXANOATE -
+                  GLYCERIN - HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER - SILICA
+                  - SQUALANE - OCTYLDODECYL STEAROYL STEARATE - TIN OXIDE -
+                  1,2-HEXANEDIOL - DICALCIUM PHOSPHATE - CHONDRUS CRISPUS -
+                  CAPRYLYL GLYCOL - XANTHAN GUM - SYNTHETIC FLUORPHLOGOPITE -
+                  ETHYLHEXYLGLYCERIN - POLYSORBATE 80 - TOCOPHEROL -
+                  PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - [+/-
+                  MAY CONTAIN CI 77288 / CHROMIUM OXIDE GREENS - CI 77491, CI
+                  77492, CI 77499 / IRON OXIDES - CI 77510 / FERRIC FERROCYANIDE
+                  - CI 77891 / TITANIUM DIOXIDE - MICA - ] 
+
+                  * THIS INGREDIENT LIST IS SUBJECT TO CHANGE, CUSTOMERS SHOULD REFER TO THE PRODUCT PACKAGING FOR THE MOST UP-TO-DATE INGREDIENT LIST.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/span[1]
+            variants:
+              - text: 204 Très Chocolat
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[2]
+              - text: 102 Beige Nu
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[2]/span[2]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - productUrl:
+              - text: https://www.planetparfum.com/fr/product/ombre-hypnose-mono-mate/20014426.html
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            image:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw3159ccbd/zoom/20014426_M.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[5]/@product_img
+            imageAlt:
+              - text: Ombre Hypnôse Mono Mate zoom | Planetparfum.com
+                xpath: /html/body/div[5]/@product_img_alt
+            metaKeywords:
+              - text: Ombre Hypnôse Mono Mate
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Maquillage
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[2]/a[1]
+              - text: Yeux
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[3]/a[1]
+              - text: Fards à paupières
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: LANCÔME - Ombre Hypnôse Mono Mate - Ombre à Paupières - 204 Très Chocolat
+                xpath: /html/body/div[5]/@name_extended
+            price:
+              - text: 30,90 €
+                xpath: /html/body/div[5]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[5]/@availability_text
+            description:
+              - text: Des ombres à paupières pour des maquillages naturels de jour aux looks
+                  smoky du soir, utilisez Ombre Hypnôse pour un regard intense
+                  et spectaculaire! Que vous optiez pour un look délicat, avec
+                  une légère touche de couleur, ou pour un look de star plus osé
+                  et intense, notre formule offre une tenue parfaite et une
+                  couvrance douce, homogène et superposable à chaque
+                  application.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+            brandText:
+              - text: LANCÔME
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            variantId:
+              - text: 204 Très Chocolat
+                xpath: /html/body/div[5]/@variant_id
+            shippingInfo:
+              - text: >-
+                  La livraison est offerte en magasin et sur toutes les
+                  commandes à partir de 50 € d'achat, quel que soit le mode de
+                  livraison choisi (à domicile ou au bureau, dans un magasin
+                  Planet Parfum, ou en point de retrait). Nous livrons partout
+                  en Belgique en 24h : commandez avant 17h pour une livraison le
+                  surlendemain (hors weekends et jours fériés).
+                   
+                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]
+            variantCount:
+              - text: "2"
+            color:
+              - text: 204 Très Chocolat
+                xpath: /html/body/div[5]/@color_text
+            colorCode:
+              - text: "#4A3731"
+                xpath: /html/body/div[5]/@color_code_txt
+            name:
+              - text: Ombre Hypnôse Mono Mate
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/h1[1]
+            brandLink:
+              - text: https://www.planetparfum.com/fr/marques/lancome/
+                xpath: /html/body/div[5]/@brand_link
+            ingredientsList:
+              - text: >-
+                  CALCIUM ALUMINUM BOROSILICAT - CETEARYL ETHYLHEXANOATE -
+                  GLYCERIN - HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER - SILICA
+                  - SQUALANE - OCTYLDODECYL STEAROYL STEARATE - TIN OXIDE -
+                  1,2-HEXANEDIOL - DICALCIUM PHOSPHATE - CHONDRUS CRISPUS -
+                  CAPRYLYL GLYCOL - XANTHAN GUM - SYNTHETIC FLUORPHLOGOPITE -
+                  ETHYLHEXYLGLYCERIN - POLYSORBATE 80 - TOCOPHEROL -
+                  PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE - [+/-
+                  MAY CONTAIN CI 77288 / CHROMIUM OXIDE GREENS - CI 77491, CI
+                  77492, CI 77499 / IRON OXIDES - CI 77510 / FERRIC FERROCYANIDE
+                  - CI 77891 / TITANIUM DIOXIDE - MICA - ] 
+
+                  * THIS INGREDIENT LIST IS SUBJECT TO CHANGE, CUSTOMERS SHOULD REFER TO THE PRODUCT PACKAGING FOR THE MOST UP-TO-DATE INGREDIENT LIST.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/span[1]
+            variants:
+              - text: 204 Très Chocolat
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[2]
+              - text: 102 Beige Nu
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[2]/span[2]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1605798164848

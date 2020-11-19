@@ -1,0 +1,122 @@
+input:
+  RPC: 12751_457
+  _url: http://planetparfum.com
+extractions:
+  - html: https://workbench.import.io/html/run=2326a762-7aaa-4346-be13-c85c175881d6/task=18d6f69b-1ad6-46f9-9534-7ce74f021a7c/d15e8eed-4768-48b8-862a-b7d09cc83c6f.html
+    extractionConfigId: product/details/stores/p/planetParfum/BE/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dw46d88cac/thumbnails/20020729_C1.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[4]/a[1]/@href
+            productUrl:
+              - text: https://www.planetparfum.com/fr/product/invictus/20020729.html
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/span[1]
+            image:
+              - text: https://www.planetparfum.com/dw/image/v2/AATN_PRD/on/demandware.static/-/Sites-master-catalog-pp/default/dwd96e6adb/zoom/20020729_M.jpg?sw=405&sh=405&sm=fit
+                xpath: /html/body/div[4]/@product_img
+            imageAlt:
+              - text: Invictus zoom | Planetparfum.com
+                xpath: /html/body/div[4]/@product_img_alt
+            metaKeywords:
+              - text: Invictus
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Parfums
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[2]/a[1]
+              - text: Pour lui
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[3]/a[1]
+              - text: Corps & bains
+                xpath: /html/body/div[1]/nav[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: PACO RABANNE - Invictus - Gel Douche
+                xpath: /html/body/div[4]/@name_extended
+            listPrice:
+              - text: 28,90 €
+                xpath: /html/body/div[4]/@list_price
+            price:
+              - text: 23,12 €
+                xpath: /html/body/div[4]/@price
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[4]/@availability_text
+            description:
+              - text: >-
+                  Il est l'homme dans toute sa puissance, le héros absolu.
+                  INVICTUS. Mis au défi et béni par les dieux. Son parfum est
+                  celui de la victoire. Un choc phénoménal entre fraîcheur
+                  cinglante et sensualité animale. Deux forces auxquelles rien
+                  (ni personne) ne résiste.
+
+                  Boisé-frais héroïque.Deux forces: fraîcheur cinglante et chaleur animale. Qui l'emporte ? Pamplemousse-marin et bois de Gaïac s'entrechoquent. Le vibrant répond au musclé. Double victoire. 
+                   
+                   Texture : Gel 
+                   
+                   Famille olfactive : Boisé; Frais 
+                   
+                   Composition : Ecorce de pamplemousse; Accord marin; Feuille de laurier; Bois de gaïac; Patchouli; Accord d'ambre gris 
+                   
+                   Prix par litre: 192,67 €
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[1]
+            brandText:
+              - text: PACO RABANNE
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            quantity:
+              - text: 150 ml
+                xpath: /html/body/div[4]/@quantity_text
+            sku:
+              - text: "20020729"
+                xpath: /html/body/div[1]/@data-gtm-data
+            directions:
+              - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
+                  Toilette Invictus, vaporisez directement sur les parties les
+                  plus chaudes de la peau (cou et poignets) ou appliquez
+                  directement sur vos vêtements. Pour un parfum de longue durée
+                  qui dure toute la journée, vous pouvez également utiliser les
+                  produits de bain Invictus pour tout le corps.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[2]/p[1]
+            shippingInfo:
+              - text: >-
+                  La livraison est offerte en magasin et sur toutes les
+                  commandes à partir de 50 € d'achat, quel que soit le mode de
+                  livraison choisi (à domicile ou au bureau, dans un magasin
+                  Planet Parfum, ou en point de retrait). Nous livrons partout
+                  en Belgique en 24h : commandez avant 17h pour une livraison le
+                  surlendemain (hors weekends et jours fériés).
+                   
+                   Vous disposez de 14 jours pour retourner votre produit. Les retours en magasin sont gratuits.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[4]
+            variantCount:
+              - text: "0"
+            name:
+              - text: Invictus
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/h1[1]
+            brandLink:
+              - text: https://www.planetparfum.com/fr/marques/paco-rabanne/
+                xpath: /html/body/div[4]/@brand_link
+            ingredientsList:
+              - text: AQUA (WATER) - SODIUM LAURETH SULFATE - PARFUM (FRAGRANCE) -
+                  COCAMIDOPROPYL - BETAINE - DIPROPYLENE - GLYCOL - PEG-40 -
+                  HYDROGENATED CASTOR OIL - GLYCERIN - PANTHENOL - TOCOPHERYL -
+                  ACETATE - DECYL GLUCOSIDE - SODIUM BENZOATE - PEG-200 -
+                  YDROGENATED GLYCERYL PALMATE - PPG-20 METHYL - GLUCOSE ETHER -
+                  BENZYL - SALICYLATE - SODIUM CHLORIDE - PROPYLENE - GLYCOL -
+                  COPOLYMER - LACTIC ACID - PEG-7 GLYCERYL - COCOATE -
+                  HYDROXYPROPYL - GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE -
+                  LIMONENE - LINALOOL - COUMARIN - POLYQUATERNIUM-39 -
+                  TETRASODIUM - EDTA - BUTYLPHENYL - METHYLPROPIONAL - GERANIOL
+                  - CITRONELLOL - ALPHA-ISOMETHYL - IONONE.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[3]/div[1]/dl[1]/dd[3]/span[1]
+            pricePerUnit:
+              - text: 192,67 €
+                xpath: /html/body/div[4]/@price_per_unit
+            pricePerUnitUom:
+              - text: litre
+                xpath: /html/body/div[4]/@price_per_unit_uom
+            promotion:
+              - text: -20% sur tous les parfums et coffrets
+                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/p[1]/span[2]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1605798157253
