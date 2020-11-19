@@ -19,14 +19,13 @@ async function implementation (inputs, parameters, context, dependencies) {
 
       // set rank
       product.setAttribute('rank', (index + 1).toString());
-      // set soldBys
+      // set soldBy
       // @ts-ignore
       const soldBy = product.querySelector('p[class*="store-label"]')
         // @ts-ignore
-        ? product.querySelector('p[class*="store-label"]').innerText.split(' ') : null;
+        ? product.querySelector('p[class*="store-label"]').innerText.split('por') : null;
       if (soldBy !== null) {
-        soldBy.splice(0, 2).join(' ');
-        product.setAttribute('soldBy', soldBy);
+        product.setAttribute('soldBy', soldBy.pop());
       }
     });
   });
