@@ -10,7 +10,7 @@ fields:
     regExpReplace: PLID$1
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, 'listings-container')]//div[contains(@class, 'product-card')]//div[contains(@class, 'card-section')]//h4[contains(@class, 'product-title')]
+    xpath: //h4[@class='product-title']//span[contains(@style, 'hidden') and contains(@style, '100%')]
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class, 'listings-container')]//div[contains(@class, 'product-card')]//div[contains(@class, 'card-section')]//div[contains(@class, 'product-thumb-container')]//a/@href
