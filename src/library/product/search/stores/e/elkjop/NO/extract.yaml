@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@id,"searchProductsInfo")]//div[contains(@class,"col-mini-product")]/div | //section[contains(@class,"product-main-info")]
+recordXPath: //div[contains(@id,"searchProductsInfo")]//div[contains(@class,"col-mini-product")]/div | //section[contains(@class,"product-main-info")] | //div[contains(@class, "slick-track")]//div[contains(@class,"slick-active")]
 fields:
   - name: id
     description: Unique id (within this extractor)
-    xpath: //div[contains(@class,"product-number")] | //meta[contains(@itemprop,"sku")]
+    xpath: //div[contains(@class,"product-number")] | //meta[contains(@itemprop,"sku")]/@content
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
