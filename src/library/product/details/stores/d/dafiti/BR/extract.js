@@ -95,6 +95,22 @@ module.exports = {
       }
       addElementToDocument('added_price', price);
 
+      const shippingInfo = getXpath("//p[@class='product-seller-name']", 'innerText');
+      console.log('shippingInfo   ' + shippingInfo);
+      addElementToDocument('added_shippingInfo', shippingInfo);
+
+      let quantity = getAllXpath("//p[contains(@class, 'product-information-description')]/text()", 'nodeValue').join('|');
+      if (quantity != null && quantity.length > 0 && quantity.includes('|')) {
+        const quantityArr = quantity.split('|');
+        quantityArr.forEach(element => {
+          if (element.includes('Tamanho') && element.includes(':')) {
+            quantity = element.split(':')[1];
+            console.log('quantity   ' + quantity);
+            addElementToDocument('added_quantity', quantity);
+          }
+        });
+      }
+
       // const alternateImages = getAllXpath("//div[@id='offer-bg']//div[@id='offerImges']/div[position()>1]/img/@src", 'nodeValue').join(' | ');
       // console.log('alternateImages   ' + alternateImages);
       // addElementToDocument('added_alternateImages', alternateImages);

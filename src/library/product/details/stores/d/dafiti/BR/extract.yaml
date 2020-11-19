@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //ul[@class='carousel-items row']/li/a/@href
+    xpath: //ul[@class='carousel-items row']/li[position()>1]/a/@href
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -62,7 +62,8 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //span[@data-field='stock_message']//font/text()
+    # xpath: //span[@data-field='stock_message']//font/text()
+    xpath: //div[@id='added_quantity']
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -75,7 +76,8 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class='box-informations']//table//tr/td[@itemprop='sku']/text()
+    # xpath: //div[@class='box-informations']//table//tr/td[@itemprop='sku']/text()
+    xpath: //meta[@itemprop='sku']/@content
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -115,7 +117,8 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //p[@class='product-seller-name']//Strong/text()
+    # xpath: //p[@class='product-seller-name']//Strong/text()
+    xpath: //div[@id='added_shippingInfo']
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -237,6 +240,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count(//ul[@class='carousel-items row']/li[position()>1]/a/@href)
   - name: news
     singleValue: true
     description: null
@@ -449,6 +453,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //div[@id='added_quantity']
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
