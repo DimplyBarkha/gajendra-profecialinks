@@ -71,7 +71,7 @@ fields:
     xpath: //div[contains(@class, "product rightbar")]/text()[string-length() > 1] | //div[@class="producttitle"]
   - name: specifications
     singleValue: false
-    xpath: //table[parent::div/preceding-sibling::div[text()="Specifications"]]//td | //div[@id="specifications"]
+    xpath: //div[@id="specifications"] | //div[contains(@class,'flix-bg-specs')]
   - name: warranty
     singleValue: false
     xpath: //p[*[contains(text(),"Warranty")]]
