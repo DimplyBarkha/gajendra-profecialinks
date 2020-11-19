@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'solucious.be',
-    timeout: null,
+    timeout: 50000,
     country: 'BE',
     store: 'solucious',
     zipcode: '',

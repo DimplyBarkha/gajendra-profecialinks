@@ -1,5 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"ajax_content_container") and contains(@class,"catalog_list_items")]/div[contains(@class,"item")]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product_description"]/h3/a
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product_description"]/span
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product_description"]/a[contains(@class,"item-added")]/@href
+  - name: thurmbnail
+    singleValue: false
+    xpath:  //div[@class="product_description"]/a/img[@class="img-responsive"]/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class="js-standard-price"]/div[contains(@class,"ex_price")]/span[@class="price"]
