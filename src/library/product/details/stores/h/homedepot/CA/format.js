@@ -19,11 +19,6 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.availabilityText) {
-        row.availabilityText.forEach(item => {
-          item.text = item.text.includes('InStock') ? 'In Stock' : 'Out of Stock';
-        });
-      }
       if (!row.price && row.price1 && row.price1[0]) {
         const price = Number(parseFloat(row.price1[0].text).toFixed(2)).toLocaleString('en', {
           minimumFractionDigits: 2,
@@ -124,6 +119,17 @@ const transform = (data) => {
         row.nameExtended.forEach(item => {
           item.text = item.text.replace(/-\s*The Home Depot$/, '').replace(/#/g, '').replace(/Model {2}/, ' Model ').replace(/SKU {2}/, 'SKU ').trim();
         });
+        const quantity = row.nameExtended[0].text;
+        if (quantity.match(/(.*)([0-9][.][0-9]+) L (.*)/) || quantity.match(/(.*) (\d*) inch x (\d*) inch (.*)/) || quantity.match(/(.*) (\d*) Ml (.*)/) || quantity.match(/(.*) (\d*) ft. x (\d*) ft. (.*)/)) {
+          row.quantity = [{ text: quantity.replace(/(.*)([0-9][.][0-9]+) L (.*)/, '$2').replace(/(.*) (\d*) inch x (\d*) inch (.*)/, '$2*$3').replace(/(.*) (\d*) Ml (.*)/, '$2').replace(/(.*) (\d*) ft. x (\d*) ft. (.*)/, '$2*$3') }];
+        }
+        if (row.availabilityText) {
+          row.availabilityText.forEach(item => {
+            item.text = item.text.includes('InStock') ? 'In Stock' : 'Out of Stock';
+          });
+        } else {
+          row.availabilityText = [{ text: 'Out of Stock' }];
+        }
       }
       if (row.warnings) {
         row.warnings.forEach(item => {

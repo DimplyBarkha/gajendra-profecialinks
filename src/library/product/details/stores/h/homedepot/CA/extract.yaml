@@ -19,17 +19,14 @@ fields:
     xpath: //span[@itemprop="ratingValue"]
   - name: alternateImages
     singleValue: false
-    xpath: ((//div[@class="ngu-touch-container"])[2]//img/@src)[position()>1]
+    xpath: (//div[contains(@class,"zoom-gallery-container")]//div[contains(@class,"ngu-touch-container")]/div//img/@src)[position()>1]
   - name: secondaryImageTotal
     singleValue: false
     description: null
-    xpath: count(((//div[@class="ngu-touch-container"])[2]//img/@src)[position()>1])
+    xpath: count((//div[contains(@class,"zoom-gallery-container")]//div[contains(@class,"ngu-touch-container")]/div//img)[position()>1])
   - name: availabilityText
     singleValue: false
     xpath: //link[@itemprop="availability"]/@href
-    regExp: (.+)
-    regExpReplace: $1
-    defaultValue: Out of Stock
   - name: brandText
     singleValue: false
     xpath: //div[contains(@evtperfname, "product-info-component")]//h1[contains(@class, "description-title")]//span[1]
@@ -93,6 +90,7 @@ fields:
     singleValue: false
   - name: manufacturer
     singleValue: false
+    xpath: //div[contains(@evtperfname, "product-info-component")]//h1/span[contains(@class,"title-manufacturer")]
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="wc-aplus"] | //div[@id="inpage_container"]

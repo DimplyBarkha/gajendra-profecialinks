@@ -43,6 +43,14 @@ module.exports = {
     }
     await new Promise(resolve => setTimeout(resolve, 50000));
     try {
+      await context.click('div.hdca-product__gallery > acl-product-image > div > acl-icon');
+      await new Promise(resolve => setTimeout(resolve, 30000));
+      await context.click('div.zoom-gallery-container > div.carousel-container > hdca-carousel > div > div > ngu-carousel > div > button.arrow.arrow--next');
+      await new Promise(resolve => setTimeout(resolve, 30000));
+    } catch (error) {
+      console.log('no more images');
+    }
+    try {
       await new Promise(resolve => setTimeout(resolve, 30000));
       await context.click('.hdca-video__play');
       await new Promise(resolve => setTimeout(resolve, 30000));
