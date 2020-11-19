@@ -11,14 +11,14 @@ fields:
     xpath: //div[@id="rankOrganic"]/text()
   - name: id
     singleValue: false
-    xpath: //div[@class="ooB-mb12 ooB-mt6 artikelnummer"]/span/span
+    xpath: //div[@class="product2comp grid__item block-product "]/@data-lineid
     regExp: (\d+)
   - name: name
     singleValue: false
-    xpath: //a[@class="oo-link fftracking-productclick"]/b
+    xpath: //p[@class="prod_desc"]//a[@id="productDetails"]
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="ooB-rel gallerymiddle"]/a/@href
+    xpath: //div[@class="block_left float"]//a/@href
   - name: thumbnail
     singleValue: false
     xpath: //a[@class="fftracking-productclick"]/img/@data-srcset
@@ -28,4 +28,4 @@ fields:
     # regExp: (\d+)
   - name: price
     singleValue: false
-    xpath: //div[@class='preis_gelb_links']/p | //div[@class="oo-pricelabel_price"]/p 
+    xpath: //div[@class="preis_nichtgelb_rechts"]/p | //div[@class="oo-pricelabel_price"]/p
