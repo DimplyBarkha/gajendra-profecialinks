@@ -14,9 +14,6 @@ fields:
   - name: productUrl
     xpath: //@product-tile-url
   - name: gtin
-    xpath: //img[@class="product-tile__image"]/@src
-    regExp: \/medias.*\/(\d+)\.*
-    regExpReplace: $1
     singleValue: false
   - name: thumbnail
     xpath: //img[@class="product-tile__image"]/@src
