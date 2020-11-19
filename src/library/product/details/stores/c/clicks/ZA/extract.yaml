@@ -94,7 +94,9 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="floatLeft"]//span/span/text()
+    xpath: //div[@class="floatLeft"]/span/span
+    regExp: ^\d{1}(\.\d{1})?
+    # regExpReplace: $1
     defaultValue: "0"
   - name: shippingInfo
     singleValue: false

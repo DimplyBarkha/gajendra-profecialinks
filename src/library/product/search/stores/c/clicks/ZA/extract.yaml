@@ -21,6 +21,7 @@ fields:
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@class="starWrapper"]/span/span
+    regExp: ^\d{1}(\.\d{1})?
     defaultValue: "0"
   - name: id
     singleValue: false
