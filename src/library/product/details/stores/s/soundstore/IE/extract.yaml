@@ -10,7 +10,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='fotorama__stage__shaft fotorama__grab']/div/img/@src
+    xpath: //div[contains(@class,"fotorama__nav__frame fotorama__nav__frame--thumb")][ not(contains(@class,"fotorama__nav__frame fotorama__nav__frame--thumb video-thumb-icon"))][position()>1]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -243,6 +243,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[contains(@class,"fotorama__nav__frame fotorama__nav__frame--thumb")][ not(contains(@class,"fotorama__nav__frame fotorama__nav__frame--thumb video-thumb-icon"))][position()>1]//img/@src)
     type: NUMBER
   - name: news
     singleValue: true
