@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@class='product-cover']//@src
+    xpath: (//div[@class='product-cover']//@src)[1]
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
@@ -15,8 +15,11 @@ fields:
 
   - name: category
     singleValue: false
-    xpath: //nav//li[position()>1]
+    xpath: //nav//li[position()>1 and position() < last()]
     description: The categories (e.g. from breadcrumbs)
+  - name: name
+    singleValue: true
+    xpath: //div[@class='product__header dbtrustedshops']//h1
   - name: nameExtended
     singleValue: true
     xpath: //div[@class='product__header dbtrustedshops']//h1
@@ -28,25 +31,26 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: //div[@id='price']
-    regExp: "^[^\/]+"
-      # //div[@class='product-actions']//span[@class='final_price rojo']
+    # xpath: //div[@id='price']
+    # regExp: "^[^\/]+"
+    xpath: //p[@class='product-price']//span/text()
     # regExp: (/d+)
     # regExpReplace: $1 €
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: //div[@id='availabilityText']
+    xpath: (//div[@class='disponibilidad__mobile']//span[@class='disponible']//text())[1]
+    # xpath: //div[@id='availabilityText']
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class='description']//p//strong//text()
+    xpath: //div[contains(@class, "product__shortdesc")]|//div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: brandText
@@ -54,9 +58,9 @@ fields:
     xpath: //div[@class='list_brands']//a[@class='marca']//text()
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-  - name: ratingCount
-    singleValue: false
-    xpath: //div[@id='ratingCount']
+  # - name: ratingCount
+  #   singleValue: false
+  #   xpath: //div[@id='ratingCount']
     # regExp: (/d+)
     # regExpReplace: $1
 
@@ -65,18 +69,81 @@ fields:
     xpath: //div[@class='wishlist-container clearfix']//@data-wishlist-productid
     description: Identifier for a variant from a store where variants share the same sku
   - name: quantity
-    singleValue: false
-    xpath: //div[@id='quantity']
-    # regExp: ^[0-9]
-    # regExpReplace: $1ml   //div[@class='reviews review-heading']//p[2]//span
+    singleValue: true
+    xpath: //div[@class='product__header dbtrustedshops']//h1//text()
+    # xpath: //div[@id='quantity']
+    regExp: (([\d\.]+\s{0,1}?)([sS]ticks|[cC]omprimidos|[cC]capsulas|[gG]el|[lL]íquid[oa]|Liquid[\.]?).?)$|(([\d\.]+\s{0,1}?)([sS]ticks|[cC]omprimidos|[cC]capsulas|[gG]el|[lL]íquid[oa]|Liquid??).?\s)
+    # regExpReplace: $1
   - name: directions
-    singleValue: false
+    singleValue: true
     xpath: //div[@class='description']//p[4]
   - name: warnings
-    singleValue: false
+    singleValue: true
     xpath: //div[@class='description']//p[5]
   - name: aggregateRating
+    singleValue: true
+    xpath: translate(//div[@class='reviews_resumen']//span, '.', ',')
+  - name: productUrl
+    singleValue: true
+    xpath: (//@href)[1]
+    # regExp: (.+)
+    # regExpReplace: https://www.douglas.de$1
+  - name: alternateImages
     singleValue: false
-    xpath: //div[@class='reviews_resumen']//span
-
-  
+    xpath: (//li[contains(@class, "thumb-container")]//img/@src)[position()>1]
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count((//li[contains(@class, "thumb-container")]//img/@src)[position()>1])
+  - name: manufacturer
+    singleValue: true
+  - name: productDosage
+    singleValue: true
+    xpath: //div[contains(@id, 'descripcion')]//div[contains(@class, 'description')]//p[contains(text(), "dosis diaria recomendada") or contains(text(), "administrar")]
+    regExp: (?:\s?([\d\.]+\s{1}?)(mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?).?)$|(?:\s?([\d\.]+\s?)(mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]??).?\s)
+    regExpReplace: $1
+  - name: productForm
+    singleValue: true
+    xpath: //div[@class='product__header dbtrustedshops']//h1
+    regExp: (?:\s?(\s{1}?)([cC]omprimidos|[cC]capsulas|[gG]el|[lL]íquid[oa]|Liquid[\.]?).?)$|(?:\s?(\s?)([cC]omprimidos|[cC]capsulas|[gG]el|[lL]íquid[oa]|Liquid??).?\s)
+    # regExpReplace: $1
+  - name: productSize
+    singleValue: true
+    xpath: //div[@class='product__header dbtrustedshops']//h1
+    regExp: (([\d\.]+\s{0,1}?)(ml|[gG]|mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?).?)$|(([\d\.]+\s{0,1}?)(ml|[gG]|mg|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]??).?\s)
+    # regExpReplace: $1
+  - name: ingredientsList
+    singleValue: false
+  - name: productDiscount
+    singleValue: true
+    xpath: concat(//p[contains(@class, "product-descuento")]//span[contains(@class, "pre_price")], " ", //span[contains(@class, "rojo post_price")])
+  - name: loyaltyReward
+    singleValue: true
+  - name: promotion
+    singleValue: true
+  - name: basketSavings
+    singleValue: true
+    xpath: concat(//p[contains(@class, "product-descuento")]//span[contains(@class, "pre_price")], " ", //span[contains(@class, "rojo post_price")])
+  - name: reviewCount
+    singleValue: true
+    xpath: //span[contains(@class, "number customer-reviews-filter-all")]
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[contains(@class, "product__delivery")]
+  - name: deliveryCharges
+    singleValue: true
+  - name: sku
+    singleValue: true
+    xpath: //span[contains(@class, "referencia")]
+    regExp: Ref.\s*(.*)$
+    regExpReplace: $1
+  - name: shippingPrice
+    singleValue: true
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //span[contains(@class, "price_unit")]
+    regExp: \((.*)\/(.*)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: //span[contains(@class, "price_unit")]
+    regExp: (?<=\/\s)(.*)(?=\))
