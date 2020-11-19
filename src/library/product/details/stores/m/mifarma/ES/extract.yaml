@@ -14,7 +14,7 @@ fields:
   singleValue: false
   xpath: //meta[@property='og:title']/@content
   regExp: >-
-    ([CÁPSULAS|Cápsulas|GR|gr|COMPRIMIDOS|Comprimidos|ML|ml]+$)
+    ([CÁPSULAS|Cápsulas|GR|gr|COMPRIMIDOS|Sobres|Comprimidos|Comprimidos Efervescentes|ML|ml]+$)
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -132,6 +132,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //i[contains(@class,'fa-clock-o')]/parent::*
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
