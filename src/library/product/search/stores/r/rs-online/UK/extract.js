@@ -1,14 +1,14 @@
-const {cleanUp} = require('../../../../shared');
+const {transform} = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'UK',
     store: 'rs-online',
-    transform: cleanUp,
+    transform: transform,
     domain: 'uk.rs-online.com',
     zipcode: '',
   }, 
-  implementation,
+  // implementation,
 };
 async function implementation(
   inputs,
