@@ -7,6 +7,6 @@ module.exports = {
     domain: 'lowes.com',
     url: 'https://www.lowes.com/search?searchTerm={searchTerms}',
     loadedSelector: 'a > span > article > span',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")]',
   },
 };

@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'lowes',
-    nextLinkSelector: '#main > div > div.splc > div.ru7jno-0.jHJUqJ > div > div.pl > div > div > div.k0dn21-0.jSQPlH > ul > li:nth-child(7) > a',
+    nextLinkSelector: 'li a[aria-label="arrow right"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'a > span > article > span',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")]',
     openSearchDefinition: null,
     domain: 'lowes.com',
     zipcode: '',

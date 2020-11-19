@@ -5,14 +5,14 @@ recordXPath: null
 fields:
   - name: variantUrl
     singleValue: false
-    xpath: //div[@id="variant_url_text"][last()]
+    xpath: //div[contains(@class,"swatchWrapper")]//button/@data-url
     regExp: (\/pd.*)
     regExpReplace: https://www.lowes.com$1
   - name: sku
     singleValue: false
-    xpath: //div[@id="variant_sku_text"][last()]
+    xpath: //div[contains(@class,"swatchWrapper")]//button/@data-url
     regExp: \/(\d+)
     regExpReplace: $1
   - name: variant
     singleValue: false
-    xpath: //div[@id="variant_name_text"][last()]
+    xpath: //div[contains(@class,"swatchWrapper")]//button//a

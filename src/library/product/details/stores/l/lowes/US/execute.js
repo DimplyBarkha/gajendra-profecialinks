@@ -6,7 +6,7 @@ module.exports = {
     store: 'lowes',
     domain: 'lowes.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//p[@class="subTitle"]',
     zipcode: '',
   },
 };

@@ -10,12 +10,12 @@ async function implementation (
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
-      while (scrollTop !== 30000) {
-        await stall(5000);
-        scrollTop += 1000;
+      while (scrollTop !== 7500) {
+        await stall(500);
+        scrollTop += 1500;
         window.scroll(0, scrollTop);
-        if (scrollTop === 30000) {
-          await stall(5000);
+        if (scrollTop === 7500) {
+          await stall(2000);
           break;
         }
       }
