@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: thumbnail
+    singleValue: single
+    xpath: //a[@class="aWCRS310_Product"]/img/@src
+  - name: id
+    singleValue: single
+    # type: NUMBER
+    # xpath: //li[@class="liWCRS310_Product     "]/@id
+    # regExp: \d+
+  - name: rankOrganic
+    singleValue: single
+    type: NUMBER
+    xpath: //div[@id='rankOrganic']
+  - name: rank
+    singleValue: single
+    type: NUMBER
+    xpath: //div[@id='rankOrganic']
+  - name: price
+    singleValue: single
+    xpath: //p[@class="pWCRS310_PrixUnitaire"]/text()
+  - name: name
+    singleValue: false
+    xpath: //p[@class="pWCRS310_Desc"]/a[@class="aWCRS310_Product"]
+  - name: productUrl
+    singleValue: false
+  - name: reviewCount
+    singleValue: false

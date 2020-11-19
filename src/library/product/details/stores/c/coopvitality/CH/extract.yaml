@@ -12,11 +12,12 @@ fields:
     description: A harvest url
     xpath: //link[@rel="canonical"]/@href
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //html//div[@id='sec']
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -51,7 +52,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: 
+    xpath: //html//div[@id='res']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -75,9 +76,11 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    xpath: //td[contains(text(),'Bruttogewicht')]/following-sibling::td/text()
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //td[contains(text(),'GTIN')]/following-sibling::td/text()
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -113,7 +116,8 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    # type: NUMBER
+    xpath: //html//div[@id='rating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -123,10 +127,12 @@ fields:
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //td[contains(text(),'Bruttogewicht')]/following-sibling::td/text()
   - name: variantCount
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: //html//div[@id='ppu']
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -250,6 +256,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //td[contains(text(),'Zutaten')]/following-sibling::td/text()
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
