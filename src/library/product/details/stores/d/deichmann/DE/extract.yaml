@@ -132,7 +132,7 @@ fields:
     xpath: //div[@id='document_variant']
   - name: variants
     singleValue: false
-    xpath: //select[@id='select-sku']//option
+    xpath: //div[contains(@class,'m-size-selection')]//ul[position() > 1]//li[contains(@class,'active-element')]
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
