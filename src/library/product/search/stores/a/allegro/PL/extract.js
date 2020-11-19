@@ -44,7 +44,7 @@ async function implementation (
               ).textContent
               : '',
             nameExtended: elements[i].querySelector('h2>a').textContent,
-            sponsored: getSponcered(elements[i])
+            sponsored: getSponcered(elements[i]),
           };
           appendElement(elements[i], data);
         } catch (error) {
@@ -53,21 +53,21 @@ async function implementation (
       }
     }
 
-    function getSponcered(element) {
-      let value = element.getAttribute('data-analytics-view-custom-index0');
-      let isSponsored = element.getAttribute('data-analytics-view-label') === 'showSponsoredItems' ? true : false;
+    function getSponcered (element) {
+      const value = element.getAttribute('data-analytics-view-custom-index0');
+      const isSponsored = element.getAttribute('data-analytics-view-label') === 'showSponsoredItems' ? true : false;
 
       if (value && isSponsored) {
         return element.getAttribute('data-analytics-view-label');
       }
     }
 
-    function appendElement(node, data) {
+    function appendElement (node, data) {
       console.log(data);
-      let div = document.createElement('div');
+      const div = document.createElement('div');
       div.classList.add('products');
-      for (let key in data) {
-        if (data[key]){
+      for (const key in data) {
+        if (data[key]) {
           div.setAttribute(key, data[key]);
         }
       }
@@ -75,7 +75,7 @@ async function implementation (
     }
 
     function stall (ms)
- {
+    {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
