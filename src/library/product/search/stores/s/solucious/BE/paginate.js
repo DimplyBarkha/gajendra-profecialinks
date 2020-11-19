@@ -5,7 +5,7 @@ module.exports = {
     country: 'BE',
     store: 'solucious',
     nextLinkSelector: null,
-    nextLinkXpath: null,
+    nextLinkXpath: '//ul[@class="pagination"]/li/a[@class="last"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.container.main',

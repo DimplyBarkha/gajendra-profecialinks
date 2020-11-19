@@ -14,9 +14,12 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   try{
-    
+    //
+    await context.waitForSelector('button#onetrust-accept-btn-handler');
+    await new Promise((resolve, reject) => setTimeout(resolve, 500));
+    await context.click('button#onetrust-accept-btn-handler');
   }catch(e){
     
   }
