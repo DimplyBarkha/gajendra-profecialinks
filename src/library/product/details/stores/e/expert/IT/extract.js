@@ -184,45 +184,11 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-
-    function findJsonObj1 (scriptSelector) {
-      try {
-        const xpath = `//script[contains(.,'${scriptSelector}')]`;
-        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        let jsonStr = element.textContent;
-        jsonStr = jsonStr.trim();
-        return JSON.parse(jsonStr);
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-
-    function findJsonObj2 () {
-      try {
-        const xpath = '//script[contains(id,\'productMicroData\')]';
-        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        let jsonStr = element.textContent;
-        jsonStr = jsonStr.trim();
-        return JSON.parse(jsonStr);
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    const str = '"@type":"Product"';
-    let JSONArr;
-    const JSONArr1 = findJsonObj1(str);
-    const JSONArr2 = findJsonObj2();
-    console.log(JSONArr, 'JSONArr');
-    if (JSONArr1) {
-      JSONArr = JSONArr1;
-    } else if (JSONArr2) {
-      JSONArr = JSONArr2;
-    } else if (JSONArr1 && JSONArr2) {
-      if (JSONArr1.length >= JSONArr2.length) {
-        JSONArr = JSONArr1;
-      } else if (JSONArr2.length >= JSONArr1.length) {
-        JSONArr = JSONArr2;
-      }
+    let scriptNode = document.querySelector("[id*='productMicroData']");
+    let JSONArr = "";
+    if(scriptNode) {
+      let scriptData = scriptNode.textContent;
+      JSONArr = JSON.parse(scriptData);
     }
     const offerText = JSONArr ? JSONArr.offers : '';
     let availabilityText = offerText ? offerText.availability : '';
