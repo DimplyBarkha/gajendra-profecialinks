@@ -37,14 +37,14 @@ const transform = (data) => {
         row.sku.forEach(item => {
           var skuArr=item.text.split("/item/");
           var skuArr1=skuArr[1].split(".");
-          item.text=skuArr1[0];
+          item.text=`ru${skuArr1[0]}`;
         });
       }
       if(row.variantId){
         row.variantId.forEach(item => {
           var arr=item.text.split("/item/");
           var arr1=arr[1].split(".");
-          item.text=arr1[0];
+          item.text=`ru${arr1[0]}`;
         });
       }      
       if(row.ratingCount){
