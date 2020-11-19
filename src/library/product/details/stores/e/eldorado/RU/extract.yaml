@@ -26,7 +26,7 @@ fields:
     xpath: //meta[@itemprop="brand"]/@content
   - name: variantId
     singleValue: false
-    xpath: //div[@class="priceContainer"]/a/@id
+    xpath: //span[@itemprop="sku"]
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@class, "gs-variant-panel")]//a/@href)
@@ -38,10 +38,10 @@ fields:
     xpath: //h1[@class="catalogItemDetailHd"]
   - name: listPrice
     singleValue: false
-    xpath: //div[@class="priceContainer"]//div[@class="product-box-price__old"]//span[@class="product-box-price__old-el"]
+    xpath: //div[contains(@class,"priceContainer")]//div[@class="product-box__last-price"]//span[@class="product-box__last-price"]
   - name: price
     singleValue: false
-    xpath: //div[@class="priceContainer"]//div[@class="product-box-price__active"]
+    xpath: //div[contains(@class,"priceContainer")]//div[@class="product-box-price__active"]
   - name: availabilityText
     singleValue: false
     xpath: boolean(//div[@class="buyBox   buyBoxCorners"]//a[@class="addToCartBig cartButton"])
