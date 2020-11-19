@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'primor',
     domain: 'primor.eu',
-    url: 'https://www.primor.eu/buscar?controller=search&orderby=position&orderway=desc&search_query={searchTerms}&submit_search=',
+    url: 'https://www.primor.eu/buscar?controller=search&orderby=position&orderway=desc&search_query=absolut+repair&submit_search=',
     loadedSelector: '#center_column > ul > li',
     noResultsXPath: null,
     zipcode: '',
