@@ -20,6 +20,7 @@ const transform = (data) => {
           text = row.variants.map(elm => elm.text).join(' | ');
         });
         row.variants = [{ text }];
+        row.firstVariant = row.sku;
       }
       if (row.description) {
         let text = '';
@@ -28,17 +29,20 @@ const transform = (data) => {
         });
         row.description = [{ text }];
       }
-      // if (row.imageAlt) {
-      //   let text = '';
-      //   row.imageAlt.forEach(item => {
-      //     text += item.text.replace(/\\"/g, '" ');
-      //   });
-      //   row.imageAlt = [
-      //     {
-      //       text: text,
-      //     },
-      //   ];
-      // }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = row.manufacturerDescription.map(elm => elm.text).join(' ');
+        });
+        row.manufacturerDescription = [{ text }];
+      }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text = row.additionalDescBulletInfo.map(elm => elm.text).join(' || ');
+        });
+        row.additionalDescBulletInfo = [{ text }];
+      }
       if (row.specifications) {
         let text = '';
         let count = 0;
