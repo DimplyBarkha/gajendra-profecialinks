@@ -20,17 +20,18 @@ fields:
     xpath: //div[contains(@class,"breadcrumbs ")]//small[position()>1]//a//span[1]/text()
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name="description"]/@content
-  - name: listPrice
-    singleValue: false
-    xpath: //p//div[@class="ax-product-priceinfo-regular"]
-    regExp: Ordinarie pris (.+)
-    regExpReplace: $1
+    xpath: //div[contains(@class,"product-image")]//img//@alt
+  # - name: listPrice
+  #   singleValue: false
+  #   xpath: //p//div[@class="ax-product-priceinfo-regular"]
+  #   regExp: Ordinarie pris (.+)
+  #   regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //p//div[@class="ax-product-priceinfo-compare"]
-    regExp: Jmf-pris (.+)
-    regExpReplace: $1
+    xpath: //div[contains(@class,"product-image")]//meta[@itemprop="price"]/@content
+    # xpath: //p//div[@class="ax-product-priceinfo-compare"]
+    # regExp: Jmf-pris (.+)
+    # regExpReplace: $1
   - name: availabilityText
     singleValue: false
     xpath: //div[@ng-switch-when="true"]/span/text()
@@ -52,9 +53,7 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //small[contains(@ng-repeat,"noEmptyOrNull")][1]
   - name: weightNet
     singleValue: false
     xpath: //small[contains(@ng-repeat,"noEmptyOrNull")][1]
@@ -64,18 +63,18 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-  - name: sku
-    singleValue: false
-    xpath: (//div[@class="info-block article-number"]//div[@class="detail line-break"])[2]
+  # - name: sku
+  #   singleValue: false
+  #   xpath: (//div[@class="info-block article-number"]//div[@class="detail line-break"])[2]
   - name: variantId
     singleValue: false
     xpath: (//div[@class="info-block article-number"]//div[@class="detail line-break"])[2]
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-  - name: packSize
-    singleValue: false
-    xpath: //small[contains(@ng-repeat,"noEmptyOrNull")]
+  # - name: packSize
+  #   singleValue: false
+  #   xpath: //small[contains(@ng-repeat,"noEmptyOrNull")]
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -126,7 +125,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    description: The product name
+    xpath: //h1[@itemprop="name"]/text()
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
