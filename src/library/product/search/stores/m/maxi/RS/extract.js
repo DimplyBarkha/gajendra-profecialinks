@@ -4,6 +4,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  // wait few seconds to load popup
   await context.evaluate(async () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
