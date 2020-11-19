@@ -1,0 +1,86 @@
+input:
+  keywords: omelette
+  _url: http://myer.com.au
+extractions:
+  - html: https://workbench.import.io/html/run=6254a876-1edc-4eb7-a90c-3c74b2a6f8ca/task=c7c7d0fd-a047-4cb0-9de2-b27b9a25ec4a/d08aa101-6b9e-4d00-a423-1d6bb5cdfa03.html
+    extractionConfigId: product/search/stores/m/myer/AU/extract
+    data:
+      - group:
+          - id:
+              - text: "780519340"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/@id
+            searchUrl:
+              - text: https://www.myer.com.au/search?query=omelette
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/@searchurl
+            name:
+              - text: TNS 20cm Omelette Pan
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[1]/h3[1]/a[1]/div[2]/span[2]
+            productUrl:
+              - text: https://www.myer.com.au/p/le-creuset-tns-20cm-omelette-pan
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/50/503/4262/400/6/780519340/780519340_1_360x464.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $170.00
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[1]/div[1]/p[1]/span[2]
+            manufacturer:
+              - text: Le Creuset
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[2]/text()[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_AU
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[2]/text()[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_AU
+                value: 1
+            aggregateRating2:
+              - text: "0"
+                type: STRING
+          - id:
+              - text: "619189390"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/@id
+            searchUrl:
+              - text: https://www.myer.com.au/search?query=omelette
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/@searchurl
+            name:
+              - text: "The Light & Fluffy Omelette Maker: Grey LEG250GRY"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/h3[1]/a[1]/div[2]/span[2]
+            productUrl:
+              - text: https://www.myer.com.au/p/breville-the-light-fluffy-omelette-maker-grey-leg250gry
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/55/562/4717/29/5/619189390/619189390_1_1_360x464.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/h3[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $89.95
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[1]/p[1]/span[2]
+            manufacturer:
+              - text: Breville
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/h3[1]/a[1]/div[2]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[2]/text()[1]
+                type: NUMBER
+                raw: "2"
+                locale: en_AU
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[2]/text()[1]
+                type: NUMBER
+                raw: "2"
+                locale: en_AU
+                value: 2
+            aggregateRating2:
+              - text: "0"
+                type: STRING
+        xpath: /html
+    timestamp: 1605798194426
