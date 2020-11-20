@@ -14,13 +14,11 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //div[@aria-hidden="false"]/div[contains(@class,'ImageZoom')]/img[@hide='0']/@src
-  regExp: (\/\/images.*)
-  regExpReplace: https:$1
+  xpath: //div[@id='firstImg']
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: //div[@aria-hidden="false"]/div[contains(@class,'ImageZoom')]/img[@hide='0']/@alt
+  xpath: (//div[contains(@class,'ImageZoom')]/img[@hide='0']/@alt)[1]
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
@@ -95,7 +93,7 @@ fields:
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
-  xpath: //dt[contains(text(),'Model Number')]/following-sibling::dd
+  xpath: //dt[contains(text(),'Model Number')]/following-sibling::dd | //dt[contains(text(),'Part Number')]/following-sibling::dd
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -121,7 +119,7 @@ fields:
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //div[@id='aggRating']
+  xpath: //div[@itemprop='ratingValue']
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -393,6 +391,7 @@ fields:
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
+  xpath: //dt[contains(text(),"Manufacturer's Warranty")]/following-sibling::dd
 - name: storage
   singleValue: true
   description: Suggested storage location for product
@@ -441,7 +440,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
-  xpath: ((//div[@data-ref="family-colour-label"]/text())[2] | //dl[dt[contains(text(),'Units Per Pack')]])[1]
+  xpath: //div[@id='variantInfo']
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core

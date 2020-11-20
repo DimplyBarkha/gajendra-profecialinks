@@ -1,0 +1,123 @@
+input:
+  _url: http://officeworks.com.au
+  URL: https://www.officeworks.com.au/shop/officeworks/p/google-nest-hub-charcoal-syghhubbk
+extractions:
+  - html: https://workbench.import.io/html/run=a05840d9-f963-4bd7-b11c-0cf3aba72dc7/task=51fec6de-c8e0-4f09-9b92-ac7a95f825fd/35758a78-567a-431f-9b06-e441e012b7d1.html
+    extractionConfigId: product/details/stores/o/officeworks/AU/extract
+    data:
+      - group:
+          - imageAlt:
+              - text: Google Nest Hub Charcoal
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/img[2]/@alt
+            category:
+              - text: Technology
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]
+              - text: Smart Home & Office
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]
+              - text: Smart Speakers & Screens
+                xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]
+            nameExtended:
+              - text: Google Nest Hub Charcoal
+                xpath: /html/body/div[3]/div[7]/div[1]/div[4]/div[1]/h1[1]
+            price:
+              - text: $128.00
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: The Google Nest Hub features a built-in display and an impressive speaker
+                  so you can enjoy handsfree control of your smart home devices,
+                  ask questions and view the results, stream videos and more. It
+                  features Voice Match which ensures that the Google Assistant
+                  recognises your voice, providing a personalised experience so
+                  you can keep track of your calendar, reminders and more on the
+                  home screen. All you need to do is say 'Hey Google' and you're
+                  ready to go.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: You can ask your Google Nest Hub questions and receive real-time answers
+                  including the latest weather, recipes, sports results,
+                  business information and more.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: The built-in display means you can also stream videos, allowing you to
+                  visualise the answers to your questions.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: It is compatible with a variety of apps including YouTube and Spotify to
+                  stream your favourite videos and music whenever you like.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: You can also use the Google Nest Hub with your existing smart home
+                  devices, allowing you to control your lights, cameras, TVs and
+                  more using your voice.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Google Nest Hub connects to your existing WiFi network for easy setup,
+                  then you can control it by simply saying 'Hey Google'.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: With Voice Match functionality, your Google Nest Hub will recognise your
+                  voice and provide you with a more personalised experience.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
+              - text: You can also use the Google Nest Hub to view your pictures in Google
+                  Photos, all you need to do is ask Google to show you your
+                  photos.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]
+              - text: Plus, you can access other Google apps like Google Maps and Google
+                  Calendar for added convenience.
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]
+            brandText:
+              - text: Google
+                xpath: /html/body/div[3]/div[7]/div[1]/div[1]/meta[1]/@content
+            weightNet:
+              - text: .480 kg
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/dl[1]/dd[1]
+            gtin:
+              - text: "842776107282"
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[4]/@content
+            sku:
+              - text: SYGHHUBBK
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            variantId:
+              - text: SYGHHUBBK
+                xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            mpc:
+              - text: GA00515-AU
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/dl[1]/dd[1]
+            aggregateRatingText:
+              - text: |-
+                  No rating value
+                   average rating value is 0.0 of 5.
+                   Read 0 Reviews
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/button[1]/@aria-label
+            color:
+              - text: Black
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/dl[1]/dd[1]
+            name:
+              - text: Google Nest Hub Charcoal
+                xpath: /html/body/div[3]/div[7]/div[1]/div[4]/div[1]/h1[1]
+            warranty:
+              - text: 12 month
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/dl[1]/dd[1]
+            countryOfOrigin:
+              - text: China
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/ul[1]/li[1]/dl[1]/dd[1]
+            image:
+              - text: https://images.officeworks.com.au/api/2/img///s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/SYGHHUBBK_google_home_hub_charcoal.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                xpath: /html/body/div[7]
+            specifications:
+              - text: Barcode842776107282 || BrandGoogle || Descriptive ColourBlack ||
+                  Manufacturer's Warranty12 month || Model NumberGA00515-AU ||
+                  Product Dimensions (mm)178.5W x 67.3D x 118H mm || Product
+                  Weight (kg).480 kg || Smart Home CompatibilityGoogle Assistant
+                  || Audio SourceBluetooth || Country of ManufactureChina ||
+                  Part NumberGA00515-AU || Placing / MountingFree standing ||
+                  Battery IncludedN/A || Power & Charging InterfaceAC adaptor
+                xpath: /html/body/div[9]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[10]
+            variantInformation:
+              - text: "Colour: Black"
+                xpath: /html/body/div[11]
+            variantCount:
+              - text: "0"
+            descriptionBullets:
+              - text: "8"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1605862630682

@@ -19,7 +19,15 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-
+      // collecting firstImage
+      const firstImg = document.querySelector('div[aria-hidden="false"] div[class*=ImageZoom] img[hide="0"]');
+      const img = document.querySelector('img[class*=ImageZoom__ProductImage][hide="0"]');
+      if (firstImg) {
+        addElementToDocument('firstImg', `https:${firstImg.getAttribute('src')}`);
+      } else if (img) {
+        addElementToDocument('firstImg', `https:${img.getAttribute('src')}`);
+      }
+      // collecting alternateImages
       const alternateImg = document.querySelectorAll("img[class*='abs__ProductThumb']");
       let imgArr = [];
       for (let i = 1; i < alternateImg.length; i++) {
@@ -27,10 +35,7 @@ module.exports = {
         imgArr.push(`https:${img}`);
       }
       addElementToDocument('alternateImg', imgArr.join(' | '));
-
-      const aggRating = document.querySelector('div[itemprop=ratingValue]') ? document.querySelector('div[itemprop=ratingValue]').innerText.replace('.', ',') : '';
-      addElementToDocument('aggRating', aggRating);
-
+      // collecting specifications
       const specTabs = document.querySelectorAll('li[class*=SpecificationsTab__SpecsListItem]');
       let specArr = [];
       specTabs.forEach(element => {
@@ -40,6 +45,17 @@ module.exports = {
 
       const availability = document.querySelector('meta[itemprop="availability"][content="http://schema.org/InStock"]') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availability', availability);
+
+      // collecting variantInfo
+      let variantArr = [];
+      if (document.querySelector('div[data-ref="family-colour-label"]')) {
+        variantArr.push(document.querySelector('div[data-ref="family-colour-label"]').innerText);
+      }
+      if (document.querySelector('div[data-ref="family-pack quantity-label"]')) {
+        const packSizeNode = document.evaluate("//dt[contains(text(),'Units Per Pack')]/following-sibling::dd", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        variantArr.push(`${document.querySelector('div[data-ref="family-pack quantity-label"]').innerText} ${packSizeNode.innerText}`);
+      }
+      addElementToDocument('variantInfo', variantArr.join(' | '));
     });
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.extract(productDetails, { transform });

@@ -2,16 +2,13 @@ input:
   _url: http://officeworks.com.au
   URL: https://www.officeworks.com.au/shop/officeworks/p/bic-cristal-original-ballpoint-pen-black-10-pack-bi103633bk
 extractions:
-  - html: https://workbench.import.io/html/run=52ddb30e-81e1-4296-9431-15f88451eb09/task=80e4a29b-1ec7-48bd-8301-1e2f38f41248/9fbd313b-de2e-4106-9453-7f6d9bbbdfc6.html
+  - html: https://workbench.import.io/html/run=a05840d9-f963-4bd7-b11c-0cf3aba72dc7/task=d9796489-8475-4661-82c1-94798f246091/5ed7a961-c46a-443a-a528-0e7e754fce15.html
     extractionConfigId: product/details/stores/o/officeworks/AU/extract
     data:
       - group:
-          - image:
-              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI103633BK_bic_cristal_original_ballpoint_pen_black_10_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
-                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@src
-            imageAlt:
+          - imageAlt:
               - text: BIC Cristal Original Ballpoint Pen Black 10 Pack
-                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@alt
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[2]/@alt
             category:
               - text: Office Supplies
                 xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]
@@ -62,6 +59,9 @@ extractions:
             variantId:
               - text: BI103633BK
                 xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            mpc:
+              - text: "946622"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/dl[1]/dd[1]
             packSize:
               - text: "10"
                 xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6]/ul[1]/li[3]/dl[1]/dd[1]
@@ -83,14 +83,12 @@ extractions:
             countryOfOrigin:
               - text: France
                 xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/dl[1]/dd[1]
-            variantInformation:
-              - text: |-
-                  Units Per Pack/Carton
-                  10
-                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6]/ul[1]/li[3]/dl[1]
             materials:
               - text: Plastic
                 xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/dl[1]/dd[1]
+            image:
+              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI103633BK_bic_cristal_original_ballpoint_pen_black_10_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                xpath: /html/body/div[7]
             alternateImages:
               - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI103633BK_B_bic_cristal_original_ballpoint_pen_black_10_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
                   |
@@ -99,7 +97,7 @@ extractions:
                   https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI103633BK_D_bic_cristal_original_ballpoint_pen_black_10_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
                   |
                   https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/BI103633BK_E_bic_cristal_original_ballpoint_pen_black_10_pack.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[8]
             specifications:
               - text: Barcode9310025003636 || BrandBic || Descriptive ColourBlack || Ink
                   TypeOil-based || Soft GripN/A || Writing ColourBlack ||
@@ -112,6 +110,9 @@ extractions:
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[10]
+            variantInformation:
+              - text: "Colour: Black | Pack Quantity: 10"
+                xpath: /html/body/div[11]
             variantCount:
               - text: "0"
             descriptionBullets:
@@ -119,4 +120,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1605799771816
+    timestamp: 1605862623995

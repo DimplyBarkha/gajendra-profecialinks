@@ -2,16 +2,13 @@ input:
   _url: http://officeworks.com.au
   URL: https://www.officeworks.com.au/shop/officeworks/p/tipp-ex-easy-correction-tape-ti8290362?scrollTop=false
 extractions:
-  - html: https://workbench.import.io/html/run=52ddb30e-81e1-4296-9431-15f88451eb09/task=40910982-bc79-481c-9a1f-abf1cfb1bcb1/2e5bc741-4252-4c16-9981-2d75578d4f06.html
+  - html: https://workbench.import.io/html/run=a05840d9-f963-4bd7-b11c-0cf3aba72dc7/task=db378b8a-fd41-432d-a181-0e20e53637bd/89772e29-5af4-4f6d-99f9-e069484e7f8a.html
     extractionConfigId: product/details/stores/o/officeworks/AU/extract
     data:
       - group:
-          - image:
-              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/TI8290362_tipp_ex_easy_correction_tape.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
-                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@src
-            imageAlt:
+          - imageAlt:
               - text: Tipp-Ex Easy Correction Tape
-                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/img[2]/@alt
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[2]/@alt
             category:
               - text: Office Supplies
                 xpath: /html/body/div[3]/div[7]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]
@@ -56,6 +53,9 @@ extractions:
             variantId:
               - text: TI8290362
                 xpath: /html/body/div[3]/div[7]/div[1]/meta[2]/@content
+            mpc:
+              - text: "8290362"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/dl[1]/dd[1]
             packSize:
               - text: "1"
                 xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/dl[1]/dd[1]
@@ -68,6 +68,9 @@ extractions:
                    average rating value is 1.5 of 5.
                    Read 2 Reviews
                 xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/button[1]/@aria-label
+            aggregateRating:
+              - text: "1.5"
+                xpath: /html/body/div[3]/div[7]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/button[1]/div[2]
             color:
               - text: White
                 xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/dl[1]/dd[1]
@@ -77,16 +80,11 @@ extractions:
             countryOfOrigin:
               - text: France
                 xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/dl[1]/dd[1]
-            variantInformation:
-              - text: |-
-                  Units Per Pack/Carton
-                  1
-                xpath: /html/body/div[3]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/dl[1]
+            image:
+              - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/TI8290362_tipp_ex_easy_correction_tape.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
+                xpath: /html/body/div[7]
             alternateImages:
               - text: https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/TI8290362_B_tipp_ex_easy_correction_tape.jpg/resize?size=300&auth=MjA5OTcwODkwMg__
-                xpath: /html/body/div[7]
-            aggregateRating:
-              - text: 1,5
                 xpath: /html/body/div[8]
             specifications:
               - text: Barcode3086126644547 || BrandTipp-Ex || Descriptive ColourWhite || Tape
@@ -97,6 +95,9 @@ extractions:
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[10]
+            variantInformation:
+              - text: "Pack Quantity: 1"
+                xpath: /html/body/div[11]
             variantCount:
               - text: "0"
             descriptionBullets:
@@ -104,4 +105,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1605799771030
+    timestamp: 1605862626490
