@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,"product-images")]//div[contains(@class,"lg-image-wrapper slick-slide") and position()=1]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"product-images")]//div[contains(@class,"lg-image-wrapper slick-slide")]//img/@src
+    xpath: //div[contains(@class,'lg-image-wrapper slick-slide') and not(contains(@class,'slick-active'))]/img/@src
   - name: category
     singleValue: false
     xpath: //ol[@class="breadcrumb-component"]//li[not(contains(position(),1))]//a
@@ -23,7 +23,7 @@ fields:
     xpath: //fieldset[@id="qtyex"]//input[@name="productCodePost"]/@value
   - name: price
     singleValue: false
-    xpath: //div[@class="product-price"]//span[@id="pricespan"]/p[@class="formatted-price"]
+    xpath: //div[@class="variant-details-heading"]/div[@class="pricing"]/span/p[@class="formatted-price"]
   - name: listPrice
     singleValue: false
     xpath: //div[@class="product-price"]//div[@class="pricing"]//div[not(contains(class,'old-price'))]
@@ -38,22 +38,20 @@ fields:
     xpath: //div[@class="product-heading"]//h1[@class="prod-name"]//span[@class="link-wrapper"]
   - name: manufacturer
     singleValue: false  
-    xpath: //div[@class="product-heading"]//h1[@class="prod-name"]//span[@class="link-wrapper"]
   - name: description
     singleValue: false
-    xpath: //div[@itemprop="description"]/p
+    xpath: //div[@id='tab-description']/div[@class='description']
   - name: specifications
     singleValue: false
-    xpath: //div[@id="tab-details"]
+    xpath: //div[@id="tab-details"]/div/dl/node()
   - name: descriptionBullets
     singleValue: false    
-    xpath: //div[@id="tab-details"]
   - name: availabilityText
     singleValue: false
     defaultValue: 'In Stock'
+    xpath: //p[@class='js-stock-level stock-level no-stock']
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="brand-info"]//a[@class="all-brand-products"]
   - name: reviewCount
     singleValue: false
     xpath: //div[contains(@class,"product-details")]//div[@class="product-rating"]//span[1]
@@ -64,3 +62,26 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //div[@id="tab-details"]/div/dl/dd[1]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id='tab-ingredients']
+  - name: variantCount
+    singleValue: false
+    xpath: count(//input[@itemprop="sku"])
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //div[@id='tab-description']/div[@class='description']/following-sibling::div
+  - name: pricePerUnitUom
+    singleValue: false
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,'lg-image-wrapper slick-slide') and not(contains(@class,'slick-active'))]/img)
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'select-wrapper')]/select[@id='color-selector']/node()
+  - name: firstVariant
+    singleValue: false
+    xpath: //li[@itemprop="offers"][1]/@data-code
+  - name: variants
+    singleValue: false
+    xpath: //input[@itemprop="sku"]/@data-code

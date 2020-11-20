@@ -17,13 +17,11 @@ fields:
     xpath: //div[@class="product-tile"]//a[contains(@class,"product-tile-content ClickSearchResultEvent_Class")]//img/@data-src
   - name: listPrice 
     SingleValue: false 
-    xpath: //section[@class="product-grid"]//div[@class="price"]//div[not(contains(class,'old-price'))]
+    xpath: //div[@class='price']/div[@class='old-price']
   - name: price 
     SingleValue: false 
-    xpath: //section[@class="product-grid"]//a//div[position()=2]/p[@class='formatted-price']
+    xpath: //div[@class='price']/p[@class='formatted-price']
   - name: soldBy
     SingleValue: false
-    xpath: //section[@class="product-grid"]//div[contains(@class,"product-tile-brand-name strong")]
   - name: manufacturer
     SingleValue: false
-    xpath: //section[@class="product-grid"]//div[contains(@class,"product-tile-brand-name strong")]
