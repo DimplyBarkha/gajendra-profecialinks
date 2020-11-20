@@ -1,104 +1,136 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //html
 fields:
   - name: image
-    xpath: //div[@class="shopping-list-side-panel"]//section[@class="product-details"]//div[@class="product-details-image-container"]//img/@src
-    regExp: (.+)w=(\d+)&h=(\d+)(.+)
-    regExpReplace: $1$4
+    xpath: //div[contains(@class,"product-details-image-container")]/img/@src
+    # regExp: (.+)w=(\d+)&h=(\d+)(.+)
+    # regExpReplace: $1$4
   - name: imageAlt
-    xpath: //div[@class="shopping-list-side-panel"]//section[@class="product-details"]//div[@class="product-details-image-container"]//img/@alt
+    xpath: //div[contains(@class,"product-details-image-container")]/img/@alt
   - name: category
-    xpath: //div[contains(@class,'shopping-list-content')]//div[@class="product-details__tag-container"]//a
+    # xpath: //div[contains(@class,'shopping-list-content')]//div[@class="product-details__tag-container"]//a
+    xpath: //div[contains(@class,"category-nav-pills__tag-container")]/a
   - name: name
-    xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-content"]//h1/span
+    xpath: (//div[contains(@class,"product-details-info")])[2]
   - name: nameExtended
-    xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-content"]//h1/span
+    xpath: (//div[contains(@class,"product-details-info")])[2]
   - name: price
-    xpath: //div[@class="shopping-list-side-panel"]//div[@class="price-info"]//span[@class="price"]
+    xpath: //div[contains(@class,"price-container")]/span
+    regExp: (\d+),(\d+)
   - name: availabilityText
-    xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-not-available"]
-    regExp: (.+)
-    regExpReplace: Out of Stock
-    defaultValue: In Stock
+    xpath: //script[@id="product-json-ld"]
+    regExp: /((\w+)Stock)
+    regExpReplace: $1
+    defaultValue: OutOfStock
   - name: brandText
     xpath: //script[@id="product-json-ld"]
     regExp: ("@type":"Thing","name":")(\w+)
     regExpReplace: $2
   - name: manufacturer
-    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Markkinoija")]/parent::h4/following-sibling::p/span[1]
+    # xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Markkinoija")]/parent::h4/following-sibling::p/span[1]
+    xpath: //section[contains(@class,"product-basic-details product-details-collapsible-padding")]//div[contains(@class,"details")]//span[contains(text(),"Markkinoija")]/parent::h4/following-sibling::p/span[1]
   - name: gtin
-    xpath: //div[@class="shopping-list-side-panel"]//section/@id
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)-(\d+)
+    regExpReplace: $2
   - name: sku
-    xpath: //div[@class="shopping-list-side-panel"]//section/@id
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)-(\d+)
+    regExpReplace: $2
   - name: variantId
-    xpath: //div[@class="shopping-list-side-panel"]//section/@id
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)-(\d+)
+    regExpReplace: $2
   - name: ingredientsList
-    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Ainesosat")]/parent::h4/following-sibling::p
+    # xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Ainesosat")]/parent::h4/following-sibling::p
+    xpath: //section[contains(@class,"product-basic-details product-details-collapsible-padding")]//div[contains(@class,"details")]//span[contains(text(),"Ainesosat")]/parent::h4/following-sibling::p
   - name: caloriesPerServing
     xpath: //span[contains(text(),"Energia")]/parent::td/following-sibling::td
   - name: totalFatPerServing
     xpath: //span[contains(text(),"Rasva")]/parent::td/following-sibling::td
-    regExp: ^[^\s]+
+    regExp: (.+)(\w+)
+    regExpReplace: $1
   - name: totalFatPerServingUom
     xpath: //span[contains(text(),"Rasva")]/parent::td/following-sibling::td
-    regExp: '[^\s]$'
+    regExp: (.+)(\w+)
+    regExpReplace: $2
   - name: saturatedFatPerServing
     xpath: //span[contains(text(),"josta tyydyttynyttä")]/parent::td/following-sibling::td
-    regExp: ^[^\s]+
+    regExp: (.+)(\w+)
+    regExpReplace: $1
   - name: saturatedFatPerServingUom
     xpath: //span[contains(text(),"josta tyydyttynyttä")]/parent::td/following-sibling::td
-    regExp: '[^\s]$'
+    regExp: (.+)(\w+)
+    regExpReplace: $2
   - name: totalCarbPerServing
     xpath: //span[contains(text(),"Hiilihydraatit")]/parent::td/following-sibling::td
-    regExp: ^[^\s]+
+    regExp: (.+)(\w+)
+    regExpReplace: $1
   - name: totalCarbPerServingUom
     xpath: //span[contains(text(),"Hiilihydraatit")]/parent::td/following-sibling::td
-    regExp: '[^\s]$'
+    regExp: (.+)(\w+)
+    regExpReplace: $2
   - name: dietaryFibrePerServing
     xpath: //span[contains(text(),"Ravintokuitu")]/parent::td/following-sibling::td
-    regExp: ^[^\s]+
+    regExp: (.+)(\w+)
+    regExpReplace: $1
   - name: dietaryFibrePerServingUom
     xpath: //span[contains(text(),"Ravintokuitu")]/parent::td/following-sibling::td
-    regExp: '[^\s]$'
+    regExp: (.+)(\w+)
+    regExpReplace: $2
   - name: totalSugarsPerServing
     xpath: //span[contains(text(),"josta sokereita")]/parent::td/following-sibling::td
-    regExp: ^[^\s]+
+    regExp: (.+)(\w+)
+    regExpReplace: $1
   - name: totalSugarsPerServingUom
     xpath: //span[contains(text(),"josta sokereita")]/parent::td/following-sibling::td
-    regExp: '[^\s]$'
+    regExp: (.+)(\w+)
+    regExpReplace: $2
   - name: proteinPerServing
     xpath: //span[contains(text(),"Proteiini")]/parent::td/following-sibling::td
-    regExp: ^[^\s]+
+    regExp: (.+)(\w+)
+    regExpReplace: $1
   - name: proteinPerServingUom
     xpath: //span[contains(text(),"Proteiini")]/parent::td/following-sibling::td
-    regExp: '[^\s]$'
+    regExp: (.+)(\w+)
+    regExpReplace: $2
   - name: saltPerServing
     xpath: //span[contains(text(),"Suola")]/parent::td/following-sibling::td
-    regExp: ^[^\s]+
+    regExp: (.+)(\w+)
+    regExpReplace: $1
   - name: saltPerServingUom
     xpath: //span[contains(text(),"Suola")]/parent::td/following-sibling::td
-    regExp: '[^\s]$'
+    regExp: (.+)(\w+)
+    regExpReplace: $2
   - name: storage
-    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Säilytys- ja käyttöohjeet")]/parent::h4/following-sibling::p[1]
+    # xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Säilytys- ja käyttöohjeet")]/parent::h4/following-sibling::p[1]
+    xpath: //section[contains(@class,"product-basic-details product-details-collapsible-padding")]//div[contains(@class,"details")]//span[contains(text(),"Säilytys- ja käyttöohjeet")]/parent::h4/following-sibling::p/span[1]
   - name: countryOfOrigin
-    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Alkuperämaa/valmistusmaa")]/parent::h4/following-sibling::p
+    xpath: //section[contains(@class,"product-basic-details product-details-collapsible-padding")]//div[contains(@class,"details")]
+    regExp: Alkuperämaa/valmistusmaa(\w+)
+    regExpReplace: $1
   - name: variantCount
     defaultValue: "0"
   - name: allergyAdvice
-    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Allergeenit")]/parent::h4/following-sibling::div
+    # xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Allergeenit")]/parent::h4/following-sibling::div
+    xpath: //div[contains(@class,"collapsible-container-content")]//span[contains(text(),"Allergeenit")]/parent::h4/following-sibling::div
   - name: recyclingInformation
   - name: otherSellersName
-    xpath: //ul//li[contains(@class,'product-availability-container__store')]/div/a
+    xpath: //div[contains(@class,"collapsible-container-content")]//li//a
   - name: productOtherInformation
-    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Lisätiedot")]/parent::h4/following-sibling::div
+    # xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Lisätiedot")]/parent::h4/following-sibling::div
+    xpath: //section[contains(@class,"product-basic-details product-details-collapsible-padding")]//div[contains(@class,"details")]//span[contains(text(),"Lisätiedot")]/parent::h4/following-sibling::div
   - name: additives
     xpath: //div[@class="nutritional-properties"]//ul
   - name: pricePerUnit
-    xpath: //div[@class="shopping-list-side-panel"]//div[@class="price-info"]//span[@class="price"]
+    # xpath: //div[@class="shopping-list-side-panel"]//div[@class="price-info"]//span[@class="price"]
+    xpath: //div[contains(@class,"price-additional-info")]/span
+    regExp: (.+)/(\w+)
+    regExpReplace: $1
   - name: pricePerUnitUom
-    xpath: //div[@class="shopping-list-side-panel"]//div[@class="original-price"]/span[last()] | //div[@class="shopping-list-side-panel"]//div[@class="price-info"]//span[@class="pricing-unit"]/span
+    xpath: //div[contains(@class,"price-additional-info")]/span/span
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions
@@ -113,7 +145,7 @@ fields:
   - name: imageZoomFeaturePresent
     defaultValue: No
   - name: description
-    xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-description"]
+    xpath: //div[@class="product-details-description"]
   - name: shippingInfo
     xpath: //script[@id="product-json-ld"]
     regExp: ("@type":"Organization","name":")(.+)","chain":"

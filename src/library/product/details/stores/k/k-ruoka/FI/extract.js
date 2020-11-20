@@ -30,6 +30,35 @@ module.exports = {
       if (sellerInfo) {
         sellerInfo.click();
       }
+      //clicking the show more option in the description
+      const descriptionText = document.querySelector('.product-details-description>a');
+      if (descriptionText) {
+        descriptionText.click();
+      }
+      //clicking the anchor to load more details
+      const navButton = document.querySelector('section.collapsible-container.collapsible-basic-details img');
+      if (navButton) {
+        navButton.click();
+        console.log('navButton clicked');
+      }
+      //clicking the anchor to load more stores
+      const navButton1 = document.querySelector('.collapsible-container.product-availability img');
+      if (navButton1) {
+        navButton1.click();
+        console.log('navButton1 clicked');
+      }
+      //clicking the anchor to load nutrition
+      const navButton2 = document.querySelector('.collapsible-container.product-nutritional-detail img');
+      if (navButton2) {
+        navButton2.click();
+        console.log('navButton2 clicked');
+      }
+      //clicking the anchor to load allergy advices
+      const algButton = document.querySelector('.allergens__group a');
+      if (algButton) {
+        algButton.click();
+        console.log('algbutton clicked');
+      }
     });
 
     const { transform } = parameters;
