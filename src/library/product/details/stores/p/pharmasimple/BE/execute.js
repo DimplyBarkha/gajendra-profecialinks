@@ -6,7 +6,7 @@ module.exports = {
     store: 'pharmasimple',
     domain: 'pharmasimple.com',
     loadedSelector: 'div[class="primary_block row"]',
-    noResultsXPath: '//div[@class="pagenotfound"]',
+    noResultsXPath: '//div[@class="pagenotfound"] | //div[@class="product-container"]',
     zipcode: '',
   },
 };

@@ -15,7 +15,7 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: (//div[@id="image-block"]//img[@itemprop="image"])[1]
+  xpath: (//div[@id="image-block"]//img[@itemprop="image"]/@src)[1]
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
@@ -64,12 +64,15 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //p[@id="product-manufacturer"]/a
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //span[@class="product-manufacturer-name"]
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //div[@id="quantity"]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -82,10 +85,12 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //input[@name="id_product"]/@value
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //input[@name="id_product"]/@value
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
@@ -105,12 +110,14 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //span[@class="reviewCount"]
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //span[@class="ratingValue"]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -141,6 +148,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
+  xpath: //h1[@itemprop="name"]
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -159,6 +167,7 @@ fields:
 - name: brandLink
   singleValue: true
   description: 
+  xpath: //p[@id="product-manufacturer"]/a/@href
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -244,6 +253,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //div[@data-tab="24"]//div[@class="wrapper-content-tabs"]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -393,6 +403,7 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
+  xpath: //div[@data-tab="21"]//div[@class="wrapper-content-tabs"]
 - name: packaging
   singleValue: true
   description: Packaging information
@@ -456,19 +467,19 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: 'No'
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: 'Yes'
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: 'Yes'
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: 'Yes'
 - name: materials
   singleValue: true
   description: Materials used to make the product
