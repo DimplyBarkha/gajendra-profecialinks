@@ -11,7 +11,7 @@ fields:
     regExpReplace: https://www.ceneo.pl/$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a//img/@src
+    xpath: //div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a//img/@data-original|//div[@class ="cat-prod-row__body"]//div[@class="cat-prod-row__foto"]//a//img/@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: name
