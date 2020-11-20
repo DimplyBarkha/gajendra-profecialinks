@@ -516,3 +516,9 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: product-name
+    singleValue: false
+    xpath: //div[contains(@class,'product-name-section')]//h1
+  - name: product-image
+    singleValue: false
+    xpath: //picture//img//@src
