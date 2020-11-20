@@ -6,39 +6,27 @@ fields:
   - name: price
     singleValue: true
     description: price of the product
-    xpath: //div[@id='altImage2']
     type: CURRENCY
-<<<<<<< HEAD
     xpath: //div[@id='zz']  
-=======
->>>>>>> 45006a3c656b6d0f28162ff4c6c43c3ba89382b6
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
     xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]/@href
   - name: thumbnail
-    singleValue: false
+    singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//figure//img//@srcset
+    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//figure//img//@src
     regExp: (/.+)
     regExpReplace: https://www.ahlens.se/$1
   - name: id
-    singleValue: false
+    singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@data-testid="ProductList_list"]/div/div/a/@href
+    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]/@href
     regExp: .*-(\d+)/$
     regExpReplace: $1
   - name: name
-    singleValue: false
+    singleValue: true
     description: The product name
     xpath: //*[contains(@class,'MuiCardContent-root')]/div/span[2]
-<<<<<<< HEAD
  
-=======
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@id='rankOrganic']
-  - name: rank
-    singleValue: false
-    xpath: //div[@id='rankOrganic']
->>>>>>> 45006a3c656b6d0f28162ff4c6c43c3ba89382b6
+ 
