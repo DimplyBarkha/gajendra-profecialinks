@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: id
+    singleValue: false
+    # xpath:  //div[contains(@class,'item-text')]//a/@id
+    xpath: //div[@data-testid='product-block-product-name']/@data-testid
+  - name: name
+    singleValue: false
+    xpath:  //div[@data-testid='product-block-product-name']/a
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@data-testid='product-block-image-link']/@href
+  - name: price
+    singleValue: false
+    xpath: //div[@data-testid='product-block-price']
+  - name: listprice
+    singlevalue: false
+    xpath: //span[@data-testid='product-block-old-price']
+  - name: suppPrice
+    singleValue: false
+    xpath: //div//span[@data-testid='product-block-supplementary-price-2']
+  - name: suppPrice2
+    singleValue: false
+    xpath: //div[@data-testid='product-block-supplementary-price-1']
+  - name: promotion
+    singleValue: false
+    xpath: //div[@data-testid='product-block-promotion']/span
+  - name: image
+    singleValue: false
+    xpath: //img[@data-testid='product-block-image']/@src
+  - name: brand
+    singleValue: false
+    xpath: //div[@data-testid='product-block-brand-name']/a
+  - name: manufacture
+    singlevalue: false
+    xpath: //div[@data-testid='product-block-brand-name']/a
+ 
