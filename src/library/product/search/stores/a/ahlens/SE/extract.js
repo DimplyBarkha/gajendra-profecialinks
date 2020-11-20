@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 async function implementation(
   inputs,
   parameters,
@@ -18,6 +18,14 @@ async function implementation(
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('div[data-testid="ProductAttributesTestIds_root"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
       // Method to Retrieve Xpath content of a Multiple Nodes
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -30,27 +38,17 @@ async function implementation(
       };
       const sliceURL = (data) => {
         for (let index = 0; index < data.length; index++) {
+          var temp;
           if (data[index].includes(",")) {
-            var temp = data[index].replace(",", ".");
+            temp = data[index].replace(",", ".");
           } else {
             temp = data[index];
           }
-          addElementToDocument('altImages', temp);
+          addHiddenDiv('zz', temp, index);
         }
       };
-      var backgroundURL = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()", 'nodeValue');
-      sliceURL(backgroundURL);
-      const sliceURL1 = (data) => {
-        var cnt = 0;
-        for (let index = 0; index < data.length; index++) {
-          if (data[0] != 0) {
-            cnt++;
-            addElementToDocument('altImages1', cnt);
-          }
-        }
-      };
-      var backgroundURL1 = getAllXpath("//*[contains(@class,'MuiCardContent-root')]/div/span[2]", 'nodeValue');
-      sliceURL1(backgroundURL1);
+      var backgroundURL = getAllXpath("//*[contains(@class,'MuiCardContent-root')]/div/div/span[1]/text()", 'nodeValue');
+      sliceURL(backgroundURL);      
     }
   })
   return await context.extract(productDetails, { transform });
@@ -60,7 +58,7 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'ahlens',
-    transform: cleanUp,
+    transform: transform,
     domain: 'ahlens.se',
     zipcode: '',
   },

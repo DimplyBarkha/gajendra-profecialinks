@@ -7,7 +7,7 @@ fields:
     singleValue: false
     description: price of the product
     type: CURRENCY
-    xpath: //html//div[@class='altImages']  
+    xpath: //div[@id='zz']  
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
@@ -28,6 +28,4 @@ fields:
     singleValue: true
     description: The product name
     xpath: //*[contains(@class,'MuiCardContent-root')]/div/span[2]
-  - name: rank
-    singleValue: true
-    xpath: //html//div[@class='altImages1']
+ 
