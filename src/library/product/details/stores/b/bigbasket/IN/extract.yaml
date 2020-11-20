@@ -5,16 +5,18 @@ recordXPath: null
 fields:
   - name: image
     xpath: //div[@id="carousel"]/div[1]/img/@src
+  - name: alternateImages
+    xpath: //div[contains(@id,'thumb')]/img/@src
     regExp: (.+)/p/(.+)/(.+)
-    regExpReplace: $1/p/xxl/$3
+    regExpReplace: $1/p/l/$3
   - name: imageAlt
     xpath: //div[@id="carousel"]/div[1]/img/@alt
   - name: category
-    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1]/text()
+    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1]/text() |//div[@class="_3moNK"]//span[contains(@class,'rippleEffect')]
   - name: name
     xpath: //h1
   - name: nameExtended
-    xpath: //h1 | //a[@context="brandlabel"]
+    xpath: //h1
   - name: price
     xpath: //td[@data-qa="productPrice"]
   - name: listPrice
@@ -40,24 +42,24 @@ fields:
     xpath: //link[@rel="canonical"]/@href
     regExp: (\/)([0-9-\d?]+)
     regExpReplace: $2
+  - name: sku
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (\/)([0-9-\d?]+)
+    regExpReplace: $2
   - name: variantInformation
     xpath: //h1/@size
   - name: variantCount
     xpath: count(//div[@class="_1LiCn"]/div[position()>1])
   - name: variants
     xpath: //h1/@variants
-  - name: alternateImages
-    xpath: //div[contains(@id,"carousel")]/div[position()>1]//img/@src
-    regExp: (.+)/p/(.+)/(.+)
-    regExpReplace: $1/p/xxl/$3
   - name: secondaryImageTotal
     xpath: count(//div[contains(@id,"carousel")]/div[position()>1]//img/@src)
   - name: ratingCount
-    xpath: //span[contains(text(),"Ratings")]
-    regExp: (\d+)\s{1,}Reviews
-    regExpReplace: $1
+    xpath: //span[contains(text(),"Rating")] | //h6[contains(text(),Rating)]
+    regExp: (&\s)(\d+)
+    regExpReplace: $2
   - name: aggregateRating
-    xpath: //span[contains(text(),"Ratings")]/preceding-sibling::div
+    xpath: //span[contains(text(),"Rating")]/preceding-sibling::div | //h6[contains(.,Rating)]/span
   - name: countryOfOrigin
     xpath: //h1/@country
     regExp: :\s(.+)
@@ -65,7 +67,7 @@ fields:
   - name: ingredientsList
     xpath: //span[contains(text(),"Ingredients")]/parent::div/following-sibling::div[1]
   - name: promotion
-    xpath: "//td[contains(text(),'You Save: ')]/following-sibling::td"
+    xpath: "//td[contains(text(),'You Save: ')] | //td[contains(text(),'You Save: ')]/following-sibling::td"
   - name: gtin
     xpath: //h1/@gtin
     regExp: :\s(.+)
@@ -77,11 +79,13 @@ fields:
   - name: quantity
     xpath: //h1/@size
   - name: directions
-    xpath: //span[contains(text(),"HOW TO USE")]/parent::div/following-sibling::div[1] | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]
+    xpath: //h1/@direction
   - name: manufacturerDescription
     xpath: //div[@class="main-template"]
   - name: manufacturerImages
     xpath: //div[@class="main-template"]//img/@src
+  - name: storage
+    xpath: //strong[contains(.,"Storage:")]/following-sibling::text()
     # //static
   - name: technicalInformationPdfPresent
     defaultValue: No

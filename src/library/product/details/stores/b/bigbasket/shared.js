@@ -10,9 +10,20 @@ const transform = (data) => {
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {
-          text = row.nameExtended.map(elm => elm.text).join(' - ');
+          text = item.text.replace(/,/g,'');
         });
         row.nameExtended = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.promotion) {
+        let text = '';
+        row.promotion.forEach(item => {
+          text = row.promotion.map(elm => elm.text).join('');
+        });
+        row.promotion = [
           {
             text: text,
           },

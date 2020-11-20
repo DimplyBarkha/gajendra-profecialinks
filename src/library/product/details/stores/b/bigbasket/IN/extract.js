@@ -18,7 +18,7 @@ module.exports = {
       let first = '';
       const data = window.__PRELOADED_STATE__;
 
-      function getElementsByXPath (xpath, parent) {
+      function getElementsByXPath(xpath, parent) {
         const results = [];
         const query = document.evaluate(xpath, parent || document,
           null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -32,14 +32,22 @@ module.exports = {
       const country = dataArr.find(element => element.includes('Country'));
       const manufacture = dataArr.find(element => element.includes('Marketed by') || element.includes('Address :') || element.includes('Manufactured') || element.includes('Manufacturer'));
       const gtin = dataArr.find(element => element.includes('EAN'));
-      const size = data && data.product && data.product.variants && data.product.variants[0].w;
+      const size = data && data.product && data.product.variants && data.product.variants[0].w || '';
 
       if (data && data.product && data.product.variants.length > 1) {
         first = data && data.product && data.product.variants[0].id;
       }
 
       const variants = data && data.product && data.product.variants.map(e => e.id).slice(1);
-      const obj = { country, manufacture, gtin, size, variants, first };
+      const directionData = document.evaluate('//span[contains(text(),"HOW TO USE")]/parent::div/following-sibling::div[1] | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]', document, null, XPathResult.ANY_TYPE, null).iterateNext() && document.evaluate('//span[contains(text(),"HOW TO USE")]/parent::div/following-sibling::div[1] | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]', document, null, XPathResult.ANY_TYPE, null).iterateNext().innerText.trim() || '';
+      let direction = '';
+      if (directionData && directionData.includes('Storage')) {
+        direction = directionData.split('Storage')[0];
+      } else {
+        direction = directionData;
+      }
+
+      const obj = { country, manufacture, gtin, size, variants, first, direction };
 
       finalArray.push(obj);
 
