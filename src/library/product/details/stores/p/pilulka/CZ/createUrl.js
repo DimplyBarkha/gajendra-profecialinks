@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'pilulka.cz',
     prefix: null,
-    url: null,
+    url: 'https://www.pilulka.cz/product/{id}',
     country: 'CZ',
     store: 'pilulka',
     zipcode: '',

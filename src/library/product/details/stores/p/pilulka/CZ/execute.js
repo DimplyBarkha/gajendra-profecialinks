@@ -5,8 +5,8 @@ module.exports = {
     country: 'CZ',
     store: 'pilulka',
     domain: 'pilulka.cz',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-detail__images img',
+    noResultsXPath: '//h1[contains(text(), "404")]',
     zipcode: '',
   },
 };
