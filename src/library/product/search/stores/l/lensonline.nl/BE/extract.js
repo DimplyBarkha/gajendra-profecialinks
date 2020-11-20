@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'BE',
     store: 'lensonline.nl',
-    transform: cleanUp,
+    transform: transform,
     domain: 'lensonline.nl',
     zipcode: '',
   },
@@ -27,16 +27,17 @@ async function implementation(
       const originalDiv = document.querySelectorAll("li[class='column col-tn-12 col-xs-6 col-sm-3 col-lg-3 productitem']")[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-    var tempVariable;
+    var tempVariable, price, productID;
     // @ts-ignore
     const allIDs = document.querySelectorAll("#prod_boxes > li > a > script");
     for (let i = 0; i < allIDs.length; i++) {
       // @ts-ignore
       tempVariable = allIDs[i].innerText;
       tempVariable = tempVariable.split(',');
-      tempVariable = tempVariable[1].split(':')[1].replace(/"/g, '');
-      addHiddenDiv('productID', tempVariable, i);
-      addHiddenDiv('rankOrganic', i + 1, i);
+      productID = tempVariable[1].split(':')[1].replace(/"/g, '');
+      price = tempVariable[2].split(':')[1].replace(/'/g, '');
+      addHiddenDiv('productID', productID, i);
+      addHiddenDiv('price', '€ ' + price, i);
     }
   });
   return await context.extract(productDetails, { transform });

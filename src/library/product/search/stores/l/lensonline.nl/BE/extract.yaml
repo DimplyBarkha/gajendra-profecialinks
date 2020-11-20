@@ -6,12 +6,6 @@ fields:
   - name: id
     singleValue: false
     xpath: //html//div[@id='productID']
-  - name: rankOrganic
-    singleValue: false
-    xpath: //html//div[@id='rankOrganic']
-  - name: rank
-    singleValue: false
-    xpath: //html//div[@id='rankOrganic']
   - name: name
     singleValue: false
     xpath: //h3[@class="productitem__name "]/text()
@@ -24,4 +18,4 @@ fields:
   - name: price
     singleValue: false
     type: CURRENCY
-    xpath: //span[@class="current"]/text()
+    xpath: //html//div[@id='price']
