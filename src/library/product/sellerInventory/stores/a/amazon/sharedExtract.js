@@ -77,6 +77,9 @@ const getStockFunc = async function ({ context, sellerId, id }) {
     await context.click('#beuybox-see-all-buying-choices-announce');
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
+  if(!sellerId) {
+    sellerId = await context.evaluate(() => document.querySelector('#addToCart  > input#merchantID').value);
+  }
   await context.click('#add-to-cart-button:not([style*="not-allowed"])');
   await context.waitForNavigation();
   await new Promise(resolve => setTimeout(resolve, 1000));
