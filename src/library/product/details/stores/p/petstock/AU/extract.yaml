@@ -1,42 +1,51 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="product-select clearfix"]//div[@class="optionSet"] | (//div[@class="product-select clearfix"]//div[@class="quantity-select quantity-solo items" and not (@class="optionSet")]/div) | //div[@class="items-rows items"]/div
 fields:
 - name: _input
   singleValue: false
 - name: _url
   singleValue: false
+  xpath: ancestor::html//div[@id="pageUrl"]/@content
 - name: productUrl
   singleValue: false
+  xpath: ancestor::html//div[@id="pageUrl"]/@content
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: ancestor::html//div[@id="prodImage"]/@content
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: (ancestor::html//section[@class="product-media clearfix"]//li/a/@data-name)[1]
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: (ancestor::html//section[@class="product-media clearfix"]//li/a/@imgUrl)[position()>1]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: (ancestor::html//ul[@class="breadcrumb"]/li//span[@itemprop='name'])[position()>1][position() < last()]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //div[@nameExtended]/@nameExtended
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
+  xpath: //div[@class="item-total"]
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //div[@class="item-total"]
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
