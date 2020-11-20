@@ -15,7 +15,7 @@ async function implementation (
   const { sellerId } = inputs;
   const { execute, extract } = dependencies;
   console.log('INPUTS!!! ', inputs)
-  const url = inputs.url;
+  const url = inputs.url || inputs.URL;
   const id = inputs.id;
   const zipcode = inputs.zipcode || parameters.zipcode  
   const productFound = await execute({ sellerId, id, zipcode: zipcode, url: url });

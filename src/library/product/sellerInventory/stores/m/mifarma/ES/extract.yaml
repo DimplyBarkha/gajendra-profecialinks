@@ -1,11 +1,11 @@
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath: //body
+recordXPath: null
 fields:
   - name: productStock
-    xpath: //div[@id='ii_productStock']
+    xpath: //body/@stock
   - name: name
-    xpath: //div[@id='ii_name']
+    xpath: //div[contains(@class,"product-name")]/h1
   - name: productPrice
-    xpath: //div[@id='ii_productPrice']
+    xpath: (//div[contains(@class,"add-to-cart-wrapper")]//span[@class="price"][starts-with(@id,"product-price")])[1]
