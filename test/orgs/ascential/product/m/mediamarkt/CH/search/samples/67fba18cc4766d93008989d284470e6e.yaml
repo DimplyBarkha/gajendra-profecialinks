@@ -1,0 +1,204 @@
+input:
+  keywords: pâte à pizza
+  _url: http://mediamarkt.ch/fr
+extractions:
+  - html: https://workbench.import.io/html/run=58d089f6-3543-4aee-a854-8265c5e5db03/task=93a8c62d-6688-49d9-b782-2bf78433a7dd/5bd1c03f-7d7d-4d11-ab91-e20ee745394b.html
+    extractionConfigId: product/search/stores/m/mediamarkt/CH/extract
+    data:
+      - group:
+          - id:
+              - text: MMCH2028382
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/div[1]/@data-reco-pid
+            name:
+              - text: TRISTAR Pizza Festa 6 - Four à pizza (Marron)
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_tristar-pizza-festa-6-2028382.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78548309/fee_240_148_png/TRISTAR-Pizza-Festa-6---Four-%C3%A0-pizza-%28Marron%29
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/@product-picture
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/@product-rating
+            price:
+              - text: 114.95 CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/@product-price
+            manufacturer:
+              - text: TRISTAR
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/script[1]
+          - id:
+              - text: MMCH2028381
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/div[1]/@data-reco-pid
+            name:
+              - text: TRISTAR Pizza Festa 4 - Four à pizza (Marron)
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_tristar-pizza-festa-4-2028381.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78549143/fee_240_148_png/TRISTAR-Pizza-Festa-4---Four-%C3%A0-pizza-%28Marron%29
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/@product-picture
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/@product-rating
+            price:
+              - text: 99.95 CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/@product-price
+            manufacturer:
+              - text: TRISTAR
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/script[1]
+          - id:
+              - text: MMCH1760512
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[6]/div[1]/@data-reco-pid
+            name:
+              - text: KAISER DELICIOUS BACK/PIZZABLECH 32CM BLACK - Plateau de cuisson / Pizza
+                  (Noir)
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[6]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_kaiser-delicious-back-pizzablech-32cm-black-1760512.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[6]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77821067/fee_240_148_png/KAISER-DELICIOUS-BACK-PIZZABLECH-32CM-BLACK---Plateau-de-cuisson---Pizza-%28Noir%29
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[6]/@product-picture
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[6]/@product-rating
+            price:
+              - text: 17.95 CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[6]/@product-price
+            manufacturer:
+              - text: KAISER
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[6]/script[1]
+          - id:
+              - text: MMCH1760511
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[8]/div[1]/@data-reco-pid
+            name:
+              - text: KAISER Delicious - Plateau de cuisson / Pizza (Noir)
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[8]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_kaiser-delicious-1760511.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[8]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77821067/fee_240_148_png/KAISER-Delicious---Plateau-de-cuisson---Pizza-%28Noir%29
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[8]/@product-picture
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[8]/@product-rating
+            price:
+              - text: 19.95 CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[8]/@product-price
+            manufacturer:
+              - text: KAISER
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[8]/script[1]
+          - id:
+              - text: MMCH1854371
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[10]/div[1]/@data-reco-pid
+            name:
+              - text: EMILE HENRY Pierre à pizza - Pierre à Pizza (Rouge)
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[10]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_emile-henry-pierre-%C3%A0-pizza-1854371.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[10]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80141589/fee_240_148_png/EMILE-HENRY-Pierre-%C3%A0-pizza---Pierre-%C3%A0-Pizza-%28Rouge%29
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[10]/@product-picture
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[10]/@product-rating
+            price:
+              - text: 64.95 CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[10]/@product-price
+            manufacturer:
+              - text: EMILE HENRY
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[10]/script[1]
+          - id:
+              - text: MMCH1121072
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[12]/div[1]/@data-reco-pid
+            name:
+              - text: STOECKLI PIZZAmax8 - Grill à raclette (Noir)
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[12]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_stoeckli-pizzamax8-1121072.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[12]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77803893/fee_240_148_png/STOECKLI-PIZZAmax8---Grill%C2%A0%C3%A0%C2%A0raclette-%28Noir%29
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[12]/@product-picture
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[12]/@product-rating
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[12]/footer[1]/ul[1]/a[1]
+            price:
+              - text: 169.95 CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[12]/@product-price
+            manufacturer:
+              - text: STOECKLI
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[12]/script[1]
+          - id:
+              - text: MMCH1841703
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[14]/div[1]/@data-reco-pid
+            name:
+              - text: BOSCH HEZ317000 Plat à pizza (Gris)
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[14]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_bosch-hez317000-1841703.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[14]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-66147227/fee_240_148_png/BOSCH-HEZ317000-Plat-%C3%A0-pizza-%28Gris%29
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[14]/@product-picture
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[14]/@product-rating
+            price:
+              - text: 59.95 CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[14]/@product-price
+            manufacturer:
+              - text: BOSCH
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[14]/script[1]
+          - id:
+              - text: MMCH1841493
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[16]/div[1]/@data-reco-pid
+            name:
+              - text: BOSCH HEZ617000 Plat à pizza (Anthracite)
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[16]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_bosch-hez617000-1841493.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[16]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-67588917/fee_240_148_png/BOSCH-HEZ617000-Plat-%C3%A0-pizza-%28Anthracite%29
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[16]/@product-picture
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[16]/@product-rating
+            price:
+              - text: 54.95 CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[16]/@product-price
+            manufacturer:
+              - text: BOSCH
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[16]/script[1]
+          - id:
+              - text: MMCH1681982
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[18]/div[1]/@data-reco-pid
+            name:
+              - text: INDESIT I6VMC6A(X)/GR - Cuisinière électrique indépendante (Appareil
+                  indépendant)
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[18]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_indesit-i6vmc6a-x-gr-1681982.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[18]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76325222/fee_240_148_png/INDESIT-I6VMC6A%28X%29-GR---Cuisini%C3%A8re-%C3%A9lectrique-ind%C3%A9pendante-%28Appareil-ind%C3%A9pendant%29
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[18]/@product-picture
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[18]/@product-rating
+            price:
+              - text: 699.- CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[18]/@product-price
+            manufacturer:
+              - text: INDESIT
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[18]/script[1]
+        xpath: /html
+    timestamp: 1605884673599

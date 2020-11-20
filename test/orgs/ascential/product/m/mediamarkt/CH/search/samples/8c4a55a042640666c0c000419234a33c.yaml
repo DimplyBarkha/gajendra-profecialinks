@@ -1,0 +1,52 @@
+input:
+  keywords: Limonade
+  _url: http://mediamarkt.ch/fr
+extractions:
+  - html: https://workbench.import.io/html/run=58d089f6-3543-4aee-a854-8265c5e5db03/task=94b7ba26-c040-42db-a70a-06d3a51f324b/264ea6b0-ba3c-42f7-a77a-e85d13773ca5.html
+    extractionConfigId: product/search/stores/m/mediamarkt/CH/extract
+    data:
+      - group:
+          - id:
+              - text: MMCH1110398
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/div[1]/@data-reco-pid
+            name:
+              - text: CAFFE CHICCO DORO Caffitaly The Limone - Capsules de thé
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_caffe-chicco-doro-caffitaly-the-limone-1110398.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77803652/fee_240_148_png/CAFFE-CHICCO-DORO-Caffitaly-The-Limone---Capsules-de-th%C3%A9
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/@product-picture
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/@product-rating
+            price:
+              - text: 4.30 CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/@product-price
+            manufacturer:
+              - text: CAFFE CHICCO DORO
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[2]/script[1]
+          - id:
+              - text: MMCH1896007
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/div[1]/@data-reco-pid
+            name:
+              - text: BRITA fill&go Active Limone - Filtre à Eau Bouteille (Jaune/Noir)
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/div[1]/div[1]/h2[1]/a[1]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_brita-fill-go-active-limone-1896007.html
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/div[1]/div[1]/h2[1]/a[1]/@product-url
+            thumbnail:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77294317/fee_240_148_png/BRITA-fill%26go-Active-Limone---Filtre-%C3%A0-Eau-Bouteille-%28Jaune-Noir%29
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/@product-picture
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/@product-rating
+            price:
+              - text: 17.95 CHF
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/@product-price
+            manufacturer:
+              - text: BRITA
+                xpath: /html/body/div[2]/div[1]/ul[2]/li[4]/script[1]
+        xpath: /html
+    timestamp: 1605884669799
