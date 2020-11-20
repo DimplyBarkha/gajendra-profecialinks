@@ -73,3 +73,22 @@ fields:
     xpath: //a[@class='marca-produto']
   - name: availabilityText
     xpath: //div[@id='availabilityText']
+  - name: sub_category
+    singleValue: false
+    xpath: //div[@class='breadcrumbs']/a/@title
+  - name: brand
+    singleValue: true
+    xpath: //script[@type="application/ld+json"]
+  - name: product_description
+    singleValue: true
+    xpath: //div[@id='container_produto']/div[@id='header-infos-produto']/h1
+  - name: sku_number
+    singleValue: true
+    xpath: //script[@type="application/ld+json"]
+  - name: retailer_product_code
+    singleValue: true
+    xpath: //div[@id='header-infos-produto']//p[@id='codigo-produto']
+
+
+
+
