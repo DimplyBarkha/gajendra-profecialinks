@@ -10,7 +10,9 @@ fields:
   - name: name
     xpath: //div[@class="caption"]//p[@class="description"]/a
   - name: id
-    xpath: //div[@class='scProdId']/@sc.prodid
+    xpath: //input[@name="ProductID"]/@value
+  # - name: id1
+  #   xpath: //div[@class='scProdId']/@sc.prodid
   - name: reviewCount
     xpath: //div[@class='stars']//div[@class='ratings-number']
     regExp: \d+

@@ -22,10 +22,14 @@ fields:
     xpath: //p[@class="price"]/text()
     singleValue: false
   - name: id
-    xpath: //div[@class="description text-center"]/a/text()
+    #xpath: //div[@class="description text-center"]/a/text()
+    xpath: //a[@class="product-page-link"]/@title
     singleValue: false
     regExp: \s\W(.+)\W
     regExpReplace: $1
+  - name: id1
+    xpath: //input[@name="SKU"]/@value
+    singleValue: false  
   - name: rank
   - name: rankOrganic
   - name: sponsored
