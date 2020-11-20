@@ -5,14 +5,25 @@ recordXPath: //a[contains(@class, 'c3-product-grid__item')]
 fields:
   - name: id
     singleValue: false
+    xpath: //@href
+    regExp: -(\d+)"*$
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
+    xpath: //@searchurl
   - name: name
     singleValue: false
+    xpath: //span[@class="c3-product__name"]
   - name: productUrl
     singleValue: false
+    xpath: //@href
+    regExp: (.+)
+    regExpReplace: https://www.mpreis.at$1
   - name: gtin
     singleValue: false
+    xpath: //@href
+    regExp: -(\d+)"*$
+    regExpReplace: $1
   - name: thumbnail
     singleValue: false
   - name: aggregateRating
@@ -44,5 +55,5 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
   # - name: totalRecordCount
-  #   singleValue: true 
+  #   singleValue: true
   #   type: NUMBER

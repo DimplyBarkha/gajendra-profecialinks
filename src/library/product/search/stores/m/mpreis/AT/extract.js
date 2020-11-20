@@ -47,8 +47,11 @@ async function implementation (
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     };
 
-    allProducts = document.querySelectorAll('a[class*="c3-product-grid__item"]');
-    
+    const allProducts = document.querySelectorAll('a[class*="c3-product-grid__item"]');
+    const searchUrl = document.URL;
+    for (let i = 0; i < allProducts.length; i++) {
+      addProp('a[class*="c3-product-grid__item"]', i, 'searchurl', searchUrl);
+    }
   });
 
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
