@@ -52,15 +52,10 @@ async function implementation(
       var price = window.product_price;
       addHiddenDiv('price', '€' + price, 0);
     }
-    var description = getAllXpath("//div[@id='descr']/div/p/text() | //div[@id='descr']/div/h2/text() | //div[@id='descr']/div/ul/li/text()", 'nodeValue');
+    var description = getAllXpath("//div[@itemprop='description']/text() | //div[@id='descr']/div/p//text() | //div[@id='descr']/div/h2/text() | //div[@id='descr']/div/ul/li/text()", 'nodeValue');
     pipeSeparatorDouble('description', description);
     const addDescBulletInfo = getAllXpath("//div[@id='descr']/div/ul/li/text()", 'nodeValue');
     pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
-
-    var variant = getAllXpath("//h1[@class='product_name']/span/text()", 'nodeValue');
-    var variantFinal = variant[0].replace(/\d/g, "");
-    variantFinal = variantFinal.replace(/\s/g, "");
-    addHiddenDiv('variant', variantFinal, 0);
   });
   return await context.extract(productDetails, { transform });
 }

@@ -11,10 +11,10 @@ fields:
     xpath: (//img[@itemprop="image"])[1]/@alt
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumb"]/span/a/span[not(contains(text(),'LensOnline.nl'))]
+    xpath: //div[@class="breadcrumb"]/span[position() != last()]/a/span[not(contains(text(),'LensOnline.nl'))]
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@name="twitter:title"]/@content
+    xpath: //h1[@itemprop="name"]
   - name: price
     singleValue: true
     type: CURRENCY
@@ -92,4 +92,10 @@ fields:
     xpath: //tr[@class="row a"]/td[contains(text(),'Producent')]/following-sibling::td/text()
   - name: variantInformation
     singleValue: false
-    xpath: //html//div[@id='variant']
+    xpath: //a[@class="link_variation variant variant--selected"]/div[@class="variant__text"]/div[@class="variant__text__name"]/text()
+  - name: specifications
+    singleValue: false
+    xpath: //table[@class="product_attributes"]
+  - name: firstVariant
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
