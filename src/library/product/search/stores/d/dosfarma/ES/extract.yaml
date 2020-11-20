@@ -20,6 +20,11 @@ fields:
     xpath: //p[@class="ebx-result-price ebx-result__price"]//strong[@class="ebx-result-price__value"]/text()
     regExp: ([^\.]*)(\.)(.*)
     regExpReplace: '$1,$3'
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
+    # type: number
     xpath: //div[@class="ebx-rating ebx-result-rating"]
+    regExp: (\d+)(\.)?(\d{1,2})?
+    regExpReplace: $1,$3
+    # regExp: ([^\.]*)(\.)(.*)
+    # regExpReplace: '$1,$3'
