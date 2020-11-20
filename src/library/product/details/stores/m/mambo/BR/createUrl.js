@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mambo.com.br',
     prefix: null,
-    url: null,
+    url: 'https://www.mambo.com.br/s/p/{id}',
     country: 'BR',
     store: 'mambo',
     zipcode: '',
