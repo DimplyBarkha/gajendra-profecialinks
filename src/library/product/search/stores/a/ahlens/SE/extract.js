@@ -23,7 +23,7 @@ async function implementation(
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll('div[data-testid="ProductAttributesTestIds_root"]')[index];
+        const originalDiv = document.querySelectorAll('div[class*=MuiCardContent-root]')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       // Method to Retrieve Xpath content of a Multiple Nodes
