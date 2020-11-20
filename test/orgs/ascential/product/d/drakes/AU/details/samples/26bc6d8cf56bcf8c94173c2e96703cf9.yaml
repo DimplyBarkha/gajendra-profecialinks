@@ -2,19 +2,26 @@ input:
   _url: http://drakes.com.au
   URL: https://074.drakes.com.au/lines/beef-mince-extra-lean-approx-weight-500g-1
 extractions:
-  - html: https://workbench.import.io/html/run=c9a8533d-3ac5-4f68-9f9a-2f2d5447a493/task=442d84ea-31a0-4e66-ac16-31ece97f9d5b/57592d89-f9b9-4ed3-acf0-8dfbc1747caf.html
+  - html: https://workbench.import.io/html/run=b17f7126-21d3-42f8-bba1-99a28e6f1c31/task=f8929d36-ffc7-45de-9ab7-4b5586279503/4b3e299a-9580-48a4-886b-7f6d6a110a62.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
-          - image:
-              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6ImE3MzllNzYwZjg3M2VjYWQ1MDM3YmRmZGYzNjY0YTUwLmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=c399a20ec69d77384076472d7754e16cd463a1bf5a9a203859a2170af7a63804
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: Eyjpzci6ime3mzllnzywzjg3m2vjywq1mdm3ymrmzgyznjy0ytuwlmpwzyisinn0b3jhz2uioijwdwjsawnfc3rvcmuifq?signature=c399a20ec69d77384076472d7754e16cd463a1bf5a9a203859a2170af7a63804
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
-            nameExtended:
-              - text: Drakes 5 Star Butchers Choice Extra Lean Beef Mince
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+          - price:
+              - text: Approximately $8.75
+                xpath: /html/body/div[4]
+            description:
+              - text: Price shown is based on approx. weight. Weight may vary between 400g and
+                  600g. Australian Grown
+                xpath: /html/body/div[5]
+            weightNet:
+              - text: 500g
+                xpath: /html/body/div[8]
+            sku:
+              - text: beef-mince-extra-lean-approx-weight-500g-1
+                xpath: /html/body/div[3]
+            variantId:
+              - text: beef-mince-extra-lean-approx-weight-500g-1
+                xpath: /html/body/div[3]
             legalDisclaimer:
               - text: Approximate price per 500g is based on typical size (0.5 kg). Actual size
                   may vary.
@@ -27,46 +34,19 @@ extractions:
                   that you read the label on the products you purchase or
                   contact the manufacturer of the product.
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]
-            name:
-              - text: Drakes 5 Star Butchers Choice Extra Lean Beef Mince
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
-            countryOfOrigin:
-              - text: Australian Grown
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
-            sku:
-              - text: beef-mince-extra-lean-approx-weight-500g-1
-                xpath: /html/body/div[3]
-            variantId:
-              - text: beef-mince-extra-lean-approx-weight-500g-1
-                xpath: /html/body/div[3]
-            price:
-              - text: Approximately $8.75
-                xpath: /html/body/div[4]
-            description:
-              - text: Price shown is based on approx. weight. Weight may vary between 400g and
-                  600g.
-                xpath: /html/body/div[5]
-            availabilityText:
-              - text: In Stock
-          - description:
-              - text: Australian Grown
-                xpath: /html/body/div[6]
             servingSize:
               - text: per 500g
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
             servingSizeUom:
               - text: g
-                xpath: /html/body/div[8]
-            weightNet:
-              - text: 500g
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[7]
             pricePerUnit:
               - text: $17.50 per kg
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[9]
             pricePerUnitUom:
               - text: kg
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[10]
             availabilityText:
               - text: In Stock
-        xpath: /html/body
-    timestamp: 1605709147015
+        xpath: /html
+    timestamp: 1605874460809

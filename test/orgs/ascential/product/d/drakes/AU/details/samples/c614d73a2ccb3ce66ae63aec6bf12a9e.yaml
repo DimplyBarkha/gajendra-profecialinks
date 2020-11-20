@@ -2,19 +2,28 @@ input:
   _url: http://drakes.com.au
   URL: https://062.drakes.com.au/lines/schweppes-lemonade-10x375ml
 extractions:
-  - html: https://workbench.import.io/html/run=c9a8533d-3ac5-4f68-9f9a-2f2d5447a493/task=318501ab-77c5-4daa-a1e0-d4d7075bda8e/0c701123-77fa-4245-8fb3-431009e3d682.html
+  - html: https://workbench.import.io/html/run=b17f7126-21d3-42f8-bba1-99a28e6f1c31/task=a25fa96f-f269-443d-b7a6-e8659d5be5eb/d22dc31b-1ea4-49cd-ada9-1ea9a535fc10.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
-          - image:
-              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6IjA4ZmRkOWI3NGVjZWIyMzg2NGM2YTY5Mjk0NThiZWZlLmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=a4c99f0ade69550e821077ecb0a566db461d53c59f9a73d08d06e613bd2c634d
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: Eyjpzci6ija4zmrkowi3ngvjzwiymzg2ngm2yty5mjk0nthizwzllmpwzyisinn0b3jhz2uioijwdwjsawnfc3rvcmuifq?signature=a4c99f0ade69550e821077ecb0a566db461d53c59f9a73d08d06e613bd2c634d
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
-            nameExtended:
-              - text: Schweppes Lemonade Cans 10x375ml
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+          - listPrice:
+              - text: $13.02
+                xpath: /html/body/div[6]
+            price:
+              - text: $8.20
+                xpath: /html/body/div[4]
+            weightNet:
+              - text: 3750ml
+                xpath: /html/body/div[10]
+            sku:
+              - text: schweppes-lemonade-10x375ml
+                xpath: /html/body/div[3]
+            variantId:
+              - text: schweppes-lemonade-10x375ml
+                xpath: /html/body/div[3]
+            packSize:
+              - text: "10"
+                xpath: /html/body/div[11]
             legalDisclaimer:
               - text: Drakes Online Golden Grove aims to include in the product list up to date
                   pictures of the products and accurate ingredients, nutritional
@@ -24,42 +33,19 @@ extractions:
                   that you read the label on the products you purchase or
                   contact the manufacturer of the product.
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Schweppes Lemonade Cans 10x375ml
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
-            coupon:
-              - text: Save $4.82
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]/span[1]/span[1]
-            sku:
-              - text: https://062.drakes.com.au/lines/schweppes-lemonade-10x375ml
-                xpath: /html/body/div[3]
-            variantId:
-              - text: https://062.drakes.com.au/lines/schweppes-lemonade-10x375ml
-                xpath: /html/body/div[3]
-            price:
-              - text: $8.20
-                xpath: /html/body/div[4]
-            availabilityText:
-              - text: In Stock
-          - servingSizeUom:
-              - text: ml
-                xpath: /html/body/div[7]
             servingSize:
               - text: per 3750ml
-                xpath: /html/body/div[8]
-            weightNet:
-              - text: 3750ml
                 xpath: /html/body/div[9]
-            packSize:
-              - text: "10"
-                xpath: /html/body/div[10]
+            servingSizeUom:
+              - text: ml
+                xpath: /html/body/div[8]
             pricePerUnit:
               - text: $2.21 per litre
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             pricePerUnitUom:
               - text: litre
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             availabilityText:
               - text: In Stock
-        xpath: /html/body
-    timestamp: 1605709152081
+        xpath: /html
+    timestamp: 1605874465840

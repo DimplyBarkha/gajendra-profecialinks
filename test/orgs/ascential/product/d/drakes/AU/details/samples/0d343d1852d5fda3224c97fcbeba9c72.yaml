@@ -2,19 +2,25 @@ input:
   _url: http://drakes.com.au
   URL: https://074.drakes.com.au/lines/cadbury-peanuts-milk-chocolate-coated-330g
 extractions:
-  - html: https://workbench.import.io/html/run=c9a8533d-3ac5-4f68-9f9a-2f2d5447a493/task=4965843a-daff-42e3-85a4-1c2e082c62f9/a6836430-d783-4af9-8e02-0b20251c6fec.html
+  - html: https://workbench.import.io/html/run=b17f7126-21d3-42f8-bba1-99a28e6f1c31/task=180b2702-8960-4fbf-995e-db6c9b791d89/374342cb-c208-4958-afe9-dce6334a19c8.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
-          - image:
-              - text: https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6IjlmY2MwMTNmNGI5NjE5NzFiZGJhOGFlMjljYjM2Mjg2LmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=fe00397d27a070da9ceb861bd5d8454be9e030ec59bcfe9fd9aedb2dba21c9ae
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: Eyjpzci6ijlmy2mwmtnmngi5nje5nzfizgjhogflmjljyjm2mjg2lmpwzyisinn0b3jhz2uioijwdwjsawnfc3rvcmuifq?signature=fe00397d27a070da9ceb861bd5d8454be9e030ec59bcfe9fd9aedb2dba21c9ae
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
-            nameExtended:
-              - text: Cadbury Peanuts Milk Chocolate Coated 330g
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
+          - listPrice:
+              - text: $10.50
+                xpath: /html/body/div[6]
+            price:
+              - text: $9.50
+                xpath: /html/body/div[4]
+            weightNet:
+              - text: 330g
+                xpath: /html/body/div[10]
+            sku:
+              - text: cadbury-peanuts-milk-chocolate-coated-330g
+                xpath: /html/body/div[3]
+            variantId:
+              - text: cadbury-peanuts-milk-chocolate-coated-330g
+                xpath: /html/body/div[3]
             legalDisclaimer:
               - text: Drakes Online Castle Plaza aims to include in the product list up to date
                   pictures of the products and accurate ingredients, nutritional
@@ -24,39 +30,19 @@ extractions:
                   that you read the label on the products you purchase or
                   contact the manufacturer of the product.
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Cadbury Peanuts Milk Chocolate Coated 330g
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]
-            coupon:
-              - text: Save $1.00
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[3]/span[1]/span[1]
-            sku:
-              - text: cadbury-peanuts-milk-chocolate-coated-330g
-                xpath: /html/body/div[3]
-            variantId:
-              - text: cadbury-peanuts-milk-chocolate-coated-330g
-                xpath: /html/body/div[3]
-            price:
-              - text: $9.50
-                xpath: /html/body/div[4]
-            availabilityText:
-              - text: In Stock
-          - servingSizeUom:
-              - text: g
-                xpath: /html/body/div[7]
             servingSize:
               - text: per 330g
-                xpath: /html/body/div[8]
-            weightNet:
-              - text: 330g
                 xpath: /html/body/div[9]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[8]
             pricePerUnit:
               - text: $2.85 per 100g
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             pricePerUnitUom:
               - text: g
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             availabilityText:
               - text: In Stock
-        xpath: /html/body
-    timestamp: 1605709149516
+        xpath: /html
+    timestamp: 1605874462851

@@ -26,9 +26,7 @@ module.exports = {
         : '';
       addElementToDom(discountedPrice, 'discountedPrice');
 
-      const discount = document.querySelector('.MoreInfo__Body .MoreInfo__Tags .saving-amount')
-        ? document.querySelector('.MoreInfo__Body .MoreInfo__Tags .saving-amount').innerText
-        : '';
+      const discount = document.querySelector('.MoreInfo .MoreInfo__Tags .saving-amount') ? document.querySelector('.MoreInfo .MoreInfo__Tags .saving-amount').innerText : '';
 
       if (discount) {
         addElementToDom(discount, 'discount');

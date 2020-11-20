@@ -2,7 +2,7 @@ input:
   _url: http://drakes.com.au
   URL: https://074.drakes.com.au/lines/barista-bros-flavoured-milk-iced-coffee-double-espresso-500ml
 extractions:
-  - html: https://workbench.import.io/html/run=c9a8533d-3ac5-4f68-9f9a-2f2d5447a493/task=5541bf45-944e-4e73-b0bd-6855e53bb1aa/319c5ebb-5bee-4f9f-bf67-7894dec1b84a.html
+  - html: https://workbench.import.io/html/run=df112da1-70ea-4976-9c7a-647facd9afc4/task=5ca4e17f-78f5-4cfc-8757-b48610b6bf9b/696f2922-a318-4a95-9203-f48f4286b873.html
     extractionConfigId: product/details/stores/d/drakes/AU/extract
     data:
       - group:
@@ -39,24 +39,22 @@ extractions:
             price:
               - text: $2.80
                 xpath: /html/body/div[4]
-            availabilityText:
-              - text: In Stock
-          - servingSizeUom:
+            servingSizeUom:
               - text: ml
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
             servingSize:
               - text: per 500ml
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[7]
             weightNet:
               - text: 500ml
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[8]
             pricePerUnit:
               - text: $5.60 per litre
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[9]
             pricePerUnitUom:
               - text: litre
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[10]
             availabilityText:
               - text: In Stock
         xpath: /html/body
-    timestamp: 1605709150905
+    timestamp: 1605870232974
