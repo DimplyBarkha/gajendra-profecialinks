@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //select[contains(@data-id,"sizeSelect")]/option[position()>1]
+recordXPath: //select[contains(@data-id,"sizeSelect")]/option[position()>1] | //div[contains(@class,"variantinfo")]
 fields:
   - name: image
     description: URL of the main product image
     xpath: ancestor::html//meta[@property="og:image"]/@content
-  #   - name: imageAlt
-  #     singleValue: true
-  #     description: Alt text of the main product image
+  - name: imageAlt
+    description: Alt text of the main product image
+    xpath: //ul[contains(@class,"thumbnails")]/li[position()=1]//img/@alt
   - name: alternateImages
     description: Other product images (not in manufacturer description)
     xpath: ancestor::html//ul[contains(@class,"thumbnails")]/li[position()>1]//img/@src
@@ -36,10 +36,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: ancestor::html//span[contains(text(),"Add to bag")]
+    xpath: ancestor::html//*[contains(text(),"Out of stock")][contains(@class,"out-of-stock")]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     description:
       Product description supplied by website - may be concatenanted from
@@ -48,18 +48,18 @@ fields:
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     xpath: count(ancestor::html//div[contains(@class,"product-description")]/ul/li)
-  #   - name: brandText
-  #     singleValue: true
-  #     description:
-  #       Product brand shown - this may actually NOT be just a brand name,
-  #       e.g. "Visit the Gillette Store"
+  - name: brandText
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //@brand
   #   - name: manufacturer
   #     singleValue: true
   #     description: Product manufacturer
   - name: quantity
     description: Quantity as described on the page
     xpath: //text()
-    regExp: (\w+)(\s)(\d+)(.|)(\d+|)
+  # regExp: (\w+)(\s)(\d+)(.|)(\d+|)
   #   - name: weightNet
   #     singleValue: true
   #     description: Net weight as described on the page
@@ -94,13 +94,13 @@ fields:
   #     description: Content under "warnings" header
   - name: ratingCount
     description: The number of ratings
-    xpath: ancestor::html//div[contains(@class,"total-reviews")]
+    xpath: //@review
   #   - name: aggregateRatingText
   #     singleValue: true
   #     description: The stated aggregate rating
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
-    xpath: ancestor::html//div[contains(@class,"numeric-rating")]/text()
+    xpath: //@rating
   #   - name: shippingInfo
   #     singleValue: true
   #     description: Shipping information for the product
@@ -110,10 +110,9 @@ fields:
   #   - name: shippingWeight
   #     singleValue: true
   #     description: Stated shipping weight
-  #   - name: variantCount
-  #     singleValue: true
-  #     description: Number of variants listed
-  #     type: NUMBER
+  - name: variantCount
+    description: Number of variants listed
+    xpath: count(ancestor::html//select[contains(@data-id,"sizeSelect")]/option[position()>1])
   - name: color
     description: A textual description of the colour
     xpath: //@colour
@@ -126,9 +125,9 @@ fields:
   #   - name: manufacturerImages
   #     singleValue: false
   #     description: Images within the third party description
-  #   - name: videos
-  #     singleValue: false
-  #     description: URLs of videos on page
+  - name: videos
+    description: URLs of videos on page
+    xpath: //@videourl
   - name: name
     description: The product name
     xpath: ancestor::html//div[contains(@class,"product-hero")]/h1
@@ -451,9 +450,9 @@ fields:
   #     description:
   #       In product page, information about a new version of the product -
   #       new desription info
-  #   - name: variantInformation
-  #     singleValue: true
-  #     description: colour / scent / flavour / other
+  - name: variantInformation
+    description: colour / scent / flavour / other
+    xpath: //@colour
   - name: firstVariant
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
@@ -471,48 +470,48 @@ fields:
   - name: additionalDescBulletInfo
     description: null
     xpath: ancestor::html//div[contains(@class,"product-description")]/ul/li
-#   - name: prop65Warning
-#     singleValue: true
-#     description: null
-#   - name: ageSuitability
-#     singleValue: true
-#     description: Recommended age displayed on the product page.
-#       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
-#     example: 4 - 99 years
-#   - name: energyEfficiency
-#     singleValue: true
-#     description: Energy rating of a product.
-#       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-#     example: A+, A+++, B
-#   - name: technicalInformationPdfPresent
-#     singleValue: true
-#     description: If there is for example a manual in pdf format on the website. ['Yes','No']
-#     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-#     defaultValue: No
-#   - name: termsAndConditions
-#     singleValue: true
-#     description: Terms and conditions information text ['Yes','No']
-#     defaultValue: No
-#   - name: privacyPolicy
-#     singleValue: true
-#     description: Privacy Policy information text ['Yes','No']
-#     defaultValue: No
-#   - name: customerServiceAvailability
-#     singleValue: true
-#     description: Information related to customer service availability (text), ['Yes','No']
-#     defaultValue: No
-#   - name: materials
-#     singleValue: true
-#     description: Materials used to make the product
-#     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-#   - name: Image360Present
-#     singleValue: true
-#     description: If 360 image is present in the carousel ['Yes','No']
-#     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-#     defaultValue: No
-#   - name: imageZoomFeaturePresent
-#     singleValue: true
-#     description: If Zoom feature is available for Main image or images in the
-#       carousel,['Yes','No']
-#     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-#     defaultValue: No
+  #   - name: prop65Warning
+  #     singleValue: true
+  #     description: null
+  #   - name: ageSuitability
+  #     singleValue: true
+  #     description: Recommended age displayed on the product page.
+  #       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+  #     example: 4 - 99 years
+  #   - name: energyEfficiency
+  #     singleValue: true
+  #     description: Energy rating of a product.
+  #       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+  #     example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  #   - name: materials
+  #     singleValue: true
+  #     description: Materials used to make the product
+  #     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes

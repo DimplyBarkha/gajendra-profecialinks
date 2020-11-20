@@ -34,23 +34,62 @@ const cleanUp = (data, context) => {
             text += ` ${element.text}`
           }
         })
-        row.description = [{ text }];
-      }
-      if (row.name) {
-        let text = '';
-        if (row.quantity && row.color) {
-          text = `${row.name[0].text} ${row.color[0].text} ${row.quantity[0].text}`
-        } else if (row.color) {
-          text = `${row.name[0].text} ${row.color[0].text}`
-        } else {
-          text = `${row.name[0].text}`
-        }
-        row.name = [{ text }];
+        row.description = [{ text: text.trim() }];
       }
       if (row.variants) {
         let text = ''
         text = row.variants.map((element) => element.text.trim()).join(' | ');
         row.variants = [{ text }];
+      }
+      if (row.quantity) {
+        if (row.quantity[0].text.includes('Not available')) {
+          row.quantity[0].text = row.quantity[0].text.replace(/(Not available)/g, '');
+          if (row.quantity[0].text.includes('-')) {
+            row.quantity[0].text = row.quantity[0].text.slice(0, row.quantity[0].text.lastIndexOf('-'));
+          }
+        }
+        row.quantity[0].text = row.quantity[0].text.trim();
+      }
+      if (row.nameExtended) {
+        let text = '';
+        if (row.quantity && row.color) {
+          if (row.quantity[0].text != 'No Size') {
+            text = `${row.nameExtended[0].text} ${row.color[0].text} ${row.quantity[0].text}`
+          } else {
+            text = `${row.nameExtended[0].text} ${row.color[0].text}`;
+          }
+        } else if (row.color) {
+          text = `${row.nameExtended[0].text} ${row.color[0].text}`
+        } else {
+          text = `${row.nameExtended[0].text}`
+        }
+        row.nameExtended = [{ text }];
+      }
+      if (row.variantInformation) {
+        let text = '';
+        if (row.quantity) {
+          if (row.quantity[0].text.includes('No Size')) {
+            text = `${row.variantInformation[0].text}`;
+          } else {
+            text = `${row.variantInformation[0].text} ${row.quantity[0].text}`;
+          }
+        }
+        row.variantInformation = [{ text }];
+      }
+      if (row.ratingCount) {
+        if (row.ratingCount[0].text.includes('undefined')) {
+          row.ratingCount[0].text = '0';
+        }
+      }
+      if (row.aggregateRating) {
+        if (row.aggregateRating[0].text.includes('undefined')) {
+          row.aggregateRating[0].text = '';
+        }
+      }
+      if (row.videos) {
+        if (row.videos[0].text == "null") {
+          row.videos[0].text = '';
+        }
       }
     }
   };
