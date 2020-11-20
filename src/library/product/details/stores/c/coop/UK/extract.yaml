@@ -1,0 +1,53 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //picture[not(contains(@class,'coopssn-c-nav__promo__image'))]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //picture[not(contains(@class,'coopssn-c-nav__promo__image'))]/img/@alt
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,'title')]
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'title')]
+  - name: alcoholContent
+    singleValue: false
+    xpath: //div/p[contains(text(),'Alcohol')]
+  - name: brandText
+    singleValue: false
+    xpath: //div/p[contains(text(),'Brand')]
+  - name: price
+    singleValue: false
+    xpath: //p[@class='coop-c-card__price'][contains(text(),'£')] | //p[@class='coop-c-card__price']/span[contains(@class,'coop-u-red-mid')]
+  - name: listPrice
+    singleValue: false
+    xpath: //p/span[contains(@class,'coop-c-smallprint')] 
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //a[contains(@class,'coop-c-tag__link')]/span
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class='coop-l-column coop-l-small-12']/p[contains(text(),'cl')]
+  - name: variantId
+    singleValue: false
+    xpath: //form[@id='product-finder-form']/@data-rtl
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //li[contains(@class,'coop-c-tag ')]/a
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: Yes
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: Yes
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'description')]/p
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: No
