@@ -5,8 +5,8 @@ module.exports = {
     country: 'IL',
     store: 'victoryonline',
     domain: 'victoryonline.co.il',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.ShoppingLayout',
+    noResultsXPath: "//div[@id='ListTextContent']",
     zipcode: '',
   },
 };

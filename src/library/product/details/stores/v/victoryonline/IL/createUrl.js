@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'victoryonline.co.il',
     prefix: null,
-    url: null,
+    url: 'http://www.victoryonline.co.il/{id}',
     country: 'IL',
     store: 'victoryonline',
     zipcode: '',
