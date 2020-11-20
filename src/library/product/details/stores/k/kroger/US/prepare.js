@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/details/geo/prepare',
   parameterValues: {
     country: 'US',
-    store: 'kroger',
     domain: 'kroger.com',
+    store: 'kroger',
+    zipcode: '',
   },
 };

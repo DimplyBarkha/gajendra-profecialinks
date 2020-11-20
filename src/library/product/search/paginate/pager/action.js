@@ -46,7 +46,10 @@ async function implementation (
     ]);
     return true;
   }
-
+  const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
+  if (!hasNextLink) {
+    return false;
+  }
   if (nextLinkSelector) {
     console.log('Clicking', nextLinkSelector);
     await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });

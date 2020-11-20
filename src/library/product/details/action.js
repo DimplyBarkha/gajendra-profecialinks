@@ -18,7 +18,13 @@ async function implementation (
   const zipcode = inputs.zipcode || parameters.zipcode;
   await execute({ url, id, zipcode });
 
-  await extract({ url, id });
+  const resultsReturned = await execute({ url, id, zipcode });
+  if (!resultsReturned) {
+    console.log('No results found');
+    return;
+  }
+
+  await extract({ url, id, zipcode });
 }
 
 module.exports = {

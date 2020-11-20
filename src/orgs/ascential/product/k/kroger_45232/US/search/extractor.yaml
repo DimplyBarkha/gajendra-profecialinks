@@ -1,21 +1,21 @@
-robot: product/details
+robot: product/search
 parameters:
   country: US
   domain: kroger.com
   store: kroger
-  zipcode: "41071"
+  zipcode: "45232"
 proxy:
   zone: USA
   type: RESIDENTIAL
 policy:
-  numberRetries: 4
+  numberRetries: 3
   priority: MEDIUM
   retryDelay: 60
 meta:
   branches:
     adam-test:
-      extractor: 0d75d7b0-ea8f-4a5a-a2fc-93a10dc7794c
+      extractor: 50649ede-dcc3-4995-9b52-d1cc4e1e676f
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
     staging:
-      extractor: 02b7298c-6401-4710-bc9e-02b229620778
+      extractor: 9767bd98-6125-47c8-a68b-9637338d805b
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

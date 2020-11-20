@@ -1,35 +1,28 @@
+const { myTransform } = require('./transform');
 
-async function implementation (
+const implementation = async (
   inputs,
   parameters,
   context,
   dependencies,
-) {
+) => {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  const { url, id, zipcode } = inputs;
 
-  await context.evaluate(async function () {
-    const overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];
+  await context.waitForSelector('div.ProductCard a', { timeout: 5000 });
 
-    if (overlay !== undefined) {
-      overlay.click();
-    }
-  });
-
-  await context.waitForSelector('div.ProductCard a');
-
-  await context.evaluate(() => {
-    const firstItem = document.querySelector('div.ProductCard a');
-    firstItem.click();
-  });
+  await context.click('div.ContainerGrid-header.m-0 div.ProductCard a')
+    .catch(() => console.log('URL given as input, no item to click'));
 
   await context.waitForSelector('div.ProductDetails-header');
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  // wait and check for ratings/reviews, loads slowly:
+  await context.waitForXPath('//div[@class="bv_avgRating_component_container notranslate"]', { timeout: 9000 })
+    .catch(() => console.log('No reviews/ratings for this item'));
 
-  await context.evaluate(async function () {
+  await context.evaluate(async function (url, id, zipcode) {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -37,6 +30,21 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
+    const skuCode = id || url.slice(-13);
+    addHiddenDiv('my-sku', skuCode);
+
+    const myUrl = window.location.href;
+    addHiddenDiv('ii_url', myUrl.split('#')[0]);
+
+    // name logic, only 45255 to include size in nameExtended:
+    let nameExtended;
+    if (zipcode !== '45255') {
+      nameExtended = document.evaluate('//div[@class="ProductDetails-header"]/h1', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    } else {
+      nameExtended = document.evaluate('concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    }
+    addHiddenDiv('my-name-ext', nameExtended);
 
     const productDetailsButton = document.getElementsByClassName('kds-Tabs-tab')[0];
 
@@ -58,58 +66,48 @@ async function implementation (
       }
 
       const bullets = descriptionItem.querySelectorAll('ul li');
-      if (bullets) {
-        bullets.forEach((bullet, index) => {
+      let bulletCount;
+      let bulletInfo = '';
+
+      if (bullets && bullets.length > 0) {
+        bulletCount = bullets.length;
+
+        bullets.forEach((bullet) => {
           if (bullet.textContent) {
-            index === 0 ? descriptionText += bullet.textContent : descriptionText += ' || ' + bullet.textContent;
+            bulletInfo += ' || ' + bullet.textContent;
           }
         });
+      } else {
+        bulletCount = '';
       }
+      descriptionText += bulletInfo;
 
+      addHiddenDiv('bullet-info', bulletInfo);
+      addHiddenDiv('bulletCount', bulletCount);
       addHiddenDiv('description', descriptionText);
     }
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
-    const button = document.getElementsByClassName('kds-Tabs-tab')[1];
+    const nutritionButton = document.evaluate('//span[@class="kds-Text--m" and contains(text(),"Nutrition Info")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+    if (nutritionButton) {
+      nutritionButton.click();
+    }
 
-    if (button && button.textContent === 'Nutrition Info') {
-      button.click();
+    const totalCalEl = document.querySelector('div.NutritionLabel-Calories.font-bold.flex.justify-between > span:nth-child(2)');
+    const totalFatWithPercent = document.querySelector('span.NutrientDetail-DailyValue.is-macronutrient');
+
+    if (totalCalEl && totalFatWithPercent) {
+      const totalFat = totalFatWithPercent.textContent.replace('%', '');
+      const totalCal = totalCalEl.textContent;
+      const calFromFat = parseFloat(totalFat) * parseFloat(totalCal) * 0.01;
+      addHiddenDiv('my-cal-from-fat', calFromFat);
     }
 
     const readMore = document.querySelector('p.NutritionIngredients-Disclaimer span a');
 
     if (readMore) {
       readMore.click();
-    } else {
-      console.log('cannot read more');
     }
-
-    const ingredientsEl = document.querySelector('p.NutritionIngredients-Ingredients');
-    if (ingredientsEl && ingredientsEl.textContent) {
-      let ingredientsText = ingredientsEl.textContent;
-      if (ingredientsText.includes('Ingredients')) {
-        ingredientsText = ingredientsText.replace('Ingredients', '');
-      }
-      addHiddenDiv('my-ingredients', ingredientsText);
-    }
-
-    const allergenEl = document.querySelector('p.NutritionIngredients-Allergens');
-    if (allergenEl && allergenEl.textContent) {
-      let allergenText = allergenEl.textContent;
-      if (allergenText.includes('Allergen Info')) {
-        allergenText = allergenText.replace('Allergen Info', '');
-      }
-      addHiddenDiv('my-allergies', allergenText);
-    }
-  });
-
-  await context.evaluate(function () {
-    const myURL = document.createElement('li');
-    myURL.classList.add('ii_url');
-    myURL.textContent = window.location.href;
-    myURL.style.display = 'none';
-    document.body.append(myURL);
-  });
+  }, url, id, zipcode);
 
   await context.evaluate(() => {
     const listPrice = document.createElement('li');
@@ -120,7 +118,7 @@ async function implementation (
     price.classList.add('my-price');
     price.style.display = 'none';
 
-    const pickupPrice = document.getElementsByClassName('mt-4 flex flex-col items-end')[0];
+    const pickupPrice = document.getElementsByClassName('flex flex-col items-end')[0];
 
     if (pickupPrice !== undefined) {
       const pickupPriceText = pickupPrice.textContent;
@@ -135,43 +133,46 @@ async function implementation (
         price.textContent = pickupPriceText;
         listPrice.textContent = pickupPriceText;
       }
-    } else {
-      price.textContent = 'Product Unavailable';
-      listPrice.textContent = 'Product Unavailable';
     }
+
     document.body.append(price);
     document.body.append(listPrice);
   });
 
-  await context.evaluate(() => {
+  await context.evaluate((zipcode) => {
     const available = document.createElement('li');
     available.classList.add('availability');
     available.style.display = 'none';
 
-    const purchaseOptions = document.getElementsByClassName('mt-4 flex flex-col items-end');
+    const purchaseOptions = document.getElementsByClassName('flex flex-col items-end');
+    const numOptions = purchaseOptions.length;
 
-    if (purchaseOptions.length > 0) {
-      available.textContent = 'In Stock';
+    const shippingAvailable = document.evaluate('count(//span[contains(@class,"PurchaseOptions") and contains(text(),"Ship")]/parent::span/parent::div/following-sibling::div//data)>0', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
+
+    if (numOptions > 0) {
+      // Different requirements for 45232 only
+      if (shippingAvailable) {
+        available.textContent = 'In Stock';
+      } else {
+        available.textContent = 'In Store Only';
+      }
     } else {
       available.textContent = 'Out of Stock';
     }
+    console.log('availabilityText : ' + available.textContent);
 
     document.body.append(available);
-  });
-
-  console.log('ready to extract');
+  }, zipcode);
 
   return await context.extract(productDetails, { transform });
-}
-
-const { cleanUp } = require('../../../../shared');
+};
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'kroger',
-    transform: cleanUp,
+    transform: myTransform,
     domain: 'kroger.com',
   },
   inputs: [
@@ -181,5 +182,4 @@ module.exports = {
   },
   path: './stores/${store[0:1]}/${store}/${country}/extract',
   implementation,
-
 };

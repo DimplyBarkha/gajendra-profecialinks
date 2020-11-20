@@ -6,11 +6,13 @@ async function implementation (
 ) {
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  console.log(`url created is - ${url}`);
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   if (parameters.loadedSelector) {
+    console.log(`loaded selector in parameters is - ${parameters.loadedSelector}`);
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 40000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {

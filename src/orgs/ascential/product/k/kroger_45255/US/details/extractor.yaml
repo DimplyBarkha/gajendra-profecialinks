@@ -3,7 +3,7 @@ parameters:
   country: US
   domain: kroger.com
   store: kroger
-  zipcode: "41071"
+  zipcode: "45255"
 proxy:
   zone: USA
   type: RESIDENTIAL
@@ -11,11 +11,13 @@ policy:
   numberRetries: 4
   priority: MEDIUM
   retryDelay: 60
+  # backoffPolicy: EXPONENTIAL
+  # retryWithResidentialProxyAfter: 99
 meta:
   branches:
-    adam-test:
-      extractor: 0d75d7b0-ea8f-4a5a-a2fc-93a10dc7794c
-      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
     staging:
-      extractor: 02b7298c-6401-4710-bc9e-02b229620778
+      extractor: 7d733d0d-0b4c-472d-a6f3-123698fa805e
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    adam-test:
+      extractor: 05c705e9-aa7a-47b4-8f42-6e1a1481d2a7
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

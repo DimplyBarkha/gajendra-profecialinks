@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'ProductCard')][contains(@data-qa,'ProductCard')]
+recordXPath: //div[contains(@class,'ProductCard')][contains(@data-qa,'product-card')]
 fields:
   - name: paid
     singleValue: true
@@ -9,7 +9,11 @@ fields:
     type: BOOLEAN
   - name: searchUrl
     singleValue: false
-    xpath: ancestor::html//div[@class='my-search-url']
+    xpath: ancestor::html//div[@id='my-search-url']
+  - name: pageN
+    singleValue: false
+    xpath: ancestor::html//div[@id='my-page-num']
+    type: NUMBER
   - name: brand
     singleValue: true
     description: The brand name
@@ -26,15 +30,15 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    # xpath: //a[@class='Color Link']/@href
-    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    # xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    xpath: .//a[contains(@class,'ProductDescription')]/@href
     regExp: >-
       [0-9]{13}
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    # xpath: //a[@componentname='internal search']/@href
-    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    # xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    xpath: .//a[contains(@class,'ProductDescription')]/@href
     regExp: >-
        ^(.*)$
     regExpReplace:
@@ -42,7 +46,13 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //img[@class='kds-Image-img']/@src
+    # xpath: //img[@class='kds-Image-img']/@src
+    # xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    xpath: .//a[contains(@class,'ProductDescription')]/@href
+    regExp: >-
+      [0-9]{13}
+    regExpReplace: 
+      https://www.kroger.com/product/images/xlarge/front/$&
   - name: name
     singleValue: true
     description: The product name
@@ -56,7 +66,8 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    # xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    xpath: .//a[contains(@class,'ProductDescription')]/@href
     regExp: >-
       [0-9]{13}
   - name: aggregateRatingText
@@ -73,7 +84,11 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //span[@class='kds-Price-singular']
+    xpath: //span[@class='kds-Price-singular']|//mark[contains(@class,'kds-Price-promotional')]
+  - name: listPrice
+    singleValue: false
+    description: The offered price for the product
+    xpath: //s[@class='kds-Price-original']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -83,6 +98,7 @@ fields:
   - name: endorsementText
     singleValue: true
     description: The text that signifies that a product is endorsed
+    xpath: //div[@data-qa='featured-product-tag']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -111,3 +127,19 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
     xpath: //div[@data-qa='featured-product-tag']
+  - name: storeName
+    singleValue: false
+    description: store name
+    xpath: ancestor::html//span[@data-testid ="CurrentModality-vanityName"]
+  - name: quantity
+    singleValue: false
+    description: size
+    xpath: //span[@data-qa="cart-page-item-sizing"]
+  - name: availabilityText
+    singleValue: false
+    description: size
+    xpath: //span[contains(@class,"kds-Text--s block text-positive")]
+    regExp: Available
+    regExpReplace: In stock
+    defaultValue: Out of stock
+   
