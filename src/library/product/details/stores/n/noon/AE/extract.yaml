@@ -82,3 +82,6 @@ fields:
     singleValue: false
     xpath: //p[contains(@class,"notAvailableNote")]
     defaultValue: 'In Stock'
+  - name: manufacturerImages
+    description: Images within the third party description
+    xpath: //div[contains(@class,'richContent')]//img/@src
