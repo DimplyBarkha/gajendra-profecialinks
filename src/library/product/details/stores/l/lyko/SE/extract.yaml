@@ -14,6 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    # xpath: //div[@id="large-image"]//picture/img[@class="bXnj5e"]/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -48,7 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[contains(text(),'Beskrivning')]/following::div[2]
+    xpath: (//div[@class="_32-Kpi"])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -75,6 +76,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id="gtin"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -96,6 +98,7 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
+    xpath: //*[contains(text(),'Användning:')]/following-sibling::text()
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -236,6 +239,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    # xpath: count(//div[@id="large-image"]//picture/img[@class="bXnj5e"]/@src)
     type: NUMBER
   - name: news
     singleValue: true
@@ -250,7 +254,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //*[contains(text(),'Ingredienser')]/following::text()[1]
+    xpath: (//h4[contains(text(),'Ingredienser')]/following::text())[1]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -453,6 +457,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    # xpath: //div[@class="_2wD9Zk"]/h3
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
