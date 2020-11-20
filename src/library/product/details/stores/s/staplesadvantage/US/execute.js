@@ -70,6 +70,18 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   };
 
+  await context.evaluate(() => {
+    let descriptionFixed = '';
+    const description = document.querySelectorAll('div[id="ProductDetailsSummaryWrapper"]>ul>li');
+    console.log(description);
+    if (description.length !== 0) {
+      description.forEach(element => {
+        descriptionFixed = descriptionFixed + element.textContent + ' || ';
+      });
+      document.querySelector('div[id="ProductDetailsSummaryWrapper"]>ul').setAttribute('description', descriptionFixed);
+    }
+  });
+
   return await context.evaluate(function (xp) {
     const r = document.evaluate(
       xp,

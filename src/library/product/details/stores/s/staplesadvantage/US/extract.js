@@ -24,6 +24,25 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     // if video exists click in play button
 
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    await context.evaluate(() => {
+      const manufacturerImages = document.querySelectorAll('img');
+      let image;
+      const manufacturerDescription = document.querySelector('body').textContent;
+
+      for (let i = 0; i < manufacturerImages.length; i++) {
+        const manufacturerDiv = document.createElement('div');
+        manufacturerDiv.className = 'manufacturer-info';
+        document.body.appendChild(manufacturerDiv);
+
+        image = manufacturerImages[i].src;
+
+        document.querySelectorAll('.manufacturer-info')[i].setAttribute('src', image);
+      }
+      document.querySelector('.manufacturer-info').setAttribute('description', manufacturerDescription);
+    });
+
     await context.evaluate(() => {
       if (document.querySelector('div.ccs-cc-inline-embedded-video') !== null) {
         document.querySelector('div.ccs-cc-inline-embedded-video').click();

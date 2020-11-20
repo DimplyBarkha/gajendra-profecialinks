@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: body
 recordXPath: null
 fields:
 - name: _input
@@ -13,13 +13,12 @@ fields:
   singleValue: false
 - name: image
   singleValue: true
-  xpath: //img[@class='image-gallery-ux2dot0__image_element picture__img_resp']/@alt
+  xpath: //div[@class="image-gallery-ux2dot0__image_element_wrapper active_hero_image slider_images"]/img[@class='image-gallery-ux2dot0__image_element picture__img_resp']/@alt
 - name: imageAlt
   singleValue: true
-  xpath: //img[@class='image-gallery-ux2dot0__image_element picture__img_resp']/@alt
 - name: alternateImages
   singleValue: false
-  xpath: //div[@class='verticalCarousel__thumbnails']/descendant::img/@src
+  xpath: //div[@class="grid__row undefined grid__margin"]/descendant::img/@data-srcset
 - name: metaKeywords
   singleValue: false
 - name: category
@@ -40,25 +39,28 @@ fields:
   defaultValue: Out of Stock
 - name: description
   singleValue: false
-  xpath: //div[@id='ProductDetailsSummaryWrapper']/ul
+  xpath: //div[@id='ProductDetailsSummaryWrapper']/ul/@description
 - name: descriptionBullets
   singleValue: true
   xpath: count(//div[@id='ProductDetailsSummaryWrapper']/ul/li)
 - name: brandText
   singleValue: true
-  xpath: //td[normalize-space(text())="Brand Name"]/following-sibling::td
+  xpath: //div[@class="tab__tab"]/descendant::th[contains(., "Brand Name")]/following-sibling::td
 - name: manufacturer
   singleValue: true
-  xpath: //td[normalize-space(text())="Brand Name"]/following-sibling::td
+  xpath: //div[@class="tab__tab"]/descendant::th[contains(., "Brand Name")]/following-sibling::td
 - name: quantity
   singleValue: true
 - name: weightNet
   singleValue: true
-  xpath: (//td[contains(., 'Weight ')]/following-sibling::td)[1]
+  xpath: (//th[contains(., "Weight")]/following-sibling::td)[1]
 - name: weightGross
   singleValue: true 
 - name: gtin
   singleValue: true
+  xpath: //script[contains(., 'upcCode')]
+  regExp: '("upcCode":")(\w+)'
+  regExpReplace: $2
 - name: sku
   singleValue: true
   xpath: //h1[@id='product_title']
@@ -95,11 +97,9 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: //div[@class='delivery-info-ux2__full_width']
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
-  xpath: 
 - name: shippingWeight
   singleValue: true
   description: Stated shipping weight
@@ -116,11 +116,11 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //iframe[@id='ccsStaplesIframeId']
+  xpath: //div[@class="manufacturer-info"]/@description
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-  xpath: //div[@id="ccs-script-broker-container"]/descendant::img/@src
+  xpath: //div[@class="manufacturer-info"]/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
@@ -220,6 +220,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xparh: count(//div[@class="verticalCarousel__thumb "])
 - name: news
   singleValue: true
   description: 
@@ -362,8 +363,9 @@ fields:
   singleValue: true
   description: 
 - name: specifications
-  singleValue: true
+  singleValue: false
   description: The physical dimensions of the product including packaging.
+  xpath: concat(//div[@class="tab__tab"]/descendant::tr[contains(., 'Width')], //div[@class="tab__tab"]/descendant::tr[contains(., 'Depth')], //div[@class="tab__tab"]/descendant::tr[contains(., 'Length')], //div[@class="tab__tab"]/descendant::tr[contains(., 'Height')])
 - name: warranty
   singleValue: true
   xpath: (//td[contains(., 'Warranty')]/following-sibling::td)[1]
@@ -416,7 +418,6 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
-  xpath: //div[@id='ProdSpecSection']
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -433,6 +434,7 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
+  xpath: //div[@id="ProdDescSpec"]/div/div/ul/li
 - name: prop65Warning
   singleValue: true
   description: 
