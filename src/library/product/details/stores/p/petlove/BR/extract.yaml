@@ -255,7 +255,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //tr[th[text()="Composição"]]/td
+  xpath: ancestor::html//tr[th[contains(text(), "Composição")]]/td
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -269,10 +269,11 @@ fields:
   singleValue: true
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
-  singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: ancestor::html//
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Energia")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $1
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -308,14 +309,14 @@ fields:
 - name: sodiumPerServing
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
-  xpath: ancestor::html//tr[th[contains(text(), "Níveis de garantia")]]//tr[td[contains(text(), "Sódio")]]/td[2]
-  regExp: ^(\d+)\.?(\d+) (\w+)\/Kg
-  regExpReplace: $1$2
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Sódio")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $1
 - name: sodiumPerServingUom
   description: Unit of Measure Data for Sodium content
-  xpath: ancestor::html//tr[th[contains(text(), "Níveis de garantia")]]//tr[td[contains(text(), "Sódio")]]/td[2]
-  regExp: ^(\d+)\.?(\d+) (\w+)\/Kg
-  regExpReplace: $3
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Sódio")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $2
 - name: totalCarbPerServing
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
@@ -324,12 +325,16 @@ fields:
   singleValue: true
   description: Unit of Measure Data for Total Carbohydrate content
 - name: dietaryFibrePerServing
-  singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Fibrosa")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $1
 - name: dietaryFibrePerServingUom
-  singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Fibrosa")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $2
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
@@ -338,58 +343,85 @@ fields:
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
 - name: proteinPerServing
-  singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Proteína")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $1
 - name: proteinPerServingUom
-  singleValue: true
   description: Unit of Measure Data for Protein
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Proteína")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $2
 - name: vitaminAPerServing
-  singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Vitamina A")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $1
 - name: vitaminAPerServingUom
-  singleValue: true
   description: Unit of Measure Data for Vitamin A
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Vitamina A")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $2
 - name: vitaminCPerServing
-  singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
-  xpath: ancestor::html//tr[th[contains(text(), "Enriquecimento por ")]]//tr[td[text()="Vitamina C"]]/td[2]
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Vitamina C")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $1
 - name: vitaminCPerServingUom
-  singleValue: true
   description: Unit of Measure Data for Vitamin C
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Vitamina C")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $2
 - name: calciumPerServing
-  singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Cálcio")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $1
 - name: calciumPerServingUom
-  singleValue: true
   description: Unit of Measure Data for Calcium
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Cálcio")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $2
 - name: ironPerServing
-  singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Ferro")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $1
 - name: ironPerServingUom
-  singleValue: true
   description: Unit of Measure Data for Iron
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Ferro")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $2
 - name: dietarySymbols
   singleValue: true
   description: Information related to the dietary symbols of a specific product
 - name: magnesiumPerServing
-  singleValue: true
   description: Nutritional Information for Magnesium content - Usually based on per
-    100g serving
+    100g serving 
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Magnésio")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $1
 - name: magnesiumPerServingUom
-  singleValue: true
   description: Unit of Measure Data for Magnesium
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Magnésio")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $2
 - name: saltPerServing
-  singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Sal")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $1
 - name: saltPerServingUom
-  singleValue: true
   description: Unit of Measure Data for Salt
+  xpath: ancestor::html//tr//tr[td[contains(text(), "Sal")]]
+  regExp: ([\d,.]+) ?([a-zA-Z]+)
+  regExpReplace: $2
 - name: dietaryInformation
   singleValue: true
   description: 
@@ -457,9 +489,8 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
-  singleValue: false
   description: 
-  xpath: //div[contains(@class, "label-title")]
+  xpath: ancestor::html//div[contains(@class, "label-title")]
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
@@ -467,9 +498,9 @@ fields:
   singleValue: true
   description: 
 - name: ageSuitability
-  singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
   example: 4 - 99 years
+  xpath: ancestor::html//tr[th[contains(text(), "Idade")]]/td
 - name: energyEfficiency
   singleValue: true
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14

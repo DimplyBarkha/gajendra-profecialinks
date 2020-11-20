@@ -1,0 +1,244 @@
+input:
+  id: 2154518
+  _url: http://petlove.com.br
+extractions:
+  - html: https://workbench.import.io/html/run=1bfc93c0-66c8-420e-be3b-9b9a14a77abc/task=7adc1caf-dd62-4387-9916-57e0abf34640/a331e84c-6151-495a-8cef-6043582afdff.html
+    extractionConfigId: product/details/stores/p/petlove/BR/extract
+    data:
+      - group:
+          - image:
+              - text: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[1]/@image
+            nameExtended:
+              - text: Supra - Ração Supra Funny Bunny Chinchila
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
+            price:
+              - text: R$18,00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
+            availabilityText:
+              - text: em estoque
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@availability_text
+            brandText:
+              - text: Supra
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@brand
+            variantId:
+              - text: "2154515"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@value
+            variantCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@variant_count
+            name:
+              - text: Ração Supra Funny Bunny Chinchila
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_name
+            coupon:
+              - text: 10% OFF
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
+            category:
+              - text: Roedores
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Ração e Alimentos
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Outros
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+              - text: Supra
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
+            description:
+              - text: |-
+                  - Com vitaminas e minerais;
+                   - Alfafa, fontes de fibras essenciais;
+                   - Alimento extrusado;
+                   - Fecho Zip: abre para servir e fecha para conservar.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
+              - text: Elaborada especialmente para Chinchilas, Porquinhos da Índia e outros
+                  pequenos roedores de estimação, a Ração Supra Funny Bunny
+                  Chinchila é super saborosa. Sua composição é rica em
+                  ingredientes selecionados oferece minerais, vitaminas, fibras
+                  e outros importantes nutrientes essenciais para a saúde do seu
+                  pet.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]
+            sku:
+              - text: "2154486"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandLink:
+              - text: https://www.petlove.com.br/supra
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            subscriptionPrice:
+              - text: R$47,25
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]
+            subscribeAndSave:
+              - text: "true"
+            dietaryFibrePerServing:
+              - text: "165"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[4]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[4]
+            proteinPerServing:
+              - text: "210"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
+            vitaminAPerServing:
+              - text: "13000"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
+            vitaminAPerServingUom:
+              - text: UI
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
+            vitaminCPerServing:
+              - text: "100"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
+            vitaminCPerServingUom:
+              - text: mg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
+            calciumPerServing:
+              - text: "11"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[6]
+              - text: "21"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[7]
+            calciumPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[6]
+              - text: g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[7]
+            ironPerServing:
+              - text: "60"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
+            ironPerServingUom:
+              - text: mg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
+            variants:
+              - text: 700 g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
+              - text: 2,5 Kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/div[2]
+            ageSuitability:
+              - text: Adultos, Filhotes, Idosos
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - image:
+              - text: https://www.petlove.com.br/images/products/204415/product/Ra%C3%A7%C3%A3o_Supra_Funny_Bunny_Chinchila_-_2_5__Kg_2154518.jpg?1556474681
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image
+            nameExtended:
+              - text: Supra - Ração Supra Funny Bunny Chinchila
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@name_extended
+            price:
+              - text: R$52,50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@price
+            availabilityText:
+              - text: em estoque | melhor opção
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@availability_text
+            brandText:
+              - text: Supra
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@brand
+            variantId:
+              - text: "2154518"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@value
+            variantCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@variant_count
+            name:
+              - text: Ração Supra Funny Bunny Chinchila
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_name
+            coupon:
+              - text: 10% OFF
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@coupon_text
+            category:
+              - text: Roedores
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Ração e Alimentos
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Outros
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+              - text: Supra
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
+            description:
+              - text: |-
+                  - Com vitaminas e minerais;
+                   - Alfafa, fontes de fibras essenciais;
+                   - Alimento extrusado;
+                   - Fecho Zip: abre para servir e fecha para conservar.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
+              - text: Elaborada especialmente para Chinchilas, Porquinhos da Índia e outros
+                  pequenos roedores de estimação, a Ração Supra Funny Bunny
+                  Chinchila é super saborosa. Sua composição é rica em
+                  ingredientes selecionados oferece minerais, vitaminas, fibras
+                  e outros importantes nutrientes essenciais para a saúde do seu
+                  pet.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]
+            sku:
+              - text: "2154486"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandLink:
+              - text: https://www.petlove.com.br/supra
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            subscriptionPrice:
+              - text: R$47,25
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]
+            subscribeAndSave:
+              - text: "true"
+            dietaryFibrePerServing:
+              - text: "165"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[4]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[4]
+            proteinPerServing:
+              - text: "210"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[2]
+            vitaminAPerServing:
+              - text: "13000"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
+            vitaminAPerServingUom:
+              - text: UI
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[1]
+            vitaminCPerServing:
+              - text: "100"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
+            vitaminCPerServingUom:
+              - text: mg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[2]
+            calciumPerServing:
+              - text: "11"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[6]
+              - text: "21"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[7]
+            calciumPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[6]
+              - text: g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/table[1]/tbody[1]/tr[7]
+            ironPerServing:
+              - text: "60"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
+            ironPerServingUom:
+              - text: mg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/table[1]/tbody[1]/tr[16]
+            variants:
+              - text: 700 g
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
+              - text: 2,5 Kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/div[2]
+            ageSuitability:
+              - text: Adultos, Filhotes, Idosos
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1605870018531

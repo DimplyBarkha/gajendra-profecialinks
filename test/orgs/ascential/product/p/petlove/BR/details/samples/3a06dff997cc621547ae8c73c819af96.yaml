@@ -1,0 +1,376 @@
+input:
+  id: 3102928
+  _url: http://petlove.com.br
+extractions:
+  - html: https://workbench.import.io/html/run=1bfc93c0-66c8-420e-be3b-9b9a14a77abc/task=d276d416-7428-4486-9382-99476dd15628/e15265a9-61ca-45b0-8595-139afe1cc090.html
+    extractionConfigId: product/details/stores/p/petlove/BR/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.petlove.com.br/images/products/192331/product/3102932.1.jpg?1556453690
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[1]/@image
+            alternateImages:
+              - text: https://www.petlove.com.br/images/products/192332/product/3102932.2.jpg?1556453742
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[2]/@image
+              - text: https://www.petlove.com.br/images/products/192333/product/3102932.3.jpg?1556453795
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[3]/@image
+              - text: https://www.petlove.com.br/images/products/192334/product/3102932.4.jpg?1556453849
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[4]/@image
+            nameExtended:
+              - text: Maxxi - Refil para Filtro Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
+            listPrice:
+              - text: R$11,29
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@list_price
+            price:
+              - text: R$10,73
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
+            availabilityText:
+              - text: em estoque | melhor opção
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@availability_text
+            brandText:
+              - text: Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@brand
+            variantId:
+              - text: "3102932"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/input[1]/@value
+            variantCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@variant_count
+            name:
+              - text: Refil para Filtro Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_name
+            coupon:
+              - text: 14% OFF
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
+            category:
+              - text: Peixes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Filtros de Aquário
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Filtros
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+              - text: Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
+            description:
+              - text: |-
+                  - Oxigenação perfeita;
+                   - Purificação da água;
+                   - Remove partículas bem pequenas.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
+              - text: O Refil para Filtro Maxxi é a base de carvão ativado. Muito eficiente na
+                  remoção do cloro, compostos orgânicos, sabor e odor da água.
+                  Proporcionando uma água de qualidade, que é garantia de vida
+                  longa aos peixes. Trocar o filtro cada 1 mês ou quando
+                  perceber que o filtro se encontra saturado e sem condições de
+                  retirar os residuos da água.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]
+            sku:
+              - text: "1717897"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
+            brandLink:
+              - text: https://www.petlove.com.br/maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            subscribeAndSave:
+              - text: "false"
+            variants:
+              - text: HF 60
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
+              - text: HF 120
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/div[2]
+              - text: HF 240
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/div[2]
+              - text: HF 360
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/div[2]
+              - text: HF 1000
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/div[2]
+            ageSuitability:
+              - text: Adultos, Filhotes, Idosos
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - image:
+              - text: https://www.petlove.com.br/images/products/192335/product/3102928.1.jpg?1556453994
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image
+            nameExtended:
+              - text: Maxxi - Refil para Filtro Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@name_extended
+            price:
+              - text: R$18,39
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@price
+            availabilityText:
+              - text: em estoque
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@availability_text
+            brandText:
+              - text: Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@brand
+            variantId:
+              - text: "3102928"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/input[1]/@value
+            variantCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@variant_count
+            name:
+              - text: Refil para Filtro Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_name
+            coupon:
+              - text: 10% OFF
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@coupon_text
+            category:
+              - text: Peixes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Filtros de Aquário
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Filtros
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+              - text: Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
+            description:
+              - text: |-
+                  - Oxigenação perfeita;
+                   - Purificação da água;
+                   - Remove partículas bem pequenas.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
+              - text: O Refil para Filtro Maxxi é a base de carvão ativado. Muito eficiente na
+                  remoção do cloro, compostos orgânicos, sabor e odor da água.
+                  Proporcionando uma água de qualidade, que é garantia de vida
+                  longa aos peixes. Trocar o filtro cada 1 mês ou quando
+                  perceber que o filtro se encontra saturado e sem condições de
+                  retirar os residuos da água.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]
+            sku:
+              - text: "1717897"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
+            brandLink:
+              - text: https://www.petlove.com.br/maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            subscribeAndSave:
+              - text: "false"
+            variants:
+              - text: HF 60
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
+              - text: HF 120
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/div[2]
+              - text: HF 240
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/div[2]
+              - text: HF 360
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/div[2]
+              - text: HF 1000
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/div[2]
+            ageSuitability:
+              - text: Adultos, Filhotes, Idosos
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - image:
+              - text: https://www.petlove.com.br/images/products/192336/product/3102928.2.jpg?1556454061
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/ol[1]/li[1]/@image
+            nameExtended:
+              - text: Maxxi - Refil para Filtro Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@name_extended
+            availabilityText:
+              - text: indisponível
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@availability_text
+            brandText:
+              - text: Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@brand
+            variantId:
+              - text: "3102929"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/input[1]/@value
+            variantCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@variant_count
+            name:
+              - text: Refil para Filtro Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@product_name
+            category:
+              - text: Peixes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Filtros de Aquário
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Filtros
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+              - text: Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
+            description:
+              - text: |-
+                  - Oxigenação perfeita;
+                   - Purificação da água;
+                   - Remove partículas bem pequenas.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
+              - text: O Refil para Filtro Maxxi é a base de carvão ativado. Muito eficiente na
+                  remoção do cloro, compostos orgânicos, sabor e odor da água.
+                  Proporcionando uma água de qualidade, que é garantia de vida
+                  longa aos peixes. Trocar o filtro cada 1 mês ou quando
+                  perceber que o filtro se encontra saturado e sem condições de
+                  retirar os residuos da água.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]
+            sku:
+              - text: "1717897"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
+            brandLink:
+              - text: https://www.petlove.com.br/maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            subscribeAndSave:
+              - text: "false"
+            variants:
+              - text: HF 60
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
+              - text: HF 120
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/div[2]
+              - text: HF 240
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/div[2]
+              - text: HF 360
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/div[2]
+              - text: HF 1000
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/div[2]
+            ageSuitability:
+              - text: Adultos, Filhotes, Idosos
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - image:
+              - text: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/ol[1]/li[1]/@image
+            nameExtended:
+              - text: Maxxi - Refil para Filtro Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@name_extended
+            listPrice:
+              - text: R$30,39
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@list_price
+            price:
+              - text: R$28,87
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@price
+            availabilityText:
+              - text: em estoque
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@availability_text
+            brandText:
+              - text: Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@brand
+            variantId:
+              - text: "3102930"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/input[1]/@value
+            variantCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@variant_count
+            name:
+              - text: Refil para Filtro Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@product_name
+            coupon:
+              - text: 15% OFF
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@coupon_text
+            category:
+              - text: Peixes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Filtros de Aquário
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Filtros
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+              - text: Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
+            description:
+              - text: |-
+                  - Oxigenação perfeita;
+                   - Purificação da água;
+                   - Remove partículas bem pequenas.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
+              - text: O Refil para Filtro Maxxi é a base de carvão ativado. Muito eficiente na
+                  remoção do cloro, compostos orgânicos, sabor e odor da água.
+                  Proporcionando uma água de qualidade, que é garantia de vida
+                  longa aos peixes. Trocar o filtro cada 1 mês ou quando
+                  perceber que o filtro se encontra saturado e sem condições de
+                  retirar os residuos da água.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]
+            sku:
+              - text: "1717897"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
+            brandLink:
+              - text: https://www.petlove.com.br/maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            subscribeAndSave:
+              - text: "false"
+            variants:
+              - text: HF 60
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
+              - text: HF 120
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/div[2]
+              - text: HF 240
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/div[2]
+              - text: HF 360
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/div[2]
+              - text: HF 1000
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/div[2]
+            ageSuitability:
+              - text: Adultos, Filhotes, Idosos
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - image:
+              - text: https://www.petlove.com.br/images/products/192339/product/3102927_filtro.jpg?1556454147
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/ol[1]/li[1]/@image
+            nameExtended:
+              - text: Maxxi - Refil para Filtro Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/@name_extended
+            availabilityText:
+              - text: indisponível
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/@availability_text
+            brandText:
+              - text: Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/@brand
+            variantId:
+              - text: "3102927"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/input[1]/@value
+            variantCount:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/@variant_count
+            name:
+              - text: Refil para Filtro Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/@product_name
+            category:
+              - text: Peixes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Filtros de Aquário
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Filtros
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+              - text: Maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
+            description:
+              - text: |-
+                  - Oxigenação perfeita;
+                   - Purificação da água;
+                   - Remove partículas bem pequenas.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]
+              - text: O Refil para Filtro Maxxi é a base de carvão ativado. Muito eficiente na
+                  remoção do cloro, compostos orgânicos, sabor e odor da água.
+                  Proporcionando uma água de qualidade, que é garantia de vida
+                  longa aos peixes. Trocar o filtro cada 1 mês ou quando
+                  perceber que o filtro se encontra saturado e sem condições de
+                  retirar os residuos da água.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]
+            sku:
+              - text: "1717897"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
+            brandLink:
+              - text: https://www.petlove.com.br/maxxi
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            subscribeAndSave:
+              - text: "false"
+            variants:
+              - text: HF 60
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/div[2]
+              - text: HF 120
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/div[2]
+              - text: HF 240
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/div[2]
+              - text: HF 360
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/div[2]
+              - text: HF 1000
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/div[2]
+            ageSuitability:
+              - text: Adultos, Filhotes, Idosos
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1605870014842
