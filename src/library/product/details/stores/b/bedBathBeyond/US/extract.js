@@ -178,6 +178,12 @@ async function implementation (
   if (jsonData) {
     await context.evaluate(generateDynamicTable, jsonData);
   }
+  await context.evaluate(() => {
+    let video = document.querySelector('button[data-locator="pdp-productalternateimage"] > a');
+    if(video) {
+      video.click();
+    }
+  });
   await context.evaluate(addRating);
   const { transform } = parameters;
   const { productDetails } = dependencies;
