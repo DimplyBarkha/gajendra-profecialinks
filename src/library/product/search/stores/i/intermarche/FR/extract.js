@@ -11,6 +11,13 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
+      function delay(delayInms) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(2);
+          }, delayInms);
+        });
+      }
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
@@ -19,6 +26,13 @@ module.exports = {
           break;
         }
       }
+      async function sample() {
+        console.log("a");
+        console.log("waiting...");
+        let delayres = await delay(3000);
+        console.log("b");
+      }
+      sample();
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement("div");
         newDiv.id = id;
@@ -32,13 +46,6 @@ module.exports = {
       const product = document.getElementsByClassName(
         "productTileV2Styled__TileWrapper-sc-19ad4vz-0"
       );
-      function delay(delayInms) {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve(2);
-          }, delayInms);
-        });
-      }
 
       async function sample() {
         console.log("a");
