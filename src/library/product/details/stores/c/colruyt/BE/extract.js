@@ -100,7 +100,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       return legalDisclaimerSelector ? legalDisclaimerSelector.innerText : '';
     });
     ingredientsList = await context.evaluate(() => {
-      const ingredientsListSelector = document.evaluate('(//span[contains(@class,"caption")]/following-sibling::text())[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const ingredientsListSelector = document.evaluate('//span[contains(@class,"caption")]/parent::*', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return ingredientsListSelector ? ingredientsListSelector.innerText : '';
     });
     saltPerServing = await context.evaluate(() => {
@@ -151,8 +151,8 @@ async function implementation (inputs, parameters, context, dependencies) {
     addHiddenDiv('caloriesPerServing_added', caloriesPerServing);
     addHiddenDiv('servingSize_added', servingSize);
     addHiddenDiv('legalDisclaimer_added', legalDisclaimer);
-    addHiddenDiv('legalDisclaimer_added', ingredientsList);
-    addHiddenDiv('legalDisclaimer_added', saltPerServing);
+    addHiddenDiv('ingredientsList_added', ingredientsList);
+    addHiddenDiv('saltPerServing_added', saltPerServing);
     addHiddenDiv('storage_added', storage);
     addHiddenDiv('gtin_added', gtin);
     addHiddenDiv('quantity_added', quantity);
