@@ -70,7 +70,8 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id="productTrackingParams"]/@data-ean
+    xpath: //li[contains(text(), "GTIN/UPC:")] 
+    # //div[@id="productTrackingParams"]/@data-ean
   - name: sku
     singleValue: false
     description: The store-specific product identifier

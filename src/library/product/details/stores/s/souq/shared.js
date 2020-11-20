@@ -19,10 +19,12 @@ const transform = (data) => {
           ];
         }
         if (row.availabilityText) {
-          let newText = 'Out of Stock';
+          let newText = ' ';
           row.availabilityText.forEach(item => {
             if (item.text.includes('vip-instock')) {
               newText = 'In Stock';
+            }else{
+              newText = 'Out of Stock';
             }
           });
           row.availabilityText = [{ text: newText }];
@@ -99,7 +101,11 @@ const transform = (data) => {
             });
           }
         }
-        
+        if (row.gtin) {
+          row.gtin.forEach(item => {
+              item.text = item.text.replace(/GTIN\/UPC\:\s(.*)/g, '$1');
+          });
+        }
         // if (row.variantId) {
         //   row.variantId.forEach(item => {
         //       item.text = item.text.replace(/\"item\_id\"\:(.*)\,\"offer\_id/g, '$1');
