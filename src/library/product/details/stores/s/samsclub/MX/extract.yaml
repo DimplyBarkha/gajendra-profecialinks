@@ -1,0 +1,152 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-image-container')]//div[@class='thumb-image-container']//div[contains(@class,'thumb-image') and contains(@class,'active')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-image-container')]//div[@class='thumb-image-container']//div[contains(@class,'thumb-image') and contains(@class,'active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-image-container')]//div[@class='thumb-image-container']//div[contains(@class,'thumb-image') and not(contains(@class,'active'))]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //div[@id='breadcrumb']//ol//li//a//span[@itemprop='name']
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='prod-name']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='prod-name']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'quantity-wrapper')]//div[contains(@class,'cart-button-in-wrap')]//span[text()='Añadir al carrito']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price1
+    singleValue: false
+    xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']//sup[@itemprop='priceCurrency']
+  - name: price2
+    singleValue: false
+    xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']//span[@itemprop='price']
+  - name: price3
+    singleValue: false
+    # create price like price1+price2 if price3 is not blank then price1+price2+"."+price3
+    xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']//sup[not(@itemprop='priceCurrency')]
+  - name: price
+    singleValue: false
+  - name: listPrice1
+    singleValue: false
+    xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='price-before-label']//span[@class='price-before-value']
+  - name: listPrice2
+    singleValue: false
+    xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='price-before-label']//sup
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-header-container') and @id='Descripción']//div[@class='inner-htmlContent']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //h2[@itemprop='description']//ul//li
+  - name: descriptionBullets
+    singleValue: false
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,'prod-data-bar')]//a[@class='prod-brand']
+  - name: brandLink
+    singleValue: false
+    xpath: //div[contains(@class,'prod-data-bar')]//a[@class='prod-brand']/@href
+  - name: manufacturer
+    singleValue: false
+    xpath: //meta[@itemprop='manufacturer']/@content
+  - name: mpc
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[text()='Modelo']//parent::td//following-sibling::td//h3
+  - name: sku
+    singleValue: false
+    xpath: //span[@class='prod-id']
+  - name: variantId
+    singleValue: false
+    xpath: //span[@class='prod-id']    
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-surcharge')]//span
+  - name: warnings
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Advertencias') or contains(text(),'ADVERTENCIAS')]//parent::td//following-sibling::td//h3
+  - name: ingredientsList
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[text()='Ingredientes']//parent::td//following-sibling::td//h3
+  - name: specifications
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr
+  - name: warranty
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[text()='Garantía']//parent::td//following-sibling::td//h3
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'País de origen')]//parent::td//following-sibling::td//h3
+  - name: packSize
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Contenido del empaque')]//parent::td//following-sibling::td//h3
+  - name: color
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[text()='Color']//parent::td//following-sibling::td//h3
+  - name: weightNet
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Peso')]//parent::td//following-sibling::td//h3
+  - name: shippingDimensions1
+    singleValue: false
+    # Height
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Alto')]//parent::td//following-sibling::td//h3
+  - name: shippingDimensions2
+    singleValue: false
+    # Width
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Ancho')]//parent::td//following-sibling::td//h3
+  - name: shippingDimensions3
+    singleValue: false
+    # Length
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Fondo')]//parent::td//following-sibling::td//h3
+  - name: alcoholContent
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Porcentaje de Alcohol')]//parent::td//following-sibling::td//h3
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Carbohidratos')]//parent::td//following-sibling::td//h3
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Carbohidratos')]//parent::td//following-sibling::td//h3
+    # Get Unit i.e. g by regEx 6 g
+    regExp: ([\d\.]+)
+    regExpReplace: $1
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Fibra')]//parent::td//following-sibling::td//h3
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Fibra')]//parent::td//following-sibling::td//h3
+    # Get Unit i.e. g by regEx 6 g
+    regExp: ([\d\.]+)
+    regExpReplace: $1
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Sodio')]//parent::td//following-sibling::td//h3
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Sodio')]//parent::td//following-sibling::td//h3
+    # Get Unit i.e. g by regEx 6 g
+    regExp: ([\d\.]+)
+    regExpReplace: $1
+  - name: materials
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Material')]//parent::td//following-sibling::td//h3
