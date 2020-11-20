@@ -23,7 +23,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: /html/body/table/tbody/tr/td[1]/center/b  
+    xpath: /html/body/table/tbody/tr/td[1]/center/b
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -77,6 +77,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@id='productcode_added']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -239,7 +240,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[4]/tbody/tr[2]/td/text()  
+    xpath: /html/body/table/tbody/tr/td[2]/div/table[4]/tbody/tr[2]/td  
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -255,7 +256,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[10]/td[2]  
+    xpath: //table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'Energy')]/following-sibling::td  
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
@@ -266,21 +267,21 @@ fields:
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     type: NUMBER
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[2]/td[2]
+    xpath: //table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'Fat')]/following-sibling::td
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[2]/td[2]
+    xpath: //div[@id="tfat_uom"]
   - name: saturatedFatPerServing
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     type: NUMBER
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[4]/td[2]
+    xpath: //table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'saturates')]/following-sibling::td
   - name: saturatedFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[4]/td[2]
+    xpath: //div[@id="sfat_uom"]
   - name: transFatPerServing
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
@@ -310,11 +311,11 @@ fields:
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     type: NUMBER
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[5]/td[2]
+    xpath: //table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'Carbohydrate')]/following-sibling::td
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[5]/td[2]
+    xpath: //div[@id="tcarb_uom"]
   - name: dietaryFibrePerServing
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
@@ -328,21 +329,21 @@ fields:
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     type: NUMBER
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[6]/td[2]
+    xpath: //table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'sugars')]/following-sibling::td
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[6]/td[2]
+    xpath: //div[@id="tsugar_uom"]
   - name: proteinPerServing
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     type: NUMBER
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[9]/td[2]
+    xpath: //table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'Protein')]/following-sibling::td
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[9]/td[2]
+    xpath: //div[@id="tprotien_uom"]
   - name: vitaminAPerServing
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
@@ -395,7 +396,7 @@ fields:
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
-    xpath: /html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[3]/td[2]
+    xpath: //div[@id="tsalt_uom"]
   - name: dietaryInformation
     singleValue: true
     description: null
