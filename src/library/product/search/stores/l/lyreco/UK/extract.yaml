@@ -5,7 +5,8 @@ recordXPath: null
 fields:
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="item-content"]/div/p/img/@src
+    xpath: //div[@class="picture_grid"]/a/img/@src
+    # xpath: //div[@class="item-content"]/div/p/img/@src
   - name: name
     singleValue: false
     xpath: //p[@class="prod_desc"]/a/text()
