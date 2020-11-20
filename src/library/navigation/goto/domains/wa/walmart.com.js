@@ -49,11 +49,10 @@ module.exports = {
     const solveCaptchaIfNecessary = async () => {
       console.log('Checking for CAPTCHA');
       while (await isCaptcha() && captchas < MAX_CAPTCHAS) {
-        if (backconnect) {
-          throw Error('CAPTCHA received');
-        }
-        console.log('Solving a captcha');
-        console.log('captcha start time:', new Date());
+        if (backconnect) throw Error('CAPTCHA received');
+
+        console.log('Solving a captcha, captcha start time:', new Date());
+
         await solveCaptcha();
         captchas += 1;
         console.log('captcha end time:', new Date());
@@ -80,8 +79,6 @@ module.exports = {
       },
     });
 
-    if (!await solveCaptchaIfNecessary()) {
-
-    }
+    await solveCaptchaIfNecessary();
   },
 };
