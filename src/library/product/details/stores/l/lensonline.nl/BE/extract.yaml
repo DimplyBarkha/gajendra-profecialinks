@@ -89,7 +89,7 @@ fields:
     defaultValue: No
   - name: manufacturer
     singleValue: false
-    xpath: //tr[@class="row a"]/td[contains(text(),'Producent')]/following-sibling::td/text()
+    xpath: //tr[@class="row a"]/td[contains(text(),'Producent')]/following-sibling::td/text() | //tr[@class="row"]/td[contains(text(),'Producent')]/following-sibling::td/text()
   - name: variantInformation
     singleValue: false
     xpath: //a[@class="link_variation variant variant--selected"]/div[@class="variant__text"]/div[@class="variant__text__name"]/text()
