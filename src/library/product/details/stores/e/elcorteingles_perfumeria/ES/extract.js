@@ -12,7 +12,21 @@ module.exports = {
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
-    await context.waitForSelector(sectionsDiv, { timeout: 90000 });
+
+    await context.evaluate(async function () {
+      const homePage = 'https://www.elcorteingles.es/perfumeria/';
+      if (window.location.href === homePage) {
+        console.log(`Redirected to home page: ${window.location.href}`);
+      }
+    });
+
+    try {
+      await context.waitForSelector(sectionsDiv, { timeout: 90000 });
+    } catch (error) {
+      console.log(`sectionsDiv selector: ${sectionsDiv} not found..seems like not a product page`);
+      return;
+    }
+
     try {
       await context.evaluate(async function () {
         // function to append the elements to DOM
@@ -46,13 +60,14 @@ module.exports = {
             var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
             return result;
           } else {
+            const xpath = `//script[contains(.,'${scriptSelector}')]`;
             try {
-              const xpath = `//script[contains(.,'${scriptSelector}')]`;
               const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
               let jsonStr = element.textContent;
               jsonStr = jsonStr.trim();
               return JSON.parse(jsonStr);
             } catch (error) {
+              console.log(`xpath element not found: ${xpath}`);
               console.log(error.message);
             }
           }
@@ -189,14 +204,17 @@ module.exports = {
         // Number of reviews and rating
         const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
         const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
-        const productID = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).code_a.trim('') : '';
-        const sku = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).variant.trim('') : '';
-        const storeId = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).store_id.trim('') : '';
+        const jsonObj = findJsonObj('', productAvailablity) && findJsonObj('', productAvailablity).snapshotItem(0) && findJsonObj('', productAvailablity).snapshotItem(0).value;
+
+        const productID = jsonObj ? JSON.parse(jsonObj).code_a.trim('') : '';
+        const sku = jsonObj ? JSON.parse(jsonObj).variant.trim('') : '';
+        const storeId = jsonObj ? JSON.parse(jsonObj).store_id.trim('') : '';
 
         const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
         const apiReviewResponse = await makeApiCall(reviewData, {});
-        const responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
-        const responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace('.', ',')
+        const apiReviewResponseJson = JSON.parse(apiReviewResponse);
+        const responseRatingCount = apiReviewResponseJson ? apiReviewResponseJson.reviewSummary.numReviews : ratingFromDOM();
+        const responseReviewRating = apiReviewResponseJson ? parseFloat(apiReviewResponseJson.reviewSummary.primaryRating.average).toFixed(1).replace('.', ',')
           : '';
         addElementToDocument('ratingCount', responseRatingCount);
         addElementToDocument('aggregateRating', responseReviewRating);
@@ -272,7 +290,8 @@ module.exports = {
             const allergyAdvice = allElements.map(i => i.textContent).join(' ');
             addElementToDocument('allergyAdvice ', allergyAdvice);
           }
-        } allergyAdvice();
+        }
+        allergyAdvice();
 
         // Function to remove the `\n` from the textContent
         function textContent (element, attributeName) {
@@ -281,7 +300,7 @@ module.exports = {
             .split('\n')
             .filter((ele) => ele)
             .join(' ')) ||
-            '';
+                        '';
           addElementToDocument(attributeName, text);
         }
 
