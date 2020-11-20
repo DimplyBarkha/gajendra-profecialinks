@@ -23,6 +23,12 @@ module.exports = {
     } catch (error) {
       console.log('Cookie button click fail');
     }
+    try {
+      await context.waitForSelector('div.overlay__continue > button');
+      await context.click('div.overlay__continue > button');
+    } catch (error) {
+      console.log('Cookie button click fail');
+    }
 
     console.log(zipcode);
     if (zipcode) {
