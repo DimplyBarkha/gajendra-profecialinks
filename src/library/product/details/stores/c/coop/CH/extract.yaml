@@ -5,9 +5,10 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//div[contains(@class,"carousel__pagination--supermarket")]//img[contains(@class,"responsive-image")]/@src)[position()=1]
-    regExp: (.+)
-    regExpReplace: https:$1
+    xpath: (//img[contains(@class,"responsive-image")]/@src)[position()=1]
+    # xpath: (//div[contains(@class,"carousel__pagination--supermarket")]//img[contains(@class,"responsive-image")]/@src)[position()=1] 
+    # regExp: (.+)
+    # regExpReplace: https:$1
     #  //meta[@property="og:image"]/@content
     # xpath: //a[contains(@class,"carousel__pagination-item")]/img/@src
   - name: imageAlt
@@ -15,7 +16,7 @@ fields:
     xpath: //a[@class="carousel__link carousel__link--preload"]/@title
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@class,"carousel__pagination--supermarket")]//img[contains(@class,"responsive-image")]/@src)[position()>1]
+    xpath: (//img[contains(@class,"responsive-image")]/@src)[position()>1]
     regExp: (.+)
     regExpReplace: https:$1
   - name: metaKeywords
