@@ -11,7 +11,7 @@ async function implementation(
   const { id } = inputs;
   console.log("parameters --- core extract:: ", parameters);
   if (id) {
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 30000));
     await context.waitForXPath('//div[@class="productBlock"]/a');
 
     // await context.waitForSelector('div.productBlock a');
@@ -21,7 +21,7 @@ async function implementation(
       if (firstItem) firstItem.click();
     });
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 30000));
   }
     // await context.evaluate(async function () {
     //   function addHiddenDiv (id, content) {
