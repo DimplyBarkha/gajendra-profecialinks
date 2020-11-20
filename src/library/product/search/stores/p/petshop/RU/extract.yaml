@@ -8,6 +8,7 @@ fields:
     xpath: //li[contains(@class, 'product-item')]/@data-id
   - name: searchUrl
     singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     xpath: //div[@itemprop='name']
     singleValue: false

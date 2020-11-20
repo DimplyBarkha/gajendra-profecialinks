@@ -14,8 +14,17 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.waitForSelector('article.article-catalogue:not([style])');
     await context.evaluate(async function () {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      const searchUrl = window.location.href;
+      addElementToDocument('searchUrl', searchUrl);
       const allRatingElements = document.querySelectorAll('div[id*="j_rating"]');
-      await allRatingElements.forEach(function (element) {
+      allRatingElements.forEach(function (element) {
         const formattedRating = element.getAttribute('data-rating').replace('.', ',');
         element.setAttribute('rating-formatted', formattedRating);
       });
