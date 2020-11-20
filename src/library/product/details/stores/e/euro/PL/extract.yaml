@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //a[@id='big-photo']//img/@src
+    xpath: //a[@id='big-photo']//img/@src 
     regExp: (.+)
     regExpReplace: https:$1
   - name: alternateImages
@@ -89,7 +89,8 @@ fields:
     xpath: normalize-space(//tr//td[contains(text(),'Kolor')]//following-sibling::td)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="e-scene_core"]//text()
+    xpath: //div[@class="box"]//text() |  | //div[contains(@class,"col-xs-12")]//text() | //div[contains(@class,"esm-col")]/div/span//text()  | //div[contains(@class,"esm-col")]/div/p//text() | //div[@class="col-desc"]//text() | //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]//text()  | //div[contains(@class,"description-col")]/p//text() | //div[@class="display-desktop"]//text() | //div[@class="e-text e-widget"]//text()  | //div[contains(@class,"esm-col")]//div//span//text()  | //div[contains(@class,"e-text")]//text() |//div[@class="col-desc"]//text() |//p[@class='small']//text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]//text()  | //div[contains(@class,"description-col")]/p//text() | //div[contains(@class,"col-xs-12")]//text() | //p[@class='small']//text()
+      # 
     # xpath: //div[contains(@class,"col-xs-12")] | //div[contains(@class,"esm-col")]/div/span  | //div[contains(@class,"esm-col")]/div/p | //div[@class="col-desc"] | //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p | //div[@class="display-desktop"]//text() | //div[@class="e-text e-widget"] |  //div[@id="description-text"]
     # xpath:  //div[contains(@class,"esm-col")]//div//span  | //div[contains(@class,"e-text")] |//div[@class="col-desc"] |//p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p | //div[contains(@class,"col-xs-12")]
     # //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()      //div[@id="description-text"]//div[contains(@class,"esm-col")]/text()
@@ -106,15 +107,15 @@ fields:
     singleValue: false
     xpath: normalize-space(//a[contains(text(),'Klasa energetyczna')]//..//following-sibling::td)
   - name: videos
-    singleValue: 
-    xpath: //div[@id="description-videos"]//iframe/@src
+    # singleValue: false
+    xpath: //div[@id="description-videos"]//iframe/@src | //a[contains(@class,"ytp-title-link")]/@href | //div[@class="ytp-title-expanded-heading"]//a/@href | //button[contains(@class,'video-preview')]/@data-src | //h2[@class="ytp-title-expanded-title"]//a/@href | //div[@class="video-container"]/iframe/@src
     # //button[@class='video-preview js-video-preview']/@data-src
   - name: weightNet
     singleValue: false
     xpath: normalize-space(//td[contains(text(),"Waga") and not(contains(text(),"opakowaniem"))]//following-sibling::td) 
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="description-text"]//img/@src
+    xpath: //div[@id="description-text"]//img/@data-original | //div[@id="description-text"]//img/@data-original | //div[@class="col-img"]/img/@src | //div[@class="description-py5"][2]//following-sibling::div//img/@src | //div[@class='margin-t-lg-32']//div[@class='tct']//img[@class='lazy loaded']/@data-original
       # //div[@class="col-img"]/img/@src | //div[@class="description-py5"][2]//following-sibling::div//img/@src |
     # //div[@class='margin-t-lg-32']//div[@class='tct']//img[@class='lazy loaded']/@src
     regExp: (.+)
@@ -148,3 +149,6 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //div[@id="product-variants"]//div/a[1]/span
+  - name: secondaryImageTotal
+    xpath: count(//div[@id='miniatures-list']//li[position()>1]/a/@href)  
+  

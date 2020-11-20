@@ -72,6 +72,64 @@ const transform = (data) => {
           });
           row.variantUrl = variantUrls;          
         }
+
+        if (row.videos) {        
+          const video = [];
+          let dupUrl = "";
+          let urls = [];
+          row.videos.forEach(item => {
+            console.log('item:: ', item.text);
+           urls =  row.videos.filter(it => item.text === it.text);
+          if(urls && urls.length === 1 ){
+            video.push(item);
+          }else{
+            if(dupUrl !== item.text){
+              dupUrl =  item.text;
+              video.push(item);
+            }
+          }
+          });
+          row.videos = video;          
+        }        
+
+        if (row.manufacturerDescription) {        
+          const manufacturerDescriptions = [];
+          let dupUrl = "";
+          let urls = [];
+          row.manufacturerDescription.forEach(item => {
+            console.log('item:: ', item.text);
+           urls =  row.manufacturerDescription.filter(it => item.text === it.text);
+          if(urls && urls.length === 1 ){
+            manufacturerDescriptions.push(item);
+          }else{
+            if(dupUrl !== item.text){
+              dupUrl =  item.text;
+              manufacturerDescriptions.push(item);
+            }
+          }
+          });
+          row.manufacturerDescription = manufacturerDescriptions;          
+        }
+
+        if (row.manufacturerImages) {        
+          const manufacturerImage = [];
+          let dupUrl = "";
+          let urls = [];
+          row.manufacturerImages.forEach(item => {
+            console.log('item:: ', item.text);
+           urls =  row.manufacturerImages.filter(it => item.text === it.text);
+          if(urls && urls.length === 1 ){
+            manufacturerImage.push(item);
+          }else{
+            if(dupUrl !== item.text){
+              dupUrl =  item.text;
+              manufacturerImage.push(item);
+            }
+          }
+          });
+          row.manufacturerImages = manufacturerImage;          
+        }
+
         if (row.description) {
           let text = '';
           row.description.forEach(item => {
