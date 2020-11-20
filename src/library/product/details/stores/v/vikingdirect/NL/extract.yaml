@@ -50,7 +50,7 @@ fields:
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
-  xpath: //span[@class="product-stock-message__title"]
+  xpath: //span[@class="product-stock-message__title"]|//ancestor::body/@availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
