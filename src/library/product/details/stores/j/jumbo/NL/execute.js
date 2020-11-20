@@ -5,7 +5,7 @@ module.exports = {
     country: 'NL',
     store: 'jumbo',
     domain: 'jumbo.com',
-    loadedSelector: 'div.jum-page.gd-container',
+    loadedSelector: 'div[data-testautomation="pdp-card"]',
     noResultsXPath: '//div[@class="jum-error-message"]',
     zipcode: '',
   },
