@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'durstexpress',
     domain: 'durstexpress.de',
-    url: "https://www.durstexpress.de/berlin1/catalogsearch/result/?q=Apfel",
+    url: "https://www.durstexpress.de/berlin1/catalogsearch/result/?q={searchTerms}",
     loadedSelector: "body",
     noResultsXPath: null,
     zipcode: '',
