@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: section.plp-list .plp-list__item
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="plp-list__item"]//a/@data-gtm-prod-data
+    regExp: \"id\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="plp-list__item"]//div[@class="comp-productcard__top-wrap"]//a/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="plp-list__item"]//p[@class="comp-productcard__price"]/strong
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="comp-productcard__top-wrap"]//img[@class="comp-productcard__img"]/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="plp-list__item"]//p[@class="comp-productcard__name"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
