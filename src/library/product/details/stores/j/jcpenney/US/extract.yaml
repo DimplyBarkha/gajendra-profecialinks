@@ -6,8 +6,6 @@ fields:
   - name: image
     singleValue: true
     xpath: //@mainimage
-    regExp: (.+)
-    regExpReplace: https:$1
   - name: metaKeywords
     xpath: ancestor::html //*//meta[@name="keywords"]/@content
   - name: imageAlt
@@ -148,3 +146,14 @@ fields:
     defaultValue: No
   - name: imageZoomFeaturePresent
     defaultValue: Yes
+  - name: shownImages
+    xpath: //@mainimage | //@secondaryimages
+  - name: productUrl
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+  - name: upc
+    xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")][1]/@data-gtin
+  - name: mpn
+    xpath: ancestor::html//div[@data-automation-id="productModelNumber"]
+    regExp: (.+\s)(.+)
+    regExpReplace: $2
+

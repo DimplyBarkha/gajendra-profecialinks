@@ -10,6 +10,10 @@ const { transform } = parameters;
 const { productDetails } = dependencies;
 
 await context.evaluate(async function () {
+    const isSelector = document.evaluate('//h3[contains(.,"Oops, something went wrong")]', document).iterateNext();
+    if (isSelector) {
+      throw Error(isSelector.textContent);
+    }
   function stall (ms) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -19,7 +23,7 @@ await context.evaluate(async function () {
   }
 
   function appendImages (selector, images) {
-    [...document.querySelectorAll(selector)].map((e, index) => { e.setAttribute('mainImage', `${images[index][0]}`); });
+    [...document.querySelectorAll(selector)].map((e, index) => { e.setAttribute('mainImage', `https:${images[index][0]}`); });
   }
 
   const optionalWait = async (sel) => {
