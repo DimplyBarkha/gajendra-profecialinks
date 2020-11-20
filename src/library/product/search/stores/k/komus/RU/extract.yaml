@@ -9,12 +9,14 @@ fields:
     xpath: //div[@id='altImage1']    
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="b-productList__item__picture"]//a[2]/@href
+    xpath: //div[@class="b-productList__item__picture"]/a[1]//@href
     regExp: (/.+)
     regExpReplace: https://www.komus.ru$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="b-productList__item__picture"]//a[@class="b-productList__item__img__link js-compare__link"]//img//@src 
+    xpath: //div[@class="b-productList__item__picture"]//a[2]/@href 
+    regExp: (/.+)
+    regExpReplace: https://www.komus.ru$1
   - name: aggregateRating    
     singleValue: false
     type: NUMBER
