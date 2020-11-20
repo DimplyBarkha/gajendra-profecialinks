@@ -38,6 +38,7 @@ const transform = (data) => {
           delete row.promotion;
         }
       }
+      row.variantCount = [{ text: 0 }];
     }
   }
 
