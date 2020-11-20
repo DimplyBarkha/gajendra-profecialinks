@@ -97,7 +97,7 @@ fields:
     xpath: //h1[@class="name"]
   - name: specifications
     singleValue: false
-    xpath: //div[@class='product-classifications']
+    xpath: //div[@class='product-classifications'] | //div[@id="details"]//p[@class="longDesc"]/br[preceding-sibling::*[contains(.,'Specification') or contains(.,'specification')]][following-sibling::node()[self::*|self::text()[normalize-space()]][1][self::br]][1]/preceding-sibling::text()/preceding-sibling::br[preceding-sibling::*[contains(.,'Specification') or contains(.,'Specification')]]/following-sibling::text()[1] | //div[@id="details"]//p[@class="longDesc"]//strong[last()][contains(text(),'Specifications')]/following-sibling::text()
   - name: termsAndConditions
     singleValue: false
     defaultValue: No
