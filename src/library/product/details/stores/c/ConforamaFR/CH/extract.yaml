@@ -87,9 +87,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@class="inpage_block_inner"]//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@class="flix_carousel flix_carousel_navigation"]/ul/li/img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
