@@ -5,8 +5,8 @@ recordXPath: null
 fields:
   - name: id
     description: Unique id (within this extractor)
-    xpath: //a[@class="btn btn-brand-secondary product-btn-more ng-star-inserted"]/@href
-    regExp: /p-(.+)/
+    xpath: //a[@class="product__link"]/@href
+    regExp: -(\d+)/
     regExpReplace: $1
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
