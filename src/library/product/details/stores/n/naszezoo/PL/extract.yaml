@@ -49,14 +49,12 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //td[@class="manufacturer"]/a/@title
   - name: manufacturer
     singleValue: false
-    xpath: //td[@class="manufacturer"]/a/@title
-  - name: quantity
-    singleValue: false
-    xpath: //input[@name="quantity"]/@value
+  # - name: quantity
+  #   singleValue: false
+  #   xpath: //input[@name="quantity"]/@value
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -84,7 +82,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    xpath: //span[contains(text(),"SPOSÓB UŻYCIA:")]//../../text()
+    xpath: //span[contains(text(),"SPOSÓB UŻYCIA:")]//../../text() | //strong[contains(text(),"DAWKOWANIE:")]/../../following-sibling::ul/li
   - name: warnings
     singleValue: false
     xpath: //strong[contains(text(),"UWAGA")]/text()
@@ -101,7 +99,7 @@ fields:
     type: NUMBER
   - name: shippingInfo
     singleValue: false
-    description: Shipping information for the product
+    xpath: //b[@class="ico-free-delivery"]/following-sibling::font
   - name: shippingDimensions
     singleValue: false
     #xpath: //strong[contains(text(),"Wymiary:")]
@@ -111,7 +109,7 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//td[@class="select option_select option_truestock option_required"]//option[@value]/text())
-    type: NUMBER
+    # type: NUMBER
   - name: color
     singleValue: false
     xpath: //strong[contains(text(),"kolory:")]/../text() | //strong[contains(text(),"Kolor:")]
@@ -125,7 +123,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="resetcss"]/p/img[@height="183"]/@src
+    xpath: //div[@class="resetcss"]/p/img[@height="183"]/@src | //div[@class="description"]//img/@src | //a[@class="brand"]//img/@src
     regExp: (.+)
     regExpReplace: https://www.naszezoo.pl$1
   - name: videos
@@ -220,7 +218,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath:  count(//li[@class="productdetailsminigalleryimgsize"][position()>1]/a/@href)
-    type: NUMBER
+    # type: NUMBER
   - name: news
     singleValue: false
     description: null
@@ -413,10 +411,10 @@ fields:
     singleValue: false
   - name: variantInformation
     singleValue: false
-    xpath: (//td[@class="basket"]//label[@class="label"])[1]/text()
+    xpath: m[@class="color"] | (//td[@class="basket"]//label[@class="label"])[1]/text()
   - name: firstVariant
     singleValue: false
-    xpath: (//td[@class="basket"]//label[@class="label"])[1]/../following-sibling::td//option[@value]
+    xpath: (td select option[value])[1]
   - name: variants
     singleValue: false
     xpath: //td[@class="select option_select option_truestock option_required"]//option[@value]/text()
