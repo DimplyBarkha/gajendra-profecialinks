@@ -48,6 +48,9 @@ fields:
       is no availability but the product can be added to cart, this field should be
       "In Stock"
     defaultValue: "In Stock"
+    xpath: //div[@class="MoreInfo"]//strong[text()="No longer available"]
+    regExp: .+
+    regExpReplace: "Out of stock"
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
