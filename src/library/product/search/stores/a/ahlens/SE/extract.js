@@ -7,20 +7,10 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(async () => {
-    while (!!document.querySelector('#ahl-product-list-app > div > div >button')) {
-      document.querySelector('#ahl-product-list-app > div > div >button').click()
-      await new Promise(r => setTimeout(r, 6000));
-      function addElementToDocument(key, value) {
-        const catElement = document.createElement('div');
-        catElement.className = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }
+  await context.evaluate(async () => {   
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement('div');
-        newDiv.id = id;
+        newDiv.className = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
         const originalDiv = document.querySelectorAll('div[class*=MuiCardContent-root]')[index];
@@ -40,16 +30,20 @@ async function implementation(
         for (let index = 0; index < data.length; index++) {
           var temp;
           if (data[index].includes(",")) {
-            temp = data[index].replace(",", ".");
+            var temp = data[index].replace(",", ".");
           } else {
-            temp = data[index];
+            temp = data[index].replace(" ", "");
           }
           addHiddenDiv('zz', temp, index);
         }
       };
       var backgroundURL = getAllXpath("//*[contains(@class,'MuiCardContent-root')]/div/div/span[1]/text()", 'nodeValue');
-      sliceURL(backgroundURL);      
-    }
+      sliceURL(backgroundURL);   
+      while (!!document.querySelector('#ahl-product-list-app > div > div >button')) {
+        document.querySelector('#ahl-product-list-app > div > div >button').click()
+        await new Promise(r => setTimeout(r, 6000));
+      }
+    
   })
   return await context.extract(productDetails, { transform });
 }
