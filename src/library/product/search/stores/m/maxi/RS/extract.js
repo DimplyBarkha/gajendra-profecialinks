@@ -9,7 +9,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve();
-      }, 3000);
+      }, 1500);
     });
   });
 
@@ -31,36 +31,16 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     var productsClass = document.querySelector(productsSelector);
     productsClass.setAttribute('target', 'toadd');
+
+    const prefix = 'https://www.maxi.rs/';
+    const products = document.querySelectorAll(
+      'a[data-testid="product-block-image-link"]');
+    products.forEach((product, index) => {
+      // set product url
+      const productUrl = product.getAttribute('href');
+      product.setAttribute('product_url', prefix + productUrl);
+    });
   });
-
-  // variant with scrolling
-
-  // await context.evaluate(async () => {
-  //   await stall(3000);
-
-  //   var isNextLinkPresent;
-  //   var productsAmount;
-
-  //   // scroll
-  //   function stall (ms) {
-  //     return new Promise((resolve, reject) => {
-  //       setTimeout(() => {
-  //         resolve();
-  //       }, ms);
-  //     });
-  //   }
-
-  //   var scrollTop = 0;
-  //   do {
-  //     scrollTop += 500;
-  //     window.scroll(0, scrollTop);
-
-  //     await stall(1000);
-  //     isNextLinkPresent = document.querySelector('a[class="ak6cwf-16 ktouRL"]');
-  //     productsAmount = document.querySelectorAll(
-  //       'div[data-testid="product-block"]').length;
-  //   } while (isNextLinkPresent && productsAmount < 20);
-  // });
 
   return await context.extract(productDetails, { transform });
 }
