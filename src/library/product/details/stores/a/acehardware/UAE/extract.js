@@ -13,13 +13,25 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
       // Get specification with pipes
-      const getProductDetails = document.querySelectorAll('ul.b-details-product__list li');
+      const tabWithDetails = document.evaluate(
+        '//ul[contains(@class,"nav") and contains(@class,"nav-tabs")]/li/a[contains(.,"Details") or contains(.,"details")]',
+        document,
+        null,
+        XPathResult.FIRST_ORDERED_NODE_TYPE,
+        null,
+      );
+      console.log('tabWithDetails: ' + tabWithDetails);
+      // @ts-ignore
+      tabWithDetails.singleNodeValue.click();
+      // @ts-ignore
+      const getProductDetails = [...document.querySelectorAll('.tab-pane.active ul>li')];
+      // const getProductDetails = document.querySelectorAll('ul.b-details-product__list li');
       const productDetails = [];
       for (let i = 0; i < getProductDetails.length; i++) {
         // @ts-ignore
-        const key = getProductDetails[i].querySelector('div.b-attributes__label').innerText;
+        const key = getProductDetails[i].querySelector('.list-item-label').innerText;
         // @ts-ignore
-        const value = getProductDetails[i].querySelector('div.b-attributes__attr').innerText;
+        const value = getProductDetails[i].querySelector('.list-item-text').innerText;
         const data = key + ' : ' + value;
         productDetails.push(data);
       }
