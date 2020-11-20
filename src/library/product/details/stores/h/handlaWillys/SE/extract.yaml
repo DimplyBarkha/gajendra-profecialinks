@@ -28,7 +28,7 @@ fields:
   #   regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"product-image")]//meta[@itemprop="price"]/@content
+    xpath: concat(//div[contains(@class,"product-image")]//meta[@itemprop="price"]/@content,//div[contains(@class,"product-image")]//meta[@itemprop="priceCurrency"]/@content)
     # xpath: //p//div[@class="ax-product-priceinfo-compare"]
     # regExp: Jmf-pris (.+)
     # regExpReplace: $1
