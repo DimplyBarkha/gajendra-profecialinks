@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="rd__breadcrumbs__item"][position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text()
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text()m | //h1[@id="product_title"]
   - name: image
     singleValue: false
     description: URL of the main product image
@@ -63,7 +63,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class="rd__col sd__no-float"]
+    xpath: //div[@class="rd__col sd__no-float"]  | //h1[@id="product_title"]
     #regExp: (?<=\s).*
   # - name: packSize
   #   singleValue: false
@@ -129,7 +129,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     # xpath:  //ul[@class="rd__list--130"]/li
-  - name: shippingInfo
+  - name: shippingInfo                
     singleValue: false
     xpath: //a[@data-promo="promo | envio_gratis | slot"]/text()
   - name: variants
