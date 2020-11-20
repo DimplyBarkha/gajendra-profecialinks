@@ -16,8 +16,7 @@ fields:
     singleValue: false
     xpath: //meta[@name='keywords']/@content
   - name: category
-    singleValue: false
-    #xpath: //table[@id='product-attribute-specs-table']//th[text()='Tipo de Producto']/parent::tr/td
+    singleValue: false    
     xpath: //div[@class='breadcrumbs']//ul//li[contains(@class,'category')]//a
   - name: nameExtended
     singleValue: false

@@ -41,14 +41,7 @@ const transform = (data) => {
             row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
         }
         
-        // if (row.nameExtended) {
-        //   row.nameExtended.forEach(item => {
-        //     let j_data = JSON.parse(item.text);
-        //     if (j_data['name'] && j_data['brand']['name']){
-        //       item.text = j_data['name'] + " - " + j_data['brand']['name'];
-        //     }            
-        //   });
-        // }
+        
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length,'xpath':row.descriptionBullets[0].xpath}];
         }                
