@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'swiper-container') and not(contains(@class,'swiper-container--thumbs'))]//div[@class="swiper-wrapper"]//a[contains(@class,'swiper-slide') and contains(@class,'swiper-slide-active')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'swiper-container') and not(contains(@class,'swiper-container--thumbs'))]//div[@class="swiper-wrapper"]//a[contains(@class,'swiper-slide') and contains(@class,'swiper-slide-active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'swiper-container') and not(contains(@class,'swiper-container--thumbs'))]//div[@class="swiper-wrapper"]//a[contains(@class,'swiper-slide') and not(contains(@class,'swiper-slide-active'))]//img/@src
+  - name: category
+    singleValue: false
+    # Breadcrumb not exist, getting it from meta. sample: fresh_food/dairy_&amp;amp;_eggs/cheese_&amp;amp;_labneh/feta_&amp;amp;_white_cheese,
+    xpath: //meta[@property='product:category']/@content
+  - name: name
+    singleValue: false
+    xpath: //section[@class='css-v4mfbu']//h1[@class='css-17yb6kp']
+  - name: nameExtended
+    singleValue: false
+    xpath: //section[@class='css-v4mfbu']//h1[@class='css-17yb6kp']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@data-testid='pdp-actions']//button[@data-testid='add_to_cart_button' and text()='أضِف إلى العربة']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //section[@class='css-v4mfbu']//h2[@class='css-1ju41kp' or @class='css-1601px7']
+  - name: listPrice
+    singleValue: false
+    xpath: //section[@class='css-v4mfbu']//del[@class='css-1cboe2v']
+  - name: brandText
+    singleValue: false
+    xpath: //section[@class='css-v4mfbu']//a[@class='css-1nnke3o']
+  - name: brandLink
+    singleValue: false
+    xpath: //section[@class='css-v4mfbu']//a[@class='css-1nnke3o']/@href
+  - name: sku
+    singleValue: false
+    xpath: //meta[@property='product:retailer_item_id']/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@property='product:retailer_item_id']/@content
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //section[@class='css-v4mfbu']//div[@class='css-3k5evu']//span[@class='css-l22qv5' or @class='css-knqud3']
+  - name: ingredientsList
+    singleValue: false
+    xpath: //h3[text()='المكونات']//following-sibling::p
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class='css-1reuqdv']//div[text()='مباع من قبل']//ancestor::div[@class='css-1sk1hfz']//span[@class='css-1x8lvt9']
+  - name: specifications1
+    singleValue: false
+    # LHS value النوع الفرعي
+    xpath: //div[@class='css-5u3qp4']
+  - name: specifications1
+    singleValue: false
+    # RHS value Iced Tea
+    xpath: //div[@class='css-v2lwwy']
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@class='css-1reuqdv']//div[contains(text()='بلد الصنع ')]//div
+  - name: quantity
+    singleValue: false
+    # Quantity need to extract from text <div class="css-1sk1hfz">حجم العلبة: 320 ml</div> 
+    xpath: //div[@class='css-1reuqdv']//div[contains(text(),'حجم العلبة')]    
+    
