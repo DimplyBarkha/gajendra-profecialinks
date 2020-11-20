@@ -1,0 +1,104 @@
+input:
+  id: 1211667
+  _url: http://petsmart.ca
+extractions:
+  - html: https://workbench.import.io/html/run=c784d6fa-7baa-4819-89a3-58d28cd78556/task=c67d328f-99b6-408a-af2c-2e2fa0c01556/e8c9b9ad-9c32-41f6-9206-ac7a76279a1a.html
+    extractionConfigId: product/details/stores/p/petsmart/CA/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.petsmart.ca/dog/food/canned-food/pedigree-vitality%2B-choice-cuts-in-sauce-dog-food-1211667.html
+                xpath: /html/body/link[8]/@href
+            image:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/1211667?$CLEARjpg$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/img[1]/@src
+            metaKeywords:
+              - text: pedigree vitality+ choice cuts in sauce dog food,pedigree vitality+ choice
+                  cuts in sauce dog food dog canned food,pedigree vitality+
+                  choice cuts in sauce dog food dog canned food petsmart
+                xpath: /html/head[1]/meta[8]/@content
+            category:
+              - text: dog
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Canned Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]
+            nameExtended:
+              - text: Pedigree Vitality+ Choice Cuts in Sauce Dog Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            price:
+              - text: $ 2.15
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/span[1]/text()[1]
+            brandText:
+              - text: Pedigree
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/a[1]
+            manufacturer:
+              - text: Pedigree
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/a[1]
+            quantity:
+              - text: 22 Oz
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/label[1]/strong[1]
+            sku:
+              - text: "1211667"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
+            variantId:
+              - text: "1211667"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]/div[1]/div[2]/meta[1]/@content
+                type: NUMBER
+                raw: "9"
+                locale: en
+                value: 9
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
+                type: NUMBER
+                raw: "5.0"
+                locale: en
+                value: 5
+            name:
+              - text: Pedigree Vitality+ Choice Cuts in Sauce Dog Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            variantInformation:
+              - text: Lamb & Vegetable
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/select[1]/option[3]
+            variants:
+              - text: Beef
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/select[1]/option[1]
+              - text: Country Stew
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/select[1]/option[2]
+              - text: Lamb & Vegetable
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/select[1]/option[3]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/@zoompresent
+            eangtin:
+              - text: "0058496701574"
+                xpath: /html/body/@gtin
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            variantCount:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+        xpath: /
+    timestamp: 1605857503595

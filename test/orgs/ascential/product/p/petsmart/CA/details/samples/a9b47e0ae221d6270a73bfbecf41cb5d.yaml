@@ -1,0 +1,190 @@
+input:
+  id: 1011407
+  _url: http://petsmart.ca
+extractions:
+  - html: https://workbench.import.io/html/run=c784d6fa-7baa-4819-89a3-58d28cd78556/task=f58ca507-a08a-4233-bbcb-cce9b6b373f4/75514c7d-0a8f-4e2d-90b0-6a9810003c85.html
+    extractionConfigId: product/details/stores/p/petsmart/CA/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/hills-science-diet-light-adult-dog-food---chicken-meal-and-barley-1011407.html
+                xpath: /html/body/link[8]/@href
+            image:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407?$CLEARjpg$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407_alt1?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407_alt2?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407_alt3?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[8]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407_alt4?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: hill's® science diet® light adult dog food - chicken meal & barley,hill's®
+                  science diet® light adult dog food - chicken meal & barley dog
+                  dry food,hill's® science diet® light adult dog food - chicken
+                  meal & barley dog dry food petsmart
+                xpath: /html/head[1]/meta[8]/@content
+            category:
+              - text: dog
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Dry Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]
+            nameExtended:
+              - text: Hill's® Science Diet® Light Adult Dog Food - Chicken Meal & Barley
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $ 21.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/span[1]/span[2]/text()[1]
+            price:
+              - text: $ 18.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/span[1]/span[1]/text()[1]
+            description:
+              - text: "Hill's Science Diet Light Adult dry dog food is precise nutrition for
+                  less active adult dogs requiring a low calorie food to
+                  maintain a healthy weight & lifestyle. This food offers
+                  delicious chicken flavor in a small bite size for those that
+                  prefer variety. Low calories & L-Carnitine help promote ideal
+                  body weight, support healthy mobility & maintain heart
+                  function High-quality protein & natural fibers help satisfy
+                  hunger between meals Omega-6s & Vitamin E for beautiful skin &
+                  coat "
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
+            brandText:
+              - text: Hill's Science Diet
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/a[1]
+            manufacturer:
+              - text: Hill's Science Diet
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/a[1]
+            quantity:
+              - text: 5 Lb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/label[1]/strong[1]
+            weightNet:
+              - text: 5 lb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/li[3]/p[1]
+            sku:
+              - text: "1011407"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
+            variantId:
+              - text: "1011407"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
+            directions:
+              - text: >-
+                  FEEDING INSTRUCTIONS
+
+                  Weight Control
+
+                  Daily Feeding Guide
+
+                  Ideal Weight of Dog - lbs (kgs) Amount per Day - cups (grams) - Weight loss Amount per Day - cups (grams) - Weight Management
+
+                  5 (2,3) 1/2 (45) 2/3 (60)
+
+                  10 (4,5) 3/4 (70) 1 1/8 (100)
+
+                  20 (9,1) 1 1/3 (120) 2 (180)
+
+                  30 (14) 1 3/4 (160) 2 1/2 (225)
+
+                  40 (18) 2 1/4 (205) 3 1/4 (295)
+
+                  50 (23) 2 2/3 (240) 3 3/4 (340)
+
+                  60 (27) 3 (270) 4 1/3 (395)
+
+                  80 (36) 3 3/4 (340) 5 1/3 (485)
+
+                  100 (45) 4 1/2 (410) 6 1/3 (575)
+
+                  120 (54) 5 1/4 (475) 7 1/4 (660)
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/@directions
+            ratingCount:
+              - text: "104"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]/div[1]/div[2]/meta[1]/@content
+                type: NUMBER
+                raw: "104"
+                locale: en
+                value: 104
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
+                type: NUMBER
+                raw: "4.8"
+                locale: en
+                value: 4.8
+            name:
+              - text: Hill's® Science Diet® Light Adult Dog Food - Chicken Meal & Barley
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            ingredientsList:
+              - text: >-
+                  Ingredients:
+
+                  Chicken Meal, Cracked Pearled Barley, Pea Fiber, Whole Grain Wheat, Whole Grain Corn, Corn Gluten Meal, Whole Grain Sorghum, Powdered Cellulose, Chicken Liver Flavor, Soybean Oil, Dried Beet Pulp, Flaxseed, Lactic Acid, Pork Flavor, Potassium Chloride, L-Lysine, Iodized Salt, Choline Chloride, Calcium Carbonate, vitamins (Vitamin E Supplement, L-Ascorbyl-2-Polyphosphate (source of Vitamin C), Niacin Supplement, Thiamine Mononitrate, Vitamin A Supplement, Calcium Pantothenate, Riboflavin Supplement, Biotin, Vitamin B12 Supplement, Pyridoxine Hydrochloride, Folic Acid, Vitamin D3 Supplement), minerals (Ferrous Sulfate, Zinc Oxide, Copper Sulfate, Manganous Oxide, Calcium Iodate, Sodium Selenite), Taurine, Oat Fiber, Mixed Tocopherols for freshness, L-Carnitine, Natural Flavors, Beta-Carotene, Apples, Broccoli, Carrots, Cranberries, Green Peas
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@ingredients
+            caloriesPerServing:
+              - text: "2987"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
+            totalFatPerServing:
+              - text: "5.5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+                type: STRING
+            totalFatPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+            dietaryFibrePerServing:
+              - text: "14.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+                type: STRING
+            dietaryFibrePerServingUom:
+              - text: "%"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+            proteinPerServing:
+              - text: "20.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+                type: STRING
+            proteinPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+            vitaminCPerServing:
+              - text: "85"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+                type: STRING
+            vitaminCPerServingUom:
+              - text: ppm
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/@zoompresent
+            eangtin:
+              - text: "0052742459301"
+                xpath: /html/body/@gtin
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            descriptionBullets:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+        xpath: /
+    timestamp: 1605857503835
