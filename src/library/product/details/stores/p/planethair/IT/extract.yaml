@@ -32,11 +32,12 @@ fields:
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
+  xpath: //div[@class="ty-product-block__left"]//input[contains(@name, "[name]")]/@value
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
-  xpath: //span[@class="ty-list-price ty-nowrap"]//span[contains(@id, "sec_list_price")]
+  xpath: //div[@class="prices-container price-wrap"]//span[@class="ty-list-price ty-nowrap"]//span[contains(@id, "sec_list_price")]
   description: The stated undiscounted price for the product
 - name: price
   singleValue: true
@@ -53,7 +54,7 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  singleValue: false
+  singleValue: true
   xpath: //div[@id="content_description"]//div[normalize-space()!='']
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -166,10 +167,7 @@ fields:
   description: Text of link next to Amazon choice graphic
 - name: brandLink
   singleValue: true
-  xpath: //div[@class="brand"]//a/@href
-    # //div[@id="content_description"]//h5/a/@href
-  # regExp: ((?!(\.\.*)).+)
-  # regExpReplace: https://www.planethair.it$1
+  xpath: //a[@id="brandLink"]/@href
   description: 
 - name: internationalShipping
   singleValue: true
@@ -253,9 +251,8 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
-  singleValue: false
-  # xpath: //div[@id="content_description"]//p/strong[contains(text(), "Ingredienti")]/ancestor::p
-  xpath: //div[@id="content_description"]//p/text()[preceding-sibling::strong[contains(text(), "Ingredient")]][normalize-space()!='']
+  singleValue: true
+  xpath: //div[@id="content_description"]//div[normalize-space()!='']
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
 - name: servingSize
