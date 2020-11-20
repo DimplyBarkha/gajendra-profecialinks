@@ -40,7 +40,8 @@ module.exports = {
       //  catElement.style.display = 'none';
       //  doc.appendChild(catElement);
       // }
-      window.scrollTo(0,document.body.scrollHeight);
+      // @ts-ignore
+      window.scrollTo(0, document.body.scrollHeight);
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
       const rating = document.querySelectorAll('ul.o-flex-container li meta[itemprop="ratingValue"]');
       if (rating) {

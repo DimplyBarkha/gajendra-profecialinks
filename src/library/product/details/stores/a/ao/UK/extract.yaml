@@ -76,10 +76,11 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //*[@id="productSpecification"]//div[contains(@class,'accordionContent')]//span[contains(text(),'Gewicht')]/parent::th/following-sibling::td
+    xpath: (//*[@id="productSpecification"]//div[contains(@class,'accordionContent')]//span[contains(text(),'Weight')])[1]/parent::th/following-sibling::td
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    xpath: //*[@id="productSpecification"]//div[contains(@class,'accordionContent')]//span[contains(text(),'Weight With Packaging')]/parent::th/following-sibling::td
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -130,6 +131,7 @@ fields:
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //*[@id="productSpecification"]//div[contains(@class,'accordionContent')]//span[contains(text(),'Weight With Packaging')]/parent::th/following-sibling::td
   - name: variantCount
     singleValue: true
     description: Number of variants listed
