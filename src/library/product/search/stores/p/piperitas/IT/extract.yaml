@@ -4,6 +4,9 @@ recordSelector: null
 recordXPath: //div[@class="col-lg-4 col-md-4 col-sm-4 col-xs-6 item card-col"]
 fields:
   - name: id
+    xpath: //div[@class="col-lg-4 col-md-4 col-sm-4 col-xs-6 item card-col"][1]/script/text()
+    regExp: (\/\/.+"id". "(\d+)")
+    regExpReplace: $2
     singleValue: false
   - name: searchUrl
     singleValue: true

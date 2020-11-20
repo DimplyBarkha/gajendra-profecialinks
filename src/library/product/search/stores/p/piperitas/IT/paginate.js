@@ -8,7 +8,7 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class="category-products"]',
+    loadedSelector: 'div[class="page-title"]',
     loadedXpath: null,
     noResultsXPath: '//p[@class="note-msg"][contains(text(), "Ci spiace, non ci sono prodotti per ora.")]',
     stopConditionSelectorOrXpath: null,
