@@ -19,7 +19,7 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
-
+  await new Promise((resolve, reject) => setTimeout(resolve, 12000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
