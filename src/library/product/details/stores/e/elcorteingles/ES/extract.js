@@ -24,7 +24,7 @@ module.exports = {
           catElement.textContent = value;
           catElement.style.display = 'none';
           document.body.appendChild(catElement);
-        } catch (error) { console.log(error), 'add elem'; }
+        } catch (error) { console.log(error); }
       }
 
       // function to get the json data from the string
@@ -266,7 +266,7 @@ module.exports = {
           .split(/[\n]/)
           .filter((ele) => ele)
           .join(' ')) ||
-          '';
+                    '';
         addElementToDocument(attributeName, text);
       }
 
