@@ -8,19 +8,13 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,'pdp-carousel')]//div[@class='slick-track']//div[contains(@class,'slick-slide') and contains(@class,'slick-current') and not(contains(@class,'slick-cloned'))]//img/@src
-    # remove width and height from URL https://s7d9.scene7.com/is/image/marmot/73060_1819_P001?wid=180&hei=180
-    regExp: (\?wid=180\&hei=180) 
-    regExpReplace: $1
+    xpath: //div[contains(@class,'pdp-carousel')]//div[@class='slick-track']//div[contains(@class,'slick-slide') and contains(@class,'slick-current') and not(contains(@class,'slick-cloned'))]//img/@src    
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,'pdp-carousel')]//div[@class='slick-track']//div[contains(@class,'slick-slide') and contains(@class,'slick-current') and not(contains(@class,'slick-cloned'))]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'pdp-carousel')]//div[@class='slick-track']//div[contains(@class,'slick-slide') and not(contains(@class,'slick-current')) and not(contains(@class,'slick-cloned'))]//img/@src
-    # remove width and height from URL https://s7d9.scene7.com/is/image/marmot/73060_1819_P001?wid=180&hei=180
-    regExp: (\?wid=180\&hei=180) 
-    regExpReplace: $1
+    xpath: //div[contains(@class,'pdp-carousel')]//div[@class='slick-track']//div[contains(@class,'slick-slide') and not(contains(@class,'slick-current')) and not(contains(@class,'slick-cloned'))]//img/@src    
   - name: category
     singleValue: false
     xpath: //ol[@class='breadcrumb']//li//a[not(text()='Home')]
@@ -47,10 +41,7 @@ fields:
     xpath: //div[@class='value content' and not(ancestor::div[contains(@class,'reviews')])]
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //ul[@class='value content' and not(preceding-sibling::h5[contains(text(),'Specifications')])]//li
-  - name: mpc
-    singleValue: false
-    xpath: //div[contains(@class,'product-detail')]/@data-pid
+    xpath: //ul[@id='collapsible-pdp-details-1' and not(preceding-sibling::h5[contains(text(),'Specifications')])]//li  
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'product-detail')]/@data-pid

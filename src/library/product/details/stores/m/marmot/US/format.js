@@ -24,12 +24,18 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      // if (row.alternateImages) {
-      //   row.alternateImages.splice(0, 1);
-      //   if (row.alternateImages.length == 0) {
-      //     delete row.alternateImages;
-      //   }
-      // }
+      if (row.image) {
+        row.image.forEach(item => {
+          item.text = item.text.replace('&wid=180', '');
+          item.text = item.text.replace('&hei=180', '');
+        });
+      }
+      if (row.alternateImages) {
+        row.alternateImages.forEach(item => {
+          item.text = item.text.replace('&wid=180', '');
+          item.text = item.text.replace('&hei=180', '');
+        });
+      }
       // if (row.descriptionBullets) {
       //   var bulletArr = [];
       //   row.descriptionBullets.forEach(item => {
@@ -45,12 +51,7 @@ const transform = (data) => {
       //     row.category.splice(0, 1);
       //   }
       // }
-      // if (row.price) {
-      //   row.price.forEach(item => {
-      //     item.text = item.text.replace('.', '');
-      //     item.text = item.text.replace(',', '.');
-      //   });
-      // }
+      
       // if (row.listPrice) {
       //   row.listPrice.forEach(item => {
       //     item.text = item.text.replace('.', '');
@@ -67,13 +68,21 @@ const transform = (data) => {
       //   });
       //   row.variants = [{ 'text': arr_temp.join('|') }];
       // }
-      // if (row.additionalDescBulletInfo) {
-      //   var arr_temp = [];
-      //   row.price.forEach(item => {
-      //     arr_temp.push(item.text);
-      //   });
-      //   row.additionalDescBulletInfo = [{ 'text': '||' + arr_temp.join('||') }];
-      // }
+      if (row.specifications) {
+        var arrSpec = [];
+        row.specifications.forEach(item => {
+          item.text.replace(/\s*:\s*/g, ' : ');
+          arrSpec.push(item.text);
+        });
+        row.specifications = [{ text: arrSpec.join(' || ') }];
+      }
+      if (row.additionalDescBulletInfo) {
+        var arrBullet = [];
+        row.additionalDescBulletInfo.forEach(item => {
+          arrBullet.push(item.text);
+        });
+        row.additionalDescBulletInfo = [{ text: '|| ' + arrBullet.join(' || ') }];
+      }
     }
   }
   return cleanUp(data);
