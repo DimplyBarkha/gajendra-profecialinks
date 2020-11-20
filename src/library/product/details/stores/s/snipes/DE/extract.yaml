@@ -5,10 +5,13 @@ recordXPath: null
 fields:
   - name: variantId
     singleValue: false
-    xpath: //div[@class='s-pdp l-container js-product-details']/@data-pid
+    xpath: (//td[@class='b-fact-value js-fact-value'])[5]
   - name: image
     singleValue: false
     xpath: //div[@id='slick-slide10']/div/div/picture/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@id='slick-slide10']/div/div/picture/img/@alt
   - name: brandText
     singleValue: false
     xpath: //div[@class='b-pdp-product-info-main-left']/h1/div/a
@@ -17,7 +20,7 @@ fields:
     xpath: (//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1]
   - name: category
     singleValue: false
-    xpath: //ul[@class="b-breadcrumb js-breadcrumbs"]/li[position()>2 and position()<= 5]
+    xpath: //ul[@class="b-breadcrumb js-breadcrumbs"]/li[position()>2 and position()< last()]
   - name: color
     singleValue: false
     xpath: (//td[@class='b-fact-value js-fact-value'])[3]
@@ -45,25 +48,31 @@ fields:
     xpath: 
   - name: alternateImages
     singleValue: false
-    xpath: (//div[@class='b-pdp-carousel-item'])[position()>=1 and position()<= 4]/picture/img/@src
-  # - name: sku
-  #   singleValue: false
-  #   xpath: (//td[@class='b-fact-value js-fact-value'])[5]
+    xpath: (//div[@class="b-pdp-thumbs-carousel js-pdp-thumbs-carousel slick-initialized slick-slider slick-vertical"])/div/div/div[position()>1 and position() <= last()]/div/div/picture/img/@src
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count((//div[@class="b-pdp-thumbs-carousel js-pdp-thumbs-carousel slick-initialized slick-slider slick-vertical"])/div/div/div[position()>1 and position() <= last()]/div/div/picture/img/@src)
   - name: mpc
     singleValue:  false
     xpath: (//td[@class='b-fact-value js-fact-value'])[2]
+  - name: sku
+    singleValue: false
+    xpath: //div[@class='s-pdp l-container js-product-details']/@data-pid
   - name: variantInformation
     singleValue: false
     xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value)
-  - name: _url
+  - name: url
     singleValue: false
-    xpath: //link[@rel='canonical']/@href
+    xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@href)[1]
   - name: nameExtended
     singleValue: false
     xpath: //html//div[@id='description']
-    #xpath: concat(//div[@class="js-target"]/a/text(),' ',(//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1])
-    # regExp: \\n(.+)\\n(.+)
-    # regExpReplace: $1$2
   - name: quantity
     singleValue: false
     xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value)
+  - name: variants
+    singleValue: true
+    xpath: //html//div[@id='ab']
+  - name: variantCount
+    singleValue: true
+    xpath: count(//div[@class="b-pdp-color-carousel js-pdp-color-carousel slick-initialized slick-slider"]/div[@class="slick-list draggable"]/div/div)
