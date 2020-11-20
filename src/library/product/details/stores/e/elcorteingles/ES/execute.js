@@ -7,5 +7,7 @@ module.exports = {
     domain: 'elcorteingles.es',
     loadedSelector: '.pdp-title a',
     noResultsXPath: '//div[contains(@class,"artwork-toolbar ")]',
+    // loadedSelector: 'img[class="js-zoom-to-modal-image"]',
+    // noResultsXPath: '//span[contains(.,"No hemos")]',
   },
 };

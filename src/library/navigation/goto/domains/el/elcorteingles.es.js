@@ -15,6 +15,7 @@ module.exports = {
       timeout: 500000,
       waitUntil: 'load',
       first_request_timeout: 60000,
+      // checkBlocked: true
     });
 
 
