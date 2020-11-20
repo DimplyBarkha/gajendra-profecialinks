@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     domain: 'selfridges.com',
     prefix: null,
-    url: null,
+    url: 'https://www.selfridges.com/GB/en/cat/?freeText={id}',
     country: 'UK',
     store: 'selfridges',
     zipcode: '',
-  },
+  }, 
 };
