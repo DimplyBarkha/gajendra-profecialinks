@@ -53,7 +53,7 @@ const transform = (data, context) => {
         row.promotion = [{ text }];
       }
       if (row.availabilityText) {
-        const text = row.availabilityText[0].text === 'Alleen in de winkel' ? 'In Store Only' : 'In Stock';
+        const text = row.availabilityText[0].text === 'Alleen in de winkel' ? 'In Store Only' : 'In stock';
         row.availabilityText = [{ text }];
       } else {
         row.availabilityText = [{ text: 'Out of Stock' }];
