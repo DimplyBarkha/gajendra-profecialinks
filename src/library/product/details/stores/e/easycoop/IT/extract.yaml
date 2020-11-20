@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: 
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h4[contains(@class,"product-title__name")]
+  - name: size
+    singleValue: false
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h4[contains(@class,"product-title__name")]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h4[contains(@class,"product-title__name")]
+  - name: category
+    singleValue: false
+    xpath: //div[@class="product__top-container"]//nav[contains(@class,"breadcrumbs")]//ul//li
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product__price"]//div[contains(@class,"price product__price")]//span[contains(@class,"price__final")]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class,"product__price-per-qty")]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="product__details-wrapper"]//div[contains(@class,"product__attribute")]
+  - name: image
+    singleValue: false
+    xpath:  //div[@class="product__image-box"]//div[contains(@class,"swiper-slide") and position()=1]//img/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="product__image-box"]//div[contains(@class,"swiper-slide")]//img/@src
+  - name: description
+    singleValue: false
+    xpath: //div[@class="product__details-wrapper"]//div[contains(@class,"product__attribute")]//p
+  - name: brand
+    singleValue: false
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h5[contains(@class,"product-title__brand")]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h5[contains(@class,"product-title__brand")]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h5[contains(@class,"product-title__brand")]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="product__image-box"]//div[contains(@class,"swiper-slide") and position()=1]//img/@src
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product__image-box"]//div[contains(@class,"swiper-slide") and position()=1]//img/@src
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'yes'
+  - name: variantCount
+    singleValue: false
+    defaultValue: '1'
