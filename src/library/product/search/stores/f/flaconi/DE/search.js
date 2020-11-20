@@ -5,5 +5,6 @@ module.exports = {
     country: 'DE',
     store: 'flaconi',
     domain: 'flaconi.de',
+    zipcode: '',
   },
 };

@@ -1,29 +1,31 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'category-products')]/ul/li[not(@class='no-hover')]
+recordXPath: null
 fields: 
   - name: id
     singleValue: false
     xpath: //div[@class='wishlist-heart']/@data-wishlist
   - name: rankOrganic
     singleValue: false
-    xpath: //div[@id='pd_rank']
   - name: name
     singleValue: false
     xpath: //div[@class='product-item-box']/a/img/@title
   - name: productUrl
     singleValue: false
-    xpath: concat(('https://www.flaconi.de'),'',(//div[@class='product-item-box']/a/@href))
+    xpath: //div[@class="product-item-box"]/following::a[1]/@href
+    regExp: (/.+)
+    regExpReplace: https://www.flaconi.de$1
   - name: gtin
     singleValue: true
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='product-item-box']/a/img/@src
+    xpath: //div[@class='product-item-box']//a//img/@src
   - name: aggregateRating
     singleValue: true
   - name: reviewCount
     singleValue: true
+    xpath: //a[@class="text-m"]/@aria-label
   - name: price
     singleValue: false
     xpath: //span[@class='price']
@@ -35,4 +37,5 @@ fields:
     singleValue: true
   - name: endorsementText
     singleValue: true
+
 
