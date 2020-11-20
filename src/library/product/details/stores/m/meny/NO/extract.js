@@ -13,6 +13,12 @@ module.exports = {
       const element = document.evaluate("//p[contains(., 'Noe gikk galt') and contains(., 'ikke funnet')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (element) {
         throw new Error('Product not found for given input');
+      } else {
+        const descriptionCollapse = document.querySelector('div.product-details__description button');
+        if (descriptionCollapse) {
+          // @ts-ignore
+          descriptionCollapse.click();
+        }
       }
     });
     return await context.extract(productDetails, { transform });

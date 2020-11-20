@@ -54,4 +54,8 @@ fields:
     xpath: concat(//h1[contains(@class, 'product-details__title')], ' - ', //h2[contains(@class, 'product-details__description')]) 
   - name: promotion
     xpath: //p[contains(@class, 'product-details__campaign')]
+  - name: packSize
+    xpath: //h2[@class='product-details__description']
+  - name: variantCount
+    defaultValue: 0
     

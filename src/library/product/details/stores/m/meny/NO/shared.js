@@ -26,6 +26,18 @@ const transform = (data) => {
       if (row.pricePerUnit) {
         row.pricePerUnit[0].text = row.pricePerUnit[0].text.replace(',', '.');
       }
+
+      if (row.nameExtended && row.packSize) {
+        row.nameExtended[0].text = `${row.nameExtended[0].text} - ${row.packSize[0].text}`;
+      }
+
+      if (row.promotion && row.name) {
+        const productName = row.name[0].text.toLowerCase();
+        const promotion = row.promotion[0].text.toLowerCase();
+        if (productName.includes(promotion)) {
+          delete row.promotion;
+        }
+      }
     }
   }
 
