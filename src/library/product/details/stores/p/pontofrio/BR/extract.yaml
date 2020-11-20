@@ -22,7 +22,9 @@ fields:
     singleValue: false
     xpath: //div[@class='container']//div[contains(@class,'css-19idom')]//h1[contains(@class,'css-rfo7gs')] | //div[@class='container']//div[contains(@class,'css-19idom')]//p[contains(@class,'css-1v3yibb')]//a/@title
   - name: price    
-    xpath: //div[@class="container"]//div[@id="product-price-box"]//p[contains(@class,"eub5v7x0")]//span[@id="product-price"]
+    xpath: (//script[contains(text(),'price')])[1]
+    regExp: ("price":(\d+.*),"availability")
+    regExpReplace: R$ $2
     singleValue: false
   - name: brandText    
     xpath: //div[@class="container"]//p[contains(@class,"css-1v3yibb")]//a/@title
@@ -31,13 +33,15 @@ fields:
     xpath: //link[@rel="canonical"]/@href
     singleValue: false
   - name: variantId
-    xpath: //meta[@name="title"]//@content
-    regExp: \|\s(\d+)
-    regExpReplace: $1
+    xpath: //div[contains(@class,'css-1qm1lh')]/p[contains(@class,'css-1v3yibb')]/span[1]
+    regExp: (\s(\d+))
+    regExpReplace: $2
     singleValue: false
   - name: aggregateRating    
     xpath: //div[@class="container"]//article[contains(@class,"css-1grmjgg")]//div[@class="rating-details"]//span[@class="rating"]
     singleValue: false
+    regExp: (\d+)\.(\d+)
+    regExpReplace: $1.$2
   - name: ratingCount    
     xpath: //div[@class="container"]//figure[contains(@class,"css-1blcxwk")]//span[contains(@class,"css-1l02osg")]
     regExp: (\d+)
@@ -52,7 +56,7 @@ fields:
     regExpReplace: https://www.youtube.com/embed/$2
     singleValue: false
   - name: description
-    xpath: //div[contains(@class,"accordion-content")]/div[contains(@id,"product-detail-list-0")]//div[contains(@class,'row content')]
+    xpath: //div[contains(@class,"accordion-content")]//div[contains(@id,"product-description")]
     singleValue: false
   - name: specifications
     xpath: //div[@class="container"]//div[contains(@class,"css-uirvwh")]//div[contains(@class,"accordion-content")]//div[contains(@id,"product-detail-list-1")]//div[contains(@class,'row content')]
@@ -60,7 +64,7 @@ fields:
   - name: promotion
     xpath: //div[@class="container"]//div[contains(@id,"product-price-box")]//span[contains(@id,"discount-stamp")]
     singleValue: false
-  - name: list_price
+  - name: listPrice
     xpath: //div[@class="container"]//div[contains(@id,"product-price-box")]//p[contains(@class,"product-price-original")]
     singleValue: false
   - name: availabilityText
@@ -71,9 +75,7 @@ fields:
     defaultValue: In Stock 
   - name: warranty
     singleValue: false
-    xpath: (//script[@id='__NEXT_DATA__'])
-    regExp: ({"name":"Garantia ","value":"([^"]+)"},)
-    regExpReplace: $2
+    xpath: //div[contains(translate(string(), 'Garantia', 'Garantia'), 'Garantia')]/span
   - name: manufacturerDescription
     xpath: //div[contains(translate(string(), 'Características Gerais', 'Características Gerais'), 'Características Gerais')]/span
     singleValue: false  
@@ -95,7 +97,33 @@ fields:
     xpath: //div[@class="container"]//select[@id="select-sku"]//option[1]/@value
     singleValue: false  
   - name: variantAsins
-     
+  - name: manufacturerImages
+    xpath: //div[@id='product-special-content']//img/@src
+    singleValue: false
+  - name: imageZoomFeaturePresent
+    defaultValue: Yes  
+  - name: privacyPolicy
+    defaultValue: Yes 
+  - name: termsAndConditions
+    defaultValue: Yes
+  - name: weightGross
+    xpath: //div[contains(@class,"accordion-content")]//div[contains(@id,"product-description")]
+    regExp: (Peso:(\d+.*Kg))
+    regExpReplace: $2
+    singleValue: false
+  - name: shippingDimensions
+    xpath: //div[contains(@class,"accordion-content")]//div[contains(@id,"product-description")]
+    regExp: (RemotoDimensões:(\d+.*cm))
+    regExpReplace: $2
+    singleValue: false
+  - name: energyEfficiency
+    xpath: //div[contains(translate(string(), 'Eficiência Energética', 'Eficiência Energética'), 'Eficiência Energética')]/span
+    singleValue: false  
+  - name: shippingWeight
+    xpath: //div[contains(@class,"accordion-content")]//div[contains(@id,"product-description")]
+    regExp: (Peso:(\d+.*Kg))
+    regExpReplace: $2
+    singleValue: false  
   
 
 

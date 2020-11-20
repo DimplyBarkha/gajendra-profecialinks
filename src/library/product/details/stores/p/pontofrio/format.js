@@ -45,6 +45,14 @@ const transform = (data) => {
           row.specifications = [{ text: specificationsArr.join(' || '), xpath: row.specifications[0].xpath }];
          
         }
+
+        if (row.manufacturerImages) {          
+          const manufacturerImagesArr = row.manufacturerImages.map((item) => {
+            return item.text;
+          });
+          row.manufacturerImages = [{ text: manufacturerImagesArr.join(' || '), xpath: row.manufacturerImages[0].xpath }];
+         
+        }
        
       }
     }
