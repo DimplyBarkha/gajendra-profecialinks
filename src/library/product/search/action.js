@@ -47,7 +47,7 @@ module.exports = {
   ],
   dependencies: {
     execute: 'action:product/search/execute',
-    paginate: 'action:product/search/paginate',
+    paginate: 'action:navigation/paginate',
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
