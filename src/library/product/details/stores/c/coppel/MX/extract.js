@@ -44,7 +44,7 @@ module.exports = {
         return result;
       };
 
-      const skuXpath = getXpath("//*[@class='sku hidden']//text()",'nodeValue');
+      const skuXpath = getXpath("//span[@class='sku']//text()",'nodeValue');
       console.log("sku: ", skuXpath);
       if(skuXpath != null  ){
         const sku = skuXpath ? skuXpath.split(':') : [];
@@ -60,7 +60,7 @@ module.exports = {
           console.log(gtinValue[1]);
           }
 
-        const altImgXpath = getAllXpath("//*[contains(@id,'WC_CachedProductOnlyDisplay_links_')]/@href",'nodeValue').join(' | ');
+        const altImgXpath = getAllXpath("//*[@id='ProductAngleImagesArea']/ul/li[position()>1]/a/img/@src",'nodeValue').join('|');
         console.log("AltImgXpath:", altImgXpath);
         addElementToDocument('altImgs_added',altImgXpath);
 
