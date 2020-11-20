@@ -1,5 +1,23 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@id="products"]//table[contains(@class,"productlist list   ")]//tr[(@class)]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@id="products"]//td//span//a[@class="detail_link"]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@id="products"]//td[position()=3]//span
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@id="products"]//td[@class="img standard "]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@id="products"]//td//span//a[@class="detail_link"]/@data-sa-article-name
+  - name: price 
+    SingleValue: false 
+    xpath: //div[@id="products"]//td[contains(@class,"type-number wrap-safe field-baseprice")]//span[@class="specialoffer" and (not(contains(@class,"unit")))]
+  - name: listPrice
+    SingleValue: false 
+    xpath: //div[@id="products"]//td[contains(@class,"type-number wrap-safe field-baseprice")]//span[@class="oldprice" and (not(contains(@class,"unit")))]

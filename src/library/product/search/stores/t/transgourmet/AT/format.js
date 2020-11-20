@@ -27,8 +27,18 @@ const transform = (data) => {
       for (const row of group) {
         if (row.productUrl) {
           row.productUrl.forEach(item => {
-            item.text = 'https://www.sears.com' + item.text;
+            item.text = 'https://shop.transgourmet.at' + item.text;
           });
+        }
+        if (row.price) {
+            row.price.forEach(item => {
+              item.text = item.text.replace(/\/.*/g, '').trim();
+            });
+        }
+        if (row.listPrice) {
+            row.listPrice.forEach(item => {
+              item.text = item.text.replace(/\/.*/g, '').trim();
+            });
         }
         if (row.name) {
           row.name.forEach(item => {
