@@ -5,10 +5,18 @@ recordXPath: null
 fields:
   - name: name
     singleValue: true
-    xpath: //div[@class='c d-7 p-l-12']
+    xpath: /html/head/title
+    regExp: (.*) \|
+    regExpReplace: $1
+  - name: nameExtended
+    singleValue: true
+    xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1
+  - name: gtin
+    singleValue: true
+    xpath: //*[@id="schema-offer"]/div[3]/meta[3]/@content
   - name: description
     singleValue: true
-    xpath: //p[@itemprop='description']  
+    xpath: //p[@itemprop='description']
   - name: price
     singleValue: true
     xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/form/div[1]/div[3]/div[1]/text()
@@ -20,15 +28,12 @@ fields:
   - name: image
     singleValue: true
     xpath: //img[@role='presentation']/@src
-  - name: manufacturer
-    singleValue: true
-    xpath: //h1[@class='hide-text']
   - name: brandText
     singleValue: true
     xpath: //h1[@class='hide-text']
   - name: sku
-    singleValue: false
-    xpath: //div[@id='articlenumberDiv']/text()
+    singleValue: true
+    xpath: //*[@id="right-column"]/div/meta/@content
   - name: aggregateRating
     singleValue: true
     xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div/div[2]/div/a/text()
@@ -40,7 +45,13 @@ fields:
     xpath: //div[@class='font-headline description mbs1']
   - name: variantInformation
     singleValue: true
-    xpath: //div[@class='variation-alt-images clearfix']/div/a/img/@alt
+    xpath: //div[@class='variation-alt-images clearfix']/div/a/img/@alt|//*[@id="schema-offer"]/div[2]/div/div[1]/div
   - name: variantId
     singleValue: true
-    xpath: //div[@class='variation-alt-images clearfix']/div/@data-variation-id
+    xpath: //div[@class='variation-alt-images clearfix']/div/@data-variation-id|//*[@id="schema-offer"]/div[1]/div/input/@value
+  - name: shippingInfo
+    singleValue: true
+    xpath: //*[@id="schema-offer"]/div[2]/p[2]
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class='variation-alt-images clearfix']/div/a/img/@alt|//*[@id="schema-offer"]/div[2]/div/div[1]/div
