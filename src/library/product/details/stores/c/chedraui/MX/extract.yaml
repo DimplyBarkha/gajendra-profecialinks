@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//a//img[@class="lazyOwl"])[position()=1]
+    xpath: (//a//img[@class="lazyOwl"]/@src)[position()=1]
     regExp: (.+)
     regExpReplace: https://www.chedraui.com.mx$1
   - name: imageAlt
@@ -14,7 +14,7 @@ fields:
     # xpath: //div[@class="owl-item"]/a/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: (//a//img[@class="lazyOwl"])[position()>1]
+    xpath: (//a//img[@class="lazyOwl"]/@src)[position()>1]
     regExp: (.+)
     regExpReplace: https://www.chedraui.com.mx$1
   - name: metaKeywords
@@ -77,10 +77,10 @@ fields:
     xpath: //div[@class="sku-code-pdp"]//span[@class="code"]/text()
   - name: sku
     singleValue: false
-    xpath: //form[@id="addToCartForm"]/input[@name="productCodePost"]/@value
+    xpath: //div[@class="sku-code-pdp"]//span[@class="code"]/text()
   - name: variantId
     singleValue: false
-    xpath: //form[@id="addToCartForm"]/input[@name="productCodePost"]/@value
+    xpath: //div[@class="sku-code-pdp"]//span[@class="code"]/text()
   - name: mpc
     singleValue: false
     xpath: //table[@class="table"]//tr//td[contains(text(),"Modelo")]//following-sibling::td//text()

@@ -5,11 +5,11 @@ recordXPath: //li[@class="js-plp-product-click product-item"]
 fields:
   - name: id
     singleValue: false
-    xpath: //input[contains(@class,"productClickData_plp_id_")]/@value 
-      #//div[@class="plp-buttons"]//form/@id 
-    # xpath: //div[@class="plp-product-thumb"]//img/@src
-    # regExp: \d{13,}
-    # regExpReplace: $1
+    # xpath: //input[contains(@class,"productClickData_plp_id_")]/@value 
+    # //div[@class="plp-buttons"]//form/@id 
+    xpath: //div[@class="plp-product-thumb"]//img/@src
+    regExp: \d{10,}
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //div[@class="product__list--price-panel"]/div/text()
