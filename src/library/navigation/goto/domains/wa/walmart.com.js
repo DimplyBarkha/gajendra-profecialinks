@@ -25,8 +25,8 @@ module.exports = {
 
     const isCaptcha = async () => {
       return await context.evaluate(async function () {
-        return !!document.querySelector('div.re-captcha')
-      })
+        return !!document.querySelector('div.re-captcha');
+      });
     };
 
     const solveCaptcha = async () => {
@@ -40,9 +40,9 @@ module.exports = {
       console.log('solved captcha, waiting for page change');
       const res = await Promise.race([
         context.waitForSelector('span[data-automation-id="zero-results-message"], .g-recaptcha, div[id="product-overview"]'),
-        new Promise((r, j) => setTimeout(j, 2e4 )),
+        new Promise((r, j) => setTimeout(j, 2e4)),
       ]);
-        
+
       console.log('Captcha vanished');
     };
 
@@ -52,12 +52,12 @@ module.exports = {
         if (backconnect) {
           throw Error('CAPTCHA received');
         }
-        console.log('Solving a captcha');       
-        console.log("captcha start time:", new Date())
+        console.log('Solving a captcha');
+        console.log('captcha start time:', new Date());
         await solveCaptcha();
-        captchas += 1
-        console.log("captcha end time:", new Date())
-        await new Promise(resolve => setTimeout(resolve,10000));
+        captchas += 1;
+        console.log('captcha end time:', new Date());
+        await new Promise(resolve => setTimeout(resolve, 10000));
       }
       if (await isCaptcha()) {
         if (!benchmark) {
@@ -81,7 +81,7 @@ module.exports = {
     });
 
     if (!await solveCaptchaIfNecessary()) {
-      return;
+
     }
-},
-}
+  },
+};

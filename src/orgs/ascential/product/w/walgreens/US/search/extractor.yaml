@@ -3,6 +3,7 @@ parameters:
   country: US
   domain: walgreens.com
   store: walgreens
+  zipcode: ""
 meta:
   branches:
     test:
@@ -11,6 +12,12 @@ meta:
     test123:
       extractor: dc26b741-0b65-4667-b40a-6deb697cba56
       legacyAccountId: e19dee96-07e1-4712-a6c6-9b53d946e91d
+    development:
+      extractor: 55e72b65-33de-4755-82ad-d311e6980539
+      legacyAccountId: 214917d7-5b20-4acb-a5bc-a463bed96379
     staging:
       extractor: d94ce3d0-58a6-4be0-9d2c-92eda42e70f4
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    prod:
+      extractor: 9d16bcfc-5682-4136-b103-812e511528f5
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

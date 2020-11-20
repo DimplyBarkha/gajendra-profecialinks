@@ -23,12 +23,14 @@ fields:
     xpath: //div[@class='extra-info']/@data-thumbnail 
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-rating
-    type: NUMBER
+    xpath: //div[@class='flex-align-center wag-prod-ratings']/span/img/@title
+    regExp: >-
+      ^.{0,3}
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-rating
-    type: NUMBER
+    xpath: //div[@class='flex-align-center wag-prod-ratings']/span/img/@title
+    regExp: >-
+      ^.{0,3}
   - name: reviewCount
     singleValue: false
     xpath: //div[contains(@class, 'wag-prod-review-info')]//span
@@ -37,7 +39,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath:  //div[@class='extra-info']/@data-price
+    xpath: //div[@class='extra-info']/@data-price
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -53,7 +55,8 @@ fields:
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    selector: div.sponsored-text
+    # xpath: //div[@class='extra-info']/@data-sponsor
+    xpath: //div[contains(@class, 'sponsored-text')]

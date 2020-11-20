@@ -1,0 +1,627 @@
+singleRecord: false
+regionsSelector: 
+recordSelector: 
+recordXPath: 
+fields:
+- name: _input
+  singleValue: false
+  xpath: "//*[@id='added__input']//text()"
+- name: _url
+  singleValue: false
+  # xpath: "//*[@id='added__url']//text()"
+- name: productUrl
+  singleValue: false
+  xpath: "//*[@id='added_productUrl']//text()"
+- name: _pageTimeStamp
+  singleValue: false
+  xpath: "//*[@id='added__pageTimeStamp']//text()"
+- name: image
+  singleValue: true
+  xpath: "//*[@id='added_image']//text()"
+  description: URL of the main product image
+- name: imageAlt
+  singleValue: true
+  xpath: "//*[@id='added_imageAlt']//text()"
+  description: Alt text of the main product image
+- name: alternateImages
+  singleValue: false
+  xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
+  # xpath: "//*[@id='added_alternateImages']//text()"
+  description: Other product images (not in manufacturer description)
+- name: metaKeywords
+  singleValue: true
+  xpath: "//*[@id='added_metaKeywords']//text()"
+  description: The <meta> keywords content
+- name: category
+  singleValue: false
+  xpath: "//*[@id='added_category']//text()"
+  description: The categories (e.g. from breadcrumbs)
+- name: nameExtended
+  singleValue: true
+  xpath: "//*[@id='added_nameExtended']//text()"
+  # xpath: concat(//a[contains(@class,'brand-title')],' ', //*[@id='added_name']//text()'])
+  description: The product name, prefixing "${brand} - " if not included in "name"
+    and appending " - ${variantType}" if necessary (fixed per feed)
+- name: listPrice
+  singleValue: true
+  xpath: "//*[@id='added_listPrice']//text()"
+  description: The stated undiscounted price for the product
+- name: price
+  singleValue: true
+  xpath: "//*[@id='added_price']//text()"
+  description: The offered price for the selected product variant - if a user clicks
+    add to basket this is the price they would be charged
+- name: availabilityText
+  singleValue: true
+  xpath: "//*[@id='added_availabilityText']//text()"
+  description: Availability as described on page for the selected variant. If there
+    is no availability but the product can be added to cart, this field should be
+    "In Stock"
+  # regExp: "(.+)"
+  # regExpReplace: In Stock
+  # defaultValue: Out of Stock
+- name: description
+  singleValue: false
+  # xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[not(child::strong[contains(text(),'WARNING')])]
+  xpath: "//*[@id='added_description']"
+  description: Product description supplied by website - may be concatenanted from
+    multiple places; specifically not the manufacturer description
+- name: descriptionBullets
+  singleValue: true
+  xpath: "//*[@id='added_descriptionBullets']//text()"
+  description: Number of ul > li tags in the description
+- name: brandText
+  singleValue: true
+  xpath: "//*[@id='added_brandText']//text()"
+  description: Product brand shown - this may actually NOT be just a brand name, e.g.
+    "Visit the Gillette Store"
+- name: manufacturer
+  singleValue: true
+  xpath: "//*[@id='added_manufacturer']//text()"
+  description: Product manufacturer
+- name: quantity
+  singleValue: true
+  xpath: concat(//span[@id='productSizeCount'],//span[@id='prodPacksAvailable'])
+  # xpath: "//*[@id='added_quantity']//text()"
+  description: Quantity as described on the page
+  regExp: "(?:\\s?([\\d\\.]+\\s?)([bB]ar[s]?|[cC]ount|[cC]t|[bB]ox|[fF][lL][\\.]?\\s?[oO][zZ][\\.]?|FO|[mM][lL]|[oO][zZ][\\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\\s?([\\d\\.]+\\s?)([bB]ar[s]?|[cC]ount|[cC]t|[bB]ox|[fF][lL][\\.]?\\s?[oO][zZ][\\.]?|FO|[mM][lL]|[oO][zZ][\\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\\s?[\\&\\-\\w\\s]+)$"
+  regExpReplace: "$1$2$3$4"
+- name: weightNet
+  singleValue: true
+  xpath: "//*[@id='added_weightNet']//text()"
+  description: Net weight as described on the page
+- name: weightGross
+  singleValue: true
+  xpath: "//*[@id='added_weightGross']//text()"
+  description: Gross weight as described on the page
+- name: gtin
+  singleValue: true
+  xpath: "//*[@id='added_gtin']//text()"
+  description: GTIN code (includes UPC/EAN)
+- name: sku
+  singleValue: true
+  xpath: "//*[@id='added_sku']//text()"
+  description: The store-specific product identifier
+- name: variantId
+  singleValue: true
+  xpath: "//*[@id='added_variantId']//text()"
+  description: Identifier for a variant from a store where variants share the same
+    sku
+- name: mpc
+  singleValue: true
+  xpath: "//*[@id='added_mpc']//text()"
+  description: The manufacturer model code (unique) of the product
+- name: packSize
+  singleValue: true
+  xpath: //span[@id='prodPacksAvailable']
+  # xpath: "//*[@id='added_packSize']//text ()"
+  description: The number of packs in the product offer (if stated separately on the
+    site to quantity)
+- name: legalDisclaimer
+  singleValue: true
+  xpath: "//*[@id='added_legalDisclaimer']//text()"
+  description: Content under "legal disclaimer" header
+- name: directions
+  singleValue: true
+  xpath: "//*[@id='added_directions']//text()"
+  description: Content under "directions" header
+- name: warnings
+  singleValue: true
+  # xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[(child::strong[contains(text(),'WARNING')])]
+  xpath: "//*[@id='added_warnings']//text()"
+  description: Content under "warnings" header
+- name: ratingCount
+  singleValue: true
+  xpath: "//*[@id='added_ratingCount']//text()"
+  description: The number of ratings
+- name: aggregateRatingText
+  singleValue: true
+  xpath: "//*[@id='added_aggregateRatingText']//text()"
+  description: The stated aggregate rating
+- name: aggregateRating
+  singleValue: true
+  xpath: "//*[@id='added_aggregateRating']//text()"
+  description: The stated aggregate rating normalized to be out of 5
+- name: shippingInfo
+  singleValue: true
+  xpath: "//*[@id='added_shippingInfo']//text()"
+  description: Shipping information for the product
+- name: shippingDimensions
+  singleValue: true
+  xpath: "//*[@id='added_shippingDimensions']//text()"
+  description: Stated shipping dimensions
+- name: shippingWeight
+  singleValue: true
+  xpath: "//*[@id='added_shippingWeight']//text()"
+  description: Stated shipping weight
+- name: variantCount
+  singleValue: true
+  xpath: "//*[@id='added_variantCount']//text()"
+  description: Number of variants listed
+- name: color
+  singleValue: true
+  xpath: "//*[@id='added_color']//text()"
+  description: A textual description of the colour
+- name: colorCode
+  singleValue: true
+  xpath: "//*[@id='added_colorCode']//text()"
+  description: A code description of the color (e.g. RGB hex)
+- name: manufacturerDescription
+  singleValue: false
+  xpath: "//*[@id='added_manufacturerDescription']//text()"
+  description: The extended description of the product supplied by the lister
+- name: manufacturerImages
+  singleValue: false
+  xpath: "//*[@id='added_manufacturerImages']//text()"
+  description: Images within the third party description
+- name: videos
+  singleValue: false
+  xpath: "//*[@id='added_videos']//text()"
+  description: URLs of videos on page
+- name: name
+  singleValue: true
+  xpath: "//*[@id='added_name']//text()"
+  description: The product name
+- name: inStorePrice
+  singleValue: true
+  xpath: "//*[@id='added_inStorePrice']//text()"
+  description: Price in the selected store
+- name: asin
+  singleValue: true
+  xpath: "//*[@id='added_asin']//text()"
+  description: 
+- name: coupon
+  singleValue: true
+  xpath: "//*[@id='added_coupon']//text()"
+  description: Text of any coupon offer
+- name: amazonChoice
+  singleValue: true
+  xpath: "//*[@id='added_amazonChoice']//text()"
+  description: YES or Blank
+- name: amazonChoiceCategory
+  singleValue: true
+  xpath: "//*[@id='added_amazonChoiceCategory']//text()"
+  description: Text of link next to Amazon choice graphic
+- name: brandLink
+  singleValue: true
+  xpath: "//*[@id='added_brandLink']//text()"
+  description: 
+- name: internationalShipping
+  singleValue: true
+  xpath: "//*[@id='added_internationalShipping']//text()"
+  description: Text next to bullet point
+- name: salesRank
+  singleValue: false
+  xpath: "//*[@id='added_salesRank']//text()"
+  description: Amazon best selling rank from product details (linked back) - needs
+    to be collapsed
+- name: salesRankCategory
+  singleValue: false
+  xpath: "//*[@id='added_salesRankCategory']//text()"
+  description: Amazon best selling rank from product details (linked back) - needs
+    to be collapsed
+- name: subscriptionPrice
+  singleValue: true
+  xpath: "//*[@id='added_subscriptionPrice']//text()"
+  description: Subscribe and save price
+- name: subscribeAndSave
+  singleValue: true
+  xpath: "//*[@id='added_subscribeAndSave']//text()"
+  description: YES/NO
+- name: heroQuickPromoHeadline
+  singleValue: true
+  xpath: "//*[@id='added_heroQuickPromoHeadline']//text()"
+  description: See image - top section hero area
+- name: heroQuickPromoImageUrl
+  singleValue: true
+  xpath: "//*[@id='added_heroQuickPromoImageUrl']//text()"
+  description: 
+- name: heroQuickPromoUrl
+  singleValue: true
+  xpath: "//*[@id='added_heroQuickPromoUrl']//text()"
+  description: 
+- name: pasin
+  singleValue: true
+  xpath: "//*[@id='added_pasin']//text()"
+  description: Parent asin
+- name: videoLength
+  singleValue: false
+  xpath: "//*[@id='added_videoLength']//text()"
+  description: 
+- name: ingredientImagePresent
+  singleValue: true
+  xpath: "//*[@id='added_ingredientImagePresent']//text()"
+  description: 
+- name: factImagePresent
+  singleValue: true
+  xpath: "//*[@id='added_factImagePresent']//text()"
+  description: 
+- name: largeImageCount
+  singleValue: true
+  xpath: "//*[@id='added_largeImageCount']//text()"
+  description: 
+- name: variantAsins
+  singleValue: true
+  xpath: "//*[@id='added_variantAsins']//text()"
+  description: 
+- name: primeFlag
+  singleValue: true
+  xpath: "//*[@id='added_primeFlag']//text()"
+  description: 
+- name: lbb
+  singleValue: true
+  xpath: "//*[@id='added_lbb']//text()"
+  description: Check Lost by Box Requirements (just for Amazon and a couple of other
+    stores) - LBB occurs when a product is bought from someone other than Amazon (on
+    Amazon Website) - even though Amazon has the product "in Stock"
+- name: lbbPrice
+  singleValue: true
+  xpath: "//*[@id='added_lbbPrice']//text()"
+  description: 
+- name: featureBullets
+  singleValue: false
+  xpath: "//*[@id='added_featureBullets']//text()"
+  description: 
+- name: otherSellersName
+  singleValue: false
+  xpath: "//*[@id='added_otherSellersName']//text()"
+  description: 
+- name: otherSellersPrime
+  singleValue: false
+  xpath: "//*[@id='added_otherSellersPrime']//text()"
+- name: otherSellersPrice
+  singleValue: false
+  xpath: "//*[@id='added_otherSellersPrice']//text()"
+  description: 
+- name: otherSellersShipping
+  singleValue: false
+  xpath: "//*[@id='added_otherSellersShipping']//text()"
+  description: 
+- name: secondaryImageTotal
+  singleValue: true
+  xpath: "count((//*[@id='added_alternateImages']//text())[position()>1])"
+  # xpath: "//*[@id='added_secondaryImageTotal']//text()"
+  description: 
+- name: news
+  singleValue: true
+  xpath: "//*[@id='added_news']//text()"
+  description: 
+- name: addonItem
+  singleValue: true
+  xpath: "//*[@id='added_addonItem']//text()"
+  description: 
+- name: fastTrack
+  singleValue: true
+  xpath: "//*[@id='added_fastTrack']//text()"
+  description: 
+- name: ingredientsList
+  singleValue: true
+  xpath: "//*[@id='added_ingredientsList']//text()"
+  description: List of Ingredients from site - can be string of data if no discernible
+    start/end point
+- name: servingSize
+  singleValue: true
+  xpath: "//*[@id='added_servingSize']//text()"
+  description: The size of serving Nutritional information is based on.
+- name: servingSizeUom
+  singleValue: true
+  xpath: "//*[@id='added_servingSizeUom']//text()"
+  description: Unit of measure of serving
+- name: numberOfServingsInPackage
+  singleValue: true
+  xpath: "//*[@id='added_numberOfServingsInPackage']//text()"
+  description: Suggested number of servings of the product.
+- name: caloriesPerServing
+  singleValue: true
+  xpath: "//*[@id='added_caloriesPerServing']//text()"
+  description: Nutritional Information for Calories Per Serving content - Usually
+    based on per 100g serving
+- name: caloriesFromFatPerServing
+  singleValue: true
+  xpath: "//*[@id='added_caloriesFromFatPerServing']//text()"
+  description: Nutritional Information for Calories From Fat content - Usually based
+    on per 100g serving
+- name: totalFatPerServing
+  singleValue: true
+  xpath: "//*[@id='added_totalFatPerServing']//text()"
+  description: Nutritional Information for Total Fat content - Usually based on per
+    100g serving
+- name: totalFatPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_totalFatPerServingUom']//text()"
+  description: Unit of Measure Data for Total Fat content
+- name: saturatedFatPerServing
+  singleValue: true
+  xpath: "//*[@id='added_saturatedFatPerServing']//text()"
+  description: Nutritional Information for Saturated Fat content - Usually based on
+    per 100g serving
+- name: saturatedFatPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_saturatedFatPerServingUom']//text()"
+  description: Unit of Measure Data for Saturated Fat content
+- name: transFatPerServing
+  singleValue: true
+  xpath: "//*[@id='added_transFatPerServing']//text()"
+  description: Nutritional Information for Trans Fat content - Usually based on per
+    100g serving
+- name: transFatPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_transFatPerServingUom']//text()"
+  description: Unit of Measure Data for Trans Fat content
+- name: cholesterolPerServing
+  singleValue: true
+  xpath: "//*[@id='added_cholesterolPerServing']//text()"
+  description: Nutritional Information for Cholesterol content - Usually based on
+    per 100g serving
+- name: cholesterolPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_cholesterolPerServingUom']//text()"
+  description: Unit of Measure Data for Cholesterol content
+- name: sodiumPerServing
+  singleValue: true
+  xpath: "//*[@id='added_sodiumPerServing']//text()"
+  description: Nutritional Information for Sodium content - Usually based on per 100g
+    serving
+- name: sodiumPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_sodiumPerServingUom']//text()"
+  description: Unit of Measure Data for Sodium content
+- name: totalCarbPerServing
+  singleValue: true
+  xpath: "//*[@id='added_totalCarbPerServing']//text()"
+  description: Nutritional Information for Total Carbohydrate content - Usually based
+    on per 100g serving
+- name: totalCarbPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_totalCarbPerServingUom']//text()"
+  description: Unit of Measure Data for Total Carbohydrate content
+- name: dietaryFibrePerServing
+  singleValue: true
+  xpath: "//*[@id='added_dietaryFibrePerServing']//text()"
+  description: Nutritional Information for Dietary Fibre content - Usually based on
+    per 100g serving
+- name: dietaryFibrePerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_dietaryFibrePerServingUom']//text()"
+  description: Unit of Measure Data for Dietary Fibre content
+- name: totalSugarsPerServing
+  singleValue: true
+  xpath: "//*[@id='added_totalSugarsPerServing']//text()"
+  description: Nutritional Information for Total Sugar content - Usually based on
+    per 100g serving
+- name: totalSugarsPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_totalSugarsPerServingUom']//text()"
+  description: Unit of Measure Data for Total Sugar content
+- name: proteinPerServing
+  singleValue: true
+  xpath: "//*[@id='added_proteinPerServing']//text()"
+  description: Nutritional Information for Protein content - Usually based on per
+    100g serving
+- name: proteinPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_proteinPerServingUom']//text()"
+  description: Unit of Measure Data for Protein
+- name: vitaminAPerServing
+  singleValue: true
+  xpath: "//*[@id='added_vitaminAPerServing']//text()"
+  description: Nutritional Information for Vitamin A content - Usually based on per
+    100g serving
+- name: vitaminAPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_vitaminAPerServingUom']//text()"
+  description: Unit of Measure Data for Vitamin A
+- name: vitaminCPerServing
+  singleValue: true
+  xpath: "//*[@id='added_vitaminCPerServing']//text()"
+  description: Nutritional Information for Vitamin C content - Usually based on per
+    100g serving
+- name: vitaminCPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_vitaminCPerServingUom']//text()"
+  description: Unit of Measure Data for Vitamin C
+- name: calciumPerServing
+  singleValue: true
+  xpath: "//*[@id='added_calciumPerServing']//text()"
+  description: Nutritional Information for Calcium content - Usually based on per
+    100g serving
+- name: calciumPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_calciumPerServingUom']//text()"
+  description: Unit of Measure Data for Calcium
+- name: ironPerServing
+  singleValue: true
+  xpath: "//*[@id='added_ironPerServing']//text()"
+  description: Nutritional Information for Iron content - Usually based on per 100g
+    serving
+- name: ironPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_ironPerServingUom']//text()"
+  description: Unit of Measure Data for Iron
+- name: dietarySymbols
+  singleValue: true
+  xpath: "//*[@id='added_dietarySymbols']//text()"
+  description: Information related to the dietary symbols of a specific product
+- name: magnesiumPerServing
+  singleValue: true
+  xpath: "//*[@id='added_magnesiumPerServing']//text()"
+  description: Nutritional Information for Magnesium content - Usually based on per
+    100g serving
+- name: magnesiumPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_magnesiumPerServingUom']//text()"
+  description: Unit of Measure Data for Magnesium
+- name: saltPerServing
+  singleValue: true
+  xpath: "//*[@id='added_saltPerServing']//text()"
+  description: Nutritional Information for Salt content - Usually based on per 100g
+    serving
+- name: saltPerServingUom
+  singleValue: true
+  xpath: "//*[@id='added_saltPerServingUom']//text()"
+  description: Unit of Measure Data for Salt
+- name: dietaryInformation
+  singleValue: true
+  xpath: "//*[@id='added_dietaryInformation']//text()"
+  description: 
+- name: specifications
+  singleValue: true
+  xpath: "//*[@id='added_specifications']//text()"
+  description: The physical dimensions of the product including packaging.
+- name: warranty
+  singleValue: true
+  xpath: "//*[@id='added_warranty']//text()"
+  description: Guarantee associated with the product
+- name: storage
+  singleValue: true
+  xpath: "//*[@id='added_storage']//text()"
+  description: Suggested storage location for product
+- name: countryOfOrigin
+  singleValue: true
+  xpath: "//*[@id='added_countryOfOrigin']//text()"
+  description: The country from which the product originates
+- name: allergyAdvice
+  singleValue: true
+  xpath: "//*[@id='added_allergyAdvice']//text()"
+  description: Allergy information associated with the product
+- name: recyclingInformation
+  singleValue: true
+  xpath: "//*[@id='added_recyclingInformation']//text()"
+  description: Recycling information associated with the product
+- name: productOtherInformation
+  singleValue: false
+  xpath: "//*[@id='added_productOtherInformation']//text()"
+  description: Any other product information
+- name: packaging
+  singleValue: true
+  xpath: "//*[@id='added_packaging']//text()"
+  description: Packaging information
+- name: additives
+  singleValue: true
+  xpath: "//*[@id='added_additives']//text()"
+  description: List of additives in the product
+- name: pricePerUnit
+  singleValue: true
+  xpath: "//*[@id='added_pricePerUnit']//text()"
+  description: Price of the product split into certain units
+- name: pricePerUnitUom
+  singleValue: true
+  xpath: "//*[@id='added_pricePerUnitUom']//text()"
+  description: The unit of measurement used in price_per_unit
+- name: promotion
+  singleValue: true
+  xpath: "//*[@id='added_promotion']//text()"
+  description: promotion text on product page
+- name: alcoholContent
+  singleValue: true
+  xpath: "//*[@id='added_alcoholContent']//text()"
+  description: Alcohol content information
+- name: newVersion
+  singleValue: true
+  xpath: "//*[@id='added_newVersion']//text()"
+  description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+- name: newAsin
+  singleValue: true
+  xpath: "//*[@id='added_newAsin']//text()"
+  description: In product page, information about a new version of the product - new
+    asin info
+- name: newDescription
+  singleValue: true
+  xpath: "//*[@id='added_newDescription']//text()"
+  description: In product page, information about a new version of the product - new
+    desription info
+- name: variantInformation
+  singleValue: true
+  xpath: "//*[@id='added_variantInformation']//text()"
+  description: colour / scent / flavour / other
+- name: firstVariant
+  singleValue: true
+  xpath: "//*[@id='added_firstVariant']//text()"
+  description: Unique identifier for a collection of variants. For a subset of core
+    feeds (43) we have a column "first_variant" that is populated with a common code
+    to link all variants for a product. method 1 (Preferred) = use common tag (Could
+    be parent sku) that is same value for all variants of a product. method 2 = first_variant
+    method technique, Identify the first varient in the sequence and use this rpc
+    to populate "first_variant" for all variants of a product, this rpc becomes the
+    common link between other variants. method 3 = apply some logic to determine link
+    between variants, this will need analysis
+- name: variants
+  singleValue: false
+  xpath: "//*[@id='added_variants']//text()"
+  description: 
+- name: additionalDescBulletInfo
+  singleValue: false
+  xpath: "//*[@id='added_additionalDescBulletInfo']//text()"
+  description: 
+- name: prop65Warning
+  singleValue: true
+  xpath: "//*[@id='added_prop65Warning']//text()"
+  description: 
+- name: ageSuitability
+  singleValue: true
+  xpath: "//*[@id='added_ageSuitability']//text()"
+  description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+  example: 4 - 99 years
+- name: energyEfficiency
+  singleValue: true
+  xpath: "//*[@id='added_energyEfficiency']//text()"
+  description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+  example: A+, A+++, B
+- name: technicalInformationPdfPresent
+  singleValue: true
+  xpath: "//*[@id='added_technicalInformationPdfPresent']//text()"
+  description: If there is for example a manual in pdf format on the website. ['Yes','No']
+  example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+  defaultValue: false
+- name: termsAndConditions
+  singleValue: true
+  xpath: "//*[@id='added_termsAndConditions']//text()"
+  description: Terms and conditions information text ['Yes','No']
+  defaultValue: false
+- name: privacyPolicy
+  singleValue: true
+  xpath: "//*[@id='added_privacyPolicy']//text()"
+  description: Privacy Policy information text ['Yes','No']
+  defaultValue: false
+- name: customerServiceAvailability
+  singleValue: true
+  xpath: "//*[@id='added_customerServiceAvailability']//text()"
+  description: Information related to customer service availability (text), ['Yes','No']
+  defaultValue: false
+- name: materials
+  singleValue: true
+  xpath: "//*[@id='added_materials']//text()"
+  description: Materials used to make the product
+  example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+- name: Image360Present
+  singleValue: true
+  xpath: "//*[@id='added_Image360Present']//text()"
+  description: If 360 image is present in the carousel ['Yes','No']
+  example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+  defaultValue: false
+- name: imageZoomFeaturePresent
+  singleValue: true
+  xpath: "//*[@id='added_imageZoomFeaturePresent']//text()"
+  description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+  example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+  defaultValue: false
