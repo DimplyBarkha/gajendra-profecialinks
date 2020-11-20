@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'whisky',
     domain: 'whisky.de',
-    url: 'https://www.whisky.de/shop/index.php?cl=search&searchparam={searchTerms}',
+    url: 'https://www.lyreco.com/webshop/FRFR/search',
     loadedSelector:'body',
     noResultsXPath: null,
     zipcode: '',

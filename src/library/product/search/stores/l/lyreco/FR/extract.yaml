@@ -13,7 +13,7 @@ fields:
   - name: name
     singleValue: true
     type: TEXT
-    xpath: //div[@class='item-content']//p[@class='prod_desc']//a//font//text()
+    xpath: //div[@class='item-content']//a[@class='prod_visu']//img/@alt
   - name: id
     singleValue: true
     description: The store-specific product identifier
@@ -23,9 +23,6 @@ fields:
     # xpath: (//select[@name='searchmanufacturer']//option)[1]//text()
   - name: rating
     # xpath: //div[@class='col-xl-6']//div[@class='rating ']/@data-rating
-  - name: number_of_reviews
-    type: NUMBER
-    # xpath:  //div[@class='row']/div[not(contains(@id,'sidebar-right'))]//span[@class='rating-count']/span//text()
   - name: price
     description: The offered price for the product
     type: CURRENCY

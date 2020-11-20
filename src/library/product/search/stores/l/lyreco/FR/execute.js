@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'lyreco',
     domain: 'lyreco.fr',
-    url: null,
+    url: 'https://www.lyreco.com/webshop/FRFR/search/{searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
