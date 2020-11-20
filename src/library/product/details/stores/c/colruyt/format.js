@@ -26,9 +26,14 @@ const transform = (data) => {
           priceItem.text = priceItem.text.replace('/pc.', '').replace(',', '.');
         });
       }
+      if (row.ingredientsList) {
+        row.ingredientsList.forEach((ingredientsListItem) => {
+          ingredientsListItem.text = ingredientsListItem.text.replace('Ingrédients Ingrédients:', '');
+        });
+      }
       if (row.servingSize) {
         row.servingSize.forEach((servingSizeItem) => {
-          servingSizeItem.text = servingSizeItem.text.replace('Valeur nutritive moyenne par', '').trim();
+          servingSizeItem.text = servingSizeItem.text.replace('Valeur nutritive moyenne par', '') | servingSizeItem.text.replace('Quantité moyenne de minéraux par 100g/', '');
         });
       }
       if (row.sku) {
@@ -39,6 +44,11 @@ const transform = (data) => {
       if (row.variantId) {
         row.variantId.forEach((variantIdItem) => {
           variantIdItem.text = variantIdItem.text.replace(/[^\d]/gm, '');
+        });
+      }
+      if (row.caloriesPerServing) {
+        row.caloriesPerServing.forEach((caloriesPerServingItem) => {
+          caloriesPerServingItem.text = caloriesPerServingItem.text.replace(/[^\d]/gm, '');
         });
       }
       if (row.image) {

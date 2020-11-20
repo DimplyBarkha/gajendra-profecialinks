@@ -3,13 +3,13 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'colruyt.be',
-    timeout: 50000,
+    timeout: 90000,
     country: 'BE',
     store: 'colruyt',
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 50000;
+    const timeout = parameters.timeout ? parameters.timeout : 90000;
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
