@@ -14,7 +14,7 @@ fields:
   singleValue: false
   xpath: //meta[@property='og:title']/@content
   regExp: >-
-    ([CÁPSULAS|Cápsulas|GR|gr|COMPRIMIDOS|Sobres|Comprimidos|Comprimidos Efervescentes|ML|ml]+$)
+    (?:^|(?<=))(CÁPSULAS|Cápsulas|GR|gr|Gr|g|Gramos|COMPRIMIDOS|Sobres|Comprimidos|Comprimidos Efervescentes|ML|ml)(?:(?= )|$)
 - name: _pageTimeStamp
   singleValue: false
 - name: image
