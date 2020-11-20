@@ -1,0 +1,52 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: 'div.Article-item[id]'
+recordXPath: //div[contains(@class,"Article-item") and @id]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class,"Article-itemVisualImg")]/@data-lazyimage|//img[contains(@class,"Article-itemVisualImg")]/@src
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a
+  - name: mpc
+    singleValue: false
+    xpath: //li[@class="moreInfos-item"]/span[contains(text(),"Modelo")]/following-sibling::span
+  - name: manufacturer
+    singleValue: false
+    xpath: //li[@class="moreInfos-item"]/span[contains(text(),"Fabricante/Marca")]/following-sibling::span
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@class,"Article-rate")]/span/span[2]
+    type: NUMBER
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@class,"Article-rate")]/span/span[2]
+    type: NUMBER
+  - name: price
+    singleValue: false
+    xpath: //a[contains(@class, "userPrice")]|//div/a/strong[contains(@class,'userPrice')]
+  - name: listPrice
+    singlevalue: false
+    xpath: //div[contains(@class, "bigPricerFA")]/div[@class="floatl"]/span[@class="oldPrice"]
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"Article-list")]//div[@class="thumbnail-toolbar"]/button[position()=1]/@data-prid
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@class,"Article-rate")]/span/span[contains(@class,"f-star")]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[contains(@class,"Article-rate")]/span/span[contains(@class,"f-star")]
+  - name: gtin
+    singleValue: false
+    xpath: (//span/@data-ean)[1]
+  - name: soldBy
+    singleValue: false
+    xpath: //div[contains(@class, "sellBy")]/a
