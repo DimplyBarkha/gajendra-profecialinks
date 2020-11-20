@@ -1,7 +1,7 @@
 
 /**
  *
- * @param { { id: any, sellerId: any, zipcode: any, url: any } } inputs
+ * @param { { id: any, sellerId: any, zipcode: any, url: any, URL: any } } inputs
  * @param { { country: any, domain: any, store: any, zipcode: any, mergeType: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
@@ -15,7 +15,7 @@ async function implementation (
   const { sellerId } = inputs;
   const { execute, extract } = dependencies;
   console.log('INPUTS!!! ', inputs)
-  const url = inputs.url;
+  const url = inputs.url || inputs.URL;
   const id = inputs.id;
   const zipcode = inputs.zipcode || parameters.zipcode  
   const productFound = await execute({ sellerId, id, zipcode: zipcode, url: url });
@@ -68,6 +68,13 @@ module.exports = {
       name: 'url',
       description: 'The URL to go to',
       type: 'string',
+      optional: true,
+    },
+    {
+      name: 'URL',
+      description: 'direct url for product',
+      type: 'string',
+      optional: true,
     },
   ],
   dependencies: {
