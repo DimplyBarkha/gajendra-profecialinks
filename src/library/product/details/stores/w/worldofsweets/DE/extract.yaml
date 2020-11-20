@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: product_image
+    singleValue: false
+    xpath: //div[@class='picture  has--morcepics']/a/img/@src
+  - name: product_name
+    singleValue : false
+    xpath: //h1[contains(@class,'productTitle')]
+  - name: review_rating
+    singleValue: false
+    xpath: //div[contains(@class, "product-rating")]//span[contains(@class,"product-rating-stars is--2.3636")]
+  - name: product_url
+    singleValue: false
+    xpath: //div[contains(@class, "product-picture")]/a/@href
+  - name: online_price_currency
+    singleValue: false
+    xpath: //div[@class="product-price-bulk is--details"]//span[@class="product-price is--bulk-unit"]
+  - name: product_sku
+    singleValue: false
+    xpath: //div[@class="additional-info-item"]//span[@class="text-right"]
+
+
+   
