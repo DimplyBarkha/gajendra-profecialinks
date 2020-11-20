@@ -74,6 +74,13 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
+    #
+    # xpath: //div[@id='product-details']/@data-product
+    # regExp: >-
+    #    (\"availability\"\:\")([^"]+)("}")
+    # regExpReplace: $2
+    # # regExpReplace: In Stock
+    # # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -95,11 +102,6 @@ fields:
     singleValue: false
     description: Product manufacturer
     xpath: //div[@class='product-manufacturer']
-  # - name: quantity
-  #   singleValue: false
-  #   description: Quantity as described on the page
-  #   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-  #   regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
