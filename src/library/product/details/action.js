@@ -19,10 +19,6 @@ async function implementation (
   const { execute, extract } = dependencies;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
-<<<<<<< HEAD
-  const zipcode = inputs.zipcode || parameters.zipcode;
-  await execute({ url, id, zipcode });
-=======
   const zipcode = inputs.zipcode || parameters.zipcode  
   const productFound = await execute({ url, id, zipcode: zipcode });
 
@@ -30,7 +26,6 @@ async function implementation (
     console.log('No product found');
     return;
   }
->>>>>>> origin/merged-amazon-with-goto
 
   await extract({ url, id });
 }

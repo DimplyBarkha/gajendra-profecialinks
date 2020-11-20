@@ -1,11 +1,11 @@
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath: //html//*[@import="element"]
+recordXPath: //body
 fields:
   - name: productStock
-    xpath: .//input[@name="quantityBox"]/@value
+    xpath: //div[@id='ii_productStock']
   - name: name
-    xpath: .//span[contains(@class, "product-title")]
+    xpath: //div[@id='ii_name']
   - name: productPrice
-    xpath: .//span[contains(@class, "product-price")]
+    xpath: //div[@id='ii_productPrice']

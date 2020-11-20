@@ -60,17 +60,10 @@ module.exports = {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-<<<<<<< HEAD
-    keywords = (Keywords) || (Brands) || (keywords);
-    console.log('zip:' + zipcode);
-
-    const resultsReturned = await execute({ keywords, zipcode });
-=======
     keywords = (Keywords) || (keywords) || (id);
 
     // do the search
     const resultsReturned = await execute({ keywords, zipcode, _date, context });
->>>>>>> origin/merged-amazon-with-goto
 
     // do the search
 

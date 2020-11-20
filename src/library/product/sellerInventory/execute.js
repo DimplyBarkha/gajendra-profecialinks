@@ -1,7 +1,7 @@
 
 /**
  *
- * @param { { id: any, sellerId: any, zipcode: any } } inputs
+ * @param { { id: any, sellerId: any, zipcode: any, url: any } } inputs
  * @param { { country: any, domain: any, store: any, loadedSelector: any, noResultsXPath: any, sellerInventoryUrl: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action } } dependencies
@@ -12,11 +12,13 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { id, sellerId, zipcode } = inputs;
+  let { id, sellerId, zipcode, url } = inputs;
   const { sellerInventoryUrl } = parameters;
   console.log("TESTTTT", sellerId, id)
   console.log('params', parameters);
-  let url;
+  console.log('INPTUS ', inputs)
+
+  // let url;
   if (sellerInventoryUrl && id && sellerId) {
     url = sellerInventoryUrl.replace(/{id}/g, id).replace(/{sellerId}/g, sellerId);
   }
@@ -71,6 +73,12 @@ module.exports = {
     },
   ],
   inputs: [
+    {
+      name: 'url',
+      description: 'url of product',
+      type: 'string',
+      optional: true,
+    },
     {
       name: 'id',
       description: '',
