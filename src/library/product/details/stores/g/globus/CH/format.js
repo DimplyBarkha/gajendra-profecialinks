@@ -160,6 +160,7 @@ const transform = (data) => {
                   }
                 } catch (error) {
                   console.log(error.message);
+                  delete row.gtin;
                 }
               }
               else{
