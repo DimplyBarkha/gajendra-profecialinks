@@ -49,6 +49,13 @@ const transform = (data, context) => {
         row.additionalDescBulletInfo[0].text = formattedStr;
       }
 
+      if (row.variants) {
+        const variantArray = row.variants.map((item) => {
+          return item.text;
+        });
+        row.variants = [{ text: variantArray.join('|'), xpath: row.variants[0].xpath }];
+      }
+
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {
@@ -66,13 +73,53 @@ const transform = (data, context) => {
         row.availabilityText = [{ text: newText }];
       }
 
-      if (row.alternateImages) {
-        const baseUrl = row.alternateImages[0].text.match(/url\("([^?]+)/)[1];
-        row.alternateImages = row.alternateImages.slice(1).map((elm, index) => {
-          elm.text = `${baseUrl}_${index + 1}?wid=1920&hei=1080&op_sharpen=1`;
-          return { text: elm.text };
+      if (row.termsAndConditions) {
+        let newText;
+        row.termsAndConditions.forEach(item => {
+          if (item.text === 'Safety Information') {
+            newText = 'Yes';
+          }
         });
+        row.termsAndConditions = [{ text: newText }];
       }
+
+      if (row.privacyPolicy) {
+        let newText;
+        row.privacyPolicy.forEach(item => {
+          if (item.text === 'Safety Information') {
+            newText = 'Yes';
+          }
+        });
+        row.privacyPolicy = [{ text: newText }];
+      }
+
+      if (row.technicalInformationPdfPresent) {
+        let newText;
+        row.technicalInformationPdfPresent.forEach(item => {
+          if (item.text === 'Technical Information') {
+            newText = 'Yes';
+          }
+        });
+        row.technicalInformationPdfPresent = [{ text: newText }];
+      }
+
+      if (row.imageZoomFeaturePresent) {
+        let newText;
+        row.imageZoomFeaturePresent.forEach(item => {
+          if (item.text === 'Hover to Zoom') {
+            newText = 'Yes';
+          }
+        });
+        row.imageZoomFeaturePresent = [{ text: newText }];
+      }
+
+      // if (row.alternateImages) {
+      //   const baseUrl = row.alternateImages[0].text.match(/url\("([^?]+)/)[1];
+      //   row.alternateImages = row.alternateImages.slice(1).map((elm, index) => {
+      //     elm.text = `${baseUrl}_${index + 1}?wid=1920&hei=1080&op_sharpen=1`;
+      //     return { text: elm.text };
+      //   });
+      // }
       data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }))));

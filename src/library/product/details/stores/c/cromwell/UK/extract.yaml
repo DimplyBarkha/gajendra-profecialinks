@@ -1,17 +1,17 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="ProductVariantScreen"]
 fields:
   - name: name
     singleValue: false
     xpath: //h1[@class="productBrandName"]//span[@data-e2e="productName"]
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,'image-gallery-slide')]//div//div//img//@alt
+    xpath: (//div[contains(@class,'image-gallery-slide')]//div//div//img//@alt)[1]
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,'image-gallery-slide')]//div//a//@href
+    xpath: (//div[contains(@class,'image-gallery-slide')]//div//a//@href)[1]
   - name: price
     singleValue: false
     xpath: //div[@class="ProductVariantPrice"]//p[@class="ProductVariantPrice_MainPrice"]//strong
@@ -35,13 +35,13 @@ fields:
     xpath: //h2[@class="productCodeSku"]//span[@data-e2e="productSku"]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="image-gallery-thumbnails-container"]//button[@class="image-gallery-thumbnail"]//following-sibling::button//div[@class="image-gallery-thumbnail-inner"]//img[@class="image-gallery-thumbnail-image"]//@src
+    xpath: //div[@class="image-gallery-thumbnails-container"]//button[@class="image-gallery-thumbnail"][position()>0]//img//@src
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@class="image-gallery-thumbnails-container"]//button[@class="image-gallery-thumbnail"]//following-sibling::button//div[@class="image-gallery-thumbnail-inner"]//img[@class="image-gallery-thumbnail-image"]//@src)
+    xpath: count(//div[@class="image-gallery-thumbnails-container"]//button[@class="image-gallery-thumbnail"][position()>0]//img//@src)
   - name: packSize
     singleValue: false
-    xpath: //li[@class="ProductFurtherInfo_attrTable_item"]//div[@class="ProductFurtherInfo_attrTableitem_info"]//strong[contains(text(),'Pack Quantity')]//following-sibling::span
+    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Pack Quantity')]//following-sibling::span
   - name: variantId
     singleValue: false
     xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"MFR Part No.")]//following-sibling::span//div
@@ -57,6 +57,36 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //*[@id="app-dom-hook"]//div//div[4]//div//div//div[1]//div[4]//div//following-sibling::div
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
+  - name: color
+    singleValue: false
+    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Colour')]//following-sibling::span
+  - name: mpc
+    singleValue: false
+    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"MFR Part No.")]//following-sibling::span//div
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //div[@class='ProductTabs']//div[contains(@class, 'product-details')]//ul[contains(@class, 'react-tabs')]//li[contains(text(), 'Safety Information')]
+  - name: privacyPolicy
+    singleValue: false
+    xpath: //div[@class='ProductTabs']//div[contains(@class, 'product-details')]//ul[contains(@class, 'react-tabs')]//li[contains(text(), 'Safety Information')]
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@class='ProductTabs']//div[contains(@class, 'product-details')]//ul[contains(@class, 'react-tabs')]//li[contains(text(), 'Technical Information')]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div//span[contains(text(),'Hover to Zoom')]
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="rt-td"][2]
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="rt-tbody"]//div[@class="rt-tr-group"])
+  - name: firstVariant
+    singleValue: false
+    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"MFR Part No.")]//following-sibling::span//div
+  - name: variantInformation
+    singleValue: false
+    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Colour')]//following-sibling::span
+  
+  
+  
