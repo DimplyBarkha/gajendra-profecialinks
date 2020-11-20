@@ -32,6 +32,10 @@ async function implementation(
       var doubleSeparatorText = data.join(' || ');
       addHiddenDiv(id, doubleSeparatorText, 0);
     };
+    const pipeSeparatorDouble2 = (data) => {
+      var doubleSeparatorText = data.join(' || ');
+      return doubleSeparatorText;
+    };
     // Method to Retrieve Xpath content of a Multiple Nodes
     const getAllXpath = (xpath, prop) => {
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -55,7 +59,8 @@ async function implementation(
     var description = getAllXpath("//div[@itemprop='description']/text() | //div[@id='descr']/div/p//text() | //div[@id='descr']/div/h2/text() | //div[@id='descr']/div/ul/li/text()", 'nodeValue');
     pipeSeparatorDouble('description', description);
     const addDescBulletInfo = getAllXpath("//div[@id='descr']/div/ul/li/text()", 'nodeValue');
-    pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
+    var finaladdDescBulletInfo = pipeSeparatorDouble2(addDescBulletInfo);
+    addHiddenDiv('addDescBulletInfo', '||' + finaladdDescBulletInfo, 0);
   });
   return await context.extract(productDetails, { transform });
 }
