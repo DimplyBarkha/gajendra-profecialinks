@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'technodom.kz',
-    timeout: null,
+    timeout: 50000,
     country: 'KZ',
     store: 'technodom',
     zipcode: '',
