@@ -33,12 +33,11 @@ fields:
     xpath: //a[contains(@class, "product-tile__price")]/span[1]
   - name: manufacturer
     singleValue: false
-    xpath: //a[contains(@class, "product-tile__brand")]
   - name: soldBy
     singleValue: true
   - name: endorsementText
     singleValue: false
-    xpath: //div[contains(@class, "product-tile__label")]
+    xpath: //@endorsement
   - name: rank
     singleValue: false
     description: search/listing rank

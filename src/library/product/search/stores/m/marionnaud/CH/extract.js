@@ -53,6 +53,8 @@ module.exports = {
       const products = document.querySelectorAll('div[data-component="MasonryGrid"] div.product-tile__wrapper');
       products.forEach((product, index) => {
         product.setAttribute('rankorganic', `${index + 1}`);
+        const label = product.querySelector('div.product-tile__label') ? 'Yes' : 'No';
+        product.setAttribute('endorsement', label);
       });
     });
 

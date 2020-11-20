@@ -2,7 +2,7 @@ input:
   keywords: ohne alkohol
   _url: http://marionnaud.ch
 extractions:
-  - html: https://workbench.import.io/html/run=97e520ac-e3c3-4863-997e-356eb5d771cb/task=cbcfcc6e-13e4-442d-a134-bd9d8047d760/587b32dc-e326-4099-aeff-7ba32af60cbb.html
+  - html: https://workbench.import.io/html/run=4f435f78-21fa-4ff5-a452-540d7975f4bf/task=97d33ef0-7f8d-43fd-9c47-976c5fc353cf/138eef39-e613-44af-bd23-a4f8999f5f32.html
     extractionConfigId: product/search/stores/m/marionnaud/CH/extract
     data:
       - group:
@@ -21,9 +21,9 @@ extractions:
             price:
               - text: CHF 38.92
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Hermès
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/@endorsement
             rank:
               - text: "1"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/@rankorganic
@@ -53,9 +53,9 @@ extractions:
             price:
               - text: CHF 49.90
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: DIOR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/@endorsement
             rank:
               - text: "2"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/@rankorganic
@@ -85,9 +85,9 @@ extractions:
             price:
               - text: CHF 50.92
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Biotherm
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/@endorsement
             rank:
               - text: "3"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/@rankorganic
@@ -117,9 +117,9 @@ extractions:
             price:
               - text: CHF 36.67
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Hermès
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/@endorsement
             rank:
               - text: "4"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/@rankorganic
@@ -149,9 +149,9 @@ extractions:
             price:
               - text: CHF 23.17
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Clarins
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/@endorsement
             rank:
               - text: "5"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/@rankorganic
@@ -181,12 +181,9 @@ extractions:
             price:
               - text: CHF 30.67
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Helena Rubinstein
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[2]/a[1]
             endorsementText:
-              - text: Beauty Favorite
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[2]
+              - text: Yes
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/@endorsement
             rank:
               - text: "6"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/@rankorganic
@@ -216,9 +213,9 @@ extractions:
             price:
               - text: CHF 26.17
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Biotherm
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/@endorsement
             rank:
               - text: "7"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/@rankorganic
@@ -233,85 +230,85 @@ extractions:
                 raw: "7"
                 locale: de_DE
                 value: 7
-          - id:
-              - text: BP_99087950
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/parfum-/deo-roll-on/p/BP_99087950
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8898147876894/Yves-Saint-Laurent-Deo-Roll-on-3614271717092-.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 32.17
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Yves Saint Laurent
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[2]/a[1]
-            rank:
-              - text: "8"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "8"
-                locale: de_DE
-                value: 8
-            rankOrganic:
-              - text: "8"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "8"
-                locale: de_DE
-                value: 8
-          - id:
-              - text: BP_84150120
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: Eau Florale
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/gesichtsspray-/p/BP_84150120
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8945278615582/SISLEY-Gesichtsspray-3473311061058-Eau-Florale-.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 63.67
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SISLEY
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[2]/a[1]
-            rank:
-              - text: "9"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "9"
-                locale: de_DE
-                value: 9
-            rankOrganic:
-              - text: "9"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "9"
-                locale: de_DE
-                value: 9
           - id:
               - text: BP_99416920
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
             name:
               - text: Bocage
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/a[2]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[2]/a[2]
             productUrl:
               - text: https://marionnaud.ch/de/marionnaud/pflege/damen/ko%CC%88rper/deo-roll-on/p/BP_99416920
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
               - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8821916172318/Lanc-me-Deo-Roll-On-3605530931663-Bocage.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 28.42
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[2]/a[4]/span[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/@endorsement
+            rank:
+              - text: "8"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: de_DE
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: de_DE
+                value: 8
+          - id:
+              - text: BP_53503090
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: Cellular Refining Lotion
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/gesicht/gesichtsreinigung/p/BP_53503090
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8965375492126/La-Prairie-Gesichtsreinigung-7611773235211-Cellular-Refining-Lotion.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 97.50
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[2]/a[4]/span[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/@endorsement
+            rank:
+              - text: "9"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: de_DE
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: de_DE
+                value: 9
+          - id:
+              - text: BP_99087950
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/parfum-/deo-roll-on/p/BP_99087950
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8898147876894/Yves-Saint-Laurent-Deo-Roll-on-3614271717092-.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 32.17
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Lancôme
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/@endorsement
             rank:
               - text: "10"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/@rankorganic
@@ -327,23 +324,23 @@ extractions:
                 locale: de_DE
                 value: 10
           - id:
-              - text: BP_53503090
+              - text: BP_84150120
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Cellular Refining Lotion
+              - text: Eau Florale
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/gesicht/gesichtsreinigung/p/BP_53503090
+              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/gesichtsspray-/p/BP_84150120
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8965375492126/La-Prairie-Gesichtsreinigung-7611773235211-Cellular-Refining-Lotion.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8945278615582/SISLEY-Gesichtsspray-3473311061058-Eau-Florale-.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 97.50
+              - text: CHF 63.67
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: La Prairie
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/@endorsement
             rank:
               - text: "11"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/@rankorganic
@@ -373,9 +370,9 @@ extractions:
             price:
               - text: CHF 39.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[13]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Kiehl's
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[13]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[13]/div[1]/@endorsement
             rank:
               - text: "12"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[13]/div[1]/@rankorganic
@@ -405,12 +402,9 @@ extractions:
             price:
               - text: CHF 24.67
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Clarins
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/div[1]/div[2]/a[1]
             endorsementText:
-              - text: BEST SELLER
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/div[2]
+              - text: Yes
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/@endorsement
             rank:
               - text: "13"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/@rankorganic
@@ -440,9 +434,9 @@ extractions:
             price:
               - text: CHF 54.67
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Yves Saint Laurent
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/@endorsement
             rank:
               - text: "14"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/@rankorganic
@@ -469,9 +463,9 @@ extractions:
             thumbnail:
               - text: https://marionnaud.ch/medias/sys_master/front-cat/front-cat/8888335761438/Yves-Saint-Laurent-Duschgel-3614271717061-Y.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            manufacturer:
-              - text: Yves Saint Laurent
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/@endorsement
             rank:
               - text: "15"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/@rankorganic
@@ -501,9 +495,9 @@ extractions:
             price:
               - text: CHF 33.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Kiehl's
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/@endorsement
             rank:
               - text: "16"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/@rankorganic
@@ -533,9 +527,9 @@ extractions:
             price:
               - text: CHF 76.50
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SISLEY
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/@endorsement
             rank:
               - text: "17"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/@rankorganic
@@ -565,12 +559,9 @@ extractions:
             price:
               - text: CHF 15.75
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Pixi
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[1]/div[2]/a[1]
             endorsementText:
-              - text: BEST SELLER
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[2]
+              - text: Yes
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/@endorsement
             rank:
               - text: "18"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/@rankorganic
@@ -600,9 +591,9 @@ extractions:
             price:
               - text: CHF 5.92
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: NEQI
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/@endorsement
             rank:
               - text: "19"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/@rankorganic
@@ -632,9 +623,9 @@ extractions:
             price:
               - text: CHF 6.67
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[21]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Biovene
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[21]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[21]/div[1]/@endorsement
             rank:
               - text: "20"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[21]/div[1]/@rankorganic
@@ -664,9 +655,9 @@ extractions:
             price:
               - text: CHF 17.92
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SVR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/@endorsement
             rank:
               - text: "21"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/@rankorganic
@@ -696,9 +687,9 @@ extractions:
             price:
               - text: CHF 35.17
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SVR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/@endorsement
             rank:
               - text: "22"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/@rankorganic
@@ -728,9 +719,9 @@ extractions:
             price:
               - text: CHF 22.42
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SVR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/@endorsement
             rank:
               - text: "23"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/@rankorganic
@@ -760,9 +751,9 @@ extractions:
             price:
               - text: CHF 43.00
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Kiehl's
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/@endorsement
             rank:
               - text: "24"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/@rankorganic
@@ -777,152 +768,152 @@ extractions:
                 raw: "24"
                 locale: de_DE
                 value: 24
-          - id:
-              - text: BP_20001190
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: Demaquillage
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/gesicht/clarins-lotion-peau-mixte-peau-grasse/p/BP_20001190
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8870343213086.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 24.67
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Clarins
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[2]/a[1]
-            rank:
-              - text: "25"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "25"
-                locale: de_DE
-                value: 25
-            rankOrganic:
-              - text: "25"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "25"
-                locale: de_DE
-                value: 25
-          - id:
-              - text: BP_20090410
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: Clarins Men
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/ko%CC%88rper/clarins-men-de%CC%81o-stick-anti-perspirant/p/BP_20090410
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8812226117662.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 22.42
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Clarins
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[2]/a[1]
-            rank:
-              - text: "26"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "26"
-                locale: de_DE
-                value: 26
-            rankOrganic:
-              - text: "26"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "26"
-                locale: de_DE
-                value: 26
-          - id:
-              - text: BP_20090420
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: Clarins Men
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/ko%CC%88rper/clarins-men-de%CC%81o-roll-on-anti-perspirant/p/BP_20090420
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8812389171230.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 22.42
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Clarins
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[2]/a[1]
-            rank:
-              - text: "27"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "27"
-                locale: de_DE
-                value: 27
-            rankOrganic:
-              - text: "27"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "27"
-                locale: de_DE
-                value: 27
-          - id:
-              - text: BP_09194140
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: Homme Sensitive Force
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/ko%CC%88rper/deodorant/p/BP_09194140
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8931072409630.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 26.17
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Biotherm
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[2]/a[1]
-            rank:
-              - text: "28"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "28"
-                locale: de_DE
-                value: 28
-            rankOrganic:
-              - text: "28"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "28"
-                locale: de_DE
-                value: 28
           - id:
               - text: BP_99480050
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
             name:
               - text: Nettoyer / Tonifier
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[2]/a[2]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[2]/a[2]
             productUrl:
               - text: https://marionnaud.ch/de/marionnaud/pflege/damen/gesicht/sisley-lotion-au-pamplemousse-/p/BP_99480050
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
               - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8891406286878.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 76.50
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[2]/a[4]/span[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/@endorsement
+            rank:
+              - text: "25"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "25"
+                locale: de_DE
+                value: 25
+            rankOrganic:
+              - text: "25"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[6]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "25"
+                locale: de_DE
+                value: 25
+          - id:
+              - text: BP_47810530
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: Ultra Facial
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/gesicht/kiehls-ultra-facial-oil-free-toner/p/BP_47810530
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8849016356894.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 31.00
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[2]/a[4]/span[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/@endorsement
+            rank:
+              - text: "26"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "26"
+                locale: de_DE
+                value: 26
+            rankOrganic:
+              - text: "26"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "26"
+                locale: de_DE
+                value: 26
+          - id:
+              - text: BP_20001190
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: Demaquillage
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/gesicht/clarins-lotion-peau-mixte-peau-grasse/p/BP_20001190
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8870343213086.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 24.67
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/div[1]/div[2]/a[4]/span[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/@endorsement
+            rank:
+              - text: "27"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "27"
+                locale: de_DE
+                value: 27
+            rankOrganic:
+              - text: "27"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[8]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "27"
+                locale: de_DE
+                value: 27
+          - id:
+              - text: BP_20090410
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: Clarins Men
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/ko%CC%88rper/clarins-men-de%CC%81o-stick-anti-perspirant/p/BP_20090410
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8812226117662.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 22.42
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/div[1]/div[2]/a[4]/span[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/@endorsement
+            rank:
+              - text: "28"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "28"
+                locale: de_DE
+                value: 28
+            rankOrganic:
+              - text: "28"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[9]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "28"
+                locale: de_DE
+                value: 28
+          - id:
+              - text: BP_20090420
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: Clarins Men
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/ko%CC%88rper/clarins-men-de%CC%81o-roll-on-anti-perspirant/p/BP_20090420
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8812389171230.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 22.42
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SISLEY
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/@endorsement
             rank:
               - text: "29"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[10]/div[1]/@rankorganic
@@ -938,23 +929,23 @@ extractions:
                 locale: de_DE
                 value: 29
           - id:
-              - text: BP_49240530
+              - text: BP_09194140
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: SUN SECURE SPRAY LSF50+
+              - text: Homme Sensitive Force
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/sonnenpflege/sonnenschutz/sonnenschutzspray-gesicht-und-ko%CC%88rper-/p/BP_49240530
+              - text: https://marionnaud.ch/de/marionnaud/pflege/ma%CC%88nner/ko%CC%88rper/deodorant/p/BP_09194140
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980608188446.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8931072409630.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 32.17
+              - text: CHF 26.17
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SVR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/@endorsement
             rank:
               - text: "30"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[11]/div[1]/@rankorganic
@@ -969,120 +960,120 @@ extractions:
                 raw: "30"
                 locale: de_DE
                 value: 30
-          - id:
-              - text: BP_49240810
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: SUN SECURE
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/after-sun/p/BP_49240810
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980586758174.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 22.42
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SVR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[2]/a[1]
-            rank:
-              - text: "31"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "31"
-                locale: de_DE
-                value: 31
-            rankOrganic:
-              - text: "31"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "31"
-                locale: de_DE
-                value: 31
-          - id:
-              - text: BP_49240710
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: SUN SECURE LSF50+
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/ma%CC%88nner/pflege/sonnenschutz-gesicht-und-ko%CC%88rper-/p/BP_49240710
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980607270942.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 35.17
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SVR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[1]
-            rank:
-              - text: "32"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "32"
-                locale: de_DE
-                value: 32
-            rankOrganic:
-              - text: "32"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "32"
-                locale: de_DE
-                value: 32
-          - id:
-              - text: BP_49240010
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[2]/a[2]/@href
-            name:
-              - text: Sun Secure Creme LSF30
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[2]/a[2]
-            productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/sonnenpflege/sonnenschutz/sonnenschutz-gesicht-/p/BP_49240010
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[2]/a[2]/@href
-            thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980603371550.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: CHF 22.42
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SVR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[2]/a[1]
-            rank:
-              - text: "33"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "33"
-                locale: de_DE
-                value: 33
-            rankOrganic:
-              - text: "33"
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/@rankorganic
-                type: NUMBER
-                raw: "33"
-                locale: de_DE
-                value: 33
           - id:
               - text: BP_49240020
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[2]/a[2]/@href
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
             name:
               - text: Sun Secure Blur LSF50
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[2]/a[2]
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[2]/a[2]
             productUrl:
               - text: https://marionnaud.ch/de/marionnaud/pflege/sonnenpflege/sonnenschutz/schaumcreme/p/BP_49240020
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[2]/a[2]/@href
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
               - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980609105950.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 25.42
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/div[1]/div[2]/a[4]/span[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/@endorsement
+            rank:
+              - text: "31"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "31"
+                locale: de_DE
+                value: 31
+            rankOrganic:
+              - text: "31"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[12]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "31"
+                locale: de_DE
+                value: 31
+          - id:
+              - text: BP_49240030
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: SUN SECURE FLUID LSF50+
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/ma%CC%88nner/pflege/sonnenschutz-gesicht-/p/BP_49240030
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980602912798.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 22.42
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/div[1]/div[2]/a[4]/span[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/@endorsement
+            rank:
+              - text: "32"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "32"
+                locale: de_DE
+                value: 32
+            rankOrganic:
+              - text: "32"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[13]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "32"
+                locale: de_DE
+                value: 32
+          - id:
+              - text: BP_49240510
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: SUN SECURE SPRAY LSF30
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/pflege/sonnenpflege/sonnenschutz/sonnenschutz-gesicht-und-ko%CC%88rper-/p/BP_49240510
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980604747806.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 32.17
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/div[1]/div[2]/a[4]/span[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/@endorsement
+            rank:
+              - text: "33"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "33"
+                locale: de_DE
+                value: 33
+            rankOrganic:
+              - text: "33"
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[14]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "33"
+                locale: de_DE
+                value: 33
+          - id:
+              - text: BP_49240530
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[2]/a[2]/@href
+            name:
+              - text: SUN SECURE SPRAY LSF50+
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[2]/a[2]
+            productUrl:
+              - text: https://marionnaud.ch/de/marionnaud/pflege/sonnenpflege/sonnenschutz/sonnenschutzspray-gesicht-und-ko%CC%88rper-/p/BP_49240530
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980608188446.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: CHF 32.17
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SVR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/@endorsement
             rank:
               - text: "34"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[15]/div[1]/@rankorganic
@@ -1098,23 +1089,23 @@ extractions:
                 locale: de_DE
                 value: 34
           - id:
-              - text: BP_49240030
+              - text: BP_49240010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: SUN SECURE FLUID LSF50+
+              - text: Sun Secure Creme LSF30
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/ma%CC%88nner/pflege/sonnenschutz-gesicht-/p/BP_49240030
+              - text: https://marionnaud.ch/de/marionnaud/pflege/sonnenpflege/sonnenschutz/sonnenschutz-gesicht-/p/BP_49240010
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980602912798.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980603371550.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: CHF 22.42
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SVR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/@endorsement
             rank:
               - text: "35"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[16]/div[1]/@rankorganic
@@ -1130,23 +1121,23 @@ extractions:
                 locale: de_DE
                 value: 35
           - id:
-              - text: BP_49240510
+              - text: BP_49240810
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: SUN SECURE SPRAY LSF30
+              - text: SUN SECURE
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/sonnenpflege/sonnenschutz/sonnenschutz-gesicht-und-ko%CC%88rper-/p/BP_49240510
+              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/after-sun/p/BP_49240810
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980604747806.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980586758174.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 32.17
+              - text: CHF 22.42
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: SVR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/@endorsement
             rank:
               - text: "36"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[17]/div[1]/@rankorganic
@@ -1162,23 +1153,23 @@ extractions:
                 locale: de_DE
                 value: 36
           - id:
-              - text: BP_47810530
+              - text: BP_49240710
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/div[1]/div[2]/a[2]/@href
             name:
-              - text: Ultra Facial
+              - text: SUN SECURE LSF50+
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/div[1]/div[2]/a[2]
             productUrl:
-              - text: https://marionnaud.ch/de/marionnaud/pflege/damen/gesicht/kiehls-ultra-facial-oil-free-toner/p/BP_47810530
+              - text: https://marionnaud.ch/de/marionnaud/ma%CC%88nner/pflege/sonnenschutz-gesicht-und-ko%CC%88rper-/p/BP_49240710
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/div[1]/div[2]/a[2]/@href
             thumbnail:
-              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8849016356894.jpg
+              - text: https://marionnaud.ch/medias/sys_master/front-prd/front-prd/8980607270942.jpg
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: CHF 31.00
+              - text: CHF 35.17
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/div[1]/div[2]/a[4]/span[1]
-            manufacturer:
-              - text: Kiehl's
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/div[1]/div[2]/a[1]
+            endorsementText:
+              - text: No
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/@endorsement
             rank:
               - text: "37"
                 xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[2]/div[18]/div[1]/@rankorganic
@@ -1194,4 +1185,4 @@ extractions:
                 locale: de_DE
                 value: 37
         xpath: /html
-    timestamp: 1605615966399
+    timestamp: 1605862586646
