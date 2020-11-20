@@ -25,15 +25,12 @@ fields:
   - name: price
     description: The offered price for the product
     xpath: //div[@class="campaign-banner__info offer"]/div[2]/span | //span[@class="price-section__price"]
-    regExp: '\d+\.\d+'
   - name: rank
     description: search/listing rank
     type: NUMBER
-    xpath: //div[@id="rankOrganic"]
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //div[@id="rankOrganic"]
   - name: sponsored
     description: Is sponsored/paid
     defaultValue: false
