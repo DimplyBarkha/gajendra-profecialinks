@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="ProductVariantScreen"]
+recordXPath: null
 fields:
   - name: name
     singleValue: false
@@ -41,10 +41,10 @@ fields:
     xpath: count(//div[@class="image-gallery-thumbnails-container"]//button[@class="image-gallery-thumbnail"][position()>0]//img//@src)
   - name: packSize
     singleValue: false
-    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Pack Quantity')]//following-sibling::span
+    xpath: //div[@id="pack_size_Text"]
   - name: variantId
     singleValue: false
-    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"MFR Part No.")]//following-sibling::span//div
+    xpath: //div[@id="variant_id_Text"]
   - name: shippingDimensions
     singleValue: false
     xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Dimensions')]//following-sibling::span//div
@@ -53,16 +53,16 @@ fields:
     xpath: count(//ul[@class="ProductFurtherInfo_attrTable"]//li[@class="ProductFurtherInfo_attrTable__item"])
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //ul[@class="ProductFurtherInfo_attrTable"]
+    xpath: //div[@id="additional_desc_bullet_info_Text"] | //ul[@class="ProductFurtherInfo_attrTable"]
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id="app-dom-hook"]//div//div[4]//div//div//div[1]//div[4]//div//following-sibling::div
+    xpath: (//div[@data-e2e="StockMessage"])[1]
   - name: color
     singleValue: false
-    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Colour')]//following-sibling::span
+    xpath: //div[@id="color_Text"]
   - name: mpc
     singleValue: false
-    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"MFR Part No.")]//following-sibling::span//div
+    xpath: //div[@id="mpc_Text"]
   - name: termsAndConditions
     singleValue: false
     xpath: //div[@class='ProductTabs']//div[contains(@class, 'product-details')]//ul[contains(@class, 'react-tabs')]//li[contains(text(), 'Safety Information')]
@@ -83,10 +83,11 @@ fields:
     xpath: count(//div[@class="rt-tbody"]//div[@class="rt-tr-group"])
   - name: firstVariant
     singleValue: false
-    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"MFR Part No.")]//following-sibling::span//div
+    xpath: //div[@id="first_variant_Text"]
   - name: variantInformation
     singleValue: false
-    xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Colour')]//following-sibling::span
+    xpath: //div[@id="variant_information_Text"]
+  
   
   
   
