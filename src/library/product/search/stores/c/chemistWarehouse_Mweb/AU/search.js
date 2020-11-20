@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'chemistwarehouse.com.au',
-    timeout: 90000,
     country: 'AU',
     store: 'chemistWarehouse_Mweb',
+    domain: 'chemistwarehouse.com.au',
     zipcode: '',
   },
 };
