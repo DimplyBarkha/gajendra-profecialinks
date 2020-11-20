@@ -19,6 +19,9 @@ fields:
     singleValue: false
     xpath: //ul[@class='unf-p-thumbs']/li/@data-full
   - name: category
+    singleValue: true
+    xpath: //input[@class='categoryGroup']/@value
+  - name: sub_category
     singleValue: false
     xpath: //div[@id='breadCrumb']/ul/li/a/@title
   - name: nameExtended
@@ -42,15 +45,15 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[@id='unf-info']/div[@class='unf-info-context']/section[@class='uni-content']
-  - name: url
+  - name: baseUrl
     singleValue: true
     xpath: //link[@rel='canonical']/@href
   - name: varianId
     singleValue: true
     xpath: //input[@class='productId']/@value
   - name: brand
-    singleValue: true
-    xpath: //script[@type='text/javascript']/@data-flix-brand
+    singleValue: false
+    xpath: //script[@type='application/ld+json']
   - name: quantity
     singleValue: true
     xpath: //input[@id='quantity']/@value
@@ -80,5 +83,10 @@ fields:
     xpath: //input[@class='skuId']/@value
   - name: variantId
     singleValue: true
+    xpath: //input[@class='categoryId']/@value
+  - name: retailer_product_code
+    singleValue: true
     xpath: //input[@class='productId']/@value
-
+  - name: zoomImage
+    singleValue: true
+    defaultValue: Yes
