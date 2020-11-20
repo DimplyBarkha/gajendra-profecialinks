@@ -4,7 +4,7 @@ module.exports = {
     country: 'ES',
     store: 'lyreco',
     domain: 'lyreco.com',
-    url: 'https://www.lyreco.com/webshop/SPSP/search/100 bolis bic',
+    url: 'https://www.lyreco.com/webshop/SPSP/search/{searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
