@@ -32,7 +32,7 @@ fields:
   - name: additionalDescBulletInfo
     xpath: ancestor::html//div[@class="descriptionholder"]/text()[contains(.,"•")]
   - name: brandText
-    xpath: ancestor::html//div[@id="imageholder"]//img[@id="lpic"][not(contains(@src,"noim.gif"))]/@alt | ancestor::html//div[@id="imageholder"]//img[last()][not(contains(@src,"noim.gif"))]/@alt
+    xpath: ancestor::html//div[@id="imageholder"]//img[last()][not(contains(@src,"noim.gif"))]/@alt
     regExp: ^[^\s]*\s
   - name: manufacturer
   - name: quantity
@@ -40,9 +40,9 @@ fields:
   - name: weightGross
   - name: gtin
   - name: sku
-    xpath: ancestor::html/@id
-    regExp: (.+)(-.+)
-    regExpReplace: $1
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+    regExp: (.+=|.+/)(.+)
+    regExpReplace: $2
   - name: variantId
     xpath: //td[1]
   - name: mpc
