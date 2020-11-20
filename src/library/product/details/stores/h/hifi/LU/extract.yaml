@@ -5,17 +5,20 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//div[@class="media-wrapper"]/img[@srcset]/@src)[1]
-    regExp: (.+)\/(\d+)x(\d+).(.+)
-    regExpReplace: $1/$4
+    # xpath: (//div[@class="media-wrapper"]/img[@srcset]/@src)[1]
+    xpath: //section[contains(@class,"product-image-slider")]//div[contains(@class,'product-main-slider')]//div[@class='slick-track']/div[position()=1]//img/@src
+    # regExp: (.+)\/(\d+)x(\d+).(.+)
+    # regExpReplace: $1/$4
   - name: imageAlt
     singleValue: false
-    xpath: (//div[@class="media-wrapper"]/img[@srcset]/@alt)[1]
+    # xpath: (//div[@class="media-wrapper"]/img[@srcset]/@alt)[1]
+    xpath: //section[contains(@class,"product-image-slider")]//div[contains(@class,'product-main-slider')]//div[@class='slick-track']/div[position()=1]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: (//div[@class="media-wrapper"]/img[@srcset]/@src)[position()>1]
-    regExp: (.+)\/(\d+)x(\d+).(.+)
-    regExpReplace: $1/$4
+    xpath: //section[contains(@class,"product-image-slider")]//div[contains(@class,'product-main-slider')]//div[@class='slick-track']/div[position()>1]//img/@src
+    # xpath: (//div[@class="media-wrapper"]/img[@srcset]/@src)[position()>1]
+    # regExp: (.+)\/(\d+)x(\d+).(.+)
+    # regExpReplace: $1/$4
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
