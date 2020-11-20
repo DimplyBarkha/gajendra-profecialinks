@@ -18,8 +18,7 @@ fields:
     regExpReplace: https://www.bestbuy.ca$1
   - name: thumbnail
     singleValue: false
-    description: The URL for the product thumbnail image
-    xpath: //div[@class="productImageContainer_1V2HD touchActionManipulation_31CMi productItemImage_1en8J applyResponsiveSquareTrick_35RAF"]/div/div/img/@src
+    xpath: //img[@class="productItemImage_1en8J"]/@src
   - name: price
     singleValue: false
     description: The offered price for the product
