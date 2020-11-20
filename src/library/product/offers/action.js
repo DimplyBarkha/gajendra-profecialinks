@@ -17,7 +17,7 @@ async function implementation (
   const { country, store, domain, defaultResults, mergeType } = parameters;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
-  const zipcode = parameters || inputs.zipcode;
+  const zipcode = inputs.zipcode || parameters.zipcode;
   const results = inputs.results || defaultResults || 100;
   const assign_quantity = parseInt(inputs.assign_quantity) || results;
   // TODO: consider moving this to a reusable function

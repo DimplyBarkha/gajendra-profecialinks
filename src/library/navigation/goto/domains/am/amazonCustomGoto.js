@@ -33,7 +33,6 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
   const pageContext = async () => {
     return await context.evaluate(() => {
       console.log('context.evaluate');
-      document.body.setAttribute('current_page_url', window.location.href);
       const selectors = {
         hasProdDetails: '#prodDetails, #detailBullets_feature_div',
         hasSalesRank: '#detailBullets_feature_div a[href*="bestsellers"], #detailBullets a[href*="bestsellers"], #prodDetails a[href*="bestsellers"], #SalesRank',
@@ -63,6 +62,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       elementChecks.isOffersPage = window.location.href.includes('offer-listing');
       elementChecks.hasVariants = !!window.isTwisterPage;
       elementChecks.windowLocation = window.location;
+      document.body.setAttribute('current_page_url', window.location.href);
       return elementChecks;
     });
   };
@@ -112,7 +112,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
   }
 
   const setZip = async (zip) => {
-    if (zip) {
+    if (!!zip) {
       const csrf = await context.evaluate(getCSRFToken);
       const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
         const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
@@ -404,6 +404,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         links[Math.floor(links.length * Math.random())].click();
         return true;
       });
+      page = await solveCaptchaIfNecessary(page);
 
       if (!clickedOK) {
         console.log('Could not click a product, aborting... :/');

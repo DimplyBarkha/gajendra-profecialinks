@@ -14,7 +14,6 @@ async function implementation (
 ) {
   const { id, sellerId, zipcode } = inputs;
   const { sellerInventoryUrl } = parameters;
-  console.log("TESTTTT", sellerId, id)
   console.log('params', parameters);
   let url;
   if (sellerInventoryUrl && id && sellerId) {

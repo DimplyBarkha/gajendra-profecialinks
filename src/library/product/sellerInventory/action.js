@@ -1,4 +1,3 @@
-
 /**
  *
  * @param { { id: any, sellerId: any, zipcode: any } } inputs
@@ -16,7 +15,7 @@ async function implementation (
   const { execute, extract } = dependencies;
   // const url = URL;
   const id = inputs.id;
-  const zipcode = inputs.zipcode || parameters.zipcode  
+  const zipcode = inputs.zipcode || parameters.zipcode
   const productFound = await execute({ sellerId, id, zipcode: zipcode });
 
   if (!productFound) {
