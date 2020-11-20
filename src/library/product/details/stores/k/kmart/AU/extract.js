@@ -64,8 +64,61 @@ module.exports = {
         var pqr = info1.join(" || ");
         addElementToDocument('pqr', pqr);
       }
+      var size = getAllXpath("//div[@class='fx-component size-list']//a[@role='button']/text()", 'nodeValue');
+      if (size != null) {
+        var xyz = size.join(" || ");
+        addElementToDocument('xyz', xyz);
+      }
+      var information = getAllXpath("//div[@id='color-carousel']/a/span/img/@alt", 'nodeValue');
+      if (information != null) {
+        var kjf = information.join(" || ");
+        addElementToDocument('kjf', kjf);
+      }
+      var information1 = getAllXpath("//div[@id='color-carousel']/a/@data-partnumber", 'nodeValue');
+      if (information1 != null) {
+        var mmm = information1.join(" || ");
+        addElementToDocument('mmm', mmm);
+      }
+      var weight = getXpath("//li[contains(text(),'Box weight')]/text() | //li[contains(text(),'Weight')]/text()", 'nodeValue');
+      if (weight != null) {
+        weight = weight.split(": ")[1];
+        addElementToDocument('weight', weight);
+      }
+      var color = getXpath("//li[contains(text(),'Colour')]/text()", 'nodeValue');
+      var color1 = getXpath("//strong[contains(text(),'Colour')]/parent::li/text()", 'nodeValue');
+      if (color != null) {
+        color = color.split(": ")[1];
+        addElementToDocument('color', color);
+      }
+      if (color1 != null) {
+        // Material = Material.split(": ")[1];
+        addElementToDocument('color', color1);
+      }
 
-    });
+      var Material = getXpath("//li[contains(text(),'Material')]/text()", 'nodeValue');
+      var Material1 = getXpath("//strong[contains(text(),'Material')]/parent::li/text()", 'nodeValue');
+      if (Material != null) {
+        Material = Material.split(": ")[1];
+        addElementToDocument('Material', Material);
+      }
+      if (Material1 != null) {
+        // Material = Material.split(": ")[1];
+        addElementToDocument('Material', Material1);
+      }
+
+      var direction = getXpath("//li[contains(text(),'Care instructions')]/text()", 'nodeValue');
+      if (direction != null) {
+        direction = direction.split(": ")[1];
+        addElementToDocument('direction', direction);
+      }
+      var warning = getXpath("//strong[contains(text(),'Warning')]/parent::div/text()[2]", 'nodeValue');
+      if (warning != null) {
+        // warning = warning.split(": ")[1];
+        addElementToDocument('warning', warning);
+      }
+
+
+      });
 
     await context.extract(productDetails);
   },
