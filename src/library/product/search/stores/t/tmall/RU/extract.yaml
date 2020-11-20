@@ -19,13 +19,18 @@ fields:
       xpath: //a[contains(@class,"history-item")]/img/@src
     - name: price
       singleValue: false
-      xpath: //div[contains(@class,"price-m")]/span[@itemprop="price"]
+      xpath: //span[@itemprop="price"]
     - name: aggregateRating2
       singleValue: false
       xpath: //div[@class="rate-history"]/span/@title
       regExp: рейтинг\W\W(.+)\Wиз
       regExpReplace: $1
     - name: ratingCount
+      singleValue: false
+      xpath: //div[@class="rate-history"]/a
+      regExp: \W(.+)\W
+      regExpReplace: $1
+    - name: reviewCount
       singleValue: false
       xpath: //div[@class="rate-history"]/a
       regExp: \W(.+)\W
