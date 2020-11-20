@@ -48,6 +48,15 @@ const cleanUp = (data, context) => {
         })
         row.manufacturerDescription = [{ text: text.trim() }];
       }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach((element) => {
+          if (element.text.includes('https://www.bezokularow.pl')) {
+            element.text = element.text;
+          } else {
+            element.text = `https://www.bezokularow.pl/${element.text}`;
+          }
+        })
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

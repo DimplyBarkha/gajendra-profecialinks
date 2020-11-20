@@ -36,7 +36,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //meta[contains(@property,"availability")]/@content
-    regExp: (.+)
+    regExp: (in stock)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
@@ -130,11 +130,11 @@ fields:
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //div[@id="description"]//img/@src
-    regExp: (.+)
-    regExpReplace: https://www.bezokularow.pl$1
-  # - name: videos
-  #   singleValue: false
-  #   description: URLs of videos on page
+    # regExp: (.+)
+    # regExpReplace: https://www.bezokularow.pl/$1
+  - name: videos
+    description: URLs of videos on page
+    xpath: //span[contains(@class,"number current")]/@videourl
   - name: name
     description: The product name
     xpath: //h1[@itemprop="name"]
