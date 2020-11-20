@@ -23,13 +23,13 @@ fields:
     xpath: concat(//div[@class='product-name']//span[@class='h1'],' - ',//div[@class='product-name']//div[@class='marca_med'])  
   - name: price
     singleValue: false
-    xpath: //div[@class='price-info']//span[@class='price' and contains(@id,'product-price-')]
+    xpath: //div[@class='price-info']//span[contains(@class,'price') and contains(@id,'product-price-')]
   - name: listPrice
     singleValue: false
     xpath: //div[@class='price-info']//span[@class='price' and contains(@id,'old-price-')]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='product-img-box']//div[@class='product-availability']//span[@class='label' and text()='Disponibilidad:']/parent::p/span[@class='value']    
+    xpath: //div[@class='product-img-box']//div[@class='product-availability']//span[@class='label' and text()='Disponibilidad:']/parent::p/span[@class='value']
     defaultValue: In Stock
   - name: description
     singleValue: false
