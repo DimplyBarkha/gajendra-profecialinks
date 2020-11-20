@@ -29,7 +29,7 @@ module.exports = {
           }, ms);
         });
       }
-      var tempData, valueVariant, valueRating;
+     var tempData, valueVariant, valueRating;
       const rawData = document.querySelectorAll('script[type="application/ld+json"]');
       for (let i = 0; i < rawData.length; i++) {
         try {
@@ -50,6 +50,31 @@ module.exports = {
           continue;
         }
       }
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll("article[class= 'product']")[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+        }
+        const getAllXpath = (xpath, prop) => {
+          const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          const result = [];
+          for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+          }
+          return result;
+          };
+        var desc1 = getAllXpath("//a[@class= 'productLink']/@href ", 'nodeValue');
+        for ( var i =0 ; i < desc1.length; i++){
+          var ab="https://www.otto.de";
+          var bc=ab+desc1[i];
+          addHiddenDiv('bc', bc, i);
+
+
+        }
     });
     return await context.extract(productDetails, { transform });
   },

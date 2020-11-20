@@ -11,9 +11,9 @@ fields:
     xpath: //a[@class='productLink']/span
   - name: productUrl
     singleValue: false
-    xpath: //a[@class= 'productLink']/@href 
-    regExp: (\/p\/.+)
-    regExpReplace: https://www.otto.de$1
+    xpath: //div[@id='bc']
+    #regExp: (p.*)
+    #regExpReplace: https://www.otto.de/$1
   - name: price
     singleValue: single
     xpath: //span[@class='value']
