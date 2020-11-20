@@ -23,6 +23,14 @@ const transform = (data) => {
         row.specifications = [{ text }];
       }
 
+      if (row.featureBullets) {
+        let text = '';
+        row.featureBullets.forEach(item => {
+          text = text + (text ? ' ' : ' ') + item.text;
+        });
+        row.featureBullets = [{ text }];
+      }
+
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {

@@ -98,6 +98,7 @@ fields:
   - name: lbb
   - name: lbbPrice
   - name: featureBullets
+    xpath: ancestor::html//ul[@div="bulletedCopy"]//li
   - name: otherSellersName
   - name: otherSellersPrice
   - name: otherSellersShipping
@@ -153,7 +154,8 @@ fields:
   - name: upc
     xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")][1]/@data-gtin
   - name: mpn
-    xpath: ancestor::html//div[@data-automation-id="productModelNumber"]
-    regExp: (.+\s)(.+)
-    regExpReplace: $2
+  - name: highQualityImages
+    xpath: //@mainimage | //@secondaryimages
+    regExp: (.+)(\?.+)
+    regExpReplace: $1?hei=1500&wid=1500
 
