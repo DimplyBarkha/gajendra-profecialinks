@@ -19,13 +19,12 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      if (!row.variantUrl && row.variantUrl1 && row.productUrl) {
-        const variantUrl = [];
-        const productUrl = row.productUrl[0].text.replace(/(.*):(.*)_CT(.*)/, '$1');
-        row.variantUrl1.forEach(item => {
-          variantUrl.push({ text: productUrl + ':' + item.text });
+      if (row.variantId && !row.variantUrl) {
+        const varaintUrl = [];
+        row.variantId.forEach(item => {
+          varaintUrl.push({ text: `https://www.keurig.com/p/${item.text}` });
         });
-        row.variantUrl = variantUrl;
+        row.variantUrl = varaintUrl;
       }
     }
   }

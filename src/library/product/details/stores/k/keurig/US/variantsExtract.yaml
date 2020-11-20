@@ -6,13 +6,7 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //li[contains(@class,"selectVariant")]/@data-code
+    xpath: //li[contains(@class,"selectVariant")]/@data-code | //div[contains(@class,"productVariantColor")]//a/@data-swatch-color
   - name: variantUrl
     singleValue: false
     description: variant Url
-  - name: variantUrl1
-    singleValue: false
-    xpath: //li[contains(@class,"selectVariant")]/@data-varianturlsuffix
-  - name: productUrl
-    singleValue: false
-    xpath: //link[@itemprop="url"]/@href
