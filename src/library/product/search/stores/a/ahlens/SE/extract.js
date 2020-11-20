@@ -6,7 +6,7 @@ async function implementation(
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { productDetails } = dependencies;  
   await context.evaluate(async () => {
     function addHiddenDiv(id, content, index) {
       const newDiv = document.createElement('div');
@@ -15,6 +15,11 @@ async function implementation(
       newDiv.style.display = 'none';
       const originalDiv = document.querySelectorAll('div[class*=MuiCardContent-root]')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
+    while (!!document.querySelector('#ahl-product-list-app > div > div >button')) {
+      // @ts-ignore
+      document.querySelector('#ahl-product-list-app > div > div >button').click()
+      await new Promise(r => setTimeout(r, 6000));
     }
     // Method to Retrieve Xpath content of a Multiple Nodes
     const getAllXpath = (xpath, prop) => {
@@ -33,22 +38,15 @@ async function implementation(
           var temp = data[index].replace(",", ".");
         } else if (data[index].includes(" ")) {
           temp = data[index].replace(" ", "");
-        } else if (data[index].includes(":-")) {
-          temp = data[index].replace(":-", "");
-        }else {
-          temp=data[index]
+        } else {
+          temp = data[index]
         }
-        
+
         addHiddenDiv('zz', temp, index);
       }
     };
     var backgroundURL = getAllXpath("//*[contains(@class,'MuiCardContent-root')]/div/div/span[1]/text()", 'nodeValue');
     sliceURL(backgroundURL);
-    while (!!document.querySelector('#ahl-product-list-app > div > div >button')) {
-      document.querySelector('#ahl-product-list-app > div > div >button').click()
-      await new Promise(r => setTimeout(r, 6000));
-    }
-
   })
   return await context.extract(productDetails, { transform });
 }
