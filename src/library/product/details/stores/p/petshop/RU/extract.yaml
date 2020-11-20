@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: ol#variants_list > li
 recordXPath: null
 fields:
 - name: _input
@@ -75,6 +75,7 @@ fields:
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //@sku
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
@@ -162,6 +163,7 @@ fields:
 - name: subscriptionPrice
   singleValue: true
   description: Subscribe and save price
+  xpath: ancestor::html//div[contains(@class, "style_price_wrapper")]/div/span/text()[contains(., "автозаказу")]/ancestor::div[contains(@class, "style_price_wrapper")]//div[contains(@class, "style_price_current")]/span[@itemprop="priceCurrency"]
 - name: subscribeAndSave
   singleValue: true
   description: YES/NO
