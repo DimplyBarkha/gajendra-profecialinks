@@ -26,15 +26,39 @@ module.exports = {
         }
         return result;
       };
-      const splitfunction = (data) => {
-        var singleSeparatorText = data[0].split(',');
-        for (let i = 0; i < singleSeparatorText.length; i++) {
-          var output = singleSeparatorText[i].split(" ");
-          addElementToDocument('altImage', 'https://www.ahlens.se/' + output[0]);
+      const sliceURL = (data) => {
+        for (let index = 0; index < data.length; index++) {
+          if (data[index].includes(":")) {
+            var temp = data[index].replace(":", ".");
+          } else {
+            temp = data[index].replace(":-", ".");
+          }
+          addElementToDocument('altImage1', temp+"SEK");
         }
       };
-      const Images = getAllXpath("//div[@class='slick-track']/li[@class='ah-image-carousel__item slick-slide slick-current slick-active']/img[@class='ah-product-image']/@srcset", 'nodeValue');
-      splitfunction(Images);
+      var backgroundURL = getAllXpath("(//b[@class='ah-price'])[1]/text()", 'nodeValue');
+      sliceURL(backgroundURL);
+      const sliceURL1 = (data) => {
+        for (let index = 0; index < data.length; index++) {
+          if (data[index].includes(":")) {
+            var temp = data[index].replace(":", ".");
+          } else {
+            temp = data[index].replace(":-", ".");
+          }
+          addElementToDocument('altImage2', temp+"SEK");
+        }
+      };
+      var backgroundURL1 = getAllXpath("//div[@class='ah-offer-regular']/b[@class='ah-price']/text()", 'nodeValue');
+      sliceURL1(backgroundURL1);
+    //   const sliceURL2 = (data) => {
+    //     var singleSeparatorText = data[0].split(',');
+    //     for (let i = 0; i < singleSeparatorText.length; i++) {
+    //       var output = singleSeparatorText[i].split(" ");
+    //       addElementToDocument('altImage', 'https://www.ahlens.se/' + output[0]);
+    //     }
+    //   };
+    //   var backgroundURL2 = getAllXpath("//div[@class='slick-list draggable']/div[@class='slick-track']/li[@class='ah-image-carousel-nav__item slick-slide']/img[@class='ah-product-image']/@src", 'nodeValue');
+    //   sliceURL2(backgroundURL2);
     });
     await context.extract(productDetails, { transform: transformParam });
   },

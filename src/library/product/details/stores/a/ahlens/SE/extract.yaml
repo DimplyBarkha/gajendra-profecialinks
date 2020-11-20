@@ -18,35 +18,59 @@ fields:
     xpath: (//*[@id="pdp-image-carousel"]/div/div/li/img/@alt)[1]     
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
-    xpath: //html//div[@class='altImage']
+    xpath: //div[@class='slick-list draggable']/div[@class='slick-track']/li[@class='ah-image-carousel-nav__item slick-slide']/img[@class='ah-product-image']/@src
+    regExp: (/.+)
+    regExpReplace: https://www.ahlens.se/$1
+  # - name: secondaryImageTotal
+  #   singleValue: false
+  #   xpath: count(//html//div[@class='altImage'])
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class='ah-pdp-info']/h1[@class='mb-- weight--light ah-product-info__title']
+    xpath: //div[@class='ah-pdp-info']/div/a/text() |  //div[@class='ah-pdp-info']/h1[@class='mb-- weight--light ah-product-info__title'] 
   - name: listPrice
     singleValue: true
     type: CURRENCY
-    description: The stated undiscounted price for the product    
-    xpath: (//div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price'])[1]
+    xpath: //html//div[@class='altImage2']    
+  - name: color
+    singleValue: true
+    xpath: //div[@class='ah-dropdown__title']/span/text()
   - name: price
     singleValue: true
     type: CURRENCY
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged   
-    xpath: (//div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--reduced']/b[@class='ah-price'])[1]
+    xpath: //html//div[@class='altImage1']  
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class='bzfy-o-image-container__clip']/img[@class='bzfy-o-image']/@src  
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div/div/a[@class='ah-pdp-cta__btn btn btn--secondary btn--large u-1/1']/span/text()
+    # xpath: //div/div/a[@class='ah-pdp-cta__btn btn btn--secondary btn--large u-1/1']/span/text()
+    defaultValue: In Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //div[@class='ah-pdp-info']/div/p/text()
+    xpath: (//div[@class='ah-layout__item u-1/2'][2]/ng-include/div[@class='ah-pdp-info']/div | //div[@class='ah-layout__item u-1/2'][2]/ng-include/div[@class='ah-pdp-info']/ul[@class="ul--plain"]/li)
+    regExp: ([^•]+)
+  - name: descriptionBullets
+    singleValue: false    
+    xpath: count(//ul[@class="ul--plain"]/li)
+  - name: additionalDescBulletInfo
+    singleValue: false  
+    xpath: //ul[@class="ul--plain"]/li/text()
+    regExp: ([^•]+)
+  # - name: directions
+  #   singleValue: true   
+  #   xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Användning')]/ancestor::li/div
+  - name: quantity
+    singleValue: true   
+    xpath: //ul[@class="ul--plain"]/li[contains(text(),'Volym')]
+    regExp: (\d+).*$
+  # - name: packSize
+  #   singleValue: true   
+  #   xpath: //ul[@class="ul--plain"]/li[contains(text(),'Volym')]
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -56,10 +80,20 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: (//a[@class="a--light ah-favorite ah-svg-icon-btn"]/@sku)[1]
+  - name: ingredientsList
+    singleValue: true
+    xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Ingredienser')]/ancestor::li/div
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //li[@class="rainbow--light-gray"]/@content
+  - name: variantCount
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: count(//div/div/ng-include/div/div[2]/ul/li/@ng-repeat)
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@class='ah-dropdown__title']/span/text()
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -73,7 +107,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class='ah-pdp-info']/div/p
+    #xpath: //div[@class='ah-pdp-info']/div/p
   - name: name
     singleValue: true
     description: The product name
@@ -81,7 +115,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@class="ah-faq__definition"]/text()
+    #xpath: //div[@class="ah-faq__definition"]/text()
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -93,7 +127,7 @@ fields:
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
@@ -101,7 +135,7 @@ fields:
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: materials
     singleValue: true
     description: Materials used to make the product
@@ -116,4 +150,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
