@@ -52,14 +52,22 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     return hasDirection;
   });
 
+  async function loadResources () {
+    await context.setAntiFingerprint(false);
+    await context.setLoadAllResources(true);
+    await context.setBlockAds(false);
+  }
+
   if (hasDescription) {
+    loadResources();
     await context.goto(url + 'description', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
     const hasShowMore = await context.evaluate(function () {
       return Boolean(document.evaluate("//hts-product-tab//span[@class='show-link']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
     });
 
     if (hasShowMore) {
-      await context.click('hts-product-tab span[class="show-link"]', {}, { timeout: 50000 });
+      // await context.click('hts-product-tab span[class="show-link"]', {}, { timeout: 50000 });
+      await context.click('hts-product-tab a', {}, { timeout: 50000 });
     }
 
     DescriptionDetails = await context.evaluate(async function () {
@@ -125,6 +133,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     });
   }
   if (hasIngredient) {
+    loadResources();
     await context.goto(url + 'ingredients', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
     IngredientDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
@@ -140,6 +149,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     });
   }
   if (hasDirection) {
+    loadResources();
     await context.goto(url + 'usage%2520directions%2520dosage', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
     DirectionDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
@@ -156,6 +166,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
   }
 
   if (hasWarning) {
+    loadResources();
     await context.goto(url + 'warnings%2520cautions', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
     WarningDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
@@ -171,6 +182,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     });
   }
   if (hasNutrition) {
+    loadResources();
     await context.goto(url + 'nutrition', { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
     nutritionDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
@@ -199,6 +211,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       const Calcium = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Calcium")]/following-sibling::span[1]', 'innerText');
       const Iron = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Iron")]/following-sibling::span[1]', 'innerText');
       const NutritionString = ServingSize + '|' + ServingPerContainer + '|' + Calories + ' |' + CaloriesFromFat + ' |' + TotalFat + '|' + SaturatedFat + '|' + TransFat + '|' + Cholestrol + '|' + Sodium + '|' + Carbohydrate + '|' + DieteryFiber + '|' + TotalSugar + '|' + Protein + '|' + VitaminA + '|' + VitaminC + '|' + Calcium + '|' + Iron;
+      // console.log(NutritionString);
       return NutritionString.split('|');
     });
   }
