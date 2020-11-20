@@ -25,15 +25,10 @@ const transform = (data) => {
     for (const { group } of data) {
       let rank = 1;
       for (const row of group) {
-        if (row.price) {
-            row.price.forEach(item => {
-              item.text = item.text.replace(/\/.*/g, '').trim();
-            });
-        }
-        if (row.listPrice) {
-            row.listPrice.forEach(item => {
-              item.text = item.text.replace(/\/.*/g, '').trim();
-            });
+        if (row.thumbnail) {
+          row.thumbnail.forEach(item => {
+            item.text = 'https://shop.transgourmet.de' + item.text;
+          });
         }
         if (row.name) {
           row.name.forEach(item => {

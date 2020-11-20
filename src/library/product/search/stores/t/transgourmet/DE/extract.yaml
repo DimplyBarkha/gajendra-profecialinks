@@ -1,5 +1,17 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@id="dataScroller"]//li[contains(@class,"ui-datascroller-item") and not(contains(position(),"1"))]//div[@class="item-3"]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@id="dataScroller"]//p[contains(@class,"bez1 flat")]//a/@href 
+  - name: id
+    SingleValue: false
+    xpath: //div[@id="dataScroller"]//p[contains(@class,"artnr flat")]//a
+  - name: name
+    SingleValue: false
+    xpath: //div[@id="dataScroller"]//p[contains(@class,"bez1 flat")]//a
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@id="dataScroller"]//div[@class='links']//img/@src
