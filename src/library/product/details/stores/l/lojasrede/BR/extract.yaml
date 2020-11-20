@@ -35,12 +35,16 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //div[@class="row product-details"]//strong[@class="skuListPrice"]
+    # regExp: (.+)(,)(.+)
+    # regExpReplace: $1.$3
     type: CURRENCY
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class="row product-details"]//em[@class="valor-por price-best-price"]/strong
+    xpath: //div[@class="row product-details"]//em[@class="valor-por price-best-price"]/strong/text()
+    # regExp: (.+)(,)(.+)
+    # regExpReplace: $1.$3
     type: CURRENCY
   - name: availabilityText
     singleValue: true
