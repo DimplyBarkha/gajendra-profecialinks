@@ -24,10 +24,6 @@ const transform = (data, context) => {
                 row.ratingCount[0].text = row.ratingCount[0].text.replace(')','');
             }
 
-            if (row.id) {
-                row.id[0].text = row.id[0].text.replace('photo_produit_','');
-            }
-
             if (row.productUrl) {
                 row.productUrl[0].text = 'https://www.cocooncenter.com' + row.productUrl[0].text;
             }
