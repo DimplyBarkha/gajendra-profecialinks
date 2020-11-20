@@ -1,0 +1,68 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //li[position()=1]//img[@data-automation="product-image" and @class='css-ys4vis']/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //li[position()=1]//img[@data-automation="product-image" and @class='css-ys4vis']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[position()>1]//img[@data-automation="product-image" and @class='css-ys4vis']/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //title
+  - name: category
+    singleValue: false
+    xpath: //nav[@data-automation="breadcrumb"]//ol/li//a[contains(@id,'breadcrumb-s_')]
+  - name: nameExtended
+    singleValue: false
+    xpath: concat(//span[@data-automation="product-title"],' - ',//span[@data-automation="product-brand-name"])
+  - name: name
+    singleValue: false
+    xpath: //span[@data-automation="product-title"]
+  - name: listPrice
+    singleValue: false
+    xpath: //p[@data-automation="product-price-was"]//span[not(@class)]
+  - name: price
+    singleValue: false
+    xpath: //p[@data-automation="product-price-now"]//span[not(@class)]
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
+  - name: availabilityText
+    singleValue: false
+    xpath: //button[@id="add-to-bag-btn"]/@id
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@id='product-details-accordian-description-accordion-id']//div[@class='description']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id='product-details-accordian-description-accordion-id']//div[@class='description']//ul//li    
+  - name: brandText
+    singleValue: false
+    xpath: //span[@data-automation="product-brand-name"]    
+  - name: sku
+    singleValue: false
+    xpath: //p[@data-automation="product-part-number"]//span
+  - name: variantId
+    singleValue: false
+    xpath: //p[@data-automation="product-part-number"]//span  
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="rating_summary_container"]//meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="rating_summary_container"]//div[@itemprop="ratingValue"]      
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'    
+  - name: color
+    singleValue: false
+    xpath: //div[@data-automation="colour-select-container"]//span[@data-automation]
