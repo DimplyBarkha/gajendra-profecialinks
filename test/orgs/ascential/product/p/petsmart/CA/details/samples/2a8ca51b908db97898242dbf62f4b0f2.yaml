@@ -1,82 +1,83 @@
 input:
-  id: 1211667
+  id: 5151384
   _url: http://petsmart.ca
 extractions:
-  - html: https://workbench.import.io/html/run=13a15be3-038b-49ed-b30d-4968483d753a/task=5b400c50-08cd-421a-a381-0dd82eb0c6a6/aadc07db-03a9-430d-835c-fab6cc668005.html
+  - html: https://workbench.import.io/html/run=13a15be3-038b-49ed-b30d-4968483d753a/task=bf6d956b-beb3-41d8-83f0-bdf760a20726/1d3aa5d5-7577-4b6f-832b-ec64403d667d.html
     extractionConfigId: product/details/stores/p/petsmart/CA/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.petsmart.ca/dog/food/canned-food/pedigree-vitality%2B-choice-cuts-in-sauce-dog-food-1211667.html
+              - text: https://www.petsmart.ca/dog/food/dry-food/purina-beneful-incredibites-adult-dog-food-5151384.html
                 xpath: /html/body/link[8]/@href
             image:
-              - text: https://s7d2.scene7.com/is/image/PetSmart/1211667?$CLEARjpg$
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5151384?$CLEARjpg$
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5151384?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5151384_alt1?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5151384_alt2?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5151384_alt3?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[8]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5151384_alt4?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/img[1]/@src
             metaKeywords:
-              - text: pedigree vitality+ choice cuts in sauce dog food,pedigree vitality+ choice
-                  cuts in sauce dog food dog canned food,pedigree vitality+
-                  choice cuts in sauce dog food dog canned food petsmart
+              - text: purina® beneful® incredibites adult dog food,purina® beneful® incredibites
+                  adult dog food dog dry food,purina® beneful® incredibites
+                  adult dog food dog dry food petsmart
                 xpath: /html/head[1]/meta[8]/@content
             category:
               - text: dog
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
               - text: Food
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
-              - text: Canned Food
+              - text: Dry Food
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]
             nameExtended:
-              - text: Pedigree Vitality+ Choice Cuts in Sauce Dog Food
+              - text: Purina® Beneful® IncrediBites Adult Dog Food
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
             price:
-              - text: $ 2.15
+              - text: $ 8.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/span[1]/text()[1]
             brandText:
-              - text: Pedigree
+              - text: Beneful
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/a[1]
             manufacturer:
-              - text: Pedigree
+              - text: Beneful
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/a[1]
             quantity:
-              - text: 22 Oz
+              - text: 3.5 Lb
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/label[1]/strong[1]
             sku:
-              - text: "1211667"
+              - text: "5151384"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
             variantId:
-              - text: "1211667"
+              - text: "5151384"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
             ratingCount:
-              - text: "9"
+              - text: "50"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]/div[1]/div[2]/meta[1]/@content
                 type: NUMBER
-                raw: "9"
+                raw: "50"
                 locale: en
-                value: 9
+                value: 50
             aggregateRating:
-              - text: "5"
+              - text: "4.8"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
                 type: NUMBER
-                raw: "5.0"
+                raw: "4.8"
                 locale: en
-                value: 5
+                value: 4.8
             name:
-              - text: Pedigree Vitality+ Choice Cuts in Sauce Dog Food
+              - text: Purina® Beneful® IncrediBites Adult Dog Food
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
-            variantInformation:
-              - text: Lamb & Vegetable
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/select[1]/option[3]
-            variants:
-              - text: Beef
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/select[1]/option[1]
-              - text: Country Stew
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/select[1]/option[2]
-              - text: Lamb & Vegetable
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/select[1]/option[3]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/@zoompresent
             eangtin:
-              - text: "0058496701574"
+              - text: "0055800132338"
                 xpath: /html/body/@gtin
             technicalInformationPdfPresent:
               - text: No
@@ -95,10 +96,10 @@ extractions:
                 locale: en
                 value: 0
             variantCount:
-              - text: "3"
+              - text: "0"
                 type: NUMBER
-                raw: "3"
+                raw: "0"
                 locale: en
-                value: 3
+                value: 0
         xpath: /
-    timestamp: 1605866412083
+    timestamp: 1605866414745

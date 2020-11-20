@@ -1,168 +1,146 @@
 input:
-  id: 1011407
+  id: 5100179
   _url: http://petsmart.ca
 extractions:
-  - html: https://workbench.import.io/html/run=13a15be3-038b-49ed-b30d-4968483d753a/task=fc7bd595-f455-4d47-9413-964ef0da7f25/4d77ceab-7734-4d01-9992-af22f12064d3.html
+  - html: https://workbench.import.io/html/run=13a15be3-038b-49ed-b30d-4968483d753a/task=db33a930-eccf-466b-9ea7-cf7fe8f2f0ca/75354e1e-211d-4a13-ac1d-4d05f3b34693.html
     extractionConfigId: product/details/stores/p/petsmart/CA/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.petsmart.ca/dog/food/dry-food/hills-science-diet-light-adult-dog-food---chicken-meal-and-barley-1011407.html
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/royal-canin-feline-health-nutritionandtrade-indoor-7%2B-cat-food-5100179.html
                 xpath: /html/body/link[8]/@href
             image:
-              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407?$CLEARjpg$
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179?$CLEARjpg$
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/img[1]/@src
             alternateImages:
-              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407?fit=constrain,1&wid=80&hei=80
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179?fit=constrain,1&wid=80&hei=80
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/img[1]/@src
-              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407_alt1?fit=constrain,1&wid=80&hei=80
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179_alt1?fit=constrain,1&wid=80&hei=80
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/img[1]/@src
-              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407_alt2?fit=constrain,1&wid=80&hei=80
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179_alt2?fit=constrain,1&wid=80&hei=80
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/img[1]/@src
-              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407_alt3?fit=constrain,1&wid=80&hei=80
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179_alt3?fit=constrain,1&wid=80&hei=80
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[8]/div[1]/div[1]/img[1]/@src
-              - text: https://s7d2.scene7.com/is/image/PetSmart/1011407_alt4?fit=constrain,1&wid=80&hei=80
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179_alt4?fit=constrain,1&wid=80&hei=80
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/img[1]/@src
             metaKeywords:
-              - text: hill's® science diet® light adult dog food - chicken meal & barley,hill's®
-                  science diet® light adult dog food - chicken meal & barley dog
-                  dry food,hill's® science diet® light adult dog food - chicken
-                  meal & barley dog dry food petsmart
+              - text: royal canin® feline health nutrition&trade; indoor 7+ cat food,royal
+                  canin® feline health nutrition&trade; indoor 7+ cat food cat
+                  dry food,royal canin® feline health nutrition&trade; indoor 7+
+                  cat food cat dry food petsmart
                 xpath: /html/head[1]/meta[8]/@content
             category:
-              - text: dog
+              - text: cat
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
-              - text: Food
+              - text: Food & Treats
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
               - text: Dry Food
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]
             nameExtended:
-              - text: Hill's® Science Diet® Light Adult Dog Food - Chicken Meal & Barley
+              - text: Royal Canin® Feline Health Nutrition™ Indoor 7+ Cat Food
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
-            listPrice:
-              - text: $ 21.99
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/span[1]/span[2]/text()[1]
             price:
-              - text: $ 18.99
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/span[1]/span[1]/text()[1]
+              - text: $ 26.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/span[1]/text()[1]
             description:
-              - text: "Hill's Science Diet Light Adult dry dog food is precise nutrition for
-                  less active adult dogs requiring a low calorie food to
-                  maintain a healthy weight & lifestyle. This food offers
-                  delicious chicken flavor in a small bite size for those that
-                  prefer variety. Low calories & L-Carnitine help promote ideal
-                  body weight, support healthy mobility & maintain heart
-                  function High-quality protein & natural fibers help satisfy
-                  hunger between meals Omega-6s & Vitamin E for beautiful skin &
-                  coat "
+              - text: "ROYAL CANIN Feline Health Nutrition Indoor 7+ Cat Food id for indoor cats
+                  7 to 12 years of age. After the age of 7 years, a cat starts
+                  feeling the effects of aging. Kidney function, joints and the
+                  immune system are the first to be affected. Teeth and gums can
+                  also become sensitive making it difficult to chew. Proper
+                  nutrition for aging cats is essential to ensure they live a
+                  long and happy life, and this delicious dry blend provides it.
+                  Supports healthy aging Protects sensitive teeth and gums
+                  Reduces stool odour "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
             brandText:
-              - text: Hill's Science Diet
+              - text: Royal Canin
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/a[1]
             manufacturer:
-              - text: Hill's Science Diet
+              - text: Royal Canin
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/a[1]
-            quantity:
-              - text: 5 Lb
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/label[1]/strong[1]
             weightNet:
-              - text: 5 lb
+              - text: 2.5 lb (1.1 kg)
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/li[3]/p[1]
             sku:
-              - text: "1011407"
+              - text: "5100179"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
             variantId:
-              - text: "1011407"
+              - text: "5100179"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
             directions:
-              - text: >-
+              - text: |-
                   FEEDING INSTRUCTIONS
-
-                  Weight Control
-
-                  Daily Feeding Guide
-
-                  Ideal Weight of Dog - lbs (kgs) Amount per Day - cups (grams) - Weight loss Amount per Day - cups (grams) - Weight Management
-
-                  5 (2,3) 1/2 (45) 2/3 (60)
-
-                  10 (4,5) 3/4 (70) 1 1/8 (100)
-
-                  20 (9,1) 1 1/3 (120) 2 (180)
-
-                  30 (14) 1 3/4 (160) 2 1/2 (225)
-
-                  40 (18) 2 1/4 (205) 3 1/4 (295)
-
-                  50 (23) 2 2/3 (240) 3 3/4 (340)
-
-                  60 (27) 3 (270) 4 1/3 (395)
-
-                  80 (36) 3 3/4 (340) 5 1/3 (485)
-
-                  100 (45) 4 1/2 (410) 6 1/3 (575)
-
-                  120 (54) 5 1/4 (475) 7 1/4 (660)
+                  Please check the feeding guide in the gallery.
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/@directions
             ratingCount:
-              - text: "104"
+              - text: "9"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]/div[1]/div[2]/meta[1]/@content
                 type: NUMBER
-                raw: "104"
+                raw: "9"
                 locale: en
-                value: 104
+                value: 9
             aggregateRating:
-              - text: "4.8"
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
                 type: NUMBER
-                raw: "4.8"
+                raw: "4.3"
                 locale: en
-                value: 4.8
+                value: 4.3
             name:
-              - text: Hill's® Science Diet® Light Adult Dog Food - Chicken Meal & Barley
+              - text: Royal Canin® Feline Health Nutrition™ Indoor 7+ Cat Food
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
             ingredientsList:
               - text: >-
                   Ingredients:
 
-                  Chicken Meal, Cracked Pearled Barley, Pea Fiber, Whole Grain Wheat, Whole Grain Corn, Corn Gluten Meal, Whole Grain Sorghum, Powdered Cellulose, Chicken Liver Flavor, Soybean Oil, Dried Beet Pulp, Flaxseed, Lactic Acid, Pork Flavor, Potassium Chloride, L-Lysine, Iodized Salt, Choline Chloride, Calcium Carbonate, vitamins (Vitamin E Supplement, L-Ascorbyl-2-Polyphosphate (source of Vitamin C), Niacin Supplement, Thiamine Mononitrate, Vitamin A Supplement, Calcium Pantothenate, Riboflavin Supplement, Biotin, Vitamin B12 Supplement, Pyridoxine Hydrochloride, Folic Acid, Vitamin D3 Supplement), minerals (Ferrous Sulfate, Zinc Oxide, Copper Sulfate, Manganous Oxide, Calcium Iodate, Sodium Selenite), Taurine, Oat Fiber, Mixed Tocopherols for freshness, L-Carnitine, Natural Flavors, Beta-Carotene, Apples, Broccoli, Carrots, Cranberries, Green Peas
+                  Corn, Barley, Wheat, Chicken Meal, Corn Gluten Meal, Soy Protein Isolate, Natural Flavors, Chicken Fat, Wheat Gluten, Brewers Rice, Dried Plain Beet Pulp, Vegetable Oil, Pea Fiber, Fish Oil, Calcium Sulfate, Rice Hulls, Grain Distillers Dried Yeast, Potassium Chloride, Egg Product, Psyllium Seed Husk, Sodium Silico Aluminate, Sodium Bisulfate, Sodium Pyrophosphate, Fructooligosaccharides, Choline Chloride, Calcium Carbonate, Vitamins [DL-Alpha Tocopherol Acetate (Source Of Vitamin E), L-Ascorbyl-2-Polyphosphate (Source Of Vitamin C), Niacin Supplement, Biotin, Riboflavin Supplement, D-Calcium Pantothenate, Pyridoxine Hydrochloride (Vitamin B6), Vitamin A Acetate, Thiamine Mononitrate (Vitamin B1), Vitamin B12 Supplement, Folic Acid, Vitamin D3 Supplement], Taurine, DL-Methionine, Potassium Citrate, Salt, Trace Minerals [Zinc Proteinate, Zinc Oxide, Ferrous Sulfate, Manganese Proteinate, Manganous Oxide, Copper Sulfate, Calcium Iodate, Copper Proteinate, Sodium Selenite], Glucosamine Hydrochloride, Marigold Extract (Tagetes Erecta L.), Green Tea Extract, L-Carnitine, Chondroitin Sulfate, Rosemary Extract, Preserved With Mixed Tocopherols And Citric Acid
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@ingredients
+            servingSize:
+              - text: /kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
+            servingSizeUom:
+              - text: kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
             caloriesPerServing:
-              - text: "2987"
+              - text: 3,587 kcal/kg ME (308 kcal/cup ME)
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
             totalFatPerServing:
-              - text: "5.5"
+              - text: "11.0"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
                 type: STRING
             totalFatPerServingUom:
               - text: "%"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
             dietaryFibrePerServing:
-              - text: "14.0"
+              - text: "5.5"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
                 type: STRING
             dietaryFibrePerServingUom:
               - text: "%"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
             proteinPerServing:
-              - text: "20.0"
+              - text: "27.0"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
                 type: STRING
             proteinPerServingUom:
               - text: "%"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
-            vitaminCPerServing:
-              - text: "85"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
-                type: STRING
-            vitaminCPerServingUom:
-              - text: ppm
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+            variantInformation:
+              - text: 2.5 Lb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/select[1]/option[1]
+            variants:
+              - text: 2.5 Lb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/select[1]/option[1]
+              - text: 5.5 Lb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/select[1]/option[2]
+              - text: 13 Lb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/select[1]/option[3]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/@zoompresent
             eangtin:
-              - text: "0052742459301"
+              - text: "0030111630315"
                 xpath: /html/body/@gtin
             technicalInformationPdfPresent:
               - text: No
@@ -181,10 +159,10 @@ extractions:
                 locale: en
                 value: 3
             variantCount:
-              - text: "0"
+              - text: "3"
                 type: NUMBER
-                raw: "0"
+                raw: "3"
                 locale: en
-                value: 0
+                value: 3
         xpath: /
-    timestamp: 1605866421317
+    timestamp: 1605866414802

@@ -1,20 +1,19 @@
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CA',
     store: 'petsmart',
-    transform: null,
+    transform: transform,
     domain: 'petsmart.ca',
     zipcode: '',
   },
   // @ts-ignore
-  implementation: async (
-    { inputString },
-    { country, domain, transform },
-    context,
-    { productDetails },
-  ) => {
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+
     await context.evaluate(async () => {
     // getting data from directions tab
       const directionsTab = document.querySelector('li#react-tabs-4');
@@ -91,7 +90,7 @@ module.exports = {
       body.setAttribute('zoompresent', zoomPresent);
     });
 
-    var dataRef = await context.extract(productDetails);
+    var dataRef = await context.extract(productDetails, { transform });
 
     var description = dataRef[0].group[0].description;
     if (description && description.length > 1) {
