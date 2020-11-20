@@ -7,7 +7,7 @@
  * }} inputs
  * @param {{
  *  nextLinkSelector: string,
- * nextLinkXpath: string,
+ *  nextLinkXpath: string,
  *  mutationSelector: string,
  *  loadedSelector: string,
  *  loadedXpath: string,
@@ -69,12 +69,14 @@ async function implementation (
     nextLink = `#${uuid}`;
   }
   const { pager } = dependencies;
-  const success = await pager({ keywords, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
+
+  const success = openSearchDefinition ? false : await pager({ keywords, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
+
   if (success) {
     return true;
   }
 
-  let url = await context.evaluate(function () {
+  let url = openSearchDefinition ? false : await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
     const next = document.querySelector('head link[rel="next"]');
     if (!next) {
@@ -84,7 +86,7 @@ async function implementation (
   });
 
   if (!url && openSearchDefinition) {
-    const { pageStartNb, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
+    const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
     const pageNb = page + pageStartNb - 1;
     url = template
       .replace('{searchTerms}', encodeURIComponent(keywords))

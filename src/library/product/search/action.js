@@ -39,6 +39,11 @@ module.exports = {
       description: 'the minimum number of results required',
       type: 'number',
     },
+    {
+      name: 'Brands',
+      description: 'brands to search for',
+      type: 'string',
+    },
   ],
   dependencies: {
     execute: 'action:product/search/execute',
@@ -46,14 +51,18 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+  implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+    const { keywords, Keywords, results = 150, Brands } = inputs;
+
+    const inputKeywords = Keywords || keywords || Brands;
+
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    keywords = (Keywords) || (Brands) || (keywords);
-    console.log('zip:' + zipcode);
-
-    const resultsReturned = await execute({ keywords, zipcode });
+    const resultsReturned = await execute({
+      keywords: inputKeywords,
+      zipcode: inputs.zipcode || zipcode,
+    });
 
     // do the search
 
@@ -70,18 +79,13 @@ module.exports = {
     console.log('Got initial number of results', collected);
 
     // check we have some data
-    if (collected === 0) {
-      return;
-    }
+    if (collected === 0) return;
 
     let page = 2;
-    while (collected < results && await paginate({ keywords, page, offset: collected })) {
+    while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
       const data = await extract({});
       const count = length(data);
-      if (count === 0) {
-        // no results
-        break;
-      }
+      if (count === 0) break; // no results
       collected += count;
       console.log('Got more results', collected);
       page++;
