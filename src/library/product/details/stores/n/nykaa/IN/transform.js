@@ -34,6 +34,25 @@ const cleanUp = (data, context) => {
                     },
                 ];
             }
+            if (row.description) {
+                let text = '';
+                row.description.forEach((element) => {
+                    if (element.xpath.includes('li')) {
+                        text += ` || ${element.text}`;
+                    } else {
+                        text += ` ${element.text}`
+                    }
+                })
+                row.description = [{ text }];
+            }
+            if (row.manufacturerDescription) {
+                let text1 = ''
+                row.manufacturerDescription.forEach((element) => {
+                    text1 += `${element.text} `;
+                })
+                row.manufacturerDescription = [{ text: text1.trim() }]
+            }
+
         }
     }
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

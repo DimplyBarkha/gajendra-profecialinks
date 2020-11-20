@@ -1,14 +1,4 @@
 
-// module.exports = {
-//   implements: 'product/details/extract',
-//   parameterValues: {
-//     country: 'IN',
-//     store: 'nykaa',
-//     transform: null,
-//     domain: 'nykaa.com',
-//     zipcode: '',
-//   },
-// };
 
 const { cleanUp } = require('./transform');
 module.exports = {
@@ -19,7 +9,7 @@ module.exports = {
     transform: cleanUp,
     domain: 'nykaa.com',
   },
-  implementation: async function implementation (
+  implementation: async function implementation(
     inputs,
     parameters,
     context,
@@ -77,7 +67,35 @@ module.exports = {
         brand = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.brand_name[0];
       }
       document.body.setAttribute('brand', brand);
+      const scrpt = document.querySelectorAll('script');
+      let outScript = '';
+      scrpt.forEach((element) => {
+        if (element.innerText.includes('window.__PRELOADED_STATE')) {
+          outScript = element;
+        }
+      })
+      const data1 = outScript.innerText && outScript.innerText.split(',');
+      let id = ''
+      data1.forEach((element) => {
+        const skuValue = element.split(':');
+        skuValue.forEach((element2, index) => {
+          if (element2 == '"sku"') {
+            id = skuValue[index + 1];
+          }
+        })
+      })
+      const imgurl = document.querySelector('div[class*="post-card__img"]>div>img') && document.querySelector('div[class*="post-card__img"]>div>img').getAttribute('src');
+      const id1 = imgurl.match(/\d{4,}/g)[0];
+      let sku = ''
+      if (id != '') {
+        sku = id;
+      } else {
+        sku = id1;
+      }
+      var appendElement = document.querySelector('div[class*="post-card__img-wrap1"] img');
+      appendElement.setAttribute('sku', sku);
     });
+
     return await context.extract(productDetails, { transform });
   },
 };

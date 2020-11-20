@@ -536,8 +536,10 @@ fields:
     xpath: //dd[contains(text(),'Weight')]
     regExp: (\d+).(\d+)\s?\w+
   - name: sku
-    xpath: //link[@rel="canonical"]/@href
-    regExp: p/(\d+)
+    xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@sku
+    regExp: (\d+)
+    # xpath: //link[@rel="canonical"]/@href
+    # regExp: p/(\d+)
     regExpReplace: $1
   - name: variantId
     xpath: //link[@rel="canonical"]/@href
@@ -617,5 +619,5 @@ fields:
     xpath: //div[contains(@class,'pdp-description-tab-item')]//p[contains(.,'Additional')]/text()
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: null
+    xpath: //div[@class="AzIndex"] | //div[@class="pdp-description-tab-item description-expand"]//p[contains(.,'Explore')]
     
