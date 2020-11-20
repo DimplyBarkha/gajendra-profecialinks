@@ -27,7 +27,8 @@ fields:
     xpath: //ul[@class="breadcrumbs"]/li/a
   - name: nameExtended
     singleValue: false
-    xpath: (//div[@class="media-wrapper"]/img[@srcset]/@alt)[1]
+    # xpath: (//div[@class="media-wrapper"]/img[@srcset]/@alt)[1]
+    xpath: //div[contains(@class,'product-title')]//h1
   - name: listPrice
     singleValue: false
     xpath: //span[@class="old-price"]/span[@class="strikethrough"]
