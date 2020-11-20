@@ -20,13 +20,14 @@ module.exports = {
     await context.setAntiFingerprint(true);
     await context.setUseRelayProxy(true);
 
-    const captchaFrame = 'div.g-recaptcha iframe';
+    // const captchaFrame = 'div.g-recaptcha iframe';
     // const captchaToken = '#recaptcha-token';
+    const captchaSelector = 'div.re-captcha';
 
     const isCaptcha = async () => {
-      return await context.evaluate(async function () {
-        return !!document.querySelector('div.re-captcha');
-      });
+      return await context.evaluate(async (captchaSelector) => {
+        return !!document.querySelector(captchaSelector);
+      }, captchaSelector);
     };
 
     const solveCaptcha = async () => {
@@ -38,15 +39,15 @@ module.exports = {
         autoSubmit: true,
       });
       console.log('solved captcha, waiting for page change');
-      const res = await Promise.race([
+      await Promise.race([
         context.waitForSelector('span[data-automation-id="zero-results-message"], .g-recaptcha, div[id="product-overview"]'),
-        new Promise((r, j) => setTimeout(j, 2e4)),
+        new Promise((resolve, reject) => setTimeout(reject, 2e4)),
       ]);
 
       console.log('Captcha vanished');
     };
 
-    const solveCaptchaIfNecessary = async () => {
+    const solveCaptchaIfNecessary = async (responseData) => {
       console.log('Checking for CAPTCHA');
       while (await isCaptcha() && captchas < MAX_CAPTCHAS) {
         if (backconnect) throw Error('CAPTCHA received');
@@ -62,14 +63,14 @@ module.exports = {
         if (!benchmark) {
           // we failed to solve the CAPTCHA
           console.log('We failed to solve the CAPTCHA');
-          return context.reportBlocked(lastResponseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
+          return context.reportBlocked(responseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
         }
         return false;
       }
       return true;
     };
 
-    await context.goto(url, {
+    const lastResponseData = await context.goto(url, {
       firstRequestTimeout: 40000,
       timeout,
       waitUntil: 'load',
@@ -79,6 +80,6 @@ module.exports = {
       },
     });
 
-    await solveCaptchaIfNecessary();
+    await solveCaptchaIfNecessary(lastResponseData);
   },
 };

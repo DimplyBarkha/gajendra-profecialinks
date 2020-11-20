@@ -1,67 +1,71 @@
+// @ts-nocheck
 
 module.exports = {
-
   implements: 'navigation/goto',
-
   parameterValues: {
     domain: 'grocery.walmart.com',
     country: 'US',
     store: 'walmartOG',
+    timeout: 180000,
   },
 
-  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
-    await context.setBlockAds(false);
-    await context.setLoadAllResources(true);
-    await context.setLoadImages(true);
-    await context.setAntiFingerprint(false);
-
+  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
+    const timeout = parameters.timeout ? parameters.timeout : 10000;
     const memory = {};
     const backconnect = !!memory.backconnect;
-    console.log('backconnect', backconnect);
     const benchmark = !!memory.benchmark;
-    console.log('benchmark', benchmark);
-    const start = Date.now();
     const MAX_CAPTCHAS = 3;
-
-    // let pageId;
     let captchas = 0;
-    let hasCaptcha = false;
-    let lastResponseData;
 
-    const isCaptcha = async function () {
-      return await context.evaluate(async function () {
-        return document.querySelector('div.g-recaptcha') ? 'true' : 'false';
-      });
+    await context.setBlockAds(false);
+    await context.setJavaScriptEnabled(true);
+    // await context.setAntiFingerprint(true);
+    await context.setAntiFingerprint(false);
+    // await context.setUseRelayProxy(true);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+
+    const captchaSelector = 'div.g-recaptcha';
+
+    const isCaptcha = async () => {
+      return await context.evaluate(async (captchaSelector) => {
+        return !!document.querySelector(captchaSelector);
+      }, captchaSelector);
     };
 
-    const solveCaptcha = async function () {
+    const solveCaptcha = async () => {
       console.log('isCaptcha', true);
+
       await context.solveCaptcha({
         type: 'RECAPTCHA',
         inputElement: '.g-recaptcha',
         autoSubmit: true,
       });
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      console.log('solved captcha, waiting for page change');
+      await Promise.race([
+        context.waitForNavigation(),
+        context.waitForSelector('span[data-automation-id="zero-results-message"], .g-recaptcha, div[id="product-overview"], section[id="shoppingContent"]'),
+        await new Promise((resolve, reject) => setTimeout(reject, 5000)),
+      ]);
 
-      await context.waitForNavigation();
       console.log('Captcha vanished');
     };
 
-    const solveCaptchaIfNecessary = async function () {
+    const solveCaptchaIfNecessary = async (lastResponseData) => {
       console.log('Checking for CAPTCHA');
-      await new Promise((resolve) => setTimeout(resolve, 10000));
       while (await isCaptcha() === 'true' && captchas < MAX_CAPTCHAS) {
-        console.log('isCaptcha() has returned true.');
-        captchas++;
-        console.log(`captchas count - ${captchas}`);
+        if (backconnect) throw Error('CAPTCHA received');
         await context.waitForSelector('iframe[role="presentation"]', { timeout: 120000 });
-        if (backconnect) {
-          throw Error('CAPTCHA received');
-        }
-        console.log('Solving a captcha', await isCaptcha(), captchas);
+
+        console.log('Solving a captcha, captcha start time:', new Date());
+
         await solveCaptcha();
+        captchas += 1;
+        console.log('captcha end time:', new Date());
+        await new Promise(resolve => setTimeout(resolve, 10000));
       }
-      if (await isCaptcha() === 'true') {
+
+      if (await isCaptcha()) {
         console.log(`isCaptcha() has returned true. Now will check for benchmark - ${benchmark}`);
         if (!benchmark) {
           // we failed to solve the CAPTCHA
@@ -73,69 +77,30 @@ module.exports = {
       return true;
     };
 
-    const run = async function () {
-      // do we perhaps want to go to the homepage for amazon first?
-      lastResponseData = await context.goto('https://www.walmart.com/grocery', {
-        timeout: 180000,
-        waitUntil: 'load',
-        checkBlocked: true,
-        js_enabled: true,
-        css_enabled: false,
-        random_move_mouse: true,
-        block_ads: false,
-      });
-
-      await context.waitForNavigation();
-      if (!await solveCaptchaIfNecessary()) {
-        hasCaptcha = true;
-        return;
-      }
-
-      console.log('Going back to desired page');
-      lastResponseData = await context.goto(url, {
-        timeout: 180000,
-        waitUntil: 'load',
-        checkBlocked: true,
-        js_enabled: true,
-        css_enabled: false,
-        random_move_mouse: true,
-        block_ads: false,
-      });
-      console.log('lastResponseData', lastResponseData);
-
-      if (!await solveCaptchaIfNecessary()) {
-        hasCaptcha = true;
-        console.log(`hasCaptcha is - ${hasCaptcha}`)
-      }
+    const gotoParams = {
+      firstRequestTimeout: 40000,
+      timeout,
+      waitUntil: 'load',
+      checkBlocked: true,
+      css_enabled: false,
+      random_move_mouse: true,
+      antiCaptchaOptions: {
+        type: 'RECAPTCHA',
+      },
     };
-
-    try {
-      await run();
-    } finally {
-      await context.evaluate((captchaCount, duration, js, hasCaptcha) => {
-        const captchasElt = document.createElement('meta');
-        captchasElt.name = 'captchas';
-        captchasElt.content = captchaCount;
-        document.head.appendChild(captchasElt);
-        const hasCaptchaElt = document.createElement('meta');
-        hasCaptchaElt.name = 'hasCaptcha';
-        hasCaptchaElt.content = hasCaptcha;
-        document.head.appendChild(hasCaptchaElt);
-        const timeElt = document.createElement('meta');
-        timeElt.name = 'durationmillis';
-        timeElt.content = duration;
-        document.head.appendChild(timeElt);
-        const javascriptElt = document.createElement('meta');
-        javascriptElt.name = 'javascript';
-        javascriptElt.content = js;
-        document.head.appendChild(javascriptElt);
-        // js_enabled
-      }, [captchas, Date.now() - start, hasCaptcha]);
+    const navigationTrajectory = [
+      'https://www.walmart.com/grocery',
+      url,
+    ];
+    let hasSetZipCode = false;
+    for (let index = 0; index < navigationTrajectory.length; index++) {
+      const destinationURL = navigationTrajectory[index];
+      const lastResponseData = await context.goto(destinationURL, gotoParams);
+      await solveCaptchaIfNecessary(lastResponseData);
+      if (zipcode && !hasSetZipCode) {
+        await dependencies.setZipCode({ zipcode });
+        hasSetZipCode = true;
+      }
     }
-
-    if (zipcode) {
-      await dependencies.setZipCode({ zipcode: zipcode });
-    }
-    await context.goto(url, { timeout: 180000, waitUntil: 'load', checkBlocked: false, block_ads: false, js_enabled: true, css_enabled: false, random_move_mouse: true });
   },
 };

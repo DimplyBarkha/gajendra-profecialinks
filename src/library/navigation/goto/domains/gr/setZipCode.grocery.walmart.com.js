@@ -6,141 +6,137 @@ module.exports = {
     domain: 'grocery.walmart.com',
     store: 'walmartOG',
   },
-  implementation: async (inputs, parameters, context, dependencies) => {
-    const { timeout = 60000, waitUntil = 'load', checkBlocked = true } = {};
-    const mainUrl = 'https://www.walmart.com/grocery';
-    await context.goto(mainUrl, { timeout, waitUntil, checkBlocked });
-    const { zipcode } = inputs;
+  implementation: async ({ zipcode }, parameters, context, dependencies) => {
+    // this setzip code needs to be activated when on the home page
     let locationStreetAddress = '';
-    let disabledContinueButton = false;
+    const zipcodeStreetAddress = {
+      72758: '4208 Pleasant Crossing Blvd',
+      75204: '2305 N Central Expy',
+    }[zipcode] || '';
 
-    let zipcodeStreetAddress = '';
+    const changeStoreSelector = 'button[label="Change store"]';
+    const streetAddressSelector = 'div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]';
+    const disableContinueSelector = 'button[data-automation-id="locationFlyout-continueBtn"]';
+    const modalPortalSelector = 'div.ReactModalPortal';
+    const zipFieldSelector = 'input[data-automation-id="zipSearchField"]';
+    const zipSearchButton = 'button[data-automation-id="zipSearchBtn"]';
 
-    if (zipcode === '72758') {
-      zipcodeStreetAddress = '4208 Pleasant Crossing Blvd';
-    } else if (zipcode === '75204') {
-      zipcodeStreetAddress = '2305 N Central Expy';
-    }
+    const hasDisabledContinuedButton = async () => {
+      try {
+        await context.waitForSelector(disableContinueSelector);
+      } catch (error) {
+        return false;
+      }
+      return context.evaluate((disableContinueSelector) => {
+        return document.querySelector(disableContinueSelector).hasAttribute('disabled');
+      }, disableContinueSelector);
+    };
 
-    const changedLocationStreetAddress = await context.evaluate(function () {
-      return document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]') ? document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]').textContent : '';
-    });
+    const changedLocationStreetAddress = await context.evaluate((selector) => {
+      return document.querySelector(selector) ? document.querySelector(selector).textContent : '';
+    }, streetAddressSelector);
 
-    async function hasDisabledContinuedButton () {
-      const hasIt = await context.evaluate(async function () {
-        return document.querySelector('button[data-automation-id="locationFlyout-continueBtn"]').hasAttribute('disabled');
-      });
-      return hasIt;
-    }
-
-    async function hasCloseModalButton () {
-      const hasIt = await context.evaluate(async function () {
-        return document.querySelector('button[aria-label="close modal"]') !== null;
-      });
-      return hasIt;
-    }
-
-    async function changeStoreButton () {
-      await context.waitForSelector('button[label="Change store"]');
-      // Using context.click for selector button[label="Change store"] is not working. Won't click on the button
-      await context.evaluate(async function () {
-        const button = document.querySelector('button[label="Change store"]');
-        if (button) {
-          button.click();
+    const ifThereClickOnIt = async (selector) => {
+      try {
+        await context.waitForSelector(selector, { timeout: 5000 });
+      } catch (error) {
+        console.log(`The following selector was not found: ${selector}`);
+        return false;
+      }
+      const hasItem = await context.evaluate((selector) => {
+        return document.querySelector(selector) !== null;
+      }, selector);
+      if (hasItem) {
+        // try both click
+        try {
+          await context.click(selector, { timeout: 2000 });
+        } catch (error) {
+          // context click did not work and that is ok
         }
-      });
-    }
+        await context.evaluate((selector) => {
+          const elem = document.querySelector(selector);
+          if (elem) elem.click();
+        }, selector);
+        return true;
+      }
+      return false;
+    };
 
     async function changeLocation (zipcode) {
-      const closeModalButton = await hasCloseModalButton();
-      if (closeModalButton) {
-        await context.click('button[aria-label="close modal"]');
-      }
+      await ifThereClickOnIt('button[aria-label="close modal"]');
 
-      await context.evaluate(async function () {
-        if (document.querySelector('div.ReactModalPortal')) {
-          document.querySelector('div.ReactModalPortal').remove();
+      await context.evaluate((modalPortalSelector) => {
+        if (document.querySelector(modalPortalSelector)) {
+          document.querySelector(modalPortalSelector).remove();
         }
-      });
+      }, modalPortalSelector);
 
-      await changeStoreButton();
+      await ifThereClickOnIt(changeStoreSelector);
+
+      await context.waitForSelector(zipFieldSelector, { timeout: 45000 })
+        .catch(async () => {
+          await ifThereClickOnIt('section[data-automation-id="closeableOverlay"]');
+          await ifThereClickOnIt(changeStoreSelector);
+          await context.waitForSelector(zipFieldSelector, { timeout: 45000 });
+        });
 
       try {
-        await context.waitForSelector('input[data-automation-id="zipSearchField"]', { timeout: 45000 });
-      } catch (error) {
-        // Using context.click for selector 'section[data-automation-id="closeableOverlay"]'
-        if (document.querySelector('section[data-automation-id="closeableOverlay"]')) {
-          document.querySelector('section[data-automation-id="closeableOverlay"]').click();
-        }
-        await changeStoreButton();
+        await context.setInputValue(zipFieldSelector, zipcode);
+      } catch (error) { // try a second time
+        await ifThereClickOnIt('section[data-automation-id="closeableOverlay"]');
+        await ifThereClickOnIt(changeStoreSelector);
+        await context.waitForSelector(zipFieldSelector, { timeout: 45000 });
+        await context.setInputValue(zipFieldSelector, zipcode);
       }
-
-      await context.waitForSelector('input[data-automation-id="zipSearchField"]', { timeout: 45000 });
-
-      await context.setInputValue('input[data-automation-id="zipSearchField"]', zipcode);
-      await context.click('button[data-automation-id="zipSearchBtn"]');
-      await context.evaluate(async function () {
-        const buttonSearchZipcode = document.querySelector('button[data-automation-id="zipSearchBtn"]');
-        if (buttonSearchZipcode) {
-          buttonSearchZipcode.click();
-        }
-      });
+      await ifThereClickOnIt(zipSearchButton);
 
       await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]', { timeout: 45000 });
       await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]:first-child input');
-      await context.evaluate(async function () {
-        const searchZipCode = document.querySelector('input[data-automation-id="selectFlyoutItemBtn"]:first-child');
-        if (searchZipCode) {
-          searchZipCode.click();
-        }
-      });
-      await context.waitForSelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]');
-      await context.evaluate(async function () {
-        locationStreetAddress = (document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]')) ? document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]').textContent : '';
-      });
 
-      await context.waitForSelector('button[data-automation-id="locationFlyout-continueBtn"]');
+      await ifThereClickOnIt('input[data-automation-id="selectFlyoutItemBtn"]:first-child');
 
-      disabledContinueButton = await hasDisabledContinuedButton();
+      const selector = 'li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]';
+      await context.waitForSelector(selector);
+      locationStreetAddress = await context.evaluate((selector) => {
+        return document.querySelector(selector) ? document.querySelector(selector).textContent : '';
+      }, selector);
 
-      if (disabledContinueButton === false) {
-        await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
-        await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
-        await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-        await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-
+      if (!await hasDisabledContinuedButton()) {
+        await ifThereClickOnIt(disableContinueSelector);
+        await ifThereClickOnIt('button[data-automation-id="confirmFulfillmentBtn"]');
         try {
           await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 45000 });
         } catch (error) {
           console.log('goto product page !!!');
           return false;
         }
-        try {
-          await context.waitForXPath('//div[@data-automation-id="changeStoreFulfillmentBannerBtn"]//span[contains(@class,"AddressPanel__addressLine") and contains(text(), "' + zipcodeStreetAddress + '")]', { timeout: 55000 });
-        } catch (error) {
-          throw new Error('Fail to click on confirm button');
-        }
+        const xpath = `//div[@data-automation-id="changeStoreFulfillmentBannerBtn"]//span[contains(@class,"AddressPanel__addressLine") and contains(text(), ${zipcodeStreetAddress}")]`;
+        await context.waitForXPath(xpath, { timeout: 55000 })
+          .catch(e => {
+            throw new Error('Fail to click on confirm button');
+          });
       }
       return true;
     }
 
-    console.log('locationStreetAddress value');
-    console.log(locationStreetAddress);
-    console.log(changedLocationStreetAddress);
+    console.log(`locationStreetAddress value: ${locationStreetAddress}, ${changedLocationStreetAddress}`);
 
-    if (!(changedLocationStreetAddress.includes(zipcodeStreetAddress) && disabledContinueButton === false)) {
-      const closeModalButton = await hasCloseModalButton();
-      if (closeModalButton) {
-        await context.click('button[aria-label="close modal"]');
-      }
-      let result = await changeLocation(zipcode);
+    let result;
+    if (!changedLocationStreetAddress.includes(zipcodeStreetAddress)) {
+      result = await changeLocation(zipcode);
       if (result === true && locationStreetAddress !== changedLocationStreetAddress) {
+        console.log(`Second attempt, selected : "${locationStreetAddress}" and current : "${changedLocationStreetAddress}"`);
         result = await changeLocation(zipcode);
       }
       if (result === true && locationStreetAddress !== changedLocationStreetAddress) {
-        console.log(locationStreetAddress);
-        console.log(changedLocationStreetAddress);
-        throw new Error('Fail to change zipcode');
+        // change to a different zipcode
+        await changeLocation(zipcode === '90262' ? '10001' : '90262');
+        // then to the proper zipcode
+        await changeLocation(zipcode);
+        console.log(`After second attempt attempt, selected : "${locationStreetAddress}" and current : "${changedLocationStreetAddress}"`);
+        if (result === true && locationStreetAddress !== changedLocationStreetAddress) {
+          console.log('Failed to change zipcode');
+        }
       }
     }
   },
