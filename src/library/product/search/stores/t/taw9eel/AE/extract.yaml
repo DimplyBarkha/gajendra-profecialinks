@@ -1,5 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //ul[@class="products-grid"]/li
+fields:
+  - name: name
+    singleValue: false
+    xpath: //h2[@class="product-name"]/a
+  - name: productUrl
+    singleValue: false
+    xpath: //h2[@class="product-name"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-image"]/a//img/@src
+  - name: id
+    singleValue: false
+    xpath: //div[@class="add-to-cart"]/@id
+  - name: price
+    singleValue: false
+    xpath: //p[@class="special-price"]/span[@class="price"] | //span[@class="regular-price"]/span
