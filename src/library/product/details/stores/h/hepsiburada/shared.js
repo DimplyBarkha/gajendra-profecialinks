@@ -14,6 +14,13 @@ const transform = (data) => {
         });
         row.description = [{ text }];
       }
+      if (row.ingredientsList) {
+        let text = '';
+        row.ingredientsList.forEach(item => {
+          text = row.ingredientsList.map(elm => elm.text).join(' ');
+        });
+        row.ingredientsList = [{ text }];
+      }
       // if (row.warranty) {
       //   let text = '';
       //   row.warranty.forEach(item => {

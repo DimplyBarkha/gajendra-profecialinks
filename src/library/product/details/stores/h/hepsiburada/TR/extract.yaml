@@ -22,7 +22,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id="productDescriptionContent"]/p
+    xpath: (//h1[@itemprop="name"])[1]
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //del[@class="product-old-price price old active"]
@@ -40,6 +40,7 @@ fields:
     defaultValue: Out of Stock
   - name: descriptionBullets
     description: Number of ul > li tags in the description
+    xpath: //body//@bullet_count
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
@@ -57,9 +58,13 @@ fields:
   - name: sku
     description: The store-specific product identifier
     xpath: //meta[@itemprop="sku"]//@content
+  - name: variants
+    xpath: //meta[@itemprop="sku"]//@content
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //form[@id="addToCartForm"]//input[@name="productId"]//@value
+  - name: variantInformation
+    xpath: //div[@class="variants-wrapper"]
   - name: ratingCount
     description: The number of ratings
     xpath: //div[@id="comments-container"]//span
@@ -77,14 +82,14 @@ fields:
     xpath: //div[@id="productDescriptionContent"]//div[contains(@class,'contain-md')]
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[contains(@class,'container')]//div[@class="row"]/div//img//@src
+    xpath: //div[@id="productDescriptionContent"]//img//@src[contains(.,'jpg')]
   - name: videos
     description: URLs of videos on page
     xpath: //div[@class="desc-video"]//@data-video
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@id="productDescriptionContent"]/p
+    xpath: (//h1[@itemprop="name"])[1]
   - name: specifications
     description: The physical dimensions of the product including packaging.
     xpath: //p[contains(.,'Teknik Özellikler')]/following-sibling::ul[1] | //div[@id="productTechSpecContainer"]/table[contains(@class,"data-list tech-spec") and not (contains(.,'Marka'))]//tr//text()
@@ -102,3 +107,15 @@ fields:
     xpath: //tr//span[contains(@class,'product-price')]
   - name: firstVariant
     xpath: //form[@id="addToCartForm"]//input[@name="productId"]//@value
+  - name: directions
+    xpath: (//p[contains(.,'Beslenme Tavsiyesi')]//following-sibling::span)[1]
+  - name: ingredientsList
+    xpath: //p[contains(.,'İçindekiler')]/following-sibling::span[1] | //p[contains(.,'İçindekiler')]/following-sibling::text()[1]  | //pre[contains(.,'indekiler')]/text()
+  - name: productOtherInformation
+    xpath: //div[@id="productDescriptionContent"]//text()[contains(.,'Farklı kullanıcı')][1]
+  - name: packSize
+    xpath: //th[contains(.,'Adet')]/following-sibling::td
+  - name: promotion
+    xpath: //span[@id="product-discount-rate"]
+  - name: shippingInfo
+    xpath: //span[@class="seller"]
