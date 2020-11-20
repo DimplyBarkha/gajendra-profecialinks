@@ -98,7 +98,7 @@ fields:
   - name: lbb
   - name: lbbPrice
   - name: featureBullets
-    xpath: ancestor::html//ul[@div="bulletedCopy"]//li
+    xpath: ancestor::html//ul[@div="bulletedCopy"]//li | ancestor::html//section[@aria-label="productDescription"]//ul//li
   - name: otherSellersName
   - name: otherSellersPrice
   - name: otherSellersShipping

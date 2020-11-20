@@ -100,6 +100,26 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [{ text }];
       }
+
+      if (row.highQualityImages) {
+        let text = '';
+        row.highQualityImages.forEach(item => {
+          text = text + (text ? ',' : '') + item.text;
+        });
+        row.highQualityImages = [
+          {
+            text,
+          },
+        ];
+      }
+
+      if (row.highQualityImages) {
+        let text = '';
+        row.highQualityImages.forEach(item => {
+          text = item.text.replace(/150/g, '1500');
+        });
+        row.highQualityImages = [{ text }];
+      }
     }
   }
 
