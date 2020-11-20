@@ -27,6 +27,12 @@ fields:
   - name: variantId
     singleValue: true
     xpath: //div[@class='exactag js_exactag']/@data-variationid
-  - name: mpc
+  - name: brand
     singleValue: true
-    xpath: //div[@class='exactag js_exactag']/@data-productid
+    xpath: //a[@id='brand']/@data-brand
+  - name: harvest_product_description
+    singleValue: true
+    xpath: //h1[@data-qa='variationName']
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='nav_breadcrumb']/li[position()>=2]
