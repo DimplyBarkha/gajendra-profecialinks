@@ -8,7 +8,7 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div.canvas-menu-wrapper',
     loadedXpath: null,
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
