@@ -98,7 +98,8 @@ fields:
     xpath :
   - name: manufacturerImages
     singleValue: false
-    xpath : ancestor::html //div[@id="enhancedContent"]//div[@class="carousel-slide"]/div/img/@src
+    # xpath : ancestor::html //div[@id="enhancedContent"]//div[@class="carousel-slide"]/div/img/@src
+    xpath : ancestor::html //div[@id="manufacturerImages"]
   - name: videos
     singleValue: false
     xpath : ancestor::html //div[@class="image-layout-slides-group-item"]/img/@data-url
@@ -160,7 +161,7 @@ fields:
     singleValue: true
   - name: manufacturerDescription
     singleValue: true
-    xpath:  ancestor::html //div[@id="enhancedContent"]
+    xpath:  ancestor::html //div[@id="manufacturerDescription"]
   - name: termsAndConditions
     singleValue: true
   - name: specifications

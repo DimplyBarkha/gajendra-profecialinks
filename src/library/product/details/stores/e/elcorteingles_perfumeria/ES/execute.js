@@ -6,7 +6,7 @@ module.exports = {
     store: 'elcorteingles_perfumeria',
     domain: 'elcorteingles.es',
     loadedSelector: 'a.product_detail-brand',
-    noResultsXPath: '//div[contains(@class,"artwork image")]',
+    noResultsXPath: '//div[contains(@class,"artwork image")] | //p[contains(@class,"explain") and contains(text(),"no responde en este momento")]',
     zipcode: '',
   },
 };

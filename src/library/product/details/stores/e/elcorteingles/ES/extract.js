@@ -11,26 +11,24 @@ module.exports = {
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
-
-      let searchPage = document.querySelector('div.artwork.image');
+      const searchPage = document.querySelector('div.artwork.image');
       if (searchPage) {
         console.log('ERROR: Not a Product Page');
       }
 
-
       // function to append the elements to DOM
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         try {
           const catElement = document.createElement('div');
           catElement.id = key;
           catElement.textContent = value;
           catElement.style.display = 'none';
           document.body.appendChild(catElement);
-        } catch (error) { console.log(error), "add elem" }
+        } catch (error) { console.log(error); }
       }
 
       // function to get the json data from the string
-      function findJsonData(scriptSelector, startString, endString) {
+      function findJsonData (scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -41,12 +39,12 @@ module.exports = {
           jsonStr = jsonStr.trim();
           return JSON.parse(jsonStr);
         } catch (error) {
-          console.log(error.message, "findJsonData");
+          console.log(error.message, 'findJsonData');
         }
       }
 
       // function to get the json data from the textContent
-      function findJsonObj(scriptSelector) {
+      function findJsonObj (scriptSelector) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -54,7 +52,7 @@ module.exports = {
           jsonStr = jsonStr.trim();
           return JSON.parse(jsonStr);
         } catch (error) {
-          console.log(error.message, "JSONObjk");
+          console.log(error.message, 'JSONObjk');
         }
       }
 
@@ -83,7 +81,6 @@ module.exports = {
           } else {
             addElementToDocument('availability', 'Out Of Stock');
           }
-
 
           // Check for List Price
           if (Number(dataObj[0].product.price.o_price) === Number(dataObj[0].product.price.f_price)) {
@@ -118,23 +115,23 @@ module.exports = {
           // Check for the product id  and append to DOM
           if (dataObj[0].product.id) {
             if (dataObj[0].product.id.match(/\d+/)[0]) {
-              const retailerProductCode = dataObj[0].product.id.match(/\d+/)[0];;
+              const retailerProductCode = dataObj[0].product.id.match(/\d+/)[0]; ;
               addElementToDocument('retailer_product_code', retailerProductCode);
             }
           }
         }
       }
 
-      function validateData(data) {
+      function validateData (data) {
         if (data.length < 5) {
-          return data
+          return data;
         } else {
-          return "";
+          return '';
         }
       }
 
       // function to get the sodium, magnesium, calcium values
-      function ingredientContent(ingredientName, text) {
+      function ingredientContent (ingredientName, text) {
         try {
           const content = document.querySelectorAll('div.pdp-info-container div.info');
           // Check for length
@@ -150,7 +147,7 @@ module.exports = {
                     // Check for the calcium with given text if it is present get the value and add it to DOM
                     if (content[1].textContent.includes(text)) {
                       calcium = content[1].textContent.replace(/(.*Calcio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\;\.\s(\w+\/\w+)](.+)/g, '$3');
-                      addElementToDocument('calcium', validateData(calcium.replace(/\.$/g, "")));
+                      addElementToDocument('calcium', validateData(calcium.replace(/\.$/g, '')));
                       // If calcium has data get the unit
                       if (calcium) {
                         const calciumUnit = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.,]+)\s?(\w+\/\w+)(.+)/g, '$3');
@@ -160,12 +157,12 @@ module.exports = {
                     } else {
                       calcium = content[1].textContent.replace(/(.*Calcio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\;\.\s(\w+\/\w+)](.+)/g, '$3');
                       if (Number(content[1].textContent.length) < 5) {
-                        console.log(content[1].textContent.length, "InLength")
-                        addElementToDocument('calcium', validateData(calcium.replace(/\.$/g, "")));
+                        console.log(content[1].textContent.length, 'InLength');
+                        addElementToDocument('calcium', validateData(calcium.replace(/\.$/g, '')));
                       }
                       if (Number(content[1].textContent.length) > 100) {
                         calcium = content[1].textContent.replace(/(.+(Calcio)\s?)(\d+)\s(.*)(.*)/g, '$3');
-                        addElementToDocument('calcium', validateData(calcium.replace(/\.$/g, "")));
+                        addElementToDocument('calcium', validateData(calcium.replace(/\.$/g, '')));
                       }
                     }
                     // Check for sodium
@@ -174,7 +171,7 @@ module.exports = {
                     let sodium;
                     if (content[1].textContent.includes(text)) {
                       sodium = content[1].textContent.replace(/(.*Sodio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\;\.\s(\w+\/\w+)](.+)/g, '$3');
-                      addElementToDocument('sodium', validateData(sodium.replace(/\.$/g, "")));
+                      addElementToDocument('sodium', validateData(sodium.replace(/\.$/g, '')));
                       // If sodium has data get the unit
                       if (sodium) {
                         const sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.,]+)\s?(\w+\/\w+)(.+)/g, '$3');
@@ -183,42 +180,41 @@ module.exports = {
                       // if sodium didn't match with given text then get the sodium value and append to DOM
                     } else {
                       sodium = content[1].textContent.replace(/(.*Sodio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\;\.\s(\w+\/\w+)](.+)/g, '$3');
-                      addElementToDocument('sodium', validateData(sodium.replace(/\.$/g, "")));
+                      addElementToDocument('sodium', validateData(sodium.replace(/\.$/g, '')));
                     }
                     // Check for magnesium
                   } else if (ingredientName.toLowerCase() === 'magnesio') {
                     let magnesium;
                     // Check for the magnesium with given text if it is present get the value and add it to DOM
                     if (content[1].textContent.includes(text)) {
-                      console.log("magnusium here ")
+                      console.log('magnusium here ');
                       magnesium = content[1].textContent.replace(/^(.*Magnesio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\.\s(\w+\/\w+)](.+)/g, '$3');
-                      addElementToDocument('magnesium', validateData(magnesium.replace(/\.$/g, "")));
+                      addElementToDocument('magnesium', validateData(magnesium.replace(/\.$/g, '')));
                       // If magnesium has data get the unit
                       if (magnesium) {
-                        console.log("magnusium UOM")
+                        console.log('magnusium UOM');
                         const magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.,]+)\s?(\w+\/\w+)(.+)/g, '$3');
                         addElementToDocument('magnesiumUnit', magnesiumUnit);
                       }
                       // if magnesium didn't match with given text then get the magnesium value and append to DOM
                     } else {
-                      console.log("magnusium Only")
+                      console.log('magnusium Only');
                       magnesium = content[1].textContent.replace(/(.*Magnesio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\.\s(\w+\/\w+)](.+)/g, '$3');
-                      addElementToDocument('magnesium', validateData(magnesium.replace(/\.$/g, "")));
+                      addElementToDocument('magnesium', validateData(magnesium.replace(/\.$/g, '')));
                     }
                   }
                 }
               }
             }
           }
-        } catch (error) { console.log(error.message), "ingredient" }
-
+        } catch (error) { console.log(error.message), 'ingredient'; }
       }
       ingredientContent('Calcio', 'Calcio (');
       ingredientContent('Magnesio', 'Magnesio (');
       ingredientContent('Sodio', 'Sodio (');
 
       // Get the ratingCount
-      async function getRatings() {
+      async function getRatings () {
         const passkey = 'caUNHRYNaaEpio9tsasDler7d1kTrqmaNQQzskkyRX6mQ';
         const locale = 'es_ES';
         const productId = document.querySelector('[itemtype="http://schema.org/Product"] > div[data-product-id]').getAttribute('data-product-id');
@@ -227,7 +223,7 @@ module.exports = {
         const data = await response.json();
         const ratingCount = data.Results[0].ProductStatistics.ReviewStatistics.TotalReviewCount;
 
-        let ratingValue = data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating ? data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating.toFixed(1).replace('.', ',') : 0;
+        const ratingValue = data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating ? data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating.toFixed(1).replace('.', ',') : 0;
         let reviewCount = 0;
         if (ratingCount > 0) {
           const ratingOnlyElm = Array.from(document.querySelectorAll('[itemprop="headline"]')).find(elm => elm.textContent.includes('valoraciones sin reseña'));
@@ -239,19 +235,18 @@ module.exports = {
         }
         return { ratingCount, ratingValue, reviewCount };
       }
-      console.log("Ratings GOIN");
+      console.log('Ratings GOIN');
       if (!searchPage) {
         const ratings = await getRatings();
-        console.log(ratings, "Ratings");
+        console.log(ratings, 'Ratings');
         addElementToDocument('rating-count', ratings.ratingCount);
         addElementToDocument('rating-value', ratings.ratingValue);
         addElementToDocument('review-count', ratings.reviewCount.toString());
-
       }
 
       // Get quantity
       try {
-        let xpath = getXpath("//span[contains(text(),'Cantidad Neta')]/following-sibling::text()", 'nodeValue');
+        const xpath = getXpath("//span[contains(text(),'Cantidad Neta')]/following-sibling::text()", 'nodeValue');
 
         const quantityArray = document.querySelector('[itemprop="description"]').textContent.trim().split('\n');
 
@@ -263,18 +258,15 @@ module.exports = {
             addElementToDocument('quantity', quantity.trim());
           }
         }
-      } catch (err) { console.log(err), "quan" }
-
-
-
+      } catch (err) { console.log(err), 'quan'; }
 
       // Function to remove the `\n` from the textContent
-      function textContent(element, attributeName) {
+      function textContent (element, attributeName) {
         const text = (element && element.innerText.trim()
           .split(/[\n]/)
           .filter((ele) => ele)
           .join(' ')) ||
-          '';
+                    '';
         addElementToDocument(attributeName, text);
       }
 

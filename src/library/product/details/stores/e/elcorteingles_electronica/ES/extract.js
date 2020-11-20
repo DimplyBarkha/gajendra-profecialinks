@@ -11,28 +11,27 @@ module.exports = {
   },
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    
+
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
-    //const enhancedContent = '#tab-content-1 .js-media-holder';
+    // const enhancedContent = '#tab-content-1 .js-media-holder';
     const mainURL = await context.evaluate(function () {
-      console.log("main URL")
+      console.log('main URL');
       return document.URL;
     });
 
     try {
       const navigateLink = await context.evaluate(function () {
-        console.log("getting navlink for Iframe");
-        let gtin = document.querySelector('button[data-event=add_to_cart]') && document.querySelector('button[data-event=add_to_cart]').hasAttribute('data-product-gtin') ? document.querySelector('button[data-event=add_to_cart]').getAttribute('data-product-gtin') : "";
+        console.log('getting navlink for Iframe');
+        const gtin = document.querySelector('button[data-event=add_to_cart]') && document.querySelector('button[data-event=add_to_cart]').hasAttribute('data-product-gtin') ? document.querySelector('button[data-event=add_to_cart]').getAttribute('data-product-gtin') : '';
         console.log(`gtin: ${gtin}`);
         return `https://service.loadbee.com/ean/${gtin}/es_ES?css=default&template=default&button=default#bv-wrapper`;
       });
 
       if (navigateLink) {
-        console.log(navigateLink, "Iframe Details")
-        console.log("Nagivating to Enahnced content");
+        console.log(navigateLink, 'Iframe Details');
+        console.log('Nagivating to Enahnced content');
 
         await context.goto(navigateLink, {
           timeout: 20000, waitUntil: 'load', checkBlocked: true,
@@ -41,8 +40,8 @@ module.exports = {
         console.log('In Enhanced content areas');
 
         const otherSellersTable = await context.evaluate(function () {
-          if(document.querySelector('h1') ?  document.querySelector('h1').innerText.includes("isn't any digital profile available") : true) {
-            return "";
+          if (document.querySelector('h1') ? document.querySelector('h1').innerText.includes("isn't any digital profile available") : true) {
+            return '';
           } else {
             return document.querySelector('body').innerHTML;
           }
@@ -64,12 +63,11 @@ module.exports = {
         await context.evaluate(function (eleInnerHtml) {
           const cloneNode = document.createElement('div');
           cloneNode.style.display = 'none';
-          cloneNode.setAttribute("id", "enhancedContent");
+          cloneNode.setAttribute('id', 'enhancedContent');
           cloneNode.innerHTML = eleInnerHtml;
           document.querySelector('div.product_detail-description-in-image').appendChild(cloneNode);
         }, otherSellersTable);
       }
-
     } catch (err) {
       console.log('Additional other sellers error -' + JSON.stringify(err));
       await context.goto(mainURL, {
@@ -83,14 +81,13 @@ module.exports = {
     }
 
     await context.evaluate(async function () {
-
-      let productPage = document.querySelector('h1[id="js-product-detail-title"]');
+      const productPage = document.querySelector('h1[id="js-product-detail-title"]');
       if (!productPage) {
         console.log('ERROR: Not a Product Page');
       }
 
       // function to append the elements to DOM
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -99,7 +96,7 @@ module.exports = {
       }
 
       // function to get the json data from the string
-      function findJsonData(scriptSelector, startString, endString) {
+      function findJsonData (scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -122,7 +119,7 @@ module.exports = {
       }
 
       // function to get the json data from the textContent
-      function findJsonObj(scriptSelector, video) {
+      function findJsonObj (scriptSelector, video) {
         if (video) {
           var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           return result;
@@ -178,18 +175,18 @@ module.exports = {
           addElementToDocument('sku', JSON.parse(apiDataResponse).id);
           addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
           addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
-          addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant ? JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value : "");
-          if(JSON.parse(apiDataResponse).video && JSON.parse(apiDataResponse).video.length > 0) {
+          addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant ? JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value : '');
+          if (JSON.parse(apiDataResponse).video && JSON.parse(apiDataResponse).video.length > 0) {
             console.log('we have the video array in the api response');
-            if(JSON.parse(apiDataResponse).video[0].url) {
-                console.log('we have url in the video array');
-                addElementToDocument('thumbnailVideo', JSON.parse(apiDataResponse).video[0].url);
+            if (JSON.parse(apiDataResponse).video[0].url) {
+              console.log('we have url in the video array');
+              addElementToDocument('thumbnailVideo', JSON.parse(apiDataResponse).video[0].url);
             } else {
-                console.log('there is no url in the video array');
+              console.log('there is no url in the video array');
             }
-        } else {
+          } else {
             console.log('There is no video in the api response');
-        }
+          }
         }
       }
 
@@ -277,7 +274,7 @@ module.exports = {
         }
       }
 
-      function getPathDirections(xpathToExecute) {
+      function getPathDirections (xpathToExecute) {
         var result = [];
         var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
@@ -286,19 +283,18 @@ module.exports = {
         return result;
       }
 
-      function videoData(data) {
-
+      function videoData (data) {
         if (data[0].playlist.length > 1) {
-          return data[0].playlist.map(e => { return "https:" + e.file }).join(" | ")
+          return data[0].playlist.map(e => { return 'https:' + e.file; }).join(' | ');
         }
 
         if (data[0].playlist.length === 1) {
-          return data.map(e => { return "https:" + e.playlist[0].file }).join(" | ")
+          return data.map(e => { return 'https:' + e.playlist[0].file; }).join(' | ');
         }
       }
-      let videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : "";
+      const videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : '';
 
-      let apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => { return "https:" + i.image }) : "https:" + e.playlist[0].image }).join(" | ") : "";
+      const apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => { return 'https:' + i.image; }) : 'https:' + e.playlist[0].image; }).join(' | ') : '';
 
       addElementToDocument('videos', videos);
       addElementToDocument('apluseImages', apluseImages);
@@ -320,12 +316,12 @@ module.exports = {
         specXpath.forEach(e => {
           specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)} `);
         });
-        addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
+        addElementToDocument('bulletDescription', specifcations.join(' ').replace(/\,/g, ' '));
       } else {
         specXpath.forEach(e => {
           specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
         });
-        addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
+        addElementToDocument('bulletDescription', specifcations.join(' ').replace(/\,/g, ' '));
       }
 
       // zoom Image
@@ -339,7 +335,7 @@ module.exports = {
       }
 
       // Get the ratingCount
-      function ratingFromDOM() {
+      function ratingFromDOM () {
         const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
         let ratingCount;
         if (reviewsCount) {
@@ -364,7 +360,7 @@ module.exports = {
         }
       }
 
-      function allergyAdvice() {
+      function allergyAdvice () {
         const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (element) {
@@ -375,7 +371,7 @@ module.exports = {
       } allergyAdvice();
 
       // Function to remove the `\n` from the textContent
-      function textContent(element, attributeName) {
+      function textContent (element, attributeName) {
         const text = (element && element.innerText.trim()
           .split(/[\n]/)
           .filter((ele) => ele)
@@ -383,7 +379,6 @@ module.exports = {
           '';
         addElementToDocument(attributeName, text);
       }
-
 
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     });

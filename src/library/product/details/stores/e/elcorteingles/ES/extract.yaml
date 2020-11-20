@@ -183,4 +183,10 @@ fields:
   - name: allergyAdvice
     xpath: //h3[normalize-space(text())="Ingredientes y alérgenos"]/following-sibling::ul[1]/li/b
   - name: warnings
-    xpath: //h3[normalize-space(text())="Advertencia de seguridad"]/following-sibling::ul    
+    xpath: //h3[normalize-space(text())="Advertencia de seguridad"]/following-sibling::ul
+  - name: sku
+    xpath: //ul[@class="cross_site_bar-panel"]/li[position()=1]/a/@href
+    regExp: supermarkt\/(\d+)
+    regExpReplace: elcorteingles_$1
+
+    

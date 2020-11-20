@@ -16,7 +16,7 @@ module.exports = {
 
     await context.evaluate(async function () {
       // function to append the elements to DOM
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -24,7 +24,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       // function to get the json data from the string
-      function findJsonData(scriptSelector, startString, endString) {
+      function findJsonData (scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -47,7 +47,7 @@ module.exports = {
       }
 
       // function to get the json data from the textContent
-      function findJsonObj(scriptSelector, video) {
+      function findJsonObj (scriptSelector, video) {
         if (video) {
           var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           return result;
@@ -64,8 +64,7 @@ module.exports = {
         }
       }
 
-
-      function getPathDirections(xpathToExecute) {
+      function getPathDirections (xpathToExecute) {
         var result = [];
         var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
@@ -74,21 +73,18 @@ module.exports = {
         return result;
       }
 
-
-      function videoData(data) {
-
+      function videoData (data) {
         if (data[0].playlist.length > 1) {
-          return data[0].playlist.map(e => { return "https:" + e.file }).join(" | ")
+          return data[0].playlist.map(e => { return 'https:' + e.file; }).join(' | ');
         }
 
         if (data[0].playlist.length === 1) {
-          return data.map(e => { return "https:" + e.playlist[0].file }).join(" | ")
+          return data.map(e => { return 'https:' + e.playlist[0].file; }).join(' | ');
         }
       }
-      let videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : "";
+      const videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : '';
 
-      let apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => { return "https:" + i.image }) : "https:" + e.playlist[0].image }).join(" | ") : "";
-
+      const apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => { return 'https:' + i.image; }) : 'https:' + e.playlist[0].image; }).join(' | ') : '';
 
       addElementToDocument('videos', videos);
       addElementToDocument('apluseImages', apluseImages);
@@ -255,7 +251,7 @@ module.exports = {
       }
 
       // Get the ratingCount
-      function ratingFromDOM() {
+      function ratingFromDOM () {
         const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
         let ratingCount;
         if (reviewsCount) {
@@ -280,7 +276,7 @@ module.exports = {
         }
       }
 
-      function allergyAdvice() {
+      function allergyAdvice () {
         const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (element) {
@@ -291,7 +287,7 @@ module.exports = {
       } allergyAdvice();
 
       // Function to remove the `\n` from the textContent
-      function textContent(element, attributeName) {
+      function textContent (element, attributeName) {
         const text = (element && element.innerText.trim()
           .split(/[\n]/)
           .filter((ele) => ele)

@@ -18,10 +18,14 @@ module.exports = {
       // checkBlocked: true
     });
 
+    const lastResponseData = await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
 
+    if (lastResponseData.status === 500) {
+      throw Error('Bad response code: ' + lastResponseData.status);
+    }
 
-
-
-    
+    if (lastResponseData.status === 403) {
+      return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+    }
   },
 };
