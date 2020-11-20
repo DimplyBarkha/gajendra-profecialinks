@@ -13,12 +13,17 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
 
-    await context.evaluate(async function () {
+    const isRedirected = await context.evaluate(async function () {
       const homePage = 'https://www.elcorteingles.es/perfumeria/';
-      if (window.location.href === homePage) {
-        console.log(`Redirected to home page: ${window.location.href}`);
-      }
+      return window.location.href === homePage;
     });
+
+    if (isRedirected) {
+      console.log('Redirected to home page');
+      return false;
+    } else {
+      console.log('Correct page is loaded');
+    }
 
     try {
       await context.waitForSelector(sectionsDiv, { timeout: 90000 });
