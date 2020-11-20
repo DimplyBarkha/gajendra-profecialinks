@@ -129,7 +129,7 @@ fields:
     xpath :           
   - name: descriptionBullets
     singleValue: false
-    xpath :
+    xpath : count(//*[contains(@class,"product_detail-description-in-image") or contains(@class,"product_information")])
   - name: galleryVideos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
