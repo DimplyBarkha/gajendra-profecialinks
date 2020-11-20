@@ -34,7 +34,7 @@ fields:
     xpath: (//button[@title="Osta"])[1]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: In stock
   - name: description
     singleValue: false
     xpath: //h5[contains(text(),"Tootekirjeldus")]//..//div[@class="cms-content"]
@@ -292,7 +292,6 @@ fields:
     singleValue: false
     xpath: //th[contains(text(),"Süsivesikud (g)")]/following-sibling::td
     regExp: (.+)
-    regExpReplace: g
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: //th[contains(text(),"Süsivesikud (g)")]/following-sibling::td
