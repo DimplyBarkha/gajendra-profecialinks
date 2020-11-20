@@ -1,5 +1,60 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: li.product-base
 recordXPath: null
-fields: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li[@class="product-base"]//a/@href
+    regExp: ^.+\/([^\/]*)\/.+$
+    regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //h4[@class="product-product"]
+  - name: productUrl
+    singleValue: false
+    xpath: //li[@class="product-base"]//a/@href
+    regExp: (^.+$)
+    regExpReplace: https://www.myntra.com/$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //li[@class='product-base']//img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    xpath: //@aggrating
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="product-ratingsCount"]/text()
+  - name: price
+    singleValue: false
+    xpath: //span[@class="product-discountedPrice"] | //div[@class="product-price"]/span[1][not(span[@class="product-discountedPrice"])]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    xpath: //@rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER

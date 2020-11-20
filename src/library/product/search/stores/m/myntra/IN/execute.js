@@ -5,9 +5,9 @@ module.exports = {
     country: 'IN',
     store: 'myntra',
     domain: 'myntra.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.myntra.com/{searchTerms}',
+    loadedSelector: 'body',
+    noResultsXPath: '//center[@class="index-PageNotFoundContainer"]',
     zipcode: '',
   },
 };
