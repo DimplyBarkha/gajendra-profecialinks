@@ -6,7 +6,7 @@ module.exports = {
     store: 'tmall',
     domain: 'tmall.ru',
     url: 'https://tmall.ru/wholesale?SearchText={searchTerms}',
-    loadedSelector: 'ul#hs-below-list-items',
+    loadedSelector: 'div.main-wrap',
     noResultsXPath: '//div[@id="main-wrap" and contains(@class,"main-wrap")]/p',
     zipcode: "''",
   },
