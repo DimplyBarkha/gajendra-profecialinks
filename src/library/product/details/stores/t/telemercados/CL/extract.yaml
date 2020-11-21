@@ -1,8 +1,41 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="page"]
 fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"product-image")]//div[@id="image"]/a/@href
+  - name: category
+    singleValue: false
+    xpath: //div[@class="bread-crumb"]//li[position()>1]/a/span
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,"productPrice")]//em[contains(@class,"price-best-price")]/strong
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,"product-info")]//div[contains(@class,"product-description")]/div[@class="productDescription"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,"product-info")]//div[contains(@class,"brandName")]/a
+  - name: sku
+    singleValue: false
+    xpath: //div[@id="skuReference"]/div
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product-name"]//input[@id="___rc-p-id"]/@value
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"product-name")]/h1/div[contains(@class,"productName")]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,"product-name")]/h1/div[contains(@class,"productName")] | //div[contains(@class,"product-info")]//div[contains(@class,"brandName")]/a

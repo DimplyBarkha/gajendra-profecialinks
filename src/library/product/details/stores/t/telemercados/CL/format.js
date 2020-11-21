@@ -24,6 +24,13 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) { 
+          if(row.nameExtended){
+              let inf=[];
+              row.nameExtended.forEach(item=>{
+                inf.push(item.text);
+              })
+            row.nameExtended=[{"text":inf[1]+" - "+inf[0]}];
+          }
       }
     }
     return cleanUp(data);
