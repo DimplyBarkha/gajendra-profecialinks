@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //li[@id="tns1-item0"]//img[contains(@class, "image__default")]/@src
+  - name: category
+    singleValue: false
+    xpath: //a[@class="breadcrumb__item"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@id="product-title"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="product-hero__price"]//span[contains(@class, "u-sr-only")]    
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-hero__price"]//span[contains(@class, "u-sr-only")]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
