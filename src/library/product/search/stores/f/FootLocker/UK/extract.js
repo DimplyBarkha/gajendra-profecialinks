@@ -33,7 +33,7 @@ module.exports = {
         }
       });
     };
-    await applyScroll(context);  
+    await applyScroll(context);
     async function getProductsCount (context) {
       return context.evaluate(async function () {
         const products = document.evaluate('//div[@class="fl-product-tile--basic"]//picture[@class="fl-picture"]/img/@srcset', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
