@@ -1,0 +1,81 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage__shaf')]//div[contains(@class,'fotorama__stage__frame') and contains(@class,'fotorama__active')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage__shaf')]//div[contains(@class,'fotorama__stage__frame') and contains(@class,'fotorama__active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage__shaf')]//div[contains(@class,'fotorama__stage__frame') and not(contains(@class,'fotorama__active'))]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='items']//li[not(contains(@class,'home')) and not(contains(@class,'product'))]//a
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='page-title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='page-title']
+  - name: availabilityText
+    singleValue: false
+    xpath: //meta[@property='product:availability' and @content='instock']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@id,'from')]//span[@class='price']
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@id,'old-price')]//span[@class='price']
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'description')]//div[@class='value']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'product') and contains(@class,'attribute')]//div//ul//li
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id='rich-content-product-specifications']//div[@class='specification-label' and text()='Brand']//following-sibling::div
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@id='rich-content-product-specifications']//div[@class='specification-label' and text()='Producer']//following-sibling::div
+  - name: sku
+    singleValue: false
+    xpath: //script[not(contains(text(),'function'))  and contains(text(),'sku') and contains(text(),'availability')]
+    # "sku": "5050474105959",
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //script[not(contains(text(),'function'))  and contains(text(),'sku') and contains(text(),'availability')]
+    # "sku": "5050474105959",
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'additional-attributes')]//div[@class='specification-container']  
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='rich-content-data']//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='rich-content-data']
+  - name: quantity
+    singleValue: false
+    xpath: //div[@id='rich-content-product-specifications']//div[@class='specification-label' and text()='Quantity']//following-sibling::div
+  - name: materials
+    singleValue: false
+    xpath: //div[@id='rich-content-product-specifications']//div[@class='specification-label' and text()='Material']//following-sibling::div
