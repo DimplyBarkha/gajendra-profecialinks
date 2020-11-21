@@ -1,0 +1,93 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@id='scroll-slider-thumbnail']//ul[contains(@class,'slides')]//li[contains(@class,'flex-active-slide')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='scroll-slider-thumbnail']//ul[contains(@class,'slides')]//li[contains(@class,'flex-active-slide')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='scroll-slider-thumbnail']//ul[contains(@class,'slides')]//li[not(contains(@class,'flex-active-slide'))]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="breadcrumb"]//li//a
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='item-brand-name']//p
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='item-brand-name']//p
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='price-add-product']//div[@class='button-wrapper']//input[not(contains(@class,'disable'))]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-detail-header']//div[@class='item-product-price']//span[not(contains(@class,'strikethrough'))]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='product-detail-header']//div[@class='item-product-price']//span[@class='strikethrough']
+  - name: description
+    singleValue: false
+    xpath: //div[@class="about-product"]//p[@class='about-product-detail']
+  # - name: description2
+  #   # merge description 1 and 2
+  #   singleValue: false
+  #   xpath: //h4[normalize-space()='FEATURES & BENEFITS']//following-sibling::div
+  - name: brandText
+    singleValue: false
+    xpath: //h1[@class='item-brand-name']//a
+  - name: brandLink
+    singleValue: false
+    xpath: //h1[@class='item-brand-name']//a/@href
+  - name: manufacturer
+    singleValue: false
+    xpath: //h1[@class='item-brand-name']//a
+  - name: sku
+    singleValue: false
+    xpath: //div[@id='product-variant-id']/@data-product-id
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,'swatches-group')]//li//a/@data-code
+  - name: variantId
+    singleValue: false
+    xpath: //script[contains(text(),'itemid')]
+    #"itemid" : "BB_885609019680",
+    regExp: \"itemid\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    # count variants
+    xpath: //div[contains(@class,'swatches-group')]//li//a/@data-code
+    defaultValue: '0'
+    type: NUMBER
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'swatches-group')]//li//a/@aria-label
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='item-product-optimum-promo-text']/text()
+  - name: directions
+    singleValue: false
+    xpath: //h4[normalize-space()='HOW TO USE']//following-sibling::div
+  - name: ingredientsList
+    singleValue: false
+    xpath: //h4[normalize-space()='INGREDIENTS']//following-sibling::div
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='product-detail-header']//div[@class='pr-snippet-read-and-write']//a[@class='pr-snippet-review-count']    
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='product-detail-header']//div[@class='pr-snippet-stars-container']//div[@class='pr-snippet-rating-decimal']
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'swatches-group')]//li//a/@aria-label
