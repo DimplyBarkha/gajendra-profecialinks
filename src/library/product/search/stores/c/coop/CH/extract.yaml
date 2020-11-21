@@ -28,7 +28,7 @@ fields:
     SingleValue: true
   - name: aggregateRating2
     xpath: //i[@class="visuallyhidden"]/text()
-    regExp: \W\s(.+) sur 5
+    regExp: \W\s(.+) von 5
     regExpReplace: $1
   - name: reviewCount
     SingleValue: false
@@ -36,4 +36,8 @@ fields:
   - name: ratingCount
     SingleValue: false
     xpath: //span[@itemprop="reviewCount"]/text()
+  - name: aggregateRating
+    xpath: //i[@class="visuallyhidden"]/text()
+    regExp: \W\s(.+) von 5
+    regExpReplace: $1
     
