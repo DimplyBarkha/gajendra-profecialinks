@@ -23,14 +23,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
     }
 
-    var match = document.querySelectorAll('li.product-item--row.js_item_root')
-      .length;
-
     let scrollTop = 0;
-    const scrollLimit = match * 334;
+    const scrollLimit = 10000;
     while (scrollTop <= scrollLimit) {
-      await stall(1000);
-      scrollTop += 1006;
+      await stall(500);
+      scrollTop += 300;
       window.scroll(0, scrollTop);
     }
   });
@@ -105,7 +102,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       addProp('wsp-buy-block.product-item__options.hit-area', i, 'rank', `${i + 1}`);
     };
   });
-  return await context.extract(productDetails);
+  return await context.extract(productDetails, 'MERGE_ROWS');
 };
 
 module.exports = {
