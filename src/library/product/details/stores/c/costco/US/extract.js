@@ -27,7 +27,18 @@ module.exports = {
       }
     });
     await new Promise(resolve => setTimeout(resolve, 2000));
+    await context.evaluate(async () => {
+      const moreBtn = document.querySelectorAll('div input[name="view-more"]');
+      if (moreBtn) {
+        try {
+          moreBtn[0].click();
+        } catch (err) {
 
+        }
+        return 'Btn clicked';
+      }
+    });
+    await new Promise(resolve => setTimeout(resolve, 2000));
     await context.evaluate(async () => {
       const descNode = document.querySelector('div.product-info-description');
       let desc = '';
@@ -36,6 +47,7 @@ module.exports = {
         desc = descNode.innerText;
       }
       const descNode1 = document.querySelector('div.syndi_powerpage');
+      await new Promise(resolve => setTimeout(resolve, 2000));
       if (descNode1 && descNode1.shadowRoot) {
         const fetchNode = descNode1.shadowRoot.firstChild;
         const text = fetchNode.innerText;

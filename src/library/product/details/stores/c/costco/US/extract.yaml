@@ -25,9 +25,10 @@ fields:
     xpath: //li[position()>1]//span[@itemprop="name"]/text()
   - name: inStorePrice
     xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
-  # - name: listPrice
-  #   singleValue: false
-  #   xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id="pull-right-price"]
+    # xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
   - name: price
     singleValue: false
     # xpath: //meta[@property="product:price:amount"]/@content | //div[@class="online-price active"]//span[@class="currency"]
@@ -40,8 +41,9 @@ fields:
     # regExp: (.+)
     # regExpReplace: Out of Stock 
     # defaultValue: In Stock
-    xpath: //meta[@property="og:availability"]/@content
-    regExp: instock
+    # //meta[@property="og:availability"]/@content | 
+    xpath: //div[@class="online-price active"]/@data-inv
+    regExp: IN_STOCK
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
@@ -64,6 +66,8 @@ fields:
     xpath: //div[contains(@class,'product-info-specs')]/div//div[contains(.,'Package Quantity (Count)')]/../div[position() > 1]
   - name: weightNet
     singleValue: false
+    xpath: //li[contains(text(), "Weight")]
+    regExp: (?![Weight\s])\d.*    
   - name: weightGross
     singleValue: false
     # xpath: //div[@class="row"]//div[contains(.,'Package Quantity (Volume)')]/../div[2]
@@ -73,14 +77,14 @@ fields:
   - name: sku
     singleValue: false
     # xpath: //span[contains(@class,"model-number")]//span | //p[contains(@id,"product-body-model-number")]//span | //p[contains(@id,"product-body-model-number")]
-    xpath: //p[@class="model-number "]/span | //p[contains(@id,"product-body-model-number")]
+    xpath: //p[@class="model-number "]/span | //p[contains(@id,"product-body-model-number")]/span
   - name: variantId
     singleValue: false
     xpath: //p[@id="product-body-item-number"]/span | //p[@class="item-number"]
   #   regExp: (\d+)
   - name: mpc
     singleValue: false
-    xpath: //p[@class="model-number "]/span | //p[contains(@id,"product-body-model-number")]
+    xpath: //p[@class="model-number "]/span | //p[contains(@id,"product-body-model-number")]/span
   # - name: packSize
   #   singleValue: false
   #   xpath: //div[@class="row"]//div[contains(.,'Package Quantity (Count)')]/../div[2]
@@ -116,13 +120,14 @@ fields:
   #   singleValue: false
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@id="theSwatches" and not(contains(@class,"hide"))]/a)
+    xpath: count(//div[@id="theSwatches" and not(contains(@class,"hide"))]/a) | count(//div[contains(@class,"swatches-v2")]//span[contains(@class,"variant-")])
   #   type: NUMBER
   - name: color
-    xpath: //div[@id="theSwatches"]/a/span[@id="selectedOffScreenSwatch"]/../@data-content
+    xpath: //div[@id="theSwatches"]/a/span[@id="selectedOffScreenSwatch"]/../@data-content |//div[contains(@class,"product-info-specs")]//div[contains(text(),"Color") or contains(text(), "Colour")]/following-sibling::div
+    #//div[@id="theSwatches"]/a/span[@id="selectedOffScreenSwatch"]/../@data-content
   - name: manufacturerDescription
     singleValue: false
-    xpath: (//div[@class="product-info-description"])[1] | //div[@class="wc-rich-content-description"] | //h2[contains(@Class,"wc-first-header")]//following-sibling::div 
+    xpath: //div[@id="product-desc"] | (//div[@class="product-info-description"])[1] | //div[@class="wc-rich-content-description"] | //div[@id="wc-power-page"] | //div[@class="product-info-description"] | //h2[contains(@Class,"wc-first-header")]//following-sibling::div 
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id = "manuf-images"] | //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
@@ -181,14 +186,14 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //span[@class="variant-v2 selection-box-v2 "]
+    xpath: //div[contains(@class,"swatches")]//span[contains(@class,"variant")] | //div[@id="product-details"]//label[contains(@for, "productOption")] | //span[@class="variant-v2 selection-box-v2 "]
   # - name: firstVariant
   #   singleValue: false
   # - name: variants
   #   singleValue: false
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class="wc-rich-content-description"]/ul/li
+    # xpath: //div[@class="wc-rich-content-description"]/ul/li
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //ul[@class="list-group product-attachments"]//a/@href | //div[@class="wc-doc-text"]/div/div//a/@href | //div[contains(., 'Specification')]//span[contains(., 'pdf')]//../div/a/@href
@@ -210,7 +215,7 @@ fields:
   - name: Image360Present
     singleValue: false
     defaultValue: No
-    xpath: //button[contains(.,'360')] | //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+    #xpath: //button[contains(.,'360')] | //span[@id="canvasCaption" and contains(text(),  "Roll over")]
   - name: imageZoomFeaturePresent
     # singleValue: false
     # defaultValue: No

@@ -85,6 +85,11 @@ const transform = (data) => {
         }
       }
 
+      // if (row.sku) {
+      //   for (const item of row.sku) {
+      //     item.text = item.text.replace('Model ', '');
+      //   }
+      // }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
