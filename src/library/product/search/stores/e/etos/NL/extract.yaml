@@ -11,7 +11,7 @@ fields:
     xpath : //div[contains(@class, "c-quantity-selector")]/@data-pid
   - name: thumbnail
     singleValue: false
-    xpath : //div[@class="image-container"]//img[contains(@class, "image-item")]/@srcset
+    xpath : //div[@class="image-container"]//img[contains(@class, "image__default")]/@src
   - name: productUrl
     singleValue: false
     xpath : //a[@class="js-product-tile-click"]/@href
