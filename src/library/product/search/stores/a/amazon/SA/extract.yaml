@@ -5,12 +5,17 @@ recordXPath: //div[contains(@data-component-type,"s-search-result") and not(cont
 fields:
   - name: price
     singleValue: false
-    xpath: //span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+    xpath: //span[@class='a-price']/span[2]
     regExp: (.+)
     regExpReplace: $1
   - name: name
     singleValue: true
     xpath: //h2
+  - name: rankOrganic
+    singleValue: false
+    xpath:
+    regExp: (.+) out of
+    regExpReplace: $1
   - name: productUrl
     singleValue: false
     xpath: //h2/a/@href
@@ -21,15 +26,25 @@ fields:
     xpath: //div[contains(@class, 'image')]/img/@src
   - name: aggregateRating
     singleValue: false
-    xpath: //span[contains(@aria-label,"stars")]/@aria-label
+    xpath: (//i[contains(@class, "a-icon a-icon-star-small")]/span[@class='a-icon-alt'])[1]
     regExp: (.+) out of
+    regExpReplace: $1
+  - name: rank
+    singleValue: false
+    xpath: //span[contains(@class,"widgetId=search-results")]/@cel_widget_id
+    regExp: MAIN-SEARCH_RESULTS-(.+)
+    regExpReplace: $1
+  - name: rankOrganic
+    singleValue: false
+    xpath: //span[contains(@class,"widgetId=search-results")]/@cel_widget_id
+    regExp: MAIN-SEARCH_RESULTS-(.+)
     regExpReplace: $1
   - name: id
     singleValue: false
     xpath: //div/../@data-asin
   - name: reviewCount
-    singleValue: true
-    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
+    singleValue: false
+    xpath: (//a[@class='a-link-normal']/span[@class='a-size-base'])[1]
   - name: ratingCount
     singleValue: true
     xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
