@@ -1,0 +1,93 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'js-big-image-wrapper')]//div[contains(@class,'js-big-image') and contains(@class,'swiper-slide-active')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'js-big-image-wrapper')]//div[contains(@class,'js-big-image') and contains(@class,'swiper-slide-active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'js-big-image-wrapper')]//div[contains(@class,'js-big-image') and not(contains(@class,'swiper-slide-active'))]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //ol[@class='breadcrumb']//li//a
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='product-name']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='product-name']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,"js-cart-and-ipay")]//button[contains(@class,'add-to-car') and normalize-space()='Lisää ostoskoriin']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[@class='main-detail-column']//div[@class='prices']//div[@class='price']//span[not(contains(@class,'for-sale'))]//span
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='main-detail-column']//div[@class='prices']//div[@class='price']//span[contains(@class,'for-sale')]//span
+  - name: description
+    singleValue: false
+    xpath: //h2[text()='Tuotekuvaus']//following-sibling::div[contains(@class,'content')]/text()
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //h2[text()='Tuotekuvaus']//following-sibling::div[contains(@class,'content')]//ul//li
+  - name: brandText
+    singleValue: false
+    xpath: //h2[@class='brand-name']//a
+  - name: brandLink
+    singleValue: false
+    xpath: //h2[@class='brand-name']//a/@href
+  - name: manufacturer
+    singleValue: false
+    xpath: //h2[@class='brand-name']//a
+  - name: mpc
+    singleValue: false
+    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Valmistajan tuotenumero']//parent::th//following-sibling::td
+  - name: sku
+    singleValue: false    
+    xpath: //script[contains(text(),'sku') and contains(text(),'mpn')]
+    #"sku":"10574502055-1"
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //script[contains(text(),'sku') and contains(text(),'mpn')]
+    #"sku":"10574502055-1"
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    # COUNT it
+    xpath: //div[@class="swatch-item-wrapper"]//div[contains(@class,'swiper-slide')]//button
+    defaultValue: '0'
+    type: NUMBER  
+  - name: specifications
+    singleValue: false
+    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr
+  - name: quantity
+    singleValue: false
+    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Pakkauskoko']//parent::th//following-sibling::td
+  - name: color
+    singleValue: false
+    xpath: //span[contains(@class,'swatch-item') and contains(@class,'selected')]/@data-attr-value
+  - name: videos
+    singleValue: false
+    # add https://www.youtube.com/watch?v= before it
+    xpath: //li[@class='b-video-item']//div[@class='b-video-item-tile']/@data-videoid
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Kokotiedot']//parent::th//following-sibling::td
+  - name: materials
+    singleValue: false
+    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Materiaali']//parent::th//following-sibling::td
