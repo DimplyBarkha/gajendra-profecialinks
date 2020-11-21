@@ -34,7 +34,7 @@ fields:
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//p[contains(@class,'productName')]
+    xpath: //a[contains(@class,"plp__productTileWrapper")]//div[@class="plp__productNameFlavourWrapper__2RIMs"]
     description: The product name
   - name: sku
     singleValue: false
@@ -54,9 +54,8 @@ fields:
   - name: reviewCount
     singleValue: false
     description: The number of reviews
-    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//p[@class="plp__reviewTxt__3yo2n"]
-    regExp: ^.*?\([^\d]*(\d+)[^\d]*\).*$
-    regExpReplace: $1
+    xpath: //div[@Class="plp__ratingContainerWrapper__3WAoq"]//p[@class="plp__reviewTxt__3yo2n"]
+    type: NUMBER
   - name: price
     singleValue: false
     xpath: //p[@data-testid="price-container"]

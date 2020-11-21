@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'shoppersdrugmart',
-    nextLinkSelector: 'button[data-testid*="pagination-button-right"]',
+    nextLinkSelector: 'button[data-testid*="pagination-button-right"]:not(.plp__hidden__4k9wu)',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'section[data-testid*="product-list"] a[class*="plp__productTileWrapper"]:last-child img',
