@@ -4,40 +4,15 @@ async function implementation (inputs, parameters, context, dependencies) {
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
   await context.evaluate(async () => {
-    function addProp (selector, iterator, name, value) {
-      document.querySelectorAll(selector)[iterator].setAttribute(name, value);
+    function addProp (name, prop) {
+      let j = 0;
+      prop.forEach(element => {
+        document.querySelectorAll('.productinfo')[j].setAttribute(name, element);
+        j++;
+      });
     }
-    const responseJson = await fetch('https://merqueo.com/api/3.1/stores/63/search?q=leche&page=1&per_page=50&');
-    const data = await responseJson.json();
-    let name;
-    let productId;
-    let image;
-    let price;
 
-    for (let i = 0; i < data.data.length; i++) {
-      const productInfo = document.createElement('div');
-      productInfo.className = 'productinfo';
-      document.body.appendChild(productInfo);
-      name = data.data[i].attributes.name;
-      productId = data.data[i].id;
-      image = data.data[i].attributes.image_large_url;
-      price = data.data[0].attributes.pum[0];
-      price = price.replace('.', ',');
-      price = price.match('[$].*');
-
-      addProp('div.productinfo', i, 'name', name);
-      addProp('div.productinfo', i, 'image', image);
-      addProp('div.productinfo', i, 'productid', productId);
-      addProp('div.productinfo', i, 'rank', `${i + 1}`);
-      addProp('div.productinfo', i, 'price', price);
-    }
-  });
-
-  await context.evaluate(async () => {
-    const productUrl = [];
-    let j = 0;
-    // scroll
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -45,24 +20,68 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
     }
 
+    const productUrl = [];
+    const name = [];
+    const productId = [];
+    const image = [];
+    let k = 0;
+    // scroll
+
     let scrollTop = 0;
-    const scrollLimit = 10 * 334;
+    const scrollLimit = 10000;
+    await stall(3000);
     while (scrollTop <= scrollLimit) {
-      await stall(3000);
-      const productUrlSelector = document.querySelectorAll('a[data-v-c701e340]');
-      productUrlSelector.forEach(element => {
+      const productSelectorURL = document.querySelectorAll('a[data-v-c701e340]');
+      productSelectorURL.forEach(element => {
         if (!(productUrl.includes(element.href))) {
           productUrl.push(element.href);
+          name.push(productUrl[k].match('[^/]*$'));
+          k++;
+        }
+      });
+      const productSelectorID = document.querySelectorAll('div.mq-grid-item>article');
+      productSelectorID.forEach(element => {
+        if (!(productId.includes(element.id))) {
+          productId.push(element.id);
+        }
+      });
+      const productSelectorImage = document.querySelectorAll('.mq-product-img img');
+      productSelectorImage.forEach(element => {
+        if (!(image.includes(element.src))) {
+          image.push(element.src);
         }
       });
       scrollTop += 1006;
       window.scroll(0, scrollTop);
+      await stall(1000);
     }
-    productUrl.forEach(url => {
-      document.querySelectorAll('div.productinfo')[j].setAttribute('producturl', url);
-      console.log(url);
-      j++;
+
+    for (let i = 0; i < productUrl.length; i++) {
+      const productInfo = document.createElement('div');
+      productInfo.className = 'productinfo';
+      document.body.appendChild(productInfo);
+    };
+
+    addProp('producturl', productUrl);
+    addProp('id', productId);
+    addProp('image', image);
+    addProp('name', name);
+
+    const rank = document.querySelectorAll('.productinfo');
+    let i = 1;
+    rank.forEach(number => {
+      number.setAttribute('rank', `${i}`);
+      i++;
     });
+
+    const response = await fetch('https://merqueo.com/api/3.1/stores/63/search?q=leche&page=1&per_page=50&');
+    const data = await response.json();
+
+    for (i = 0; i < data.data.length; i++) {
+      let price = data.data[i].attributes.price;
+      price = '$' + price;
+      document.querySelectorAll('.productinfo')[i].setAttribute('price', price);
+    };
   });
 
   return await context.extract(productDetails);
