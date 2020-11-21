@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="amasty-shopby-product-list"]//product-grid/product-grid-item
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //product-grid-item/@onclick
+    regExp: \"id\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[@class="product-item-photo"]/@href
+  - name: price
+    SingleValue: false
+    xpath: //p[@class="price-from"]//span[@class="price"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //imaginary-picture-responsive/@current-src
+  - name: name
+    SingleValue: false
+    xpath: //product-grid-item/@onclick
+    regExp: \"name\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1    
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
