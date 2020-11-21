@@ -33,6 +33,7 @@ fields:
   regExp: (.+)
   regExpReplace: $1
   defaultValue: In Stock
+  #
 - name: description
   singleValue: false
   xpath: //div[contains(text(),"DESCRIPTION")]/../following-sibling::div[contains(@class,"col-sm-5")]
