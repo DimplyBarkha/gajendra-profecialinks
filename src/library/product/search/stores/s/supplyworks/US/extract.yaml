@@ -1,5 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@data-id="searchResultsContainer"]//div[contains(@class,"pure-u-xs-1 list-view")]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@data-id="searchResultsContainer"]//a[@id="search-sku-title"]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@data-id="searchResultsContainer"]//div[@class="margin-top-1em"]//a
+  - name: name
+    SingleValue: false
+    xpath: //div[@data-id="searchResultsContainer"]//a[@id="search-sku-title"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@data-id="searchResultsContainer"]//img[contains(@class,"centered-image pointer pure-img")]/@src
+  - name: price 
+    SingleValue: false 
+    xpath: //div[@data-id="searchResultsContainer"]//div[@class="pdp-price"]//span[@data-id="currentPrice"]

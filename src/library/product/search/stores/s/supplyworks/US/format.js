@@ -27,7 +27,7 @@ const transform = (data) => {
       for (const row of group) {
         if (row.productUrl) {
           row.productUrl.forEach(item => {
-            item.text = 'https://www.sears.com' + item.text;
+            item.text = 'https://www.supplyworks.com' + item.text;
           });
         }
         if (row.ratingCount) {

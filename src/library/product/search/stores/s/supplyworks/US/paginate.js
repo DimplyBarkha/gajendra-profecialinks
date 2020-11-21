@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div.pure-g.search-result-list-box',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'supplyworks.us',
