@@ -28,7 +28,7 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     singleValue: false
-    xpath: (translate(//div[@class='rating']/@style, translate(.,'0123456789',''), '')*0.05)
+    xpath: //div[@class='rating']/@rValue
   - name: aggregateRating2
     singleValue: false
   - name: reviewCount
@@ -58,6 +58,7 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //h3[@class='h2']/@rank
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
