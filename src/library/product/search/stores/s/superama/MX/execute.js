@@ -8,7 +8,7 @@ module.exports = {
     url: 'https://www.superama.com.mx/buscar/{searchTerms}',
     //url: 'https://www.superama.com.mx/buscador/resultado?busqueda={searchTerms}',
     loadedSelector: 'div.portfolio.full-portfolio.grids ul li',
-    //noResultsXPath: '//div[@class="error__images"]',
+    noResultsXPath: '//div[@id="conten_error"]/@style[contains(.,"block")]',
     zipcode: '',
   },
 };
