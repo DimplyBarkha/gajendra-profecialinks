@@ -20,12 +20,13 @@ fields:
     regExpReplace: https://www.chedraui.com.mx/$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="plp-product-thumb"]//img/@src
+    xpath: //div[@class="plp-product-thumb"]//img[@title]/@src
     regExp: (.+)
     regExpReplace: https://www.chedraui.com.mx/$1
   - name: name
     singleValue: false
-    xpath: //div[@class="plp-product-thumb"]//img/@alt
+    xpath: //a[@class="name"]/text() 
+    # //div[@class="plp-product-thumb"]//img/@alt
   # - name: aggregateRating
   #   singleValue: false
   #   xpath: 
