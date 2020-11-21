@@ -10,7 +10,19 @@ const { transform } = require('../format');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  try{
+    context.waitForSelector('#dyson_jump_features', {timeout: 30000});
+ } catch(error){
+      console.log('dyson_jump_features not found');
+ }
+  const waitSelector = await context.evaluate(()=>{
+    return document.querySelector('#dyson_jump_features')? true:false ;
+  })
+  if(waitSelector){
+  await context.evaluate(()=>{
+    document.querySelector('.inpage_block.inpage_selector_feature').scrollIntoView({behavior: "smooth"});
+  })
+  }
   await context.evaluate(async function () {
    
     if (document.querySelector('#category-grid > div[data-position="1"]')) {
@@ -34,7 +46,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
 
     // If images are present in description then add to manufacturerDescription else add to description
-    const descriptionSelector = document.evaluate('//*[@id="productDescription"] | //span[contains(text(), "Description")]/parent::*/following-sibling::* |  //div[contains(@class, "product-short-description short-description")]/p', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    const descriptionSelector = document.evaluate('//*[@id="productDescription"] | //span[contains(text(), "Description")]/parent::*/following-sibling::* |  //div[contains(@class, "product-short-description short-description")]/p | //div[contains(@id,"dyson_jump_features")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     let description = descriptionSelector ? descriptionSelector.innerText : '';
     description = description ? description.replace(/(\n\s*){2,}/g, ' ').replace(/(\n\s*){1,}/g, ' || ') : '';
     const manufacturerImageFlag = document.querySelector('div[class="box-description cms"] img');
