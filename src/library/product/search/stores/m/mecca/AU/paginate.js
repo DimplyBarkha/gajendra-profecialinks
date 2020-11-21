@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'mecca',
-    nextLinkSelector: 'a[class="page-next"], a[rel="next"]',
+    nextLinkSelector: 'a[class="page-next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="search-result-content"]',
