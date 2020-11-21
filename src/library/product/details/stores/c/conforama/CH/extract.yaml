@@ -1,0 +1,161 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="productPics"]/a/img[contains(@class, "lazyloaded")]/@src | //div[@class="productPics"]/a/img[1]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="productPics"]/a/img[contains(@class, "lazyloaded")]/@alt | //div[@class="productPics"]/a/img[1]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[contains(@class,"sliderThumb")]/li[position() > 1]//img/@src | //ul[contains(@class,"sliderThumb")]/li[@class="pager"]/a/img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//ul[contains(@class,"sliderThumb")]/li[position()>1]//img/@src | //ul[contains(@class,"sliderThumb")]/li[@class="pager"]/a/img/@src)
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@id,"breadcrumb")]/a[position()>1][position()<last()]
+    # xpath: //div[contains(@id,"breadcrumb")]/a[@class="home"]/following-sibling::a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="productTitle"]/div/h1
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class='old-infos oldPrice']/text()
+  - name: price
+    singleValue: false
+    xpath: //div[@class='currentPrice']
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[contains(text(),"In den Warenkorb")]
+    # xpath: //span[contains(text(),"Benachrichtigen Sie mich, wenn dieses Produkt verfügbar ist")]
+    # xpath: //button[contains(@class, "btnGreen")]/span[text()="Ajouter au panier"] | //button[contains(@onclick,"eventAddToCart()")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //h3[contains(text(),"Produktbeschreibung")]/../ul/li
+    # xpath: //h3[contains(text()," Produktbeschreibung")]/../../following-sibling::tr[position()>1] | //div[@id="tabs-1"]/ul/li | //h3[contains(text(),"Beschreibung")]/../../following-sibling::tr[position()>1]
+    # xpath: //h3[contains(text()," Description ")]/../../following-sibling::tr[position()>1] | //div[@id="tabs-1"]/ul/li
+    # xpath: //div[@id="description"]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@class="pointForts"]/li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//ul[@class="pointForts"]/li)
+  - name: brandText
+    singleValue: false
+    xpath: //button[contains(@class,"btnGreen")]/@data-brandnamenormalized | //div[@id="brandText"] | //button[contains(@class,"btn-primary ")]/@data-brandnamenormalized
+  - name: weightNet
+    singleValue: false
+    description: Net weight as described on the page
+    xpath: //strong[contains(text(),"Gesamtgewicht")]//..//following-sibling::td
+    # xpath: //*[contains(text(), "Pakete")]//..//following-sibling::*
+    # xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Poids")]//..//following-sibling::*
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin 
+    #//script/@data-flix-ean
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //div[@class="infos_Product"]/span/text()
+    # xpath: //span[@class='normal product-ref sous-pointFort'] //script/@data-flix-sku |
+    regExp: \d{4,}
+    # regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="ratingValue"]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //strong[contains(text(), "Grösse (BxTxH)")]//..//following-sibling::td
+  - name: shippingWeight
+    singleValue: false
+    description: Stated shipping weight
+  - name: materials
+    singleValue: false
+    xpath: //h3[contains(text(),"Material")]/../../following-sibling::tr[position()>1]
+    # xpath: //*[contains(text(), "Material")]//..//following-sibling::* | //h3[contains(text(),"Material")]/../../following-sibling::tr[position()>1]
+    # xpath: //h3[contains(text(),"Matières")]/../../following-sibling::tr[position()>1] | //*[contains(text(), "Matière")]//..//following-sibling::*
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+    # xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Coloris")]//..//following-sibling::*
+    # xpath: //*[contains(text(), "Coloris")]//..//following-sibling::*
+    # xpath: //*[contains(text(), "Farben")]//..//following-sibling::*
+    xpath: //strong[contains(text(), "Farben")]//..//following-sibling::td
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //div[@class="productTitle"]/div/h1
+  - name: url
+    xpath: //meta[@property="og:url"]/@content
+    singleValue: false
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="tabs-2"]//div/table/tbody/tr[position() > 1]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="infos_Product"]/span/text() 
+    # //script/@data-flix-sku | 
+    regExp: \d{4,}
+  - name: packaging
+    xpath: //h3[contains(text(),"Emballage")]/../../following-sibling::tr[position()>1]
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@class="linkFiche"]/a/@href
+    # regExp: (.+)
+    # regExpReplace: https://www.conforama.ch$1 
+  - name: customerServiceAvailability
+    singleValue: false
+    defaultValue: Yes 
+  - name: promotion
+    singleValue: false
+    xpath: //span[@class="reduc"] | //div[@class="m_cart_confo"]/div/text()
+  - name: ageSuitability
+    singleValue: false
+    xpath: //strong[contains(text(), "enfants")]//..//following-sibling::td
+  - name: energyEfficiency
+    singleValue: false 
+    xpath: //strong[contains(text(), "Energieklasse")]//..//following-sibling::td
+    # xpath: //strong[contains(text(), "Classe énergétique")]//..//following-sibling::*
+  # - name: mpc
+  #   singleValue: false
+  #   xpath: (//strong[contains(text(), "Modell")]//..//following-sibling::td)[1]
+    # xpath: //*[contains(text(), "Modell")]//..//following-sibling::*
+    # xpath: //*[contains(text(), "Modèle")]//..//following-sibling::*
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //strong[contains(text(), "Produkttypologie")]//..//following-sibling::td
+    # xpath: //*[contains(text(), "Produkttypologie")]//..//following-sibling::*
+    # xpath: //*[contains(text(), "Typologie du produit")]//..//following-sibling::*
+  - name: packSize
+    singleValue: false
+    xpath: //strong[contains(text(), "Anzahl der Pakete")]//..//following-sibling::td
+    # xpath: //*[contains(text(), "Anzahl der Pakete")]//..//following-sibling::*
+    # xpath: //*[contains(text(), "Nombre de colis")]//..//following-sibling::*
+  - name: quantity
+    singleValue: false 
+    xpath: //strong[contains(text(), "Anzahl der Kapseln")]//..//following-sibling::td
+    # xpath: //*[contains(text(), "Anzahl der Kapseln")]//..//following-sibling::*
+  - name: video
+    singleValue: false 
+    xpath: //a[@title="More"]/@href
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes 
