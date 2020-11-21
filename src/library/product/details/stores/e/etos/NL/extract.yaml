@@ -6,18 +6,42 @@ fields:
   - name: image
     singleValue: false
     xpath: //li[@id="tns1-item0"]//img[contains(@class, "image__default")]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //li[@id="tns1-item0"]//img[contains(@class, "image__default")]/@alt
   - name: category
     singleValue: false
     xpath: //a[@class="breadcrumb__item"]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@id="product-title"]
-  - name: listPrice
-    singleValue: false
-    xpath: //div[@class="product-hero__price"]//span[contains(@class, "u-sr-only")]    
+    xpath: //h1[@id="product-title"]    
   - name: price
     singleValue: false
     xpath: //div[@class="product-hero__price"]//span[contains(@class, "u-sr-only")]
   - name: availabilityText
     singleValue: false
-    defaultValue: In Stock
+    defaultValue: In Stock  
+  - name: sku
+    singleValue: false
+    xpath: //button[contains(@class, "add-to-cart-button-pdp")]/@data-pid
+  - name: variantId
+    singleValue: false
+    xpath: //button[contains(@class, "add-to-cart-button-pdp")]/@data-pid
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, "u-flex-row")]//div[@class="c-product-meta u-text--small"]
+  - name: packSize
+    singleValue: false
+    xpath: //div[@class="accordion__item-content s-rich-text"]/div[@class="s-rich-text"]/b[text()="Inhoud"]/parent::*/text()
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@class="accordion__item-content s-rich-text"]/div[@class="s-rich-text"]/b[text()="Disclaimer"]/parent::*/text()  
+  - name: name
+    singleValue: false
+    xpath: //h1[@id="product-title"]  
+  - name: inStorePrice
+    singleValue: false
+    xpath: //div[@class="product-hero__price"]//span[contains(@class, "u-sr-only")]
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@id="id-2110316321"]/div
