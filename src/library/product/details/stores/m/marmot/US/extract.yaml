@@ -50,7 +50,7 @@ fields:
     xpath: //div[contains(@class,'product-detail')]/@data-pid
   - name: variantCount
     singleValue: false
-    defaultValue: '0
+    defaultValue: '0'
     type: NUMBER
   - name: variantInformation
     singleValue: false
@@ -79,13 +79,7 @@ fields:
     xpath: //span[contains(@class,'color-display-value')]
   - name: weightNet
     singleValue: false
-    xpath: //h5[normalize-space()='Specifications']//following-sibling::ul//li[contains(text(),'Product Weight')]
-    # remove text Product Weight:
-    regExp: (Product Weight\:) 
-    regExpReplace: $1
+    xpath: //h5[normalize-space()='Specifications']//following-sibling::ul//li[contains(text(),'Product Weight')]    
   - name: materials
     singleValue: false
-    xpath: //h5[normalize-space()='Specifications']//following-sibling::ul//li[contains(text(),'Main Fabric')]
-    # remove text Main Fabric:
-    regExp: (Main Fabric:\) 
-    regExpReplace: $1
+    xpath: //h5[normalize-space()='Specifications']//following-sibling::ul//li[contains(text(),'Main Fabric')]    

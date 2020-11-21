@@ -36,6 +36,16 @@ const transform = (data) => {
           item.text = item.text.replace('&hei=180', '');
         });
       }
+      if (row.weightNet) {
+        row.weightNet.forEach(item => {
+          item.text = item.text.replace('Product Weight:', '');
+        });
+      }
+      if (row.materials) {
+        row.materials.forEach(item => {
+          item.text = item.text.replace('Main Fabric:', '');
+        });
+      }
       // if (row.descriptionBullets) {
       //   var bulletArr = [];
       //   row.descriptionBullets.forEach(item => {
