@@ -8,11 +8,11 @@ fields:
     regExp: (.*)
     regExpReplace: https:$&
   - name: imageAlt
-    xpath:  
+    xpath:
   - name: alternateImages
     xpath: (//div[@class="image-layout-slides-group"]/div[not(div[@class="play-video-button"])]/img/@data-zoom)[position() > 1]
     regExp: (.+)
-    regExpReplace: https:$1  
+    regExpReplace: https:$1
   - name: secondaryImageTotal
     xpath: count((//div[@class="image-layout-slides-group"]/div[not(div[@class="play-video-button"])]/img/@data-zoom)[position() > 1])
   - name: category
@@ -33,17 +33,17 @@ fields:
   - name: brandText
     xpath : //div[@id="brand"]
   - name: quantity
-    xpath: //dt[contains(text(),"Velocidad de centrifugado")]/following-sibling::dd[1] | //dt[contains(text(),"Diagonal de la pantalla")]/following-sibling::dd[1] 
+    xpath: //dt[contains(text(),"Velocidad de centrifugado")]/following-sibling::dd[1] | //dt[contains(text(),"Diagonal de la pantalla")]/following-sibling::dd[1]
   - name: gtin
     xpath: //div[@id="gtin"]
   - name: eangtin
-    xpath: //div[@id="gtin"]  
+    xpath: //div[@id="gtin"]
   - name: asin
-    xpath: 
+    xpath:
   - name: sku
     xpath: //div[@id="sku"]
   - name: firstVariant
-    xpath: //div[@id="sku"]  
+    xpath: //div[@id="sku"]
   - name: variantId
     xpath: //div[@id="retailer_product_code"]
   - name: mpc
@@ -62,13 +62,13 @@ fields:
   - name: ratingCount
     xpath: //div[@id="ratingCount"]
   - name: warranty
-    xpath : //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
+    xpath : //dt[contains(text(),"Garantía")]/following-sibling::dd[1]
   - name: storage
     xpath : //div/@title
   - name: countryOfOrigin
     xpath: //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
   - name: allergyAdvice
-    xpath : 
+    xpath :
   - name: promotion
     xpath : //div[contains(@class,"product_detail-aside")]//p[@class="price _discount"]
   - name: alcoholContent
@@ -78,58 +78,58 @@ fields:
   - name: aggregateRating
     xpath: //div[@id="aggregateRating"]
   - name: shippingInfo
-    xpath: 
+    xpath:
   - name: shipping
-    xpath:      
+    xpath:
   - name: energyEfficiency
-    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
+    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1]
   - name: imageZoomFeaturePresent
-    xpath: //div[@id="imageZoomFeaturePresent"] 
+    xpath: //div[@id="imageZoomFeaturePresent"]
   - name: shippingDimensions
-    xpath : //dt[contains(text(),"Medidas")]/following-sibling::dd[1] | //dt[contains(text(),"Dimensiones")]/following-sibling::dd[1] 
+    xpath : //dt[contains(text(),"Medidas")]/following-sibling::dd[1] | //dt[contains(text(),"Dimensiones")]/following-sibling::dd[1]
   - name: shippingWeight
-    xpath : 
+    xpath :
   - name: variantCount
-    xpath :  
+    xpath :
     defaultValue: "0"
   - name: color
     xpath : //dt[contains(text(),"Alimentação")]/following-sibling::dd[1] | //*[contains(text(),"Color")]/following-sibling::span  | //dt[contains(text(),"Color")]/following-sibling::dd[1]
   - name: colorCode
-    xpath :  
+    xpath :
   - name: manufacturerDescription
-    xpath : //div[@class="inpage_selector_feature"]   
+    xpath : //div[@class="inpage_selector_feature"]
   - name: manufacturerImages
     xpath : //div[@class="inpage_selector_feature"]//img//@data-flixsrcset
     regExp: ((.+)( 200w))
-    regExpReplace: $2  
+    regExpReplace: $2
   - name: termsAndConditions
-    xpath : 
+    xpath :
   - name: additionalDescBulletInfo
-    xpath :   
+    xpath :
   - name: specifications
     xpath : //div[@id="specifications"] | //div[contains(@class,"product_information")]
   - name: recyclingInformation
-    xpath :      
+    xpath :
   - name: productOtherInformation
-    xpath :    
+    xpath :
   - name: packaging
-    xpath :             
+    xpath :
   - name: directions
     xpath:
-  - name: warnings 
-    xpath:   
+  - name: warnings
+    xpath:
   - name: mpc
   - name: packSize
-    xpath: 
+    xpath:
   - name: legalDisclaimer
-    xpath:  
-  - name : weightNet    
+    xpath:
+  - name : weightNet
     xpath : //dt[contains(text(),"Diagonal de la pantalla")]/following-sibling::dd[1] | //dt[contains(text(),"Velocidad de centrifugado")]/following-sibling::dd[1] | //dt[contains(text(),"Peso")]/following-sibling::dd[1]
-  - name : weightGross    
-    xpath :           
+  - name : weightGross
+    xpath :
   - name: descriptionBullets
     singleValue: false
-    xpath :
+    xpath : count(//*[contains(@class,"product_detail-description-in-image") or contains(@class,"product_information")])
   - name: galleryVideos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
