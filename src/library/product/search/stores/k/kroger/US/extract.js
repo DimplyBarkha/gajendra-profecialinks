@@ -62,7 +62,7 @@ async function implementation (
     const url = `https://www.kroger.com/search?query=${searchTerms}&searchType=natural&fulfillment=all`;
     console.log(`url before appending to the div in extract - ${url}`);
 
-    function addHiddenDiv(id, content) {
+    function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -70,18 +70,17 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-    addHiddenDiv('my-search-url',url);
+    addHiddenDiv('my-search-url', url);
 
-    if(!document.querySelector('#page-num')) {
-      addHiddenDiv('page-num',1);
+    if (!document.querySelector('#page-num')) {
+      addHiddenDiv('page-num', 1);
     } else {
-      let pageEl = document.querySelector('#page-num');
-      if (pageEl){
-        let currNum = Number(pageEl.textContent) + 1;
+      const pageEl = document.querySelector('#page-num');
+      if (pageEl) {
+        const currNum = Number(pageEl.textContent) + 1;
         pageEl.textContent = String(currNum);
       }
     }
-  debugger
   });
 
   return await context.extract(productDetails, { transform });

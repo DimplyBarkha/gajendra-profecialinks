@@ -5,8 +5,11 @@ async function implementation (
   dependencies,
 ) {
   console.log('params', parameters);
-  const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-  console.log(`url created is - ${url}`);
+  console.log('inputs', inputs);
+
+  const url = inputs.url || parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+
+  console.log(`url used is - ${url}`);
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   if (parameters.loadedSelector) {
     console.log(`loaded selector in parameters is - ${parameters.loadedSelector}`);
