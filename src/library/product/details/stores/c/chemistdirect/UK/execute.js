@@ -6,7 +6,7 @@ module.exports = {
     store: 'chemistdirect',
     domain: 'chemistdirect.co.uk',
     loadedSelector: 'div.cd-product-main',
-    noResultsXPath: "//div[@id='nxt-nrf']",
+    noResultsXPath: "//div[contains(@class,'cd-products-view')]//ul[contains(@class,'cd-products-list')]",
     zipcode: '',
   },
 };

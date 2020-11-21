@@ -29,7 +29,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: (//h1[contains(@class,'cd-product-name')])
+    xpath: concat((//h1[contains(@class,'cd-product-name')]),(//span[contains(@class,'cd-product-qty')]))
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -51,18 +51,18 @@ fields:
     xpath: (//h1[contains(@class,'cd-product-name')])
   - name: _url
     singleValue: false
-    xpath: //link[@rel='canonical']//@href
+    xpath: //div[@id='document_url']
   - name: url
     singleValue: false
-    xpath: //link[@rel='canonical']//@href
+    xpath: //div[@id='document_url']
   - name: productUrl
     singleValue: false
-    xpath: //link[@rel='canonical']//@href
+    xpath: //div[@id='document_url']
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='ProductDescription']
+    xpath: concat(//div[contains(@class,'cd-product-desc')],//div[@id='ProductDescription'])
   - name: ingredientsList
     singleValue: false
     xpath: //div[@id='Ingredients']
@@ -104,12 +104,36 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: (//button[contains(@class,'cd-product-kits-button')])[1]
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[@id='document_variants']//p)[1]
   - name: variants
     singleValue: false
-    xpath: //div[contains(@class,'mobile-show')]//div[contains(@class,'cd-product-kits-opts')]//a
+    xpath: //div[@id='document_variants']//p
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@id='ProductDescription']//ul//li)
   - name: manufacturer
     singleValue: false
     xpath: //div[@id='document_manufacturer']
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class,'mobile-show')]//div[contains(@class,'cd-product-kits-opts')]//a)
+  - name: promotion
+    singleValue: false
+    xpath: (//div[contains(@class,'cd-p-areo-wrapper')]//p)[1]
+  - name: additional_desc_bullet_info
+    singleValue: false
+    xpath: //div[contains(@class,'cd-product-tabs')][1]//ul//li
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //a[contains(@class,'MagicZoomPlus')]
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //ul[contains(@class,'cd-footer-bottom-list')]
+  - name: customerServiceAvailability
+    singleValue: false
+    xpath: //span[contains(@class,'cd-way-info')]
+  - name: privacyPolicy
+    singleValue: false
+    xpath: //ul[contains(@class,'cd-footer-bottom-list')]

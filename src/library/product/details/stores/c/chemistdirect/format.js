@@ -30,6 +30,36 @@ const transform = (data, context) => {
             ];
           }
 
+          if (row.imageZoomFeaturePresent) {
+            if (row.imageZoomFeaturePresent.length) {
+              row.imageZoomFeaturePresent[0].text = 'Yes';
+            } else {
+              row.imageZoomFeaturePresent = [{ text: 'No', xpath: '' }];
+            }
+          }
+          if (row.termsAndConditions) {
+              if (row.termsAndConditions.length) {
+                row.termsAndConditions[0].text = 'Yes';
+              } else {
+                row.termsAndConditions = [{ text: 'No', xpath: '' }];
+              }
+            }
+            if (row.customerServiceAvailability) {
+              if (row.customerServiceAvailability.length) {
+                row.customerServiceAvailability[0].text = 'Yes';
+              } else {
+                row.customerServiceAvailability = [{ text: 'No', xpath: '' }];
+              }
+            }
+            
+            if (row.privacyPolicy) {
+              if (row.privacyPolicy.length) {
+                row.privacyPolicy[0].text = 'Yes';
+              } else {
+                row.privacyPolicy = [{ text: 'No', xpath: '' }];
+              }
+            }
+
           if (row.alternateImages) {
             row.alternateImages.forEach(item => {
               if(item.text.indexOf("http") == -1)
