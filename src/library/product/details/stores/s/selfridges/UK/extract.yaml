@@ -1,0 +1,84 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@class='c-image-gallery__images']//picture[@imageindex='1']/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='c-image-gallery__images']//picture[@imageindex='1']/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='c-image-gallery__images']//picture[not(@imageindex='1')]/img/@src
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='c-breadcrumbs']//li//span[@itemprop='name']
+  - name: name
+    singleValue: false
+    xpath: //h1/span[@class='a-txt-product-description']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1/span[@class='a-txt-product-description']
+  - name: availabilityText
+    singleValue: false
+    xpath: //section[contains(@class,'c-filter')]//button[@data-action="add-to-bag" and normalize-space()='Add to bag']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //span[@class="o-price__amount --reduced reduced_price"][//span[@class="o-price__amount --reduced reduced_price"]]| //p[@class='o-price'][not(//span[@class="o-price__amount --reduced reduced_price"])]
+  - name: listPrice
+    singleValue: false
+    xpath: //p[@class='o-price']//span[contains(@class,'--old-price')]
+  - name:  description
+    singleValue: false
+    xpath: (//article[contains(@class,'c-tabs__content')]//div[@class="c-tabs__copy"])[1]
+  # - name: additionalDescBulletInfo
+  #   singleValue: false
+  #   xpath: (//div[@class="c-tabs__copy"])[1]//ul//li    
+  # - name: descriptionBullets
+  #   singleValue: false
+  - name: brandText
+    singleValue: false
+    xpath: //h1/span[@class='a-txt-brand-name']//a
+  - name: brandLink
+    singleValue: false
+    xpath: //h1/span[@class='a-txt-brand-name']//a/@href
+  - name: sku
+    singleValue: false
+    xpath: //section[@class='c-product-info__sku']//span[@data-js-action='updateSKU']  
+  - name: variantId
+    singleValue: false
+    xpath: //section[@class='c-product-info__sku']//span[not(@data-js-action='updateSKU')]
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@class="c-select__dropdown-item-container"]//span[contains(@class,'c-select__dropdown-item')]//span[not(@class)]
+    defaultValue: '0'
+    type: NUMBER  
+  - name: promotion
+    singleValue: false
+    xpath: //p[@class="cce-discount__discount"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='c-tabs__copy']//p[text()='Specifications']/parent::*
+  - name: color
+    singleValue: false
+    xpath: //div[@class='c-select__label' and text()='Colour']//following-sibling::button//span
+  - name: weightNet
+    singleValue: false
+    xpath: //p[text()='Specifications']//following-sibling::div//li[contains(text(),'Weight')]
+    # remove Weight: from text Weight: 11.4kg
+    regExp: \(Weight\:\.+)
+    regExpReplace: $1
+  - name: materials
+    singleValue: false
+    xpath: //p[text()='Specifications']//following-sibling::div//li[contains(text(),'Material')]
+    # remove Material: from text Material: Glass fibre polycarbonate 
+    regExp: \(Material\:\.+)
+    regExpReplace: $1
