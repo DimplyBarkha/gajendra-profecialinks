@@ -1,0 +1,188 @@
+input:
+  keywords: blauer stift
+  _url: http://viking.de
+extractions:
+  - html: https://workbench.import.io/html/run=3b5281dd-fd92-4449-a157-307ad50627a1/task=067dccbb-5e16-42b6-9580-971473c33cc3/a40aff81-4fe0-4ea9-ac5a-259b0018c3fa.html
+    extractionConfigId: product/search/stores/v/viking/DE/extract
+    data:
+      - group:
+          - id:
+              - text: "4117738"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/@data-article-number
+            searchUrl:
+              - text: https://www.viking.de/de/search/?text=blauer%20stift
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/@searchurl
+            name:
+              - text: Faber-Castell Druckbleistift Grip 1345 Fein 0.5 mm Blau
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@title
+            productUrl:
+              - text: https://www.viking.de/de/faber-castell-druckbleistift-grip-1345-fein-grau-p-1345-bu
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://static.viking.de/is/image/odeu13/4117738?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/div[1]/@title
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/@data-review-count
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/@data-review-count
+            price:
+              - text: 4,05 €
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[2]
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[2]
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+          - id:
+              - text: "3233466"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
+            searchUrl:
+              - text: https://www.viking.de/de/search/?text=blauer%20stift
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/@searchurl
+            name:
+              - text: Faber-Castell Druckbleistift Grip 1347 Fein 0.7 mm Blau
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@title
+            productUrl:
+              - text: https://www.viking.de/de/faber-castell-druckbleistift-grip-1347-fein-blau-p-1347-bu
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://static.viking.de/is/image/odeu13/3233466?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 4,05 €
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[2]
+                type: NUMBER
+                raw: "2"
+                locale: de_DE
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[2]
+                type: NUMBER
+                raw: "2"
+                locale: de_DE
+                value: 2
+          - id:
+              - text: "3550959"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
+            searchUrl:
+              - text: https://www.viking.de/de/search/?text=blauer%20stift
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/@searchurl
+            name:
+              - text: Faber-Castell Druckbleistift Grip Plus Fein 1.4 mm Blau
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@title
+            productUrl:
+              - text: https://www.viking.de/de/faber-castell-druckbleistift-grip-plus-fein-blau-p-1307-bu
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://static.viking.de/is/image/odeu13/3550959?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/div[1]/@title
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/@data-review-count
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/@data-review-count
+            price:
+              - text: 7,88 €
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[2]
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[2]
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+          - id:
+              - text: "3870051"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
+            searchUrl:
+              - text: https://www.viking.de/de/search/?text=blauer%20stift
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/@searchurl
+            name:
+              - text: STAEDTLER Druckbleistift Mars Micro Fein 0.5 mm Blau
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@title
+            productUrl:
+              - text: https://www.viking.de/de/staedtler-druckbleistift-mars-micro-fein-blau-p-77505
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://static.viking.de/is/image/odeu13/3870051?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 5,21 €
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[2]
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[2]
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+          - id:
+              - text: "7229358"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
+            searchUrl:
+              - text: https://www.viking.de/de/search/?text=blauer%20stift
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/@searchurl
+            name:
+              - text: STAEDTLER OHP-Stift 313 Fein 0.4 mm Blau
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@title
+            productUrl:
+              - text: https://www.viking.de/de/staedtler-ohp-stift-313-blau-p-7229358
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://static.viking.de/is/image/odeu13/7229358?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: 3,00 €
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[2]
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[2]
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+        xpath: /html
+    timestamp: 1605454969823

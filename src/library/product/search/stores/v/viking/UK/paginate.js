@@ -2,15 +2,15 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'DE',
+    country: 'UK',
     store: 'viking',
     nextLinkSelector: 'a#paginationPageNext[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'main#siteContent',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="searchEmpty"] | //div[@id="productPage"]',
     openSearchDefinition: null,
-    domain: 'viking.de',
+    domain: 'viking-direct.co.uk',
     zipcode: '',
   },
 };

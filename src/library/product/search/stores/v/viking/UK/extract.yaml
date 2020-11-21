@@ -7,29 +7,29 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'product-lister-item')]/@data-article-number
   - name: searchUrl
-    singleValue: false
-    xpath: //li[@class='search-results__result']/@searchurl
+    singleValue: true
   - name: name
     singleValue: false
     xpath: //a[@class='product-lister-item__name']/@title
   - name: productUrl
     singleValue: false
     xpath: //a[@class='product-lister-item__name']/@href
-    regExp: (.+)
-    regExpReplace: https://www.viking.de$1
+    regExp: (\/en.*)
+    regExpReplace: https://www.viking-direct.co.uk$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="product-lister-item__product-image"]//picture/img/@src
-    regExp: (.+)
+    regExp: (\/\/static.*)
     regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@class="product-rating__stars"]/div[@class="stars"]/@title
-    regExp: .+(?= von)
+    regExp: ^(\d+)\.?\,?(\d+)?.*$
+    regExpReplace: $1.$2
   - name: reviewCount
     singleValue: false
     xpath: //a[@class="product-rating"]/@data-review-count
@@ -39,7 +39,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="product-price-panel__price-alt-vat"]
-    regExp: (.+)(?= inkl)
+    regExp: £\d+\,?\.?\d*
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -50,12 +50,10 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: //div[@id='pd_rank']
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //div[@id='pd_rank']
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
