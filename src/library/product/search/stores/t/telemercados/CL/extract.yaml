@@ -1,5 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@id,"ResultItems_")]/div[contains(@class,"prateleira") and contains(@class,"n4colunas")]/ul/li[not(contains(@class,"helperComplement")) and contains(@class,"get_preco_ppum-ready")]
+fields:
+  - name: name
+    singlevalue: false
+    xpath: //div[@class="product-info"]/span[@class="nombre"]/a
+  - name: id
+    singlevalue: false
+    xpath: //div[@class="product-info"]/span[@class="nombre"]/@data-idproduct
+  - name: productUrl
+    singlevalue: false
+    xpath: //div[@class="product-info"]/span[@class="nombre"]/a/@href
+  - name: thumbnail
+    singlevalue: false
+    xpath: //div[@class="product-img"]/a/img/@src
+  - name: price
+    singlevalue: false
+    xpath: //div[@class="product-info"]/span[@class="precio"]/a
