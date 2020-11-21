@@ -5,9 +5,9 @@ module.exports = {
     country: 'UK',
     store: 'coop',
     domain: 'coop.co.uk',
-    url: 'https://shop.coop.co.uk/search?term={searchTerms}',
-    loadedSelector: 'article.product-card',
-    noResultsXPath: '//h2[@class="page--title" and contains(.,"No products found for")]',
+    url: 'https://www.coop.co.uk/products/search?query={searchTerms}',
+    loadedSelector: 'div.ais-results article',
+    noResultsXPath: '//h2[contains(text(),"Sorry we could not find what you were searching for")]',
     zipcode: "''",
   },
 };
