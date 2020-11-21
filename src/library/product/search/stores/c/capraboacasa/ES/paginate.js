@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'capraboacasa',
     nextLinkSelector: null,
-    nextLinkXpath: '//a[@data-next="true"]',
+    nextLinkXpath: '//li[@class!="disabled"]/a[@data-next="true"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
