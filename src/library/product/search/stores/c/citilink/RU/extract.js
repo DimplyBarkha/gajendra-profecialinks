@@ -19,7 +19,8 @@ module.exports = {
         container.appendChild(newDiv);
       };
       try {
-        const ratings = document.querySelectorAll('.ProductCardVertical__meta');
+        await new Promise(resolve => setTimeout(resolve, 6000));
+        const ratings = document.querySelectorAll('.ProductCardVerticalMeta');
         const containers = document.evaluate('//div[@class = "ProductCardCategoryList__grid"]//section/div', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
         const productRatings = [];
         const productReviews = [];

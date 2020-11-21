@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: '//div[@class = "ProductCardCategoryList__grid"]//section/div'
+recordSelector: '.ProductCardVertical_separated'
+recordXPath: null
 fields:
   - name: id
     singleValue: false
     xpath: //div[contains(@class, "ProductCardVertical")]/@data-product-id
   - name: name
     singleValue: false
-    xpath: //div[@class = "ProductCardVertical__name"]
+    xpath: //a[contains(@class, "ProductCardVertical__name")]//text()
   - name: productUrl
     singleValue: false
     xpath: //a[contains(@class, "ProductCardVertical__link")][1]/@href
@@ -28,4 +28,4 @@ fields:
     xpath: //div[@id="import_search_url"]
   - name: price
     singleValue: false
-    xpath: //span[@class = "ProductCardVertical__price-current_current-price"]
+    xpath: //div[@class = "ProductCardVerticalLayout__wrapper-cart"]//span[@class = "ProductCardVerticalPrice__price-current_current-price"]

@@ -4,14 +4,12 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'citilink',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a.PaginationWidget__arrow_right',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: '.StickyOverlayLoader__preloader',
     loadedSelector: 'div.ProductCardCategoryList__grid-container',
     noResultsXPath: '//h1[contains(text(),"По Вашему запросу")]',
-    openSearchDefinition: {
-      template: 'https://www.citilink.ru/search/?text={searchTerms}&page={page}',
-    },
+    openSearchDefinition: null,
     domain: 'citilink.ru',
     zipcode: '',
   },

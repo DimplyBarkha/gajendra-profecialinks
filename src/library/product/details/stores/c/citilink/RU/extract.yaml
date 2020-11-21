@@ -6,12 +6,12 @@ fields:
   - name: _url
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: false
     xpath: //div[@itemprop = "aggregateRating"]//span[@itemprop = "ratingValue"]//@content
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class ="ImageGallery__nav"]//div[contains(@class, 'slick-cloned') and contains(@data-slick-index, "-")]//img/@src
+    xpath: //div[@class ="ImageGallery__nav"]//div[contains(@class, 'slick-slide')]//img/@src
     regExp: (.*)_s.(.*)
     regExpReplace: $1_b.$2
   - name: availabilityText
@@ -37,7 +37,7 @@ fields:
     xpath: //table[@class = "product_features"]//span[contains(text(), "Страна производитель")]/parent::th/following-sibling::td
   - name: description
     singleValue: false
-    xpath: //div[@class = "AboutTab__description-text"]//p
+    xpath: //div[@class = "AboutTab__description-text"]
   - name: image
     singleValue: false
     xpath: //div[@class ="ImageGallery__content"]//div[contains(@class, 'slick-active')]//img/@src
@@ -46,7 +46,7 @@ fields:
     xpath: //div[@class ="ImageGallery__content"]//div[contains(@class, 'slick-active')]//img/@alt
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="import_list_price"]
+    xpath: //div[@id="import_list_price2"]
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -59,18 +59,18 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@class, "ProductHeader__title")]
-  - name: online_price_currency
-    singleValue: false
-    xpath: //span[@itemprop = "priceCurrency"]/@content
   - name: price
     singleValue: false
-    xpath: //span[@class = "ProductHeader__price-default_current-price"]
+    xpath: concat(//span[@class = "ProductHeader__price-default_current-price"], //span[contains(@class, "ProductHeader__price-default__rouble")])
   - name: productOtherInformation
     singleValue: false
     xpath: //p[@class = "short_description"]
   - name: promotion
     singleValue: false
     xpath: //blockquote/p
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class, "Specifications__column_name") and contains(text(), "Количество в комплекте")]/following-sibling::div
   - name: ratingCount
     singleValue: false
     xpath: //div[@itemprop = "aggregateRating"]//span[@itemprop = "ratingCount"]//@content
