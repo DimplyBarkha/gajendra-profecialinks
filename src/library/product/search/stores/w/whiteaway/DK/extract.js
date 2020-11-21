@@ -8,7 +8,7 @@ module.exports = {
     transform: transform,
     domain: 'whiteaway.com',
   },
-  // implementation,
+  implementation,
 };
 async function implementation(
   inputs,
