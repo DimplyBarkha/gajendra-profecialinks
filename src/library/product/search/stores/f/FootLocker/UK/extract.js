@@ -39,12 +39,12 @@ module.exports = {
         const products = document.evaluate('//div[@class="fl-product-tile--basic"]//picture[@class="fl-picture"]/img/@srcset', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         return products.snapshotLength;
       });
-    }  
+    }
     let productsCount = 0;
     while (productsCount < 150) {
       const doesLoadMoreExists = await context.evaluate(function () {
         return Boolean(document.querySelector('.text-center > div > .fl-btn--inner'));
-      });  
+      });
       if (doesLoadMoreExists) {
         await context.evaluate(async function () {
           console.log('Clicking on load more button');
