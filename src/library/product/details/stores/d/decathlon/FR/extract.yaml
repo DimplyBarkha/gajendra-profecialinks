@@ -64,13 +64,13 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: promotion
     singleValue: false
-    xpath Count: (//span[@class="dkt-price__info-addon"]//span[@class="dkt-price__reduction"])[1]
+    xpath: (//span[@class="dkt-price__info-addon"]//span[@class="dkt-price__reduction"])[1]
   - name: secondaryImageTotal
     xpath: count(//div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture/@data-iesrc) - 1
     singleValue: false
   - name: listPrice
     singleValue: false
-    xpath Count: (//span[@class="dkt-price__info-addon"]//span[@class="dkt-price__previous-price"])[1]
+    xpath: (//span[@class="dkt-price__info-addon"]//span[@class="dkt-price__previous-price"])[1]
   - name: name
     singleValue: false
     xpath: //h1[@class="title--main product-title-right"]
