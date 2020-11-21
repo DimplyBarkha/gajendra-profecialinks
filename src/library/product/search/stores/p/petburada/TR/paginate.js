@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div.ProductListContent',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'petburada.tr',

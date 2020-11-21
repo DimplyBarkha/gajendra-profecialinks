@@ -27,8 +27,13 @@ const transform = (data) => {
       for (const row of group) {
         if (row.productUrl) {
           row.productUrl.forEach(item => {
-            item.text = 'https://www.sears.com' + item.text;
+            item.text = 'https://www.petburada.com' + item.text;
           });
+        }
+        if (row.thumbnail) {
+            row.thumbnail.forEach(item => {
+              item.text = 'https://www.petburada.com' + item.text;
+            });
         }
         if (row.reviewCount) {
           row.reviewCount.forEach(item => {
