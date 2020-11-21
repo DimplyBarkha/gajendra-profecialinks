@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class, "srp-results")]/li[contains(@class, "s-item")]
+fields:
+  - name: id
+    xpath: //li[contains(@class,"s-item")]/@data-view
+  - name: name
+    xpath: //h3[contains(@class,"s-item__title")]
+  - name: price
+    xpath: //span[contains(@class,"s-item__price")]
+  - name: productUrl
+    xpath: //li[contains(@class, "s-item")]//div[contains(@class, "s-item__image-section")]//a/@href
+  - name: thumbnail
+    xpath: //li[contains(@class, "s-item")]//img/@src
