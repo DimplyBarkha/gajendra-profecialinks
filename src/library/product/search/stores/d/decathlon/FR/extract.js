@@ -36,6 +36,23 @@ module.exports = {
         }
       }
     });
+    await context.evaluate(async function () {
+      const URL = window.location.href;
+      function addHiddenDiv (id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('article.dkt-product')[index];
+        originalDiv.appendChild(newDiv);
+        console.log('child appended ' + index);
+      }
+      const product = document.querySelectorAll('article.dkt-product');
+      // select query selector and loop and add div
+      for (let i = 0; i < product.length; i++) {
+        addHiddenDiv('page_url', URL, i);
+      }
+    });
     return await context.extract(productDetails, { transform });
   },
 };
