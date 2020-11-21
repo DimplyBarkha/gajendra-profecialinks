@@ -25,12 +25,6 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-act-$"] | //div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-rng"]
-  - name: rank
-    singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//@data-col
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//@data-col
   - name: id
     singleValue: false
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//a/@href
@@ -41,4 +35,9 @@ fields:
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[contains(@class,"sc-1b7wdu0-5")]//div[contains(@class,"styles__RatingDiv")]//@aria-label
     regExp: (.+) out of(.)
     regExpReplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]
  

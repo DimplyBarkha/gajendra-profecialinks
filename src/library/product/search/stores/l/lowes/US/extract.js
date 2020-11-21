@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../format.js');
 async function implementation (
   inputs,
   parameters,
@@ -11,7 +11,7 @@ async function implementation (
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 10000) {
-        await stall(500);
+        await stall(1200);
         scrollTop += 500;
         window.scroll(0, scrollTop);
         if (scrollTop === 10000) {
@@ -29,6 +29,23 @@ async function implementation (
     });
   };
   await applyScroll(context);
+  await context.evaluate(async function () {
+    const URL = window.location.href;
+    function addHiddenDiv (id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('article[data-selector=" splp-prd-tl-dsktp"]')[index];
+      originalDiv.appendChild(newDiv);
+      console.log('child appended ' + index);
+    }
+    const product = document.querySelectorAll('article[data-selector=" splp-prd-tl-dsktp"]');
+    // select query selector and loop and add div
+    for (let i = 0; i < product.length; i++) {
+      addHiddenDiv('page_url', URL, i);
+    }
+  });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
@@ -36,7 +53,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'lowes',
-    transform: cleanUp,
+    transform: transform,
     domain: 'lowes.com',
     zipcode: '',
   },
