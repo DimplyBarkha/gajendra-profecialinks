@@ -1,11 +1,11 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
-  implements: 'product/search/extract',
-  parameterValues: {
-    country: 'DE',
-    store: 'durstexpress',
-    transform: cleanUp,
-    domain: 'durstexpress.de',
-    zipcode: '',
-  },
+implements: 'product/search/extract',
+parameterValues: {
+country: 'DE',
+store: 'durstexpress',
+transform: transform,
+domain: 'durstexpress.de',
+},
+
 };

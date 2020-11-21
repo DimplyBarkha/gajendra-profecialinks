@@ -14,7 +14,7 @@ fields:
     xpath: //a[@class='product-item-link']/@title
   - name: productUrl
     singleValue: true
-    xpath: //a[@class='product-item-link']/@href
+    xpath: //div[@class='product details product-item-details']//a/@href
   - name: gtin
     singleValue: true
   - name: thumbnail
