@@ -17,9 +17,33 @@ async function implementation (
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 100000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
+
+  const applyScroll = async function (context) {
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await stall(500);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(5000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
+  };
+  await applyScroll(context);
+
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
@@ -27,51 +51,19 @@ async function implementation (
     console.log(e);
     return !e;
   }, parameters.noResultsXPath);
+
+
 }
 
 module.exports = {
-  parameters: [
-    {
-      name: 'country',
-      description: '2 letter ISO code for the country',
-    },
-    {
-      name: 'store',
-      description: 'store name',
-    },
-    {
-      name: 'domain',
-      description: 'top private domain (e.g. amazon.com)',
-    },
-    {
-      name: 'url',
-      description: 'Open Search search url pattern, e.g. http://example.com/?q={searchTerms}',
-    },
-    {
-      name: 'loadedSelector',
-      description: 'XPath to tell us the page has loaded',
-      optional: true,
-    },
-    {
-      name: 'noResultsXPath',
-      description: 'XPath to tell us the page has loaded',
-    },
-  ],
-  inputs: [
-    {
-      name: 'keywords',
-      description: 'keywords to search for',
-      type: 'string',
-    },
-    {
-      name: 'zipcode',
-      description: 'keywords to search for',
-      type: 'string',
-    },
-  ],
-  dependencies: {
-    goto: 'action:navigation/goto',
+  implements: 'product/search/execute',
+  parameterValues: {
+    country: 'TR',
+    store: 'petburada',
+    domain: 'petburada.tr',
+    url: null,
+    loadedSelector: null,
+    noResultsXPath: null,
+    zipcode: "''",
   },
-  path: './stores/${store[0:1]}/${store}/${country}/execute',
-  implementation,
 };
