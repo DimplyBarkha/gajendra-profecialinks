@@ -120,8 +120,9 @@ fields:
     singleValue: false
     description: Shipping information for the product
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     description: Stated shipping dimensions
+    xpath: concat(//div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Hoogte')]/following-sibling::td, ' x ', //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Breedte')]/following-sibling::td, ' x ', //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Diepte')]/following-sibling::td)
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -437,8 +438,9 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    singleValue: false
     description: promotion text on product page
+    xpath: //div[contains(@class, 'priceblock__discount')]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
