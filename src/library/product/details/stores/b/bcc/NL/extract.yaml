@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, 'productimages__navigation')]//a[contains(@class, 'gallerybar__thumbnail')]/@data-imageurl-zoom
+    xpath: //div[contains(@class, 'productimages__navigation')]//a[contains(@class, 'gallerybar__thumbnail')][not(contains(@class, 'gallerybar--active'))]/@data-imageurl-zoom
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -28,14 +28,14 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //a[contains(@class, 'brandlogo')]/following-sibling::h1
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //section[contains(@class, 'productoffer')]//span[contains(@class, 'priceblock__price--salesprice') or contains(@class, 'priceblock__price--listprice')][1]
+    xpath: concat(//span[contains(@class, 'priceblock__price')]/span[@class = 'sr-only'], //*[contains(@class, 'js-wishlist-add-btn')]/@data-wishitem-listprice)
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //section[contains(@class, 'productoffer')]//span[contains(@class, 'priceblock__price--salesprice') or contains(@class, 'priceblock__price--listprice')][last()]
+    xpath: concat(//span[contains(@class, 'priceblock__price')]/span[@class = 'sr-only'], //*[contains(@class, 'js-wishlist-add-btn')]/@data-wishitem-salesprice)
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -54,20 +54,20 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: number(count(//section[@id='description']//li))
+    xpath: number(count(//section[@id='description']//li))*0.5
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //a[contains(@class, 'brandlogo')]/img/@alt
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
     xpath: //a[contains(@class, 'brandlogo')]/img/@alt
   - name: quantity
-    singleValue: true
+    singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //*[contains(@class, 'js-wishlist-add-btn')]/@data-wishitem-stock
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -75,7 +75,6 @@ fields:
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
-    xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'Gewicht']/following-sibling::td
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -120,7 +119,6 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-    xpath: (//ul[@class='USPList'])[1]//li[1]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -148,8 +146,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //section//a[contains(@class, 'gallerybar__video')]/@data-videourl
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
     xpath: //a[contains(@class, 'brandlogo')]/following-sibling::h1
   - name: inStorePrice
@@ -240,9 +239,10 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     description: null
     type: NUMBER
+    xpath: number(count(//div[contains(@class, 'productimages__navigation')]//a[contains(@class, 'gallerybar__thumbnail')][not(contains(@class, 'gallerybar--active'))]/@data-imageurl-zoom))
   - name: news
     singleValue: true
     description: null
@@ -404,7 +404,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: concat(//div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Hoogte')]/following-sibling::td, ' x ', //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Breedte')]/following-sibling::td, ' x ', //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Diepte')]/following-sibling::td)
+    xpath: //section[@id='specifications']//tr[contains(@class, 'productspecifications__spec')]
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
@@ -491,7 +491,7 @@ fields:
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
   - name: energyEfficiency
-    singleValue: true
+    singleValue: false
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
@@ -514,9 +514,10 @@ fields:
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: No
   - name: materials
-    singleValue: true
+    singleValue: false
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //th[contains(text(), 'Materiaal')]//parent::tr[contains(@class, 'productspecifications__spec')]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
