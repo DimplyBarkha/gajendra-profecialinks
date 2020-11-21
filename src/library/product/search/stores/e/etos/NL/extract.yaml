@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: '//div[contains(@class, "product-grid__tile")]'
+fields:
+  - name: name
+    singleValue: false
+    xpath : //a[contains(@class, "product-tile__title")]/@name
+  - name: id
+    singleValue: false
+    xpath : //div[contains(@class, "c-quantity-selector")]/@data-pid
+  - name: thumbnail
+    singleValue: false
+    xpath : //div[@class="image-container"]//img[contains(@class, "image-item")]/@srcset
+  - name: productUrl
+    singleValue: false
+    xpath : //a[@class="js-product-tile-click"]/@href
+  - name: price
+    singleValue: false
+    xpath : //span[@class="price__value"]
