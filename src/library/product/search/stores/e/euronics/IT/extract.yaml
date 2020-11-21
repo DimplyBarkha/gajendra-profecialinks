@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class, 'productCard j-productCard')]
 fields:
   - name: id
     singleValue: true
-    xpath: substring-after(//div[@class='productCard j-productCard j-comparisonItem']/@data-item, 'comp-eProd')
+    xpath: substring-after(//input[contains(@id, 'log_prodotto')]/@value, 'eProd')
   - name: name
     singleValue: false
     xpath: //h2[@class='productCard__name']
@@ -13,7 +13,7 @@ fields:
     singleValue: false
     xpath: //div[@class='productCard__content']//a[contains(@onclick, 'trackingProductClick')]/@href
   - name: gtin
-    singleValue: false
+    singleValue: true //script[contains(@src, flixfacts)]/@data-flix-ean
     xpath: //div[@class='productCard j-productCard j-comparisonItem']/@data-flix-ean
   - name: thumbnail
     singleValue: false
