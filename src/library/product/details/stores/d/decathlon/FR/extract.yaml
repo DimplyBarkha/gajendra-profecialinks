@@ -10,7 +10,7 @@ fields:
     regExpReplace: $1
   - name: imageAlt
     singleValue: false
-    xpath alert: (//div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture//img/@alt)[1]
+    xpath: (//div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture//img/@alt)[1]
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture/@data-iesrc
@@ -79,7 +79,7 @@ fields:
     xpath: //span[@class="model-color"]
   - name: variants
     singleValue: false
-    xpath: //div[@data-scope="conversion-zone"]//div/@data-id
+    xpath: //div[@id="sticker-informations"]//input[@type="hidden" and @data-model-id=//small[@class="product-data-model-id"]]/@data-sku-id
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@class="pictures"]//a//picture/@data-iesrc
@@ -90,7 +90,7 @@ fields:
     xpath: 
   - name: directions
     singleValue: false
-    xpath: //div[@class="description-composition description-composition__visible"]
+    xpath: //div[@id="ConceptandTechnologyFloor"]//div[@class="tech-info" and (contains(.//h3, "conseils") or contains(.//h3, "Conseils"))]//div[@class="description" or @class="tech-info__bloc-picto"]
   - name: variantInformation
     singleValue: false
     xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]//span[@class="sizes__info"] | //span[@class="model-color"]
@@ -99,7 +99,7 @@ fields:
     xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]//span[@class="sizes__info"]
   - name: variantId
     singleValue: false
-    xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]/@data-id
+    xpath: //small[@class="product-data-model-id"]
   - name: firstVariant
     singleValue: false
-    xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]/@data-id
+    xpath: //small[@class="product-data-model-id"]

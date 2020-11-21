@@ -73,6 +73,12 @@ const transform = (data) => {
           });
           row.manufacturerImages = [{ text: manufacturerImagesArray.join('|'), xpath: row.manufacturerImages[0].xpath }];
         }
+        if(row.directions) {
+          const directionsArray = row.directions.map((item) => {
+            return item.text;
+          });
+          row.directions = [{ text: directionsArray.join(' '), xpath: row.directions[0].xpath }];
+        }
         row = cleanUp(row);
       } catch (exception) {
         console.log(exception);
