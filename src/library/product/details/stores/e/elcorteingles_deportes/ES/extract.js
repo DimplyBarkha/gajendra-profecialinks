@@ -17,12 +17,22 @@ module.exports = {
       console.log('main URL');
       return document.URL;
     });
+
     // navigation to iframe
+    const iframeSelector = '#loadbeeTabContent';
     try {
-      const navigateLink = await context.evaluate(function () {
+      console.log(`Waiting for iframeSelector: ${iframeSelector}`);
+      await context.waitForSelector(iframeSelector, { timeout: 50000 });
+    } catch (error) {
+      console.log(`iframeSelector: ${iframeSelector} not found`);
+      console.log(error);
+    }
+
+    try {
+      const navigateLink = await context.evaluate(function (iframeSelector) {
         console.log('getting navlink');
-        return document.querySelector('#loadbeeTabContent').getAttribute('src');
-      });
+        return document.querySelector(iframeSelector) && document.querySelector(iframeSelector).getAttribute('src');
+      }, iframeSelector);
 
       if (navigateLink) {
         console.log(navigateLink, 'Iframe Details');
@@ -104,7 +114,7 @@ module.exports = {
     }
 
     try {
-      await context.waitForSelector('#enhancedContent', { timeout: 30000 });
+      await context.waitForSelector('#enhancedContentFromIframe', { timeout: 30000 });
     } catch (err) {
       console.log('Manufacturer details did not load.');
     }
