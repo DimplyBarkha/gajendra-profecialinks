@@ -43,36 +43,46 @@ const transform = (data) => {
         });
         row.specifications = [{ text: specificationsArr.join('||'), xpath: row.specifications[0].xpath }];
       }
-      if (row.description) {
-        const descriptionArr = row.description.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n/g, ' | ').replace(/\n \n \n \n/g, ' | ').replace(/\n \n/g, ':').replace(/\n/g, ' | ') : '|';
+      if (row.additionalDescBulletInfo) {
+        const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
+          return item.text;
         });
-        row.description = [{ text: descriptionArr.join('|'), xpath: row.description[0].xpath }];
+        additionalDescBulletInfoArr[0] = '||' + additionalDescBulletInfoArr[0];
+        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join('||'), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
-      if (row.description) {
-        let text = '';
-        let descTop = '';
-        let descInfoMiddle = '';
-        row.description.forEach(item => {
-          text += ` || ${item.text.replace(/\s{2,}/g, ' ').trim()}`;
+      if (row.promotion) {
+        const promotionArr = row.promotion.map((item) => {
+          return item.text;
         });
-        if (row.descTop) {
-          row.descTop.forEach(item => {
-            descTop += ` || ${item.text.replace(/\s{2,}/g, ' ').trim()}`;
-          });
-        }
-        if (row.descMiddle) {
-          row.descMiddle.forEach(item => {
-            descInfoMiddle += `${item.text.replace(/\s{2,}/g, ' ').trim()}`;
-          });
-        }
-        descInfoMiddle = descInfoMiddle ? ` | ${descInfoMiddle} ` : '';
-        row.description = [
-          {
-            text: clean(`${descTop}${descInfoMiddle}${text}`.trim()),
-          },
-        ];
+        row.promotion = [{ text: promotionArr.join(' '), xpath: row.promotion[0].xpath }];
       }
+      if (row.secondaryImageTotal) {
+        if (row.secondaryImageTotal[0].text.toString() === '0') { row.secondaryImageTotal = [{ text: '' }]; }
+      }
+      // if (row.description) {
+      //   let text = '';
+      //   let descTop = '';
+      //   let descInfoMiddle = '';
+      //   row.description.forEach(item => {
+      //     text += ` || ${item.text.replace(/\s{2,}/g, ' ').trim()}`;
+      //   });
+      //   if (row.descTop) {
+      //     row.descTop.forEach(item => {
+      //       descTop += ` || ${item.text.replace(/\s{2,}/g, ' ').trim()}`;
+      //     });
+      //   }
+      //   if (row.descMiddle) {
+      //     row.descMiddle.forEach(item => {
+      //       descInfoMiddle += `${item.text.replace(/\s{2,}/g, ' ').trim()}`;
+      //     });
+      //   }
+      //   descInfoMiddle = descInfoMiddle ? ` | ${descInfoMiddle} ` : '';
+      //   row.description = [
+      //     {
+      //       text: clean(`${descTop}${descInfoMiddle}${text}`.trim()),
+      //     },
+      //   ];
+      // }
     }
   }
   return data;

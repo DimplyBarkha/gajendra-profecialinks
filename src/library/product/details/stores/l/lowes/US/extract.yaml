@@ -26,7 +26,6 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //span[@class="was"]
-    description: The stated undiscounted price for the product
   - name: price
     singleValue: false
     xpath: //span[@class="aPrice large"]
@@ -36,20 +35,14 @@ fields:
     regExp: Add to Cart
     regExpReplace: In Stock
     defaultValue: Out of Stock
-  - name: descTop
-    xpath: //div[contains(@class,"product-info")]//ul/li
-  - name: descMiddle
-    xpath: //div[@class="content"]//div[@class="romance"]   
   - name: description
-    xpath: //div[@class="content"]//div[@class="specs"]//ul/li
+    xpath: //div[@class="content"]//div[@class="romance"]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,"product-info")]//ul/li | //div[@class="content"]//div[@class="specs"]//ul/li)
+    xpath: count(//div[contains(@class,"product-info")]//ul/li[not(contains(@role,"listitem"))] | //div[@class="content"]//div[@class="specs"]//ul/li[not(contains(@role,"listitem"))])
   - name: sku
     singleValue: false
-    xpath: skuskuy
-    regExp: \"sku":"(([^,]+)")
-    regExpReplace: $2
+    xpath: //div[@id="save-btn-container"]//button[@data-testid="save-btn"]/@data-product-id | //div[@class="buttonWrapper"]//input[@name="productId"]/@value | //div[@role="button"]//button[@aria-label="Save"]/@data-product-id
   - name: variantId
     singleValue: false
     xpath: //div[@class="modelNo"]//span[@aria-hidden="true"]
@@ -76,11 +69,10 @@ fields:
     xpath: (//div[contains(.,"Warranty")]/following-sibling::div[@class="value"])[1]
   - name: variantInformation
     singleValue: false
-    description: colour / scent / flavour / other
-    xpath: (//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1]
+    xpath: //div[@class="pvsLabel"]//h3[@class="met-pvs-swatch-selection"]
   - name: promotion
     singleValue: false
-    xpath: //span[@class="offer"]//div[1]
+    xpath: //span[@class="offer"]//span
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//a[@class="alternateImages"]/@href)
@@ -90,7 +82,6 @@ fields:
   - name: videos
     singleValue: false
     xpath: //a[@class="videoUrls"]/@href
-    description: URLs of videos on page
   - name: nameExtended
     singleValue: false
     xpath: //h1/@aria-label
@@ -112,10 +103,11 @@ fields:
     regExpReplace: $1
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    xpath: count(//div[@class="false swatchWrapper"]//button)
+    defaultValue: 0
   - name: color
     singleValue: false
-    xpath: (//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1]
+    xpath: //div[@class="pvsLabel"]//h3[@class="met-pvs-swatch-selection"]
   - name: Image360Present
     singleValue: false
     xpath: //button[@data-thumbtypeindex="main0"]//img//@data-met-type
@@ -127,7 +119,7 @@ fields:
     xpath: //div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Weight")]/following-sibling::div
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,"specs")]//ul/li/p
+    xpath: //div[contains(@class,"product-info")]//ul/li[not(contains(@role,"listitem"))] | //div[@class="content"]//div[@class="specs"]//ul/li[not(contains(@role,"listitem"))]
   - name: termsAndConditions
     singleValue: false
     xpath: //div[@id="Protection Plans-section"]//a[contains(text(),"Terms & Conditions")]
@@ -142,3 +134,17 @@ fields:
     defaultValue: 'No'
   - name: imageZoomFeaturePresent
     defaultValue: Yes
+  - name: materials
+    singleValue: true
+    xpath: //div[contains(translate(string(), 'Material', 'Material'), 'Material')]/div[@class="value"]
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="modelNo"]//span[@aria-hidden="true"]
+    regExp: (\Item\s#)(.*)\s(.*)
+    regExpReplace: $2
+  - name: quantity
+    singleValue: true
+    xpath: //div[contains(translate(string(), 'Width Range', 'Width Range'), 'Width Range')]/div[@class="value"]
+  - name: warnings
+    singleValue: true
+    xpath: //div[@class="props65"]//span[@class="title"]
