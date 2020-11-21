@@ -29,6 +29,14 @@ const transform = (data) => {
         row.productUrl.forEach(item => {
           item.text = 'https://www.coop.co.uk' + item.text;
         });
+        if (row.productUrl.length > 1) {
+          row.productUrl = row.productUrl[0];
+        }
+      }
+      if (row.id) {
+        if (row.id.length > 1) {
+          row.id = row.id[0];
+        }
       }
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {

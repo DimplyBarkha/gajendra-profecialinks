@@ -1,16 +1,16 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: article.coop-l-flex__item
-recordXPath: null
+recordSelector: null
+recordXPath: //article[contains(@class,"coop-l-flex__item")]
 fields:
   - name: id
     SingleValue: false
-    xpath: (//a[@class="coop-c-card__link coop-l-flex__item"])[1]/@href
+    xpath: //article[contains(@class,"coop-l-flex__item")]//a[@class="coop-c-card__link coop-l-flex__item"]/@href
     regExp: products\/(.+)
     regExpReplace: $1
   - name: productUrl
     SingleValue: false
-    xpath: (//a[@class="coop-c-card__link coop-l-flex__item"])[1]/@href
+    xpath: //article[contains(@class,"coop-l-flex__item")]//a[@class="coop-c-card__link coop-l-flex__item"]/@href
   - name: price
     SingleValue: false
     xpath: //p[@class="coop-c-card__price"]
