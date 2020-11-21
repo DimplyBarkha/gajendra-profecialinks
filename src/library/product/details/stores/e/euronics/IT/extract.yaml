@@ -48,7 +48,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //ul[@class='productDetails__specifications']
+    xpath: (//ul[@class='productDetails__specifications'] | //section[@class='page__section product__description']/div[@class='content__abstract']/div[@class='content__abstractText'])
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -73,9 +73,11 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    xpath: //*[contains(text(), 'Peso lordo')]/following-sibling::*[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //script[contains(@src, flixfacts)]/@data-flix-ean
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -83,8 +85,9 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The manufacturer model code (unique) of the product
+    xpath: translate(substring-after(//script[contains(text(), 'MfgId')], 'MfgId'), translate(.,'0123456789',''), '')
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -134,14 +137,14 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class='productDetails__linkWrapper']/a/img/@src
+    xpath: (//div[contains(@class,'productDetails__linkWrapper')]//@srcset | //div[contains(@class,'productDetails__linkWrapper')]//@data-srcset)
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //*[@class='flix_jw_videoid']//@data-jw
+    xpath: (//iframe[contains(@id, 'flix-iframe')]/@src | //*[contains(@class, 'flix_jw_videoid')]/@data-jw)
   - name: name
     singleValue: true
-    description: The product name
+    description: The product nameexit
     xpath: //title
   - name: inStorePrice
     singleValue: true
