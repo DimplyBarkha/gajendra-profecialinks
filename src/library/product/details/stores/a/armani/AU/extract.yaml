@@ -1,0 +1,62 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //ul[@class="alternativeImages"]/li[1]/img/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: 
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: nameExtended
+    singleValue: false
+    xpath: //span[@class="modelName inner"]
+  - name: name
+    singleValue: false
+    xpath: //span[@class="modelName inner"]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price"]
+  - name: availabilityText
+    singleValue: false    
+    xpath: //span[@class="last-item-warning"]
+  - name: description
+    singleValue: false
+    xpath: //div[@class="item-editorial-description"]//span[@class="value"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="descriptionContent"]
+  - name: brandText
+    singleValue: false
+    xpath: //p/@data-brand
+  - name: sku
+    singleValue: false
+    xpath: //span[@data-ytos-mfc]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //div/@data-code10
+  - name: imageAlt
+    singleValue: false
+    xpath: //ul[@class="alternativeImages"]/li/img/@alt
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="promotion-message"]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class="price"]
+  - name: color
+    singleValue: false
+    xpath: //button[@data-ytos-color-label="Color"]//span[@class="text"]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@data-action="shipping"]//span[@class="value"]
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: "Yes"
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: "yes"
