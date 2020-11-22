@@ -43,6 +43,8 @@ async function implementation(
   var variantLength = await context.evaluate(async () => {
     return (document.querySelectorAll("div.mobile-hidden div.cd-product-kits-opts a")) ? document.querySelectorAll("div.mobile-hidden div.cd-product-kits-opts a").length || 1 : 1;
   });
+  var skuUrls = [];
+  skuUrls.push(url);
   var skuIds = "";
   if (variantLength > 0) {
     for (let j = 0; j < variantLength; j++) {
@@ -52,22 +54,29 @@ async function implementation(
               return 'https://www.chemistdirect.co.uk/' + document.querySelectorAll("div.mobile-hidden div.cd-product-kits-opts a")[j].getAttribute("href");
           return null;
         }, j); 
-        if(nextSkuUrl != null)
-        await context.goto(nextSkuUrl, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
-      var skuId =  await context.evaluate(async (j) => {
-          function addHiddenDiv(id, content) {
-            const newDiv = document.createElement('div');
-            newDiv.id = id;
-            newDiv.innerHTML = content;
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
-          }
-           return window.universal_variable.product.id;
-        },j);
-
-        skuIds +=  "<p>" + skuId + "</p>";
+        if(nextSkuUrl != null){
+          skuUrls.push(nextSkuUrl);
+        
+        }
+     
       }
 
+    }
+
+    for(let j=0;j<skuUrls.length;j++){
+      await context.goto(skuUrls[j], { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
+      var skuId =  await context.evaluate(async (j) => {
+        function addHiddenDiv(id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.innerHTML = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+         return window.universal_variable.product.id;
+      },j);
+
+      skuIds +=  "<p>" + skuId + "</p>";
     }
 
     for (let j = 0; j < variantLength; j++) {
@@ -75,13 +84,13 @@ async function implementation(
         await context.goto(url, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
       }
       if (variantLength > 1) {
-      var nextSkuUrl =  await context.evaluate(async (j) => {
-            if(document.querySelectorAll("div.mobile-hidden div.cd-product-kits-opts a")[j].getAttribute("href") != null)
-              return 'https://www.chemistdirect.co.uk/' + document.querySelectorAll("div.mobile-hidden div.cd-product-kits-opts a")[j].getAttribute("href");
-          return null;
-        }, j); 
-        if(nextSkuUrl != null)
-        await context.goto(nextSkuUrl, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
+      // var nextSkuUrl =  await context.evaluate(async (j) => {
+      //       if(document.querySelectorAll("div.mobile-hidden div.cd-product-kits-opts a")[j].getAttribute("href") != null)
+      //         return 'https://www.chemistdirect.co.uk/' + document.querySelectorAll("div.mobile-hidden div.cd-product-kits-opts a")[j].getAttribute("href");
+      //     return null;
+      //   }, j); 
+        // if(nextSkuUrl != null)
+        await context.goto(skuUrls[j], { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
       }
   await applyScroll(context);
   var r = await context.evaluate(async (skuIds) => {
@@ -124,10 +133,12 @@ async function implementation(
           descriptionUl = "";
           x.childNodes.forEach(y => {
             if( y.innerHTML != undefined){
+              if((y.innerHTML).trim() != ""){
             if(descriptionUl == "")
             descriptionUl = y.innerHTML;
             else
             descriptionUl += " || " + y.innerHTML;
+            }
             }
           })
           descriptionData += " " + descriptionUl;
@@ -135,8 +146,12 @@ async function implementation(
         else{
           descriptionData += x.innerText;
         }
+        
         descriptionData = descriptionData.replace("undefined","");
       })
+      if(descriptionData == ""){
+        descriptionData = descriptions[i].innerHTML;
+      }
       addHiddenDiv(reviews[i].innerText.replace(" ","").replace(" ","").replace(" ","") , descriptionData);
     }
     return result;
