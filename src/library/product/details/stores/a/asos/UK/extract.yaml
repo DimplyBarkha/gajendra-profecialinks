@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //select[contains(@data-id,"sizeSelect")]/option[position()>1] | //div[contains(@class,"variantinfo")]
+recordXPath: //div[@class="variantinfo"]
 fields:
   - name: image
     description: URL of the main product image
-    xpath: ancestor::html//meta[@property="og:image"]/@content
+    xpath: //@image
   - name: imageAlt
     description: Alt text of the main product image
-    xpath: //ul[contains(@class,"thumbnails")]/li[position()=1]//img/@alt
+    xpath: ancestor::html//ul[contains(@class,"thumbnails")]/li[position()=1]//img/@alt
   - name: alternateImages
     description: Other product images (not in manufacturer description)
     xpath: ancestor::html//ul[contains(@class,"thumbnails")]/li[position()>1]//img/@src
@@ -36,10 +36,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: ancestor::html//*[contains(text(),"Out of stock")][contains(@class,"out-of-stock")]
-    regExp: (.+)
-    regExpReplace: Out of Stock
-    defaultValue: In Stock
+    xpath: //@availability
+    # regExp: (.+)
+    # regExpReplace: Out of Stock
+    # defaultValue: In Stock
   - name: description
     description:
       Product description supplied by website - may be concatenanted from
@@ -112,7 +112,7 @@ fields:
   #     description: Stated shipping weight
   - name: variantCount
     description: Number of variants listed
-    xpath: count(ancestor::html//select[contains(@data-id,"sizeSelect")]/option[position()>1])
+    xpath: count(//div[@class="variantinfo"])
   - name: color
     description: A textual description of the colour
     xpath: //@colour
@@ -466,7 +466,7 @@ fields:
     xpath: //@upc
   - name: variants
     description: null
-    xpath: ancestor::html//select[contains(@data-id,"sizeSelect")]/option[position()>1]//@upc
+    xpath: ancestor::html//div[@class="variantinfo"]/@upc
   - name: additionalDescBulletInfo
     description: null
     xpath: ancestor::html//div[contains(@class,"product-description")]/ul/li
