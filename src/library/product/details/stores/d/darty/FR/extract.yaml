@@ -17,7 +17,7 @@ fields:
     xpath: //div[@id="header-breadcrumb-zone"]/ul//a[text()]
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@property="og:title"]/@content | (//div[contains(@class,"product_bloc")]//h3[@class="product_head"]) | (//div[@class="product_head"])
+    xpath: //div[@class="product_head"]//h1
     regExp: (.*)?\s*\| 
     regExpReplace: $1
   - name: listPrice
@@ -34,7 +34,8 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    manualSelector: div#product_description > div.product_bloc_content
+    xpath: //div[@id="product_description"]//div[contains(@class,"product_bloc_content")]
+    #manualSelector: div#product_description > div.product_bloc_content
   - name: descriptionBullets
     singleValue: false
   - name: brandText
@@ -64,13 +65,14 @@ fields:
     regExpReplace: $1
   - name: shippingInfo
     singleValue: false
-    manualSelector: span.product-mkp-seller
+    xpath: //meta[@itemprop="seller"]/@content
+    #manualSelector: span.product-mkp-seller
   - name: shippingDimensions
     singleValue: false
-    xpath: //tr[th[contains(text(),"Dimensions")]]//li
+    xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Dimensions', 'Dimensions'), 'Dimensions')]/td
   - name: color
     singleValue: false
-    xpath: //tr[th[contains(text(),"Couleur")]]//li
+    xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Couleur', 'Couleur'), 'Couleur')]/td
   - name: videos
     singleValue: false
     xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value
@@ -82,10 +84,11 @@ fields:
     xpath: //p[contains(text(), 'Garantie')] | //div[@class="product-sale-actions"]//li[contains(text(),"arantie") or a[contains(text(),"arantie")]]
   - name: countryOfOrigin
     singleValue: false
-    xpath: //tr[th[contains(text(),"Origine de fabrication")]]//li
+    xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Origine de fabrication', 'Origine de fabrication'), 'Origine de fabrication')]/td
   - name: additionalDescBulletInfo
     singleValue: false
-    manualSelector: div.strong-points > ul > li
+    xpath: //div[@class="strong-points"]//ul[contains(@class,"product_details_items")]//li
+    #manualSelector: div.strong-points > ul > li
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //a[*[contains(text(),"Télécharger la notice")]]/@href
@@ -100,10 +103,11 @@ fields:
     manualSelector: div#product_caracteristics tr
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div#product_brand div.flix-inpage
+    xpath: //div[@id="product_brand"]//div[@class="inpage_content_block"]
+    #manualSelector: div#product_brand div.flix-inpage
   - name: manufacturerImages
     singleValue: false
-    xpath: //img[@class="dpro"]/@src | //div[@id="sf_align"]//a[@target="_blank"]/img/@src
+    xpath: //img[@class="dpro"]/@src | //div[@class="inpage_selector_feature"]//img/@srcset | //div[@class="inpage_selector_gallery"]//img/@srcset
     manualSelector: div#product_brand img
   - name: variantCount
     singleValue: false
@@ -113,8 +117,8 @@ fields:
     xpath: count(//li[contains(@class,"rr_item")]//img/@src) -1
   - name: energyEfficiency
     singleValue: false
-    xpath: //tr[contains(translate(string(), 'Classe énergétique', 'Classe énergétique'), 'Classe énergétique')]/td
+    xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Classe énergétique', 'Classe énergétique'), 'Classe énergétique')]/td
   - name: imageZoomFeaturePresent
     singleValue: false
-    defaultValue: No
+    defaultValue: 'Yes'
   

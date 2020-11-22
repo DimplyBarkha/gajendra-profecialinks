@@ -12,13 +12,31 @@ async function implementation (
   await context.evaluate(async () => {
     if (document.querySelector('li#brand_navigation_item > a')) {
       document.querySelector('li#brand_navigation_item > a').click();
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      if (document.querySelector('button.btn-expand.btn-reset')) {
+        document.querySelector('button.btn-expand.btn-reset').click();
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        let scrollTop = 0;
+        while (scrollTop !== 5000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 5000) {
+            await stall(500);
+            break;
+          }
+        }
+      }
+    }
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
     }
   });
-
   return await context.extract(productDetails, { transform });
 }
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
