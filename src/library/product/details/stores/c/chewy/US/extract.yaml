@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //a[@data-zoom-id="Zoomer"][position()=1]/@href
+    xpath: //a[@data-zoom-id="Zoomer"][position()=1]/@href | //a[@id="Zoomer"][position()=1]/@href 
     regExp: (.+)
     regExpReplace: https:$1
   - name: imageAlt
@@ -28,7 +28,7 @@ fields:
     # regExpReplace: $1
   - name: nameExtended
     singleValue: false
-    xpath: //div[@id="product-title"]//h1
+    xpath: normalize-space(concat(//div[@id="product-title"]/h1, //div[@id="product-subtitle"]/a/text(), //div[@id="product-subtitle"]/a/span/text()))
   - name: listPrice
     singleValue: false
     xpath: normalize-space(//li[@class="list-price"]//p[@class="price"])
@@ -54,9 +54,15 @@ fields:
     regExpReplace: $1
   - name: manufacturer
     singleValue: false
+    xpath: //div[@class="sfw-attribute-buttons"]/@dataattributes  
+    regExp: manufacturer\W\W\W([^"]+)
+    regExpReplace: $1
   - name: quantity
     singleValue: false
-    xpath: //label[contains(text(),"Size")]/following-sibling::span/text()
+    manualSelector: div.cw-form-button-toggle__wrapper label span:last-child
+    # xpath: //label[@id="variation-Size__label"]/following-sibling::span
+    # xpath: (//div[@class="cw-form-button-toggle__wrapper"]//label[@aria-checked="true"]/span[position()=2])[last()]
+    # xpath: //label[contains(text(),"Size")]/following-sibling::span/text()
   - name: weightNet
     singleValue: false
     xpath: //div[contains(text(),"Weight")]/following-sibling::div[class="value"]//text()
@@ -79,9 +85,6 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-  - name: packSize
-    singleValue: false
-    xpath: //label[contains(text(),"Size")]/following-sibling::span/text()
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -133,7 +136,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    xpath: //div[@id="product-title"]//h1
+    xpath: //div/@data-current-sku-name
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -327,7 +330,8 @@ fields:
     singleValue: false
     # xpath: //div[@id="my-variantInf"][last()] 
     # xpath: //label[@class="cw-form-button-toggle__label"]/span[@class=""]
-    xpath: //label[@class="cw-form-button-toggle__label"][@aria-checked="true"]/span[@class=""][last()]
+    # xpath: //label[@class="cw-form-button-toggle__label"][@aria-checked="true"]/span[@class=""][last()]
+    xpath: //div[@class="cw-form-button-toggle__wrapper"]//label[@aria-checked="true"]/span[position()=2]
   - name: variants
     singleValue: false
     xpath: //div[@role="radiogroup"]/div/@data-qe-id
