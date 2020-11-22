@@ -1,10 +1,9 @@
-
 module.exports = {
-  implements: 'product/details/createUrl',
+  implements: "product/details/createUrl",
   parameterValues: {
-    domain: 'groceries.asda.com',
-    prefix: 'search',
-    country: 'UK',
-    store: 'asda',
+    domain: "groceries.asda.com",
+    prefix: "search",
+    country: "UK",
+    store: "asda",
   },
 };
