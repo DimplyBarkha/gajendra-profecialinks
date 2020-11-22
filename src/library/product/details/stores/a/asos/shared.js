@@ -16,6 +16,11 @@ const cleanUp = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.image && row.defaultImage) {
+        if (row.image[0].text == 'undefined') {
+          row.image[0].text = row.defaultImage[0].text;
+        }
+      }
       if (row.additionalDescBulletInfo) {
         let bulletString = '';
         row.additionalDescBulletInfo.forEach((element) => {
