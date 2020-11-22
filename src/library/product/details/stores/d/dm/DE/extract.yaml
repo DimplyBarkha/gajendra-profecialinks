@@ -30,14 +30,14 @@ fields:
   - name: quantity
     singleValue: true
     xpath: //h1[@data-dmid="detail-page-headline-product-title"]
-    regExp: (.*)\,\s(.*)([a-z]{1,2})|(\d+)
+    regExp: (.*)\,\s(.*)([a-z]{1,2})
     regExpReplace: $2$3
   - name: sku
     singleValue: true
     xpath: //meta[@itemprop='sku']/@content
   - name: variantId
     singleValue: true
-    xpath: //meta[@itemprop='sku']/@content
+    xpath: //meta[@property='og:url']/@content
   - name: directions
     singleValue: true,
     xpath: //button[@aria-label="Verwendungshinweise"]//following-sibling::div//div[@data-dmid='product-detail-item-accordion-content-text']
@@ -77,8 +77,6 @@ fields:
   - name: servingSizeUom
     singleValue: true
     xpath: //button[@aria-label='Nährwerte']/..//div[@data-dmid="product-detail-accordion-inner-content"]//table/thead/tr/th[2]
-    regExp: (?:([\d\.\,]+)\s?)(.*)(\s[a-z]{2}\s)(.*)|(\b(\w+)$)
-    regExpReplace: $3
   - name: caloriesPerServing
     singleValue: true
     xpath: //td[contains(., 'Brennwert')]/following-sibling::td
@@ -96,7 +94,7 @@ fields:
     singleValue: true
     xpath: //td[text()="Fett"]/following-sibling::td
     regExp: >-
-      (?:([\d\.\,]+)\s?)(.*)|(\b(\w+)$)
+      (?:([\d\.\,]+)\s?)(.*)
     regExpReplace: $2
   - name: saturatedFatPerServing
     singleValue: true
@@ -204,8 +202,6 @@ fields:
   - name: termsAndConditions
     singleValue: true
     xpath: //a[contains(text(), 'AGB')]/@href
-    regExp: (.+)
-    regExpReplace: https://www.dm.de$1
   - name: listPrice
     singleValue: true
     xpath: //div[@data-dmid="sellout-price-container"]
@@ -253,6 +249,4 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     xpath: //div[@data-dmid="detail-image-container"]//div[@data-dmid="image-container"]/div/img/@data-dmid
-  - name: variantInformation
-    singleValue: true
-    xpath: //div[@data-dmid="product-variants-selection-container"]//div[@data-dmid="color-circle-button"]//div[@id="tooltip"]//div[@data-dmid="tooltip-inner-container"]//span
+    

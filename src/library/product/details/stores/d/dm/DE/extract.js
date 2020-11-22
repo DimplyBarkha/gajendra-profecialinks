@@ -8,6 +8,23 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  // to close popup on kids' products
+  const closeKidsProductPopup = await context.evaluate(function () {
+    return !!document.evaluate('//button[@data-dmid="layer-header-close-button"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+  });
+  if (closeKidsProductPopup) {
+    await context.click('button[data-dmid="layer-header-close-button"]');
+  }
+
+  // to close cookies popup on all products
+  const closeCookiesPopup = await context.evaluate(function () {
+    return !!document.evaluate('//button[@data-dmid="cookiebar-ok"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+  });
+  if (closeCookiesPopup) {
+    await context.click('button[data-dmid="cookiebar-ok"]');
+  }
+
   await new Promise(resolve => setTimeout(resolve, 6000));
   return await context.extract(productDetails, { transform });
 }

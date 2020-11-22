@@ -27,7 +27,7 @@ const transform = (data) => {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' ').replace(/\//g, '') : '|';
         });
-        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
+        row.additionalDescBulletInfo = [{ text: '|| ' + additionalDescBulletInfoArr.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.manufacturer) {
         const manufacturerArr = row.manufacturer.map((item) => {
@@ -43,10 +43,13 @@ const transform = (data) => {
       }
       if (row.alternateImages) {
         const alternateImagesArr = row.alternateImages.map((item) => {
-          if (item.text.match(/(.*)60,h_60(.*)/).length) {
-            return { text: `${item.text.match(/(.*)60,h_60(.*)/)[1]}280,h_430${item.text.match(/(.*)60,h_60(.*)/)[2]}` };
-          } else {
-            return '';
+          let regExV1 = /(.*)60x60(.*)/;
+          if (regExV1.test(item.text)) {
+            return { text: `${item.text.match(/(.*)60x60(.*)/)[1]}280x430${item.text.match(/(.*)60x60(.*)/)[2]}` };
+          }
+          let regExV2 = /(.*)w_60,h_60(.*)/;
+          if (regExV2.test(item.text)) {
+            return { text: `${item.text.match(/(.*)w_60,h_60(.*)/)[1]}w_280,h_430${item.text.match(/(.*)w_60,h_60(.*)/)[2]}` };
           }
         });
         const alternateImagesResult = alternateImagesArr && alternateImagesArr.slice(1);
@@ -54,7 +57,7 @@ const transform = (data) => {
       }
       if (row.pricePerUnit) {
         const pricePerUnitArr = row.pricePerUnit.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/(.*)\(([\d\,]+)([\s€\D]+)(\d+)(.*)/g, '$2/$4') : '|';
+          return typeof (item.text) === 'string' ? item.text.replace(/(.*)\((?:([\d\.\,]+)\s?)€(.*)/g, '$2') : '|';
         });
         row.pricePerUnit = [{ text: pricePerUnitArr.join('|'), xpath: row.pricePerUnit[0].xpath }];
       }
@@ -78,9 +81,18 @@ const transform = (data) => {
       }
       if (row.imageZoomFeaturePresent) {
         const imageZoomFeaturePresentArr = row.imageZoomFeaturePresent.map((item) => {
-          return (typeof (item.text) === 'string') && (item.text.includes('image')) ? 'Yes' : 'No';
+          return clean((typeof (item.text) === 'string') && (item.text.includes('image')) ? 'Yes' : 'No');
         });
         row.imageZoomFeaturePresent = [{ text: imageZoomFeaturePresentArr.join(), xpath: row.imageZoomFeaturePresent[0].xpath }];
+      }
+      if (row.servingSizeUom) {
+        const servingSizeUomArr = row.servingSizeUom.map((item) => {
+          return clean(typeof (item.text) === 'string' ? item.text.replace(/(.*)(\d+\s)([a-z]+)(.*)/g, '$3') : '|');
+        });
+        row.servingSizeUom = [{ text: servingSizeUomArr.join('|'), xpath: row.servingSizeUom[0].xpath }];
+      }
+      if (row.variantId) {
+        row.variantId[0].text = row.variantId[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3];
       }
     }
   }
