@@ -15,10 +15,10 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[@class="main-container "]//div[@class="productDetailTop"]/nav/ol/li//a/@title
-  - name: description
+  - name: nameExtended
     singleValue: false
     description: Product description supplied by website
-    xpath: //div[@id="blocdiv2"]//p[normalize-space()]
+    xpath: //div[@id="blocdiv2"]//p[@itemprop="description"][normalize-space()]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -27,19 +27,19 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //div[@class="product product2comp pt-0"]/@data-lineid
-  - name: harvest product description
+  - name: name
     singleValue: true
     description: the name of the product contains decription
     xpath: //h1[@class="description80 fs_17 bold title_product prod_desc text-left"]/text()
-  - name: pack size
+  - name: packSize
     singleValue: true
     description: The number of products in the package
     xpath: //parent::div[@class="blocSP"]//preceding-sibling::span[contains(text(),'Förpa')]//following-sibling::span[@class='SP2']/text()
-  - name: size
+  - name: quantity
     singlevalue: true
     description: the size of the pack
     xpath: //parent::div[@class="blocSP"]//preceding-sibling::span[contains(text(),'Vikningssto')]//following-sibling::span[@class='SP2']/text()
-  - name: shipping info
+  - name: shippingInfo
     singlevalue: true
     description: the information about shipping
     xpath: //parent::div[@class="media-body ml-2"]//preceding-sibling::div[contains(text(),'HEMLEVERA')]//following-sibling::div[@class='text_sm']/text()
