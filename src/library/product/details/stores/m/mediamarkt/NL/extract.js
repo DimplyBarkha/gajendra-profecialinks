@@ -47,6 +47,11 @@ module.exports = {
       if (document.querySelector('.zoom')) {
         addElementToDocument('mm_imageZoomFeaturePresent', 'Yes');
       }
+
+      // Getting base url
+      if (window) {
+        addElementToDocument('mm_baseUrl', window.location.href);
+      }
     });
     await context.extract(productDetails);
   },
