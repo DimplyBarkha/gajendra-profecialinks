@@ -123,10 +123,10 @@ fields:
     xpath: //img[contains(@class, 'clubSwatch popup')]/@alt
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@id,"wc-aplus")]/descendant::*[not(contains(@style,"none")) and not(name()='style')]
+    xpath: normalize-space(//ul[contains(@id,'DT_Features')])
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class, 'wc-aplus-body')]//img/@src
+    xpath: //div[contains(@class, 'panel-body-detail')]//img/@src
   - name: imageAlt
     singleValue: fals
     xpath: //img[@id="Product_Main_Image_0"]/@alt
