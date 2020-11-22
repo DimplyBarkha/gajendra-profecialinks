@@ -1,12 +1,10 @@
 
 module.exports = {
-  implements: 'product/details/createUrl',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'rappi.com.mx',
-    prefix: null,
-    url: null,
     country: 'MX',
     store: 'rappi',
+    domain: 'rappi.com.mx',
     zipcode: '',
   },
 };

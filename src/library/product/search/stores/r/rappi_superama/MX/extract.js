@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'product/search',
+  implements: 'product/search/extract',
   parameterValues: {
     country: 'MX',
-    store: 'Rappi_Superama',
+    store: 'rappi_superama',
+    transform: null,
     domain: 'rappi.com.mx',
     zipcode: '',
   },

@@ -3,9 +3,9 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'rappi.com.mx',
-    timeout: null,
+    timeout: 50000,
     country: 'MX',
-    store: 'rappi',
+    store: 'Rappi_Superama',
     zipcode: '',
   },
 };
