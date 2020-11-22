@@ -2,7 +2,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'thegoodguys.com.au',
-    timeout: 60000,
+    timeout: 200000,
     country: 'AU',
     store: 'thegoodguys',
     zipcode: '',
