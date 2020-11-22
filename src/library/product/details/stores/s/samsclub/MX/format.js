@@ -32,13 +32,24 @@ const transform = (data) => {
         row.variantId = [{ text: row.sku[0].text }];
       }
       if (row.price1 && row.price2) {
+        row.price2.forEach(item => {
+          item.text = item.text.replace(',', '');
+        });
         row.price = [{ text: row.price1[0].text + row.price2[0].text }];
         if (row.price3) {
-          row.price = [{ text: row.price[0].text + '.' + row.price3[0].text }];
+          row.price = [{ text: row.price[0].text + ',' + row.price3[0].text }];
           delete row.price3;
         }
         delete row.price1;
         delete row.price2;
+      }
+      if (row.listPrice1 && row.listPrice2) {
+        row.listPrice1.forEach(item => {
+          item.text = item.text.replace(',', '');
+        });
+        row.listPrice = [{ text: row.listPrice1[0].text + ',' + row.listPrice2[0].text }];
+        delete row.listPrice1;
+        delete row.listPrice2;
       }
       if (row.additionalDescBulletInfo) {
         var arrBullet = [];
