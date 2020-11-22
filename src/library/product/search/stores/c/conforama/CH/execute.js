@@ -7,7 +7,7 @@ module.exports = {
     domain: 'conforama.ch',
     url: 'https://www.conforama.ch/de/recherche-conforama/{searchTerms}',
     loadedSelector: 'div.contentProducts',
-    noResultsXPath: '//section[@class="main-section emptySearch"]',
+    // noResultsXPath: '//section[contains(@class,"emptySearch")]',
     zipcode: '',
   },
 };
