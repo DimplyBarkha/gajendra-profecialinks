@@ -5,8 +5,8 @@ module.exports = {
     country: 'AU',
     store: 'chemistWarehouse_Mweb',
     domain: 'chemistwarehouse.com.au',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.search__result__product__list , div.product-id',
+    noResultsXPath: '//div[@class="search__result__products-no-result"] | //div[contains(text(), "Sorry, the product you  are looking for")]',
     zipcode: '',
   },
 };
