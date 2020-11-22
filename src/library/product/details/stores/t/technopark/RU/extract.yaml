@@ -130,12 +130,14 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //*[@class="product__left-container"]//*[contains(@class,"product__desc")]//text()[not(parent::script or parent::style)]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //*[@class="product__left-container"]//*[contains(@class,"product__desc")]//img/@src
   - name: videos
     singleValue: false
-    xpath: //iframe[@id='js-product-gallery-video-0']/@src | //div//iframe[@itemprop='url']/@src
+    xpath: //iframe[@id='js-product-gallery-video-0']/@src | //div//iframe[@itemprop='url']/@src | //div[contains(@class,"stream-video")]//video//@src | //div[contains(@class,"video")]//iframe//@src | //div[@id="productVideo"]
     description: URLs of videos on page
   - name: name
     singleValue:  false
