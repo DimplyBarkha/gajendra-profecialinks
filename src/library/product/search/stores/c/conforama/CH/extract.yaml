@@ -11,10 +11,10 @@ fields:
   #   singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="image-product"]/a[@class="imageProductRef"]/img/@onerror
-    regExp: this.src\W\W(.+)\W
-    regExpReplace: $1
-    # xpath: //div[@class="image-product"]/a[@class="imageProductRef"]/img/@src 
+    # xpath: //div[@class="image-product"]/a[@class="imageProductRef"]/img/@onerror
+    # regExp: this.src\W\W(.+)\W
+    # regExpReplace: $1
+    xpath: //div[@class="image-product"]/a/img/@data-frz-src | //div[@class="image-product"]/a[@class="imageProductRef"]/img/@src 
     # xpath: //div[@class="image-product"]//img/@src | //div[@class="productPics"]/a/img[1]/@src | //form[@id="productSheet"]/@data-product
     # regExp: (.+)
     # regExpReplace: $1
