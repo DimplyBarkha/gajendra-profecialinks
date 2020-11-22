@@ -31,9 +31,9 @@ module.exports = {
       const productDetails = [];
       for (let i = 0; i < getProductDetails.length; i++) {
         // @ts-ignore
-        const key = getProductDetails[i].querySelector('.list-item-label').innerText;
+        const key = getProductDetails[i].querySelector('.list-item-label') && getProductDetails[i].querySelector('.list-item-label').innerText ? getProductDetails[i].querySelector('.list-item-label').innerText : "";
         // @ts-ignore
-        const value = getProductDetails[i].querySelector('.list-item-text').innerText;
+        const value = getProductDetails[i].querySelector('.list-item-text') && getProductDetails[i].querySelector('.list-item-text').innerText ? getProductDetails[i].querySelector('.list-item-text').innerText : "";
         const data = key + ' : ' + value;
         productDetails.push(data);
       }
@@ -44,7 +44,9 @@ module.exports = {
       const productInfo = [];
       for (let i = 0; i < getOtherInfo.length; i++) {
         // @ts-ignore
-        productInfo.push(getOtherInfo[i].innerText.trim());
+        if(getOtherInfo[i] && getOtherInfo[i].innerText) {
+          productInfo.push(getOtherInfo[i].innerText.trim());
+        }
       }
       const productinfo = productInfo.join(' || ');
       document.body.setAttribute('productinfo', productinfo);
