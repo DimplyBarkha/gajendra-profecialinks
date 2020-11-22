@@ -5,10 +5,15 @@ async function implementation(
   context,
   dependencies,
 ) {
-
-
   await context.evaluate(async function () {
-    while (document.querySelector('button.results-btn-viewmore').disabled === false) {
+    if (document.querySelector('button.results-btn-viewmore').disabled === false) {
+      while (document.querySelector('button.results-btn-viewmore').disabled === false) {
+        await loadGTIN();
+      }
+    } else {
+      await loadGTIN();
+    }
+    async function loadGTIN() {
       await new Promise(resolve => setTimeout(resolve, 1000));
       document.querySelector('button.results-btn-viewmore').click();
       await new Promise(resolve => setTimeout(resolve, 3000));
