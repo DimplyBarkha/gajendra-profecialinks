@@ -96,7 +96,7 @@ fields:
     #type: NUMBER
   - name: aggregateRating
     singleValue:  false
-    xpath: //body/section[@class='product']/div/meta[contains(@itemprop,"ratingValue")]/@content
+    xpath: (//div[contains(@itemprop,"aggregateRating")]//meta[contains(@itemprop,"ratingValue")]//@content)[1]
     regExp:   ([0-9])
     regExpReplace: $1
     description: The stated aggregate rating normalized to be out of 5
