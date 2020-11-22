@@ -22,7 +22,9 @@ module.exports = {
       );
       console.log('tabWithDetails: ' + tabWithDetails);
       // @ts-ignore
-      tabWithDetails.singleNodeValue.click();
+      if(tabWithDetails && tabWithDetails.singleNodeValue) {
+        tabWithDetails.singleNodeValue.click();
+      }
       // @ts-ignore
       const getProductDetails = [...document.querySelectorAll('.tab-pane.active ul>li')];
       // const getProductDetails = document.querySelectorAll('ul.b-details-product__list li');
