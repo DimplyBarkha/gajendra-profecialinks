@@ -6,10 +6,10 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //*[contains(@class,'ii_variantid')]    
+    xpath: //*[contains(@id,'ii_variantid-')]    
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //*[contains(@class,'ii_variantid')]
+    xpath: //*[contains(@id,'ii_variantid-')]
     regExp: (\d+)
-    regExpReplace: https://www.expert.at/shop/~p$1
+    regExpReplace: https://www.expert.at/shop/?q=$1

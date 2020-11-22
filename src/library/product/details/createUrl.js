@@ -16,6 +16,7 @@ async function implementation (
   const { domain, prefix, suffix } = parameters;
 
   if (parameters.url) {
+    console.log(parameters.url);
     const url = parameters.url.replace('{id}', encodeURIComponent(id));
     console.log('url created is - ' + url);
     return url;
