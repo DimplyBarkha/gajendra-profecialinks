@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'tmall',
-    nextLinkSelector: 'div a.page-next.ui-pagination-next', 
+    nextLinkSelector: 'a.page-next.ui-pagination-next', 
     // nextLinkXpath: null,
     // mutationSelector: null,
     // spinnerSelector: null,
-    loadedSelector: 'div.main-wrap',
+    loadedSelector: 'ul[id="hs-below-list-items"] li',
     //loadedXpath: null,
     noResultsXPath: '//div[@id="main-wrap" and contains(@class,"main-wrap")]/p',
     // stopConditionSelectorOrXpath: null,
