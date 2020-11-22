@@ -60,7 +60,7 @@ module.exports = {
       const variantInformationXpath = '//li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"Colour")]//following-sibling::span';
       addHiddenDiv('variant_information_Text', getSingleText(variantInformationXpath, document));
 
-      const additionalDescBulletInfoXpath = '//ul[@class="ProductFurtherInfo_attrTable"]';
+      const additionalDescBulletInfoXpath = '//div[@class="ProductVariantBriefDetailsB"]//ul';
       addHiddenDiv('additional_desc_bullet_info_Text', getSingleText(additionalDescBulletInfoXpath, document));
 
       const colorXpath = '//li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"Colour")]//following-sibling::span';
