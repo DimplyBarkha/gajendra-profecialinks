@@ -64,7 +64,7 @@ fields:
     xpath: //meta[@id='sku']/@content
   - name: variantId
     singleValue: true
-    xpath: //meta[@id='sku']/@content
+    xpath: (//div[contains(@class,"product-actions")]//*[contains(@id,"addtocart")]//input[contains(@name,"product")]//@value | //div[contains(@class,"product-actions")]//button//@data-add-to-cart)[1]
   - name: packSize
     singleValue: true
     description:
