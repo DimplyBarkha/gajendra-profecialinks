@@ -41,8 +41,8 @@ const transform = (data) => {
           item.text = 'https://www.mechta.kz' + item.text;
         });
       }
-      if (row.manufacturerImages) {
-        row.manufacturerImages.forEach(item => {
+      if (row.videos) {
+        row.videos.forEach(item => {
           if (item.text.indexOf('http') < 0) {
             item.text = 'https:' + item.text;
           }
