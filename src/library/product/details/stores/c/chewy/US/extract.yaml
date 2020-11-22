@@ -55,7 +55,7 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //div[@class="sfw-attribute-buttons"]/@dataattributes  
-    regExp: manufacturer\W\W\W([^"]+)
+    regExp: manufacturer\W\W\W([^"]+).*
     regExpReplace: $1
   - name: quantity
     singleValue: false
