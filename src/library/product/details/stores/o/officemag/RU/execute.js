@@ -5,8 +5,8 @@ module.exports = {
     country: 'RU',
     store: 'officemag',
     domain: 'officemag.ru',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="tabsContent__item delivery"]',
+    noResultsXPath: '//div[@class="junctionInfo junctionInfo--notFound"]',
     zipcode: '',
   },
 };
