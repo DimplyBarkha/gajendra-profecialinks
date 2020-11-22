@@ -34,7 +34,7 @@ module.exports = {
     if (productAvailable) {
       console.log('clicking product link');
       await context.click(cssProduct);
-      await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+      //await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
       await context.waitForSelector(cssProductDetails);
       const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
       console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
@@ -52,6 +52,11 @@ module.exports = {
           // @ts-ignore
           cookieButton.click();
         }
+        let banner = document.querySelector('button.modal__close');
+            if (banner) {
+              // @ts-ignore
+              banner.click();
+            }
       } catch (error) {
         console.log('error: ', error);
   

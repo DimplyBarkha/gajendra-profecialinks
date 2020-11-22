@@ -5,7 +5,15 @@ parameters:
   store: carrefour
   zipcode: ""
 proxy:
-  zone: ZFR
+  zone: FRA
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  queryGapInMs: 5000
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 1
 meta:
   branches:
     dev:
