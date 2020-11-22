@@ -137,7 +137,7 @@ const transform = (data) => {
               item.text = "https://www.globus.ch" + item.text.replace(/(\s*width=600\s*)+/g, 'width=1000').trim();
           });
         }
-        /*if (row.gtin) {
+        if (row.gtin) {
           row.gtin.forEach(item => {
             var matches = /\s*__NEXT_DATA__\s*=\s*(.*)\;\s*__NEXT_LOADED_PAGES/isg.exec(item.text);              
               if (matches){
@@ -145,9 +145,9 @@ const transform = (data) => {
                 try {
                   let j_data = JSON.parse(item.text);
                   let p_ean = '';
-                  if (j_data['props']['initialStoreState']['detail']['product']['summary']['sizes']){
+                  if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes']){
                     j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'].forEach(p_size => {
-                      if (p_sku == p_size['sku']){
+                      if (p_sku == p_size['sku'] && p_size['eans'] && p_size['eans'].length > 0){
                         p_ean = p_size['eans'][0];                        
                       }
                     });
@@ -178,7 +178,7 @@ const transform = (data) => {
               try {
                 let j_data = JSON.parse(item.text);
                 let p_ean = '';
-                if (j_data['props']['initialStoreState']['detail']['product']['summary']['variants']){
+                if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['variants']){
                   j_data['props']['initialStoreState']['detail']['product']['summary']['variants'].forEach(p_variants => {
                     if(p_variants['id']){
                       info.push(p_variants['id']);
@@ -201,7 +201,7 @@ const transform = (data) => {
               }
             }
             else{
-              delete row.variants
+              delete row.variants;
             }
           });
           if (colors.length>0){
@@ -211,7 +211,7 @@ const transform = (data) => {
             row.variantCount = [{"text": info.length, "xpath": row.variants[0]["xpath"]}];
             row.firstVariant = [{'text':info[0]}];
           }
-        }*/
+        }
       }
     }
     return cleanUp(data);
