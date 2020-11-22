@@ -76,10 +76,10 @@ fields:
     regExpReplace: $1
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    xpath: //*[@class="product-code"]/span
+    xpath: //div[@id="product-details"]//@data-sku
     description: The store-specific product identifier
   - name: variantId
-    xpath: //*[@class="product-code"]/span
+    xpath: //div[@id="product-details"]//@data-sku
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     xpath: //td[contains(text(),"Modelo")]/following-sibling::td[1] | //div[@class="product-details-content-wrapper"]//text()[starts-with(.,"Modelo")]
