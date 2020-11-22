@@ -21,7 +21,7 @@ async function implementation(
     const apiLink = `https://www.asos.com/api/product/catalogue/v3/stockprice?productIds=${id}&store=ROW&currency=GBP&keyStoreDataversion=j42uv2x-26`
     const response = await fetch(apiLink);
     const responseData = await response.json();
-    const rpc = responseData[0].productCode;
+    const rpc = responseData && responseData[0].productCode;
     const variantIdarray = [];
     const sizeArray = [];
     const skuArray = [];
@@ -41,7 +41,7 @@ async function implementation(
         }
       })
     }
-    const data = window.asos.pdp.config.product;
+    const data = window && window.asos && window.asos.pdp && window.asos.pdp.config && window.asos.pdp.config.product;
     const compareVariantArray = [];
     const compareSizeArray = [];
     if (data && data.variants) {
@@ -58,7 +58,7 @@ async function implementation(
         }
       })
     })
-    const variantData = window.asos.pdp.config.product;
+    const variantData = window && window.asos && window.asos.pdp && window.asos.pdp.config && window.asos.pdp.config.product;
     const brand = variantData && variantData.brandName;
     const variantColour = [];
     if (variantData && variantData.variants) {
@@ -68,7 +68,7 @@ async function implementation(
       });
     }
     const uniqueVariantColours = [...new Set(variantColour)]
-    const imageData = window.asos.pdp.config.product;
+    const imageData = window && window.asos && window.asos.pdp && window.asos.pdp.config && window.asos.pdp.config.product;
     const compareImageArray = [];
     const compareColourArray = [];
     if (imageData && imageData.images) {
@@ -89,7 +89,7 @@ async function implementation(
     }
     const videoDiv = document.querySelector('video[class*="amp-page amp-video-element"] > source[type*="mp4"]');
     const videoUrl = videoDiv && videoDiv.getAttribute('src');
-    const ratingData = window.asos.pdp.config.ratings;
+    const ratingData = window && window.asos && window.asos.pdp && window.asos.pdp.config && window.asos.pdp.config.ratings;
     const rating = ratingData && ratingData.averageOverallRating;
     const review = ratingData && ratingData.totalReviewCount;
     // const outOfStock = document.querySelector('h3[class*="out-of-stock"]');
