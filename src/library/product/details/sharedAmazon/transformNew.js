@@ -351,6 +351,12 @@ const transform = (data, context) => {
           row.productForm = [{ text: text[0] }];
         }
       }
+      if (row.availabilityTextFresh) {
+        row.availabilityText = row.availabilityTextFresh;
+        delete row.availabilityTextFresh;
+      } else if (row.availabilityText) {
+        delete row.availabilityText;
+      }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
           el.text = clean(el.text);
