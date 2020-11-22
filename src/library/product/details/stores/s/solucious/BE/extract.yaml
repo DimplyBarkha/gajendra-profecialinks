@@ -1,0 +1,50 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="sections-img"]/img/@src
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,"item_detail")]//h1 | //div[contains(@class,"item_detail")]//table//td[text()="Merk:"]/parent::*/td[not(@class)]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
+  - name: description
+    singleValue: false
+    xpath: //div[@id="product-description" and @role="tabpanel"]/p
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,"item_detail")]//table//td[text()="Merk:"]/parent::*/td[not(@class)]
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,"item_detail")]//table//td[text()="Volledige verpakking:"]/parent::*/td[not(@class)]
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"item_detail")]//table//td[text()="Artikelnummer:"]/parent::*/td[not(@class)]
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"item_detail")]//table//td[text()="Artikelnummer:"]/parent::*/td[not(@class)]
+  - name: packSize
+    singleValue: false
+    xpath: //div[contains(@class,"item_detail")]//table//td[text()="Volledige verpakking:"]/parent::*/td[not(@class)]
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[contains(@class,"item_detail")]//div[@class="sections-small-text"]/small
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"item_detail")]//h1
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@id="product-specsheets" and @role="tabpanel"]//div[@class="tech-text"]/p/a[text()="Download"]/@href
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"messages-room")]//div[contains(@class,"ex_price") and contains(@class,"active")]/span[@class="price"]
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,"breadcrumb")]/li[not(@class="home")]/a/@title
