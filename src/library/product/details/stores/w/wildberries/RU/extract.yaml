@@ -47,7 +47,7 @@ fields:
     xpath: //div[contains(@class,"card-row")]//div[contains(@class,'second-horizontal')]//div[1]
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,"card-row")]//div[contains(@class,'second-horizontal')]//div[1]
+    xpath: //div[@id="container"]//@data-characteristic-id
   - name: legalDisclaimer
     singleValue: false
     xpath: //div[contains(@class,"card-error-report")]//p[contains(@class,'card-error-report-info')]
