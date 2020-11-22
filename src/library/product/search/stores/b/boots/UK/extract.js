@@ -6,16 +6,16 @@ async function implementation(
   dependencies,
 ) {
   await context.evaluate(async function () {
-    if (document.querySelector('button.results-btn-viewmore').disabled === false) {
-      while (document.querySelector('button.results-btn-viewmore').disabled === false) {
-        await loadGTIN();
-      }
-    } else {
-      await loadGTIN();
-    }
+    // if (document.querySelector('button.results-btn-viewmore').disabled === false) {
+    //   while (document.querySelector('button.results-btn-viewmore').disabled === false) {
+    //     await loadGTIN();
+    //   }
+    // } else {
+    await loadGTIN();
+    // }
     async function loadGTIN() {
       await new Promise(resolve => setTimeout(resolve, 1000));
-      document.querySelector('button.results-btn-viewmore').click();
+      //document.querySelector('button.results-btn-viewmore').click();
       await new Promise(resolve => setTimeout(resolve, 3000));
       let scrollTop = 0;
       while (scrollTop !== 20000) {
@@ -24,24 +24,6 @@ async function implementation(
         window.scroll(0, scrollTop);
 
         await new Promise(resolve => setTimeout(resolve, 1000));
-        const items = document.querySelectorAll('.ais-Hits ol.ais-Hits-list li');
-        const liItems = document.querySelectorAll('.product_listing_container ul.grid_mode.grid li.estore_product_container');
-        items.forEach((item, index) => {
-          try {
-            const obj = JSON.parse(item.textContent);
-            if (obj) {
-              const alreadyExists = liItems[index].querySelector('div#upc');
-              if (!alreadyExists) {
-                const div = document.createElement('div')
-                div.id = "upc"
-                div.textContent = obj.upc
-                liItems[index].appendChild(div)
-              }
-            }
-          } catch (error) {
-            console.log('Error =>', error);
-          }
-        })
         if (scrollTop === 20000) {
           await stall(5000);
           break;
@@ -55,6 +37,29 @@ async function implementation(
         });
       }
     }
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    const items = document.querySelectorAll('.ais-Hits ol.ais-Hits-list li');
+    const liItems = document.querySelectorAll('.product_listing_container ul.grid_mode.grid li.estore_product_container');
+    items.forEach((item, index) => {
+      try {
+        const obj = JSON.parse(item.textContent);
+        if (obj) {
+          const alreadyExists = liItems[index].querySelector('div#upc');
+          if (!alreadyExists) {
+            const upcDiv = document.createElement('div')
+            upcDiv.id = "upc"
+            upcDiv.textContent = obj.upc
+            liItems[index].appendChild(upcDiv)
+            const idDiv = document.createElement('div')
+            idDiv.id = "manufacturerModel"
+            idDiv.textContent = obj.manufacturerModel
+            liItems[index].appendChild(idDiv)
+          }
+        }
+      } catch (error) {
+        console.log('Error =>', error);
+      }
+    })
   })
   const { transform } = parameters;
   const { productDetails } = dependencies;
