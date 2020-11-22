@@ -41,6 +41,13 @@ const transform = (data) => {
           item.text = 'https://www.mechta.kz' + item.text;
         });
       }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
+          }
+        });
+      }
       if (row.sku) {
         row.sku.forEach(item => {
           item.text = item.text.replace('Код:', '');
