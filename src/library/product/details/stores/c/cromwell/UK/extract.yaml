@@ -35,7 +35,7 @@ fields:
     xpath: //h2[@class="productCodeSku"]//span[@data-e2e="productSku"]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="image-gallery-thumbnails-container"]//button[@class="image-gallery-thumbnail"][position()>0]//img//@src
+    xpath: //div[@class="image-gallery-slide  right "]//div//a//@href
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class="image-gallery-thumbnails-container"]//button[@class="image-gallery-thumbnail"][position()>0]//img//@src)

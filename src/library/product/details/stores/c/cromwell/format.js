@@ -63,6 +63,13 @@ const transform = (data, context) => {
         });
       }
 
+      if (row.brandText) {
+        let text = '';
+        row.brandText.forEach(item => {
+          item.text = item.text.replace('.', '');
+        });
+      }
+
       if (row.availabilityText) {
         let newText = 'In Stock';
         row.availabilityText.forEach(item => {
