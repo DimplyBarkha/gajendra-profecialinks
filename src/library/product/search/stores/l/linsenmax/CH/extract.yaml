@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: ul.productoverview-item-list li.productoverview-item-list__item
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //a[contains(@class,"productoverview-item__btn")]/@href
+    regExp: .+\/(.+)\.html
+    regExpReplace: $1
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[contains(@class,"productoverview-item__btn")]/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[contains(@class,"productoverview-item__c2120")]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //img[contains(@class,"productoverview-item__imag")]/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[contains(@class,"productoverview-item__c1000")]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
