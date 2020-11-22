@@ -137,7 +137,7 @@ const transform = (data) => {
               item.text = "https://www.globus.ch" + item.text.replace(/(\s*width=600\s*)+/g, 'width=1000').trim();
           });
         }
-        if (row.gtin) {
+        /*if (row.gtin) {
           row.gtin.forEach(item => {
             var matches = /\s*__NEXT_DATA__\s*=\s*(.*)\;\s*__NEXT_LOADED_PAGES/isg.exec(item.text);              
               if (matches){
@@ -211,7 +211,7 @@ const transform = (data) => {
             row.variantCount = [{"text": info.length, "xpath": row.variants[0]["xpath"]}];
             row.firstVariant = [{'text':info[0]}];
           }
-        }
+        }*/
       }
     }
     return cleanUp(data);
