@@ -96,7 +96,7 @@ fields:
 
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="wysiwyg"]
+    xpath: //div[@class="wysiwyg"]/div[@class='row']
 
   - name: specifications
     singleValue: false
@@ -121,4 +121,8 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //div[@id='collapseDelivery']//ul/li/div[position() mod 2 = 1]
+
+  - name: description
+    singleValue: false
+    xpath: //div[@class='new-wysiwyg']
     
