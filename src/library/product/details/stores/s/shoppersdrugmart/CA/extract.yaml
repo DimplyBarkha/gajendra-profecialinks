@@ -26,10 +26,10 @@ fields:
     xpath: //h1[@class='item-brand-name']//p
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='price-add-product']//div[@class='button-wrapper']//input[not(contains(@class,'disable'))]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //div[@class='price-add-product']//div[@class='button-wrapper']//input[contains(@class,'cta-add')]/@class
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: price
     singleValue: false
     xpath: //div[@class='product-detail-header']//div[@class='item-product-price']//span[not(contains(@class,'strikethrough'))]

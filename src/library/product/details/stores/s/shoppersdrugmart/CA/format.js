@@ -45,6 +45,16 @@ const transform = (data) => {
           item.text = item.text.trim();
         });
       }
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if(item.text.indexOf('disable') < 0) {
+            item.text = 'In Stock';
+          }
+          else {
+            item.text = 'Out of Stock';
+          }
+        });
+      }
       if (row.nameExtended) {
         if (row.brandText) {
           row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
