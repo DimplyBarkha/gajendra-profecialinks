@@ -1,0 +1,78 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@id='image']/parent::a[@class='fancybox']/@href
+    regExp: (.+)
+    regExpReplace: 'https:$1'
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@id='image']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='image-slider slick-initialized slick-slider slick-dotted']//ul[@class='slick-dots']//li[@aria-selected='false']//a//div[@class='image-item-thumb ']/@style
+    regExp: background-image\s*:\s*url\((.+)/thumbnails(\/.+)\)\;
+    regExpReplace: https:$1$2
+  - name: metaKeywords
+    singleValue: false
+    xpath: //title
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumb']//li[not(@class)]//a[contains(@href,'/m/')]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop='name']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='row price-row']//div[@class='old-price']//span[@class='price']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='row price-row']//div[contains(@class,'special-price')]//span[@class='price']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='product-availability']//span[@class='in-stock']/@class
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class='accordion-item']//div[@class='accordion-header' and contains(.,'Beskrivelse')]/following-sibling::div[@class='accordion-body']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@class='accordion-item']//div[@class='accordion-header' and contains(.,'Beskrivelse')]/following-sibling::div[@class='accordion-body']//ul//li    
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='nosto_product']//span[@class='brand']  
+  - name: quantity
+    singleValue: false
+    xpath: //input[@id='qty']/@value  
+  - name: sku
+    singleValue: false
+    xpath: //div[@class='single-product']/@data-id
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='single-product']/@data-id  
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='nosto_product']//span[@class='review_count']      
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='nosto_product']//span[@class='rating_value']
+  - name: variantCount
+    singleValue: false
+    defaultValue: "0"  
+  - name: videos
+    singleValue: false
+    xpath: //div[@class='image-slider slick-initialized slick-slider slick-dotted']//ul[@class='slick-dots']//li//a//div[@class='image-item-thumb video']/@style
+    background-image: url(https://img.youtube.com/vi/ty458IMJH6Q/0.jpg);
+    regExp: background-image\s*:\s*url\(https:\/\/img.youtube.com\/vi\/(.*)\/.+
+    regExpReplace: https://www.youtube.com/watch?v=$1
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop='name']
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'accordion-item accordion-magazine')]//div[@class='accordion-header' and contains(.,'Relaterede magazine indlæg')]/following-sibling::div[@class='accordion-body']
