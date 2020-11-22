@@ -45,6 +45,11 @@ const transform = (data) => {
           item.text = 'https://www.mambo.com.br' + item.text;
         });
       }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace('.', ',');
+        });
+      }
       if (row.nameExtended) {
         if (row.brandText) {
           row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
