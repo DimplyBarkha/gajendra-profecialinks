@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //body[@id="body"]
+fields:
+  - name: image
+    singleValue: false
+    xpath: //ul[@data-clientside-hook="imageGallery__major"]/li[position()=1]/a/@href
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@data-clientside-hook="imageGallery__major"]/li[position()>1]/a/@href
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,"o-ProductTemplate__heading")] | //dl[@class="a-break-long-words"]/dt[text()="Marke"]/parent::*/dd/a
+  - name: price
+    singleValue: false
+    xpath: //li[contains(@class,"m-ProductVariants__list__firstItem")]//div[contains(@class,"o-ProductVariantAvailableDetails--price") and contains(@class,"u-hidden@pre-medium-small-tiny")]/span
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id="productActiveIngredients.headline"]//div[@class="m-Collapsible__content"]/h3[text()="Wirkstoffe"]/following-sibling::div[1]//li
+  - name: brandText
+    singleValue: false
+    xpath: //dl[@class="a-break-long-words"]/dt[text()="Marke"]/parent::*/dd/a
+  - name: manufacturer
+    singleValue: false
+    xpath: //dl[@class="a-break-long-words"]/dt[text()="Hersteller"]/parent::*/dd/a
+  - name: sku
+    singleValue: false
+    xpath: //dl[@class="a-break-long-words"]/dt[text()="PZN"]/parent::*/dd/span[@data-qa-id="product-attribute-pzn"]
+  - name: variantId
+    singleValue: false
+    xpath: //dl[@class="a-break-long-words"]/dt[text()="PZN"]/parent::*/dd/span[@data-qa-id="product-attribute-pzn"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,"u-margin-large--bottom@small-tiny")]//div[@data-qa-id="product-rating"]//a[contains(@class,"m-StarRating__reviews-locator")]/span
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[contains(@class,"u-margin-large--bottom@small-tiny")]//div[@data-qa-id="product-rating"]/a/span
+  - name: variantCount
+    singleValue: true
+    xpath: //div[@id="h_ProductVariants"]//li[contains(@class,"m-ProductVariants__item")]/div/@class
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="o-ProductAdditionalInformation__teaser"]/p/text()
+  - name: name
+    singleValue: true
+    xpath: //h1[contains(@class,"o-ProductTemplate__heading")]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,"m-ProductVariant__label") and contains(@class,"m-ProductVariant__label--checked")]//div[contains(@class,"o-ProductVariant--units")]
+  - name: firstVariant
+    singleValue: false
+    xpath: //dl[@class="a-break-long-words"]/dt[text()="PZN"]/parent::*/dd/span[@data-qa-id="product-attribute-pzn"]
+  - name: variants
+    singleValue: false
+    xpath: //li[contains(@class,"m-ProductVariants__item")]//a[@data-clientside-hook="productVariant__link"]/@data-product-variant-id | //dl[@class="a-break-long-words"]/dt[text()="PZN"]/parent::*/dd/span[@data-qa-id="product-attribute-pzn"]
