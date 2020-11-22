@@ -30,12 +30,12 @@ const transform = (data) => {
           item.text = 'https://www.coop.co.uk' + item.text;
         });
         if (row.productUrl.length > 1) {
-          row.productUrl = row.productUrl[0];
+          row.productUrl.splice(1);
         }
       }
       if (row.id) {
         if (row.id.length > 1) {
-          row.id = row.id[0];
+          row.id.splice(1);
         }
       }
       if (row.thumbnail) {
