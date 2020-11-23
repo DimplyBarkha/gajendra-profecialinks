@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text()  |  //div[@class="price-box"]/span[@class="regular-price"]/span/span/text()
+  - name: name
+    singleValue: true
+    xpath: //div[@class="product-name"]/a/div/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //ul[@class="products-grid thumbnails"]/li//div[@class="visible"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[@class="products-grid thumbnails"]/li//div[@class="visible"]/a/img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //html//div[@id="abc"]
+  - name: id
+    singleValue: false
+    xpath: //div[@class="price-box"]/span[@class="regular-price"]/@id | //div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/@id
+    regExp: \d+
+  - name: ratingCount
+    singleValue: true
+    xpath: //html//div[@id="zz"]
