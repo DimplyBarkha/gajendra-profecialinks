@@ -29,7 +29,7 @@ async function implementation (
             id: elements[i].getAttribute('data-analytics-view-value'),
             price: elements[i].querySelector('span._1svub').textContent,
             nameExtended: elements[i].querySelector('h2>a').textContent,
-            sponsored: getSponcered(elements[i])
+            sponsored: getSponcered(elements[i]),
           };
           appendElement(elements[i], data);
         } catch (error) {
