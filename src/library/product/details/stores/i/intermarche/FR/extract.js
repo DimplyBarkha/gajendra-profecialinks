@@ -53,7 +53,7 @@ module.exports = {
         "NutritionalTable__TableCell-sc-49ty6u-8 gUJdBI"
       );
       console.log(energy);
-      if (energy != null) {
+      if (energy[0] != null) {
         var energy_num = energy[0].innerText;
         var energy_num = energy[0].innerText.match(/([\d.]+) *kcal/)[1];
         addHiddenDiv("ii_" + "energy", energy_num);
