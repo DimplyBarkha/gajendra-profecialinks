@@ -6,10 +6,11 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//div[@class="modal-content"]//div[@class="container-fluid product-modal product-detail"]//div[@class="image-container"]//img/@src)[1]
+    xpath: (//div[@class="image-container"]//img/@src)[1]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: (//div[@class="image-container"]//img/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -23,9 +24,13 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: url
+    singleValue: true
+    xpath: //meta[@property="og:url"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: concat((//div[@class="price "]//span[@itemprop="priceCurrency"]//font//font/text()),(//div[@class="price "]//span[@itemprop="priceCurrency"]/following::font[2]/text()))
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
