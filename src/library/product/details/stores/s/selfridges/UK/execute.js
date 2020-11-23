@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'selfridges',
     domain: 'selfridges.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'section[data-js-component="productHero"]',
+    noResultsXPath: "//div[@class='component-content']//p[contains(text(), 'We can't seem to find any results for')]",
     zipcode: '',
   },
 };
