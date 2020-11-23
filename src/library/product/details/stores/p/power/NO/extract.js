@@ -53,7 +53,7 @@ module.exports = {
       const nameExtendedSelector1 = document.querySelector('#header-page h1');
       const nameExtendedSelector2 = document.querySelector('.webheader');
 
-      let nameExtended = [];
+      const nameExtended = [];
       if (nameExtendedSelector1) {
         nameExtended.push(nameExtendedSelector1.innerText);
       }
@@ -62,16 +62,50 @@ module.exports = {
       }
       addElementToDocument('fetchedNameExtended', nameExtended.join(' '));
 
-      const images = document.querySelectorAll('div.product-main-card div.product-image-container img');
+      let images = document.querySelectorAll('div.inpage_block img');
       if (images) {
-        for (let index = 0; index < images.length; index++) {
-          document.querySelector('div.owl-next i.icon-expert-arrow').click();
-          await new Promise(resolve => setTimeout(resolve, 1000));
-        }
         images.forEach(e => {
-          const imageSrc = e.getAttribute('src');
-          addElementToDocument('images', imageSrc);
+          let imageSrc = e.getAttribute('srcset');
+          if (imageSrc) {
+            if (!(imageSrc.includes('https:'))) {
+              imageSrc = `https:${imageSrc}`;
+            }
+            if ((imageSrc.includes('video_thumb_play'))) {
+              imageSrc = '';
+            }
+          }
+          addElementToDocument('manuImages', imageSrc);
         });
+      } else if (document.querySelectorAll('div#product-tab-description div div.image-wrapper img')) {
+        images = document.querySelectorAll('div#product-tab-description div div.image-wrapper img');
+        images.forEach(e => {
+          let imageSrc = e.getAttribute('src');
+          if (imageSrc) {
+            if (!(imageSrc.includes('https:'))) {
+              imageSrc = `https:${imageSrc}`;
+            }
+            if ((imageSrc.includes('video_thumb_play'))) {
+              imageSrc = '';
+            }
+          }
+          addElementToDocument('manuImages', imageSrc);
+        });
+      } else {
+        images = document.querySelectorAll('div#product-tab-description-panel img');
+        if (images) {
+          images.forEach(e => {
+            let imageSrc = e.getAttribute('srcset');
+            if (imageSrc) {
+              if (!(imageSrc.includes('https:'))) {
+                imageSrc = `https:${imageSrc}`;
+              }
+              if ((imageSrc.includes('video_thumb_play'))) {
+                imageSrc = '';
+              }
+            }
+            addElementToDocument('manuImages', imageSrc);
+          });
+        }
       }
 
       const price = document.querySelector('meta[property="product:price:amount"]')
@@ -209,7 +243,7 @@ module.exports = {
         ? document.querySelector('div.product-intro-details button[itemprop="ratingValue"]').innerText : '';
       if (aggRating) addElementToDocument('aggRating', aggRating);
     });
-    await context.evaluate(async function() {
+    await context.evaluate(async function () {
       const mainTabsSelector = document.querySelectorAll('h3.panel-title');
       if (mainTabsSelector) {
         mainTabsSelector.forEach(ele => {

@@ -43,7 +43,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[@id="stock"]
+    xpath: //button[contains(@class, 'btn btn-mega btn-block')]
+    regExp: Ikke på lager
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -149,7 +152,9 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class, "inpage_block")]//img/@srcset | //div[@id="product-tab-description"]/div/div[@class="image-wrapper"]/img/@src | //div[contains(@id, "product-tab-description-panel")]//img/@src
+    xpath: //div[contains(@class, "inpage_block")]//img/@srcset | //div[@id="product-tab-description"]/div/div[@class="image-wrapper"]/img/@srcset | //div[contains(@id, "product-tab-description-panel")]//img/@srcset
+    regExp: (.+)
+    RegExpReplace: https:$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
