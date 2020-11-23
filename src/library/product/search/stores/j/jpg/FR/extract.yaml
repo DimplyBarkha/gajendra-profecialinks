@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //h3[@id="skuName"]//a/@sku
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="pd_url"]
+  - name: name
+    singleValue: false
+    xpath: //div[@class='itemDetails']/h3[@id='skuName']/a[@class='desc4 scTrack pfm']
+  - name: productUrl
+    singleValue: false 
+    xpath: //h3[@id="skuName"]//a/@href
+    regExp: (/.+)
+    regExpReplace: https://www.jpg.fr$1     
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='searchImgContainer']/a[@class='Img_Sku scTrack pfm']/img[@id='SkuPageMainImg']/@src  
+  - name: aggregateRating2
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@class="itemDetails"]//span[@id="productRating"]/text()
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="itemDetails"]//span[@itemprop="reviewCount"]/text()
+  - name: price
+    singleValue: false  
+    type: CURRENCY
+    xpath: //div[@class='pricePh clear']/strong[@class='price']/span[@id='SkuPriceUpdate'] 
+  
