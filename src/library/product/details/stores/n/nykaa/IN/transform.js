@@ -35,15 +35,20 @@ const cleanUp = (data, context) => {
                 ];
             }
             if (row.description) {
-                let text = '';
                 row.description.forEach((element) => {
-                    if (element.xpath.includes('li')) {
-                        text += ` || ${element.text}`;
+                    if (element.xpath.endsWith('ul[1]')) {
+                        element.text = element.text.replace(/\.\s{1,}/g, '. || ');
+                    }
+                })
+                let text = ''
+                row.description.forEach((element) => {
+                    if (element.xpath.endsWith('ul[1]')) {
+                        text += ` || ${element.text}`
                     } else {
                         text += ` ${element.text}`
                     }
                 })
-                row.description = [{ text }];
+                row.description = [{ text: text.trim() }]
             }
             if (row.manufacturerDescription) {
                 let text1 = ''
@@ -51,6 +56,13 @@ const cleanUp = (data, context) => {
                     text1 += `${element.text} `;
                 })
                 row.manufacturerDescription = [{ text: text1.trim() }]
+            }
+            if (row.additionalDescBulletInfo) {
+                let bulletString = '';
+                row.additionalDescBulletInfo.forEach((element) => {
+                    bulletString += `|| ${element.text}`;
+                })
+                row.additionalDescBulletInfo = [{ text: bulletString }];
             }
 
         }

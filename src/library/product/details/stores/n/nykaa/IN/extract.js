@@ -85,7 +85,7 @@ module.exports = {
         })
       })
       const imgurl = document.querySelector('div[class*="post-card__img"]>div>img') && document.querySelector('div[class*="post-card__img"]>div>img').getAttribute('src');
-      const id1 = imgurl.match(/\d{4,}/g)[0];
+      const id1 = imgurl && imgurl.match(/\d{4,}/g) && imgurl.match(/\d{4,}/g)[0];
       let sku = ''
       if (id != '') {
         sku = id;
@@ -94,6 +94,14 @@ module.exports = {
       }
       var appendElement = document.querySelector('div[class*="post-card__img-wrap1"] img');
       appendElement.setAttribute('sku', sku);
+
+      const ingredientData = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.product_ingredients
+      const finalInagredientData = ingredientData.replace(/<p>(.+)<\/p>/g, "$1");
+
+      var appendElement = document.querySelector('div[class*="post-card__img-wrap1"] img');
+      appendElement.setAttribute('finalInagredientData', finalInagredientData);
+
+
     });
 
     return await context.extract(productDetails, { transform });

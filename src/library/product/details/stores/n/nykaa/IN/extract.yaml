@@ -596,15 +596,15 @@ fields:
     regExp: (\d+)(-Years)
     regExpReplace: $1-Years
   - name: description
-    xpath: //*[contains(@class,"pdp-description-tab-item")]
+    xpath: //div[contains(@class,"pdp-description-tab-item description")]/div/*[not(self::div)][not(self::style)]
     singleValue: false
   - name: quantity
     description: Quantity as described on the page
     xpath: //span[@class="shade-txt"]
     # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     # regExpReplace: $1$2$3$4
-    # regExp: (\()(.+)(\))
-    # regExpReplace: $
+    regExp: (\()(.+)(\))
+    regExpReplace: $2
   - name: additionalDescBulletInfo
     description: null
     xpath: //div[@class="pdp-description-tab-item description-expand"]//ul//li
@@ -620,4 +620,7 @@ fields:
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
     xpath: //div[@class="AzIndex"] | //div[@class="pdp-description-tab-item description-expand"]//p[contains(.,'Explore')]
+  - name: ingredientsList
+    description: List of Ingredients from site - can be string of data if no discernible start/end point
+    xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@finalInagredientData
     
