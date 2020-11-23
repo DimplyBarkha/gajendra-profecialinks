@@ -1,0 +1,71 @@
+input:
+  _url: http://pnp.co.za
+  URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Cold-Drinks/Carbonated-Soft-Drinks/COCA-COLA-NON-RET-1L/p/000000000000148832_EA
+extractions:
+  - html: https://workbench.import.io/html/run=f3fc5c46-8039-4373-acf6-cf7534b05b38/task=a8380e3c-f6d5-4058-ba30-086dab1d6268/2b0d2017-6403-475b-80f5-ffc2712f9033.html
+    extractionConfigId: product/details/stores/p/pnp/ZA/extract
+    data:
+      - group:
+          - image:
+              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/hd0/h0e/10063518302238/silo-product-image-v2-19Nov2020-180127-5449000054227-front-476322-900_400Wx400H
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Coca-Cola 1l
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            nameExtended:
+              - text: Coca-Cola 1l
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            brandText:
+              - text: Coca-Cola
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            quantity:
+              - text: 1l
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]/text()[1]
+            name:
+              - text: Coca-Cola 1l
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            variantId:
+              - text: 000000000000148832_EA
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/form[1]/input[3]/@value
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/text()[1]
+            description:
+              - text: At The Coca-Cola Company, we are a diverse, global community of people who
+                  thirst for more. Together, we are growing and learning,
+                  building on our iconic past to make an impact.
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/text()[1]
+            sodiumPerServing:
+              - text: "17.5"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[3]/text()[1]
+            sodiumPerServingUom:
+              - text: mg
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[4]/text()[1]
+            totalCarbPerServing:
+              - text: "27.5"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[3]/text()[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[4]/text()[1]
+            totalSugarsPerServing:
+              - text: "26.5"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[3]/text()[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[4]/text()[1]
+            availabilityText:
+              - text: Out of Stock
+            variantCount:
+              - text: "0"
+            price:
+              - text: R15,99
+            gtin:
+              - text: "5449000054227"
+            directions:
+              - text: ""
+            ingredientsList:
+              - text: caffeine, caramel, carbonated water, flavouring, phosphoric acid, sugar
+            caloriesPerServing:
+              - text: 450 kJ
+        xpath: /html
+    timestamp: 1606157074652

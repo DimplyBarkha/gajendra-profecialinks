@@ -1,0 +1,49 @@
+input:
+  _url: http://pnp.co.za
+  URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Chocolates-%26-Sweets/Sweets/Prepacked-Sweets/BEACON-TOFFO-CREAM-CARAMELS-150GR/p/000000000000310326_EA
+extractions:
+  - html: https://workbench.import.io/html/run=f3fc5c46-8039-4373-acf6-cf7534b05b38/task=d9e161d0-f6c6-4691-b1d0-b1bc9d0b3972/e064c29f-f7fd-4372-b3ce-cb2de1490967.html
+    extractionConfigId: product/details/stores/p/pnp/ZA/extract
+    data:
+      - group:
+          - image:
+              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/hb6/h64/9822907596830/silo-product-image-v2-26May2020-180115-6001120606732-up-426471-1165_400Wx400H
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Beacon Toffo Cream Caramels 150g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            nameExtended:
+              - text: Beacon Toffo Cream Caramels 150g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            brandText:
+              - text: Beacon
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            quantity:
+              - text: 150g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]/text()[1]
+            name:
+              - text: Beacon Toffo Cream Caramels 150g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/button[1]/div[1]
+            variantId:
+              - text: 000000000000310326_EA
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/form[1]/input[3]/@value
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/text()[1]
+            variantCount:
+              - text: "0"
+            price:
+              - text: R40,99
+            gtin:
+              - text: "6001120606732"
+            directions:
+              - text: ""
+            ingredientsList:
+              - text: ""
+            caloriesPerServing:
+              - text: " "
+        xpath: /html
+    timestamp: 1606157071433
