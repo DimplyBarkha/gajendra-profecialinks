@@ -53,6 +53,7 @@ fields:
   - name: manufacturerResponse
     singleValue: true
     description: The response of the manufacturer (if any)
+    xpath: //div[@class="b_2C06Ssbn8s"]/span/span[@class="b_3JsGNgDHFb"]
   - name: syndicatedFrom
     singleValue: true
     description: Stated place the review was syndicated from
@@ -73,3 +74,5 @@ fields:
     xpath: //div[@class='b_3fJVmfwbhK']/font/font
   - name: reviewRatingScale
     xpath: //meta[@itemprop="bestRating"]
+  - name: responseAuthor
+    xpath: //div[@class="b_dkDeduCKVt"]/font/font
