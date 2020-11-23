@@ -7,7 +7,7 @@ fields:
     xpath: //@producturl
   - name: thumbnail
     xpath: //@thumbnail
-    regExp: (.)allegroimg.com/(.*?)/(.)
+    regExp: (.*?)allegroimg.com/(.*?)/(.*)
     regExpReplace: $1allegroimg.com/original/$3
   - name: name
     xpath: //@name
@@ -15,10 +15,6 @@ fields:
     xpath: //@id
   - name: price
     xpath: //@price
-  - name: listPrice
-    xpath: //@listPrice
-    regExp: (^\d)(.*)
-    regExpReplace: $1$2
   - name: manufacturer
     xpath: //@manufacturer
   - name: rank

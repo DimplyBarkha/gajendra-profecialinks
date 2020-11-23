@@ -4,12 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'allegro',
-    loadedSelector: 'section > article[data-item]',
     url: {
       indexOffset: 0,
       template: 'https://allegro.pl/listing?string={searchTerms}&p={startIndex}',
     },
+    loadedSelector: 'div.opbox-listing',
     domain: 'allegro.pl',
-    zipcode: '',
   },
 };

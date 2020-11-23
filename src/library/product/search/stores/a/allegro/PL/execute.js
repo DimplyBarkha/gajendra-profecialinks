@@ -5,9 +5,9 @@ module.exports = {
     country: 'PL',
     store: 'allegro',
     domain: 'allegro.pl',
-    url: 'https://allegro.pl/kategoria/moda?string={searchTerms}',
+    url: 'https://allegro.pl/listing?string={searchTerms}',
     loadedSelector: 'div.opbox-listing',
-    noResultsXPath: '//p[contains(text(),"Teraz nie możemy znaleźć „")]',
+    noResultsXPath: '//p[contains(text(),"Czy na pewno szukasz")]',
     zipcode: '',
   },
 };

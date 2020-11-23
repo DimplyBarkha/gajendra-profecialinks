@@ -9,15 +9,7 @@ async function implementation (
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
     function getElements () {
-      return document.querySelectorAll('section article[data-item=\'true\']');
-    }
-    const isListview = document.querySelector('div[data-analytics-interaction-value="regular"]');
-    if (!isListview) {
-      const galleryView = document.querySelector('div[data-analytics-interaction-value="gallery"]');
-      if (galleryView) {
-        galleryView.click();
-        await stall(30000);
-      }
+      return document.querySelectorAll('div[data-box-name="Items Container"] [data-item="true"]');
     }
 
     const elements = getElements();
@@ -36,13 +28,6 @@ async function implementation (
             name: elements[i].querySelector('h2>a[href]').textContent,
             id: elements[i].getAttribute('data-analytics-view-value'),
             price: elements[i].querySelector('span._1svub').textContent,
-            listPrice: elements[i].querySelector(
-              'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span',
-            )
-              ? elements[i].querySelector(
-                'article[data-item=\'true\']>div>div:nth-child(2) span[style] + span'
-              ).textContent
-              : '',
             nameExtended: elements[i].querySelector('h2>a').textContent,
             sponsored: getSponcered(elements[i])
           };
@@ -56,7 +41,6 @@ async function implementation (
     function getSponcered(element) {
       let value = element.getAttribute('data-analytics-view-custom-index0');
       let isSponsored = element.getAttribute('data-analytics-view-label');
-      console.log(isSponsored);
       if (value && isSponsored) {
         return element.getAttribute('data-analytics-view-label');
       }
