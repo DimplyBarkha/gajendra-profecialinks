@@ -8,6 +8,9 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.totalwine.com$1
     description: The URL for the product details page
+  - name: pageN
+    description: current page number for item
+    xpath: 
   - name: thumbnail
     xpath: //div[@class="productImg__3fOOgAmO"]/a/picture/img/@src
     regExp: (.+)(\x)(\d+)(\,)(.+)

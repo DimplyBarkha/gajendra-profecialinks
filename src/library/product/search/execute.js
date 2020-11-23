@@ -12,7 +12,8 @@ async function implementation (
   dependencies,
 ) {
   console.log('params', parameters);
-  const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+
+  const url = inputs.url || parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
