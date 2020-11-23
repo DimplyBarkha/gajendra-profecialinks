@@ -26,10 +26,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    type: CURRENCY
     xpath: //div[@class="price-box price-final_price"]//span[@class="price"]
   - name: manufacturer
     singleValue: true
-    xpath: //li/@data-brand
   - name: soldBy
     singleValue: true
   - name: rank

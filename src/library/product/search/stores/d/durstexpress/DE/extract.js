@@ -6,6 +6,7 @@ country: 'DE',
 store: 'durstexpress',
 transform: transform,
 domain: 'durstexpress.de',
+zipcode: ''
 },
 
 };

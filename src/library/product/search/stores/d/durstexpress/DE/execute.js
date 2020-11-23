@@ -7,7 +7,8 @@ module.exports = {
     domain: 'durstexpress.de',
     url: "https://www.durstexpress.de/berlin1/catalogsearch/result/?q={searchTerms}",
     loadedSelector: "body",
-    noResultsXPath: null,
+    noResultsXPath: null, 
     zipcode: '',
+    
   },
 };
