@@ -6,7 +6,7 @@ module.exports = {
     store: 'coop',
     domain: 'coop.se',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@data-page-type,"sectionPage")]',
     zipcode: '',
   },
 };

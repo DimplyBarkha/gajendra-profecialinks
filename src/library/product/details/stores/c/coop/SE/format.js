@@ -30,13 +30,31 @@ const transform = (data) => {
           item.text = item.text.replace(':', '.').trim();
         });
       }
+
+      if (row.availabilityText) {
+        let text = '';
+        row.availabilityText.forEach(item => {
+          if (item.text.includes('Öka antal')) {
+            text = 'In Stock';
+          } else {
+            text = 'Out of Stock';
+          }
+        });
+        row.availabilityText = [
+          {
+            text,
+          },
+        ];
+      }
+
       if (row.gtin) {
         var scriptJSON = JSON.parse(row.gtin[0].text);
         if (scriptJSON.id) {
-          row.variantId = row.sku = [{ text: scriptJSON.id }];
+          row.variantId = [{ text: scriptJSON.id }];
+          row.sku = [{ text: scriptJSON.id }];
         }
         if (scriptJSON.manufacturer) {
-          row.manufacturer = row.sku = [{ text: scriptJSON.manufacturer }];
+          row.manufacturer = [{ text: scriptJSON.manufacturer }];
         }
         if (scriptJSON.ean) {
           row.gtin = [{ text: scriptJSON.ean }];
@@ -49,12 +67,18 @@ const transform = (data) => {
         }
         if (scriptJSON.image) {
           if (scriptJSON.image.url) {
-            var tempUrl = scriptJSON.image.url;
+            let tempUrl = scriptJSON.image.url;
             if (tempUrl.indexOf('http:') < 0) {
               tempUrl = 'https:' + tempUrl;
             }
             row.image = [{ text: tempUrl }];
           }
+        }
+        if (row.shownImages) {
+          row.shownImages = row.image;
+        }
+        if (row.highQualityImages) {
+          row.highQualityImages = row.image;
         }
         // if (scriptJSON.price) {
         //   row.price = [{ text: scriptJSON.price }];
