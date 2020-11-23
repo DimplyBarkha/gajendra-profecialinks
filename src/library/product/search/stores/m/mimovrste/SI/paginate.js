@@ -9,7 +9,9 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.mimovrste.com/iskanje?page={page}&s={searchTerms}',
+    },
     domain: 'mimovrste.com',
     zipcode: '',
   },
