@@ -153,7 +153,7 @@ const transform = (data) => {
                     if (p_sku == p_size['sku'] && p_size['eans'] && p_size['eans'].length > 0){
                       p_ean = p_size['eans'][0];                        
                     }
-                    if (p_size['value'] && p_size['value'] != null){
+                    if (p_size['value'] && p_size['value'] != null && p_size['value'] != 'DEFAULT'){
                       size_variant.push(p_size['value']);
                     }                    
                   });
@@ -190,6 +190,9 @@ const transform = (data) => {
                     
                     if (p_variants['color'] != null && p_variants['color']['value']){
                       colors.push(p_variants['color']['value']);
+                    }
+                    else if(p_variants['name'] != null && p_variants['name'] != 'DEFAULT'){
+                      colors.push(p_variants['name']);
                     }
                   });
                                     
