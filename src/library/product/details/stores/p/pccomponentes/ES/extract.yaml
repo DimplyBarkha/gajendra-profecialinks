@@ -17,7 +17,7 @@ fields:
     defaultValue: "No"
   - name: videos
     singleValue: false
-    xpath: //div[@class="resp-tabs-container"]//div[@id="ficha-producto-caracteristicas"]//iframe/@src
+    xpath: //div[@class="resp-tabs-container"]//div[@id="ficha-producto-caracteristicas"]//iframe/@src | //body/@allvideos
   - name: eangtin
     singleValue: false
     xpath: //script[contains(text(), '"ean":')]
