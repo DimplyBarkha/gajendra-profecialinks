@@ -10,14 +10,6 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.evaluate(async function (results) {
-    function addHiddenDiv (id, content, container) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      container.appendChild(newDiv);
-    }
-
     const productCards = document.querySelectorAll('div[class*="viewports-enabled-fop__"]');
     if (productCards && productCards.length > 0) {
       const length = (productCards.length > results) ? results : productCards.length;
@@ -25,10 +17,6 @@ async function implementation (
         if ((i % 5) === 3) {
           productCards[i].scrollIntoView({ behavior: 'smooth' });
           await new Promise(resolve => setTimeout(resolve, 500));
-        }
-        const thumbnail = productCards[i].querySelector('a[data-synthetics="bop-link"] img');
-        if (thumbnail) {
-          addHiddenDiv('ii_thumbnail', thumbnail.getAttribute('src'), productCards[i]);
         }
         const loadedCards = productCards[i].querySelector('div[class*="base__BoxCard"]');
         if (!loadedCards) {
