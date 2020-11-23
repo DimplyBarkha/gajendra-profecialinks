@@ -50,7 +50,7 @@ async function implementation (
     const allProducts = document.querySelectorAll('a[class*="c3-product-grid__item"]');
     const searchUrl = document.URL;
     for (let i = 0; i < allProducts.length; i++) {
-      addProp('a[class*="c3-product-grid__item"]', i, 'searchurl', searchUrl);
+      // addProp('a[class*="c3-product-grid__item"]', i, 'searchurl', searchUrl);
     }
   });
 
