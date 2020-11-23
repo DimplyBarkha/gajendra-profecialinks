@@ -5,8 +5,8 @@ module.exports = {
     country: 'DE',
     store: 'windeln',
     domain: 'windeln.de',
-    loadedSelector: '.main-content',
-    noResultsXPath: "//body[@id='pageId-exception']/div[@id='mainContainer']/div[@class='main-wrapper']",
+    loadedSelector: 'div[id="mainContainer"]',
+    noResultsXPath: '//div[@class="main-wrapper"][contains(., "die Seite konnte leider nicht gefunden werden")]',
     zipcode: '',
   },
 };
