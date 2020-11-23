@@ -39,23 +39,9 @@ async function implementation (
     addHiddenDiv('url', window.location.href);
     addHiddenDiv('pageTimeStamp', new Date());
 
-    if (document.querySelector('h5') && document.querySelector('h5').innerText.split(':')[1]) {
-      addHiddenDiv('sku', document.querySelector('h5').innerText.split(':')[1]);
-    } else {
-      document.querySelectorAll('small').forEach(el => {
-        if (el.innerText.includes('SKU:')) {
-          addHiddenDiv('sku', el.innerHTML.split('<br>')[0].replace('SKU: ', ''));
-        }
-      });
-    }
-
-    if (!document.getElementById('sku')) {
-      document.querySelectorAll('script').forEach(script => {
-        const matches = script.innerText.match(/productSKU: \"[0-9]+\-[0-9]+\"/);
-        if(matches && matches.length) {
-          addHiddenDiv('sku', matches[0].replace('productSKU: ', '').replace(/"/g, ''));
-        }
-      });
+    let skuMatches = window.location.href.match(/[0-9]{2,}\-[0-9]{1,}/g);
+    if(skuMatches) {
+      addHiddenDiv('sku', skuMatches[0]);
     }
 
     if (document.querySelector('.bv-off-screen')) {

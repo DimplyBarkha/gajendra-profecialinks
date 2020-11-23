@@ -6,7 +6,9 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class="hgroup__main-image"]/img/@src|//div[@class="image image--stretch"]/picture/img/@src
+    xpath: (//div[contains(@class,"media-carousel")]//img//@src)[1]
+    regExp: (.+)
+    regExpReplace: https://shop.dyson.ru$1
   - name: pageTimeStamp
     singleValue: true
     xpath: //div[@id="pageTimeStamp"]
@@ -20,20 +22,22 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id="alternateImages"]
+    xpath: (//div[contains(@class,"media-carousel")]//img//@src)[position()>1]
+    regExp: (.+)
+    regExpReplace: https://shop.dyson.ru$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
     xpath: //meta[contains(@name, "keywords")]/@content
-  #- name: category
-  #  singleValue: false
-  #  description: The categories (e.g. from breadcrumbs)
-  #  xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' breadcrumb ')])[1]//li[position()>1]//a/span
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: (//div[contains(@class,"breadcrumbs")])[1]//a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    xpath: //div[contains(@class,"product-name")]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -46,7 +50,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     #xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
-    xpath: //span[@class='price']
+    xpath: //div[contains(@id,"product_addtocart_form")]//span[@class='price']
   #- name: currencyOverride
   #  singleValue: true
   #  xpath: //div[@id='added_currency']
@@ -173,7 +177,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    xpath: //div[contains(@class,"product-name")]
   - name: inStorePrice #missing
     singleValue: true
     description: Price in the selected store
