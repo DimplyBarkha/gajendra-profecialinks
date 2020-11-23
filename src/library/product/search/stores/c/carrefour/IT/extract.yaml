@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[contains(@class,'article-list')]/article
+fields:
+  - name: productUrl
+    xpath: //article[@class="product-card-item"]//div[@class="brand"]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.carrefour.es$1
+    singleValue: false
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //article[@class="product-card-item"]//div[@class="photo"]//img/@src
+    regExp: (.*)hd_280x(.*)
+    regExpReplace: $1hd_560x$2
+    singleValue: false
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //p[@class="title-product"]
+    singleValue: false
+    description: The product name
+  - name: price
+    xpath: //div[@class="price-container"]/span[not(contains(@class,'strike-price'))]
+    singleValue: false
+    description: The offered price for the product
+  - name: id
+    xpath: //article[@class="product-card-item"]//div[@class="photo"]//a/@data-productid
+    singleValue: false
+    description: Unique id (within this extractor)
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+    type: BOOLEAN
+    singleValue: false
