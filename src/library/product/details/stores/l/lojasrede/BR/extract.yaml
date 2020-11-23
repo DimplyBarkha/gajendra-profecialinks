@@ -34,18 +34,18 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    type: CURRENCY
-    xpath: //div[@class="row product-details"]//strong[@class="skuListPrice"]/text()
+    # type: CURRENCY
+    xpath: //html//div[@id="listprice"]
     # regExp: '(.+)(,)(.+)'
-    regExp: \d.*\d
+    # regExp: \d.*\d
     # regExpReplace: $1.$3
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    type: CURRENCY
-    xpath: //div[@class="row product-details"]//em[@class="valor-por price-best-price"]/strong/text()
-    regExp: \d.*\d
+    # type: CURRENCY
+    xpath: //html//div[@id="price"]
+    # regExp: \d.*\d
     # regExp: '(.+)(,)(.+)'
     # regExpReplace: $1.$3
   - name: availabilityText

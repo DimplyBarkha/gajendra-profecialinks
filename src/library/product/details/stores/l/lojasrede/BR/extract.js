@@ -30,21 +30,50 @@ async function implementation(
       const originalDiv = document.querySelectorAll('ul[class="neemu-products-container nm-view-type-grid"]>li')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-      const sliceURL = (data) => {
-      for (let index = 0; index < data.length; index++) {    
-      var temp;   
-      if (data[index].includes(",")) {
-      var temp = data[index].replace(",", ".");
-      } else if (data[index].includes(" ")) {
-      temp = data[index].replace(" ", "");
-      } else {
-      temp = data[index]
+
+    function addElementToDocument(key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
       }
-      addHiddenDiv('zz', temp, index);
+
+      const getAllXpath = (xpath, prop) => {
+      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);   
+      const result = []; 
+      for (let index = 0; index < nodeSet.snapshotLength; index++) {
+      const element = nodeSet.snapshotItem(index);
+      if (element) result.push(prop ? element[prop] : element.nodeValue);
       }
+      return result;
       };
-      var backgroundURL = getAllXpath("//*[contains(@class,'MuiCardContent-root')]/div/div/span[1]/text()", 'nodeValue');
-      sliceURL(backgroundURL);
+
+
+
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);       
+        let result;      
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];    
+        else result = elem ? elem.singleNodeValue : '';    
+       return result && result.trim ? result.trim() : result; 
+        };
+
+     
+      var price_list = getXpath('//div[@class="row product-details"]//strong[@class="skuListPrice"]/text()', 'nodeValue');
+      if(price_list != null)
+      {
+        price_list = price_list.replace(',','.');
+        addElementToDocument('listprice', price_list);
+      }
+
+      var price = getXpath('//div[@class="row product-details"]//em[@class="valor-por price-best-price"]/strong/text()', 'nodeValue');
+      if(price != null)
+      {
+        price = price.replace(',','.');
+        addElementToDocument('price', price);
+      }
+
     });
     return await context.extract(productDetails, { transform });
   
