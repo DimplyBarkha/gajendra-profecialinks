@@ -30,9 +30,10 @@ module.exports = {
       const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[0].innerText;
       const jsondata = JSON.parse(rawdata);
       const gtin = jsondata.gtin13;
-      console.log(gtin,'gtin')
-      const aggregateRating = jsondata.aggregateRating.ratingValue;
-      addElementToDocument('gtin', gtin);
+      const gtin1 = jsondata.gtin8; 
+      // console.log(gtin,'gtin')
+      // const aggregateRating = jsondata.aggregateRating.ratingValue;
+      addElementToDocument('gtin', (gtin | gtin1));
       // let singleRating;
       // var ratings = document.querySelectorAll("div[class='hide-when-purchase-disabled prices'] div[class='ratings']");
       // if (ratings.length > 0) {
