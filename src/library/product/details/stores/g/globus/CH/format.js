@@ -192,20 +192,19 @@ const transform = (data) => {
                       colors.push(p_variants['color']['value']);
                     }
                   });
-                  if (info.length > 0){
-                    item.text = info.join(' | ');                      
-                  }                  
+                                    
                 }                
               } catch (error) {
                 console.log("json error");
               }
             }            
-          });
+          });          
           if (colors.length>0 || size_variant.length>0){
             colors.push(...size_variant);
             row.variantInformation = [{"text": colors.join(' | '), "xpath": row.variants[0]["xpath"]}];
           }
           if (info.length>0){
+            row.variants = [{"text": info.join(' | '), "xpath": row.variants[0]["xpath"]}];
             row.variantCount = [{"text": info.length, "xpath": row.variants[0]["xpath"]}];
             row.firstVariant = [{'text':info[0]}];
           }
