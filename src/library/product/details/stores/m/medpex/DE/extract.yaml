@@ -25,7 +25,7 @@ fields:
     xpath: //meta[@itemprop="item"]/@content
   - name: category
     singleValue: false
-    xpath: //ol[@class="breadcrumb"]//li//meta[not(contains(@content, '1'))]
+    xpath: //ol[@class="breadcrumb"]//li//a//span[not(contains(., 'Online Apotheke Startseite'))]
   - name: nameExtended
     singleValue: true
     xpath: //meta[@name="description"]/@content
