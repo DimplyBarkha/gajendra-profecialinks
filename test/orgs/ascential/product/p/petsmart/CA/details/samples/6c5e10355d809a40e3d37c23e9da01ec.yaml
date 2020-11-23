@@ -2,7 +2,7 @@ input:
   id: 5100179
   _url: http://petsmart.ca
 extractions:
-  - html: https://workbench.import.io/html/run=13a15be3-038b-49ed-b30d-4968483d753a/task=db33a930-eccf-466b-9ea7-cf7fe8f2f0ca/75354e1e-211d-4a13-ac1d-4d05f3b34693.html
+  - html: https://workbench.import.io/html/run=0038abfd-d8c9-4c03-90a9-e932748e5aa6/task=aaf1875e-6325-4868-b5e4-26ca2acc2409/bbb6fa9d-0846-4d95-9de3-65b29d5ddee9.html
     extractionConfigId: product/details/stores/p/petsmart/CA/extract
     data:
       - group:
@@ -91,20 +91,27 @@ extractions:
               - text: Royal Canin® Feline Health Nutrition™ Indoor 7+ Cat Food
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
             ingredientsList:
-              - text: >-
-                  Ingredients:
-
-                  Corn, Barley, Wheat, Chicken Meal, Corn Gluten Meal, Soy Protein Isolate, Natural Flavors, Chicken Fat, Wheat Gluten, Brewers Rice, Dried Plain Beet Pulp, Vegetable Oil, Pea Fiber, Fish Oil, Calcium Sulfate, Rice Hulls, Grain Distillers Dried Yeast, Potassium Chloride, Egg Product, Psyllium Seed Husk, Sodium Silico Aluminate, Sodium Bisulfate, Sodium Pyrophosphate, Fructooligosaccharides, Choline Chloride, Calcium Carbonate, Vitamins [DL-Alpha Tocopherol Acetate (Source Of Vitamin E), L-Ascorbyl-2-Polyphosphate (Source Of Vitamin C), Niacin Supplement, Biotin, Riboflavin Supplement, D-Calcium Pantothenate, Pyridoxine Hydrochloride (Vitamin B6), Vitamin A Acetate, Thiamine Mononitrate (Vitamin B1), Vitamin B12 Supplement, Folic Acid, Vitamin D3 Supplement], Taurine, DL-Methionine, Potassium Citrate, Salt, Trace Minerals [Zinc Proteinate, Zinc Oxide, Ferrous Sulfate, Manganese Proteinate, Manganous Oxide, Copper Sulfate, Calcium Iodate, Copper Proteinate, Sodium Selenite], Glucosamine Hydrochloride, Marigold Extract (Tagetes Erecta L.), Green Tea Extract, L-Carnitine, Chondroitin Sulfate, Rosemary Extract, Preserved With Mixed Tocopherols And Citric Acid
+              - text: Corn, Barley, Wheat, Chicken Meal, Corn Gluten Meal, Soy Protein Isolate,
+                  Natural Flavors, Chicken Fat, Wheat Gluten, Brewers Rice,
+                  Dried Plain Beet Pulp, Vegetable Oil, Pea Fiber, Fish Oil,
+                  Calcium Sulfate, Rice Hulls, Grain Distillers Dried Yeast,
+                  Potassium Chloride, Egg Product, Psyllium Seed Husk, Sodium
+                  Silico Aluminate, Sodium Bisulfate, Sodium Pyrophosphate,
+                  Fructooligosaccharides, Choline Chloride, Calcium Carbonate,
+                  Vitamins [DL-Alpha Tocopherol Acetate (Source Of Vitamin E),
+                  L-Ascorbyl-2-Polyphosphate (Source Of Vitamin C), Niacin
+                  Supplement, Biotin, Riboflavin Supplement, D-Calcium
+                  Pantothenate, Pyridoxine Hydrochloride (Vitamin B6), Vitamin A
+                  Acetate, Thiamine Mononitrate (Vitamin B1), Vitamin B12
+                  Supplement, Folic Acid, Vitamin D3 Supplement], Taurine,
+                  DL-Methionine, Potassium Citrate, Salt, Trace Minerals [Zinc
+                  Proteinate, Zinc Oxide, Ferrous Sulfate, Manganese Proteinate,
+                  Manganous Oxide, Copper Sulfate, Calcium Iodate, Copper
+                  Proteinate, Sodium Selenite], Glucosamine Hydrochloride,
+                  Marigold Extract (Tagetes Erecta L.), Green Tea Extract,
+                  L-Carnitine, Chondroitin Sulfate, Rosemary Extract, Preserved
+                  With Mixed Tocopherols And Citric Acid
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@ingredients
-            servingSize:
-              - text: /kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
-            servingSizeUom:
-              - text: kg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
-            caloriesPerServing:
-              - text: 3,587 kcal/kg ME (308 kcal/cup ME)
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
             totalFatPerServing:
               - text: "11.0"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
@@ -165,4 +172,4 @@ extractions:
                 locale: en
                 value: 3
         xpath: /
-    timestamp: 1605866414802
+    timestamp: 1606126844518

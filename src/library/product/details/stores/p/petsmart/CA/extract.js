@@ -34,35 +34,21 @@ module.exports = {
       if (ingredientsTab) {
       // @ts-ignore
         ingredientsTab.click();
-        const ingredients = document.querySelector(
-          'div.react-tabs__tab-content > p:first-of-type',
-        )
-          ? document
-            .querySelector('div.react-tabs__tab-content > p:first-of-type')
+        const ingredientsXpath = '//p[b[contains(text(), "Ingredients")]]';
+        const ingredients = document.evaluate(ingredientsXpath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
+          ? document.evaluate(ingredientsXpath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
           // @ts-ignore
-            .innerText.trim()
+            .innerText.replace(/Ingredients:\n/g, '')
           : '';
         ingredientsTab.setAttribute('ingredients', ingredients);
 
-        const nutritionalInfo = document.querySelector(
-          'div.react-tabs__tab-content > p:nth-of-type(2)',
-        )
-          ? document
-            .querySelector('div.react-tabs__tab-content > p:nth-of-type(2)')
+        const nutritionalXpath = '//p[b[contains(text(), "Analysis")]]';
+        const nutritionalInfo = document.evaluate(nutritionalXpath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
+          ? document.evaluate(nutritionalXpath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
           // @ts-ignore
             .innerText.trim()
           : '';
         ingredientsTab.setAttribute('nutritional', nutritionalInfo);
-
-        const servingSize = document.querySelector(
-          'div.react-tabs__tab-content > p:nth-of-type(3)',
-        )
-          ? document
-            .querySelector('div.react-tabs__tab-content > p:nth-of-type(3)')
-          // @ts-ignore
-            .innerText.trim()
-          : '';
-        ingredientsTab.setAttribute('servingsize', servingSize);
       }
 
       // going back to main tab to extract data through the yaml file
@@ -102,17 +88,12 @@ module.exports = {
       description.splice(1);
     }
 
-    var servingSizeUom = dataRef[0].group[0].servingSizeUom;
-    if (servingSizeUom) {
-      servingSizeUom[0].text = servingSizeUom[0].text.replace(/\d/g, '').replace(/\//g, '');
-    }
-
     const nutritionalInfoFormatter = (path) => {
       if (path) {
-        path[0].text = path[0].text.replace(/[^\d.]/g, '');
-        if (path[0].text.indexOf('.') === 0) {
-          path[0].text = path[0].text.slice(1);
-        }
+        path[0].text = path[0].text.match(/(\d+[\d.]*)/g) ? path[0].text.match(/(\d+[\d.]*)/g)[0] : '';
+        // if (path[0].text.indexOf('.') === 0) {
+        //   path[0].text = path[0].text.slice(1);
+        // }
       }
     };
     for (var field in dataRef[0].group[0]) {
@@ -122,7 +103,7 @@ module.exports = {
     }
     const nutritionalInfoUnitFormatter = (path) => {
       if (path) {
-        path[0].text = path[0].text.replace(/.+[\d ]/, '');
+        path[0].text = path[0].text.match(/\d[^(\n]+/g)[0].replace(/[\d. ]/g, '');
       }
     };
     for (var fieldUom in dataRef[0].group[0]) {

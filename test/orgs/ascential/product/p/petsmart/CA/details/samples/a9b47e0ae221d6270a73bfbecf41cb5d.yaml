@@ -2,7 +2,7 @@ input:
   id: 1011407
   _url: http://petsmart.ca
 extractions:
-  - html: https://workbench.import.io/html/run=13a15be3-038b-49ed-b30d-4968483d753a/task=fc7bd595-f455-4d47-9413-964ef0da7f25/4d77ceab-7734-4d01-9992-af22f12064d3.html
+  - html: https://workbench.import.io/html/run=0038abfd-d8c9-4c03-90a9-e932748e5aa6/task=6d5483a0-a670-4354-a4af-1de61361ab96/7ab0a158-c251-4dec-97cc-9d33f7d3d747.html
     extractionConfigId: product/details/stores/p/petsmart/CA/extract
     data:
       - group:
@@ -122,14 +122,22 @@ extractions:
               - text: Hill's® Science Diet® Light Adult Dog Food - Chicken Meal & Barley
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
             ingredientsList:
-              - text: >-
-                  Ingredients:
-
-                  Chicken Meal, Cracked Pearled Barley, Pea Fiber, Whole Grain Wheat, Whole Grain Corn, Corn Gluten Meal, Whole Grain Sorghum, Powdered Cellulose, Chicken Liver Flavor, Soybean Oil, Dried Beet Pulp, Flaxseed, Lactic Acid, Pork Flavor, Potassium Chloride, L-Lysine, Iodized Salt, Choline Chloride, Calcium Carbonate, vitamins (Vitamin E Supplement, L-Ascorbyl-2-Polyphosphate (source of Vitamin C), Niacin Supplement, Thiamine Mononitrate, Vitamin A Supplement, Calcium Pantothenate, Riboflavin Supplement, Biotin, Vitamin B12 Supplement, Pyridoxine Hydrochloride, Folic Acid, Vitamin D3 Supplement), minerals (Ferrous Sulfate, Zinc Oxide, Copper Sulfate, Manganous Oxide, Calcium Iodate, Sodium Selenite), Taurine, Oat Fiber, Mixed Tocopherols for freshness, L-Carnitine, Natural Flavors, Beta-Carotene, Apples, Broccoli, Carrots, Cranberries, Green Peas
+              - text: Chicken Meal, Cracked Pearled Barley, Pea Fiber, Whole Grain Wheat, Whole
+                  Grain Corn, Corn Gluten Meal, Whole Grain Sorghum, Powdered
+                  Cellulose, Chicken Liver Flavor, Soybean Oil, Dried Beet Pulp,
+                  Flaxseed, Lactic Acid, Pork Flavor, Potassium Chloride,
+                  L-Lysine, Iodized Salt, Choline Chloride, Calcium Carbonate,
+                  vitamins (Vitamin E Supplement, L-Ascorbyl-2-Polyphosphate
+                  (source of Vitamin C), Niacin Supplement, Thiamine
+                  Mononitrate, Vitamin A Supplement, Calcium Pantothenate,
+                  Riboflavin Supplement, Biotin, Vitamin B12 Supplement,
+                  Pyridoxine Hydrochloride, Folic Acid, Vitamin D3 Supplement),
+                  minerals (Ferrous Sulfate, Zinc Oxide, Copper Sulfate,
+                  Manganous Oxide, Calcium Iodate, Sodium Selenite), Taurine,
+                  Oat Fiber, Mixed Tocopherols for freshness, L-Carnitine,
+                  Natural Flavors, Beta-Carotene, Apples, Broccoli, Carrots,
+                  Cranberries, Green Peas
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@ingredients
-            caloriesPerServing:
-              - text: "2987"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
             totalFatPerServing:
               - text: "5.5"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
@@ -187,4 +195,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1605866421317
+    timestamp: 1606126839093
