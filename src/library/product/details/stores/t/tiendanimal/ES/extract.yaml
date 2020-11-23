@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@id='product_images']//div[@class='owl-item']//img//@src
+    xpath: //div[@id='product_images']//div[@class='owl-item']//img[@class='img-responsive product__image round']//@src
   - name: sku
     singleValue: false
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //input[@id='pi_info_prod']//@data-idprod
   - name: variantId
     singleValue: false
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //div[@id='opciones_desktop']//div[contains(@class,'product-atributte__item')]//input[@name='option_selector']//@value
   - name: category
     singleValue: false
     xpath: //ol[contains(@class,'breadcrumb')]//li[position() >1]/a/span
@@ -42,7 +42,13 @@ fields:
     xpath: //div[@id='reviews_list']//div[contains(@class,'bg-white')]//div[1]//strong
   - name: imageAlt
     singleValue: false
-    xpath: //div[@id='product_images']//div[@class='owl-item']//img//@alt
+    xpath: //div[@id='product_images']//div[@class='owl-item']//img[@class='img-responsive product__image round']//@alt
   - name: variantCount
     singleValue: false
     xpath: //div[@id='opciones_desktop']//div[contains(@class,'js-opcion')]//input//@data-variant
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id='opciones_desktop']//div[contains(@class,'product-atributte__item')]//input[@name='option_selector']//@data-variant  
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'wrapper owl2')]//div[contains(@class,'owl-wrapper')]//div[@class='owl-item']//img//@src   

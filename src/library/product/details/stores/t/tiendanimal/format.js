@@ -27,6 +27,7 @@ const transform = (data) => {
       for (let row of group) {
         let tmp_desc = '';
         let tmp_direction = '';
+        let tmp_variant = '';
 
         if (row.description) {
             let info = [];
@@ -40,24 +41,13 @@ const transform = (data) => {
         }
 
 
-        // if (row.directions) {
-        //   let directionInfo = [];
-        //   row.directions.forEach(item => {
-        //     directionInfo.push(item.text);
-        //   });
-        //   if(tmp_direction != ''){
-        //     directionInfo.push(tmp_direction);
-        //   }
-        //   row.directions = [{'text':directionInfo.join(' | '),'xpath':row.directions[0].xpath}];
-        // }
-
-        // if(row.aggregateRating){
-        //     let count = 0;
-        //     row.aggregateRating.forEach(item => {
-        //         count++;
-        //     });
-        //     row.aggregateRating = [{'text': count,'xpath':row.aggregateRating[0].xpath}];
-        // }
+        if(row.aggregateRating){
+            let agg_rating = []; 
+            row.aggregateRating.forEach(item => {
+                agg_rating = item.text.split(" ");
+            });
+            row.aggregateRating = [{'text': agg_rating[0].replace(/,/g, '.') ,'xpath':row.aggregateRating[0].xpath}];
+        }
 
         if (row.price) {
           let total_price = ''
@@ -83,6 +73,25 @@ const transform = (data) => {
 
         if (row.variantCount) {          
           row.variantCount = [{'text':row.variantCount.length,'xpath':row.variantCount[0].xpath}];          
+        }
+
+        if (row.variantInformation) {
+          let variantinfo = [];
+          row.variantInformation.forEach(item => {
+            variantinfo.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+          });
+          if(tmp_variant != ''){
+            variantinfo.push(tmp_variant);
+          }
+          row.variantInformation = [{'text':variantinfo.join(' | '),'xpath':row.variantInformation[0].xpath}];
+        }
+
+        if (row.variantId) {
+          let variantid = [];
+          row.variantId.forEach(item => {
+            variantid.push(item.text.trim());
+          });
+          row.variantId = [{'text':variantid[0],'xpath':row.variantId[0].xpath}];
         }
        
       }
