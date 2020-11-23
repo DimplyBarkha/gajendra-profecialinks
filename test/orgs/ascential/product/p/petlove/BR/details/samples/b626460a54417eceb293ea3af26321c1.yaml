@@ -2,23 +2,26 @@ input:
   id: 3100940
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=1bfc93c0-66c8-420e-be3b-9b9a14a77abc/task=d8f5b25c-64e6-4081-84ae-bd07e9bce415/27dc004b-176f-4691-9565-0ebbc694322c.html
+  - html: https://workbench.import.io/html/run=1f971b25-fe08-4798-b7c7-ea24cb190ae8/task=fc253964-2486-456e-8e3a-d1f52f803914/4fcdba97-feda-42ff-8c81-78a29aa3f6d4.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
           - image:
-              - text: https://www.petlove.com.br/images/products/213552/product/Petisco_Dreamies_Carne_-_40_g_3100940_1.jpg?1568406392
+              - text: https://www.petlove.com.br/images/products/213552/large/Petisco_Dreamies_Carne_-_40_g_3100940_1.jpg?1568406392
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[1]/@image
+            imageAlt:
+              - text: Imagem do produto
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[1]/@image_alt
             alternateImages:
-              - text: https://www.petlove.com.br/images/products/212816/product/Petisco_Dreamies_Carne_3100940-1.jpg?1566396221
+              - text: https://www.petlove.com.br/images/products/212816/large/Petisco_Dreamies_Carne_3100940-1.jpg?1566396221
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[2]/@image
-              - text: https://www.petlove.com.br/images/products/213553/product/Petisco_Dreamies_Carne_-_40_g_3100940_2.jpg?1568407187
+              - text: https://www.petlove.com.br/images/products/213553/large/Petisco_Dreamies_Carne_-_40_g_3100940_2.jpg?1568407187
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[3]/@image
-              - text: https://www.petlove.com.br/images/products/213554/product/Petisco_Dreamies_Carne_-_40_g_3100940_3.jpg?1568407277
+              - text: https://www.petlove.com.br/images/products/213554/large/Petisco_Dreamies_Carne_-_40_g_3100940_3.jpg?1568407277
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[4]/@image
-              - text: https://www.petlove.com.br/images/products/213555/product/Petisco_Dreamies_Carne_-_40_g_3100940_4.jpg?1568407318
+              - text: https://www.petlove.com.br/images/products/213555/large/Petisco_Dreamies_Carne_-_40_g_3100940_4.jpg?1568407318
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[5]/@image
-              - text: https://www.petlove.com.br/images/products/213556/product/Petisco_Dreamies_Carne_-_40_g_3100940_5.jpg?1568407364
+              - text: https://www.petlove.com.br/images/products/213556/large/Petisco_Dreamies_Carne_-_40_g_3100940_5.jpg?1568407364
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[6]/@image
             nameExtended:
               - text: Dreamies - Petisco Dreamies Carne Para Gatos Adultos
@@ -73,7 +76,7 @@ extractions:
               - text: "131"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
-              - text: "4.8"
+              - text: 4,8
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/dreamies
@@ -126,4 +129,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1605870007726
+    timestamp: 1606119716745

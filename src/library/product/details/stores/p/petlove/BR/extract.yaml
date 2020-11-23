@@ -18,7 +18,7 @@ fields:
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: //ol[@id="alternate_images"]/li[position()=1]/@alt
+  xpath: //ol[@id="alternate_images"]/li[position()=1]/@image_alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
@@ -114,6 +114,8 @@ fields:
 - name: aggregateRating
   description: The stated aggregate rating normalized to be out of 5
   xpath: ancestor::html//div[@class="summary-review"]//div[@class="stars"]/preceding-sibling::div
+  regExp: (\d+)\.(\d+)
+  regExpReplace: $1,$2
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product

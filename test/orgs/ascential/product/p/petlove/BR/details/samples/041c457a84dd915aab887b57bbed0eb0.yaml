@@ -2,21 +2,24 @@ input:
   id: 3105099-4
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=1bfc93c0-66c8-420e-be3b-9b9a14a77abc/task=9617eecc-2fb9-4422-b8eb-66747eb52ecb/07aa1af2-cea3-4fea-85c5-6fee6fef4587.html
+  - html: https://workbench.import.io/html/run=1f971b25-fe08-4798-b7c7-ea24cb190ae8/task=a10f7ee3-72b5-409f-abfc-9dafdb70f8ef/190de92f-cb67-4c01-86bd-ae90d4063c13.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
           - image:
-              - text: https://www.petlove.com.br/images/products/212801/product/Brinquedo_KONG_Squeakair_Bola_de_T%C3%AAnis_3105099.jpg?1566312151
+              - text: https://www.petlove.com.br/images/products/212801/large/Brinquedo_KONG_Squeakair_Bola_de_T%C3%AAnis_3105099.jpg?1566312151
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[1]/@image
+            imageAlt:
+              - text: Imagem do produto
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[1]/@image_alt
             alternateImages:
-              - text: https://www.petlove.com.br/images/products/185628/product/3105099_1_1.jpg?1556356921
+              - text: https://www.petlove.com.br/images/products/185628/large/3105099_1_1.jpg?1556356921
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[2]/@image
-              - text: https://www.petlove.com.br/images/products/154188/product/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast2-3-Unidades---Medio-_1.jpg?1556356858
+              - text: https://www.petlove.com.br/images/products/154188/large/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast2-3-Unidades---Medio-_1.jpg?1556356858
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[3]/@image
-              - text: https://www.petlove.com.br/images/products/165525/product/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast3-3-Unidades---Pequeno_1.jpg?1556356888
+              - text: https://www.petlove.com.br/images/products/165525/large/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast3-3-Unidades---Pequeno_1.jpg?1556356888
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[4]/@image
-              - text: https://www.petlove.com.br/images/products/212802/product/Brinquedo_KONG_Squeakair_Bola_de_T%C3%AAnis_3105099_.jpg?1566312345
+              - text: https://www.petlove.com.br/images/products/212802/large/Brinquedo_KONG_Squeakair_Bola_de_T%C3%AAnis_3105099_.jpg?1566312345
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[5]/@image
             nameExtended:
               - text: KONG - Brinquedo KONG Squeakair Bola de Tênis
@@ -37,9 +40,9 @@ extractions:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@variant_count
             videos:
-              - text: https://www.youtube.com/embed/9tJ2gx7iQCo?rel=0&showinfo=0&autoplay=1
+              - text: https://www.youtube.com/embed/9tJ2gx7iQCo
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[2]/li[1]/@video
-              - text: https://www.youtube.com/embed/C0F3QGBu6YA?rel=0&showinfo=0&autoplay=1
+              - text: https://www.youtube.com/embed/C0F3QGBu6YA
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[2]/li[2]/@video
             name:
               - text: Brinquedo KONG Squeakair Bola de Tênis
@@ -81,7 +84,7 @@ extractions:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
-              - text: "4.0"
+              - text: 4,0
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/kong
@@ -104,10 +107,13 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - image:
-              - text: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=
+              - text: https://www.petlove.com.br/images/products/154192/large/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast2-3-Unidades---Medio-_1.jpg?1556357038
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image
+            imageAlt:
+              - text: Imagem do produto
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image_alt
             alternateImages:
-              - text: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=
+              - text: https://www.petlove.com.br/images/products/165527/large/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast3-3-Unidades---Pequeno_1.jpg?1556357071
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[2]/@image
             nameExtended:
               - text: KONG - Brinquedo KONG Squeakair Bola de Tênis
@@ -128,9 +134,9 @@ extractions:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@variant_count
             videos:
-              - text: https://www.youtube.com/embed/9tJ2gx7iQCo?rel=0&showinfo=0&autoplay=1
+              - text: https://www.youtube.com/embed/9tJ2gx7iQCo
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[2]/li[1]/@video
-              - text: https://www.youtube.com/embed/C0F3QGBu6YA?rel=0&showinfo=0&autoplay=1
+              - text: https://www.youtube.com/embed/C0F3QGBu6YA
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[2]/li[2]/@video
             name:
               - text: Brinquedo KONG Squeakair Bola de Tênis
@@ -172,7 +178,7 @@ extractions:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
-              - text: "4.0"
+              - text: 4,0
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/kong
@@ -195,8 +201,11 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - image:
-              - text: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=
+              - text: https://www.petlove.com.br/images/products/154194/large/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast1-2-Unidades---Grande_1.jpg?1556357104
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/ol[1]/li[1]/@image
+            imageAlt:
+              - text: Imagem do produto
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/ol[1]/li[1]/@image_alt
             nameExtended:
               - text: KONG - Brinquedo KONG Squeakair Bola de Tênis
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@name_extended
@@ -216,9 +225,9 @@ extractions:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@variant_count
             videos:
-              - text: https://www.youtube.com/embed/9tJ2gx7iQCo?rel=0&showinfo=0&autoplay=1
+              - text: https://www.youtube.com/embed/9tJ2gx7iQCo
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/ol[2]/li[1]/@video
-              - text: https://www.youtube.com/embed/C0F3QGBu6YA?rel=0&showinfo=0&autoplay=1
+              - text: https://www.youtube.com/embed/C0F3QGBu6YA
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/ol[2]/li[2]/@video
             name:
               - text: Brinquedo KONG Squeakair Bola de Tênis
@@ -260,7 +269,7 @@ extractions:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
-              - text: "4.0"
+              - text: 4,0
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/kong
@@ -283,4 +292,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1605870020984
+    timestamp: 1606119730766

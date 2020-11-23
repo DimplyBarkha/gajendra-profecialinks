@@ -26,27 +26,28 @@ module.exports = {
         async ({ i, variantsTotal }) => {
           const variantElem = document.querySelectorAll('div.box-variants label.radio-button-item > div')[i];
 
-          const allImages = document.querySelectorAll('div#product-carousel div > div > img');
+          const allImages = window.productJSON.variants[i].images.filter((image) => !image.large_url.includes('img.youtube.com/vi/'));
           const alternateImagesList = document.createElement('ol');
           alternateImagesList.id = 'alternate_images';
           alternateImagesList.style.display = 'none';
           for (let j = 0; j < allImages.length; j++) {
             const listItem = document.createElement('li');
             const image = allImages[j];
-            listItem.setAttribute('image', image.getAttribute('src'));
-            listItem.setAttribute('image_alt', image.getAttribute('alt'));
+            listItem.setAttribute('image', image.large_url);
+            listItem.setAttribute('image_alt', 'Imagem do produto');
             alternateImagesList.appendChild(listItem);
           }
           variantElem.appendChild(alternateImagesList);
 
-          const allVideos = document.querySelectorAll('div#product-carousel div > div div.youtube iframe');
+          const allVideos = window.productJSON.variants[i].images.filter((image) => image.large_url.includes('img.youtube.com/vi/'));
           const videosList = document.createElement('ol');
           videosList.id = 'videos';
           videosList.style.display = 'none';
           for (let j = 0; j < allVideos.length; j++) {
             const listItem = document.createElement('li');
             const video = allVideos[j];
-            listItem.setAttribute('video', `https:${video.getAttribute('data-lazy')}`);
+            const videoId = video.large_url.match(/youtube\.com\/vi\/(.+)\//)[1];
+            listItem.setAttribute('video', `https://www.youtube.com/embed/${videoId}`);
             videosList.appendChild(listItem);
           }
           variantElem.appendChild(videosList);

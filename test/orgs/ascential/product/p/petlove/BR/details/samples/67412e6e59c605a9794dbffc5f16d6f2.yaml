@@ -2,13 +2,16 @@ input:
   id: 2154518
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=1bfc93c0-66c8-420e-be3b-9b9a14a77abc/task=7adc1caf-dd62-4387-9916-57e0abf34640/a331e84c-6151-495a-8cef-6043582afdff.html
+  - html: https://workbench.import.io/html/run=1f971b25-fe08-4798-b7c7-ea24cb190ae8/task=9ff82cb1-838d-402c-b458-0582bf687585/c2ede7e1-8ac3-4f21-8353-60f07b17359c.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
           - image:
-              - text: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=
+              - text: https://www.petlove.com.br/images/products/204414/large/Ra%C3%A7%C3%A3o_Supra_Funny_Bunny_Chinchila_-_700_g_2154515.jpg?1556474602
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[1]/@image
+            imageAlt:
+              - text: Imagem do produto
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[1]/@image_alt
             nameExtended:
               - text: Supra - Ração Supra Funny Bunny Chinchila
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
@@ -63,7 +66,7 @@ extractions:
               - text: "5"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
-              - text: "5.0"
+              - text: 5,0
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/supra
@@ -124,8 +127,11 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - image:
-              - text: https://www.petlove.com.br/images/products/204415/product/Ra%C3%A7%C3%A3o_Supra_Funny_Bunny_Chinchila_-_2_5__Kg_2154518.jpg?1556474681
+              - text: https://www.petlove.com.br/images/products/204415/large/Ra%C3%A7%C3%A3o_Supra_Funny_Bunny_Chinchila_-_2_5__Kg_2154518.jpg?1556474681
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image
+            imageAlt:
+              - text: Imagem do produto
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image_alt
             nameExtended:
               - text: Supra - Ração Supra Funny Bunny Chinchila
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@name_extended
@@ -180,7 +186,7 @@ extractions:
               - text: "5"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
-              - text: "5.0"
+              - text: 5,0
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/supra
@@ -241,4 +247,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1605870018531
+    timestamp: 1606119720137

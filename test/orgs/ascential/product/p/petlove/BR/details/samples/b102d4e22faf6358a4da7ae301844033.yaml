@@ -2,19 +2,22 @@ input:
   id: 3105657-2
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=1bfc93c0-66c8-420e-be3b-9b9a14a77abc/task=a351dee4-ab65-4dbd-9d48-3c243a5bc539/3b07415e-33d5-43cd-83f8-964d13e69d39.html
+  - html: https://workbench.import.io/html/run=1f971b25-fe08-4798-b7c7-ea24cb190ae8/task=f27b0720-db04-454b-a91d-e9572a39a5b3/02da85fb-32d9-45bd-8e59-3eae5c166e8e.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
           - image:
-              - text: https://www.petlove.com.br/images/products/142370/product/Brinquedo-Interativo-Kong-Puppy-Teething-Stick-Kp23-com-Dispenser-para-Racao-ou-Petisco---Medio_2.jpg?1556321365
+              - text: https://www.petlove.com.br/images/products/142370/large/Brinquedo-Interativo-Kong-Puppy-Teething-Stick-Kp23-com-Dispenser-para-Racao-ou-Petisco---Medio_2.jpg?1556321365
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[1]/@image
+            imageAlt:
+              - text: Imagem do produto
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[1]/@image_alt
             alternateImages:
-              - text: https://www.petlove.com.br/images/products/212843/product/Brinquedo_Interativo_KONG_Puppy_Teething_Stick_com_Dispenser_para_Ra%C3%A7%C3%A3o_ou_Petisco_-_Rosa_3105657.jpg?1566419458
+              - text: https://www.petlove.com.br/images/products/212843/large/Brinquedo_Interativo_KONG_Puppy_Teething_Stick_com_Dispenser_para_Ra%C3%A7%C3%A3o_ou_Petisco_-_Rosa_3105657.jpg?1566419458
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[2]/@image
-              - text: https://www.petlove.com.br/images/products/212844/product/Brinquedo_Interativo_KONG_Puppy_Teething_Stick_com_Dispenser_para_Ra%C3%A7%C3%A3o_ou_Petisco_-_Rosa_3105657_.jpg?1566419642
+              - text: https://www.petlove.com.br/images/products/212844/large/Brinquedo_Interativo_KONG_Puppy_Teething_Stick_com_Dispenser_para_Ra%C3%A7%C3%A3o_ou_Petisco_-_Rosa_3105657_.jpg?1566419642
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[3]/@image
-              - text: https://www.petlove.com.br/images/products/212845/product/Brinquedo_Interativo_KONG_Puppy_Teething_Stick_com_Dispenser_para_Ra%C3%A7%C3%A3o_ou_Petisco_-_Rosa_3105657_1.jpg?1566419699
+              - text: https://www.petlove.com.br/images/products/212845/large/Brinquedo_Interativo_KONG_Puppy_Teething_Stick_com_Dispenser_para_Ra%C3%A7%C3%A3o_ou_Petisco_-_Rosa_3105657_1.jpg?1566419699
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[1]/li[4]/@image
             nameExtended:
               - text: KONG - Brinquedo Interativo KONG Puppy Teething Stick com Dispenser para
@@ -36,9 +39,9 @@ extractions:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/@variant_count
             videos:
-              - text: https://www.youtube.com/embed/C0F3QGBu6YA?rel=0&showinfo=0&autoplay=1
+              - text: https://www.youtube.com/embed/C0F3QGBu6YA
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[2]/li[1]/@video
-              - text: https://www.youtube.com/embed/waHuJ3_thfk?rel=0&showinfo=0&autoplay=1
+              - text: https://www.youtube.com/embed/waHuJ3_thfk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/ol[2]/li[2]/@video
             name:
               - text: Brinquedo Interativo KONG Puppy Teething Stick com Dispenser para Ração ou
@@ -86,7 +89,7 @@ extractions:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
-              - text: "4.0"
+              - text: 4,0
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandLink:
               - text: https://www.petlove.com.br/kong
@@ -105,4 +108,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1605870013385
+    timestamp: 1606119720832
