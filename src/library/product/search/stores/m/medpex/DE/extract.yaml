@@ -16,7 +16,9 @@ fields:
     xpath: //span[@class="product-name"]
   - name: productUrl
     singleValue: false
-    xpath: //div[@id="pd_productUrl"]
+    xpath: //div[@class="description"]//span[@class="product-name"]//a/@href
+    regExp: (/.+)
+    regExpReplace: https://www.medpex.de$1
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -33,10 +35,10 @@ fields:
     xpath: //div[@class="rating"]/span/a
   - name: price
     singleValue: false
-    xpath: //div[@class="prices"]//span[@class="normal-price"]
+    xpath: //div[@class="prices"]//span[@class="normal-price"]/text()
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class="description"]/text()[3] | //div[@class="description"]/font[2]/font
+    xpath: //select[@id="sort"]//option[@value="manufacturer"]/text()
   - name: soldBy
     singleValue: false
   - name: rank
