@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walmart',
-    nextLinkSelector: '//button[@class="paginator-btn paginator-btn-next"]',
+    nextLinkSelector: 'button.paginator-btn.paginator-btn-next',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
