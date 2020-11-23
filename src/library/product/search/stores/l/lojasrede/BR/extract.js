@@ -8,7 +8,7 @@ module.exports = {
     domain: 'lojasrede.com.br',
     zipcode: '',
   },
-  // implementation,
+  implementation,
 };
 async function implementation(
   inputs,
@@ -45,26 +45,11 @@ async function implementation(
         else result = elem ? elem.singleNodeValue : '';    
        return result && result.trim ? result.trim() : result; 
         };
-
         
-    let PageNumberResult;
+    //search url
     let url = window.location.href;
-    let checkPageNumber = url.split('&')[1];
-    try {
-      if (checkPageNumber.startsWith('page=')) {
-        PageNumberResult = checkPageNumber.replace('page=', '');
-      }
-    }
-    catch (err) {
-    }
+    addElementToDocument('searchurl', url);
     
-    var PageNumber = Number(PageNumberResult);
-    PageNumberResult  = PageNumberResult + 1
-    if(price != null)
-    {
-      price = price.replace(',','.');
-      addElementToDocument('price', price);
-    }
   });
   //rank end
   return await context.extract(productDetails, { transform });
