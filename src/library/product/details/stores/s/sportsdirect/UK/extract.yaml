@@ -1,0 +1,111 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="productImage"]//img[@id='imgProduct']/@src
+  - name: imageAlt
+    xpath: //div[@class="productImage"]//img[@id='imgProduct']/@alt
+  - name: alternateImages
+    xpath: //div[@class="pdpThumbs"]//ul[@id='piThumbList']/li[position()>1]/a/@src
+    regExp: (.+)(piat)(.+)
+    regExpReplace: $1l$3
+  - name: metaKeywords
+    xpath: //meta[@id='MetaKeywords']/@content
+  - name: category
+    xpath: //section[@id="main-content"]//div[contains(@class,'breadcrumb')]//ol/li[position()>1 and position()<last()]
+  - name: nameExtended
+    xpath: normalize-space(concat(//span[@class="brandTitle"]//span, ' - ' , //span[@class="prodTitle"]/span,' - ',//ul[@id='ulSizes']/li[1]//span ))
+  - name: listPrice
+    xpath: //div[not(@style="display:none")]/span[@id='lblTicketPrice']
+    regExp: (\d+.\d+|\d+)
+    regExpReplace: $1
+  - name: price
+    xpath: //div[@class="pdpPrice"]/span[@id='lblSellingPrice']
+    regExp: (\d+.\d+|\d+)
+    regExpReplace: $1
+  - name: availabilityText
+    xpath: //div[@id="ProductStandardAddToBag"]//a[@class="addToBag"]
+    regExp: (Add to bag)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //span[@itemprop="description"]//b|//span[@itemprop="description"]//h2|//span[@itemprop="description"]/text()[2]|//span[@itemprop="description"]//ul/li|//span[@itemprop="description"]/text()[position()>2]|//span[@itemprop="description"]//p
+  - name: descriptionBullets
+    xpath: count(//span[@itemprop='description']//ul/li)
+  - name: brandText
+    xpath: //span[@class="brandTitle"]//span[@id='lblProductBrand']
+  - name: quantity
+    xpath: //ul[@id='ulSizes']/li[1]//span  
+  - name: gtin
+    xpath: //script[@type='application/ld+json']
+    regExp: ("gtin13":[\s]?")(\d+)
+    regExpReplace: $2
+  - name: sku
+    xpath: //script[@type='application/ld+json']
+    regExp: ("sku":[\s]?")([\d-\d]+)
+    regExpReplace: $2      
+  - name: variantId
+    xpath: //span[contains(@class,'ProductDetailsVariants')]/@data-variants
+    regExp: ((SizeVarId":")(\d+))(.+)
+    regExpReplace: $3
+  - name: ratingCount
+    xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: aggregateRating
+    xpath: //div[@itemprop='ratingValue']
+  - name: shippingInfo
+    xpath: //p[@class="dropshipTitle"]/span[@class="dropshipSupplierName"]
+  - name: variantCount
+    xpath: count(//div[@id="productVariantAndPrice"]//ul[@id="ulSizes"]/li)
+  - name: color
+    xpath: //span[@id='colourName']
+  - name: name
+    xpath: //span[@class="prodTitle"]/span
+  - name: secondaryImageTotal
+    xpath: count(//div[@class="pdpThumbs"]//ul[@id='piThumbList']/li[position()>1]/a/@src)
+  - name: variantInformation
+    xpath: //div[@id="productVariantAndPrice"]//ul[@id="ulSizes"]/li[1]
+  - name: firstVariant
+    xpath: //span[contains(@class,'ProductDetailsVariants')]/@data-variants
+    regExp: ((SizeVarId":")(\d+))(.+)
+    regExpReplace: $3
+  - name: variants
+    xpath: //span[contains(@class,'ProductDetailsVariants')]/@data-variants
+    regExp: ((SizeVarId":")(\d+))
+    regExpReplace: $3
+  - name: additionalDescBulletInfo
+    xpath: //span[@itemprop='description']//ul/li
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    singleValue: true
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    xpath: //div[@class="mainImageButtons"]//span[not(@style="display:none")]//span[@id="Popup360Label"]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    xpath: //div[@class="mainImageButtons"]//span[@class='zoomButton']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
