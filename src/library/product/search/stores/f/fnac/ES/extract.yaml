@@ -50,3 +50,6 @@ fields:
   - name: soldBy
     singleValue: false
     xpath: //div[contains(@class, "sellBy")]/a
+  - name: pageN
+    singleValue: false
+    xpath: ancestor::html//ul//li[@class="current"]
