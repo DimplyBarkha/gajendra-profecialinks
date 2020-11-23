@@ -2,7 +2,7 @@ input:
   _url: http://viking.de
   URL: https://www.viking.de/de/wypall-wischtucher-l30-2-lagig-wei-pack-6-p-1448095
 extractions:
-  - html: https://workbench.import.io/html/run=227544c2-9f94-4841-91f2-bf5384b37ccd/task=50afa09e-23d5-49cc-8b80-ff58cfcf3f11/fb80cd6d-0bbd-47d2-bfac-d19c789005c8.html
+  - html: https://workbench.import.io/html/run=085b7643-efa6-4c5f-9bae-2b3007e5bcb9/task=9ee7e84e-c19c-4cf2-8e37-81758e07c932/c7bb89f8-fa02-48a5-a928-022a98e18f78.html
     extractionConfigId: product/details/stores/v/viking/DE/extract
     data:
       - group:
@@ -22,8 +22,6 @@ extractions:
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[3]/div[1]/@style
               - text: https://static.viking.de/is/image/odeu13/%211448095_alt3?
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[4]/div[1]/@style
-              - text: https://static.viking.de/is/image/odeu13/%211448095_v1?
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[5]/div[1]/@style
             metaKeywords:
               - text: WYPALL,Wischtuchrolle,L20,2-lagig,6,Stück,à,336,Blatt,Reinigung,&,Hygiene,Reinigungsartikel,Reinigungstücher
                 xpath: /html/head[1]/meta[5]/@content
@@ -51,9 +49,6 @@ extractions:
             brandText:
               - text: WYPALL
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
-            manufacturer:
-              - text: WYPALL
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
             gtin:
               - text: "5027375017988"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
@@ -63,6 +58,12 @@ extractions:
             variantId:
               - text: "1448095"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-article-number
+            mpc:
+              - text: "7303"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            packSize:
+              - text: Pack 6
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[14]/td[2]
             shippingInfo:
               - text: >-
                   Wir liefern kostenlos ab einem Warenwert von 49,- €
@@ -179,9 +180,14 @@ extractions:
             specifications:
               - text: 38 (B) x 20,6 (H) cm
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            materials:
+              - text: Airflex
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/@id
+            variantCount:
+              - text: "0"
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -191,4 +197,4 @@ extractions:
             customerServiceAvailability:
               - text: No
         xpath: /
-    timestamp: 1605871839771
+    timestamp: 1606131720371

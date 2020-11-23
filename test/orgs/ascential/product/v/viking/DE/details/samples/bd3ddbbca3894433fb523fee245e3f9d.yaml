@@ -2,7 +2,7 @@ input:
   _url: http://viking.de
   URL: https://www.viking.de/de/tork-dinner-napkins-477577-white-12-pieces-p-9025106
 extractions:
-  - html: https://workbench.import.io/html/run=227544c2-9f94-4841-91f2-bf5384b37ccd/task=6ba1dbfd-3186-437d-8d20-1be93db3edf3/d20de1a2-996c-4d85-b646-a98e8aec8e7c.html
+  - html: https://workbench.import.io/html/run=085b7643-efa6-4c5f-9bae-2b3007e5bcb9/task=53d1aa80-8ea5-40b2-b88b-021b8ef1a91d/c18dec18-f0ee-4980-b09c-ba4eb18468b4.html
     extractionConfigId: product/details/stores/v/viking/DE/extract
     data:
       - group:
@@ -43,9 +43,6 @@ extractions:
             brandText:
               - text: Tork
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
-            manufacturer:
-              - text: Tork
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
             gtin:
               - text: "8710499369497"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
@@ -55,6 +52,12 @@ extractions:
             variantId:
               - text: "9025106"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/@data-article-number
+            mpc:
+              - text: "477577"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            packSize:
+              - text: Pack 12
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[14]/td[2]
             shippingInfo:
               - text: >-
                   Wir liefern kostenlos ab einem Warenwert von 49,- €
@@ -157,9 +160,17 @@ extractions:
             specifications:
               - text: 19,5 (B) x 19,5 (H) cm
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            recyclingInformation:
+              - text: EU Eco label
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            materials:
+              - text: Papier
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/@id
+            variantCount:
+              - text: "0"
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -169,4 +180,4 @@ extractions:
             customerServiceAvailability:
               - text: No
         xpath: /
-    timestamp: 1605871839409
+    timestamp: 1606131716611

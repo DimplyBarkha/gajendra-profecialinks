@@ -2,7 +2,7 @@ input:
   _url: http://viking.de
   URL: https://www.viking.de/de/tork-toilet-paper-dispenser-mini-twin-plastic-white-p-2924569
 extractions:
-  - html: https://workbench.import.io/html/run=227544c2-9f94-4841-91f2-bf5384b37ccd/task=ab0cc290-3078-412f-b2de-f0f6a199d9e5/5fb78f56-f5c2-417f-953e-7ed067f7c2e3.html
+  - html: https://workbench.import.io/html/run=085b7643-efa6-4c5f-9bae-2b3007e5bcb9/task=f02478b2-4525-4422-bbfd-ee122bdb0d52/a2c2fa01-66a4-4f61-8adb-916555c0cd9d.html
     extractionConfigId: product/details/stores/v/viking/DE/extract
     data:
       - group:
@@ -49,9 +49,6 @@ extractions:
                   müssen. Der SmartOne, nimmt gleich zwei Rollen auf.
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]
             brandText:
-              - text: Tork
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
-            manufacturer:
               - text: Tork
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
             gtin:
@@ -187,9 +184,14 @@ extractions:
             specifications:
               - text: 39,8 (B) x 15,6 (T) x 22,1 (H) cm
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            materials:
+              - text: Kunststoff
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/@id
+            variantCount:
+              - text: "0"
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -199,4 +201,4 @@ extractions:
             customerServiceAvailability:
               - text: No
         xpath: /
-    timestamp: 1605871842266
+    timestamp: 1606131720490
