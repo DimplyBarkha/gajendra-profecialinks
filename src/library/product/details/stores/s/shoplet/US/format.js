@@ -81,6 +81,9 @@ const transform = (data) => {
             if(row.Image360Present){
                 row.Image360Present=[{"text":"Yes"}];
             }
+            if(row.manufacturerDescription){
+                //let text=await context.evaluate()
+            }
       }
     }
     return cleanUp(data);
