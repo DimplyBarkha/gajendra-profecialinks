@@ -40,6 +40,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       const productUrl = product.getAttribute('href');
       product.setAttribute('product_url', prefix + productUrl);
     });
+
+    const prodPrice = document.querySelectorAll('div[data-testid="product-block-price"]');
+    prodPrice.forEach(element => {
+      element.setAttribute('price', element.textContent.replace(/\./g, '').replace(/,/g, '.'));
+    });
   });
 
   return await context.extract(productDetails, { transform });
