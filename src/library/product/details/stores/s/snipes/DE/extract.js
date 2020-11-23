@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
