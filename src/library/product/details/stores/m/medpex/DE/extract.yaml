@@ -25,19 +25,21 @@ fields:
     xpath: //meta[@itemprop="item"]/@content
   - name: category
     singleValue: false
-    xpath: //ol[@class="breadcrumb"]
+    xpath: //ol[@class="breadcrumb"]//li//meta[not(contains(@content, '1'))]
   - name: nameExtended
     singleValue: true
-    xpath: //b[@itemprop="name"]/text()
+    xpath: //meta[@name="description"]/@content
   - name: listPrice
     singleValue: true
+    type: CURRENCY
     xpath: //div[@class="prices"]/span[@class="sp2p normal-price-crossedout"]
   - name: price
     singleValue: true
+    type: CURRENCY
     xpath: //div[@itemprop="offers"]/span[@class="normal-price"]
   - name: availabilityText
     singleValue: true
-    xpath: //div[@id="pd_availabilityText"] | //div[@class="stock stock--available"]
+    xpath:  //div[@class="stock stock--available"]/text()
   - name: description
     singleValue: true
     xpath: //span[@class="productDetails-name"] | //div[@class="content content--productDescription"]
@@ -49,10 +51,10 @@ fields:
     xpath: //span[@itemprop="brand"]/text()
   - name: manufacturer
     singleValue: true
-    xpath: //span[@itemprop="brand"]
+    #xpath: //span[@itemprop="brand"]
   - name: quantity
     singleValue: true
-    xpath: //div[@class="quantity-selectbox"]/div[@class="sbHolder"]/a[@class="sbSelector"]
+    xpath: //div[@id="size"]/text()
   - name: weightNet
     singleValue: true
   - name: weightGross
@@ -62,13 +64,15 @@ fields:
     xpath: //span[@itemprop="gtin14"]
   - name: sku
     singleValue: true
+    xpath: //div[@id="productDetails"]/@data-tracking-product-code
   - name: variantId
     singleValue: true
+    xpath: //div[@id="productDetails"]/@data-tracking-product-code
   - name: mpc
     singleValue: true
   - name: packSize
     singleValue: true
-    xpath: //div[@id='pd_packSize']
+    #xpath: //div[@id='pd_packSize']
   - name: legalDisclaimer
     singleValue: false
   - name: directions
@@ -78,12 +82,12 @@ fields:
     singleValue: true
   - name: ratingCount
     singleValue: true
-    xpath: //span[@itemprop="reviewCount"]
+    xpath: (//span[@itemprop="reviewCount"])[1]/text()
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@id='pd_aggregateRating']
+    xpath: //meta[@itemprop="ratingValue"]
   - name: shippingInfo
     singleValue: true
   - name: shippingDimensions
