@@ -13,7 +13,11 @@ fields:
     xpath: //span[@class="_1svub _lf05o"]
     regExp: (\d+,\d+|\d+)
     regExpReplace: $1
-  - name: rank   
+  - name: rank
   - name: rankOrganic
   - name: id
     xpath: //@data-analytics-view-value
+  - name: soldBy
+    xpath: //div[contains(@class,"mpof_ki")]//div[contains(@class,"mqu1_g3")]/div/img/@src|//div[contains(@class,"mh36_8")]//div[contains(@class,"mqu1_g3")]/div/img/@src
+    regExp: (.+)
+    regExpReplace: niemchem_com
