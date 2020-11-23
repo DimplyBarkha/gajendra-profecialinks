@@ -59,8 +59,13 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
   }
 
   if (hasDescription) {
-    loadResources();
+    await loadResources();
     await context.goto(url + 'description', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
+    try {
+      await context.waitForSelector('hts-product-tab a', {}, { timeout: 50000 });
+    } catch (error) {
+      console.log(error);
+    }
     const hasShowMore = await context.evaluate(function () {
       return Boolean(document.evaluate("//hts-product-tab//span[@class='show-link']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
     });
@@ -97,6 +102,11 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
   }
   if (typeof enhanceMedia !== 'undefined' && enhanceMedia !== null) {
     await context.goto('https://www.harristeeter.com' + enhanceMedia, { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
+    try {
+      await context.waitForSelector('div[id="wc-power-page"] img', {}, { timeout: 50000 });
+    } catch (error) {
+      console.log(error);
+    }
     enhanceImage = await context.evaluate(async function () {
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -133,8 +143,13 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     });
   }
   if (hasIngredient) {
-    loadResources();
+    await loadResources();
     await context.goto(url + 'ingredients', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
+    try {
+      await context.waitForSelector('hts-product-tab div', {}, { timeout: 50000 });
+    } catch (error) {
+      console.log(error);
+    }
     IngredientDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -149,8 +164,13 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     });
   }
   if (hasDirection) {
-    loadResources();
+    await loadResources();
     await context.goto(url + 'usage%2520directions%2520dosage', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
+    try {
+      await context.waitForSelector('hts-product-tab div', {}, { timeout: 50000 });
+    } catch (error) {
+      console.log(error);
+    }
     DirectionDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -166,8 +186,13 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
   }
 
   if (hasWarning) {
-    loadResources();
+    await loadResources();
     await context.goto(url + 'warnings%2520cautions', { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
+    try {
+      await context.waitForSelector('hts-product-tab div', {}, { timeout: 50000 });
+    } catch (error) {
+      console.log(error);
+    }
     WarningDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -182,8 +207,13 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
     });
   }
   if (hasNutrition) {
-    loadResources();
+    await loadResources();
     await context.goto(url + 'nutrition', { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
+    try {
+      await context.waitForSelector('div[id="nutrionFacts"]', {}, { timeout: 50000 });
+    } catch (error) {
+      console.log(error);
+    }
     nutritionDetails = await context.evaluate(async function () {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
