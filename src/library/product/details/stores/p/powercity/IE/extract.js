@@ -99,5 +99,5 @@ async function implementation (
       addHiddenDiv('specifications', enhancedContent['specArr'].join(' || '))
     }, enhancedContent);
   }
-  await context.extract(productDetails, transform);
+  await context.extract(productDetails,{ transform });
 }
