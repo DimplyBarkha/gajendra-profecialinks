@@ -7,7 +7,7 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  //await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
@@ -31,15 +31,15 @@ async function implementation(
   };
 
   const mainUrl = await context.evaluate(async function () {
-    // var el = document.querySelector('div.journey-reminder-header span');
-    // if (el && el.innerText === "Aubagne-En-Provence")
-    //   return undefined;
-    // else
-    //   return document.URL;
+    var el = document.querySelector('div.journey-reminder-header span');
+    if (el && el.innerText === "Paris")
+      return undefined;
+    else
+      return document.URL;
   });
   console.log('mainUrl', mainUrl)
   if (mainUrl) {
-    await context.goto('https://www.auchan.fr/magasins/drive/aubagne-en-provence/s-684734ad-027c-3eff-0e83-4f44aec5e0b8#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_all_resources":true}[/!opt!]', {
+    await context.goto('https://www.auchan.fr/courses', {
       timeout: 10000000,
       waitUntil: 'load',
       checkBlocked: true,
@@ -47,12 +47,30 @@ async function implementation(
       css_enabled: false,
       random_move_mouse: true,
     });
-    await context.waitForSelector('button.journeyChoicePlace')
-    await context.click('button.journeyChoicePlace')
-    await context.stop();
+    const isAlreadyIndifferentStore = await context.evaluate(async function () {
+      var el = document.querySelector('button.journey-reminder__initial-choice-button');
+      if (el)
+        return false
+      else
+        return true;
+    });
+    if (isAlreadyIndifferentStore) {
+      await context.waitForSelector('.journey-reminder__footer button.layer__trigger_journey-reminder')
+      await context.click('.journey-reminder__footer button.layer__trigger_journey-reminder')
+    } else {
+      await context.waitForSelector('button.journey-reminder__initial-choice-button')
+      await context.click('button.journey-reminder__initial-choice-button')
+    }
+    await context.waitForSelector('input.journeySearchInput')
+    await context.setInputValue('input.journeySearchInput', '75020');
+    await context.waitForSelector('li.journey__search-suggest')
+    await context.click('li.journey__search-suggest')
+    await context.waitForSelector('.journey-offering-context__wrapper .journey-offering-context__actions button')
+    await context.click('.journey-offering-context__wrapper .journey-offering-context__actions button')
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'networkidle0', checkBlocked: true });
   }
-  //await applyScroll(context);
+  await applyScroll(context);
   return await context.extract(productDetails, { transform });
 }
 
