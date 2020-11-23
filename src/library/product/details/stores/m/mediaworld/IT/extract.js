@@ -12,8 +12,13 @@ module.exports = {
     const URL = await context.evaluate(async function () {
       return window.location.href;
     });
-    console.log(URL);
     await context.goto(URL);
+    const hasShowMore = await context.evaluate(function () {
+      return Boolean(document.evaluate('//div[@id="flix_hotspots"]//svg[@id="flix_key_features"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
+    });
+    if (hasShowMore) {
+      await context.click('div[id="flix_hotspots"] svg[id="flix_key_features"]', {}, { timeout: 50000 });
+    }
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -39,6 +44,7 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
       function stall (ms) {
+        // @ts-ignore
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -54,10 +60,7 @@ module.exports = {
           break;
         }
       }
-      const productDescription = getXpath("//div[contains(@class,'hidden-tab-up')]//h4[@class='product-short-description']", 'innerText');
       const name = getXpath("//div[contains(@class,'hidden-tab-up')]//div[@data-component='productDetailInfo']//h1", 'innerText');
-
-      const marketingDescription = getXpath("//div[@id='marketing-content']", 'innerText');
       const scriptXpathData = getXpath("//script[@type='application/ld+json'][contains(text(),'@graph')]", 'innerText');
       if (scriptXpathData !== null) {
         const scriptXpath = scriptXpathData.toString().replace(/@graph/g, 'graph');
@@ -69,22 +72,19 @@ module.exports = {
         const listPriceXpath = listPrice.toString().replace(/\./g, ',');
         addElementToDocument('added_listprice', scriptXpathObj.graph[0].offers.priceCurrency + listPriceXpath);
         addElementToDocument('added_brand', scriptXpathObj.graph[0].brand.name);
-        addElementToDocument('added_product_description', name + ' ' + productDescription);
-        // addElementToDocument('added_variant', scriptXpathObj.graph[0].sku);
+        addElementToDocument('added_product_description', name);
         addElementToDocument('added_mpn', scriptXpathObj.graph[0].mpn);
-        // addElementToDocument('added_manufacturer', scriptXpathObj.graph[0].offers.seller.name);
-        if (marketingDescription !== null) {
-          addElementToDocument('added_description', scriptXpathObj.graph[0].description + '||' + marketingDescription);
-        } else {
-          addElementToDocument('added_description', scriptXpathObj.graph[0].description);
-        }
+        addElementToDocument('added_description', scriptXpathObj.graph[0].description);
         if (scriptXpathObj.graph[0].aggregateRating !== undefined) {
           const aggregateData = scriptXpathObj.graph[0].aggregateRating.ratingValue;
           const aggregate = aggregateData.split('.');
           const aggregateNewValue = aggregate[0] + '.' + aggregate[1].substring(0, 1);
-          // addElementToDocument('added_rating', aggregateNewValue1);
           addElementToDocument('added_rating', aggregateNewValue.replace(/\./g, ','));
-          addElementToDocument('added_rating_count', scriptXpathObj.graph[0].aggregateRating.reviewCount);
+        } else {
+          const ratingAlternateXpath = getXpath("//div[@class='absnippert2contain']/img/@alt", 'nodeValue');
+          if (!ratingAlternateXpath.includes('alaScore')) {
+            addElementToDocument('added_rating', ratingAlternateXpath);
+          }
         }
       }
       const skuCodePath = getXpath('//div/@data-product-sku', 'nodeValue');
@@ -113,14 +113,6 @@ module.exports = {
       if (energyXpath !== null) {
         addElementToDocument('added_energy', energyXpath);
       }
-      const upcXpathData = getXpath("//script[@type='text/javascript'][contains(@src,'//media.flixcar.com/delivery/js/hotspot/')]/@src", 'nodeValue');
-      if (upcXpathData !== '' && upcXpathData !== null) {
-        const upcData = upcXpathData.split('?');
-        const upcDataFinal = upcData[0].split('/');
-        addElementToDocument('added_gtin', upcDataFinal[upcDataFinal.length - 1]);
-        console.log(upcDataFinal[upcDataFinal.length - 1]);
-      }
-
       const sellerXpathData = getXpath('//div[@class="withdrawal-holder box-container"]//p[@class="services__item"]', 'innerText');
       if (sellerXpathData !== '' && sellerXpathData !== null) {
         const sellerInfo = sellerXpathData.toLowerCase();
@@ -128,12 +120,16 @@ module.exports = {
           addElementToDocument('added_seller_detail', 'MediaWorld');
         }
       }
-      const manufactureXpath = getAllXpath("//div[@id='flix-inpage']//div[contains(@class,'flix-std-content')]", 'innerText');
+      const manufactureXpath = getAllXpath("//div[@id='flix-inpage'] | //div[@id='marketing-content']", 'innerText');
       if (manufactureXpath.length > 0) {
-        addElementToDocument('added_manufacture', manufactureXpath.join('|'));
+        addElementToDocument('added_manufacture', manufactureXpath.join('|').replace('123456789101112131415', ' '));
+      }
+      try {
+        await context.waitForSelector('div[id="flix-inpage"] img', {}, { timeout: 50000 });
+      } catch (error) {
+        console.log(error);
       }
       const manufactureImageXpath = getAllXpath("//div[@id='flix-inpage']//img//@srcset | //div[@id='flix-inpage']//img//@data-img-src|//div[@id='flix-inpage']//img//@data-srcset", 'nodeValue');
-      // addElementToDocument('added_manufactureImage', manufactureImageXpath);
       if (manufactureImageXpath.length > 0) {
         const manufactureImages = [];
         manufactureImageXpath.forEach(item => {
@@ -151,6 +147,26 @@ module.exports = {
         });
         colorList = colorList.substring(0, colorList.length - 1);
         addElementToDocument('added_variantInfo', colorList);
+      }
+      const scriptXpath = getXpath("//script[@type='text/javascript'][contains(text(),'mwProductDetailData')]", 'innerText');
+      if (scriptXpath !== null) {
+        var script = scriptXpath.replace('window.mwProductDetailData = ', '');
+        var scriptData = script.substring(1, script.length - 2);
+        scriptData = scriptData.replace(/\\/g, '');
+        scriptData = scriptData.replace(/\n/g, '');
+        var matchData = scriptData.match(/("identifier":")([^"]+)/i);
+        addElementToDocument('added_gtin', matchData[2]);
+      }
+      const videoAlignXpath2 = getXpath("//script[@id='popup-product-detail-main'][contains(text(),'youtube')]", 'innerText');
+      if (videoAlignXpath2 !== null) {
+        var videoData = videoAlignXpath2.match(/(https:\/\/www\.youtube\.com\/embed\/)([^\']+)/i);
+        addElementToDocument('added_video_url', videoData[0]);
+      }
+      // @ts-ignore
+      if (document.getElementById('frame_content').contentWindow.document.getElementById('abtabtags_count') !== null) {
+        // @ts-ignore
+        const ratingCountXpath = document.getElementById('frame_content').contentWindow.document.getElementById('abtabtags_count').innerText;
+        addElementToDocument('added_rating_count', ratingCountXpath.substring(ratingCountXpath.indexOf('(') + 1, ratingCountXpath.lastIndexOf(')')));
       }
     });
     await context.extract(productDetails, { transform: transformParam });
