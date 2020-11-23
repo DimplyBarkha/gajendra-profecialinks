@@ -61,18 +61,28 @@ async function implementation(
 
      
       var price_list = getXpath('//div[@class="row product-details"]//strong[@class="skuListPrice"]/text()', 'nodeValue');
+      try {
       if(price_list != null)
       {
+        price_list = price_list.split(' ')[1]
         price_list = price_list.replace(',','.');
         addElementToDocument('listprice', price_list);
       }
+    }
+    catch (err) {
+    }
 
       var price = getXpath('//div[@class="row product-details"]//em[@class="valor-por price-best-price"]/strong/text()', 'nodeValue');
+      try{
       if(price != null)
       {
+        price = price.split(' ')[1]
         price = price.replace(',','.');
         addElementToDocument('price', price);
       }
+    }
+  catch (err) {
+  }
 
     });
     return await context.extract(productDetails, { transform });

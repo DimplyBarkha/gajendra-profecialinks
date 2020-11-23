@@ -29,27 +29,41 @@ async function implementation(
       const originalDiv = document.querySelectorAll('ul[class="neemu-products-container nm-view-type-grid"]>li')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-    let rankOrganic;
+
+    function addElementToDocument(key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+      }
+
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);       
+        let result;      
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];    
+        else result = elem ? elem.singleNodeValue : '';    
+       return result && result.trim ? result.trim() : result; 
+        };
+
+        
+    let PageNumberResult;
     let url = window.location.href;
     let checkPageNumber = url.split('&')[1];
     try {
       if (checkPageNumber.startsWith('page=')) {
-        rankOrganic = checkPageNumber.replace('page=', '');
+        PageNumberResult = checkPageNumber.replace('page=', '');
       }
     }
     catch (err) {
     }
-    var dup = Number(rankOrganic);
-    dup = dup - 1;
-
-    if (!rankOrganic) {
-      rankOrganic = 1;
-    } else {
-      rankOrganic = (dup * 24) + 1;
-    }
-    const urlProduct = document.querySelectorAll('ul[class="neemu-products-container nm-view-type-grid"]>li');
-    for (let i = 0; i < urlProduct.length; i++) {
-      addHiddenDiv('rankOrganic', rankOrganic++, i);
+    
+    var PageNumber = Number(PageNumberResult);
+    PageNumberResult  = PageNumberResult + 1
+    if(price != null)
+    {
+      price = price.replace(',','.');
+      addElementToDocument('price', price);
     }
   });
   //rank end

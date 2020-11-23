@@ -34,7 +34,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    # type: CURRENCY
+    type: CURRENCY
     xpath: //html//div[@id="listprice"]
     # regExp: '(.+)(,)(.+)'
     # regExp: \d.*\d
@@ -43,7 +43,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    # type: CURRENCY
+    type: CURRENCY
     xpath: //html//div[@id="price"]
     # regExp: \d.*\d
     # regExp: '(.+)(,)(.+)'
