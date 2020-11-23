@@ -30,7 +30,7 @@ module.exports = {
         addElementToDocument('alternateImg', img);
       }
       const specifications = document.querySelectorAll('div#contentproductSpecifications tr');
-      let specificationsArr = [];
+      const specificationsArr = [];
       for (let j = 0; j < specifications.length; j++) {
         specificationsArr.push(specifications[j].innerText.replace(/\s+/g, ' '));
       }
