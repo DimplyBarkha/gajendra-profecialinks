@@ -145,7 +145,7 @@ const transform = (data) => {
                 try {
                   let j_data = JSON.parse(item.text);
                   let p_ean = '';
-                  if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes']){
+                  if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'] && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'] != null  && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'].length>0){
                     j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'].forEach(p_size => {
                       if (p_sku == p_size['sku'] && p_size['eans'] && p_size['eans'].length > 0){
                         p_ean = p_size['eans'][0];                        
@@ -157,6 +157,9 @@ const transform = (data) => {
                     else{
                       delete row.gtin;
                     }
+                  }
+                  else{
+                    delete row.gtin;
                   }
                 } catch (error) {
                   console.log(error.message);
@@ -178,7 +181,7 @@ const transform = (data) => {
               try {
                 let j_data = JSON.parse(item.text);
                 let p_ean = '';
-                if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['variants']){
+                if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['variants'] && j_data['props']['initialStoreState']['detail']['product']['summary']['variants'] != null && j_data['props']['initialStoreState']['detail']['product']['summary']['variants'].length>0){
                   j_data['props']['initialStoreState']['detail']['product']['summary']['variants'].forEach(p_variants => {
                     if(p_variants['id']){
                       info.push(p_variants['id']);
@@ -194,6 +197,9 @@ const transform = (data) => {
                   else{
                     delete row.variants;
                   }
+                }
+                else{
+                  delete row.variants;
                 }
               } catch (error) {
                 console.log(error.message);
