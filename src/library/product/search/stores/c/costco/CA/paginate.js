@@ -1,15 +1,18 @@
+
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'CA',
     store: 'costco',
-    nextLinkSelector: 'div.paging ul li.forward > a',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '.product-tile-set div[id*="price-"]',
-    noResultsXPath: '//div[@id="no-results"]',
-    openSearchDefinition: null,
+    loadedSelector: null,
+    noResultsXPath: null,
+    openSearchDefinition: {
+      template: 'https://www.costco.ca/CatalogSearch?currentPage={page}&dept=All&keyword={searchTerms}',
+    },
     domain: 'costco.ca',
-    zipcode: 'M5V 2A5',
+    zipcode: '',
   },
 };
