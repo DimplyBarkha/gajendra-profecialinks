@@ -78,10 +78,10 @@ const getStockFunc = async function ({ context, sellerId, id }) {
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
   if(!sellerId) {
-    sellerId = await context.evaluate(() => document.querySelector('#addToCart  > input#ASIN').value);
+    sellerId = await context.evaluate(() => document.querySelector('#addToCart  > input#merchantID').value);
   }
   if(!id) {
-    id = await context.evaluate(() => document.querySelector('#addToCart  > input#merchantID').value);
+    id = await context.evaluate(() => document.querySelector('#addToCart  > input#ASIN').value);
   }
   await context.click('#add-to-cart-button:not([style*="not-allowed"])');
   await context.waitForNavigation();
