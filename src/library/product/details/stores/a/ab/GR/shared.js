@@ -48,6 +48,21 @@ const cleanUp = (data, context) => {
           },
         ];
       }
+
+      if (row.nameExtended && row.brandText) {
+        row.nameExtended = [
+          {
+            text: `${row.brandText[0].text} - ${row.nameExtended[0].text}`,
+          },
+        ];
+      }
+      if (!row.description && row.descriptionAlternate) {
+        row.description = [
+          {
+            text: row.descriptionAlternate[0].text,
+          },
+        ];
+      }
     }
   }
   return data;

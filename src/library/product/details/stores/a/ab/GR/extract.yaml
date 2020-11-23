@@ -25,7 +25,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(normalize-space(//div[contains(@class,'ProductPageHeader visible')]//p[contains(@class,'page-title-info')]), ' - ', normalize-space(//h1[contains(@class,'page-title')]))
+    xpath: normalize-space(//h1[contains(@class,'page-title')])
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: (//div[contains(@class,'price-qty-property ')]//span[contains(@class,'price-property')]/span[(contains(@class,'strikethrough-price'))])[1]
@@ -49,13 +49,19 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //h3[contains(.,'Description') or contains(.,'Περιγραφή')]/following-sibling::p[not(preceding-sibling::h3[not(contains(.,'Description') or contains(.,'Περιγραφή'))])]
+  - name: descriptionAlternate
+    xpath: //script[contains(.,'"description":"')]
+    regExp: \"description":"(.+)","category\"
+    regExpReplace: $1
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     defaultValue: 0
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: normalize-space(//div[contains(@class,'ProductPageHeader visible')]//p[contains(@class,'page-title-info')])
+    xpath: //script[contains(.,'"@type":"Brand"')]
+    regExp: \"Brand","name":"(.+)"},"Url
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -254,7 +260,7 @@ fields:
     regExpReplace: $2
   - name: numberOfServingsInPackage
     description: Suggested number of servings of the product.
-    xpath: //h3[contains(.,'Μερίδες ανά συσκευασία')]/following-sibling::p[1]
+    xpath: //*[contains(.,'Μερίδες ανά συσκευασία')]/following-sibling::p[1]
   - name: caloriesPerServing
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
@@ -414,13 +420,13 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     description: Suggested storage location for product
-    xpath: //h3[contains(.,'Συνθήκες')]/following-sibling::p[1]
+    xpath: //*[contains(.,'Συνθήκες')]/following-sibling::p[1]
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
   - name: allergyAdvice
     description: Allergy information associated with the product
-    xpath: //h3[contains(.,'Allergens')]/following-sibling::p[1] | //h3[contains(.,'Αλλεργιογόνα')]/following-sibling::p[1]
+    xpath: //h3[contains(.,'Allergens')]/following-sibling::p[1] | //h3[contains(.,'Αλλεργιογόνα')]/following-sibling::p[1] | //i[contains(@class,'icon-allergy')]/parent::div/following-sibling::div[1]
   - name: recyclingInformation
     singleValue: true
     description: Recycling information associated with the product

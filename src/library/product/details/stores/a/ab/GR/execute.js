@@ -5,7 +5,7 @@ module.exports = {
     country: 'GR',
     store: 'ab',
     domain: 'ab.gr',
-    loadedSelector: 'div.ProductName-wrapper',
+    loadedSelector: 'h1.page-title',
     noResultsXPath: '//div[contains(@class,"ErrorPage")]',
   },
 };
