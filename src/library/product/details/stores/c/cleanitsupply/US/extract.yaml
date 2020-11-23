@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //img[class="fancybox-image"]/@src
+    xpath: //img[@itemprop="image"]/@src | //img[class="fancybox-image"]/@src
     regExp: (.+)
     regExpReplace: https://www.cleanitsupply.com$1
   - name: imageAlt
@@ -48,10 +48,11 @@ fields:
     xpath: count(//span[@itemprop="description"]/ul/li)
     type: NUMBER
   - name: brandText
-    singleValue: false   
-    xpath: //li[contains(text(),"Brand Name:")]
-    regExp: Brand Name\W\W(.+)
-    regExpReplace: $1
+    singleValue: false  
+    xpath: //span[@itemprop="name"]/@content 
+    # xpath: //li[contains(text(),"Brand Name:")]
+    # regExp: Brand Name\W\W(.+)
+    # regExpReplace: $1
   - name: manufacturer
     singleValue: false
     xpath: //li[contains(text(),"Manufacturer:")]
@@ -72,17 +73,19 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    xpath: (//form[@class="add-to-cart-form"]/input[@name="VariantID"])[1]/@value
+    xpath: //input[@id="productvariantid"]/@value 
+    # (//form[@class="add-to-cart-form"]/input[@name="VariantID"])[1]/@value
   - name: sku
     singleValue: false
-    xpath: //li[contains(text(),"Product SKU:")]/text()
-    regExp: Product SKU\W\s(.+)
-    regExpReplace: $1
+    xpath: //span[@itemprop="sku"]/@content
+    # xpath: //li[contains(text(),"Product SKU:")]/text()
+    # regExp: Product SKU\W\s(.+)
+    # regExpReplace: $1
   - name: variantId
     singleValue: false
     xpath: (//input[@name="ProductID"])[1]/@value
-    regExp: Product SKU\W\s(.+)
-    regExpReplace: $1
+    # regExp: Product SKU\W\s(.+)
+    # regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
