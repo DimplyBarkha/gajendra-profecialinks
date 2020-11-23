@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'mambo',
-    nextLinkSelector: null,
+    nextLinkSelector: '.wrongpath_to_excape_error',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
