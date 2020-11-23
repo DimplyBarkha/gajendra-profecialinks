@@ -60,6 +60,11 @@ module.exports = {
         addHiddenDiv("ii_" + "gram", "g");
         addHiddenDiv("ii_" + "energykilo", "kcal");
       }
+      if (window.location.href != null) {
+        var url = window.location.href;
+        var id = url.split("/product/");
+        addHiddenDiv("ii_" + "productid", id[1]);
+      }
     });
     await context.extract(dependencies.productDetails);
   },
