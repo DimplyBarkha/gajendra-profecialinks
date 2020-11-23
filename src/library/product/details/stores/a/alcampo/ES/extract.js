@@ -17,16 +17,10 @@ module.exports = {
     await new Promise(resolve => setTimeout(resolve, 1000));
     await context.evaluate(async () => {
       const body = document.querySelector('body');
-      const shippingOptions = document.querySelectorAll('div[class*="imageServiceProduct"] + div');
-      let shippingInfo = '';
-      shippingOptions.forEach(option => {
-        shippingInfo += '-' + option.innerHTML;
-      });
-      body.setAttribute('shippinginfo', shippingInfo);
 
-      const isNutritionalInfoPresent = document.querySelector('div.pictogramasFood');
+      const isNutritionalInfoPresent = document.querySelector('div#producto_pestana_informacion_nutricion');
       if (isNutritionalInfoPresent) {
-        body.setAttribute('servingsize', 'por 100ml/g');
+        body.setAttribute('servingsize', '100');
         body.setAttribute('servingunit', 'ml/g');
       }
     });

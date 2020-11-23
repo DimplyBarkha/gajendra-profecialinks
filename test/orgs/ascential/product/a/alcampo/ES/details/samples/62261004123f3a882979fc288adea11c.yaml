@@ -2,13 +2,13 @@ input:
   id: 549549
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=bc80df50-e97f-4058-82cc-b56af16bc256/task=c3a33f9a-9b8b-4b07-b538-929fe80832c0/86ad079d-45af-40d3-9d24-d68a6b5e338b.html
+  - html: https://workbench.import.io/html/run=2327cb04-9435-4633-85d0-3cb180265a78/task=d75e8dfa-fe98-4942-b859-933d1fe38673/30a438ce-be53-46ef-9be1-5b817bd0c7bd.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
           - productUrl:
               - text: https://www.alcampo.es/compra-online/bebidas/cervezas/premium/premium-rubia/brewdog-punk-ipa-cerveza-rubia-ipa-33-cl/p/549549
-                xpath: /html/head[1]/link[1]/@href
+                xpath: /html/head[1]/link[2]/@href
             image:
               - text: https://www.alcampo.es/media/hdd/h56/10519350018078.jpg
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
@@ -31,34 +31,20 @@ extractions:
               - text: 1,90 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
             brandText:
-              - text: BREWDOG Punk Ipa
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
+              - text: BREWDOG
+                xpath: /html/head[1]/script[6]
             manufacturer:
-              - text: BREWDOG Punk Ipa
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
-            quantity:
-              - text: Unidad
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
-            shippingInfo:
-              - text: "- ENVÍO A DOMICILIO- RECOGIDA PARKING"
-                xpath: /html/body/@shippinginfo
+              - text: Estrella Galicia
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/span[2]
+            sku:
+              - text: "549549"
+                xpath: /html/head[1]/link[2]/@href
+            variantId:
+              - text: "549549"
+                xpath: /html/head[1]/link[2]/@href
             name:
               - text: Cerveza rubia Punk Ipa BREWDOG 33 cl.
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
-            ingredientsList:
-              - text: |-
-                  Ingredientes: 
-                   Agua, Malta, Levadura, Lúpulo. Contiene Gluten.
-                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]
-            servingSize:
-              - text: por 100ml/g
-                xpath: /html/body/@servingsize
-            servingSizeUom:
-              - text: ml/g
-                xpath: /html/body/@servingunit
-            storage:
-              - text: Mantener la botella de pie.
-                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[3]/div[1]/div[1]
             pricePerUnit:
               - text: 5,75 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
@@ -76,7 +62,7 @@ extractions:
             privacyPolicy:
               - text: No
             customerServiceAvailability:
-              - text: Yes
+              - text: No
             Image360Present:
               - text: No
             imageZoomFeaturePresent:
@@ -84,4 +70,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1605181723416
+    timestamp: 1606119790481
