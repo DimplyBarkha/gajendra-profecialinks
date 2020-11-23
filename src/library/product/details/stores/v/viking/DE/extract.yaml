@@ -25,7 +25,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@id='s7viewer_swatches_listbox']/div[position()>1]/div/@style
+  xpath: //div[@id='s7viewer_swatches_listbox']/div[position()>1]/div/div[not(contains(@type, 'video'))]/parent::div/@style
   regExp: (?<=url\(\").+(?=fit)
 - name: metaKeywords
   singleValue: true
@@ -70,7 +70,6 @@ fields:
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: //a[@itemprop='brand']
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -97,10 +96,12 @@ fields:
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
+  xpath: //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Hersteller Nr.')]/following-sibling::td
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Verpackungsmenge')]/following-sibling::td
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -138,6 +139,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  defaultValue: '0'
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -155,6 +157,7 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //div[@class='s7videoplayer']/video/@src
 - name: name
   singleValue: true
   description: The product name
@@ -409,6 +412,7 @@ fields:
 - name: recyclingInformation
   singleValue: true
   description: Recycling information associated with the product
+  xpath: //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Umweltaussagen')]/following-sibling::td 
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
@@ -421,12 +425,16 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //small[@id='baseUnitPrice_5547301']
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //small[@id='baseUnitPrice_5547301']
+  regExp: (kr|$|£|€)
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: //span[@class='deal-badge__deal-text deal-badge__badge-line']
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -491,7 +499,7 @@ fields:
 - name: materials
   singleValue: true
   description: Materials used to make the product
-  example: //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Material')]/following-sibling::td
+  xpath: //table[@class='table table-hover table-striped']//tr/td[contains(text(), 'Material')]/following-sibling::td
 - name: Image360Present
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
