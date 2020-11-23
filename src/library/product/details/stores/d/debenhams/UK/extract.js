@@ -16,7 +16,27 @@ module.exports = {
     { productDetails: data }
   ) => {
     const { transform } = parameters;
-
+    await context.waitForSelector('div.t-breadcrumb div.t-breadcrumb__wrap');
+    await context.evaluate(async function () {
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement("div");
+        newDiv.className = id;
+        newDiv.innerHTML = content;
+        newDiv.style.display = "none";
+        document.body.appendChild(newDiv);
+      }
+        const breadcrumbs = document.querySelectorAll("div.t-breadcrumb div.t-breadcrumb__wrap");
+        console.log("breadcrumb", breadcrumbs);
+        // const categoryEl = document.createElement("ul");
+        let span = "";
+        breadcrumbs.forEach(x => {
+          span += `<span>${x.innerText}</span>`;
+        });
+        addHiddenDiv("custom-attr-product-breadcrumb", span);
+        // categoryEl.id = "custom-attr-product-breadcrumb";
+        // categoryEl.style.display = "none";
+        // document.body.appendChild(categoryEl);
+    });
     var variantLength = await context.evaluate(async () => {
       const variants = [];
       document.querySelectorAll("div.dbh-product-color-selector div.pw-swatch__item img").forEach(x => {
@@ -26,7 +46,7 @@ module.exports = {
       });
       return variants.length || 1;
     });
-
+    // variantLength = 0;
     if (variantLength > 0) {
       // await preparePageForCommonElement(0, variantLength);
       
@@ -63,16 +83,16 @@ module.exports = {
               addHiddenDiv("custom-attr-product-brand-text", brandText.textContent.split("-")[0].trim());
             }
             
-            const breadcrumbs = document.querySelectorAll("div.t-breadcrumb div.t-breadcrumb__wrap");
-            const categoryEl = document.createElement("ul");
-            breadcrumbs.forEach(x => {
-              const liEl = document.createElement("li");
-              liEl.textContent = x.innerText;
-              categoryEl.appendChild(liEl);
-            });
-            categoryEl.id = "custom-attr-product-breadcrumb";
-            categoryEl.style.display = "none";
-            document.body.appendChild(categoryEl);
+            // const breadcrumbs = document.querySelectorAll("div.t-breadcrumb div.t-breadcrumb__wrap");
+            // const categoryEl = document.createElement("ul");
+            // breadcrumbs.forEach(x => {
+            //   const liEl = document.createElement("li");
+            //   liEl.textContent = x.innerText;
+            //   categoryEl.appendChild(liEl);
+            // });
+            // categoryEl.id = "custom-attr-product-breadcrumb";
+            // categoryEl.style.display = "none";
+            // document.body.appendChild(categoryEl);
 
             const addToBagButton = document.evaluate("boolean(//button[contains(@class, 'dbh-add-to-bag')]/@disabled)", document, null, XPathResult.ANY_TYPE);
             if (addToBagButton) {

@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1//span[contains(@class, 'dbh-product-name')]
+    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1
@@ -64,7 +64,7 @@ fields:
     xpath: //div[@id='custom-attr-product-first_variant']/text()
   - name: category
     singleValue: false
-    xpath: //ul[@id='custom-attr-product-breadcrumb']//li/text()
+    xpath: //div[@class='custom-attr-product-breadcrumb']//span
   - name: availabilityText
     singleValue: false
     xpath: //div[@id='custom-attr-product-availability']/text()
