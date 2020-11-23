@@ -19,6 +19,11 @@ const transform = (data) => {
             text: (value.trim()),
           },
         ];
+        row.name = [
+          {
+            text: (value.trim()),
+          },
+        ];
       }
       if (row.listPrice) {
         row.listPrice.forEach(item => {

@@ -23,7 +23,7 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    let node = document.evaluate("//script[contains(.,'dataLayer = ')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    let node = document.evaluate("//script[contains(.,'dataLayer = ')] | //no-script[contains(.,'dataLayer = ')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     // @ts-ignore
     node = node && node.textContent.replace(/\r\n|\n|\r/gm, '').match(/.*"productEAN":\["(\d+).*/gm).length > 0 ? node.textContent.replace(/\r\n|\n|\r/gm, '').replace(/.*"productEAN":\["(\d+).*/gm, '$1') : '';
     if (node) {

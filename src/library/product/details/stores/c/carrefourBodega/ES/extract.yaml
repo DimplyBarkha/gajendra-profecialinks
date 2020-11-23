@@ -147,6 +147,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
+    xpath: //header/h1[@id='product-01'] | //header//p[contains(@class,'name-marca lora')]
     description: The product name
   - name: inStorePrice
     singleValue: true
