@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text()  |  //div[@class="price-box"]/span[@class="regular-price"]/span/span/text()
+    xpath: //html//div[@id="price"]
   - name: name
     singleValue: true
     xpath: //div[@class="product-name"]/a/div/text()
@@ -22,6 +22,6 @@ fields:
     singleValue: false
     xpath: //div[@class="price-box"]/span[@class="regular-price"]/@id | //div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/@id
     regExp: \d+
-  - name: ratingCount
+  - name: reviewCount
     singleValue: true
     xpath: //html//div[@id="zz"]
