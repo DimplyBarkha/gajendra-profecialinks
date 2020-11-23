@@ -51,8 +51,6 @@ module.exports = {
     }
     if(prodUrl) {
       await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-    } else {
-      throw new Error("Prod URL not found");
     }
     
     const pId = inputs.id;

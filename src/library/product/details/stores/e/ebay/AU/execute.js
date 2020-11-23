@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'ebay',
     domain: 'ebay.com.au',
-    loadedSelector: '.srp-results  li',
+    loadedSelector: '.srp-results  li, h1#itemTitle',
     noResultsXPath: null,
     zipcode: '',
   },
