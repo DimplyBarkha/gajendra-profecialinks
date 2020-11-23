@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //body[contains(@class,"page-productDetails")]
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id="preview"]//div[@class="swiper-wrapper"]/div[contains(@class,"swiper-slide-active")]/img/@data-cloudzoom
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id="preview"]//div[@class="swiper-wrapper"]/div[contains(@class,"swiper-slide-active")]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="preview"]//div[@class="swiper-wrapper"]/div[not(contains(@class,"swiper-slide-active"))]/img/@data-cloudzoom
+  - name: category
+    singleValue: false
+    xpath: //ol[@id="breadcrumb"]/li[position()>1]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1/span[@class="product-name"] | //span[@class="product-title"]
+  - name: listPrice
+    singleValue: false
+    xpath: false
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price-container"]//div[contains(@class,"shekels")]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@id="product-info"]//div[@class="content-side"]/h5[text()="תיאור המוצר"]/following-sibling::p[1]
+  - name: brandText
+    singleValue: false
+    xpath: //span[@class="product-title"]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="quantity-of-product"]
+  - name: sku
+    singleValue: false
+    xpath: //div[@id="product-info"]//div[@class="content-side"]/h5[text()="תיאור המוצר"]/following-sibling::p[2]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="bottom-details"]/div[@class="add-to-basket "]/@data-id
+  - name: mpc
+    singleValue: false
+    xpath: //div[@id="product-info"]//div[@class="content-side"]/h5[text()="תיאור המוצר"]/following-sibling::p[2]
+  - name: directions
+    singleValue: false
+    xpath: //div[@class="content-side product-properties"]//span[@class="property-name" and text()="הוראות שימוש:"]/parent::*/text()
+  - name: warnings
+    singleValue: false
+    xpath: //div[@class="content-side product-properties"]//span[@class="property-name" and text()="אזהרה:"]/parent::*/text()
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@id="top-comments-summary"]/div[@class="talks"]//span[@id="talksCount"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="top-comments-summary"]/div[@class="talks"]//span[@class="yotpo-stars"]/span[@class="sr-only"]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class="content-side product-properties"]//span[@class="property-name" and text()="משקל:"]/parent::*/text()
+  - name: storage
+    singleValue: false
+    xpath: //div[@class="content-side product-properties"]//span[@class="property-name" and text()="המלצת אחסון:"]/parent::*/text()
+  - name: variantCount
+    singleValue: false
+    defultValue: '0'
+  - name: color
+    singleValue: false
+    xpath: //div[@class="content-side product-properties"]//span[@class="property-name" and text()="צבע:"]/parent::*/text()
+  - name: name
+    singleValue: false
+    xpath: //h1/span[@class="product-name"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="content-side product-properties"]//span[@class="property-name"] | //div[@class="content-side product-properties"]//span[@class="property" ]/text()
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
