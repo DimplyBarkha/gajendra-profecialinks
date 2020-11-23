@@ -138,38 +138,33 @@ const transform = (data) => {
           });
         }
         if (row.gtin) {
+          let gtn_id = '';
           row.gtin.forEach(item => {
             var matches = /\s*__NEXT_DATA__\s*=\s*(.*)\;\s*__NEXT_LOADED_PAGES/isg.exec(item.text);              
-              if (matches){
-                item.text = matches[1];
-                try {
-                  let j_data = JSON.parse(item.text);
-                  let p_ean = '';
-                  if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'] && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'] != null  && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'].length>0){
-                    j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'].forEach(p_size => {
-                      if (p_sku == p_size['sku'] && p_size['eans'] && p_size['eans'].length > 0){
-                        p_ean = p_size['eans'][0];                        
-                      }
-                    });
-                    if (p_ean != ''){
-                      item.text = p_ean;
+            if (matches){
+              item.text = matches[1];
+              try {
+                let j_data = JSON.parse(item.text);
+                let p_ean = '';
+                if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'] && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'] != null  && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'].length>0){
+                  j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'].forEach(p_size => {
+                    if (p_sku == p_size['sku'] && p_size['eans'] && p_size['eans'].length > 0){
+                      p_ean = p_size['eans'][0];                        
                     }
-                    else{
-                      delete row.gtin;
-                    }
-                  }
-                  else{
-                    delete row.gtin;
-                  }
-                } catch (error) {
-                  console.log(error.message);
-                  delete row.gtin;
-                }
+                  });
+                  if (p_ean != ''){
+                    item.text = p_ean;
+                    gtn_id = p_ean;
+                  }                    
+                }                  
+              } catch (error) {                  
+                console.log("gtn json error");
               }
-              else{
-                delete row.gtin;
-              }
+            }              
           });
+          if(gtn_id == '' ){
+            delete row.gtin;
+          }
         }
         if (row.variants) {
           let info = [];
@@ -193,22 +188,12 @@ const transform = (data) => {
                   });
                   if (info.length > 0){
                     item.text = info.join(' | ');                      
-                  }
-                  else{
-                    delete row.variants;
-                  }
-                }
-                else{
-                  delete row.variants;
-                }
+                  }                  
+                }                
               } catch (error) {
-                console.log(error.message);
-                delete row.variants;
+                console.log("json error");
               }
-            }
-            else{
-              delete row.variants;
-            }
+            }            
           });
           if (colors.length>0){
             row.variantInformation = [{"text": colors.join(' | '), "xpath": row.variants[0]["xpath"]}];
@@ -216,6 +201,9 @@ const transform = (data) => {
           if (info.length>0){
             row.variantCount = [{"text": info.length, "xpath": row.variants[0]["xpath"]}];
             row.firstVariant = [{'text':info[0]}];
+          }
+          else{
+            delete row.variants;
           }
         }
       }
