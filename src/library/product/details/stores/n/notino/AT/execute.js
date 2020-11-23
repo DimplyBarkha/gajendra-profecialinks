@@ -5,8 +5,8 @@ module.exports = {
     country: 'AT',
     store: 'notino',
     domain: 'notino.at',
-    loadedSelector: "img[id='pd-image-main']",
-    noResultsXPath: "//div[@id='categoryBanners0']",
+    loadedSelector: null,//"img[id='pd-image-main']",
+    noResultsXPath: null,//"//div[@id='categoryBanners0']",
     zipcode: '',
   },
 };
