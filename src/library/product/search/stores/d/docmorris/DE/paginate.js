@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'docmorris',
-    nextLinkSelector: 'span[class="gicon-bracketright-green"]',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="rating__wrap"] > div',
-    noResultsXPath: '//div//div[@class="head"]//h1',
+    noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'docmorris.de',
     zipcode: '',
