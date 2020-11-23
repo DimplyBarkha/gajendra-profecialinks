@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search',
   parameterValues: {
     country: 'DE',
-    store: 'hydi',
+    store: 'hygi',
     domain: 'hygi.de',
     zipcode: '',
   },

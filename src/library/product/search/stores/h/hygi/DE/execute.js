@@ -3,9 +3,9 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'DE',
-    store: 'hydi',
+    store: 'hygi',
     domain: 'hygi.de',
-    url: null,
+    url: 'https://www.hygi.de/s/{searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
