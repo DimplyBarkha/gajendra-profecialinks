@@ -24,6 +24,8 @@ module.exports = {
         const data = await response.json();
         const secImageArr = data.doc.gallery_images;
         document.querySelector('body').setAttribute('sec-img', secImageArr.join(' | '));
+        const gtin = data.doc.active_gtin;
+        document.querySelector('body').setAttribute('added_gtin', gtin);
       } catch (err) {
         console.log(err);
       }
@@ -63,7 +65,7 @@ module.exports = {
 
           const API = `https://api.sallinggroup.com/v1/ecommerce/bilka/search/pdp?id=100506038&apiKey=4456bde0-edf0-48a9-9db5-10b535e63d9c`;
           const response = await fetch(API);
-          const data = await response.json();
+          const data = await response.json();         
           const videos = data.doc.gallery_videos;
           if(videos && videos.length > 0) {
             for(let index = 0; index < videos.length; index++) {

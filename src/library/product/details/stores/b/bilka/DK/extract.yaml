@@ -53,7 +53,8 @@ fields:
     xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Farve')]/following-sibling::td[1]
   - name: gtin
     singleValue: false
-    xpath: //script//@data-flix-ean
+    xpath: //body/@added_gtin
+    # xpath: //script//@data-flix-ean
     # xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Varenummer')]/following-sibling::td[1]
   - name: sku
     singleValue: false
