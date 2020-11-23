@@ -50,7 +50,7 @@ fields:
     singleValue: false
     xpath: (//div[@class="b-pdp-thumbs-carousel js-pdp-thumbs-carousel slick-initialized slick-slider slick-vertical"])/div/div/div[position()>1 and position() <= last()]/div/div/picture/img/@src
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     xpath: count((//div[@class="b-pdp-thumbs-carousel js-pdp-thumbs-carousel slick-initialized slick-slider slick-vertical"])/div/div/div[position()>1 and position() <= last()]/div/div/picture/img/@src)
   - name: mpc
     singleValue:  false
@@ -66,7 +66,7 @@ fields:
     xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@href)[1]
   - name: nameExtended
     singleValue: false
-    xpath: //html//div[@id='description']
+    xpath: //h1[@class='t-page-title b-pdp-title']/div
   - name: quantity
     singleValue: false
     xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value)
@@ -74,5 +74,5 @@ fields:
     singleValue: true
     xpath: //html//div[@id='ab']
   - name: variantCount
-    singleValue: true
+    singleValue: false
     xpath: count(//div[@class="b-pdp-color-carousel js-pdp-color-carousel slick-initialized slick-slider"]/div[@class="slick-list draggable"]/div/div)
