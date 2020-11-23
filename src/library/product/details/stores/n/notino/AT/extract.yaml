@@ -63,38 +63,25 @@ fields:
     xpath: //*[@id="pdHeader"]/a/div/span      
   - name: aggregateRating
     singleValue: true    
-    xpath: //div[@id="pdHeader"]/a/@title  
-    description: Number of variants listed
-    type: NUMBER
-  - name: color
-    singleValue: true
-    description: A textual description of the colour
-  - name: colorCode
-    singleValue: true
-    description: A code description of the color (e.g. RGB hex)
-  - name: manufacturerDescription
-    singleValue: false
-    description: The extended description of the product supplied by the lister
-  - name: manufacturerImages
-    singleValue: false
-    description: Images within the third party description
-  - name: videos
-    singleValue: false
-    xpath: 
+    xpath: //div[@id="pdHeader"]/a/@title    
   - name: name
     singleValue: true
     xpath: //div[@id='pdHeader']//h1
   - name: productOtherInformation
-    singleValue: false
-    description: Any other product information
+    singleValue: false    
     xpath: //div[@class="styled__CommonMarginWrapper-aohf13-8 styled__MarginWrapper-sc-1st2cwk-1 fKfgxO"]  
   - name: variants
     singleValue: false
-    description: null
+    xpath: //div[@id='pdVariantsTile']//ul[@class='variantsStyled__VariantList-sc-1hj58ih-6 ihUKVz']//li//a[contains(@id,'pd-variant')]/@id    
   - name: variantCount
     singleValue: true
+    xpath: count(//div[@id='pdVariantsTile']//ul[@class='variantsStyled__VariantList-sc-1hj58ih-6 ihUKVz']//li)
+    defaultValue: "0"
   - name: variantInformation
-    singleValue: true    
-    xpath: //div[@class="styled__Name-h83s98-4 izOgAK"]
+    singleValue: false
+    xpath: //div[@id='pdVariantsTile']//ul[@class='variantsStyled__VariantList-sc-1hj58ih-6 ihUKVz']//li//div[contains(@class,'pd-variant-label')]
   - name: firstVariant
-    singleValue: true
+    singleValue: false
+    xpath: //div[@id='pdVariantsTile']//ul[@class='variantsStyled__VariantList-sc-1hj58ih-6 ihUKVz']//li[1]//a[contains(@id,'pd-variant')]/@id
+    regExp: pd-variant-(\d+)
+    regExpReplace: $1

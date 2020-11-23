@@ -1,10 +1,10 @@
-const {transform} = require('./format')
+
 module.exports = {
-  implements: 'product/details/extract',
+  implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'AT',
     store: 'notino',
-    transform,
+    transform: null,
     domain: 'notino.at',
     zipcode: '',
   },
