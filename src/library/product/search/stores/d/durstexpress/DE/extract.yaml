@@ -4,21 +4,21 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: id
-    singleValue: true
+    singleValue: false
     xpath: //li/@data-id
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     xpath: //li/@data-position
   - name: name
     singleValue: false
     xpath: //a[@class='product-item-link']/@title
   - name: productUrl
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='product details product-item-details']//a/@href
   - name: gtin
-    singleValue: true
+    singleValue: false
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     xpath: //img[@class='product-image-photo']/@src
   - name: aggregateRating
     singleValue: false
@@ -29,10 +29,10 @@ fields:
     type: CURRENCY
     xpath: //div[@class="price-box price-final_price"]//span[@class="price"]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
   - name: soldBy
-    singleValue: true
+    singleValue: false
   - name: rank
-    singleValue: true
+    singleValue: false
   - name: endorsementText
-    singleValue: true
+    singleValue: false
