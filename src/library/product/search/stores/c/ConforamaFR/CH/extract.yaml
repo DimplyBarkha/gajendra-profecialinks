@@ -29,3 +29,6 @@ fields:
   - name: soldBy
     singleValue: false
     xpath: //p[@class="sold-other"]/strong/a/text() | //p[@class="sold-default"]/strong/text()
+  - name: url
+    singleValue: false
+    xpath: //html//div[@id="pd_url"]

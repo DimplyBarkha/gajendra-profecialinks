@@ -13,24 +13,32 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-      function addHiddenDiv(id, content, index) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll('div[class="detail-product"] > h3')[index];
-        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-      }
-      const name = document.querySelectorAll('div[class="detail-product"] > h3');
-      let price;
-      for (let i = 0; i < name.length; i++) {
+      try {
+        function addHiddenDiv(id, content, index) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          const originalDiv = document.querySelectorAll('article[class="box-product    "]')[index];
+          originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+        }
+        const name = document.querySelectorAll('article[class="box-product    "]');
         // @ts-ignore
-        addHiddenDiv('prodName', document.querySelectorAll('div[class="detail-product"] > h3')[i].innerText, i);
-        // @ts-ignore
-        price = document.querySelectorAll('div[class="price-product"]')[i].innerText;
-        var priceUpdated = price.replace("€", ".");
-        addHiddenDiv('price', '€ ' + priceUpdated, i);
+        const URL = window.tc_vars.originalPageURL;
+        console.log(URL);
+        let price;
+        for (let i = 0; i < name.length; i++) {
+          // @ts-ignore
+          addHiddenDiv('prodName', document.querySelectorAll('article[class="box-product    "]')[i].innerText, i);
+          // @ts-ignore
+          price = document.querySelectorAll('div[class="price-product"]')[i].innerText;
+          var priceUpdated = price.replace("€", ".");
+          addHiddenDiv('price', '€ ' + priceUpdated, i);
+          addHiddenDiv('pd_url', URL, i);
+        }
+      } catch (error) {
       }
+
     });
     return await context.extract(productDetails, { transform });
   },
