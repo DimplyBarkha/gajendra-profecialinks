@@ -138,12 +138,13 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="added-manufacturerDesc"]
+    xpath: //div[@id='flix-inpage']//div[contains(@class,'title') or contains(@class,'content') or contains(@class,'Text') or contains(@class,'text')]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //*[@id="productDescription"]//img/@src | //span[contains(text(), "Description")]/parent::*/following-sibling::*//img/@src |  //div[contains(@class, "product-short-description short-description")]/p//img/@src
-    description: Images within the third party description
+    xpath: //div[@id='flix-inpage']//img/@data-flixsrcset
+    regExp: (.+)\s200w
+    regExpReplace: $1
   - name: videos
     singleValue: false
     description: URLs of videos on page
