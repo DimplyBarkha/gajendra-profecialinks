@@ -10,10 +10,10 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     await context.evaluate(async () => {
-      // add rank attribute
-      var brand = document.querySelector('div[class="brand"] a').innerText;
+      // add brandlink
+      let brand = document.querySelector('div[class="brand"] a').innerText;
       brand = brand.replace(' ', '-');
       const element = document.createElement('a');
       element.id = "brandLink";

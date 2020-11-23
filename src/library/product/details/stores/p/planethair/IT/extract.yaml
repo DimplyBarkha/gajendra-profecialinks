@@ -32,16 +32,22 @@ fields:
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
-  xpath: //div[@class="ty-product-block__left"]//input[contains(@name, "[name]")]/@value
+  xpath: //div[@class="ty-product-block__left"]//input[contains(@name, "[name]")]/@value | //h1[@class="ty-product-block-title"]
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
+  type: STRING
   xpath: //div[@class="prices-container price-wrap"]//span[@class="ty-list-price ty-nowrap"]//span[contains(@id, "sec_list_price")]
+  regExp: (\d+)\.(\d+)
+  regExpReplace: $1,$2
   description: The stated undiscounted price for the product
 - name: price
   singleValue: true
-  xpath: //div[@class="ty-product-block__price-actual"]//span[@class="ty-price"]//span[contains(@id, "sec_discounted_price")]/text()
+  type: STRING
+  xpath: //div[@class="ty-product-block__price-actual"]//span[@class="ty-price"]//span[contains(@id, "sec_discounted_price")]
+  regExp: (\d+)\.(\d+)
+  regExpReplace: $1,$2
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
@@ -59,7 +65,7 @@ fields:
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
-  singleValue: false
+  singleValue: true
   xpath: count(//div[@id="content_description"]//ul/li)
   description: Number of ul > li tags in the description
 - name: brandText
@@ -88,6 +94,7 @@ fields:
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
+  xpath: //div[@class="ty-product-block__left"]//input[contains(@name, "[product_id]")]/@value
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
@@ -148,7 +155,7 @@ fields:
   description: URLs of videos on page
 - name: name
   singleValue: true
-  xpath: //div[@class="ty-product-block__left"]//input[contains(@name, "[name]")]/@value
+  xpath: //div[@class="ty-product-block__left"]//input[contains(@name, "[name]")]/@value | //h1[@class="ty-product-block-title"]
   description: The product name
 - name: inStorePrice
   singleValue: true
