@@ -8,55 +8,75 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
+  xpath: //link[@rel="canonical"]/@href
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
 - name: image
+  xpath: //picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src
+  regExp: (.+)
+  regExpReplace: https:$1
   singleValue: true
   description: URL of the main product image
 - name: imageAlt
+  xpath: //img[@class="c-image-gallery__img"]/@alt
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
+  xpath: //picture[@class="c-image-gallery__img"]//img[@class="c-image-gallery__img"]/following::img[@class="c-image-gallery__img"]/@src
+  regExp: (.+)
+  regExpReplace: https:$1
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
+  xpath: //ul[@class="c-breadcrumbs"]/li/a/span[1]
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
+  xpath: //div[@class="c-product-hero__description"]//h1
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
+  xpath: //span[@data-js-action="updateWasPrice"]|//p[@class="o-price"]/span[@data-js-action="updatePrice"]
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
+  xpath: //span[@data-js-action="updatePrice"]
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
+  xpath: //section[contains(@class, "c-filter")]//button[@data-action="add-to-bag"]
+  regExp: (.+)
+  regExpReplace: "In Stock"
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
+  xpath: concat(//article[@id="content1"] , //q[@class="c-self-says__content"])
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
+  xpath: count(//div[@class="c-tabs__copy"]//li)
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
+  xpath: //span[@class="a-txt-brand-name"]/a
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
+  xpath: //span[@class="a-txt-brand-name"]/a
   singleValue: true
   description: Product manufacturer
 - name: quantity
+  xpath: //div[contains(text(), "Quantity")]/following::button[@data-js-action="selectButton"]/text()
   singleValue: true
   description: Quantity as described on the page
 - name: weightNet
@@ -69,9 +89,11 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN)
 - name: sku
+  xpath: //section[@class="c-product-info__sku"]/p[2]/span
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
+  xpath: //section[@class="c-product-info__sku"]/p[2]/span
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
@@ -83,6 +105,9 @@ fields:
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
 - name: legalDisclaimer
+  xpath: //article[@id="content1"]//span
+  regExp: (You must be over.+)
+  regExpReplace: $1
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
@@ -110,9 +135,11 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
+  xpath: count(//div[@class="c-select__dropdown-item-container"]/span)
   singleValue: true
   description: Number of variants listed
 - name: color
+  xpath: //div[contains(text(), "Colour")]/following-sibling::div[@data-js-action="dropdownItemContainer"]/span
   singleValue: true
   description: A textual description of the colour
 - name: colorCode
@@ -128,6 +155,9 @@ fields:
   singleValue: false
   description: URLs of videos on page
 - name: name
+  xpath: //title
+  regExp: (.+) \|
+  regExpReplace: $1
   singleValue: true
   description: The product name
 - name: inStorePrice
@@ -146,6 +176,9 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
+  xpath: //span[@class="a-txt-brand-name"]/a/@href
+  regExp: (.+)
+  regExpReplace: https://www.selfridges.com$1
   singleValue: true
   description: 
 - name: internationalShipping
@@ -230,6 +263,9 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
+  xpath: //article[@id="content1"]//span
+  regExp: Ingredients(.+)Allergen
+  RegExpReplace: $1
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
@@ -243,6 +279,9 @@ fields:
   singleValue: true
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
+  xpath: //article[@id="content1"]//span
+  regExp: Energy(.+Fat)
+  regExpReplace: $1
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
@@ -368,12 +407,21 @@ fields:
   singleValue: true
   description: Guarantee associated with the product
 - name: storage
+  xpath: //article[@id="content1"]//span
+  regExp: Storage Information(.+)Produced
+  regExpReplace: $1
   singleValue: true
   description: Suggested storage location for product
 - name: countryOfOrigin
+  xpath: //article[@id="content1"]//span
+  regExp: Produced(.+)
+  regExpReplace: $1
   singleValue: true
   description: The country from which the product originates
 - name: allergyAdvice
+  xpath: //article[@id="content1"]//span
+  regExp: Allergen Information(.+)Nutritional information
+  regExpReplace: $1
   singleValue: true
   description: Allergy information associated with the product
 - name: recyclingInformation
@@ -395,9 +443,13 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion
+  xpath: //p[@class="cce-discount__discount"]
   singleValue: true
   description: promotion text on product page
 - name: alcoholContent
+  xpath: //article[@id="content1"]//span
+  regExp: ABV(.+%)
+  regExpReplace: $1
   singleValue: true
   description: Alcohol content information
 - name: newVersion
