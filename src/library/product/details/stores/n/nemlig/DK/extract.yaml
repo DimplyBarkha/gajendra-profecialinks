@@ -1,0 +1,90 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@class="slideshow__content"]//img[@class='slideshow__image']/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="slideshow__content"]//img[@class='slideshow__image']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'slideshow__thumbnail-item') and not(contains(@class,'slideshow__thumbnail-item_active'))]//div[@class='slideshow__thumbnail-item-image']/@style
+    # get image from background image URL
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumb']//li//a
+  - name: name
+    singleValue: false
+    xpath: //script[contains(text(),'contentAsJson')]
+    #contentAsJson = 
+    regExp: contentAsJson\s*=\s*(\{.+?\});
+    regExpReplace: $1
+  - name: nameExtended
+    singleValue: false    
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='addtobasket__btn-text' and text()='Læg i kurv']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false        
+  - name: listPrice
+    singleValue: false    
+  - name:  description
+    singleValue: false
+    xpath: //content[contains(@class,'product-detail__description-text')]
+  - name: brandText
+    singleValue: false
+    xpath: //span[@class='product-detail__attribute-key' and contains(text(),'Brand:')]//following-sibling::span
+  - name: variantId
+    singleValue: false
+  - name: sku
+    singleValue: false
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false    
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class="product-detail__declaration"]//h5[contains(@class,'product-detail__declaration-head')]//following-sibling::div
+  - name: specifications
+    singleValue: false
+    xpath: //accordion[@class='product-detail__attributes']//content[@class='product-detail__accordion-content']//div[@class='product-detail__attribute']
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //accordion[@class='product-detail__attributes']//span[contains(text(),'Land')]//following-sibling::span
+  - name: pricePerUnit
+    singleValue: false    
+  - name: alcoholContent
+    singleValue: false
+    xpath: //accordion[@class='product-detail__attributes']//span[contains(text(),'Alkohol')]//following-sibling::span
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //div[@class="product-detail__declaration"]//table//td[text()='Kulhydrat']//following-sibling::td  
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //div[@class="product-detail__declaration"]//table//td[text()='Kostfibre']//following-sibling::td  
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //div[@class="product-detail__declaration"]//table//td[text()='heraf mættede fedtsyrer']//following-sibling::td  
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //div[@class="product-detail__declaration"]//table//td[text()='Protein']//following-sibling::td  
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //div[@class="product-detail__declaration"]//table//td[text()='Fedt']//following-sibling::td  
+  - name: saltPerServing
+    singleValue: false
+    xpath: //div[@class="product-detail__declaration"]//table//td[text()='Salt']//following-sibling::td  
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //div[@class="product-detail__declaration"]//table//td[text()='heraf sukkerarter']//following-sibling::td  
