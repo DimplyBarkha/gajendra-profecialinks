@@ -47,7 +47,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
 
   // find product&seller in cart
   const productSellerFound = async (sellerId, id) => {
-    return await context.evaluate(async ({ a, b }) => {
+    return await context.evaluate(async (a, b) => {
       const productXpath = `//div[@data-asin="${b}" and //*[contains(@href, "${a}")]]/*[1]`;
       const el = document.evaluate(productXpath, document, null, XPathResult.ANY_TYPE, null).iterateNext();
       if (el) {
@@ -55,7 +55,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
         el.parentElement.setAttribute('import', 'element');
         return !!document.querySelector('div[data-asin][import]:not([data-removed])')
       }
-    }, { a: sellerId, b: id });
+    }, sellerId, id);
   };
 
   const artifactCartItems = async () => {
@@ -78,7 +78,10 @@ const getStockFunc = async function ({ context, sellerId, id }) {
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
   if(!sellerId) {
-    sellerId = await context.evaluate(() => document.querySelector('#addToCart  > input#merchantID').value);
+    sellerId = await context.evaluate(() => document.querySelector('#addToCart  > input#ASIN').value);
+  }
+  if(!id) {
+    id = await context.evaluate(() => document.querySelector('#addToCart  > input#merchantID').value);
   }
   await context.click('#add-to-cart-button:not([style*="not-allowed"])');
   await context.waitForNavigation();
