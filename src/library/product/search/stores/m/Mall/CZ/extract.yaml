@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@class="lst-product-item-media"]/@id
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //a[@class="lay-block con-no-decoration"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="lay-block con-no-decoration"]/@href
+    regExp: (/.+)
+    regExpReplace: https://www.mall.cz$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="lst-product-item-media"]/img/@data-src
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //div[@class="lst-product-item-price"]/span/text()
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="rat--small"]
+  # - name: reviewCount
+  #   singleValue: false
+  #   xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
+  - name: rankOrganic
+    singleValue: false
+  - name: rank
+    singleValue: false
+  # - name: soldBy
+  #   singleValue: false
+  #   xpath: //span[@class="marketplaceName_1acI5"]/text()
