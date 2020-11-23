@@ -12,20 +12,15 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-      function addHiddenDiv(id, content, index) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll('div[class="img-wrapper rd-product__image-container"]')[index];
-        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
       }
       const URL = window.location.href;
-      const products = document.querySelectorAll('div[class="img-wrapper rd-product__image-container"]');
-      for (let i = 0; i < products.length; i++) {
-        addHiddenDiv('pd_url', URL, i);
-      }
-
+      addElementToDocument('pd_url', URL);
     });
     return await context.extract(productDetails, { transform });
   },
