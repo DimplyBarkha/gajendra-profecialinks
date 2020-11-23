@@ -22,29 +22,34 @@ module.exports = {
       );
       console.log('tabWithDetails: ' + tabWithDetails);
       // @ts-ignore
-      if(tabWithDetails && tabWithDetails.singleNodeValue) {
+      if (tabWithDetails && tabWithDetails.singleNodeValue) {
         tabWithDetails.singleNodeValue.click();
-      }
-      // @ts-ignore
-      const getProductDetails = [...document.querySelectorAll('.tab-pane.active ul>li')];
-      // const getProductDetails = document.querySelectorAll('ul.b-details-product__list li');
-      const productDetails = [];
-      for (let i = 0; i < getProductDetails.length; i++) {
+
         // @ts-ignore
-        const key = getProductDetails[i].querySelector('.list-item-label') && getProductDetails[i].querySelector('.list-item-label').innerText ? getProductDetails[i].querySelector('.list-item-label').innerText : "";
-        // @ts-ignore
-        const value = getProductDetails[i].querySelector('.list-item-text') && getProductDetails[i].querySelector('.list-item-text').innerText ? getProductDetails[i].querySelector('.list-item-text').innerText : "";
-        const data = key + ' : ' + value;
-        productDetails.push(data);
+        await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+        const getProductDetails = [...document.querySelectorAll('.tab-pane.active ul>li')];
+        // const getProductDetails = document.querySelectorAll('ul.b-details-product__list li');
+        const productDetails = [];
+        for (let i = 0; i < getProductDetails.length; i++) {
+          // @ts-ignore
+          const key = getProductDetails[i].querySelector('.list-item-label') && getProductDetails[i].querySelector('.list-item-label').innerText ? getProductDetails[i].querySelector('.list-item-label').innerText : "";
+          // @ts-ignore
+          const value = getProductDetails[i].querySelector('.list-item-text') && getProductDetails[i].querySelector('.list-item-text').innerText ? getProductDetails[i].querySelector('.list-item-text').innerText : "";
+          const data = key + ' : ' + value;
+          productDetails.push(data);
+        }
+        const details = productDetails.join(' || ');
+        document.body.setAttribute('details', details);
+      } else {
+        console.log("Details section isn't available.")
       }
-      const details = productDetails.join(' || ');
-      document.body.setAttribute('details', details);
+
       // Get productOtherInformation with pipes
       const getOtherInfo = document.querySelectorAll('div.b-composition-product ul li');
       const productInfo = [];
       for (let i = 0; i < getOtherInfo.length; i++) {
         // @ts-ignore
-        if(getOtherInfo[i] && getOtherInfo[i].innerText) {
+        if (getOtherInfo[i] && getOtherInfo[i].innerText) {
           productInfo.push(getOtherInfo[i].innerText.trim());
         }
       }
