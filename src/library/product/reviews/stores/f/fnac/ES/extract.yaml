@@ -26,17 +26,20 @@ fields:
     singleValue: true
     type: DATETIME
     description: Date the review was made
+    xpath: //div[@class="f-reviews-date"]/p
   - name: reviewRating
     type: NUMBER
     singleValue: true
     description: Rating normalized to be out of 5
+    xpath: //span[contains(@class,'f-star f-star--medium')]/font/font
   - name: reviewText
     singleValue: true
     description: The text of the review
+    xpath: //p[@class="f-reviews-txt"]/text()
   - name: reviewTitle
     singleValue: true
     description: The title of the review
-    xpath: //div[contains(@class,"f-reviews-title f-reviews-title--author f-reviews-title--noSpace")]
+    xpath: //h2[@class="f-reviews-title f-reviews-title--name f-reviews-title--noSpace"]/font/font
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
@@ -69,5 +72,6 @@ fields:
     type: TEXT
   - name: aggregateRating
     description: The product rating
-  - name: responseAuthor
+  - name: reviewAuthor
+    xpath: //div[@class='f-reviews-title f-reviews-title--author f-reviews-title--noSpace']/a/font/font
 
