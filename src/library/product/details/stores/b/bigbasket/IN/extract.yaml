@@ -12,13 +12,13 @@ fields:
   - name: imageAlt
     xpath: //div[@id="carousel"]/div[1]/img/@alt
   - name: category
-    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1]/text() |//div[@class="_3moNK"]//span[contains(@class,'rippleEffect')]
+    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1]/text() |//div[@class="_3moNK"]//span[contains(@class,'rippleEffect')] | //div[@class="_28KVX"]//a[contains(@class,'rippleEffect')][position()>1]/text() 
   - name: name
     xpath: //h1
   - name: nameExtended
     xpath: //h1
   - name: price
-    xpath: //td[@data-qa="productPrice"]
+    xpath: //td[@data-qa="productPrice"] | //div[@qa="priceInfo"]//span[@qa="price"]
   - name: listPrice
     xpath: '//div[@id="price"]//td[contains(text(),"MRP: ")]/following-sibling::td'
   - name: availabilityText
@@ -86,6 +86,8 @@ fields:
     xpath: //div[@class="main-template"]//img/@src
   - name: storage
     xpath: //strong[contains(.,"Storage:")]/following-sibling::text()
+  - name: metaKeywords
+    xpath: //meta[contains(@name, "keywords")]/@content
     # //static
   - name: technicalInformationPdfPresent
     defaultValue: No
@@ -99,4 +101,4 @@ fields:
   - name: Image360Present
     defaultValue: No
   - name: imageZoomFeaturePresent
-    defaultValue: No
+    defaultValue: Yes
