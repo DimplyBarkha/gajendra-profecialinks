@@ -1,0 +1,103 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@class='pdp-product__image']//div[contains(@class,'slick-slide') and contains(@class,'slick-active') and contains(@class,'slick-current') and not(contains(@class,'slick-clone')) ]//img[contains(@class,'img-loader__img')]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='pdp-product__image']//div[contains(@class,'slick-slide') and contains(@class,'slick-active') and contains(@class,'slick-current') and not(contains(@class,'slick-clone')) ]//img[contains(@class,'img-loader__img')]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='pdp-product__image']//div[@class='slick-slide']//img[contains(@class,'img-loader__img')]/@src
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='pdp-product__name']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='pdp-product__name']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='pdp-product']//button[@class='add-to-cart__add-btn']//span[@class='add-to-cart__text' and text()='Add To Cart']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[@class='pdp-product__price']//span[contains(@class,'pdp-product__price--new')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='pdp-product__price']//span[@class='pdp-product__price--old']
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Description']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    # separated by <br> tag
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Key Features']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: descriptionBullets
+    singleValue: false
+  - name: brandText
+    singleValue: false
+    xpath: //h2[@class='pdp-product__brand']//a[@class='pdp-product__brand-link']
+  - name: brandLink
+    singleValue: false
+    xpath: //h2[@class='pdp-product__brand']//a[@class='pdp-product__brand-link']/@href
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Manufacturer Details']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Model')]//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: sku
+    singleValue: false
+    # Get from script JSON
+    xpath: //script[contains(text(),'sku') and contains(text(),'availability')]
+  - name: variantId
+    singleValue: false
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="pdp-product"]//span[@class='offer-text']
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Seller']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: specifications
+    singleValue: false
+    # Key Name: Value
+    xpath: //div[@class='product-details']//div[@class='product-attribute__attr']
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Country of Origin']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: packSize
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Unit')]//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='pdp-rating']//span[@class='pdp-rating__score-element']
+  - name: materials
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Material']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Weight')]//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Disclaimer']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Ingredients']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Colour']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Dimensions')]//parent::div//following-sibling::div[@class='product-attribute__attr--description'] | concat(//div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Packed Product Length')]//parent::div//following-sibling::div[@class='product-attribute__attr--description'],'x',//div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Packed Product Width')]//parent::div//following-sibling::div[@class='product-attribute__attr--description'],'x',//div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Packed Product Height')]//parent::div//following-sibling::div[@class='product-attribute__attr--description'])
