@@ -18,7 +18,6 @@ fields:
   - name: descriptionBullets
     singleValue: true
     xpath: //ul[@class="bullet"]
-    type: NUMBER
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -33,14 +32,12 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //tr[@class="ooX-bg-hellgrau"]//td[@class="ooB-w50 ooB-p3 ooX-bg-hellgrau "][2]
-    type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     xpath: //div[@id="rating-overall-detail-wrapper"]/h3
   - name: aggregateRating
     singleValue: true
     xpath: //div[@class="rating-stars-copy"]
-    type: NUMBER
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -48,7 +45,6 @@ fields:
   - name: variantId
     singleValue: true
     description: Number of variants listed
-    type: NUMBER
 
 
 
