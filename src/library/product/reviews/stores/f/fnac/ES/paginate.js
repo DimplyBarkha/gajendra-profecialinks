@@ -16,6 +16,6 @@ module.exports = {
     resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'fnac.es',
-    zipcode: "''",
+    zipcode: '',
   },
 };

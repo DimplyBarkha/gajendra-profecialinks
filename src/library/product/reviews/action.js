@@ -12,7 +12,7 @@ async function implementation (
   context,
   { execute, extract, paginate },
 ) {
-  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = Infinity } = inputs;
+  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 999 } = inputs;
   const id = RPC || SKU || inputs.id;
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
