@@ -33,53 +33,19 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  // var variantLength = await context.evaluate(async () => {
-  //   return (document.querySelectorAll('div.rd__blob img')) ? document.querySelectorAll('div.rd__blob img').length : 0;
-  // });
-  // console.log("variantLength:: ", variantLength);
-  // if (variantLength > 1) {
-  //   for (let j = 0; j < variantLength; j++) {
-  //     await context.evaluate(async (j) => {
-  //       return document.querySelectorAll('div.rd__blob img.rd__img')[j].click();
-  //     }, j);
-  //     console.log('Inside variants', j);
-  //     if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
-  //   }
-  // }
   
   var variantLength = await context.evaluate(async () => {
-    return (document.querySelectorAll('div.rd__product-details.sd__product-details')) ? document.querySelectorAll('div.rd__product-details.sd__product-details').length : 0;
+    return (document.querySelectorAll('div.rd__product-details')) ? document.querySelectorAll('div.rd__product-details').length : 0;
   });
   console.log('Variant Length', variantLength);
-  if (variantLength >= 1) {
+  if (variantLength > 1) {
     for (let j = 1; j < variantLength; j++) {
       await preparePage(j, variantLength, true);
       console.log('Inside variants', j);
-      if (j !== variantLength - 1) { await context.extract(productDetails, { transform }); }
+      if (j !== variantLength-1) { await context.extract(productDetails, { transform }); }
     }
   }
-  // const colorArray = await context.evaluate(async (j) => {
-  //   return document.querySelectorAll('div.rd__blob img').length;
-  // });
-  // if (colorArray) {
-  //   for (let j = 0; j < colorArray; j++) {
-  //     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-  //     await context.evaluate(async (j) => {
-  //       document.querySelectorAll('div.rd__blob img.rd__img')[j].click();
-  //       const value = document.querySelectorAll('div.rd__blob')[j].getAttribute('value');
-  //       document.querySelector('h2.rd__headlline').value = value;
-  //       return document.querySelector('').dispatchEvent(new Event('click'));
-  //     }, j);
-  //     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-  //     await preparePage(j, variantLength, true);
-  //     if (j !== colorArray - 1) {
-  //       await context.extract(productDetails, { transform }, { type: 'APPEND' });
-  //     }
-  //   }
-  // }
-
-
-
+  
   async function preparePage(index, variantLength) {
     await context.evaluate(async (index, variantLength) => {
       function getSingleText(xpath, document, index) {
@@ -100,21 +66,32 @@ async function implementation (
         document.body.appendChild(newDiv);
       }
 
-      const qtyXpath = '//h2[@class="rd__headlline rd__headline--80"]';
+      const qtyXpath = '//h2[contains(@class,"rd__headline--80")]';
       const quantity = getSingleText(qtyXpath, document, index - 1);
       addHiddenDiv('my-qty', quantity);
 
-      const variantIdXpath = '//h2[@class="rd__headlline rd__headline--80"]/@title';
+      const variantIdXpath = '//h2[contains(@class,"rd__headline--80")]/@title';
       const variantId = getSingleText(variantIdXpath, document, index - 1);
       addHiddenDiv('my-variantId', variantId);
+      let variantInf = "";
+      if (variantLength > 2) {
+        const variantInfXpath = '//h2[contains(@class,"rd__headline--80")]';
+        variantInf = getSingleText(variantInfXpath, document, index - 1);
+        addHiddenDiv('my-variantInf', variantInf);
+      }
 
       const priceXpath = '//span[contains(@class,"rd__headline--130")]/text()';
       const price = getSingleText(priceXpath, document, index - 1);
       addHiddenDiv('my-price', price);
 
-      const availabXpath = '//button[@class="rd__back-to-top rd__col--lg-12 rd__product-details__description rd__button rd__button--primary rd__button--md bb__add-chart add2chart"]';
-      const availab = getSingleText(availabXpath, document, index - 1);
+     
+      const availabXpath = '//div[contains(text(),"Descatalogado")] | //div[contains(text(),"No disponible hoy")]';
+      const availab = getSingleText(availabXpath, document, index);
       addHiddenDiv('my-availab', availab);
+
+      const availabXpath1 = '//div[contains(text(),"No disponible hoy")]';
+      const availab1 = getSingleText(availabXpath1, document, index);
+      addHiddenDiv('my-availab1', availab1);
 
       const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")]';
       const listPrice = getSingleText(listPriceXpath, document, index - 1);
@@ -125,7 +102,7 @@ async function implementation (
       const color = getSingleText(colorXpath, document, index - 1);
       addHiddenDiv('my-color', color);
 
-      return [`#qty:${quantity}`, `#variantId:${variantId}`, `#price:${price}`, `#availab:${availab}`, `#color:${color}`, `#listPrice:${listPrice}`];
+      return [`#qty:${quantity}`, `#variantInf:${variantInf}`,`#availab1:${availab1}`, `#availab:${availab}`, `#variantId:${variantId}`,`#price:${price}`, `#color:${color}`, `#listPrice:${listPrice}`]; //
     }, index, variantLength);
   }
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
@@ -134,8 +111,8 @@ async function implementation (
     return (document.querySelectorAll('div.rd__blob img.rd__img')) ? document.querySelectorAll('div.rd__blob img.rd__img').length : 0;
   });
   console.log('Variant Length1', variantLength1);
-  if (variantLength1 >= 1) {
-    for (let j = 0; j < variantLength1; j++) {
+  if (variantLength1 > 1) {
+    for (let j = 1; j < variantLength1; j++) {
       await preparePage1(j, variantLength1);
       console.log('Inside variants1', j);
       if (j !== variantLength1 - 1) { await context.extract(productDetails, { transform }); }
@@ -161,24 +138,30 @@ async function implementation (
         document.body.appendChild(newDiv);
       }
 
-      const qtyXpath = '//h2[@class="rd__headlline rd__headline--80"]';
+      const qtyXpath = '//h2[contains(@class,"rd__headline--80")]';
       const quantity = getSingleText(qtyXpath, document, index);
       addHiddenDiv1('my-qty', quantity);
 
-      const variantIdXpath = '//div[@class="rd__blob"]/img/@alt';
+      const variantIdXpath = '//h2[contains(@class,"rd__headline--80")]/@title';
       const variantId = getSingleText(variantIdXpath, document, index);
       addHiddenDiv1('my-variantId', variantId);
 
       const priceXpath = '//span[contains(@class,"rd__headline--130")]/text()';
       const price = getSingleText(priceXpath, document, index);
       addHiddenDiv1('my-price', price);
+      let variantInf = "";
+      if (variantLength > 2) {
+        const variantInfXpath = '//h2[contains(@class,"rd__headline--80")]';
+        variantInf = getSingleText(variantInfXpath, document, index - 1);
+        addHiddenDiv1('my-variantInf', variantInf);
+      }
 
-      const availabXpath = '//button[@class="rd__back-to-top rd__col--lg-12 rd__product-details__description rd__button rd__button--primary rd__button--md bb__add-chart add2chart"]';
-      const availab = getSingleText(availabXpath, document, index);
+      const availabXpath = '//div[contains(text(),"Descatalogado")] | //div[contains(text(),"No disponible hoy")]';
+      const availab = getSingleText(availabXpath, document, index-1);
       addHiddenDiv1('my-availab', availab);
 
       const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")]';
-      const listPrice = getSingleText(listPriceXpath, document, index - 1);
+      const listPrice = getSingleText(listPriceXpath, document, index );
       addHiddenDiv1('my-listPrice', listPrice);
 
       // //const colorXpath = '//div[@class="rd__product-details__colors__select__collapsible__item rd__col--lg-12"]/@data-rd-color-name';
@@ -186,7 +169,11 @@ async function implementation (
       const color = getSingleText(colorXpath, document, index - 1);
       addHiddenDiv1('my-color', color);
 
-      return [`#variantId1:${variantId}`,  `#color1:${color}`, `#listPrice1:${listPrice}`];
+      const availabXpath1 = '//div[contains(text(),"No disponible hoy")]';
+      const availab1 = getSingleText(availabXpath1, document, index-1);
+      addHiddenDiv1('my-availab1', availab1);
+
+      return [`#variantId1:${variantId}`, `#availab:${availab}`, `#availab1:${availab1}`, `#color1:${color}`, `#listPrice1:${listPrice}`,`#variantInf1:${variantInf}`];
     }, index, variantLength1);
   }
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));

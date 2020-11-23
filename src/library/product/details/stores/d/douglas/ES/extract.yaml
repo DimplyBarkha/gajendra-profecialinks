@@ -28,14 +28,14 @@ fields:
     xpath: //div[@id="my-price"][last()]
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="my-listPrice"][last()] |(//img[@alt="Precio habitual"]/parent::div)[1] | (//img[@alt="Precio habitual"]/parent::span/parent::span)[1]
+    xpath: //div[@id="my-listPrice"][last()]  
   - name: availabilityText
     singleValue: false
-    xpath: //button[@class="rd__back-to-top rd__col--lg-12 rd__product-details__description rd__button rd__button--primary rd__button--md bb__add-chart add2chart"]
-    # xpath: //div[@id="my-availab"][last()]
+    #xpath: //button[contains@class="rd__back-to-top rd__col--lg-12 rd__product-details__description rd__button rd__button--primary rd__button--md bb__add-chart add2chart"]
+    xpath: //div[@id="my-availab"][last()] | //div[@id="my-availab"][last()]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock 
+    regExpReplace: Out of Stock 
+    defaultValue: In Stock
   - name: description
     singleValue: false
     #xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"] | //span[@class="rd__copytext rd__copytext--70"]
@@ -46,9 +46,9 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@id="my-variantId"][last()] 
+    xpath: //div[@id="my-variantId"] [last()]
     #xpath: //div[@class="rd__blob"]/img/@src
-    regExp: \d{7,}
+    regExp: \d{5,}
     # regExpReplace:
   - name: reviewCount
     singleValue: false
@@ -92,10 +92,10 @@ fields:
     singleValue: false
     xpath: //div[@class="sd__vidcontent"]//iframe/@src
   - name: quantity
-    xpath: //div[@id="my-qty"][last()]
+    xpath: //div[@id="my-qty"][last()] 
     regExp: (\d+) (ML|UN|UD|ST)
   - name: variantInformation
-    xpath: //h2[@class="rd__headlline rd__headline--80"][contains(text(),'ML') or contains(text(),'UD') or contains(text(),'UD') or contains(text(),'ST')] 
+    xpath: //div[@id="my-color"][last()] |//div[@id="my-variantInf"][last()] 
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="bv_numReviews_text"]
