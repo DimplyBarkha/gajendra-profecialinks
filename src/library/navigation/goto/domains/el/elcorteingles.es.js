@@ -12,6 +12,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setFirstRequestTimeout(60000);
+    url = url.replace(/^http:\/\//i, 'https://');
 
     const lastResponseData = await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
 
