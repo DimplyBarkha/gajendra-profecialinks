@@ -4,6 +4,8 @@ async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+
   await context.evaluate(async () => {
     const products = document.querySelectorAll('div[class="col-lg-4 col-md-4 col-sm-4 col-xs-6 item card-col"]');
     products.forEach((product, index) => {
