@@ -19,11 +19,12 @@ async function implementation (
       return false;
     }
     const productId = window.location.pathname.match(/[^/]+$/)[0];
-    const API = `${window.location.origin}/api/apps/conversations/query/reviews?ProductId=${productId}&Stats=Reviews`;
+    const API = `${window.location.origin}/apis/services/conversations/review?ProductId=${productId}&Stats=Reviews&sort=SubmissionTime+desc&start=0&rows=5`;
     const response = await fetch(API);
     const data = await response.json();
     const ratingCount = data.ReviewStatistics && (data.ReviewStatistics.RatingsOnlyReviewCount + data.ReviewStatistics.TotalReviewCount);
-    const ratingValue = data.ReviewStatistics && data.ReviewStatistics.AverageOverallRating;
+    let ratingValue = data.ReviewStatistics && data.ReviewStatistics.AverageOverallRating;
+    ratingValue = typeof(ratingValue) === 'string' ? ratingValue.replace(/NaN/g, ""): ratingValue;
     document.body.setAttribute('rating-count', ratingCount);
     document.body.setAttribute('rating-value', (Math.round(ratingValue * 10) / 10).toString());
   }
