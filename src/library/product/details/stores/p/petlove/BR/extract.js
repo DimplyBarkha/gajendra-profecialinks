@@ -25,8 +25,9 @@ module.exports = {
       await context.evaluate(
         async ({ i, variantsTotal }) => {
           const variantElem = document.querySelectorAll('div.box-variants label.radio-button-item > div')[i];
+          const variantObj = window.productJSON.variants[i];
 
-          const allImages = window.productJSON.variants[i].images.filter((image) => !image.large_url.includes('img.youtube.com/vi/'));
+          const allImages = variantObj.images.filter((image) => !image.large_url.includes('img.youtube.com/vi/'));
           const alternateImagesList = document.createElement('ol');
           alternateImagesList.id = 'alternate_images';
           alternateImagesList.style.display = 'none';
@@ -39,7 +40,7 @@ module.exports = {
           }
           variantElem.appendChild(alternateImagesList);
 
-          const allVideos = window.productJSON.variants[i].images.filter((image) => image.large_url.includes('img.youtube.com/vi/'));
+          const allVideos = variantObj.images.filter((image) => image.large_url.includes('img.youtube.com/vi/'));
           const videosList = document.createElement('ol');
           videosList.id = 'videos';
           videosList.style.display = 'none';
@@ -54,6 +55,9 @@ module.exports = {
 
           const brand = document.querySelector('div.breadcrumb li.brand span') ? document.querySelector('div.breadcrumb li.brand span').textContent : '';
           const name = document.querySelector('h1[itemprop="name"]') ? document.querySelector('h1[itemprop="name"]').textContent : '';
+          const nameExtendedArr = [brand, name];
+          if (variantObj.short_name) nameExtendedArr.push(variantObj.short_name);
+
           const listPrice = document.querySelector('div.product-info div:not([class]) div.variant-list-price')
             ? document.querySelector('div.product-info div:not([class]) div.variant-list-price').textContent
             : '';
@@ -63,7 +67,7 @@ module.exports = {
 
           variantElem.setAttribute('product_name', name);
           variantElem.setAttribute('brand', brand);
-          variantElem.setAttribute('name_extended', [brand, name].join(' - '));
+          variantElem.setAttribute('name_extended', nameExtendedArr.join(' - '));
           variantElem.setAttribute('variant_count', variantsTotal);
           variantElem.setAttribute('list_price', listPrice);
           variantElem.setAttribute('price', price);
