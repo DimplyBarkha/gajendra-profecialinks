@@ -284,12 +284,12 @@ fields:
       per 100g serving
     type: STRING
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Fat .+
+    regExp: Fat[ :].+
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Fat .+
+    regExp: Fat[ :].+
   - name: saturatedFatPerServing
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
@@ -336,12 +336,12 @@ fields:
       on per 100g serving
     type: STRING
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Fib[re]{2} .+
+    regExp: Fib[re]{2}[ :].+
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Fib[re]{2} .+
+    regExp: Fib[re]{2}[ :].+
   - name: totalSugarsPerServing
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
@@ -356,60 +356,60 @@ fields:
       100g serving
     type: STRING
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Protein .+
+    regExp: Protein[ :].+
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Protein .+
+    regExp: Protein[ :].+
   - name: vitaminAPerServing
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     type: STRING
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Vitamin A .+
+    regExp: Vitamin A[ :].+
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Vitamin A .+
+    regExp: Vitamin A[ :].+
   - name: vitaminCPerServing
     singleValue: true
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
     type: STRING
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Vitamin C .+
+    regExp: Vitamin C[ :].+
   - name: vitaminCPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin C
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Vitamin C .+
+    regExp: Vitamin C[ :].+
   - name: calciumPerServing
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
     type: STRING
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Calcium .+
+    regExp: Calcium[ :].+
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Calcium .+
+    regExp: Calcium[ :].+
   - name: ironPerServing
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
     type: STRING
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Iron .+
+    regExp: Iron[ :].+
   - name: ironPerServingUom
     singleValue: true
     description: Unit of Measure Data for Iron
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Iron .+
+    regExp: Iron[ :].+
   - name: dietarySymbols
     singleValue: true
     description: Information related to the dietary symbols of a specific product
@@ -419,12 +419,12 @@ fields:
       per 100g serving
     type: STRING
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Magnesium .+
+    regExp: Magnesium[ :].+
   - name: magnesiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Magnesium
     xpath: //li[@id="react-tabs-2"]/@nutritional
-    regExp: Magnesium .+
+    regExp: Magnesium[ :].+
   - name: saltPerServing
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per

@@ -14,45 +14,6 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
 
-    // await context.evaluate(async function () {
-    //   const getdescription = document.querySelector('#react-tabs-0');
-    //   if (getdescription) {
-    //     getdescription.click();
-    //     const descriptions = document.querySelector(
-    //       'div.react-tabs__tab-content > p',
-    //     )
-    //       ? document
-    //         .querySelector('div.react-tabs__tab-content > p')
-    //         .innerText.trim()
-    //       : '';
-    //     document.body.setAttribute('description', descriptions);
-    //   }
-
-    //   const getingredient = document.querySelector('#react-tabs-2');
-    //   if (getingredient) {
-    //     getingredient.click();
-    //     const nutritionalInfo = document.querySelector(
-    //       'div.react-tabs__tab-content > p',
-    //     )
-    //       ? document
-    //         .querySelector('div.react-tabs__tab-content > p')
-    //         .innerText.trim()
-    //       : '';
-    //     document.body.setAttribute('nutritionInfo', nutritionalInfo);
-    //   }
-
-    //   const getdirection = document.querySelector('#react-tabs-4');
-    //   if (getdirection) {
-    //     getdirection.click();
-    //     const direction = document.querySelector('div.react-tabs__tab-content')
-    //       ? document
-    //         .querySelector('div.react-tabs__tab-content')
-    //         .innerText.trim()
-    //       : '';
-    //     document.body.setAttribute('directions', direction);
-    //   }
-    // });
-
     await context.evaluate(async () => {
     // getting data from directions tab
       const directionsTab = document.querySelector('li#react-tabs-4');
@@ -149,6 +110,9 @@ module.exports = {
     const nutritionalInfoFormatter = (path) => {
       if (path) {
         path[0].text = path[0].text.replace(/[^\d.]/g, '');
+        if (path[0].text.indexOf('.') === 0) {
+          path[0].text = path[0].text.slice(1);
+        }
       }
     };
     for (var field in dataRef[0].group[0]) {

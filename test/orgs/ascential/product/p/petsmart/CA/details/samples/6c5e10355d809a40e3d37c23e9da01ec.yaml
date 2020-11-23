@@ -1,0 +1,168 @@
+input:
+  id: 5100179
+  _url: http://petsmart.ca
+extractions:
+  - html: https://workbench.import.io/html/run=13a15be3-038b-49ed-b30d-4968483d753a/task=db33a930-eccf-466b-9ea7-cf7fe8f2f0ca/75354e1e-211d-4a13-ac1d-4d05f3b34693.html
+    extractionConfigId: product/details/stores/p/petsmart/CA/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/royal-canin-feline-health-nutritionandtrade-indoor-7%2B-cat-food-5100179.html
+                xpath: /html/body/link[8]/@href
+            image:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179?$CLEARjpg$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179_alt1?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179_alt2?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179_alt3?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[8]/div[1]/div[1]/img[1]/@src
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5100179_alt4?fit=constrain,1&wid=80&hei=80
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: royal canin® feline health nutrition&trade; indoor 7+ cat food,royal
+                  canin® feline health nutrition&trade; indoor 7+ cat food cat
+                  dry food,royal canin® feline health nutrition&trade; indoor 7+
+                  cat food cat dry food petsmart
+                xpath: /html/head[1]/meta[8]/@content
+            category:
+              - text: cat
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: Food & Treats
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Dry Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]
+            nameExtended:
+              - text: Royal Canin® Feline Health Nutrition™ Indoor 7+ Cat Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            price:
+              - text: $ 26.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/span[1]/text()[1]
+            description:
+              - text: "ROYAL CANIN Feline Health Nutrition Indoor 7+ Cat Food id for indoor cats
+                  7 to 12 years of age. After the age of 7 years, a cat starts
+                  feeling the effects of aging. Kidney function, joints and the
+                  immune system are the first to be affected. Teeth and gums can
+                  also become sensitive making it difficult to chew. Proper
+                  nutrition for aging cats is essential to ensure they live a
+                  long and happy life, and this delicious dry blend provides it.
+                  Supports healthy aging Protects sensitive teeth and gums
+                  Reduces stool odour "
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
+            brandText:
+              - text: Royal Canin
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/a[1]
+            manufacturer:
+              - text: Royal Canin
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/a[1]
+            weightNet:
+              - text: 2.5 lb (1.1 kg)
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/li[3]/p[1]
+            sku:
+              - text: "5100179"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
+            variantId:
+              - text: "5100179"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
+            directions:
+              - text: |-
+                  FEEDING INSTRUCTIONS
+                  Please check the feeding guide in the gallery.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/@directions
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]/div[1]/div[2]/meta[1]/@content
+                type: NUMBER
+                raw: "9"
+                locale: en
+                value: 9
+            aggregateRating:
+              - text: "4.3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            name:
+              - text: Royal Canin® Feline Health Nutrition™ Indoor 7+ Cat Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            ingredientsList:
+              - text: >-
+                  Ingredients:
+
+                  Corn, Barley, Wheat, Chicken Meal, Corn Gluten Meal, Soy Protein Isolate, Natural Flavors, Chicken Fat, Wheat Gluten, Brewers Rice, Dried Plain Beet Pulp, Vegetable Oil, Pea Fiber, Fish Oil, Calcium Sulfate, Rice Hulls, Grain Distillers Dried Yeast, Potassium Chloride, Egg Product, Psyllium Seed Husk, Sodium Silico Aluminate, Sodium Bisulfate, Sodium Pyrophosphate, Fructooligosaccharides, Choline Chloride, Calcium Carbonate, Vitamins [DL-Alpha Tocopherol Acetate (Source Of Vitamin E), L-Ascorbyl-2-Polyphosphate (Source Of Vitamin C), Niacin Supplement, Biotin, Riboflavin Supplement, D-Calcium Pantothenate, Pyridoxine Hydrochloride (Vitamin B6), Vitamin A Acetate, Thiamine Mononitrate (Vitamin B1), Vitamin B12 Supplement, Folic Acid, Vitamin D3 Supplement], Taurine, DL-Methionine, Potassium Citrate, Salt, Trace Minerals [Zinc Proteinate, Zinc Oxide, Ferrous Sulfate, Manganese Proteinate, Manganous Oxide, Copper Sulfate, Calcium Iodate, Copper Proteinate, Sodium Selenite], Glucosamine Hydrochloride, Marigold Extract (Tagetes Erecta L.), Green Tea Extract, L-Carnitine, Chondroitin Sulfate, Rosemary Extract, Preserved With Mixed Tocopherols And Citric Acid
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@ingredients
+            servingSize:
+              - text: /kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
+            servingSizeUom:
+              - text: kg
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
+            caloriesPerServing:
+              - text: 3,587 kcal/kg ME (308 kcal/cup ME)
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@servingsize
+            totalFatPerServing:
+              - text: "11.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+                type: STRING
+            totalFatPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+            dietaryFibrePerServing:
+              - text: "5.5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+                type: STRING
+            dietaryFibrePerServingUom:
+              - text: "%"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+            proteinPerServing:
+              - text: "27.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+                type: STRING
+            proteinPerServingUom:
+              - text: "%"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@nutritional
+            variantInformation:
+              - text: 2.5 Lb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/select[1]/option[1]
+            variants:
+              - text: 2.5 Lb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/select[1]/option[1]
+              - text: 5.5 Lb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/select[1]/option[2]
+              - text: 13 Lb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/select[1]/option[3]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/@zoompresent
+            eangtin:
+              - text: "0030111630315"
+                xpath: /html/body/@gtin
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            descriptionBullets:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            variantCount:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+        xpath: /
+    timestamp: 1605866414802

@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'petsmart.ca',
     prefix: null,
-    url: 'https://www.petsmart.ca/{id}.html',
+    url: 'https://www.petsmart.ca/search/?q={id}',
     country: 'CA',
     store: 'petsmart',
     zipcode: '',
