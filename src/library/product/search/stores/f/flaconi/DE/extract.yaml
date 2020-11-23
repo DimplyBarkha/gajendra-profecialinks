@@ -13,14 +13,12 @@ fields:
     xpath: //div[@class='product-item-box']/a/img/@title
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="product-item-box"]/following::a[1]/@href
-    regExp: (/.+)
-    regExpReplace: https://www.flaconi.de$1
+    xpath: //div[@class="product-item-box"]//a[@data-webtrekk-link-id]/@href
   - name: gtin
     singleValue: true
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='product-item-box']//a//img/@src
+    xpath: //div[@class="product-item-box"]//img/@src
   - name: aggregateRating
     singleValue: true
   - name: reviewCount
