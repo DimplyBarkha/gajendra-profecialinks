@@ -61,6 +61,18 @@ const transform = (data) => {
         row.category = categs;
       }
 
+      if (row.variantInformation) {
+        row.variantInformation.forEach(item => {
+          item.text = item.text.replace(/(\s?\n)+/g, ' , ').trim();
+        });
+      }
+
+      if (row.description) {
+        row.description.forEach(item => {
+          item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
+        });
+      }
+
       if (row.manufacturerImages) {
         let video = [];
         row.manufacturerImages.forEach(item => {

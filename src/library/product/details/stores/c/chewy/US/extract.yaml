@@ -59,8 +59,7 @@ fields:
     regExpReplace: $1
   - name: quantity
     singleValue: false
-    manualSelector: div.cw-form-button-toggle__wrapper label span:last-child
-    # xpath: //label[@id="variation-Size__label"]/following-sibling::span
+    xpath: //div[@id="my-variantId"][last()]
     # xpath: (//div[@class="cw-form-button-toggle__wrapper"]//label[@aria-checked="true"]/span[position()=2])[last()]
     # xpath: //label[contains(text(),"Size")]/following-sibling::span/text()
   - name: weightNet
@@ -79,9 +78,10 @@ fields:
     xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: false
-    xpath: //script[contains(text(),"rootCategoryId")] 
-    regExp: productId\W\s([^,]+)
-    regExpReplace: $1 
+    xpath: //meta[@itemprop="sku"]/@content
+    # xpath: //script[contains(text(),"rootCategoryId")] 
+    # regExp: productId\W\s([^,]+)
+    # regExpReplace: $1 
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -118,7 +118,7 @@ fields:
     xpath: count(//div[@role="radiogroup"]/div)
   - name: color
     singleValue: false
-    description: A textual description of the colour
+    xpath: //div[@id="my-color"][last()] | //label[contains(text(),"Color")]/../span
   - name: firstVariant
     singleValue: false
     xpath: //div[@role="radiogroup"]/div[1]/@data-qe-id
@@ -328,10 +328,10 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
-    # xpath: //div[@id="my-variantInf"][last()] 
+    xpath: //div[@id="my-variantId"][last()]
     # xpath: //label[@class="cw-form-button-toggle__label"]/span[@class=""]
-    # xpath: //label[@class="cw-form-button-toggle__label"][@aria-checked="true"]/span[@class=""][last()]
-    xpath: //div[@class="cw-form-button-toggle__wrapper"]//label[@aria-checked="true"]/span[position()=2]
+    # xpath: //label[@class="cw-form-button-toggle__label"][@aria-checked="true"]/span[@class=""][last()] //div[@id="my-variantId"] |
+    #xpath: //div[@class="cw-form-button-toggle__wrapper"]//label[@aria-checked="true"]/span[position()=2]
   - name: variants
     singleValue: false
     xpath: //div[@role="radiogroup"]/div/@data-qe-id
