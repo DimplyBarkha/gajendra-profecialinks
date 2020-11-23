@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="ln-c-card pt"]/@data-test-id
+    # type: NUMBER
+    regExp: \d+
+    # regExpReplace: ''
+  - name: name
+    singleValue: false
+    xpath: //html//div[@id="aggregateRating"]

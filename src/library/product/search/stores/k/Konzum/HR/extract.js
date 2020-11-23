@@ -1,12 +1,11 @@
-const { transform } = require('../../../../shared');
-// const { cleanUp } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'uk',
-    store: 'sainsburys',
-    transform: transform,
-    domain: 'sainsburys.co.uk',
+    country: 'HR',
+    store: 'Konzum',
+    transform: null,
+    domain: 'konzum.hr',
     zipcode: '',
   },
   implementation,
@@ -51,19 +50,10 @@ async function implementation(
       addHiddenDiv('rankOrganic', rankOrganic++, i);
     }
     let firstChildNode;
-    const aggregateRating = document.querySelectorAll("div[class='star-rating']")
+    const aggregateRating = document.querySelectorAll("span[class='stars']")
     for (let k = 0; k < aggregateRating.length; k++) {
-      let secondChildNode, thirdChildNode = 0;
-      firstChildNode = aggregateRating[k].childNodes;
-      for (let j = 0; j < firstChildNode.length; j++) {
-        secondChildNode = firstChildNode[j].firstChild;
-        // @ts-ignore
-        if (secondChildNode.childNodes.length) {
-          // @ts-ignore
-          thirdChildNode = thirdChildNode + secondChildNode.firstChild.firstChild.width.animVal.value;
-        }
-      }
-      addHiddenDiv('aggregateRating', thirdChildNode, k);
+      firstChildNode = aggregateRating[k].getElementsByClassName('fas fa-star is-active').length
+      addHiddenDiv('aggregateRating', firstChildNode, k);
     }
   });
   //rank end
