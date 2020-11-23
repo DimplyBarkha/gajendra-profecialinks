@@ -137,26 +137,31 @@ const transform = (data) => {
               item.text = "https://www.globus.ch" + item.text.replace(/(\s*width=600\s*)+/g, 'width=1000').trim();
           });
         }
+        let size_variant = [];
         if (row.gtin) {
           let gtn_id = '';
           row.gtin.forEach(item => {
             var matches = /\s*__NEXT_DATA__\s*=\s*(.*)\;\s*__NEXT_LOADED_PAGES/isg.exec(item.text);              
+            item.text = '';
             if (matches){
-              item.text = matches[1];
+              let item_text = matches[1];
               try {
-                let j_data = JSON.parse(item.text);
+                let j_data = JSON.parse(item_text);
                 let p_ean = '';
                 if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'] && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'] != null  && j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'].length>0){
                   j_data['props']['initialStoreState']['detail']['product']['summary']['sizes'].forEach(p_size => {
                     if (p_sku == p_size['sku'] && p_size['eans'] && p_size['eans'].length > 0){
                       p_ean = p_size['eans'][0];                        
                     }
+                    if (p_size['value'] && p_size['value'] != null){
+                      size_variant.push(p_size['value']);
+                    }                    
                   });
                   if (p_ean != ''){
                     item.text = p_ean;
                     gtn_id = p_ean;
-                  }                    
-                }                  
+                  }
+                }
               } catch (error) {                  
                 console.log("gtn json error");
               }
@@ -171,10 +176,11 @@ const transform = (data) => {
           let colors = [];
           row.variants.forEach(item => {            
             var matches = /\s*__NEXT_DATA__\s*=\s*(.*)\;\s*__NEXT_LOADED_PAGES/isg.exec(item.text);              
-            if (matches){
-              item.text = matches[1];
+            item.text = '';
+            if (matches){              
+              let item_text = matches[1];
               try {
-                let j_data = JSON.parse(item.text);
+                let j_data = JSON.parse(item_text);
                 let p_ean = '';
                 if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['variants'] && j_data['props']['initialStoreState']['detail']['product']['summary']['variants'] != null && j_data['props']['initialStoreState']['detail']['product']['summary']['variants'].length>0){
                   j_data['props']['initialStoreState']['detail']['product']['summary']['variants'].forEach(p_variants => {
@@ -182,8 +188,8 @@ const transform = (data) => {
                       info.push(p_variants['id']);
                     }
                     
-                    if (p_variants['name']){
-                      colors.push(p_variants['name']);
+                    if (p_variants['color'] != null && p_variants['color']['value']){
+                      colors.push(p_variants['color']['value']);
                     }
                   });
                   if (info.length > 0){
@@ -195,7 +201,8 @@ const transform = (data) => {
               }
             }            
           });
-          if (colors.length>0){
+          if (colors.length>0 || size_variant.length>0){
+            colors.push(...size_variant);
             row.variantInformation = [{"text": colors.join(' | '), "xpath": row.variants[0]["xpath"]}];
           }
           if (info.length>0){
