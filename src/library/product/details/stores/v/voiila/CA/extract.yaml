@@ -1,0 +1,28 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath:  null
+fields:
+  - name: shownImages
+    xpath: //a[@class='image']/@href
+  - name: nameExtended
+    xpath: //h1
+  - name: price
+    xpath: //div[contains(@class,'box__Box')]//span[contains(text(),'$')]
+  - name: availabilityText
+    xpath: //div[contains(@class,'box__Box')]//button[contains(text(),"Add")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //h2[contains(text(),"Product Information")]/following-sibling::div[1]
+  - name: brandText
+    xpath: //h2[contains(text(),"Brand")]/following-sibling::div
+  - name: sku
+    xpath: //body/@sku
+  - name: productUrl
+    xpath: //body/@url
+  - name: caloriesPerServing
+    xpath: //b[contains(text(),"Calories")]/parent::td/text()
+  - name: nutritionInfo
+    xpath: //h2[contains(text(),"Nutritional Information")]/following-sibling::div[1]
