@@ -75,9 +75,14 @@ const transform = (data) => {
         row.imageAlt = row.nameExtended;
       }
 
-      if (!row.nameExtended && row.nameExtendedFromH4) {
-        row.nameExtended = row.nameExtendedFromH4;
-        row.name = row.nameExtendedFromH4;
+      // if (!row.nameExtended && row.nameExtendedFromH4) {
+      //   row.nameExtended = row.nameExtendedFromH4;
+      //   row.name = row.nameExtendedFromH4;
+      // }
+
+      if (!row.variantInformation && row.simpleColor) {
+        row.variantInformation = row.simpleColor;
+        row.color = row.simpleColor;
       }
     }
   }

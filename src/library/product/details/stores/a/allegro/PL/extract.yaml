@@ -10,9 +10,9 @@ fields:
   - name: category
     xpath: //div[contains(@data-role, 'breadcrumbs-list')]//div[contains(@data-role, 'breadcrumb-item') and position() > 1]/a
   - name: nameExtended
-    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"]
+    xpath: //meta[@property='og:title']/@content
   - name: name
-    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1 | //strong[@itemprop="name"]
+    xpath: //meta[@property='og:title']/@content
   - name: nameExtendedFromH4
     xpath: //div[@data-box-name='productRatingInfo']//h4
   - name: price
@@ -105,3 +105,7 @@ fields:
     xpath: //div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick" and not(contains(@class, '_9a071_28K5N '))]/@data-analytics-click-custom-offer-id-variant
   - name: variantCount 
     xpath: count(//div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick" and not(contains(@class, '_9a071_28K5N '))])
+  - name: simpleColor
+    xpath: //li//div[contains(., 'Kolor')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Kolor')]/following-sibling::dd
+  - name: quantity
+    xpath: //li//div[contains(., 'Rozmiar')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Rozmiar')]/following-sibling::dd
