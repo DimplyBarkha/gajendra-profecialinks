@@ -17,6 +17,9 @@ async function implementation (inputs, parameters, context, dependencies) {
       // @ts-ignore
       product.setAttribute('id', productIdArr[index]);
 
+      // set productUrl
+      const prefixUrl = 'https://articulo.mercadolibre.com.ar/MLA-';
+      product.setAttribute('productUrl', prefixUrl.concat(productIdArr[index].match(/\d+/)[0]));
       // set rank
       product.setAttribute('rank', (index + 1).toString());
       // set soldBy

@@ -5,16 +5,16 @@ recordXPath: //li[contains(@class,'layout__item')]
 fields:
   - name: id
     singleValue: false
-    xpath: //@id
+    xpath: //li[contains(@class,'layout__item')]/@id
   - name: searchUrl
     singleValue: true
-    xpath: //@searchurl
+    xpath: //li[contains(@class,'layout__item')]/@searchurl
   - name: name
     singleValue: false
     xpath: //h2[contains(@class, 'title')]
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class, 'ui-search-item__group')]/@href
+    xpath: //li[contains(@class,'layout__item')]/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -35,7 +35,7 @@ fields:
     singleValue: true
   - name: soldBy
     singleValue: true
-    xpath: //@soldby
+    xpath: //li[contains(@class,'layout__item')]/@soldby
   - name: endorsementText
     singleValue: false
   - name: rank
