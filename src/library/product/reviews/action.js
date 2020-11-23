@@ -8,45 +8,37 @@
  */
 async function implementation (
   inputs,
-  parameters,
+  { mergeType, zipcode },
   context,
-  dependencies,
+  { execute, extract, paginate },
 ) {
-  let { URL, RPC, SKU, date = null, days = 30, results = Infinity } = inputs;
-  const { execute, extract, paginate } = dependencies;
-  const { mergeType, zipcode } = parameters;
-  const url = URL;
-  const id = (RPC) || ((SKU) || inputs.id);
+  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = Infinity } = inputs;
+  const id = RPC || SKU || inputs.id;
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-  const resultsReturned = await execute({ url, id, zipcode, date, days, context });
+  const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
+  console.log(`Date Limit: "${date}"`);
+
+  const resultsReturned = await execute({ url, id, zipcode, date, days });
+
   if (!resultsReturned) {
     console.log('No results were returned');
     return;
   }
-  if (!date && days) {
-    date = new Date().setDate(new Date().getDate() - days);
-  }
-  date = new Date(date);
-  console.log('Date Limit: ', date);
-  const pageOne = await extract({ date, results });
-  let collected = length(pageOne.data);
 
-  console.log('Got initial number of results', collected);
+  const pageOne = await extract({});
+  let collected = length(pageOne);
+
+  console.log(`Got initial number of results: ${collected}`);
 
   // check we have some data
-  if (collected === 0 || pageOne.stop) {
-    return;
-  }
+  if (collected === 0) return;
 
   let page = 2;
   while (results > collected && await paginate({ id, page, offset: collected, date })) {
-    const { data, stop } = await extract({ date, results });
+    const data = await extract({});
     const count = length(data);
-    if (count === 0 || stop) {
-      // no results
-      break;
-    }
+    if (count === 0) break; // no results
     collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
     console.log('Got more results', collected);
     page++;
@@ -118,7 +110,7 @@ module.exports = {
   dependencies: {
     execute: 'action:product/reviews/execute',
     extract: 'action:product/reviews/extract',
-    paginate: 'action:product/reviews/paginate',
+    paginate: 'action:navigation/paginate',
   },
   path: './reviews/stores/${store[0:1]}/${store}/${country}/reviews',
   implementation,
