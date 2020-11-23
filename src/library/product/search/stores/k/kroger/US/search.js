@@ -5,6 +5,5 @@ module.exports = {
     country: 'US',
     store: 'kroger',
     domain: 'kroger.com',
-    zipcode: '45209',
   },
 };

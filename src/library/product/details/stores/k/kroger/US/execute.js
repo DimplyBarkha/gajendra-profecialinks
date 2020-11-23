@@ -1,10 +1,9 @@
-
-async function implementation (
+const implementation = async (
   inputs,
   parameters,
   context,
   dependencies,
-) {
+) => {
   let { url, id, zipcode } = inputs;
 
   if (!url) {
@@ -15,7 +14,6 @@ async function implementation (
   }
   await dependencies.goto({ url, zipcode });
 
-  // Check if no items found, after all zip code logic
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
@@ -29,7 +27,7 @@ async function implementation (
     console.log(e);
     return !e;
   }, parameters.noResultsXPath);
-}
+};
 
 module.exports = {
   implements: 'product/details/execute',
@@ -37,8 +35,9 @@ module.exports = {
     country: 'US',
     store: 'kroger',
     domain: 'kroger.com',
-    loadedSelector: 'div.ProductCard-promoContainer',
-    noResultsXPath: 'p.no-query-results.heading-l.font-medium.mt-0',
+    // loadedSelector: 'div[data-qa="featured-product-tag"]', // 'div.ProductCard-promoContainer', the is the xpath of the featured tag in "you might also like section"
+    loadedSelector: 'div[class*="ProductCard"][data-qa*="product-card"] div[data-qa*="cart-page-item-image"] img',
+    noResultsXPath: "//p[@class='no-query-results heading-l font-medium mt-0'] | //span[contains(text(),'Please come back later')] | //*[not(ancestor::div[@id='product_similar'])]/h2[contains(text(),'currently no items to display')]",
   },
   implementation,
 };

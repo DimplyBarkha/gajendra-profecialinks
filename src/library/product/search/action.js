@@ -40,8 +40,13 @@ module.exports = {
       type: 'number',
     },
     {
-      name: 'Brands',
-      description: 'brands to search for',
+      name: 'zipcode',
+      description: 'to set location',
+      type: 'string',
+    },
+    {
+      name: 'url',
+      description: 'input category url',
       type: 'string',
     },
   ],
@@ -51,16 +56,17 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    let { keywords, Keywords, results, Brands } = inputs;
-    results = 150;
+  implementation: async ({ url, URL, keywords, Keywords, Brands, results = 150, zipcode }, parameters, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
-    zipcode = inputs.zipcode || zipcode;
-    keywords = (Keywords) || (keywords) || (Brands);
+
+    url = (url) || (URL);
+    keywords = (Keywords) || (Brands) || (keywords);
+    zipcode = zipcode || parameters.zipcode;
     console.log('zip:' + zipcode);
 
-    const resultsReturned = await execute({ keywords, zipcode });
+    const resultsReturned = await execute({ keywords, url, zipcode });
+    console.log(`resultsReturned ${resultsReturned}`);
 
     // do the search
 
