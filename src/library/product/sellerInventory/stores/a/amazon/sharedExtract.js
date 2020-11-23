@@ -47,7 +47,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
 
   // find product&seller in cart
   const productSellerFound = async (sellerId, id) => {
-    return await context.evaluate(async (a, b) => {
+    return await context.evaluate(async ({ a, b }) => {
       const productXpath = `//div[@data-asin="${b}" and //*[contains(@href, "${a}")]]/*[1]`;
       const el = document.evaluate(productXpath, document, null, XPathResult.ANY_TYPE, null).iterateNext();
       if (el) {
@@ -55,7 +55,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
         el.parentElement.setAttribute('import', 'element');
         return !!document.querySelector('div[data-asin][import]:not([data-removed])')
       }
-    }, sellerId, id);
+    }, { a: sellerId, b: id });
   };
 
   const artifactCartItems = async () => {
