@@ -38,7 +38,7 @@ const transform = (data) => {
         }
         if (row.specifications) {
           let specifications_ar = [];
-          row.description.forEach(item => {
+          row.specifications.forEach(item => {
             specifications_ar.push(item.text);
           });
           if (specifications_ar.length) {
@@ -51,14 +51,12 @@ const transform = (data) => {
         if (row.category) {
           let info = [];
           row.category.forEach(item => {
-            info.push(item.text.trim());
+            item.text = item.text.replace(/\s*/g, '').trim();
+            item.text = item.text.replace("DefaultCategory/Octwenty20Discounts/", '');
+            item.text = 'c'+item.text;
+            item.text = item.text.slice(1,-1);
+            info.push({ "text": item.text});
           });
-          if (info.length) {
-            row.category = [];
-            info.forEach(item => {
-              row.category.push({ "text": item});
-            });
-          }
         }
       }
     }
