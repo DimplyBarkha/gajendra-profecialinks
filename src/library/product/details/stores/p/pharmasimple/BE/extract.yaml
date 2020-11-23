@@ -30,7 +30,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //div[contains(@class, "breadcrumb")]/a
+  xpath: //div[@class="breadcrumb clearfix"]/a/@category
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -117,7 +117,7 @@ fields:
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //span[@class="ratingValue"]
+  xpath: //span[@class="ratingValue"]/@rating
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product

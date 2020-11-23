@@ -12,6 +12,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       document.body.appendChild(div);
     }
 
+    // Add quantity
     const title = document.querySelector('h1[itemprop="name"]')
       ? document.querySelector('h1[itemprop="name"]').textContent
       : null;
@@ -19,7 +20,26 @@ async function implementation (inputs, parameters, context, dependencies) {
       const regExp = /\d+\s?\w+/g;
       const quantity = [...title.matchAll(regExp)];
 
-      addElementToDom(quantity.pop(), 'quantity');
+      if (quantity) {
+        addElementToDom(quantity.pop(), 'quantity');
+      }
+    }
+
+    // filter breadcrumbs
+    const breadcrumps = document.querySelectorAll(
+      'div[class="breadcrumb clearfix"] a');
+    breadcrumps.forEach((element, index) => {
+      if (index > 0) {
+        element.setAttribute('category', element.textContent);
+      }
+    });
+
+    // Convert rating
+    var rating = document.querySelector('span[class="ratingValue"]');
+    if (rating) {
+      rating.setAttribute(
+        'rating',
+        rating.textContent.replace('.', ','));
     }
   });
 
