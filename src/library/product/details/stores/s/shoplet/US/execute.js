@@ -18,7 +18,18 @@ async function implementation (
     }
     url = await dependencies.createUrl({ id });
   }
-  await dependencies.goto({ url, zipcode, storeId });
+  //await dependencies.goto({ url, zipcode, storeId });
+  await dependencies.goto({ 
+    url, zipcode: inputs.zipcode,
+    firstRequestTimeout: 60000,
+    timeout: 60000,
+    waitUntil: 'load',
+    checkBlocked: false,
+    antiCaptchaOptions: {
+      type: 'RECAPTCHA',
+    },
+   });
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -39,5 +50,5 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
-  implementation
+  implementation,
 };
