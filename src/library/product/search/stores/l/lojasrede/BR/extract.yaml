@@ -5,7 +5,10 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="linx-wrapper-buy-button"]//a/@data-pid
+    xpath: //a[@title="Ir para a próxima página"]/@href
+  # - name: id
+  #   singleValue: false
+  #   xpath: //div[@class="linx-wrapper-buy-button"]//a/@data-pid
   - name: name
     singleValue: false
     xpath: //a[@class="nm-product-name"]
