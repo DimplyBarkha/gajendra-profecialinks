@@ -135,7 +135,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: (//div[@class="media-wrapper"]/img[@srcset]/@alt)[1]
+    xpath: //div[contains(@class,"product-title")]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count((//div[@class="media-wrapper"]/img[@srcset]/@src)[position()>1])
