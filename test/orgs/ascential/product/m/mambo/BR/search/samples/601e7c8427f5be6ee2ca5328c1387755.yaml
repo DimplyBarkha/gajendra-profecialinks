@@ -2,7 +2,7 @@ input:
   keywords: 355ml
   _url: http://mambo.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=f6686229-82f9-42db-9779-d711cd466c8d/task=6e94741b-0c79-445e-ba3f-75f25471491f/91821bbc-abf1-4f46-81e9-c15ccb18cd1b.html
+  - html: https://workbench.import.io/html/run=b35e12c5-ce15-4f96-8146-a063e178b4ad/task=52c56c99-d559-4163-8b18-61b745ffc8f3/a8b5b2ad-7d61-4642-a030-251b741f8941.html
     extractionConfigId: product/search/stores/m/mambo/BR/extract
     data:
       - group:
@@ -18,8 +18,12 @@ extractions:
             gtin:
               - text: "257592"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v5386279340511452507/products/257592_1_CERVEJA
+                  LAGUNITAS IPA 355ML.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
               - text: "0"
@@ -59,8 +63,12 @@ extractions:
             gtin:
               - text: "257343"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6806802387868667365/products/257343_1_CERVEJA
+                  CORUJA LAGER 355ML.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
               - text: "0"
@@ -100,8 +108,12 @@ extractions:
             gtin:
               - text: "261120"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4598850837021318986/products/261120_1_CERVEJA
+                  SESSION IPA CORUJA 355ML.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
               - text: "0"
@@ -141,8 +153,11 @@ extractions:
             gtin:
               - text: "230131"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2537930791801714129/products/230131.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
               - text: "0"
@@ -171,31 +186,30 @@ extractions:
                 locale: pt_BR
                 value: 4
           - id:
-              - text: "230130"
+              - text: "261961"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[1]/a[1]/@href
             name:
-              - text: Refresco Natural de Manga Joy 355ml
+              - text: Cerveja Session IPA Eisenbahn 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/refresco-natural-de-manga-joy-355ml/p/230130
+              - text: https://www.mambo.com.br/cerveja-session-ipa-eisenbahn-355ml/p/261961
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[1]/a[1]/@href
             gtin:
-              - text: "230130"
+              - text: "261961"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4552002907920633998/products/261961_1_CERVEJA
+                  EISENBAHN SESSION IPA
+                  355ML.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[3]/a[1]/div[3]/div[2]
-            reviewCount:
-              - text: "0"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
-            ratingCount:
-              - text: "0"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 8,90
+              - text: R$ 4,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Joy
+              - text: Eisenbahn
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[3]/a[1]/div[1]
             rank:
               - text: "5"
@@ -212,19 +226,22 @@ extractions:
                 locale: pt_BR
                 value: 5
           - id:
-              - text: "230129"
+              - text: "230130"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/a[1]/@href
             name:
-              - text: Refresco Natural de Maçã Joy 355ml
+              - text: Refresco Natural de Manga Joy 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/refresco-natural-de-maca-joy-355ml/p/230129
+              - text: https://www.mambo.com.br/refresco-natural-de-manga-joy-355ml/p/230130
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/a[1]/@href
             gtin:
-              - text: "230129"
+              - text: "230130"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7683099410642738766/products/230130.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
               - text: "0"
@@ -253,25 +270,28 @@ extractions:
                 locale: pt_BR
                 value: 6
           - id:
-              - text: "230123"
+              - text: "230129"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/a[1]/@href
             name:
-              - text: Refresco Natural de Blueberry Joy Berries 355ml
+              - text: Refresco Natural de Maçã Joy 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/refresco-natural-blueberry-joy-berries-355ml/p/230123
+              - text: https://www.mambo.com.br/refresco-natural-de-maca-joy-355ml/p/230129
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/a[1]/@href
             gtin:
-              - text: "230123"
+              - text: "230129"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7774654855256220871/products/230129.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "5.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "1"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "1"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
               - text: R$ 8,90
@@ -294,31 +314,34 @@ extractions:
                 locale: pt_BR
                 value: 7
           - id:
-              - text: "135509"
+              - text: "230123"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Brahma Malzbier Long Neck 355ml
+              - text: Refresco Natural de Blueberry Joy Berries 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-nacional-brahma-malzbier-long-neck-355ml/p/135509
+              - text: https://www.mambo.com.br/refresco-natural-blueberry-joy-berries-355ml/p/230123
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[1]/a[1]/@href
             gtin:
-              - text: "135509"
+              - text: "230123"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6202080315654050344/products/230123.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "5.00"
+              - text: 5,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "2"
+              - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "2"
+              - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 3,99
+              - text: R$ 8,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Brahma
+              - text: Joy
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[3]/a[1]/div[1]
             rank:
               - text: "8"
@@ -335,31 +358,34 @@ extractions:
                 locale: pt_BR
                 value: 8
           - id:
-              - text: "156839"
+              - text: "135509"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Eisenbahn Weizenbier Long Neck 355ml
+              - text: Cerveja Brahma Malzbier Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-nacional-weizenbock-eisenbahn-long-neck-355ml/p/156839
+              - text: https://www.mambo.com.br/cerveja-nacional-brahma-malzbier-long-neck-355ml/p/135509
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[1]/a[1]/@href
             gtin:
-              - text: "156839"
+              - text: "135509"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v258458729893047607/products/135509_Cerveja-Nacional-Brahma-Malzbier-Long-Neck-355ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 5,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "0"
+              - text: "2"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "0"
+              - text: "2"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 4,99
+              - text: R$ 3,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Eisenbahn
+              - text: Brahma
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[3]/a[1]/div[1]
             rank:
               - text: "9"
@@ -376,31 +402,30 @@ extractions:
                 locale: pt_BR
                 value: 9
           - id:
-              - text: "243781"
+              - text: "261906"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Argentina Weisse Patagonia Long Neck 355ml
+              - text: Cerveja Witbier Straat Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-argentina-weisse-patagonia-long-neck-355ml/p/243781
+              - text: https://www.mambo.com.br/cerveja-witbier-straat-long-neck-355ml/p/261906
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[1]/a[1]/@href
             gtin:
-              - text: "243781"
+              - text: "261906"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v5061822407731204523/products/261906_1_CERVEJA
+                  STRAAT LONG NECK 355ML
+                  WITBIER.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "4.30"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[3]/a[1]/div[3]/div[2]
-            reviewCount:
-              - text: "3"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
-            ratingCount:
-              - text: "3"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
               - text: R$ 9,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Patagonia
+              - text: Straat
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[3]/a[1]/div[1]
             rank:
               - text: "10"
@@ -417,19 +442,23 @@ extractions:
                 locale: pt_BR
                 value: 10
           - id:
-              - text: "255417"
+              - text: "156839"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Estrella Galícia Long Neck 355ml
+              - text: Cerveja Eisenbahn Weizenbier Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-estrella-galicia-long-neck-355ml/p/255417
+              - text: https://www.mambo.com.br/cerveja-nacional-weizenbock-eisenbahn-long-neck-355ml/p/156839
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[1]/a[1]/@href
             gtin:
-              - text: "255417"
+              - text: "156839"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3658922762218013535/products/156839_1_Cerveja
+                  Eisenbahn Long Neck 355ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
               - text: "0"
@@ -438,10 +467,10 @@ extractions:
               - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 4,65
+              - text: R$ 4,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Estrella Galícia
+              - text: Eisenbahn
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[3]/a[1]/div[1]
             rank:
               - text: "11"
@@ -458,31 +487,34 @@ extractions:
                 locale: pt_BR
                 value: 11
           - id:
-              - text: "255079"
+              - text: "243781"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Americana Anchor Baykeeper Ipa 355ml
+              - text: Cerveja Argentina Weisse Patagonia Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-americana-anchor-baykeeper-ipa-355ml/p/255079
+              - text: https://www.mambo.com.br/cerveja-argentina-weisse-patagonia-long-neck-355ml/p/243781
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[1]/a[1]/@href
             gtin:
-              - text: "255079"
+              - text: "243781"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v430573735053473908/products/243781_CERV-PATAGONIA-LN-355ML-WEISS.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 4,30
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "0"
+              - text: "3"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "0"
+              - text: "3"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 26,90
+              - text: R$ 9,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Anchor Brewing
+              - text: Patagonia
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[3]/a[1]/div[1]
             rank:
               - text: "12"
@@ -499,19 +531,23 @@ extractions:
                 locale: pt_BR
                 value: 12
           - id:
-              - text: "230127"
+              - text: "255417"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[1]/a[1]/@href
             name:
-              - text: Refresco Natural de Frutas Vermelhas Joy 355ml
+              - text: Cerveja Estrella Galícia Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/refresco-natural-de-frutas-vermelhas-joy-355ml/p/230127
+              - text: https://www.mambo.com.br/cerveja-estrella-galicia-long-neck-355ml/p/255417
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[1]/a[1]/@href
             gtin:
-              - text: "230127"
+              - text: "255417"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6220570967022845265/products/255417_CERV
+                  ESTREL GALICIA LN 355ML.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
               - text: "0"
@@ -520,10 +556,10 @@ extractions:
               - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 8,90
+              - text: R$ 4,65
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Joy
+              - text: Estrella Galícia
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[3]/a[1]/div[1]
             rank:
               - text: "13"
@@ -540,31 +576,36 @@ extractions:
                 locale: pt_BR
                 value: 13
           - id:
-              - text: "154647"
+              - text: "255079"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Eisenbahn Pilsen Long Neck 355ml
+              - text: Cerveja Americana Anchor Baykeeper Ipa 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-nacional-pilsen-eisenbahn-long-neck-355ml/p/154647
+              - text: https://www.mambo.com.br/cerveja-americana-anchor-baykeeper-ipa-355ml/p/255079
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[1]/a[1]/@href
             gtin:
-              - text: "154647"
+              - text: "255079"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7018980602400691799/products/255079_1_CERV
+                  AME ANCHOR GF 355ML BAYKEEPER
+                  IPA.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "5.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "5"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "5"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 4,19
+              - text: R$ 26,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Eisenbahn
+              - text: Anchor Brewing
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[3]/a[1]/div[1]
             rank:
               - text: "14"
@@ -581,31 +622,34 @@ extractions:
                 locale: pt_BR
                 value: 14
           - id:
-              - text: "256635"
+              - text: "244148"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Prius Prime Kolsch Garrafa 355ml
+              - text: Cerveja Eisenbahn American Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-prius-prime-kolsch-garrafa-355ml/p/256635
+              - text: https://www.mambo.com.br/cerveja-eisenbahn-american-long-neck-355ml/p/244148
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[1]/a[1]/@href
             gtin:
-              - text: "256635"
+              - text: "244148"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3416084218085717345/products/244148_CERV-NAC-EISENBAHN-AMERICAN-LN355ML.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 4,70
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "0"
+              - text: "3"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "0"
+              - text: "3"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 7,99
+              - text: R$ 4,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Kolsch
+              - text: Eisenbahn
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[3]/a[1]/div[1]
             rank:
               - text: "15"
@@ -622,31 +666,34 @@ extractions:
                 locale: pt_BR
                 value: 15
           - id:
-              - text: "172904"
+              - text: "230127"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[1]/a[1]/@href
             name:
-              - text: Energético Red Bull Energy Drink 355ml
+              - text: Refresco Natural de Frutas Vermelhas Joy 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/energetico-red-bull-lata-355ml/p/172904
+              - text: https://www.mambo.com.br/refresco-natural-de-frutas-vermelhas-joy-355ml/p/230127
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[1]/a[1]/@href
             gtin:
-              - text: "172904"
+              - text: "230127"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v526864941219535841/products/230127.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "5.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "2"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "2"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 10,99
+              - text: R$ 8,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Red Bull
+              - text: Joy
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[3]/a[1]/div[1]
             rank:
               - text: "16"
@@ -663,31 +710,36 @@ extractions:
                 locale: pt_BR
                 value: 16
           - id:
-              - text: "229245"
+              - text: "256635"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Sem Glúten Lake Side Beer 355ml
+              - text: Cerveja Prius Prime Kolsch Garrafa 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-nacional-sem-gluten-lake-side-beer-355ml/p/229245
+              - text: https://www.mambo.com.br/cerveja-prius-prime-kolsch-garrafa-355ml/p/256635
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[1]/a[1]/@href
             gtin:
-              - text: "229245"
+              - text: "256635"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8434980311126044508/products/256635_1_CERV
+                  PRIUS PRIME KOLSCH GF
+                  355ML.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "4.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "1"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "1"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 7,40
+              - text: R$ 7,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Lake Side
+              - text: Kolsch
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[3]/a[1]/div[1]
             rank:
               - text: "17"
@@ -704,31 +756,34 @@ extractions:
                 locale: pt_BR
                 value: 17
           - id:
-              - text: "255080"
+              - text: "154647"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Americana Anchor Fog Breaker Ipa 355ml
+              - text: Cerveja Eisenbahn Pilsen Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-americana-anchor-fog-breaker-ipa-355ml/p/255080
+              - text: https://www.mambo.com.br/cerveja-nacional-pilsen-eisenbahn-long-neck-355ml/p/154647
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[1]/a[1]/@href
             gtin:
-              - text: "255080"
+              - text: "154647"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7913761676753791175/products/154647_Cerveja-Eisenbahn-Pilsen-Long-Neck-355ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 5,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "0"
+              - text: "5"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "0"
+              - text: "5"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 26,90
+              - text: R$ 4,19
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Anchor Brewing
+              - text: Eisenbahn
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[3]/a[1]/div[1]
             rank:
               - text: "18"
@@ -745,31 +800,35 @@ extractions:
                 locale: pt_BR
                 value: 18
           - id:
-              - text: "154648"
+              - text: "172904"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Eisenbahn Pale Ale Long Neck 355ml
+              - text: Energético Red Bull Energy Drink 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-nacional-pale-ale-eisenbahn-long-neck-355ml/p/154648
+              - text: https://www.mambo.com.br/energetico-red-bull-lata-355ml/p/172904
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[1]/a[1]/@href
             gtin:
-              - text: "154648"
+              - text: "172904"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2859529056141536867/products/172904_1_Energetico-Red-Bull-Lata-355ml
+                  (1).jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "4.00"
+              - text: 5,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "1"
+              - text: "2"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "1"
+              - text: "2"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 4,99
+              - text: R$ 10,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Eisenbahn
+              - text: Red Bull
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[3]/a[1]/div[1]
             rank:
               - text: "19"
@@ -786,19 +845,22 @@ extractions:
                 locale: pt_BR
                 value: 19
           - id:
-              - text: "230124"
+              - text: "229245"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[1]/a[1]/@href
             name:
-              - text: Refresco Natural Pink Lemonade Joy Berries 355ml
+              - text: Cerveja Sem Glúten Lake Side Beer 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/refresco-natural-pink-lemonade-joy-berries-355ml/p/230124
+              - text: https://www.mambo.com.br/cerveja-nacional-sem-gluten-lake-side-beer-355ml/p/229245
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[1]/a[1]/@href
             gtin:
-              - text: "230124"
+              - text: "229245"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3200813428085415623/products/229245_CERV-NAC-LAKE-SIDE-SGLUT-LN-355ML-BEER.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "5.00"
+              - text: 4,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
               - text: "1"
@@ -807,10 +869,10 @@ extractions:
               - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 8,90
+              - text: R$ 7,40
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Joy
+              - text: Lake Side
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[3]/a[1]/div[1]
             rank:
               - text: "20"
@@ -827,19 +889,24 @@ extractions:
                 locale: pt_BR
                 value: 20
           - id:
-              - text: "261475"
+              - text: "255080"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Colorado Ribeirão Lager Long Neck 355ml
+              - text: Cerveja Americana Anchor Fog Breaker Ipa 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-colorado-ribeir%C3%A3o-lager-long-neck-355ml/p/261475
+              - text: https://www.mambo.com.br/cerveja-americana-anchor-fog-breaker-ipa-355ml/p/255080
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[1]/a[1]/@href
             gtin:
-              - text: "261475"
+              - text: "255080"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8433685728055530194/products/255080_1_CERV
+                  AME ANCHOR GF 355ML FOG BREAKER
+                  IPA.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
               - text: "0"
@@ -848,10 +915,10 @@ extractions:
               - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 5,49
+              - text: R$ 26,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Colorado
+              - text: Anchor Brewing
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[3]/a[1]/div[1]
             rank:
               - text: "21"
@@ -868,19 +935,22 @@ extractions:
                 locale: pt_BR
                 value: 21
           - id:
-              - text: "243782"
+              - text: "154648"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Argentina Bohemian Pilsener Patagonia Long Neck 355ml
+              - text: Cerveja Eisenbahn Pale Ale Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-argentina-bohemiam-pilsener-patagonia-long-neck-355ml/p/243782
+              - text: https://www.mambo.com.br/cerveja-nacional-pale-ale-eisenbahn-long-neck-355ml/p/154648
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[1]/a[1]/@href
             gtin:
-              - text: "243782"
+              - text: "154648"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6794059893478021629/products/154648_Cerveja-Eisenbahn-Pale-Ale-Long-Neck-355ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "5.00"
+              - text: 4,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
               - text: "1"
@@ -889,10 +959,10 @@ extractions:
               - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 9,90
+              - text: R$ 4,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Patagonia
+              - text: Eisenbahn
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[3]/a[1]/div[1]
             rank:
               - text: "22"
@@ -909,31 +979,34 @@ extractions:
                 locale: pt_BR
                 value: 22
           - id:
-              - text: "243780"
+              - text: "230124"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Argentina Amber Lager Patagonia Long Neck 355ml
+              - text: Refresco Natural Pink Lemonade Joy Berries 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-argentina-amber-lager-patagonia-long-neck-355ml/p/243780
+              - text: https://www.mambo.com.br/refresco-natural-pink-lemonade-joy-berries-355ml/p/230124
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[1]/a[1]/@href
             gtin:
-              - text: "243780"
+              - text: "230124"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2168745796547225448/products/230124.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 5,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "0"
+              - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "0"
+              - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 9,90
+              - text: R$ 8,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Patagonia
+              - text: Joy
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[3]/a[1]/div[1]
             rank:
               - text: "23"
@@ -950,31 +1023,30 @@ extractions:
                 locale: pt_BR
                 value: 23
           - id:
-              - text: "250594"
+              - text: "261905"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Americana Goose Island Midway Long Neck 355ml
+              - text: Cerveja Session IPA Straat Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-americana-goose-island-midway-long-neck-355ml/p/250594
+              - text: https://www.mambo.com.br/cerveja-session-ipa-straat-long-neck-355ml/p/261905
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[1]/a[1]/@href
             gtin:
-              - text: "250594"
+              - text: "261905"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v449388998418854951/products/261905_1_CERVEJA
+                  STRAAT LONG NECK 355ML IPA
+                  (1).jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "5.00"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[3]/a[1]/div[3]/div[2]
-            reviewCount:
-              - text: "2"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
-            ratingCount:
-              - text: "2"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 9,99
+              - text: R$ 9,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Goose Island
+              - text: Straat
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[3]/a[1]/div[1]
             rank:
               - text: "24"
@@ -991,31 +1063,36 @@ extractions:
                 locale: pt_BR
                 value: 24
           - id:
-              - text: "205956"
+              - text: "261475"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Americana IPA Goose Island Long Neck 355ml
+              - text: Cerveja Colorado Ribeirão Lager Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-americana-goose-island-india-pale-ale-long-neck-355ml/p/205956
+              - text: https://www.mambo.com.br/cerveja-colorado-ribeir%C3%A3o-lager-long-neck-355ml/p/261475
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[1]/a[1]/@href
             gtin:
-              - text: "205956"
+              - text: "261475"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8039819110238131149/products/261475_1_CERVEJA
+                  COLORADO LAGER LONG NECK
+                  355ML.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "4.20"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "6"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "6"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 11,99
+              - text: R$ 5,49
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Goose Island
+              - text: Colorado
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[3]/a[1]/div[1]
             rank:
               - text: "25"
@@ -1032,31 +1109,34 @@ extractions:
                 locale: pt_BR
                 value: 25
           - id:
-              - text: "258388"
+              - text: "243782"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Estrella Galicia Menor Teor Glúten 330ml
+              - text: Cerveja Argentina Bohemian Pilsener Patagonia Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-estrella-galicia-menor-teor-gl%C3%BAten-330ml/p/258388
+              - text: https://www.mambo.com.br/cerveja-argentina-bohemiam-pilsener-patagonia-long-neck-355ml/p/243782
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[1]/a[1]/@href
             gtin:
-              - text: "258388"
+              - text: "243782"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8163081186334902337/products/243782_CERV-PATAGONIA-LN-355ML-BOHEMIAM.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 5,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "0"
+              - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "0"
+              - text: "1"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 7,99
+              - text: R$ 9,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Estrella Galicia
+              - text: Patagonia
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[3]/a[1]/div[1]
             rank:
               - text: "26"
@@ -1073,31 +1153,34 @@ extractions:
                 locale: pt_BR
                 value: 26
           - id:
-              - text: "139599"
+              - text: "243780"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[1]/a[1]/@href
             name:
-              - text: Azeite Italiano Extra Virgem Raiola 500ml
+              - text: Cerveja Argentina Amber Lager Patagonia Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/azeite-italiano-extra-virgem-raiola-500ml/p/139599
+              - text: https://www.mambo.com.br/cerveja-argentina-amber-lager-patagonia-long-neck-355ml/p/243780
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[1]/a[1]/@href
             gtin:
-              - text: "139599"
+              - text: "243780"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3757839843593545838/products/243780_CERV-PATAGONIA-LN-355ML-AMBER-LAGER.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "4.10"
+              - text: 0,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "7"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "7"
+              - text: "0"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 27,90
+              - text: R$ 9,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Raiola
+              - text: Patagonia
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[3]/a[1]/div[1]
             rank:
               - text: "27"
@@ -1114,31 +1197,34 @@ extractions:
                 locale: pt_BR
                 value: 27
           - id:
-              - text: "257366"
+              - text: "250594"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Coruja IPA Long Neck 355mnl
+              - text: Cerveja Americana Goose Island Midway Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-coruja-ipa-long-neck-355mnl/p/257366
+              - text: https://www.mambo.com.br/cerveja-americana-goose-island-midway-long-neck-355ml/p/250594
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[1]/a[1]/@href
             gtin:
-              - text: "257366"
+              - text: "250594"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4720846814300056035/products/250594_1_CERV-GOOSE-ISLAND-MIDWAY-LN-355ML.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "5.00"
+              - text: 5,00
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "1"
+              - text: "2"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "1"
+              - text: "2"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 7,90
+              - text: R$ 9,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: Coruja
+              - text: Goose Island
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[3]/a[1]/div[1]
             rank:
               - text: "28"
@@ -1155,31 +1241,34 @@ extractions:
                 locale: pt_BR
                 value: 28
           - id:
-              - text: "233534"
+              - text: "205956"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[1]/a[1]/@href
             name:
-              - text: Vinho Francês Tinto Domaine St. Prefert Classique 750ml
+              - text: Cerveja Americana IPA Goose Island Long Neck 355ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/vinho-frances-tinto-domaine-st-prefert-classique-750ml/p/233534
+              - text: https://www.mambo.com.br/cerveja-americana-goose-island-india-pale-ale-long-neck-355ml/p/205956
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[1]/a[1]/@href
             gtin:
-              - text: "233534"
+              - text: "205956"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7306651710757271801/products/205956_Cerveja-Americana-India-Pale-Ale-Goose-Island-Long-Neck-355ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[2]/a[1]/div[1]/img[1]/@src
             aggregateRating2:
-              - text: "0.00"
+              - text: 4,20
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[3]/a[1]/div[3]/div[2]
             reviewCount:
-              - text: "0"
+              - text: "6"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             ratingCount:
-              - text: "0"
+              - text: "6"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: R$ 394,55
+              - text: R$ 11,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[3]/a[1]/div[4]/div[1]/span[1]
             manufacturer:
-              - text: St. Prefert
+              - text: Goose Island
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[3]/a[1]/div[1]
             rank:
               - text: "29"
@@ -1195,5 +1284,188 @@ extractions:
                 raw: "29"
                 locale: pt_BR
                 value: 29
+          - id:
+              - text: "258388"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[1]/a[1]/@href
+            name:
+              - text: Cerveja Estrella Galicia Menor Teor Glúten 330ml
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[3]/a[1]/div[2]
+            productUrl:
+              - text: https://www.mambo.com.br/cerveja-estrella-galicia-menor-teor-gl%C3%BAten-330ml/p/258388
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[1]/a[1]/@href
+            gtin:
+              - text: "258388"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7226401169767537573/products/258388_1_Cerveja
+                  Estrella Galicia Garrafa sem gluten
+                  330ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[2]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 0,00
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[3]/a[1]/div[3]/div[2]
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: R$ 7,99
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[3]/a[1]/div[4]/div[1]/span[1]
+            manufacturer:
+              - text: Estrella Galicia
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[3]/a[1]/div[1]
+            rank:
+              - text: "30"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/@data-rank-number
+                type: NUMBER
+                raw: "30"
+                locale: pt_BR
+                value: 30
+            rankOrganic:
+              - text: "30"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/@data-rank-number
+                type: NUMBER
+                raw: "30"
+                locale: pt_BR
+                value: 30
+          - id:
+              - text: "139599"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[1]/a[1]/@href
+            name:
+              - text: Azeite Italiano Extra Virgem Raiola 500ml
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[3]/a[1]/div[2]
+            productUrl:
+              - text: https://www.mambo.com.br/azeite-italiano-extra-virgem-raiola-500ml/p/139599
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[1]/a[1]/@href
+            gtin:
+              - text: "139599"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v5243114746773723954/products/139599_1_Azeite
+                  Italiano Extra Virgem Raiola
+                  500ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[2]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,10
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[3]/a[1]/div[3]/div[2]
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: R$ 27,90
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[3]/a[1]/div[4]/div[1]/span[1]
+            manufacturer:
+              - text: Raiola
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[3]/a[1]/div[1]
+            rank:
+              - text: "31"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/@data-rank-number
+                type: NUMBER
+                raw: "31"
+                locale: pt_BR
+                value: 31
+            rankOrganic:
+              - text: "31"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/@data-rank-number
+                type: NUMBER
+                raw: "31"
+                locale: pt_BR
+                value: 31
+          - id:
+              - text: "257366"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[1]/a[1]/@href
+            name:
+              - text: Cerveja Coruja IPA Long Neck 355mnl
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[3]/a[1]/div[2]
+            productUrl:
+              - text: https://www.mambo.com.br/cerveja-coruja-ipa-long-neck-355mnl/p/257366
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[1]/a[1]/@href
+            gtin:
+              - text: "257366"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4121494799155115377/products/257366_1_CERVEJA
+                  CORUJA IPA 355ML.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[2]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,00
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[3]/a[1]/div[3]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: R$ 7,90
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[3]/a[1]/div[4]/div[1]/span[1]
+            manufacturer:
+              - text: Coruja
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[3]/a[1]/div[1]
+            rank:
+              - text: "32"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/@data-rank-number
+                type: NUMBER
+                raw: "32"
+                locale: pt_BR
+                value: 32
+            rankOrganic:
+              - text: "32"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/@data-rank-number
+                type: NUMBER
+                raw: "32"
+                locale: pt_BR
+                value: 32
+          - id:
+              - text: "233534"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[1]/a[1]/@href
+            name:
+              - text: Vinho Francês Tinto Domaine St. Prefert Classique 750ml
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[3]/a[1]/div[2]
+            productUrl:
+              - text: https://www.mambo.com.br/vinho-frances-tinto-domaine-st-prefert-classique-750ml/p/233534
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[1]/a[1]/@href
+            gtin:
+              - text: "233534"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1772668624546701732/products/233534_VH
+                  FR DOMAINE ST PREF CLAS TTO
+                  750.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[2]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 0,00
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[3]/a[1]/div[3]/div[2]
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[3]/a[1]/div[3]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: R$ 394,55
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[3]/a[1]/div[4]/div[1]/span[1]
+            manufacturer:
+              - text: St. Prefert
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[3]/a[1]/div[1]
+            rank:
+              - text: "33"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/@data-rank-number
+                type: NUMBER
+                raw: "33"
+                locale: pt_BR
+                value: 33
+            rankOrganic:
+              - text: "33"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/@data-rank-number
+                type: NUMBER
+                raw: "33"
+                locale: pt_BR
+                value: 33
         xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
-    timestamp: 1605716361545
+    timestamp: 1605877358997

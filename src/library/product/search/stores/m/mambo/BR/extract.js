@@ -33,10 +33,10 @@ async function implementation (inputs, parameters, context, dependencies) {
         const ratingPercentage = card.querySelector('.ts-shelf-rate-symbols.ts-sprite')
           ? card.querySelector('.ts-shelf-rate-symbols.ts-sprite').style.width.replace('%', '') / 100
           : 0;
-        const aggregateRatingNormalized = (ratingPercentage * 5).toFixed(2);
+        const aggregateRatingNormalized = (ratingPercentage * 5).toFixed(1);
         const div = document.createElement('div');
         div.id = 'aggregateRatingNormalized';
-        div.innerHTML = `${aggregateRatingNormalized}`;
+        div.innerHTML = aggregateRatingNormalized.toString().replace('.', ',');
         cardRatingContainer.appendChild(div);
       });
     }
