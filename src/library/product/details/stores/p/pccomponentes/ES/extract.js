@@ -10,6 +10,13 @@ module.exports = {
     zipcode: '',
   }, implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     //goto to the product page.
+    const isProdPage = await context.evaluate(async function() {
+      if(document.querySelector('div.articulo h1')) {
+        return true;
+      } else {
+        return false;
+      }
+    })
     const prodUrlLink = await context.evaluate(async function() {
       const urlSelector = 'div[class*=product-card__content] h3 a';
       const prodNode = document.querySelector(urlSelector);
@@ -20,10 +27,8 @@ module.exports = {
         return "";
       }
     });
-    if(prodUrlLink) {
+    if(prodUrlLink && !isProdPage) {
       await context.goto(prodUrlLink, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
-    } else {
-      throw Error("Product URL not found - check URL selector");
     }
     return await context.extract(productDetails, { transform: transformParam });
   }
