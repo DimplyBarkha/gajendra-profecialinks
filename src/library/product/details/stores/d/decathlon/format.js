@@ -29,6 +29,11 @@ const transform = (data) => {
           });
           row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
         }
+        if (row.metaKeywords) {
+          if (row.metaKeywords.length === 1 && row.metaKeywords[0].text === 'Keywords') {
+            row.metaKeywords.shift();
+          }
+        }
         if (row.variants) {
           const variantArray = row.variants.map((item) => {
             return item.text;
@@ -37,6 +42,9 @@ const transform = (data) => {
         }
         if (row.alternateImages) {
           row.alternateImages.shift();
+          if (row.alternateImages.length >= 1) {
+            row.secondaryImageTotal = [{ text: row.alternateImages.length, xpath: row.alternateImages[0].xpath }];
+          }
         }
         if (row.manufacturerImages) {
           const manufacturerImagesArray = row.manufacturerImages.map((item) => {
@@ -48,12 +56,6 @@ const transform = (data) => {
           row.nameExtended = [{ text: row.brandText[0].text + ' ' + row.nameExtended[0].text + ' ' + row.quantity[0].text, xpath: row.nameExtended[0].xpath }];
         } else if (row.nameExtended && row.brandText) {
           row.nameExtended = [{ text: row.brandText[0].text + ' ' + row.nameExtended[0].text, xpath: row.nameExtended[0].xpath }];
-        }
-        if (row.variantInformation) {
-          const variantInformationArray = row.variantInformation.map((item) => {
-            return item.text;
-          });
-          row.variantInformation = [{ text: variantInformationArray.join('/'), xpath: row.variantInformation[0].xpath }];
         }
         if (row.description) {
           const descriptionArray = row.description.map((item) => {
@@ -73,7 +75,7 @@ const transform = (data) => {
           });
           row.manufacturerImages = [{ text: manufacturerImagesArray.join('|'), xpath: row.manufacturerImages[0].xpath }];
         }
-        if(row.directions) {
+        if (row.directions) {
           const directionsArray = row.directions.map((item) => {
             return item.text;
           });

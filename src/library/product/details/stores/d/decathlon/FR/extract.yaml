@@ -66,8 +66,6 @@ fields:
     singleValue: false
     xpath: (//span[@class="dkt-price__info-addon"]//span[@class="dkt-price__reduction"])[1]
   - name: secondaryImageTotal
-    xpath: count(//div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture/@data-iesrc) - 1
-    singleValue: false
   - name: listPrice
     singleValue: false
     xpath: (//span[@class="dkt-price__info-addon"]//span[@class="dkt-price__previous-price"])[1]
@@ -93,13 +91,13 @@ fields:
     xpath: //div[@id="ConceptandTechnologyFloor"]//div[@class="tech-info" and (contains(.//h3, "conseils") or contains(.//h3, "Conseils"))]//div[@class="description" or @class="tech-info__bloc-picto"]
   - name: variantInformation
     singleValue: false
-    xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]//span[@class="sizes__info"] | //span[@class="model-color"]
+    xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]//span[@class="sizes__info"]
   - name: quantity
     singleValue: false
     xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]//span[@class="sizes__info"]
   - name: variantId
     singleValue: false
-    xpath: //small[@class="product-data-model-id"]
+    xpath: //ul[@class="sizes__list"]//li[@class="sizes__size sizes__size--selected"]/@data-id
   - name: firstVariant
     singleValue: false
     xpath: //small[@class="product-data-model-id"]
