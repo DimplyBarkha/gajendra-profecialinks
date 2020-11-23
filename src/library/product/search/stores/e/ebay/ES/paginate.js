@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'td#CentralArea',
-    noResultsXPath: null,
+    noResultsXPath: 'div[contains(@class,"trc")]//span[@class="cnt"][text()=0]',
     openSearchDefinition: null,
     domain: 'ebay.es',
     zipcode: '',

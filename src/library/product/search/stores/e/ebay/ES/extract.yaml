@@ -1,25 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //td[@itemscope="itemscope" and @itemtype="http://schema.org/Product"]
+recordXPath: //div[@class="tpgv"]/div[@class="wp"]
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@itemprop="name"]//@id
-    regExp: src(.*)
-    regExpReplace: $1
+    xpath: //div[@class="title"]/a/@href
+    regExp: (.+)-\/(\d+)\?hash(.+)
+    regExpReplace: $2
   - name: name
     singleValue: false
-    xpath: //a[@itemprop="name"]//@title
+    xpath: //div[@class="title"]/a/text()
   - name: productUrl
     singleValue: false
-    xpath: //a[@itemprop="name"]//@href
+    xpath: //div[@class="title"]/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img[@itemprop='image']/@src
+    xpath: //td[@class="icnv"]/a/img/@src
   - name: price
     singleValue: false
-    xpath: //span[@itemprop='price' and not(contains(@class,'stp'))]
+    xpath: //div[@class="bin"]/span[@class="fp"]
   - name: searchUrl
     singleValue: false
     xpath: ancestor::html//div[@id='search-url']

@@ -7,7 +7,7 @@ module.exports = {
     domain: 'ebay.es',
     url: 'http://www.ebaystores.es/Dyson-Oficial?_nkw={searchTerms}&',
     loadedSelector: 'td#CentralArea',
-    noResultsXPath: '//div[contains(@class,"trc")]//span[text()=0]',
+    noResultsXPath: 'div[contains(@class,"trc")]//span[@class="cnt"][text()=0]',
     zipcode: '',
   },
 };
