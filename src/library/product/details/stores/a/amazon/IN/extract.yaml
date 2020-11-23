@@ -1,0 +1,353 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: parentInput
+    singleValue: true
+    xpath: //div[@id='added-parentInput']
+  - name: image
+    singleValue: true
+    xpath: (//img[@id="landingImage"])[1]/@src | //div[contains(@id,'img-canvas')]/img/@src
+    description: URL of the main product image
+  - name: imageAlt
+    singleValue: true
+    xpath: (//img[@id="landingImage"])[1]/@alt
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='alternate-images']//span
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name,"keyword")]/@content
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@id, 'wayfinding-breadcrumbs_feature_div')]//li[not(contains(@class,'a-breadcrumb-divider'))]
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(@id,'title')]
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: true
+    xpath: //*[@id="priceblock_ourprice" or contains(@class,"offer-price")] | //span[@id='priceblock_saleprice']
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //*[@id='availability']
+  - name: description
+    singleValue: false
+    xpath: //div[@id='product-description-bullets']
+  - name: descriptionBottom
+    singleValue: false
+    xpath: //div[@id="product-btm-desc"]
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    xpath: //div[@id='bullets-count']
+  - name: brandText
+    singleValue: true
+    xpath: //div[@id='fetchedBrandText']
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[contains(@id, 'detailBullets_feature_div')]//span[contains(text(),'Manufacture') and not(contains(text(),'Discontinued'))]/following-sibling::*[1] | (//div[contains(@id, 'productDetails_feature_div')]//table//th[contains(text(),'Manufacturer')]/parent::tr/td)[1]
+    description: Product manufacturer
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    xpath: ((//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Number of Items')]/../td | //td[contains(text(),'Item Package Quantity')]/following-sibling::*[1] | //div[@id='ii_packSize']) | //div[@id='ii_packSize']
+  - name: weightNet
+    singleValue: true
+    xpath: //div[contains(@id, 'detailBullets_feature_div')]//span[contains(text(),'Item Weight')]/following-sibling::*[1] | //div[contains(@id, 'productDetails_db_sections')]//table//th[contains(text(),'Item Weight')]/parent::tr/td
+    description: Net weight as described on the page
+  - name: gtin
+    singleValue: true
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'UPC')]/../td
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: variantId
+    singleValue: true
+    xpath: (//*[@data-asin])[1]/@data-asin
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    singleValue: true
+    xpath: //div[contains(@id, 'detailBullets_feature_div')]//span[contains(text(),'model number')]/following-sibling::*[1] | //div[contains(@id, 'productDetails_feature_div')]//table//th[contains(text(),'Model Number')]/parent::tr/td  
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    singleValue: true
+    xpath: //div[contains(@id, 'detailBullets_feature_div')]//span[contains(text(),'Units')]/following-sibling::*[1]
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/*[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: true
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
+    description: Content under "directions" header
+  - name: warnings
+    singleValue: false
+    xpath: //div[@id='product-warnings']
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: false
+    xpath: (//*[@id="acrCustomerReviewText"]/text())[1]
+    regExp: ([0-9]{1,}) ratings
+    regExpReplace: $1
+    description: The number of ratings
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//*[@id="acrPopover"]/@title)[1]
+    description: The stated aggregate rating normalized to be out of 5
+    regExp: (\d{1}\.\d{1}) out of
+    regExpReplace: $1
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@id='merchant-info']
+    description: Shipping information for the product
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    defaultValue: '0'
+    xpath: //div[@id='variant-count']
+  - name: color
+    singleValue: true
+    xpath: //div[@id='productOverview_feature_div']//td//span[text()='Colour']//parent::td/following-sibling::td[1] | //div[contains(@id, 'productDetails_feature_div')]//table//th[contains(text(),'Color')]/parent::tr/td | //div[contains(@class,'a-row')]//label[contains(text(),'Color')]/following-sibling::span
+    description: A textual description of the colour
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='manufacturer-desc']
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'aplus-module-wrapper')]//img/@src
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    xpath: (//script[contains(text(), 'durationTimestamp')])[1]
+    regExp: url":"(.{30,300})"\,"videoHeight
+    regExpReplace: $1
+  - name: name
+    singleValue: true
+    xpath: //*[@id='productTitle']
+    description: The product name
+  - name: asin
+    singleValue: true
+    xpath: (//*[@data-asin])[1]/@data-asin
+    description: null
+  - name: amazonChoice
+    singleValue: true
+    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    description: YES or Blank
+  - name: amazonChoiceCategory
+    singleValue: true
+    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-keyword")]//text()
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@id="bylineInfo"]/@href
+  - name: internationalShipping
+    singleValue: true
+    description: Text next to bullet point
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
+  - name: salesRank
+    singleValue: false
+    xpath: //div[contains(@id,'detailBulletsWrapper_feature_div')]//ul[contains(@class,'detail-bullet-list')]//span[contains(.,'#')]/text()
+    regExp: (\#\S+\b)
+    regExpReplace: $1
+  - name: salesRankCategory
+    singleValue: false
+    xpath: //div[contains(@id,'detailBulletsWrapper_feature_div')]//ul[contains(@class,'detail-bullet-list')]//span[contains(.,'#')]//a/text()
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: subscriptionPrice
+    singleValue: true
+    xpath: //*[@id="sns-base-price"]
+    description: Subscribe and save price
+  - name: subscribeAndSave
+    singleValue: true
+    xpath: //*[@id="sns-base-price"]
+    regExp: ([^ ]+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+    description: YES/NO
+  - name: heroQuickPromoHeadline
+    singleValue: true
+    xpath: //div[contains(@id,'universal-hero-quick-promo')]//span[contains(@class,'a-text-bold')]
+    description: See image - top section hero area
+  - name: heroQuickPromoImageUrl
+    singleValue: true
+    xpath: //div[contains(@id,'universal-hero-quick-promo')]//img/@src
+    description: null
+  - name: heroQuickPromoUrl
+    singleValue: true
+    xpath: //div[contains(@id,'universal-hero-quick-promo')]//a/@href
+    regExp: (.*)
+    regExpReplace: https://www.amazon.in/dp$1
+    description: null
+  - name: pasin
+    singleValue: false
+    xpath: //div[@id='product-pasin']
+  - name: videoLength
+    singleValue: false
+    description: null
+    xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1]
+  - name: ingredientImagePresent
+    singleValue: true
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
+    description: null
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+  - name: factImagePresent
+    singleValue: false
+    description: null
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "FACT")]/text()
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+  - name: largeImageCount
+    singleValue: true
+    description: null
+    xpath: count(//li[contains(@class, "imageThumbnail")]//img/@src)
+    defaultValue: 0
+  - name: variantAsins
+    singleValue: false
+    description: null
+    xpath: //div[@id='variant-asin']
+  - name: primeFlag
+    singleValue: false
+    description: null
+    xpath: //div[@id='prime-info']
+    defaultValue: NO
+  - name: lbb
+    singleValue: true
+    xpath: //div[@id='ii_lbb']
+    defaultValue: 'NO'
+  - name: lbbPrice
+    singleValue: true
+    xpath: //div[@id='ii_lbbPrice']
+  - name: featureBullets
+    singleValue: false
+    description: null
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+  - name: otherSellersName
+    singleValue: false
+    xpath: //div[@id='pd_otherSellerName']
+    description: null
+  - name: otherSellersPrime
+    xpath:  //div[@id='pd_otherSellersPrime']
+  - name: otherSellersPrice
+    singleValue: false
+    xpath: //div[@id='pd_otherSellersPrice']
+    description: null
+  - name: otherSellersShipping2
+    singleValue: false
+    xpath: //div[@id='pd_otherSellersShipping2']
+    description: null
+  - name: secondaryImageTotal
+    singleValue: true
+    description: null
+    xpath: count(//div[@id='alternate-images']//span)
+  - name: fastTrack
+    singleValue: true
+    xpath: //div[contains(@id,'fast-track-msg')]
+    description: null
+  - name: ingredientsList
+    singleValue: true
+    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
+    description: List of Ingredients from site - can be string of data if no
+      discernible start/end point
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[@id='product-spec']
+  - name: warranty
+    singleValue: true
+    description: Guarantee associated with the product
+    xpath: //div[@id='product-warranty']
+  - name: storage
+    singleValue: true
+    xpath: //td[contains(text(),'Storage')]/following-sibling::*[1]
+    description: Suggested storage location for product
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //div[@id='detailBullets_feature_div']//span[contains(text(),'Country of Origin')]/following-sibling::*[1]
+    description: The country from which the product originates
+  - name: packaging
+    singleValue: true
+    xpath: //td[contains(text(),'Package')]/following-sibling::*[1]
+    description: Packaging information
+  - name: promotion
+    singleValue: true
+    xpath: //span[contains(@class, 'priceBlockDealPriceString')] | //td[contains(@id, 'priceblock_dealprice_lbl')] | //td[contains(@class, 'priceBlockSaving')]
+    description: promotion text on product page
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id='product-variant-info']
+    description: colour / scent / flavour / other
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@id='product-first-variant']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id='additional-info-bullets']
+    description: null
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: variants
+    singleValue: false
+    description: null
+    xpath: //div[@id='variant-asin']
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div[contains(@id, 'productDetails_feature_div')]//table//th[contains(text(),'Shipping Weight')]/parent::tr/td

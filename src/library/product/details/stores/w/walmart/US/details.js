@@ -5,5 +5,6 @@ module.exports = {
     country: 'US',
     store: 'walmart',
     domain: 'walmart.com',
+    zipcode: '94066',
   },
 };

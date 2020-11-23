@@ -1,0 +1,233 @@
+input:
+  RPC: B006JW4ZO0
+  _url: https://amazon.com
+extractions:
+  - html: https://workbench.import.io/html/run=9b775caf-f9cf-4877-a26f-fd4f467a9cde/task=1bd0c2c8-7777-4b05-8200-9fb8d0e857f9/f8287a61-26d0-48eb-9174-9d454e7dae74.html
+    extractionConfigId: product/details/stores/a/amazonMobile/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/51V3t4srAEL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51Hyf%2BsSk4L._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51EBBMH3JnL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51uJ3EQarHL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/51R5zdy563L._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/61ir89CUvTL._SX38_SY50_CR,0,0,38,50_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Campbell's Condensed Healthy Request Homestyle Chicken Noodle Soup, 10.5
+                  oz. Can (Pack of 12),Campbell's Healthy Request,200000016721
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Grocery & Gourmet Food
+                xpath: /html/body/div[2]/div[2]/div[6]/div[1]/ul[1]/li[1]
+            nameExtended:
+              - text: "Amazon.com : Campbell's Condensed Healthy Request Homestyle Chicken
+                  Noodle Soup, 10.5 oz. Can (Pack of 12) : Grocery & Gourmet
+                  Food"
+                xpath: /html/head[1]/meta[5]/@content
+            price:
+              - text: $18.60
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            availabilityText:
+              - text: |-
+                  In stock on June 28, 2020. 
+                  Order it now.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[1]/div[1]
+            description:
+              - text: Made with a homestyle, heart-healthy blend of seasoned chicken broth,
+                  enriched egg noodles and tender chicken meat
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[1]
+              - text: Packaged in a non-BPA-lined, 10.5 Ounce. recyclable can
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[2]
+              - text: Heart healthy, 0 grams Trans Fat per serving
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[3]
+              - text: Low in Saturated Fat & Cholesterol
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[4]
+              - text: A soup that features the tastes you crave from home
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[34]/div[1]/ul[1]/li[5]
+              - text: >-
+                  Campbell’s Condensed Healthy Request soups—Made for Real, Real
+                  Life. From Chicken Noodle to Tomato and everything in between,
+                  we make delicious low-fat soups with quality, farm-grown
+                  ingredients in flavors you and your family know and love.
+                  Whether Campbell’s Condensed Healthy Request soups are your
+                  secret heart-healthy ingredient in recipes or you want to
+                  simmer down with the perfect bowl, we have a soup for everyday
+                  that everyone can enjoy. When you grab the familiar red and
+                  white can, know you’re getting a trustworthy brand that lacks
+                  artificial flavors and is crafted with your health in mind.
+
+                  We bundle the tastes you crave from home into Campbell’s Condensed Healthy Request Homestyle Chicken Noodle Soup. Crafted with the delicious, low-fat combination of comforting chicken broth, enriched noodles and tender chicken meat, our soup is satisfying and heart healthy too!
+                xpath: /html/body/div[2]/div[2]/div[7]/div[23]/div[2]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[1]
+            brandText:
+              - text: Campbell's
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[2]/div[1]/a[1]
+            variantId:
+              - text: "200000016721"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[5]/text()[1]
+            ratingCount:
+              - text: "538"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[3]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[3]/div[1]/span[1]/span[1]/@title
+            shippingInfo:
+              - text: Ships from and sold by Amazon.com.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]
+              - text: Ships from and sold by Amazon.com.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[1]/div[1]
+            manufacturerDescription:
+              - text: Campbell’s Condensed Healthy Request soups—Made for Real, Real Life. From
+                  Chicken Noodle to Tomato and everything in between, we make
+                  delicious low-fat soups with quality, farm-grown ingredients
+                  in flavors you and your family know and love. Whether
+                  Campbell’s Condensed Healthy Request soups are your secret
+                  heart-healthy ingredient in recipes or you want to simmer down
+                  with the perfect bowl, we have a soup for everyday that
+                  everyone can enjoy. When you grab the familiar red and white
+                  can, know you’re getting a trustworthy brand that lacks
+                  artificial flavors and is crafted with your health in mind.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[23]/div[2]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[1]/text()[1]
+              - text: We bundle the tastes you crave from home into Campbell’s Condensed Healthy
+                  Request Homestyle Chicken Noodle Soup. Crafted with the
+                  delicious, low-fat combination of comforting chicken broth,
+                  enriched noodles and tender chicken meat, our soup is
+                  satisfying and heart healthy too!
+                xpath: /html/body/div[2]/div[2]/div[7]/div[23]/div[2]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[1]/text()[2]
+            manufacturerImages:
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[1]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/div[1]/p[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/acefd895-c97b-4c2b-862f-d0080500f2ed._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/fffec855-3680-49e4-8f59-d0a86adeeeb9._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[3]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/0093f411-8bbf-4755-8b0e-99311dcfe19d._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[4]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/70186ac8-a466-45c0-82cb-e168beb14d5d._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[5]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/587bdf87-4d37-4727-89d4-311d03482556._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[6]/img[1]/@src
+              - text: https://m.media-amazon.com/images/S/aplus-media/vc/a26e4d8d-4a2a-4e36-8ba0-dc87769376d6._SR150,300_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[7]/img[1]/@src
+            videos:
+              - text: https://d2y5sgsy8bbmb8.cloudfront.net/v2/e845f987-1777-547e-8083-0b4eb0103c5d/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4
+                xpath: /html/body/div[2]/div[2]/div[7]/div[25]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-video-url
+              - text: https://d2y5sgsy8bbmb8.cloudfront.net/v2/ed0e12af-2671-5709-a5c9-3125c3cad451/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4
+                xpath: /html/body/div[2]/div[2]/div[7]/div[25]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-video-url
+              - text: https://d2y5sgsy8bbmb8.cloudfront.net/v2/2c590938-c0a8-5345-af0f-1e5fa3393600/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4
+                xpath: /html/body/div[2]/div[2]/div[7]/div[25]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-video-url
+              - text: https://d2y5sgsy8bbmb8.cloudfront.net/v2/9b3f970b-1752-5714-976b-6eab9a58b756/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4
+                xpath: /html/body/div[2]/div[2]/div[7]/div[25]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/ol[1]/li[9]/div[1]/@data-video-url
+            name:
+              - text: "Amazon.com : Campbell's Condensed Healthy Request Homestyle Chicken
+                  Noodle Soup, 10.5 oz. Can (Pack of 12) : Grocery & Gourmet
+                  Food"
+                xpath: /html/head[1]/title[1]
+            brandLink:
+              - text: https://www.amazon.com/Campbells/b/ref=bl_dp_s_web_2586717011?ie=UTF8&node=2586717011&field-lbr_brands_browse-bin=Campbell%27s
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[4]/div[2]/div[1]/a[1]/@href
+            salesRankCategory:
+              - text: Packaged Chicken Soups
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[7]/ul[1]/li[1]/span[2]/a[1]
+            specifications:
+              - text: "Shipping Weight: 9.1 pounds (View shipping rates and policies)"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[1]
+              - text: "Domestic Shipping: Currently, item can be shipped only within the U.S.
+                  and to APO/FPO addresses. For APO/FPO shipments, please check
+                  with the manufacturer regarding warranty and support issues."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[2]
+              - text: "International Shipping: This item is not eligible for international
+                  shipping. Learn More"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[3]
+              - text: "ASIN: B006JW4ZO0"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[4]
+              - text: "Item model number: 200000016721"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[5]
+              - text: "Customer Reviews: 4.5 out of 5 stars538 customer ratings"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[6]
+              - text: >-
+                  Amazon Best Sellers Rank: #2,991 in Grocery & Gourmet Food
+                  (See Top 100 in Grocery & Gourmet Food) 
+                   
+                   #10 in Packaged Chicken Soups
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[7]
+              - text: "#10 in Packaged Chicken Soups"
+                xpath: /html/body/div[2]/div[2]/div[7]/div[24]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/ul[1]/li[7]/ul[1]/li[1]
+            dietaryInformation:
+              - text: "Ingredients: Chicken Stock, Enriched Egg Noodles (Wheat Flour, Egg
+                  Whites, Eggs, Niacin, Ferrous Sulfate, Thiamine Mononitrate,
+                  Riboflavin, Folic Acid), Carrots, Chicken Meat, Contains Less
+                  Than 2% Of: Chicken Fat, Salt, Celery, Modified Food Starch,
+                  Water, Potassium Chloride, Flavoring, Dehydrated Onions, Yeast
+                  Extract, Chicken Flavor, Vegetable Oil, Spices, Disodium
+                  Inosinate, Disodium Guanylate, Beta Carotene For Color, Sodium
+                  Phosphate, Soy Protein Isolate, Dehydrated Garlic, Lactic
+                  Acid, Dehydrated Chicken."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[26]/div[1]/div[2]/p[2]
+            allergyAdvice:
+              - text: This product is labelled to United States standards and may differ from
+                  similar products sold elsewhere in its ingredients, labeling
+                  and allergen warnings
+                xpath: /html/body/div[2]/div[2]/div[7]/div[26]/div[1]/div[1]/p[2]
+            productOtherInformation:
+              - text: From Chicken Noodle to Tomato to Vegetable Beef and everything in between,
+                  we have many varieties of the delicious soups you’ve known and
+                  loved for years.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[1]/p[1]
+              - text: Classic favorites like Cream of Chicken and Cream of Mushroom are
+                  must-haves in your kitchen pantry to take your favorite
+                  recipes to the next level of flavor.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/div[1]/p[1]
+              - text: There’s a smile at the end of every spoonful of Campbell’s Condensed soups
+                  with fun pasta shapes like Star Wars and Disney Princess.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[3]/div[1]/p[1]
+              - text: Our Campbell’s Kitchen skill allows you to answer the age-old question,
+                  ‘what should I make for dinner?’ Simply ask 'Alexa, ask
+                  Campbell’s Kitchen what’s for dinner' or 'Alexa, ask
+                  Campbell’s Kitchen for easy chicken dinners'.
+                xpath: /html/body/div[2]/div[2]/div[7]/div[20]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[4]/div[1]/p[1]
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/81eq%2Bp5qXcL._SX679_PIbundle-12,TopRight,0,0_AA679SH20_.jpg
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Campbell's&nbsp;Condensed&nbsp;Healthy Request&nbsp;Homestyle Chicken
+                  Noodle Soup, 10.5 oz. Can (Pack of 12)
+                xpath: /html/body/div[2]/div[2]/div[7]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "19"
+            sku:
+              - text: B006JW4ZO0
+                xpath: /html/body/div[2]/div[2]/div[7]/div[3]/div[1]/@data-asin
+            secondaryImageTotal:
+              - text: "7"
+            ingredientsList:
+              - text: "Ingredients: Chicken Stock, Enriched Egg Noodles (Wheat Flour, Egg
+                  Whites, Eggs, Niacin, Ferrous Sulfate, Thiamine Mononitrate,
+                  Riboflavin, Folic Acid), Carrots, Chicken Meat, Contains Less
+                  Than 2% Of: Chicken Fat, Salt, Celery, Modified Food Starch,
+                  Water, Potassium Chloride, Flavoring, Dehydrated Onions, Yeast
+                  Extract, Chicken Flavor, Vegetable Oil, Spices, Disodium
+                  Inosinate, Disodium Guanylate, Beta Carotene For Color, Sodium
+                  Phosphate, Soy Protein Isolate, Dehydrated Garlic, Lactic
+                  Acid, Dehydrated Chicken."
+                xpath: /html/body/div[2]/div[2]/div[7]/div[26]/div[1]/div[2]/p[2]
+        xpath: /html
+    timestamp: 1592915041599

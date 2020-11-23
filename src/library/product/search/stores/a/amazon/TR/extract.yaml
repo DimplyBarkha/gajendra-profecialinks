@@ -1,0 +1,58 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: //div[contains(@data-component-type,"s-search-result") and @data-asin]
+recordSelector: null
+fields:
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id='searchUrl']
+  - name: price
+    singleValue: false
+    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
+  - name: name
+    singleValue: false
+    xpath: //h2
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //div[contains(@data-component-type,"s-search-result") and @data-asin and contains(@class, "AdHolder")]
+  - name: productUrl
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com.tr$1
+  - name: gtin
+    singleValue: false
+    xpath:
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, 'image')]/img/@srcset
+    regExp: ([^,\s]+.jpg) [^,]+$
+    regExpReplace: $1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[contains(@aria-label,"yıldız üzerinden")]/@aria-label
+    regExp: (.+) yıldız üzerinden (.+)
+    regExpReplace: $2
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@aria-label,"yıldız üzerinden")]/following-sibling::span[1]//a/span
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@aria-label,"yıldız üzerinden")]/following-sibling::span[1]//a/span
+  - name: manufacturer
+    singleValue: false
+    xpath: 
+  - name: soldBy
+    singleValue: false
+    xpath:
+  - name: endorsementText
+    singleValue: false
+    xpath: //span[contains(@class, "a-badge-label") and @id][contains(.,'Amazon')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: id
+    singleValue: false
+    xpath: //@data-asin

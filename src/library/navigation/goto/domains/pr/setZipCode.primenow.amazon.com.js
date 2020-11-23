@@ -21,8 +21,10 @@ module.exports = {
         document.querySelector('span[class*="page_header_drop_menu_change_location_trigger__bottomContent"]').textContent.includes(zipcode),
       zipcode,
       );
+
       if (!correctLocation) {
-        await context.evaluate((zipcode) => { document.querySelector('#postalCode').value = zipcode; }, zipcode);
+        await context.setInputValue('input#postalCode', zipcode);
+        // await context.evaluate((zipcode) => { document.querySelector('#postalCode').value = zipcode; }, zipcode);
         await context.click('button[class*="search_form__submitPostcode"]');
         await context.waitForNavigation();
       }

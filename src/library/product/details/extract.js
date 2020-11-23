@@ -48,6 +48,8 @@ module.exports = {
   ],
   dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    goto: 'action:navigation/goto',
+    createUrl: 'action:product/details/createUrl',
   },
   path: './stores/${store[0:1]}/${store}/${country}/extract',
   implementation,

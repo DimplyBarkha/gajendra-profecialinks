@@ -1,0 +1,77 @@
+input:
+  Keywords: Blanchiment des dents
+  _url: https://amazon.fr
+extractions:
+  - html: https://workbench.import.io/html/run=3aa8195b-7987-4b11-bc37-e76a92c6211b/task=7ed5e33f-f1c4-4f16-a057-41d5b2dfb0df/69e72e7a-4456-4a87-993e-911b32a124a2.html
+    extractionConfigId: product/search/stores/a/amazonMweb/FR/extract
+    data:
+      - group:
+          - id:
+              - text: B06XGPJF6P
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/@data-asin
+            name:
+              - text: "blanchiment des dents naturellement: Comment blanchir ses dents
+                  naturemment sans aller chez le dentiste ou acheter des kits
+                  (French Edition)"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            productUrl:
+              - text: https://www.amazon.fr/blanchiment-dents-naturellement-blanchir-naturemment-ebook/dp/B06XGPJF6P/ref=sr_1_1?dchild=1&keywords=Blanchiment+des+dents&qid=1593446813&sr=8-1
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/81Y45DzwyLL._AC_UY218_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $9.99
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1]
+          - id:
+              - text: B01A5QZVSY
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/@data-asin
+            name:
+              - text: UN BEAU SOURIRE sans risques ? (French Edition)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            productUrl:
+              - text: https://www.amazon.fr/BEAU-SOURIRE-sans-risques-French-ebook/dp/B01A5QZVSY/ref=sr_1_2?dchild=1&keywords=Blanchiment+des+dents&qid=1593446813&sr=8-2
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/61Net9YxPxL._AC_UY218_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $0.99
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1]
+          - id:
+              - text: B01N9SM9PJ
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/@data-asin
+            name:
+              - text: Schoolsupplies 1pcs Dental Personal Oral Hygiene Care White Light
+                  Whitelight Teeth Whitener Easy To White Your Teeth Whitening
+                  Blanchiment Dent
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            productUrl:
+              - text: https://www.amazon.fr/Schoolsupplies-Personal-Whitelight-Whitening-Blanchiment/dp/B01N9SM9PJ/ref=sr_1_3?dchild=1&keywords=Blanchiment+des+dents&qid=1593446813&sr=8-3
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/61QxI6Rag4L._AC_UY218_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $9.99
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[4]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]
+          - id:
+              - text: B0894LKPCL
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/@data-asin
+            name:
+              - text: ZLZNX Prosthesis Teeth Temporary Smile Teeth veneers top and Bottom Whiten
+                  Smile False Tooth Cover for Replacing Missing Tooth
+                  Replacement Denture Teeth Instant Comfortable Flex Perfect
+                  Veneers
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            productUrl:
+              - text: https://www.amazon.fr/ZLZNX-Prosthesis-Temporary-Replacement-Comfortable/dp/B0894LKPCL/ref=sr_1_4?dchild=1&keywords=Blanchiment+des+dents&qid=1593446813&sr=8-4
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/510HJpeTv1L._AC_UY218_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $16.99
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[5]/div[1]/span[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]
+        xpath: /html
+    timestamp: 1593446817609

@@ -5,6 +5,6 @@ module.exports = {
     country: 'US',
     store: 'amazonPrimeNow',
     domain: 'primenow.amazon.com',
-    zipcode: '75204',
+    zipcode: '10001',
   },
 };

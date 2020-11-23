@@ -1,0 +1,62 @@
+fields:
+  - name: helpfulCount
+    singleValue: true
+    type: NUMBER 
+    description: Number of people who said the review was helpful
+  - name: commentCount
+    singleValue: true
+    type: NUMBER 
+    description: Number of comments on the review
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name, e.g. "Visit the Gillette Store"
+  - name: name
+    singleValue: true
+    description: The product name
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: reviewDate
+    singleValue: true
+    type: DATETIME
+    description: Date the review was made
+  - name: reviewRating
+    type: NUMBER 
+    singleValue: true
+    description: Rating normalized to be out of 5
+  - name: reviewText
+    singleValue: true
+    description: The text of the review
+  - name: reviewTitle
+    singleValue: true
+    description: The title of the review
+  - name: reviewerTags
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    singleValue: true
+    description: The url of the product details page
+  - name: verifiedPurchase
+    singleValue: true
+    type: BOOLEAN 
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: manufacturerResponse
+    singleValue: true
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    singleValue: true
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: true
+    description: A direct link to the review
+  - name: reviewedSku
+    singleValue: true
+    description: The SKU of the item that was reviewed (may be different from the sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku value, transform will handle the value.
+  - name: user
+    description: The user name of the reviewer
+    type: TEXT
+  - name: aggregateRating
+    description: The product rating

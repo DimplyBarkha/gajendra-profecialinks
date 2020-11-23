@@ -1,0 +1,105 @@
+input:
+  RPC: B00GX7UKAE
+  _url: https://amazon.fr
+extractions:
+  - html: https://workbench.import.io/html/run=bc302458-ce21-4ff2-8bfa-109be246d8ae/task=6e2ae89d-de51-45c2-832b-d8e8ad146113/24e75bf0-47f9-4230-b985-751f7fcb48ea.html
+    extractionConfigId: product/details/stores/a/amazonMweb/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/51-MeB4xaQL._AC_SX679_.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: Physiogel Crème Intensive Crème Hydratante Corps 100
+                  ml,Physiogel,10000000097460
+                xpath: /html/head[1]/meta[6]/@content
+            pageTimestamp:
+              - text: 2020-06-27 11:46:20.332
+                xpath: /html/body/div[4]
+            searchUrl:
+              - text: https://www.amazon.fr/Physiogel-3430-Intensive-100-ml/dp/B00GX7UKAE
+                xpath: /html/head[1]/link[9]/@href
+            category:
+              - text: Beauté et Parfum
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[1]
+            subCategory:
+              - text: Coiffure et soins des cheveux
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[3]
+              - text: ›
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[4]
+              - text: Shampooings et soins
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[5]
+              - text: ›
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[6]
+              - text: Shampooings
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[1]/ul[1]/li[7]
+            nameExtended:
+              - text: Physiogel Crème Intensive Crème Hydratante Corps 100 ml
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[1]/div[1]/h1[1]/span[1]
+            price:
+              - text: 13,55 €
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            availabilityText:
+              - text: En stock.
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[8]/div[1]/div[1]
+              - text: En stock.
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]
+            description:
+              - text: Crème hydratante* riche quotidienne pour les peaux très sèches et
+                  sensibles pouvant être rugueuses, avec sensations de
+                  tiraillements et d'inconfort
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[29]/div[1]/ul[1]/li[1]
+              - text: Procure une hydratation hydrolipidique* durable pour protéger contre la
+                  sécheresse récurrente
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[29]/div[1]/ul[1]/li[2]
+              - text: Cliniquement testée par des dermatologues
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[29]/div[1]/ul[1]/li[3]
+              - text: Convient également aux bébés et aux enfants
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[29]/div[1]/ul[1]/li[4]
+              - text: Sans parfum ou colorant. Non comédogène et hypoallergénique. *Hydratation
+                  des couches superficielles de l'épiderme
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[29]/div[1]/ul[1]/li[5]
+              - text: |-
+                  Style:Crème Intensive 
+                   
+                  Intensive Cream - For Dry & Sensitive Skin -
+                xpath: /html/body/div[2]/div[2]/div[6]/div[23]/div[2]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]
+            brandText:
+              - text: Physiogel
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[3]/div[1]/a[1]
+            sku:
+              - text: B00GX7UKAE
+                xpath: /html/body/div[2]/div[2]/div[6]/div[3]/div[1]/@data-asin
+            alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/419UvjfGPlL._AC_US40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41P6qrXm7YL._AC_US40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            ratingCount:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[5]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[4]/div[5]/div[1]/span[1]/span[1]/@title
+            manufacturerImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/419UvjfGPlL._AC_US40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41P6qrXm7YL._AC_US40_.jpg
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            shippingInfo:
+              - text: Expédié et vendu par Amazon.
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[16]
+            scrapeCode:
+              - text: B00GX7UKAE
+                xpath: /html/body/div[2]/div[2]/div[6]/div[3]/div[1]/@data-asin
+            imageAlt:
+              - text: Physiogel Cr&egrave;me Intensive Cr&egrave;me Hydratante Corps 100 ml
+                xpath: /html/body/div[2]/div[2]/div[6]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            onlinePriceCurrency:
+              - text: €
+            productsPerPage:
+              - text: "1"
+            descriptionBullets:
+              - text: "5"
+        xpath: /
+    timestamp: 1593258384365
