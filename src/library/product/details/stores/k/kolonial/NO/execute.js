@@ -5,7 +5,7 @@ module.exports = {
     country: 'NO',
     store: 'kolonial',
     domain: 'kolonial.no',
-    loadedSelector: null,
+    loadedSelector: '#modal-container',
     noResultsXPath: null,
     zipcode: '',
   },
