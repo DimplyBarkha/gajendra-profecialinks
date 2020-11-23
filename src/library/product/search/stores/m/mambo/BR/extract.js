@@ -24,7 +24,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         await new Promise((resolve, reject) => setTimeout(resolve, 10));
         numberOfSeenProducts = checkForProducts('.CC-shelf.shelf-block .shelf-product');
       } while (numberOfProducts !== numberOfSeenProducts);
-      await new Promise((resolve, reject) => setTimeout(resolve, 500));
+      await new Promise((resolve, reject) => setTimeout(resolve, 700));
       const productCards = document.querySelector('.CC-shelf.shelf-block .shelf-product') ? document.querySelectorAll('.CC-shelf.shelf-block .shelf-product') : [];
 
       productCards.forEach((card, index) => {
