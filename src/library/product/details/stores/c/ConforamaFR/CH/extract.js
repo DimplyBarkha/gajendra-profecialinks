@@ -47,6 +47,24 @@ module.exports = {
       } catch (error) {
       }
 
+      // Method to Retrieve Xpath content of a Multiple Nodes
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      // Double Pipe Concatenation
+      const pipeSeparatorDouble = (id, data) => {
+        var doubleSeparatorText = data.join(' || ');
+        addHiddenDiv(id, doubleSeparatorText,0);
+      };
+      // XPATH Data Extraction For Additional Description Bullet
+      const addDescBulletInfo = getAllXpath("//div[@id='tabs-1']/ul/li/text()", 'nodeValue');
+      pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
     });
     return await context.extract(productDetails, { transform });
   },
