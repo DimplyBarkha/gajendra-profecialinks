@@ -29,7 +29,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { keywords, page, offset } = inputs;
+  const { id, date, keywords, page, offset } = inputs;
   const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
@@ -73,7 +73,7 @@ async function implementation (
   }
   const { pager } = dependencies;
 
-  const success = openSearchDefinition ? false : await pager({ keywords, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
+  const success = openSearchDefinition ? false : await pager({ ...inputs, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
 
   if (success) {
     return true;
@@ -92,10 +92,12 @@ async function implementation (
     const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
     const pageNb = page + pageStartNb - 1;
     url = template
-      .replace('{searchTerms}', encodeURIComponent(keywords))
-      .replace('{page}', (pageNb + (pageOffset || 0)).toString())
-      .replace('{index}', (pageNb * (pageIndexMultiplier || 0)).toString())
-      .replace('{offset}', (offset + (indexOffset || 0)).toString());
+      .replace(/{searchTerms}/g, encodeURIComponent(keywords))
+      .replace(/{id}/g, encodeURIComponent(id))
+      .replace(/{date}/g, encodeURIComponent(date))
+      .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
+      .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString())
+      .replace(/{offset}/g, (offset + (indexOffset || 0)).toString());
   }
 
   if (!url) {
