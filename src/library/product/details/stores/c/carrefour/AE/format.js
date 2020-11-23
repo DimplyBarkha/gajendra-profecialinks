@@ -52,6 +52,12 @@ const transform = (data) => {
           item.text = item.text.replace('Warranty:', '');
         });
       }
+      if (row.packSize) {
+        row.packSize.forEach(item => {
+          item.text = item.text.replace(/Pack\s+size\s*:/, '');
+          item.text = item.text.trim();
+        });
+      }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           var myRegexp = /(\d+)\s+reviews/g;
