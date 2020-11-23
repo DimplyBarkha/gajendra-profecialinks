@@ -50,33 +50,37 @@ const transform = (data) => {
         }
         if (row.price) {
           row.price.forEach(item => {
-            item.text = item.text.replace('RSD', ' ').trim();
-            item.text = item.text.replace(' ', '').trim();
-            item.text = item.text.replace(',', '').trim();
-            item.text = item.text.replace('.', '').trim();
+            item.text = item.text.replace(/\€.*/g, '').trim();
+            item.text = item.text.replace('.', ',').trim();
+            // item.text = item.text.replace(' ', '').trim();
+            // item.text = item.text.replace(',', '').trim();
+            // item.text = item.text.replace('.', '').trim();
           });
         }
         if (row.listPrice) {
           row.listPrice.forEach(item => {
-            item.text = item.text.replace('RSD', ' ').trim();
-            item.text = item.text.replace(' ', '').trim();
-            item.text = item.text.replace(',', '').trim();
-            item.text = item.text.replace('.', '').trim();
+            item.text = item.text.replace(/\€.*/g, '').trim();
+            item.text = item.text.replace('.', ',').trim();
+            // item.text = item.text.replace(' ', '').trim();
+            // item.text = item.text.replace(',', '').trim();
+            // item.text = item.text.replace('.', '').trim();
           });
         }
         if (row.productPrice) {
             row.productPrice.forEach(item => {
-              item.text = item.text.replace('RSD', ' ').trim();
-              item.text = item.text.replace(' ', '').trim();
-              item.text = item.text.replace(',', '').trim();
-              item.text = item.text.replace('.', '').trim();
+              item.text = item.text.replace(/\€.*/g, '').trim();
+              item.text = item.text.replace('.', ',').trim();
+              // item.text = item.text.replace(' ', '').trim();
+              // item.text = item.text.replace(',', '').trim();
+              // item.text = item.text.replace('.', '').trim();
             });
           }
           if (row.totalPriceInCart) {
             row.totalPriceInCart.forEach(item => {
-              item.text = item.text.replace('RSD', ' ').trim();
-              item.text = item.text.replace(' ', '').trim();
-              item.text = item.text.replace(',', '').trim();
+              item.text = item.text.replace(/\€.*/g, '').trim();
+              // item.text = item.text.replace('RSD', ' ').trim();
+              // item.text = item.text.replace(' ', '').trim();
+              // item.text = item.text.replace(',', '').trim();
             });
           }
           if (row.sku) {
