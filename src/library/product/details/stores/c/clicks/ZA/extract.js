@@ -1,5 +1,5 @@
 const { transform } = require('../shared');
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,9 +7,9 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  console.log("inputs --  core extract:: ", inputs);
+  console.log('inputs --  core extract:: ', inputs);
   const { id } = inputs;
-  console.log("parameters --- core extract:: ", parameters);
+  console.log('parameters --- core extract:: ', parameters);
   if (id) {
     await new Promise((resolve, reject) => setTimeout(resolve, 30000));
     await context.waitForXPath('//div[@class="productBlock"]/a');
@@ -23,15 +23,15 @@ async function implementation(
 
     await new Promise((resolve, reject) => setTimeout(resolve, 30000));
   }
-    // await context.evaluate(async function () {
-    //   function addHiddenDiv (id, content) {
-    //     const newDiv = document.createElement('div');
-    //     newDiv.id = id;
-    //     newDiv.textContent = content;
-    //     newDiv.style.display = 'none';
-    //     document.body.appendChild(newDiv);
-    //   }    
-    // });
+  // await context.evaluate(async function () {
+  //   function addHiddenDiv (id, content) {
+  //     const newDiv = document.createElement('div');
+  //     newDiv.id = id;
+  //     newDiv.textContent = content;
+  //     newDiv.style.display = 'none';
+  //     document.body.appendChild(newDiv);
+  //   }
+  // });
 
   // var variantLength = await context.evaluate(async () => {
   //   return (document.querySelectorAll('div.variant_options a.colorVariant')) ? document.querySelectorAll('div.variant_options a.colorVariant').length : 0;
@@ -71,5 +71,5 @@ module.exports = {
     domain: 'clicks.co.za',
     zipcode: '',
   },
-  // implementation,
+  implementation,
 };
