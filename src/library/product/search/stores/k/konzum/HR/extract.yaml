@@ -23,7 +23,7 @@ fields:
     xpath: //span[@class="color-space-gray-medium f-weight-normal"]
     regExp: \d+
   - name: price
-    xpath: //div[@class="product-default__price-details-grid"]
+    xpath: //div/@data-ga-price
     description: The offered price for the product
     regExp: \d+
   - name: rank
