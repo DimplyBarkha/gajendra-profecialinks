@@ -45,6 +45,7 @@ fields:
     xpath: //a[@class="b-product__brand-link"]/@href
     regExp: (.+)
     regExpReplace: https://www.aceuae.com/$1
+    
 
   - name: price
     singleValue: true
@@ -68,8 +69,9 @@ fields:
 
   - name: brandText
     singleValue: true
-    xpath: //a[@class="b-product__brand-link"]/span
-
+    # xpath: //a[@class="b-product__brand-link"]/span
+    xpath: //div[@class="product-brand"]/b[@class="link-info"]
+    
   - name: gtin
     singleValue: true
     xpath: //meta[@itemprop="gtin13"]/@content
@@ -86,7 +88,7 @@ fields:
 
   - name: name 
     singleValue: true
-    xpath: //h1[@class="b-product__name"]//span
+    xpath: //h1[@class="product-title"]//text()
 
   - name: variantId 
     singleValue: true
