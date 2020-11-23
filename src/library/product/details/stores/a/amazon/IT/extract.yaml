@@ -37,7 +37,11 @@ fields:
     xpath: //*[@id="priceblock_ourprice"] | //span[contains(@id, 'priceblock_saleprice')]
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id='availability']/span
+    # xpath: //*[@id='availability']/span
+    xpath: //div[@id='availability']//span[contains(text(),'Disponibilità')]| //div[@id='availability']//span[contains(text(),'Disponibile')]|//div[@id='availability']//span[contains(text(),'spedito entro')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
     xpath: //div[@id='ii_desc']
