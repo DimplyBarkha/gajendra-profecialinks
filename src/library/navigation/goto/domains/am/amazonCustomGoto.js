@@ -34,22 +34,26 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     return await context.evaluate(() => {
       console.log('context.evaluate');
       const selectors = {
+        isCaptchaPage: 'img[src*="/captcha/"]',
+        is400Page: 'a[href*="404_logo"]',
+        is500Page: 'img[src*="500-title"], a[href*="503_logo"], a img[src*="503.png"], a[href*="ref=cs_503_link"]',
         hasProdDetails: '#prodDetails, #detailBullets_feature_div',
         hasSalesRank: '#detailBullets_feature_div a[href*="bestsellers"], #detailBullets a[href*="bestsellers"], #prodDetails a[href*="bestsellers"], #SalesRank',
-        isProductPage: 'link[rel*=canonical][href*="/dp/"]',
-        isReviewsPage: 'link[rel*=canonical][href*=product-reviews]',
-        isBestSellerPage: 'link[rel*=canonical][href*="/zgbs/"]',
-        isSearchPage: '#search',
         hasSalesRankBadge: '#ppd i[class*="best-seller-badge"]',
-        isCaptchaPage: 'img[src*="/captcha/"]',
         hasAplus: '#aplus',
         hasProductDescription: '#productDescription',
         hasShippingDetails: '#contextualIngressPtLabel_deliveryShortLine',
         hasCookieAcceptRequest: '#sp-cc-accept',
         hasDogsofAmazon: 'img[alt*="Dogs of Amazon"]',
-        is400Page: 'a[href*="404_logo"]',
-        is500Page: 'img[src*="500-title"], a[href*="503_logo"], a img[src*="503.png"], a[href*="ref=cs_503_link"]',
         hasTitle: 'title, #gouda-common-atf h1',
+        hasToCartBtn: '#hlb-view-cart-announce',
+        hasProdsToDeleteInCart: 'div[data-asin] div[class*=removed]:not([style=""]) + div input[value*="Delete"], .sc-list-item-content input[data-action=delete]',
+        hasAddOnModal: '#attach-popover-lgtbox:not([style*="display: none"])',
+        hasToCartFromModal: 'input[type=submit][aria-labelledby*="cart"]',
+        hasItemsInCart: '#nav-cart-count:not([class*="cart-0"])',
+        hasdropDownQuantity: '[import=element] span[data-action*=dropdown]',
+        hasBuyNewBtn: '#buyNew_cbb',
+        hasNoThanksAddOn: '#buybox-see-all-buying-choices-announce'
       };
 
       const elementChecks = {};
@@ -59,10 +63,20 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
           elementChecks[prop] = true;
         } else { elementChecks[prop] = false; }
       }
-      elementChecks.isOffersPage = window.location.href.includes('offer-listing');
-      elementChecks.hasVariants = !!window.isTwisterPage;
-      elementChecks.windowLocation = window.location;
-      document.body.setAttribute('current_page_url', window.location.href);
+      
+      elementChecks.hasShoppingCart = window.ue_pty ? window.ue_pty.includes("ShoppingCart") : false
+      elementChecks.isCartPage = window.ue_pty ? (window.ue_pty.includes("ShoppingCart") && window.ue_spty.includes("Cart")) : false
+      elementChecks.isCartTransitionPage = window.ue_pty ? (window.ue_pty.includes("ShoppingCart") && !window.ue_spty.includes("Cart")) : false
+      elementChecks.isBestSellerPage = window.ue_pty ? window.ue_pty.includes("zeitgeist") : false
+      elementChecks.isSearchPage = window.ue_pty ? window.ue_pty.includes("Search") : false
+      elementChecks.isReviewsPage = window.ue_pty ? window.ue_pty.includes("CustomerReviews") : false
+      elementChecks.isProductPage = window.ue_pty ? window.ue_pty.includes("Detail") : false
+      elementChecks.isOffersPage = window.ue_pty ? window.ue_pty.includes("OfferListing") : false
+      elementChecks.hasVariants = !!window.isTwisterPage
+      elementChecks.windowLocation =  window.location ? window.location : {}
+      if(!!document.body){
+        document.body.setAttribute('current_page_url', window.location.href);
+      }
       return elementChecks;
     });
   };
