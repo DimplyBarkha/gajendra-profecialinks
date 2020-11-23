@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'nutricaototal.com.br',
-    timeout: 500000,
+    prefix: null,
+    url: null,
     country: 'BR',
     store: 'nutricaototal',
     zipcode: '',

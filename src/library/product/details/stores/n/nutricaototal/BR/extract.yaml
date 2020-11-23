@@ -1,0 +1,58 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@data-gallery-role="stage-shaft"]//div[@data-active='true']//img/@src    
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@data-gallery-role="stage-shaft"]//div[@data-active='true']//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@data-gallery-role="stage-shaft"]//div[not(@data-active='true')]//img/@src
+    regExp: (.+\/)\d+x\d+\/(.+)
+    regExpReplace: $1$2
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content  
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='page-title']//span[@itemprop="name"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price-box price-final_price']//span[@data-price-type="finalPrice"]//span[@class='price']
+  - name: availabilityText
+    singleValue: false
+    xpath: //button[@id='product-addtocart-button']//span[text()='Adicionar ao Carrinho']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@id='product.info.description']//div[@class='product attribute description']//div[@class='value']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@id='product.info.description']//div[@class='product attribute description']//div[@class='value']//ul//li)      
+  - name: quantity
+    singleValue: false
+    xpath: //input[@id="qty"]/@value  
+  - name: sku
+    singleValue: false
+    xpath: //div[@itemprop="sku"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="price-box price-final_price"]/@data-product-id  
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop="reviewCount"]      
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='rating-summary']//span[@itemprop="ratingValue"]  
+  - name: variantCount
+    singleValue: false
+    defaultValue: "0"  
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='page-title']//span[@itemprop="name"]  
