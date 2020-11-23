@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -101,6 +101,8 @@ fields:
     singleValue: false
     description: The number of ratings
     xpath: //dd[@class="bv-rating-ratio-count"]/span[@class="bv-rating-ratio-count"]/@aria-label
+    regExp: (.*)\sReview
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
@@ -130,7 +132,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //section[@class="product-info-section description"]/h2[contains(text(), "Information")]/following-sibling::div[contains(@class, "details")]
+    xpath: //section[@class="product-info-section description"]/h2[contains(text(), "Information")]/following-sibling::div[contains(@class, "details")] | //section[@class="product-info-section description "]/h2[contains(text(), "Information")]/following-sibling::div[contains(@class, "details")]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -246,6 +248,7 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //section[@class="product-info-section ingredients "] | //section[@class="product-info-section ingredients"]
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
