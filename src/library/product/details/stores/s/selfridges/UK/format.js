@@ -69,6 +69,14 @@ const transform = (data) => {
             item.text = 'https:' + item.text;
           }
         });
+      } else if (row.image2) {
+        row.image2.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
+          }
+        });
+        row.image = [{ text: row.image2[0].text }];
+        delete row.image2;
       }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
