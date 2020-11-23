@@ -9,7 +9,9 @@ module.exports = {
     spinnerSelector: null, // '#loader-div',
     loadedSelector: null, // 'div.search-results.section-products.grid-view',
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.harristeeter.com/shop/store/61/search/{searchTerms}?pageNo={page}',
+    },
     domain: 'harristeeter.com',
     zipcode: '',
   },
