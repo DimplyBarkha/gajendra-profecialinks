@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: (//div[contains(@class, 'details-slider')]//div[contains(@class, 'slider-item')]/img[contains(@class, 'item-image')]/@src)[position()>1]
+  xpath: //div[contains(@class, 'details-slider')]//div[contains(@class, 'slider-item')]/img[contains(@class, 'item-image')]/@data-src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -35,7 +35,6 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //li[contains(@class, 'breadcrumb__item--product')][position()>1 and position()<last()]
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -59,7 +58,7 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//ul[contains(@class, 'properties-wrapper')]/li | //div[contains(@class, 'card-product-text')]/ul/li)
+  xpath: count(//div[@id='productdescription'])
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -149,7 +148,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-  xpath: //h1
+  xpath: //h1[contains(@class, 'info__title')]
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -393,7 +392,7 @@ fields:
   singleValue: true
   description: Suggested storage location for product
 - name: countryOfOrigin
-  singleValue: true
+  singleValue: false
   description: The country from which the product originates
   xpath: //span[contains(@class, 'country-item')]
 - name: allergyAdvice

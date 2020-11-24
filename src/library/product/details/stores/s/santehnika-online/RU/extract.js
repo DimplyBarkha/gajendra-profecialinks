@@ -19,10 +19,11 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      const availabilityInfo = document.querySelector('div[class*=\'row--unavailable\']');
-      if (availabilityInfo) {
+      const unavailabilityInfo = document.querySelector('div[class*=\'row--unavailable\']');
+      const availabilityInfo = document.querySelector('div[class*=\'prices__row\']>div[class*=\'buttons\']');
+      if (unavailabilityInfo) {
         addElementToDocument('availability', 'Out of stock');
-      } else {
+      } else if (availabilityInfo) {
         addElementToDocument('availability', 'In stock');
       }
 
