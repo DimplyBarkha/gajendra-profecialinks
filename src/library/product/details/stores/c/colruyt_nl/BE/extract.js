@@ -69,27 +69,27 @@ async function implementation (inputs, parameters, context, dependencies) {
     //   return ingredientSelector ? ingredientSelector.innerText : '';
     // });
     totalSugarsPerServing = await context.evaluate(() => {
-      const totalSugarsPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Sucres")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const totalSugarsPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Suikers")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return totalSugarsPerServingSelector ? totalSugarsPerServingSelector.innerText : '';
     });
     proteinPerServing = await context.evaluate(() => {
-      const proteinPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Protéines")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const proteinPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Eiwitten")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return proteinPerServingSelector ? proteinPerServingSelector.innerText : '';
     });
     totalCarbPerServing = await context.evaluate(() => {
-      const totalCarbPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Total glucides")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const totalCarbPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Totaal koolhydraten")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return totalCarbPerServingSelector ? totalCarbPerServingSelector.innerText : '';
     });
     saturatedFatPerServing = await context.evaluate(() => {
-      const saturatedFatPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Graisses saturées")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const saturatedFatPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Verzadigde vetten")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return saturatedFatPerServingSelector ? saturatedFatPerServingSelector.innerText : '';
     });
     totalFatPerServing = await context.evaluate(() => {
-      const totalFatPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Total graisses")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const totalFatPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Totaal vetten")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return totalFatPerServingSelector ? totalFatPerServingSelector.innerText : '';
     });
     caloriesPerServing = await context.evaluate(() => {
-      const caloriesPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Énergie kcal")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const caloriesPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Energie kcal")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return caloriesPerServingSelector ? caloriesPerServingSelector.innerText : '';
     });
     servingSize = await context.evaluate(() => {
@@ -105,7 +105,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       return ingredientsListSelector ? ingredientsListSelector.innerText : '';
     });
     saltPerServing = await context.evaluate(() => {
-      const saltPerServingSelector = document.evaluate('(//div[contains(@class,"value-left")]//span[contains(text(),"Sel")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const saltPerServingSelector = document.evaluate('(//div[contains(@class,"value-left")]//span[contains(text(),"Zout")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return saltPerServingSelector ? saltPerServingSelector.innerText : '';
     });
     storage = await context.evaluate(() => {

@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'colruyt.be',
-    timeout: 50000,
+    timeout: 90000,
     country: 'BE',
     store: 'colruyt_nl',
     zipcode: '',
