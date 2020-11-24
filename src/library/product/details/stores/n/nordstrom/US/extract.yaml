@@ -4,10 +4,10 @@ recordSelector: null
 recordXPath: //table/tbody/tr[@class="append_variant"]
 fields:
   - name: image
-    xpath: //td[@class="images"]/img[1]//@src
-    regExp: (.+jpeg)(\?.+)
-    regExpReplace: $1?crop=pad&pad_color=FFF&format=jpeg&w=1660&h=2546
-    # singleValue: true
+    xpath: ancestor::html//img[contains(@name,"gallery-image")]/@src
+    regExp: (.+)&w=(.+)&h=
+    regExpReplace: $1&w=780&h=1196
+    singleValue: true
   - name: alternateImages
     xpath: //td[@class="images"]/img[position()>1]//@src
     regExp: (.+jpeg)(\?.+)
@@ -88,7 +88,7 @@ fields:
   - name: variantCount
     xpath: count(//table/tbody/tr[@class="append_variant"]/@variant_id)
   - name: quantity
-    xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"][contains(.,'oz')]
+    xpath: ancestor::html//ul[@id="size-filter-product-page-option-list"]/li | ancestor::html//button[@class="_1oaUx"]
     singleValue: false
   - name: color
     xpath: ancestor::html//ul[@id="product-page-swatches"]//li/button/img/@alt
