@@ -20,8 +20,8 @@ fields:
     singleValue: true
     xpath: //a[contains(text(),'Terms and Conditions')]
     regExp: Terms and Conditions
-    regExpReplace: 'Yes'
-    defaultValue: 'No'
+    regExpReplace: "Yes"
+    defaultValue: "No"
   - name: brandText
     singleValue: true
     description: The brand name
@@ -54,13 +54,13 @@ fields:
     description: The URL for the product thumbnail image
   - name: image
     singleValue: true
-    xpath: //head/meta[@name='og:image']/@content   
+    xpath: //head/meta[@name='og:image']/@content
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@aria-label,'Perspective')]/div/div//div/img/@data-src
   - name: imageAlt
     singleValue: false
-    xpath: //img[@class='ProductImages-image']/@alt 
+    xpath: //img[@class='ProductImages-image']/@alt
     regExp: >-
       .+?(?= Perspective)
   - name: name
@@ -74,7 +74,7 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
     xpath: //span[@class='ProductDetails-upc']
-    regExp: >-   
+    regExp: >-
       [0-9]+
   - name: aggregateRatingText
     singleValue: true
@@ -115,7 +115,8 @@ fields:
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
     xpath: //div[@class='ProductDetails-header']/h1
   - name: aggregateRating
@@ -144,7 +145,7 @@ fields:
   - name: sku
     singleValue: true
     xpath: //span[@class='ProductDetails-upc']
-    regExp: >-   
+    regExp: >-
       [0-9]+
   - name: warnings
     singleValue: true
@@ -158,17 +159,17 @@ fields:
   - name: servingSize
     singleValue: true
     xpath: //div[@class='NutritionLabel-ServingSize font-bold flex justify-between']/span[2]
-    regExp: >-   
+    regExp: >-
       [0-9]+
   - name: servingSizeUom
     singleValue: true
     xpath: //div[@class='NutritionLabel-ServingSize font-bold flex justify-between']/span[2]
-    regExp: >-   
+    regExp: >-
       [a-z]+
   - name: numberOfServingsInPackage
     singleValue: true
     xpath: //div[@class='NutritionLabel-ServingsPerContainer']
-    regExp: >-   
+    regExp: >-
       [0-9]+
   - name: caloriesPerServing
     singleValue: true
@@ -181,7 +182,7 @@ fields:
   - name: totalFatPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*
-    regExp: >-   
+    regExp: >-
       [0-9,.]+
   - name: totalFatPerServingUom
     singleValue: true
@@ -190,7 +191,7 @@ fields:
   - name: saturatedFatPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Saturated Fat')]/parent::*
-    regExp: >-   
+    regExp: >-
       [0-9,.]+
   - name: saturatedFatPerServingUom
     singleValue: true
@@ -199,7 +200,7 @@ fields:
   - name: transFatPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Trans Fat')]/parent::*
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: transFatPerServingUom
     singleValue: true
@@ -208,7 +209,7 @@ fields:
   - name: cholesterolPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Cholesterol')]/parent::*
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: cholesterolPerServingUom
     singleValue: true
@@ -217,7 +218,7 @@ fields:
   - name: sodiumPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sodium')]/parent::*
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: sodiumPerServingUom
     singleValue: true
@@ -226,7 +227,7 @@ fields:
   - name: totalCarbPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Carbohydrate')]/parent::*
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: totalCarbPerServingUom
     singleValue: true
@@ -235,7 +236,7 @@ fields:
   - name: dietaryFibrePerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Dietary Fiber')]/parent::*
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: dietaryFibrePerServingUom
     singleValue: true
@@ -244,7 +245,7 @@ fields:
   - name: totalSugarsPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sugar')]/parent::*
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: totalSugarsPerServingUom
     singleValue: true
@@ -253,7 +254,7 @@ fields:
   - name: proteinPerServing
     singleValue: false
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Protein')]/parent::*
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: proteinPerServingUom
     singleValue: true
@@ -262,7 +263,7 @@ fields:
   - name: vitaminAPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Vitamin A')]/parent::*/following-sibling::span
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: vitaminAPerServingUom
     singleValue: true
@@ -272,7 +273,7 @@ fields:
   - name: vitaminCPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Vitamin C')]/parent::*/following-sibling::span
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: vitaminCPerServingUom
     singleValue: true
@@ -282,7 +283,7 @@ fields:
   - name: calciumPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Calcium')]/parent::*/following-sibling::span
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: calciumPerServingUom
     singleValue: true
@@ -292,7 +293,7 @@ fields:
   - name: ironPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Iron')]/parent::*/following-sibling::span
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: ironPerServingUom
     singleValue: true
@@ -304,7 +305,7 @@ fields:
   - name: magnesiumPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Magnesium')]/parent::*/following-sibling::span
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: magnesiumPerServingUom
     singleValue: true
@@ -314,7 +315,7 @@ fields:
   - name: saltPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sodium')]/parent::*
-    regExp: >-   
+    regExp: >-
       [0-9,<,.]+
   - name: saltPerServingUom
     singleValue: true

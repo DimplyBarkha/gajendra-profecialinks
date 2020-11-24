@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="breadcrumb-container"]/ol/li[position() < last()]
+  - name: nameExtended
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[@class="product-details"]//h1[@class="name"]
+  - name: price
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[@class="product-details rating-bottom"]/span[@class="cart_reader"]
+    regExp: (\d+)(.)(\d+)
+  - name: availabilityText
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[@class="about-sku-section"]/@availability
+    regExp: (InStock)
+    regExpReplace: In stock
+    defaultValue: Out of Stock
+  - name: description
+    description:
+      Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="about-this-product"]//div[contains(@class,"description")]
+  - name: sku
+    xpath: //div[@class="container"]/div[contains(@class,"product")]/@data-sku
+  - name: ratingCount
+    description: The number of ratings
+    defaultValue: "0"
+  - name: aggregateRating
+    description: The stated aggregate rating
+    xpath: //div[@class="product-details"]//div[@class="rating-box global-rating"]/div[contains(@class,"rating")]/@aria-label
+    regExp: .+(\d+)(.)(\d+).+
+    regExpReplace: $1$2$3
+  - name: shownImages
+    xpath: //div[@class="about-sku-section"]/@normalimage
+  - name: highQualityImages
+    xpath: //div[contains(@class,"owl-item")]/div/@data-zoom-image
+  - name: upc
+    xpath: //div[@class="about-sku-section"]/text()
+    regExp: (\d+)
+  - name: priceCurrency
+    xpath: //div[@class="about-sku-section"]/@pricecurrency
+  - name: productUrl
+    xpath: //div[@class="about-sku-section"]/@producturl
+  - name: ingredientsList
+    xpath: //*[contains(text(),"Ingredients:")]/../text()
+  - name: servingSize
+    description: The size of serving Nutritional information is based on.
+    xpath: //p[@class="serving-size"]/text()
+    regExp: .+\((.+)\)
+    regExpReplace: $1
+  - name: caloriesPerServing
+    description:
+      Nutritional Information for Calories Per Serving content - Usually
+      based on per 100g serving
+    xpath: //strong[contains(text(),"Calories")]/../text()
+  - name: otherSellersName
+    xpath: //div[@class="about-sku-section"]/@seller
