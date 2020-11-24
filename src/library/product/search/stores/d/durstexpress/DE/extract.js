@@ -8,7 +8,25 @@ module.exports = {
     domain: "durstexpress.de",
     zipcode: "",
   },
-}
+  // implementation: async (
+  //   { inputString },
+  //   { country, domain, transform: transformParam },
+  //   context,
+  //   { productDetails }
+  // ) => {
+  //   await context.evaluate(async function () {
+  //     if (document.querySelector("#plz_modal > div > a") != null) {
+  //       async () => {
+  //         const button = await document.querySelector("#plz_modal > div > a");
+  //         // @ts-ignore
+  //         button.click();
+  //       };
+  //     }
+  //   });
+  //   await context.extract(productDetails, { transform: transformParam });
+  // },
+};
+
 //   implementation: async (inputs, parameters, context, dependencies) => {
 //     const { transform } = parameters;
 //     const { productDetails } = dependencies;
