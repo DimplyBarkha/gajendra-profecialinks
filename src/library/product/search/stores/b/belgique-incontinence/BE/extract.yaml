@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="list_contener"]/div
+fields:
+- name: productUrl
+  singleValue: false
+  xpath: //div[@id="list_contener"]//div[contains(@class,'list_content')]/a/@href
+- name: id
+  singleValue: false
+  xpath: //div[contains(@class,'pdtcode')]/span/text()  
+- name: name
+  singleValue: false
+  xpath: //div[contains(@class,'list_content')]//span[contains(@class,'primary')]/a
+- name: thumbnail
+  singleValue: false
+  xpath: //div[@id="list_contener"]//div[contains(@class,'list_content')]/a/img/@src
+- name: price
+  singleValue: false
+  xpath: //span[contains(@class,"price_pos")]/span
+- name: ratingCount
+  singleValue: false
+  xpath: //span[contains(@class,'rate_num')]
+- name: aggregateRating
+  singleValue: false
+  xpath: //span[contains(@class,'ratestar_average')]/@style
+- name: brandText
+  singleValue: false
+  xpath: //div[contains(@class,'pdtbrand')]/span
+- name: rankOrganic
+  singleValue: false   
+- name: rank
+  singleValue: false       
