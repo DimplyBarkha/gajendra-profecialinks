@@ -20,13 +20,6 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -60,14 +53,21 @@ module.exports = {
       const bulletsXpath = "//div[@class='product-info-description']/ul/li/text()";
       const bulletsInfo = getAllXpath(bulletsXpath, 'nodeValue').join(' || ');
       const modelXpath = "//div[contains(@class,'item-model-number')]//span/@data-model-number";
-      const modelInfo = getXpath(modelXpath, 'nodeValue');
+      let modelInfo = getXpath(modelXpath, 'nodeValue');
+      if (modelInfo === null) {
+        const modelXpath1 = "//div[@class='product-info-description']/span[2]";
+        modelInfo = getXpath(modelXpath1, 'innerText');
+        if (modelInfo !== null) {
+          modelInfo = modelInfo.replace('Model: ', '');
+        }
+      }
       const tabDescInfoNew = [];
-      let model;
+      // let model;
       let flag = false;
       tabDescInfo.forEach(function (element) {
         if (element.includes('Model')) {
           flag = true;
-          model = element.replace('Model: ', '');
+          modelInfo = element.replace('Model: ', '');
         }
         let info = element.replace('\n', '');
         info = info.replace('\t', '');
@@ -89,24 +89,29 @@ module.exports = {
         addElementToDocument('additionalDescBulletInfo', bulletsInfo);
         finalDescInfo = finalDescInfo + ' || ' + bulletsInfo;
       }
-      finalDescInfo = finalDescInfo.replace('\n', '||');
-      addElementToDocument('added_descriptionText', finalDescInfo);
+      if (finalDescInfo.length > 0) {
+        finalDescInfo = finalDescInfo.replace('\n', '||');
+        addElementToDocument('added_descriptionText', finalDescInfo);
+      }
 
       // xpath for sku
       const skuValue = getXpath('//div[@class="row"]//div[contains(@class,"item-model-number")]//span/@data-model-number', 'nodeValue');
       if (skuValue !== null) {
         addElementToDocument('skuValue', skuValue);
       } else {
-        addElementToDocument('skuValue', model);
+        addElementToDocument('skuValue', modelInfo);
+      }
+      // xpath for variantId
+      const variantId = getXpath('//p[contains(@id,"product-body-item-number")]//span/@data-sku | //p[contains(@id,"product-body-item-number")]/text()', 'nodeValue');
+      if (variantId !== null) {
+        addElementToDocument('variantId', variantId.replace('Item'));
       }
 
       // xpath for video
-      let videoURL = getXpath('//div[@class="flix-videodiv inpage_selector_video"]//iframe/@src', 'nodeValue');
-      if (videoURL !== null) {
-        addElementToDocument('videoURL', videoURL);
-      } else {
-        videoURL = getXpath('//div[@id="html5videostage"]//video/@src', 'nodeValue');
-        addElementToDocument('videoURL', videoURL);
+      const videoUrlPath = getXpath("//div[contains(@class,'fullJwPlayerWarp')]//input[@class='flix-jw']/@value", 'nodeValue');
+      if (videoUrlPath && typeof videoUrlPath === 'string') {
+        var videoUrlObj = JSON.parse(videoUrlPath);
+        addElementToDocument('added_video_url', videoUrlObj.playlist[0].file);
       }
 
       // xpath for specificationValue
@@ -160,16 +165,6 @@ module.exports = {
       const aggregateRating = getXpath("//span[@itemprop='ratingValue']", 'innerText');
       if (aggregateRating) {
         addElementToDocument('added_aggregateRating', aggregateRating.replace('.', ','));
-      }
-
-      let scrollTop = 500;
-      while (true) {
-        window.scroll(0, scrollTop);
-        await stall(1000);
-        scrollTop += 500;
-        if (scrollTop === 10000) {
-          break;
-        }
       }
     });
     await context.extract(productDetails, { transform: transformParam });

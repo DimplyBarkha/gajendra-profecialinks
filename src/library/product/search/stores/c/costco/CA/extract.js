@@ -22,9 +22,9 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'costco',
-    transform,
+    transform: transform,
     domain: 'costco.ca',
-    zipcode: 'M5V 2A5',
+    zipcode: '',
   },
   implementation,
 };

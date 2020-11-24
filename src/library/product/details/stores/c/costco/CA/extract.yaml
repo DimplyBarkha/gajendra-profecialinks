@@ -94,7 +94,10 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //p[contains(@id,'product-body-item-number')]//span/@data-sku 
+    xpath: //div[@id="variantId"]/text()
+    # xpath: //p[contains(@id,'product-body-item-number')]//span/@data-sku | //p[contains(@id,'product-body-item-number')]/text()
+    #regExp: (Item )(.*)
+    #regExpReplace: $2
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -159,8 +162,8 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class="flix-videodiv inpage_selector_video"]//iframe/@src | //div[@id="html5videostage"]//video/@src
-    #xpath: //div[@id="videoURL"]/text()
+    #xpath: //div[@class="flix-videodiv inpage_selector_video"]//iframe/@src | //div[@id="html5videostage"]//video/@src
+    xpath: //div[@id="added_video_url"]/text()
   - name: name
     singleValue: true
     description: The product name
