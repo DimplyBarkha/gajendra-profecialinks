@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false 
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-name-brand"]//h2
+  - name: nameExtended
+    singleValue: false 
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-name-brand"]//h2
+  - name: brandText
+    singleValue: false  
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-name-brand"]//h1
+  - name: manufacturer
+    singleValue: false  
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-name-brand"]//h1
+  - name: image
+    singleValue: false 
+    xpath: //div[(contains(@class,'current-image sku-product-hero-container'))]//div[@class="mz-lens"]//img/@src
+  - name: alternateImages
+    singleValue: false 
+    xpath: //div[(contains(@class,'current-image sku-product-hero-container'))]//img/@src
+  - name: listPrice
+    singleValue: false
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//span[(contains(@class,'PriceTag zero-cents current secondary'))]//div[@class="FormattedAmount"]
+  - name: price
+    singleValue: false
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//span[(contains(@class,'PriceTag has-cents acrossAnySix primary'))]//div[@class="FormattedAmount"]
+  - name: category
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
