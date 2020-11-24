@@ -1,0 +1,82 @@
+input:
+  _url: http://selfridges.com
+  URL: https://www.selfridges.com/US/en/cat/allsaints-balfern-leather-biker-jacket_930-10136-WL115E/?previewAttribute=BLACK
+extractions:
+  - html: https://workbench.import.io/html/run=ff791512-91a1-4605-95ff-7dcb817aa287/task=a55af957-6b94-43e0-a06b-c5a648413fa2/a06c98d7-efd4-4ea2-bcba-0bcd55c02ab2.html
+    extractionConfigId: product/details/stores/s/selfridges/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.selfridges.com/US/en/cat/allsaints-balfern-leather-biker-jacket_930-10136-WL115E/
+                xpath: /html/head[1]/link[4]/@href
+            image:
+              - text: https://images.selfridges.com/is/image/selfridges/930-10136-WL115E_BLACK_ALT10?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: "ALLSAINTS: Balfern leather biker jacket"
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@alt
+            alternateImages:
+              - text: https://images.selfridges.com/is/image/selfridges/930-10136-WL115E_BLACK_ALT01?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[3]/img[1]/@src
+              - text: https://images.selfridges.com/is/image/selfridges/930-10136-WL115E_BLACK_ALT02?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[4]/img[1]/@src
+              - text: https://images.selfridges.com/is/image/selfridges/930-10136-WL115E_BLACK_ALT03?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[5]/img[1]/@src
+              - text: https://images.selfridges.com/is/image/selfridges/930-10136-WL115E_BLACK_ALT04?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[6]/img[1]/@src
+              - text: https://images.selfridges.com/is/image/selfridges/930-10136-WL115E_BLACK_ALT05?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[7]/img[1]/@src
+              - text: https://images.selfridges.com/is/image/selfridges/930-10136-WL115E_BLACK_ALT06?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[8]/img[1]/@src
+              - text: https://images.selfridges.com/is/image/selfridges/930-10136-WL115E_BLACK_ALT07?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[9]/img[1]/@src
+            category:
+              - text: Womens
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[1]/a[1]/span[1]
+              - text: Coats & jackets
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[2]/a[1]/span[1]
+              - text: Jackets
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[3]/a[1]/span[1]
+              - text: Biker jackets
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[4]/a[1]/span[1]
+            listPrice:
+              - text: $440.00
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[3]
+            price:
+              - text: "305.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/section[1]/section[2]/button[1]
+            brandText:
+              - text: ALLSAINTS
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            manufacturer:
+              - text: ALLSAINTS
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            sku:
+              - text: 930-10136-WL115E
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            variantId:
+              - text: 930-10136-WL115E
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            color:
+              - text: Black
+                xpath: /html/body/section[1]/section[2]/div[1]/div[1]/div[2]/span[1]
+            name:
+              - text: ALLSAINTS - Balfern leather biker jacket
+                xpath: /html/head[1]/title[1]
+            description:
+              - text: >-2
+                  
+                            
+                              AllSaints leather jacketExposed zip fastening at frontBiker collar, popper-fastened shoulder epaulettes, long sleeves, zipped cuffs, three zipped pockets at front, buckled belt at waist, fully lined100% leather; lining 62% viscose, 38% cottonSpecialist leather cleanTrue to sizeSize UK 8: Length 27in / 69cmModel is 5ft 10.5in / 1.79m and wears a size UK 8
+                            
+                            
+                          A leather biker jacket from AllSaints  is always a good investment and this Balfern style is a classic design. Inspired by the rock ‘n’ roll original, this piece features all of the iconic details that have made the biker such an essential. Silver-tone hardware, asymmetrical zips and a waist-defining belt are paired with contemporary touches like matt-finish poppers to create a modern classic.
+            descriptionBullets:
+              - text: "8"
+            variantCount:
+              - text: "9"
+        xpath: /
+    timestamp: 1606225924600

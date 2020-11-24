@@ -76,7 +76,6 @@ fields:
   singleValue: true
   description: Product manufacturer
 - name: quantity
-  xpath: //div[contains(text(), "Quantity")]/following::button[@data-js-action="selectButton"]/text()
   singleValue: true
   description: Quantity as described on the page
 - name: weightNet
@@ -263,9 +262,6 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
-  xpath: //article[@id="content1"]//span
-  regExp: Ingredients(.+)Allergen
-  RegExpReplace: $1
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
@@ -279,9 +275,6 @@ fields:
   singleValue: true
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
-  xpath: //article[@id="content1"]//span
-  regExp: Energy(.+Fat)
-  regExpReplace: $1
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
@@ -407,21 +400,12 @@ fields:
   singleValue: true
   description: Guarantee associated with the product
 - name: storage
-  xpath: //article[@id="content1"]//span
-  regExp: Storage Information(.+)Produced
-  regExpReplace: $1
   singleValue: true
   description: Suggested storage location for product
 - name: countryOfOrigin
-  xpath: //article[@id="content1"]//span
-  regExp: Produced(.+)
-  regExpReplace: $1
   singleValue: true
   description: The country from which the product originates
 - name: allergyAdvice
-  xpath: //article[@id="content1"]//span
-  regExp: Allergen Information(.+)Nutritional information
-  regExpReplace: $1
   singleValue: true
   description: Allergy information associated with the product
 - name: recyclingInformation
@@ -520,6 +504,9 @@ fields:
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
 - name: imageZoomFeaturePresent
+  xpath: //span[contains(@class, "hero-zoom")]
+  regExp: (.+)
+  regExpReplace: "Yes"
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html

@@ -1,0 +1,76 @@
+input:
+  _url: http://selfridges.com
+  URL: https://www.selfridges.com/US/en/cat/veuve-clicquot-la-grande-dame-2012-x-yayoi-kusama-limited-edition-750ml_R03675167/
+extractions:
+  - html: https://workbench.import.io/html/run=fd07131c-e4fb-4e61-9203-095b07f3d0d6/task=bc124048-9a2b-4017-92ba-e7f8eebe467c/3d8f4d1b-1089-460e-b544-d9655235712e.html
+    extractionConfigId: product/details/stores/s/selfridges/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.selfridges.com/US/en/cat/veuve-clicquot-la-grande-dame-2012-x-yayoi-kusama-limited-edition-750ml_R03675167/
+                xpath: /html/head[1]/link[4]/@href
+            image:
+              - text: https://images.selfridges.com/is/image/selfridges/R03675167_M?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: "VEUVE CLICQUOT: La Grande Dame 2012 x Yayoi Kusama Limited Edition 750ml"
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@alt
+            alternateImages:
+              - text: https://images.selfridges.com/is/image/selfridges/R03675167_ALT02?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[3]/img[1]/@src
+              - text: https://images.selfridges.com/is/image/selfridges/R03675167_ALT03?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[4]/img[1]/@src
+            category:
+              - text: Foodhall
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[1]/a[1]/span[1]
+              - text: Champagne & sparkling wine
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[2]/a[1]/span[1]
+              - text: Vintage
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[3]/a[1]/span[1]
+            listPrice:
+              - text: "179.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]
+            price:
+              - text: "179.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/section[1]/section[2]/button[1]
+            brandText:
+              - text: VEUVE CLICQUOT
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            manufacturer:
+              - text: VEUVE CLICQUOT
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            quantity:
+              - text: "01"
+                xpath: /html/body/section[1]/section[2]/div[2]/div[2]/button[1]/text()[1]
+            sku:
+              - text: R03675167
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            variantId:
+              - text: R03675167
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            legalDisclaimer:
+              - text: You must be over 18 to purchase this product
+                xpath: /html/body/section[1]/div[2]/section[1]/section[1]/article[1]/div[1]/span[1]
+            brandLink:
+              - text: https://www.selfridges.com/US/en/cat/veuve-clicquot/
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]/@href
+            alcoholContent:
+              - text: " 12.5%"
+                xpath: /html/body/section[1]/div[2]/section[1]/section[1]/article[1]/div[1]/span[1]
+            description:
+              - text: >-2
+                  
+                            
+                              Veuve Clicquot La Grande Dame champagne brutProduct of FranceRegion: ChampagneGrape Varieties: 90% Pinot noir, 10% ChardonnayABV 12.5%750mlPlease note this product contains sulfitesPlease note that the image shown may not be representative of the stated vintageYou must be over 18 to purchase this product
+                            
+                            
+                          There’s a special story behind La Grande Dame that only Veuve Clicquot can tell so well in champagne. Christened in tribute of Madame Clicquot herself, it reflects on the excellence of the pinot noir grapes sourced mainly from the Grands Crus and the House's historic plots. This 2012 Brut case and bottle is designed by Japanese artist, Yayoi Kusama: note the polka-dot décor, her signature style reworked like champagne bubbles. Didier Mariotti, the house's Cellar Master, describes it as "playful, lively, laughing." We'll drink to that.
+            descriptionBullets:
+              - text: "6"
+            variantCount:
+              - text: "6"
+        xpath: /
+    timestamp: 1606223570072

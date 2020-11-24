@@ -1,0 +1,68 @@
+input:
+  _url: http://selfridges.com
+  URL: https://www.selfridges.com/US/en/cat/selfridges-selection-chocolate-honeycomb-150g_409-85428671-HONEYCOMB/
+extractions:
+  - html: https://workbench.import.io/html/run=fd07131c-e4fb-4e61-9203-095b07f3d0d6/task=237cedae-d540-47d6-b639-6f863cc4e1a0/806888da-62f1-4356-9ccc-82f6a274c116.html
+    extractionConfigId: product/details/stores/s/selfridges/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.selfridges.com/US/en/cat/selfridges-selection-chocolate-honeycomb-150g_409-85428671-HONEYCOMB/
+                xpath: /html/head[1]/link[4]/@href
+            image:
+              - text: https://images.selfridges.com/is/image/selfridges/409-85428671-HONEYCOMB_M?defaultImage=409-85428671-HONEYCOMB_M&$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: "SELFRIDGES SELECTION: Chocolate Honeycomb 150g"
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Foodhall
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[1]/a[1]/span[1]
+              - text: Chocolate
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[2]/a[1]/span[1]
+              - text: Chocolate boxes
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[3]/a[1]/span[1]
+            nameExtended:
+              - text: SELFRIDGES SELECTION Chocolate Honeycomb 150g
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: "10.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]
+            price:
+              - text: "10.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]
+            brandText:
+              - text: SELFRIDGES SELECTION
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            manufacturer:
+              - text: SELFRIDGES SELECTION
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            quantity:
+              - text: "01"
+                xpath: /html/body/section[1]/section[2]/div[1]/div[2]/button[1]/text()[1]
+            sku:
+              - text: 409-85428671-HONEYCOMB
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            variantId:
+              - text: 409-85428671-HONEYCOMB
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            name:
+              - text: SELFRIDGES SELECTION - Chocolate Honeycomb 150g
+                xpath: /html/head[1]/title[1]
+            countryOfOrigin:
+              - text: " in the UK for"
+                xpath: /html/body/section[1]/div[2]/section[1]/section[1]/article[1]/div[1]/span[1]
+            description:
+              - text: >-2
+                  
+                            
+                              Selfridges Selection Chocolate Honeycomb 150gIngredientsMilk chocolate (60%) (Sugar, Whole Milk Powder, Cocoa Butter, Cocoa Mass, Emulsifier: Soya Lecithin; Natural Vanilla Flavouring), Sugar, Glucose Syrup, Honey, Baking Powder (Corn Starch, Raising Agents: Monocalcium Phosphate, Sodium Bicarbonate)Chocolate % InformationMilk Chocolate contains minimum 31% cocoa solids, minimum 21% milk solidsAllergen InformationFor allergens see ingredients in boldMay also contain Nuts, Egg, Wheat, BarleyPalm oil free. Suitable for vegetarians.Nutritional informationTypical Values Per (100g)Energy (kJ)/ (kcal) 2003/478Fat (g) 20.6of which Saturates (g) 13Carbohydrate (g) 68.2of which Sugars (g) 61.5Fibre (g) 1.1Protein (g) 4.4Salt (g) 0.6Storage InformationStore in a cool, dry place in an airtight container. Consume within 2 weeks.Produced in the UK forSelfridges Retail Limited400 Oxford Street London W1A 1ABselfridges.com
+                            
+                            
+                          As if honeycomb couldn’t get any sweeter as a snack, Selfridges Selection goes and pours chocolate over the top. Well, the petits fours specialists at Marasu’s do. The brand lovingly hand make this box of treats, so with each bite, smooth milk chocolate melts through to golden rocks of crunchy comb. Try a handful as an alternative to your mid-morning biscuit with a fresh cup of coffee, or share out with guests after a dinner party feast.
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "10"
+        xpath: /
+    timestamp: 1606223569362
