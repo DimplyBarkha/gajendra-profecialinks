@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //h1[contains(text(),'You searched for')]/following-sibling::section/div/article
+fields:
+  - name: productUrl
+    xpath: //h3/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.nordstrom.com$1
+  - name: thumbnail
+    xpath: //img[@name="product-module-image"]/@src
+  - name: name
+    xpath: //h3
+  - name: aggregateRating2
+    xpath: //a//span[contains(@aria-label,'out of')]/@aria-label
+    regExp: (.+)\sout of
+    regExpReplace: $1
+  - name: ratingCount
+    xpath: //a//span[contains(@aria-label,'out of')]/following-sibling::span
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: reviewCount
+    xpath: //a//span[contains(@aria-label,'out of')]/following-sibling::span
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: price
+    xpath: //span[contains(.,'Sale') and not(contains(.,'After'))]/../span[2][contains(.,'$')] | //span[not(contains(.,'Sale')) and not(contains(.,'After')) and not(contains(.,'Was'))]/following-sibling::span[contains(.,'$')]
+    regExp: "[^–]+$"
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+  - name: id
+    xpath: //h3/a/@href
+    regExp: (.*)/(\d+)\?(.*)
+    regExpReplace: $2
