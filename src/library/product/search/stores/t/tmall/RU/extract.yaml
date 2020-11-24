@@ -17,6 +17,8 @@ fields:
     - name: thumbnail
       singleValue: false
       xpath: //a[contains(@class,"history-item")]/img/@src
+      regExp: (.+)
+      regExpReplace: https:$1
     - name: price
       singleValue: false
       xpath: //span[@itemprop="price"]
