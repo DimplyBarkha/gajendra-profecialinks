@@ -3,9 +3,20 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: alsoViewedProducts
+    xpath: (//p[contains(text(),'Customers who viewed')])[1]/..//span[contains(@class,'largeProductName')]
+  - name: _input
+    xpath: //meta[@property="og:url"]/@content
+  - name: clearProductName
+    xpath: //div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
+    singleValue: true
+  - name: imageUrl
+    xpath: //meta[contains(@property,'og:image')]/@content
   - name: image
     description: URL of the main product image
     xpath: //meta[contains(@property,'og:image')]/@content
+  - name: imagesCount
+    xpath: count(//meta[contains(@property,'og:image')]/@content)
   - name: imageAlt
     description: Alt text of the main product image
     xpath: (//div[contains(@class,'prodImage')]//img/@title)[1]
@@ -20,12 +31,13 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//meta[contains(@property,'og:title')]/@content, ' ', //div[contains(@class,'productHeader')]/h2)
+    xpath: //div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
+    xpath: //div[@id="priceContainer"]//div[@id="edlpPrice"]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -60,6 +72,10 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+  - name: upc
+    xpath: (//div[contains(@class,"productHeader")]//h2[contains(@class,"productSubTitle")])[1]
+    regExp: (.*)\s(.*)
+    regExpReplace: $2
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -89,12 +105,19 @@ fields:
     description: The number of ratings
     xpath: //meta[@itemprop='reviewCount']/@content
     type: NUMBER
+  - name: reviewCount
+    xpath: normalize-space(//dd[@class="bv-rating-ratio-count"]//a)
+    regExp: (.*?)\s(.*)
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     xpath: //button[@itemprop='ratingValue']
+    type: NUMBER
+  - name: ratingScale
+    defaultValue: 5
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -126,9 +149,21 @@ fields:
     xpath: //div[contains(@class,'product-video-thumb')]/@anclick
     regExp: video_(.+)
     regExpReplace: https://vimeo.com/$1
+  - name: pdpProductTitle
+    description: The product name
+    xpath: //div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
+  - name: productName
+    description: The product name
+    xpath: //div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
+  - name: productTitleOfl
+    description: The product name
+    xpath: //div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
+  - name: productTitlePdp
+    description: The product name
+    xpath: //div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
   - name: name
     description: The product name
-    xpath: //meta[contains(@property,'og:title')]/@content
+    xpath: //div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
   - name: inStorePrice
     description: Price in the selected store
     xpath: //div[contains(@id, 'edlpPrice')]
