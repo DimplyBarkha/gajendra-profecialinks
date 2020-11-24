@@ -30,8 +30,8 @@ module.exports = {
     });
     try {
       await context.waitForSelector('.g-recaptcha');
-      const max_retries = 3;
-      for (let i = 0; i < max_retries; i++) {
+      const maxRetries = 3;
+      for (let i = 0; i < maxRetries; i++) {
         const isCaptcha = await context.evaluate(() => {
           return Boolean(document.querySelector('.g-recaptcha'));
         });

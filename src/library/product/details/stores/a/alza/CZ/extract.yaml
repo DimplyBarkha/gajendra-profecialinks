@@ -17,11 +17,11 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="breadcrumbs"]//a[not(@class="first")][not(@class="last")]
+    xpath: //div[@class="breadcrumbs"]//a[not(@class="first")][not(contains(@class,"last"))]
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: normalize-space(//div[@id="h1c"]/h1)
+    xpath: //div[@id="h1c"]
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //span[contains(@class,"price_compare")] | //tr[@class="priceCompare"]/td[@class="c2"]
@@ -42,19 +42,19 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="nameextc"]//span
+    xpath: //div[@class="nameextc"]
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //script[@type="application/ld+json"]
-    regExp: (.+)(brand":\ ")(\w+)(".+)
-    regExpReplace: $3
+    xpath: //div[@id="content0"]//script[@type="text/javascript"]
+    regExp: '"brand":"(.+?)"'
+    regExpReplace: $1
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@class='allpar']//div[@class='row']
+    xpath: //div[@class='allpar']//div[contains(@class,'row')]/*[not(contains(@class,"textDone"))]
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
@@ -96,17 +96,39 @@ fields:
     xpath: //div[@id="celek"]
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[@id="celek"]//img/@src
+    xpath: //div[@id="celek"]//img/@data-src
   - name: videos
     description: URLs of videos on page
     xpath: //div[@class="youtube articleVideoWrapper"]//iframe/@src  
   - name: brandLink
     description: null
-    xpath: //div[@class="blockMoreInfoG"]//span[not(contains(@id,"rowWarranty"))]/a/@href
+    xpath: //div[@class="blockMoreInfoG"]//span[not(contains(@id,"rowWarranty"))][last()]/a/@href
   - name: secondaryImageTotal
     description: null
     xpath: count(//div[@class="inner"]//a[position()>2]/img/@data-src)    
   - name: warranty
     description: Guarantee associated with the product
     xpath: //span[@id="rowWarranty"]//a
-    regExp: '[0-9].+'
+    regExp: '[0-9]+\s?měsíců'
+  - name: promotion
+    description: promotion text on product page
+    xpath: //div[@class="left-cnt"]//div[contains(@class,"icon-percentage")]//span[@class="icon-text"]
+  - name: energyEfficiency
+    description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+    xpath: //div[@class="left-cnt"]//div[contains(@class,"energy-class")]//span[@class="icon-text"]
+  - name: ingredientsList
+    description: List of Ingredients from site - can be string of data if no discernible start/end point
+    xpath: //div[@id="celek"]//strong[contains(.,"Složení:")]/following-sibling::text() | //div[@class="pp-structure"]//p[@class="lp-par"]
+  - name: featureBullets
+    xpath: count(//div[contains(@class,"blok_pp")]//ul//li)
+  - name: name
+    description: The product name
+    xpath: //div[@id="h1c"] 
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+    xpath: //div[@class="blockMoreInfoG"]//span[not(contains(@id,"rowWarranty"))][last()]/a/@href
+    regExp: .+
+    regExpReplace: Yes

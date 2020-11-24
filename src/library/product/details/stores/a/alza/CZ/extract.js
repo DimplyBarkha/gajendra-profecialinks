@@ -38,9 +38,10 @@ module.exports = {
       });
       try {
         await context.waitForSelector('.g-recaptcha');
-        const max_retries = 3;
-        for (let i = 0; i < max_retries; i++) {
-          const isCaptcha = await context.evaluate(() => {
+        const maxRetries = 3;
+        let isCaptcha = '';
+        for (let i = 0; i < maxRetries; i++) {
+          isCaptcha = await context.evaluate(() => {
             return Boolean(document.querySelector('.g-recaptcha'));
           });
           if (isCaptcha) {
@@ -55,23 +56,33 @@ module.exports = {
             await context.waitForNavigation({ timeout });
           }
         }
-        const status = await context.evaluate(() => {
-          return document.querySelector('.captcha-handler').getAttribute('captchastatus');
-        });
-        if (status === 'fail') {
-          await context.evaluate(() => {
-            window.location.reload();
+        if (isCaptcha) {
+          const status = await context.evaluate(() => {
+            return document.querySelector('.captcha-handler').getAttribute('captchastatus');
           });
-          await context.waitForNavigation({ timeout });
-          await context.solveCaptcha({
-            type: 'RECAPTCHA',
-            inputElement: '.captcha-handler',
-            autoSubmit: true,
-          });
-          console.log('solved captcha, waiting for page change');
-          await context.click('#form #button');
-          await context.waitForNavigation({ timeout });
+          if (status === 'fail') {
+            await context.evaluate(() => {
+              window.location.reload();
+            });
+            await context.waitForNavigation({ timeout });
+            await context.solveCaptcha({
+              type: 'RECAPTCHA',
+              inputElement: '.captcha-handler',
+              autoSubmit: true,
+            });
+            console.log('solved captcha, waiting for page change');
+            await context.click('#form #button');
+            await context.waitForNavigation({ timeout });
+          }
         }
+      } catch (e) {
+        console.log(e.message);
+      }
+      try {
+        await context.evaluate(() => {
+          document.querySelector('.lazyDescription').scrollIntoView({ behavior: 'smooth' });
+        });
+        await context.waitForSelector('#celek img', { timeout: 60000 });
       } catch (e) {
         console.log(e.message);
       }
