@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../format');
 
 async function implementation(
   inputs,
