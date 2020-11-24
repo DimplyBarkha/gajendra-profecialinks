@@ -1,0 +1,144 @@
+input:
+  _url: http://salontopper.nl
+  URL: https://www.salontopper.nl/product/loreal-smartbond-step-1-2-trial-kit-13110
+extractions:
+  - html: https://workbench.import.io/html/run=0ee4bba5-2b7d-4f98-b4f5-899b843c829e/task=a4ad4250-187f-4a40-9ffc-77da11b7a4d8/d7ac372a-5a56-4034-9e93-5f37cb917a3e.html
+    extractionConfigId: product/details/stores/s/salontopper/NL/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.salontopper.nl/afbeelding/large/13110/loreal-smartbond-step-1-2-trial-kit-2.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: L'Oréal Smartbond Step 1 & 2 - Trial Kit
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.salontopper.nl/img/site2019/youtube-overlay.png
+                xpath: /html/body/div[9]
+            metaKeywords:
+              - text: L'Oréal,Smartbond,Step,1,&,2,Trial,Kit,Haarkuur
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[3]/header[3]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[1]
+              - text: Haarproducten
+                xpath: /html/body/div[3]/header[3]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]
+              - text: Haarverzorging
+                xpath: /html/body/div[3]/header[3]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]
+              - text: Haarkuur
+                xpath: /html/body/div[3]/header[3]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]
+              - text: L'Oréal
+                xpath: /html/body/div[3]/header[3]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[5]
+            nameExtended:
+              - text: L'Oréal Smartbond Step 1 & 2 - Trial Kit
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
+            price:
+              - text: € 99,95
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[11]
+            description:
+              - text: >-
+                  Versterkte en beschermde verbindingen voor een sterkere
+                  haarvezel met L'Oréal Smartbond Strengthening System
+
+                  L'Oréal Smartbond Strenghtening System is het nieuwe systeem dat het haar beschermt tijdens het kleuren en bleken. Tevens zorgt het voor een sterkere haarvezel tijdens deze technische behandelingen. Het is een versterkende toevoeging om met kleurings-, verhelderings- en ontkleuringsformules te gebruiken. L'Oréal Smartbond zorgt voor sterker, glanzender en zachter haar.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: |-
+                  Inhoud:
+                  Stap 1 - Actief concentraat
+                  Stap 2 - Actieve crème
+                xpath: /html/body/div[3]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
+              - text: "Eigenschappen:"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
+              - text: >-
+                  Te gebruiken met kleurings-, verhelderings- en
+                  ontkleuringsformules
+                   
+                  Optimale verheldering
+                   
+                  Optimale verzorging
+                   
+                  Voor een sterkere haarvezel
+                   
+                  Beschermt het haar
+                   
+                  Voor sterker, zachter en glanzender haar
+                xpath: /html/body/div[3]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]
+              - text: >-
+                  Gebruik:
+
+                  Dit product is geschikt voor gebruik door professionals. We raden je daarom aan om een professional in te schakelen bij het gebruik van dit product. 
+
+                  Toch zelf proberen? Lees dan altijd de bijgesloten gebruiksaanwijzing voor gebruik.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]
+            brandText:
+              - text: L'Oréal
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]/strong[1]
+            manufacturer:
+              - text: L'Oréal
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]/strong[1]
+            gtin:
+              - text: "3474636459445"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/strong[1]
+            sku:
+              - text: "13110"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/meta[1]/@content
+            variantId:
+              - text: "13110"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/meta[1]/@content
+            directions:
+              - text: Dit product is geschikt voor gebruik door professionals. We raden je
+                  daarom aan om een professional in te schakelen bij het gebruik
+                  van dit product.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/h3[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
+            videos:
+              - text: https://www.youtube.com/watch?v=i1Ch8lzdjeI
+                xpath: /html/body/div[8]
+            name:
+              - text: L'Oréal Smartbond Step 1 & 2 - Trial Kit
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.salontopper.nl/merken/loreal
+                xpath: /html/body/div[10]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "6"
+                type: NUMBER
+                raw: "6"
+                locale: nl
+                value: 6
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
+        xpath: /
+    timestamp: 1606225982479
