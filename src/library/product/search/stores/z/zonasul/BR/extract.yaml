@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"container_vitrine_lista")]//div[contains(@class,"item_vitrine") and @data-id]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,"item_vitrine")]/@data-id
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,"item_vitrine") and @data-id]/a/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[contains(@class,"item_vitrine") and @data-id]//div[@class="price_desconto "]
+  - name: price_1
+    SingleValue: false
+    xpath: //div[contains(@class,"item_vitrine") and @data-id]//div[@class="price"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[contains(@class,"item_vitrine") and @data-id]//img[contains(@src,".jpg")]/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[contains(@class,"item_vitrine") and @data-id]//span[@class="name"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
