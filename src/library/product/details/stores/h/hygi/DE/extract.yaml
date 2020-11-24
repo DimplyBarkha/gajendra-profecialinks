@@ -6,12 +6,15 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: (//div[@class="image-container current"]/img/@src)[1]|(//div[@class="detail-images"]//img/@src)[1]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: (//div[@class="image-container current"]/img/@alt)[1]|(//div[@class="detail-images"]//img/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //div[@class="detail-media-thmbs"]//div[position()>1]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -22,6 +25,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class="title"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -29,18 +33,22 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[@class="detail-checkout"]//span[@class="price current"]
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
+    xpath: //span[@class="delivery-status status-1"]/em
+    regExp: (Auf Lager.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[@class="expand-box-body"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -49,9 +57,11 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class="detail-aside"]//img/@alt
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //div[@id="accordionProductInfos"]//tr/td[contains(text(),"Hersteller:")]//following-sibling::td[text()]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -60,6 +70,9 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //ul//li//font[contains(text(),"Weight:")]/text()
+    regExp: (Weight:\s)(.+)
+    regExpReplace: $2
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -79,6 +92,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //div[@id="accordionProductInfos"]//tr/td[contains(text(),"Verpackungseinheit:")]//following-sibling::td[text()]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -98,6 +112,9 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class="user-rating clr clearfix"]//div[@class="rating-stars  tooltip"]/@data-title
+    regExp: (.+:\s)(\d)(.+)
+    regExpReplace: $2
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -111,10 +128,15 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: //div[@class="select-variant clearfix"]/div[@class="quiet label"]
+    regExp: (\d+)
     type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@class="product-description-details block"]//ul//li//font[contains(text(),"Color:")]/text()
+    regExp: (Color:\s)(.+)
+    regExpReplace: $2
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -130,6 +152,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[@class="title"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -145,9 +168,11 @@ fields:
   - name: amazonChoiceCategory
     singleValue: true
     description: Text of link next to Amazon choice graphic
-  - name: brandLink
+  - name: brandLink 
     singleValue: true
     description: null
+    regExp: (.+)
+    regExpReplace: https://www.hygi.de$1
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -220,6 +245,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[@class="detail-media-thmbs"]//div[position()>1]//img/@src)
     type: NUMBER
   - name: news
     singleValue: true
@@ -467,6 +493,9 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //ul[@class="document-list"]//a/@href
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
@@ -484,6 +513,9 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //ul//li//font[contains(text(),"Material:")]/text()
+    regExp: (Material:\s)(.+)
+    regExpReplace: $2
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
@@ -494,4 +526,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes

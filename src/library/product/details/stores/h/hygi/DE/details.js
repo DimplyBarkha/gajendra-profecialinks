@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'product/details/extract',
+  implements: 'product/details',
   parameterValues: {
     country: 'DE',
-    store: 'hydi',
-    transform: null,
+    store: 'hygi',
     domain: 'hygi.de',
     zipcode: '',
   },

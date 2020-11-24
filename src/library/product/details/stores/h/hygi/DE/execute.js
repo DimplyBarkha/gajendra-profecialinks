@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
     country: 'DE',
-    store: 'hydi',
+    store: 'hygi',
     domain: 'hygi.de',
     loadedSelector: null,
     noResultsXPath: null,

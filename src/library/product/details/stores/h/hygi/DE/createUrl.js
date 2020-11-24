@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     url: null,
     country: 'DE',
-    store: 'hydi',
+    store: 'hygi',
     zipcode: '',
   },
 };
