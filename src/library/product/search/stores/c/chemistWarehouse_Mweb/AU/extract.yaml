@@ -1,7 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="search__result__product__list"]//div[contains(@class, "search__result__product")]
+recordXPath: //div[@class="search__result__product__list"]//div[contains(@class, "row")]//div[contains(@class, "col-xs-4 search__result__product")]
+# recordXPath: //div[@class="search__result__product__list"]//div[contains(@class, "search__result__product")]
 fields:
   - name: paid
     singleValue: false
