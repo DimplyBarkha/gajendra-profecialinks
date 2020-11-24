@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'HU',
     store: 'kifli',
-    nextLinkSelector: 'div.sc-1wb2xl8-0 cCNNEa',
+    nextLinkSelector: null,
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: '#L9',
@@ -17,4 +17,5 @@ module.exports = {
     domain: 'kifli.hu',
     zipcode: '',
   },
+  
 };

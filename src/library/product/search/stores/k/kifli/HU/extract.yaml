@@ -8,12 +8,14 @@ fields:
   xpath: //article[@data-gtm-item]/@data-productid
 - name: name
   singleValue: false
-  xpath: //h4[@class="productCard__title redirect_link"]/text()
+  xpath: //article[@data-gtm-item]//h4
 - name: rankOrganic
   singleValue: false
 - name: productUrl
   singleValue: false
-  xpath: //a[@class='imgWrapper u-cursorPointer']/@href
+  xpath: //article[@data-gtm-item]//a/@href
+  regExp: (.+)
+  regExpReplace: https://kifli.hu$1
 - name: gtin
   singleValue: true
 - name: thumbnail
@@ -30,7 +32,9 @@ fields:
   singleValue: true
 - name: soldBy
   singleValue: true
-- name: rank
+- name: rankOrganic
   singleValue: true
 - name: endorsementText
+  singleValue: true
+- name: rank
   singleValue: true
