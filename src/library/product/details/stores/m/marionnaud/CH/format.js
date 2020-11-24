@@ -24,9 +24,15 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (let row of group) {
+      let brnd='';
       if(row.image){
         row.image.forEach(item=>{
-          item.text="https://www.marionnaud.ch/"+item.text;
+          item.text="https://www.marionnaud.ch"+item.text;
+        })
+      }
+      if(row.brandText){
+        row.brandText.forEach(item=>{
+          brnd=item.text;
         })
       }
       if(row.nameExtended){
@@ -34,7 +40,10 @@ const transform = (data) => {
         row.nameExtended.forEach(item=>{
           inf.push(item.text);
         })
-        row.nameExtended=[{"text":inf[1]+" - "+inf[0]}];
+        if(brnd=='')
+          row.nameExtended=[{"text":inf[0]}];
+        else
+          row.nameExtended=[{"text":brnd+" - "+inf[0]}];
       }
       if(row.variants){
         let inf=[]
