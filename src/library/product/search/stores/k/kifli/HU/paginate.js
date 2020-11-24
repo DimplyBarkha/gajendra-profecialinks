@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     nextLinkXpath: null,
     mutationSelector: null,
-    spinnerSelector: '#L9',
+    spinnerSelector: null,
     loadedSelector: 'body',
     loadedXpath: null,
     noResultsXPath: null,
