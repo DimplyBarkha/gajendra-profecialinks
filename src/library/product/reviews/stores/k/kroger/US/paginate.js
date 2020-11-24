@@ -3,10 +3,10 @@ module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
     template: null,
-    country: 'ES',
-    store: 'fnac',
+    country: 'US',
+    store: 'kroger',
     nextLinkSelector: null,
-    // nextLinkXpath: '//li[@class="paginate-item" and position() = (last()-1)]/button',
+    nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
@@ -15,7 +15,7 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
-    domain: 'fnac.es',
+    domain: 'kroger.com',
     zipcode: '',
   },
 };

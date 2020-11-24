@@ -82,10 +82,9 @@ module.exports = {
 
       if (!await solveCaptchaIfNecessary) {
         hasCaptcha = true;
-        return;
       }
     };
 
     await run();
-  }
+  },
 };
