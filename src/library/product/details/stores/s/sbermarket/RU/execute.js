@@ -5,8 +5,8 @@ module.exports = {
     country: 'RU',
     store: 'sbermarket',
     domain: 'sbermarket.ru/metro',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class^="product_cards"]',
+    noResultsXPath: '//div[@class="resource-not-found__header"]',
     zipcode: '',
   },
 };

@@ -1,0 +1,70 @@
+input:
+  _url: http://sbermarket.ru/metro
+  URL: https://sbermarket.ru/metro/polotientsa-tork-bumazhnyie-odnosloinyie-univiersalnyie
+extractions:
+  - html: https://workbench.import.io/html/run=f942ae7e-2660-4c8c-88ab-23548b99b7a0/task=6bd7df66-9922-4ce2-aa3c-5b0175d45d0b/f857601a-07a1-495e-9b5b-9f38a15bb4b8.html
+    extractionConfigId: product/details/stores/s/sbermarket/RU/extract
+    data:
+      - group:
+          - image:
+              - text: https://sbermarket.ru/spree/products/199979/preview/18869.jpg?1576324242
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            imageAlt:
+              - text: Бумажные полотенца Tork Universal однослойные ZZ сложение 250 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Товары для офиса
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
+              - text: Товары для гигиены
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]
+              - text: Профессиональная бумажная продукция и диспенсеры
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]
+            nameExtended:
+              - text: Бумажные полотенца Tork Universal однослойные ZZ сложение 250 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            listPrice:
+              - text: 120,00 ₽
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span[1]
+            description:
+              - text: Универсальное решение для высушивания рук. Для использования в диспенсерах
+                  Tork для листовых полотенец Singlefold сложения ZZ.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Tork
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]
+            manufacturer:
+              - text: Essity
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]
+            quantity:
+              - text: 250 лист x 5
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]
+            sku:
+              - text: "18869"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
+            color:
+              - text: Белый
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[2]
+            name:
+              - text: Бумажные полотенца Tork Universal однослойные ZZ сложение 250 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            brandLink:
+              - text: https://sbermarket.ru/metro/tovary-dlia-ofisa/tovary-dlia-ghighiieny/profiessionalnaia-bumazhnaia-produktsiia-i-dispiensiery/b/tork
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/a[1]/@href
+            ingredientsList:
+              - text: Вторичное волокно
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            countryOfOrigin:
+              - text: Россия
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[14]
+            productUrl:
+              - text: https://sbermarket.ru/metro/polotientsa-tork-bumazhnyie-odnosloinyie-univiersalnyie
+                xpath: /html/body/div[15]
+            price:
+              - text: 120.00 RUB
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1606206592566

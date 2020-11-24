@@ -1,0 +1,74 @@
+input:
+  _url: http://sbermarket.ru/metro
+  URL: https://sbermarket.ru/metro/konverty-dlya-priborov-tork-linstyle-kremovye-60-sht
+extractions:
+  - html: https://workbench.import.io/html/run=f942ae7e-2660-4c8c-88ab-23548b99b7a0/task=0560796e-e058-41f2-aa1c-0b0d71512a55/214c55ea-237f-4e09-8abc-b4e8bd5930d6.html
+    extractionConfigId: product/details/stores/s/sbermarket/RU/extract
+    data:
+      - group:
+          - image:
+              - text: https://sbermarket.ru/spree/products/198555/preview/146969_1.png?1592572484
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            imageAlt:
+              - text: Конверты для приборов Tork Linstyle кремовые 60 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Товары для офиса
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
+              - text: Одноразовая посуда и принадлежности
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]
+              - text: Бумажные салфетки, диспенсеры, скатерти
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]
+            nameExtended:
+              - text: Конверты для приборов Tork Linstyle кремовые 60 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            listPrice:
+              - text: 708,00 ₽
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span[1]
+            description:
+              - text: >-
+                  Конверты Tork Linstyle - лучшее решение для ресторанов
+                  высокого класса. Больше не нужно тратить время на складывание
+                  салфетки под приборы: Tork уже позаботился о вас! Конверты
+                  выглядят и ощущаются как ткань, однако, значительно мягче,
+                  объемнее и гигиеничнее. Могут использоваться в качестве
+                  салфетки.
+                   
+                  Конверты LinStyle надежные и прочные и прослужат так же долго, как и тканевые Экономьте на стирках - больше они не понадобятся Печать логотипа сделает ваши конверты уникальными - до 75% посетителей обращают внимание на принт на продукции для декора стола Упаковка Tork Easy Handling® - легко нести, удобно нести, просто открыть.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Tork
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]
+            manufacturer:
+              - text: Essity
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[2]
+            quantity:
+              - text: 1 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]
+            sku:
+              - text: "146969"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
+            name:
+              - text: Конверты для приборов Tork Linstyle кремовые 60 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            brandLink:
+              - text: https://sbermarket.ru/metro/tovary-dlia-ofisa/odnorazovaia-posuda-i-prinadliezhnosti/bumazhnyie-salfietki-dispiensiery-skatierti/b/tork
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/a[1]/@href
+            countryOfOrigin:
+              - text: Россия
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[2]
+            materials:
+              - text: Целлюлоза
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[2]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[14]
+            productUrl:
+              - text: https://sbermarket.ru/metro/konverty-dlya-priborov-tork-linstyle-kremovye-60-sht
+                xpath: /html/body/div[15]
+            price:
+              - text: 708.00 RUB
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1606206590506

@@ -1,0 +1,81 @@
+input:
+  _url: http://sbermarket.ru/metro
+  URL: https://sbermarket.ru/metro/dispenser-tork-dlya-zhidkogo-myla-mini-belyy
+extractions:
+  - html: https://workbench.import.io/html/run=f942ae7e-2660-4c8c-88ab-23548b99b7a0/task=f1bf2fec-4b88-464f-a0f5-d1a86b5d1044/5e7601fd-f67f-4331-b5b4-9abe51d332f0.html
+    extractionConfigId: product/details/stores/s/sbermarket/RU/extract
+    data:
+      - group:
+          - image:
+              - text: https://sbermarket.ru/spree/products/115924/preview/118696_1.png?1592571507
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            imageAlt:
+              - text: Диспенсер для жидкого мыла Tork Elevation S2 mini 0,5 л белый
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://sbermarket.ru/spree/products/115920/preview/118696_3.jpg?1574871076
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://sbermarket.ru/spree/products/115922/preview/118696_4.jpg?1574871075
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://sbermarket.ru/spree/products/115923/preview/118696_5.jpg?1542635343
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://sbermarket.ru/spree/products/115921/preview/118696_6.jpg?1542635343
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+            category:
+              - text: Товары для офиса
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
+              - text: Товары для гигиены
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]
+              - text: Профессиональная бумажная продукция и диспенсеры
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]
+            nameExtended:
+              - text: Диспенсер для жидкого мыла Tork Elevation S2 mini 0,5 л белый
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            listPrice:
+              - text: 1 937,00 ₽
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span[1]
+            description:
+              - text: Компактные мини-диспенсеры для жидкого мыла Tork серии Elevation подходят
+                  даже для небольших рукомойников. Совместимы с тремя видами
+                  жидкого мыла в герметичных одноразовых картриджах. Продукт
+                  прост в использовании и обеспечивает высокий уровень гигиены.
+                  Диспенсеры серии Tork Elevation — это уникальное сочетание
+                  дизайна и функциональности, лучшие в своем классе диспенсеры
+                  на каждый день.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Tork
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]
+            manufacturer:
+              - text: Essity
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[2]
+            quantity:
+              - text: 1 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]
+            sku:
+              - text: "118696"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
+            name:
+              - text: Диспенсер для жидкого мыла Tork Elevation S2 mini 0,5 л белый
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            brandLink:
+              - text: https://sbermarket.ru/metro/tovary-dlia-ofisa/tovary-dlia-ghighiieny/profiessionalnaia-bumazhnaia-produktsiia-i-dispiensiery/b/tork
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/a[1]/@href
+            countryOfOrigin:
+              - text: Россия
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[2]
+            materials:
+              - text: Пластик
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[2]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[14]
+            productUrl:
+              - text: https://sbermarket.ru/metro/dispenser-tork-dlya-zhidkogo-myla-mini-belyy
+                xpath: /html/body/div[15]
+            price:
+              - text: 1937.00 RUB
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1606206592387

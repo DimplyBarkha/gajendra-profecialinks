@@ -1,0 +1,73 @@
+input:
+  _url: http://sbermarket.ru/metro
+  URL: https://sbermarket.ru/metro/polotientsa-lotus-plius-bumazhnyie-kukhonnyie
+extractions:
+  - html: https://workbench.import.io/html/run=f942ae7e-2660-4c8c-88ab-23548b99b7a0/task=1ae7a144-8017-4c60-9334-90e5aaef611e/b2b96fb0-db3f-485b-a884-54dd128da235.html
+    extractionConfigId: product/details/stores/s/sbermarket/RU/extract
+    data:
+      - group:
+          - image:
+              - text: https://sbermarket.ru/spree/products/4343/preview/17380.jpg?1574870216
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            imageAlt:
+              - text: Полотенца бумажные для кухни Tork Advanced 2-слойные 4 рулона
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://sbermarket.ru/spree/products/211099/preview/17380_3.jpg?1574870214
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+            category:
+              - text: Товары для офиса
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
+              - text: Товары для гигиены
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]
+              - text: Профессиональная бумажная продукция и диспенсеры
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]
+            nameExtended:
+              - text: Полотенца бумажные для кухни Tork Advanced 2-слойные 4 рулона
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            listPrice:
+              - text: 457,00 ₽
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span[1]
+            description:
+              - text: Подходят для ежедневной протирки поверхностей, удаления воды и масла или
+                  остатков пищи.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Tork
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]
+            manufacturer:
+              - text: Essity
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]
+            quantity:
+              - text: 90 лист
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]
+            sku:
+              - text: "17380"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
+            color:
+              - text: Белый
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[2]
+            name:
+              - text: Полотенца бумажные для кухни Tork Advanced 2-слойные 4 рулона
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            brandLink:
+              - text: https://sbermarket.ru/metro/tovary-dlia-ofisa/tovary-dlia-ghighiieny/profiessionalnaia-bumazhnaia-produktsiia-i-dispiensiery/b/tork
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/a[1]/@href
+            ingredientsList:
+              - text: Переработанное сырье
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            countryOfOrigin:
+              - text: Россия
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[14]
+            productUrl:
+              - text: https://sbermarket.ru/metro/polotientsa-lotus-plius-bumazhnyie-kukhonnyie
+                xpath: /html/body/div[15]
+            price:
+              - text: 457.00 RUB
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1606206594299
