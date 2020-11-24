@@ -40,8 +40,8 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: In stock
+    defaultValue: Out of stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -74,6 +74,9 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
+    xpath: //script[contains(@type,"application/ld+json")][1]
+    regExp: gtin12([":]+)([\d]+)([",]+)
+    regExpReplace: $2
   - name: sku
     singleValue: false
     xpath: //main/div/@data-track-product-id
