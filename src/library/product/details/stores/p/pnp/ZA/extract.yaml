@@ -49,10 +49,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //button[@id="addToCartButton"]/div[1]
-  regExp: (.*)
-  regExpReplace: In Stock
-  defaultValue: Out of Stock
+  xpath: //div[@id='availability']
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -261,9 +258,14 @@ fields:
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
+  xpath: //font[contains(text(),"Description")]/../../following-sibling::th[1]//font/text()
+  regExp: \d+
 - name: servingSizeUom
   singleValue: true
   description: Unit of measure of serving
+  xpath: //font[contains(text(),"Description")]/../../following-sibling::th[1]//font/text()
+  regExp: \w+\s?\d+(.*)
+  regExpReplace: $1
 - name: numberOfServingsInPackage
   singleValue: true
   description: Suggested number of servings of the product.
@@ -271,7 +273,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: concat((//div[contains(text(),"ENERGY")]/../following-sibling::td/text())[position()=2],' ', (//div[contains(text(),"ENERGY")]/../following-sibling::td/text())[position()=3])
+  xpath: concat((//div[contains(text(),"ENERGY")]/../following-sibling::td/text())[position()=1],' ', (//div[contains(text(),"ENERGY")]/../following-sibling::td/text())[position()=3])
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -280,35 +282,43 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
+  xpath: (//div[contains(text(),"Total Fat")]/../following-sibling::td/text())[position()=1] | (//div[contains(text(),"TOTAL FAT")]/../following-sibling::td/text())[position()=1]
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content
+  xpath: (//div[contains(text(),"Total Fat")]/../following-sibling::td/text())[position()=3] | (//div[contains(text(),"TOTAL FAT")]/../following-sibling::td/text())[position()=3]
 - name: saturatedFatPerServing
   singleValue: true
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
+  xpath: (//div[contains(text(),"SATURATE")]/../following-sibling::td/text())[position()=1]
 - name: saturatedFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Saturated Fat content
+  xpath: (//div[contains(text(),"SATURATE")]/../following-sibling::td/text())[position()=3]
 - name: transFatPerServing
   singleValue: true
   description: Nutritional Information for Trans Fat content - Usually based on per
     100g serving
+  xpath: (//div[contains(text(),"TRANS")]/../following-sibling::td/text())[position()=1]
 - name: transFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Trans Fat content
+  xpath: (//div[contains(text(),"TRANS")]/../following-sibling::td/text())[position()=3]
 - name: cholesterolPerServing
   singleValue: true
   description: Nutritional Information for Cholesterol content - Usually based on
     per 100g serving
+  xpath: (//div[contains(text(),"CHOLESTEROL")]/../following-sibling::td/text())[position()=1]
 - name: cholesterolPerServingUom
   singleValue: true
   description: Unit of Measure Data for Cholesterol content
+  xpath: (//div[contains(text(),"CHOLESTEROL")]/../following-sibling::td/text())[position()=3]
 - name: sodiumPerServing
   singleValue: true
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
-  xpath: (//div[contains(text(),"SODIUM")]/../following-sibling::td/text())[position()=2]
+  xpath: (//div[contains(text(),"SODIUM")]/../following-sibling::td/text())[position()=1]
 - name: sodiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Sodium content
@@ -317,7 +327,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
-  xpath: (//div[contains(text(),"CARBOHYDRATES")]/../following-sibling::td/text())[position()=2]
+  xpath: (//div[contains(text(),"CARBOHYDRATES")]/../following-sibling::td/text())[position()=1]
 - name: totalCarbPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Carbohydrate content
@@ -326,14 +336,16 @@ fields:
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
+  xpath: (//div[contains(text(),"FIBRE")]/../following-sibling::td/text())[position()=1]
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
+  xpath: (//div[contains(text(),"FIBRE")]/../following-sibling::td/text())[position()=3]
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
-  xpath: (//div[contains(text(),"SUGARS")]/../following-sibling::td/text())[position()=2]
+  xpath: (//div[contains(text(),"SUGARS")]/../following-sibling::td/text())[position()=1]
 - name: totalSugarsPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
@@ -342,37 +354,47 @@ fields:
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
+  xpath: (//div[contains(text(),"PROTEIN")]/../following-sibling::td/text())[position()=1]
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
+  xpath: (//div[contains(text(),"PROTEIN")]/../following-sibling::td/text())[position()=3]
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
+  xpath: (//div[contains(text(),"VITAMIN A")]/../following-sibling::td/text())[position()=1]
 - name: vitaminAPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin A
+  xpath: (//div[contains(text(),"VITAMIN A")]/../following-sibling::td/text())[position()=3]
 - name: vitaminCPerServing
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
+  xpath: (//div[contains(text(),"VITAMIN C")]/../following-sibling::td/text())[position()=1]
 - name: vitaminCPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin C
+  xpath: (//div[contains(text(),"VITAMIN C")]/../following-sibling::td/text())[position()=3]
 - name: calciumPerServing
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
+  xpath: (//div[contains(text(),"CALCIUM")]/../following-sibling::td/text())[position()=1]
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
+  xpath: (//div[contains(text(),"CALCIUM")]/../following-sibling::td/text())[position()=3]
 - name: ironPerServing
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
+  xpath: (//div[contains(text(),"IRON")]/../following-sibling::td/text())[position()=1]
 - name: ironPerServingUom
   singleValue: true
   description: Unit of Measure Data for Iron
+  xpath: (//div[contains(text(),"IRON")]/../following-sibling::td/text())[position()=3]
 - name: dietarySymbols
   singleValue: true
   description: Information related to the dietary symbols of a specific product
@@ -380,16 +402,20 @@ fields:
   singleValue: true
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
+  xpath: (//div[contains(text(),"MAGNESIUM")]/../following-sibling::td/text())[position()=1]
 - name: magnesiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Magnesium
+  xpath: (//div[contains(text(),"MAGNESIUM")]/../following-sibling::td/text())[position()=3]
 - name: saltPerServing
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
+  xpath: (//div[contains(text(),"SALT")]/../following-sibling::td/text())[position()=1]
 - name: saltPerServingUom
   singleValue: true
   description: Unit of Measure Data for Salt
+  xpath: (//div[contains(text(),"SALT")]/../following-sibling::td/text())[position()=3]
 - name: dietaryInformation
   singleValue: true
   description: 

@@ -20,8 +20,14 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const numOfTabs = document.querySelectorAll('ul.tabs-list li a');
+      for (let i = 0; i < numOfTabs.length; i++) {
+        numOfTabs[i].click();
+      }
       const listPrice = document.querySelector('div.oldprice') ? document.querySelector('div.oldprice').innerText : '';
       if (listPrice) addElementToDocument('listPrice', listPrice.replace(/(.*)(\d{2})/g, '$1,$2'));
+      const availability = document.querySelector('button#addToCartButton') ? 'In Stock' : 'Out of Stock';
+      addElementToDocument('availability', availability);
     });
     await context.extract(productDetails, { transform });
   },

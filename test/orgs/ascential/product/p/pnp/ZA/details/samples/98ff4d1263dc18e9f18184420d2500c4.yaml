@@ -1,59 +1,52 @@
 input:
   _url: http://pnp.co.za
-  URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Body-%26-Facial-Care/Body-Care/Hand-%26-Body-Lotion/DAWN-LOTION-VITAMIN-E-400ML/p/000000000000540347_EA
+  URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Cold-Drinks/Carbonated-Soft-Drinks/SPARLETTA-CREME-SODA-CAN-300ML/p/000000000000773097_CS
 extractions:
-  - html: https://workbench.import.io/html/run=8788e5fc-9b4f-45c7-ba48-59f69ef6f79f/task=7355aa8c-668a-4275-ade7-6d3f31b98425/ff09887a-3f14-4036-9f3c-3c4b519c2aa2.html
+  - html: https://workbench.import.io/html/run=8788e5fc-9b4f-45c7-ba48-59f69ef6f79f/task=763d8223-a8e5-4dc7-a524-dcbdff2d3e71/ea7ac06e-5bc1-4114-aa5b-2a2970d1d58c.html
     extractionConfigId: product/details/stores/p/pnp/ZA/extract
     data:
       - group:
           - image:
-              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/hfc/hc3/9995845304350/silo-product-image-v2-09Oct2020-180102-6001087012393-front-454857-1574_400Wx400H
+              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/h15/h2d/9700827201566/silo-product-image-v2-18Feb2020-180134-5449000257543-front-400167-178_400Wx400H
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
-              - text: Dawn Body Lotion Vitamin E 400ml
+              - text: Sparletta Creme Soda 300ml Can x 6
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
             nameExtended:
-              - text: Dawn Body Lotion Vitamin E 400ml
+              - text: Sparletta Creme Soda 300ml Can x 6
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
             description:
-              - text: |-
-                  Dawn Body Lotion Vitamin E 400ml is enriched with 
-                  glycerine, fruit extracts and vitamins A and E to 
-                  breathe new life into your skin. It offers skin intense 
-                  24-hour moisturisation, giving it a natural glow
+              - text: Low kilojoule soft drink with sugar & non nutritive sweetners.
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/text()[1]
             brandText:
-              - text: Dawn
+              - text: Sparletta
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
             quantity:
-              - text: 400ml
+              - text: 300ml
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]/text()[1]
             variantId:
-              - text: 000000000000540347_EA
+              - text: 000000000000773097_CS
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/form[1]/input[3]/@value
             ratingCount:
               - text: "0"
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/text()[1]
             name:
-              - text: Dawn Body Lotion Vitamin E 400ml
+              - text: Sparletta Creme Soda 300ml Can x 6
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
-            listPrice:
-              - text: R21,99
-                xpath: /html/body/div[5]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[6]
             variantCount:
               - text: "0"
             price:
-              - text: R15,99
+              - text: R64,99
             gtin:
-              - text: "6001087012393"
+              - text: "5449000257543"
             directions:
-              - text: Store in a cool, dry place.
+              - text: ""
             ingredientsList:
               - text: ""
             caloriesPerServing:
               - text: " "
         xpath: /html/body
-    timestamp: 1606205286776
+    timestamp: 1606205286796

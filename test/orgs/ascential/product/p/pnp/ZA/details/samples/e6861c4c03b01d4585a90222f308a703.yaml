@@ -1,57 +1,70 @@
 input:
   _url: http://pnp.co.za
-  URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Cold-Drinks/Carbonated-Soft-Drinks/COCA-COLA-NON-RET-1L/p/000000000000148832_EA
+  URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Chocolates-%26-Sweets/Chocolate-Bars%2C-Bags-%26-Packs/Pre-Packed-Chocolates/NESTLE-SMARTIES-280GR/p/000000000000549843_EA
 extractions:
-  - html: https://workbench.import.io/html/run=8788e5fc-9b4f-45c7-ba48-59f69ef6f79f/task=7dba13a7-428e-44c7-97dd-590286ce1f5a/86e0dae2-0cf6-43e5-bca3-389e5f75d465.html
+  - html: https://workbench.import.io/html/run=8788e5fc-9b4f-45c7-ba48-59f69ef6f79f/task=b0e50444-c5c6-40e3-9de4-571b2da40c6e/06a145a6-bbac-40ba-adc6-31d11d85fae5.html
     extractionConfigId: product/details/stores/p/pnp/ZA/extract
     data:
       - group:
-          - sodiumPerServing:
-              - text: "7"
+          - totalFatPerServing:
+              - text: "0.6"
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
-            sodiumPerServingUom:
-              - text: mg
+            totalFatPerServingUom:
+              - text: g
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[4]/text()[1]
-            totalCarbPerServing:
-              - text: "11"
+            saturatedFatPerServing:
+              - text: "0.2"
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
-            totalCarbPerServingUom:
+            saturatedFatPerServingUom:
               - text: g
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[4]/text()[1]
-            totalSugarsPerServing:
-              - text: "10.6"
+            cholesterolPerServing:
+              - text: "64"
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
-            totalSugarsPerServingUom:
-              - text: g
+            cholesterolPerServingUom:
+              - text: mg
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[4]/td[4]/text()[1]
+            dietaryFibrePerServing:
+              - text: "0.3"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[8]/td[4]/text()[1]
+            sodiumPerServing:
+              - text: "337"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[9]/td[2]/text()[1]
+            sodiumPerServingUom:
+              - text: mg
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[9]/td[4]/text()[1]
+            proteinPerServing:
+              - text: "24.7"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[10]/td[2]/text()[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[10]/td[4]/text()[1]
             image:
-              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/hd0/h0e/10063518302238/silo-product-image-v2-19Nov2020-180127-5449000054227-front-476322-900_400Wx400H
+              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/hd2/h92/9223405830174/silo-6001068675203-front-293873_400Wx400H
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
-              - text: Coca-Cola 1l
+              - text: Nestle Smarties 280g
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
             nameExtended:
-              - text: Coca-Cola 1l
+              - text: Nestle Smarties 280g
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
-            description:
-              - text: At The Coca-Cola Company, we are a diverse, global community of people who
-                  thirst for more. Together, we are growing and learning,
-                  building on our iconic past to make an impact.
-                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/text()[1]
             brandText:
-              - text: Coca-Cola
+              - text: Nestle
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
             quantity:
-              - text: 1l
+              - text: 280g
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]/text()[1]
             variantId:
-              - text: 000000000000148832_EA
+              - text: 000000000000549843_EA
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/form[1]/input[3]/@value
             ratingCount:
               - text: "0"
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/text()[1]
             name:
-              - text: Coca-Cola 1l
+              - text: Nestle Smarties 280g
                 xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
             servingSize:
               - text: "100"
@@ -62,14 +75,14 @@ extractions:
             variantCount:
               - text: "0"
             price:
-              - text: R15,99
+              - text: R64,99
             gtin:
-              - text: "5449000054227"
+              - text: "6001068675203"
             directions:
               - text: ""
             ingredientsList:
-              - text: caffeine, caramel, carbonated water, flavouring, phosphoric acid, sugar
+              - text: ""
             caloriesPerServing:
-              - text: 180 kJ
+              - text: 490 kJ
         xpath: /html
-    timestamp: 1606205288656
+    timestamp: 1606205284244
