@@ -107,17 +107,6 @@ const transform = (data) => {
             });
             row.aggregateRating = [{'text': count,'xpath':row.aggregateRating[0].xpath}];
         }
-
-        if (row.sku) {
-           row.sku.forEach(item => {
-           var matches = /\/cards\/(.*?)\.html/isg.exec(item.text);
-           if (matches) {
-             item.text = matches[1];
-             row.variantId = [{'text': matches[1],'xpath':row.sku[0].xpath}];
-           }
-          });
-          
-        }
        
       }
     }

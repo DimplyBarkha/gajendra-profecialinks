@@ -8,9 +8,10 @@ fields:
     xpath: //div[@class='pic pic-slider']//div[contains(@class,'pic-img')]//img[contains(@class,'js-main-item-photo ')]/@data-zoom-image
   - name: variantId
     singleValue: false
+    xpath: //input[@id='ti_id']//@value 
   - name: sku
     singleValue: false
-    xpath: //meta[@name="og:url"]/@content      
+    xpath: //input[@id='ti_id']//@value     
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
