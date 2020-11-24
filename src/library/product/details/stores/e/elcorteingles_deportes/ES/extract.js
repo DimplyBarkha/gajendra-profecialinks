@@ -236,7 +236,7 @@ module.exports = {
           }
           return result;
         }
-        const directions = getPathDirections('//div[contains(@class,"product_detail-description-in-image")]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::*');
+        const directions = getPathDirections('//div[contains(@class,"product_detail-description-in-image")]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::* | //div[contains(@class,"product_detail-description")]//p[contains(.,"Modo de")]/following-sibling::p');
         addElementToDocument('directions', directions ? directions.join(' ') : '');
 
         // For FirstVariant
