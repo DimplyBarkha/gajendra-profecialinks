@@ -56,10 +56,11 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="infoDescription"]
+  xpath: concat(//div[@class="infoDescription"], //ul[@class="infoFeatures"])
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//ul[@class="infoFeatures"]/li)-1
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -85,16 +86,16 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //li[text()="Артикул — "]/a
+  xpath: //span[@class="code js-productDetailCode"]/@value
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //li[text()="Артикул — "]/a
+  xpath: //span[@class="code js-productDetailCode"]/@value
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
-  xpath: //span[@class="code js-productDetailCode"]/@value
+  xpath: //li[text()="Артикул — "]/a
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -119,6 +120,7 @@ fields:
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //span[@class="Score__fill"]/@rating
 - name: shippingInfo
   singleValue: false
   description: Shipping information for the product
@@ -135,6 +137,7 @@ fields:
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: //li[text()="Цвет корпуса — "]/a
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -147,9 +150,11 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //a[@class="ProductPhotoThumb__link video"]/input/@value
 - name: name
   singleValue: true
   description: The product name
+  xpath: //div[@class="Product__name"]
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -384,6 +389,7 @@ fields:
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
+  xpath: (//span[text()="Размер в упаковке"]/parent::li//text())[2]
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
