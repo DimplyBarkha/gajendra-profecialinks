@@ -51,6 +51,6 @@ async function implementation(
     addElementToDocument('searchurl', url);
     
   });
-  //rank end
+
   return await context.extract(productDetails, { transform });
 }
