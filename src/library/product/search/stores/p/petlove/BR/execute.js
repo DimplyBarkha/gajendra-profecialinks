@@ -5,8 +5,8 @@ module.exports = {
     store: 'petlove',
     domain: 'petlove.com.br',
     url: 'https://www.petlove.com.br/busca?q={searchTerms}',
-    loadedSelector: 'div[id="catalog-desktop"]',
-    noResultsXPath: '//div[@class="container container--limited"]',
+    loadedSelector: null, // 'div[id="catalog-desktop"]',
+    noResultsXPath: null, // '//div[@class="container container--limited"]',
     zipcode: "''",
   },
 };
