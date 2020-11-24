@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="gallery__images"]//div[@class="slick-slide slick-current slick-active"]//img[@role="presentation"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="gallery__images"]//div[@class="slick-slide slick-current slick-active"]//img[@class="gallery-images__image"]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="gallery__thumbs"]//ul//li[@class="thumb__item"]//img[@class="thumb__image"]/@src
+  - name: category
+    singleValue: false
+    xpath: //div[@class="bread-crumb"]//li[2]//a//span[@itemprop="name"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="product__name"]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class="d-block price__de"]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="d-block price__por"]
+  - name: availabilityText
+    singleValue: false    
+    defaultValue: "In Stock"
+  - name: description
+    singleValue: false
+    xpath: //div[@class="productDescription"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="product__brand"]//a
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="quantity__selector"]//input[@type="number"]/@value
+  - name: sku
+    singleValue: false
+    xpath: //span[@class="js-sku-selected"]//@data-currentsku
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop="ratingCount"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="product__name"]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //meta[@name="country"]
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: "Yes"
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: "yes"
