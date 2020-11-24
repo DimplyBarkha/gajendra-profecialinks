@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'lowes',
     domain: 'lowes.com',
-    loadedSelector: null,
-    noResultsXPath: '//p[@class="subTitle"]',
+    loadedSelector: 'section#main',
+    noResultsXPath: '//h1[contains(text(), "This Page Is Missing or Moved")] | //p[@class="subTitle"]',
     zipcode: '',
   },
 };
