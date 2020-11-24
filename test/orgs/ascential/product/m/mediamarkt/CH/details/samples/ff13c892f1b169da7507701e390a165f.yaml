@@ -1,0 +1,121 @@
+input:
+  id: 1056734
+  _url: http://mediamarkt.ch/fr
+extractions:
+  - html: https://workbench.import.io/html/run=bc7e877e-b30a-4446-bc8d-4bd672698e62/task=2c555a95-7f1c-4a04-a39c-81ab22dadfa2/bbded753-3047-44c2-97dc-c9034fd45dbb.html
+    extractionConfigId: product/details/stores/m/mediamarkt/CH/extract
+    data:
+      - group:
+          - quantity:
+              - text: 16 capsules
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[8]
+            mpc:
+              - text: 12423323-16
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[11]
+            sku:
+              - text: "1056734"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[12]
+            caloriesPerServing:
+              - text: 267 kcal
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[2]
+            totalFatPerServing:
+              - text: "17.1"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
+            saturatedFatPerServing:
+              - text: "7.6"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[4]
+            totalCarbPerServing:
+              - text: "0.2"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
+            totalSugarsPerServing:
+              - text: "0.2"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
+            dietaryFibrePerServing:
+              - text: "38.7"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
+            proteinPerServing:
+              - text: "8.1"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
+            saltPerServing:
+              - text: "0.03"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
+            category:
+              - text: Page d’accueil
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
+              - text: Cuisiner & Manger
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
+              - text: Machines à café
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[3]
+              - text: Café & capsules de café
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[4]
+            description:
+              - text: Caffè Lungo est un espresso allongé à l’arôme intense et à la mousse de
+                  café raffinée.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[1]
+            manufacturer:
+              - text: NESCAFÉ
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[2]/div[1]
+            name:
+              - text: NESCAFÉ Dolce Gusto Lungo Capsules de café
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            legalDisclaimer:
+              - text: Tous nos prix s’entendent TVA et taxe anticipée de recyclage (TAR)
+                  incluses. Erreurs et fautes d'impression réservées. © 2020
+                  Media Markt
+                xpath: /html/body/div[3]/footer[1]/div[5]
+            image:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82133447/fee_325_225_png/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9
+                xpath: /html/body/div[10]
+            imageAlt:
+              - text: NESCAFÉ Dolce Gusto Lungo - Capsules de café
+                xpath: /html/body/div[11]
+            alternateImages:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-69432622/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-62103292/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-66052648/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-66143467/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Lungo---Capsules-de-caf%C3%A9
+                xpath: /html/body/div[12]
+            secondaryImageTotal:
+              - text: "4"
+                xpath: /html/body/div[13]
+            price:
+              - text: 5.95 CHF
+                xpath: /html/body/div[14]
+            listPrice:
+              - text: 5.95 CHF
+                xpath: /html/body/div[15]
+            availabilityText:
+              - text: Ce produit est épuisé en ligne, veuillez sélectionner 'Disponibilité en
+                  magasin'! Disponibilité en magasin
+                xpath: /html/body/div[16]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[18]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[19]
+            weightNet:
+              - text: 112 g
+                xpath: /html/body/div[20]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1606226395228

@@ -5,8 +5,8 @@ module.exports = {
     country: 'CH',
     store: 'mediamarkt',
     domain: 'mediamarkt.ch/fr',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '#product-details',
+    noResultsXPath: '//div[contains(@id, "search_no_result")] | //h1[contains(text(), "404")] | //div[contains(@class, "outer-brand")] | //span[@class="offline-text"]',
     zipcode: "''",
   },
 };

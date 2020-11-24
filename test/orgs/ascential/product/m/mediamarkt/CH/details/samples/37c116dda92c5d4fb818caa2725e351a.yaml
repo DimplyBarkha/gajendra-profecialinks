@@ -1,0 +1,121 @@
+input:
+  id: 1077929
+  _url: http://mediamarkt.ch/fr
+extractions:
+  - html: https://workbench.import.io/html/run=bc7e877e-b30a-4446-bc8d-4bd672698e62/task=ab44f9d8-33f5-42ac-9888-0f136a6bed25/24733071-e795-4532-92fd-a7717f0223b3.html
+    extractionConfigId: product/details/stores/m/mediamarkt/CH/extract
+    data:
+      - group:
+          - quantity:
+              - text: 2x 8 capsules
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[8]
+            mpc:
+              - text: 12367419-16
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[11]
+            sku:
+              - text: "1077929"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[12]
+            caloriesPerServing:
+              - text: 448 kcal
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[2]
+            totalFatPerServing:
+              - text: "16.1"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
+            saturatedFatPerServing:
+              - text: "9.7"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[4]
+            totalCarbPerServing:
+              - text: "58.6"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
+            totalSugarsPerServing:
+              - text: "54.8"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
+            dietaryFibrePerServing:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
+            proteinPerServing:
+              - text: "14.6"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
+            saltPerServing:
+              - text: "0.34"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
+            category:
+              - text: Page d’accueil
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
+              - text: Cuisiner & Manger
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
+              - text: Machines à café
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[3]
+              - text: Café & capsules de café
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[4]
+            description:
+              - text: Succombez à la gourmandise de Chococino®, notre chocolat chaud au puissant
+                  arôme de cacao adouci par une délicate mousse de lait.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[1]
+            manufacturer:
+              - text: NESCAFÉ
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[2]/div[1]
+            name:
+              - text: NESCAFÉ Dolce Gusto Chococino Capsules cacao
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            legalDisclaimer:
+              - text: Tous nos prix s’entendent TVA et taxe anticipée de recyclage (TAR)
+                  incluses. Erreurs et fautes d'impression réservées. © 2020
+                  Media Markt
+                xpath: /html/body/div[3]/footer[1]/div[5]
+            image:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269295/fee_325_225_png/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao
+                xpath: /html/body/div[10]
+            imageAlt:
+              - text: NESCAFÉ Dolce Gusto Chococino - Capsules cacao
+                xpath: /html/body/div[11]
+            alternateImages:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269290/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269291/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269292/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269293/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269294/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao
+                xpath: /html/body/div[12]
+            secondaryImageTotal:
+              - text: "5"
+                xpath: /html/body/div[13]
+            price:
+              - text: 5.95 CHF
+                xpath: /html/body/div[14]
+            listPrice:
+              - text: 5.95 CHF
+                xpath: /html/body/div[15]
+            availabilityText:
+              - text: En-ligne disponible Livraison entro 1-4 jours ouvrables Disponibilité en
+                  magasin
+                xpath: /html/body/div[16]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[18]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[19]
+            weightNet:
+              - text: 0.270 kg
+                xpath: /html/body/div[20]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1606226396595

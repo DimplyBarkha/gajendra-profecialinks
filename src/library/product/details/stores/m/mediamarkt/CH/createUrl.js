@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mediamarkt.ch/fr',
     prefix: null,
-    url: null,
+    url: 'https://www.mediamarkt.ch/fr/product/-{id}.html?ga_query={id}',
     country: 'CH',
     store: 'mediamarkt',
     zipcode: "''",
