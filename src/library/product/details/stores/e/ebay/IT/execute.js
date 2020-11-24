@@ -4,7 +4,7 @@ module.exports = {
     country: "IT",
     store: "ebay",
     domain: "ebay.it",
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: "body",
+    noResultsXPath: '//div[@class="status--4XX"]',
   },
 };
