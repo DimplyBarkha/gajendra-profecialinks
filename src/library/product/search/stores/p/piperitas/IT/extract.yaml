@@ -9,6 +9,7 @@ fields:
     regExpReplace: $2
     singleValue: false
   - name: searchUrl
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
     singleValue: true
   - name: name
     xpath: //span[@class="card__name"]/text()
