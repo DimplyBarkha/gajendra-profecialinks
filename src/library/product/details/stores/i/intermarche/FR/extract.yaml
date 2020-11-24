@@ -30,6 +30,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
+    type: CURRENCY
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class="ProductPrice__PriceProductWrapper-w3194n-2 gJDYU"]
@@ -57,9 +58,11 @@ fields:
     description:
       Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class="styled__ProductLibelle-rc4bd7-1 fARrZk"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //div[@class="styled__ProductLibelle-rc4bd7-1 fARrZk"]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
