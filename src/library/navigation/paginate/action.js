@@ -39,12 +39,14 @@ async function implementation (
       try {
         const isThere = document.querySelector(sel);
         return !!isThere;
-      } catch (error) {}
-      try {
-        const isThere = document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-        return !!isThere;
-      } catch (error) {}
-      return false;
+      } catch (error) {
+        try {
+          const isThere = document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+          return !!isThere;
+        } catch (error) {
+          return false;
+        }
+      }
     }, { timeout: 10000 }, stopConditionSelectorOrXpath);
     // @ts-ignore
     if (conditionIsTrue) return false;
