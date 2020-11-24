@@ -1,18 +1,18 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[@class="QAItem-item"]'
+recordXPath: null
 fields:
   - name: answerAuthor
     singleValue: true
     type: STRING
     description: Answer Author
-    xpath: '//div[@class="QAItem-meta QAItem-font"]/span[@class="QAItem-font"]'
+    xpath: //div[@class="QAItem-meta QAItem-font"]/span[@class="QAItem-font"]
   - name: answerDate
     singleValue: true
     type: STRING
     description: Answer Date
-    xpath: '//div[@class="QAItem-meta QAItem-font"]/span[@class="QAItem-date"]'
+    xpath: //div[@class="QAItem-meta QAItem-font"]/span[@class="QAItem-date"]
   - name: answerId
     singleValue: true
     type: STRING
@@ -21,7 +21,7 @@ fields:
     singleValue: true
     type: STRING
     description: Answer Count
-    xpath: '//p[@class="btn-link QAItem-answer-answer"]'
+    xpath: //p[@class="btn-link QAItem-answer-answer"]
   - name: answersCountDb
     singleValue: true
     type: STRING
@@ -30,17 +30,17 @@ fields:
     singleValue: true
     type: STRING
     description: Answer Text
-    xpath: '//div[@class="QAItem-item"]/div/span[2]'
+    xpath: //div[@class="QAItem-item"]/div/span[2]
   - name: helpfulCount
     singleValue: true
     type: STRING
     description: Answer Yes
-    xpath: '//div[@class="helpful-voting"]//button[@data-tl-id="ReviewHelpfulness-YesCount"]//span[@class="yes-no-count underline"]'
+    xpath: //div[@class='QAItem-item']//div[@class="helpful-voting"]//button[@data-tl-id="ReviewHelpfulness-YesCount"]//span[@class="yes-no-count underline"]
   - name: notHelpfulCount
     singleValue: true
     type: STRING
     description: Answer No
-    xpath: '//div[@class="helpful-voting"]//button[@data-tl-id="ReviewHelpfulness-NoCount"]//span[@class="yes-no-count underline"]'
+    xpath: //div[@class='QAItem-item']//div[@class="helpful-voting"]//button[@data-tl-id="ReviewHelpfulness-NoCount"]//span[@class="yes-no-count underline"]
   - name: productUrl
     singleValue: true
     type: STRING
@@ -53,4 +53,4 @@ fields:
     singleValue: true
     type: STRING
     description: Question Text
-    xpath: '//div[@class="QAItem-title"]/button'
+    xpath: //div[@class="QAItem-title"]/button
