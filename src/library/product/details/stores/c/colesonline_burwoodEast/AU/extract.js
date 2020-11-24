@@ -33,7 +33,7 @@ async function implementation (
     }
     function energyCalculation (value, name, name2) {
       const arr = value.match(/([\d]+(?:.[\d]+)?)(?:\s*)([a-zA-Z]*)\s{0,1}/);
-      arr && arr[1] && addHiddenDiv('ii_' + name, arr[1]);
+      arr && arr[1] && name && addHiddenDiv('ii_' + name, arr[1]);
       arr && arr[2] && name2 && addHiddenDiv('ii_' + name2, arr[2]);
     }
     const totalFatPerServing = findXpath("//tr[contains(. , 'Total Fat')]//td");
@@ -73,15 +73,18 @@ async function implementation (
       addHiddenDiv('ii_variantId', variantId.replace(/ /gm, ''));
       const additionalProperty = script.additionalProperty ? script.additionalProperty : '';
       additionalProperty.forEach(element => {
-        element.name === 'Warning' && addHiddenDiv('ii_warning', element.text);
+        element.name === 'Warning' && element.text && addHiddenDiv('ii_warning', element.text);
+        element.name === 'Warning' && element.value && addHiddenDiv('ii_warning', element.value);
       });
     }
     let servingSize = findXpath("//*[@class='nutritional-table-intro']");
     servingSize = servingSize.split('=')[1] ? servingSize.split('=')[1] : servingSize;
-    energyCalculation(servingSize, 'servingSize', 'servingSizeUom');
+    addHiddenDiv('ii_servingSize', servingSize);
+    energyCalculation(servingSize, null, 'servingSizeUom');
     let name = findXpathArr("//h1[@class='product-title']//span[@class='product-brand'] | //h1[@class='product-title']//span[@class='product-name']");
+    const size = document.querySelector("span[data-ng-if='::productDisplayVM.product.showOnlineSizeDesc']") ? document.querySelector("span[data-ng-if='::productDisplayVM.product.showOnlineSizeDesc']").innerText : '';
     name = name.join(' ');
-    addHiddenDiv('ii_name', name);
+    addHiddenDiv('ii_name', name + ' ' + size.trim());
     let specifications = findXpath("//div[contains(@class,'product-specific')]");
     specifications = specifications.replace(/\n|\t|\s{2,}/gm, ' ').trim().indexOf('Details') === 0 ? specifications.replace(/Details/, '') : specifications;
     addHiddenDiv('ii_specifications', specifications);
