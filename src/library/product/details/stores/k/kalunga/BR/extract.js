@@ -25,15 +25,15 @@ module.exports = {
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
+      };
+      const script = JSON.parse(document.querySelectorAll('script[type="application/ld+json"]')[0].innerHTML);
+      console.log(script);
+      if (script) {
+        if (script.brand) addElementToDocument('brandName', script.brand.name);
+        if (script.sku) addElementToDocument('sku_number', script.sku);
+        if (script.sku) addElementToDocument('sku_code', script.sku);
+        if (script.gtin) addElementToDocument('ean_gtin', script.gtin);
       }
-
-      //Gets brand link
-      const outOfStock = document.querySelector('#imgProdutoIndisponivel');
-      if (!outOfStock) {
-        addElementToDocument('availabilityText', 'In Stock');
-      }
-      const stars = document.querySelectorAll('.reviews .stars > .text-warning');
-      addElementToDocument('ratingStars', stars.length);
     });
     return await context.extract(productDetails, { transform });
   }
