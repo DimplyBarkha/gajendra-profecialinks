@@ -4,29 +4,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  // pagination on scroll
-  await context.evaluate(async function () {
-    function stall (ms) {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    const numberOfProducts = parseInt(document.querySelector('span.ty-mainbox-title__right').textContent.match(/\d+/gm)[0]);
-    let productCount = 0;
-    for (let i = 0; i < 32; i++) {
-      productCount += document.querySelectorAll('div[class="ty-column3"] > div[class*="list__item"]').length - productCount;
-      window.scroll(0, document.body.scrollHeight);
-      await stall(1000);
-      if (productCount >= numberOfProducts) {
-        break;
-      }
-    }
-  });
-
-  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
-
   await context.evaluate(async () => {
     // price
 

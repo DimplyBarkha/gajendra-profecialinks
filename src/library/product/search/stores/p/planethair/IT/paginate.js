@@ -13,7 +13,9 @@ module.exports = {
     noResultsXPath: '//p[contains(@class, "no-items")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.planethair.it/?subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q={searchTerms}&dispatch=products.search&page={page}',
+    },
     domain: 'planethair.it',
     zipcode: '',
   },
