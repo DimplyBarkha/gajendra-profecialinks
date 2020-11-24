@@ -4,9 +4,8 @@ module.exports = {
     country: "DE",
     store: "durstexpress",
     domain: "durstexpress.de",
-    url:
-      "https://www.durstexpress.de/berlin1/catalogsearch/result/?q={searchTerms}",
-    loadedSelector: "body",
+    url: "https://www.durstexpress.de/berlin1/catalogsearch/result/?q={searchTerms}",
+    loadedSelector: ".column.main",
     noResultsXPath: null,
     zipcode: "",
   },
