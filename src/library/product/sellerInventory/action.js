@@ -1,3 +1,4 @@
+
 /**
  *
  * @param { { id: any, sellerId: any, zipcode: any } } inputs
@@ -13,10 +14,11 @@ async function implementation (
 ) {
   const { sellerId } = inputs;
   const { execute, extract } = dependencies;
-  // const url = URL;
+  
   const id = inputs.id;
-  const zipcode = inputs.zipcode || parameters.zipcode
-  const productFound = await execute({ sellerId, id, zipcode: zipcode });
+  const url = inputs.url || inputs.URL;
+  const zipcode = inputs.zipcode || parameters.zipcode; 
+  const productFound = await execute({ sellerId, id, zipcode, url });
 
   if (!productFound) {
     console.log('No product found');
