@@ -5,8 +5,8 @@ module.exports = {
     country: 'SE',
     store: 'martinservera',
     domain: 'martinservera.se',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-detail',
+    noResultsXPath: "//h1[contains(text(),'Sidan kan inte hittas')]",
     zipcode: '',
   },
 };

@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'martinservera.se',
     prefix: null,
-    url: null,
+    url: 'https://www.martinservera.se/produkter/{id}',
     country: 'SE',
     store: 'martinservera',
     zipcode: '',
