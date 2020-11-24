@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'beru',
     domain: 'beru.ru',
-    loadedSelector: 'div[data-zone-name="productReviews"]',
+    loadedSelector: 'div[data-zone-name="productReviews"], div[data-apiary-widget-name="@marketplace/SkuSummary"]',
     noResultsXPath: null,
     reviewUrl: null,
     sortButtonSelector: null,

@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-zone-name="review"]
+recordXPath: //div[@class="iio_reviews"]
 fields:
   - name: helpfulCount
     singleValue: true
@@ -25,19 +25,18 @@ fields:
     singleValue: true
     type: DATETIME
     description: Date the review was made
-    xpath: //div[@class="b_I_N6IMOcwb"]/font/font
+    xpath: //div/@data-reviewDate
+    # xpath: //div[@class="b_I_N6IMOcwb"]/font/font
   - name: reviewRating
     type: NUMBER
-    singleValue: true
+    singleValue: false
+    xpath: //div/@data-reviewRating
     description: Rating normalized to be out of 5
-  - name: reviewText
-    singleValue: true
-    description: The text of the review
-    xpath: //div[@class='b_2_CxadNVFG']
   - name: reviewTitle
     singleValue: false
     description: The title of the review
-    xpath: //div[@class="b_3aVcLCACC9"]
+    # xpath: //div[@class="b_3aVcLCACC9"]
+    xpath: //div/@data-manufacturerResponse
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
@@ -54,7 +53,8 @@ fields:
   - name: manufacturerResponse
     singleValue: true
     description: The response of the manufacturer (if any)
-    xpath: //div[@class="b_2C06Ssbn8s"]/span/span[@class="b_3JsGNgDHFb"]
+    xpath: //div/@data-manufacturerResponse
+    # xpath: //div[@class="b_2C06Ssbn8s"]/span/span[@class="b_3JsGNgDHFb"]
   - name: syndicatedFrom
     singleValue: true
     description: Stated place the review was syndicated from
@@ -71,13 +71,97 @@ fields:
     type: TEXT
   - name: aggregateRating
     description: The product rating
+    xpath: //div/@data-reviewRating
   - name: reviewAuthor
     singleValue: false
-    xpath: //div[@class='b_3fJVmfwbhK']
+    xpath: //div/@data-reviewAuthor
   - name: reviewRatingScale
-    xpath: ancestor::html//meta[@itemprop="bestRating"]/@content
+    xpath: //div/@data-ratingScale
   - name: responseAuthor
-    xpath: //div[@class="b_dkDeduCKVt"]/font/font
+    xpath: //div/@data-responseAuthor
   - name: reviewId
     singleValue: false
-    xpath: //div/@data-id
+    xpath: //div/@data-reviewId
+# singleRecord: false
+# regionsSelector: null
+# recordSelector: null
+# recordXPath: //div[@data-zone-name="review"]
+# fields:
+#   - name: helpfulCount
+#     singleValue: true
+#     type: NUMBER
+#     description: Number of people who said the review was helpful
+#   - name: commentCount
+#     singleValue: true
+#     type: NUMBER
+#     description: Number of comments on the review
+#   - name: brandText
+#     singleValue: true
+#     description: Product brand shown - this may actually NOT be just a brand name,
+#       e.g. "Visit the Gillette Store"
+#   - name: name
+#     singleValue: true
+#     description: The product name
+#   - name: sku
+#     singleValue: true
+#     description: The store-specific product identifier
+#   - name: reviewDate
+#     singleValue: true
+#     type: DATETIME
+#     description: Date the review was made
+#     xpath: //div[@class="b_I_N6IMOcwb"]/font/font
+#   - name: reviewRating
+#     type: NUMBER
+#     singleValue: true
+#     description: Rating normalized to be out of 5
+#   - name: reviewText
+#     singleValue: true
+#     description: The text of the review
+#     xpath: //div[@class='b_2_CxadNVFG']
+#   - name: reviewTitle
+#     singleValue: false
+#     description: The title of the review
+#     xpath: //div[@class="b_3aVcLCACC9"]
+#   - name: reviewerTags
+#     singleValue: false
+#     description: The tags a reviewer has
+#   - name: gtin
+#     singleValue: true
+#     description: GTIN code (includes UPC/EAN)
+#   - name: productUrl
+#     singleValue: true
+#     description: The url of the product details page
+#   - name: verifiedPurchase
+#     singleValue: true
+#     type: BOOLEAN
+#     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+#   - name: manufacturerResponse
+#     singleValue: true
+#     description: The response of the manufacturer (if any)
+#     xpath: //div[@class="b_2C06Ssbn8s"]/span/span[@class="b_3JsGNgDHFb"]
+#   - name: syndicatedFrom
+#     singleValue: true
+#     description: Stated place the review was syndicated from
+#   - name: reviewUrl
+#     singleValue: true
+#     description: A direct link to the review
+#   - name: reviewedSku
+#     singleValue: true
+#     description: The SKU of the item that was reviewed (may be different from the
+#       sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+#       value, transform will handle the value.
+#   - name: user
+#     description: The user name of the reviewer
+#     type: TEXT
+#   - name: aggregateRating
+#     description: The product rating
+#   - name: reviewAuthor
+#     singleValue: false
+#     xpath: //div[@class='b_3fJVmfwbhK']
+#   - name: reviewRatingScale
+#     xpath: ancestor::html//meta[@itemprop="bestRating"]/@content
+#   - name: responseAuthor
+#     xpath: //div[@class="b_dkDeduCKVt"]/font/font
+#   - name: reviewId
+#     singleValue: false
+#     xpath: //div/@data-id
