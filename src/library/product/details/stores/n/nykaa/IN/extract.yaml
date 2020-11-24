@@ -537,7 +537,7 @@ fields:
     regExp: (\d+).(\d+)\s?\w+
   - name: sku
     xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@sku
-    regExp: (\d+)
+    regExp: (\w+)
     # xpath: //link[@rel="canonical"]/@href
     # regExp: p/(\d+)
     regExpReplace: $1
@@ -622,5 +622,5 @@ fields:
     xpath: //div[@class="AzIndex"] | //div[@class="pdp-description-tab-item description-expand"]//p[contains(.,'Explore')]
   - name: ingredientsList
     description: List of Ingredients from site - can be string of data if no discernible start/end point
-    xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@finalInagredientData
+    xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@finalinagredientdata
     
