@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'coveo-list-layout-container')]/div[contains(@class, 'CoveoResult')]
+fields:
+  - name: productUrl
+    xpath: //a[@class="CoveoResultLink"]/@href
+    regExp: ^(.*)
+    regExpReplace: https://www.petsuppliesplus.com$1
+  - name: thumbnail
+    xpath: //div[contains(@class, "thumbnail")]/a/img[contains(@src, 'assets')]/@data-src | //div[contains(@class, "thumbnail")]/a/img[not(contains(@src, 'assets'))]/@src
+    regExp: (.*?)\?(.*)
+    regExpReplace: $1
+  - name: name
+    xpath: //a[@class="CoveoResultLink"]
+  - name: id
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@data-product-id]/@data-product-id
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //div[@class="prod-rating"]/span
+    regExp: \d+
+  - name: price
+    xpath: //div[@class="actual-price-1"]/span[@class="price"][2]/strong
+  - name: endorsementText
+    xpath: //div[@class="advert"]/p[@class="bg-red"]
+  - name: rank
+  - name: rankOrganic
+  - name: nameExtended
+    xpath: //a[@class="CoveoResultLink"]
+  - name: aggregateRating
+    xpath: //div[@class="rating"]/following::input[1]/@value
