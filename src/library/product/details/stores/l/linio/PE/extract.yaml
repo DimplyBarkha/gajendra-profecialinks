@@ -35,6 +35,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@class="product-price"]//div[@class="discount-container"]/span[@class="original-price"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -76,7 +77,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //b[contains(text(),'Peso:')]/following::text()[1]
+    xpath: concat(//div[@class="title"][contains(text(),'Peso (kg)')]/following::div[1],' Kg')
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -135,11 +136,12 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    defaultValue: '1'
+    defaultValue: '0'
     type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@class="title"][contains(text(),'Color')]/following::div[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -420,6 +422,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
+    xpath: //div[@class="title"][contains(text(),'País de Origen')]/following::div[1]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -438,7 +441,7 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
-    xpath: //div[@class="lowest-price"]/span
+    # xpath: //div[@class="lowest-price"]/span
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
@@ -509,11 +512,15 @@ fields:
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
+    xpath: //div[@data-collapse="#customer-service-footer-menu"]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: materials
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //div[@class="title"][contains(text(),'Material')]/following::div[1]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
@@ -524,7 +531,7 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
   - name: url
     singleValue: true
     description: The URL of the product
