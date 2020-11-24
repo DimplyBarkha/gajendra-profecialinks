@@ -6,6 +6,8 @@ fields:
   - name: productUrl
     description: The URL for the product details page
     xpath: //ul[@id='productListMain']//span[@class='itemContainer']/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.jdsports.co.uk/$1
   - name: thumbnail
     type: URL[]
     description: The URL for the product thumbnail image
