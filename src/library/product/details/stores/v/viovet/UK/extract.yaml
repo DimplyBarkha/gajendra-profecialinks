@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //body
 fields:
 - name: _input
   singleValue: false
@@ -12,31 +12,38 @@ fields:
 - name: _pageTimeStamp
   singleValue: false
 - name: image
-  singleValue: true
+  singleValue: false
   description: URL of the main product image
+  xpath: //div[@class='swiper-slide swiper-slide-active']/img[1]/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[contains(@class, 'swiper-slide')][not(@class='swiper-slide swiper-slide-active')]/img[1]/@content
+  regExp: ([\/A-z\d\.\=\,\-]+)
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //ul[@id='breadcrumbs']/li[@itemprop][position() > 1]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@itemprop='name']
 - name: listPrice
-  singleValue: true
+  singleValue: false
   description: The stated undiscounted price for the product
+  xpath: "//div[contains(@class, 'product')][@style='position: relative;']//span[@class='rrp_saving']"
 - name: price
-  singleValue: true
+  singleValue: false
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: "//div[contains(@class, 'product')][@style='position: relative;']//span[@itemprop='price']"
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -137,8 +144,9 @@ fields:
   singleValue: true
   description: 
 - name: coupon
-  singleValue: true
+  singleValue: false
   description: Text of any coupon offer
+  xpath: "//div[contains(@class, 'product')][@style='position: relative;']//span[@class='savings_highlight']"
 - name: amazonChoice
   singleValue: true
   description: YES or Blank
