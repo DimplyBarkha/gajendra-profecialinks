@@ -12,7 +12,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@id="image-product"]/figure/picture/img/@alt)[1]
+    xpath: (//div[@id="image-product"]/figure/picture/img/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -83,6 +83,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //meta[@itemprop="gtin13"]/@content
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -94,7 +95,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //b[contains(text(),'Código:')]/following::text()[1]
+    xpath: concat(//b[contains(text(),'Código:')]/following::text()[1] , //meta[@itemprop="model"]/@content)
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -124,6 +125,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //div[@class="product-bg-container shipping-information"]//li
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
