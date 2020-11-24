@@ -36,8 +36,8 @@ const transform = (data) => {
           row.price.splice(1);
         }
         row.thumbnail.forEach(item => {
-          item.text = item.text.replace('Our Price', '').trime();
-          item.text = item.text.replace('Sale', '').trime();
+          item.text = item.text.replace('Our Price', '').trim();
+          item.text = item.text.replace('Sale', '').trim();
         });
       }
       row.rank = row.rankOrganic = [{ text: rank }];
