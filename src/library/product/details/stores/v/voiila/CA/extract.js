@@ -23,13 +23,16 @@ module.exports = {
         document.body.setAttribute('url',url);
       }
       var imageData = window.__INITIAL_STATE__.data.products.productEntities;
-      var imageArr  = imageData[Object.keys(imageData)].images;
-      imageArr.forEach(element => {
-        let newlink = document.createElement('a');
-        newlink.setAttribute('class', 'image');
-        newlink.setAttribute('href', element.src);
-        document.body.appendChild(newlink);
-      });
+      var imageArr  = imageData[Object.keys(imageData)] && imageData[Object.keys(imageData)].images;
+      if(imageArr && imageArr.length){
+        imageArr.forEach(element => {
+          let newlink = document.createElement('a');
+          newlink.setAttribute('class', 'image');
+          newlink.setAttribute('href', element.src);
+          document.body.appendChild(newlink);
+        });
+      }
+   
      
     });
     const { transform } = parameters;
