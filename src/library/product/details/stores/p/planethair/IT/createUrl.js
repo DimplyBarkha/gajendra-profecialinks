@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'planethair.it',
-    timeout: 50000,
+    prefix: null,
+    url: null,
     country: 'IT',
     store: 'planethair',
     zipcode: '',
