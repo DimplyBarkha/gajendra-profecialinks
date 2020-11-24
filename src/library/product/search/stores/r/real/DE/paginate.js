@@ -4,11 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'real',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a[class="btn -default pagination"]',
     loadedSelector: 'div#page',
-    openSearchDefinition: {
-      template: 'https://www.real.de/item/search/?search_value={searchTerms}&page={page}',
-    },
     domain: 'real.de',
     zipcode: '',
   },
