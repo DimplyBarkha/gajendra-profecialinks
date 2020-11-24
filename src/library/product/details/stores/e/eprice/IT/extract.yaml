@@ -79,7 +79,8 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //meta[contains(@itemprop, 'mpn')]/@content
+    # xpath: //meta[contains(@itemprop, 'mpn')]/@content
+    xpath: //span[@class="pipe"]/following-sibling::strong[not(contains(@id,"ftenhance"))]
   - name: ratingCount
     singleValue: false
     description: The number of ratings
