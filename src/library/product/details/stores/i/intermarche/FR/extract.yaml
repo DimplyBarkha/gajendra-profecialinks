@@ -59,6 +59,7 @@ fields:
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
+    xpath: count(//div[contains(text(),'Avantages')]/following-sibling::div/div)
     type: NUMBER
   - name: brandText
     singleValue: false
@@ -525,6 +526,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[contains(text(),'Avantages')]/following-sibling::div/div
   - name: prop65Warning
     singleValue: false
     description: null
