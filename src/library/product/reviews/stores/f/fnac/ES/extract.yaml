@@ -1,0 +1,63 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[contains(@class,"customerReviewsSection-Unit")]
+fields:
+  - name: reviewAuthor
+    singleValue: false
+    xpath: .//div[contains(@class, "f-reviews-title--author")]
+  - name: reviewDate
+    singleValue: false
+    xpath: .//*[contains(@class,"f-reviews-date")]
+    regExp: Publicada el (.+)
+    regExpReplace: $1
+  - name: reviewRating
+    singleValue: false
+    xpath: .//span[contains(@class, "f-star")]
+  - name: reviewRatingText
+    singleValue: false
+  - name: reviewText
+    singleValue: false
+    xpath: .//p[contains(@class, "f-reviews-txt")]
+  - name: reviewTitle
+    singleValue: false
+    xpath: .//h2[contains(@class, "f-reviews-title")]
+  - name: verifiedPurchase
+    singleValue: false
+    xpath: .//span[contains(@class, "f-reviews-purchaseChecked")]
+    type: BOOLEAN
+  - name: reviewUrl
+    singleValue: false
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+  - name: reviewedSku
+    singleValue: false
+    xpath: .//span[contains(@class, "f-review-feedbackReport")]/a/@href
+    regExp: PRID=(.+)&REF
+    regExpReplace: a$1
+  - name: sku
+    singleValue: false
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+    regExp: .+\/(.+)\/avis
+    regExpReplace: $1
+  - name: productUrl
+    singleValue: false
+    xpath: ancestor::html//div[contains(@class, "customerReviewsArticle")]/a/@href
+  - name: helpfulCount
+    singleValue: false
+    xpath: .//span[contains(@id, "FeedbackPositive")]
+  - name: notHelpfulCount
+    singleValue: false
+    xpath: .//span[contains(@id, "FeedbackNegative")]
+  - name: reviewCount
+    singleValue: false
+    xpath: ancestor::html//span[contains(@class, "productStrate__titleAlt")]
+    regExp: .+\/(.+)\/avis
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: ancestor::html//b[contains(@class, "customerReviewsRating__score")]
+  - name: reviewRatingScale
+    singleValue: false
+    defaultValue: 5
+
+  

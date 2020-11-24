@@ -2,52 +2,30 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'fnac.es',
-    timeout: 60000,
     country: 'ES',
+    domain: 'fnac.es',
     store: 'fnac',
-    zipcode: '',
   },
   implementation: async ({ url }, parameterValues, context, dependencies) => {
-    const timeout = parameterValues.timeout ? parameterValues.timeout : 60000;
-    await context.setBlockAds(false);
-    let lastResponseData = await context.goto(url,
-      {
-        timeout: timeout,
-        waitUntil: 'load',
-        checkBlocked: false,
-        js_enabled: true,
-        css_enabled: false,
-        random_move_mouse: true,
-      },
-    );
-
-    try {
-      await context.waitForSelector('span.geetest_radar_tip_content', { timeout: 45000 });
-    } catch (error) {
-      console.log('No verification needed.');
-    }
-
-    // const verifyAccess = await context.evaluate(function () {
-    //   return Boolean(document.querySelector('span.geetest_radar_tip_content'));
-    // });
-
-    // if (verifyAccess) {
-    //   await context.evaluate(function () {
-    //     document.querySelector('span.geetest_radar_tip_content').click();
-    //   });
-    // }
-
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
     const benchmark = !!memory.benchmark;
+    console.log('benchmark', benchmark);
+    const start = Date.now();
     const MAX_CAPTCHAS = 3;
+
+    // let pageId;
     let captchas = 0;
+    let hasCaptcha = false;
+    let lastResponseData;
+    // eslint-disable-next-line
+    // const js_enabled = true; // Math.random() > 0.7;
+    // console.log('js_enabled', js_enabled); ;
 
     const isCaptcha = async () => {
       return await context.evaluate(async function () {
-        const captchaEl = document.evaluate("//div[contains(@id,'captcha-container')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const captchaEl = document.evaluate("//img[contains(@src,'/captcha/')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         if (captchaEl.snapshotLength) {
           return 'true';
         } else {
@@ -60,7 +38,8 @@ module.exports = {
 
       await context.solveCaptcha({
         type: 'IMAGECAPTCHA',
-        imageElement: 'div.image',
+        inputElement: 'form input[type=text][name]',
+        imageElement: 'form img',
         autoSubmit: true,
       });
       console.log('solved captcha, waiting for page change');
@@ -88,18 +67,24 @@ module.exports = {
       }
       return true;
     };
-    await solveCaptchaIfNecessary();
+    const run = async () => {
+      // do we perhaps want to go to the homepage for amazon first?
+      lastResponseData = await context.goto(url, {
+        timeout: 10000,
+        waitUntil: 'load',
+        checkBlocked: false,
+      });
 
-    lastResponseData = await context.goto(url, {
-      timeout: 10000,
-      waitUntil: 'load',
-      checkBlocked: false,
-      js_enabled: true,
-      css_enabled: false,
-      random_move_mouse: true,
-    });
-    console.log('lastResponseData', lastResponseData);
+      if (lastResponseData.status === 403) {
+        return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+      }
 
-    await context.waitForSelector('span.Header__logo-img', { timeout: 45000 });
+      if (!await solveCaptchaIfNecessary) {
+        hasCaptcha = true;
+        return;
+      }
+    };
+
+    await run();
   },
 };

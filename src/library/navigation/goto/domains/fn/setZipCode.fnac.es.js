@@ -5,6 +5,6 @@ module.exports = {
     country: 'ES',
     domain: 'fnac.es',
     store: 'fnac',
-    zipcode: '',
+    zipcode: "''",
   },
 };
