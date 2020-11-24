@@ -1,0 +1,97 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//div[@class="product-image-list__item product-image-list__item--product-details-page product-image-list__item--0"]//img/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="product-image-list__item product-image-list__item--product-details-page product-image-list__item--0"]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="slick-track"]//div[@class="slick-slide"]//img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //title[contains(text(),'No Frills Online')]
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumbs__list']//li[position()>1]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='product-name product-name--product-details-page']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='product-details-page-details__content__prices']//span[@class='price selling-price-list__item__price selling-price-list__item__price--was-price']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-details-page-details__content__prices']//span[@class='price selling-price-list__item__price selling-price-list__item__price--now-price']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='product-details-page-details__content__name']//button[@data-track-link-name="add-to-cart-open"]//span[text()='Add']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class='product-details-page-description__body']  
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='product-details-page-details__content__name']//button[@data-track-link-name="add-to-cart-open"]//span[text()='Add']
+    regExp: (.+)
+    regExpReplace: 1  
+  - name: sku
+    singleValue: false
+    xpath: //span[@class='product-number__code']
+  - name: variantId
+    singleValue: false
+    xpath: //span[@class='product-number__code']    
+  - name: variantCount
+    singleValue: false
+    defaultValue: "0"      
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-name product-name--product-details-page']//h1  
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class="product-details-page-nutrition-info"]//div[@class='product-details-page-info-layout product-details-page-info-layout--ingredients']
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="product-details-page-details"]//span[@class="product-name__item product-name__item--brand"]  
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--name' and contains(text(),'Calories')]/parent::span//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram']  
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--name' and contains(text(),'Total Fat')]/parent::span//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram']  
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--name' and contains(text(),'Saturated Fat')]/parent::span//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram']  
+  - name: transFatPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--name' and contains(text(),'Trans. Fat')]/parent::span//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram']  
+  - name: cholesterolPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--name' and contains(text(),'Cholesterol')]/parent::span//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram']  
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--name' and contains(text(),'Sodium')]/parent::span//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram']  
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--name' and contains(text(),'Total Carbohydrate')]/parent::span//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram']    
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--name' and contains(text(),'Protein')]/parent::span//span[@class='nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram']  
+  - name: vitaminAPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//div[@class='nutrient-per-serving__label nutrient-per-serving__label--vitamina']//span[contains(@class,'nutrient-per-serving__label-item--value-percent')]  
+  - name: vitaminCPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//div[@class='nutrient-per-serving__label nutrient-per-serving__label--vitaminc']//span[contains(@class,'nutrient-per-serving__label-item--value-percent')]  
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//div[@class='nutrient-per-serving__label nutrient-per-serving__label--calcium']//span[contains(@class,'nutrient-per-serving__label-item--value-percent')]
+  - name: ironPerServing
+    singleValue: false
+    xpath: //div[@class='product-nutrition__nutrients-per-serving-table']//div[@class='nutrient-per-serving__label nutrient-per-serving__label--iron']//span[contains(@class,'nutrient-per-serving__label-item--value-percent')]
