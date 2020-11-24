@@ -26,7 +26,7 @@ const cleanUp = (data, context) => {
           } else {
             text += ` ${element.text}`;
           }
-        })
+        });
         row.description = [{ text: text.trim() }];
       }
       if (row.additionalDescBulletInfo) {
@@ -35,7 +35,7 @@ const cleanUp = (data, context) => {
           if (element.xpath.includes('li')) {
             text += `|| ${element.text}`;
           }
-        })
+        });
         row.additionalDescBulletInfo = [{ text: text.trim() }];
       }
     }
