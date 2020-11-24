@@ -4,7 +4,7 @@ module.exports = {
         country: 'CA',
         store: 'metro',
         domain: 'metro.ca',
-        url: 'https://www.metro.ca/en/online-grocery/search-page-1?&filter={searchTerms}',
+        url: 'https://www.metro.ca/en/online-grocery/search?&filter={searchTerms}',
         loadedSelector: '.tile-product__top-section__visuals__stickers',
         noResultsXPath: '//div[@class="product-not-found"]',
         zipcode: '',

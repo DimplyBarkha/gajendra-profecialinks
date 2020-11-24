@@ -3,12 +3,14 @@ module.exports = {
     parameterValues: {
         country: 'CA',
         store: 'metro',
-        nextLinkSelector: 'a[aria-label="Next"]',
+        nextLinkSelector: null,
         mutationSelector: null,
         spinnerSelector: null,
         loadedSelector: '.tile-product__top-section__visuals__stickers',
         noResultsXPath: '//div[@class="product-not-found"]',
-        openSearchDefinition: null,
+        openSearchDefinition: {
+            template: 'https://www.metro.ca/en/online-grocery/search-page-{page}?&filter={searchTerms}'
+        },
         domain: 'metro.ca',
         zipcode: '',
     },
