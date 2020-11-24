@@ -9,9 +9,6 @@ async function implementation (
   const { transform } = parameters;
   const { productReviews } = dependencies;
 
-  // await context.waitForXPath('//div[contains(@data-bv-show,"reviews") and not(@class="hidden")]', { timeout: 10000 })
-  //   .catch(()=> console.log('No reviews for this item'))
-
   await context.evaluate(() => {
 
   });
