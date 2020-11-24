@@ -17,10 +17,10 @@ fields:
     xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-name-brand"]//h1
   - name: image
     singleValue: false 
-    xpath: //div[(contains(@class,'current-image sku-product-hero-container'))]//div[@class="mz-lens"]//img/@src
+    xpath: //div[@class="image-container  "]//div[@class="mz-lens"]//img/@src
   - name: alternateImages
     singleValue: false 
-    xpath: //div[(contains(@class,'current-image sku-product-hero-container'))]//img/@src
+    xpath: //div[(contains(@class,'sku-thumbnail-row'))]//img/@src
   - name: listPrice
     singleValue: false
     xpath: //div[(contains(@class,'product-meta-container grid-x'))]//span[(contains(@class,'PriceTag zero-cents current secondary'))]//div[@class="FormattedAmount"]
@@ -30,3 +30,35 @@ fields:
   - name: category
     singleValue: false
     xpath: //meta[@property="og:url"]/@content
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="Product ID"]/parent::*/span[2]
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="Product ID"]/parent::*/span[2]
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="GTIN"]/parent::*/span[2]
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="GTIN"]/parent::*/span[2]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: description
+    singleValue: false
+    xpath: //div[@class="product-description"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"product-properties-container")]//li
+  - name: descriptionBullets
+    singleValue: false    
+    xpath: //div[contains(@class,"product-properties-container")]//li
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-rating"]//span[@class="StarRating "]//div[@class="show-for-sr"]
+   
+    
