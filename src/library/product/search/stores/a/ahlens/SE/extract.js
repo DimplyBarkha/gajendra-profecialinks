@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'SE',
     store: 'ahlens',
-    transform: cleanUp,
+    transform: transform,
     domain: 'ahlens.se',
     zipcode: '',
   },
@@ -52,42 +52,7 @@ module.exports = {
           if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
         return result;
-      };
-
-      let rankOrganic;
-      let url = window.location.href;
-      let checkPageNumber = url.split('&')[1];
-      try {
-        if (checkPageNumber.startsWith('p=')) {
-          rankOrganic = checkPageNumber.replace('p=', '');
-        }
-      }
-      catch (err) {
-      }
-      var dup = Number(rankOrganic);
-      dup = dup - 1;
-
-      if (!rankOrganic) {
-        rankOrganic = 1;
-      } else {
-        rankOrganic = (dup * 60) + 1;
-      }
-      const urlProduct = document.querySelectorAll('span[class="MuiCardActionArea-focusHighlight"]');
-      for (let i = 0; i < urlProduct.length; i++) {
-        addHiddenDiv('rankOrganic', rankOrganic++, i);
-      }
-      // const sliceURL1 = (data) => {
-      //   for (let index = 0; index < data.length; index++) {
-      //     if (data[index].includes(":")) {
-      //       var temp = data[index].replace(":", ".");
-      //     } else {
-      //       temp = data[index].replace(" ", "");
-      //     }
-      //     addElementToDocument('altImage2', temp);
-      //   }
-      // };
-      // var backgroundURL1 = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()", 'nodeValue');
-      // sliceURL1(backgroundURL1);
+      };     
       var rating = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()");
       for (let index = 0; index < rating.length; index++) {        
         if (rating[index].includes(":")) {
