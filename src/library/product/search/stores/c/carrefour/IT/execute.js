@@ -10,8 +10,7 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
-};  
-implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+}; implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
