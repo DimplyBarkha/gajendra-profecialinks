@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //ul[contains(@class,"glide__slides")]/li[contains(@class,"product-section__carousel") and position()=1]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //ul[contains(@class,"glide__slides")]/li[contains(@class,"product-section__carousel") and position()=1]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[contains(@class,"glide__slides")]/li[contains(@class,"product-section__carousel") and position()>1]/img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="breadcrumb__container"]/li[position()>1]/a/span
+  - name: nameExtended
+    singleValue: false
+    xpath: //input[@id="productName"]/@value | //input[@id="productBrand"]/@value

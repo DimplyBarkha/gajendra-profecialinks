@@ -26,7 +26,7 @@ const transform = (data) => {
     for (let row of group) {
       if(row.image){
         row.image.forEach(item=>{
-          item.text="https://www.marionnaud.at"+item.text;
+          item.text="https://www.marionnaud.ch/"+item.text;
         })
       }
       if(row.nameExtended){
