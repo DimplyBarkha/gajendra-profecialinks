@@ -35,7 +35,7 @@ module.exports = {
     await new Promise((resolve) => setTimeout(resolve, 5000));
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
-    let captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), div.g-recaptcha";
+    const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), div.g-recaptcha";
     try {
       await context.waitForSelector(captchaFrame);
     } catch (error) {
@@ -63,7 +63,5 @@ module.exports = {
     //   if (responseStatus.url) {
     //     console.log('responseStatus.url: ', responseStatus.url);
     //   return context.reportBlocked(responseStatus.url, 'Blocked: ' + responseStatus.url);
-    // }
-    
   },
 };
