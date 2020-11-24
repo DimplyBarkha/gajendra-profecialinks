@@ -15,6 +15,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
   if (inputs.id) {
     const searchUrl = `https://www.joycemayne.com.au/catalogsearch/result/?q=${inputs.id}`;
     await context.goto(searchUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
@@ -71,6 +72,20 @@ async function implementation (
       const descContent = document.querySelector('div[class="box-description cms"]') ? document.querySelector('div[class="box-description cms"]').innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
       addHiddenDiv('added-description', descContent);
     }
+
+    let availabilityText='Out Of Stock';
+    if(document.querySelector('div.standout-attribute span')){
+      if(document.querySelector('div.standout-attribute span').innerText.includes('Limited stock')){
+        availabilityText='In Stock';
+      }
+    }
+    if(document.querySelector('button#btn-add-to-cart span')){
+      if(document.querySelector('button#btn-add-to-cart span').innerText.includes('ADD TO CART')){
+        availabilityText='In Stock';
+      }
+    }
+    addHiddenDiv ('availabilityText', availabilityText);
+    //span[contains(text(), "Add To Cart") or contains(text(),"Limited")]
   });
 
   await new Promise(resolve => setTimeout(resolve, 10000));

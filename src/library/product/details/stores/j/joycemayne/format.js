@@ -45,15 +45,15 @@ const transform = (data) => {
         row.termsAndConditions = [{ text: 'No' }];
       }
 
-      if (row.availabilityText) {
-        row.availabilityText.forEach((availabilityTextItem) => {
-          if (availabilityTextItem.text.toLowerCase().includes('add to cart') || availabilityTextItem.text.toLowerCase().includes('limited stock')) {
-            availabilityTextItem.text = 'In Stock';
-          } else {
-            availabilityTextItem.text = 'Out Of Stock';
-          }
-        });
-      }
+      // if (row.availabilityText) {
+      //   row.availabilityText.forEach((availabilityTextItem) => {
+      //     if (availabilityTextItem.text.toLowerCase().includes('add to cart') || availabilityTextItem.text.toLowerCase().includes('limited stock')) {
+      //       availabilityTextItem.text = 'In Stock';
+      //     } else {
+      //       availabilityTextItem.text = 'Out Of Stock';
+      //     }
+      //   });
+      // }
 
       if (row.descriptionBullets) {
         row.descriptionBullets.forEach((descriptionBulletsItem) => {
