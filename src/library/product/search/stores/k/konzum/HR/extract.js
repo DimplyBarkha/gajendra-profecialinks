@@ -1,9 +1,10 @@
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
   country: 'HR',
   store: 'Konzum',
-  transform: null,
+  transform,
   domain: 'konzum.hr',
   zipcode: '',
   },

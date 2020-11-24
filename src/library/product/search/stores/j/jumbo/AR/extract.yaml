@@ -10,8 +10,6 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     xpath: //a[@class="link-to-product"]/@href
-    regExp: (.+)
-    regExpReplace: https://www.konzum.hr/$1
     description: The URL for the product thumbnail image
   - name: name
     xpath: //a[@class="link-to-product"]
@@ -26,13 +24,13 @@ fields:
     regExp: \d+
   - name: price
     xpath: //div/@data-ga-price
-    type: CURRENCY
     description: The offered price for the product
   - name: rank
-    description: search/listing rank
-    type: NUMBER
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
   - name: rankOrganic
-    description: The position (rank) within the list excluding sponsored/paid results
+    singleValue: false
     type: NUMBER
+    xpath: //div[@id='rankOrganic']
     
 
