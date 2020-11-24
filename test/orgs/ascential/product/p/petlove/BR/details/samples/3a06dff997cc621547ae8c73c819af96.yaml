@@ -2,7 +2,7 @@ input:
   id: 3102928
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=0f826d59-5cac-4229-aaa4-fd03847758eb/task=44d65b8c-56f3-4c8a-a22a-7c7a8ae28449/cfaf7045-dc24-451a-921c-bc7d55724ae0.html
+  - html: https://workbench.import.io/html/run=85adbc67-dc7d-44ce-a986-31acc228d3c0/task=41f95477-99ce-48f3-8dd4-4e9891bfe441/6db241ef-fa54-414b-8041-d2789b231f97.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
@@ -101,8 +101,11 @@ extractions:
             nameExtended:
               - text: Maxxi - Refil para Filtro Maxxi - HF 120
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@name_extended
-            price:
+            listPrice:
               - text: R$18,39
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@list_price
+            price:
+              - text: R$17,47
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@price
             availabilityText:
               - text: em estoque
@@ -120,7 +123,7 @@ extractions:
               - text: Refil para Filtro Maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_name
             coupon:
-              - text: 10% OFF
+              - text: 15% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@coupon_text
             category:
               - text: Peixes
@@ -388,4 +391,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606129037802
+    timestamp: 1606202115147
