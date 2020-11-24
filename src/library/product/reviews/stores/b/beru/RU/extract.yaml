@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='b_33OuHgeB-x']
+recordXPath: //div[@data-zone-name="review"]
 fields:
   - name: helpfulCount
     singleValue: true
@@ -35,8 +35,9 @@ fields:
     description: The text of the review
     xpath: //div[@class='b_2_CxadNVFG']
   - name: reviewTitle
-    singleValue: true
+    singleValue: false
     description: The title of the review
+    xpath: //div[@class="b_3aVcLCACC9"]
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
@@ -71,8 +72,12 @@ fields:
   - name: aggregateRating
     description: The product rating
   - name: reviewAuthor
-    xpath: //div[@class='b_3fJVmfwbhK']/font/font
+    singleValue: false
+    xpath: //div[@class='b_3fJVmfwbhK']
   - name: reviewRatingScale
-    xpath: //meta[@itemprop="bestRating"]
+    xpath: ancestor::html//meta[@itemprop="bestRating"]/@content
   - name: responseAuthor
     xpath: //div[@class="b_dkDeduCKVt"]/font/font
+  - name: reviewId
+    singleValue: false
+    xpath: //div/@data-id

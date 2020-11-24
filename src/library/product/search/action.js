@@ -44,23 +44,36 @@ module.exports = {
       description: 'brands to search for',
       type: 'string',
     },
+    {
+      name: 'url',
+      description: 'domain url',
+      type: 'string',
+  },
+  {
+    name: 'URL',
+    description: 'domain url',
+  }
   ],
   dependencies: {
     execute: 'action:product/search/execute',
-    paginate: 'action:product/search/paginate',
+    paginate: 'action:navigation/paginate',
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
   implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    let { keywords, Keywords, results, Brands } = inputs;
-    results = 150;
-    // TODO: consider moving this to a reusable function
-    const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
-    zipcode = inputs.zipcode || zipcode;
-    keywords = (Keywords) || (keywords) || (Brands);
-    console.log('zip:' + zipcode);
+    const { keywords, Keywords, results = 150, Brands, url, URL } = inputs;
 
-    const resultsReturned = await execute({ keywords, zipcode });
+    const inputKeywords = Keywords || keywords || Brands;
+
+    // TODO: consider moving this to a reusable function
+
+    const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
+
+    const resultsReturned = await execute({
+      keywords: inputKeywords,
+      zipcode: inputs.zipcode || zipcode,
+      url: inputs.url || inputs.URL,
+    });
 
     // do the search
 
@@ -77,18 +90,13 @@ module.exports = {
     console.log('Got initial number of results', collected);
 
     // check we have some data
-    if (collected === 0) {
-      return;
-    }
+    if (collected === 0) return;
 
     let page = 2;
-    while (collected < results && await paginate({ keywords, page, offset: collected })) {
+    while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
       const data = await extract({});
       const count = length(data);
-      if (count === 0) {
-        // no results
-        break;
-      }
+      if (count === 0) break; // no results
       collected += count;
       console.log('Got more results', collected);
       page++;

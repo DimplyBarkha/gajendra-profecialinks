@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'beru',
     domain: 'beru.ru',
-    loadedSelector: '//div[@class="b_sxkkt9kqjE b_3Sh5f_qTlI"]',
+    loadedSelector: 'div[data-zone-name="productReviews"]',
     noResultsXPath: null,
     reviewUrl: null,
     sortButtonSelector: null,

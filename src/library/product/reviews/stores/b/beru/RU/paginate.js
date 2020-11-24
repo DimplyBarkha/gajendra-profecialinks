@@ -5,6 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'beru',
     nextLinkSelector: null,
+    // nextLinkSelector: 'button[data-auto="show-more"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,

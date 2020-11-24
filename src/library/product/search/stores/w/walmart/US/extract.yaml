@@ -110,4 +110,7 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
     selector: span.sponsored-product-search
+  - name: pageN
+    singleValue: false
+    xpath: ancestor::html//ul//li[@class="active"]//a
     
