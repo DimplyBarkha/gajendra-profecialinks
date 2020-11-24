@@ -13,7 +13,7 @@ module.exports = {
     { inputString },
     { country, domain, transform },
     context,
-    { productDetails }
+    { productDetails },
   ) => {
     // const applyScroll = async function (context) {
     //   await context.evaluate(async function () {
