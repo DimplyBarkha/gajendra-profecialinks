@@ -81,10 +81,10 @@ fields:
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Garantie')]/parent::*/div[@class='detail-navigation-section--specification-item-tx']  
   - name: gtin
     singleValue: false
-    xpath: //script[@id='state']
+    xpath: //body/@gtin
   - name: upc
     singleValue: false
-    xpath: //script[@id='state']
+    xpath: //body/@gtin
   - name: variants
     singleValue: false
     xpath: //script[@id='state']/text()

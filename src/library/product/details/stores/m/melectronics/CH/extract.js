@@ -15,10 +15,23 @@ module.exports = {
     }
     await context.evaluate(async function() {
       if(document.querySelector(".detail-showcase--additional-img-box img[alt='Video']")) {
+        //@ts-ignore
         document.querySelector(".detail-showcase--additional-img-box img[alt='Video']").click();
         await new Promise((resolve, reject) => setTimeout(resolve, 4000));
       }
     })
-  await context.extract(productDetails);
+    //fixing for gtin
+    try{
+      await context.evaluate(()=>{
+        //@ts-ignore
+        const dataFromScript = document.evaluate('//script[@type="application/ld+json"][contains(.,"gtin")]', document,null, 7, null).snapshotItem(0).innerText;
+        const jsonData = JSON.parse(dataFromScript);
+        const gtin = jsonData.gtin13;
+        document.querySelector('body').setAttribute('gtin', gtin);
+      })
+    }catch(e){
+      console.log('gtin not present');
+    }
+  await context.extract(productDetails, { transform });
   }
 };

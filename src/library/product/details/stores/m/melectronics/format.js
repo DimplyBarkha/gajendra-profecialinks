@@ -99,30 +99,6 @@ const transform = (data) => {
           item.text = item.text.replace('.', ',').trim();
         });
       }
-      if (row.gtin) {
-        row.gtin.forEach(item => {
-          //"ean":"5025155023631"
-          var myRegexp = /\"ean\"\s*:\s*\"(.+?)\"/g;
-          var match = myRegexp.exec(item.text);
-          if (match.length) {
-            item.text = match[1].trim();
-          } else {
-            delete row.gtin;
-          }
-        });
-      }
-      if (row.upc) {
-        row.upc.forEach(item => {
-          //"ean":"5025155023631"
-          var myRegexp = /\"ean\"\s*:\s*\"(.+?)\"/g;
-          var match = myRegexp.exec(item.text);
-          if (match.length) {
-            item.text = match[1].trim();
-          } else {
-            delete row.upc;
-          }
-        });
-      }
       if (row.variants) {
         var temp_variant_ids = [];
         var temp_variant_infos = [];
