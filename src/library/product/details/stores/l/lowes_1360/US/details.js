@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'product/details/variants/variantsExtract',
+  implements: 'product/details',
   parameterValues: {
     country: 'US',
-    store: 'lowes',
-    transform: null,
+    store: 'lowes_1360',
     domain: 'lowes.com',
     zipcode: '',
   },

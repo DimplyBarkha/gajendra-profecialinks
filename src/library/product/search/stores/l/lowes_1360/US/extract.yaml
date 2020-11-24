@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//a/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.lowes.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-crd"]//div[@data-selector="splp-prd-img"]//img/@src
+  - name: name
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector="splp-prd-ttl"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[@data-selector="splp-prd-ttl-rtgs"]/div/@aria-label
+    regExp: (.+) out of(.)
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//span[@class="styles__TotalWrap-RC__sc-5hhhh2-4 glgCQP total"]
+  - name: price
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-act-$"] | //div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-rng"]
+  - name: id
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//a/@href
+    regExp: (\/)(\d+)
+    regExpReplace: $2
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[contains(@class,"sc-1b7wdu0-5")]//div[contains(@class,"styles__RatingDiv")]//@aria-label
+    regExp: (.+) out of(.)
+    regExpReplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]
+ 
