@@ -30,10 +30,10 @@ fields:
     regExp: \((.+)\)
     regExpReplace: $1
   - name: ratingCount
-    singleValue: false
+    singleValue: true
     xpath: //div[@class='r-count']
-    regExp: \((.+)\)
-    regExpReplace: $1
+    # regExp: \((.+)\)
+    # regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //div[@class='p-price']
