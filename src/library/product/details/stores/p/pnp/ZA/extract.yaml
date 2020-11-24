@@ -455,7 +455,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: normalize-space(concat(//div[contains(@class,'savings-amount-off')]/text(),//div[contains(@class,'savings-amount-off')]/div/text(),'.',//div[@class='savings']/span, //div[contains(@class,'product-details-price-promo')])
+  xpath: //div[@id='promotion']
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

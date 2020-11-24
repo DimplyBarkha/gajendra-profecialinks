@@ -28,6 +28,10 @@ module.exports = {
       if (listPrice) addElementToDocument('listPrice', listPrice.replace(/(.*)(\d{2})/g, '$1,$2'));
       const availability = document.querySelector('button#addToCartButton') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availability', availability);
+      const savings = document.querySelector('div.savings') ? document.querySelector('div.savings').innerText : '';
+      if (savings) addElementToDocument('promotion', `SAVE ${savings.replace(/(.*)(\d{2})/g, '$1,$2')}`);
+      const promotion = document.querySelector('div[class*=product-details-price-promo] p') ? document.querySelector('div[class*=product-details-price-promo] p').innerText : '';
+      if (promotion) addElementToDocument('promotion', promotion);
     });
     await context.extract(productDetails, { transform });
   },
