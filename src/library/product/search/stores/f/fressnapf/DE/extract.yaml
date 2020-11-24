@@ -1,0 +1,50 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: null
+recordSelector: null
+fields:
+  - name: name
+    singleValue: true
+    xpath: //div[@class='heading pt-head h5']
+  - name: id
+    singleValue: false
+    xpath: //a[@class='product-teaser']/@href
+    regExp: (\d{7})
+    regExpReplace: $1
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='product-teaser']/@href
+    regExp: (\/p\/.+)
+    regExpReplace: https://www.fressnapf.de$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='pt-figure']/img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='r-count']
+    regExp: (.+)\(
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: true
+    xpath: //div[@class='r-count']
+    regExp: \((.+)\)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='r-count']
+    regExp: \((.+)\)
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: //div[@class='p-price']
+  - name: manufacturer
+    singleValue: true
+    xpath:
+  - name: rank
+    singleValue: false
+    xpath: 
+  - name: rankOrganic
+    singleValue: false
+    xpath: 
+
+  
