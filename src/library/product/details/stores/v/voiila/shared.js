@@ -17,22 +17,6 @@ const transform = (data) => {
           },
         ];
       }
-
-      // if (row.shownImages) {
-      //   let text = '';
-      //   row.shownImages.forEach(item => {
-      //     if (item.text.includes(',')) {
-      //       text = item.text.split(',').join();
-      //     } else {
-      //       text = item.text;
-      //     }
-      //   });
-      //   row.shownImages = [
-      //     {
-      //       text,
-      //     },
-      //   ];
-      // }
     }
   }
 
