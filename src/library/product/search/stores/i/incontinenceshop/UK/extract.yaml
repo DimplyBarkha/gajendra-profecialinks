@@ -6,12 +6,6 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="price-box price-final_price"]/@data-product-id
-  - name: rankOrganic
-    singleValue: false
-    xpath: //html//div[@id='rankOrganic']
-  - name: rank
-    singleValue: false
-    xpath: //html//div[@id='rankOrganic']
   - name: name
     singleValue: false
     xpath: //strong[@class="product-item__name"]/a/text()
@@ -27,3 +21,6 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@class="price"]/text()
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="pd_url"]

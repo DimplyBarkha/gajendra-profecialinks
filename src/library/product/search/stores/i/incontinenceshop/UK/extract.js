@@ -1,11 +1,11 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'UK',
     store: 'incontinenceshop',
-    transform: cleanUp,
+    transform: transform,
     domain: 'incontinenceshop.com',
     zipcode: '',
   },
@@ -17,34 +17,19 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-      var rank = transform.rankCounter;
-      var rankOrganic1 = transform.rankCounter;
-      console.log(rank);
-      console.log(rankOrganic1);
-      function addHiddenDiv(id, content, index) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll("li[class='item product-item']")[index];
-        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
       }
       let url = window.location.href;
-      let rankOrganic;
       try {
-        rankOrganic = ((window.location.href).indexOf('p=')) ? parseInt((window.location.href).replace(/.*p=(.*)/, '$1')) : 0;
+        document.getElementById('pd_url').remove();
+      } catch (error) {
       }
-      catch (err) {
-      }
-      if (!rankOrganic) {
-        rankOrganic = 1;
-      } else {
-        rankOrganic = ((rankOrganic - 1) * 30) + 1;
-      }
-      const urlProduct = document.querySelectorAll("li[class='item product-item']");
-      for (let i = 0; i < urlProduct.length; i++) {
-        addHiddenDiv('rankOrganic', rankOrganic++, i);
-      }
+      addElementToDocument('pd_url', url);
     });
     return await context.extract(productDetails, { transform });
   },
