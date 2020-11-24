@@ -1,5 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"articleList Article-list")]//div[contains(@class,"clearfix Article-item js-Search-hashLinkId")]
+fields:
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,"articleList Article-list")]//p[@class="Article-desc"]//a/@href
