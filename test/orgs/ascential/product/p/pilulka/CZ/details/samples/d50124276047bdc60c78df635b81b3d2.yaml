@@ -1,0 +1,138 @@
+input:
+  id: 261894
+  _url: http://pilulka.cz
+extractions:
+  - html: https://workbench.import.io/html/run=5bd73d95-6134-49c4-8fe7-8bf0ef2dbcaf/task=214651f0-5267-4921-9218-85d479d34a75/4ab90b1a-073c-4d5a-ac5c-926c1059867b.html
+    extractionConfigId: product/details/stores/p/pilulka/CZ/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.pilulka.cz/alavis-maxima-triple-blend-extra-silny-700g
+                xpath: /html/head[1]/link[14]/@href
+            image:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2020-09/1600936064-alavis-maxima-triple-blend-extra-silny-700g.jpg?v=1600936064&d=500x400&p=261894
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            imageAlt:
+              - text: ALAVIS MAXIMA Triple Blend Extra Silný 700g
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/a[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Doplňky stravy
+                xpath: /html/body/div[7]/div[1]/div[1]/ol[1]/li[2]/a[1]
+              - text: Zdravý pohyb a sport
+                xpath: /html/body/div[7]/div[1]/div[1]/ol[1]/li[3]/a[1]
+              - text: Kloubní výživa
+                xpath: /html/body/div[7]/div[1]/div[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: ALAVIS MAXIMA Triple Blend Extra Silný 700g
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/span[1]
+            listPrice:
+              - text: 1 339 Kč
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/s[1]
+            price:
+              - text: 1 269 Kč
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+            availabilityText:
+              - text: Skladem > 5 ks
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/strong[1]
+            description:
+              - text: Látky obsažené v tomto výrobku – glukosaminsulfát, chondroitinsulfát a
+                  kolagen typu II tvoří přirozenou strukturu kloubní chrupavky,
+                  kolagen typu I je součástí vazů a šlach, MSM je zdrojem
+                  nezbytné, organicky vázané síry.
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/p[1]
+            brandText:
+              - text: Alavis Maxima
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            quantity:
+              - text: 700 g
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            gtin:
+              - text: "621629902720"
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+            sku:
+              - text: "261894"
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/@data-product-id
+            variantId:
+              - text: "261894"
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/@data-product-id
+            directions:
+              - text: "Užívejte 1 odměrku ALAVIS MAXIMA Triple Blend Extra Silný 1× denně
+                  rozmíchanou v minimálně 200 ml vody. Užívat můžete s jídlem,
+                  dobře zapijte. Náš tip: Dochutit můžete např. citrónovou
+                  šťávou nebo džusem. Další možností je rozmíchání doporučené
+                  denní porce v ochuceném jogurtu."
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]
+            warnings:
+              - text: Ukládejte mimo dosah dětí. Skladujte uzavřené v suchu a temnu při teplotě
+                  do 25°C. Není určeno jako náhrada pestré stravy. Dbejte na
+                  různorodou a vyváženou stravu a zdravý životní styl.
+                  Nepřekračujte doporučené denní dávkování. Není určeno pro
+                  děti, těhotné a kojící ženy. Minimální trvanlivost do konce
+                  data uvedeného na dóze. Nepoužívejte, pokud je obal porušen.
+                  Před použitím dózu dobře protřepejte.
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]
+            ratingCount:
+              - text: "33"
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[3]/ul[1]/li[2]/a[1]/span[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/strong[1]
+            manufacturerImages:
+              - text: https://pilulkacz.vshcdn.net/images/svg/ico-ro/lazy-load-error.svg?v=1564143907
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+              - text: https://www.ipilulka.cz//files/images/2020-05/f9dfca432f294422446127db33d54ab5.jpg
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.ipilulka.cz//files/images/2020-05/8c799283e3dc6bbed56461120c9e1f27.jpg
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://www.ipilulka.cz//files/images/2020-05/7d9db7e48607e5acf53a59eea33e53cd.jpg
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://www.ipilulka.cz//files/images/2020-05/78ea0d1bc1a588fed02f16cf4aae0cfb.jpg
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/img[1]/@src
+              - text: https://www.ipilulka.cz//files/images/2020-05/4d4c021c46b9f09ffc2f4c43369a9f64.jpg
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/img[1]/@src
+              - text: https://www.ipilulka.cz//files/images/2020-05/60de5e88dbcd2128967fd16763ff6897.jpg
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/img[1]/@src
+              - text: https://www.ipilulka.cz//files/images/2020-05/8a4d31c70586e5e5065a6c5c109cd7f1.jpg
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/img[1]/@src
+              - text: https://www.ipilulka.cz//files/images/2020-05/bce5275f81cff705b468fb5a43cbd285.png
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]/img[1]/@src
+            videos:
+              - text: https://www.youtube.com/embed/YuL3UywaUi0
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/iframe[1]/@src
+            name:
+              - text: ALAVIS MAXIMA Triple Blend Extra Silný 700g
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/span[1]
+            ingredientsList:
+              - text: >-
+                  MSM Lignisul, Glukosaminsulfát a Chondroitinsulfát
+                   
+
+                   
+                  MSM Lignisul®: často nazývaný jako zázračná ingredience, důležitá výživová látka při stavbě pojivových tkání a kloubních chrupavek Glukosaminsulfát: přirozená součást kloubní chrupavky a synoviální tekutiny Chondroitinsulfát: přirozená a nezbytná součást kloubní chrupavky
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]
+            vitaminCPerServing:
+              - text: 19,3
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[9]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            vitaminCPerServingUom:
+              - text: mg
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[9]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            pricePerUnit:
+              - text: 18,13 Kč
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+            pricePerUnitUom:
+              - text: g
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1606204955140

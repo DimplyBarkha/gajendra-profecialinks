@@ -1,0 +1,100 @@
+input:
+  id: 741709
+  _url: http://pilulka.cz
+extractions:
+  - html: https://workbench.import.io/html/run=5bd73d95-6134-49c4-8fe7-8bf0ef2dbcaf/task=791c3c01-e702-423f-a155-41d595652259/83af044a-b153-47ec-b293-159a45da7ea8.html
+    extractionConfigId: product/details/stores/p/pilulka/CZ/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.pilulka.cz/vitar-vitamin-c-500-mg-rakytnik-eko-cps-60
+                xpath: /html/head[1]/link[14]/@href
+            image:
+              - text: https://pilulkacz.vshcdn.net/assets/image/2020-07/1595880699-3d-vitar-eko-vitaminc-kompozice-web-1-.jpg?v=1595880699&d=500x400&p=741709
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/picture[1]/img[1]/@data-src
+            imageAlt:
+              - text: VITAR Vitamin C 500mg + Rakytník EKO 60 kapslí
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Doplňky stravy
+                xpath: /html/body/div[7]/div[1]/div[1]/ol[1]/li[2]/a[1]
+              - text: Vitamíny
+                xpath: /html/body/div[7]/div[1]/div[1]/ol[1]/li[3]/a[1]
+              - text: Vitamín C
+                xpath: /html/body/div[7]/div[1]/div[1]/ol[1]/li[4]/a[1]
+            nameExtended:
+              - text: VITAR Vitamin C 500mg + Rakytník EKO 60 kapslí
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/span[1]
+            price:
+              - text: 199 Kč
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+            availabilityText:
+              - text: Skladem 1-5 ks
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/strong[1]
+            description:
+              - text: Vitamin C je nezbytný pro fungování lidského organizmu, tělo si jej však
+                  neumí vytvořit samo. Veganské kapsle obsahují 500 mg vitaminu
+                  C ve formě granulek a rakytník řešetlákový. Výhodou výrobku je
+                  postupné uvolňování vitaminu C do organizmu, čímž je podpořeno
+                  jeho efektivní využití.
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/p[1]
+            brandText:
+              - text: Vitar
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            quantity:
+              - text: 60 ks
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            gtin:
+              - text: "8595011138184"
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+            sku:
+              - text: "741709"
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/@data-product-id
+            variantId:
+              - text: "741709"
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/@data-product-id
+            directions:
+              - text: "Doplněk stravy - kapsle s obsahem vitaminu C a rakytníku řešetlákového, s
+                  postupným uvolňováním. INFORMACE PRO DIABETIKY: neobsahuje
+                  cukr. Doporučené denní dávkování: dospělí a děti od 12 let 1
+                  kapsle denně po jídle, zapít dostatečným množstvím tekutiny.
+                  Není určeno pro děti do 12 let. Nepřekračujte doporučené denní
+                  dávkování. Výrobek není určen jako náhrada pestré stravy."
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/p[3]
+            warnings:
+              - text: Dávkování
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/h2[3]
+            name:
+              - text: VITAR Vitamin C 500mg + Rakytník EKO 60 kapslí
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/span[1]
+            ingredientsList:
+              - text: "Kyselina L-askorbová, plod rakytníku řešetlákového, protispékavá látka –
+                  mikrokrystalická celulóza, leštící látka - šelak. Složení
+                  obalu kapsle: hydroxypropylmethylcelulóza. Upozornění:
+                  ukládejte mimo dosah dětí! Skladujte v suchu při teplotě od 5
+                  ºC do 25 ºC v dobře uzavřeném obalu. Minimální trvanlivost do
+                  konce data uvedeného na spodní straně obalu.Dávkování"
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/p[2]
+            pricePerUnit:
+              - text: 3,32 Kč
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+            pricePerUnitUom:
+              - text: ks
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+            ageSuitability:
+              - text: ">12 let"
+                xpath: /html/body/div[7]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1606204950221

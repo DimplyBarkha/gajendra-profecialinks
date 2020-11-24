@@ -136,6 +136,7 @@ fields:
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: //td[contains(text(), "Barva")]/following-sibling::td
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -478,7 +479,8 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
   xpath: //div[@data-event="ProductDetailMaster"]//div[contains(text(), "Cena")]
-  regExp: (\d+ [a-zA-Z]+)
+  regExp: ([a-zA-Z]+)(:)
+  regExpReplace: $1
 - name: promotion
   singleValue: true
   description: promotion text on product page
@@ -535,15 +537,15 @@ fields:
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -552,9 +554,9 @@ fields:
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: No
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: No
