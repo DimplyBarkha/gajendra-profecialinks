@@ -38,8 +38,10 @@ fields:
   - name: price
     description: The offered price for the product
     xpath: //div[contains(@class,"pricing-item-price")]/span
-    regExp: .+\:\s(.+)
-    regExpReplace: $1
+    # regExp: .+\:\s(.+)
+    # regExpReplace: $1
+    regExp: (.+\:\s)?(.+)
+    regExpReplace: $2
   - name: manufacturer
     description: Product manufacturer
   - name: soldBy
