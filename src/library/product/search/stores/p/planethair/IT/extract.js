@@ -27,8 +27,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     // rank
 
     const allProducts = document.querySelectorAll('div[class="ty-column3"] > div[class*="list__item"]');
-    for (let i = 0; i < allProducts.length; i++) {
-      addProp('div[class="ty-column3"] > div[class*="list__item"]', i, 'rankorganic', `${i + 1}`);
+    if (allProducts !== undefined) {
+      for (let i = 0; i < allProducts.length; i++) {
+        addProp('div[class="ty-column3"] > div[class*="list__item"]', i, 'rankorganic', `${i + 1}`);
+      }
     }
   });
   return await context.extract(productDetails, { transform });
