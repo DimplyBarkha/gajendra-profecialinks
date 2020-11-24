@@ -6,6 +6,6 @@ module.exports = {
     store: 'ab',
     domain: 'ab.gr',
     loadedSelector: 'h1.page-title',
-    noResultsXPath: '//div[contains(@class,"ErrorPage")]',
+    noResultsXPath: '//div[contains(@class,"ErrorPage")] | //meta[contains(@content,"errorPage")]',
   },
 };
