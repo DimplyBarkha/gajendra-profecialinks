@@ -18,7 +18,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //li[contains(@class,'breadcrumbs-category')]//meta[@content='2']/preceding-sibling::span[1]
+    xpath: //div[@class="row breadcrumbs-section"]/ol/li[position()>1 and position()<last()]/a/span[@itemprop="name"]
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
@@ -42,8 +42,7 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: normalize-space(//div[@id="product-informations"])
-    singleValue: true
+    xpath: //div[@id="product-informations"]/div[@class="simple-description"][1]//text() 
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -57,7 +56,7 @@ fields:
     singleValue: true
     description: Product manufacturer
   - name: quantity
-    xpath: //ul[@class="product-variant-1"]/li
+    xpath: //li[@class="tab-title active"]
     description: Quantity as described on the page
     # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     # regExpReplace: $1$2$3$4
@@ -84,7 +83,7 @@ fields:
   - name: packSize
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //div[@itemprop="name"]
+    xpath: //div[@class="variant-2-panel scroll-pane active"]//div[@itemprop="name"]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -456,7 +455,7 @@ fields:
       this will need analysis
     xpath: //ul[@class="product-variant-1"]//a[@class="panel1"] 
   - name: variants
-    xpath: //div[contains(@class,"shipping-detail")]/following-sibling::input/@value 
+    xpath: //div[@class="eaninfo"]/@ean
     description: null
   - name: additionalDescBulletInfo
     singleValue: false

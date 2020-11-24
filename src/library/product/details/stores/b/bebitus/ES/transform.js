@@ -38,13 +38,15 @@ const cleanUp = (data, context) => {
             }
             if (row.description) {
                 let text = '';
-                row.description.forEach(item => {
-                    row.description[0].text = row.description[0].text.replace(/\s{1,}/g, ' ');
-                });
+                text = row.description.map((element) => element.text.trim()).join(' ');
+                row.description = [{ text }];
             }
+            // row.description.forEach(item => {
+            // row.description.text= row.description.map((element)=>element.trim()).join(' ')
+            // row.description[0].text = row.description[0].text.replace(/\s{1,}/g, ' ');
+
         }
     }
-
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
     }))));
@@ -52,5 +54,3 @@ const cleanUp = (data, context) => {
 };
 
 module.exports = { cleanUp };
-// }
-// }

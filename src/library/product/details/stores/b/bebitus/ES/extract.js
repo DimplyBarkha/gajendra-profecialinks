@@ -30,6 +30,29 @@ module.exports = {
                     appendElement.setAttribute('RPC', rpc);
                 }
             })
+            const sizes1 = document.querySelectorAll('span[class*="size-type"]');
+            let ean1 = []
+            if (sizes1.length) {
+                sizes1.forEach((element) => {
+                    element.click();
+                    let prevEan = document.querySelector('h2[class*="ean"]') && document.querySelector('h2[class*="ean"]').innerText;
+                    ean1.push(prevEan);
+                })
+            } else {
+                let prevEan = document.querySelector('h2[class*="ean"]') && document.querySelector('h2[class*="ean"]').innerText;
+                ean1.push(prevEan);
+            }
+
+            let actean = [];
+            ean1.forEach((element) => {
+                actean.push(element.match(/\d+/g)[0]);
+            })
+            actean.forEach((element, index) => {
+                const appendElement = document.createElement('div');
+                appendElement.className = 'eaninfo';
+                appendElement.setAttribute('ean', actean[index]);
+                document.body.append(appendElement)
+            })
         });
         return await context.extract(productDetails, { transform });
     },
