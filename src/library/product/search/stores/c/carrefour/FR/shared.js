@@ -25,17 +25,16 @@ const transform = (data, context) => {
       if (!row.sponsored) {
         orgRankCounter = orgRankCounter + 1;
         row.rankOrganic = [{ text: orgRankCounter }];
-        }
-        row.rank = [{ text: rankCounter }];
-        context.setState({ rankCounter });
-        context.setState({ orgRankCounter });
-        Object.keys(row).forEach(header => row[header].forEach(el => {
-          el.text = clean(el.text);
-        }));
-  
-        if (row.brandText) {
-          row.brandText.forEach(item => {
-            item.text = item.text.split(' ')[0];
+      }
+      row.rank = [{ text: rankCounter }];
+      context.setState({ rankCounter });
+      context.setState({ orgRankCounter });
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+       }));
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+          item.text = item.text.split(' ')[0];
           });
         }
         if (row.productUrl) {
