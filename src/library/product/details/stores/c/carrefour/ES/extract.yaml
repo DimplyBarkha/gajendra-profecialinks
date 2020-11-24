@@ -175,3 +175,26 @@ fields:
     regExpReplace: $1
   - name: dietaryFibrePerServingUom
     defaultValue: %
+    # -----------------------------------------
+    # -------------- Salsify ------------------
+    # -----------------------------------------
+  - name: priceCurrency
+    defaultValue: EUR
+  - name: featureBullets
+    xpath: //p[contains(., 'Datos del producto')]/../div
+  - name: shownImages
+    xpath: //ul[@class='pics-slider__thumbnails'][count(*)>1]//li//img/@src | //div[@class='product-pics'][count(*)=1]//div[@class='product-pics__container']//div[@class="main-image__container"]//img/@src
+  - name: highQualityImages
+    xpath: //ul[@class='pics-slider__thumbnails'][count(*)>1]//li//img/@src | //div[@class='product-pics'][count(*)=1]//div[@class='product-pics__container']//div[@class="main-image__container"]//img/@src
+    regExp: (.*)(hd_100x_|hd_510x_)(.*)
+    regExpReplace: $1hd_1500x_$3
+  - name: questionsCount
+    defaultValue: 0
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href
+  - name: otherSellersPrice
+    xpath: otherSellersPrice
+  - name: otherSellersName
+    defaultValue: Carrefour
+  - name: manufacturerImages
+    xpath: //div[@class="flix-content"]
