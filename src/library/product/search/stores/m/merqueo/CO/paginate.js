@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '.main-layout',
-    noResultsXPath: '//figure[@class="mq-grid-notfound mq-finder-not-found big"]',
+    noResultsXPath: null, // '//div[@class="main-layout"][contains(., "No se encontraron resultados")]',
     resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'merqueo.com',

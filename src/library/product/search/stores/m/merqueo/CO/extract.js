@@ -1,3 +1,4 @@
+const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
@@ -94,7 +95,7 @@ module.exports = {
   parameterValues: {
     country: 'CO',
     store: 'merqueo',
-    transform: null,
+    transform,
     domain: 'merqueo.com',
     zipcode: '',
   },
