@@ -1,0 +1,121 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'productDetailsContainer')]//div[@class='imageColumn']//p/img/@src
+    # Single Images
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'productDetailsContainer')]//div[@class='imageColumn']//p/img/@alt
+    # Single Images
+  - name: image2
+    singleValue: false
+    xpath: //div[contains(@class,'productDetailsContainer')]//div[contains(@class,'imageColumn')]//li[contains(@style,'block')]//img/@src
+    # Multiple Images
+  - name: imageAlt2
+    singleValue: false
+    xpath: //div[contains(@class,'productDetailsContainer')]//div[contains(@class,'imageColumn')]//li[contains(@style,'block')]//img/@alt
+    # Multiple Images
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'productDetailsContainer')]//div[contains(@class,'imageColumn')]//li[contains(@style,'none')]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //ul[@id="breadcrumbNav"]//li//a
+  - name: name
+    singleValue: false
+    xpath: //div[@class="productDetails"]//h1
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="productDetails"]//h1
+  - name: availabilityText
+    singleValue: false
+    xpath: //fieldset[@class="addToBasket"]//input[@value="Add"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //p[@class='price']//span[@class="linePrice"]
+  - name:  description
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//div[@class='content']
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[contains(text(),'Name and Address')]//following-sibling::p[1]
+  - name: sku
+    singleValue: false
+    xpath: //meta[@name='valueQueryString']/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@name='valueQueryString']/@content
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="promo"]//a/@title
+  - name: warnings
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[contains(text(),'Warnings')]//following-sibling::p[1]
+  - name: directions
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[contains(text(),'Preparation and Usage')]//following-sibling::p[1]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[text()='Ingredients']//following-sibling::div[1]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[contains(text(),'Origin Country Name')]//following-sibling::p[1]
+  - name: servingSize
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[contains(text(),'Usage Count')]//following-sibling::p[1] 
+  - name: storage
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[contains(text(),'Storage')]//following-sibling::p[1]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[contains(text(),'Quantity')]//following-sibling::p[1]
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //p[@class='price']//span[@class="linePriceAbbr"]
+  - name: recyclingInformation
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[contains(text(),'Recycling Info')]//following-sibling::p[1]
+  - name: alcoholContent
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[contains(text(),'Alcohol Content')]//following-sibling::p[1]
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//*[contains(text(),'Allergy Information')]//following-sibling::p[1]
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //h2[contains(text(),'Nutrition')]//following-sibling::div[1]//table//th[contains(text(),'Carbohydrate')]//following-sibling::th[1]
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //h2[contains(text(),'Nutrition')]//following-sibling::div[1]//table//th[contains(text(),'Fibre')]//following-sibling::th[1]
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //h2[contains(text(),'Nutrition')]//following-sibling::div[1]//table//th[contains(text(),'Saturates')]//following-sibling::th[1]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //h2[contains(text(),'Nutrition')]//following-sibling::div[1]//table//th[contains(text(),'Protein')]//following-sibling::th[1]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //h2[contains(text(),'Nutrition')]//following-sibling::div[1]//table//th[contains(text(),'Fat')]//following-sibling::th[1]
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //h2[contains(text(),'Nutrition')]//following-sibling::div[1]//table//th[contains(text(),'Energy (kcal)')]//following-sibling::th[1]
+  - name: saltPerServing
+    singleValue: false
+    xpath: //h2[contains(text(),'Nutrition')]//following-sibling::div[1]//table//th[contains(text(),'Salt')]//following-sibling::th[1]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //h2[contains(text(),'Nutrition')]//following-sibling::div[1]//table//th[contains(text(),'Sugars')]//following-sibling::th[1]
