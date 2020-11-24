@@ -37,6 +37,16 @@ const transform = (data, context) => {
             row.aggregateRating2[0].text = String((parseFloat(String(row.aggregateRating2[0].text).trim()) / 100) * 5 > 5 ? 5 : ((parseFloat(String(row.aggregateRating2[0].text).trim()) / 100) * 5).toFixed(2));
           }
 
+          if(row.productUrl){
+            var text = row.productUrl[0].text;
+            if(text.indexOf("https://www.chemistdirect.co.uk") == -1){
+              row.productUrl[0].text = 'https://www.chemistdirect.co.uk' + text
+            }
+          }
+          if(!row.id){
+            if(row.productId)
+              row.id = [{ text : row.productId[0].text }]
+          }
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));

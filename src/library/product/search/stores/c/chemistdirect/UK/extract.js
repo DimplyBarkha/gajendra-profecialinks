@@ -37,7 +37,7 @@ async function implementation(
       var gle_selectedCountry = document.querySelector("#gle_selectedCountry");
       gle_selectedCountry.value = "GB";
       GlobalE.ShippingSwitcher.SaveAndClose();
-    
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
     let URL = window.location.href;
     function addHiddenDiv(id, content, index) {
@@ -50,9 +50,14 @@ async function implementation(
       console.log("child appended " + index);
     }
     const result = [];
+    
     const product = document.querySelectorAll('li.cd-p-item');
     // select query selector and loop and add div
     for (let i = 0; i < product.length; i++) {
+      if(window.universal_variable.listing){
+        if(window.universal_variable.listing.items[i])
+          addHiddenDiv('page_productId', window.universal_variable.listing.items[i].id, i);
+      }
       addHiddenDiv('page_url', URL, i);
     }
     return result;
