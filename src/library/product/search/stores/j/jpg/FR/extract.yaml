@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //h3[@id="skuName"]//a/@sku
+    xpath: //div[@itemprop="productID"]//span[contains(text(),'Référence')]/following-sibling::text()    
   - name: _url
     singleValue: false
     xpath: ancestor::html//div[@id="pd_url"]
@@ -19,16 +19,23 @@ fields:
     regExpReplace: https://www.jpg.fr$1     
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='searchImgContainer']/a[@class='Img_Sku scTrack pfm']/img[@id='SkuPageMainImg']/@src  
+    xpath: //div[@class='searchImgContainer']/a[@class='Img_Sku scTrack pfm']/img[@id='SkuPageMainImg']/@src
+    regExp: (.+)(ban)(.+)
+    regExpReplace: $1THB$3  
   - name: aggregateRating2
     singleValue: false
     type: NUMBER
     xpath: //div[@class="itemDetails"]//span[@id="productRating"]/text()
-  - name: ratingCount
+  - name: reviewCount
     singleValue: false
     xpath: //div[@class="itemDetails"]//span[@itemprop="reviewCount"]/text()
   - name: price
     singleValue: false  
     type: CURRENCY
     xpath: //div[@class='pricePh clear']/strong[@class='price']/span[@id='SkuPriceUpdate'] 
+  - name: manufacturer
+    singleValue: false 
+    xpath: //div[@itemprop="description"]//*[starts-with(text(),'Marques')]/text() 
+    regExp: Marques:(.+\w)
+    regExpReplace: $1
   
