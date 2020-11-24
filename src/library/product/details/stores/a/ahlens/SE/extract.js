@@ -43,7 +43,7 @@ module.exports = {
       const sliceURL1 = (data) => {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(":")) {
-            var temp = data[index].replace("(:)", ".");
+            var temp = data[index].replace(":", ".");
           } else if (data[index].includes(",")){
             var temp = data[index].replace(",", ".");
           } else {
