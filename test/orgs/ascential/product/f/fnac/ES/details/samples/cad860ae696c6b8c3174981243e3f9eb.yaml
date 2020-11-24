@@ -1,0 +1,204 @@
+input:
+  _url: http://fnac.es
+  URL: https://www.fnac.es/Purificador-de-aire-Dyson-Pure-Hot-Cool-Link-Blanco-Climatizacion-y-ventilacion-Purificador-de-aire/a1425408#omnsearchpos=14
+extractions:
+  - html: https://workbench.import.io/html/run=fa7cfd15-f551-4097-9665-f60f8021f694/task=6c2d1e30-25a0-475b-b990-6639f4dc6338/c348b051-4d23-456e-a1df-4642c050f08e.html
+    extractionConfigId: product/details/stores/f/fnac/ES/extract
+    data:
+      - group:
+          - clearProductName:
+              - text: Purificador de aire Dyson Pure Hot + Cool Link Blanco
+                xpath: /html/body/div[2]/div[1]/div[1]/section[1]/h1[1]
+            nameExtended:
+              - text: Purificador de aire Dyson Pure Hot + Cool Link Blanco
+                xpath: /html/body/div[2]/div[1]/div[1]/section[1]/h1[1]
+            description:
+              - text: Pure Hot+Cool Link es un dispositivo 3 en 1 que purifica durante todo el
+                  año además de calentar en invierno y refrescar en verano. En
+                  modo purificador, elimina automáticamente el 99,95 % de los
+                  alérgenos y contaminantes del aire (polen, bacterias y pelo de
+                  mascotas de hasta 0,1 micras) para que respires el aire más
+                  puro en tu hogar. En modo calefactor o ventilador, el
+                  dispositivo emite una gran proyección de aire para alcanzar
+                  toda la habitación. Pure Hot+Cool Link cuenta con modo
+                  automático para monitorizar automáticamente la calidad del
+                  aire y ajustar el flujo según corresponda, así como modo
+                  nocturno, que realiza la misma función de una forma mucho más
+                  silenciosa y con la pantalla LED apagada. Dispone, además, de
+                  control Jet Focus, es decir, puedes utilizar un flujo de aire
+                  concentrado a modo personal o utilizarlo como difusor para
+                  alcanzar a toda la habitación. Y por si fuera poco, una capa
+                  de gránulos de carbono activo captura los malos olores. Dyson
+                  pone a disposición de los usuarios la aplicación Dyson Link
+                  para controlar remotamente el aparato al poder consultar los
+                  datos que se envían automáticamente a la app. Producto
+                  recomendado por la Sociedad Española de Alergología e
+                  Inmunología Clínica.
+                xpath: /html/body/div[14]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[15]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[15]
+            name:
+              - text: Purificador de aire Dyson Pure Hot + Cool Link Blanco
+                xpath: /html/body/div[2]/div[1]/div[1]/section[1]/h1[1]
+            imageUrl:
+              - text: https://static.fnac-static.com/multimedia/Images/ES/NR/c5/97/15/1415109/1540-1.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[3]/div[1]/img[1]/@src
+            rating1:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[4]/section[4]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/span[1]
+            rating2:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/div[4]/section[4]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/span[1]
+            rating3:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/div[4]/section[4]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/span[1]
+            rating4:
+              - text: "0"
+                xpath: /html/body/div[2]/div[1]/div[4]/section[4]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/span[1]
+            rating5:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[4]/section[4]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[1]/span[1]
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/section[1]/div[2]/div[1]/span[1]/span[2]
+                type: NUMBER
+                raw: 3 Opinión
+                locale: es_ES
+                value: 3
+            image:
+              - text: https://static.fnac-static.com/multimedia/Images/ES/NR/c5/97/15/1415109/1540-1.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Purificador de aire Dyson Pure Hot + Cool Link Blanco
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[3]/div[1]/img[1]/@alt
+            category:
+              - text: Electrodomésticos y hogar
+                xpath: /html/body/div[2]/div[1]/div[1]/section[1]/ul[1]/li[2]
+              - text: Ofertas en hogar
+                xpath: /html/body/div[2]/div[1]/div[1]/section[1]/ul[1]/li[3]
+            price:
+              - text: 379€
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/section[1]/ul[2]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[2]
+            listPrice:
+              - text: 449,90€
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/section[1]/ul[2]/li[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+              - text: 449,90€
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/section[1]/ul[2]/li[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[2]/div[1]/div[1]/div[2]/section[1]/ul[2]/li[1]/div[1]/div[3]/div[1]/div[1]/div[1]/p[1]/span[1]
+            weightNet:
+              - text: 6,52 kg
+                xpath: /html/body/div[2]/div[1]/div[4]/section[1]/div[1]/div[1]/div[1]/div[1]/dl[2]/dd[1]/p[1]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/section[1]/div[2]/div[1]/span[1]/span[2]
+                type: NUMBER
+                raw: 3 Opinión
+                locale: es_ES
+                value: 3
+            aggregateRating:
+              - text: 3,5
+                xpath: /html/body/div[2]/div[1]/div[1]/section[1]/div[2]/div[1]/span[1]/span[1]
+            videos:
+              - text: https://videos.demoup.com/720p/2017/0316/45113.mp4
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/li[1]/div[1]/meta[4]/@content
+              - text: https://videos.demoup.com/720p/2017/0316/45113.mp4
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/li[2]/div[1]/meta[4]/@content
+              - text: https://videos.demoup.com/720p/2017/0316/45113.mp4
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/li[3]/div[1]/meta[4]/@content
+            specifications:
+              - text: >-
+                  Diámetro
+                   
+
+                   
+                  15,4 cm
+                   
+
+                   
+
+                   
+
+                   
+                  Peso (kg)
+                   
+
+                   
+                  6,52 kg
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Nivel de Ruido (dBa)
+                   
+
+                   
+                  64 dB
+                   
+
+                   
+
+                   
+
+                   
+                  Características
+                   
+
+                   
+                  Filtro HEPA Glass 360º. Control de temperatura 1ºC - 37ºC. Cable de 1,8 m. Programable (requiere Wi-Fi). Pantalla pantalla LED
+                xpath: /html/body/div[2]/div[1]/div[4]/section[1]/div[1]/div[1]/div[1]
+            sku:
+              - text: "5025155023631"
+                xpath: /html/body/div[2]/div[1]/@data-ean13
+            variantId:
+              - text: "5025155023631"
+                xpath: /html/body/div[2]/div[1]/@data-ean13
+            imageCount:
+              - text: "5"
+            videoCount:
+              - text: "0"
+            alternateImages:
+              - text: https://static.fnac-static.com/multimedia/Images/ES/NR/c5/97/15/1415109/1540-1.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[5]/@data-src
+              - text: https://static.fnac-static.com/multimedia/Images/ES/NR/c5/97/15/1415109/1541-1.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[6]/@data-src
+              - text: https://static.fnac-static.com/multimedia/Images/ES/NR/c5/97/15/1415109/1541-2.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[7]/@data-src
+              - text: https://static.fnac-static.com/multimedia/Images/ES/NR/c5/97/15/1415109/1541-3.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[8]/@data-src
+              - text: https://static.fnac-static.com/multimedia/Images/ES/NR/c5/97/15/1415109/1541-4.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[9]/@data-src
+            descriptionBullets:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: es_ES
+                value: 4
+            additionalDescBulletInfoCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: es_ES
+                value: 0
+            ratingScale:
+              - text: 5
+            variantCount:
+              - text: "0"
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1606228023294

@@ -3,6 +3,40 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: batteryInfo
+    xpath: //tr[contains(.,'Potencia')]//b
+  - name: _input
+    xpath: //link[@rel="canonical"]/@href
+  - name: clearProductName
+    singleValue: false
+    manualSelector: h1.f-productHeader-Title
+  - name: imageUrl
+    singleValue: false
+    xpath: //img[contains(@class,"f-productVisuals-mainMedia")]/@src
+  - name: imageCount
+    xpath: count((//div[@class="slick-track"])[1]//div[@data-type="image"][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))]/@data-src)
+  - name: videoCount
+    xpath: count(//div[@class="slick-track"]//div[contains(@class,'f-productVisuals-thumbnail--video')][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))])
+  - name: ratingScale
+    defaultValue: 5
+  - name: rating1
+    xpath: //ul[@class="customerReviewChart__list"]//li[1]//span[@class="customerReviewChart__value"]
+  - name: rating2
+    xpath: //ul[@class="customerReviewChart__list"]//li[2]//span[@class="customerReviewChart__value"]
+  - name: rating3
+    xpath: //ul[@class="customerReviewChart__list"]//li[3]//span[@class="customerReviewChart__value"]
+  - name: rating4
+    xpath: //ul[@class="customerReviewChart__list"]//li[4]//span[@class="customerReviewChart__value"]
+  - name: rating5
+    xpath: //ul[@class="customerReviewChart__list"]//li[5]//span[@class="customerReviewChart__value"]
+  - name: shippingDimensions
+    xpath: //dl[contains(.,'Dimensiones')]//dd//p
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-productHeader-reviewLabel")]
+    type: NUMBER
+  - name: productDescriptionLength
+  - name: productDescriptionWordCount
   - name: image
     singleValue: false
     xpath: //img[contains(@class,"f-productVisuals-mainMedia")]/@src
@@ -11,7 +45,8 @@ fields:
     xpath: //img[contains(@class,"f-productVisuals-mainMedia")]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class, "js-productVisuals-thumbnails")]//div[contains(@class,"slick-active") and not(contains(@class, "slick-current"))]/@data-src-zoom
+    #xpath: //div[contains(@class, "js-productVisuals-thumbnails")]//div[contains(@class,"slick-active") and not(contains(@class, "slick-current"))]/@data-src-zoom
+    xpath: (//div[@class="slick-track"])[1]//div[@data-type="image"][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))]/@data-src
   - name: category
     singleValue: false
     xpath: //ul[@class="f-breadcrumb"]/li[position() > 1]
@@ -44,15 +79,17 @@ fields:
     manualSelector: div#brandText
   - name: weightNet
     singleValue: false
-    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Peso')]//parent::div/dd/p
+    #xpath: //div[@class="characteristicsStrate__item"]//dl[contains(text(),'Peso')]//parent::div/dd/p
+    xpath: //dl[contains(.,'Peso')]//dd//p
   - name: gtin
     singleValue: false
-    xpath: (//script/@data-flix-ean | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'EAN')]//parent::div/dd/p)[1]
+    xpath: (//script/@data-flix-ean | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'EAN')]//parent::div/dd/p | //dl[contains(.,'EAN')]//dd//p)[1]
   - name: mpc
     singleValue: false
-    xpath: (//script/@data-flix-mpn | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Modelo')]//parent::div/dd/p)[1] | //h1[contains(@class, "f-productHeader-Title")] 
-    regExp: (\s\d+-?\d+)
-    regExpReplace: $1
+    # xpath: (//script/@data-flix-mpn | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Modelo')]//parent::div/dd/p)[1] | //h1[contains(@class, "f-productHeader-Title")] 
+    # regExp: (\s\d+-?\d+)
+    # regExpReplace: $1
+    xpath: //dl[contains(.,'Modelo')]//dd
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-productHeader-reviewLabel")]
