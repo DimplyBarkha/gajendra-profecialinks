@@ -21,7 +21,7 @@ module.exports = {
 
       // video url
       const ytPrefix = 'https://www.youtube.com/watch?v=';
-      const keyword = document.querySelector('a.thumb.youtube.active')
+      const keyword = document.querySelector('a[class*="thumb youtube"]')
         ? document.querySelector('a[class*="thumb youtube"]').getAttribute('style').match(/vi\/(.*)\//)[1] : null;
       if (keyword !== null) addElementToDocument('videoUrl', ytPrefix.concat(keyword));
 
@@ -30,6 +30,11 @@ module.exports = {
       const alternateImages = document.querySelectorAll('a[class*="thumb"]:not(:first-child) img')
         ? document.querySelectorAll('a[class*="thumb"]:not(:first-child) img') : null;
       if (alternateImages !== null) alternateImages.forEach(e => addElementToDocument('alternateImages', prefix.concat(e.getAttribute('src'))));
+
+      // brandLink
+      const brandLink = document.querySelector('div.accordion-content li a[href*="/merken/"]')
+        ? document.querySelector('div.accordion-content li a[href*="/merken/"]') : null;
+      if (brandLink !== null) addElementToDocument('brandLink', prefix.concat(brandLink.getAttribute('href')));
 
       // adding availability
       const isAvailable = document.querySelector('meta[itemprop*="availability"][content*="InStock"]')
@@ -43,24 +48,26 @@ module.exports = {
       const productIds = [...document.querySelectorAll('select[class="autoredirect"] option')].map(e => e.getAttribute('value').split('-').pop());
       const first = productIds[0];
       const finalRes = [];
-      for (let i = 0; i < first.length; i++) {
-        const substring = first.slice(0, first.length - i);
-        const res = [];
+      if (first !== undefined) {
+        for (let i = 0; i < first.length; i++) {
+          const substring = first.slice(0, first.length - i);
+          const res = [];
 
-        productIds.forEach(e => {
-          if (e.includes(substring)) {
-            res.push(true);
-          } else res.push(false);
-        });
-        if (!res.includes(false)) {
-          finalRes.push(substring);
+          productIds.forEach(e => {
+            if (e.includes(substring)) {
+              res.push(true);
+            } else res.push(false);
+          });
+          if (!res.includes(false)) {
+            finalRes.push(substring);
+          }
         }
+        const firstVariant = finalRes.sort((a, b) => {
+          return b.length - a.length;
+        },
+        )[0];
+        addElementToDocument('firstVariant', firstVariant);
       }
-      const firstVariant = finalRes.sort((a, b) => {
-        return b.length - a.length;
-      },
-      )[0];
-      addElementToDocument('firstVariant', firstVariant);
     });
 
     await context.extract(productDetails, { transform });

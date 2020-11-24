@@ -24,7 +24,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//ul[@class='breadcrumbs']/li)[position() > 1]
+    xpath: (//ul[@class='breadcrumbs']/li)[position() < last()]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -48,11 +48,12 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@itemprop='description']/p
+    xpath: //div[@itemprop='description']/p | //div[@itemprop='description']/ul
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//div[@itemprop='description']/ul/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -65,6 +66,8 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
+    xpath: //h1[@itemprop='name']/text() | //option[@selected='selected']/text()
+    regExp: \d+x\d+gr|\d+x\d+ml|\d+gr|\d+ml
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -74,6 +77,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //strong[contains(@itemprop,'gtin')]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -95,6 +99,7 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
+    xpath: //strong[contains(text(), 'Gebruik')]/following-sibling::text()[1] | //h3[strong[contains(text(), 'Gebruik')]]/following-sibling::p[1]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -163,6 +168,7 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //div[@id='brandLink']
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
