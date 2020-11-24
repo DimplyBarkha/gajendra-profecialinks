@@ -6,8 +6,8 @@ fields:
   - name: price
     singleValue: false
     description: price of the product
-    xpath: //div[@id='altImage2']
     type: CURRENCY
+    xpath: //div[@class='zz']  
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
@@ -15,13 +15,13 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//figure//img//@srcset
+    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//figure//img//@src
     regExp: (/.+)
     regExpReplace: https://www.ahlens.se/$1
   - name: id
     singleValue: false
     description: The store-specific product identifier
-    xpath: //div[@data-testid="ProductList_list"]/div/div/a/@href
+    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]/@href
     regExp: .*-(\d+)/$
     regExpReplace: $1
   - name: name
