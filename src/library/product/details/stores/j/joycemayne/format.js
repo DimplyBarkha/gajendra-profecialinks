@@ -47,7 +47,7 @@ const transform = (data) => {
 
       if (row.availabilityText) {
         row.availabilityText.forEach((availabilityTextItem) => {
-          if (availabilityTextItem.text.toLowerCase().includes('add to cart')) {
+          if (availabilityTextItem.text.toLowerCase().includes('add to cart') || availabilityTextItem.text.toLowerCase().includes('limited stock')) {
             availabilityTextItem.text = 'In Stock';
           } else {
             availabilityTextItem.text = 'Out Of Stock';
