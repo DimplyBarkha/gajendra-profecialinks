@@ -66,18 +66,20 @@ async function implementation (
     waitUntil: 'load',
     checkBlocked: false,
   });
-  await new Promise((resolve) => setTimeout(resolve, 6000));
-  const link = await context.evaluate(() => {
-    const link = document.querySelector("section[id*='product-list'] a[class*='product-image-link']") ? document.querySelector("section[id*='product-list'] a[class*='product-image-link']").getAttribute('href') : '';
-    return link;
-  });
-  console.log('Link:::', link);
-  await context.goto('https://shop.coles.com.au' + link, {
-    firstRequestTimeout: 60000,
-    timeout: 60000,
-    waitUntil: 'load',
-    checkBlocked: false,
-  });
+  if (id) {
+    await new Promise((resolve) => setTimeout(resolve, 6000));
+    const link = await context.evaluate(() => {
+      const link = document.querySelector("section[id*='product-list'] a[class*='product-image-link']") ? document.querySelector("section[id*='product-list'] a[class*='product-image-link']").getAttribute('href') : '';
+      return link;
+    });
+    console.log('Link:::', link);
+    await context.goto('https://shop.coles.com.au' + link, {
+      firstRequestTimeout: 60000,
+      timeout: 60000,
+      waitUntil: 'load',
+      checkBlocked: false,
+    });
+  }
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
