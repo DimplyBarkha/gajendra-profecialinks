@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -8,9 +8,9 @@ async function implementation(
   const { productDetails } = dependencies;
   const checkExsistance = async (selector) => {
     return await context.evaluate(async (selector) => {
-      return Boolean(document.querySelector(selector))
-    }, selector)
-  }
+      return Boolean(document.querySelector(selector));
+    }, selector);
+  };
   const closeButtonSelector = 'button[aria-label="Close"]';
   const isPresent = await checkExsistance(closeButtonSelector);
   if (isPresent) {
@@ -34,7 +34,7 @@ async function implementation(
     appendElement.setAttribute('availability', availabilityStatus);
     appendElement.setAttribute('normalimage', normalImage);
     appendElement.setAttribute('seller', seller);
-  })
+  });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

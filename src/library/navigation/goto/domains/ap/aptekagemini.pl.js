@@ -16,7 +16,7 @@ module.exports = {
     try {
       await context.waitForSelector('div[class="vue-modal__content"]');
       await context.click('button[class*="button vue-privacy"]');
-      console.log('cookies box clicked successfully')
+      console.log('cookies box clicked successfully');
     } catch (e) {
       console.log('No cookie box');
     }
