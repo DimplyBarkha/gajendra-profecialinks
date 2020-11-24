@@ -57,10 +57,12 @@ module.exports = {
       for (let index = 0; index < rating.length; index++) {        
         if (rating[index].includes(":")) {
           var temp = rating[index].replace(":", ".");
+        } else if (rating[index].includes(",")){
+          var temp = rating[index].replace(",", ".");
         } else {
           temp = rating[index].replace(":-", ".");
         }           
-        addHiddenDivPrice('altImage2', temp+"SEK", index);
+        addHiddenDivPrice('altImage2', temp, index);
       }
 
     });
