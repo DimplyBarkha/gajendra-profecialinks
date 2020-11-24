@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'hygi',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[class="toolbar"] li.next > a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
