@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'dermstore.com',
-    timeout: 100000,
+    prefix: null,
+    url: null,
     country: 'US',
     store: 'dermstore',
     zipcode: "''",

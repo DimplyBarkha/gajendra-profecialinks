@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'dermstore.com',
-    timeout: 100000,
     country: 'US',
     store: 'dermstore',
+    domain: 'dermstore.com',
     zipcode: "''",
   },
 };
