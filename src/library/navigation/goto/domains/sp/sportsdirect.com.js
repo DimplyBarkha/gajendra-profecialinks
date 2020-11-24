@@ -11,7 +11,7 @@ module.exports = {
     { url, zipcode, storeId },
     parameters,
     context,
-    dependencies
+    dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.setBlockAds(false);
@@ -21,11 +21,11 @@ module.exports = {
     try {
       await context.goto(url, {
         timeout: timeout,
-        waitUntil: "load",
+        waitUntil: 'load',
         checkBlocked: true,
       });
     } catch (e) {
-      console.log("page load time out ----> ", e);
+      console.log('page load time out ----> ', e);
     }
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
