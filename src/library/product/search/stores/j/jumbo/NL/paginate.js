@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'jumbo',
-    nextLinkSelector: 'span.d-none.d-l-inline',
+    nextLinkSelector: 'button.jum-button.pagination-buttons.secondary',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '.rw',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="error-state-wrapper text-center cl ctr"]/div[@class="server-error"]',
     openSearchDefinition: null,
     domain: 'jumbo.com',
     zipcode: '',
