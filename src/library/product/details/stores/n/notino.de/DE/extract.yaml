@@ -47,7 +47,6 @@ fields:
     xpath: //span[@class="sc-fzXfPa cxuroG"]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -422,7 +421,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@class="styled__CommonMarginWrapper-aohf13-8 styled__MarginWrapper-sc-1st2cwk-1 fKfgxO"]
+    # xpath: //div[@class="styled__CommonMarginWrapper-aohf13-8 styled__MarginWrapper-sc-1st2cwk-1 fKfgxO"]
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -432,11 +431,11 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
-    xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
+    # xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-    xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
+    # xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -473,6 +472,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: (//@data-product-code)[1]
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
