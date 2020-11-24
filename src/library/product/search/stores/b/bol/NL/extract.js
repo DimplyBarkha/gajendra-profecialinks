@@ -1,3 +1,5 @@
+const { transform } = require('../../../../shared');
+
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
@@ -40,6 +42,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     };
 
     const product = document.querySelectorAll('li.product-item--row.js_item_root');
+    const searchUrl = window.location.href;
     let rankOrganic = 0;
     let ratings = document.querySelectorAll('.star-rating');
     const itereationLength = ratings.length;
@@ -101,6 +104,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       addProp('wsp-buy-block.product-item__options.hit-area', i, 'seller', seller);
       addProp('wsp-buy-block.product-item__options.hit-area', i, 'rank', `${i + 1}`);
     };
+    addProp('.main', 0, 'currenturl', searchUrl);
   });
   return await context.extract(productDetails, 'MERGE_ROWS');
 };
@@ -110,7 +114,7 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'bol',
-    transform: null,
+    transform,
     domain: 'bol.com',
     zipcode: '',
   },
