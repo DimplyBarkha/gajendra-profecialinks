@@ -50,6 +50,8 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
   xpath: //@availability_text
+  regExp: ^([\w\sí]+)
+  regExpReplace: $1
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
