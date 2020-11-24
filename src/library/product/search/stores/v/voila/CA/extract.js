@@ -23,7 +23,7 @@ module.exports = {
         const products = document.evaluate('//a[contains(@class,"base__ImageWrapper")]/img', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const productsCount = products.snapshotLength;
         console.log('Length: ' + productsCount);
-        await stall(1000);
+        await stall(4000);
         let array = document.querySelectorAll('div[class*="base__Wrapper"]');
         array.forEach((element) => {
           if (element.getAttribute('data-test') != null) {
