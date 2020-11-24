@@ -1,33 +1,32 @@
 /**
  *
- * @param { { keywords: string, zipcode: string, url: string, URL: string } } inputs
+ * @param { { keywords: string, zipcode: string } } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action} } dependencies
  */
 async function implementation (
-  { url: inputsUrl, URL: inputsURL, zipcode, keywords },
-  { url, loadedSelector, noResultsXPath },
+  inputs,
+  parameters,
   context,
   dependencies,
 ) {
-  const inputUrl = inputsUrl || inputsURL || url;
-  const destinationUrl = inputUrl || url.replace('{searchTerms}', encodeURIComponent(keywords));
-  await dependencies.goto({ url: destinationUrl, zipcode });
-
-  if (loadedSelector) {
+  console.log('params', parameters);
+  const url = inputs.url || parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  await dependencies.goto({ url, zipcode: inputs.zipcode });
+  if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-  console.log('Checking no results', noResultsXPath);
-  return await context.evaluate((xp) => {
+  console.log('Checking no results', parameters.noResultsXPath);
+  return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
     const e = r.iterateNext();
     console.log(e);
     return !e;
-  }, noResultsXPath);
+  }, parameters.noResultsXPath);
 }
 
 module.exports = {
@@ -67,16 +66,6 @@ module.exports = {
     {
       name: 'zipcode',
       description: 'keywords to search for',
-      type: 'string',
-    },
-    {
-      name: 'url',
-      description: 'domain url',
-      type: 'string',
-    },
-    {
-      name: 'URL',
-      description: 'domain url',
       type: 'string',
     },
   ],
