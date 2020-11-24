@@ -9,7 +9,7 @@ fields:
     xpath: //div[@class='slick-track']/li[@class='ah-image-carousel__item slick-slide slick-current slick-active']/img[@class='ah-product-image']/@src
     regExp: (/.+)
     regExpReplace: https://www.ahlens.se/$1
-  - name: url
+  - name: _url
     singleValue: true
     xpath: /html/head/link[4]/@href
   - name: imageAlt

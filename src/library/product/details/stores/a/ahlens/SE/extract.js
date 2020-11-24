@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'SE',
     store: 'ahlens',
-    transform: cleanUp,
+    transform: transform,
     domain: 'ahlens.se',
     zipcode: '',
   },
@@ -30,9 +30,11 @@ module.exports = {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(":")) {
             var temp = data[index].replace(":", ".");
+          } else if (data[index].includes(",")){
+            var temp = data[index].replace(",", ".");
           } else {
             temp = data[index].replace(":-", ".");
-          }
+          }  
           addElementToDocument('altImage1', temp+"SEK");
         }
       };
@@ -41,24 +43,17 @@ module.exports = {
       const sliceURL1 = (data) => {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(":")) {
-            var temp = data[index].replace(":", ".");
+            var temp = data[index].replace("(:)", ".");
+          } else if (data[index].includes(",")){
+            var temp = data[index].replace(",", ".");
           } else {
             temp = data[index].replace(":-", ".");
-          }
+          }  
           addElementToDocument('altImage2', temp+"SEK");
         }
       };
-      var backgroundURL1 = getAllXpath("//div[@class='ah-offer-regular']/b[@class='ah-price']/text()", 'nodeValue');
+      var backgroundURL1 = getAllXpath("//div[@class='ah-pdp-product-price pt-- mb--']/div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price']/text()", 'nodeValue');
       sliceURL1(backgroundURL1);
-    //   const sliceURL2 = (data) => {
-    //     var singleSeparatorText = data[0].split(',');
-    //     for (let i = 0; i < singleSeparatorText.length; i++) {
-    //       var output = singleSeparatorText[i].split(" ");
-    //       addElementToDocument('altImage', 'https://www.ahlens.se/' + output[0]);
-    //     }
-    //   };
-    //   var backgroundURL2 = getAllXpath("//div[@class='slick-list draggable']/div[@class='slick-track']/li[@class='ah-image-carousel-nav__item slick-slide']/img[@class='ah-product-image']/@src", 'nodeValue');
-    //   sliceURL2(backgroundURL2);
     });
     await context.extract(productDetails, { transform: transformParam });
   },
