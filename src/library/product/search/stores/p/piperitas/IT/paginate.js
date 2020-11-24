@@ -13,9 +13,7 @@ module.exports = {
     noResultsXPath: '//p[@class="note-msg"][contains(text(), "Ci spiace, non ci sono prodotti per ora.")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
-    openSearchDefinition: {
-      template: 'https://piperitas.com/catalogsearch/result/index/?q={searchTerms}&p={page}',
-    },
+    openSearchDefinition: null,
     domain: 'piperitas.com',
     zipcode: '',
   },
