@@ -5,8 +5,8 @@ module.exports = {
     country: 'IE',
     store: 'tesco',
     domain: 'tesco.ie',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.productDetailsContainer',
+    noResultsXPath: "//p[@class='noProdsAvlbl']",
     zipcode: '',
   },
 };
