@@ -5,46 +5,44 @@ recordXPath: null
 fields:
 - name: image
   singleValue: false
-  xpath: (//img[@class="owl-lazy"]/@data-src)[position()=1] 
+  xpath: //img[@class='owl-lazy']/@data-src
 - name: imageAlt
   singleValue: false
-  xpath: //div[@class="fed-pdp-product-details-title"]/h1/text()
+  xpath: //img[@class='owl-lazy']/@alt
 - name: alternateImages
   singleValue: false
-  xpath: (//img[contains(@class,"lazyloaded")]/@src)[position()>1]
 - name: metaKeywords
   singleValue: false
-  xpath: //meta[@name="keywords"]/@content
+  xpath: //meta[@name='keywords']/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //div[@class='extra-info']/@category
 - name: nameExtended
   singleValue: false
-  xpath: //div[@class="fed-pdp-product-details-title"]/h1
+  xpath: //div[@class='fed-pdp-product-details-title']/h1
 - name: listPrice
   singleValue: false
-  xpath: normalize-space(concat(//div[@class='oldprice']/text(),'.',//div[@class='oldprice']/span))
+  xpath: //div[@class='extra-info']/@old-price
+  type: STRING
 - name: price
   singleValue: false
-  xpath: normalize-space(concat(//div[@class='normalPrice']/text(),'.',//div[@class='normalPrice']/span))
+  xpath: //div[@class='extra-info']/text()
+  type: STRING
 - name: availabilityText
   singleValue: false
   xpath: //div[@class="fed-pdp-product12-details-title11"]/h1
   regExp: (.+)
   regExpReplace: $1
   defaultValue: In Stock
-  #
 - name: description
   singleValue: false
-  xpath: //div[contains(text(),"DESCRIPTION")]/../following-sibling::div[contains(@class,"col-sm-5")]
+  xpath: normalize-space(concat(//div[contains(text(),'DESCRIPTION')]/../following-sibling::div[contains(@class,'col-sm-5')],//div[contains(text(),'FEATURES')]/../following-sibling::div[contains(@class,'col-sm-5')]))
 - name: descriptionBullets
   singleValue: false
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: false
-  xpath: //div[@class="fed-pdp-product-details-title"]/h1
-  regExp: ^([\w\-]+)
-  regExpReplace: $1
 - name: manufacturer
   singleValue: false
   description: Product manufacturer
@@ -87,13 +85,15 @@ fields:
   singleValue: false
   xpath: //a[@class="js-openTab"]/text()
   regExp: (.+)\WReviews
-  # regExpReplace: $1
+  regExpReplace: $1
 - name: aggregateRatingText
   singleValue: false
   description: The stated aggregate rating
+  xpath: //div[@class='extra-info']/@rating
 - name: aggregateRating
   singleValue: false
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@class='extra-info']/@rating
 - name: shippingInfo
   singleValue: false
   description: Shipping information for the product
@@ -123,7 +123,7 @@ fields:
   description: URLs of videos on page
 - name: name
   singleValue: false
-  xpath: //div[@class="fed-pdp-product-details-title"]/h1
+  xpath: //div[@class='fed-pdp-product-details-title']/h1
 - name: inStorePrice
   singleValue: false
   description: Price in the selected store
@@ -139,10 +139,8 @@ fields:
 - name: amazonChoiceCategory
   singleValue: false
   description: Text of link next to Amazon choice graphic
-# - name: brandLink
-#   singleValue: false
-#   xpath: //div[@class="fed-pdp-product-details-title"]/h1
-
+- name: brandLink
+  singleValue: false
 - name: internationalShipping
   singleValue: false
   description: Text next to bullet point
@@ -360,9 +358,9 @@ fields:
 - name: warranty
   singleValue: false
   description: Guarantee associated with the product
-# - name: storage
-#   singleValue: false
-#   xpath: //div[contains(text(),"USAGE")]/../following-sibling::div[contains(@class,"col-sm-5")]
+- name: storage
+  singleValue: false
+  xpath: //div[contains(text(),"USAGE")]/../following-sibling::div[contains(@class,"col-sm-5")]
 - name: countryOfOrigin
   singleValue: false
   description: The country from which the product originates
@@ -389,9 +387,7 @@ fields:
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: false
-  xpath: normalize-space(concat(//div[@class='savings']/text(),'.',//div[@class='savings']/span))
-  regExp: (.+)
-  regExpReplace: Save$1
+  xpath: //div[@class='extra-info']/@promotion
 - name: alcoholContent
   singleValue: false
   description: Alcohol content information
