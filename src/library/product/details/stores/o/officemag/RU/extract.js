@@ -1,11 +1,11 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addElementToDom(element, id) {
+    function addElementToDom (element, id) {
       const div = document.createElement('div');
       div.id = id;
       div.innerHTML = element;
@@ -26,8 +26,7 @@ async function implementation(inputs, parameters, context, dependencies) {
 
     // alternate imgs
     const altImgsNode = document.querySelectorAll(
-      'a[class="ProductPhotoThumb__link js-bigImg"] img'
-    );
+      'a[class="ProductPhotoThumb__link js-bigImg"] img');
     altImgsNode.forEach((element) => {
       const altImgUrl = element.getAttribute('src');
       element.setAttribute('altImgUrl', prefix + altImgUrl);
@@ -35,9 +34,9 @@ async function implementation(inputs, parameters, context, dependencies) {
 
     // convert rating
     const rating = document.querySelector('span[class="Score__fill"]');
-    const regex = /\d+\.?\d+/gm;
+    const regex = /\d+\.?(\d+)?/gm;
 
-    if (rating) {
+    if (rating.getAttribute('style')) {
       var regArray = rating.getAttribute('style').match(regex);
       var value = (parseInt(regArray[0]) * 5) / 100;
 

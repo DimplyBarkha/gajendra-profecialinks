@@ -40,18 +40,18 @@ fields:
 - name: listPrice
   singleValue: false
   description: The stated undiscounted price for the product
-  xpath: //div[@class="order"]//div[@class="Product__price Product__price--initial"]/span/span
+  xpath: //div[@class="order"]//span[@class="Price"]
 - name: price
   singleValue: false
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //div[@class="order"]//div[span[@class="ProductSpecial__count"][text()="1"]]/following-sibling::div[contains(@class, "price")]
+  xpath: //div[@class="order"]//span[@class="Price Price--best"]
 - name: availabilityText
   singleValue: false
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //div[@class="Availability Availability--productCard"]//table[@class="AvailabilityList AvailabilityList--dotted"]
+  xpath: //noindex/div/div/div[1]/table/tbody/tr[1]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
