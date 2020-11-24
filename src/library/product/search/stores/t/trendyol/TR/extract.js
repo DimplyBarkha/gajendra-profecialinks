@@ -53,7 +53,7 @@ module.exports = {
             break;
           }
         }
-        function stall (ms) {
+        function stall(ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -62,9 +62,24 @@ module.exports = {
         }
       });
     };
-    // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await applyScroll(context);
-    // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await context.evaluate(async function () {
+      const URL = window.location.href;
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('div div.p-card-wrppr')[index];
+        originalDiv.appendChild(newDiv);
+        console.log('child appended ' + index);
+      }
+      const product = document.querySelectorAll('div div.p-card-wrppr');
+      // select query selector and loop and add div
+      for (let i = 0; i < product.length; i++) {
+        addHiddenDiv('page_url', URL, i);
+      }
+    });
     await delay(5000);
     await context.waitForSelector('div.srch-prdcts-cntnr img');
     await delay(5000);
