@@ -19,24 +19,38 @@ const cleanUp = (data, context) => {
     for (const { group }
         of data) {
         for (const row of group) {
-            if (row.availabilityText) {
+            if (row.variants) {
                 let text = '';
-                row.availabilityText.forEach(item => {
-                    if (item.text === "InStock") {
-                        item.text = "In Stock";
-                    } else if (item.text === "OutOfStock") {
-                        item.text = "Out of Stock";
-                    }
+                row.variants.forEach(item => {
+                    text = text + (text ? ' | ' : '') + item.text;
                 });
-                row.availabilityText = [{ text }];
+                const split = text.split(' | ');
+                // @ts-ignore
+                const uniqueIds = [...new Set(split)];
+                let text2 = '';
+                uniqueIds.forEach(id => {
+                    text2 = text2 + (text2 ? ' | ' : '') + id;
+                });
+                row.variants = [{ text: text2 }];
+                row.variantCount = [{ text: uniqueIds.length }];
+            } else {
+                row.variantCount = [{ text: 0 }];
             }
-
-            data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-                el.text = clean(el.text);
-            }))));
-            return data;
-        };
-
-        module.exports = { cleanUp };
+            if (row.description) {
+                let text = '';
+                row.description.forEach(item => {
+                    row.description[0].text = row.description[0].text.replace(/\s{1,}/g, ' ');
+                });
+            }
+        }
     }
-}
+
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+    }))));
+    return data;
+};
+
+module.exports = { cleanUp };
+// }
+// }

@@ -5,7 +5,7 @@ module.exports = {
         store: 'bebitus',
         domain: 'bebitus.com',
         loadedSelector: 'img[class="windeln-zoom-image"]',
-        noResultsXPath: "//div[@class='cm-content headline-box']/h1[contains(.,'Lo sentimos')]",
+        noResultsXPath: "//div[@class='cm-content headline-box']/h1[contains(.,'Lo sentimos')] | //div[contains(@class,'draggable')]//img",
         zipcode: '',
     },
 };
