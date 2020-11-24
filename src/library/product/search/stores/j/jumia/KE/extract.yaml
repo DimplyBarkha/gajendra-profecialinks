@@ -24,10 +24,10 @@ fields:
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
-    type: STRING
+    type: NUMBER
     xpath: //div[@class="stars _s"]
-    regExp: ^(\d+)\.?(\d+)?
-    regExpReplace: $1,$2
+    regExp: ([\d\.,]+) out of
+    regExpReplace: $1
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="rev"]
