@@ -29,8 +29,6 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class,"cell-image-wrapper")]/span/@data-src
-    regExp: \/h(.+)400x(.+)
-    regExpReplace: h$11200x$2
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
@@ -56,7 +54,7 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: (//span[contains(@data-test,"amount")]/span)[1]
+    xpath: //span[contains(@data-test,"amount")]/span[1]
     description: The offered price for the product
   - name: listPrice
     singleValue: false
