@@ -119,6 +119,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: count(//div[@id="variantId"]/@data)
     type: NUMBER
   - name: color
     description: A textual description of the colour
@@ -459,7 +460,7 @@ fields:
     xpath: //span[contains(@class,"fl-error hide")]//@data-inventory-level-sku
   - name: variants
     description: null
-    xpath: //span[contains(@class,"fl-error hide")]//@data-inventory-level-sku
+    xpath: //div[@id="variantId"]/@data
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
