@@ -9,7 +9,9 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div.product__grid',
     noResultsXPath: '//div[@class="search-empty"]',
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.brake.co.uk/search?q={searchTerms}:relevance&page={page}',
+    },
     domain: 'brake.co.uk',
     zipcode: '',
   },

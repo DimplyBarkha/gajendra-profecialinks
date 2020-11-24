@@ -12,23 +12,24 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    // selecting link node and modifying href attribute to paginate, instead of loading products using "Load more" button
-    const prepareForPagination = async function (context) {
-      await context.evaluate(async function () {
-        if (document.querySelector('head link[rel="next"]')) {
-          const linkNode = document.querySelector('head link[rel="next"]');
-          let paginationHref = linkNode.getAttribute('href');
-          paginationHref = paginationHref.replace(/(\/results?)/, '');
-          const regEx = /q=([^=]*):/;
-          const match = regEx.exec(paginationHref);
-          const escapedSearchTerm = escape(match[1]);
-          const reg = new RegExp(match[1]);
-          paginationHref = paginationHref.replace(reg, escapedSearchTerm);
-          linkNode.setAttribute('href', paginationHref);
-        }
-      });
-    };
-    await prepareForPagination(context);
+    await context.evaluate(async function () {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      const searchUrl = window.location.href;
+      addElementToDocument('searchUrl', searchUrl);
+    });
+    // Href attribute contains invalid url, in order to work with openSearchDefinition in paginate.js invalid link element have to be removed on each page
+    await context.evaluate(async function () {
+      const nextPageElement = document.querySelector('link[rel="next"]');
+      if (nextPageElement) {
+        nextPageElement.parentNode.removeChild(nextPageElement);
+      }
+    });
     return await context.extract(productDetails, { transform });
   },
 };

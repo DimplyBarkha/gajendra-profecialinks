@@ -8,6 +8,7 @@ fields:
     xpath: //div[contains(@class, "product__listing")]//div[contains(@id,"product")]/@data-id
   - name: searchUrl
     singleValue: false
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
     xpath: //a[@class='product-item__name product-name  ']/@title
@@ -35,7 +36,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class, 'product-price--current-price')]/span[contains (@class,'product-price__value--current')]/@data-price
     regExp: (.+)
-    regExpReplace: £$1
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
   - name: soldBy
