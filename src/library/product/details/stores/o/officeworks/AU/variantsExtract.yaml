@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-ref='product-family-container']//div[contains(@data-ref,'family-colour-thumb')]
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //a/img/@data-ref
+  - name: variantUrl
+    singleValue: false
+    xpath: //a/@href
+  - name: variant
+    singleValue: false
+    xpath: //a/@color
