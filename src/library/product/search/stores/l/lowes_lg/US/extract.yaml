@@ -1,42 +1,43 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@data-selector,"splp-prd-tl-wrp")]
+recordXPath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]
 fields:
-  - name: id
-    singleValue: false
-    xpath: //div[contains(@class,"List")]/@id
-  - name: price
-    singleValue: false
-    xpath: //div[contains(@aria-label,"Actual Price")]
   - name: productUrl
     singleValue: false
-    xpath: //div[@aria-label="product details"]//a[@data-clicktype="product_tile_click"]/@href
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//a/@href
     regExp: (\/.*)
     regExpReplace: https://www.lowes.com$1
-    description: The URL for the product details page
   - name: thumbnail
     singleValue: false
-    xpath: //img[contains(@class,"product-image")]/@src
-    description: The URL for the product thumbnail image
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-crd"]//div[@data-selector="splp-prd-img"]//img/@src
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,"List")]//article
-  - name: aggregateRating2
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector="splp-prd-ttl"]
+  - name: ratingCount
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-ttl-rtgs"]/div/@aria-label
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[@data-selector="splp-prd-ttl-rtgs"]/div/@aria-label
     regExp: (.+) out of(.)
     regExpReplace: $1
   - name: reviewCount
     singleValue: false
-    xpath: //div[contains(@class,"List")]//span[contains(@class,"total")]
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//span[@class="styles__TotalWrap-RC__sc-5hhhh2-4 glgCQP total"]
+  - name: price
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-act-$"] | //div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-rng"]
+  - name: id
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//a/@href
+    regExp: (\/)(\d+)
+    regExpReplace: $2
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[contains(@class,"sc-1b7wdu0-5")]//div[contains(@class,"styles__RatingDiv")]//@aria-label
+    regExp: (.+) out of(.)
+    regExpReplace: $1
   - name: rank
-    singleValue: false
-    type: NUMBER
   - name: rankOrganic
+  - name: searchUrl
     singleValue: false
-    type: NUMBER
-
-
-
-
+    xpath: //div[@id="page_url"]
+ 
