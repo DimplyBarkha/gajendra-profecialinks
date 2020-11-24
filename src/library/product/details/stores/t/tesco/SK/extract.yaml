@@ -1,0 +1,119 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@class="product-image__container"]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="product-image__container"]//img/@alt
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,'beans-breadcrumb__list')]//li//a//span[normalize-space()]
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='product-details-tile__title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='product-details-tile__title']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="inputControl-wrapper"]//button//span[text()='Pridať']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price-control-wrapper']
+  - name: description
+    singleValue: false
+    xpath: //h3[text()='Popis produktu']//following-sibling::div
+  - name: manufacturer
+    singleValue: false
+    xpath: //h3[text()='Meno a Adresa']//following-sibling::div//h4[text()='Adresa výrobcu']//following-sibling::p
+  - name: gtin
+    singleValue: false
+    xpath: //script[contains(text(),'gtin')]
+    # "gtin13":"5051007056892"
+    regExp: \"gtin13\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    # get it from script JSON
+    xpath: //script[contains(text(),'sku')]
+    # "sku":"1007"
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    # get it from script JSON
+    xpath: //script[contains(text(),'sku')]
+    # "sku":"1007"
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'promotions-wrapper hidden-medium')]//ul[contains(@class,'product-promotions')]//span[@class='offer-text']
+  - name: warnings
+    singleValue: false
+    xpath: //h3[text()='Bezpečnostné informácie']//following-sibling::* 
+  - name: ingredientsList
+    singleValue: false
+    xpath: //h3[text()='Zloženie']//following-sibling::* 
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //h3[text()='Informácie o produkte']//following-sibling::div//p[contains(text(),'pôvod')]    
+  - name: storage
+    singleValue: false
+    xpath: //h3[text()='Skladovanie a použitie']//following-sibling::div//p
+  - name: packSize
+    singleValue: false
+    xpath: //h3[text()='Balenie']//following-sibling::div//h4[text()='Počet jednotiek']//following-sibling::p    
+  - name: quantity
+    singleValue: false
+    xpath: //h3[text()='Balenie']//following-sibling::div//h4[text()='Číselná veľkosť']//following-sibling::p    
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //div[@class='price-per-quantity-weight']
+  - name: alcoholContent
+    singleValue: false
+    xpath: //h3[text()='Informácie o produkte']//following-sibling::div//p[contains(text(),'alkoholu')]    
+  - name: recyclingInformation
+    singleValue: false
+    xpath: //h3[text()='Balenie']//following-sibling::div//h4[text()='Informácie o recyklácii']//following-sibling::p
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //caption[text()='Výživové hodnoty']//ancestor::div[@class="tabularContent"]//td[contains(text(),'Sacharidy')]//following-sibling::td[1]    
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //caption[text()='Výživové hodnoty']//ancestor::div[@class="tabularContent"]//td[contains(text(),'kyseliny')]//following-sibling::td[1]    
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //caption[text()='Výživové hodnoty']//ancestor::div[@class="tabularContent"]//td[contains(text(),'Bielkoviny')]//following-sibling::td[1]    
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //caption[text()='Výživové hodnoty']//ancestor::div[@class="tabularContent"]//td[contains(text(),'Tuky')]//following-sibling::td[1]    
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //caption[text()='Výživové hodnoty']//ancestor::div[@class="tabularContent"]//td[contains(text(),'Vápnik')]//following-sibling::td[1]    
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //caption[text()='Výživové hodnoty']//ancestor::div[@class="tabularContent"]//td[contains(text(),'Energia')]//following-sibling::td[1]    
+  - name: saltPerServing
+    singleValue: false
+    xpath: //caption[text()='Výživové hodnoty']//ancestor::div[@class="tabularContent"]//td[contains(text(),'Soľ')]//following-sibling::td[1]    
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //caption[text()='Výživové hodnoty']//ancestor::div[@class="tabularContent"]//td[contains(text(),'Cukry')]//following-sibling::td[1]    
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //caption[text()='Výživové hodnoty']//ancestor::div[@class="tabularContent"]//td[contains(text(),'Vláknina')]//following-sibling::td[1]
