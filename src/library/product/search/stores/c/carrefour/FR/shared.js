@@ -16,16 +16,15 @@ const transform = (data, context) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  
-    const state = context.getState();
-    let orgRankCounter = state.orgRankCounter || 0;
-    let rankCounter = state.rankCounter || 0;
-    for (const { group } of data) {
-      for (const row of group) {
-        rankCounter = rankCounter + 1;
-        if (!row.sponsored) {
-          orgRankCounter = orgRankCounter + 1;
-          row.rankOrganic = [{ text: orgRankCounter }];
+  const state = context.getState();
+  let orgRankCounter = state.orgRankCounter || 0;
+  let rankCounter = state.rankCounter || 0;
+  for (const { group } of data) {
+    for (const row of group) {
+      rankCounter = rankCounter + 1;
+      if (!row.sponsored) {
+        orgRankCounter = orgRankCounter + 1;
+        row.rankOrganic = [{ text: orgRankCounter }];
         }
         row.rank = [{ text: rankCounter }];
         context.setState({ rankCounter });
