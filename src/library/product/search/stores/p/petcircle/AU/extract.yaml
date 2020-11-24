@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="productListing"]/li
+fields: 
+  - name: thumbnail
+    singleValue: false
+    xpath: //figure/a/img/@src
+  - name: name
+    singleValue: false
+    xpath: //span[@class="product-name"]
