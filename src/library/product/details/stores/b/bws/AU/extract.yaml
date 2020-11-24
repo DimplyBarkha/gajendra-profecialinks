@@ -3,4 +3,57 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
- 
+  - name: name
+    singleValue: false 
+    xpath: //div[@class="detail-item"]//div[@itemprop="name"]
+  - name: nameExtended
+    singleValue: false 
+    xpath: //div[@class="detail-item"]//div[@itemprop="name"]
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"bws-product-image-lazy-transition-wrapper ng-scope")]//img[@class="product-image"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"bws-product-image-lazy-transition-wrapper ng-scope")]//img[@class="product-image"]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"bws-product-image-lazy-transition-wrapper ng-scope")]//img[@class="product-image"]/@src
+  - name: category
+    singleValue: false
+    xpath:  //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Varietal"]/parent::*/span
+  - name: brandText
+    singleValue: false  
+    xpath: //div[@class="detail-item"]//span[@itemprop="brand"]//span
+  - name: manufacturer
+    singleValue: false  
+    xpath: //div[@class="detail-item"]//span[@itemprop="brand"]//span
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"clearfix product-detail_controls-wrapper")]//div[contains(@class,"product-detail_controls-col ng-scope")]//h1[contains(@class,"product-details_controls_title ng-binding")]
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,"col-md-8 col-md-offset-2")]//p[@itemprop="description"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"col-md-12 text-left")]//ul
+  - name: descriptionBullets
+    singleValue: false    
+    xpath: //div[contains(@class,"col-md-12 text-left")]//ul
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Product Number"]/parent::*/span
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Product Number"]/parent::*/span
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: ratingCount
+    singleValue: false 
+    xpath: //div[contains(@class,"hidden-xs productTile_rating ng-pristine")]//div[contains(@class,"rating ng-scope")]//span[contains(@class,"rating_count ng-binding")]
+  - name: aggregateRating
+    singleValue: false 
+    xpath: //div[contains(@class,"review-overview-rating ng-pristine")]//span[@class="sr-only"]//span[@class="ng-binding"]

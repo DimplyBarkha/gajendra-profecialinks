@@ -29,6 +29,11 @@ const transform = (data) => {
             item.text =  Number(item.text);
           });
         }
+        if (row.aggregateRating) {
+            row.aggregateRating.forEach(item => {
+              item.text =  Number(item.text);
+            });
+        }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
@@ -42,17 +47,25 @@ const transform = (data) => {
             }
         }
         if (row.specifications) {
-          let specifications_ar = [];
-          row.specifications.forEach(item => {
-            specifications_ar.push(item.text);
-          });
-          if (specifications_ar.length) {
-            row.specifications = [{ "text": specifications_ar.join(" || "), 'xpath': row.specifications[0].xpath }];
-          }
+            var specificationArr = [];
+            row.specifications.forEach(item => {
+              item.text = item.text.replace(/\n\s\n/, ' || ');
+              specificationArr.push(item.text);
+            });
+            if (specificationArr.length) {
+              row.specifications = [{ "text": specificationArr.join(" || ") }];
+            } else {
+              delete row.specifications;
+            }
         }
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-        } 
+        }
+        if (row.price) {
+            row.price.forEach(item => {
+              item.text = item.text.replace(/\B(?=(\d{2})+(?!\d))/g, ".").trim();
+            });
+        }
         if (row.category) {
           let info = [];
           row.category.forEach(item => {
