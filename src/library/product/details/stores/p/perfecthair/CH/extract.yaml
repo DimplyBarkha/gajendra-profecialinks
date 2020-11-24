@@ -1,0 +1,102 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop = "aggregateRating"]//meta[@itemprop = "ratingValue"]//@content
+    regExp: (.*)\.(.*)
+    regExpReplace: $1,$2
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class, "image-slider--thumbnails-slide")]//a[position()>1]/@href
+  - name: availabilityText
+    singleValue: false
+    xpath: //link[@itemprop = "availability"]//@href
+    regExp: http:\/\/schema\.org\/(.*)
+    regExpReplace: $1
+  - name: brandText
+    singleValue: false
+    xpath: //span[contains(@class, "supplier--name")]//h2
+  - name: category
+    singleValue: false
+    xpath: //ul[@class = "breadcrumb--list"]//span[@class = "breadcrumb--title"]
+  - name: color
+    singleValue: false
+    xpath: //td[contains(@class, "product--properties-label")]//h4[contains(text(), "Farben:")]//parent::td//following-sibling::td//a
+  - name: coupon
+    singleValue: false
+    xpath: //a[@class = "navigation--link" and contains(@title, "Coupons")]/@href
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, "product--description")]//p[not(child::strong)]  
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id="import_product_ean"]
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class, "product--image-container")]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[contains(@class, "product--image-container")]//img)[1]/@alt
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //a[@class = "navigation--link" and contains(@title, "Disclaimer")]/@href
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class, "price--line-through")]
+    regExp: (.*)\.(.*)
+    regExpReplace: $1,$2
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class, "product-slider--container")]//div[contains(@class, "blog--box-description-short")]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class, "product-slider--container")]//img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name = "keywords"]/@content
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop = "name"]/text()
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop = "name"]/text()  
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class, "price--content")]/.
+    regExp: (.*)\.(.*)
+    regExpReplace: $1,$2
+  - name: quantity
+    singleValue: false
+    xpath: //select[@id = "sQuantity"]/option[position() = 1]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class = "rating--count"]  
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop = "sku"]
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class, "product--properties-table")]//tr[@class = "product--properties-row"]
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //a[@title = "Shipping and payment terms"]//@href
+  - name: variantCount
+    singleValue: false
+    defaultValue: "0"
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop = "productID"]/@content  
+  - name: videos
+    singleValue: false
+    xpath: //iframe[contains(@src, "youtube")]/@src
+  - name: weightNet
+    singleValue: false
+    xpath: //li[contains(text(), "Gewicht:")]
+    regExp: (.*):\s(.*)
+    regExpReplace: $2
