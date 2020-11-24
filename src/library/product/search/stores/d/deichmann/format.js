@@ -38,7 +38,7 @@ const transform = (data, context) => {
         }
         row.rank = [{ text: rankCounter }];
         if(row.productUrl){
-            row.productUrl[0].text = 'https://www.deichmann.com/' + row.productUrl[0].text;
+            row.productUrl[0].text = 'https://www.deichmann.com' + row.productUrl[0].text;
         }
 
         if(row.reviewCount){
