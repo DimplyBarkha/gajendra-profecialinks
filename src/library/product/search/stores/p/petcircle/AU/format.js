@@ -24,9 +24,25 @@ const transform = (data) => {
     };
     
     for (const { group } of data) {
+      let rank = 1;
       for (const row of group) {
-        
-        
+        if(row.variantType){
+          var arrTemp = []
+          row.variantType.forEach(item => {
+            //console.log(item.text)
+            arrTemp.push(item.text)
+          })
+          row.variantType = [{ "text": arrTemp.join(' | ') }]
+        }
+        if(row.name){
+          row.name[0].text = row.name[0].text.split(',')[0]
+        }
+        if(row.productUrl){
+          row.productUrl[0].text = 'https://www.petcircle.com.au' + row.productUrl[0].text
+        }
+
+        row.rank = row.rankOrganic = [{ "text": rank }];
+        rank++;
       }
     }
 

@@ -5,6 +5,7 @@ module.exports = {
     store: 'petcircle',
     nextLinkSelector: 'li.arrow.right>a,turn-page',
     mutationSelector: null,
+//    spinnerSelector: 'div.loader',
     spinnerSelector: null,
     loadedSelector: 'ul#productListing',
     noResultsXPath: '//div[@class="top-content"]',
