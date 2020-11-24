@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@id,'prodGrid')]//div[contains(@class,'prod-widget-responsive')]
+fields:
+  - name: productUrl
+    xpath: //a[contains(@id,'brnd-titles')]/@href
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //img[contains(@itemprop,'image')]/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //h4[contains(@class,'brnds-itms')] | //h3[contains(@class,'item-name')]
+    description: The product name
+  - name: aggregateRating2
+    xpath: //meta[contains(@itemprop,'ratingValue')]/@content
+    description: The stated aggregate rating
+  - name: ratingCount
+    xpath: //meta[contains(@itemprop,'reviewCount')]/@content
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //meta[contains(@itemprop,'reviewCount')]/@content
+    description: The number of reviews
+  - name: price
+    xpath: //meta[@itemprop='price']/@content
+    description: The offered price for the product
+  - name: soldBy
+    xpath: //span[@itemprop='seller']//meta[@itemprop='name']/@content
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: id
+    xpath: ./@data-product-id
+    description: Unique id (within this extractor)
+  
