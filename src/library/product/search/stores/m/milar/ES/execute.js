@@ -16,13 +16,19 @@ async function implementation (
 
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  const loginPrompt = await context.evaluate(async function() {
+    if(document.querySelector("#code-close")) {
+      console.log("clicking to close the  prompt")
+      document.querySelector("#code-close").click();
+    }
+  });
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   await context.waitForSelector('input[name=buscador]');
   await context.setInputValue('input[name=buscador]',inputs.keywords);
   await context.click('input[name=buscador]');
   context.waitForNavigation();
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-
   let scrollTop = 0;
   while (scrollTop !== 200000) {
     await stall(500);
