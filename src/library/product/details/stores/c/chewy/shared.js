@@ -33,17 +33,7 @@ const transform = (data) => {
         },
         ];
       }
-      if (row.variants) {
-        let text = '';
-        row.variants.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
-        });
-        row.variants = [
-          {
-            text: text.slice(0, -2),
-          },
-        ];
-      }
+      
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n*\s\n)+/g, ' |');
       }
@@ -62,10 +52,41 @@ const transform = (data) => {
       }
 
       if (row.variantInformation) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
         row.variantInformation.forEach(item => {
-          item.text = item.text.replace(/(\s?\n)+/g, ' , ').trim();
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ', ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
         });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.variantInformation = nDesc;
       }
+
+      if (row.variants) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.variants.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + '| ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.variants = nDesc;
+      }
+
 
       if (row.description) {
         row.description.forEach(item => {

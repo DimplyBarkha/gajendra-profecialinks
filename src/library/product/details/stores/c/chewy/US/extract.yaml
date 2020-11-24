@@ -136,7 +136,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    xpath: //div/@data-current-sku-name
+    xpath: //div[@id="product-title"]/h1
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
