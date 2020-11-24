@@ -26,7 +26,7 @@ module.exports = {
         return 'Btn clicked';
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     await context.evaluate(async () => {
       const moreBtn = document.querySelectorAll('div input[name="view-more"]');
       if (moreBtn) {
@@ -40,33 +40,35 @@ module.exports = {
     });
     await new Promise(resolve => setTimeout(resolve, 3000));
     await context.evaluate(async () => {
-      const descNode = document.querySelector('div.product-info-description');
+      // const descNode = document.querySelector('div.product-info-description');
       let desc = '';
       const images = [];
-      if (descNode && descNode.innerText) {
-        desc = descNode.innerText;
-        desc = desc.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
-      }
-      const descNode1 = document.querySelector('div.syndi_powerpage');
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      if (descNode1 && descNode1.shadowRoot) {
-        const fetchNode = descNode1.shadowRoot.firstChild;
-        const text = fetchNode.innerText;
-        // desc = desc + text;
-
-        const manImages = fetchNode.querySelectorAll('img');
-        if (manImages && manImages.length > 0) {
-          for (let i = 0; i < manImages.length; i++) {
-            images.push(manImages[i].src);
+      // if (descNode && descNode.innerText) {
+      //   desc = descNode.innerText;
+      //   desc = desc.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
+      // }
+      try {
+        const descNode1 = document.querySelector('div.syndi_powerpage');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (descNode1 && descNode1.shadowRoot) {
+          const fetchNode = descNode1.shadowRoot.firstChild;
+          const text = fetchNode.innerText;
+          desc = desc + text;
+          desc = desc.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
+          const manImages = fetchNode.querySelectorAll('img');
+          if (manImages && manImages.length > 0) {
+            for (let i = 0; i < manImages.length; i++) {
+              images.push(manImages[i].src);
+            }
           }
         }
-      }
+      } catch (err) { }
       if (images.length > 0) {
         const image = images.join(' | ');
         addHiddenDiv('manuf-images', image);
       }
       if (desc.length > 0) {
-        addHiddenDiv('product-desc', desc);
+        // addHiddenDiv('product-desc', desc);
       }
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -77,7 +79,7 @@ module.exports = {
       }
       return [`desc.length = ${desc.length}`, `images : ${images.length}`];
     });
-
+    await new Promise(resolve => setTimeout(resolve, 2000));
     // await context.evaluate(async function () {
     //   const desc = document.querySelector('div.syndi_powerpage');
     //   if (desc) {
