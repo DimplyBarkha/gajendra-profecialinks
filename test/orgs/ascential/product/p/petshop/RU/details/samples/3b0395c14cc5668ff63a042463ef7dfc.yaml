@@ -1,0 +1,78 @@
+input:
+  id: 25199
+  _url: http://petshop.ru
+extractions:
+  - html: https://workbench.import.io/html/run=c4349563-926b-495a-a02a-6221144443c9/task=edd7a203-222a-420d-a5f4-35fc778ff521/2e0633a6-1b71-495a-981b-2358a15a1aec.html
+    extractionConfigId: product/details/stores/p/petshop/RU/extract
+    data:
+      - group:
+          - nameExtended:
+              - text: Purina Pro Plan (вет. корма) - Purina Pro Plan (вет. корма) кусочки в
+                  соусе для кошек при мочекаменной болезни с курицей, UR - 25199
+                xpath: /html/body/ol[1]/li[1]/@name_extended
+            price:
+              - text: 78 ₽
+                xpath: /html/body/ol[1]/li[1]/@price
+            description:
+              - text: >-
+                  Диетический корм при заболеваниях нижних отделов мочевыводящих
+                  путей у взрослых кошек.
+                   - Растворение струвитных камней- Профилактика повторного появления струвитных камней- Профилактика повторного появления оксалатов- Идиопатическое нарушение мочеиспускания 
+                   
+                   
+                   
+                   
+                   
+                   Способствует образованию недонасыщенной мочи для предотвращения образования струвитов и метастабильной мочи для оксалата кальция (защита мочевыделительной системы St/Ox).
+                   
+                   
+                   
+                   Способствует образованию разбавленной мочи, 
+                   
+                   которая приводит к растворению струвитных камней.
+                   
+                   
+                   
+                   Умеренное содержание жиров и калорий, 
+                   
+                   позволяет поддерживать идеальную массу тела (ожирение является фактором риска для урологического синдрома).
+                   
+                   
+                   
+                   
+                   Противопоказания: 
+                   - Рост и репродукция 
+                   - Хроническая почечная недостаточность 
+                   - Другие состояния, связанные с диурезом 
+                   - Задержка жидкости, например, асцит и отеки
+                xpath: /html/body/ol[1]/li[1]/@description
+            brandText:
+              - text: Purina Pro Plan (вет. корма)
+                xpath: /html/body/ol[1]/li[1]/@brand
+            variantId:
+              - text: "25199"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            ratingCount:
+              - text: "288"
+                xpath: /html/body/ol[1]/li[1]/@rating_count
+            aggregateRating:
+              - text: "41"
+                xpath: /html/body/ol[1]/li[1]/@aggregate_rating
+                type: NUMBER
+                raw: "4.1"
+                locale: ru
+                value: 41
+            variantCount:
+              - text: "1"
+                xpath: /html/body/ol[1]/li[1]/@variant_count
+            name:
+              - text: Purina Pro Plan (вет. корма) кусочки в соусе для кошек при мочекаменной
+                  болезни с курицей, UR
+                xpath: /html/body/ol[1]/li[1]/@product_name
+            brandLink:
+              - text: https://www.petshop.ru/brand/purina_vet_korma/
+                xpath: /html/body/ol[1]/li[1]/@brand_link
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1606226713213

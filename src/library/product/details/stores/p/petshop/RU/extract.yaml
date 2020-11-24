@@ -14,12 +14,15 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //ol[@id="images"]/li[position()=1]/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //ol[@id="images"]/li[position()=1]/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //ol[@id="images"]/li[position()>1]/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -54,6 +57,7 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: //description_bullets
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -106,6 +110,7 @@ fields:
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
+  type: NUMBER
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
   xpath: //@aggregate_rating
@@ -137,6 +142,7 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //ol[@id="videos"]/li/@src
 - name: name
   singleValue: true
   description: The product name
@@ -174,11 +180,9 @@ fields:
     to be collapsed
 - name: subscriptionPrice
   description: Subscribe and save price
-  xpath: ancestor::html//div[contains(@class, "style_price_wrapper")]/div/span/text()[contains(., "автозаказу")]/ancestor::div[contains(@class, "style_price_wrapper")]//div[contains(@class, "style_price_current")]/span[@itemprop="priceCurrency"]
 - name: subscribeAndSave
   singleValue: true
   description: YES/NO
-  xpath: boolean (ancestor::html//div[contains(@class, "style_price_wrapper")]/div/span/text()[contains(., "автозаказу")]/ancestor::div[contains(@class, "style_price_wrapper")]//div[contains(@class, "style_price_current")]/span[@itemprop="priceCurrency"])
 - name: heroQuickPromoHeadline
   singleValue: true
   description: See image - top section hero area
@@ -393,9 +397,11 @@ fields:
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
+  xpath: //@salt_per_serving
 - name: saltPerServingUom
   singleValue: true
   description: Unit of Measure Data for Salt
+  xpath: //@salt_per_serving_uom
 - name: dietaryInformation
   singleValue: true
   description: 
@@ -465,6 +471,7 @@ fields:
 - name: variants
   singleValue: false
   description: 
+  selector: div[class^="style_info"] div[class^="style_tile_wrapper"] > label > div[class^="style_tile_content"] > div[class^="style_tile"]:first-child
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
@@ -503,12 +510,15 @@ fields:
   regExp: 'Материал: (.+)'
   regExpReplace: $1
 - name: Image360Present
+  type: BOOLEAN
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
+  xpath: //@image_360_present
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: false
+  xpath: boolean(ancestor::html//div[@id="zoom"])

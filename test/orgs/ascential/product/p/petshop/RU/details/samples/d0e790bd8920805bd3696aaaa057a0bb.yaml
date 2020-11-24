@@ -1,0 +1,83 @@
+input:
+  id: 11122
+  _url: http://petshop.ru
+extractions:
+  - html: https://workbench.import.io/html/run=c4349563-926b-495a-a02a-6221144443c9/task=c234efe1-91f1-4756-9662-a5d258c718c2/caaaa86e-70e5-4da0-b27a-c9439f93197f.html
+    extractionConfigId: product/details/stores/p/petshop/RU/extract
+    data:
+      - group:
+          - nameExtended:
+              - text: Royal Canin (сухие корма) - Корм Royal Canin (сухие корма) для щенков
+                  гигантских пород 8-18/24 мес., Giant Junior - 11122
+                xpath: /html/body/ol[1]/li[1]/@name_extended
+            listPrice:
+              - text: 5 113 ₽
+                xpath: /html/body/ol[1]/li[1]/@list_price
+            price:
+              - text: 4 704 ₽
+                xpath: /html/body/ol[1]/li[1]/@price
+            brandText:
+              - text: Royal Canin (сухие корма)
+                xpath: /html/body/ol[1]/li[1]/@brand
+            variantId:
+              - text: "11122"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            ratingCount:
+              - text: "422"
+                xpath: /html/body/ol[1]/li[1]/@rating_count
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/ol[1]/li[1]/@aggregate_rating
+                type: NUMBER
+                raw: "5"
+                locale: ru
+                value: 5
+            variantCount:
+              - text: "2"
+                xpath: /html/body/ol[1]/li[1]/@variant_count
+            name:
+              - text: Корм Royal Canin (сухие корма) для щенков гигантских пород 8-18/24 мес.,
+                  Giant Junior
+                xpath: /html/body/ol[1]/li[1]/@product_name
+            brandLink:
+              - text: https://www.petshop.ru/brand/royal_canin/
+                xpath: /html/body/ol[1]/li[1]/@brand_link
+            imageZoomFeaturePresent:
+              - text: "true"
+          - nameExtended:
+              - text: Royal Canin (сухие корма) - Корм Royal Canin (сухие корма) для щенков
+                  гигантских пород 8-18/24 мес., Giant Junior - 40955
+                xpath: /html/body/ol[1]/li[2]/@name_extended
+            price:
+              - text: 1 380 ₽
+                xpath: /html/body/ol[1]/li[2]/@price
+            brandText:
+              - text: Royal Canin (сухие корма)
+                xpath: /html/body/ol[1]/li[2]/@brand
+            variantId:
+              - text: "40955"
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            ratingCount:
+              - text: "422"
+                xpath: /html/body/ol[1]/li[2]/@rating_count
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/ol[1]/li[2]/@aggregate_rating
+                type: NUMBER
+                raw: "5"
+                locale: ru
+                value: 5
+            variantCount:
+              - text: "2"
+                xpath: /html/body/ol[1]/li[2]/@variant_count
+            name:
+              - text: Корм Royal Canin (сухие корма) для щенков гигантских пород 8-18/24 мес.,
+                  Giant Junior
+                xpath: /html/body/ol[1]/li[2]/@product_name
+            brandLink:
+              - text: https://www.petshop.ru/brand/royal_canin/
+                xpath: /html/body/ol[1]/li[2]/@brand_link
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1606226720663
