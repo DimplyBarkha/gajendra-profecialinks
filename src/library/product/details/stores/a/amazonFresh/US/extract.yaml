@@ -3,6 +3,10 @@ extends: ../../../../sharedAmazon/shared
 fields:
   - name: availabilityTextFresh
     xpath: //*[@id="almAvailability_feature_div"]/div[contains(@id,"availability-string")]
+  - name: availabilityTextFreshUnavailable
+    xpath: //div[@id="outOfStock"]
+    regExp: (.+)
+    regExpReplace: Out of Stock
   - name: shippingInfo
     xpath: //*[@data-feature-name="freshShipsFromSoldBy"]
   - name: gtin

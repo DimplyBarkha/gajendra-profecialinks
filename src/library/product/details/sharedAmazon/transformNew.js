@@ -357,6 +357,10 @@ const transform = (data, context) => {
       } else if (row.availabilityText) {
         delete row.availabilityText;
       }
+      if (row.availabilityTextFreshUnavailable) {
+        row.availabilityText = row.availabilityTextFreshUnavailable;
+        delete row.availabilityTextFreshUnavailable;
+      }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
           el.text = clean(el.text);
