@@ -11,9 +11,13 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const inputUrl = inputsUrl || inputsURL || url;
+  const inputUrl = inputsUrl || inputsURL;
+  console.log('1inputUrl6')
+  console.log(inputUrl)
   const destinationUrl = inputUrl || url.replace('{searchTerms}', encodeURIComponent(keywords));
-  await dependencies.goto({ url: destinationUrl, zipcode });
+  console.log(keywords)
+  console.log('1destinationUrl2')
+  console.log(destinationUrl)
   await dependencies.goto({ url: destinationUrl, zipcode });
 
   if (loadedSelector) {

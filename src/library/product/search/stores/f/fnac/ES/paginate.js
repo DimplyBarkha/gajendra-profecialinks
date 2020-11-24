@@ -14,5 +14,6 @@ module.exports = {
     },
     domain: 'fnac.es',
     zipcode: '',
+    stopConditionSelectorOrXpath: null,
   },
 };

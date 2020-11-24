@@ -1,36 +1,40 @@
 /**
  *
  * @param {{
- *  keywords: string,
- *  page: number,
- *  offset: number,
- * }} inputs
- * @param {{
- *  nextLinkSelector: string,
- *  nextLinkXpath: string,
- *  mutationSelector: string,
- *  loadedSelector: string,
- *  loadedXpath: string,
- *  noResultsXPath: string,
- *  spinnerSelector: string,
- *  stopConditionSelectorOrXpath: string,
- *  resultsDivSelector: string,
- *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number, pageIndexMultiplier?: number, pageStartNb?: number }
- * }} parameters
- * @param { ImportIO.IContext } context
- * @param { Record<string, any> } dependencies
- */
+  *  keywords: string,
+  *  page: number,
+  *  offset: number,
+  * }} inputs
+  * @param {{
+  *  nextLinkSelector: string,
+  *  nextLinkXpath: string,
+  *  mutationSelector: string,
+  *  loadedSelector: string,
+  *  loadedXpath: string,
+  *  noResultsXPath: string,
+  *  spinnerSelector: string,
+  *  stopConditionSelectorOrXpath: string,
+  *  resultsDivSelector: string,
+  *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number, pageIndexMultiplier?: number, pageStartNb?: number }
+  * }} parameterValues
+  * @param { ImportIO.IContext } context
+  * @param { Record<string, any> } dependencies
+  */
 
 const { preCompileFunctions } = require('../navigationHelperLibrary');
 
 async function implementation (
   inputs,
-  parameters,
+  parameterValues,
   context,
   dependencies,
 ) {
   const { id, date, keywords, page, offset } = inputs;
-  const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+  console.log('inputs12')
+  console.log(inputs)
+  console.log('parammm')
+  console.log(parameterValues)
+  const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameterValues;
 
   let nextLink;
 
@@ -135,7 +139,7 @@ async function implementation (
 }
 
 module.exports = {
-  parameters: [
+  parameterValues: [
     {
       name: 'template',
       description: 'type of template calling the code',
@@ -199,7 +203,7 @@ module.exports = {
     name: 'offset',
     description: 'offset (0 indexed)',
   }],
-  get path () {
+  get () {
     const actionjsPath = preCompileFunctions.getRobotTemplateName();
     return `${actionjsPath}/stores/\${store[0:1]}/\${store}/\${country}/paginate`;
   },
