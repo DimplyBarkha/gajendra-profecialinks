@@ -16,7 +16,8 @@ async function implementation (
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
+        document.body.appendChild(newDiv);
+      
     }
     const getAllXpath = (xpath, prop) => {
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -27,6 +28,11 @@ async function implementation (
       }
       return result;
     };
+    const Price1 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/text()[1]",'nodeValue');
+    const Price2 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/sup/text()",'nodeValue');
+    const Price3 = Price2[0].replace("€", ".");
+    let finalprice=Price1[0] + Price3+"€";
+    addHiddenDiv('price', finalprice);
   // @ts-ignore
   const brandText = window.dataLayer[0].ecommerce.detail.products[0].brand;
   addHiddenDiv('brandText', brandText);
@@ -50,35 +56,19 @@ async function implementation (
   addHiddenDiv('gtinValue', gtinValue)
  
    // @ts-ignore
-   let warningInfo="";
-     // @ts-ignore
-   if(document.getElementsByClassName('prodInfoTxtData')[1].textContent.includes("WARNING")){
-    alert('hi')
-    // @ts-ignore
-     warningInfo = document.getElementsByClassName('prodInfoTxtData')[1].textContent
-    addHiddenDiv('warningInfo', warningInfo);
-   }
-   else{
-     warningInfo=""
-     addHiddenDiv('warningInfo', warningInfo);
-   }
-   // @ts-ignore
-  // var getProductName=splitProductInfo[2]
-  // var productNameData=getProductName.split('=')
-  // var productName=productNameData[1]
-  // addElementToDocument('productName', productName)
-
-    const price = document.querySelector('div.finalPrice');
-     // @ts-ignore
-    if (price && price.textContent) {
-       // @ts-ignore
-      let priceText = price.textContent;
-      if (priceText.includes('€')) {
-        priceText = priceText.replace('€', '.');
-        priceText=priceText+'€'
-      }
-      addHiddenDiv('priceText', priceText);
-    }
+  //  let warningInfo="";
+  //    // @ts-ignore
+  //  if(document.getElementsByClassName('prodInfoTxtData')[1].textContent.includes("WARNING")){
+  //   alert('hi')
+  //   // @ts-ignore
+  //    warningInfo = document.getElementsByClassName('prodInfoTxtData')[1].textContent
+  //   addHiddenDiv('warningInfo', warningInfo);
+  //  }
+  //  else{
+  //    warningInfo=""
+  //    addHiddenDiv('warningInfo', warningInfo);
+  //  }
+    
   });
 
 

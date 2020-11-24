@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'FR',
     store: 'marionnaud',
-    transform: cleanUp,
+    transform: transform,
     domain: 'marionnaud.fr',
     zipcode: '',
   },
@@ -25,25 +25,25 @@ implementation: async (
       const originalDiv = document.querySelectorAll("li[class='col-lg-3 col-md-3 col-sm-4']")[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-    let rankOrganic;
-    let url = window.location.href;
-    let checkPageNumber = url.split('&')[2];
-    try {
-      if (checkPageNumber.startsWith('page=')) {
-        rankOrganic = checkPageNumber.replace('page=', '');
-      }
-    }
-    catch (err) {
-    }
-    if (!rankOrganic) {
-      rankOrganic = 1;
-    } else {
-      rankOrganic = (parseInt(rankOrganic) * 100) + 1;
-    }
-    const urlProduct = document.querySelectorAll("li[class='col-lg-3 col-md-3 col-sm-4']");
-      for (let i = 0; i < urlProduct.length; i++) {
-        addHiddenDiv('rankOrganic', rankOrganic++, i);
-      }
+    // let rankOrganic;
+    // let url = window.location.href;
+    // let checkPageNumber = url.split('&')[2];
+    // try {
+    //   if (checkPageNumber.startsWith('page=')) {
+    //     rankOrganic = checkPageNumber.replace('page=', '');
+    //   }
+    // }
+    // catch (err) {
+    // }
+    // if (!rankOrganic) {
+    //   rankOrganic = 1;
+    // } else {
+    //   rankOrganic = (parseInt(rankOrganic) * 100) + 1;
+    // }
+    // const urlProduct = document.querySelectorAll("li[class='col-lg-3 col-md-3 col-sm-4']");
+    //   for (let i = 0; i < urlProduct.length; i++) {
+    //     addHiddenDiv('rankOrganic', rankOrganic++, i);
+    //   }
     const price = document.querySelectorAll('div.productMainLink div.infoTextCarousel div span.lineinner');
     //const length1=price.length
     for (let k = 0; k < price.length; k++) {
