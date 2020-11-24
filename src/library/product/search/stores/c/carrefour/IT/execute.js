@@ -9,7 +9,7 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
-}; 
+};
 implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   const applyScroll = async function (context) {
@@ -24,7 +24,7 @@ implementation: async ({ url }, { country, domain, transform }, context, { produ
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
