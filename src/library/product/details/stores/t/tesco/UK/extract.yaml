@@ -61,9 +61,9 @@ fields:
     regExpReplace: $1
   - name: asin
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-    regExp: sku":"([^"]+)
-    regExpReplace: $1
+    # xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    # regExp: sku":"([^"]+)
+    # regExpReplace: $1
   - name: variantId
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
@@ -81,7 +81,7 @@ fields:
     regExpReplace: $1
   - name: shippingInfo
     singleValue: true
-    xpath: //div[@id="return-address"]/ul
+    # xpath: //div[@id="return-address"]/ul
   - name: numberOfServingsInPackage
     singleValue: true
     xpath: //div[@id="uses"][contains(.,'serving')]/p
