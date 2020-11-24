@@ -97,8 +97,8 @@ module.exports.AmazonHelp = class {
   }
 
   async appendData () {
-    return await this.context.evaluate(async()=>{
-      const domain = window.location
+    return await this.context.evaluate(async () => {
+      const domain = window.location;
       const getParams = async () => {
         const paramLocators = [
           'pgid',
@@ -107,52 +107,52 @@ module.exports.AmazonHelp = class {
           'ptd',
           'storeID',
           'parent_asin',
-          'current_asin'
-        ]
-        const params = {}
-        const raw = document.evaluate("//script[contains(@language,'JavaScript') and contains(text(), 'pgid')  and  contains(text(), 'current_asin')]", document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
+          'current_asin',
+        ];
+        const params = {};
+        const raw = document.evaluate("//script[contains(@language,'JavaScript') and contains(text(), 'pgid')  and  contains(text(), 'current_asin')]", document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
         if (raw) {
           paramLocators.forEach(param => {
             if (raw.innerText.includes(param)) {
-              let regex = new RegExp(`${param}":"([^"]+)`, 's')
-              const paramMatch = raw.innerText.match(regex)
-              const paramClean = paramMatch && paramMatch.length > 1 ? paramMatch[1] : false
+              const regex = new RegExp(`${param}":"([^"]+)`, 's');
+              const paramMatch = raw.innerText.match(regex);
+              const paramClean = paramMatch && paramMatch.length > 1 ? paramMatch[1] : false;
               if (paramClean) {
-                params[`${param}`] = paramClean
+                params[`${param}`] = paramClean;
               }
             }
-          })
+          });
         }
-        console.log('params', params)
-        return params
+        console.log('params', params);
+        return params;
       };
-      const params = await getParams()
+      const params = await getParams();
       if (Object.keys(params).length === 7) {
-        let url
+        let url;
         if (domain.hostname.includes('com')) {
-          url = `https://${domain.hostname}/gp/page/refresh?acAsin=${params.current_asin}&asinList=${params.current_asin}&auiAjax=1&dpEnvironment=softlines&dpxAjaxFlag=1&ee=2&enPre=1&id=${params.current_asin}&isFlushing=2&isP=1&isUDPFlag=1&json=1&mType=full&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&pgid=${params.pgid}&psc=1&ptd=${params.ptd}&rid=${params.rid}=1&sCac=1&sid=${params.sid}&storeID=${params.storeID}&triggerEvent=Twister&twisterView=glance`
+          url = `https://${domain.hostname}/gp/page/refresh?acAsin=${params.current_asin}&asinList=${params.current_asin}&auiAjax=1&dpEnvironment=softlines&dpxAjaxFlag=1&ee=2&enPre=1&id=${params.current_asin}&isFlushing=2&isP=1&isUDPFlag=1&json=1&mType=full&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&pgid=${params.pgid}&psc=1&ptd=${params.ptd}&rid=${params.rid}=1&sCac=1&sid=${params.sid}&storeID=${params.storeID}&triggerEvent=Twister&twisterView=glance`;
         } else {
-          url = `https://${domain.hostname}/gp/twister/ajaxv2?acAsin=${params.current_asin}&sid=${params.sid}&ptd=${params.ptd}&sCac=1&twisterView=glance&pgid=${params.pgid}&rid=${params.rid}&dStr=size_name&auiAjax=1&json=1&dpxAjaxFlag=1&isUDPFlag=1&ee=2&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&enPre=1&dcm=1&udpWeblabState=T1&storeID=${params.storeID}&ppw=&ppl=&isFlushing=2&dpEnvironment=hardlines&asinList=${params.current_asin}&id=${params.current_asin}&mType=full&psc=1`
+          url = `https://${domain.hostname}/gp/twister/ajaxv2?acAsin=${params.current_asin}&sid=${params.sid}&ptd=${params.ptd}&sCac=1&twisterView=glance&pgid=${params.pgid}&rid=${params.rid}&dStr=size_name&auiAjax=1&json=1&dpxAjaxFlag=1&isUDPFlag=1&ee=2&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&enPre=1&dcm=1&udpWeblabState=T1&storeID=${params.storeID}&ppw=&ppl=&isFlushing=2&dpEnvironment=hardlines&asinList=${params.current_asin}&id=${params.current_asin}&mType=full&psc=1`;
         }
         const parseResponse = (blob) => {
           const dataBlobs = blob.split('&&&').map(part => part.trim()).filter(part => part.length > 0).map(part => JSON.parse(part));
-          return dataBlobs
+          return dataBlobs;
         };
         const dataRaw = await fetch(url)
           .then(response => response.text())
-          .then(blob => parseResponse(blob))
-        console.log('# elements attempting to append: ', dataRaw.length)
+          .then(blob => parseResponse(blob));
+        console.log('# elements attempting to append: ', dataRaw.length);
         dataRaw.forEach(part => {
-          let element = document.getElementById(Object.keys(part.Value.content)[0])
-          if (!!element) {
+          const element = document.getElementById(Object.keys(part.Value.content)[0]);
+          if (element) {
             // element.innerHTML = Object.values(part.Value.content)[0]
           } else {
-            const div = document.createElement('div')
-            div.innerHTML = Object.values(part.Value.content)[0]
-            document.body.appendChild(div)
+            const div = document.createElement('div');
+            div.innerHTML = Object.values(part.Value.content)[0];
+            document.body.appendChild(div);
           }
-        })
-        return true
+        });
+        return true;
       } else { return false; }
     });
   }

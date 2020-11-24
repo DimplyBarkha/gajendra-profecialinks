@@ -1,0 +1,93 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@data-zone-name,"SearchSerp")]//div[@class="cia-vs"]
+fields: 
+  - name: pageN
+    singleValue: false
+    xpath: ancestor::html//div[@id='page-num']
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@data-auto="SerpPage"]//div//div//div//div//img/@src 
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: gtin
+    singleValue: false
+    xpath: 
+  - name: manufacturer
+    singleValue: false
+    xpath: 
+  - name: brandText
+    singleValue: false
+    xpath:
+  - name: name
+    singleValue: false
+    xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]//div//div[@data-tid="518f5fc0"]/span
+  - name: price
+    singleValue: false
+    xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]//div//div[@data-auto="price"]/span
+  - name: shippingInfo
+    singleValue: false
+    xpath:
+  # - name: rankOrganic
+  #   xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]/@data-zone-data
+  #   regExp: \"position":(\d+)
+  #   regExpReplace: $1 
+  # - name: aggregateRating
+  #   singleValue: false
+  #   xpath: //a[@rel="nofollow noopener"]//div[contains(@style, "width:")]/@style
+  # - name: aggregateRating2
+  #   singleValue: false
+  #   xpath: //a[@rel="nofollow noopener"]//div[contains(@style, "width:")]/@style
+  - name: reviewCount
+    singleValue: false
+    xpath:
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]//div[@data-cs-name="navigate"]//a[@rel="nofollow noopener"]//div//div//div//div//span[@data-tid="52906e8d"]/span
+  - name: soldBy
+    singleValue: false
+    xpath:
+  # - name: rank
+  #   singleValue: false
+  #   xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]/@data-zone-data
+  #   regExp: \"position":(\d+)
+  #   regExpReplace: $1 
+  - name: endorsementText
+    singleValue: false
+    xpath:
+  - name: variantId
+    singleValue: false
+    xpath:
+  - name: mpc
+    singleValue: false
+    xpath:
+  - name: variantType
+    singleValue: false
+    xpath:
+  - name: quantity
+    singleValue: false
+    xpath:
+  - name: packSize
+    singleValue: false
+    xpath:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]//div[@data-cs-name="navigate"]//a[@rel="nofollow noopener"]/@href
+    regExp: (\/.*)
+    regExpReplace: https://beru.ru$1 
+  - name: (PARAM)
+    singleValue: false
+    xpath:
+  - name: _input
+    singleValue: false
+    xpath:
+  - name: id
+    singleValue: false
+    xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]/@data-zone-data
+    regExp: \"productId":(\d+)
+    regExpReplace: $1 
+  - name: pageTimestamp 
+    singleValue: false
+    xpath:   
+  
