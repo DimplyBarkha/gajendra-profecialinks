@@ -45,5 +45,4 @@ const cleanUp = (data, context) => {
   }))));
   return data;
 };
-
 module.exports = { cleanUp };
