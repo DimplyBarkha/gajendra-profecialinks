@@ -1,0 +1,112 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="page-content-wrapper"]
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"mfcss_imagegrid-flexbox") and contains(@class,"mfcss_imagegrid-flexbox-thumbnails")]/div[contains(@class,"active")]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="mfcss_article-image-slider"]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"mfcss_imagegrid-flexbox") and contains(@class,"mfcss_imagegrid-flexbox-thumbnails")]/div[not(contains(@class,"active"))]/img/@src
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@class,"mfcss_breadcrumbs")]/li[position()>1]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--title"]/h2/span
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--price-container"]//span[@class="mfcss_article-detail--price-breakdown strike"]/span/span
+  - name: price
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--price-container"]//span[contains(@class,"primary")]/span/span
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--overview"]/div/div/p/strong/span[text()="Marka"]/parent::*/parent::*/span/span
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--overview"]/div/div/p/strong/span[text()="Nazwa firmy"]/parent::*/parent::*/span/span
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--overview"]/div/div/p/strong[text()="Zawartość netto"]/parent::*/span/text()
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--articlenumber"]/p/span
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--articlenumber"]/p/span
+  - name: packSize
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--overview"]/div/div/p/strong/span[text()="Przybliżona liczba porcji"]/parent::*/parent::*/span/span
+  - name: storage
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--overview"]/div/div/p/strong/span[text()="Warunki przechowywania"]/parent::*/parent::*/span/span
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/span/span/text()
+  - name: variantCount
+    singleValue: false
+    defultValue: '0'
+  - name: name
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--title"]/h2/span
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Wartość energetyczna"]/parent::*/td[1]
+  - name: caloriesFromFatPerServing
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Wartość energetyczna"]/parent::*/td[1]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Tłuszcz"]/parent::*/td[1]
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Tłuszcz"]/parent::*/td[1]
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="w tym kwasy tłuszczowe nasycone"]/parent::*/td[1]
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="w tym kwasy tłuszczowe nasycone"]/parent::*/td[1]
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Węglowodany"]/parent::*/td[1]
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Węglowodany"]/parent::*/td[1]
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Błonnik"]/parent::*/td[1]
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Błonnik"]/parent::*/td[1]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="w tym cukry"]/parent::*/td[1]
+    type: NUMBER
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="w tym cukry"]/parent::*/td[1]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Białko"]/parent::*/td[1]
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Białko"]/parent::*/td[1]
+  - name: saltPerServing
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Sól"]/parent::*/td[1]
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Sól"]/parent::*/td[1]
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@class="mfcss_article-detail--overview"]/div/p/a[@rel="noreferrer" and @target="_blank"]/@href
+    defaultValue: No
