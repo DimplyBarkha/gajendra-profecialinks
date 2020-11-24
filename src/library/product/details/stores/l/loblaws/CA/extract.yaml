@@ -249,6 +249,7 @@ fields:
       discernible start/end point
   - name: servingSize
     singleValue: false
+    xpath: //span/span[contains(.,"Serving Size")]/following-sibling::*
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
     singleValue: false
@@ -259,6 +260,7 @@ fields:
     type: NUMBER
   - name: caloriesPerServing
     singleValue: false
+    xpath: //span/span[contains(.,"Calories")]/following-sibling::*
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
