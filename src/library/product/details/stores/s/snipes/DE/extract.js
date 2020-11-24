@@ -45,6 +45,19 @@ module.exports = {
       var description1 = getXpath("(//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1]", 'nodeValue');
       description = description + ' ' + description1;
       addElementToDocument('description', description);
+      var aval = getXpath('//span[@class="b-availability-label-message js-availability-label-message"]/text()[1]', 'nodeValue');
+      if (aval != null) {
+        if (aval.includes('Dieser Artikel ist online leider nicht mehr verfügbar.')) {
+          aval = 'Out of stock';
+          addElementToDocument('aval', aval);
+        } else {
+          aval = 'In stock';
+          addElementToDocument('aval', aval);
+        }
+      } else {
+        aval = 'In stock';
+        addElementToDocument('aval', aval);
+      }
     });
     await context.extract(productDetails);
   },

@@ -76,3 +76,6 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class="b-pdp-color-carousel js-pdp-color-carousel slick-initialized slick-slider"]/div[@class="slick-list draggable"]/div/div)
+  - name: availabilityText
+    singleValue: true
+    xpath: //html//div[@id='aval']
