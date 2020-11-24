@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.productList li.product
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //li[@class="product"]//a/@href
+    regExp: .+-(.+)\/p
+    regExpReplace: $1
+  - name: productUrl
+    SingleValue: false
+    xpath: //li[@class="product"]//a/@href
+    regExp: .+-(.+)\/p
+    regExpReplace: https://www.tottus.cl$1    
+  - name: price
+    SingleValue: false
+    xpath: //li[@class="product"]//span[contains(@class,"cmrPrice")]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //li[@class="product"]//div[contains(@class,"img")]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //li[@class="product"]//div[contains(@class,"details")]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
