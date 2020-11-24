@@ -6,10 +6,12 @@ async function implementation (inputs, parameters, context, dependencies) {
   await context.evaluate(async () => {
     function addProp (name, prop) {
       let j = 0;
-      prop.forEach(element => {
-        document.querySelectorAll('.productinfo')[j].setAttribute(name, element);
-        j++;
-      });
+      if (prop !== [] && prop !== undefined) {
+        prop.forEach(element => {
+          document.querySelectorAll('.productinfo')[j].setAttribute(name, element);
+          j++;
+        });
+      }
     }
 
     function stall (ms) {
@@ -76,15 +78,16 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     const response = await fetch('https://merqueo.com/api/3.1/stores/63/search?q=leche&page=1&per_page=50&');
     const data = await response.json();
+    const allProductsNumber = rank.length;
 
-    for (i = 0; i < data.data.length; i++) {
+    for (i = 0; i < allProductsNumber; i++) {
       let price = data.data[i].attributes.price;
       price = '$' + price;
       document.querySelectorAll('.productinfo')[i].setAttribute('price', price);
     };
   });
 
-  return await context.extract(productDetails);
+  return await context.extract(productDetails, 'MERGE_ROWS');
 }
 module.exports = {
   implements: 'product/search/extract',
