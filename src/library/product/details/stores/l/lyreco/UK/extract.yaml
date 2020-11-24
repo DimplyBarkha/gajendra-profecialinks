@@ -17,10 +17,11 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class="breadcrumb float paddingTop10"]/li[position()>2]/text()
+    # xpath: //ul[@class="breadcrumb float paddingTop10"]/li[position()>2]/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -55,7 +56,8 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //span[contains(text(),'Brand')]/following::span[1]
+    xpath: //html//div[@id="brand"]
+    # xpath: //span[contains(text(),'Brand')]/following::span[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -125,7 +127,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //span[contains(text(),'Colour')]/following::span[1]/text()
+    xpath: //span[contains(text(),'Print Colour')]/following::span[1]/text()
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -399,6 +401,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //html//div[@id="warranty"]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -447,7 +450,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //html//div[@id="varinfo"]
+    xpath: //div[@class="product-selector--attributeValue product-selector--attributeSELECTED"]/div[last()]/text()
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -459,9 +462,11 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: (//div[@class="product-selector--attribute"]/a/div)[1]/div[2]
   - name: variants
     singleValue: false
     description: null
+    xpath: //html//div[@id="varinfo"]
   - name: additionalDescBulletInfo
     singleValue: true
     description: null

@@ -74,6 +74,31 @@ module.exports = {
     addElementToDocument('alt', alt);
   }
 
+  //brand 
+  var brand = getXpath("//span[contains(text(),'Brand')]/following::span[1]", 'nodeValue');
+  if(brand != null){
+    addElementToDocument('brand', brand);
+  } else {
+    brand = getXpath('//script[@type="application/ld+json"]/text()', 'nodeValue');
+    if( brand != null){
+      var abc = brand.split('": "');
+      brand = abc[3].split('",')[0]
+      addElementToDocument('brand', brand);
+    }    
+  }
+
+  // warranty 
+  var warranty = getXpath("//span[contains(text(),'Product Warranty')]/following::span[1]/text()", 'nodeValue');
+  if( warranty != null){
+    addElementToDocument('warranty', warranty);
+  }else{
+    warranty = getXpath('//span[@class="warranty_text"]/text()', 'nodeValue');
+    if ( warranty != null){
+      addElementToDocument('warranty', warranty);
+    }
+  }
+
+
     });
     await context.extract(productDetails);
   },
