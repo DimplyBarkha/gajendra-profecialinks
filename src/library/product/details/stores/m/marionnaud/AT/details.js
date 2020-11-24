@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'marionnaud.at',
-    timeout: 50000,
     country: 'AT',
     store: 'marionnaud',
+    domain: 'marionnaud.at',
     zipcode: '',
   },
 };
