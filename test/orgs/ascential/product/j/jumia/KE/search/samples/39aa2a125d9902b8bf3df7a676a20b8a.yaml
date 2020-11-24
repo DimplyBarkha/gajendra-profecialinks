@@ -2,204 +2,291 @@ input:
   keywords: Geisha soap
   _url: http://jumia.co.ke
 extractions:
-  - html: https://workbench.import.io/html/run=cbc55402-81af-42c8-828c-b39fa71a01e9/task=2cac3f20-e789-43d8-a137-616db47f0960/2701aef4-cd82-48bc-91af-2aed545cbc29.html
+  - html: https://workbench.import.io/html/run=bb92b215-b123-44da-b545-66ae587be4ef/task=8928bd44-2902-40ae-92ef-ec9e59da3e76/4dd6d11e-765b-4e52-8f0e-41b9a9be4f96.html
     extractionConfigId: product/search/stores/j/jumia/KE/extract
     data:
       - group:
           - id:
-              - text: GE855ST0HOX5INAFAMZ
+              - text: GE855ST0ZJXAUNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@data-id
             name:
-              - text: Geisha Traditional Black Soap 225G
+              - text: Geisha Moringa Oil Soap 225G
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/geisha-traditional-black-soap-225g-28161792.html
+              - text: https://www.jumia.co.ke/geisha-moringa-oil-soap-225g-28161795.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/29/716182/1.jpg?6725
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/59/716182/1.jpg?6725
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/@img
             aggregateRating2:
-              - text: 4,6
+              - text: "4.6"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]/div[1]
-                type: STRING
+                type: NUMBER
+                raw: "4.6"
+                locale: en_KE
+                value: 4.6
             reviewCount:
-              - text: "26"
+              - text: "19"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]
             ratingCount:
-              - text: "26"
+              - text: "19"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[2]
-            price:
-              - text: KSh 96
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[1]
-          - id:
-              - text: GE855DR0E77GRNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@data-id
-            name:
-              - text: Geisha Lemon And Honey Family Soap - 225g
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/lemon-and-honey-family-soap-225g-geisha-mpg173029.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/23/850891/1.jpg?8516
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
-            aggregateRating2:
-              - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]/div[1]
-                type: STRING
-            reviewCount:
-              - text: "28"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
-            ratingCount:
-              - text: "28"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
-            price:
-              - text: KSh 270
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[1]
-          - id:
-              - text: GE855ST0ZJXAUNAFAMZ
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@data-id
-            name:
-              - text: Geisha Moringa Oil Soap 225G
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/h3[1]
-            productUrl:
-              - text: https://www.jumia.co.ke/geisha-moringa-oil-soap-225g-28161795.html
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@href
-            thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/59/716182/1.jpg?6725
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
-            aggregateRating2:
-              - text: 4,6
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]/div[1]
-                type: STRING
-            reviewCount:
-              - text: "18"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]
-            ratingCount:
-              - text: "18"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]
             price:
               - text: KSh 86
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[1]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE855HB01JPVPNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@data-id
+            name:
+              - text: Geisha Coconut Milk & Honey Soap - 125g
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/geisha-coconut-milk-honey-soap-125g-12699520.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/02/599621/1.jpg?3624
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/@img
+            aggregateRating2:
+              - text: "4.4"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]/div[1]
+                type: NUMBER
+                raw: "4.4"
+                locale: en_KE
+                value: 4.4
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[2]
+            price:
+              - text: KSh 49
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[2]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE855HB0VFOG5NAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@data-id
+            name:
+              - text: Geisha Shea Butter & Honey Soap - 125g
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/shea-butter-honey-soap-125g-geisha-mpg125317.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/52/799621/1.jpg?1150
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/@img
+            aggregateRating2:
+              - text: "4.3"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]/div[1]
+                type: NUMBER
+                raw: "4.3"
+                locale: en_KE
+                value: 4.3
+            reviewCount:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]
+            ratingCount:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[2]
+            price:
+              - text: KSh 48
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[3]/a[1]/div[2]/div[1]
           - id:
-              - text: GE855HB0TRDQ1NAFAMZ
+              - text: GE855HB06CZ3PNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@data-id
             name:
-              - text: Geisha Soap Pink Value Pack 90gx4
+              - text: Geisha Aloe Vera&Honey Soap 125g
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/geisha-soap-pink-value-pack-90gx4-16368994.html
+              - text: https://www.jumia.co.ke/geisha-aloe-verahoney-soap-125g-16038601.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/49/986361/1.jpg?5177
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/10/683061/1.jpg?2686
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/@img
             aggregateRating2:
-              - text: 4,5
+              - text: "3.8"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]/div[1]
-                type: STRING
+                type: NUMBER
+                raw: "3.8"
+                locale: en_KE
+                value: 3.8
             reviewCount:
-              - text: "23"
+              - text: "4"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]
             ratingCount:
-              - text: "23"
+              - text: "4"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[2]
             price:
-              - text: KSh 131
+              - text: KSh 49
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[4]/a[1]/div[2]/div[1]
           - id:
-              - text: GE855DR1JVJT7NAFAMZ
+              - text: GE855HB05PEC5NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@data-id
             name:
-              - text: Geisha Aloe Vera And Honey Family Soap - 225g
+              - text: Geisha Lemon And Honey Soap 125g
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/geisha-aloe-vera-and-honey-family-soap-225g-19805839.html
+              - text: https://www.jumia.co.ke/geisha-lemon-and-honey-soap-125g-16038590.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/93/850891/1.jpg?8515
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/09/583061/1.jpg?3625
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/@img
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]/div[1]
+                type: NUMBER
+                raw: "4.5"
+                locale: en_KE
+                value: 4.5
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[2]
             price:
-              - text: KSh 172
+              - text: KSh 49
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[5]/a[1]/div[2]/div[1]
           - id:
-              - text: GE855HB1HPJ1DNAFAMZ
+              - text: GE855HB00CUO5NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@data-id
             name:
-              - text: Geisha Soap Pink Value Pack - 200g (Pack Of 3)
+              - text: Geisha Rose & Honey Soap - 125g
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/geisha-soap-pink-value-pack-200g-pack-of-3-12701209.html
+              - text: https://www.jumia.co.ke/geisha-rose-honey-soap-125g-12699500.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/90/210721/1.jpg?7744
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/00/599621/1.jpg?3625
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/@img
-            aggregateRating2:
-              - text: 5,
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]/div[1]
-                type: STRING
-            reviewCount:
-              - text: "9"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]
-            ratingCount:
-              - text: "9"
-                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[2]
             price:
-              - text: KSh 184
+              - text: KSh 49
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[6]/a[1]/div[2]/div[1]
           - id:
-              - text: GE855HB0FAM8LNAFAMZ
+              - text: GE855DR0E77GRNAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@data-id
             name:
-              - text: Geisha Ab Soap Chamom & Vitamin E - 225g
+              - text: Geisha Lemon And Honey Family Soap - 225g
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/geisha-ab-soap-chamom-vitamin-e-225g-12698652.html
+              - text: https://www.jumia.co.ke/lemon-and-honey-family-soap-225g-geisha-mpg173029.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/25/689621/1.jpg?7923
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/23/850891/1.jpg?8516
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/@img
             aggregateRating2:
-              - text: 4,5
+              - text: "4.6"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]/div[1]
-                type: STRING
+                type: NUMBER
+                raw: "4.6"
+                locale: en_KE
+                value: 4.6
             reviewCount:
-              - text: "2"
+              - text: "28"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]
             ratingCount:
-              - text: "2"
+              - text: "28"
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[2]
             price:
-              - text: KSh 106
+              - text: KSh 270
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[7]/a[1]/div[2]/div[1]
           - id:
-              - text: GE855ST17E4WFNAFAMZ
+              - text: GE855DR1JVJT7NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@data-id
             name:
-              - text: Geisha Coconut Milk & Honey Soap - 225g
+              - text: Geisha Aloe Vera And Honey Family Soap - 225g
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/geisha-coconut-milk-honey-soap-225g-32038827.html
+              - text: https://www.jumia.co.ke/geisha-aloe-vera-and-honey-family-soap-225g-19805839.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/72/883023/1.jpg?5872
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/93/850891/1.jpg?8515
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/@img
             price:
-              - text: KSh 210
+              - text: KSh 172
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[8]/a[1]/div[2]/div[1]
           - id:
-              - text: GE840ST15HC1RNAFAMZ
+              - text: GE855HB0TRDQ1NAFAMZ
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@data-id
             name:
-              - text: Generic Geisha Lemon & Honey Soap - 225g
+              - text: Geisha Soap Pink Value Pack 90gx4
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/h3[1]
             productUrl:
-              - text: https://www.jumia.co.ke/generic-geisha-lemon-honey-soap-225g-32037696.html
+              - text: https://www.jumia.co.ke/geisha-soap-pink-value-pack-90gx4-16368994.html
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@href
             thumbnail:
-              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/69/673023/1.jpg?0767
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/49/986361/1.jpg?5177
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/@img
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[2]/div[1]
+                type: NUMBER
+                raw: "4.5"
+                locale: en_KE
+                value: 4.5
+            reviewCount:
+              - text: "23"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[2]
+            ratingCount:
+              - text: "23"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[2]
             price:
-              - text: KSh 280
+              - text: KSh 131
                 xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[9]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE855HB1HPJ1DNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@data-id
+            name:
+              - text: Geisha Soap Pink Value Pack - 200g (Pack Of 3)
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/geisha-soap-pink-value-pack-200g-pack-of-3-12701209.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/90/210721/1.jpg?7744
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/@img
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/div[2]/div[1]
+                type: NUMBER
+                raw: "5"
+                locale: en_KE
+                value: 5
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/div[2]
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/div[2]
+            price:
+              - text: KSh 184
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[10]/a[1]/div[2]/div[1]
+          - id:
+              - text: GE855HB0FAM8LNAFAMZ
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@data-id
+            name:
+              - text: Geisha Ab Soap Chamom & Vitamin E - 225g
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/h3[1]
+            productUrl:
+              - text: https://www.jumia.co.ke/geisha-ab-soap-chamom-vitamin-e-225g-12698652.html
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@href
+            thumbnail:
+              - text: https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/25/689621/1.jpg?7923
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/@img
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/div[2]/div[1]
+                type: NUMBER
+                raw: "4.5"
+                locale: en_KE
+                value: 4.5
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/div[2]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/div[2]
+            price:
+              - text: KSh 106
+                xpath: /html/body/div[1]/main[1]/div[2]/div[2]/section[1]/div[1]/article[11]/a[1]/div[2]/div[1]
         xpath: /html
-    timestamp: 1605696146850
+    timestamp: 1606216389314
