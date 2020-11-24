@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product-tile g-product-tile"]/@data-itemid
+    # type: NUMBER
+    # regExp: \d+
+    # regExpReplace: ''
+  - name: name
+    singleValue: false
+    xpath: //span[@class="h3 product-brand g-product-tile__product-brand g-headline--level5"]/text()
+  - name: productUrl
+    singleValue: false
+    # regExp: (/.+)
+    # regExpReplace: https://www.luluhypermarket.com$1
+    xpath: //h3[@class="product-name g-product-tile__product-text"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    # regExp: (/.+)
+    # regExpReplace: https://www.luluhypermarket.com$1
+    xpath: //img[@class="tile-image g-product-tile__tile-image"]/@src
+  - name: url
+    singleValue: false
+    xpath: //span[@class="g-breadcrumb-result-text__search-query"]/a/@href
+    # regExp: (/.+)
+    # regExpReplace: https://www.luluhypermarket.com$1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price-sales g-product-tile__price-sales  sale flex-price"]/@data-baseprice
+  - name: rankOrganic
+    singleValue: false
+    type: Number
+    # xpath: //html//div[@id="rankOrganic"]/text()
+  - name: rank
+    singleValue: false
+    # xpath: //html//div[@id="rankOrganic"]/text()
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="ratingValue"]
+    # type: NUMBER  
+  - name: reviewCount
+    singleValue: false
+    xpath: //meta[@itemprop="reviewCount"]/@content  
+
