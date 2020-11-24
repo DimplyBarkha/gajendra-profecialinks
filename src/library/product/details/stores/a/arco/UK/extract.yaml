@@ -21,6 +21,7 @@ fields:
   - name: nameExtended
     xpath: //td//span[@class="linedesc"]
   - name: listPrice
+    xpath: //td//div[contains(@class,"oldprice")]
   - name: price
     xpath: //td//div[contains(@class,"newprice")]
   - name: availabilityText
@@ -32,7 +33,7 @@ fields:
   - name: additionalDescBulletInfo
     xpath: ancestor::html//div[@class="descriptionholder"]/text()[contains(.,"•")]
   - name: brandText
-    xpath: ancestor::html//div[@id="imageholder"]//img[last()][not(contains(@src,"noim.gif"))]/@alt
+    xpath: ancestor::html//div[@id="imageholder"]//img[last()][not(contains(@src,"noim.gif"))][not(contains(@alt,"null"))]/@alt | ancestor::html//div[@id="imageholder"]//img[last()][not(contains(@src,"noim.gif"))][(contains(@alt,"null"))]/parent::div/img[1]/@alt
     regExp: ^[^\s]*\s
   - name: manufacturer
   - name: quantity
@@ -47,6 +48,7 @@ fields:
     xpath: //td[1]
   - name: mpc
   - name: packSize
+    xpath: //td//span[@class="linedesc"]/@pack
   - name: legalDisclaimer
   - name: directions
   - name: warnings
@@ -60,7 +62,7 @@ fields:
     regExpReplace: $2
   - name: shippingWeight
   - name: variantCount
-    xpath: count(//table[@class="producttbl"]//tbody//tr)
+    xpath: count(//table[@class="producttbl"]//tbody//tr[position()>1])
   - name: color
   - name: colorCode
   - name: manufacturerDescription
@@ -76,7 +78,7 @@ fields:
     xpath: count(//ancestor::html//div[@id="imageholder"]//img[@id="lpic"]//following-sibling::img/@src | //ancestor::html//div[@id="imageholder"]//img[@id="lpic"]//following-sibling::a/@href)
   - name: variantInformation
   - name: firstVariant
-    xpath: ancestor::html//table[@class="producttbl"]//tbody//tr[1]//td[1]
+    xpath: ancestor::html//table[@class="producttbl"]//tbody//tr[2]//td[1]
   - name: variants
     xpath: ancestor::html//div[@id="infoholder"]//h1/@variants
   - name: technicalInformationPdfPresent

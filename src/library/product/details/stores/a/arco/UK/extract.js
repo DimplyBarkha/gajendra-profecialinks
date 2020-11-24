@@ -22,8 +22,16 @@ async function implementation (
     const selector = document.querySelector('#infoholder > h1');
     if (selector) {
       const variants = [];
-      document.querySelectorAll('table.producttbl tbody tr td:first-child').forEach((ele) => variants.push(ele.textContent.trim()));
+      document.querySelectorAll('table.producttbl tbody tr:not(:first-child) td:first-child').forEach((ele) => variants.push(ele.textContent.trim()));
       document.querySelector('#infoholder h1').setAttribute('variants', variants);
+    }
+    var pack = [];
+    document.querySelectorAll('table.producttbl tbody tr td span[class="linedesc"]').forEach((ele) => pack.push(ele.textContent.trim()));
+    for (let i = 0; i < pack.length; i++) {
+      if (pack[i].includes('(Case of') || pack[i].includes('(Pack of')) {
+        let ele = pack[i].split('(')[1].split(')')[0];
+        document.querySelectorAll('table.producttbl tbody tr td span[class="linedesc"]')[i].setAttribute('pack', ele);
+      }
     }
   });
   return await context.extract(productDetails, { transform });
