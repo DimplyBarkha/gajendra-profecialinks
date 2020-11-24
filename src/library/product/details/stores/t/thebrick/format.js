@@ -19,11 +19,6 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.availabilityText) {
-        row.availabilityText.forEach(item => {
-          item.text = item.text.includes('not available.') ? 'Out Of Stock.' : 'In Stock.'
-        })
-      }
       if (row.dimensionsSpecifications) {
         row.dimensionsSpecifications.forEach(item => {
           item.text = item.text.replace(/\n/g, ' ').replace(/\)/g, ') || ')

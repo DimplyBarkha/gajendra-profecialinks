@@ -22,7 +22,10 @@ fields:
     regExpReplace: https:$1
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id="delivery-messaging"]//span[contains(@class, "langEN")][1]
+    xpath: //div/input[@data-cart-button='available']/@data-cart-button
+    regExp: .+
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: brandText
     singleValue: false
     xpath: //ul[contains(@class,"hiddenTags")]//li[contains(text(), "brand")]
