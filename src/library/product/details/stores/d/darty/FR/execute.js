@@ -6,7 +6,7 @@ module.exports = {
     store: 'darty',
     domain: 'darty.com',
     loadedSelector: 'div.product_body',
-    noResultsXPath: '//span[contains(text(),"résultat pou")]',
+    noResultsXPath: '//div[@id="darty_page_title"]',
     zipcode: '',
   },
 };
