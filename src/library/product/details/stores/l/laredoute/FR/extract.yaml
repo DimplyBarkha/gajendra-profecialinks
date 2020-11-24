@@ -92,12 +92,12 @@ fields:
     regExpReplace: $1
   - name: manufacturerDescription
     singleValue: true
-    xpath: //div[@class="flixmedia flixmedia--expanded"]
+    xpath: //div[@class="flixmedia flixmedia--expanded"] | //div[@id="manufacturerDescription"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="flixmedia flixmedia--expanded"]//img//@data-flixsrcset
-    regExp: ((.+)( 200w))
-    regExpReplace: $2
+    xpath: //div[@class="flixmedia flixmedia--expanded"]//img//@data-flixsrcset | //div[@id="manfacturerImage"]
+    # regExp: ((.+)( 200w))
+    # regExpReplace: $2
   - name: brandLink
     singleValue: true
     xpath: //div[contains(@class,"pdp-title-zone")]/div/a/@href
@@ -105,7 +105,7 @@ fields:
     regExpReplace: https://www.laredoute.fr$1
   - name: videos
     singleValue: false
-    xpath: //div[contains(@id,'playerCedemo')]//video/@src
+    xpath: //div[contains(@id,'playerCedemo')]//video/@src | //div[@id="videos"]
   - name: variants
     singleValue: false
     xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor

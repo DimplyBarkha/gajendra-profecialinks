@@ -8,6 +8,28 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const applyScroll = async function (context) {
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await stall(500);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(5000);
+          break;
+        }
+      }
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
+  };
+  await applyScroll(context);
   const variantArray = await context.evaluate(async function () {
     if (document.querySelector('#productList')) {
       throw new Error('Not a product page');
@@ -52,9 +74,51 @@ async function implementation(
       return xnodes;
     }
     let specificationsText = [];
-    _x(specificationsXpath, document).forEach(q => {specificationsText.push(q.textContent)});
+    _x(specificationsXpath, document).forEach(q => { specificationsText.push(q.textContent) });
     document.body.insertAdjacentHTML("afterbegin", `<div id="specifications" style="display : none">${specificationsText.join(" ")}</div>`)
-  })
+  });
+  try {
+    context.waitForXPath('//div[@id="flix-inpage"]//script', { timeout: 30000 });
+  } catch (er) {
+    console.log("Couldn't find the enhanced content expand button");
+  }
+  await context.evaluate(async function () {
+    let buttonExpand = document.evaluate('//div[contains(@class,"flixmedia_expandBtn") and contains(.,"Voir plus de contenu")]', document).iterateNext();
+    if (buttonExpand) {
+      buttonExpand.click();
+    }
+  });
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+  const enhancedContent = await context.evaluate(async function () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    let content = {};
+    content.description = document.querySelector("#inpage_container") ? document.querySelector("#inpage_container").innerText : "";
+    addHiddenDiv('manufacturerDescription', content.description);
+    content.images = [];
+    let imagesNodes = document.querySelectorAll("#inpage_container img");
+    imagesNodes.forEach(q => {
+      if (q.hasAttribute('srcset')) {
+        //content.images.push(q.getAttribute('srcset'));
+        addHiddenDiv('manfacturerImage', q.getAttribute('srcset'));
+      }
+    });
+    content.videos = [];
+    let videoNodes = document.querySelectorAll("#inpage_container iframe");
+    videoNodes.forEach(q => {
+      if (q.hasAttribute('src')) {
+        //content.videos.push(q.getAttribute('src'));
+        addHiddenDiv('videos', q.getAttribute('src'));
+      }
+    });
+    
+  });
 
   return await context.extract(productDetails, { transform });
 }
