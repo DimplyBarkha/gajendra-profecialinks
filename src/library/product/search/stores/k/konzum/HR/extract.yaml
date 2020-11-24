@@ -26,7 +26,9 @@ fields:
     regExp: \d+
   - name: price
     xpath: //div/@data-ga-price
-    type: CURRENCY
+    type: text
+    regExp: (\d+)(,)(\d+)
+    regExpReplace: $1.$3
     description: The offered price for the product
   - name: rank
     description: search/listing rank
