@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[contains(@class,'m-product-card-entry')]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //article[contains(@class,'m-product-card-entry')]//a//@href
+    regExp: (.*)/(.*)
+    regExpReplace: $2
+  - name: name
+    singleValue: false
+    xpath: //article[contains(@class,'m-product-card-entry')]//a
+  - name: productUrl
+    singleValue: false
+    xpath: //article[contains(@class,'m-product-card-entry')]//a//@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'m-product-image')]//img//@src
+  - name: price
+    singleValue: false
+    xpath: //section[contains(@class,'m-price-list')]//strong
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@id='page_rating']
+  - name: reviewCount
+    singleValue: false
+    xpath: //section[contains(@class,'m-rating-stars')]
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id='page_url']

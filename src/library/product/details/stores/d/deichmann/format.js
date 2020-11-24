@@ -18,21 +18,56 @@ const transform = (data) => {
         .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
     for (const { group } of data) {
       for (const row of group) {
-        if (row.specifications) {
-          let specs = '';
-          let xpath = ''
-          for (const item of row.specifications) {
-            specs += clean(item.text.replace('\n', ':').replace("\n","").replace("\n","")) + ' || ';
-            xpath = item.xpath;
-          }
-          row.specifications = [{ text: specs, xpath: xpath }];
-        }
         if (row.imageZoomFeaturePresent) {
           if (row.imageZoomFeaturePresent.length) {
             row.imageZoomFeaturePresent[0].text = 'Yes';
           } else {
             row.imageZoomFeaturePresent = [{ text: 'No', xpath: '' }];
           }
+        }
+
+        if (row.customerServiceAvailability) {
+          if (row.customerServiceAvailability.length) {
+            row.customerServiceAvailability[0].text = 'Yes';
+          } else {
+            row.customerServiceAvailability = [{ text: 'No', xpath: '' }];
+          }
+        }
+        if (row.termsAndConditions) {
+          if (row.termsAndConditions.length) {
+            row.termsAndConditions[0].text = 'Yes';
+          } else {
+            row.termsAndConditions = [{ text: 'No', xpath: '' }];
+          }
+        }
+        if (row.privacyPolicy) {
+          if (row.privacyPolicy.length) {
+            row.privacyPolicy[0].text = 'Yes';
+          } else {
+            row.privacyPolicy = [{ text: 'No', xpath: '' }];
+          }
+        }
+
+
+        if(row.nameExtended){
+          row.nameExtended[0].text = (row.nameExtended[0].text).replace("Größe","").replace(":","");
+        }
+        if(row.aggregateRating){
+          row.aggregateRating[0].text = (row.aggregateRating[0].text).replace(".",",");
+        }
+
+        if(row.availabilityText){
+          var isDisabled = 0;
+          const classes = (row.availabilityText[0].text).split(" ");
+          classes.forEach(x => {
+            if(x == "disabled"){
+              isDisabled = 1;
+            }
+          })
+          if(isDisabled == 1)
+            row.availabilityText[0].text = "Out of Stock"
+          else
+            row.availabilityText[0].text = "In Stock"
         }
         
       }
