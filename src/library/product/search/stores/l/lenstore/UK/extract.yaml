@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="c-product-list__box js-impression-product"]/@data-ga-id
+  - name: rankOrganic
+    singleValue: true
+    # xpath: //li//meta[@itemprop="position"]//@content
+  - name: name
+    singleValue: false
+    xpath: //div[@class="c-product-list__box js-impression-product"]/@data-ga-name
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="c-product-list__box js-impression-product"]/a/@href
+  - name: gtin
+    singleValue: false
+    # xpath: //li[@class="responsivegriditem product-grid-large-fifth product-grid-small-6"]/a/@id
+    # regExp: (\d+)
+  - name: thumbnail
+    singleValue: false
+    xpath: //figure[@class="c-product-list__figure "]/img/@src
+    regExp: (images/.*)
+    regExpReplace: https://www.lenstore.co.uk/$1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="c-product-list__price"]/text()
+    # regExp: (\$\d+.\d+)
+  - name: manufacturer
+    singleValue: true
+    # xpath: //h4[@class="product-manufacturer"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="c-product-list__reviews "]/span[@class="c-product-reviews-list-item__rating-value"]
+    regExp: (\d+)
+  - name: rank
+    singleValue: false
+    # xpath: //li//meta[@itemprop="position"]//@content
