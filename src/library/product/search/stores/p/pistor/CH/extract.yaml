@@ -5,16 +5,17 @@ recordXPath: //tr[@id]
 fields:
   - name: id
     singleValue: false
-    xpath: //td/span/@productid
+    xpath: //@productid
   - name: searchUrl
     singleValue: false
-    xpath: (ancestor::html//th[@class='displaymode']/a/@href)[1]
   - name: name
     singleValue: false
     xpath: //a[@rel="details"]
   - name: productUrl
     singleValue: false
-    xpath: //a[@rel='details']/@producturl
+    xpath: //a[@rel="details"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.pistorone.ch$1
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -38,12 +39,12 @@ fields:
     singleValue: false
   - name: rank
     singleValue: false
-    xpath: //tr[@id]/@index
+    xpath: //@rank
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
-    xpath: //tr[@id]/@index
+    xpath: //@rank
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored

@@ -1,51 +1,46 @@
 
+const { transform } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CH',
     store: 'pistor',
-    transform: null,
+    transform,
     domain: 'pistorone.ch',
     zipcode: '',
   },
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
     await context.evaluate(async function () {
-      function addElementToDocument (id, value, key) {
-        const catElement = document.createElement('div');
-        catElement.id = id;
-        catElement.innerText = value;
-        catElement.setAttribute('content', key);
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      };
+      const body = document.body;
+      const html = document.documentElement;
+      const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-    
-    const id = document.querySelectorAll('td.type-number.field-extartnr span') 
-    id.forEach((e) => {
-      const text = e.innerHTML
-      e.setAttribute('productid', text)
+      let scrollTop = 0;
+      while (scrollTop <= pageHeight) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        scrollTop += 200;
+        window.scroll(0, scrollTop);
+      }
     });
 
-    const domain = 'https://www.pistorone.ch/'
-    const urls = document.querySelectorAll('a[rel="details"]')
-    urls.forEach((e) => {
-      const url = domain.concat(e.getAttribute('href'))
-      e.setAttribute('producturl', url)
+    await context.evaluate(async function () {
+      const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
+      const products = document.querySelectorAll('tr[id]');
+      for (let i = 0; i < products.length; i++) {
+        const productIdElem = products[i].querySelector('td.type-number.field-extartnr span');
+        const productId = productIdElem ? productIdElem.textContent : '';
+        if (productId) products[i].setAttribute('productid', productId);
+        products[i].setAttribute('rank', `${lastProductPosition + i}`);
+      }
+      localStorage.setItem('prodCount', `${lastProductPosition + products.length}`);
     });
-
-    const row = document.querySelectorAll('tr[id]')
-    row.forEach((e, index) => {
-      const n = (index + 1).toString()
-      e.setAttribute('index', n)
-    });
-
-    });
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
     return await context.extract(productDetails, { transform });
-    },
+  },
 
-  };
+};
