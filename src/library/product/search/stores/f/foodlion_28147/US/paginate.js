@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'foodlion_28147',
-    nextLinkSelector: 'li[class*="pagination-next"] button[aria-label="Next"]',
+    nextLinkSelector: null,
     mutationSelector: null,
-    spinnerSelector: 'div[class*="load-app view-loading-indicator"]',
+    spinnerSelector: null,
     loadedSelector: 'ol[class*=cell-container] div[class*="cell-image-wrapper"]',
     noResultsXPath: '//div[contains(text(),"No results found for")]',
     openSearchDefinition: {
