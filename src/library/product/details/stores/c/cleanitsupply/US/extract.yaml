@@ -83,7 +83,7 @@ fields:
     # regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: (//input[@name="ProductID"])[1]/@value
+    xpath: //img[@class="notify-back-in-stock-button"]/@data-product-id | (//input[@name="ProductID"])[1]/@value
     # regExp: Product SKU\W\s(.+)
     # regExpReplace: $1
   - name: mpc
