@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="rd__breadcrumbs__item"][position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text()m | //h1[@id="product_title"]
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text() | //h1[@id="product_title"]
   - name: image
     singleValue: false
     description: URL of the main product image
@@ -28,11 +28,11 @@ fields:
     xpath: //div[@id="my-price"][last()]
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="my-listPrice"][last()]  
+    xpath: //div[@id="my-listPrice"][last()] 
   - name: availabilityText
     singleValue: false
     #xpath: //button[contains@class="rd__back-to-top rd__col--lg-12 rd__product-details__description rd__button rd__button--primary rd__button--md bb__add-chart add2chart"]
-    xpath: //div[@id="my-availab"][last()] | //div[@id="my-availab"][last()]
+    xpath: //div[@id="my-availab1"][last()]  |//div[@id="my-availab"][last()] 
     regExp: (.+)
     regExpReplace: Out of Stock 
     defaultValue: In Stock
