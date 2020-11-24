@@ -1,0 +1,123 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@class="product-image__container"]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="product-image__container"]//img/@alt
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,'beans-breadcrumb__list')]//li//a//span
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='product-details-tile__title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='product-details-tile__title']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="controls"]//button//span[text()='Add']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price-control-wrapper"]//div/span
+  - name:  description
+    singleValue: false
+    xpath: //div[@class='groupItem']//h3[text()='Product Description']//following-sibling::div
+  - name:  description
+    singleValue: false
+    xpath: //div[@class='groupItem']//h3[text()='Product Description']//following-sibling::div
+  - name:  description2
+    singleValue: false
+    xpath: //div[@class='productDetailsContainer']//div[@class='content']    
+  - name: manufacturer
+    singleValue: false
+    xpath: //h4[@class='itemHeader' and text()='Vevőszolgálat']//following-sibling::p
+  - name: gtin
+    singleValue: false
+    # get sku from script JSON
+    xpath: //script[contains(text(),'sku')]
+    #"gtin13":"5051007056892"
+    regExp: \"gtin13\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    # get gtin13 from script JSON
+    xpath: //script[contains(text(),'sku')]
+    #"sku":"5051007056892"
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    # get gtin13 from script JSON
+    xpath: //script[contains(text(),'sku')]
+    #"sku":"5051007056892"
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'promotions-wrapper')][1]//span[@class='offer-text']
+  - name: warnings
+    singleValue: false
+    xpath: //h3[text()='Safety Information']//following-sibling::div
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class='groupItem']//h3[text()='Ingredients']//following-sibling::div
+  - name: shippingInfo
+    singleValue: false
+    xpath: //h4[@class='itemHeader' and text()='Forgalmazó cím']//following-sibling::p
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //h4[@class='itemHeader' and text()='Eredet']//following-sibling::p    
+  - name: storage
+    singleValue: false
+    xpath: //h4[@class='itemHeader' and text()='Tárolás']//following-sibling::p
+  - name: packSize
+    singleValue: false
+    xpath: //h4[@class='itemHeader' and text()='Számszerű méret']//following-sibling::p
+  - name: quantity
+    singleValue: false
+    xpath: //h4[@class='itemHeader' and text()='Darabszám']//following-sibling::p
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //div[@class='price-per-quantity-weight']
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //table//caption[text()='Tápanyagok']//parent::table//td[contains(text(),'Szénhidrát')]//following-sibling::td[1]
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //table//caption[text()='Tápanyagok']//parent::table//td[contains(text(),'zsírsavak')]//following-sibling::td[1]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //table//caption[text()='Tápanyagok']//parent::table//td[contains(text(),'Fehérje')]//following-sibling::td[1]    
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //table//caption[text()='Tápanyagok']//parent::table//td[text()='Zsír']//following-sibling::td[1]    
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //table//caption[text()='Tápanyagok']//parent::table//td[contains(text(),'Kalcium')]//following-sibling::td[1]    
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //table//caption[text()='Tápanyagok']//parent::table//td[contains(text(),'Energia')]//following-sibling::td[1]    
+  - name: saltPerServing
+    singleValue: false
+    xpath: //table//caption[text()='Tápanyagok']//parent::table//td[contains(text(),'Só')]//following-sibling::td[1]    
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //table//caption[text()='Tápanyagok']//parent::table//td[contains(text(),'cukrok')]//following-sibling::td[1]    
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //table//caption[text()='Tápanyagok']//parent::table//td[contains(text(),'Rost')]//following-sibling::td[1]    
