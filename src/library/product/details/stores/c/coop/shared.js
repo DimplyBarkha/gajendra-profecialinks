@@ -45,26 +45,26 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.variantUrl) {        
+      if (row.variantUrl) {
         const variantUrls = [];
-        let dupUrl = "";
+        let dupUrl = '';
         let urls = [];
         row.variantUrl.forEach(item => {
           console.log('item:: ', item.text);
-         urls =  row.variantUrl.filter(it => item.text === it.text);
-        if(urls && urls.length === 1 ){
-          variantUrls.push(item);
-        }else{
-          if(dupUrl !== item.text){
-            dupUrl =  item.text;
+          urls = row.variantUrl.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
             variantUrls.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl =  item.text;
+              variantUrls.push(item);
+            }
           }
-        }
         });
         row.variantUrl = variantUrls;
       }
 
-      // if (row.variantId) {        
+      // if (row.variantId) {
       //   const variantIds = [];
       //   let dup = "";
       //   let urls = [];
@@ -80,7 +80,7 @@ const transform = (data) => {
       //     }
       //   }
       //   });
-      //   row.variantId = variantIds;        
+      //   row.variantId = variantIds;
       // }
       if (row.manufacturerDescription) {
         let text = '';
@@ -158,6 +158,14 @@ const transform = (data) => {
             text: text,
           },
         ];
+      }
+
+      if (row.allergens) {
+        let text = '';
+        row.allergens.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.allergens = [{ text }];
       }
       // if (row.videos) {
       //   for (const item of row.videos) {

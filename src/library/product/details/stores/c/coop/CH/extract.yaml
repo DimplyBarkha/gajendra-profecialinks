@@ -4,292 +4,234 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: false
-    xpath: (//img[contains(@class,"responsive-image")]/@src)[position()=1]
-    # xpath: (//div[contains(@class,"carousel__pagination--supermarket")]//img[contains(@class,"responsive-image")]/@src)[position()=1] 
-    # regExp: (.+)
-    # regExpReplace: https:$1
+    xpath: //div[@data-testauto="productimage"]//a[contains(@class,"carousel__link")][not(contains(@class,"is-clone"))][position()=1]//img[contains(@class,"responsive-image")]/@data-img-src-zoom
+    # xpath: (//div[contains(@class,"carousel__pagination--supermarket")]//img[contains(@class,"responsive-image")]/@src)[position()=1]
+    regExp: (.+)
+    regExpReplace: https:$1
     #  //meta[@property="og:image"]/@content
     # xpath: //a[contains(@class,"carousel__pagination-item")]/img/@src
   - name: imageAlt
-    singleValue: false
-    xpath: //a[@class="carousel__link carousel__link--preload"]/@title
+    xpath: //div[@data-testauto="productimage"]//a[contains(@class,"carousel__link")][not(contains(@class,"is-clone"))][position()=1]//img[contains(@class,"responsive-image")]/@title
   - name: alternateImages
-    singleValue: false
-    xpath: (//img[contains(@class,"responsive-image")]/@src)[position()>1]
+    xpath: //div[@data-testauto="productimage"]//a[contains(@class,"carousel__link")][not(contains(@class,"is-clone"))][position()>1]//img[contains(@class,"responsive-image")]/@data-img-src-zoom
     regExp: (.+)
     regExpReplace: https:$1
   - name: metaKeywords
-    singleValue: false
     description: The <meta> keywords content
   - name: category
-    singleValue: false
     xpath: //ul[@class="breadCrumb__items"]/li[position()>1][position()<last()]
   - name: nameExtended
-    singleValue: false
     xpath: //h1//p//text()
   - name: listPrice
-    singleValue: false
     xpath: //span[@itemprop="price"]/text()
     # xpath: //dd[contains(@class,"price-value--red productBasicInfo")]/text()
   - name: price
-    singleValue: false
     xpath: //span[@itemprop="price"]//text()
   - name: availabilityText
-    singleValue: false
-    xpath: //span[contains(text(),"Dieses Produkt ist zurzeit online nicht verfügbar")]
+    xpath: //button[contains(@class,"addToBasket__button")]
     # xpath: //span[contains(text(),"Ce article n'est pas disponible pour les ventes en ligne actuellement")]
-    regExp: (.+)
-    regExpReplace: Out of Stock
-    defaultValue: In Stock
+    regExp: (In den Warenkorb)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
-    singleValue: false
     xpath: //div[@class="productInformation"]//div[contains(text(),"Beschreibung")]//following-sibling::div
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Description")]//following-sibling::div
   - name: descriptionBullets
-    singleValue: false
     description: Number of ul > li tags in the description
-    type: NUMBER
   - name: brandText
-    singleValue: false
     xpath: //span[@class="productBasicInfo__productMeta-value-item"]/span/text()
   - name: manufacturer
-    singleValue: false
     description: Product manufacturer
   - name: quantity
-    singleValue: false
     xpath: //span[@itemprop="weight"]//text()
   - name: weightNet
-    singleValue: false
-    description: 
+    description:
   - name: weightGross
-    singleValue: false
     xpath: //div[@class="productInformation"]//div[contains(text(),"Gewicht")]//following-sibling::div/text()[2]
     regExp: Nettofüllmenge\W\W(.+)
     regExpReplace: $1
   - name: gtin
-    singleValue: false
-    description: GTIN code (includes UPC/EAN)
+    xpath: //h1[@data-testauto="producttitle"]/@upc
   - name: sku
-    singleValue: false
     xpath: //div[@class="productInformation"]//div[contains(text(),"Artikelnummer")]//following-sibling::div
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Numéro d'article")]//following-sibling::div
   - name: variantId
-    singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    singleValue: false
     xpath: //div[@class="productInformation"]//div[contains(text(),"Marque d'identification")]//following-sibling::div
   - name: packSize
-    singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
-    singleValue: false
     description: Content under "legal disclaimer" header
   - name: directions
-    singleValue: false
     description: Content under "directions" header
   - name: warnings
-    singleValue: false
     xpath: //div[@class="productInformation"]//div[contains(text(),"Sonstiges")]//following-sibling::div
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Divers")]//following-sibling::div
   - name: ratingCount
-    singleValue: false
     xpath: //div[@class="productBasicInfo__rating"]//span[@itemprop="reviewCount"]//text()
   - name: aggregateRatingText
-    singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: false
     xpath: //div[@class="rating"]//span[@class="visuallyhidden"]/text()
     regExp: Durchschnittliche Bewertung\W\W(.+)\svon
     regExpReplace: $1
   - name: name
-    singleValue: false
     xpath: //h1//p//text()
   - name: secondaryImageTotal
-    singleValue: false
-    xpath: count((//div[contains(@class,"carousel__pagination--supermarket")]//img[contains(@class,"responsive-image")]/@src)[position()>1])
+    xpath: count(//div[@data-testauto="productimage"]//a[contains(@class,"carousel__link")][not(contains(@class,"is-clone"))][position()>1]//img[contains(@class,"responsive-image")]/@data-img-src-zoom)
   - name: ingredientsList
-    singleValue: false
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Nährwerte")]//following-sibling::div
+    xpath: //div[@class="productInformation"]//div[@data-testauto="productingredients"]
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Ingrédients")]//following-sibling::div
   - name: servingSize
-    singleValue: false
     xpath: //a[@class="nutritionInformation-heading__option-link"]/text()
     regExp: \s\W([^\W]+)
     regExpReplace: $1
   - name: servingSizeUom
-    singleValue: false
     xpath: //a[@class="nutritionInformation-heading__option-link"]/text()
     regExp: \s\W([^\W]+)
     regExpReplace: g
   - name: numberOfServingsInPackage
-    singleValue: false
     description: Suggested number of servings of the product.
-    type: NUMBER
   - name: caloriesPerServing
-    singleValue: false
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
-    singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalFatPerServing
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fettsäuren")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"saturé gras")]//following::span[1]/span
   - name: totalFatPerServingUom
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fettsäuren")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: totalCarbPerServing
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kohlenhydrate")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Glucides")]//following::span[1]/span
   - name: totalCarbPerServingUom
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kohlenhydrate")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Glucides")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: dietaryFibrePerServing
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Nahrungsfasern (Ballaststoffe)")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fibres alimentaires")]//following::span[1]/span
   - name: dietaryFibrePerServingUom
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Nahrungsfasern (Ballaststoffe)")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fibres alimentaires")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: totalSugarsPerServing
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Zucker")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"dont sucres")]//following::span[1]/span
   - name: totalSugarsPerServingUom
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Zucker")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"dont sucres")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: proteinPerServing
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Eiweiss")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Protéines")]//following::span[1]/span
   - name: proteinPerServingUom
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Eiweiss")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Protéines")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: vitaminAPerServing
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin A")]//following::span[1]/span
   - name: vitaminAPerServingUom
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin A")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: vitaminCPerServing
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin C")]//following::span[1]/span
   - name: vitaminCPerServingUom
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin C")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: mg
   - name: calciumPerServing
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kalzium")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
   - name: calciumPerServingUom
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kalzium")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: magnesiumPerServing
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnesium")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnésium")]//following::span[1]/span
   - name: magnesiumPerServingUom
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnesium")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnésium")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: mg
   - name: saltPerServing
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Salz")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Sel")]//following::span[1]/span
   - name: saltPerServingUom
-    singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Salz")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Sel")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: g
   - name: dietaryInformation
-    singleValue: false
     description: null
   - name: specifications
-    singleValue: false
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    singleValue: false
     description: Guarantee associated with the product
   - name: storage
-    singleValue: false
     xpath: //div[@class="productInformation"]//div[contains(text(),"Lagerung")]//following-sibling::div
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Stockage")]//following-sibling::div
   - name: countryOfOrigin
-    singleValue: false
     xpath: //div[@class="productInformation"]//div[contains(text(),"Produktionsland")]//following-sibling::div/text()
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Pays de production")]//following-sibling::div/text()
   - name: allergyAdvice
-    singleValue: false 
     xpath: //div[@class="productInformation"]//div[contains(text(),"Nährwerte")]//following-sibling::div/b
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Ingrédients")]//following-sibling::div/b
   - name: pricePerUnit
-    singleValue: false
     xpath: //span[@itemprop="billingIncrement"]//text()
   - name: pricePerUnitUom
-    singleValue: false
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: false
     xpath: //div[@class="productBasicInfo__pricePanel"]//span[@class="productBasicInfo__price-text-saving-inner"]/text()
   - name: technicalInformationPdfPresent
-    singleValue: false
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
   - name: termsAndConditions
-    singleValue: false
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
   - name: privacyPolicy
-    singleValue: false
     description: Privacy Policy information text ['Yes','No']
     defaultValue: No
   - name: customerServiceAvailability
-    singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: Yes
   - name: materials
-    singleValue: false
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
-    singleValue: false
     xpath: //span[contains(text(),"Affichage")]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: false
     defaultValue: Yes
+  - name: shownImages
+    xpath: //div[@data-testauto="productimage"]//a[contains(@class,"carousel__link")][not(contains(@class,"is-clone"))]//img[contains(@class,"responsive-image")]/@data-img-src-zoom
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: highQualityImages
+    xpath: //div[@data-testauto="productimage"]//a[contains(@class,"carousel__link")][not(contains(@class,"is-clone"))]//img[contains(@class,"responsive-image")]/@data-img-src-zoom
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: productUrl
+    xpath : //link[@rel="canonical"]/@href
+  - name: upc
+    xpath: //h1[@data-testauto="producttitle"]/@upc
+  - name: nutritionInfo
+    xpath: normalize-space(//div[contains(@class,"nutritionInformation")])
+  - name: allergens
+    xpath: //div[@class="productInformation"]//div[@data-testauto="productingredients"]/b
