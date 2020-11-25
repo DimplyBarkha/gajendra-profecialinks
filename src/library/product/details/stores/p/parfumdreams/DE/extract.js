@@ -26,11 +26,27 @@ module.exports = {
         }
         return result;
       };
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
       var dec = getAllXpath('(//div[@class="variation-alt-images clearfix"]/div/@data-variation-id | //*[@id="schema-offer"]/div[1]/div/input/@value)', 'nodeValue');
       var str = "";
       if (dec != null) {
         str = dec.join(" | ");
         addElementToDocument('str', str);
+      }
+      var name = getXpath('//*[@id="schema-offer"]/div[2]/p[2]/text()', 'nodeValue');
+      if (name != null) {
+        if (name.includes("not available")) {
+          name = "Out of Stock";
+        } else {
+          name = "In stock";
+        }
+        addElementToDocument('name', name);
       }
     });
 

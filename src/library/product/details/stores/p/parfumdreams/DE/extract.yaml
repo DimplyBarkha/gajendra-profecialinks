@@ -55,11 +55,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: (//*[@id="schema-offer"]/div[1]/div/input/@value|(//meta[@itemprop='sku']/@content[1])[1])[2]
-  - name: shippingInfo
+  - name: availabilityText
     singleValue: true
-    xpath: //*[@id="schema-offer"]/div[2]/p[2]
-    regExp: \, (.*)
-    regExpReplace: $1
+    xpath: //html//div[@id="name"]
   - name: quantity
     singleValue: true
     xpath: //div[@class='variation-alt-images clearfix']/div/a/img/@alt|//*[@id="schema-offer"]/div[2]/div/div[1]/div
