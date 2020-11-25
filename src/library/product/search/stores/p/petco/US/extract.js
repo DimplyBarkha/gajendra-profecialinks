@@ -23,12 +23,11 @@ module.exports = {
             break;
           }
         }
-        function stall(ms) {
+        function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
             }, ms);
-            console.log("Scroll");
           });
         }
       });
