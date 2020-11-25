@@ -1,0 +1,46 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[contains(@class, 'dbk-image-gallery--display')]//ul[contains(@class, 'dbk-image-carousel--list')]/li[1]//img/@src
+    regExp: \/\/cdn(.+)
+    regExpReplace: cdn$1
+  - name: category
+    xpath: //ul[contains(@class, 'dbk-breadcrumb-group')]/li/a
+  - name: variantInformation
+    xpath: //div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1] | //p[contains(@class, 'dbk-product-indicator')]/span[contains(@class, 'dbk-product-indicator--value')]
+  - name: brandText
+    xpath: //a[contains(@class, 'product-heading__brand--anchor')]
+  - name: name
+    xpath : //div[contains(@class, 'dbk-product-summary product-element__container')]//p[contains(@class, 'description')]
+  - name: price
+    xpath: //div[contains(@class, 'product-element__container')]//span[contains(@data-at, 'final-price')]
+  - name: availabilityText
+    xpath: //link[contains(@itemprop, 'availability')]/@href
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of stock
+  - name: description
+    xpath: //h3[contains(., 'Productinformatie')]/following-sibling::div
+  - name: ingredientsList
+    xpath: //span[@data-at='specifications-Ingrediënten']
+  - name: quantity
+    xpath: //div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1] | //p[contains(@class, 'dbk-product-indicator')]/span[contains(@class, 'dbk-product-indicator--value')]
+  - name: directions
+    xpath: //p[contains(., 'Gebruikstips:')]
+  - name: alternateImages
+    xpath: //div[contains(@class, 'dbk-image-gallery--display')]//ul[contains(@class, 'dbk-image-carousel--list')]/li[position()>1]//img/@src
+    regExp: \/\/cdn(.+)
+    regExpReplace: cdn$1
+  - name: specifications
+    xpath: //h3[contains(., 'Samenstelling')]/following-sibling::ul/li
+  - name: promotion
+    xpath: //span[contains(@data-at, 'discount-percentage')]
+  - name: listPrice
+    xpath: //div[contains(@class, 'product-element__container')]//span[contains(@data-at, 'list-price')]
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class, 'dbk-image-gallery--display')]//ul[contains(@class, 'dbk-image-carousel--list')]/li[position()>1]//img)
+  - name: sku
+    xpath: //span[contains(@itemprop,"sku")]
