@@ -26,9 +26,9 @@ module.exports = {
           for (let index = 0; index < imageRows.length; index++) {
             imageRows[index].click();
             await timeout(2000);
-            var variantUrl = window.location.href.replace(new RegExp('(.+SAP_)(.+)(.ht.+)', 'g'), '$2');
-            var colour = document.querySelector('.color-display-value.order-3.ml-1') ? document.querySelector('.color-display-value.order-3.ml-1').textContent : '';
-            var data = colour.concat('-', variantUrl);
+            const variantUrl = window.location.href.replace(new RegExp('(.+SAP_)(.+)(.ht.+)', 'g'), '$2');
+            const colour = document.querySelector('.color-display-value.order-3.ml-1') ? document.querySelector('.color-display-value.order-3.ml-1').textContent : '';
+            const data = colour.concat('-', variantUrl);
             variantArr.push(variantUrl);
             const div = document.createElement('div');
             div.className = 'variant';
@@ -38,6 +38,17 @@ module.exports = {
             getInput.setAttribute('value', data);
             await timeout(5000);
           }
+        } else {
+          await timeout(2000);
+          const variantUrl = window.location.href.replace(new RegExp('(.+SAP_)(.+)(.ht.+)', 'g'), '$2');
+          variantArr.push(variantUrl);
+          const div = document.createElement('div');
+          div.className = 'variant';
+          const getInput = document.createElement('input');
+          div.appendChild(getInput);
+          document.body.appendChild(div);
+          getInput.setAttribute('value', variantUrl);
+          await timeout(5000);
         }
         if (selectedProduct) {
           selectedProduct.click();
