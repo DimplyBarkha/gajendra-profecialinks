@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//div[@class="w-product__wrapper"]
+fields:
+  - name: productUrl
+    xpath: //a/@href
+  #   regExp: (.+)
+  #   regExpReplace: https://www.worten.es/$1
+  # - name: thumbnail
+  #   xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//img//@data-src
+  #   regExp: (.+)
+  #   regExpReplace: https://www.worten.es/$1
+  # - name: name
+  #   xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//h3
+  # - name: ratingCount
+  #   xpath: //div[@itemprop="aggregateRating"]
+  #   regExp: \d+
+  # - name: reviewCount
+  #   xpath: //div[@itemprop="aggregateRating"]
+  #   regExp: \d+
+  # - name: price
+  #   xpath: //span[contains(@class,"w-currentPrice")]
+  # - name: rank
+  #   type: NUMBER
+  # - name: rankOrganic
+  # - name: sponsored
+  # - name: id
+  #   xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//a[1]/@data-sku
+  # - name: aggregateRating2
+  #   xpath: //div//@aggregaterating
