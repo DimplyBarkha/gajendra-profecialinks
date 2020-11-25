@@ -1,0 +1,77 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //img[@class="pdp-image-viewer__img"]/@data-zoom
+  - name: alternateImages
+    xpath: //ul[@class="pdp-image-viewer__tn-list"]//li/@data-zoom
+  # - name: category
+  #   xpath: //ul[@class="breadcrumb"]//li[position()>1]/a
+  # - name: name
+  #   xpath: //h1[@class="pdp-heading-ratings__title"]
+  # - name: nameExtended
+  #   xpath: //h1[@class="pdp-heading-ratings__title"]
+  # - name: price
+  #   xpath: //span[@id="offerPrice"]
+  # - name: listPrice
+  #   xpath: //span[@class="pdp-price__was"]
+  # - name: availabilityText
+  #   xpath: //a[@id="add_to_cart"]
+  #   regExp: (.+)
+  #   regExpReplace: In Stock
+  #   defaultValue: Out of Stock
+  # - name: description
+  #   xpath: //div[@id="pdp-accordion__description"]
+  # - name: variantId
+  #   xpath: //script[contains(.,'selectedItem')]
+  #   regExp: selectedItem,\s"(\d+)
+  #   regExpReplace: $1
+  # - name: sku
+  #   xpath: (//a[@id="add_to_cart"]/@data-cm-pnbr)[1]
+  #   regExp: (\/)([0-9-\d?]+)
+  #   regExpReplace: $2
+  # - name: variantInformation
+  #   xpath: //ul[@class="selector__list"]//li[position()<2]//span
+  # - name: variantCount
+  #   xpath: count(//ul[@class="selector__list"]//li//span)
+  # - name: variants
+  #   xpath: //ul[@class="selector__list"]//li//span
+  # - name: secondaryImageTotal
+  #   xpath: count(//ul[@class="pdp-image-viewer__tn-list"]//li/@data-zoom)
+  # - name: ratingCount
+  #   xpath: //div[@class="pr-category-snippet__total pr-category-snippet__item"]
+  # - name: aggregateRating
+  #   xpath: //p[@class="pdp-heading-ratings__rating"]/following-sibling::div[1]//span[@class="pr-accessible-text"]
+  #   regExp: Rated(.+)\sout of
+  # - name: ingredientsList
+  #   xpath: //h1/@ingredient
+  # - name: promotion
+  #   xpath: //em[@class="pdp-price__you-save-amount"]
+  # - name: firstVariant
+  #   xpath: //ul[@class="selector__list"]//li[position()<2]//span
+  # - name: quantity
+  #   xpath: //ul[@class="selector__list"]//li[position()<2]//span | //span[contains(text(),'Weight')]/following-sibling::span[not(contains(text(),'Please select'))]
+  # - name: storage
+  #   xpath: //strong[contains(.,"Storage:")]/following-sibling::text()
+  # - name: metaKeywords
+  #   xpath: //meta[contains(@name, "keyword")]/@content
+  # - name: weightNet
+  #   xpath: //ul[@class="selector__list"]//li[position()<2]//span | //span[contains(text(),'Weight')]/following-sibling::span[not(contains(text(),'Please select'))]
+  # - name: shippingDimensions
+  #   xpath: //h1/@dimensions
+    # //static
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: Yes
