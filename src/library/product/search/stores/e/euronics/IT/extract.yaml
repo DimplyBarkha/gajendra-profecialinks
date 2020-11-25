@@ -13,8 +13,8 @@ fields:
     singleValue: false
     xpath: //div[@class='productCard__content']//a[contains(@onclick, 'trackingProductClick')]/@href
   - name: gtin
-    singleValue: true //script[contains(@src, flixfacts)]/@data-flix-ean
-    xpath: //div[@class='productCard j-productCard j-comparisonItem']/@data-flix-ean
+    singleValue: true
+    description: script[contains(@src, flixfacts)]/@data-flix-ean
   - name: thumbnail
     singleValue: false
     xpath: //img[@class='productCard__image  j-comparisonImg']/@src
