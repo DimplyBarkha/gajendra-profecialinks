@@ -79,7 +79,7 @@ module.exports.implementation = async function implementation (
             row.setAttribute('added_thumbnail', thumbnail);
           }
         });
-        const prodUrl = baseUrl + 'product/' + id + '/details/selected';
+        const prodUrl = baseUrl + 'product/' + id + '/details/';
         row.setAttribute('added_name', name);
         row.setAttribute('added_url', prodUrl);
         row.setAttribute('added_id', id);
