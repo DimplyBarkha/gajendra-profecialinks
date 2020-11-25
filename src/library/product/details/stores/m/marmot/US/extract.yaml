@@ -42,6 +42,8 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@id='collapsible-pdp-details-1' and not(preceding-sibling::h5[contains(text(),'Specifications')])]//li  
+  - name: descriptionBullets
+    singleValue: false
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'product-detail')]/@data-pid

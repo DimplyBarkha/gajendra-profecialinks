@@ -92,6 +92,7 @@ const transform = (data) => {
           arrBullet.push(item.text);
         });
         row.additionalDescBulletInfo = [{ text: '|| ' + arrBullet.join(' || ') }];
+        row.descriptionBullets = [{ text: arrBullet.length }];
       }
     }
   }
