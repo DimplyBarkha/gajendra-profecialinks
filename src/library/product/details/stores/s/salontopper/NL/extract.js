@@ -45,31 +45,10 @@ module.exports = {
         addElementToDocument('isAvailable', 'In Stock');
       } else addElementToDocument('isAvailable', 'Out of Stock');
 
-      // adding first variant
-      // @ts-ignore
-      const productIds = [...document.querySelectorAll('select[class="autoredirect"] option')].map(e => e.getAttribute('value').split('-').pop());
-      const first = productIds[0];
-      const finalRes = [];
-      if (first !== undefined) {
-        for (let i = 0; i < first.length; i++) {
-          const substring = first.slice(0, first.length - i);
-          const res = [];
-
-          productIds.forEach(e => {
-            if (e.includes(substring)) {
-              res.push(true);
-            } else res.push(false);
-          });
-          if (!res.includes(false)) {
-            finalRes.push(substring);
-          }
-        }
-        const firstVariant = finalRes.sort((a, b) => {
-          return b.length - a.length;
-        },
-        )[0];
-        addElementToDocument('firstVariant', firstVariant);
-      }
+      const isVariants = document.querySelector('select.autoredirect');
+      const firstVariant = document.querySelector('meta[itemprop="mpn"]')
+        ? document.querySelector('meta[itemprop="mpn"]').getAttribute('content') : '';
+      if (isVariants !== null) addElementToDocument('firstVariant', firstVariant);
     });
 
     await context.extract(productDetails, { transform });
