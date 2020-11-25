@@ -39,7 +39,7 @@ module.exports = {
     });
     var variantLength = await context.evaluate(async () => {
       const variants = [];
-      document.querySelectorAll("div.dbh-product-color-selector div.pw-swatch__item img").forEach(x => {
+      document.querySelectorAll("div.dbh-product-color-selector div.pw-swatch__item button").forEach(x => {
         if (!x.closest("a")) {
           variants.push(x);
         }
@@ -54,7 +54,7 @@ module.exports = {
         if (variantLength > 1) {
           await context.evaluate(async (j) => {
               const variants = [];
-              document.querySelectorAll("div.dbh-product-color-selector div.pw-swatch__item img").forEach(x => {
+              document.querySelectorAll("div.dbh-product-color-selector div.pw-swatch__item button").forEach(x => {
                 if (!x.closest("a")) {
                   variants.push(x);
                 }
@@ -100,9 +100,13 @@ module.exports = {
               addHiddenDiv("custom-attr-product-availability", isDisabled ? "Out of Stock" : "In Stock");
             }
 
-            const productDescriptionEl = document.querySelector("div.description-text-container div.product-item-number ~ div");
+            const productDescriptionEl = document.querySelectorAll("div.description-text-container div.product-item-number ~ div");
             if (productDescriptionEl) {
-              addHiddenDiv("custom-attr-product-description", productDescriptionEl.innerText);
+              let str = "";
+              productDescriptionEl.forEach(x => {
+                str = str.concat(x.innerText);
+              });
+              str && addHiddenDiv("custom-attr-product-description", str);
             }
 
             const editorNotesEl = document.querySelector("div[id='editors_notes'] div.item-subheading ~ p");
@@ -149,22 +153,51 @@ module.exports = {
 
             addHiddenDiv("custom-attr-product-image-zoom-feature", "Yes");
 
-            const productVariationsField = document.querySelectorAll("div.dbh-product-color-selector div.pw-swatch__item img");
+            const productVariationsField = document.querySelectorAll("div.dbh-product-color-selector div.pw-swatch__item button");
             const productVariationsFieldEl = document.createElement("ul");
             const productVariants = [];
-            productVariationsField.forEach(x => {
-              const liEl = document.createElement("li");
-              liEl.textContent = x.getAttribute("alt");
-              productVariants.push(liEl.textContent);
-              productVariationsFieldEl.appendChild(liEl);
-            });
-            productVariationsFieldEl.style.display = "none";
-            productVariationsFieldEl.id = "custom-attr-product-variants-field";
-            document.body.appendChild(productVariationsFieldEl);
+            if (j == 0) {
+              for (let variantIt = 0; variantIt < productVariationsField.length; variantIt++) {
+                const x = productVariationsField[variantIt];
+                const liEl = document.createElement("li");
+                const el = x.querySelector("div.pw-swatch__chip-inner div");
+                if (el) {
+                  const elKey = Object.keys(el).find(x => x.startsWith("__reactEventHandlers"));
+                  el[elKey].onMouseEnter();
+                  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+                  const color = document.querySelector("div#color-scroller span.c-popover__tooltip span");
+                  liEl.textContent = color.innerText;
+                  el[elKey].onMouseLeave();
+                  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+                  productVariants.push(liEl.textContent);
+                  productVariationsFieldEl.appendChild(liEl);
+                }
+              }
+              productVariationsFieldEl.style.display = "none";
+              productVariationsFieldEl.id = "single-custom-attr-product-variants-field";
+              document.body.appendChild(productVariationsFieldEl);
+              const first_variant = productVariants[0];
+  
+              addHiddenDiv("single-custom-attr-product-variant-count", productVariants.length);
+  
+              addHiddenDiv("single-custom-attr-product-first_variant", first_variant);
+            }
 
-            const first_variant = productVariants[0];
-            addHiddenDiv("custom-attr-product-first_variant", first_variant);
-            
+            const selectedVariant = productVariationsField[j];
+            if (selectedVariant) {
+              const selected = selectedVariant.querySelector("div.pw-swatch__chip-inner div");
+              if (selected) {
+                const elKey = Object.keys(selected).find(x => x.startsWith("__reactEventHandlers"));
+                if (elKey) {
+                  selected[elKey].onMouseEnter();
+                  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+                  const color = document.querySelector("div#color-scroller span.c-popover__tooltip span") || {};
+                  addHiddenDiv("custom-attr-product-variant-color", color.innerText);
+                  selected[elKey].onMouseLeave();
+                  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+                }
+              }
+            }
           } catch (error) {
             console.log("Error: ", error);
           }
