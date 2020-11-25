@@ -43,11 +43,11 @@ const transform = (data) => {
       }
       if (row.alternateImages) {
         const alternateImagesArr = row.alternateImages.map((item) => {
-          let regExV1 = /(.*)60x60(.*)/;
+          const regExV1 = /(.*)60x60(.*)/;
           if (regExV1.test(item.text)) {
             return { text: `${item.text.match(/(.*)60x60(.*)/)[1]}280x430${item.text.match(/(.*)60x60(.*)/)[2]}` };
           }
-          let regExV2 = /(.*)w_60,h_60(.*)/;
+          const regExV2 = /(.*)w_60,h_60(.*)/;
           if (regExV2.test(item.text)) {
             return { text: `${item.text.match(/(.*)w_60,h_60(.*)/)[1]}w_280,h_430${item.text.match(/(.*)w_60,h_60(.*)/)[2]}` };
           }
@@ -57,7 +57,7 @@ const transform = (data) => {
       }
       if (row.pricePerUnit) {
         const pricePerUnitArr = row.pricePerUnit.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/(.*)\((?:([\d\.\,]+)\s?)€(.*)/g, '$2') : '|';
+          return typeof (item.text) === 'string' ? item.text.replace(/(.*)\((?:([\d.,]+)\s?)€(.*)/g, '$2') : '|';
         });
         row.pricePerUnit = [{ text: pricePerUnitArr.join('|'), xpath: row.pricePerUnit[0].xpath }];
       }
@@ -96,13 +96,13 @@ const transform = (data) => {
       }
       if (row.sodiumPerServingUom) {
         const sodiumPerServingUomArr = row.sodiumPerServingUom.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d\.\,]+)\s?)(.*)/g, '$2') : '|';
+          return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d.,]+)\s?)(.*)/g, '$2') : '|';
         });
         row.sodiumPerServingUom = [{ text: sodiumPerServingUomArr.join('|'), xpath: row.sodiumPerServingUom[0].xpath }];
       }
       if (row.vitaminAPerServingUom) {
         const vitaminAPerServingUomArr = row.vitaminAPerServingUom.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d\.\,]+)\s?)(.*)/g, '$2') : '|';
+          return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d.,]+)\s?)(.*)/g, '$2') : '|';
         });
         row.vitaminAPerServingUom = [{ text: vitaminAPerServingUomArr.join('|'), xpath: row.vitaminAPerServingUom[0].xpath }];
       }

@@ -21,7 +21,7 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.id) {
-        row.id[0].text = row.id[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3];
+        clean(row.id[0].text = row.id[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3]);
       }
 
       if (row.aggregateRating2) {
