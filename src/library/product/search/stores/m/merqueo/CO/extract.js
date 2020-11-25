@@ -48,12 +48,6 @@ async function implementation (inputs, parameters, context, dependencies) {
           productId.push(element.id);
         }
       });
-      const productSelectorImage = document.querySelectorAll('.mq-product-img img');
-      productSelectorImage.forEach(element => {
-        if (!(image.includes(element.src))) {
-          image.push(element.src);
-        }
-      });
       scrollTop += 1006;
       window.scroll(0, scrollTop);
       await stall(1000);
@@ -67,7 +61,6 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     addProp('producturl', productUrl);
     addProp('id', productId);
-    addProp('image', image);
     addProp('name', name);
 
     const rank = document.querySelectorAll('.productinfo');
@@ -82,8 +75,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     const allProductsNumber = rank.length;
 
     for (i = 0; i < allProductsNumber; i++) {
+      let image = data.data[i].attributes.image_large_url;
       let price = data.data[i].attributes.price;
       price = '$' + price;
+      document.querySelectorAll('.productinfo')[i].setAttribute('image', image);
       document.querySelectorAll('.productinfo')[i].setAttribute('price', price);
     };
   });
