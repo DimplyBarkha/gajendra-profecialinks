@@ -19,8 +19,8 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.name) {
-        let text = row.name.map((element) => element.text.trim()).join(' ');
-        row.name = [{ text }]
+        const text = row.name.map((element) => element.text.trim()).join(' ');
+        row.name = [{ text }];
       }
     }
   }

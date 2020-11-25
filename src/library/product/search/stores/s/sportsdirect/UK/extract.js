@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -21,7 +21,7 @@ async function implementation(
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -37,7 +37,7 @@ async function implementation(
     if (appendElements.length) {
       appendElements.forEach((element) => {
         element.setAttribute('searchurl', searchUrl);
-      })
+      });
     }
   });
   // try {
@@ -46,7 +46,7 @@ async function implementation(
   // } catch (e) {
   //   console.log(`id value did not load at all`);
   // }
-  //Api method for fetching the rating value and review count
+  // Api method for fetching the rating value and review count
   // await context.evaluate(async () => {
   //   const productId = document.querySelectorAll('div[data-bv-show="inline_rating"]');
 
@@ -90,7 +90,7 @@ async function implementation(
   // })
   return await context.extract(productDetails, { transform });
 }
-const { transform } = require('../shared')
+const { transform } = require('../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
