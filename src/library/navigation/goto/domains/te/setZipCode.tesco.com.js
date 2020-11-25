@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    domain: 'tesco.com',
-    timeout: null,
     country: 'UK',
+    domain: 'tesco.com',
     store: 'tesco',
     zipcode: '',
   },

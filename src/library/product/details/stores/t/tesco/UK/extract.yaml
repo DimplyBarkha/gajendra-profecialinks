@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //img[@class="product-image product-image-visible"]/@src
+    xpath: (//div[@class='product-image__container'])[1]//img/@src
   - name: alternateImages
     singleValue: false
     xpath: //ul[@class="carousel__list"]/li[position()>1]//img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //img[@class="product-image product-image-visible"]/@alt
+    xpath: (//div[@class='product-image__container'])[1]//img/@alt
   - name: nameExtended
     singleValue: true
     xpath: //h1[@class="product-details-tile__title"]
@@ -20,7 +20,7 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
-    xpath: //nav[@aria-label="breadcrumb"]/ol/li//a/span/span
+    xpath: //nav[@aria-label="breadcrumb"]/ol/li//a/span
   - name: description
     singleValue: true
     xpath: //div[@id="product-description"]/ul
@@ -34,9 +34,9 @@ fields:
     defaultValue: Out Of Stock
   - name: descriptionBullets
     singleValue: false
-    xpath: //body/@additional_product_info
+    xpath: count(//div[@id="product-description"]//ul/li[not(@id)] | //div[@id="product-marketing"]//ul/li[not(@id)] | //div[@id='manufacturer-marketing']//ul/li[not(@id)] | //div[@id="brand-marketing"]//ul/li[not(@id)] | //div[@id="other-information"]//ul/li[not(@id)] | //div[@id="features"]//ul/li[not(@id)] | //div[@id="pack-size"]//ul/li[not(@id)] | //div[@id="health-claims"]//ul/li[not(@id)] | //div[@id="nutritional-claims"])  
     regExp: "[^|]+"
-  - name: ingredientsList
+  - name: ingredients
     singleValue: false
     xpath: //body/@ingredient_list
     regExp: "[^|]+"
@@ -88,7 +88,7 @@ fields:
   - name: additives
     singleValue: true
     xpath: //div[@id="additives"]/ul
-  - name: allergyAdvice
+  - name: product_grocery_allergens
     singleValue: true
     xpath: //div[@id="allergens"]/ul
   - name: recyclingInformation
@@ -96,59 +96,59 @@ fields:
     xpath: //div[@id="recycling-info"]/p
   - name: saltPerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Salt"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Salt:"]/following-sibling::td[1]
   - name: saltPerServingUom
     singleValue: false
-    xpath: //td[normalize-space(text())="Salt"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Salt:"]/following-sibling::td[1]
     regExp: '[^\d]+$'
   - name: totalFatPerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Fat"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Fat:"]/following-sibling::td[1]
   - name: totalFatPerServingUom
     singleValue: false
-    xpath: //td[normalize-space(text())="Fat"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Fat:"]/following-sibling::td[1]
     regExp: '[^\d]+$'
   - name: saturatedFatPerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Saturates"]/following-sibling::td[1] | //td[normalize-space(text())="of which saturates"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="of which saturates:"]/following-sibling::td[1]
   - name: saturatedFatPerServingUom
     singleValue: false
-    xpath: //td[normalize-space(text())="Saturates"]/following-sibling::td[1] | //td[normalize-space(text())="of which saturates"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="of which saturates:"]/following-sibling::td[1]
     regExp: '[^\d]+$'
   - name: totalCarbPerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Carbohydrate"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Carbohydrate:"]/following-sibling::td[1]
   - name: totalCarbPerServingUom
     singleValue: false
-    xpath: //td[normalize-space(text())="Carbohydrate"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Carbohydrate:"]/following-sibling::td[1]
     regExp: '[^\d]+$'
   - name: totalSugarsPerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Sugars"]/following-sibling::td[1] | //td[normalize-space(text())="of which sugars"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="of which sugars:"]/following-sibling::td[1]
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: //td[normalize-space(text())="Sugars"]/following-sibling::td[1] | //td[normalize-space(text())="of which sugars"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="of which sugars:"]/following-sibling::td[1]
     regExp: '[^\d]+$'
   - name: proteinPerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Protein"]/following-sibling::td[1]
+    xpath:  //td[normalize-space(text())="Protein:"]/following-sibling::td[1]
   - name: proteinPerServingUom
     singleValue: false
-    xpath: //td[normalize-space(text())="Protein"]/following-sibling::td[1]
+    xpath:  //td[normalize-space(text())="Protein:"]/following-sibling::td[1]
     regExp: '[^\d]+$'
   - name: calciumPerServing
     singleValue: true
-    xpath: //td[normalize-space(text())="Calcium"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Calcium:"]/following-sibling::td[1]
   - name: calciumPerServingUom
     singleValue: false
-    xpath: //td[normalize-space(text())="Calcium"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Calcium:"]/following-sibling::td[1]
     regExp: '[^\d]+$'
   - name: dietaryFibrePerServing
     singleValue: false
-    xpath: //td[normalize-space(text())="Fibre"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Fibre:"]/following-sibling::td[1]
   - name: dietaryFibrePerServingUom
     singleValue: false
-    xpath: //td[normalize-space(text())="Fibre"]/following-sibling::td[1]
+    xpath: //td[normalize-space(text())="Fibre:"]/following-sibling::td[1]
     regExp: '[^\d]+$'
   - name: pricePerUnit
     singleValue: false
@@ -171,3 +171,7 @@ fields:
   - name: warnings
     singleValue: true
     xpath: //div[@id="warnings"]
+  - name: product_grocery_disclaimer
+    singleValue: false
+    description: Content under "legal disclaimer" header
+    xpath: //div[@class='using-product-info']//p[last ()]
