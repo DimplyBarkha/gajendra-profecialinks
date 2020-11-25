@@ -1,0 +1,88 @@
+input:
+  Keywords: Goldflex
+  _url: http://pistorone.ch
+extractions:
+  - html: https://workbench.import.io/html/run=b176abbf-5f6e-4b90-969f-b00645a7dd18/task=c573b5d3-59e6-4365-b3ff-1029d4d64f61/cc37325e-9a72-4e3d-a9b1-e1896a17b143.html
+    extractionConfigId: product/search/stores/p/pistor/CH/extract
+    data:
+      - group:
+          - id:
+              - text: "2701"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/@productid
+            name:
+              - text: Goldflex 10, Pflanzenölcrème, Bibox, Sais, 12 lt (mit 10% Butter)
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[5]/span[1]/a[1]
+            productUrl:
+              - text: https://www.pistorone.ch/index.php/catalog2/products/3010/economat-kuchenprodgewurzekonserven/speisefette-fur-die-kuche/sais/goldflex-10-pflanzenolcr-sais?context=%2Fcatalog2
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[5]/span[1]/a[1]/@href
+            price:
+              - text: "102.12"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/td[7]/span[1]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: de_CH
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: de_CH
+                value: 1
+          - id:
+              - text: "13867"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/@productid
+            name:
+              - text: Goldflex, Pflanzenölcrème, Sais, 1 lt
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/td[5]/span[1]/a[1]
+            productUrl:
+              - text: https://www.pistorone.ch/index.php/catalog2/products/374/economat-kuchenprodgewurzekonserven/speisefette-fur-die-kuche/sais/goldflex-pflanzenol-6x1lt-sais?context=%2Fcatalog2
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/td[5]/span[1]/a[1]/@href
+            price:
+              - text: "54.18"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/td[7]/span[1]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: de_CH
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: de_CH
+                value: 2
+          - id:
+              - text: "2700"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/@productid
+            name:
+              - text: Goldflex, Pflanzenölcrème, Bibox, Sais
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/td[5]/span[1]/a[1]
+            productUrl:
+              - text: https://www.pistorone.ch/index.php/catalog2/products/8619/economat-kuchenprodgewurzekonserven/speisefette-fur-die-kuche/sais/goldflex-pflanzenolcreme-sais?context=%2Fcatalog2
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/td[5]/span[1]/a[1]/@href
+            price:
+              - text: "92.76"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/td[7]/span[1]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: de_CH
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/div[5]/div[2]/div[2]/div[1]/div[2]/table[2]/tbody[1]/tr[3]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: de_CH
+                value: 3
+        xpath: /html
+    timestamp: 1606315169664

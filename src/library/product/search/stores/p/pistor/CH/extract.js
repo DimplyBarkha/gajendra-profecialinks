@@ -26,12 +26,13 @@ module.exports = {
         window.scroll(0, scrollTop);
       }
     });
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     await context.evaluate(async function () {
       const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
       const products = document.querySelectorAll('tr[id]');
       for (let i = 0; i < products.length; i++) {
-        const productIdElem = products[i].querySelector('td.type-number.field-extartnr span');
+        const productIdElem = products[i].querySelector('td.field-extartnr span');
         const productId = productIdElem ? productIdElem.textContent : '';
         if (productId) products[i].setAttribute('productid', productId);
         products[i].setAttribute('rank', `${lastProductPosition + i}`);
