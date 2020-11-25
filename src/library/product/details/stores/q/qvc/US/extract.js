@@ -14,6 +14,7 @@ module.exports = {
       const buttonIngredients = document.querySelector('div[class*="accIngredients"] a[role="button"]');
       if (buttonIngredients) buttonIngredients.click();
     });
-    await context.extract(productDetails, { transform });
+
+    return await context.extract(productDetails, { transform });
   },
 };
