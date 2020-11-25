@@ -20,10 +20,11 @@ async function implementation (
   }
   await dependencies.goto({ url, zipcode, storeId });
   try {
-    //await context.click('button#wzrk-cancel');
+    // await context.click('button#wzrk-cancel');
     await context.click('button.jsx-1537324451');
-  }catch (e) {
+  } catch (e) {
     console.log(e);
+    console.log('product url is ' + url);
   }
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
@@ -42,7 +43,7 @@ module.exports = {
     country: 'SA',
     store: 'noon',
     domain: 'noon.com',
-    loadedSelector: 'div#content',
+    loadedSelector: 'div#content,div.swiper-container',
     noResultsXPath: '//p[contains(text(),"Uh-oh, something went wrong here")]',
     zipcode: '',
   },
