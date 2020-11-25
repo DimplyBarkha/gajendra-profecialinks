@@ -70,7 +70,7 @@ fields:
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
-    defaultValue: No
+    defaultValue: Yes
   - name: privacyPolicy
     singleValue: true
     defaultValue: No
@@ -79,10 +79,9 @@ fields:
     defaultValue: Yes
   - name: materials
     singleValue: true
-    xpath: //tr[@class="row a"]/td[contains(text(),'Materiaal')]/following-sibling::td/text()
+    xpath: //tr[@class="row a"]/td[contains(text(),'Materiaal')]/following-sibling::td/text() | //tr[@class="row"]/td[contains(text(),'Materiaal')]/following-sibling::td/text()
   - name: Image360Present
     singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: true
@@ -95,10 +94,7 @@ fields:
     xpath: //a[@class="link_variation variant variant--selected"]/div[@class="variant__text"]/div[@class="variant__text__name"]/text()
   - name: specifications
     singleValue: false
-    xpath: //table[@class="product_attributes"]
-  - name: firstVariant
+    xpath: //html//div[@id='specifications']
+  - name: videos
     singleValue: false
-    xpath: //meta[@itemprop="sku"]/@content
-  - name: variants
-    singleValue: false
-    xpath: //meta[@itemprop="sku"]/@content
+    xpath: //div[@class="video-container"]/iframe/@src

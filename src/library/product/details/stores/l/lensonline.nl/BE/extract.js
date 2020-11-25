@@ -52,14 +52,33 @@ async function implementation(
       secondPrice = secondPrice[0].replace(",", ".");
       addHiddenDiv('price', firstPrice[0] + secondPrice, 0);
     } catch (error) {
-      // @ts-ignore
-      var price = window.product_price;
-      addHiddenDiv('price', '€' + price, 0);
+
     }
     var description = getAllXpath("//div[@itemprop='description']/text() | //div[@id='descr']/div/p//text() | //div[@id='descr']/div/h2/text() | //div[@id='descr']/div/ul/li/text()", 'nodeValue');
-    pipeSeparatorDouble('description', description);
+    var finalDescription = [];
+    for (let p = 0; p < description.length; p++) {
+      if (description[p].trim().length > 2) {
+        finalDescription.push(description[p]);
+      }
+    }
+    pipeSeparatorDouble('description', finalDescription);
+
+    var specifications = [];
+    const rawSpecifications = document.querySelectorAll('table[class="product_attributes"]>tbody>tr');
+    for (let p = 0; p < rawSpecifications.length; p++) {
+      // @ts-ignore
+      specifications.push(rawSpecifications[p].innerText);
+    }
+    pipeSeparatorDouble('specifications', specifications);
+
     const addDescBulletInfo = getAllXpath("//div[@id='descr']/div/ul/li/text()", 'nodeValue');
-    var finaladdDescBulletInfo = pipeSeparatorDouble2(addDescBulletInfo);
+    var finaladdDescription = [];
+    for (let p = 0; p < addDescBulletInfo.length; p++) {
+      if (addDescBulletInfo[p].trim().length > 2) {
+        finaladdDescription.push(addDescBulletInfo[p]);
+      }
+    }
+    var finaladdDescBulletInfo = pipeSeparatorDouble2(finaladdDescription);
     addHiddenDiv('addDescBulletInfo', '||' + finaladdDescBulletInfo, 0);
   });
   return await context.extract(productDetails, { transform });
