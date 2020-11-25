@@ -2,7 +2,7 @@ input:
   id: 191655FLS
   _url: http://jumbo.com
 extractions:
-  - html: https://workbench.import.io/html/run=3c2760c7-0ca2-4cf9-b98d-107f58ba0d06/task=8addb9f3-ce34-4f84-bd4e-d8928724e7e4/f7a54cae-fda7-47d3-b7b3-0ef356302008.html
+  - html: https://workbench.import.io/html/run=91661fc6-5e4c-4093-ad24-86d30a5ea6b5/task=7f1b8e95-120f-4262-8c31-4be9fc09e26a/5454621b-751b-4578-b908-61fe46b39d8e.html
     extractionConfigId: product/details/stores/j/jumbo/NL/extract
     data:
       - group:
@@ -25,16 +25,13 @@ extractions:
               - text: Jumbo Original Olijfolie 1L
                 xpath: /html/head[1]/meta[8]/@content
             description:
-              - text: >-
-                  Olijfolie - bestaande uit geraffineerde olijfoliën en
-                  olijfoliën van de eerste persing.
-
-                  Olie die uitsluitend bestaat uit geraffineerde olijfolie en rechtstreeks uit olijven verkregen olie.
-
-                  Deze plantaardige olie bevat veel onverzadigd vet dat goed is voor de gezondheid. Daarnaast staat olijfolie in de Schijf van Vijf.
+              - text: " -Olijfolie - bestaande uit geraffineerde olijfoliën en olijfoliën van de
+                  eerste persing.: Olie die uitsluitend bestaat uit
+                  geraffineerde olijfolie en rechtstreeks uit olijven verkregen
+                  olie.: Deze plantaardige olie bevat veel onverzadigd vet dat
+                  goed is voor de gezondheid. Daarnaast staat olijfolie in de
+                  Schijf van Vijf. -Classico original olijfolie"
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
-              - text: Classico original olijfolie
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[2]/text()[1]
             brandText:
               - text: http://Jumbo.com
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[9]/p[1]/a[1]/@href
@@ -45,6 +42,9 @@ extractions:
               - text: 1000 ml
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
             sku:
+              - text: 191655FLS
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[1]/@data-jum-product-details
+            variantId:
               - text: 191655FLS
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[1]/@data-jum-product-details
             name:
@@ -132,4 +132,4 @@ extractions:
             price:
               - text: 4,99
         xpath: /
-    timestamp: 1605791822327
+    timestamp: 1606310896605

@@ -12,26 +12,22 @@ module.exports = {
   implementation: async function implementation (inputs, parameters, context, dependencies) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-
     const dataRef = await context.extract(productDetails, { transform });
+    function reduceInfoToOneField (field) {
+      if (field && field.length > 1) {
+        let fieldText = '';
+        field.forEach(element => {
+          fieldText += ' -' + element.text;
+        });
+        field[0].text = fieldText.replace(/\n/g, ': ');
+        return field.splice(1);
+      }
+    }
     const ingredientsList = dataRef[0].group[0].ingredientsList;
-    if (ingredientsList && ingredientsList.length > 1) {
-      let ingredientsText = '';
-      ingredientsList.forEach(ingredient => {
-        ingredientsText += ' -' + ingredient.text;
-      });
-      ingredientsList[0].text = ingredientsText.replace(/\n/g, ': ');
-      dataRef[0].group[0].ingredientsList = ingredientsList.splice(0, 1);
-    }
     const description = dataRef[0].group[0].description;
-    if (description && description.length > 1) {
-      let descriptionText = '';
-      description.forEach(desc => {
-        descriptionText += ' -' + desc.text;
-      });
-      description[0].text = descriptionText.replace(/\n/g, ': ');
-      dataRef[0].group[0].description = description.splice(0, 1);
-    }
+    reduceInfoToOneField(description);
+    reduceInfoToOneField(ingredientsList);
+    dataRef[0].group[0].variantId[0].text = dataRef[0].group[0].variantId[0].text.match(/:"(\w+)"/)[1];
     return dataRef;
   },
 };

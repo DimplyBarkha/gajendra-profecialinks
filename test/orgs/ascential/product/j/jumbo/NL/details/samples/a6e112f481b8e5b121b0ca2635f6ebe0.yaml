@@ -2,7 +2,7 @@ input:
   id: 100072FLS
   _url: http://jumbo.com
 extractions:
-  - html: https://workbench.import.io/html/run=3c2760c7-0ca2-4cf9-b98d-107f58ba0d06/task=cf9f6ec7-b081-4b27-ae0a-4aeabf388d3a/2b26ddbf-18c2-414c-817f-fa09ef2ac6fc.html
+  - html: https://workbench.import.io/html/run=91661fc6-5e4c-4093-ad24-86d30a5ea6b5/task=0ef35233-fba9-422b-b9ad-3142cfd58f03/49e4a80d-8e0a-40ce-ab00-e8f072615c03.html
     extractionConfigId: product/details/stores/j/jumbo/NL/extract
     data:
       - group:
@@ -25,12 +25,11 @@ extractions:
               - text: Fanta Orange 1, 5L
                 xpath: /html/head[1]/meta[8]/@content
             description:
-              - text: Proef de fruitige sinassmaak van Fanta. Fanta Orange is een combinatie van
-                  sprankelend water en echt sinaasappelsap. De 1,5L PET fles is
-                  de ideale verpakking om deze frisdrank uit te schenken.
+              - text: " -Proef de fruitige sinassmaak van Fanta. Fanta Orange is een combinatie
+                  van sprankelend water en echt sinaasappelsap. De 1,5L PET fles
+                  is de ideale verpakking om deze frisdrank uit te schenken.
+                  -Frisdrank met sinaasappelsap, met suiker en zoetstoffen."
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
-              - text: Frisdrank met sinaasappelsap, met suiker en zoetstoffen.
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[2]/text()[1]
             brandText:
               - text: http://fanta.nl
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[12]/p[1]/a[1]/@href
@@ -43,32 +42,21 @@ extractions:
             sku:
               - text: 100072FLS
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
+            variantId:
+              - text: 100072FLS
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
             name:
               - text: Fanta Orange 1, 5L
                 xpath: /html/head[1]/meta[8]/@content
             ingredientsList:
-              - text: Sprankelend water
+              - text: " -Sprankelend water -suiker -sinaasappelsap uit sapconcentraat (6%)
+                  -voedingszuren: citroenzuur, appelzuur, natriumcitraat
+                  -conserveermiddel: kaliumsorbaat -natuurlijke
+                  sinaasappelaroma's met andere natuurlijke aroma's
+                  -antioxidant: ascorbinezuur -zoetstoffen: acesulfaam-K,
+                  aspartaam -stabilisator: guarpitmeel -wortelconcentraat
+                  -kleurstof: carotenen"
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[1]
-              - text: suiker
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[2]
-              - text: sinaasappelsap uit sapconcentraat (6%)
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[3]
-              - text: "voedingszuren: citroenzuur, appelzuur, natriumcitraat"
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[4]
-              - text: "conserveermiddel: kaliumsorbaat"
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[5]
-              - text: natuurlijke sinaasappelaroma's met andere natuurlijke aroma's
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[6]
-              - text: "antioxidant: ascorbinezuur"
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[7]
-              - text: "zoetstoffen: acesulfaam-K, aspartaam"
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[8]
-              - text: "stabilisator: guarpitmeel"
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[9]
-              - text: wortelconcentraat
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[10]
-              - text: "kleurstof: carotenen"
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[11]
             servingSize:
               - text: "Per: 250ml (%*)"
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[3]
@@ -148,4 +136,4 @@ extractions:
             price:
               - text: 1,79
         xpath: /
-    timestamp: 1605791852367
+    timestamp: 1606310890036
