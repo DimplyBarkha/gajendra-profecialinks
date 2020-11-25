@@ -23,7 +23,7 @@ async function implementation (
     return;
   }
 
-  await extract({ url, id, parentInput });
+  await extract({ url, id, parentInput, zipcode: parameters.zipcode });
 }
 
 module.exports = {

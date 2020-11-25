@@ -151,7 +151,7 @@ const implementation = async (
 
     if (numOptions > 0) {
       // Different requirements for 45232 only
-      if (shippingAvailable) {
+      if (shippingAvailable || zipcode === '45322') {
         available.textContent = 'In Stock';
       } else {
         available.textContent = 'In Store Only';

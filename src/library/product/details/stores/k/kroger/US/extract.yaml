@@ -190,6 +190,10 @@ fields:
   - name: ingredientsList
     singleValue: true
     xpath: //p[contains(@class,"NutritionIngredients-Ingredients")]/text()
+  - name: ingredients
+    singleValue: true
+    type: BOOLEAN
+    xpath: //p[contains(@class,"NutritionIngredients-Ingredients")]/text()
   - name: servingSize
     singleValue: true
     xpath: //div[@class='NutritionLabel-ServingSize font-bold flex justify-between']/span[2]
