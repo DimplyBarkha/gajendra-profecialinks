@@ -17,7 +17,7 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
       document.querySelector('#product-information-tabs > div:nth-child(1) > div > i').click();
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -25,11 +25,11 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function getElementByXpath (path) {
+      function getElementByXpath(path) {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       }
 
-      function timeout (ms) {
+      function timeout(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
 
@@ -149,16 +149,36 @@ module.exports = {
         ? document.querySelector('*#footer-site div.e-maerket-notice.marg').innerText : '';
       if (legal) addElementToDocument('legal', legal);
 
-      const iframe = document.querySelector('iframe.videoly-box');
-      if (iframe) {
-        const videos = iframe.contentDocument ? iframe.contentDocument.querySelectorAll('li.b-video-item div.b-video-item-tile') : [];
-        videos.forEach(el =>
-          addElementToDocument('urlsForVideos', `https://www.youtube.com/watch?v=${el.getAttribute('data-videoid')}`));
-      };
-      const videoWrapper = getElementByXpath('//div[@class="video-wrapper"]//iframe/@src')
-        ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
-        : '';
-      if (videoWrapper) addElementToDocument('urlsForVideos', videoWrapper);
+      // const iframe = document.querySelector('iframe.videoly-box');
+      // if (iframe) {
+      //   const videos = iframe.contentDocument ? iframe.contentDocument.querySelectorAll('li.b-video-item div.b-video-item-tile') : [];
+      //   videos.forEach(el =>
+      //     addElementToDocument('urlsForVideos', `https://www.youtube.com/watch?v=${el.getAttribute('data-videoid')}`));
+      // };
+      // const videoWrapper = getElementByXpath('//div[@class="video-wrapper"]//iframe/@src')
+      //   ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
+      //   : '';
+      // if (videoWrapper) addElementToDocument('urlsForVideos', videoWrapper);
+      
+      //get videoUrls from gallery
+      let sku = document.querySelector("meta[itemprop=sku]") && document.querySelector("meta[itemprop=sku]").hasAttribute('content') ? document.querySelector("meta[itemprop=sku]").getAttribute('content') : "";
+      let productTitle = document.querySelector(".product-header h1") ? document.querySelector(".product-header h1").textContent : "";
+      let brandName = document.querySelector('div.brand-logo img') && document.querySelector('div.brand-logo img').hasAttribute('alt') ? document.querySelector('div.brand-logo img').getAttribute('alt') : "";
+      let apiUrl = `https://dapi.videoly.co/1/videos/0/341/?SKU=${sku}&productTitle=${productTitle}&brandName=${brandName}&oos=0&maxItems=15&hn=www.power.dk&sId=s%3AVhBnRFUBWdwG5FtjHmeCiQXBWhEsSfXP.m5bSP3OWjWwT2Bl0G2Q7mtqF27DOe%2BCA%2B2NQw0VBq8I`;
+      let data = "";
+      let prom = await fetch(apiUrl);
+      try {
+        data = await prom.json();
+      } catch (er) {
+        console.log(er.message);
+      }
+      if (data && data.items) {
+        data.items.forEach(q => {
+          if (q.videoId) {
+            addElementToDocument('videoUrl',`https://www.youtube.com/watch?v=${q.videoId}</div>`);
+          }
+        })
+      }
 
       const cookies = document.querySelector('button#cookie-notification-accept');
       if (cookies) {
