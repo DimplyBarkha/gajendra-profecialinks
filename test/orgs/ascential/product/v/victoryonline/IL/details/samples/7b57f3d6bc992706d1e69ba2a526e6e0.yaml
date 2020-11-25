@@ -1,0 +1,98 @@
+input:
+  _url: http://victoryonline.co.il
+  URL: http://www.victoryonline.co.il/קציצות_קינואה_וברוקולי_99_קלוריות_פרווה_טבעול_525_גרם/מוצר
+extractions:
+  - html: https://workbench.import.io/html/run=e11e3094-31ff-451d-bab1-db17132add20/task=9e1ce450-aa72-468f-955d-eaedee5da60e/6f5cdf47-6999-4f39-a716-0671adff972b.html
+    extractionConfigId: product/details/stores/v/victoryonline/IL/extract
+    data:
+      - group:
+          - servingSize:
+              - text: "100"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            servingSizeUom:
+              - text: גרם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            caloriesPerServing:
+              - text: "149"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            proteinPerServing:
+              - text: "4.0"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            proteinPerServingUom:
+              - text: גרם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalCarbPerServing:
+              - text: "17.7"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalCarbPerServingUom:
+              - text: גרם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalSugarsPerServing:
+              - text: "1.1"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalFatPerServing:
+              - text: "6.0"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalFatPerServingUom:
+              - text: גרם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            saturatedFatPerServing:
+              - text: "0.6"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            saturatedFatPerServingUom:
+              - text: גרם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            dietaryFibrePerServing:
+              - text: "4.3"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            sodiumPerServing:
+              - text: "400.0"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            sodiumPerServingUom:
+              - text: מ"ג
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            image:
+              - text: https://gcimages.mysupermarket.co.il/victory/products/6/101506.jpg?v=6
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: קציצות קינואה וברוקולי 99 קלוריות - פרווה טבעול (525 גרם)
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            price:
+              - text: "30.90"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]
+            quantity:
+              - text: 525 גרם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[2]/span[1]
+            name:
+              - text: קציצות קינואה וברוקולי 99 קלוריות - פרווה טבעול
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]/span[1]
+            legalDisclaimer:
+              - text: ט.ל.ח - התמונות, הנתונים והתיאורים הינם להמחשה בלבד, הנתונים המדויקים
+                  מופיעים על גבי אריזת המוצר, אין להסתמך על הפירוט באתר ביחס
+                  לנתוני המוצר ו/או רכיביו, יתכנו טעויות או אי התאמות, יש לבדוק
+                  את הנתונים על גבי אריזת המוצר טרם השימוש בו. יתכן ומוצר שיסופק
+                  לצרכן נושא סימון תזונתי חדש ו/או סימון בסמל אדום, על אף שסימון
+                  כאמור אינו מופיע עדיין באתר.
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[6]
+            availabilityText:
+              - text: In Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1606331071281
