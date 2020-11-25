@@ -54,7 +54,7 @@ async function implementation (
       await context.waitForSelector(loadedSelector, { timeout: 80000 });
     }
     if (loadedXpath) {
-      await context.waitForXPath(loadedXpath, { timeout: 20000 });
+      await context.waitForXPath(loadedXpath, { timeout: 80000 });
     }
     return true;
   }

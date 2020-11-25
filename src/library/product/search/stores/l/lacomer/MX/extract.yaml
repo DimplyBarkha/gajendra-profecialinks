@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@id="left_control"]/span/@id
+    regExp: (\d+)
+  - name: rankOrganic
+    singleValue: true
+    # xpath: //li//meta[@itemprop="position"]//@content
+  - name: name
+    singleValue: false
+    xpath: //div[@class="text-center"]/a/strong[@class="ng-binding"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="col-xs-6 col-sm-4 col-md-3 col-lg-n5 li_prod li_mosaic ng-scope"]//div[@class="li_prod_picture"]/div[@class="li_prod_precio cgrid-price"]/div/div/@itemtype
+    regExp: (doHome.*)
+    regExpReplace: https://www.lacomer.com.mx/$1
+  - name: gtin
+    singleValue: false
+    # xpath: //h5[@class="product-name"]//a//@onclick
+    # regExp: (\d{8,17})
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="middle-in horizontal-align"]/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class='li_prod_picture']/div[@class='li_prod_precio cgrid-price']/div[@class='middle-cont']/div[@class='li_precios middle-in']/span[@class='precio_normal ng-binding']
+    # regExp: (\d+),?(\d+).+
+    # regExpReplace: $1.$2
+  - name: manufacturer
+    singleValue: true
+    # xpath: //h4[@class="product-manufacturer"]
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: false
+    # xpath: //li//meta[@itemprop="position"]//@content
