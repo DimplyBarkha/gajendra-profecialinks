@@ -1,32 +1,32 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@id,'body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl')]//div[contains(@class,'item-product js-product')]
+recordXPath: //div[contains(@id,'body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl')]//div[contains(@class,'item-product js-product')] | //div[contains(@class,'js-data-procuct')]
 fields: 
   - name: id
     singleValue: false
-    xpath: //div[contains(@id,'body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl')]//div[contains(@class,'item-product js-product')]/@data-product
+    xpath: //div[contains(@id,'body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl')]//div[contains(@class,'item-product js-product')]/@data-product | //div[contains(@class,'grid__item portable-up--four-twelfths')]//span[contains(@class,'js-product-id')]//input/@value
   - name: name
     singleValue: false
-    xpath: //a[contains(@class,'js-ga-productname')] | //div[@class='item-product__info']
+    xpath: //a[contains(@class,'js-ga-productname')] | //div[@class='item-product__info'] | //h1[contains(@class,'product-detail__name')] | //h1[contains(@class,'js-product-detail__name')] | //div[contains(@class,'item-product__info--product-detail')]
   - name: brandText
     singleValue: false
-    xpath: //div[contains(@class,'item-product__brand')]
+    xpath: //div[contains(@class,'item-product__brand')] | //span[@itemprop='brand']
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'item-product js-product')]//img/@src 
+    xpath: //div[contains(@class,'item-product js-product')]//a[contains(@id,"GrocerySearch_TemplateResult_SearchResultList")]//img[contains(@class,"fluid")]/@src | //img[contains(@id,"body_0_main_1_ProductImage")]/@src
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'item-product js-product')]//span[@class = 'price text--strong']
+    xpath: //div[contains(@class,'item-product js-product')]//span[@class = 'price text--strong'] | //div[@class='grid__item']//span[@class='price']
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class,'item-product js-product')]//span[@class = 'price-amount']
+    xpath: //div[contains(@class,'item-product js-product')]//span[@class = 'price-amount'] | (//div[@class='grid__item']//span[@class='price-amount'])[1]
   - name: searchUrl
     singleValue: false
     xpath: ancestor::html//div[@id='added-searchurl']
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,'item-product js-product')]//a[@class='js-ga-productname']/@href
+    xpath: //div[@id='added-producturl'] | //div[contains(@class,'item-product js-product')]//a[@class='js-ga-productname']/@href
     regExp: (.+)
     regExpReplace: https://www.iga.net$1
   - name: sponsored

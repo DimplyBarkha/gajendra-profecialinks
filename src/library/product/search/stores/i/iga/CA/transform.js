@@ -1,9 +1,9 @@
 
 /**
- *
- * @param {ImportIO.Group[]} data
- * @returns {ImportIO.Group[]}
- */
+*
+* @param {ImportIO.Group[]} data
+* @returns {ImportIO.Group[]}
+*/
 const transform = (data, context) => {
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
@@ -34,8 +34,10 @@ const transform = (data, context) => {
         el.text = clean(el.text);
       }));
       if (row.id && row.id[0] && row.id[0].text) {
-        var productInfo = JSON.parse(row.id[0].text.replace(/'/g, '"'));
-        row.id[0].text = productInfo.ProductId;
+        if (row.id[0].text.includes('ProductId')) {
+          const productInfo = JSON.parse(row.id[0].text.replace(/'/g, '"'));
+          row.id[0].text = productInfo.ProductId;
+        }
       }
       if (row.name && (row.name[0] && row.name[1])) {
         if (row.name[0].text && row.name[1].text) {
@@ -44,6 +46,9 @@ const transform = (data, context) => {
               text: row.name[0].text + ' ' + row.name[1].text,
             }];
         }
+      }
+      if (row.price && row.price[0].text.includes(',')) {
+        row.price[0].text = row.price[0].text.replace(',', '.');
       }
     }
   }
