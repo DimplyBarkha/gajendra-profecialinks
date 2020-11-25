@@ -11,7 +11,7 @@ module.exports = {
     store: 'filshill',
     zipcode: '',
   },
-  implementation: async function implementation (
+  implementation: async function (
     inputs,
     parameters,
     context,

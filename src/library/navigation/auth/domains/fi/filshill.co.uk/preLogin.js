@@ -7,4 +7,16 @@ module.exports = {
     store: 'filshill',
     zipcode: '',
   },
+  implementation: async function implementation (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) {
+    try {
+      await context.waitForSelector('#login_submit');
+    } catch (err) {
+      console.log('Login Submit button not loaded');
+    }
+  },
 };
