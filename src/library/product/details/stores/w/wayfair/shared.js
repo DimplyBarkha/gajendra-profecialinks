@@ -25,7 +25,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text = row.description.map(elm => elm.text).join(' || ');
+          text = row.description.map(elm => elm.text).join(' || ').replace('|| More', 'More');
         });
         row.description = [{ text }];
       }
@@ -41,6 +41,7 @@ const transform = (data) => {
         row.additionalDescBulletInfo.forEach(item => {
           text = row.additionalDescBulletInfo.map(elm => elm.text).join(' || ');
         });
+        text = `|| ${text}`;
         row.additionalDescBulletInfo = [{ text }];
       }
       if (row.specifications) {

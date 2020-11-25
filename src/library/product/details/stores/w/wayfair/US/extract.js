@@ -42,6 +42,21 @@ async function implementation (
     } catch (err) {
       console.log({ err });
     }
+    try {
+      if (val.length === 0) {
+        var data = wf.reactData;
+        for (const key in data) {
+          if (data[key].react_component_name === 'pure_react_pdp') {
+            var variant = data[key].bootstrap_data.optionComboToPartId;
+            for (const key in variant) {
+              val.push(key);
+            }
+          }
+        }
+      }
+    } catch (err) {
+      console.log({ err });
+    }
     if (val.length === 0) {
       const values = document.querySelectorAll('div.VisualOptionCard > div > div > label > input');
       values.forEach(item => {
