@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'fressnapf',
     domain: 'fressnapf.de',
-    url: 'https://www.fressnapf.de/search/?text=Bosch',
+    url: 'https://www.fressnapf.de/search/?text={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',

@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'fressnapf',
-    nextLinkXpath: '//a[@class="p-item p-item--border"]/i',
+    nextLinkSelector: '.p-item--border',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'fressnapf.de',
