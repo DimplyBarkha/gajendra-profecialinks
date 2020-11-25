@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'kicks',
     domain: 'kicks.se',
-    url: 'https://www.kicks.se/sok?q=deo%20stick',
+    url: 'https://www.kicks.no/sok?q=deo+stick',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
