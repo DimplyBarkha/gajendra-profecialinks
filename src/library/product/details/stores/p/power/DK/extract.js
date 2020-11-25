@@ -163,6 +163,7 @@ module.exports = {
       //get videoUrls from gallery
       let sku = document.querySelector("meta[itemprop=sku]") && document.querySelector("meta[itemprop=sku]").hasAttribute('content') ? document.querySelector("meta[itemprop=sku]").getAttribute('content') : "";
       let productTitle = document.querySelector(".product-header h1") ? document.querySelector(".product-header h1").textContent : "";
+      productTitle = encodeURIComponent(productTitle);
       let brandName = document.querySelector('div.brand-logo img') && document.querySelector('div.brand-logo img').hasAttribute('alt') ? document.querySelector('div.brand-logo img').getAttribute('alt') : "";
       let apiUrl = `https://dapi.videoly.co/1/videos/0/341/?SKU=${sku}&productTitle=${productTitle}&brandName=${brandName}&oos=0&maxItems=15&hn=www.power.dk&sId=s%3AVhBnRFUBWdwG5FtjHmeCiQXBWhEsSfXP.m5bSP3OWjWwT2Bl0G2Q7mtqF27DOe%2BCA%2B2NQw0VBq8I`;
       let data = "";
@@ -175,7 +176,7 @@ module.exports = {
       if (data && data.items) {
         data.items.forEach(q => {
           if (q.videoId) {
-            addElementToDocument('videoUrl',`https://www.youtube.com/watch?v=${q.videoId}</div>`);
+            addElementToDocument('videoUrl',`https://www.youtube.com/watch?v=${q.videoId}`);
           }
         })
       }
