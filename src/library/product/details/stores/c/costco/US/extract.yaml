@@ -66,7 +66,7 @@ fields:
     xpath: //div[contains(@class,'product-info-specs')]/div//div[contains(.,'Package Quantity (Count)')]/../div[position() > 1]
   - name: weightNet
     singleValue: false
-    xpath: //li[contains(text(), "Weight")]
+    xpath: //li[contains(text(), "Weight")] | //div[@class="row"]/div[(text()="Weight") or (contains(text(), "Weight - with Stand"))]/following-sibling::div | //li//div[@class="flix-dt"][contains(text(), "Weight") and contains(text(), "(Product)")]/following-sibling::div
     regExp: (?![Weight\s])\d.*    
   - name: weightGross
     singleValue: false
@@ -202,6 +202,12 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
+  - name: upc
+    singleValue: false
+    xpath: //div[@class="flix-dl"]//div[@class="flix-dt"][contains(text(), "UPC")]/following-sibling::div
+  - name: shippingWeight
+    singleValue: false
+    xpath: //th[@class="wc-spec-caption"]/span[contains(.,"Shipping Weight")]//..//following-sibling::td/div[@class="wc-cell-container"]/span//text() | //div[@class="flix-dl"]//div[@class="flix-dt"][contains(text(), "Shipping Weight")]/following-sibling::div
   # - name: termsAndConditions
   #   singleValue: false
   #   defaultValue: No

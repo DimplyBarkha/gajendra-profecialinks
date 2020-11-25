@@ -76,6 +76,17 @@ const transform = (data) => {
         }
       }
 
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          const arr = item.text.split(' ');
+          if (arr.length > 1) {
+            item.text = arr.slice(1).join();
+          }
+          text += `${item.text} | `;
+        });
+        row.variantInformation = [ {text: text.slice(0, -3), }, ];
+      }
       if (row.variantId) {
         for (const item of row.variantId) {
           const arr = item.text.split(' ');

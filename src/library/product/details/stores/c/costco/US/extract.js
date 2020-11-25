@@ -16,6 +16,23 @@ module.exports = {
     const { productDetails } = dependencies;
     await new Promise(resolve => setTimeout(resolve, 2000));
     await context.evaluate(async () => {
+      const moreBtn = document.querySelectorAll('div.flix-text-center>div.flix-btn-tech-ctrl');
+      if (moreBtn) {
+        try {
+          moreBtn[0].click();
+        } catch (err) {
+
+        }
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        try {
+          moreBtn[0].click();
+        } catch (err) {
+
+        }
+      }
+    });
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    await context.evaluate(async () => {
       const moreBtn = document.querySelectorAll('div input[name="view-more"]');
       if (moreBtn) {
         try {
