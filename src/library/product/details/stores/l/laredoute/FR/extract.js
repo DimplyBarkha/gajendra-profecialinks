@@ -9,6 +9,18 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const applyScroll = async function (context) {
+    //pop up is not allowing us to scroll.
+    try {
+      await context.waitForSelector('.popin-btn-close.close', {timeout: 20000});
+    } catch(er) {}
+    const clossePopUp = await context.evaluate(async function() {
+      console.log("trying to close pop");
+      const popUpSelector = '.popin-btn-close.close';
+      if(document.querySelector(popUpSelector)) {
+        document.querySelector(popUpSelector).click();
+      }
+    });
+    
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
@@ -78,7 +90,7 @@ async function implementation(
     document.body.insertAdjacentHTML("afterbegin", `<div id="specifications" style="display : none">${specificationsText.join(" ")}</div>`)
   });
   try {
-    context.waitForXPath('//div[@id="flix-inpage"]//script', { timeout: 30000 });
+    await context.waitForXPath('//div[@id="pdpFlixmediaZone" and not(contains(@style,"none"))]', { timeout: 30000 });
   } catch (er) {
     console.log("Couldn't find the enhanced content expand button");
   }
