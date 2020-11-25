@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-container row col-12 mx-auto row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 px-0"]/div/div/a/img/@src
+  - name: name
+    singleValue: false
+    xpath: //div[@class="d-flex flex-column flex-grow-1 pb-3"]/p/a/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product-container row col-12 mx-auto row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 px-0"]/div/div/a/@href
+  - name: id
+    singleValue: false
+    # type: NUMBER
+    xpath: //div[@class="product-container row col-12 mx-auto row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 px-0"]/div/@id
+    regExp: \d.+
+  - name: gtin
+    singleValue: false
+    # type: NUMBER
+    xpath: //p[@class="reference_cms mt-2 mb-3"]/text()
