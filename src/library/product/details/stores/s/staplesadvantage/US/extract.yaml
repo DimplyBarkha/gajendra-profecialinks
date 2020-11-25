@@ -12,8 +12,8 @@ fields:
 - name: _pageTimeStamp
   singleValue: false
 - name: image
-  singleValue: true
-  xpath: //div[@class="image-gallery-ux2dot0__image_element_wrapper active_hero_image slider_images"]/img[@class='image-gallery-ux2dot0__image_element picture__img_resp']/@alt
+  singleValue: false
+  xpath: //img[@class="image-gallery-ux2dot0__image_element picture__img_resp"]/@alt
 - name: imageAlt
   singleValue: true
 - name: alternateImages
@@ -29,10 +29,10 @@ fields:
   xpath: //h1[@id='product_title']
   regExp: '^.*(?=(, ))'
 - name: listPrice
-  singleValue: true
+  singleValue: false
   xpath: //span[@class='price-info__originalPrice']
 - name: price
-  singleValue: true
+  singleValue: false
   xpath: //div[@class='price-info__final_price']
 - name: availabilityText
   singleValue: true
@@ -44,10 +44,10 @@ fields:
   singleValue: true
   xpath: count(//div[@id='ProductDetailsSummaryWrapper']/ul/li)
 - name: brandText
-  singleValue: true
+  singleValue: false
   xpath: //div[@class="tab__tab"]/descendant::th[contains(., "Brand Name")]/following-sibling::td
 - name: manufacturer
-  singleValue: true
+  singleValue: false
   xpath: //div[@class="tab__tab"]/descendant::th[contains(., "Brand Name")]/following-sibling::td
 - name: quantity
   singleValue: true
@@ -57,15 +57,16 @@ fields:
 - name: weightGross
   singleValue: true 
 - name: gtin
-  singleValue: true
+  singleValue: false
+  type: STRING
   xpath: //script[contains(., 'upcCode')]
   regExp: '("upcCode":")(\w+)'
   regExpReplace: $2
 - name: sku
-  singleValue: true
+  singleValue: false
   xpath: //h1[@id='product_title']
-  regExp: '\((.*?)\)'
-  regExpReplace: $1
+  regExp: '.+(\((.+)).$'
+  regExpReplace: $2
 - name: variantId
   singleValue: true
 - name: mpc
@@ -131,7 +132,7 @@ fields:
   xpath: //h1[@id='product_title']
   regExp: '^.*(?=(, ))'
 - name: inStorePrice
-  singleValue: true
+  singleValue: false
   description: Price in the selected store
   xpath: //div[@class='price-info__final_price']
 - name: asin
@@ -218,9 +219,9 @@ fields:
   singleValue: false
   description: 
 - name: secondaryImageTotal
-  singleValue: true
+  singleValue: false
   description: 
-  xparh: count(//div[@class="verticalCarousel__thumb "])
+  xpath: count(//div[@class="verticalCarousel__thumb "])
 - name: news
   singleValue: true
   description: 

@@ -1,6 +1,9 @@
+const { cleanUp } = require('../../../../shared');
+
 async function implementation (inputs, parameters, context, dependencies) {
   // extracting data in default url
   const { productDetails } = dependencies;
+  const { transform } = parameters;
 
   const url = 'https://www.staplesadvantage.com/product_{id}'.replace(
     '{id}',
@@ -29,7 +32,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.evaluate(() => {
       const manufacturerImages = document.querySelectorAll('img');
       let image;
-      const manufacturerDescription = document.querySelector('body').textContent;
+      const manufacturerDescription = document.querySelector('body').innerText;
 
       for (let i = 0; i < manufacturerImages.length; i++) {
         const manufacturerDiv = document.createElement('div');
@@ -54,7 +57,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     await new Promise((resolve) => setTimeout(resolve, 3000));
     // extract data in iframe
 
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
 
     await new Promise((resolve) => setTimeout(resolve, 3000));
   };
@@ -66,7 +69,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'staplesadvantage',
-    transform: null,
+    transform: cleanUp,
     domain: 'staplesadvantage.com',
     zipcode: '',
   },
