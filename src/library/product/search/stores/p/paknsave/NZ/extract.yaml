@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div#wrapper ul.search-result-list li
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,"field-title")]/a/@href
+    regExp: recipes\/(.+)
+    regExpReplace: $1
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,"field-title")]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.paknsave.co.nz$1    
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="sxa-search-results__image-wrap"]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.paknsave.co.nz$1
+  - name: name
+    SingleValue: false
+    xpath: //div[contains(@class,"field-title")]/a
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
