@@ -1,0 +1,120 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div[class*="ProductVariationsstyled__OptionsContainer"] select option
+recordXPath: //div[contains(@class,"ProductVariationsstyled__OptionsContainer")]//select//option
+fields:
+  - name: image
+    xpath: //@mainimage
+    regExp: (.+)
+    regExpReplace: https://$1
+  - name: imageAlt
+    xpath: //@name
+  - name: alternateImages
+    xpath: //@alternateimages
+  - name: metaKeywords
+  - name: category
+    xpath: ancestor::html//ul[contains(@class,"Breadcrumbsstyled__BreadcrumbContainer")]//li[position()>1]//a
+  - name: nameExtended
+    xpath: //@name
+  - name: listPrice
+    xpath: //@listprice
+  - name: price
+    xpath: //@price
+  - name: availabilityText
+    xpath: //@availability
+  - name: description
+    xpath: ancestor::html//div[contains(@class,"DescriptionContainer")]
+  - name: descriptionBullets
+    xpath: count(//div[contains(@class,"DescriptionContainer")]//ul//li)
+  - name: brandText
+    xpath: ancestor::html//ul[contains(@class,"DetailsTablestyled")]//li[contains(.,"Primary Brand")]//h5/following-sibling::*
+  - name: manufacturer
+  - name: weightNet
+    xpath: ancestor::html//ul[contains(@class,"DetailsTablestyled")]//li[contains(.,"Weight")]//h5/following-sibling::*
+  - name: weightGross
+  - name: quantity
+    xpath: //@size[not(contains(.,"null"))]
+  - name: gtin
+    xpath: //@upcnumber
+  - name: sku
+    xpath: //@sku
+  - name: variantId
+    xpath: //@variantid
+  - name: mpc
+  - name: packSize
+  - name: legalDisclaimer
+  - name: directions
+    xpath: //@directions[not(contains(.,"null"))]
+  - name: warnings
+  - name: ratingCount
+    xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//ul[contains(@class,"StarRatingsstyled__RatingsList")]/@title
+    regExp: (.+)(\s.+)
+    regExpReplace: $1
+  - name: reviewCount
+    xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//ul[contains(@class,"StarRatingsstyled__RatingsList")]/@title
+    regExp: (.+)(\s.+)
+    regExpReplace: $1
+  - name: aggregateRatingText
+    xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//a[@data-track-value="product review"]/text()
+  - name: aggregateRating
+    xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//a[@data-track-value="product review"]/text()
+  - name: shippingInfo
+  - name: shippingDimensions
+  - name: shippingWeight
+  - name: variantCount
+    xpath: //@variantcount
+  - name: color
+    xpath: ancestor::html//ul[contains(@class,"DetailsTablestyled")]//li[contains(.,"Primary Color")]//h5/following-sibling::*
+  - name: colorCode
+  - name: manufacturerDescription
+  - name: manufacturerImages
+  - name: videos
+  - name: name
+    xpath: //@name
+  - name: coupon
+  - name: brandLink
+    xpath: ancestor::html//main//a[contains(@class,"RatingsRowstyled__BrandLink")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.petco.com$1
+  - name: featureBullets
+  - name: ingredientsList
+  - name: dietaryInformation
+  - name: specifications
+  - name: warranty
+    xpath: //@warranty[not(contains(.,"null"))]
+  - name: storage
+  - name: countryOfOrigin
+  - name: allergyAdvice
+  - name: recyclingInformation
+  - name: productOtherInformation
+  - name: packaging
+  - name: additives
+  - name: pricePerUnit
+  - name: pricePerUnitUom
+  - name: promotion
+    xpath: ancestor::html//span[@id="best-price"]
+  - name: alcoholContent
+  - name: variantInformation
+    xpath: //@varinfo
+  - name: firstVariant
+    xpath: //@firstvariant
+  - name: variants
+    xpath: //@variants
+  - name: additionalDescBulletInfo
+    xpath: ancestor::html//div[contains(@class,"DescriptionContainer")]//ul//li
+  - name: prop65Warning
+  - name: ageSuitability
+  - name: energyEfficiency
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: No
