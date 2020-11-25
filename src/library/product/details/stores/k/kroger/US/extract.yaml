@@ -25,7 +25,10 @@ fields:
     defaultValue: 'Yes'
   - name: coupon
     singleValue: true
-    defaultValue: ''
+    xpath: //div[contains(@class,'PurchaseOptions')]//a[@displaytemplate='YellowTag']
+  - name: careInstructions
+    singleValue: false
+    xpath: (//div[contains(@class,'RomanceDescription')]//strong[contains(text(),'Care Instruction')]//following-sibling::ul)[position()=1]
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: 'Yes'
@@ -205,6 +208,11 @@ fields:
     regExp: >-   
       (?<=\s)[^0-9,.]+
   - name: numberOfServingsInPackage
+    singleValue: true
+    xpath: //div[@class='NutritionLabel-ServingsPerContainer']
+    regExp: >-   
+      [0-9]+
+  - name: servingPerContainer
     singleValue: true
     xpath: //div[@class='NutritionLabel-ServingsPerContainer']
     regExp: >-   
