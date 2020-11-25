@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product-list")]/div
+
+fields:
+  - name: product_name
+    singleValue: false
+    xpath: //div[contains(@class, "product-title")]/a//@title
+  - name: product_images
+    singleValue: false
+    xpath: //div[contains(@class, "product-picture")]/a/img/@src
+  - name: product_url
+    singleValue: false
+    xpath: //div[contains(@class, "product-picture")]/a/@href
+  - name: product_rating
+    singleValue: false
+    xpath: //div[contains(@class, "product-rating")]//span[contains(@class, 'product-rating-count')]
+  - name: product_offers_price
+    singleValue: false
+    xpath: //div[contains(@class, "product-price-container is--list")]//span[@class='product-price is--new']
+  - name: product_id
+    singleValue: false
+    xpath: //div[contains(@class, 'product js-factfinder-track')]/@data-id
