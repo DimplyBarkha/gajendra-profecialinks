@@ -2,6 +2,7 @@ const { transform } = require('../../../../shared');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
+  const { transform } = parameters;
 
   // the popup is visible after a moment -> delaying the removal
   await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -104,9 +105,9 @@ async function implementation (inputs, parameters, context, dependencies) {
       addProp('wsp-buy-block.product-item__options.hit-area', i, 'seller', seller);
       addProp('wsp-buy-block.product-item__options.hit-area', i, 'rank', `${i + 1}`);
     };
-    addProp('.main', 0, 'currenturl', searchUrl);
+    addProp('.h-o-hidden>a', 0, 'currenturl', searchUrl);
   });
-  return await context.extract(productDetails, 'MERGE_ROWS');
+  return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
 };
 
 module.exports = {
