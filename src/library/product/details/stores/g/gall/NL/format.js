@@ -24,10 +24,33 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
+        if (row.reviewCount) {
+          row.reviewCount.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '').trim();
+            item.text = item.text.replace("Reviews", '').trim();
             item.text =  Number(item.text);
           });
+        }
+        if (row.price) {
+            row.price.forEach(item => {
+              item.text = item.text.replace(/\s*/g, '').trim();
+              item.text = ' € ' + item.text;
+            });
+        }
+        if (row.listPrice) {
+            row.listPrice.forEach(item => {
+              item.text = ' € ' + item.text;
+            });
+        }
+        if (row.brandText) {
+            row.brandText.forEach(item => {
+                item.text = item.text.slice(1,-1);
+            });
+        }
+        if (row.manufacturer) {
+            row.manufacturer.forEach(item => {
+                item.text = item.text.slice(1,-1);
+            });
         }
         if (row.description) {
             let description_ar = [];
@@ -42,28 +65,30 @@ const transform = (data) => {
             }
         }
         if (row.specifications) {
-          let specifications_ar = [];
-          row.description.forEach(item => {
-            specifications_ar.push(item.text);
-          });
-          if (specifications_ar.length) {
-            row.specifications = [{ "text": specifications_ar.join(" || "), 'xpath': row.specifications[0].xpath }];
-          }
+            var rowItem = ''
+            var rowCounter = 1
+            row.specifications.forEach(item => {
+              if((rowCounter % 2)){
+                rowItem = rowItem +  item.text 
+              } else{
+                rowItem = rowItem +  item.text + ' || '
+              }
+              rowCounter = rowCounter + 1
+            });
+            row.specifications = [{'text':rowItem, 'xpath': row.specifications[0].xpath}]
+            //console.log(row.specifications)
         }
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
         } 
         if (row.category) {
-          let info = [];
-          row.category.forEach(item => {
-            info.push(item.text.trim());
-          });
-          if (info.length) {
-            row.category = [];
-            info.forEach(item => {
-              row.category.push({ "text": item});
+            if (row.category.length) {
+              row.category.splice(0, 1);
+              row.category.splice(row.category.length - 1, 1);
+            }
+            row.category.forEach(item => {
+              item.text = item.text.replace('>', '').trim();
             });
-          }
         }
       }
     }
