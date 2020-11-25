@@ -22,6 +22,9 @@ async function implementation (
   } catch (err) {
     console.log('Set input value, error - ' + err);
   }
+  if (doesPopupExist) {
+    await context.click('button[id="consent_prompt_submit"]');
+  }
 
   try {
     await context.clickAndWaitForNavigation('form > button[type="submit"]', {}, { timeout: 50000 });
