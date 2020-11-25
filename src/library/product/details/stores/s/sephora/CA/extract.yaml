@@ -1,17 +1,17 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //main[@data-at="pdp_page_container"]
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class="css-tcpk6l"]//picture[@class="css-yq9732"]/img[@class="css-1rovmyu e65zztl0"]/@src
+    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class="css-tcpk6l"]//picture[@class="css-yq9732"]/img[@class="css-1rovmyu e65zztl0"]/@alt
+    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="css-tcpk6l"]//picture[@class="css-yq9732"]/img[@class="css-1rovmyu e65zztl0" ]/@src
+    xpath: //div[@class="css-1axb2kt"]/div/div[@class="css-1juuxmf"]//img/@src
   - name: category
     singleValue: false
     xpath: //nav[@aria-label="Breadcrumbs"]/ol/li/a

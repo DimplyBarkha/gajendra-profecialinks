@@ -28,7 +28,7 @@ const transform = (data) => {
       if(row.image){
         row.image.forEach(item=>{
           if(fstImg=='')
-            fstImg="https://www.sephora.com"+item.text.replace('?imwidth=60','?imwidth=300');
+            fstImg="https://www.sephora.com"+item.text;
         });
         row.image=[{"text":fstImg}];
       }
@@ -45,8 +45,11 @@ const transform = (data) => {
           if(tmpF==true){
             tmpF=false
           }else{
-            let tmpD={"text":"https://www.sephora.com"+item.text.replace('?imwidth=60','?imwidth=300')};
-            restImg.push(tmpD);
+            var nPos = item.text.indexOf("?imwidth=300");
+            if(nPos!=-1){
+              let tmpD={"text":"https://www.sephora.com"+item.text};
+              restImg.push(tmpD);
+            }
           }
         })
         row.alternateImages=restImg;
