@@ -23,34 +23,8 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
-    for (let row of group) {
-      let fstImg='',fstImgAlt='',restImg=[];
-      if(row.image){
-        row.image.forEach(item=>{
-          if(fstImg=='')
-            fstImg="https://www.sephora.com"+item.text.replace('?imwidth=60','?imwidth=300');
-        });
-        row.image=[{"text":fstImg}];
-      }
-      if(row.imageAlt){
-        row.imageAlt.forEach(item=>{
-          if(fstImgAlt=='')
-            fstImgAlt=item.text;
-        });
-        row.imageAlt=[{"text":fstImgAlt}];
-      }
-      if(row.alternateImages){
-        let tmpF=true;
-        row.alternateImages.forEach(item=>{
-          if(tmpF==true){
-            tmpF=false
-          }else{
-            let tmpD={"text":"https://www.sephora.com"+item.text.replace('?imwidth=60','?imwidth=300')};
-            restImg.push(tmpD);
-          }
-        })
-        row.alternateImages=restImg;
-      }   
+    for (let row of group) {  
+      
       let brnd='';  
       if(row.brandText){
         row.brandText.forEach(item=>{

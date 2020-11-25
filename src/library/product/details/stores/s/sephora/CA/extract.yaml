@@ -1,65 +1,65 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
-    xpath: //div[contains(@data-comp,"Carousel")]//div[contains(@id,"tabItem_6jf_1") and position()=1]//picture[@class="css-yq9732"]/img/@src
+    singleValue: false
+    xpath: //div[@class="css-tcpk6l"]//picture[@class="css-yq9732"]/img[@class="css-1rovmyu e65zztl0"]/@src
   - name: imageAlt
-    singleValue: true
-    xpath: //div[contains(@data-comp,"Carousel")]//div[contains(@id,"tabItem_6jf_1") and position()=1]//picture[@class="css-yq9732"]/img/@alt
+    singleValue: false
+    xpath: //div[@class="css-tcpk6l"]//picture[@class="css-yq9732"]/img[@class="css-1rovmyu e65zztl0"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@data-comp,"Carousel")]//div[contains(@id,"tabItem_6jf_1") and position()>1]//picture[@class="css-yq9732"]/img/@src
+    xpath: //div[@class="css-tcpk6l"]//picture[@class="css-yq9732"]/img[@class="css-1rovmyu e65zztl0" ]/@src
   - name: category
     singleValue: false
     xpath: //nav[@aria-label="Breadcrumbs"]/ol/li/a
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //h1[@class="css-1wd4e6l e65zztl0"]/span
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //span[@data-at="price" and @class="css-12wmvlf"]
   - name: price
-    singleValue: true
-    xpath: //span[@data-at="sale_price" and @class="css-5fq4jh"]
+    singleValue: false
+    xpath: //span[@data-at="price" and not(contains(@class,"css-12wmvlf"))] | //span[@data-at="sale_price" and @class="css-5fq4jh"]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     defaultValue: In Stock
   - name: description
     singleValue: false
     xpath: //div[@data-at="product_tabs_section"]/div[@role="tabpanel" and @id="tabpanel0"]/div/b[contains(text(),"What it is")]/following-sibling::text()[1]
   - name: brandText
-    singleValue: true
+    singleValue: false
     xpath: //h1[@class="css-1wd4e6l e65zztl0"]/a/span
   - name: quantity
-    singleValue: true
+    singleValue: false
     xpath: //div[@data-at="sku_size"]/text()[1]
   - name: sku
-    singleValue: true
+    singleValue: false
     xpath: //div[@data-at="sku_size"]/text()[2]
   - name: variantId
-    singleValue: true
+    singleValue: fase
     xpath: //div[@data-at="sku_size"]/text()[2]
   - name: directions
     singleValue: false
     xpath: //div[@data-at="product_tabs_section"]/div[@role="tabpanel" and @id="tabpanel1"]/div/text()
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     xpath: //span[@data-at="number_of_reviews"]
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //a[@class="css-fv3lde e65zztl0"]/div[@class="css-jp4jy6"]/@aria-label
   - name: variantCount
-    singleValue: true
+    singleValue: false
     defaultValue: 0
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //h1[@class="css-1wd4e6l e65zztl0"]/span
   - name: ingredientsList
     singleValue: false
     xpath: //div[@data-at="product_tabs_section"]/div[@role="tabpanel" and @id="tabpanel2"]/div/b | //div[@data-at="product_tabs_section"]/div[@role="tabpanel" and @id="tabpanel2"]/div/text()
   - name: imageZoomFeaturePresent
-    singleValue: true
+    singleValue: false
     defaultValue: Yes
