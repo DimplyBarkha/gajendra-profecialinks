@@ -1,5 +1,4 @@
 
-
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
@@ -8,9 +7,7 @@ module.exports = {
     domain: 'voila.ca',
     url: 'https://voila.ca/products/search?q={searchTerms}',
     loadedSelector: null,
-    noResultsXPath: `//span[contains(text(),"We couldn't find any products")]`,
+    noResultsXPath: '//span[contains(text(),"We couldn\'t find any products")]',
     zipcode: '',
   },
 };
-
-
