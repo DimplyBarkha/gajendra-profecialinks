@@ -108,6 +108,24 @@ fields:
     singleValue: true
     description: The number of reviews
     xpath: translate(//div[@class='bv_numReviews_text'],"()","")
+  - name: ratingScale
+    singleValue: true
+    xpath: //span[@itemprop='reviewRating']//meta[@itemprop='bestRating']/@content
+  - name: rating1
+    singleValue: true
+    xpath: //div[@class='bv-inline-histogram-ratings-bar' and @data-bv-histogram-rating-value='1']/@data-bv-histogram-rating-count
+  - name: rating2
+    singleValue: true
+    xpath: //div[@class='bv-inline-histogram-ratings-bar' and @data-bv-histogram-rating-value='2']/@data-bv-histogram-rating-count
+  - name: rating3
+    singleValue: true
+    xpath: //div[@class='bv-inline-histogram-ratings-bar' and @data-bv-histogram-rating-value='3']/@data-bv-histogram-rating-count
+  - name: rating4
+    singleValue: true
+    xpath: //div[@class='bv-inline-histogram-ratings-bar' and @data-bv-histogram-rating-value='4']/@data-bv-histogram-rating-count
+  - name: rating5
+    singleValue: true
+    xpath: //div[@class='bv-inline-histogram-ratings-bar' and @data-bv-histogram-rating-value='5']/@data-bv-histogram-rating-count
   - name: price
     singleValue: true
     description: The offered price for the product
