@@ -22,7 +22,7 @@ module.exports = {
       }
       const getVariant = async function () {
         var imageRows = [...document.querySelectorAll('div.color-attribute')];
-        if(imageRows.length > 0) {
+        if (imageRows.length > 0) {
           for (let index = 0; index < imageRows.length; index++) {
             imageRows[index].click();
             await timeout(2000);
@@ -39,7 +39,7 @@ module.exports = {
             await timeout(5000);
           }
         }
-        if(selectedProduct) {
+        if (selectedProduct) {
           selectedProduct.click();
           await timeout(2000);
         }

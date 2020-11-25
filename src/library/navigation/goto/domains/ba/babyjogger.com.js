@@ -19,7 +19,7 @@ module.exports = {
     await context.setUseRelayProxy(false);
     await context.setFirstRequestTimeout(60000);
     // url = `${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"proxy":{"use_relay_proxy":false},"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`
-    url = `${url}#[!opt!]{"load_timeout":60,"enable_cache":false}[/!opt!]`
+    url = `${url}#[!opt!]{"load_timeout":60,"enable_cache":false}[/!opt!]`;
 
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
