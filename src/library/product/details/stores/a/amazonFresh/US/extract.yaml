@@ -3,6 +3,8 @@ extends: ../../../../sharedAmazon/shared
 fields:
   - name: availabilityTextFresh
     xpath: //*[@id="almAvailability_feature_div"]/div[contains(@id,"availability-string")]
+  - name: domain
+    defaultValue: 'AmazonFresh'
   - name: availabilityTextFreshUnavailable
     xpath: //div[@id="outOfStock"]
     regExp: (.+)

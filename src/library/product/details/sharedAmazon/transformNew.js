@@ -354,7 +354,7 @@ const transform = (data, context) => {
       if (row.availabilityTextFresh) {
         row.availabilityText = row.availabilityTextFresh;
         delete row.availabilityTextFresh;
-      } else if (row.availabilityText) {
+      } else if (row.availabilityText && row.domain === 'AmazonFresh') {
         delete row.availabilityText;
       }
       if (row.availabilityTextFreshUnavailable) {
