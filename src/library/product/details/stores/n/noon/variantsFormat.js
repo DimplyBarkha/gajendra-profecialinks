@@ -4,16 +4,14 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  let variations = [];
   for (const { group } of data) {
     for (const row of group) {
-      var variant_url;
-      if (row.variantUrl) {
-        row.variantUrl.forEach(item => {
-          var variant_id = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
-          item.text = 'https://www.noon.com/uae-en/' + variant_id + '/p';
-        });
-      }
+      // if (row.variantUrl) {
+      //   row.variantUrl.forEach(item => {
+      //     var variant_id = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
+      //     item.text = 'https://www.noon.com/saudi-en/' + variant_id + '/p';
+      //   });
+      // }
       if (row.variantId) {
         row.variantId.forEach(item => {
           item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
