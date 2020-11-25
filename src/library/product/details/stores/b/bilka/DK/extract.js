@@ -19,7 +19,7 @@ module.exports = {
       const id = url.match(/\/(\d+)\//g)[0].match(/\d+/g)[0];
 
       try {
-        const API = `https://api.sallinggroup.com/v1/ecommerce/bilka/search/pdp?id=${id}&apiKey=4456bde0-edf0-48a9-9db5-10b535e63d9c`;
+        const API = `https://api.sallinggroup.com/v1/ecommerce/bilka/search/pdp?id=${id}&apiKey=74470310-597f-40e7-90cd-241b5bf53483`;
         const response = await fetch(API);
         const data = await response.json();
         const secImageArr = data.doc.gallery_images;
@@ -32,6 +32,10 @@ module.exports = {
     } );
 
     await context.evaluate(async function () {  
+
+      const url = window.location.pathname;
+      console.log(url);
+      const id = url.match(/\/(\d+)\//g)[0].match(/\d+/g)[0];
       
       try {
                 const productInfo = preFetchProductDetails();          
@@ -63,7 +67,7 @@ module.exports = {
             console.log(error.message);
           }
 
-          const API = `https://api.sallinggroup.com/v1/ecommerce/bilka/search/pdp?id=100506038&apiKey=4456bde0-edf0-48a9-9db5-10b535e63d9c`;
+          const API = `https://api.sallinggroup.com/v1/ecommerce/bilka/search/pdp?id=${id}&apiKey=74470310-597f-40e7-90cd-241b5bf53483`;
           const response = await fetch(API);
           const data = await response.json();         
           const videos = data.doc.gallery_videos;
