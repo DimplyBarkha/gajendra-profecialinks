@@ -17,6 +17,11 @@ async function implementation (inputs, parameters, context, dependencies) {
     function checkForProducts (selectorForProducts) {
       return document.querySelector(selectorForProducts) ? document.querySelectorAll(selectorForProducts).length : 0;
     }
+
+    function addProp (selector, iterator, propName, value) {
+      document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
+    }
+
     // function scrollBy(number) {
     //   const height = window.scrollY;
     //   window.scrollTo(0, height + number);
@@ -33,11 +38,12 @@ async function implementation (inputs, parameters, context, dependencies) {
         await new Promise((resolve, reject) => setTimeout(resolve, 100));
         numberOfSeenProducts = checkForProducts('.CC-shelf.shelf-block .shelf-product');
       } while (numberOfProducts !== numberOfSeenProducts);
-      const productCards = document.querySelector('.CC-shelf.shelf-block .shelf-product') ? document.querySelectorAll('.CC-shelf.shelf-block .shelf-product') : [];
-
-      productCards.forEach((card, index) => {
-        card.setAttribute('data-rank-number', index + 1);
-      });
+    }
+    const productCards = document.querySelector('.CC-shelf.shelf-block .shelf-product') ? document.querySelectorAll('.CC-shelf.shelf-block .shelf-product') : [];
+    if (productCards.length) {
+      for (let i = 0; i < productCards.length; i++) {
+        addProp('.CC-shelf.shelf-block .shelf-product', i, 'rank-organic', `${i + 1}`);
+      }
     }
   });
   return await context.extract(productDetails, { transform });
