@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'connection',
     domain: 'connection.com',
-    url: 'https://www.connection.com/IPA/Shop/Product/Search?SearchType=1&term={searchTerms}',
+    url: 'https://www.connection.com/IPA/Shop/Product/Search/?q=1&term={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

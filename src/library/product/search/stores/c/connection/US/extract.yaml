@@ -22,7 +22,7 @@ fields:
   xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//span[@class="priceDisplay"]/text()
 - name: manufactruer
   singleValue: true
-  xpath: //*[@id="productNameLink"]/a
+  xpath: //table[@class='table']/tbody/tr[@class='product-container'][1]/td[@class='list-info']/div[2]
 - name: availabilityText
   singleValue: true
   xpath: //table[@class="table"]//tbody//tr[@class="product-container"]//td[@class="list-availability"]/div/span/text()
