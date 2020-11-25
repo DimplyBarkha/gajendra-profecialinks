@@ -28,7 +28,7 @@ fields:
   - name: price
     singleValue: true
     type: CURRENCY
-    xpath: //span[@id='skuPriceLabel']/span
+    xpath: //span[@id='skuPriceLabel']/span[@id='SkuPriceUpdate']
   - name: availabilityText
     singleValue: true
     xpath: //a[@class="button BtnL BtnO scTrack cta"]//span/text()
@@ -36,7 +36,7 @@ fields:
     regExpReplace: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@class='panelInner  clear']/div[@class='qOverflow']/ul/li
+    xpath: //div[@class='panelInner  clear']/div[@class='qOverflow']/ul
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class='panelInner  clear']/div[@class='qOverflow']/ul/li)
