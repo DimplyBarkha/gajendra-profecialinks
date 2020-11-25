@@ -1,0 +1,117 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'product-gallery-thumbnails')]//button[contains(@class,'active')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'product-gallery-thumbnails')]//button[contains(@class,'active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'product-gallery-thumbnails')]//button[not(contains(@class,'active'))]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'column-left')]//div[contains(@class,'Breadcrumbs')]//a[not(text()='Inicio')]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'column-right-content')]//h1
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'column-right-content')]//h1
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'promo-buttons')]//button[contains(@class,'button-cart')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'column-right-content')]//div[contains(@class,'ProductPrice')]//span[contains(@class,'cmrPrice')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'column-right-content')]//div[contains(@class,'ProductPrice')]//span[contains(@class,'regularPrice')]    
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'description-content')]
+  - name: brandText
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[text()='Marca']//following-sibling::td
+  - name: mpc
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Modelo')]//following-sibling::td
+  - name: sku
+    singleValue: false    
+    xpath: //script[contains(text(),'sku') and not(@id ='__NEXT_DATA__')]
+    #"sku": "20458503",
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false    
+    xpath: //script[contains(text(),'sku') and not(@id ='__NEXT_DATA__')]
+    #"sku": "20458503",
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: specifications
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//tr
+  - name: warranty
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Garantia')]//following-sibling::td
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Pais de origen')]//following-sibling::td
+  - name: packSize
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Unidades por paquete')]//following-sibling::td
+  - name: color
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Color')]//following-sibling::td
+  - name: weightNet
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Peso')]//following-sibling::td 
+  - name: shippingDimensionsl
+    singleValue: false
+    # Length
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Profundidad')]//following-sibling::td
+  - name: shippingDimensionsb
+    singleValue: false
+    # Width
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Ancho')]//following-sibling::td
+  - name: shippingDimensionsh
+    singleValue: false
+    # Height
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Alto')]//following-sibling::td
+  - name: materials
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Material')]//following-sibling::td
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Eficiencia energetica')]//following-sibling::td
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Hidratos de carbono disponibles por 100')]//following-sibling::td    
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Sodio por 100')]//following-sibling::td    
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Proteinas por 100')]//following-sibling::td    
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Grasa total por 100')]//following-sibling::td    
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Energia por 100')]//following-sibling::td    
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //tbody[contains(@class,'jsx-3215817721')]//td[contains(text(),'Azucares totales por 100')]//following-sibling::td    
