@@ -2,21 +2,38 @@ input:
   id: 25199
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=c4349563-926b-495a-a02a-6221144443c9/task=edd7a203-222a-420d-a5f4-35fc778ff521/2e0633a6-1b71-495a-981b-2358a15a1aec.html
+  - html: https://workbench.import.io/html/run=72353ef7-a199-4ef5-a927-a869aa7c99b8/task=9398c47b-f746-4322-8775-7dbec4a054cf/8074c1e8-0cab-41c6-88e5-3882db4729e9.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/3a/eb/e2/364147_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/80/9c/d0/364148_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7c/2a/86/364149_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[3]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/0d/8c/7a/364150_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[4]/@src
+            nameExtended:
               - text: Purina Pro Plan (вет. корма) - Purina Pro Plan (вет. корма) кусочки в
                   соусе для кошек при мочекаменной болезни с курицей, UR - 25199
                 xpath: /html/body/ol[1]/li[1]/@name_extended
             price:
               - text: 78 ₽
                 xpath: /html/body/ol[1]/li[1]/@price
+            availabilityText:
+              - text: В наличии
+                xpath: /html/body/ol[1]/li[1]/@availability_text
             description:
               - text: >-
-                  Диетический корм при заболеваниях нижних отделов мочевыводящих
-                  путей у взрослых кошек.
+                  Описание 
+
+                  Диетический корм при заболеваниях нижних отделов мочевыводящих путей у взрослых кошек.
                    - Растворение струвитных камней- Профилактика повторного появления струвитных камней- Профилактика повторного появления оксалатов- Идиопатическое нарушение мочеиспускания 
                    
                    
@@ -44,7 +61,7 @@ extractions:
                    - Рост и репродукция 
                    - Хроническая почечная недостаточность 
                    - Другие состояния, связанные с диурезом 
-                   - Задержка жидкости, например, асцит и отеки
+                   - Задержка жидкости, например, асцит и отекиПодробнее о бренде
                 xpath: /html/body/ol[1]/li[1]/@description
             brandText:
               - text: Purina Pro Plan (вет. корма)
@@ -72,7 +89,28 @@ extractions:
             brandLink:
               - text: https://www.petshop.ru/brand/purina_vet_korma/
                 xpath: /html/body/ol[1]/li[1]/@brand_link
+            Image360Present:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[1]/@image_360_present
+                type: BOOLEAN
+                raw: "true"
+                locale: ru
+                value: true
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для кошек
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Консервы
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Паучи
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: Кусочки в соусе для кошек при мочекаменной болезни с курицей
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 85 г
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606226713213
+    timestamp: 1606312707499

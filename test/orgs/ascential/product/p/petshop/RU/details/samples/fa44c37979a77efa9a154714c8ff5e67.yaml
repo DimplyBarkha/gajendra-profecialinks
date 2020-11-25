@@ -2,11 +2,24 @@ input:
   id: 37492
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=c4349563-926b-495a-a02a-6221144443c9/task=4b6d4578-93d6-43c3-a71e-a244732b2920/95068f95-1d92-47ae-bcc8-98d3ac3b8c06.html
+  - html: https://workbench.import.io/html/run=72353ef7-a199-4ef5-a927-a869aa7c99b8/task=5cfb169c-2fd8-49a0-b8f6-f608d15203df/ad49ae88-bfbe-4902-ae1d-7ad6c3768508.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7c/aa/d2/486983_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/2f/22/59/486984_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/4b/63/ed/486985_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[3]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/a0/c7/ba/487116_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[4]/@src
+            nameExtended:
               - text: Purina One - Корм Purina One с индейкой и злаками для домашних кошек -
                   37492
                 xpath: /html/body/ol[1]/li[1]/@name_extended
@@ -16,13 +29,14 @@ extractions:
             price:
               - text: 725 ₽
                 xpath: /html/body/ol[1]/li[1]/@price
+            availabilityText:
+              - text: В наличии
+                xpath: /html/body/ol[1]/li[1]/@availability_text
             description:
               - text: >-
-                  Домашние кошки проводят много времени, ухаживая за своей
-                  шерстью, что часто приводит к образованию волосяных комков в
-                  желудке, которые могут доставить дискомфорт. Также они ведут
-                  менее активный образ жизни, что делает их склонными к
-                  полноте. 
+                  Описание
+
+                  Домашние кошки проводят много времени, ухаживая за своей шерстью, что часто приводит к образованию волосяных комков в желудке, которые могут доставить дискомфорт. Также они ведут менее активный образ жизни, что делает их склонными к полноте. 
                    
 
                    
@@ -116,6 +130,7 @@ extractions:
 
                    
                   Рекомендуемая суточная норма зависит от погодных условий, уровня активности кошки и ее физических особенностей. Следите, чтобы у кошки всегда была чистая, свежая питьевая вода без ограничений. Если вы предлагаете вашей кошке корм Purina ONE впервые, рекомендуем переводить на новый корм постепенно. В течение 7 дней уменьшайте исходный рацион, увеличивая дозу корма Purina ONE. Это позволит пищеварительной системе вашей кошки лучше адаптироваться к изменению корма.
+                   Подробнее о бренде
                 xpath: /html/body/ol[1]/li[1]/@description
             brandText:
               - text: Purina One
@@ -124,7 +139,7 @@ extractions:
               - text: "37492"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
             ratingCount:
-              - text: "168"
+              - text: "170"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
             aggregateRating:
               - text: "33"
@@ -154,22 +169,63 @@ extractions:
             ironPerServingUom:
               - text: мг
                 xpath: /html/body/ol[1]/li[1]/@iron_per_serving_uom
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[1]/@image_360_present
+                type: BOOLEAN
+                raw: "false"
+                locale: ru
+                value: false
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для кошек
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Сухой корм
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Взрослые (1-6 лет)
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: с индейкой и злаками для домашних кошек
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
+              - text: 1,5 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
+              - text: 750 г
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[3]/div[1]/div[1]
+              - text: 200 г
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7c/aa/d2/486983_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/2f/22/59/486984_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/4b/63/ed/486985_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[3]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/a0/c7/ba/487116_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[4]/@src
+            nameExtended:
               - text: Purina One - Корм Purina One с индейкой и злаками для домашних кошек -
                   37485
                 xpath: /html/body/ol[1]/li[2]/@name_extended
             price:
               - text: 572 ₽
                 xpath: /html/body/ol[1]/li[2]/@price
+            availabilityText:
+              - text: В наличии
+                xpath: /html/body/ol[1]/li[2]/@availability_text
             description:
               - text: >-
-                  Домашние кошки проводят много времени, ухаживая за своей
-                  шерстью, что часто приводит к образованию волосяных комков в
-                  желудке, которые могут доставить дискомфорт. Также они ведут
-                  менее активный образ жизни, что делает их склонными к
-                  полноте. 
+                  Описание
+
+                  Домашние кошки проводят много времени, ухаживая за своей шерстью, что часто приводит к образованию волосяных комков в желудке, которые могут доставить дискомфорт. Также они ведут менее активный образ жизни, что делает их склонными к полноте. 
                    
 
                    
@@ -263,6 +319,7 @@ extractions:
 
                    
                   Рекомендуемая суточная норма зависит от погодных условий, уровня активности кошки и ее физических особенностей. Следите, чтобы у кошки всегда была чистая, свежая питьевая вода без ограничений. Если вы предлагаете вашей кошке корм Purina ONE впервые, рекомендуем переводить на новый корм постепенно. В течение 7 дней уменьшайте исходный рацион, увеличивая дозу корма Purina ONE. Это позволит пищеварительной системе вашей кошки лучше адаптироваться к изменению корма.
+                   Подробнее о бренде
                 xpath: /html/body/ol[1]/li[2]/@description
             brandText:
               - text: Purina One
@@ -271,7 +328,7 @@ extractions:
               - text: "37485"
                 xpath: /html/body/ol[1]/li[2]/@variant_id
             ratingCount:
-              - text: "168"
+              - text: "170"
                 xpath: /html/body/ol[1]/li[2]/@rating_count
             aggregateRating:
               - text: "33"
@@ -301,22 +358,63 @@ extractions:
             ironPerServingUom:
               - text: мг
                 xpath: /html/body/ol[1]/li[2]/@iron_per_serving_uom
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[2]/@image_360_present
+                type: BOOLEAN
+                raw: "false"
+                locale: ru
+                value: false
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для кошек
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Сухой корм
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Взрослые (1-6 лет)
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: с индейкой и злаками для домашних кошек
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
+              - text: 1,5 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
+              - text: 750 г
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[3]/div[1]/div[1]
+              - text: 200 г
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7c/aa/d2/486983_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/2f/22/59/486984_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/4b/63/ed/486985_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[3]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/a0/c7/ba/487116_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[4]/@src
+            nameExtended:
               - text: Purina One - Корм Purina One с индейкой и злаками для домашних кошек -
                   37498
                 xpath: /html/body/ol[1]/li[3]/@name_extended
             price:
               - text: 316 ₽
                 xpath: /html/body/ol[1]/li[3]/@price
+            availabilityText:
+              - text: В наличии
+                xpath: /html/body/ol[1]/li[3]/@availability_text
             description:
               - text: >-
-                  Домашние кошки проводят много времени, ухаживая за своей
-                  шерстью, что часто приводит к образованию волосяных комков в
-                  желудке, которые могут доставить дискомфорт. Также они ведут
-                  менее активный образ жизни, что делает их склонными к
-                  полноте. 
+                  Описание
+
+                  Домашние кошки проводят много времени, ухаживая за своей шерстью, что часто приводит к образованию волосяных комков в желудке, которые могут доставить дискомфорт. Также они ведут менее активный образ жизни, что делает их склонными к полноте. 
                    
 
                    
@@ -410,6 +508,7 @@ extractions:
 
                    
                   Рекомендуемая суточная норма зависит от погодных условий, уровня активности кошки и ее физических особенностей. Следите, чтобы у кошки всегда была чистая, свежая питьевая вода без ограничений. Если вы предлагаете вашей кошке корм Purina ONE впервые, рекомендуем переводить на новый корм постепенно. В течение 7 дней уменьшайте исходный рацион, увеличивая дозу корма Purina ONE. Это позволит пищеварительной системе вашей кошки лучше адаптироваться к изменению корма.
+                   Подробнее о бренде
                 xpath: /html/body/ol[1]/li[3]/@description
             brandText:
               - text: Purina One
@@ -418,7 +517,7 @@ extractions:
               - text: "37498"
                 xpath: /html/body/ol[1]/li[3]/@variant_id
             ratingCount:
-              - text: "168"
+              - text: "170"
                 xpath: /html/body/ol[1]/li[3]/@rating_count
             aggregateRating:
               - text: "33"
@@ -448,22 +547,63 @@ extractions:
             ironPerServingUom:
               - text: мг
                 xpath: /html/body/ol[1]/li[3]/@iron_per_serving_uom
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[3]/@image_360_present
+                type: BOOLEAN
+                raw: "false"
+                locale: ru
+                value: false
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для кошек
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Сухой корм
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Взрослые (1-6 лет)
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: с индейкой и злаками для домашних кошек
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
+              - text: 1,5 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
+              - text: 750 г
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[3]/div[1]/div[1]
+              - text: 200 г
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7c/aa/d2/486983_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[4]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[4]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/2f/22/59/486984_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[4]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/4b/63/ed/486985_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[4]/ol[1]/li[3]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/a0/c7/ba/487116_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[4]/ol[1]/li[4]/@src
+            nameExtended:
               - text: Purina One - Корм Purina One с индейкой и злаками для домашних кошек -
                   37487
                 xpath: /html/body/ol[1]/li[4]/@name_extended
             price:
               - text: 97 ₽
                 xpath: /html/body/ol[1]/li[4]/@price
+            availabilityText:
+              - text: В наличии
+                xpath: /html/body/ol[1]/li[4]/@availability_text
             description:
               - text: >-
-                  Домашние кошки проводят много времени, ухаживая за своей
-                  шерстью, что часто приводит к образованию волосяных комков в
-                  желудке, которые могут доставить дискомфорт. Также они ведут
-                  менее активный образ жизни, что делает их склонными к
-                  полноте. 
+                  Описание
+
+                  Домашние кошки проводят много времени, ухаживая за своей шерстью, что часто приводит к образованию волосяных комков в желудке, которые могут доставить дискомфорт. Также они ведут менее активный образ жизни, что делает их склонными к полноте. 
                    
 
                    
@@ -557,6 +697,7 @@ extractions:
 
                    
                   Рекомендуемая суточная норма зависит от погодных условий, уровня активности кошки и ее физических особенностей. Следите, чтобы у кошки всегда была чистая, свежая питьевая вода без ограничений. Если вы предлагаете вашей кошке корм Purina ONE впервые, рекомендуем переводить на новый корм постепенно. В течение 7 дней уменьшайте исходный рацион, увеличивая дозу корма Purina ONE. Это позволит пищеварительной системе вашей кошки лучше адаптироваться к изменению корма.
+                   Подробнее о бренде
                 xpath: /html/body/ol[1]/li[4]/@description
             brandText:
               - text: Purina One
@@ -565,7 +706,7 @@ extractions:
               - text: "37487"
                 xpath: /html/body/ol[1]/li[4]/@variant_id
             ratingCount:
-              - text: "168"
+              - text: "170"
                 xpath: /html/body/ol[1]/li[4]/@rating_count
             aggregateRating:
               - text: "33"
@@ -595,7 +736,34 @@ extractions:
             ironPerServingUom:
               - text: мг
                 xpath: /html/body/ol[1]/li[4]/@iron_per_serving_uom
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[4]/@image_360_present
+                type: BOOLEAN
+                raw: "false"
+                locale: ru
+                value: false
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для кошек
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Сухой корм
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Взрослые (1-6 лет)
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: с индейкой и злаками для домашних кошек
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
+              - text: 1,5 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
+              - text: 750 г
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[3]/div[1]/div[1]
+              - text: 200 г
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606226723393
+    timestamp: 1606312714060

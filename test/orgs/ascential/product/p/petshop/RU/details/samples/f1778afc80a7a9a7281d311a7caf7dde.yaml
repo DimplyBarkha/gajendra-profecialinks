@@ -2,11 +2,22 @@ input:
   id: 406020
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=c4349563-926b-495a-a02a-6221144443c9/task=7dd05cac-430c-4881-a33e-f980ed70f56d/ab7816c3-4624-4555-8063-5687fda42d98.html
+  - html: https://workbench.import.io/html/run=72353ef7-a199-4ef5-a927-a869aa7c99b8/task=8b6e5a98-bce2-4714-942b-2e537921d773/05a0e38f-8d28-4a63-8462-27dc334c3f68.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[3]/@src
+            nameExtended:
               - text: Purina Pro Plan - Корм Purina Pro Plan для собак крупных пород мощного
                   телосложения с чувствительным пищеварением с ягненком, Large
                   Adult Robust Lamb - 40602
@@ -17,9 +28,14 @@ extractions:
             price:
               - text: 3 706 ₽
                 xpath: /html/body/ol[1]/li[1]/@price
+            availabilityText:
+              - text: В наличии
+                xpath: /html/body/ol[1]/li[1]/@availability_text
             description:
               - text: >-
-                  Примечание к фасовкам.
+                  Описание
+                   
+                   Примечание к фасовкам.
                    
                    артикул 406020, промо-упаковка: 14 кг по цене 12!
 
@@ -58,6 +74,8 @@ extractions:
                    Высокое содержание антиоксидантов, которые помогают замедлять процессы старения 
                    
                    Специальная рецептура для собак крупных пород с мощным телосложением
+                   
+                   Подробнее о бренде
                 xpath: /html/body/ol[1]/li[1]/@description
             brandText:
               - text: Purina Pro Plan
@@ -86,9 +104,48 @@ extractions:
             brandLink:
               - text: https://www.petshop.ru/brand/purina_pro_plan/
                 xpath: /html/body/ol[1]/li[1]/@brand_link
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[1]/@image_360_present
+                type: BOOLEAN
+                raw: "false"
+                locale: ru
+                value: false
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для собак
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Сухие корма
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Взрослые (1-6 лет)
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: Для собак крупных пород мощного телосложения с чувствительным пищеварением
+                  с ягненком
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 14 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
+              - text: 14 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[3]/div[1]/div[1]
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[3]/@src
+            nameExtended:
               - text: Purina Pro Plan - Корм Purina Pro Plan для собак крупных пород мощного
                   телосложения с чувствительным пищеварением с ягненком, Large
                   Adult Robust Lamb - 406020
@@ -99,9 +156,14 @@ extractions:
             price:
               - text: 3 972 ₽
                 xpath: /html/body/ol[1]/li[2]/@price
+            availabilityText:
+              - text: Товар закончился
+                xpath: /html/body/ol[1]/li[2]/@availability_text
             description:
               - text: >-
-                  Примечание к фасовкам.
+                  Описание
+                   
+                   Примечание к фасовкам.
                    
                    артикул 406020, промо-упаковка: 14 кг по цене 12!
 
@@ -140,6 +202,8 @@ extractions:
                    Высокое содержание антиоксидантов, которые помогают замедлять процессы старения 
                    
                    Специальная рецептура для собак крупных пород с мощным телосложением
+                   
+                   Подробнее о бренде
                 xpath: /html/body/ol[1]/li[2]/@description
             brandText:
               - text: Purina Pro Plan
@@ -168,22 +232,66 @@ extractions:
             brandLink:
               - text: https://www.petshop.ru/brand/purina_pro_plan/
                 xpath: /html/body/ol[1]/li[2]/@brand_link
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[2]/@image_360_present
+                type: BOOLEAN
+                raw: "false"
+                locale: ru
+                value: false
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для собак
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Сухие корма
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Взрослые (1-6 лет)
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: Для собак крупных пород мощного телосложения с чувствительным пищеварением
+                  с ягненком
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 14 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
+              - text: 14 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[3]/div[1]/div[1]
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[3]/@src
+            nameExtended:
               - text: Purina Pro Plan - Корм Purina Pro Plan для собак крупных пород мощного
                   телосложения с чувствительным пищеварением с ягненком, Large
-                  Adult Robust Lamb - 40604
+                  Adult Robust Lamb - 40604.акция.сроки
                 xpath: /html/body/ol[1]/li[3]/@name_extended
             listPrice:
-              - text: 1 406 ₽
+              - text: 1 234 ₽
                 xpath: /html/body/ol[1]/li[3]/@list_price
             price:
-              - text: 1 055 ₽
+              - text: 740 ₽
                 xpath: /html/body/ol[1]/li[3]/@price
+            availabilityText:
+              - text: Товар закончился
+                xpath: /html/body/ol[1]/li[3]/@availability_text
             description:
               - text: >-
-                  Примечание к фасовкам.
+                  Описание
+                   
+                   Примечание к фасовкам.
                    
                    артикул 406020, промо-упаковка: 14 кг по цене 12!
 
@@ -222,12 +330,14 @@ extractions:
                    Высокое содержание антиоксидантов, которые помогают замедлять процессы старения 
                    
                    Специальная рецептура для собак крупных пород с мощным телосложением
+                   
+                   Подробнее о бренде
                 xpath: /html/body/ol[1]/li[3]/@description
             brandText:
               - text: Purina Pro Plan
                 xpath: /html/body/ol[1]/li[3]/@brand
             variantId:
-              - text: "40604"
+              - text: 40604.акция.сроки
                 xpath: /html/body/ol[1]/li[3]/@variant_id
             ratingCount:
               - text: "330"
@@ -250,22 +360,66 @@ extractions:
             brandLink:
               - text: https://www.petshop.ru/brand/purina_pro_plan/
                 xpath: /html/body/ol[1]/li[3]/@brand_link
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[3]/@image_360_present
+                type: BOOLEAN
+                raw: "false"
+                locale: ru
+                value: false
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для собак
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Сухие корма
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Взрослые (1-6 лет)
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: Для собак крупных пород мощного телосложения с чувствительным пищеварением
+                  с ягненком
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 14 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
+              - text: 14 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[3]/div[1]/div[1]
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[4]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[4]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[4]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[4]/ol[1]/li[3]/@src
+            nameExtended:
               - text: Purina Pro Plan - Корм Purina Pro Plan для собак крупных пород мощного
                   телосложения с чувствительным пищеварением с ягненком, Large
-                  Adult Robust Lamb - 40604.акция.сроки
+                  Adult Robust Lamb - 40604
                 xpath: /html/body/ol[1]/li[4]/@name_extended
             listPrice:
-              - text: 1 234 ₽
+              - text: 1 406 ₽
                 xpath: /html/body/ol[1]/li[4]/@list_price
             price:
-              - text: 740 ₽
+              - text: 1 055 ₽
                 xpath: /html/body/ol[1]/li[4]/@price
+            availabilityText:
+              - text: В наличии
+                xpath: /html/body/ol[1]/li[4]/@availability_text
             description:
               - text: >-
-                  Примечание к фасовкам.
+                  Описание
+                   
+                   Примечание к фасовкам.
                    
                    артикул 406020, промо-упаковка: 14 кг по цене 12!
 
@@ -304,12 +458,14 @@ extractions:
                    Высокое содержание антиоксидантов, которые помогают замедлять процессы старения 
                    
                    Специальная рецептура для собак крупных пород с мощным телосложением
+                   
+                   Подробнее о бренде
                 xpath: /html/body/ol[1]/li[4]/@description
             brandText:
               - text: Purina Pro Plan
                 xpath: /html/body/ol[1]/li[4]/@brand
             variantId:
-              - text: 40604.акция.сроки
+              - text: "40604"
                 xpath: /html/body/ol[1]/li[4]/@variant_id
             ratingCount:
               - text: "330"
@@ -332,7 +488,35 @@ extractions:
             brandLink:
               - text: https://www.petshop.ru/brand/purina_pro_plan/
                 xpath: /html/body/ol[1]/li[4]/@brand_link
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[4]/@image_360_present
+                type: BOOLEAN
+                raw: "false"
+                locale: ru
+                value: false
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для собак
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Сухие корма
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Взрослые (1-6 лет)
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: Для собак крупных пород мощного телосложения с чувствительным пищеварением
+                  с ягненком
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 14 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
+              - text: 14 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[3]/div[1]/div[1]
+              - text: 3 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606226725251
+    timestamp: 1606312719820

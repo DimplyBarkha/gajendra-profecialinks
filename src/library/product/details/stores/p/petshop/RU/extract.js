@@ -25,11 +25,9 @@ module.exports = {
         descriptionButton.click();
         await new Promise((resolve) => setTimeout(resolve, 500));
       }
-      return document.evaluate('//button[div[text()="Описание"]]/following-sibling::div[position()=1]//div[contains(@class, "style_description")]', document, null, XPathResult.STRING_TYPE, null)
+      return document.evaluate('//button[div[text()="Описание"]]/following-sibling::div[position()=1]//div[@name="active-tab"]', document, null, XPathResult.STRING_TYPE, null)
         .stringValue;
     });
-
-    const descriptionBullets = await context.evaluate(() => document.evaluate('count(//tbody/tr[td[img]]/td[last()]/p)', document, null, XPathResult.NUMBER_TYPE, null).numberValue);
 
     // Switching to the product's composition tab
     await context.evaluate(async () => {
@@ -53,7 +51,7 @@ module.exports = {
         );
       }
       await context.evaluate(
-        async ({ variantsTotal, productDescription, descriptionBullets }) => {
+        async ({ variantsTotal, productDescription }) => {
           const addedList = document.querySelector('ol#variants_list');
           const listElem = document.createElement('li');
           const variantElem = document.evaluate('//div[contains(@class, "art") and starts-with(text(), "Арт")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
@@ -63,8 +61,8 @@ module.exports = {
           const productScript = document.evaluate('//script[contains(text(), "/petshop/components/ps/product-head-")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
           // eslint-disable-next-line no-useless-escape
           const productObjString =
-            productScript && productScript.match(/window.__PS_STATE__\['\/petshop\/components\/ps\/product-head-.+ = (.+}]})/)
-              ? productScript.match(/window.__PS_STATE__\['\/petshop\/components\/ps\/product-head-.+ = (.+}]})/)[1]
+            productScript && productScript.match(/window.__PS_STATE__\['\/petshop\/components\/ps\/product-head-.+? = (.+}]})/)
+              ? productScript.match(/window.__PS_STATE__\['\/petshop\/components\/ps\/product-head-.+? = (.+}]})/)[1]
               : '{}';
           const productObj = JSON.parse(productObjString).product;
 
@@ -113,7 +111,7 @@ module.exports = {
             XPathResult.STRING_TYPE,
             null,
           ).stringValue;
-          const availabilityText = document.querySelector('div.box-variants div.label-stock') ? document.querySelector('div.box-variants div.label-stock').textContent : '';
+          const availabilityText = document.evaluate('//div[@data-testid="deliveryInfo"]', document, null, XPathResult.STRING_TYPE, null).stringValue;
           const couponText = document.querySelector('div.product-info div.flag') ? document.querySelector('div.product-info div.flag').textContent : '';
 
           listElem.setAttribute('product_name', name);
@@ -128,7 +126,6 @@ module.exports = {
           listElem.setAttribute('rating_count', productObj.rating.voteCount);
           listElem.setAttribute('aggregate_rating', productObj.rating.value);
           listElem.setAttribute('description', productDescription);
-          listElem.setAttribute('description_bullets', descriptionBullets);
 
           const servingText = document.evaluate('//span[(contains(. , "Пищевая ценность") or contains(. , "Добавки") and contains(. , "г"))]', document, null, XPathResult.STRING_TYPE, null)
             .stringValue;
@@ -237,7 +234,7 @@ module.exports = {
 
           addedList.appendChild(listElem);
         },
-        { variantsTotal, productDescription, descriptionBullets },
+        { variantsTotal, productDescription },
       );
     }
     await context.extract(productDetails, { transform });

@@ -2,28 +2,37 @@ input:
   id: 36158
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=c4349563-926b-495a-a02a-6221144443c9/task=acfbd7dc-0cb0-4690-a832-b5f87a0ef89d/531632fd-1b33-4317-8a99-98f2b612d5c2.html
+  - html: https://workbench.import.io/html/run=72353ef7-a199-4ef5-a927-a869aa7c99b8/task=a4b5e491-3818-4fbb-b06f-716ed4c3d181/d690f7e8-10bc-4685-94d2-70bbf3c709f3.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/35/ce/b1/479188_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@alt
+            nameExtended:
               - text: Felix - Felix хрустящее лакомство со вкусом рыбы - 36158
                 xpath: /html/body/ol[1]/li[1]/@name_extended
             price:
               - text: 63 ₽
                 xpath: /html/body/ol[1]/li[1]/@price
+            availabilityText:
+              - text: В наличии
+                xpath: /html/body/ol[1]/li[1]/@availability_text
             description:
               - text: >-
-                  Чаще радуйтесь общению с вашим питомцем благодаря  хрустящему
-                  лакомству Felix! Хрустящее лакомство Felix - это дополнение к
-                  ежедневному рациону, с помощью которого вы можете баловать
-                  вашего питомца. В каждой упаковке удивительные ароматные
-                  гранулы с восхитительным вкусом и аппетитной текстурой! И это
-                  еще не все! Felix хрустящее лакомство содержит белки, витамины
-                  и Омега-6 жирные кислоты для того, чтобы помочь вашему питомцу
-                  быть счастливым и здоровым. Предложите вашему питомцу другие
-                  вкусы хрустящего лакомства Felix - радуйтесь вкусному
-                  разнообразию вместе!
+                  ОписаниеЧаще радуйтесь общению с вашим питомцем благодаря 
+                  хрустящему лакомству Felix! Хрустящее лакомство Felix - это
+                  дополнение к ежедневному рациону, с помощью которого вы можете
+                  баловать вашего питомца. В каждой упаковке удивительные
+                  ароматные гранулы с восхитительным вкусом и аппетитной
+                  текстурой! И это еще не все! Felix хрустящее лакомство
+                  содержит белки, витамины и Омега-6 жирные кислоты для того,
+                  чтобы помочь вашему питомцу быть счастливым и здоровым.
+                  Предложите вашему питомцу другие вкусы хрустящего лакомства
+                  Felix - радуйтесь вкусному разнообразию вместе!
                    
 
                    
@@ -34,6 +43,7 @@ extractions:
 
                    
                   Ежедневная норма кормления для взрослой кошки весом 4 кг: 13г (до 35 гранул). Следите, чтобы у вашей кошки всегда была чистая, свежая питьевая вода. Пожалуйста, скорректируйте суточную норму основного корма в соответствии с нормой кормления лакомством в день.
+                   Подробнее о бренде
                 xpath: /html/body/ol[1]/li[1]/@description
             brandText:
               - text: Felix
@@ -42,7 +52,7 @@ extractions:
               - text: "36158"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
             ratingCount:
-              - text: "23"
+              - text: "24"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
             aggregateRating:
               - text: "47"
@@ -78,7 +88,28 @@ extractions:
             ironPerServingUom:
               - text: (железо)
                 xpath: /html/body/ol[1]/li[1]/@iron_per_serving_uom
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[1]/@image_360_present
+                type: BOOLEAN
+                raw: "false"
+                locale: ru
+                value: false
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для кошек
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Витамины, добавки
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Лакомства
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: Хрустящее лакомство со вкусом рыбы
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 60 г
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606226715155
+    timestamp: 1606312708346

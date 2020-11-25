@@ -29,6 +29,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: ancestor::html//ul[@class="breadcrumbs"]/li[position()>1 and not(@class="devider")]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -57,7 +58,6 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: //description_bullets
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -156,7 +156,6 @@ fields:
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
-  xpath: //@coupon_text
 - name: amazonChoice
   singleValue: true
   description: YES or Blank
@@ -471,7 +470,7 @@ fields:
 - name: variants
   singleValue: false
   description: 
-  selector: div[class^="style_info"] div[class^="style_tile_wrapper"] > label > div[class^="style_tile_content"] > div[class^="style_tile"]:first-child
+  xpath: ancestor::html//div[contains(@class, "style_info")]//div[contains(@class, "style_tile_wrapper")]/label/div[contains(@class, "style_tile_content")]/div[contains(@class, "style_tile") and position()=1]
 - name: additionalDescBulletInfo
   singleValue: false
   description: 

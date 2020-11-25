@@ -2,11 +2,20 @@ input:
   id: 11122
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=c4349563-926b-495a-a02a-6221144443c9/task=c234efe1-91f1-4756-9662-a5d258c718c2/caaaa86e-70e5-4da0-b27a-c9439f93197f.html
+  - html: https://workbench.import.io/html/run=72353ef7-a199-4ef5-a927-a869aa7c99b8/task=bffdb21a-c26f-4bca-ba11-be9f1667b146/e040acce-0c22-4c81-93b8-9344b873da86.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/35/c0/76/453562_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/cc/14/42/453563_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[2]/@src
+            nameExtended:
               - text: Royal Canin (сухие корма) - Корм Royal Canin (сухие корма) для щенков
                   гигантских пород 8-18/24 мес., Giant Junior - 11122
                 xpath: /html/body/ol[1]/li[1]/@name_extended
@@ -16,6 +25,20 @@ extractions:
             price:
               - text: 4 704 ₽
                 xpath: /html/body/ol[1]/li[1]/@price
+            availabilityText:
+              - text: В наличии
+                xpath: /html/body/ol[1]/li[1]/@availability_text
+            description:
+              - text: Обеспечение нормального развития мышечной массы Наличие белка и
+                  L-карнитина обеспечивает адекватный набор мышечной массы на
+                  2-й фазе роста. Она начинается в 8 месяцев. Здоровье суставов
+                  и костей Оптимальный уровень минералов и энергии укрепляет
+                  кости и суставы щенков крупных размеров во время роста.
+                  Укрепление иммунитета Корм Роял Канин для щенков гигантских
+                  пород поддерживает естественные защитные силы организма
+                  питомца за счет специального комплекса антиоксидантов и
+                  манноолигосахаридов.
+                xpath: /html/body/ol[1]/li[1]/@description
             brandText:
               - text: Royal Canin (сухие корма)
                 xpath: /html/body/ol[1]/li[1]/@brand
@@ -42,15 +65,61 @@ extractions:
             brandLink:
               - text: https://www.petshop.ru/brand/royal_canin/
                 xpath: /html/body/ol[1]/li[1]/@brand_link
+            Image360Present:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[1]/@image_360_present
+                type: BOOLEAN
+                raw: "true"
+                locale: ru
+                value: true
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для собак
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Сухие корма
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Щенки
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: Для щенков гигантских пород 8-18/24 мес.
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 15 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
+              - text: 3,5 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - nameExtended:
+          - image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/35/c0/76/453562_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: alt text
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/cc/14/42/453563_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[2]/@src
+            nameExtended:
               - text: Royal Canin (сухие корма) - Корм Royal Canin (сухие корма) для щенков
                   гигантских пород 8-18/24 мес., Giant Junior - 40955
                 xpath: /html/body/ol[1]/li[2]/@name_extended
             price:
               - text: 1 380 ₽
                 xpath: /html/body/ol[1]/li[2]/@price
+            availabilityText:
+              - text: В наличии
+                xpath: /html/body/ol[1]/li[2]/@availability_text
+            description:
+              - text: Обеспечение нормального развития мышечной массы Наличие белка и
+                  L-карнитина обеспечивает адекватный набор мышечной массы на
+                  2-й фазе роста. Она начинается в 8 месяцев. Здоровье суставов
+                  и костей Оптимальный уровень минералов и энергии укрепляет
+                  кости и суставы щенков крупных размеров во время роста.
+                  Укрепление иммунитета Корм Роял Канин для щенков гигантских
+                  пород поддерживает естественные защитные силы организма
+                  питомца за счет специального комплекса антиоксидантов и
+                  манноолигосахаридов.
+                xpath: /html/body/ol[1]/li[2]/@description
             brandText:
               - text: Royal Canin (сухие корма)
                 xpath: /html/body/ol[1]/li[2]/@brand
@@ -77,7 +146,30 @@ extractions:
             brandLink:
               - text: https://www.petshop.ru/brand/royal_canin/
                 xpath: /html/body/ol[1]/li[2]/@brand_link
+            Image360Present:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[2]/@image_360_present
+                type: BOOLEAN
+                raw: "true"
+                locale: ru
+                value: true
+            category:
+              - text: Каталог
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
+              - text: Товары для собак
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[5]
+              - text: Сухие корма
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[7]
+              - text: Щенки
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[9]
+              - text: Для щенков гигантских пород 8-18/24 мес.
+                xpath: /html/body/div[6]/div[1]/ul[1]/li[11]
+            variants:
+              - text: 15 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[1]/div[1]/div[1]
+              - text: 3,5 кг
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606226720663
+    timestamp: 1606312712901
