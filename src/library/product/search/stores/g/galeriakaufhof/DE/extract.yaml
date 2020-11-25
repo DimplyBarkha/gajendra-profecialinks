@@ -29,7 +29,7 @@ fields:
     # regExpReplace: https://www.luluhypermarket.com$1
   - name: price
     singleValue: false
-    xpath: //div[@class="price-sales g-product-tile__price-sales  sale flex-price"]/@data-baseprice
+    xpath: //span[@class="cell c-price g-product-tile__price-val g-product-tile__price-val--c-price g-price-text--sale"]
   - name: rankOrganic
     singleValue: false
     type: Number
