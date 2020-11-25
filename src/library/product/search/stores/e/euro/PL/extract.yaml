@@ -40,3 +40,6 @@ fields:
     xpath: //div[@class='selenium-product-code']/text()
   - name: rank
     singleValue: false
+  - name: sponsored
+    xpath: //span[@class="product-status promocja"]
+    defaultValue: false

@@ -4,15 +4,17 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'euro',
-    // nextLinkSelector: 'div.paging-numbers > a',
+    nextLinkSelector: 'a.paging-next.selenium-WC-paging-next-button',
+    //nextLinkXPath:'//a[contains(@class,"selenium-WC-paging-next-button")]/@href', //'//a[contains(@class,"paging-next")]/@href',
     // mutationSelector: null,
-    // spinnerSelector: null,
+    // spinnerSelector: 'div.search div.select3-selected-ietm',
+    spinnerSelector: 'html.show-loading',
     loadedSelector: 'div#products',
     noResultsXPath: '//div[@id="empty-search"]',
     //openSearchDefinition: null,
-    openSearchDefinition: {
-      template: 'https://www.euro.com.pl/search,strona-{page}.bhtml?keyword={searchTerms}',
-    },    
+    // openSearchDefinition: {
+    //   template: 'https://www.euro.com.pl/keyword={searchTerms},strona-{page}.bhtml',
+    // },    
     domain: 'euro.com.pl',
     zipcode: '',
   },
