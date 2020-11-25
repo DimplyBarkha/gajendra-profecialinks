@@ -13,6 +13,7 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //ul[@class="slick-dots"]/li[@role="presentation"][position()>1]//img/@src
+    regExp: (.+)(?=\?)
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -26,11 +27,11 @@ fields:
     xpath: //h1/span[@itemprop="name"]
   - name: listPrice
     description: The stated undiscounted price for the product
-    xpath: /html/body/main/div//div[@class="fl-product-details--price"]//span[@class="fl-price--old"]/span
+    xpath: translate(/html/body/main/div//div[@class="fl-product-details--price"]//span[@class="fl-price--old"]/span,',','.')
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class="fl-product-details--price"]//meta[@itemprop="price"]/..
+    xpath: translate(//div[@class="fl-product-details--price"]//meta[@itemprop="price"]/..,',','.')
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -160,6 +161,7 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //div[contains(@class,"details--brand")]//a/@href
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -230,6 +232,7 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
+    xpath: count(//ul[@class="slick-dots"]/li[@role="presentation"][position()>1]//img/@src)
     singleValue: true
     description: null
     type: NUMBER
