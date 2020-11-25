@@ -20,6 +20,7 @@ fields:
     xpath: //img[@class='productCard__image  j-comparisonImg']/@src
   - name: aggregateRating
     singleValue: false
+    xpath: //div[@class='bv_averageRating_component_container']/div[@class='bv_text']
   - name: reviewCount
     singleValue: false
   - name: ratingCount
@@ -35,6 +36,7 @@ fields:
   - name: endorsementText
     singleValue: false
   - name: rank
+    xpath: //input[contains(@id, 'log_position')]/@value
   - name: rankOrganic
   - name: sponsored
     defaultValue: false
