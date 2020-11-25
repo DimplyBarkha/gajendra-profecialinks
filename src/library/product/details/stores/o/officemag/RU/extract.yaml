@@ -51,7 +51,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //noindex/div/div/div[1]/table/tbody/tr[1]
+  xpath: //noindex/div/div/div[1]/table/tbody/tr[1] | //div[@class="ProductState ProductState--red"]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -93,7 +93,7 @@ fields:
     sku
   xpath: //span[@class="code js-productDetailCode"]/@value
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
   xpath: //li[text()="Артикул — "]/a
 - name: packSize
@@ -114,6 +114,7 @@ fields:
   singleValue: true
   description: The number of ratings
   xpath: //li[@id="reviews"]/span
+  defaultValue: "0"
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
@@ -124,7 +125,7 @@ fields:
 - name: shippingInfo
   singleValue: false
   description: Shipping information for the product
-  xpath: //div[@class="Availability Availability--productCard"]//div[contains(@class, "Availability__hint")]
+  xpath: (//div[@class="info js-productPhotoZoomLeftPositionDonor"]//div[@class="Availability__aux"])[1]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
