@@ -111,8 +111,6 @@ fields:
   - name: sodiumPerServingUom
     singleValue: true
     xpath: //td[contains(., 'Natrium')]/following-sibling::td
-    regExp: (?:([\d\.\,]+)\s?)(.*)
-    regExpReplace: $2
   - name: totalCarbPerServing
     singleValue: true
     xpath: //td[contains(., 'Kohlenhydrate')]/following-sibling::td
@@ -152,13 +150,11 @@ fields:
     regExpReplace: $2
   - name: vitaminAPerServing
     singleValue: true
-    xpath: //td[text()='Vitamin A']/following-sibling::td
+    xpath: (//td[text()='Vitamin A']/following-sibling::td)[1]
     regExp: (?:([\d\.\,]+)\s?)
   - name: vitaminAPerServingUom
     singleValue: true
-    xpath: //td[text()='Vitamin A']/following-sibling::td
-    regExp: (?:([\d\.\,]+)\s?)(.*)
-    regExpReplace: $2
+    xpath: (//td[text()='Vitamin A']/following-sibling::td)[1]
   - name: vitaminCPerServing
     singleValue: true
     xpath: //td[text()='Vitamin C']/following-sibling::td

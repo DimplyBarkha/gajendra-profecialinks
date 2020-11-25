@@ -87,12 +87,24 @@ const transform = (data) => {
       }
       if (row.servingSizeUom) {
         const servingSizeUomArr = row.servingSizeUom.map((item) => {
-          return clean(typeof (item.text) === 'string' ? item.text.replace(/(.*)(\d+\s)([a-z]+)(.*)/g, '$3') : '|');
+          return typeof (item.text) === 'string' ? item.text.replace(/(.*)(\d+\s)([a-z]+)(.*)/g, '$3') : '|';
         });
         row.servingSizeUom = [{ text: servingSizeUomArr.join('|'), xpath: row.servingSizeUom[0].xpath }];
       }
       if (row.variantId) {
         row.variantId[0].text = row.variantId[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3];
+      }
+      if (row.sodiumPerServingUom) {
+        const sodiumPerServingUomArr = row.sodiumPerServingUom.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d\.\,]+)\s?)(.*)/g, '$2') : '|';
+        });
+        row.sodiumPerServingUom = [{ text: sodiumPerServingUomArr.join('|'), xpath: row.sodiumPerServingUom[0].xpath }];
+      }
+      if (row.vitaminAPerServingUom) {
+        const vitaminAPerServingUomArr = row.vitaminAPerServingUom.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d\.\,]+)\s?)(.*)/g, '$2') : '|';
+        });
+        row.vitaminAPerServingUom = [{ text: vitaminAPerServingUomArr.join('|'), xpath: row.vitaminAPerServingUom[0].xpath }];
       }
     }
   }
