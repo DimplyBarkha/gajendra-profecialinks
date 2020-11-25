@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[contains(@class, "hproduct")]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //p[@class="fn"]
+  - name: id
+    singleValue: false
+    xpath: //article[contains(@class, "hproduct")]/@data-product-id
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="codified-product-tile__product-image__image--product"]/@style
+  - name: productUrl
+    singleValue: false
+    xpath: //article[contains(@class, "hproduct")]/a/@href
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, "codified-product-tile__price--value price-value")]
