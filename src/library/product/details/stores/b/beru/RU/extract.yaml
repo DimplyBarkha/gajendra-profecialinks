@@ -26,6 +26,9 @@ fields:
   - name: ingredientsList
     xpath: //span[contains(.,'Состав')]/../..//span[@data-tid]
     singleValue: false
+  - name: ingredients
+    xpath: boolean(//span[contains(.,'Состав')]/../..//span[@data-tid])
+    singleValue: true
   - name: brandText
     xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
     regExp: (.*)brandName":"(.*?)"(.*)
@@ -130,3 +133,9 @@ fields:
     xpath: //meta[@itemprop="reviewCount"]/@content
   - name: image360Present
     defaultValue: No
+  - name: minAge
+    xpath: //span[contains(text(), "Рекомендуемый возраст")]//ancestor::div[1]/following-sibling::div
+  - name: variantAsins
+    xpath: //div[@data-zone-name="filter"]//input/@value
+  - name: variantsInfo
+    xpath: //div[@data-zone-name="filter"]//div[contains(@class, "b_1hvhLkjFFt")]//span[1]
