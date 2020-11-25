@@ -1,0 +1,75 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+- name: name
+  singleValue: false
+  xpath: //h1[@itemprop="name"]
+- name: image
+  singleValue: false
+  xpath: //div[@id='image']//img[@id='img1']/@src
+- name: imageAlt
+  singleValue: false
+  xpath: //div[@id='image']//img[@id='img1']/@alt
+- name: _url
+  singleValue: false
+  xpath: //meta[contains(@property,"og:url")]/@content
+- name: ratingCount
+  singleValue: false
+  xpath: //div[@id='extra_avis']/a/font
+- name: aggregateRating
+  singleValue: false
+  xpath: //div[@id='extra_avis']//span[@class='ratestar_average']/@style
+- name: price
+  singleValue: false
+  xpath: //span[@class='price_value']/@content
+- name: category
+  singleValue: false
+  xpath: //div[@id='navigation']//li/a
+- name: sku
+  singleValue: false
+  xpath: //meta[@itemprop='sku']/@content
+- name: brandText
+  singleValue: false
+  xpath: //div[@class='pdtbrand']
+- name: brandLink
+  singleValue: false
+  xpath: //div[contains(@class,'logo_container')]/a[1]/@href
+- name: manufacturer
+  singleValue: false
+  xpath: //div[@class='pdtbrand'] 
+- name: metaKeywords
+  singleValue: false
+  xpath: //meta[@name="keywords"]/@content 
+- name: specifications
+  singleValue: false
+  xpath: //div[(@id="contentTab3")]/p//text() | //div[(@id="contentTab3")]//ul/li | //div[(@id="contentTab3")]//tr[position()>1]               
+- name: description
+  singleValue: false
+  xpath: //div[(@id="contentTab1")]/p
+- name: descriptionBullets
+  singleValue: false
+  xpath: //div[(@id="contentTab1")]/p   
+- name: alternateImage
+  singleValue: false
+  xpath: //p[@class="pd07"]/a/img/@src
+- name: nameExtended
+  singleValue: false
+  xpath: concat(//h1[@itemprop="name"],' - ',//div[@class='pdtbrand'])
+- name: variantId
+  singleValue: false
+  xpath: //meta[@itemprop='sku']/@content
+- name: variantInformation
+  singleValue: false
+  xpath: //select[@class="link-img"]/option[position()>1]
+- name: variantCount
+  singleValue: false
+  xpath: //select[@class="link-img"]/option[position()>1]
+  defaultValue: '0'
+- name: availabilityText
+  singleValue: false
+  xpath: //p[@class="reappro"]/@style
+- name: packSize
+  singleValue: false
+  xpath: //td[contains(.,'Paquets')]/following-sibling::td
