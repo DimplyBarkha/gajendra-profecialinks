@@ -5,35 +5,35 @@ recordXPath: null
 fields:
   - name: url
     manualSelector: script[type='application/ld+json']
-    # regExp: '(\"url\"\:\ ")([^"]+)(\s)'
-    # regExpReplace: $2
-  # - name: productUrl
-  #   description: The URL for the product details page
-  # - name: thumbnail
-  #   description: The URL for the product thumbnail image
-  #   xpath: //div[@class="o-card__image__container"]/img/@src
-  # - name: name
-  #   singleValue: true
-  #   description: The product name
-  #   xpath: //article[@class="d-flex ipod-d-block"]
-  # - name: id
-  #   singleValue: true
-  #   description: The product id
-  #   xpath: //div[@class="o-card__image__container"]/img/@id
-  # - name: sku
-  #   singleValue: true
-  #   description: The store-specific product identifier
-  #   xpath: //div[@class="o-card__image__container"]/img/@id
-  # - name: price
-  #   singleValue: true
-  #   description: The offered price for the product
-  #   xpath: //p[@class="a-card-discount"]
-  # - name: aggregaterating2
-  #   description: The rating of the product
-  #   xpath: //div[@class="m-ratings"]//i[@class="icon-star_large"]
-  # - name: reviewCount
-  #   description: The number of ratings for the product
-  #   xpath: //li[@class="ratings-number aaa"]
-  # - name: sponsored
-  #   singleValue: true
-  #   defaultValue: false
+    regExp: '(\"url\"\:\ ")([^"]+)(\s)'
+    regExpReplace: $2
+  - name: productUrl
+    description: The URL for the product details page
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="o-card__image__container"]/img/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //article[@class="d-flex ipod-d-block"]
+  - name: id
+    singleValue: true
+    description: The product id
+    xpath: //div[@class="o-card__image__container"]/img/@id
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@class="o-card__image__container"]/img/@id
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+    xpath: //p[@class="a-card-discount"]
+  - name: aggregaterating2
+    description: The rating of the product
+    xpath: //div[@class="m-ratings"]//i[@class="icon-star_large"]
+  - name: reviewCount
+    description: The number of ratings for the product
+    xpath: //li[@class="ratings-number aaa"]
+  - name: sponsored
+    singleValue: true
+    defaultValue: false
