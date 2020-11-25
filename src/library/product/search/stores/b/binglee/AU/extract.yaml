@@ -38,7 +38,9 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //li/div//a/@data-product_sku    
+    xpath: //span[contains(@class,"quickview")]//@data-quickview-url
+    regExp: (.+)(\/)([0-9]{2,})(\/)
+    regExpReplace: $3
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
