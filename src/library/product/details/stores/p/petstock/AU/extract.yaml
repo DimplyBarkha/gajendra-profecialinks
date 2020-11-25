@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="product-select clearfix"]//div[@class="optionSet"] | (//div[@class="product-select clearfix"]//div[@class="quantity-select quantity-solo items" and not (@class="optionSet")]/div) | //div[@class="items-rows items"]/div
+recordXPath: //div[@class='items-rows items']/div[@class='item']
 fields:
 - name: _input
   singleValue: false
@@ -20,7 +20,7 @@ fields:
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: (ancestor::html//section[@class="product-media clearfix"]//li/a/@data-name)[1]
+  xpath: ancestor::html//section[@class="product-media clearfix"]//li/a/@data-name
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
@@ -33,38 +33,43 @@ fields:
   description: The categories (e.g. from breadcrumbs)
   xpath: (ancestor::html//ul[@class="breadcrumb"]/li//span[@itemprop='name'])[position()>1][position() < last()]
 - name: nameExtended
-  singleValue: true
+  singleValue: false
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
   xpath: //div[@nameExtended]/@nameExtended
 - name: listPrice
-  singleValue: true
+  singleValue: false
   description: The stated undiscounted price for the product
   xpath: //div[@class="item-total"]
 - name: price
-  singleValue: true
+  singleValue: false
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
   xpath: //div[@class="item-total"]
 - name: availabilityText
-  singleValue: true
+  singleValue: false
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //span[@class="out-of-stock"]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: ancestor::html//div[@itemprop="description"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(ancestor::html//div[@itemprop="description"]//li)
 - name: brandText
-  singleValue: true
+  singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: ancestor::html//div[@itemprop="product"]/@data-brand
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: ancestor::html//div[@itemprop="product"]/@data-brand
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -78,14 +83,16 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN)
 - name: sku
-  singleValue: true
+  singleValue: false
   description: The store-specific product identifier
+  xpath: //div[@class='sku']
 - name: variantId
-  singleValue: true
+  singleValue: false
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //div[@class='sku']
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -103,15 +110,19 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: (ancestor::html//span[@itemprop="reviewCount"])[1]
 - name: aggregateRatingText
-  singleValue: true
+  singleValue: false
   description: The stated aggregate rating
+  xpath: ancestor::html//div[@class="rating-meta"]/span[@class="reviews-count"]/span[@class="count sc"]
 - name: aggregateRating
-  singleValue: true
+  singleValue: false
   description: The stated aggregate rating normalized to be out of 5
+  xpath: ancestor::html//div[@class="rating-meta"]/span[@class="reviews-count"]/span[@class="count sc"]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: ancestor::html//div[contains(@class,"delivery-info ")]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -121,9 +132,11 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: count(//div[@class='item'])
 - name: color
-  singleValue: true
+  singleValue: false
   description: A textual description of the colour
+  xpath: //div[@class='color']
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -137,8 +150,9 @@ fields:
   singleValue: false
   description: URLs of videos on page
 - name: name
-  singleValue: true
+  singleValue: false
   description: The product name
+  xpath: ancestor::html//div[@class="product content-area"]/@data-name
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -242,6 +256,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: ancestor::html//div[@class="tab-pane"][@id="tab2"]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -400,9 +415,11 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //div[@class="item-summary"]
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: ancestor:html//div[@class="item-summary"][1]
 - name: promotion
   singleValue: true
   description: promotion text on product page
@@ -421,8 +438,9 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
-  singleValue: true
+  singleValue: flase
   description: colour / scent / flavour / other
+  xpath: ancestor::html//div[@variantname]/@variantname | ancestor::html//h3[@variantname]/@variantname
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
