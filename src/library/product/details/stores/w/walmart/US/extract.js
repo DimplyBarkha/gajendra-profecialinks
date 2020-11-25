@@ -98,6 +98,18 @@ module.exports = {
           [...marketingIframe.contentDocument.querySelectorAll('div')].map(el => el.innerText),
         )];
         addHiddenDiv('my_enh_content', setText.join(' '));
+
+        // In the box contents
+        const inTheBox = Array.from(new Set(
+          [...marketingIframe.contentDocument.querySelectorAll('[data-section-tag="in-the-box"] ul > li h3')].map(el => el.innerText),
+        ));
+        addHiddenDiv('in_the_box', inTheBox.join('|'));
+
+        // In the box contents
+        const nutritionImage = marketingIframe.contentDocument.querySelector('[data-section-caption="Nutrition Facts"] img');
+        if (nutritionImage) {
+          addHiddenDiv('nutrition-image', nutritionImage.getAttribute('src'));
+        }
       }
     }, enhancedContentSelector);
 
@@ -145,7 +157,15 @@ module.exports = {
       const sellerDiv = addHiddenDiv('added-sellers', '');
       // @ts-ignore
       sellerDiv.innerHTML = result;
+
+      // variant info
+      if (document.querySelector('#item')) {
+        const json = JSON.parse(document.querySelector('#item').innerText);
+        const variants = json.item.product.buyBox.criteria.map(elm => elm.values.map(a => a.title)).flat().join('|');
+
+        addHiddenDiv('variants-info', variants);
+      }
     });
-    await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
+    return await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
   },
 };

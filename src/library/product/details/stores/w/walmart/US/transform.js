@@ -302,6 +302,13 @@ const transform = (data, context) => {
           row.manufacturerDescription = [{ text: rawText.replace(/{.*}/g, '') }];
         }
 
+        if (row.ratingDistribution) {
+          const ratings = row.ratingDistribution.map(elm => elm.match(/^[^\s]+/)[0]).reverse();
+          row.ratingDistribution = ratings.map(elm => ({ text: elm }));
+        } else {
+          row.ratingDistribution = [0, 0, 0, 0, 0].map(elm => ({ text: elm }));
+        }
+
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = el.text ? clean(el.text) : el.text;
         }));
