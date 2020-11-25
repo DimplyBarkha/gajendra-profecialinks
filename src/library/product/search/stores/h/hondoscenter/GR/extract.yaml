@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: rank
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class=" lazyloaded"]/@src
+  - name: name
+    singleValue: false
+    xpath: //h2[@class="heading"]/a
+  - name: id
+    singleValue: false
+    xpath: //ul[@class="items-list "]//@data-productid
+  - name: productUrl
+    singleValue: false
+    xpath: //h2[@class="heading"]//a/@href
+  - name: price
+    singleValue: false
+    xpath: //div[@class="current-price-container"]/span
+  - name: searchUrl
+    singleValue: false
+    xpath: //link[@rel="alternate"]/@href
+
+
+    
