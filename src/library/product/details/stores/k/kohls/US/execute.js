@@ -17,6 +17,13 @@ module.exports = {
       url = await dependencies.createUrl({ id });
     }
     await context.setBlockAds(false);
+    await context.setFirstRequestTimeout(50000);
+    await context.setBypassCSP(true);
+    await context.setAntiFingerprint(false);
+    await context.setLoadAllResources(true);
+    await context.setUseRelayProxy(false);
+    await context.setLoadImages(true);
+    await context.setJavaScriptEnabled(true);
 
     await dependencies.goto({ url, zipcode, storeId });
 
