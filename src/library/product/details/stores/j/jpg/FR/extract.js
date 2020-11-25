@@ -44,9 +44,9 @@ implementation: async ({ inputString }, { country, domain }, context, { productD
 
     };
     // var URL1 = getAllXpath("//div[@class='techs']//span[(text()='Peso dell'imballo')]/following-sibling::span", 'nodeValue');
-    var URL2 = getXpath("//span[contains(text(),'Hauteur')]/following-sibling::text()", 'nodeValue');
-    var URL3 = getXpath("(//span[contains(text(),'Profondeur')]/following-sibling::text())[1]", 'nodeValue');
-    var URL4 = getXpath("//span[contains(text(),'Largeur')]/following-sibling::text()", 'nodeValue');
+    var URL2 = getXpath("(//div[@class='skuSpecificsCnt']//span[normalize-space(text())='Hauteur']/following-sibling::text())", 'nodeValue');
+    var URL3 = getXpath("(//div[@class='skuSpecificsCnt']//span[normalize-space(text())='Profondeur']/following-sibling::text())", 'nodeValue');
+    var URL4 = getXpath("(//div[@class='skuSpecificsCnt']//span[normalize-space(text())='Largeur']/following-sibling::text())", 'nodeValue');
     console.log(URL2)
     sliceURL(URL2, URL3, URL4);
   });
