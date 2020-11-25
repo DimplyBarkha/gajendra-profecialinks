@@ -34,7 +34,7 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Beschreibung")]//following-sibling::div
+    xpath: //div[@class="productInformation"]//div[@data-testauto="productdescription"]
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Description")]//following-sibling::div
   - name: descriptionBullets
     description: Number of ul > li tags in the description

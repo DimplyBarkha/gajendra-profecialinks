@@ -163,7 +163,7 @@ const transform = (data) => {
       if (row.allergens) {
         let text = '';
         row.allergens.forEach(item => {
-          text = text + (text ? ' ' : '') + item.text;
+          text = text + (text ? ', ' : '') + item.text;
         });
         row.allergens = [{ text }];
       }
