@@ -1,0 +1,54 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'productGallery__mainImage ta-gallery')]//img//@src
+  - name: sku
+    singleValue: false
+    xpath: //button[contains(@class,'addToCart')]//@data-id
+  - name: variantId
+    singleValue: false
+    xpath: //button[contains(@class,'addToCart')]//@data-id
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'empikBreadcrumb')]//ul//li[position()>1]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,'productBaseInfo__title ta-product-title')]
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'productBaseInfo__title ta-product-title')]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'productPriceInfo__wrapper')]//span[contains(@class,'productPriceInfo__price ta-price  withoutLpPromo')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //button[contains(@class,'addToCart')]
+    defaultValue: "In Stock"
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'productComments productDescription ta-product-description ')]  
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,'relative')]//span//a   
+  - name: ratingCount
+    sinngleValue: false
+    xpath: //a[contains(@class,'goToReviewsTabLink')]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'productComments__ratingCircle')]//span
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'productGallery__mainImage ta-gallery')]//img//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'swiper-slide swiper-slide-visible') and position() >1]//div//@data-big-image
+  - name: color
+    singleValue: false
+    xpath: //table[@class='productBaseInfo__info ']//tr[contains(@class,'row--text row--text  attributeName ta-attribute-row')]//td/span
+  - name: colorCode
+    singleValue: false
+    xpath: //table[@class='productBaseInfo__info ']//tr[contains(@class,'row--text row--text  attributeName ta-attribute-row')]//td//div[@class='concept__color__element']//@style 
