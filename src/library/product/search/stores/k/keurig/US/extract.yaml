@@ -1,0 +1,115 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"card ") and not(contains(@class,"_card"))] | //div[@id="genericContainer"]
+fields:
+  - name: paid
+    singleValue: false
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: false
+    description: The brand name
+    example: Panasonic
+    xpath: //span[contains(@class,"brand_name")] | //div[@itemprop="brand"]/meta[@itemprop="name"]/@content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //div[@class="top_content"]//a/@href | //input[@id="productPageURL"]/@value
+    regExp: (.+)
+    regExpReplace: https://www.keurig.com$1
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="top_content"]//a/img/@src | //img[@id="base_image"]/@src
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //div[@class="top_content"]//a/img/@alt | //img[@id="base_image"]/@alt
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: false
+    description: The model code of the product
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //meta[@itemprop="gtin12"]/@content
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //dd[@class="bv-rating-ratio-count"]//span[@itemprop="reviewCount"]
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+    xpath: //dd[@class="bv-rating-ratio-count"]//span[@itemprop="reviewCount"]
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //div[@class="price-container  "]/div[not(./span)] | //span[@class="new-price"] | //p[@class="ad-price-msg "]/following-sibling::div | //div[contains(@class,"product-price-container")]//span[@class="product-price"] | //div[contains(@class,"new-price")] | //div[contains(@class,"price-container no-stock  ") or contains(@class,"price-container with-ad no-stock  ") ]/div
+    regExp: (\$)(.*)
+    regExpReplace: $1$2
+  - name: price1
+    singleValue: false
+    xpath: //div[@class="color-swatches"]/button[@data-isdefault="true"]/@data-list-price
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //span[@class="original-price"]
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: false
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: false
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[@class="top_content"]//a/img/@src
+    regExp: (.*)_(\d+)(\?|_)(bundle|wid)(.*)
+    regExpReplace: $2
+  - name: id1
+    singleValue: false
+    xpath: //div[@class="keurig_card"]/input[@data-isdefault="true"]/@data-variant-code | //meta[@itemprop="sku"]/@content | //div[@class="color-swatches"]/button[@data-isdefault="true"]/@data-swatch-code
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@class="star-ratings-sprite"]/span/@aria-label | //dd[@class="bv-rating-ratio-number"]//a/@aria-label
+    regExp: (.*) out of (.*)
+    regExpReplace: $1
