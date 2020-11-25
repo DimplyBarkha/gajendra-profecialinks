@@ -1,0 +1,132 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //ul[@data-tid="2c199bef"]//li[position()=1]//img/@src
+    regExp: (.*)/(.*)
+    regExpReplace: https:$1/orig
+    singleValue: true
+  - name: url
+    xpath: //link[@rel="canonical"]/@href
+    singleValue: true
+  - name: category
+    xpath: //div[contains(@data-auto,"breadcrumb-item")]
+    singleValue: false
+  - name: nameExtended
+    xpath: //div[@data-zone-name="summary"]//h1
+    singleValue: false
+  - name: name
+    xpath: //div[@data-zone-name="summary"]//h1
+    singleValue: false
+  - name: description
+    xpath: //div[@data-zone-name="specs"]//div[@data-auto="sku-specs"]//div
+    singleValue: false
+  - name: ingredientsList
+    xpath: //span[contains(.,'Состав')]/../..//span[@data-tid]
+    singleValue: false
+  - name: brandText
+    xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
+    regExp: (.*)brandName":"(.*?)"(.*)
+    regExpReplace: $2
+    singleValue: true
+  - name: sku
+    xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
+    regExp: (.*)skuId":"(.*?)"(.*)
+    regExpReplace: $2
+  - name: variantId
+    xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
+    regExp: (.*)skuId":"(.*?)"(.*)
+    regExpReplace: $2
+    singleValue: true
+  - name: warnings
+    singleValue: true
+  - name: alternateImages
+    xpath: //ul[@data-tid="2c199bef"]//li[position()>1]//img/@src
+    regExp: (.*)/(.*)
+    regExpReplace: https:$1/orig
+    singleValue: false
+  - name: secondaryImageTotal
+    xpath: count(//ul[@data-tid="2c199bef"]//li[position()>1]//img/@src)
+    singleValue: false
+  - name: allergyAdvice
+    xpath: //div[@class="nutrition-allergens"]//span[@class="nutrition-allergens__contain"]
+    singleValue: true
+  - name: packaging
+    xpath: //span[contains(.,'Упаковка')]/../..//span[@data-tid]
+    singleValue: false
+  - name: pricePerUnit
+    xpath: //div[@class="buybox__price-per-unit"]/span
+    regExp: '^[^/]+'
+    singleValue: false
+  - name: pricePerUnitUom
+    xpath: //div[@class="buybox__price-per-unit"]/span[last()]
+    regExp: '[^/]+$'
+    singleValue: false
+  - name: imageAlt
+    xpath: (//div[@class="product-pics__container"]//img/@alt)[1]
+    singleValue: true
+  - name: secondaryImageTotal
+    xpath: //body/@secondary_image_total
+    singleValue: false
+  - name: alcoholContent
+    xpath: //span[contains(text(),"Porcentaje de alcohol:")]/following-sibling::span
+    singleValue: false
+  - name: totalFatPerServing
+    xpath: //span[contains(.,'Жиры в 100 г')]/../..//span[@data-tid]
+    regExp: ^[^\s]+
+    singleValue: false
+  - name: totalFatPerServingUom
+    xpath: //span[contains(.,'Жиры в 100 г')]/../..//span[@data-tid]
+    regExp: '[^\s]$'
+    singleValue: false
+  - name: totalCarbPerServing
+    xpath: //span[contains(.,'Углеводы')]/../..//span[@data-tid]
+    regExp: ^[^\s]+
+    singleValue: false
+  - name: totalCarbPerServingUom
+    xpath: //span[contains(.,'Углеводы')]/../..//span[@data-tid]
+    regExp: '[^\s]$'
+    singleValue: false
+  - name: proteinPerServing
+    xpath: //span[contains(.,'Белки')]/../..//span[@data-tid]
+    regExp: ^[^\s]+
+    singleValue: false
+  - name: proteinPerServingUom
+    xpath: //span[contains(.,'Белки')]/../..//span[@data-tid]
+    regExp: '[^\s]$'
+    singleValue: false
+  - name: price
+    xpath: //div[@data-zone-name="offer-cart"]//div[@data-auto="price"]
+  - name: ratingCount
+    xpath: //div[@data-zone-name="summary"]//span[contains(.,'отзывов')]
+    regExp: (\d+)
+    singleValue: true
+  - name: additionalDescBulletInfo
+    xpath: //div[@data-zone-name="specs"]//ul//li
+  - name: aggregateRating
+    xpath: //meta[@itemprop="ratingValue"]/@content
+    singleValue: false
+  - name: availabilityText
+    xpath: //div[@data-zone-name="skuAvailability"]//span
+  - name: listPrice
+    xpath: //div[@data-zone-name="offer-cart"]//div[@data-auto="old-price"]
+  - name:  descriptionBullets
+    xpath: count(//div[@data-zone-name="specs"]//ul//li)
+  - name: boughtTogether
+    xpath: //div[@data-zone-name="ScrollBox" and (contains(.,'С этим товаром покупают'))]//div[@data-tid="518f5fc0"]/span
+  - name: imageZoomFeaturePresent
+    defaultValue: true 
+  - name: imageCount
+    xpath: count(//ul[@data-tid="2c199bef"]//li//img/@src)
+  - name: manufacturer
+    xpath: //div[@data-zone-name="productVendor"]//div[2]
+  - name: productDescriptionLength
+  - name: productDescriptionWordCount  
+  - name: ratingScale
+    defaultValue: 5
+  - name: reviewCount
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: image360Present
+    defaultValue: No
