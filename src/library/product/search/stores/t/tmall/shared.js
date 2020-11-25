@@ -30,7 +30,14 @@ const transform = (data) => {
             item.text = 'https:' + item.text
           });
         }
-        
+        if (row.thumbnail) {
+          let thumbnail = [];
+          row.thumbnail.forEach(item => {
+            if (item.text.indexOf('https:') === -1) {
+              item.text = `https:${item.text}`;
+            }
+          });
+        }
         if (row.price && row.price[0]) {
             row.price[0].text = row.price[0].text.replace(',', '.');
           }
