@@ -8,7 +8,7 @@ module.exports = {
     url: 'https://www.cyberport.at/tools/search-results.html?productsPerPage=24&sort=popularity&q={searchTerms}&page={page}',
     // loadedSelector: 'body',
     loadedSelector: 'div.productsList',
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"empty-items")]//p//span/following-sibling::text()',
     zipcode: '',
   },
 };

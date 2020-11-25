@@ -9,7 +9,7 @@ module.exports = {
     spinnerSelector: null,
     // loadedSelector: 'body',
     loadedSelector: 'div.productsList',
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"empty-items")]//p//span/following-sibling::text()',
     openSearchDefinition: null,
     domain: 'cyberport.at',
     zipcode: '',
