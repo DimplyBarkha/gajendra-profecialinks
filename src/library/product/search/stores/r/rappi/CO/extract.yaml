@@ -1,5 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //li[@class="product-container ng-star-inserted"]
+fields:
+  - name: productUrl
+    xpath: //div[@class="extra-info-id"]
+    regExp: (.+)
+    regExpReplace: https://www.rappi.com.mx/producto/$1
+  - name: thumbnail
+    singleValue: false  
+    #xpath: //app-img-ssr/img/@src
+    xpath: //div[@class="extra-info-image"]
+    regExp: (.+)
+    regExpReplace: https://images.rappi.com.mx/products/$1?d=136x136
+  - name: name
+    singleValue: false
+    xpath: //div[@class="extra-info-name"]
+  - name: price
+    description: The offered price for the product
+    xpath: //div[@class="extra-info-price"]
+    #type: NUMBER
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //div[@class="extra-info-id"]
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
