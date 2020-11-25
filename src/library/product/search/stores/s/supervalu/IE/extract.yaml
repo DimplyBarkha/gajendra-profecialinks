@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="search-all-aisles-listings-view"]//div[@class="col-xs-6 col-sm-4 col-md-2-4 ga-impression ga-product"]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //input[@class="product-favourite-checkbox"]/@data-product-id
+  - name: name
+    SingleValue: false
+    xpath: //h4[@class="product-list-item-details-title"]
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="product-list-item-details"]/a/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="product-list-item-display"]/img/@src
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="product-details-price"]//span[@class="product-details-price-item"]
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1
