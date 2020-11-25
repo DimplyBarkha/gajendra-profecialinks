@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="iio_reviews"]
+recordXPath: //div[@data-zone-name="review"]
 fields:
   - name: helpfulCount
     singleValue: true
@@ -25,18 +25,20 @@ fields:
     singleValue: true
     type: DATETIME
     description: Date the review was made
-    xpath: //div/@data-reviewDate
-    # xpath: //div[@class="b_I_N6IMOcwb"]/font/font
+    xpath: //div[@class="b_I_N6IMOcwb"]
   - name: reviewRating
     type: NUMBER
     singleValue: false
-    xpath: //div/@data-reviewRating
     description: Rating normalized to be out of 5
+    xpath: //div/@data-reviewrating
+  - name: reviewText
+    singleValue: true
+    description: The text of the review
+    xpath: //div[@class='b_2_CxadNVFG']
   - name: reviewTitle
     singleValue: false
     description: The title of the review
-    # xpath: //div[@class="b_3aVcLCACC9"]
-    xpath: //div/@data-manufacturerResponse
+    xpath: //div[@class="b_3aVcLCACC9"]
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
@@ -53,8 +55,7 @@ fields:
   - name: manufacturerResponse
     singleValue: true
     description: The response of the manufacturer (if any)
-    xpath: //div/@data-manufacturerResponse
-    # xpath: //div[@class="b_2C06Ssbn8s"]/span/span[@class="b_3JsGNgDHFb"]
+    xpath: ancestor::div//div[@class="b_2C06Ssbn8s"]/span/span[@class="b_3JsGNgDHFb"]
   - name: syndicatedFrom
     singleValue: true
     description: Stated place the review was syndicated from
@@ -71,21 +72,26 @@ fields:
     type: TEXT
   - name: aggregateRating
     description: The product rating
-    xpath: //div/@data-reviewRating
   - name: reviewAuthor
     singleValue: false
-    xpath: //div/@data-reviewAuthor
+    xpath: //div[@class='b_3fJVmfwbhK']
   - name: reviewRatingScale
-    xpath: //div/@data-ratingScale
+    singleValue: false
+    xpath: ancestor::html//meta[@itemprop="bestRating"]/@content
+  # - name: answer
+  #   singleValue: false
+  #   xpath: //div[@class="b_dkDeduCKVt"]
   - name: responseAuthor
-    xpath: //div/@data-responseAuthor
+    singleValue: false
+    xpath: ancestor::div//div[@class="b_dkDeduCKVt"]
   - name: reviewId
     singleValue: false
-    xpath: //div/@data-reviewId
+    xpath: //div/@data-id
+
 # singleRecord: false
 # regionsSelector: null
 # recordSelector: null
-# recordXPath: //div[@data-zone-name="review"]
+# recordXPath: //div[@class="iio_reviews"]
 # fields:
 #   - name: helpfulCount
 #     singleValue: true
@@ -109,19 +115,18 @@ fields:
 #     singleValue: true
 #     type: DATETIME
 #     description: Date the review was made
-#     xpath: //div[@class="b_I_N6IMOcwb"]/font/font
+#     xpath: //div/@data-reviewDate
+#     # xpath: //div[@class="b_I_N6IMOcwb"]/font/font
 #   - name: reviewRating
 #     type: NUMBER
-#     singleValue: true
+#     singleValue: false
+#     xpath: //div/@data-reviewRating
 #     description: Rating normalized to be out of 5
-#   - name: reviewText
-#     singleValue: true
-#     description: The text of the review
-#     xpath: //div[@class='b_2_CxadNVFG']
 #   - name: reviewTitle
 #     singleValue: false
 #     description: The title of the review
-#     xpath: //div[@class="b_3aVcLCACC9"]
+#     # xpath: //div[@class="b_3aVcLCACC9"]
+#     xpath: //div/@data-manufacturerResponse
 #   - name: reviewerTags
 #     singleValue: false
 #     description: The tags a reviewer has
@@ -138,7 +143,8 @@ fields:
 #   - name: manufacturerResponse
 #     singleValue: true
 #     description: The response of the manufacturer (if any)
-#     xpath: //div[@class="b_2C06Ssbn8s"]/span/span[@class="b_3JsGNgDHFb"]
+#     xpath: //div/@data-manufacturerResponse
+#     # xpath: //div[@class="b_2C06Ssbn8s"]/span/span[@class="b_3JsGNgDHFb"]
 #   - name: syndicatedFrom
 #     singleValue: true
 #     description: Stated place the review was syndicated from
@@ -155,13 +161,14 @@ fields:
 #     type: TEXT
 #   - name: aggregateRating
 #     description: The product rating
+#     xpath: //div/@data-reviewRating
 #   - name: reviewAuthor
 #     singleValue: false
-#     xpath: //div[@class='b_3fJVmfwbhK']
+#     xpath: //div/@data-reviewAuthor
 #   - name: reviewRatingScale
-#     xpath: ancestor::html//meta[@itemprop="bestRating"]/@content
+#     xpath: //div/@data-ratingScale
 #   - name: responseAuthor
-#     xpath: //div[@class="b_dkDeduCKVt"]/font/font
+#     xpath: //div/@data-responseAuthor
 #   - name: reviewId
 #     singleValue: false
-#     xpath: //div/@data-id
+#     xpath: //div/@data-reviewId
