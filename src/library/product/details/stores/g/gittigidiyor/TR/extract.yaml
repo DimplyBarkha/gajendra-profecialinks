@@ -1,0 +1,84 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordxpath: null
+fields:
+- name: category
+  xpath: //ul[contains(@class, 'breadcrumb-hiddenBreadCrumb')][2]/li[position()>1]
+- name: name
+  xpath: //h1[@id='sp-title']
+- name: image
+  xpath: //img[@id='big-photo']/@data-original
+- name: imageAlt
+  xpath: //img[@id='big-photo']/@alt
+- name: alternateImages
+  xpath: //div[contains(@class, 'gallery-hidden-thumbs')]//img[contains(@class, 'swapImage') and not(contains(@class, 'active-img')) ]/@data-original
+  regExp: (.+)tn14(.+)
+  regExpReplace: $1tn50$2
+- name: nameExtendedTail
+  xpath: //span[@id='sp-subTitle']
+- name: listPrice
+  xpath: //span[@id='sp-price-highPrice' and contains(@class, 'strike')]
+- name: price
+  xpath: //span[@id='sp-price-highPrice' and not(contains(@class, 'strike'))] | //div[contains(@class, 'lastPrice')]
+- name: description
+  xpath: //div[@class='productTabTitleInformation'] | div[contains(@class,'features-container')]| //div[@id='productDescription']
+- name: descriptionTitle
+  xpath: //div[@id='specs-container']//div[@class='productTabTitleInformation']
+- name: descriptionIconInfo
+  xpath: //div[@class='small-info-icon']
+- name: descriptionContent
+  xpath: //div[@id='sp-desktopDescription']
+- name: featureHeading
+  xpath: //div[contains(@class, 'features-container')]/div[1]
+- name: featureTitles
+  xpath: //div[@id='sp-productTabFeatures']//div[@class='item']/div[1]
+- name: featureValues
+  xpath: //div[@id='sp-productTabFeatures']//div[@class='item']/div[2]
+- name: descriptionBullets
+  xpath: count(//div[@id='sp-desktopDescription']//li)
+- name: additionalDescBulletInfo
+  xpath: //div[@id='sp-desktopDescription']//li
+- name: brandText
+  xpath: //ul[contains(@class, 'productSpect') and contains(@class, 'product-items')]/li[contains(., 'Marka')]//ul/li/a
+- name: quantity
+  xpath: //li[@id='CountInput']/input/@value
+- name: weightGross
+  xpath: //ul[contains(@class, 'product-items') and contains(@class, 'productSpect')]//li[contains(.,'Brüt Ağırlık')]/div/ul/li
+- name: sku
+  xpath: //span[@id='DescriptionTabProductId']
+- name: variantId
+  xpath: //span[@id='DescriptionTabProductId']
+- name: variantCount
+  defaultValue: 0
+- name: mpc
+  xpath: //ul[contains(@class, 'productSpect') and contains(@class, 'product-items')]/li[contains(., 'Model')]/div[contains(@class, 'productFeaturesitemList')]
+- name: ratingCount
+  xpath: //span[@id='sp-reviewCommentCount']
+- name: aggregateRating
+  xpath: //a[contains(@class, 'catalog-review-link-small')]//strong[@id='sp-reviewAverage']
+# - name: manufacturerImages
+#   xpath: //div[@id='sp-desktopDescription']//img/@data-original
+- name: shippingInfo
+  xpath: //li[@class='member-name']/a
+- name: specifications
+  xpath: //div[@class='spec-group-container']//ul[contains(@class, 'productSpect')]/li/div[contains(@class, 'spec-title')] | //div[@class='spec-group-container']//ul[contains(@class, 'productSpect')]/li/div[contains(@class, 'productFeaturesitemList')]
+- name: warranty
+  xpath: //div[@id='sp-productTabFeatures']//div[contains(., 'Garanti Süresi') and contains(@class, 'desktopDescription')]/following-sibling::div[1]
+- name: warrantySecondary
+  xpath: //div[@id='sp-productTabFeatures']//div[contains(., 'Garanti') and contains(@class, 'desktopDescription')]/following-sibling::div[1]
+- name: promotion
+  xpath: //span[@id='sp-price-discountPercentage']
+- name: weightNet
+  xpath: "//div[@id='sp-desktopDescription']//li[contains(., 'Ağırlık:') or contains(., 'Ağırlık: ')] | //div[@id='sp-desktopDescription']//p[contains(., 'Ağırlık:') or contains(., 'Ağırlık: ') or contains(., 'Ağırlık : ')] | //div[@id='catalog-info-details']//div[contains(., 'Net Ağırlık') and contains(@class, 'spec-title')]/following-sibling::div[1] | //div[@class='item' and contains(., 'Net Ağırlık')]/div[2]"
+- name: weightNetFromLi
+  xpath: //div[contains(@class,'spec-title') and contains(., 'Ağırlık')]/following-sibling::div[contains(@class, 'productFeaturesitemList')]
+- name: availabilityText
+  xpath: //div[@id='sp-soldInfoContainer']
+- name: specTitles
+  xpath: //div[contains(@class, 'spec-group-container')]/ul/li/div[contains(@class,'spec-title')]
+- name: specValues
+  xpath: //div[contains(@class, 'spec-group-container')]/ul/li/div[contains(@class,'productFeaturesitemList')]
+- name: shippingDimensions
+  xpath: concat(//div[contains(., 'En') and contains(@class, 'spec-title') and not(contains(.,' Isı'))]/following-sibling::div[contains(@class, 'productFeaturesitemList')], 'x' , //div[contains(., 'Boy') and contains(@class, 'spec-title')]/following-sibling::div[contains(@class, 'productFeaturesitemList')] ,x, //div[contains(., 'Derinlik') and contains(@class, 'spec-title')]/following-sibling::div[contains(@class, 'productFeaturesitemList')])
+  

@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: ul.products-container>li
+recordXPath: //ul[contains(@class, 'products-container')]/li
+fields:
+  - name: thumbnail
+    xpath: //img[contains(@class, 'img-cont')]/@data-original
+  - name: id
+    xpath: //ul[contains(@class, 'products-container')]/li/@product-id
+  - name: name
+    xpath: //h3[contains(@class, 'product-title')]
+  - name: productUrl
+    xpath: //ul[contains(@class, 'products-container')]/li/a/@href
+  - name: aggregateRating2
+    xpath: //div[contains(@class, 'catalog-review-title')]//strong
+  - name: reviewCount
+    xpath: //div[contains(@class, 'catalog-review-title')]//strong/following-sibling::span
+    regExp: \d+
+  - name: price
+    xpath: //p[contains(@class, 'price-txt')]
+  - name: seller
+    xpth: //span[contains(@class, 'seller-nickname')]
+ 
