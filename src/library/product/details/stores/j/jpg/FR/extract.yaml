@@ -22,8 +22,9 @@ fields:
     singleValue: true
     xpath: //div[@class='skuProductNames']/h1[@class='skuName']/text()
   - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
+    singleValue: true    
+    type: CURRENCY
+    xpath: (//div[@class='savingStory']/div[1]/span[@class='strike darkGray'])[1]
   - name: price
     singleValue: true
     type: CURRENCY
@@ -54,7 +55,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
-    xpath: //span[contains(text(),'Poids')]/following-sibling::text()
+    xpath: //span[contains(text(),'Poids')]/following-sibling::text() | //span[contains(text(),'Grammage')]/following-sibling::text()
     regExp: ([A-Za-z0-9_.-].*)
   - name: weightGross
     singleValue: true
@@ -70,7 +71,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
-    description: The manufacturer model code (unique) of the product
+    xpath: //span[contains(text(),'Référence')]/following-sibling::text()
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -100,7 +101,7 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
-    description: Stated shipping dimensions
+    xpath: //html//div[@id='shipping']
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -215,8 +216,8 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: true
-    description: null
     type: NUMBER
+    xpath: count(//li[@class='itemThumb']/img/@src)
   - name: news
     singleValue: true
     description: null
@@ -377,7 +378,7 @@ fields:
     description: null
   - name: specifications
     singleValue: true
-    description: The physical dimensions of the product including packaging.
+    xpath: //div[@class="skuSpecificsCnt"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -410,7 +411,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
-    description: promotion text on product page
+    xpath: (//div[@class='savingStory']/div[2])[1]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
