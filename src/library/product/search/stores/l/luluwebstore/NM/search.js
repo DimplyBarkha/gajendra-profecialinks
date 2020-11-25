@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'product/details/extract',
+  implements: 'product/search',
   parameterValues: {
-    country: 'AE',
+    country: 'NM',
     store: 'luluwebstore',
-    transform: null,
     domain: 'luluhypermarket.com',
     zipcode: '',
   },
