@@ -1,0 +1,19 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product-tile-group")]//ul[@class="product-tile-group__list product-tile-group__list--total-48"]//li[@class="product-tile-group__list__item"]
+fields: 
+ - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //h3[contains(@class,"product")]//a/@href
+    regExp: (\/Food.+)
+    replace: https://www.loblaws.ca$1
+ - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //span[contains(@class,"price")]//span[contains(@class,"price__value selling-price-list__item__price selling-price-list__item__price--now-price__value")]
+ - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[contains(@class,"product-tracking")]//@data-track-product-id
