@@ -4,17 +4,25 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  function onlyNumbersAndDot (string) {
-    return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, ".");string = Math.round( parseFloat(string) * 100) / 100;
-  }
+  const searchTerms = [];
+  const urlCustom = [];
+  data.forEach(element => {
+    searchTerms.push(element.group.find(e => e.input));
+    urlCustom.push(element.group.find(e => e.url_custom));
+  });
+  const filterSearch = searchTerms.filter(e => e)[0].input;
+  const url = urlCustom.filter(e => e)[0].url_custom;
   data.forEach(el => {
     el.group.forEach(gr => {
       try {
         gr.productUrl[0].text = 'https://www.kalunga.com.br' + gr.productUrl[0].text;
-        const a = '$ ' + onlyNumbersAndDot(gr.price[0].text);
-        const s = a.slice(0, a.length - 2);
-        const e = a.slice(a.length - 2, a.length);
-        gr.price[0].text = (s + ',' + e).replace('.,', ',');
+        if (gr.id) {
+          const text = gr.id[0].text;
+          gr.id[0].text = gr.id[0].text = text.substring(text.length - 6);
+          gr.gtin[0].text = gr.gtin[0].text = text.substring(text.length - 6);
+          gr['_input'] = filterSearch;
+          gr['_url'] = url;
+        }
       } catch (e) {
         console.log(e);
       }

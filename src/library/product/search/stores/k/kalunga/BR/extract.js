@@ -34,6 +34,8 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      addElementToDocument('search_terms', location.pathname.replace('/busca/', ''))
+      addElementToDocument('url', location.href);
       async function getData () {
         const formData = new FormData();
         inc++;

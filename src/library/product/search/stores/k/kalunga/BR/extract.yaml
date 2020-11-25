@@ -12,13 +12,29 @@ fields:
   - name: thumbnail
     singleValue: true
     xpath: //picture/img/@src
-  - name: ratingCount
+  - name: aggregateRating
     singleValue: true
+    type: NUMBER
     xpath: //div[@class='stars mb-lg-4']
+  - name: reviewCount
+    singleValue: true
+    xpath: //div[@class='stars mb-lg-4']/span[@class='reviews__star_text pl-2']
     type: NUMBER
   - name: price
     singleValue: true
     xpath: //div[@class='blocoproduto_box']/span
-
+    type: NUMBER
+  - name: id
+    singleValue: true
+    xpath: //a[@class='blocoproduto__link']/@href
+  - name: gtin
+    singleValue: true
+    xpath: //a[@class='blocoproduto__link']/@href
+  - name: input
+    singleValue: true
+    xpath: //div[@id='search_terms']
+  - name: url_custom
+    singleValue: true
+    xpath: //div[@id='url']
 
 

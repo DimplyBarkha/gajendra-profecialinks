@@ -10,7 +10,7 @@ fields:
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name='keywords']/@content
-  - name: url
+  - name: _url
     singleValue: true
     xpath: //link[@rel='canonical']/@href
   - name: image
@@ -49,10 +49,6 @@ fields:
     singleValue: false
     description: comments for product
     xpath: //div[@id='avaliacao_clientes_content']/div[@class='reviewsproduto__commentitem row avaliacao_box']/div[@class='col-12 col-md-8 reviews border-right']
-  - name: category
-    singleValue: true
-    description: category product
-    xpath: //div[@class='breadcrumbs']/a[@class='classificacao mr-1 breadcrumbs__link']
   - name: manufacturerImages
     singleValue: false
     description: additional images product
@@ -66,19 +62,19 @@ fields:
     xpath: //a[@class='marca-produto']
   - name: availabilityText
     xpath: //div[@id='availabilityText']
-  - name: sub_category
+  - name: category
     singleValue: false
     xpath: //div[@class='breadcrumbs']/a/@title
-  - name: brand
+  - name: brandText
     singleValue: true
     xpath: //div[@id='brandName']
-  - name: product_description
+  - name: nameExtendet
     singleValue: true
     xpath: //div[@id='container_produto']/div[@id='header-infos-produto']/h1
   - name: specifications
     singleValue: false
     xpath: //div[@id='descricaoPadrao']/li
-  - name: sku_number
+  - name: sku
     singleValue: true
     xpath: //div[@id='sku_number']
   - name: retailer_product_code
@@ -87,36 +83,36 @@ fields:
   - name: product_image
     singleValue: true
     xpath: //div[@class='images-container']/div/figure[@itemprop='associatedMedia']/a/img/@src
-  - name: online_price
+  - name: price
     singleValue: true
     xpath: //div[@class='row produtoinfos border rounded px-4 py-4 m-0']/h3
     type: NUMBER
   - name: harvested_price
     singleValue: true
     xpath: //div[@class='row produtoinfos border rounded px-4 py-4 m-0']/h3/span
-  - name: additional_description
+  - name: description
     singleValue: false
     xpath: //div[@id='descricaoPadrao']/li
   - name: sku_code
     singleValue: true
     xpath: //div[@id='sku_code']
-  - name: customer_review_rating
+  - name: aggregateRating
     singleValue: true
     xpath: //div[@id='reviews-produto']/div[@class='reviewsproduto__reviews col-12 col-xl-4']/h3
     type: NUMBER
   - name: warranty
     singleValue: false
     xpath: //div[@id='descricaoPadrao']/li
-  - name: ean_gtin
+  - name: eangtin
     singleValue: true
     xpath: //div[@id='ean_gtin']
-  - name: additional_desc_bullet_count
+  - name: descriptionBullets
     singleValue: false
     xpath: //div[@id='descricaoPadrao']/li
   - name: video
     singleValue: true
     xpath: //div[@class='embed-responsive embed-responsive-16by9']/iframe[@class='embed-responsive-item']/@src
-  - name: products_per_page
+  - name: variantCount
     singleValue: true
     xpath: //input[@id='txtQuantidade']/@value
   - name: online_price_currency
@@ -126,10 +122,14 @@ fields:
     singleValue: true
     xpath: //div[@id='desconto_content_info_produto']/p[@class='produtoinfos__text produtoinfos__text--grey pr-2']/del
     type: NUMBER
-  - name: harvested_list_price
+  - name: listPrice
     singleValue: true
     xpath: //div[@id='desconto_content_info_produto']/p[@class='produtoinfos__text produtoinfos__text--grey pr-2']/del
   - name: nameExtended
     singleValue: true
     xpath: //div[@id='header-infos-produto']/h1
+  - name: packaging
+    singleValue: false
+    xpath: //div[@id='descricaoPadrao']/li
+
 

@@ -17,23 +17,16 @@ const transform = (data) => {
         if (gr.customer_review_rating) gr.customer_review_rating[0].text = gr.customer_review_rating[0].text.replace(onlyNumbers, '');
         if (gr.retailer_product_code) gr.retailer_product_code[0].text = gr.retailer_product_code[0].text.replace(onlyNumbers, '');
         if (gr.currency) gr.currency[0].text = gr.currency[0].text.replace(currency, '').charAt(1);
-        if (gr.sub_category) {
-          gr.sub_category.shift();
-          gr.sub_category = [{ text: gr.sub_category.map(e => e.text).join(' > '), xpath: gr.sub_category[0].xpath }];
-        };
+        if (gr.category) gr.category.shift();
         if (gr.additional_description) {
           gr.additional_description = [{ text: gr.additional_description.map(e => e.text).join(' || ') }];
         }
-        // if (gr.brand) {
-        //   const mainData = JSON.parse(gr.brand[0].text);
-        //   if (mainData) {
-        //     // if (mainData.brand) gr.brand[0].text = mainData.brand.name;
-        //     gr.sku_number[0].text = mainData.sku;
-        //     gr.sku_code[0].text = mainData.sku;
-        //     // gr.ean_gtin[0].text = mainData.gtin;
-        //   }
-        //   if (gr.ean_gtin && mainData.gtin) gr.ean_gtin[0].text = mainData.gtin;
-        // }
+        if (gr.packaging) {
+          const index = gr.packaging.findIndex(e => e.text.includes('Embalagem'));
+          if (index) {
+            gr.packaging = [gr.packaging[index + 1]];
+          }
+        }
         if (gr.warranty) {
           const index = gr.warranty.findIndex(e => e.text.includes('Garantia'));
           if (index) {

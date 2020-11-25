@@ -27,7 +27,6 @@ module.exports = {
         document.body.appendChild(catElement);
       };
       const script = JSON.parse(document.querySelectorAll('script[type="application/ld+json"]')[0].innerHTML);
-      console.log(script);
       if (script) {
         if (script.brand) addElementToDocument('brandName', script.brand.name);
         if (script.sku) addElementToDocument('sku_number', script.sku);
