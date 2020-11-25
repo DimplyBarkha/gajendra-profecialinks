@@ -14,13 +14,16 @@ fields:
 # - name: image
 #   singleValue: true
 #   description: URL of the main product image
-#   xpath: //div[@id="mixedmediaviewer_flyout"]/div/img/@src
+#   xpath: //img[@id="mainSkuProductImageNoJS"]/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-- name: alternateImages
-  singleValue: false
-  description: Other product images (not in manufacturer description)
+# - name: alternateImages
+#   singleValue: false
+#   description: Other product images (not in manufacturer description)
+#   xpath: //div[@state="default"]/@style
+#   regExp: '(\((.*?)\))'
+#   regExpReplace: $2
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -33,19 +36,24 @@ fields:
 #   description: The product name, prefixing "${brand} - " if not included in "name"
 #     and appending " - ${variantType}" if necessary (fixed per feed)
 #   xpath: //h1[@class='sku_Title']
-- name: listPrice
-  singleValue: true
-  description: The stated undiscounted price for the product
+# - name: listPrice
+#   singleValue: true
+#   description: The stated undiscounted price for the product
+#   xpath: //div[@id='dealBoxDealDescription']
+#   regExp: '(normal )(.*€)'
+#   regExpReplace: $2
 # - name: price
 #   singleValue: true
 #   description: The offered price for the selected product variant - if a user clicks
 #     add to basket this is the price they would be charged
 #   xpath: //div[@class="skuPriceBlock"]/descendant::span[@class='bigPrice']/font/font
-- name: availabilityText
-  singleValue: true
-  description: Availability as described on page for the selected variant. If there
-    is no availability but the product can be added to cart, this field should be
-    "In Stock"
+# - name: availabilityText
+#   singleValue: true
+#   description: Availability as described on page for the selected variant. If there
+#     is no availability but the product can be added to cart, this field should be
+#     "In Stock"
+#   defaultValue: 'In Stock'
+#   xpath: //input[@id='skuAddToCart']
 # - name: description
 #   singleValue: false
 #   description: Product description supplied by website - may be concatenanted from
@@ -86,9 +94,10 @@ fields:
 #   description: Identifier for a variant from a store where variants share the same
 #     sku
 #   xpath: //td[@id="attributecode_eankey"]
-- name: mpc
-  singleValue: tru
-  description: The manufacturer model code (unique) of the product
+# - name: mpc
+#   singleValue: true
+#   description: The manufacturer model code (unique) of the product
+#   xpath: //td[@id="attributer_f_rence_fabricantkey"]
 # - name: packSize
 #   singleValue: true
 #   description: The number of packs in the product offer (if stated separately on the
@@ -134,9 +143,10 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-- name: manufacturerImages
-  singleValue: false
-  description: Images within the third party description
+# - name: manufacturerImages
+#   singleValue: false
+#   description: Images within the third party description
+#   xpath: //div[@id="ccs-inline-content"]/descendant::img/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
@@ -476,10 +486,11 @@ fields:
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
   defaultValue: false
-- name: materials
-  singleValue: true
-  description: Materials used to make the product
-  example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+# - name: materials
+#   singleValue: true
+#   description: Materials used to make the product
+#   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+#   xpath: //td[@id="attributemat_riaukey"]
 - name: Image360Present
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
