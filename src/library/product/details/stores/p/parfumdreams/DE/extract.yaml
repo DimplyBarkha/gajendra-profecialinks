@@ -8,6 +8,9 @@ fields:
     xpath: /html/head/title
     regExp: (.*) \|
     regExpReplace: $1
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
   - name: nameExtended
     singleValue: true
     xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1
@@ -16,7 +19,7 @@ fields:
     xpath: //*[@id="schema-offer"]/div[3]/meta[3]/@content
   - name: description
     singleValue: true
-    xpath: //p[@itemprop='description']
+    xpath: //div[@class='footer-content']/div[1]
   - name: price
     singleValue: true
     xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/form/div[1]/div[3]/div[1]/text()
@@ -34,12 +37,15 @@ fields:
   - name: sku
     singleValue: true
     xpath: //*[@id="right-column"]/div/meta/@content
+  - name: mpc
+    singleValue: true
+    xpath: //*[@id="right-column"]/div/meta/@content   
   - name: aggregateRating
     singleValue: true
     xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div/div[2]/div/a/text()
   - name: category
     singleValue: false
-    xpath:  //*[contains(concat( " ", @class, " " ), concat( " ", "breadcrumb", " " ))]
+    xpath: //div[@class="breadcrumb"]/div[position()>1 and position() < last()]/a/span/text()
   - name: weightNet
     singleValue: true
     xpath: //div[@class='font-headline description mbs1']
@@ -47,11 +53,51 @@ fields:
     singleValue: true
     xpath: //div[@class='variation-alt-images clearfix']/div/a/img/@alt|//*[@id="schema-offer"]/div[2]/div/div[1]/div
   - name: variantId
-    singleValue: true
-    xpath: //div[@class='variation-alt-images clearfix']/div/@data-variation-id|//*[@id="schema-offer"]/div[1]/div/input/@value
+    singleValue: false
+    xpath: (//*[@id="schema-offer"]/div[1]/div/input/@value|(//meta[@itemprop='sku']/@content[1])[1])[2]
   - name: shippingInfo
     singleValue: true
     xpath: //*[@id="schema-offer"]/div[2]/p[2]
+    regExp: \, (.*)
+    regExpReplace: $1
   - name: quantity
     singleValue: true
     xpath: //div[@class='variation-alt-images clearfix']/div/a/img/@alt|//*[@id="schema-offer"]/div[2]/div/div[1]/div
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class='footer-content']/div[2]/p[1]
+  - name: directions
+    singleValue: false
+    xpath: //div[@class='footer-content']/div[2]/p[2]
+  - name: eangtin
+    singleValue: true
+    xpath: //*[@id="schema-offer"]/div[3]/meta[3]/@content
+  - name: variantCount
+    singleValue: true
+    xpath: count(//div[@id='schema-offer'])
+    defaultValue: 0
+  - name: pricePerUnit
+    singleValue: true
+    xpath: (//*[@id="schema-offer"]/div[2]/p[1]/text())[1]
+    #regExp: \€(.+)\*(.*)
+    #regExpReplace: $1$2
+  - name: imageAlt
+    singleValue: true
+    xpath: //*[@id="article-primary-image"]/div/img[1]/@alt
+  - name: firstVariant
+    singleValue: true
+    xpath: (//div[@class='variation-alt-images clearfix']/div/@data-variation-id|//*[@id="schema-offer"]/div[1]/div/input/@value)[1]
+  - name: variants
+    singleValue: false
+    xpath: //html//div[@id='str']
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
+  - name: color
+    singleValue: true
+    xpath: //*[@id="variationsdropdownsearch"]/div
+    regExp: (.*) \/
+    regExpReplace: $1
