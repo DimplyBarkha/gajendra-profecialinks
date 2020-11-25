@@ -19,6 +19,12 @@ module.exports = {
     if (hasShowMore) {
       await context.click('div[id="flix_hotspots"] svg[id="flix_key_features"]', {}, { timeout: 50000 });
     }
+    const videoMore = await context.evaluate(function () {
+      return Boolean(document.evaluate('//script[@id="popup-product-detail-main"][contains(text(),"youtube")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
+    });
+    if (videoMore) {
+      await context.click('div .thumb-media-container a.thumb-media-item', {}, { timeout: 50000 });
+    }
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -61,6 +67,8 @@ module.exports = {
         }
       }
       const name = getXpath("//div[contains(@class,'hidden-tab-up')]//div[@data-component='productDetailInfo']//h1", 'innerText');
+      const productDescription = getXpath("//div[contains(@class,'hidden-lg')]//h2[contains(@itemprop,'description')]", 'innerText');
+      addElementToDocument('added_description', productDescription);
       const scriptXpathData = getXpath("//script[@type='application/ld+json'][contains(text(),'@graph')]", 'innerText');
       if (scriptXpathData !== null) {
         const scriptXpath = scriptXpathData.toString().replace(/@graph/g, 'graph');
@@ -74,7 +82,7 @@ module.exports = {
         addElementToDocument('added_brand', scriptXpathObj.graph[0].brand.name);
         addElementToDocument('added_product_description', name);
         addElementToDocument('added_mpn', scriptXpathObj.graph[0].mpn);
-        addElementToDocument('added_description', scriptXpathObj.graph[0].description);
+        // addElementToDocument('added_description', scriptXpathObj.graph[0].description);
         if (scriptXpathObj.graph[0].aggregateRating !== undefined) {
           const aggregateData = scriptXpathObj.graph[0].aggregateRating.ratingValue;
           const aggregate = aggregateData.split('.');
@@ -93,14 +101,19 @@ module.exports = {
       }
       const specificInfoXpath = getAllXpath("//ul[@class='content__Tech__block']//li[@class='content__Tech__row']", 'innerText');
       addElementToDocument('added_specific_information', specificInfoXpath.join('||'));
-
-      const videoUrlPath = getXpath("//div[contains(@class,'fullJwPlayerWarp')]//input[@class='flix-jw']/@value", 'nodeValue');
-      if (videoUrlPath && typeof videoUrlPath === 'string') {
-        var videoUrlObj = JSON.parse(videoUrlPath);
-        videoUrlObj.playlist.forEach(element => {
-          addElementToDocument('added_video_url', 'http:' + element.file);
-        });
+      // const videoUrlPath = getXpath("//div[contains(@class,'fullJwPlayerWarp')]//input[@class='flix-jw']/@value", 'nodeValue');
+      const videoUrlPath = getAllXpath("//input[@class='flix-jw']/@value", 'nodeValue');
+      if (videoUrlPath.length > 0) {
+        for (let i = 0; i < videoUrlPath.length; i++) {
+          if (videoUrlPath[i] && typeof videoUrlPath[i] === 'string') {
+            var videoUrlObj = JSON.parse(videoUrlPath[i]);
+            videoUrlObj.playlist.forEach(element => {
+              addElementToDocument('added_video_url', 'http:' + element.file);
+            });
+          }
+        }
       }
+
       const videoUrlPath1 = getXpath("//div[contains(@class,'flix_jw_videoid')]/@data-jw", 'nodeValue');
       if (videoUrlPath1 && typeof videoUrlPath1 === 'string') {
         addElementToDocument('added_video_url', 'http:' + videoUrlPath1);
@@ -120,15 +133,16 @@ module.exports = {
           addElementToDocument('added_seller_detail', 'MediaWorld');
         }
       }
-      const manufactureXpath = getAllXpath("//div[@id='flix-inpage'] | //div[@id='marketing-content']", 'innerText');
-      if (manufactureXpath.length > 0) {
-        addElementToDocument('added_manufacture', manufactureXpath.join('|').replace('123456789101112131415', ' '));
-      }
       try {
         await context.waitForSelector('div[id="flix-inpage"] img', {}, { timeout: 50000 });
       } catch (error) {
         console.log(error);
       }
+      const manufactureXpath = getAllXpath("//div[@id='flix-inpage'] | //div[@id='marketing-content']", 'innerText');
+      if (manufactureXpath.length > 0) {
+        addElementToDocument('added_manufacture', manufactureXpath.join('|').replace('123456789101112131415', ' '));
+      }
+
       const manufactureImageXpath = getAllXpath("//div[@id='flix-inpage']//img//@srcset | //div[@id='flix-inpage']//img//@data-img-src|//div[@id='flix-inpage']//img//@data-srcset", 'nodeValue');
       if (manufactureImageXpath.length > 0) {
         const manufactureImages = [];
@@ -157,10 +171,11 @@ module.exports = {
         var matchData = scriptData.match(/("identifier":")([^"]+)/i);
         addElementToDocument('added_gtin', matchData[2]);
       }
-      const videoAlignXpath2 = getXpath("//script[@id='popup-product-detail-main'][contains(text(),'youtube')]", 'innerText');
-      if (videoAlignXpath2 !== null) {
-        var videoData = videoAlignXpath2.match(/(https:\/\/www\.youtube\.com\/embed\/)([^\']+)/i);
-        addElementToDocument('added_video_url', videoData[0]);
+      // const videoAlignXpath2 = getXpath("//script[@id='popup-product-detail-main'][contains(text(),'youtube')]", 'innerText');
+      const videoAlignXpath3 = getXpath("//div[@class='video-wrapper']//iframe/@src", 'nodeValue');
+      console.log(videoAlignXpath3);
+      if (videoAlignXpath3 !== null) {
+        addElementToDocument('added_video_url', 'http:' + videoAlignXpath3);
       }
       // @ts-ignore
       if (document.getElementById('frame_content').contentWindow.document.getElementById('abtabtags_count') !== null) {
