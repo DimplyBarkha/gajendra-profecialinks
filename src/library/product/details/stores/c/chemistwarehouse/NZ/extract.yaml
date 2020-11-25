@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[contains(@class, "product-thumbnail")]/@src2
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[contains(@class, "product-thumbnail")]/@alt
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumbs"]/a[position()>1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product-name"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product__price"]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class, "manufacturer-name")]
+  - name: sku
+    singleValue: false
+    xpath: //div[@data-bv-show="rating_summary"]/@data-bv-product-id
+  - name: variantId
+    singleValue: false
+    xpath: //div[@data-bv-show="rating_summary"]/@data-bv-product-id
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-name"]
+  - name: inStorePrice
+    singleValue: false
+    xpath: //div[@class="product__price"]
