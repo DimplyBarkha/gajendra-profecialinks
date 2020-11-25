@@ -28,7 +28,6 @@ fields:
     description: Unique id (within this extractor)
   - name: rank
   - name: rankOrganic
-  - name: sponsored
-    defaultValue: false
-    type: BOOLEAN
+  - name: gtin
+    xpath: //div[contains(@class,"add2CartTrigger")]/@data-upc
     singleValue: false
