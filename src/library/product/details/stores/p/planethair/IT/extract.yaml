@@ -9,19 +9,20 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //div[@data-layout="button_count"]/@data-href
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: false
-  xpath: //div[@class="ty-product-block product-main-info"]//div[@class="ty-product-img cm-preview-wrapper"]//img[contains(@style, "user-select")]/@src
+  xpath: //html//img[contains(@style, "user-select")]/@src
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
-  xpath: //div[@class="ty-product-block product-main-info"]//div[@class="ty-product-img cm-preview-wrapper"]//img[contains(@style, "user-select")]/@alt
+  xpath: //html//img[contains(@style, "user-select")]/@alt
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
-  xpath: //div[@class="ty-product-block product-main-info"]//div[@class="ty-product-img cm-preview-wrapper"]/a[contains(@class, "hidden")]/img/@src
+  xpath: //div[@class="ty-tygh  "]//div[@id="alternateImages"]/@title
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
@@ -46,8 +47,6 @@ fields:
   singleValue: true
   type: STRING
   xpath: //div[@class="ty-product-block__price-actual"]//span[@class="ty-price"]//span[contains(@id, "sec_discounted_price")]/text()
-  # regExp: (\d+)\.(\d+)
-  # regExpReplace: $1,$2
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
@@ -66,7 +65,7 @@ fields:
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
   singleValue: true
-  xpath: count(//div[@id="content_description"]//ul/li)
+  xpath: //div[@id="descriptionBullets"]/@title
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
