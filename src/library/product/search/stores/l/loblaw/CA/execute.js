@@ -87,10 +87,10 @@ module.exports = {
     country: 'CA',
     store: 'loblaw',
     domain: 'loblaws.ca',
-    url: 'https://www.loblaws.ca/search?search-bar={searchTerm}',
+    url: 'https://www.loblaws.ca/search?search-bar={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
-  // implementation,
+   //implementation,
 };
