@@ -36,7 +36,6 @@ const transform = (data) => {
       }
       row = cleanUp(row);
     }
-    
   }
   return data;
 };

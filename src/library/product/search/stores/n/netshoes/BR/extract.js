@@ -1,6 +1,6 @@
 const { transform } = require('../shared');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -20,7 +20,7 @@ async function implementation(
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -36,15 +36,15 @@ async function implementation(
     return document.URL;
   });
   var results = await context.evaluate(async function () {
-    let URL = window.location.href;
-    function addHiddenDiv(id, content, index) {
+    const URL = window.location.href;
+    function addHiddenDiv (id, content, index) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       const originalDiv = document.querySelectorAll('div.item-card')[index];
       originalDiv.appendChild(newDiv);
-      console.log("child appended " + index);
+      console.log('child appended ' + index);
     }
     const result = [];
     const product = document.querySelectorAll('div.item-card');
@@ -52,16 +52,16 @@ async function implementation(
     for (let i = 0; i < product.length; i++) {
       addHiddenDiv('page_url', URL, i);
       const productUrl = document.querySelectorAll('div.item-card__images a');
-      if (product[i].querySelector("section.ff-ajax-price") === null) {
+      if (product[i].querySelector('section.ff-ajax-price') === null) {
         result.push({
           url: 'https:' + productUrl[i].getAttribute('href'),
-          code: ''
-        })
+          code: '',
+        });
       } else {
         result.push({
           url: 'https:' + productUrl[i].getAttribute('href'),
-          code: product[i].querySelector("section.ff-ajax-price").getAttribute("data-sku-ref")
-        })
+          code: product[i].querySelector('section.ff-ajax-price').getAttribute('data-sku-ref'),
+        });
       }
     }
     return result;
@@ -79,17 +79,14 @@ async function implementation(
         random_move_mouse: true,
       });
       const productCode = await context.evaluate(async function () {
-        const productCode = document.querySelector("p.reference span").getAttribute("data-product-sku");
+        const productCode = document.querySelector('p.reference span').getAttribute('data-product-sku');
         return productCode;
       });
       results[i].code = productCode;
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     }
-    console.log("result " + i + "--" + results[i].code)
+    console.log('result ' + i + '--' + results[i].code);
   }
-  const currentUrl = await context.evaluate(async function () {
-    return document.URL;
-  });
   try {
     await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
   } catch (error) {

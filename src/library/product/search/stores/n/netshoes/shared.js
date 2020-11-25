@@ -40,7 +40,7 @@ const transform = (data, context) => {
       if (row.productUrl) {
         let text = '';
         row.productUrl.forEach(item => {
-          text += 'https:'+ item.text;
+          text += 'https:' + item.text;
         });
         row.productUrl = [
           {
