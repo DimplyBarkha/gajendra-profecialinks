@@ -81,7 +81,7 @@ const transform = (data) => {
       if (row.specifications) {
         var arrSpec = [];
         row.specifications.forEach(item => {
-          item.text.replace(/\s*:\s*/g, ' : ');
+          item.text = item.text.replace(/\s*:\s*/g, ' : ');
           arrSpec.push(item.text);
         });
         row.specifications = [{ text: arrSpec.join(' || ') }];
