@@ -11,8 +11,8 @@ fields:
   - name: productUrl
     SingleValue: false
     xpath: //li[@class="product"]//a/@href
-    regExp: .+-(.+)\/p
-    regExpReplace: https://www.tottus.cl$1    
+    regExp: (.+)
+    regExpReplace: https://www.tottus.cl$1
   - name: price
     SingleValue: false
     xpath: //li[@class="product"]//span[contains(@class,"cmrPrice")]
