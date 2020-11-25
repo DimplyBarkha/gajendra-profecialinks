@@ -3,16 +3,25 @@ const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   await context.evaluate(async () => {
-    // price
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    // searchUrl
+    const searchUrl = window.location.href;
+    addElementToDocument('searchUrl', searchUrl);
 
+    // price
     const price = document.querySelectorAll('span[class*="ty-price"][id*="line"]')
       ? document.querySelectorAll('span[class*="ty-price"][id*="line"]') : [];
     price.forEach(e => e.setAttribute('price', e.innerText.replace('.', ',')));
 
     // rating
-
     const ratings = document.querySelectorAll('span.ty-nowrap.ty-stars a')
       ? document.querySelectorAll('span.ty-nowrap.ty-stars a') : [];
     // @ts-ignore
@@ -23,16 +32,23 @@ async function implementation (inputs, parameters, context, dependencies) {
     function addProp (selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
+    const allProducts = document.querySelectorAll('div[class="ty-column3"] > div[class*="list__item"]');
 
     // rank
 
-    const allProducts = document.querySelectorAll('div[class="ty-column3"] > div[class*="list__item"]');
     if (allProducts !== undefined) {
       for (let i = 0; i < allProducts.length; i++) {
         addProp('div[class="ty-column3"] > div[class*="list__item"]', i, 'rankorganic', `${i + 1}`);
       }
     }
   });
+  await context.evaluate(async function () {
+    const nextPageElement = document.querySelectorAll('a[class*="ty-pagination__next"]');
+    if (nextPageElement) {
+      nextPageElement.forEach(e => e.parentNode.removeChild(e));
+    }
+  });
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   return await context.extract(productDetails, { transform });
 }
 

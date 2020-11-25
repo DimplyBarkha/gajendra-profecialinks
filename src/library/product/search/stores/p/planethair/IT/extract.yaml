@@ -8,7 +8,8 @@ fields:
     xpath: //a/img[contains(@id, 'det_img')]/@id
     regExp: \d+
   - name: searchUrl
-    singleValue: true
+    singleValue: false
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
     xpath: //a[@class='product-title']
