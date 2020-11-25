@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-card__image"]/a/img/@srcset
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-card__title"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product-card"]/a/@href
+    regExp: (products/.*)
+    regExpReplace: https://lloydspharmacy.com/$1
+  - name: id
+    singleValue: false
+    # type: NUMBER
+    xpath: //div[@class="product-card__cta-button"]/button/@data-variant-id
