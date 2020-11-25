@@ -23,22 +23,32 @@ module.exports = {
                 const originalDiv = document.querySelectorAll("figure[class='m-figureCard__figure card m-plp-product-card m-card']")[index];
                 originalDiv.parentNode.insertBefore(newDiv, originalDiv);
             }
-            var brandBlock1 = document.evaluate('//script[@class="next-head"][3]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent;
-            var test1 = JSON.parse(brandBlock1);
-            console.log(test1)
+            var productdata = document.evaluate('//script[@class="next-head"][3]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent;
+            var productInfoJson = JSON.parse(productdata);
+            console.log(productInfoJson)
             // var brandBlock1 = document.querySelector('head > script:nth-child(99)');
             // @ts-ignore
-            var lengthArray = test1.itemListElement.length;
+            const lengthArray = productInfoJson.itemListElement.length;
             // @ts-ignore
-            var itemList = test1.itemListElement;
-            for (var i = 0; i <= lengthArray; i++) {
-                var finalValue = itemList[i].item.aggregateRating.ratingValue
-                var finalValue = itemList[i].item.url
-                console.log("test" + finalValue)
+            const itemList = productInfoJson.itemListElement;
+            alert(itemList[0].item)
+            for (let i = 1; i <= lengthArray; i++) {
+                if (Object.keys(itemList[i].item.aggregateRating).length > 1) {
+                    const finalValue = itemList[i].item.aggregateRating.ratingValue
+                    const url = itemList[i].item.url
+                    addHiddenDiv('finalValue', finalValue, i);
+                    addHiddenDiv('url', url, i);
+                    i++;
+                }
+                else{
+                    i++;
+                }
+                // var finalValue = itemList[i].item.url
+                // console.log("test" + finalValue)
             }
             // @ts-ignore
             //console.log("json" + JSON.parse(brandBlock1.innerText).itemListElement[1].item.aggregateRating.ratingValue);
-            addHiddenDiv('finalValue', finalValue, i);
+            // addHiddenDiv('finalValue', finalValue, i);
         });
         return await context.extract(productDetails, { transform });
     },

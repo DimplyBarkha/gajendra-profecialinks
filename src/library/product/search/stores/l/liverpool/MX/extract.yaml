@@ -3,12 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: url
-    manualSelector: script[type='application/ld+json']
-    regExp: '(\"url\"\:\ ")([^"]+)(\s)'
-    regExpReplace: $2
   - name: productUrl
     description: The URL for the product details page
+    xpath: //div[@id="url"]
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //div[@class="o-card__image__container"]/img/@src
@@ -19,21 +16,26 @@ fields:
   - name: id
     singleValue: true
     description: The product id
-    xpath: //div[@class="o-card__image__container"]/img/@id
+    xpath: //div[@id="url"]
+    regExp: (.+)=(.+)
+    regExpReplace: $2
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class="o-card__image__container"]/img/@id
+    xpath: //div[@id="url"]
+    regExp: (.+)=(.+)
+    regExpReplace: $2
   - name: price
     singleValue: true
     description: The offered price for the product
     xpath: //p[@class="a-card-discount"]
-  - name: aggregaterating2
+  - name: aggregateRating
     description: The rating of the product
-    xpath: //div[@class="m-ratings"]//i[@class="icon-star_large"]
+    xpath: //div[@id="finalValue"]
   - name: reviewCount
     description: The number of ratings for the product
     xpath: //li[@class="ratings-number aaa"]
+    type: NUMBER
   - name: sponsored
     singleValue: true
     defaultValue: false
