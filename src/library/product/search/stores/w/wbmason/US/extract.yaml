@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="search-rightcol"]//div[@id="ctl00_ContentPlaceholder1_ProductList_pnlProductsGrid"]//div[@class="grid-row"]/div
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@id="paData"]/@wbm-itemid
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="prod-row prod-cart"]//div[@class="button-container"]//input/@data-product-name
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="prod-row"]/a/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="grid-row"]/div/a/img/@src
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="item-price"]/span[@class="price"]
+  - name: brandText
+    SingleValue: false
+    xpath: //span[@class="brand"]
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1
