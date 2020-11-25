@@ -33,7 +33,7 @@ const transform = (data) => {
         if(row.id){
             row.id.forEach(item=>{
                 let idAr=item.text.split(' ');
-                item.text=idAr[0];
+                item.text=idAr[1];
             })
         }
         if(row.aggregateRating){
