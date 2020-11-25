@@ -3,9 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: _url
+  - name: searchUrl
     singleValue: false
-    xpath: //html//div[@id="searchurl"]
+    xpath: ancestor::html//div[@id="searchurl"]
   - name: id
     singleValue: false
     xpath: //div[@class="linx-wrapper-buy-button"]//a/@data-pid
