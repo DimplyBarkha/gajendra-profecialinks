@@ -3,6 +3,15 @@ const { transform } = require('./format');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const flag = await context.evaluate(async function () {
+    const numberOfProducts = document.querySelector('.CC-searchCountFiltros .CC-count span')
+      ? parseInt(document.querySelector('.CC-searchCountFiltros .CC-count span').innerText)
+      : 0;
+    if (numberOfProducts > 12) return true;
+    else return false;
+  });
+
+  if (flag) await context.waitForSelector('.CC-seeMore button');
 
   await context.evaluate(async function () {
     function checkForProducts (selectorForProducts) {
