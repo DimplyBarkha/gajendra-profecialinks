@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@id="productData"]//div[@class="productDetailGallery-root-1P3"]//img[1]/@src
+    xpath: //div[@id="productData"]//div[contains(@class,"productDetailGallery-root-1P3")]//img[1]/@src
   - name: imageAlt
     singleValue: false
-    xpath: (//div[@id="productData"]//div[@class="productDetailGallery-root-1P3"]//img)[1]/@alt
+    xpath: (//div[@id="productData"]//div[contains(@class,"productDetailGallery-root-1P3")]//img)[1]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //meta[@property="og:image"][1]//following-sibling::meta[@property="og:image"]/@content
