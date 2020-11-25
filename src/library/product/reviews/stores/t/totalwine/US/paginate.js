@@ -5,8 +5,10 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'totalwine',
+    // nextLinkSelector: 'button.bv-content-btn',
     nextLinkSelector: null,
     mutationSelector: null,
+    // spinnerSelector: 'div.bv-mbox-spinner',
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,

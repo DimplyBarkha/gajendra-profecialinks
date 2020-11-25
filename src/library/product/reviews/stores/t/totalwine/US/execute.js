@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'totalwine',
     domain: 'totalwine.com',
-    loadedSelector: '//div[@id="BVRRContainer"]',
+    loadedSelector: 'div#BVRRContainer',
     noResultsXPath: '//div[@class="content-wrapper"]/div/h1',
     reviewUrl: null,
     sortButtonSelector: null,
