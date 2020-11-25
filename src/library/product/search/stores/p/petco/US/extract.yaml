@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"dijitContentPane")]//div[contains(@class,"row products")]//article
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"product-image" )]//a/@id
+    regExp: (\d+)
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"product-name")]//a/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"product-name")]//a/@href
+    regExp: (\/shop.+)
+    regExpReplace: https://www.petco.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"product-image")]//img/@src
+  - name: price
+    xpath: //div[contains(@class,"product-pricing")]//span[contains(@id,"offerPrice_")]
+    regExp: (\d+.\d+)
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,"product-rating")]//input/@value
+  - name: reviewCount
+    xpath: //span[contains(@id,"ReviewCount")]
+    regExp: (\d+)
+  - name: manufacturer
+  - name: soldBy
+  - name: rank
+  - name: endorsementText
+  - name: rankOrganic
