@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="productBlock "]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="productBlock "]//span/@data-product-id
+  - name: rankOrganic
+    singleValue: false
+    #xpath: //span[@class="js-enhanced-ecommerce-data hidden"]/@data-product-position
+  - name: name
+    singleValue: false
+    xpath: //h3[contains(@class,'productBlock_productName')]
+  - name: gtin
+    singleValue: true
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="productBlock_imageLinkWrapper"]//a[@class="productBlock_link"]/@href
+    regExp: (/.+)
+    regExpReplace: https://www.lookfantastic.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="productBlock_imageContainer"]//img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="productBlock_rating"]//span[@class="productBlock_ratingValue"]/text()
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@class,'productBlock_reviewCount')]
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,'productBlock_priceValue') or contains(@class,'productBlock_fromValue')]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: false
+    #xpath: //span[@class="js-enhanced-ecommerce-data hidden"]/@data-product-position
+  - name: endorsementText
+    singleValue: true
+
+    
