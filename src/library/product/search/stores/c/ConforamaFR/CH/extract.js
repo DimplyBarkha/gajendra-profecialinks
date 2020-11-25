@@ -18,7 +18,7 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll('article[class="box-product    "]')[index];
+        const originalDiv = document.querySelectorAll('article[class="box-product    "]>form')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       function addElementToDocument (key, value) {
@@ -29,14 +29,11 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      const name = document.querySelectorAll('article[class="box-product    "]');
+      const name = document.querySelectorAll('article[class="box-product    "]>form');
       // @ts-ignore
       const URL = window.tc_vars.originalPageURL;
-      console.log(URL);
       let price;
       for (let i = 0; i < name.length; i++) {
-        // @ts-ignore
-        addHiddenDiv('prodName', document.querySelectorAll('article[class="box-product    "]')[i].innerText, i);
         // @ts-ignore
         price = document.querySelectorAll('div[class="price-product"]')[i].innerText;
         var priceUpdated = price.replace("€", ".");
