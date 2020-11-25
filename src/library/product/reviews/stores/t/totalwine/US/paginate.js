@@ -1,6 +1,7 @@
 
 module.exports = {
-  implements: 'product/reviews/paginate',
+  // implements: 'product/reviews/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
     country: 'US',
     store: 'totalwine',
