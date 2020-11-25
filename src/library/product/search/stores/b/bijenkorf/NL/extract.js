@@ -9,12 +9,12 @@ async function implementation (
   const { transform } = parameters;
   await context.evaluate(async function (context) {
     let scrollTop = 0;
-    while (scrollTop !== 20000) {
+    while (scrollTop !== 50000) {
       await stall(500);
       scrollTop += 1000;
       window.scroll(0, scrollTop);
-      if (scrollTop === 20000) {
-        await stall(6000);
+      if (scrollTop === 50000) {
+        await stall(2000);
         break;
       }
     }
