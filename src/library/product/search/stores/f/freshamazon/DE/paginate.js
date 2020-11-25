@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'freshamazon',
     nextLinkSelector: 'li[class="a-last"]',
-    loadedSelector: null,
+    loadedSelector: 'body',
     domain: 'freshamazon.de',
     zipcode: '',
   },

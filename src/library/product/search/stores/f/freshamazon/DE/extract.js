@@ -1,11 +1,11 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'DE',
     store: 'freshamazon',
-    transform: cleanUp,
+    transform: transform,
     domain: 'freshamazon.de',
     zipcode: '',
   },
@@ -20,6 +20,7 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
+    
     function addclass(xpathforpagination) {
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
