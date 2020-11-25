@@ -18,7 +18,9 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-
+      // rating
+      const ratingValue = document.querySelector('meta[itemprop="ratingValue"]');
+      if (ratingValue !== null) ratingValue.setAttribute('ratingValue', ratingValue.getAttribute('content').replace('.', ','));
       // video url
       const ytPrefix = 'https://www.youtube.com/watch?v=';
       const keyword = document.querySelector('a[class*="thumb youtube"]')
