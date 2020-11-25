@@ -4,12 +4,15 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: alsoViewedProducts
-    xpath: (//p[contains(text(),'Customers who viewed')])[1]/..//span[contains(@class,'largeProductName')]
+    xpath: (//p[contains(text(),'Customers who viewed')])[1]/..//span[contains(@class,'largeProductName')] 
+  - name: reviewCount
+    xpath: normalize-space(//dd[@class="bv-rating-ratio-count"]//a)
+    regExp: (.*?)\s(.*)
+    regExpReplace: $1
   - name: _input
     xpath: //meta[@property="og:url"]/@content
-  - name: clearProductName
-    xpath: //div[contains(@class,'productHeader')]//h1[contains(@class,'productTitle')]
-    singleValue: true
+  - name: productDescriptionLength
+  - name: productDescriptionLength
   - name: imageUrl
     xpath: //meta[contains(@property,'og:image')]/@content
   - name: image
@@ -72,7 +75,7 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-  - name: upc
+  - name: servingSizeUom
     xpath: (//div[contains(@class,"productHeader")]//h2[contains(@class,"productSubTitle")])[1]
     regExp: (.*)\s(.*)
     regExpReplace: $2
@@ -105,10 +108,6 @@ fields:
     description: The number of ratings
     xpath: //meta[@itemprop='reviewCount']/@content
     type: NUMBER
-  - name: reviewCount
-    xpath: normalize-space(//dd[@class="bv-rating-ratio-count"]//a)
-    regExp: (.*?)\s(.*)
-    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
