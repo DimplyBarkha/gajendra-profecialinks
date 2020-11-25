@@ -58,30 +58,32 @@ const implementation = async function (
   if (!variantsExist) {
     return;
   }
-  // API call to fetch variants
-  const sku = url.match(/p\/(.+)\?s=/g)[0].replace('?s=', '').replace('p/', '');
-  const storeUniqueId = zipcode === '95825' ? 1108 : url.match(/s=(\d+)/g)[0].replace('s=', '');
 
   try {
-    const productDetails = await getData(`https://www.totalwine.com/product/api/product/product-detail/v1/getProduct/${sku}?shoppingMethod=INSTORE_PICKUP&state=US-CA&storeId=${storeUniqueId}`);
-    console.log('API call done');
+    if (id) {
+    // API call to fetch variants
+      const sku = url.match(/p\/(.+)\?s=/g)[0].replace('?s=', '').replace('p/', '');
+      const storeUniqueId = zipcode === '95825' ? 1108 : url.match(/s=(\d+)/g)[0].replace('s=', '');
+      const productDetails = await getData(`https://www.totalwine.com/product/api/product/product-detail/v1/getProduct/${sku}?shoppingMethod=INSTORE_PICKUP&state=US-CA&storeId=${storeUniqueId}`);
+      console.log('API call done');
 
-    await context.evaluate(async function (details) {
-      // Add skus to DOM
-      for (let i = 0; i < details.skus.length; i++) {
-        const newDiv = document.createElement('div');
-        console.log('sku id found ' + details.skuId);
-        console.log('sku found ' + JSON.stringify(details.skus[i]));
-        if (details.skuId === details.skus[i].skuId) {
-          newDiv.setAttribute('class', 'currentItemId');
-        } else {
-          newDiv.setAttribute('class', 'itemId');
+      await context.evaluate(async function (details) {
+        // Add skus to DOM
+        for (let i = 0; i < details.skus.length; i++) {
+          const newDiv = document.createElement('div');
+          console.log('sku id found ' + details.skuId);
+          console.log('sku found ' + JSON.stringify(details.skus[i]));
+          if (details.skuId === details.skus[i].skuId) {
+            newDiv.setAttribute('class', 'currentItemId');
+          } else {
+            newDiv.setAttribute('class', 'itemId');
+          }
+          newDiv.textContent = details.skus[i].skuId;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
         }
-        newDiv.textContent = details.skus[i].skuId;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-    }, productDetails);
+      }, productDetails);
+    }
   } catch (err) {
     console.log('ERROR while calling the API' + err);
     throw err;

@@ -500,3 +500,10 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+#salsify
+  - name: priceCurrency
+    xpath: //meta[@itemprop="priceCurrency"]/@content
+  - name: highQualityImages
+    xpath: //meta[contains(@property,'og:image')]/@content
+  - name: shownImages
+    xpath: //meta[contains(@property,'og:image')]/@content
