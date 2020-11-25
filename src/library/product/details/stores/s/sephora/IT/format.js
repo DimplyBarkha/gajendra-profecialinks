@@ -126,6 +126,24 @@ const transform = (data) => {
         })
         row.ingredientsList=[{"text":inf.join(' | ')}];
       }
+      if(row.variantInformation){
+        row.variantInformation.forEach(item=>{
+          item.text=item.text.replace(' - Selected','');
+        })
+      }
+      if(row.firstVariant){
+        row.firstVariant.forEach(item=>{
+          item.text=item.text.replace('ITEM ','');
+        })
+      }
+      if(row.variants){
+        let inf=[];
+        row.variants.forEach(item=>{
+          let tmpArr=item.text.replace('/productimages/sku/s','').split('+');
+          inf.push(tmpArr[0]);
+        })
+        row.variants=[{"text":inf.join(' | ')}];
+      }
     }
   }
   return cleanUp(data);
