@@ -5,8 +5,8 @@ module.exports = {
     store: 'noon',
     domain: 'noon.com',
     url: 'https://www.noon.com/uae-en/search?q={searchTerms}',
-    loadedSelector: 'div.jsx-3152181095 .productList .gridView',
-    noResultsXPath: '//div[@class="jsx-671104679 jsx-3349621030 container"]',
+    loadedSelector: '.productContainer',
+    noResultsXPath: '//div/p[contains(text(),"We couldn’t find what you were looking for")]',
     zipcode: "''",
   },
 };

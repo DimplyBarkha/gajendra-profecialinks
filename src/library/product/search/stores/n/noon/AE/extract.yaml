@@ -1,23 +1,27 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"productList")]/div[contains(@class,"productContainer")]
+recordXPath: //div[contains(@class,"productContainer")]
 fields:
   - name: productUrl
     SingleValue: false
-    xpath: //div[contains(@class,"productContainer")]//a/@href
+    xpath: //a/@href
+    regExp: (.+)
+    regExpReplace: https://noon.com$1
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'productContainer')]//a/@href
+    xpath: //a/@id
+    regExp: productBox-(.+)
+    regExpReplace: $1
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'mediaContainer')]//img/@src
+    xpath: //div[contains(@class,'productImage')]//img/@src
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,'name')]
+    xpath: //div[contains(@class,'grid')]/@title
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,'sellingPrice')]
+    xpath: //div[contains(@class,'large')]/span[@class="currency"]/following-sibling::strong
   - name: rankOrganic
     SingleValue: false
   - name: rank
