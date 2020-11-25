@@ -46,7 +46,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //*[contains(@class,"p-card-wrppr")]//*[@class="prc-box-sllng"] | //*[contains(@class,"p-card-wrppr")]//*[@class="prc-box-dscntd"]
+    xpath: //div[@class="prc-cntnr"]//div[contains(@class,'prc-box-sllng')]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product

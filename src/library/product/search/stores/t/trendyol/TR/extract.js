@@ -62,7 +62,9 @@ module.exports = {
         }
       });
     };
+    await new Promise(resolve => setTimeout(resolve, 5000));
     await applyScroll(context);
+    await new Promise(resolve => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
       const URL = window.location.href;
       function addHiddenDiv(id, content, index) {
