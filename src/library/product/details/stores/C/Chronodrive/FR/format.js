@@ -22,14 +22,16 @@ const transform = (data) => {
     for (const row of group) {
       if (row.caloriesPerServing) {
         if (row.caloriesPerServing[0].text.includes('kcal')) {
-          if (row.caloriesPerServing[0].text.match(/(.*)(kj*\/*)(\d*) kcal/)) {
-            row.caloriesPerServing = [{ text: row.caloriesPerServing[0].text.replace(/(.*)(kj*\/*)(\d*) kcal/, '$3') }];
+          if (row.caloriesPerServing[0].text.match(/(.*)(kj*\/*)([0-9]+[.]?[0-9]*) kcal/)) {
+            row.caloriesPerServing = [{ text: row.caloriesPerServing[0].text.replace(/(.*)(kj*\/*)([0-9]+[.]?[0-9]*) kcal/, '$3') }];
           }
-          if (row.caloriesPerServing[0].text.match(/(^\d*) kcal/)) {
-            row.caloriesPerServing = [{ text: row.caloriesPerServing[0].text.replace(/(^\d*) kcal/, '$1') }];
+          if (row.caloriesPerServing[0].text.match(/(^[0-9]+[.]?[0-9]*) kcal/)) {
+            row.caloriesPerServing = [{ text: row.caloriesPerServing[0].text.replace(/(^[0-9]+[.]?[0-9]*) kcal/, '$1') }];
           }
         } else {
-          row.caloriesPerServing = [{ text: row.caloriesPerServing[0].text.replace(/(\d*) kj(.*)/, '$1 kj') }];
+          if (row.caloriesPerServing[0].text.match(/([0-9]+[.]?[0-9]*) kj(.*)/)) {
+            row.caloriesPerServing = [{ text: row.caloriesPerServing[0].text.replace(/([0-9]+[.]?[0-9]*) kj(.*)/, '$1 kj') }];
+          }
         }
       }
       if (row.ingredientsList) {
@@ -48,21 +50,21 @@ const transform = (data) => {
       }
       if (!row.magnesiumPerServing && row.magnesiumPerServing1) {
         row.magnesiumPerServing = row.magnesiumPerServing1;
-        if (!row.magnesiumPerServingUom && row.magnesiumPerServingUom1) {
-          row.magnesiumPerServingUom = row.magnesiumPerServingUom1;
-        }
+      }
+      if (!row.magnesiumPerServingUom && row.magnesiumPerServingUom1) {
+        row.magnesiumPerServingUom = row.magnesiumPerServingUom1;
       }
       if (!row.calciumPerServing && row.calciumPerServing1) {
         row.calciumPerServing = row.calciumPerServing1;
-        if (!row.calciumPerServingUom && row.calciumPerServingUom1) {
-          row.calciumPerServingUom = row.calciumPerServingUom1;
-        }
+      }
+      if (!row.calciumPerServingUom && row.calciumPerServingUom1) {
+        row.calciumPerServingUom = row.calciumPerServingUom1;
       }
       if (!row.sodiumPerServing && row.sodiumPerServing1) {
         row.sodiumPerServing = row.sodiumPerServing1;
-        if (!row.sodiumPerServingUom && row.sodiumPerServingUom1) {
-          row.sodiumPerServingUom = row.sodiumPerServingUom1;
-        }
+      }
+      if (!row.sodiumPerServingUom && row.sodiumPerServingUom1) {
+        row.sodiumPerServingUom = row.sodiumPerServingUom1;
       }
     }
   }
