@@ -303,7 +303,7 @@ const transform = (data, context) => {
         }
 
         if (row.ratingDistribution) {
-          const ratings = row.ratingDistribution.map(elm => elm.match(/^[^\s]+/)[0]).reverse();
+          const ratings = row.ratingDistribution.map(elm => elm.text.match(/^[^\s]+/)[0]).reverse();
           row.ratingDistribution = ratings.map(elm => ({ text: elm }));
         } else {
           row.ratingDistribution = [0, 0, 0, 0, 0].map(elm => ({ text: elm }));

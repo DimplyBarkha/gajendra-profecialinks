@@ -20,7 +20,7 @@ module.exports = {
     createUrl: 'action:product/details/createUrl',
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
-  implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, dependencies) => {
+  implementation: async ({ parentInput }, { country, domain, transform }, context, dependencies) => {
     await context.addToDom('added-parentInput', parentInput);
 
     await context.click('//span[@class="button-wrapper" and contains(text(),"Show delivery")]')
@@ -166,6 +166,6 @@ module.exports = {
         addHiddenDiv('variants-info', variants);
       }
     });
-    return await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
+    return await context.extract(dependencies.productDetails, { transform });
   },
 };
