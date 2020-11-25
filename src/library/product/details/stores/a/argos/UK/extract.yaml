@@ -6,8 +6,8 @@ fields:
   - name: image
     singleValue: true
     xpath: (//div[contains(@data-test,"component-media-gallery_activeSlide")])[1]//img/@src
-    regExp: (.+)(?:\?)
-    regExpReplace: https:$1
+    # regExp: (.+)(?:\?)
+    # regExpReplace: https:$1
   - name: imageAlt
     singleValue: true
     xpath: (//div[contains(@data-test,"component-media-gallery_activeSlide")])[1]//img/@alt
