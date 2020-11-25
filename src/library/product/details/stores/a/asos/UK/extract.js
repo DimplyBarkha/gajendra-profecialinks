@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -10,15 +10,15 @@ async function implementation(
     await context.waitForSelector('button[aria-label*="video"]', { timeout: 20000 });
     await context.click('button[aria-label*="video"]');
     await context.waitForSelector('video[class*="amp-page amp-video-element"] > source[type*="mp4"]', { timeout: 30000 });
-    console.log('video loaded successfully')
+    console.log('video loaded successfully');
   } catch (e) {
-    console.log('not able to load the video')
+    console.log('not able to load the video');
   }
   await context.evaluate(async () => {
     const urlElement = document.querySelector('meta[property="og:url"]');
     const url = urlElement && urlElement.getAttribute('content');
     const id = url.replace(/(.+)(\/prd\/)(\d+)/g, '$3');
-    const apiLink = `https://www.asos.com/api/product/catalogue/v3/stockprice?productIds=${id}&store=ROW&currency=GBP&keyStoreDataversion=j42uv2x-26`
+    const apiLink = `https://www.asos.com/api/product/catalogue/v3/stockprice?productIds=${id}&store=ROW&currency=GBP&keyStoreDataversion=j42uv2x-26`;
     const response = await fetch(apiLink);
     const responseData = await response.json();
     const rpc = responseData && responseData[0].productCode;
@@ -30,16 +30,16 @@ async function implementation(
       responseData[0].variants.forEach((element) => {
         variantIdarray.push(element.variantId);
         skuArray.push(element.sku);
-      })
+      });
     }
     if (responseData && responseData[0].variants) {
       responseData[0].variants.forEach((element) => {
-        if (element.isInStock == true) {
+        if (element.isInStock === true) {
           availabilityArray.push('In Stock');
         } else {
           availabilityArray.push('Out of Stock');
         }
-      })
+      });
     }
     const data = window && window.asos && window.asos.pdp && window.asos.pdp.config && window.asos.pdp.config.product;
     const compareVariantArray = [];
@@ -47,17 +47,17 @@ async function implementation(
     if (data && data.variants) {
       data.variants.forEach((element) => {
         compareSizeArray.push(element.size);
-        compareVariantArray.push(element.variantId)
-      })
+        compareVariantArray.push(element.variantId);
+      });
     }
-    const actualSizeArray = []
+    const actualSizeArray = [];
     variantIdarray.forEach((element, index) => {
       compareVariantArray.forEach((element1, index1) => {
         if (element === element1) {
-          actualSizeArray.push(compareSizeArray[index1])
+          actualSizeArray.push(compareSizeArray[index1]);
         }
-      })
-    })
+      });
+    });
     const variantData = window && window.asos && window.asos.pdp && window.asos.pdp.config && window.asos.pdp.config.product;
     const brand = variantData && variantData.brandName;
     const variantColour = [];
@@ -67,7 +67,7 @@ async function implementation(
         sizeArray.push(element.size);
       });
     }
-    const uniqueVariantColours = [...new Set(variantColour)]
+    const uniqueVariantColours = [...new Set(variantColour)];
     const imageData = window && window.asos && window.asos.pdp && window.asos.pdp.config && window.asos.pdp.config.product;
     const compareImageArray = [];
     const compareColourArray = [];
@@ -75,17 +75,17 @@ async function implementation(
       imageData.images.forEach((element) => {
         compareImageArray.push(element.url);
         compareColourArray.push(element.colour);
-      })
+      });
     }
     const actualImageArray = [];
     if (uniqueVariantColours.length && compareColourArray.length && compareImageArray) {
       uniqueVariantColours.forEach((element, index) => {
         compareColourArray.forEach((element1, index1) => {
           if (element === element1) {
-            actualImageArray.push(compareImageArray[index1])
+            actualImageArray.push(compareImageArray[index1]);
           }
-        })
-      })
+        });
+      });
     }
     const videoDiv = document.querySelector('video[class*="amp-page amp-video-element"] > source[type*="mp4"]');
     const videoUrl = videoDiv && videoDiv.getAttribute('src');
@@ -110,7 +110,7 @@ async function implementation(
       variantDiv.setAttribute('availability', availabilityArray[index]);
       variantDiv.setAttribute('image', actualImageArray[index]);
       document.body.append(variantDiv);
-    })
+    });
     // } else {
     //   const appendElements = document.querySelectorAll('select[data-id*="sizeSelect"] > option:not(:first-child)');
     //   appendElements.forEach((element, index) => {
@@ -125,7 +125,7 @@ async function implementation(
     //     element.setAttribute('availability', availabilityArray[index]);
     //   })
     // }
-  })
+  });
   return await context.extract(productDetails, { transform });
 }
 const { cleanUp } = require('../shared');

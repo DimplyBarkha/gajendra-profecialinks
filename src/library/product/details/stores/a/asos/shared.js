@@ -17,7 +17,7 @@ const cleanUp = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.image && row.defaultImage) {
-        if (row.image[0].text == 'undefined') {
+        if (row.image[0].text === 'undefined') {
           row.image[0].text = row.defaultImage[0].text;
         }
       }
@@ -25,7 +25,7 @@ const cleanUp = (data, context) => {
         let bulletString = '';
         row.additionalDescBulletInfo.forEach((element) => {
           bulletString += `|| ${element.text}`;
-        })
+        });
         row.additionalDescBulletInfo = [{ text: bulletString }];
       }
       if (row.description) {
@@ -34,13 +34,13 @@ const cleanUp = (data, context) => {
           if (element.xpath.includes('li')) {
             text += ` || ${element.text}`;
           } else {
-            text += ` ${element.text}`
+            text += ` ${element.text}`;
           }
-        })
+        });
         row.description = [{ text: text.trim() }];
       }
       if (row.variants) {
-        let text = ''
+        let text = '';
         text = row.variants.map((element) => element.text.trim()).join(' | ');
         row.variants = [{ text }];
       }
@@ -56,15 +56,15 @@ const cleanUp = (data, context) => {
       if (row.nameExtended) {
         let text = '';
         if (row.quantity && row.color) {
-          if (row.quantity[0].text != 'No Size') {
-            text = `${row.nameExtended[0].text} ${row.color[0].text} ${row.quantity[0].text}`
+          if (row.quantity[0].text !== 'No Size') {
+            text = `${row.nameExtended[0].text} ${row.color[0].text} ${row.quantity[0].text}`;
           } else {
             text = `${row.nameExtended[0].text} ${row.color[0].text}`;
           }
         } else if (row.color) {
-          text = `${row.nameExtended[0].text} ${row.color[0].text}`
+          text = `${row.nameExtended[0].text} ${row.color[0].text}`;
         } else {
-          text = `${row.nameExtended[0].text}`
+          text = `${row.nameExtended[0].text}`;
         }
         row.nameExtended = [{ text }];
       }
@@ -90,7 +90,7 @@ const cleanUp = (data, context) => {
         }
       }
       if (row.videos) {
-        if (row.videos[0].text == "null") {
+        if (row.videos[0].text === 'null') {
           row.videos[0].text = '';
         }
       }
