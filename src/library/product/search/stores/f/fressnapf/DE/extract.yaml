@@ -32,14 +32,14 @@ fields:
   - name: ratingCount
     singleValue: true
     xpath: //div[@class='r-count']
-    # regExp: \((.+)\)
-    # regExpReplace: $1
+    regExp: \((.+)\)
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //div[@class='p-price']
   - name: manufacturer
     singleValue: true
-    xpath:
+    xpath: //div[@class='pt-subhead']/text()
   - name: rank
     singleValue: false
     xpath: 
