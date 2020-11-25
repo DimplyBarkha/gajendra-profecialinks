@@ -1,0 +1,68 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //main[@id="maincontent"]//div[@class="product media"]/div[@class="gallery-placeholder"]/div[@class="zoom"]/img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"] /@content 
+  - name: nameExtended
+    singleValue: false
+    xpath: //main[@id="maincontent"]//div[@class="product-info-main"]//h1[@class="page-title"]/span[@data-ui-id="page-title-wrapper"]
+  - name: name
+    singleValue: false
+    xpath: //main[@id="maincontent"]//div[@class="product-info-main"]//h1[@class="page-title"]/span[@data-ui-id="page-title-wrapper"]
+  - name: price
+    singleValue: false
+    xpath: //main[@id="maincontent"]//div[@class="price-box price-final_price"]//span[@class="price-container "]//span[@data-price-type='finalPrice']//span[@class='price']
+  - name: availabilityText
+    singleValue: false    
+    xpath: //div[@class='fieldset']//div[@class='flags']//span[contains(@class,'stock-status')]    
+  - name: description
+    singleValue: false
+    xpath: //div[@id='description']
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='additional']//table[@id='product-attribute-specs-table']//tbody//tr
+  - name: brandText
+    singleValue: false
+    xpath: //table[@id='product-attribute-specs-table']//tbody//td[@data-th='Brand']
+  - name: sku
+    singleValue: false
+    xpath: //main[@id="maincontent"]//div[@class="product attribute sku"]/div[@itemprop="sku"]
+  - name: variantId
+    singleValue: false
+    xpath: //main[@id="maincontent"]//div[@class="price-box price-final_price"]/@data-product-id
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='product-gallery']//a[not(@class)]/@data-zoom
+  - name: imageAlt
+    singleValue: false
+    xpath: //main[@id="maincontent"]//div[@class="product media"]/div[@class="gallery-placeholder"]/div[@class="zoom"]/img/@alt
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='product-info-price']//div[@class='high_street_price']//span[@class='savings d-block']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='product-info-price']//div[@class='high_street_price']//span[@class='hsp_price']
+  - name: packSize
+    singleValue: false
+    xpath: //table[@id='product-attribute-specs-table']//tbody//td[@data-th='Pack Size']
+  - name: alcoholContent
+    singleValue: false
+    xpath: //table[@id='product-attribute-specs-table']//tbody//td[@data-th='Alcohol by Volume']
+  - name: color
+    singleValue: false
+    xpath: //table[@id='product-attribute-specs-table']//tbody//td[@data-th='Colourr']
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //table[@id='product-attribute-specs-table']//tbody//td[@data-th='Country of Origin']
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: "Yes"
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: "yes"
