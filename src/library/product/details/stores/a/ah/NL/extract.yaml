@@ -180,3 +180,7 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: shippingInfo
+    defaultValue: Sold by Albert Heijn
+  - name: variantInformation
+    xpath: //a[contains(@class,'product-recommendations')]/../../..//div[contains(@class,"product-card-header_unitInfo")]/text()
