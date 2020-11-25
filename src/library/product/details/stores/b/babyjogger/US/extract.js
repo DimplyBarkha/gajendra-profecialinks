@@ -22,23 +22,27 @@ module.exports = {
       }
       const getVariant = async function () {
         var imageRows = [...document.querySelectorAll('div.color-attribute')];
-        for (let index = 0; index < imageRows.length; index++) {
-          imageRows[index].click();
-          await timeout(2000);
-          var variantUrl = window.location.href.replace(new RegExp('(.+SAP_)(.+)(.ht.+)', 'g'), '$2');
-          var colour = document.querySelector('.color-display-value.order-3.ml-1') ? document.querySelector('.color-display-value.order-3.ml-1').textContent : '';
-          var data = colour.concat('-', variantUrl);
-          variantArr.push(variantUrl);
-          const div = document.createElement('div');
-          div.className = 'variant';
-          const getInput = document.createElement('input');
-          div.appendChild(getInput);
-          document.body.appendChild(div);
-          getInput.setAttribute('value', data);
-          await timeout(5000);
+        if(imageRows.length > 0) {
+          for (let index = 0; index < imageRows.length; index++) {
+            imageRows[index].click();
+            await timeout(2000);
+            var variantUrl = window.location.href.replace(new RegExp('(.+SAP_)(.+)(.ht.+)', 'g'), '$2');
+            var colour = document.querySelector('.color-display-value.order-3.ml-1') ? document.querySelector('.color-display-value.order-3.ml-1').textContent : '';
+            var data = colour.concat('-', variantUrl);
+            variantArr.push(variantUrl);
+            const div = document.createElement('div');
+            div.className = 'variant';
+            const getInput = document.createElement('input');
+            div.appendChild(getInput);
+            document.body.appendChild(div);
+            getInput.setAttribute('value', data);
+            await timeout(5000);
+          }
         }
-        selectedProduct.click();
-        await timeout(2000);
+        if(selectedProduct) {
+          selectedProduct.click();
+          await timeout(2000);
+        }
       };
       await getVariant();
       const breadcrumbs = document.querySelectorAll('li.breadcrumb-item');
