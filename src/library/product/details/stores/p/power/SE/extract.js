@@ -26,7 +26,7 @@ module.exports = {
     }
     await new Promise(resolve => setTimeout(resolve, 10000));
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -40,7 +40,7 @@ module.exports = {
         const htmlDoc = parser.parseFromString(iframeDoc.document.body.innerHTML, 'text/html');
         const videoElements = htmlDoc.querySelectorAll('div.b-video-cover');
         videoElements && videoElements.forEach(item => {
-          let vidURL = item.getAttribute('style').replace(/(.*) url(\()(.*)(\))/g,'$3')
+          let vidURL = item.getAttribute('style').replace(/(.*) url(\()(.*)(\))/g, '$3')
           addElementToDocument('videoUrls', vidURL);
         });
         const videoDurations = htmlDoc.querySelectorAll('.video-duration ');
@@ -60,17 +60,26 @@ module.exports = {
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
         await new Promise(resolve => setTimeout(resolve, 3500));
       }
-
-      const xpath = '//iframe[contains(@id,"flix-iframe")]/@src';
-      const videoList = [];
-      const videoSelector = document.evaluate(xpath, document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      for (let index = 0; index < videoSelector.snapshotLength; index++) {
-        const element = videoSelector.snapshotItem(index);
-        let vidURL = element.nodeValue;
-          videoList.push(vidURL);
-        }
-
-      videoList.forEach(element => addElementToDocument('added_videoUrls', element));
+      //get video URLs
+      let sku = document.querySelector("meta[itemprop=sku]") && document.querySelector("meta[itemprop=sku]").hasAttribute('content') ? document.querySelector("meta[itemprop=sku]").getAttribute('content') : "";
+      let productTitle = document.querySelector(".product-header h1") ? document.querySelector(".product-header h1").textContent : "";
+      productTitle = encodeURIComponent(productTitle);
+      let brandName = document.querySelector('div.brand-logo img') && document.querySelector('div.brand-logo img').hasAttribute('alt') ? document.querySelector('div.brand-logo img').getAttribute('alt') : "";
+      let apiUrl = `https://dapi.videoly.co/1/videos/0/395/?brandName=${brandName}&SKU=${sku}&productTitle=${productTitle}&_pl=sv&_cl=sv&hn=www.power.se`;
+      let data = "";
+      let prom = await fetch(apiUrl);
+      try {
+        data = await prom.json();
+      } catch (er) {
+        console.log(er.message);
+      }
+      if (data && data.items) {
+        data.items.forEach(q => {
+          if (q.videoId) {
+            addElementToDocument('videoUrl',`https://www.youtube.com/watch?v=${q.videoId}`);
+          }
+        })
+      }
 
     });
     try {
