@@ -5,7 +5,7 @@ module.exports = {
     country: 'IT',
     store: 'planethair',
     domain: 'planethair.it',
-    loadedSelector: 'div[class="ty-mainbox-body"]',
+    loadedSelector: 'div[class="ty-product-block product-main-info"]',
     noResultsXPath: null,
     zipcode: '',
   },

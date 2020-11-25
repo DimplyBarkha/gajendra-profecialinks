@@ -10,21 +10,14 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    await context.evaluate(async () => {
-      // add brandlink
-      let brand = document.querySelector('div[class="brand"] a').innerText;
-      brand = brand.replace(' ', '-');
-      const element = document.createElement('a');
-      element.id = "brandLink";
-      element.href = 'https://www.planethair.it/' + brand;
-      element.style.display = 'none';
-      document.body.appendChild(element);
-    });
+    await new Promise((resolve) => setTimeout(resolve, 6000));
 
       var data = await context.extract(productDetails, { transform });
       for (let k = 0; k < data.length; k++) {
         for (let i = 0; i < data[k].group.length; i++) {
+          if ('price' in data[k].group[i]) {
+            data[k].group[i].price[0].text = data[k].group[i].price[0].text.replace('.', ',');
+          }
           if ('description' in data[k].group[i]) {
             var descrString = data[k].group[i].description[0].text;
             descrString = descrString.split('Planethair.it:');

@@ -12,16 +12,16 @@ fields:
 - name: _pageTimeStamp
   singleValue: false
 - name: image
-  singleValue: true
-  xpath: //div[@class="ty-product-img cm-preview-wrapper"]//img[contains(@style, "user-select")]/@src
+  singleValue: false
+  xpath: //div[@class="ty-product-block product-main-info"]//div[@class="ty-product-img cm-preview-wrapper"]//img[contains(@style, "user-select")]/@src
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
-  xpath: //div[@class="ty-product-img cm-preview-wrapper"]//img[contains(@style, "user-select")]/@alt
+  xpath: //div[@class="ty-product-block product-main-info"]//div[@class="ty-product-img cm-preview-wrapper"]//img[contains(@style, "user-select")]/@alt
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
-  xpath: //div[@class="ty-product-img cm-preview-wrapper"]/a[contains(@class, "hidden")]/img[@class="ty-pict    "]/@src
+  xpath: //div[@class="ty-product-block product-main-info"]//div[@class="ty-product-img cm-preview-wrapper"]/a[contains(@class, "hidden")]/img/@src
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
@@ -31,8 +31,8 @@ fields:
   xpath: //div[@class="ty-breadcrumbs clearfix"]/span[@class="ty-breadcrumbs__current"]/preceding-sibling::a[1]/text()
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  singleValue: true
-  xpath: //div[@class="ty-product-block__left"]//input[contains(@name, "[name]")]/@value | //h1[@class="ty-product-block-title"]
+  singleValue: false
+  xpath: //h1[@class="ty-product-block-title"]
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
@@ -45,9 +45,9 @@ fields:
 - name: price
   singleValue: true
   type: STRING
-  xpath: //div[@class="ty-product-block__price-actual"]//span[@class="ty-price"]//span[contains(@id, "sec_discounted_price")]
-  regExp: (\d+)\.(\d+)
-  regExpReplace: $1,$2
+  xpath: //div[@class="ty-product-block__price-actual"]//span[@class="ty-price"]//span[contains(@id, "sec_discounted_price")]/text()
+  # regExp: (\d+)\.(\d+)
+  # regExpReplace: $1,$2
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
@@ -90,11 +90,11 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   singleValue: true
-  xpath: //div[@class="ty-product-block__left"]//input[contains(@name, "[product_id]")]/@value
+  xpath: //div[@class="ty-product-block__left"]/form/input[contains(@name, "[product_id]")]/@value
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
-  xpath: //div[@class="ty-product-block__left"]//input[contains(@name, "[product_id]")]/@value
+  xpath: //div[@class="ty-product-block__left"]/form/input[contains(@name, "[product_id]")]/@value
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
@@ -154,8 +154,8 @@ fields:
   singleValue: false
   description: URLs of videos on page
 - name: name
-  singleValue: true
-  xpath: //div[@class="ty-product-block__left"]//input[contains(@name, "[name]")]/@value | //h1[@class="ty-product-block-title"]
+  singleValue: false
+  xpath: //h1[@class="ty-product-block-title"]
   description: The product name
 - name: inStorePrice
   singleValue: true
@@ -174,7 +174,6 @@ fields:
   description: Text of link next to Amazon choice graphic
 - name: brandLink
   singleValue: true
-  xpath: //a[@id="brandLink"]/@href
   description: 
 - name: internationalShipping
   singleValue: true
@@ -425,6 +424,7 @@ fields:
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
+  xpath: //span[@class="ty-list-price save-price ty-nowrap"]
   description: promotion text on product page
 - name: alcoholContent
   singleValue: true
