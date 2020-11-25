@@ -75,7 +75,10 @@ fields:
     xpath: //html//div[@id='ab']
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@class="b-pdp-color-carousel js-pdp-color-carousel slick-initialized slick-slider"]/div[@class="slick-list draggable"]/div/div)
+    xpath: count(//div[@class="b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size"]/div)
   - name: availabilityText
     singleValue: true
     xpath: //html//div[@id='aval']
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[@class="b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size"]/div/a/@data-value)[1]
