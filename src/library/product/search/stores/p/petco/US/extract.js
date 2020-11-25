@@ -34,7 +34,7 @@ module.exports = {
       });
     };
     await applyScroll(context);
-    await context.waitForSelector('.product-image img',{ timeout: 10000 });
+    await context.waitForSelector('.product-image img', { timeout: 10000 });
     return await context.extract(productDetails, { transform });
-  }
+  },
 };
