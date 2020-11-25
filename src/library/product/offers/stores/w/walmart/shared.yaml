@@ -1,0 +1,52 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, "MarketplaceSellers")]/div[contains(@class, "product-seller-card")]
+fields:
+  - name: name
+    xpath: ancestor::html//*[contains(@data-tl-id,"ProductBasicInfo-Title")]
+    description: product_name - Product title
+  - name: image
+    xpath: ancestor::html//div[contains(@class, "product-img-container")]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: resellerName
+    xpath: .//a[contains(@data-tl-id, "SellerName")]
+    description: reseller_name - Seller Name, if the website does not have sellers,
+      put the website name as seller
+  - name: resellerId
+    xpath: .//a[contains(@data-tl-id, "SellerName")]/@href
+    regExp: seller\/([^?]+)
+    regExpReplace: $1
+    description: reseller_id - Unique seller ID
+  - name: resellerLink
+    xpath: .//a[contains(@data-tl-id, "SellerName")]/@href
+    type: LINK
+    description: reseller_link - Link to the seller pag
+  - name: shippingCost
+    xpath: .//div[contains(@class, "product-shipping-price ")]
+    description: shipping_cost - Product shipping cost
+  - name: productId
+    xpath: ancestor::html//link[@rel="canonical"]/@href    
+    regExp: .+\/(.+)$
+    regExpReplace: $1
+    description: product_id - Unique Page ID for the product listing (NOT AMAZON
+      SPECIFIC, ALL SITES SHOULD INCLUDE EXCEPT EBAY)
+  - name: price
+    xpath:  //span[contains(@class, "price--")]/span[@class="visuallyhidden"]
+    description: price - Product Price
+  - name: brandText
+    xpath: ancestor::html//div[@id="olpProductByline"]
+    description: brand_user_input - Brand the product is associated with
+  - name: country
+    regExp: language:\s*"[^_]+_([^"]+)
+    regExpReplace: $1
+    description: country - Country of the website scraped (US, DE, UK, ES, IT, FR,
+      NL,). Could be handled in workbench too.
+    xpath: >-
+      ancestor::html//script[contains(text(),'pageType: "OfferListing"')][contains(text(),"language")]
+  - name: deliveryDate
+    xpath: .//div[@class="a-expander-content a-expander-partial-collapse-content"]
+    description: delivery_date - Date the product will be delivered, check the site
+      before extractor setup, if the site provides this info by putting in a zip
+      code, use interaction to get this data

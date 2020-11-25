@@ -5,9 +5,9 @@ module.exports = {
     country: 'US',
     store: 'walmart',
     domain: 'walmart.com',
-    loadedSelector: null,
+    loadedSelector: 'div.MarketplaceSellers div.product-seller-card',
     noResultsXPath: null,
-    offerUrl: null,
+    offerUrl: 'https://www.walmart.com/product/{id}/sellers',
     zipcode: '',
   },
 };
