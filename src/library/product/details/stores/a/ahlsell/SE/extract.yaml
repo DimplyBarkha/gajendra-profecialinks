@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -9,3 +9,48 @@ fields:
   - name: nameExtended
     singleValue: false 
     xpath: //div[@class="article-information"]/@data-name
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="article-information"]/@data-id
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="article-information"]/@data-variant
+  - name: brandText
+    singleValue: false  
+    xpath: //div[@class="article-information"]/@data-brand
+  - name: manufacturer
+    singleValue: false  
+    xpath: //div[@class="article-information"]/@data-brand
+  - name: description
+    singleValue: false
+    xpath: //div[@class='information']//p
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='art-nbr-collection']//p |  //div[contains(@class,"step-attributes clearfix")]//ul[contains(@class,"jsSpecs specs ")]//li                
+  - name: descriptionBullets
+    singleValue: false    
+    xpath: //div[@class='art-nbr-collection']//p |  //div[contains(@class,"step-attributes clearfix")]//ul[contains(@class,"jsSpecs specs ")]//li
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumbs"]//span[not(contains(position(),1)) and  not(contains(position(),2))]//a
+  - name: image
+    singleValue: false 
+    xpath: //div[@class="slider-wrapper"]//ul[@class="slider"]//li[position()=1]/img/@src
+  - name: imageAlt
+    singleValue: false 
+    xpath: //div[@class="slider-wrapper"]//ul[@class="slider"]//li[position()=1]/img/@alt
+  - name: alternateImages
+    singleValue: false 
+    xpath: //div[@class="slider-wrapper"]//ul[@class="slider"]//li/img/@src
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,"variants-tables hide-mobile")]//td[@class="art-nbr"]//a
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[contains(@class,"variants-tables hide-mobile")]//tr[2]//td[1]//a
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class,"variants-tables hide-mobile")]//td[@class="art-nbr"]//a)
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
