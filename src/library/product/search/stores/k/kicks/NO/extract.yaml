@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //span[@class="c1 cb"]/text()
+    xpath: //*[contains(./@id, 'product-card')]/span/span/div
   - name: name
     singleValue: true
-    xpath: //div[@class="ja jb g d8 jc bt a b h y"]//div//div//div//img/@title
+    xpath: //*[contains(./@id, 'product-card')]//@title
     type: TEXT
   - name: productUrl
     singleValue: false
@@ -30,4 +30,4 @@ fields:
     xpath: //a[@class="c8 d2"]/@id
   - name: manufacturer
     singleValue: true 
-    xpath: //span[@class="ev k ew ef"]/text()
+    xpath: //*[contains(./@id, 'product-card')]/div[3]/div/div/span[1]
