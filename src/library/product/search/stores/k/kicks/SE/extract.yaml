@@ -3,31 +3,31 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  # - name: price
-  #   singleValue: false
-  #   xpath: //span[@class="c1 cb"]/text()
-  # - name: name
-  #   singleValue: true
-  #   xpath: //div[@class="ja jb g d8 jc bt a b h y"]//div//div//div//img/@title
-  #   type: TEXT
-  # - name: productUrl
-  #   singleValue: false
-  #   xpath: //a[@class="c8 d2"]/@href
-  #   regExp: ^(.+)$
-  #   regExpReplace: https://www.kicks.se$1
-  # - name: thumbnail
-  #   singleValue: false
-  #   xpath: //div[@class="c5 dh di dj ca"]/img/@src
-  # - name: ratingCount
-  #   singleValue: false
-  #   type: NUMBER
-  #   xpath: //span[@class="ep"]
-  # - name: id
-  #   singleValue: false
-  #   xpath: //a[@class="c8 d2"]/@id
-  # - name: sku
-  #   singleValue: false
-  #   xpath: //a[@class="c8 d2"]/@id
-  # - name: manufacturer
-  #   singleValue: true 
-  #   xpath: //span[@class="ev k ew ef"]/text()
+  - name: price
+    singleValue: false
+    xpath: //span[@class="c1 cb"]/text()
+  - name: name
+    singleValue: true
+    xpath: //div[@class="ja jb g d8 jc bt a b h y"]//div//div//div//img/@title
+    type: TEXT
+  - name: productUrl
+    singleValue: false
+    xpath: //*[contains(./@id, 'product-card')]//@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.kicks.se$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //*[contains(./@id, 'product-card')]//img/@src
+  - name: reviewCount
+    singleValue: false
+    type: NUMBER
+    xpath: //*[contains(./@id, 'product-card')]/div[2]/div//span/span
+  - name: id
+    singleValue: false
+    xpath: //a[@class="c8 d2"]/@id
+  - name: sku
+    singleValue: false
+    xpath: //a[@class="c8 d2"]/@id
+  - name: manufacturer
+    singleValue: true 
+    xpath: //span[@class="ev k ew ef"]/text()
