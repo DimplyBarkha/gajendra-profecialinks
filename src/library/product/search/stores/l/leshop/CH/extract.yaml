@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="current-quantity-centered ng-star-inserted"]/@id
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //span[@class="name ng-star-inserted"]/text()
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //a[@class="mat-focus-indicator product-show-details mat-button mat-button-base"]/@href
+    regExp: ^(.+)$
+    regExpReplace: https://shop.migros.ch$1
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='added-searchurl']
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="show-product-image"]/lsp-product-image/img/@src
+  - name: price
+    singleValue: false
+    type: CURRENCY
+    xpath: //span[@class="price ng-star-inserted"]/span/span/text()
+    
