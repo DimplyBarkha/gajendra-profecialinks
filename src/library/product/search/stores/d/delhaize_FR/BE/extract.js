@@ -1,6 +1,6 @@
 const { transform } = require('../shared');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -28,7 +28,7 @@ async function implementation(
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -41,22 +41,22 @@ async function implementation(
 
   await context.evaluate(async function () {
     let URL = window.location.href;
-    function addHiddenDiv(id, content, index) {
+    function addHiddenDiv (id, content, index) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       const originalDiv = document.querySelectorAll('ul.ProductList li.data-item')[index];
       originalDiv.appendChild(newDiv);
-      console.log("child appended " + index);
+      console.log('child appended ' + index);
     }
     const product = document.querySelectorAll('ul.ProductList li.data-item');
     // select query selector and loop and add div
     for (let i = 0; i < product.length; i++) {
-      let pageNumber = product[i].getAttribute("data-page-number");
-      console.log("Data page number = "+pageNumber)
-      if(URL.includes("pageNumber")) {
-        URL = URL.replace(/pageNumber=(\d+)/, "pageNumber="+pageNumber);
+      const pageNumber = product[i].getAttribute('data-page-number');
+      console.log('Data page number = ' + pageNumber);
+      if (URL.includes('pageNumber')) {
+        URL = URL.replace(/pageNumber=(\d+)/, 'pageNumber=' + pageNumber);
       }
       addHiddenDiv('page_url', URL, i);
     }
@@ -75,5 +75,5 @@ module.exports = {
     domain: 'delhaize_FR.be',
     zipcode: '',
   },
-  implementation
+  implementation,
 };

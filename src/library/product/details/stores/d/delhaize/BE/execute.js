@@ -6,7 +6,7 @@ module.exports = {
     store: 'delhaize',
     domain: 'delhaize.be',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class, "ErrorPage")]',
     zipcode: '',
   },
 };

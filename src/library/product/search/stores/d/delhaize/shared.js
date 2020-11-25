@@ -51,8 +51,8 @@ const transform = (data, context) => {
       if (row.manufacturer) {
         let text = '';
         row.manufacturer.forEach(item => {
-          if(item.text.indexOf("|")>0) {
-            text = item.text.substring(0, item.text.indexOf("|"));
+          if (item.text.indexOf('|') > 0) {
+            text = item.text.substring(0, item.text.indexOf('|'));
           } else {
             text = item.text;
           }
@@ -64,7 +64,6 @@ const transform = (data, context) => {
         ];
       }
     }
-    
   }
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });
