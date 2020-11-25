@@ -455,6 +455,8 @@ fields:
     singleValue: true
     description: colour / scent / flavour / other
     xpath: //select[@class='autoredirect']/option
+    regExp: \:(.*)
+    regExpReplace: $1
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
