@@ -80,8 +80,8 @@ fields:
 #  Should these be source specific formulas or in the extractor?
   - name: id
     xpath: //a/@href
-    regExp: (\d+)\-(\d+)
-    regExpReplace: $2
+    regExp: -(\d+)-(\d+)$
+    regExpReplace: $1
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
