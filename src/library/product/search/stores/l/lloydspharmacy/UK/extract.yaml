@@ -9,6 +9,9 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="product-card__title"]/text()
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-card__price"]/text()
   - name: productUrl
     singleValue: false
     xpath: //div[@class="product-card"]/a/@href
