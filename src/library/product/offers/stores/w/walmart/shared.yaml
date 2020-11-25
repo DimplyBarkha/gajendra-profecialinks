@@ -27,6 +27,7 @@ fields:
     type: LINK
     description: reseller_link - Link to the seller page
   - name: shippingCost
+    xpath: //div[contains(@class, "product-shipping-price ")]//span[@class="font-semibold"]
     description: shipping_cost - Product shipping cost
   - name: productId
     xpath: ancestor::html//a[@itemprop="url"]/@href
