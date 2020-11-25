@@ -62,6 +62,7 @@ fields:
     description: additional description product
     xpath: //div[@id='dvEspecificacaoAdicionalTop']/div/div
   - name: manufacturer
+    singleValue: true
     xpath: //a[@class='marca-produto']
   - name: availabilityText
     xpath: //div[@id='availabilityText']
@@ -130,5 +131,5 @@ fields:
     xpath: //div[@id='desconto_content_info_produto']/p[@class='produtoinfos__text produtoinfos__text--grey pr-2']/del
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@name='keywords']/@content
+    xpath: //div[@id='header-infos-produto']/h1
 
