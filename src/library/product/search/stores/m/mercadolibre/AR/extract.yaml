@@ -5,7 +5,8 @@ recordXPath: //li[contains(@class,'layout__item')]
 fields:
   - name: id
     singleValue: false
-    xpath: //li[contains(@class,'layout__item')]/@id
+    xpath: //div[contains(@class, '--title')]/a[@title]/@href
+    regExp: MLA-\d+
   - name: searchUrl
     singleValue: true
     xpath: //li[contains(@class,'layout__item')]/@searchurl
@@ -14,7 +15,9 @@ fields:
     xpath: //h2[contains(@class, 'title')]
   - name: productUrl
     singleValue: false
-    xpath: //li[contains(@class,'layout__item')]/@producturl
+    xpath: //div[contains(@class, '--title')]/a[@title]/@href
+    regExp: (MLA-\d+)
+    regExpReplace: https://articulo.mercadolibre.com.ar/$1
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -34,8 +37,8 @@ fields:
   - name: manufacturer
     singleValue: true
   - name: soldBy
-    singleValue: true
-    xpath: //li[contains(@class,'layout__item')]/@soldby
+    # singleValue: true
+    xpath: //p[contains(@class,'store-label')]/@soldby
   - name: endorsementText
     singleValue: false
   - name: rank
