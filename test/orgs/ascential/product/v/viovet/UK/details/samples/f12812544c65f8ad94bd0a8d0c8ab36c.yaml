@@ -1,0 +1,230 @@
+input:
+  RPC: 111578
+  _url: http://viovet.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=acc9a286-5c0c-4061-94c1-f9132f2a3943/task=06365569-b456-4d59-a154-6b317583d1b5/2fbafc81-c20f-43d5-a529-5a734922ed1e.html
+    extractionConfigId: product/details/stores/v/viovet/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.viovet.co.uk/PRO-PLAN-VETERINARY-DIETS-DRM-Dermatosis-Dry-Dog-Food/c541/?quick_find=111578
+                xpath: /html/body/@url
+            image:
+              - text: //static1.viovet.co.uk/opt/s=kr/pi/image_import_1575561890.jpg
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            alternateImages:
+              - text: //static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/drm-formula-onro.jpg.webp
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@content
+              - text: //static2.viovet.co.uk/opt/s=kr/pi/image_import_1575561860.jpg.webp
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/img[1]/@content
+            category:
+              - text: Dogs
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[3]
+              - text: Food
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[5]
+              - text: Dry Food
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[7]
+              - text: Skin & Coat
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[9]
+              - text: Fish
+                xpath: /html/body/div[3]/div[3]/ul[1]/li[11]
+            nameExtended:
+              - text: PRO PLAN VETERINARY DIETS DRM Dermatosis Dry Dog Food
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: £27.49
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/form[1]/div[1]/div[1]/span[1]
+            price:
+              - text: £23.50
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/form[1]/div[1]/div[2]/p[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/form[1]/div[1]/button[1]
+            description:
+              - text: >-
+                  PURINA® PROPLAN® VETERINARY DIETS Canine DRM Dermatosis is a
+                  highly digestible complete veterinary diet for dogs of all
+                  ages for the support of skin function in the case of
+                  dermatosis and excessive loss of hair. PPVD DRM contains a
+                  limited number of protein sources to help minimise possible
+                  discomfort to food. It contains specific nutrients to promote
+                  a healthy skin and coat and helps support a healthy immune
+                  system such as high quality protein, zinc and antioxidant
+                  vitamins. PPVD DRM contains high levels of omega-6 fatty acids
+                  to help support the skin's natural barrier function, and
+                  increased levels of omega-3 fatty acids which maximise the
+                  natural anti-inflammatory processes.
+                   
+                  Skin support: increased levels of high quality protein, zinc and vitamins to help support skin constuction and health.
+                   
+                  Low antigen: selected and limited number of protein sources to help minimise discomfort associated with food.
+                   
+
+                   
+
+                   
+                  Omega-3 fatty acids to help maximise natural anti-inflammatory processes.
+                   
+                   
+                   
+                   
+                   
+                   Feeding Guide 
+                   
+                   Ingredients 
+                   
+                   Analysis 
+
+                   
+
+                   
+
+                   
+
+                   
+                  Feeding Guide
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Ingredients
+                   
+                  Maize Starch, Rapeseed Meal*, Pea Protein Concentrate*, Dehydrated Herring Protein*, Animal Fat, Digest*, Minerals, Fish Oil, Rapeseed Oil
+                   
+                  *Protein Sources
+                   
+
+                   
+
+                   
+
+                   
+                  Analysis
+                   
+
+                   
+
+                   
+
+                   
+                  Protein:
+                   
+                  30.0%
+                   
+
+                   
+
+                   
+                  Fat content:
+                   
+                  18.0%
+                   
+
+                   
+
+                   
+                  Crude ash:
+                   
+                  7.0%
+                   
+
+                   
+
+                   
+                  Crude fibres:
+                   
+                  2.5%
+                   
+
+                   
+
+                   
+                  EPA and DHA:
+                   
+                  1.1%
+                   
+
+                   
+
+                   
+                  Omega 3 fatty acids:
+                   
+                  1.4%
+                   
+
+                   
+
+                   
+                  Omega 6 fatty acids:
+                   
+                  2.3%
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]
+            brandText:
+              - text: Purina Veterinary Diets
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@alt
+            manufacturer:
+              - text: Purina Veterinary Diets
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@alt
+            weightNet:
+              - text: 3kg
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[2]/button[1]/span[1]
+            gtin:
+              - text: "111578"
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/span[1]/span[1]
+            variantId:
+              - text: "111578"
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/span[1]/span[1]
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/a[1]/span[2]/span[1]
+            aggregateRatingText:
+              - text: "5"
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
+            manufacturerImages:
+              - text: https://static1.viovet.co.uk/opt/s=kr/embedded/1350564702_6412base64_13505647026239.png.webp
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/p[2]/img[1]/@src
+              - text: https://static1.viovet.co.uk/opt/s=kr/embedded/1350564702_4440base64_13505647023704.png.webp
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/p[3]/img[1]/@src
+            inStorePrice:
+              - text: £23.50
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/form[1]/div[1]/div[2]/p[1]/span[1]/span[1]
+            coupon:
+              - text: "You save: £3.99 (14.51%)"
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/form[1]/div[1]/div[1]/span[2]
+            brandLink:
+              - text: https://www.viovet.co.uk/brands/112-Purina+Veterinary+Diets/page-1.html
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[1]/@href
+            pricePerUnit:
+              - text: £7.83 / kg
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/form[1]/div[1]/div[2]/p[2]
+            pricePerUnitUom:
+              - text: kg
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/form[1]/div[1]/div[2]/p[2]
+            descriptionBullets:
+              - text: "4"
+            variantCount:
+              - text: "2"
+            firstVariant:
+              - text: "111578"
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/span[1]/span[1]
+            variants:
+              - text: "194778"
+                xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[5]/span[1]/span[1]
+            quantity:
+              - text: "1"
+        xpath: /html
+    timestamp: 1606306820845

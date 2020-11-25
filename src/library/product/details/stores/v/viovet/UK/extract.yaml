@@ -9,6 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //body/@url
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -45,45 +46,61 @@ fields:
     add to basket this is the price they would be charged
   xpath: "//div[contains(@class, 'product')][@style='position: relative;']//span[@itemprop='price']"
 - name: availabilityText
-  singleValue: true
+  singleValue: false
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: "//div[contains(@class, 'product')][@style='position: relative;']//button[@type='submit']"
+  regExp: (.+)
+  regExpReplace: In Stock
+  defaultValue: Out of Stock
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //div[@itemprop='description']
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//div[@itemprop='description']//ul//li)
 - name: brandText
-  singleValue: true
+  singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //div[@class='brand-area']//img/@alt
 - name: manufacturer
-  singleValue: true
+  singleValue: false
   description: Product manufacturer
+  xpath: //div[@class='brand-area']//img/@alt
 - name: quantity
-  singleValue: true
+  singleValue: false
   description: Quantity as described on the page
+  xpath: //span[@id='product-select-text']
+  regExp: (\d+)\sx
+  regExpReplace: $1
+  defaultValue: "1"
 - name: weightNet
-  singleValue: true
+  singleValue: false
   description: Net weight as described on the page
+  xpath: //span[@id='product-select-text']
+  regExp: (\d+kg|\d+g)
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
 - name: gtin
-  singleValue: true
+  singleValue: false
   description: GTIN code (includes UPC/EAN)
+  xpath: "//div[contains(@class, 'product')][@style='position: relative;']//span[@class='item-code']"
 - name: sku
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
-  singleValue: true
+  singleValue: false
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: "//div[contains(@class, 'product')][@style='position: relative;']//span[@class='item-code']"
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -101,12 +118,15 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //span[@itemprop='reviewCount']
 - name: aggregateRatingText
-  singleValue: true
+  singleValue: false
   description: The stated aggregate rating
+  xpath: //a[@itemprop='aggregateRating']//span[@itemprop='ratingValue']
 - name: aggregateRating
-  singleValue: true
+  singleValue: false
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //a[@itemprop='aggregateRating']//span[@itemprop='ratingValue']
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -117,8 +137,9 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
-  singleValue: true
+  singleValue: false
   description: Number of variants listed
+  xpath: count(//ul[@id='product-select-list']/li)
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -131,6 +152,7 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+  xpath: //div[@itemprop='description']//img/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
@@ -138,8 +160,9 @@ fields:
   singleValue: true
   description: The product name
 - name: inStorePrice
-  singleValue: true
+  singleValue: false
   description: Price in the selected store
+  xpath: "//div[contains(@class, 'product')][@style='position: relative;']//span[@itemprop='price']"
 - name: asin
   singleValue: true
   description: 
@@ -154,8 +177,11 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
-  singleValue: true
+  singleValue: false
   description: 
+  xpath: //div[@class='brand-area']//a/@href
+  regExp: (.+)
+  regExpReplace: https://www.viovet.co.uk$1
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -238,9 +264,10 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
-  singleValue: true
+  singleValue: false
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //h3[contains(text(), 'Ingredients')]/following::p[1]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -376,8 +403,9 @@ fields:
   singleValue: true
   description: Guarantee associated with the product
 - name: storage
-  singleValue: true
+  singleValue: false
   description: Suggested storage location for product
+  xpath: (//p/*[contains(text(), 'Storage')])[1]/following::p[1]
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
@@ -397,11 +425,14 @@ fields:
   singleValue: true
   description: List of additives in the product
 - name: pricePerUnit
-  singleValue: true
+  singleValue: false
   description: Price of the product split into certain units
+  xpath: "//div[contains(@class, 'product')][@style='position: relative;']//p[@style='text-align: right; margin: 5px 0']"
 - name: pricePerUnitUom
-  singleValue: true
+  singleValue: false
   description: The unit of measurement used in price_per_unit
+  xpath: "//div[contains(@class, 'product')][@style='position: relative;']//p[@style='text-align: right; margin: 5px 0']"
+  regExp: ([\d\A-z]+$)
 - name: promotion
   singleValue: true
   description: promotion text on product page
@@ -423,7 +454,7 @@ fields:
   singleValue: true
   description: colour / scent / flavour / other
 - name: firstVariant
-  singleValue: true
+  singleValue: false
   description: Unique identifier for a collection of variants. For a subset of core
     feeds (43) we have a column "first_variant" that is populated with a common code
     to link all variants for a product. method 1 (Preferred) = use common tag (Could
@@ -432,9 +463,11 @@ fields:
     to populate "first_variant" for all variants of a product, this rpc becomes the
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
+  xpath: (//span[@class='item-code'])[1]
 - name: variants
   singleValue: false
   description: 
+  xpath: (//span[@class='item-code'])[position() > 1]
 - name: additionalDescBulletInfo
   singleValue: false
   description: 

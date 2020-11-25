@@ -6,7 +6,7 @@ module.exports = {
     store: 'viovet',
     domain: 'viovet.co.uk',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(), "did not match any products")] | //span[contains(text(), "Select a product")]',
     zipcode: '',
   },
 };
