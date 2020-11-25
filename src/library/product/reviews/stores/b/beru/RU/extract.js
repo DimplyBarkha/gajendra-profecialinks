@@ -151,7 +151,7 @@ module.exports = {
       const buttonExists = await context.evaluate(async function () {
         return !!document.querySelector('button[data-auto="show-more"]');
       });
-      const stillLoading =  await context.evaluate(async function () {
+      const stillLoading = await context.evaluate(async function () {
         return !!document.querySelector('span.b_26P24A5S4d');
       });
       if (buttonExists) {
