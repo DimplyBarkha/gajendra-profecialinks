@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'thegoodguys',
-    nextLinkSelector: 'button.btn.mobile_right',
+    nextLinkSelector: 'button.btn.btn-ghost.btn-ghost-info.mobile_right',
     mutationSelector: '#product_listing_tab>ul>li:last-child',
     loadedSelector: '#product_listing_tab>ul>li:last-child',
     noResultsXPath: '//*[contains(@class,"results_description")]',

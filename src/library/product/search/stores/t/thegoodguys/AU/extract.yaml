@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="product_listing_tab"]//ul//li
+recordXPath: //div[@id="product_listing_tab"]//ul[@class="grid_mode grid list-plain"]//li//div[contains(@class,'product-tile-inner disp-block clearfix')]
 fields:
   - name: rank
   - name: rankOrganic
@@ -22,9 +22,9 @@ fields:
     xpath: //div[@class="product-tile-imagewrap"]//a[@class="disp-block"]//@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="product-tile-thumb"]//img[1]//@data-src | //div[@class="product-tile-thumb"]//img[1]//@srcset
-    regExp: (.+)(\?.*$)
-    regExpReplace: https:$1
+    xpath: //div[@class="product-tile-thumb"]//img[1]//@srcset
+    regExp: (.+)(?=\?)
+    # regExpReplace: https:$1
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,"reviews-stars-link")]//a

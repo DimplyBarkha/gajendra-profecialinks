@@ -63,7 +63,9 @@ async function implementation(
       }
     });
   };
+  await new Promise(resolve => setTimeout(resolve, 5000));
   await applyScroll(context);
+  await new Promise(resolve => setTimeout(resolve, 5000));
   await context.evaluate(async function () {
     const URL = window.location.href;
     function addHiddenDiv(id, content, index) {
@@ -71,11 +73,11 @@ async function implementation(
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll('div#product_listing_tab ul.grid_mode.grid.list-plain li')[index];
+      const originalDiv = document.querySelectorAll('div#product_listing_tab ul.grid_mode.grid.list-plain li div.product-tile-inner.disp-block.clearfix')[index];
       originalDiv.appendChild(newDiv);
       console.log('child appended ' + index);
     }
-    const product = document.querySelectorAll('div#product_listing_tab ul.grid_mode.grid.list-plain li');
+    const product = document.querySelectorAll('div#product_listing_tab ul.grid_mode.grid.list-plain li div.product-tile-inner.disp-block.clearfix');
     // select query selector and loop and add div
     for (let i = 0; i < product.length; i++) {
       addHiddenDiv('page_url', URL, i);
