@@ -50,6 +50,7 @@ fields:
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
+    xpath: //div[contains(@class,"product-details-page-description__body")]//li
     type: NUMBER
   - name: brandText
     singleValue: false
@@ -219,6 +220,7 @@ fields:
     description: null
   - name: featureBullets
     singleValue: false
+    xpath: //div[contains(@class,"product-details-page-description__body")]//li
     description: null
   - name: otherSellersName
     singleValue: false
@@ -514,3 +516,5 @@ fields:
     xpath: //div[contains(@class,"product-image-list--product-details-page")]//div[contains(@class,"product-image-list__item")]//img/@src | //div[@class="product-image-list"]//div[@class="slick-track"]//div[contains(@class,"slick-slide")][not(contains(@class,"slick-cloned"))]//img/@src 
   - name: highQualityImages
     xpath: //div[contains(@class,"product-image-list--product-details-page")]//div[contains(@class,"product-image-list__item")]//img/@src | //div[@class="product-image-list"]//div[@class="slick-track"]//div[contains(@class,"slick-slide")][not(contains(@class,"slick-cloned"))]//img/@src 
+  - name: sponsoredProductUrls
+    xpath: //div[contains(@data-track-product-placement,"related-products")]/div//a/@href
