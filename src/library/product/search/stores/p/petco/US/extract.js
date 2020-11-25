@@ -33,12 +33,6 @@ module.exports = {
         }
       });
     };
-    // const nextButton = document.querySelector('.pagination > li:last-child > a')
-    // if(nextButton)
-    // {
-    //   nextButton.click();
-    //   console.log("button activated");
-    // }
     await applyScroll(context);
     await context.waitForSelector('.product-image img',{ timeout: 10000 });
     return await context.extract(productDetails, { transform });
