@@ -2,7 +2,7 @@ input:
   _url: http://salontopper.nl
   URL: https://www.salontopper.nl/product/redken-curvaceous-high-foam-shampoo-1000ml-2152
 extractions:
-  - html: https://workbench.import.io/html/run=0ee4bba5-2b7d-4f98-b4f5-899b843c829e/task=be849b6c-5103-4441-84c8-64da188ca816/d530c1f9-5a07-4585-b731-195e8b880712.html
+  - html: https://workbench.import.io/html/run=e42e7118-aa1d-4833-9306-c79f813bee27/task=89413d65-ff98-4f19-b73e-b08b79225a72/112c90d0-e948-4d52-baf0-824e47d716b2.html
     extractionConfigId: product/details/stores/s/salontopper/NL/extract
     data:
       - group:
@@ -34,7 +34,7 @@ extractions:
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/span[1]
             availabilityText:
               - text: Out of Stock
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             description:
               - text: Redken Curvaceous High Foam Shampoo. Deze lichtgewicht shampoo is geschikt
                   voor alle typen krul. Het reinigt je haar zonder het te
@@ -77,17 +77,13 @@ extractions:
                 value: 1
             aggregateRating:
               - text: "5"
-                xpath: /html/body/div[3]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
-                type: NUMBER
-                raw: "5"
-                locale: nl
-                value: 5
+                xpath: /html/body/div[3]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/meta[1]/@ratingvalue
             name:
               - text: Redken Curvaceous High Foam Shampoo 1000ml
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.salontopper.nl/merken/redken
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[10]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -113,4 +109,4 @@ extractions:
                 locale: nl
                 value: 0
         xpath: /
-    timestamp: 1606225979316
+    timestamp: 1606301290681

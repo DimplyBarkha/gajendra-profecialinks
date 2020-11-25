@@ -2,7 +2,7 @@ input:
   _url: http://salontopper.nl
   URL: https://www.salontopper.nl/product/redken-color-extend-brownlights-conditioner-250ml-15454
 extractions:
-  - html: https://workbench.import.io/html/run=0ee4bba5-2b7d-4f98-b4f5-899b843c829e/task=89491b8e-7ef5-4512-b499-ccefe5d5d8cb/fb1b024d-b121-4b80-8674-d8b3b9cf0193.html
+  - html: https://workbench.import.io/html/run=e42e7118-aa1d-4833-9306-c79f813bee27/task=591ea091-b9df-4b2c-802c-ed3a1e60bb1f/507fc16f-9fde-49e1-8886-9314ffb77b59.html
     extractionConfigId: product/details/stores/s/salontopper/NL/extract
     data:
       - group:
@@ -14,11 +14,11 @@ extractions:
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
             alternateImages:
               - text: https://www.salontopper.nl/afbeelding/thumb/15454/redken-color-extrend-brownlights-conditioner-300ml-4.jpg
-                xpath: /html/body/div[7]
-              - text: https://www.salontopper.nl/afbeelding/thumb/15454/redken-color-extrend-brownlights-conditioner-300ml-5.jpg
                 xpath: /html/body/div[8]
-              - text: https://www.salontopper.nl/afbeelding/thumb/15454/redken-color-extrend-brownlights-conditioner-300ml-6.jpg
+              - text: https://www.salontopper.nl/afbeelding/thumb/15454/redken-color-extrend-brownlights-conditioner-300ml-5.jpg
                 xpath: /html/body/div[9]
+              - text: https://www.salontopper.nl/afbeelding/thumb/15454/redken-color-extrend-brownlights-conditioner-300ml-6.jpg
+                xpath: /html/body/div[10]
             metaKeywords:
               - text: Redken,Color,Extend,Brownlights,Conditioner,250ml,Shampoo
                 xpath: /html/head[1]/meta[4]/@content
@@ -41,7 +41,7 @@ extractions:
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/span[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             description:
               - text: De Redken Color Extend Brownlights Conditioner verzacht het haar en helpt
                   oranje ondertonen te neutraliseren in natuurlijk bruin haar en
@@ -88,17 +88,13 @@ extractions:
                 value: 0
             aggregateRating:
               - text: "0"
-                xpath: /html/body/div[3]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
+                xpath: /html/body/div[3]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/meta[1]/@ratingvalue
             name:
               - text: Redken Color Extend Brownlights Conditioner 250ml
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.salontopper.nl/merken/redken
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -124,4 +120,4 @@ extractions:
                 locale: nl
                 value: 0
         xpath: /
-    timestamp: 1606225980971
+    timestamp: 1606301290898

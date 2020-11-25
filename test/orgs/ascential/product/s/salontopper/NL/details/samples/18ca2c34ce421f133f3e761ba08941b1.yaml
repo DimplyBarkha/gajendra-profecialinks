@@ -2,7 +2,7 @@ input:
   _url: http://salontopper.nl
   URL: https://www.salontopper.nl/product/loreal-smartbond-step-1-2-trial-kit-13110
 extractions:
-  - html: https://workbench.import.io/html/run=0ee4bba5-2b7d-4f98-b4f5-899b843c829e/task=a4ad4250-187f-4a40-9ffc-77da11b7a4d8/d7ac372a-5a56-4034-9e93-5f37cb917a3e.html
+  - html: https://workbench.import.io/html/run=e42e7118-aa1d-4833-9306-c79f813bee27/task=7cd0250b-f9e1-45b6-827b-30ea11100101/501d0826-d369-45cc-ad07-ce08c0cb7f5c.html
     extractionConfigId: product/details/stores/s/salontopper/NL/extract
     data:
       - group:
@@ -14,7 +14,7 @@ extractions:
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
             alternateImages:
               - text: https://www.salontopper.nl/img/site2019/youtube-overlay.png
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[10]
             metaKeywords:
               - text: L'Oréal,Smartbond,Step,1,&,2,Trial,Kit,Haarkuur
                 xpath: /html/head[1]/meta[4]/@content
@@ -37,7 +37,7 @@ extractions:
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/span[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             description:
               - text: >-
                   Versterkte en beschermde verbindingen voor een sterkere
@@ -102,20 +102,16 @@ extractions:
                 value: 0
             aggregateRating:
               - text: "0"
-                xpath: /html/body/div[3]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
+                xpath: /html/body/div[3]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/meta[1]/@ratingvalue
             videos:
               - text: https://www.youtube.com/watch?v=i1Ch8lzdjeI
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[9]
             name:
               - text: L'Oréal Smartbond Step 1 & 2 - Trial Kit
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.salontopper.nl/merken/loreal
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -141,4 +137,4 @@ extractions:
                 locale: nl
                 value: 0
         xpath: /
-    timestamp: 1606225982479
+    timestamp: 1606301292455
