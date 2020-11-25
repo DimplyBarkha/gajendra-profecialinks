@@ -2,7 +2,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"product-list")]/div[contains(@class,"product")][//div[@class='scProdId']/@sc.prodid]
+recordXPath: //div[contains(@class,"product-list")]/div[contains(@class,"product")][//div[@class='scProdId'][@sc.prodid!=""]]
 fields:
   - name: productUrl
     singleValue: false
