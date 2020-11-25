@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null # '.catalog-list-item'
+recordSelector: div[class='catalog-list-item']
 recordXPath: null
 fields:
   - name: id
@@ -8,17 +8,17 @@ fields:
     xpath: //span[@itemprop="sku"]
   # - name: searchUrl
   #   singleValue: true
-  # - name: name
-  #   singleValue: false
-  #   xpath: //h3[@itemprop="name"] | //h2[@itemprop="name"]
-  # - name: productUrl
-  #   singleValue: false
-  #   xpath: //div[@class="catalog-list-item"]/@producturl
+  - name: name
+    singleValue: false
+    xpath: //h3[@itemprop="name"] | //h2[@itemprop="name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="catalog-list-item"]/@producturl
   # - name: gtin
   #   singleValue: false
-  # - name: thumbnail
-  #   singleValue: false
-  #   xpath: //div[@class="catalog-list-image"]/img/@src
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="catalog-list-image"]/img/@data-src
   # - name: aggregateRating
   #   singleValue: false
   # - name: aggregateRating2
