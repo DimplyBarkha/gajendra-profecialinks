@@ -39,6 +39,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    type: CURRENCY
     xpath: (//span[@class="priceupdate"])[2]
   - name: availabilityText
     singleValue: true
@@ -73,8 +74,8 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    type: TEXT
-    xpath: (//td[@class="txtBold PBBorder"])[1]
+    # type: TEXT
+    xpath: (//td[@class="grey PBBorder"])[1]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -87,14 +88,14 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    type: TEXT
-    xpath: //div[@class="formLabel"]/@content
+    # type: TEXT
+    xpath: //div[@class="formLabel"]/text()
     regExp: (\d{3,9})
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    type: TEXT
-    xpath: //div[@class="formLabel"]/@content
+    # type: TEXT
+    xpath: //div[@class="formLabel"]/text()
     regExp: (\d{3,9})
   - name: mpc
     singleValue: true
@@ -149,7 +150,7 @@ fields:
     singleValue: true
     description: A textual description of the colour
     type: TEXT
-    xpath: //ul[@class="formRow darkGray"]//li
+    xpath: //ul[@class="formRow darkGray"]//li[2]
     regExp: '[^:]*$'
   - name: colorCode
     singleValue: true
@@ -419,6 +420,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="skuTabSpecifications"]
     type: TEXT
     xpath: //div[@id="skuTabSpecifications"]
   - name: warranty
@@ -454,6 +456,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: (//span[@id="spnNavItemName"])[6]
     type: TEXT
     xpath: (//span[@id="spnNavItemName"])[6]
   - name: alcoholContent
@@ -491,6 +494,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id="SkuTabDescription"]
     type: TEXT[]
     xpath: //div[@id="SkuTabDescription"]
   - name: prop65Warning
