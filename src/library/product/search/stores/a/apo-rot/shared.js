@@ -45,11 +45,11 @@ const transform = (data, context) => {
         row.aggregateRating2 = [
           {
             text: text,
+            xpath: row.aggregateRating2[0].xpath,
           },
         ];
       }
     }
-    
   }
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });

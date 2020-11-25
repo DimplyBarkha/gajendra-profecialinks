@@ -5,7 +5,7 @@ recordXPath: //div[@data-sourcefile="index_details.jsp"]
 fields:
   - name: image
     singleValue: false 
-    xpath: //div[@class="details_image" and @id="pic_1"]//img/@src
+    xpath: //div[@class="details_image" and @id="pic_1"]//img[starts-with(@src,"https://")]/@src
   - name: imageAlt
     singleValue: false
     xpath: //div[@class="details_image" and @id="pic_1"]//img/@alt
@@ -38,7 +38,7 @@ fields:
     xpath: //div[contains(@class, "stock-avail")]/../../div/@data-original-title
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "tab-content")]//div/text() | //div[contains(@class, "tab-content")]//div/b |   //div[contains(@class, "tab-content")]//strong | //div[contains(@class, "tab-content")]//h5 | //div[contains(@class, "tab-content")]//li
+    xpath: //div[contains(@class, "tab-content")]//div/text() | //div[contains(@class, "tab-content")]//div/p/text() | //div[contains(@class, "tab-content")]//div/p/b |   //div[contains(@class, "tab-content")]//strong | //div[contains(@class, "tab-content")]//h5 | //div[contains(@class, "tab-content")]//h2 | //div[contains(@class, "tab-content")]//li
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class, "tab-content")]//li)
@@ -46,6 +46,9 @@ fields:
     singleValue: false
     xpath: //div[contains(@class, "tab-content")]//li
   - name: manufacturer
+    singleValue: false
+    xpath: normalize-space(//div[contains(text(), "Hersteller")]/../div[not(contains(text(), "Hersteller"))])
+  - name: brandText
     singleValue: false
     xpath: normalize-space(//div[contains(text(), "Hersteller")]/../div[not(contains(text(), "Hersteller"))])
   - name: quantity
@@ -75,3 +78,20 @@ fields:
     singleValue: false
     xpath: substring('Yes', 1, boolean(//div[@data-sourcefile="details_icons-standard.jsp"]//a[contains(@href, ".pdf")]) * 3)
     defaultValue: No
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id="ii_gtin"]/text()
+  - name: eangtin
+    singleValue: false
+    xpath: //div[@id="ii_gtin"]/text()
+  - name: firstVariant
+    singleValue: false
+    xpath: normalize-space(//div[@class="margin-vert-normal"]//div[contains(text(), "PZN")]/../div[not(contains(text(), "PZN"))])
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(text(), "Alternative Packungsgrößen")]/following-sibling::a/@href | //div[@id="ii_url"]/text()
+    regExp: (\d+).html
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: normalize-space(//h1[@id="product-title" and not(contains(@class,"hidden-md"))])
