@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath:  //div[@class="slick-slide slick-current slick-active"]//img/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath :  //div[@class="slick-slide slick-current slick-active"]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath : //div[@id="alternateImages"]
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+    xpath : //meta[@name='Keywords']/@content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: true
+    xpath : //div[@id="description"]
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: true
+    xpath : //div[@class="productPrices"]//div[@class="productPrice"]//span[@class="fullPrice"]//text()
+  - name: availabilityText
+    singleValue: true
+    xpath : 
+  - name: description
+    singleValue: false
+    xpath : //*[@id="productDescription"]//div[3]//text()
+  - name: descriptionBullets
+    singleValue: true
+    xpath : //div[@id="addEelementBullentCount"]
+    type: NUMBER
+  - name: brandText
+    singleValue: true
+    xpath : //div[@class = 'row column mt-1']/h1/@data-vendor
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: quantity
+    singleValue: true
+    xpath : //div[@class="block-grid--sizes small-up-5 large-up-8 no-bullet mb-0"]//button[@class="sizeOptions button hollow button--grid expanded "]/@data-size
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    xpath : //div[@id="sku"]
+  - name: variantId
+    singleValue: true
+    xpath : //div[@id="sku"]
+  - name: name
+    singleValue: true
+    xpath : //div[@class="row column mt-1"]/h1/text()
+  - name: ingredientsList
+    singleValue: true
+    xpath : //div[@class="column small-12"]//ul
+  - name : secondaryImageTotal
+    singleValue: true
+    xpath : //div[@id="altImageCount"]
+  - name: category
+    singleValue: false
+    xpath: //div[@itemprop="breadcrumb"]
+  
+  
