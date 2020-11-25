@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+ - name: input
+   singleValue: true
+   description: The Json input
+   xpath: //input[@id="search_query_top"]/@value
+ - name: price
+   singleValue: false
+   description: price of the each product 
+   xpath: //div[@class="price_container"]//span[@class="price product-price"]
+ - name: productUrl
+   singleValue: false
+   description: The url of the product details page
+   xpath: //a[@class="product-name"]/@href
+ - name: manufacturer
+   singleValue: false
+   description: The manufacturer of the product
+   xpath: //div[@itemprop="description"]/p  
+ - name: rating
+   singleValue: false
+   description: The manufacturer of the product
+   xpath: //div[@class="rating_box"]/meta[@itemprop="ratingValue"]/@content
+ - name: name
+   singleValue: false
+   description: name of the product
+   xpath: //a[@class="product-name"]
+ - name: id
+   singleValue: false
+   description: unique id of products
+   xpath: //div[@class="hover_fly fly_1 clearfix"]/a/@data-id-product
+ - name: thumbnail
+   singleValue: false
+   description: smaller image of the product
+   xpath: //a[@class="product_img_link"]/img/@src   
+
+
