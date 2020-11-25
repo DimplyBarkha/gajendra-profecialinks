@@ -6,6 +6,6 @@ module.exports = {
     store: 'ocado',
     domain: 'ocado.com',
     loadedSelector: '#overview',
-    noResultsXPath: 'div.nf-resourceNotFound',
+    noResultsXPath: '//div[contains(@class,"nf-resourceNotFound")]',
   },
 };
