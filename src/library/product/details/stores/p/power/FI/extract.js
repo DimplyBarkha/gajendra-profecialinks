@@ -16,7 +16,7 @@ module.exports = {
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
     await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -24,11 +24,11 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function getElementByXpath (path) {
+      function getElementByXpath(path) {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       }
 
-      function timeout (ms) {
+      function timeout(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
 
@@ -123,8 +123,8 @@ module.exports = {
         : '';
       if (shipingInfo) addElementToDocument('shipingInfo', shipingInfo);
       // need to click the specifications tab to get the data 
-      let specTabButton = document.evaluate('//div[contains(@class,"product-information")]//h3[contains(.,"Tekniset tiedo")]',document).iterateNext();
-      if(specTabButton) {
+      let specTabButton = document.evaluate('//div[contains(@class,"product-information")]//h3[contains(.,"Tekniset tiedo")]', document).iterateNext();
+      if (specTabButton) {
         specTabButton.click();
       }
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
@@ -156,16 +156,38 @@ module.exports = {
 
       await timeout(5000);
 
-      const iframe = document.querySelector('iframe.videoly-box');
-      if (iframe) {
-        const videos = iframe.contentDocument ? iframe.contentDocument.querySelectorAll('li.b-video-item div.b-video-item-tile') : [];
-        videos.forEach(el =>
-          addElementToDocument('urlsForVideos', `https://www.youtube.com/watch?v=${el.getAttribute('data-videoid')}`));
-      };
-      const videoWrapper = getElementByXpath('//div[@class="video-wrapper"]//iframe/@src')
-        ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
-        : '';
-      if (videoWrapper) addElementToDocument('urlsForVideos', videoWrapper);
+      // const iframe = document.querySelector('iframe.videoly-box');
+      // if (iframe) {
+      //   const videos = iframe.contentDocument ? iframe.contentDocument.querySelectorAll('li.b-video-item div.b-video-item-tile') : [];
+      //   videos.forEach(el =>
+      //     addElementToDocument('urlsForVideos', `https://www.youtube.com/watch?v=${el.getAttribute('data-videoid')}`));
+      // };
+      // const videoWrapper = getElementByXpath('//div[@class="video-wrapper"]//iframe/@src')
+      //   ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
+      //   : '';
+      // if (videoWrapper) addElementToDocument('urlsForVideos', videoWrapper);
+
+      //get videos from gallery section
+      let sku = document.querySelector("meta[itemprop=sku]") && document.querySelector("meta[itemprop=sku]").hasAttribute('content') ? document.querySelector("meta[itemprop=sku]").getAttribute('content') : "";
+      let productTitle = document.querySelector(".product-header h1") ? document.querySelector(".product-header h1").textContent : "";
+      productTitle = encodeURIComponent(productTitle);
+      let brandName = document.querySelector('div.brand-logo img') && document.querySelector('div.brand-logo img').hasAttribute('alt') ? document.querySelector('div.brand-logo img').getAttribute('alt') : "";
+      let apiUrl = `https://dapi.videoly.co/1/videos/0/294/?SKU=${sku}&productTitle=${productTitle}&brandName=${brandName}&_pl=fi&_cl=fi&hn=www.power.fi&sId=s%3AVhBnRFUBWdwG5FtjHmeCiQXBWhEsSfXP.m5bSP3OWjWwT2Bl0G2Q7mtqF27DOe%2BCA%2B2NQw0VBq8I`;
+      let data = "";
+      let prom = await fetch(apiUrl);
+      try {
+        data = await prom.json();
+      } catch (er) {
+        console.log(er.message);
+      }
+      //document.body.insertAdjacentHTML('afterbegin',`<div class="neededData">https://www.youtube.com/watch?v=${data.items[0].videoId}</div>`);
+      if (data && data.items) {
+        data.items.forEach(q => {
+          if (q.videoId) {
+           addElementToDocument('videoUrl', `https://www.youtube.com/watch?v=${q.videoId}`);
+          }
+        })
+      }
 
       const cookies = document.querySelector('button#cookie-notification-accept');
       if (cookies) {
