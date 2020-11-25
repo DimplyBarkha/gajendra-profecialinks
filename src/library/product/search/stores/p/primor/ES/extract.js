@@ -11,7 +11,7 @@ await context.evaluate(async function () {
 let scrollTop = 0;
 while (scrollTop <= 20000) {
 await stall(500);
-scrollTop += 1000;
+scrollTop += 500;
 window.scroll(0, scrollTop);
 if (scrollTop === 20000) {
 await stall(8000);
