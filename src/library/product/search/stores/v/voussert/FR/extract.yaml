@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="ctl00_cphProduits_pnlPromoEtArticle"]//div[@class="fullGrid no-space family-products"]//div[@class="grid25"]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="famProduct-ref"]/span
+  - name: name
+    SingleValue: false
+    xpath: //h3[@class="famProduct-name"]/span
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="famProduct-content"]/a/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="famProduct-content"]/a//img/@src
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="famProduct-price"]/span
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1
