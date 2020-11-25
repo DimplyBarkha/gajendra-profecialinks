@@ -2,7 +2,7 @@ input:
   _url: http://sbermarket.ru/metro
   URL: https://sbermarket.ru/metro/polotientsa-tork-bumazhnyie-odnosloinyie-univiersalnyie
 extractions:
-  - html: https://workbench.import.io/html/run=f942ae7e-2660-4c8c-88ab-23548b99b7a0/task=6bd7df66-9922-4ce2-aa3c-5b0175d45d0b/f857601a-07a1-495e-9b5b-9f38a15bb4b8.html
+  - html: https://workbench.import.io/html/run=266c2f59-34e3-4047-a912-bbdc29808845/task=64f98054-59ec-4d59-b223-471e605308bd/91032870-52f7-42ec-a286-36a85869b89d.html
     extractionConfigId: product/details/stores/s/sbermarket/RU/extract
     data:
       - group:
@@ -41,6 +41,9 @@ extractions:
             sku:
               - text: "18869"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
+            variantId:
+              - text: "18869"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
             color:
               - text: Белый
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[2]
@@ -67,4 +70,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606206592566
+    timestamp: 1606297098812

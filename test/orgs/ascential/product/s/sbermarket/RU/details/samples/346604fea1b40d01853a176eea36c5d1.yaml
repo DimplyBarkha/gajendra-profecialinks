@@ -2,7 +2,7 @@ input:
   _url: http://sbermarket.ru/metro
   URL: https://sbermarket.ru/metro/polotientsa-lotus-plius-bumazhnyie-kukhonnyie
 extractions:
-  - html: https://workbench.import.io/html/run=f942ae7e-2660-4c8c-88ab-23548b99b7a0/task=1ae7a144-8017-4c60-9334-90e5aaef611e/b2b96fb0-db3f-485b-a884-54dd128da235.html
+  - html: https://workbench.import.io/html/run=266c2f59-34e3-4047-a912-bbdc29808845/task=802a46e2-61df-4833-80e0-8dfca8eaab90/5c023cec-cfa3-4ba8-a6dc-a69329f45333.html
     extractionConfigId: product/details/stores/s/sbermarket/RU/extract
     data:
       - group:
@@ -44,6 +44,9 @@ extractions:
             sku:
               - text: "17380"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
+            variantId:
+              - text: "17380"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
             color:
               - text: Белый
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[2]
@@ -70,4 +73,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606206594299
+    timestamp: 1606297100283

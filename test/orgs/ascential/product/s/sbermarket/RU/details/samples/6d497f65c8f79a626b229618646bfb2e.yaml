@@ -2,7 +2,7 @@ input:
   _url: http://sbermarket.ru/metro
   URL: https://sbermarket.ru/metro/konverty-dlya-priborov-tork-linstyle-kremovye-60-sht
 extractions:
-  - html: https://workbench.import.io/html/run=f942ae7e-2660-4c8c-88ab-23548b99b7a0/task=0560796e-e058-41f2-aa1c-0b0d71512a55/214c55ea-237f-4e09-8abc-b4e8bd5930d6.html
+  - html: https://workbench.import.io/html/run=266c2f59-34e3-4047-a912-bbdc29808845/task=76fdaa4f-711b-4871-8f7b-118b3a32784c/9305c25c-adbb-4dd7-9f97-0527917d345b.html
     extractionConfigId: product/details/stores/s/sbermarket/RU/extract
     data:
       - group:
@@ -48,6 +48,9 @@ extractions:
             sku:
               - text: "146969"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
+            variantId:
+              - text: "146969"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
             name:
               - text: Конверты для приборов Tork Linstyle кремовые 60 шт
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
@@ -71,4 +74,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606206590506
+    timestamp: 1606297097100
