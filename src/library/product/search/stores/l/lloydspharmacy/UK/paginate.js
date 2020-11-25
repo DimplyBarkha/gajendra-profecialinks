@@ -4,12 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'lloydspharmacy',
-    nextLinkSelector: 'a[aria-label="Next"]',
+    // nextLinkSelector: 'a[aria-label="Next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: '.main-content',
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://lloydspharmacy.com/search?page={page}&q={searchTerms}',
+      },
     domain: 'lloydspharmacy.com',
     zipcode: '',
   },
