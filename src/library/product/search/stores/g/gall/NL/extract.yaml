@@ -5,7 +5,7 @@ recordXPath: //div[@class="c-product-grid"]//div[@class="c-product"]
 fields:
   - name: productUrl
     SingleValue: false
-    xpath: //div[@class="c-product-grid"]//div[@itemprop="name"]//a/@href
+    xpath: //div[@class="c-product-grid"]//h6[@itemprop="name"]//a/@href
   - name: id
     SingleValue: false
     xpath: //div[@class="c-product-grid"]//div[@class="c-product"]/@data-pid
