@@ -37,7 +37,6 @@ fields:
     type: CURRENCY
     xpath: //html//div[@id="listprice"]
     # regExp: '(.+)(,)(.+)'
-    # regExp: \d.*\d
     # regExpReplace: $1.$3
   - name: price
     singleValue: true
@@ -45,7 +44,6 @@ fields:
       clicks add to basket this is the price they would be charged
     type: CURRENCY
     xpath: //html//div[@id="price"]
-    # regExp: \d.*\d
     # regExp: '(.+)(,)(.+)'
     # regExpReplace: $1.$3
   - name: availabilityText
