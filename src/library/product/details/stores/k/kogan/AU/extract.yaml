@@ -153,12 +153,14 @@ fields:
     singleValue: true
     xpath: //dt[contains(text(), "Colour")]/following::dd[1]
   - name: brandText
-    xpath: //script[contains(text(),'sku')]
+    xpath: //a[@itemprop="brand"]
+    # xpath: //script[contains(text(),'sku')]
     # xpath: //td//p[contains(text(), "Compatible Brand")]/following::td[1]
     singleValue: true
-    regExp: ((\\u0022Brand\S{0,}.\S{0,}.\S{0,}))
+    #regExp: ((\\u0022Brand\S{0,}.\S{0,}.\S{0,}))
   - name: brandText1
-    xpath: //*[@itemprop="brand"]//img//@alt
+    # xpath: //*[@itemprop="brand"]//img//@alt
+    
     singleValue: true    
   - name: sku
     xpath: //script[contains(text(),'sku')]
