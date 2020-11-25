@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'thewarehouse.co.nz',
     timeout: null,
-    country: 'NL',
+    country: 'NZ',
     store: 'thewarehouse',
     zipcode: "''",
   },
