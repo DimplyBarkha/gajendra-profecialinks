@@ -19,16 +19,8 @@ fields:
     xpath: count(//div[@class="slick-track"]//div[contains(@class,'f-productVisuals-thumbnail--video')][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))])
   - name: ratingScale
     defaultValue: 5
-  - name: rating1
-    xpath: //ul[@class="customerReviewChart__list"]//li[1]//span[@class="customerReviewChart__value"]
-  - name: rating2
-    xpath: //ul[@class="customerReviewChart__list"]//li[2]//span[@class="customerReviewChart__value"]
-  - name: rating3
-    xpath: //ul[@class="customerReviewChart__list"]//li[3]//span[@class="customerReviewChart__value"]
-  - name: rating4
-    xpath: //ul[@class="customerReviewChart__list"]//li[4]//span[@class="customerReviewChart__value"]
-  - name: rating5
-    xpath: //ul[@class="customerReviewChart__list"]//li[5]//span[@class="customerReviewChart__value"]
+  - name: ratingDistribution
+    xpath: //ul[@class="customerReviewChart__list"]//li//span[@class="customerReviewChart__value"]
   - name: shippingDimensions
     xpath: //dl[contains(.,'Dimensiones')]//dd//p
   - name: reviewCount
