@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class, 'productCard j-productCard')]
 fields:
   - name: id
     singleValue: true
-    xpath: substring-after(//input[contains(@id, 'log_prodotto')]/@value, 'eProd')
+    xpath: //div[contains(@data-bv-product-id, 'eProd')]/@data-bv-product-id
   - name: name
     singleValue: false
     xpath: //h2[@class='productCard__name']
