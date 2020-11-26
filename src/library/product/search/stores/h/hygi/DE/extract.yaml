@@ -9,7 +9,7 @@ fields:
   - name: id
     singleValue: false
     xpath: //a[@class="click product-item-link"]/@href
-    regExp: (.+-)(\d+)(.+)
+    regExp: (.+-)(\d+)(.*)
     regExpReplace: $2
   - name: name
     singleValue: false
@@ -26,7 +26,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //span[@class="price current"]
+    xpath: //span[@class="price current discount"]|//span[@class="price current"]
     type: CURRENCY
   - name: aggregateRating
     singleValue: false
