@@ -1,0 +1,31 @@
+input:
+  keywords: Damen Schuhe
+  _url: http://zalando.de
+extractions:
+  - html: https://workbench.import.io/html/run=b213e802-84a6-4f39-ab81-e4c3dad84f21/task=54365d87-c8d6-4691-a06b-587bad9552ee/99412861-405a-4412-a6f6-b0f36d7b1935.html
+    extractionConfigId: product/search/stores/z/zalando/DE/extract
+    data:
+      - group:
+          - id:
+              - text: LA211A0DW-A11
+                xpath: /html/body/ol[1]/li[1]/@sku
+            searchUrl:
+              - text: https://m-en.zalando.de/trainers-low-top-sale/?q=Damen+Schuhe&_fm=gr.Men.Damen+Schuhe
+                xpath: /html/body/ol[1]/li[1]/@search_url
+            name:
+              - text: LACOSTE - DAMEN SPORTSWEAR SCHUHE - Trainers - natural/offwhite
+                xpath: /html/body/ol[1]/li[1]/@name
+            productUrl:
+              - text: https://m-en.zalando.de/lacoste-gripshot-trainers-naturaloffwhite-la211a0dw-a11.html
+                xpath: /html/body/ol[1]/li[1]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/c559e0fd7ac43ac6ab5db3a4bb242d9a/a5bde3ffdb814573a8444f47fe7e26a5.jpg
+                xpath: /html/body/ol[1]/li[1]/@thumbnail
+            price:
+              - text: 77,45 €
+                xpath: /html/body/ol[1]/li[1]/@price
+            manufacturer:
+              - text: Lacoste
+                xpath: /html/body/ol[1]/li[1]/@manufacturer
+        xpath: /html
+    timestamp: 1606386601173

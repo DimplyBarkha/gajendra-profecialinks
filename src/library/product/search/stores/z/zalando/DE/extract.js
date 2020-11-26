@@ -21,6 +21,8 @@ module.exports = {
         const product = scriptObj.articles[i];
         const productElem = document.createElement('li');
 
+        productElem.setAttribute('search_url', window.location.href);
+        productElem.setAttribute('sku', product.sku);
         productElem.setAttribute('name', product.name);
         productElem.setAttribute('product_url', `https://m-en.zalando.de/${product.url_key}.html`);
         productElem.setAttribute('thumbnail', `https://img01.ztat.net/article/${product.media.find((item) => item.role === 'DEFAULT').path}`);

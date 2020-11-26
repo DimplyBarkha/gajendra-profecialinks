@@ -1,0 +1,183 @@
+input:
+  keywords: Laufschuhe
+  _url: http://zalando.de
+extractions:
+  - html: https://workbench.import.io/html/run=14552371-de29-4511-8bb0-883c61071455/task=c07c0bde-4cf9-45c4-b242-ee17066e5637/2f409ea0-7a71-4db2-89a9-69b0edff71a9.html
+    extractionConfigId: product/search/stores/z/zalando/DE/extract
+    data:
+      - group:
+          - id:
+              - text: AD542A3W5-C11
+                xpath: /html/body/ol[1]/li[1]/@sku
+            searchUrl:
+              - text: https://m-en.zalando.de/men/?q=Laufschuhe
+                xpath: /html/body/ol[1]/li[1]/@search_url
+            name:
+              - text: ADIDAS PERFORMANCE PULSEBOOST HD LAUFSCHUH HERREN - Neutral running shoes
+                  - grey two / grey six / signal core
+                xpath: /html/body/ol[1]/li[1]/@name
+            productUrl:
+              - text: https://m-en.zalando.de/adidas-performance-adidas-performance-pulseboost-hd-laufschuh-herren-neutral-running-shoes-grey-two--grey-six--signal-core-ad542a3w5-c11.html
+                xpath: /html/body/ol[1]/li[1]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/3a5029adb6ca3f9b90f9584caacf98d5/c412bf8014ea4db5bb37e55e54835f56.jpg
+                xpath: /html/body/ol[1]/li[1]/@thumbnail
+            price:
+              - text: 119,24 €
+                xpath: /html/body/ol[1]/li[1]/@price
+            manufacturer:
+              - text: adidas Performance
+                xpath: /html/body/ol[1]/li[1]/@manufacturer
+          - id:
+              - text: AD542A47R-Q11
+                xpath: /html/body/ol[1]/li[2]/@sku
+            searchUrl:
+              - text: https://m-en.zalando.de/men/?q=Laufschuhe
+                xpath: /html/body/ol[1]/li[2]/@search_url
+            name:
+              - text: TERREX SWIFT R2 MID GTX TRAIL LAUFSCHUH DAMEN - Trail running shoes - core
+                  black
+                xpath: /html/body/ol[1]/li[2]/@name
+            productUrl:
+              - text: https://m-en.zalando.de/adidas-performance-hiking-shoes-core-black-ad542a47r-q11.html
+                xpath: /html/body/ol[1]/li[2]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/2801bfcc1da33e778af4b191f39bfba7/53287e5a936f41479be4a2e331b7d7aa.jpg
+                xpath: /html/body/ol[1]/li[2]/@thumbnail
+            price:
+              - text: 123,50 €
+                xpath: /html/body/ol[1]/li[2]/@price
+            manufacturer:
+              - text: adidas Performance
+                xpath: /html/body/ol[1]/li[2]/@manufacturer
+          - id:
+              - text: S2342A04V-E11
+                xpath: /html/body/ol[1]/li[3]/@sku
+            searchUrl:
+              - text: https://m-en.zalando.de/men/?q=Laufschuhe
+                xpath: /html/body/ol[1]/li[3]/@search_url
+            name:
+              - text: SAUCONY HERREN LAUFSCHUHE "FASTWITCH 9" - Neutral running shoes - gelb
+                  (510)
+                xpath: /html/body/ol[1]/li[3]/@name
+            productUrl:
+              - text: https://m-en.zalando.de/saucony-saucony-herren-laufschuhe-fastwitch-9-neutral-running-shoes-gelb-510-s2342a04v-e11.html
+                xpath: /html/body/ol[1]/li[3]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/02508b84b97935ddbdb0d1138c5c4f1d/0de96be3fa2b4745856003ff635777cc.jpg
+                xpath: /html/body/ol[1]/li[3]/@thumbnail
+            price:
+              - text: 125,00 €
+                xpath: /html/body/ol[1]/li[3]/@price
+            manufacturer:
+              - text: Saucony
+                xpath: /html/body/ol[1]/li[3]/@manufacturer
+          - id:
+              - text: AD512O00A-A11
+                xpath: /html/body/ol[1]/li[4]/@sku
+            searchUrl:
+              - text: https://m-en.zalando.de/men/?q=Laufschuhe
+                xpath: /html/body/ol[1]/li[4]/@search_url
+            name:
+              - text: NEBZED LAUFSCHUH KINDER - Trainers - core white / glow blue / solar red
+                xpath: /html/body/ol[1]/li[4]/@name
+            productUrl:
+              - text: https://m-en.zalando.de/adidas-performance-nebzed-laufschuh-kinder-trainers-core-white--glow-blue--solar-red-ad512o00a-a11.html
+                xpath: /html/body/ol[1]/li[4]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/a23b59f035bd314584bdee338387fa05/e58ea68b801e444daf3f5ef8627c08de.jpg
+                xpath: /html/body/ol[1]/li[4]/@thumbnail
+            price:
+              - text: 51,95 €
+                xpath: /html/body/ol[1]/li[4]/@price
+            manufacturer:
+              - text: adidas Performance
+                xpath: /html/body/ol[1]/li[4]/@manufacturer
+          - id:
+              - text: AD542A3Q4-Q11
+                xpath: /html/body/ol[1]/li[5]/@sku
+            searchUrl:
+              - text: https://m-en.zalando.de/men/?q=Laufschuhe
+                xpath: /html/body/ol[1]/li[5]/@search_url
+            name:
+              - text: FX LAUFSCHUH HERREN - Neutral running shoes - core black / cloud white
+                xpath: /html/body/ol[1]/li[5]/@name
+            productUrl:
+              - text: https://m-en.zalando.de/adidas-performance-fx-laufschuh-herren-neutral-running-shoes-core-black--cloud-white-ad542a3q4-q11.html
+                xpath: /html/body/ol[1]/li[5]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/72fa9e4ee63f3aa593bea3de26c0c509/d95e14f47188450591ae174fd94dd671.jpg
+                xpath: /html/body/ol[1]/li[5]/@thumbnail
+            price:
+              - text: 60,94 €
+                xpath: /html/body/ol[1]/li[5]/@price
+            manufacturer:
+              - text: adidas Performance
+                xpath: /html/body/ol[1]/li[5]/@manufacturer
+          - id:
+              - text: N1242A22G-A11
+                xpath: /html/body/ol[1]/li[6]/@sku
+            searchUrl:
+              - text: https://m-en.zalando.de/men/?q=Laufschuhe
+                xpath: /html/body/ol[1]/li[6]/@search_url
+            name:
+              - text: NIKE TODOS RN HERREN-LAUFSCHUH - Trainers - white/black/university red
+                xpath: /html/body/ol[1]/li[6]/@name
+            productUrl:
+              - text: https://m-en.zalando.de/nike-performance-nike-todos-rn-herren-laufschuh-trainers-whiteblackuniversity-red-n1242a22g-a11.html
+                xpath: /html/body/ol[1]/li[6]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/e1c27257c7fc31c79a889111b3fd790a/f44bde16926b44e2a2683179247e0442.jpg
+                xpath: /html/body/ol[1]/li[6]/@thumbnail
+            price:
+              - text: 54,99 €
+                xpath: /html/body/ol[1]/li[6]/@price
+            manufacturer:
+              - text: Nike Performance
+                xpath: /html/body/ol[1]/li[6]/@manufacturer
+          - id:
+              - text: AD542A3WY-C11
+                xpath: /html/body/ol[1]/li[7]/@sku
+            searchUrl:
+              - text: https://m-en.zalando.de/men/?q=Laufschuhe
+                xpath: /html/body/ol[1]/li[7]/@search_url
+            name:
+              - text: TERREX TWO ULTRA PARLEY TRAIL LAUFSCHUH HERREN - Neutral running shoes -
+                  dash grey / footwear white / true orange
+                xpath: /html/body/ol[1]/li[7]/@name
+            productUrl:
+              - text: https://m-en.zalando.de/adidas-performance-terrex-two-ultra-parley-trail-laufschuh-herren-neutral-running-shoes-dash-grey--footwear-white--true-orange-ad542a3wy-c11.html
+                xpath: /html/body/ol[1]/li[7]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/a16363c44ef23aff9a78615b7db4c3d1/716750894ac44d5a9e0e0b34d16cc4bf.jpg
+                xpath: /html/body/ol[1]/li[7]/@thumbnail
+            price:
+              - text: 124,17 €
+                xpath: /html/body/ol[1]/li[7]/@price
+            manufacturer:
+              - text: adidas Performance
+                xpath: /html/body/ol[1]/li[7]/@manufacturer
+          - id:
+              - text: N1244A0EX-G11
+                xpath: /html/body/ol[1]/li[8]/@sku
+            searchUrl:
+              - text: https://m-en.zalando.de/men/?q=Laufschuhe
+                xpath: /html/body/ol[1]/li[8]/@search_url
+            name:
+              - text: NIKE PERFORMANCE HERREN UND DAMEN LAUFSCHUHE "ZOOM RIVAL S 9" - Spikes -
+                  rot (500)
+                xpath: /html/body/ol[1]/li[8]/@name
+            productUrl:
+              - text: https://m-en.zalando.de/nike-performance-trainers-rot-500-n1244a0ex-g11.html
+                xpath: /html/body/ol[1]/li[8]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/f36d3de3478d325a894aa28832900bc6/7977b99d63604726abc563a0f687a990.jpg
+                xpath: /html/body/ol[1]/li[8]/@thumbnail
+            price:
+              - text: 44,90 €
+                xpath: /html/body/ol[1]/li[8]/@price
+            manufacturer:
+              - text: Nike Performance
+                xpath: /html/body/ol[1]/li[8]/@manufacturer
+        xpath: /html
+    timestamp: 1606386325679

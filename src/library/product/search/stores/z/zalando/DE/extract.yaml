@@ -5,8 +5,10 @@ recordXPath: '//ol[@id="added_product_list"]/li'
 fields:
   - name: id
     singleValue: false
+    xpath: //@sku
   - name: searchUrl
     singleValue: true
+    xpath: //@search_url
   - name: name
     singleValue: false
     xpath: //@name
