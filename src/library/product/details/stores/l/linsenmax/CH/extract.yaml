@@ -1,0 +1,83 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    # Remove duplicate
+    xpath: //ul[contains(@class,'productdetail-slider__slider-list')]//li[not(contains(@class,'cycle-sentinel')) and contains(@class,'cycle-slide-active')]//img/@data-src
+  - name: imageAlt
+    singleValue: false
+    # Remove duplicate
+    xpath: //ul[contains(@class,'productdetail-slider__slider-list')]//li[not(contains(@class,'cycle-sentinel')) and contains(@class,'cycle-slide-active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    # Remove duplicate
+    xpath: //ul[contains(@class,'productdetail-slider__slider-list')]//li[not(contains(@class,'cycle-sentinel')) and not(contains(@class,'cycle-slide-active'))]//img/@data-src
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='locationpointer__list']//li[not(contains(@class,'locationpointer__item--home'))]//a//span
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="heading"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="heading"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'productdetail__btn-basket-panel')]//span[text()='In den Warenkorb'] 
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'productdetail-pricefooter')]//div[@class='productdetail-pricefooter__row-200']
+  - name:  description
+    singleValue: false
+    xpath: //div[@itemprop="description"]//p
+  - name: descriptionBullets
+    singleValue: false    
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@itemprop="description"]//ul//li
+  - name: brandText
+    singleValue: false
+    xpath: //ul[@class='badge-category-list']//li//div[normalize-space()='Marke']//following-sibling::a
+  - name: brandLink
+    singleValue: false
+    xpath: //ul[@class='badge-category-list']//li//div[normalize-space()='Marke']//following-sibling::a/@href
+  - name: manufacturer
+    singleValue: false
+    xpath: //ul[@class='badge-category-list']//li//div[normalize-space()='Hersteller']//following-sibling::a
+  - name: sku
+    singleValue: false
+    xpath: //div[@id='trustedShopsReviews']/@data-prj-productid
+  - name: variants
+    singleValue: false
+    xpath: //div[@class='productdetail-radio__item']//input/@value
+  - name: variantId
+    singleValue: false
+    # getting it from URL not exist in body
+    regExp: (.+?)unitId=
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    # count inputs (radio buttons)
+    xpath: //div[@class='productdetail-radio__item']//input
+    defaultValue: '0'
+    type: NUMBER
+  - name: variantInformation
+    singleValue: false
+    # remove duplicate
+    xpath: //div[contains(@class,'productdetail-pricefooter')]//div[@class='productdetail-pricefooter__row-100']
+  - name: firstVariant
+    singleValue: false
+    # get first from it
+    xpath: //div[@class='productdetail-radio__item']//input/@value
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'caption__content')]

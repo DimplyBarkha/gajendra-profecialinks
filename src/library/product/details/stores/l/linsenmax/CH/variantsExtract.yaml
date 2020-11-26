@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'productdetail-radio')]//div[@class='sky-form__radio']
+fields:  
+  - name: variantUrl
+    singleValue: false    
+  - name: variantId
+    singleValue: false
+    xpath: //input[@name='packingUnitId']/@value
+    regExp: .+\-(\d+)
+    regExpReplace: $1
+  - name: variant
+    singleValue: false
+    xpath: //span[@class='productdetail-radio__text']
