@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'freshamazon',
     domain: 'freshamazon.de',
-    url: 'https://www.amazon.de/s?k={searchTerms}',
+    url: 'https://www.amazon.de/s?k={searchTerms}&page={page}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',

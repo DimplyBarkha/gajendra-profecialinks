@@ -22,13 +22,17 @@ fields:
     xpath: //div[@class="a-section aok-relative s-image-square-aspect"]/img/@src
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@id='pqr']
+    xpath: //div[@class="a-section a-spacing-none a-spacing-top-micro"]/div/span[1]/@aria-label
+    regExp: (.+)(,)(.)
+    regExpReplace: $1.$3
   - name: reviewCount
     singleValue: true
     xpath: //a/span[@class="a-size-base"]
   - name: price
     singleValue: false
-    xpath: //div[@id='abc']
+    xpath: //span[@class="a-price"]/span[@class="a-offscreen"]/text()
+    regExp: (.+)(,)(.+)
+    regExpReplace: $1.$3
   - name: manufacturer
     singleValue: true
   - name: soldBy
