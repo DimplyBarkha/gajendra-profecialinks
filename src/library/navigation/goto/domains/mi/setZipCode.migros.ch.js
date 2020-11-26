@@ -5,6 +5,6 @@ module.exports = {
     country: 'CH',
     domain: 'migros.ch',
     store: 'migros',
-    zipcode: '',
+    zipcode: "''",
   },
 };
