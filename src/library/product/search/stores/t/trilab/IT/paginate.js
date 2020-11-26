@@ -8,7 +8,7 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: '#amasty-shopby-overlay[style*="display: block;"]',
-    loadedSelector: 'main#maincontent div.products li.product-item',
+    loadedSelector: 'li.product-item',
     loadedXpath: null,
     noResultsXPath: '//div[@id="clerk-search-no-results"]',
     stopConditionSelectorOrXpath: null,

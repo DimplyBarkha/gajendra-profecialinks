@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: li.product-item
 recordXPath: null
 fields:
   - name: id
@@ -8,7 +8,7 @@ fields:
     xpath: //li[contains(@class,"product-item")]//@data-clerk-product-id
   - name: productUrl
     SingleValue: false
-    xpath: //li[contains(@class,"product-item")]//a/@href
+    xpath: //li[contains(@class,"product-item")]//strong[contains(@class,"name product-item-name")]//a/@href
   - name: price
     SingleValue: false
     xpath: //div[contains(@class,"price-final_price")]/span[not(contains(@class,"old-price"))]//span[@class="price"]
@@ -17,7 +17,7 @@ fields:
     xpath: //li[contains(@class,"product-item")]//img/@src
   - name: name
     SingleValue: false
-    xpath: //div[contains(@class,"product-item-details")]//a
+    xpath: //li[contains(@class,"product-item")]//strong[contains(@class,"name product-item-name")]//a
   - name: rankOrganic
     SingleValue: true
   - name: rank
