@@ -30,12 +30,10 @@ const transform = (data, context) => {
       row.rank = [{ text: rankCounter }];
 
       if (row.thumbnail) {
-        let text = '';
         row.thumbnail.forEach(item => {
-          item.text = item.text.replace(/\t\t\t\t/, '');
-          item.text = item.text.replace(' ', '');
+          item.text = item.text.replace(/(\?.*$)/, '').trim();
           if (item.text.startsWith('//')) {
-            item.text = `https:${item.text}`;
+            item.text = 'https:' + item.text.trim();
           }
         });
       }
