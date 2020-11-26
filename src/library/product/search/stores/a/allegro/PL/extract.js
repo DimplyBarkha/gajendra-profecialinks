@@ -38,9 +38,9 @@ async function implementation (
       }
     }
 
-    function getSponcered(element) {
-      let value = element.getAttribute('data-analytics-view-custom-index0');
-      let isSponsored = element.getAttribute('data-analytics-view-label');
+    function getSponcered (element) {
+      const value = element.getAttribute('data-analytics-view-custom-index0');
+      const isSponsored = element.getAttribute('data-analytics-view-label');
       if (value && isSponsored) {
         return element.getAttribute('data-analytics-view-label');
       }
