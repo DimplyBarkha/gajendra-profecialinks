@@ -54,8 +54,14 @@ const transform = (data) => {
         }
         if (row.nameExtended && row.brandText && row.quantity) {
           row.nameExtended = [{ text: row.brandText[0].text + ' ' + row.nameExtended[0].text + ' ' + row.quantity[0].text, xpath: row.nameExtended[0].xpath }];
+          if (row.nameExtended[0].text.split(row.brandText[0].text).length > 2) {
+            row.nameExtended[0].text = row.nameExtended[0].text.replace(row.brandText[0].text, '').trim()
+          }
         } else if (row.nameExtended && row.brandText) {
           row.nameExtended = [{ text: row.brandText[0].text + ' ' + row.nameExtended[0].text, xpath: row.nameExtended[0].xpath }];
+          if (row.nameExtended[0].text.split(row.brandText[0].text).length > 2) {
+            row.nameExtended[0].text = row.nameExtended[0].text.replace(row.brandText[0].text, '').trim()
+          }
         }
         if (row.description) {
           const descriptionArray = row.description.map((item) => {

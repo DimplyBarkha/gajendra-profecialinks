@@ -32,7 +32,7 @@ fields:
     regExpReplace: $2
   - name: price
     singleValue: false
-    xpath: //div[@id="current-price-container"]//div[@class="dkt-price"]//div[@class="dkt-price__cartridge"]
+    xpath: //div[@id="current-price-container"]//div[@class="dkt-price"]//div[@class="dkt-price__cartridge"] | //div[@class="product-price-and-button"]//div[@class="dkt-price__cartridge"]
   - name: description
     singleValue: false
     xpath: //div[@class="tech-info"]
@@ -83,9 +83,6 @@ fields:
     xpath: //div[@class="pictures"]//a//picture/@data-iesrc
     regExp: (htt.*)\?
     regExpReplace: $1
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: 
   - name: directions
     singleValue: false
     xpath: //div[@id="ConceptandTechnologyFloor"]//div[@class="tech-info" and (contains(.//h3, "conseils") or contains(.//h3, "Conseils"))]//div[@class="description" or @class="tech-info__bloc-picto"]
