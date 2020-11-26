@@ -12,6 +12,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
+    // set id
+    const idPrefix = 'MLA-';
+    const ids = document.querySelectorAll('form[action*="bookmarks"]');
+    if (ids !== null) ids.forEach(e => e.setAttribute('productId', idPrefix.concat(e.getAttribute('action').split('MLA').pop())));
+
     const searchUrl = window.location.href;
     addElementToDocument('searchUrl', searchUrl);
     // set rank
