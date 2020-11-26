@@ -1,10 +1,10 @@
-const { transform } = require('../shared');
+const { cleanUp } = require('../../../../shared.js');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'ZA',
     store: 'picknpay',
-    transform,
+    transform: cleanUp,
     domain: 'pnp.co.za',
     zipcode: '',
   },
