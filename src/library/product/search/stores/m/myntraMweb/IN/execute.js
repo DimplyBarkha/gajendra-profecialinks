@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'IN',
-    store: 'myntra',
+    store: 'myntraMweb',
     domain: 'myntra.com',
     url: 'https://www.myntra.com/{searchTerms}',
     loadedSelector: 'body',

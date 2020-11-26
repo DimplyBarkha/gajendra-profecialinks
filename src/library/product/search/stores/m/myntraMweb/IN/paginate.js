@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'IN',
-    store: 'myntra',
+    store: 'myntraMweb',
     nextLinkSelector: 'li.pagination-next a',
     nextLinkXpath: null,
     mutationSelector: null,

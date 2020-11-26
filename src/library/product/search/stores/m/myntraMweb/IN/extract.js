@@ -4,7 +4,7 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'IN',
-    store: 'myntra',
+    store: 'myntraMweb',
     transform,
     domain: 'myntra.com',
     zipcode: '',
