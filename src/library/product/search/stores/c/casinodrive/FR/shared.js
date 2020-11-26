@@ -21,19 +21,10 @@ const transform = (data, context) => {
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
   const productCodes = state.productCodes || [];
-  const baseUrl = 'https://plus.casino.fr';
   for (const { group } of data) {
     for (const row of group) {
-      if (row.productUrl && row.productUrl[0]) {
-        row.productUrl[0].text = `${baseUrl}${row.productUrl[0].text}`;
-      }
-      if (row.id && row.id[0]) {
-        const startIndex = row.id[0].text.indexOf('MPX_');
-        const endIndex = row.id[0].text.indexOf('/details');
-        row.id[0].text = row.id[0].text.substring(startIndex + 4, endIndex);
-      }
       if (row.price && row.price[0]) {
-        row.price[0].text = row.price[0].text.split(' ')[0];
+        row.price[0].text = row.price[0].text.substring(0, (row.price[0].text.length - 1));
       }
       rankCounter += 1;
       if (!row.sponsored) {
