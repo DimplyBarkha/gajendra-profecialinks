@@ -166,6 +166,18 @@ module.exports = {
         addHiddenDiv('variants-info', variants);
       }
     });
+    // load Customers also viewed these products
+    try {
+      await context.evaluate(async () => {
+        const alsoViewedSection = Array.from(document.querySelectorAll('h2')).find(elm => elm.innerText.includes('Customers also viewed these products'));
+        while (alsoViewedSection.parentElement.nextElementSibling.querySelector('[data-tl-id="contentZoneBottom1-DefaultItemCarousel-PersonalizationModule-rightArrow"]')) {
+          alsoViewedSection.parentElement.nextElementSibling.querySelector('[data-tl-id="contentZoneBottom1-DefaultItemCarousel-PersonalizationModule-rightArrow"]').click();
+          await new Promise((r) => setTimeout(r, 1000));
+        }
+      });
+    } catch (err) {
+      console.log('Customers also viewed these products not present');
+    }
     return await context.extract(dependencies.productDetails, { transform });
   },
 };
