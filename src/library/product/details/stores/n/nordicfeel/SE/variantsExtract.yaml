@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='product--variants']//ul[@class='product--variants--size']//li
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //li/@data-variant-id
+  - name: variantUrl
+    singleValue: false
+    xpath: //a/@href
+    regExp: (.+)
+    regExpReplace: https://www.nordicfeel.se$1
+  - name: variant
+    singleValue: false
+    xpath: //span[@class='product--variants--name']
