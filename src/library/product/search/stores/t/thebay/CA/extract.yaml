@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'row product-grid')]//div[contains(@class,'col-6 col-sm-4 col-xl-3')]
+fields:
+- name: id
+  SingleValue: false
+  xpath: //div[contains(@class,'product bfx-disable-product')]//span[contains(@class,'bf-product-id')]
+- name: productUrl
+  SingleValue: false
+  xpath: //div[contains(@class,'image-container')]//a[@class='thumb-link']//@href
+- name: thumbnail
+  SingleValue: false
+  xpath: //div[contains(@class,'image-container')]//a[@class='thumb-link']//img[@class='tile-image'][1]//@src
+- name: name
+  SingleValue: false
+  xpath: //div[@class='wrap']//a//span
+- name: price
+  SingleValue: false
+  xpath: //div[contains(@class,'tile-body text-center')]//div[@class='hover-bg-content']//span[@class='prod-price']//span[contains(@class,'value bfx-price')]//span
+- name: listprice
+  SingleValue: false
+  xpath: //div[contains(@class,'tile-body text-center')]//div[@class='hover-bg-content']//span[@class='prod-price']//span[contains(@class,'strike-through')]//span[@class='value']//span[contains(@class,'formatted_price')]
+- name: aggregateRating
+  singleValue: false
+  xpath: //div[@class='tile-body-footer']//div[contains(@class,'TTteaser__rating')]//span//@class

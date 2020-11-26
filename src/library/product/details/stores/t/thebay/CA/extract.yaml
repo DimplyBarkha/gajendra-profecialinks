@@ -1,0 +1,54 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='primary-image active']//img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: name
+    singleValue: false
+    xpath: //div[@class='row']//h1[@class='product-name h2']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price']//span[@class='price']//span[contains(@class,'formatted_sale_price')]
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='primary-image active']//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='primary-image ' and position() >1]//img
+  - name: description
+    singleValue: false
+    xpath: //div[@class='value content']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'cart-and-ipay')]//button
+    defaultValue: "In stock"
+  - name: category
+    singleValue: false
+    xpath: //div[@class='row']//ol[contains(@class,'breadcrumb')]//li[position()>1]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='value content']//div[@class='product-detail-id']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='price']//span[@class='price']//span[@class='list strike-through ']//span[contains(@class,'formatted_price')]
+  - name: sku
+    singleValue: false
+    xpath: //div[@class='tt-top-comment']//@data-ttsku
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,'product-number-rating')]//a
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'product-number-rating')]//div[contains(@class,'TTteaser__rating')]//span//@class
+  - name: brandText
+    singleValue: false
+    xpath: //h1[@class='product-brand-name']//a
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
