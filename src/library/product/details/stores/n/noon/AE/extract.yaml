@@ -113,3 +113,9 @@ fields:
     singleValue: false
   # xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
     xpath: //div[@class='section']/div/header/following-sibling::ul/li//img/@src
+  - name: variantId
+    singleValue: false
+    # xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
+    xpath: //link[@rel='canonical']/@href
+    regExp: (\/)(\w+)(\/p)
+    regExpReplace: $2
