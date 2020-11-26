@@ -43,7 +43,7 @@ fields:
 - name: price
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: concat(//meta[@itemprop="price"]/@content, ' ', //meta[@itemprop="priceCurrency"]/@content)
+  xpath: //div[@id='price_text']
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -257,10 +257,10 @@ fields:
   xpath: //div[@class="ingredients__text"]|//div[@class="product-property__name"]/strong[.="Состав"]/parent::div/following-sibling::div[@class="product-property__value" and not (//div[@class="ingredients__text"])]
 - name: servingSize
   description: The size of serving Nutritional information is based on.
-  xpath: //div[@id="servingSizeValue"]
+  xpath: //div[@id="serving_size_value"]
 - name: servingSizeUom
   description: Unit of measure of serving
-  xpath: //div[@id="servingSizeUom"]
+  xpath: //div[@id="serving_size_uom"]
 - name: numberOfServingsInPackage
   singleValue: true
   description: Suggested number of servings of the product.
@@ -275,10 +275,10 @@ fields:
     on per 100g serving
 - name: totalFatPerServing
   description: Nutritional Information for Total Fat content - Usually based on per
-  xpath:  //div[@id='totalFatValue'] 
+  xpath:  //div[@id='total_fat_value'] 
 - name: totalFatPerServingUom
   description: Unit of Measure Data for Total Fat content
-  xpath: //div[@id='totalFatUom'] 
+  xpath: //div[@id='total_fat_uom'] 
 - name: saturatedFatPerServing
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
@@ -314,10 +314,10 @@ fields:
 - name: totalCarbPerServing
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
-  xpath: //div[@id='totalCarbValue'] 
+  xpath: //div[@id='total_carb_value'] 
 - name: totalCarbPerServingUom
   description: Unit of Measure Data for Total Carbohydrate content
-  xpath: //div[@id='totalCarbUom'] 
+  xpath: //div[@id='total_carb_uom'] 
 - name: dietaryFibrePerServing
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
@@ -339,11 +339,11 @@ fields:
 - name: proteinPerServing
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
-  xpath: //div[@id='proteinValue'] 
+  xpath: //div[@id='protein_value'] 
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
-  xpath: //div[@id='proteinUom'] 
+  xpath: //div[@id='protein_uom'] 
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per

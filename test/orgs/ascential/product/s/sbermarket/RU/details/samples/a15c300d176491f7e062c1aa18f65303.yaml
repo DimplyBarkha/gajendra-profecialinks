@@ -2,7 +2,7 @@ input:
   _url: http://sbermarket.ru/metro
   URL: https://sbermarket.ru/metro/dispenser-tork-xpressnap-dlya-bolshoy-emkosti
 extractions:
-  - html: https://workbench.import.io/html/run=266c2f59-34e3-4047-a912-bbdc29808845/task=ac878aca-b4bb-48d7-80af-3ab015557c9f/580d349f-b806-4970-a39d-1ccfb8aa7ee9.html
+  - html: https://workbench.import.io/html/run=3372641a-0aca-4f58-a1fc-b6d81e4cf5d3/task=f091cf05-e89a-4784-9cd6-819222428c39/56d10ef4-e824-491b-adaa-b2a08de8970c.html
     extractionConfigId: product/details/stores/s/sbermarket/RU/extract
     data:
       - group:
@@ -65,15 +65,16 @@ extractions:
             materials:
               - text: Пластик
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[2]
+            price:
+              - text: 3507,00 RUB
+                xpath: /html/body/div[6]
             availabilityText:
               - text: Out of Stock
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             productUrl:
               - text: https://sbermarket.ru/metro/dispenser-tork-xpressnap-dlya-bolshoy-emkosti
-                xpath: /html/body/div[15]
-            price:
-              - text: 3507.00 RUB
+                xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606297099541
+    timestamp: 1606378641864

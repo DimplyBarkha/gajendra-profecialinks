@@ -2,7 +2,7 @@ input:
   _url: http://sbermarket.ru/metro
   URL: https://sbermarket.ru/metro/polotientsa-lotus-plius-bumazhnyie-kukhonnyie
 extractions:
-  - html: https://workbench.import.io/html/run=266c2f59-34e3-4047-a912-bbdc29808845/task=802a46e2-61df-4833-80e0-8dfca8eaab90/5c023cec-cfa3-4ba8-a6dc-a69329f45333.html
+  - html: https://workbench.import.io/html/run=3372641a-0aca-4f58-a1fc-b6d81e4cf5d3/task=eabb6214-a24c-40cc-b268-63880d05b9fa/d03a4d7d-7d96-475f-bb27-4b12f6ca7be3.html
     extractionConfigId: product/details/stores/s/sbermarket/RU/extract
     data:
       - group:
@@ -27,7 +27,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
             listPrice:
               - text: 457,00 ₽
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]
             description:
               - text: Подходят для ежедневной протирки поверхностей, удаления воды и масла или
                   остатков пищи.
@@ -62,15 +62,19 @@ extractions:
             countryOfOrigin:
               - text: Россия
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]
+            promotion:
+              - text: -30%
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
+            price:
+              - text: 319,90 RUB
+                xpath: /html/body/div[6]
             availabilityText:
               - text: In stock
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             productUrl:
               - text: https://sbermarket.ru/metro/polotientsa-lotus-plius-bumazhnyie-kukhonnyie
-                xpath: /html/body/div[15]
-            price:
-              - text: 457.00 RUB
+                xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606297100283
+    timestamp: 1606378641902

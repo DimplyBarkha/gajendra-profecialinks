@@ -2,7 +2,7 @@ input:
   _url: http://sbermarket.ru/metro
   URL: https://sbermarket.ru/metro/dispenser-tork-dlya-zhidkogo-myla-mini-belyy
 extractions:
-  - html: https://workbench.import.io/html/run=266c2f59-34e3-4047-a912-bbdc29808845/task=a96f55ca-1e27-4767-a61f-66a1c28db9af/0bf8270d-1ce6-4959-8cd9-76a006e81625.html
+  - html: https://workbench.import.io/html/run=3372641a-0aca-4f58-a1fc-b6d81e4cf5d3/task=428a5ee5-0418-4b70-989a-108c6d920573/efbba09e-6304-4e5a-ae21-2f1a2d6e2295.html
     extractionConfigId: product/details/stores/s/sbermarket/RU/extract
     data:
       - group:
@@ -70,15 +70,16 @@ extractions:
             materials:
               - text: Пластик
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[2]
+            price:
+              - text: 1937,00 RUB
+                xpath: /html/body/div[6]
             availabilityText:
               - text: In stock
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             productUrl:
               - text: https://sbermarket.ru/metro/dispenser-tork-dlya-zhidkogo-myla-mini-belyy
-                xpath: /html/body/div[15]
-            price:
-              - text: 1937.00 RUB
+                xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606297097799
+    timestamp: 1606378640198
