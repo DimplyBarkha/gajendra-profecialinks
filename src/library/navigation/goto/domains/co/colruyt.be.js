@@ -24,10 +24,10 @@ module.exports = {
       console.log('Cookie button click fail');
     }
     try {
-      await context.waitForSelector('div.overlay__continue > button');
-      await context.click('div.overlay__continue > button');
+      await context.waitForSelector('#features-modal  div.overlay__continue > button');
+      await context.click('#features-modal  div.overlay__continue > button');
     } catch (error) {
-      console.log('Cookie button click fail');
+      console.log('Next Cookie button click fail');
     }
 
     console.log(zipcode);
