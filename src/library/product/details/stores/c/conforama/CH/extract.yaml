@@ -41,7 +41,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //h3[contains(text(),"Produktbeschreibung")]/../ul/li
+    xpath: //div[contains(@class,"ui-tabs-panel")]/h3/text() | //h3[contains(text(),"Produktbeschreibung")]/../ul/li
     # xpath: //h3[contains(text()," Produktbeschreibung")]/../../following-sibling::tr[position()>1] | //div[@id="tabs-1"]/ul/li | //h3[contains(text(),"Beschreibung")]/../../following-sibling::tr[position()>1]
     # xpath: //h3[contains(text()," Description ")]/../../following-sibling::tr[position()>1] | //div[@id="tabs-1"]/ul/li
     # xpath: //div[@id="description"]
@@ -107,8 +107,8 @@ fields:
     singleValue: false
   - name: specifications
     singleValue: false
-    description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="tabs-2"]//div/table/tbody/tr[position() > 1]
+    xpath: //div[contains(@class,"ui-tabs-panel")]/h3/text() | //div[@class="detailCaracts"]//tr[position()>1]
+    # xpath: //div[@id="tabs-2"]//div/table/tbody/tr[position()>1]
   - name: variantId
     singleValue: false
     xpath: //div[@class="infos_Product"]/span/text() 
@@ -124,9 +124,9 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     defaultValue: Yes 
-  - name: promotion
-    singleValue: false
-    xpath: //span[@class="reduc"] | //div[@class="m_cart_confo"]/div/text()
+  # - name: promotion
+  #   singleValue: false
+  #   xpath: //span[@class="reduc"] | //div[@class="m_cart_confo"]/div/text()
   - name: ageSuitability
     singleValue: false
     xpath: //strong[contains(text(), "enfants")]//..//following-sibling::td
@@ -139,9 +139,9 @@ fields:
   #   xpath: (//strong[contains(text(), "Modell")]//..//following-sibling::td)[1]
     # xpath: //*[contains(text(), "Modell")]//..//following-sibling::*
     # xpath: //*[contains(text(), "Modèle")]//..//following-sibling::*
-  - name: countryOfOrigin
-    singleValue: false
-    xpath: //strong[contains(text(), "Produkttypologie")]//..//following-sibling::td
+  # - name: countryOfOrigin
+  #   singleValue: false
+  #   xpath: //strong[contains(text(), "Produkttypologie")]//..//following-sibling::td
     # xpath: //*[contains(text(), "Produkttypologie")]//..//following-sibling::*
     # xpath: //*[contains(text(), "Typologie du produit")]//..//following-sibling::*
   - name: packSize
