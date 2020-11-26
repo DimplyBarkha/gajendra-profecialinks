@@ -28,7 +28,9 @@ fields:
       xpath: //div[contains(@class,"b_3JBXGbvG3w")]/span
     - name: aggregateRating2
       singleValue: false
-      xpath: //div[@id='ii_name']
+      xpath: //div[@class="b_sEc13pK37d"]/@style
+      regExp: (\d+)
+      regExpReplace: $1
     - name: reviewCount
       singleValue: false
       xpath: //div[@id='b_f2PBZg5jPe']/span
