@@ -52,7 +52,7 @@ async function implementation (
     waitUntil: 'load',
     checkBlocked: false,
   });
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 4000));
   if (id) {
     await new Promise((resolve) => setTimeout(resolve, 3000));
     const link = await context.evaluate(() => {
