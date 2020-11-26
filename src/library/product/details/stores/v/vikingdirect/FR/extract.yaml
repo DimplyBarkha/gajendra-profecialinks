@@ -20,10 +20,10 @@ fields:
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-- name: alternateImages
-  singleValue: false
-  description: Other product images (not in manufacturer description)
-  xpath: //div[@state="default"]/@style
+#- name: alternateImages
+#  singleValue: false
+#  description: Other product images (not in manufacturer description)
+#  xpath: //div[@state="default"]/@style
 #  regExp: '(\((.*?)\))'
 #  regExpReplace: $2
 #sasz
@@ -51,7 +51,16 @@ fields:
 #   singleValue: true
 #   description: The offered price for the selected product variant - if a user clicks
 #     add to basket this is the price they would be charged
-#   xpath: //div[@class="skuPriceBlock"]/descendant::span[@class='bigPrice']/font/font
+#   xpath: //div[@class="skuPriceBlock"]/descendant::span[@class='bigPrice']/font/font  /* font/font written during page translation? */
+#sasz
+#   xpath: //div[@class='skuPriceBreakLineColumn2 priceNoTax0'] | //div[@class='skuPriceBlock']//span[@class='bigPrice'][not(//div[@class='skuPriceBreakLineColumn2 priceNoTax0'])]
+#covers all cases
+# url1: https://www.vikingdirect.fr/a/pb/Essuie-mains-Niceday-Professional-Standard-2-epaisseurs-Pliage-en-Z-Blanc-25-Unites-de-150-Feuilles/id=1002823/?id=1002823
+# big price is not valid because its not the price we get if we add item to cart
+# url2: https://www.vikingdirect.fr/a/pb/Distributeur-d-essuie-mains-Kimberly-Clark-Professional-Reach-Noir-18-x-254-x-224-cm/id=1099068/?pr=Q20
+# here we should get the big price but bigPrice span element its not direct descendant of skuPriceBlock if we have product with promotion
+# url3: https://www.vikingdirect.fr/a/pb/Bobines-d-essuyage-a-devidage-central-Kimberly-Clark-Professional-Bleu-30-x-45-x-183-cm-6-Unites/id=1099071/?pr=Q20
+# here we just get big price
 # - name: availabilityText
 #   singleValue: true
 #   description: Availability as described on page for the selected variant. If there
@@ -77,9 +86,11 @@ fields:
 #   singleValue: true
 #   description: Product manufacturer
 #   xpath: //td[@id="attributemarquekey"]
-- name: quantity
-  singleValue: true
-  description: Quantity as described on the page
+#sasz
+#- name: quantity
+#  singleValue: true
+#  description: Quantity as described on the page
+#  xpath: //th[contains(., 'Contenu')]/following-sibling::td  //or this (better): //th[contains(., 'Quantité')]/following-sibling::td  url: https://www.vikingdirect.fr/a/pb/Mouchoirs-Tork-140278-2-epaisseurs-30-Unites-de-100-Feuilles/id=5394911/?id=5394911
 # - name: weightNet
 #   singleValue: true
 #   description: Net weight as described on the page
