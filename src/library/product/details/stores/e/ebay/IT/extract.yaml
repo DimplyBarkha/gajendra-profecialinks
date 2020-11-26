@@ -24,16 +24,16 @@ fields:
     singleValue: true
     xpath: //span[@id='prcIsum']
   - name: availabilityText
-    xpath: //a[@id='isCartBtn_btn']/text()
-    regExp: Aggiungi al carrello
-    regExpReplace: In stock
-    defaultValue: Out of Stock
+    #   xpath: //a[@id='isCartBtn_btn']/text()
+    #   regExp: Aggiungi al carrello
+    #   regExpReplace: In stock
+    defaultValue: In stock
   - name: description
     singleValue: true
     xpath: //div[@class='itemAttr']//table[@role='presentation']
-  - name: descriptionBullets
-    singleValue: true
-    xpath: count(//ul[contains(@class,'a-spacing-mini')])
+  #- name: descriptionBullets
+  #  singleValue: true
+  #  xpath: count(//ul[contains(@class,'a-spacing-mini')])
   - name: brandText
     singleValue: true
     xpath: //td[contains(text(), 'Marca')]/following-sibling::*[1]
