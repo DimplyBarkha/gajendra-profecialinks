@@ -24,9 +24,7 @@ const transform = (data, context) => {
       row.rank = [{ text: rankCounter }];
       row.rankOrganic = [{ text: rankCounter }];
       context.setState({ rankCounter });
-      
     }
-    
   }
   return data;
 };

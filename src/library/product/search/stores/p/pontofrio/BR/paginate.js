@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'pontofrio',
-    nextLinkSelector: null,   //'article > div[class*="Row"] > div > div > div >  button[class*="Button-sc"]',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'article > ul[class*="ProductsGrid"]',

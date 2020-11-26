@@ -16,9 +16,8 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
-    //await context.setUseRelayProxy(false);
     await context.setUserAgent('Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36');
-  
+
     await context.goto(url, {
       firstRequestTimeout: 100000,
       timeout: timeout,
@@ -32,5 +31,4 @@ module.exports = {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
   },
-  
 };
