@@ -2,7 +2,7 @@ input:
   RPC: 12782_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/run=2326a762-7aaa-4346-be13-c85c175881d6/task=76d12539-0272-4421-bc71-a8b1070845ea/9d256162-11ed-4608-87a2-069b33a4b296.html
+  - html: https://workbench.import.io/html/run=3ad071f7-b904-497f-a973-ace386ef972a/task=a6e5f9be-523e-490a-8552-ed27929f55ca/34371428-53d1-48b2-a054-bd4e57dfa405.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -45,7 +45,7 @@ extractions:
               - text: 64,90 €
                 xpath: /html/body/div[3]/@list_price
             price:
-              - text: 51,92 €
+              - text: 50,62 €
                 xpath: /html/body/div[3]/@price
             availabilityText:
               - text: In stock
@@ -74,8 +74,8 @@ extractions:
               - text: 50 ml
                 xpath: /html/body/div[3]/@quantity_text
             sku:
-              - text: "20015903"
-                xpath: /html/body/div[1]/@data-gtm-data
+              - text: "20015902"
+                xpath: /html/body/div[3]/@sku_value
             variantId:
               - text: 50 ml - Vaporisateur
                 xpath: /html/body/div[3]/@variant_id
@@ -118,9 +118,6 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[3]/@price_per_unit_uom
-            promotion:
-              - text: -20% sur tous les parfums et coffrets
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 50 ml - Vaporisateur
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
@@ -169,10 +166,10 @@ extractions:
               - text: 85,90 €
                 xpath: /html/body/div[4]/@list_price
             price:
-              - text: 68,72 €
+              - text: 67,00 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
-              - text: In stock
+              - text: Out of Stock
                 xpath: /html/body/div[4]/@availability_text
             description:
               - text: >-
@@ -197,6 +194,9 @@ extractions:
             quantity:
               - text: 100 ml
                 xpath: /html/body/div[4]/@quantity_text
+            sku:
+              - text: "20015901"
+                xpath: /html/body/div[4]/@sku_value
             variantId:
               - text: 100 ml - Vaporisateur
                 xpath: /html/body/div[4]/@variant_id
@@ -239,9 +239,6 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[4]/@price_per_unit_uom
-            promotion:
-              - text: -20% sur tous les parfums et coffrets
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 50 ml - Vaporisateur
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
@@ -290,7 +287,7 @@ extractions:
               - text: 117,90 €
                 xpath: /html/body/div[6]/@list_price
             price:
-              - text: 94,32 €
+              - text: 91,96 €
                 xpath: /html/body/div[6]/@price
             availabilityText:
               - text: In stock
@@ -320,7 +317,7 @@ extractions:
                 xpath: /html/body/div[6]/@quantity_text
             sku:
               - text: "20015903"
-                xpath: /html/body/div[1]/@data-gtm-data
+                xpath: /html/body/div[6]/@sku_value
             variantId:
               - text: 200 ml - Vaporisateur
                 xpath: /html/body/div[6]/@variant_id
@@ -363,9 +360,6 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[6]/@price_per_unit_uom
-            promotion:
-              - text: -20% sur tous les parfums et coffrets
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[2]
             variants:
               - text: 50 ml - Vaporisateur
                 xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/div[1]/div[1]
@@ -376,4 +370,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1605798173597
+    timestamp: 1606403987845

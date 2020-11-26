@@ -36,6 +36,10 @@ module.exports = {
           addedVariant.setAttribute('price', price);
           addedVariant.setAttribute('list_price', listPrice);
 
+          const productInfoElem = document.querySelector('input#pid');
+          const skuValue = productInfoElem ? productInfoElem.getAttribute('value') : '';
+          addedVariant.setAttribute('sku_value', skuValue);
+
           const availabilityElem = document.querySelector('div.availability p.in-stock-msg');
           const availabilityText = availabilityElem ? 'In stock' : 'Out of Stock';
           addedVariant.setAttribute('availability_text', availabilityText);

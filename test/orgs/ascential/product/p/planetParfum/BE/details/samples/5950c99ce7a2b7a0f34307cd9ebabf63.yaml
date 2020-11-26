@@ -2,7 +2,7 @@ input:
   RPC: 14519_409
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/run=2326a762-7aaa-4346-be13-c85c175881d6/task=9673ada1-9d1d-463f-9379-aa3288bebfbb/53382cfd-f219-44d5-9be0-0ad1ecd1a635.html
+  - html: https://workbench.import.io/html/run=3ad071f7-b904-497f-a973-ace386ef972a/task=b27790d0-6b4f-4575-a6a0-759275afea82/a9ac21b3-08f4-4979-a8c8-f5bd8dff5a44.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -28,8 +28,11 @@ extractions:
             nameExtended:
               - text: LANCÔME - Ombre Hypnôse Mono Mate - Ombre à Paupières - 102 Beige Nu
                 xpath: /html/body/div[3]/@name_extended
-            price:
+            listPrice:
               - text: 30,90 €
+                xpath: /html/body/div[3]/@list_price
+            price:
+              - text: 24,10 €
                 xpath: /html/body/div[3]/@price
             availabilityText:
               - text: Out of Stock
@@ -48,7 +51,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             sku:
               - text: "20014423"
-                xpath: /html/body/div[1]/@data-gtm-data
+                xpath: /html/body/div[3]/@sku_value
             variantId:
               - text: 102 Beige Nu
                 xpath: /html/body/div[3]/@variant_id
@@ -121,8 +124,11 @@ extractions:
             nameExtended:
               - text: LANCÔME - Ombre Hypnôse Mono Mate - Ombre à Paupières - 204 Très Chocolat
                 xpath: /html/body/div[5]/@name_extended
-            price:
+            listPrice:
               - text: 30,90 €
+                xpath: /html/body/div[5]/@list_price
+            price:
+              - text: 24,10 €
                 xpath: /html/body/div[5]/@price
             availabilityText:
               - text: In stock
@@ -139,6 +145,9 @@ extractions:
             brandText:
               - text: LANCÔME
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            sku:
+              - text: "20014426"
+                xpath: /html/body/div[5]/@sku_value
             variantId:
               - text: 204 Très Chocolat
                 xpath: /html/body/div[5]/@variant_id
@@ -190,4 +199,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1605798164848
+    timestamp: 1606403980264

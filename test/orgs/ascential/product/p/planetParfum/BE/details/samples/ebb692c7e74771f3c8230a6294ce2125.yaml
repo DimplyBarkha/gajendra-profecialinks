@@ -2,7 +2,7 @@ input:
   RPC: 12751_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/run=2326a762-7aaa-4346-be13-c85c175881d6/task=18d6f69b-1ad6-46f9-9534-7ce74f021a7c/d15e8eed-4768-48b8-862a-b7d09cc83c6f.html
+  - html: https://workbench.import.io/html/run=3ad071f7-b904-497f-a973-ace386ef972a/task=21c46237-7fd2-44af-b20d-96908efc7681/ba6a564a-80f0-449e-bded-3c672b0dd802.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -35,7 +35,7 @@ extractions:
               - text: 28,90 €
                 xpath: /html/body/div[4]/@list_price
             price:
-              - text: 23,12 €
+              - text: 22,54 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
               - text: Out of Stock
@@ -66,7 +66,7 @@ extractions:
                 xpath: /html/body/div[4]/@quantity_text
             sku:
               - text: "20020729"
-                xpath: /html/body/div[1]/@data-gtm-data
+                xpath: /html/body/div[4]/@sku_value
             directions:
               - text: Pour un parfum intense qui fait ressortir toutes les facettes de l'Eau de
                   Toilette Invictus, vaporisez directement sur les parties les
@@ -113,10 +113,7 @@ extractions:
             pricePerUnitUom:
               - text: litre
                 xpath: /html/body/div[4]/@price_per_unit_uom
-            promotion:
-              - text: -20% sur tous les parfums et coffrets
-                xpath: /html/body/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/p[1]/span[2]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1605798157253
+    timestamp: 1606403971947

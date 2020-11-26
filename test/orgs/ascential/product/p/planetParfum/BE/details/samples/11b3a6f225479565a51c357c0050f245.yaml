@@ -2,7 +2,7 @@ input:
   RPC: 14808_457
   _url: http://planetparfum.com
 extractions:
-  - html: https://workbench.import.io/html/run=2326a762-7aaa-4346-be13-c85c175881d6/task=14c40b0f-e83a-4409-b41d-2f77809665aa/245ff111-2c87-4178-8d8e-e91df512a4a0.html
+  - html: https://workbench.import.io/html/run=3ad071f7-b904-497f-a973-ace386ef972a/task=a79d0ae1-9d69-47f4-a3a1-3628406c08cf/85be45a7-b4ed-44f1-9dbb-034a0d4d993c.html
     extractionConfigId: product/details/stores/p/planetParfum/BE/extract
     data:
       - group:
@@ -28,8 +28,11 @@ extractions:
             nameExtended:
               - text: CLARINS - Haute Exigence Jour Toutes Peaux - Crème Jour
                 xpath: /html/body/div[4]/@name_extended
-            price:
+            listPrice:
               - text: 89,90 €
+                xpath: /html/body/div[4]/@list_price
+            price:
+              - text: 70,12 €
                 xpath: /html/body/div[4]/@price
             availabilityText:
               - text: In stock
@@ -54,7 +57,7 @@ extractions:
                 xpath: /html/body/div[4]/@quantity_text
             sku:
               - text: "20023064"
-                xpath: /html/body/div[1]/@data-gtm-data
+                xpath: /html/body/div[4]/@sku_value
             directions:
               - text: Appliquer chaque matin sur le visage et le cou parfaitement nettoyés en
                   effectuant des pressions du centre du visage vers l'extérieur.
@@ -102,4 +105,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1605798158789
+    timestamp: 1606403975229
