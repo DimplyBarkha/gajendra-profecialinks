@@ -48,7 +48,7 @@ fields:
     regExp: (.+),(.+)
     regExpReplace: $2
   - name: shippingInfo
-    xpath: //a[contains(@href, 'aboutSeller')]
+    xpath: concat(//a[contains(@data-analytics-click-value, 'sellerLogin')] , '-', //a[contains(@data-analytics-click-value, 'sellerRating')])
   - name: shippingInfoLovela
     xpath: //span[contains(., 'Sprzedane przez')]
     regExp: (.+)\"(.+)\"
@@ -109,3 +109,8 @@ fields:
     xpath: //li//div[contains(., 'Kolor')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Kolor')]/following-sibling::dd
   - name: quantity
     xpath: //li//div[contains(., 'Rozmiar')]/div[contains(@class, '_f8818_1X1F-')]/following-sibling::div | //dt[contains(., 'Rozmiar')]/following-sibling::dd
+  - name: quantityFromProdTitle
+    xpath: //meta[@property='og:title']/@content
+    regExp: >-
+      ((\d+)\s?(x)?\s?(\d+)?(,\d+)?)\s?(g|mg|ml|IU|Mg|Ml|litre|L|szt|kg|l)
+    regExpReplace: $1$6

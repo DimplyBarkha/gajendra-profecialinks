@@ -53,6 +53,15 @@ const transform = (data) => {
         row.shippingInfo = row.shippingInfoLovela;
       }
 
+      if (row.shippingInfo) {
+        let shippingInfo = row.shippingInfo[0].text;
+        const lastCharachter = shippingInfo.charAt(shippingInfo.length - 1);
+        if (lastCharachter === '-') {
+          shippingInfo = shippingInfo.substring(0, shippingInfo.length - 1);
+          row.shippingInfo = [{ text: shippingInfo }];
+        }
+      }
+
       if (row.directions) {
         const directionsArray = row.directions;
         let directions = '';
@@ -83,6 +92,10 @@ const transform = (data) => {
       if (!row.variantInformation && row.simpleColor) {
         row.variantInformation = row.simpleColor;
         row.color = row.simpleColor;
+      }
+
+      if (!row.quantity) {
+        row.quantity = row.quantityFromProdTitle;
       }
     }
   }
