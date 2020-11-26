@@ -26,15 +26,20 @@ const transform = (data) => {
       var rank = 1;
       for (let row of group) { 
         if(row.productUrl){
-            row.productUrl.forEach(item=>{
-                item.text="https://www.jpg.fr"+item.text;
-            })
+          row.productUrl.forEach(item=>{
+              item.text="https://www.jpg.fr"+item.text;
+          })
         } 
         if(row.thumbnail){
-            row.thumbnail.forEach(item=>{
-                item.text="https"+item.text;
-            })
-        }              
+          row.thumbnail.forEach(item=>{
+              item.text="https"+item.text;
+          })
+        }
+        if(row.id){
+          row.id.forEach(item=>{
+              item.text=item.text.replace('-','');
+          })
+        }
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;

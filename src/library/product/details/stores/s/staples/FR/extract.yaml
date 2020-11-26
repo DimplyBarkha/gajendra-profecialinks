@@ -1,0 +1,71 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="Master"]
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id="skuZoomImage"]/img/@data-zoomimage
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id="skuZoomImage"]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class="carouselInner"]/li[position()>1]/img/@data-zoomimage
+  - name: category
+    singleValue: false
+    xpath: //div[@id="skuBreadCrumbs"]/ol/li/a/span
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="skuName"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id="SkuSaveStory"]//span[@class="strike darkGray"]
+  - name: price
+    singleValue: false
+    xpath: //span[@id="skuPriceLabel"]/span[@id="SkuPriceUpdate"] |//span[@id="skuPriceLabel"]/span[@content="EUR"]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,"productHighlights")]/ul/li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class,"productHighlights") and contains(@class,"skuDetailCol1")]/ul/li
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,"EffortItemCode")]/div[contains(@class,"SL_m")]/text()
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"EffortItemCode")]/div[@class="formLabel"]/text()
+  - name: mpc
+    singleValue: false
+    xpath: //div[@id="skuTabSpecifications"]//table//td/span[text()="Modèle"]/parent::*/text()
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@id="skuTabSpecifications"]//table//td/span[text()="Réf Fabricant"]/parent::*/text()
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"EffortItemCode")]/div[@class="formLabel"]/text()
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: color
+    singleValue: false
+    xpath: //div[@id="skuTabSpecifications"]//table//td/span[text()="Couleur"]/parent::*/text()
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="skuName"]
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[contains(@class,"productHighlights")]/ul/li
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@data-ccs-cc-inline-jumplink="Caractéristiques"]/div[contains(@class,"ccs-cc-inline-features-block")]//div[contains(@class,"ccs-cc-inline-feature-description")]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@data-ccs-cc-inline-jumplink="Caractéristiques"]/div[contains(@class,"ccs-cc-inline-features-block")]//div[contains(@class,"ccs-cc-inline-thumbnail")]/img/@src
