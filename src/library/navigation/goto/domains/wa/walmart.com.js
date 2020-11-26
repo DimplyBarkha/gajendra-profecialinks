@@ -5,6 +5,6 @@ module.exports = {
     domain: 'walmart.com',
     country: 'US',
     store: 'walmart',
-    timeout: 20000,
+    timeout: 35000,
   },
 };
