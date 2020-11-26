@@ -21,6 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@role="breadcrumb"]/li[contains(@class,"trail")]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -65,8 +66,8 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[@class="variant-name"]
+    regExp: \d+ ml|\d+ cm
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -79,6 +80,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //tr/td[contains(text(),"EAN(s):")]/following-sibling::td[text()]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -92,6 +94,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //tr/td[contains(text(),"EAN(s):")]/following-sibling::td[text()]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -461,8 +464,13 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     description: colour / scent / flavour / other
+    xpath: //html//div[@id="VariantInfo"]
+    # xpath: concat(//span[@class="toggle variant selected"]/text() , //ul[@class="dropdown-container"])
+    # xpath: //span[@class="toggle variant selected"]/text()|//span[@class="variant-text text"]
+    # xpath: //span[@class="variant-text text"]
+    # type: TEXT[]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
