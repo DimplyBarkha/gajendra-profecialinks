@@ -5,12 +5,12 @@ recordXPath: null
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,"product-tile__container")]/@data-variant-id 
-  - name: productUrl
-    SingleValue: false
     xpath: //div[@class="product-image"]//a/@href
     regExp: .+\/(.+?)\.html
     regExpReplace: $1    
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="product-image"]//a/@href 
   - name: price
     SingleValue: false
     xpath: //span[@class="standardprice"]
