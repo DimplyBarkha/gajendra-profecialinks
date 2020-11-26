@@ -1,0 +1,154 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _input
+    singleValue: false
+    xpath: //input[contains(@class,'searchbox')]
+  - name: product_Name
+    singleValue: false
+    xpath: //h1[@itemprop]
+  - name: image
+    singleValue: false
+    xpath: //img[@id='pdpPrintImage']/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@id='pdpPrintImage']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='thumbnails']//a[@class]//img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, 'description')]/@content
+  - name: _pageTimestamp
+    singleValue: false
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@id, 'breadcrumb_ctgry')]
+  - name: sabcategory
+    singleValue: false
+    xpath: //div[@id='breadcrumb_ctgry']/span/span[@itemprop='name']
+  - name: nameExtended
+    singleValue: false
+    xpath: //meta[@name='pageName']/@content
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='price-content']/h3/span[@id='save_text']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price-content']/h3/span[@class='red']
+  - name: lbbPrice
+    singleValue: false
+    xpath: //div[@class='price-content']//span[contains(@id,'savings_752527')]
+  - name: description
+    singleValue: false
+    xpath: //p[@itemprop='description']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id='Tab1']/ul
+  - name: sku
+    singleValue: false
+    xpath: //div[@itemprop='sku']
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class='font-11']
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //*[@id='starRating2']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //*[@class='ratings-sprite']//span[@id='starRating2']
+  - name: ratingtext
+    singleValue: false
+    xpath: //span[@class='bv-content-rating bv-rating-ratio']
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@id='shippingAvlList']//input
+  - name: color
+    singleValue: false
+    xpath: //div[@id='selectedcolorText']
+  - name: colorCode
+    singleValue: false
+    xpath: //div[@class='color-select']//input
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id='pickUpAvlList']/input[@id='ship-2']
+  - name: logo
+    singleValue: false
+    xpath: //div[@class]/a[@class='navbar-brand pl-3']
+  - name: brand
+    singleValue: false
+    xpath: //table//tr[contains(.,'Brand')]/td[2]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //table//tr[contains(.,'Country of Origin')]/td[2]
+  - name: finish
+    singleValue: false
+    xpath: //table//tr[contains(.,'Finish')]/td[2]
+  - name: fire_rating
+    singleValue: false
+    xpath: //table//tr[contains(.,'Fire Rating')]/td[2]
+  - name: interior_depth
+    singleValue: false
+    xpath: //table//tr[contains(.,'Interior Depth')]/td[2]
+  - name: interior_height
+    singleValue: false
+    xpath: //table//tr[contains(.,'Interior Height')]/td[2]
+  - name: interior_material
+    singleValue: false
+    xpath: //table//tr[contains(.,'Interior Material')]/td[2]
+  - name: manufacturer
+    singleValue: false
+    xpath: //table//tr[contains(.,'Manufacturer Part Number')]/td[2]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //table//tr[contains(.,'Manufacturer Part Number')]/td[2]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='Specifications']/table
+  - name: materials
+    singleValue: false
+    xpath: //table//tr[contains(.,'Material')]/td[2]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@id='promotion']/a
+  - name: quantity
+    singleValue: false
+    xpath: //div[@id='quantity-pdp-section']/input
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@class='navbar-brand pl-3']/@href
+  - name: variants
+    singleValue: false
+    xpath: //div[@class='img-link']/img/@alt
+  - name: sign-up
+    singleValue: false
+    xpath: //div[contains(@class,'form-group')]//input
+  - name: Brand-Name
+    singleValue: false
+    xpath: //div[contains(@class,'item-name')]//a/@href
+  - name: contact-info
+    singleValue: false
+    xpath: //div[@class='info-left']//a/@href
+  - name: colorcode
+    singleValue: false
+    xpath: //div[@class='color-select']/input/@id
+  - name: size
+    singleValue: false
+    xpath:  //div[@class='d-inline-flex']//select[@class='tsc-select']/option/@value
+  - name: footer-content
+    singleValue: false
+    xpath: //div[@id='footerContainer']
+  - name: askQuestion
+    singleValue: false
+    xpath: //div[@class='bv-ask-question-container bv-write-container']/button[@class]
+  - name: totalNoOfQuestionAsked
+    singleValue: false
+    xpath: //div[@id='bv-content-pagination-pages-questionContentList1-3']/span
+  - name: navigation
+    singleValue: false
+    xpath: //div[@role='navigation']
