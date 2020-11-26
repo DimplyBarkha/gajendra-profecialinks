@@ -1,0 +1,109 @@
+input:
+  id: 1903715
+  _url: http://mediamarkt.ch
+extractions:
+  - html: https://workbench.import.io/html/run=04447b04-954b-4fb3-ad71-658dea655b13/task=130a17ee-e1fb-4050-b3a4-1e1aecd5beeb/7235dc01-f3f7-4f63-8056-5e7bc91f6fee.html
+    extractionConfigId: product/details/stores/m/mediamarkt_ch_de/CH/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mediamarkt.ch/de/product/_dyson-v8-motorhead-1903715.html
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82125196/fee_325_225_png/DYSON-V8-Motorhead---Kabelloser-Staubsauger-%28Nickel-Titan%29
+                xpath: /html/body/div[2]/aside[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: DYSON V8 Motorhead - Kabelloser Staubsauger (Nickel/Titan)
+                xpath: /html/body/div[2]/aside[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80735907/fee_52_41_png/DYSON-V8-Motorhead---Kabelloser-Staubsauger-%28Nickel-Titan%29
+                xpath: /html/body/div[2]/aside[1]/ul[1]/li[2]/a[1]/img[1]/@src
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80735910/fee_52_41_png/DYSON-V8-Motorhead---Kabelloser-Staubsauger-%28Nickel-Titan%29
+                xpath: /html/body/div[2]/aside[1]/ul[1]/li[3]/a[1]/img[1]/@src
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80735909/fee_52_41_png/DYSON-V8-Motorhead---Kabelloser-Staubsauger-%28Nickel-Titan%29
+                xpath: /html/body/div[2]/aside[1]/ul[1]/li[4]/a[1]/img[1]/@src
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80735904/fee_52_41_png/DYSON-V8-Motorhead---Kabelloser-Staubsauger-%28Nickel-Titan%29
+                xpath: /html/body/div[2]/aside[1]/ul[1]/li[5]/a[1]/img[1]/@src
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-78051199/fee_52_41_png/DYSON-V8-Motorhead---Kabelloser-Staubsauger-%28Nickel-Titan%29
+                xpath: /html/body/div[2]/aside[1]/ul[1]/li[6]/a[1]/img[1]/@src
+            category:
+              - text: Haushalt, Heim & Hobby
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
+              - text: Staubsauger & Reinigungsgeräte
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[3]
+              - text: Besenstaubsauger
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[4]
+              - text: Kabelloser Staubsauger
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[5]
+            nameExtended:
+              - text: DYSON V8 Motorhead Kabelloser Staubsauger (Nickel/Titan)
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            listPrice:
+              - text: "379.95"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/div[2]/div[2]/div[2]/div[1]/div[4]/meta[1]/@content
+            description:
+              - text: "DYSON Digitaler Motor V8 Erzeugt mehr Saugkraft als der Dyson Digitaler
+                  Motor V7. 2 Tier Radial Cyclone Technologie Zwei
+                  Zyklonenreihen arbeiten gleichzeitig, um den Luftstrom zu
+                  erhöhen und mehr mikroskopisch kleine Staubpartikel aufnehmen
+                  zu können. Nickel-Mangan-Kobalt Akku Gleichmässiger Verbrauch
+                  der Akkuleistung. Bis zu 40 Minuten Laufzeit. Oben, unten und
+                  für Zwischenräume Abnehmbares Rohr zur flexiblen Reinigung von
+                  schwer erreichbaren Stellen und Ecken. Verbesserte hygienische
+                  Behälterentleerung Durch die verbesserte Behälterentleerung
+                  entsteht beim Entleeren kein Kontakt mit dem Staub. "
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[5]/article[1]/h3[2]
+            brandText:
+              - text: DYSON
+                xpath: /html/head[1]/meta[24]/@content
+            manufacturer:
+              - text: DYSON
+                xpath: /html/head[1]/meta[24]/@content
+            weightNet:
+              - text: 2630 g
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[8]/dl[1]/dd[5]
+            gtin:
+              - text: "5025155040812"
+                xpath: /html/body/script[4]
+            sku:
+              - text: "1903715"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            variantId:
+              - text: "1903715"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            mpc:
+              - text: 282088-01
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[8]/dl[1]/dd[8]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
+            aggregateRating:
+              - text: "3.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[2]
+            color:
+              - text: Nickel/Titan
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[8]/dl[1]/dd[4]
+            name:
+              - text: DYSON V8 Motorhead Kabelloser Staubsauger (Nickel/Titan)
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            price:
+              - text: CHF 279
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1606390559301

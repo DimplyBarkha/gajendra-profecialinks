@@ -21,5 +21,18 @@ module.exports = {
       descriptions[0].text = fullDescription;
       descriptions.splice(1);
     }
+
+    var servingSize = extractedData[0].group[0].servingSize;
+    if (servingSize) {
+      servingSize[0].text = servingSize[0].text.replace(/[()]/g, '');
+    }
+    var servingSizeUom = extractedData[0].group[0].servingSizeUom;
+    if (servingSizeUom) {
+      servingSizeUom[0].text = servingSizeUom[0].text.replace(/[()\d ]/g, '').replace('per', '');
+    }
+    var pricePerUnitUom = extractedData[0].group[0].pricePerUnitUom;
+    if (pricePerUnitUom) {
+      pricePerUnitUom[0].text = pricePerUnitUom[0].text.match(/pro (.+) =/)[1];
+    }
   },
 };

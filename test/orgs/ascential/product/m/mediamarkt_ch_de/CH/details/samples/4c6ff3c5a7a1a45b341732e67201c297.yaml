@@ -1,0 +1,89 @@
+input:
+  id: 1946355
+  _url: http://mediamarkt.ch
+extractions:
+  - html: https://workbench.import.io/html/run=04447b04-954b-4fb3-ad71-658dea655b13/task=809363f9-4981-4259-9619-62ad87f23cc6/48023550-024a-40ae-b44c-ec5526861404.html
+    extractionConfigId: product/details/stores/m/mediamarkt_ch_de/CH/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mediamarkt.ch/de/product/_starbucks-decaffeinated-espresso-roast-by-nespresso%C2%AE-dark-roast-1946355.html
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82297073/fee_325_225_png/STARBUCKS-Decaffeinated-Espresso-Roast-by-NESPRESSO%C2%AE-Dark-Roast---Kaffeekapseln
+                xpath: /html/body/div[2]/aside[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: STARBUCKS Decaffeinated Espresso Roast by NESPRESSO® Dark Roast -
+                  Kaffeekapseln
+                xpath: /html/body/div[2]/aside[1]/div[1]/a[1]/img[1]/@alt
+            category:
+              - text: Kochen & Essen
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
+              - text: Kaffeemaschinen
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[3]
+              - text: Kaffee & Kaffeekapseln
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[4]
+            nameExtended:
+              - text: STARBUCKS Decaffeinated Espresso Roast by NESPRESSO® Dark Roast
+                  Kaffeekapseln
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/div[2]/div[2]/div[2]/div[1]/div[3]/meta[1]/@content
+            description:
+              - text: Jedes Espresso-Getränk, das wir für Sie zubereiten, entspringt genau hier.
+                  Alles begann 1975 mit der Suche nach der perfekten Kombination
+                  aus Kaffeebohnen und Röstung und endete nach monatelangem,
+                  intensivem Experimentieren mit genau dem Kaffee, den Sie jetzt
+                  in Ihrer Hand halten. Das Rezept für die karamellige Süße ist
+                  so perfekt, dass es seither unverändert geblieben ist.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[1]
+            brandText:
+              - text: STARBUCKS
+                xpath: /html/head[1]/meta[24]/@content
+            manufacturer:
+              - text: STARBUCKS
+                xpath: /html/head[1]/meta[24]/@content
+            quantity:
+              - text: 10 Kapseln
+                xpath: /html/body/div[2]/div[2]/div[1]/dl[1]/dd[5]
+            weightNet:
+              - text: 57 g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[1]/div[2]/div[1]/section[1]/dl[1]/dd[10]
+            sku:
+              - text: "1946355"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            variantId:
+              - text: "1946355"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[1]/span[1]
+            mpc:
+              - text: "6200394"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[1]/div[2]/div[1]/section[1]/dl[1]/dd[12]
+            name:
+              - text: STARBUCKS Decaffeinated Espresso Roast by NESPRESSO® Dark Roast
+                  Kaffeekapseln
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            pricePerUnit:
+              - text: "8.68"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[1]/small[1]
+            pricePerUnitUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[2]/div[1]/small[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            price:
+              - text: CHF 4.95
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1606390558585

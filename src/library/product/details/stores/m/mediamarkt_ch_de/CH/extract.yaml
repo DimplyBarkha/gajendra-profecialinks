@@ -61,10 +61,11 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //article[contains(@class,'description')]/p | //article[contains(@class,'description')]/h3
+  xpath: //article[contains(@class, "description")]/p | //article[contains(@class, "description")]/h3 | //article[contains(@class, "description")]//li
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//article[contains(@class, "description")]//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -120,12 +121,14 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //meta[@itemprop="reviewCount"]/@content
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@itemprop="ratingValue"]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -141,6 +144,7 @@ fields:
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: //div[@id="features"]//dt[contains(text(), "Farbe")]/following-sibling::dd[1]
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -265,9 +269,13 @@ fields:
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
+  xpath: //div[@id="features"]//h2[contains(text(), "Nutrition declaration")]
+  regExp: \((.+)\)
 - name: servingSizeUom
   singleValue: true
   description: Unit of measure of serving
+  xpath: //div[@id="features"]//h2[contains(text(), "Nutrition declaration")]
+  regExp: \((.+)\)
 - name: numberOfServingsInPackage
   singleValue: true
   description: Suggested number of servings of the product.
@@ -275,6 +283,8 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
+  xpath: //div[@id="features"]//dt[contains(text(), "Brennwert") and contains(text(), "kcal")]/following-sibling::dd[1]
+  regExp: ([\d.,]+)
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -283,16 +293,24 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
+  xpath: //div[@id="features"]//dt[contains(text(), "Fett")]/following-sibling::dd[1]
+  regExp: ([\d.,]+)
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content
+  xpath: //div[@id="features"]//dt[contains(text(), "Fett")]/following-sibling::dd[1]
+  regExp: ([a-zA-Z%]+)
 - name: saturatedFatPerServing
   singleValue: true
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
+  xpath: //div[@id="features"]//dt[contains(text(), "gesättigte Fettsäuren")]/following-sibling::dd[1]
+  regExp: ([\d.,]+)
 - name: saturatedFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Saturated Fat content
+  xpath: //div[@id="features"]//dt[contains(text(), "gesättigte Fettsäuren")]/following-sibling::dd[1]
+  regExp: ([a-zA-Z%]+)
 - name: transFatPerServing
   singleValue: true
   description: Nutritional Information for Trans Fat content - Usually based on per
@@ -318,30 +336,46 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
+  xpath: //div[@id="features"]//dt[contains(text(), "Kohlenhydrate")]/following-sibling::dd[1]
+  regExp: ([\d.,]+)
 - name: totalCarbPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Carbohydrate content
+  xpath: //div[@id="features"]//dt[contains(text(), "Kohlenhydrate")]/following-sibling::dd[1]
+  regExp: ([a-zA-Z%]+)
 - name: dietaryFibrePerServing
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
+  xpath: //div[@id="features"]//dt[contains(text(), "Ballaststoffe")]/following-sibling::dd[1]
+  regExp: ([\d.,]+)
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
+  xpath: //div[@id="features"]//dt[contains(text(), "Ballaststoffe")]/following-sibling::dd[1]
+  regExp: ([a-zA-Z%]+)
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
+  xpath: //div[@id="features"]//dt[contains(text(), "Zucker")]/following-sibling::dd[1]
+  regExp: ([\d.,]+)
 - name: totalSugarsPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
+  xpath: //div[@id="features"]//dt[contains(text(), "Zucker")]/following-sibling::dd[1]
+  regExp: ([a-zA-Z%]+)
 - name: proteinPerServing
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
+  xpath: //div[@id="features"]//dt[contains(text(), "Eiweißgehalt")]/following-sibling::dd[1]
+  regExp: ([\d.,]+)
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
+  xpath: //div[@id="features"]//dt[contains(text(), "Eiweißgehalt")]/following-sibling::dd[1]
+  regExp: ([a-zA-Z%]+)
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
@@ -384,9 +418,13 @@ fields:
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
+  xpath: //div[@id="features"]//dt[contains(text(), "Salzgehalt")]/following-sibling::dd[1]
+  regExp: ([\d.,]+)
 - name: saltPerServingUom
   singleValue: true
   description: Unit of Measure Data for Salt
+  xpath: //div[@id="features"]//dt[contains(text(), "Salzgehalt")]/following-sibling::dd[1]
+  regExp: ([a-zA-Z%]+)
 - name: dietaryInformation
   singleValue: true
   description: 
@@ -396,6 +434,7 @@ fields:
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
+  xpath: //div[@id="features"]//dt[contains(text(), "Warranty")]/following-sibling::dd[1]
 - name: storage
   singleValue: true
   description: Suggested storage location for product
@@ -420,9 +459,12 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //div[@class="price-sidebar"]//small[@class="unit-price"]
+  regExp: ([\d.]+)
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //div[@class="price-sidebar"]//small[@class="unit-price"]
 - name: promotion
   singleValue: true
   description: promotion text on product page
@@ -466,6 +508,7 @@ fields:
   singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
   example: 4 - 99 years
+  xpath: //div[@id="features"]//dt[contains(text(), "Altersfreigabe")]/following-sibling::dd[1]
 - name: energyEfficiency
   singleValue: true
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
@@ -475,19 +518,19 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: No
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -496,9 +539,9 @@ fields:
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: No
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: Yes
