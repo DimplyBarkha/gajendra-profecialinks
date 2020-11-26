@@ -5,14 +5,14 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[@class='article-title']/a[1]/@href
+    xpath: //a[@class='title']/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class='article-left article-thumbnail']//a/img//@data-src
+    xpath: //a[@class='title']/img/@src
   - name: name
     singleValue: true
     type: TEXT
-    xpath: //a[@class='outer-product-link']/@title
+    xpath: //a[@class='title']/@title
   - name: id
     singleValue: true
     description: The store-specific product identifier
@@ -21,10 +21,11 @@ fields:
     regExpReplace: $2
   - name: manufacturer
   - name: rating
-    xpath: //div[@class='article-left article-thumbnail']//div[@class='rating ']/@data-rating
+    xpath: //div[@class='panel-body']//div[@class='rating ']/@data-rating
   - name: number_of_reviews
-    xpath: //div[@class='article-left article-thumbnail']//a/span[@class='rating-count']/span/text()
+    type: NUMBER
+    xpath: //div[@class='panel-body']//span[@class='rating-count']
   - name: price
     description: The offered price for the product
     type: CURRENCY
-    xpath: //div[@class='col-xs-8 col-sm-12']//div[@class='article-price']//span[@class='article-price-default article-club-hidden']//text()
+    xpath: //div[@class='article-priceicons article-club-hidden']/following-sibling::span//text()
