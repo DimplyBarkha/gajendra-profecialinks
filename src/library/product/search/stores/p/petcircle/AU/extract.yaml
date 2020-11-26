@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@id="productListing"]/li
+recordXPath: //ul[@id='productListing']/li
 fields: 
   - name: thumbnail
     singleValue: false
     xpath: //figure/a/img/@src
   - name: name
     singleValue: false
-    xpath: //span[@class="product-name"]
+    xpath: //span[@class='product-name']
   - name: brandText
     singleValue: false
     xpath: //h3[@class='product-name']/a/span[1]
@@ -34,7 +34,4 @@ fields:
     xpath: //figure/a/@href
   - name: id
     singleValue: false
-    xpath: //div[@class="sizes-wrapper"]/input[contains(@class,'active')]/@id    
-  # - name: 
-  #   singleValue: false
-  #   xpath: 
+    xpath: //div[@class="sizes-wrapper"]/input[contains(@class,'active')]/@id
