@@ -48,6 +48,9 @@ module.exports = {
         if ('aggregateRating' in data[k].group[i]) {
           data[k].group[i].aggregateRating[0].text = data[k].group[i].aggregateRating[0].text.replace('.', ',');
         }
+        if ('availabilityText' in data[k].group[i]) {
+          data[k].group[i].availabilityText[0].text = 'In Stock';
+        }
         if ('description' in data[k].group[i]) {
           var descrString = data[k].group[i].description[0].text;
           descrString = descrString.split('Planethair.it:');

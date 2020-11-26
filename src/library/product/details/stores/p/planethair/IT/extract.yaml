@@ -52,9 +52,7 @@ fields:
 - name: availabilityText
   singleValue: false
   type: STRING
-  xpath: //div[@class="ty-product-block__button"]//button[@type="submit"]
-  regExp: (.+)
-  regExpReplace: "In Stock"
+  xpath: //div[@class="ty-product-block__button"]//button[@type="submit"]/text()
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
