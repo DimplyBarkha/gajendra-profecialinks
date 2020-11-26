@@ -17,11 +17,13 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
 
-      await context.evaluate(()=>{const nextBtn = document.querySelector('#start-of-content > div.f-load-more > button');
+    await context.evaluate(() => {
+      const nextBtn = document.querySelector('#start-of-content > div.f-load-more > button');
       if (nextBtn) {
         nextBtn.click();
         console.log('button clicked');
-      }})
+      }
+    });
     return await context.extract(productDetails, { transform });
-}
+  },
 };
