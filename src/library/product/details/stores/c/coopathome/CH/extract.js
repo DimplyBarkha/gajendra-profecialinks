@@ -12,15 +12,14 @@ async function implementation (
   console.log('parameters:: ', parameters);
   if (id) {
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-    await context.waitForXPath('//div[@class="productTile__wrapper"]/a');
+    await context.waitForXPath('//div[@class="product-listing__thumbnail-image"]/img');
 
-    await context.waitForSelector('div.productTile__wrapper a');
+    await context.waitForSelector('div.product-listing__thumbnail-image img');
     console.log('everything fine !!!');
     await context.evaluate(() => {
-      const firstItem = document.querySelector('div.productTile__wrapper a');
+      const firstItem = document.querySelector('div.product-listing__thumbnail-image img');
       firstItem.click();
     });
-
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   }
   return await context.extract(productDetails, { transform });
