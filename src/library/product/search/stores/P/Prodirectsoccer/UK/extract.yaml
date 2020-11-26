@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="lister-grid__content"]//div[contains(@class,"lister-grid__item")]
+fields:
+  - name: productUrl
+    xpath: //div[@class="product-thumb"]/a/@href
+  - name: thumbnail
+    xpath: //div[@class="product-thumb"]//img/@src
+  - name: name
+    xpath: //div[@class="product-thumb"]//div[@class="product-thumb__name"]
+  - name: price
+    xpath: //div[@class="product-thumb"]//div[@class="product-prices"]/span[@class="product-prices__item"]
+    regExp: (\d+.\d+|\d+)
+    regExpReplace: $1
+  - name: rank
+  - name: rankOrganic 
+  - name: id
+    xpath: //div[@class="product-thumb"]//div[contains(@class,"rating")]/@data-sku
+  - name: aggregateRating2
+    type: STRING
+    singleValue: false
+    xpath: //@rating
