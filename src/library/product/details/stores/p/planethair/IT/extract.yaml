@@ -28,8 +28,8 @@ fields:
   singleValue: true
   description: The <meta> keywords content
 - name: category
-  singleValue: true
-  xpath: //div[@class="ty-breadcrumbs clearfix"]/span[@class="ty-breadcrumbs__current"]/preceding-sibling::a[1]/text()
+  singleValue: false
+  xpath: //a[@class="ty-breadcrumbs__a"]
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: false
