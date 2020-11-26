@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    type: CURRENCY
+    xpath: //em[@class='price']/span[@class='jsonws_pricevalue']    
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="photo-container"]/a/@href    
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class='product-image ']/img[@class='img-responsive']/@src  
+  - name: name
+    singleValue: false
+    xpath: //div[@class='description-container']/span[@class='title']/a
+  - name: id
+    singleValue: false
+    xpath: //div[@class='description-container']/div[@class='productcode']
