@@ -1,0 +1,73 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"product-primary-image")]/img/@data-zoom-image
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"product-primary-image")]/img/@alt
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,"breadcrumb")]/li/a[not(contains(@class,"home"))]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,"product-title-wrapper")]/span/a | //h1[contains(@class,"description_group")]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,"product-price-wrapper")]//span[contains(@class,"text-line-through")]
+  - name: price
+    singleValue: falsee
+    xpath: //div[contains(@class,"product-price-wrapper")]//span[contains(@class,"text-red")]
+  - name: availabilityText
+    singleValue: true
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@id="productDescriptionContentBody"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,"product-title-wrapper")]/span/a
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"product-title-wrapper")]/h6
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"product-title-wrapper")]/h6
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@id="dyn4"]//span[contains(@class,"text-red-sephora")]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"block_product_rating")]//span[@class="rating_value"]
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@class="product-variations-color"]//div[@class="slick-track"]/div[contains(@class,"slick-slide")]
+  - name: name
+    singleValue: true
+    xpath: //h1[contains(@class,"description_group")]
+  - name: variantInformation
+    singleValue: true
+    description: colour / scent / flavour / other
+  - name: firstVariant
+    singleValue: true
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+  - name: variants
+    singleValue: false
+    description: null
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
