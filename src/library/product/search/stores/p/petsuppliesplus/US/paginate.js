@@ -10,4 +10,4 @@ module.exports = {
     spinnerSelector: 'div.coveo-fade-out',
     domain: 'petsuppliesplus.com',
   },
-}
+};
