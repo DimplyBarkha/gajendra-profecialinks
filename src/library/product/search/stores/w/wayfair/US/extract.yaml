@@ -1,0 +1,18 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"pl-Box--display-flex pl-Box--fw-wrap pl-Grid pl-Grid--gutterFullBleed")]//div[contains(@class,"pl-Box--display-flex pl-Box--fw-wrap")]
+fields: 
+ - name: productUrl
+   singleValue: false
+   description: The URL for the product details page
+   xpath: //div[contains(@class,"ProductCard-container")]//a/@href
+ - name: price
+   singleValue: false
+   description: The offered price for the product
+   xpath: //div[@class="ProductCard-pricing"]//span[@class="ProductCard-price ProductCard-price--sale"] |//span[@class="ProductCard-price"]
+   regExp: (\d+\.\d+)
+ - name: id
+   singleValue: false
+   description: Unique id (within this extractor)
+   xpath: //div[@class="ProductCard-container"]//a/@data-sku
