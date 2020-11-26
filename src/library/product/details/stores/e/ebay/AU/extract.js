@@ -18,20 +18,25 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     //need to check if it redirects to product page or listing page
-    const isSearchPage = await context.evaluate(async function() {
-      const searchPageSelector = '.srp-results  li';
-      if(document.querySelector(searchPageSelector)) {
-        console.log("Now in a search page");
-        return true;
-      } else {
-        console.log("Not on a search page");
-        return false;
+    const isSearchPage = await context.evaluate(async function () {
+      try {
+        const searchPageSelector = '.srp-results  li';
+        if (document.querySelector(searchPageSelector)) {
+          console.log("Now in a search page");
+          return true;
+        } else {
+          console.log("Not on a search page");
+          return false;
+        }
+      } catch (err) {
+        console.log(err);
       }
+
     });
 
-    const isProdPage = await context.evaluate(async function() {
+    const isProdPage = await context.evaluate(async function () {
       const prodPageSelector = "div#CenterPanelInternal";
-      if(document.querySelector(prodPageSelector)) {
+      if (document.querySelector(prodPageSelector)) {
         console.log("Now in a prod page");
         return true;
       } else {
@@ -40,48 +45,56 @@ module.exports = {
       }
     });
     let prodUrl = "";
-    if(isSearchPage && !isProdPage) {
-      prodUrl = await context.evaluate(async function() {
-        if(document.querySelector('.srp-results  li[class*=s-item] a[class*=link]') && document.querySelector('.srp-results  li[class*=s-item] a[class*=link]').hasAttribute('href')) {
-          return document.querySelector('.srp-results  li[class*=s-item] a[class*=link]').getAttribute('href');
-        } else {
-          return "";
-        }
-      })
+    if (isSearchPage && !isProdPage) {
+      try {
+        prodUrl = await context.evaluate(async function () {
+          let productUrl = null;
+          if (document.querySelector('ul[class*="srp-results"] li:first-child')) {
+            productUrl = document.querySelector('ul[class*="srp-results"] li:first-child div[class*="s-item__info"] >a').getAttribute('href');
+          } else {
+            console.log("product URL is not present");
+            return false;
+          }
+          return productUrl;
+
+        })
+      } catch (err) {
+        console.log(err);
+      }
     }
-    if(prodUrl) {
+    if (prodUrl) {
       await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     }
-    
-    const pId = inputs.id;
-    let productUrl = null;
-    productUrl = await context.evaluate(async function (pId) {
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-      let productUrl = null;
-      if (pId) {
-        if (document.querySelector('input[class*="autocomplete-input"]')) {
-          document.querySelector('input[class*="autocomplete-input"]').value = pId;
-        }
-        // document.getElementById("myText").value = "Johnny Bravo";
-        if (document.querySelector('input[class*="btn-prim"]')) {
-          document.querySelector('input[class*="btn-prim"]').click();
-        }
-        await stall(4500);
-        if (document.querySelector('ul[class*="srp-results"] li:first-child')) {
-          productUrl = document.querySelector('ul[class*="srp-results"] li:first-child div[class*="s-item__info"] >a').getAttribute('href');
-        }
-      }
-      return productUrl;
-    }, pId);
-    if (productUrl !== null) {
-      await context.goto(productUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-    }
+
+    // const pId = inputs.id;
+    // //let producturl = null;
+    // let producturl = await context.evaluate(async function (pId) {
+    //   function stall(ms) {
+    //     return new Promise((resolve, reject) => {
+    //       setTimeout(() => {
+    //         resolve();
+    //       }, ms);
+    //     });
+    //   }
+    //   let productUrl = null;
+    //   if (pId) {
+    //     if (document.querySelector('input[class*="autocomplete-input"]')) {
+    //       document.querySelector('input[class*="autocomplete-input"]').value = pId;
+    //     }
+    //     // document.getElementById("myText").value = "Johnny Bravo";
+    //     if (document.querySelector('input[class*="btn-prim"]')) {
+    //       document.querySelector('input[class*="btn-prim"]').click();
+    //     }
+    //     await stall(4500);
+    //     if (document.querySelector('ul[class*="srp-results"] li:first-child')) {
+    //       productUrl = document.querySelector('ul[class*="srp-results"] li:first-child div[class*="s-item__info"] >a').getAttribute('href');
+    //     }
+    //   }
+    //   return productUrl;
+    // }, pId);
+    // if (producturl !== null) {
+    //   await context.goto(producturl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    // }
     // await context.evaluate(async function (){
     //     document.querySelector('ul[class*="srp-results"] li:first-child div[class*="s-item__info"] >a').click();
     //     function stall (ms)
@@ -105,6 +118,19 @@ module.exports = {
       const src = iframe ? iframe.src : '';
       return src;
     });
+
+    let redirect = await context.evaluate(async function () {
+      let redirect = false;
+      if (document.URL.includes('signin.ebay')) {
+        redirect = true;
+      }
+      return redirect;
+    });
+
+    if (redirect == true) {
+      await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    }
+
     await context.extract(productDetails, { transform });
     if (src) {
       try {
