@@ -7,8 +7,10 @@ fields:
   singleValue: false
 - name: _url
   singleValue: false
-- name: productUrl
-  singleValue: false
+#sasz
+#- name: productUrl
+#  singleValue: false
+#  xpath: //link[@rel='canonical']/@href
 - name: _pageTimeStamp
   singleValue: false
 # - name: image
@@ -18,12 +20,15 @@ fields:
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-# - name: alternateImages
-#   singleValue: false
-#   description: Other product images (not in manufacturer description)
-#   xpath: //div[@state="default"]/@style
-#   regExp: '(\((.*?)\))'
-#   regExpReplace: $2
+- name: alternateImages
+  singleValue: false
+  description: Other product images (not in manufacturer description)
+  xpath: //div[@state="default"]/@style
+#  regExp: '(\((.*?)\))'
+#  regExpReplace: $2
+#sasz
+#  regExp: \"(.+)wid
+#  regExpReplace: $1wid=600&hei=600&fmt=png
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -79,12 +84,16 @@ fields:
 #   singleValue: true
 #   description: Net weight as described on the page
 #   xpath: //tbody/tr[@class="techSpecsRow "]/th[contains(., 'Poids')]/following-sibling::td
+#sasz
+#   xpath: //th[contains(., 'Poids')]/following-sibling::td
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
-- name: gtin
-  singleValue: true
-  description: GTIN code (includes UPC/EAN)
+#sasz gtin - barcode
+  #- name: gtin
+#  singleValue: true
+#  description: GTIN code (includes UPC/EAN)
+#  xpath: //td[@id='attributecode_eankey']
 # - name: sku
 #   singleValue: true
 #   description: The store-specific product identifier
@@ -124,9 +133,13 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-- name: shippingDimensions
-  singleValue: true
-  description: Stated shipping dimensions
+#sasz  should be here? 
+#- name: shippingDimensions
+#  singleValue: true
+#  description: Stated shipping dimensions
+#  xpath: normalize-space(concat(//p[contains(text(),'Dimensions')],//p[contains(text(),'Poids')]))
+#  regExp: (\d.+)
+#  regExpReplace: $1
 - name: shippingWeight
   singleValue: true
   description: Stated shipping weight
@@ -147,10 +160,11 @@ fields:
 #   singleValue: false
 #   description: Images within the third party description
 #   xpath: //div[@id="ccs-inline-content"]/descendant::img/@src
-- name: videos
-  singleValue: false
-  description: URLs of videos on page
-  xpath: //video/@src #todo
+#sasz
+#- name: videos
+#  singleValue: false
+#  description: URLs of videos on page
+#  xpath: //video/source/@src #todo
 # - name: name
 #   singleValue: true
 #   description: The product name
@@ -422,9 +436,11 @@ fields:
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
-- name: promotion
-  singleValue: true
-  description: promotion text on product page
+#sasz
+#- name: promotion
+#  singleValue: true
+#  description: promotion text on product page
+#  xpath: //div[@id='dealBoxDealDescription']
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
