@@ -11,7 +11,7 @@ const implementation = async function (
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        scrollTop += 500;
+        scrollTop += 1000;
         window.scroll(0, scrollTop);
         await stall(1000);
       }
