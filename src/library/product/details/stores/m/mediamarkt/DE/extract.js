@@ -9,9 +9,6 @@ module.exports = {
     domain: 'mediamarkt.de',
     zipcode: '',
   },
-  dependencies: {
-    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
-  },
   // @ts-ignore
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
     const popUpsButton = await context.evaluate(async function () {
@@ -74,7 +71,7 @@ module.exports = {
             if (imagePath) return imagePath.includes('https:') ? el.getAttribute('data-srcset') : 'https:' + el.getAttribute('data-srcset');
           }).filter(el => !!el);
           result.images = images;
-          result.description = [...desc, additionalDesc].map(el => el.replace(/^\s+$/, '')).filter(el => !!el);
+          result.description = [...desc, ...additionalDesc].map(el => el.replace(/^\s+$/, '')).filter(el => !!el);
           return result;
         });
       } catch (err) {
@@ -95,14 +92,6 @@ module.exports = {
 
     async function graphQLCallObj (productID) {
       const obj = await context.evaluate(async function (productID) {
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
-
         async function getData (url) {
           let data = {};
 
@@ -169,7 +158,6 @@ module.exports = {
                     });
                   });
                 }
-                addHiddenDiv('ii_videos', videos.join(' || '));
               }
             });
           }
@@ -206,10 +194,9 @@ module.exports = {
         try {
           const videoElements = document.querySelectorAll('img[alt="Play Video"]');
           for (let i = 0; i < videoElements.length; i++) {
-            console.log('iter ' + i);
             // @ts-ignore
             await document.querySelectorAll('img[alt="Play Video"]')[i].click();
-            await new Promise(resolve => setTimeout(resolve, 5000));
+            await new Promise(resolve => setTimeout(resolve, 2500));
             // @ts-ignore
             await document.querySelectorAll('#playButton > div')[i].click();
             await new Promise(resolve => setTimeout(resolve, 250));
@@ -241,10 +228,8 @@ module.exports = {
         if (graphQLObj.ean) data.ean = graphQLObj.ean;
         if (graphQLObj.videos) data.videos = [...data.videos, graphQLObj.videos];
       }
-      if (manufacturerObj) {
-        if (manufacturerObj.images.length) data.manufacturerImages = manufacturerObj.images;
-        if (manufacturerObj.description.length) data.manufacturerDesc = manufacturerObj.description;
-      }
+      if (manufacturerObj.images.length) data.manufacturerImages = manufacturerObj.images;
+      if (manufacturerObj.description.length) data.manufacturerDesc = manufacturerObj.description;
       appendData(data);
     }, { graphQLObj, manufacturerObj });
     await context.extract(productDetails, { transform });
