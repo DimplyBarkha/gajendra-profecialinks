@@ -63,4 +63,4 @@ fields:
   - name: sku
     xpath: //div[@id='skuInfo']
   - name: variantCount
-    xpath: count(ancestor::html(//ul[contains(@class, 'dbk-product-carousel--list')]/li))
+    xpath: count(ancestor::html//ul[contains(@class, 'dbk-product-carousel--list')]/li)-1
