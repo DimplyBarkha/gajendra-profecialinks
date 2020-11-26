@@ -1,22 +1,27 @@
+const { cleanUp } = require('../../../../shared');
+
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
-
-  await context.evaluate(() => {
-    let category = document.querySelector('.row.breadcrumbs-section').textContent;
-    const categoryItereation = category.split('Zurück zu:');
-    category = '';
-
-    categoryItereation.forEach(element => {
-      category += element + '>';
-    });
-
-    document.querySelector('.row.breadcrumbs-section').setAttribute('category', category);
-  });
+  const { transform } = parameters;
 
   await context.evaluate(() => {
     const images = document.querySelectorAll('.slick-track>div>img');
     let imageUrl;
+    const categorySelector = document.querySelectorAll('.row.breadcrumbs-section>ol>li');
+    let category;
     let j = 0;
+
+    for (; j < categorySelector.length; j++) {
+      if (category !== null && category !== undefined) {
+        category = categorySelector[j].textContent;
+        category = category.replace('Zurück zu:', '');
+
+        document.querySelectorAll('.row.breadcrumbs-section>ol>li')[j].setAttribute('category', category);
+      }
+    }
+
+    j = 0;
+
     for (let i = 0; i < images.length; i++) {
       imageUrl = images[i].src;
 
@@ -29,7 +34,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     };
   });
 
-  await context.extract(productDetails);
+  await context.extract(productDetails, { transform }, 'MERGE_ROWS');
 };
 
 module.exports = {
@@ -37,7 +42,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'windeln',
-    transform: null,
+    transform: cleanUp,
     domain: 'windeln.de',
     zipcode: '',
   },

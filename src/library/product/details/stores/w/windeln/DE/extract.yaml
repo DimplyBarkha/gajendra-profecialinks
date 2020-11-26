@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: body[id="pageId-product"]
 recordXPath: null
 fields:
 - name: _input
@@ -12,44 +12,43 @@ fields:
 - name: _pageTimeStamp
   singleValue: false
 - name: image
-  singleValue: true
+  singleValue: false
   description: URL of the main product image
-  xpath: //div[@class="zoom-wrap"]/img/@src[not(contains(., "blank"))]
+  xpath: //div[@class="zoom-wrap"]/img/@src[not(contains(., 'blank'))]
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: (//div[@class="img-container"]/img/@alt)[1]
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@class='slick-track']/div/img/@src
+  xpath: //div[@class="thumbnail left slick-slide slick-active"]/img/@src
 - name: metaKeywords
   singleValue: false
   description: The <meta> keywords content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //div[@class='row breadcrumbs-section']/ol/li[@class="breadcrumbs-category"]
+  xpath: //div[@class='row breadcrumbs-section']/ol/li/@category
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //div[@class='product-selection']/h1
+  xpath: //h1[@itemprop="name"]
 - name: listPrice
-  singleValue: true
+  singleValue: false
   description: The stated undiscounted price for the product
-  xpath: (//div[@class='old-price'])[1]
+  xpath: (//div[@class="old-price"])[1] 
 - name: price
-  singleValue: true
+  singleValue: false
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //div[@class='normal-price']
+  xpath: //div[@class="product-gross-price"]
 - name: availabilityText
-  singleValue: true
+  singleValue: false
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //p[@class='product-is-in-stock icon']
+  xpath: //p[@class="product-is-in-stock icon"]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -58,23 +57,23 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//div[@class='group-description']/li)
+  xpath: count(//div[@itemprop="description"]/li)
 - name: brandText
-  singleValue: true
+  singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
   xpath: //div[@class='product-selection-brand']/a
 - name: manufacturer
-  singleValue: true
+  singleValue: false
   description: Product manufacturer
   xpath: //div[@class='product-selection-brand']/a
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
 - name: weightNet
-  singleValue: true
+  singleValue: falses
   description: Net weight as described on the page
-  xpath: //li[contains(., 'Produktgewicht')]
+  xpath: (//li[contains(., 'Produktgewicht')])[1]
   regExp: '[^t]*$'
 - name: weightGross
   singleValue: true
@@ -83,16 +82,16 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN)
 - name: sku
-  singleValue: true
+  singleValue: false
   description: The store-specific product identifier
   xpath: //h2[@class='product-description-ean']
-  regExp: '[^:]*$'
+  regExp: '[1-9].*'
 - name: variantId
-  singleValue: true
+  singleValue: false
   description: Identifier for a variant from a store where variants share the same
     sku
   xpath: //h2[@class='product-description-ean']
-  regExp: '[^:]*$'
+  regExp: '[1-9].*'
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -107,26 +106,26 @@ fields:
   singleValue: true
   description: Content under "directions" header
 - name: warnings
-  singleValue: true
+  singleValue: false
   description: Content under "warnings" header
-  xpath: //div[@id='product-informations']/div/p[contains(., 'Warnhinweise')]
+  xpath: //h3[contains(., 'Warnhinweise')]/following::p[1]
 - name: ratingCount
   singleValue: true
   description: The number of ratings
-  xpath: normalize-space(//div[@class='ratings-tabs-item-ratings-count'])
+  xpath: //span[@itemprop="reviewCount"]
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //div[@class='ratings-list-no-ratings'] | //div[@class='ratings-tabs-item-stars']/div/span[@class='ratings-stars-average']
+  xpath: //div[@class='ratings-list-no-ratings'] |(//span[@itemprop="ratingValue"])[1]
 - name: shippingInfo
-  singleValue: true
+  singleValue: false
   description: Shipping information for the product
   xpath: normalize-space(//div[@class='product-shipping'])
 - name: shippingDimensions
-  singleValue: true
+  singleValue: false
   description: Stated shipping dimensions
   xpath: concat(//div[@class='bullet-points-list']/ul/li[contains(., 'Produktbreite')] , //div[@class='bullet-points-list']/ul/li[contains(., 'Produktlänge')] , //div[@class='bullet-points-list']/ul/li[contains(., 'Produkthöhe')])
 - name: shippingWeight
@@ -137,6 +136,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: count(//div[@class="variant-2-panel active scroll-pane"]/div)
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -158,9 +158,9 @@ fields:
   description: The product name
   xpath: //h1[@itemprop="name"]
 - name: inStorePrice
-  singleValue: true
+  singleValue: false
   description: Price in the selected store
-  xpath: //div[@class='normal-price']
+  xpath: (//div[@class='normal-price'])[0]
 - name: asin
   singleValue: true
   description: 
@@ -174,7 +174,7 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
-  singleValue: true
+  singleValue: false
   description:
   xpath: //div[@class='product-selection-brand']/a/@href
 - name: internationalShipping
@@ -263,11 +263,11 @@ fields:
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
 - name: servingSize
-  singleValue: true
+  singleValue: false
   description: The size of serving Nutritional information is based on.
   xpath: //div[@class='product-detail-description']/div[@class='product-lmiv']/table/tbody/tr[2]/th[2]
 - name: servingSizeUom
-  singleValue: true
+  singleValue: false
   description: Unit of measure of serving
   xpath: //div[@class='product-detail-description']/div[@class='product-lmiv']/table/tbody/tr[2]/th[2]
   regExp: '[^0-9]+$'
@@ -398,11 +398,11 @@ fields:
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
-  xpath: //tr[contains(., 'Eisen'))]/td[2]
+  xpath: //tr[contains(., 'Eisen')]/td[2]
 - name: ironPerServingUom
   singleValue: true
   description: Unit of Measure Data for Iron
-  xpath: //tr[contains(., 'Eisen']/td[2]
+  xpath: //tr[contains(., 'Eisen')]/td[2]
   regExp: '[^0-9]+$'
 - name: dietarySymbols
   singleValue: true
@@ -500,6 +500,7 @@ fields:
 - name: variants
   singleValue: false
   description:
+  xpath: //div[@class='variant-2-panel active scroll-pane']/div
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
