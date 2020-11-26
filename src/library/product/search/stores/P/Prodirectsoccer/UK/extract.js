@@ -12,7 +12,6 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await context.waitForNavigation();
     await context.evaluate(async () => {
-      const currentUrl = window.location.href;
       const products = document.querySelectorAll('.lister-grid__content>div>.product-thumb');
       products.forEach((product, index) => {
         // rating
