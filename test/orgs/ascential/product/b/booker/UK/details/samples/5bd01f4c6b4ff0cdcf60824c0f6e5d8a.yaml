@@ -1,0 +1,195 @@
+input:
+  id: "488"
+  _url: http://booker.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=6d0f4f5b-2f25-4459-804c-f2a1f86e7709/task=42fe9b38-ba66-4bba-8d8a-8a666ad9c91a/f0aeb804-0bf3-4ecb-8fb0-d35c10cdd26b.html
+    extractionConfigId: product/details/stores/b/booker/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.booker.co.uk/bbimages/1/2dc4b9a3-3da5-4772-94a0-1d9a184ba48f.jpg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Smarties Milk Chocolate Tube 38g - Click for larger image
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            quantity:
+              - text: 48 x 38g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
+            sku:
+              - text: "488"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            variantId:
+              - text: "488"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            brandText:
+              - text: Smarties
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
+            brandLink:
+              - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=1805&searchTerm=By+Brand%3a+Smarties
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]/a[1]/@href
+            storage:
+              - text: Ambient
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[8]/span[1]
+            description:
+              - text: Release the fun of Nestlé® Smarties® Milk Chocolate Sweets. Smooth milk
+                  chocolate sweets covered in colourful crisp sugar shells -
+                  which colour are you?. A deliciously fun and colourful treat
+                  in a convenient resealable Smarties® tube. Includes orange
+                  Smarties®, made using natural orange oil. Coloured using food
+                  & plant extracts - no artificial flavours, colours or
+                  preservatives. Quality, 100% certified sustainable cocoa beans
+                  selected through the Nestlé® Cocoa Plan®. Bring some Smarties®
+                  fun into your life! Yummy smooth milk chocolate sweets covered
+                  in colourful crisp sugar shells. Nestlé® Smarties® Hexatube
+                  contains red, yellow, green, blue, violet, pink, brown and
+                  orange Smarties® - what's your favourite? This convenient
+                  resealable Smarties® tube offers the ideal no mess treat when
+                  you're out and about. Release the colourful fun of Smarties®.
+                  Deliciously smooth milk chocolate has been at the heart of
+                  Smarties® for more than 80 years and, in 2005, Smarties® were
+                  the first UK major confectionery brand to move to no
+                  artificial colours - more reasons to enjoy Smarties®. We
+                  select only quality, 100% certified sustainable cocoa beans
+                  through the Nestlé® Cocoa Plan ®, which aims to improve the
+                  lives of cocoa farming communities and the quality of their
+                  products. Enjoy Smarties® as part of a varied, balanced diet
+                  and a healthy lifestyle. Each 38g tube contains two portions
+                  (16 sweets per portion), so why not share with a friend or
+                  save some for later. Have you tried our Smarties® Cartons and
+                  Sharing Bags, filled with everyone's favourite colour
+                  Smarties®, perfect for family film nights or sharing with
+                  friends. And, if you love Smarties® chocolate, then get ready
+                  to experience chocolate heaven with Smarties® Sharing Block -
+                  yummy smooth milk chocolate Smarties® covered in more yummy
+                  milk chocolate! www.smarties.co.uk
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            caloriesPerServing:
+              - text: 1941 kJ
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            totalFatPerServing:
+              - text: "18.4"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            saturatedFatPerServing:
+              - text: "10.5"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            totalCarbPerServing:
+              - text: "68.8"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+            dietaryFibrePerServing:
+              - text: "0.9"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            totalSugarsPerServing:
+              - text: "63.4"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
+            proteinPerServing:
+              - text: "4.8"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
+            saltPerServing:
+              - text: "0.15"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
+            category:
+              - text: Browse Categories
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
+              - text: Confectionery
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[3]
+              - text: Chocolate
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[4]
+              - text: Kids Confectionery - Chocolate
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/span[5]
+            nameExtended:
+              - text: Smarties Milk Chocolate Tube 38g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            name:
+              - text: Smarties Milk Chocolate Tube 38g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[4]/a[1]
+            legalDisclaimer:
+              - text: The image and summary details have been prepared for illustration and
+                  information purposes only. On occasion the actual product may
+                  differ from that shown. Whilst we have taken every care in
+                  preparing this summary and believe it to be accurate, it is
+                  not a substitute for reading the product packaging or label
+                  prior to use. You should note that products and their
+                  ingredients are subject to change. If you do require precise
+                  ingredient information you should consult the manufacturer,
+                  whose contact details will appear on the packaging or label.
+                  Booker is therefore unable to accept liability for any
+                  incorrect information. Where this description contains a link
+                  to another party's website for further information on the
+                  product, please note that Booker has no control over and no
+                  liability for the contents of that website. This data is
+                  supplied for personal use only. It may not be reproduced in
+                  any way whatsoever without Booker's prior consent, nor without
+                  due acknowledgement.
+                xpath: /html/body/new-disclaimer[1]
+            metaKeywords:
+              - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
+                  Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
+                  House Vintners, Chef's Larder, Drop Shipment
+                xpath: /html/body/meta-key[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/availability[1]
+            technicalInformationPdfPresent:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            warnings:
+              - text: Contains MilkContains Wheat
+            variantCount:
+              - text: "0"
+            ingredientsList:
+              - text: Sugar,Cocoa Butter,Skimmed Milk Powder,Cocoa Mass,Wheat Flour,Lactose and
+                  Proteins from Whey (from Milk),Butterfat (from Milk),Rice
+                  Starch,Emulsifier (Sunflower Lecithin),Fruit and Vegetable
+                  Concentrates (Safflower, Radish, Black Carrot, Lemon,
+                  Hibiscus),Spirulina Concentrate,Orange Extract,Glazing Agents
+                  (Carnauba Wax, Beeswax),Natural Vanilla Flavouring,Invert
+                  Sugar Syrup
+            dietaryInformation:
+              - text: Free From Artificial ColoursFree From Artificial FlavoursFree From
+                  Artificial Preservatives
+            allergyAdvice:
+              - text: Contains MilkContains Wheat
+            recyclingInformation:
+              - text: ""
+            packaging:
+              - text: Type Box
+        xpath: /html
+    timestamp: 1606400655975

@@ -1,0 +1,179 @@
+input:
+  id: "257876"
+  _url: http://booker.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=6d0f4f5b-2f25-4459-804c-f2a1f86e7709/task=76795dc7-197a-4003-93f9-4faa57702b22/ca710255-ec27-4789-b73b-013dff0d8937.html
+    extractionConfigId: product/details/stores/b/booker/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.booker.co.uk/bbimages/1/75bfad30-d7dd-4325-a186-bcd2f8596cd6.jpg
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Chef's Larder Premium Luxury Chocolate Fudge Cake - Click for larger image
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            quantity:
+              - text: 6 x 14ptn
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
+            sku:
+              - text: "257876"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            variantId:
+              - text: "257876"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            brandText:
+              - text: Chef's Larder
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[9]/span[1]
+            brandLink:
+              - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=630&searchTerm=By+Brand%3a+Chef%27s+Larder
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[9]/span[1]/a[1]/@href
+            storage:
+              - text: Frozen
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[10]/span[1]
+            description:
+              - text: Three layers of moist, rich, dark chocolate cake between lashings of dark
+                  chocolate fudge. Ideal served hot or cold. Pre-sliced.
+                  Microwave from Frozen. Defrost & Serve Hot or Cold. No
+                  Artificial Colours or Preservatives. Suitable for vegetarians.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
+            servingSize:
+              - text: 100g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            servingSizeUom:
+              - text: 00g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+            caloriesPerServing:
+              - text: 1693kJ
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            totalFatPerServing:
+              - text: "19"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            saturatedFatPerServing:
+              - text: "5.1"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            totalCarbPerServing:
+              - text: "55"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+            dietaryFibrePerServing:
+              - text: "1.7"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            totalSugarsPerServing:
+              - text: "47"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
+            proteinPerServing:
+              - text: "3.9"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
+            saltPerServing:
+              - text: "0.53"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
+            directions:
+              - text: Defrosting Guidelines For best results, remove all packaging whilst
+                  product is still frozen. Place on a serving plate and defrost
+                  in a refrigerator (5°C) for approximately 8 hours.
+                  Alternatively, remove the required amount of slices from the
+                  frozen product and defrost each slice on a plate in a
+                  refrigerator (5°C) for approximately 2 hours. Use within 48
+                  hours.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
+            category:
+              - text: Browse Categories
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
+              - text: Frozen Food
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[3]
+              - text: Frozen Desserts
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[4]
+              - text: Frozen Desserts - Other
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/span[5]
+            nameExtended:
+              - text: Chef's Larder Premium Luxury Chocolate Fudge Cake
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            name:
+              - text: Chef's Larder Premium Luxury Chocolate Fudge Cake
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[4]/a[1]
+            legalDisclaimer:
+              - text: The image and summary details have been prepared for illustration and
+                  information purposes only. On occasion the actual product may
+                  differ from that shown. Whilst we have taken every care in
+                  preparing this summary and believe it to be accurate, it is
+                  not a substitute for reading the product packaging or label
+                  prior to use. You should note that products and their
+                  ingredients are subject to change. If you do require precise
+                  ingredient information you should consult the manufacturer,
+                  whose contact details will appear on the packaging or label.
+                  Booker is therefore unable to accept liability for any
+                  incorrect information. Where this description contains a link
+                  to another party's website for further information on the
+                  product, please note that Booker has no control over and no
+                  liability for the contents of that website. This data is
+                  supplied for personal use only. It may not be reproduced in
+                  any way whatsoever without Booker's prior consent, nor without
+                  due acknowledgement.
+                xpath: /html/body/new-disclaimer[1]
+            metaKeywords:
+              - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
+                  Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
+                  House Vintners, Chef's Larder, Drop Shipment
+                xpath: /html/body/meta-key[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/availability[1]
+            technicalInformationPdfPresent:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            warnings:
+              - text: Contains EggsContains MilkMay Contain NutsContains SoyaContains Wheat
+            variantCount:
+              - text: "3"
+            ingredientsList:
+              - text: "Chocolate Fudge Icing (54%),Chocolate Sponge (46%),Chocolate Fudge Icing
+                  contains: Sugar, Water, Palm Oil, Fat Reduced Cocoa Powder
+                  (9%), Rapeseed Oil, Glucose Syrup, Dried Glucose Syrup,
+                  Emulsifiers (Mono- and Di-Glycerides of Fatty Acids,
+                  Polyglycerol Esters of Fatty Acids), Whey Powder (Milk), Soya
+                  Lecithins, Acidity Regulator (Potassium Hydroxide),Chocolate
+                  Sponge contains: Sugar, Wheat Flour (contains Calcium
+                  Carbonate, Iron, Nicotinamide, Thiamin), Buttermilk (Milk),
+                  Rapeseed Oil, Egg, Fat Reduced Cocoa Powder (3.5%), Egg Yolk,
+                  Raising Agent (Sodium Bicarbonate)"
+            dietaryInformation:
+              - text: Free From Artificial ColoursFree From Artificial Preservatives
+            allergyAdvice:
+              - text: Contains EggsContains MilkMay Contain NutsContains SoyaContains Wheat
+            recyclingInformation:
+              - text: ""
+            packaging:
+              - text: Type Box
+        xpath: /html
+    timestamp: 1606400598443
