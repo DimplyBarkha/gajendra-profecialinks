@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'appie.nl',
-    timeout: 100000,
     country: 'NL',
     store: 'appie',
+    domain: 'appie.nl',
     zipcode: '',
   },
 };

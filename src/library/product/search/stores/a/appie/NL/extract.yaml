@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    xpath: //div[@id="search-lane"]/div/article/div/a/@href
+    regExp: (wi+\d+)
+    regExpReplace: $1
+  - name: rankOrganic
+  - name: name
+    xpath: //div[@id="search-lane"]/div/article/div/a/@title
+  - name: productUrl
+    xpath: //div[@id="search-lane"]/div/article/div/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.ah.nl$1
+  - name: reviewCount
+    singleValue: false
+  - name: gtin
+  - name: thumbnail
+    xpath: //div[@id="search-lane"]/div/article/div/a/figure/div/img/@src
+  - name: aggregateRating
+  - name: ratingCount
+  - name: price
+    xpath: //div[@id="search-lane"]/div/article/div/a/div/div[@class="price_portrait__1yoeR"]/div[last()]
+  - name: rank
+
