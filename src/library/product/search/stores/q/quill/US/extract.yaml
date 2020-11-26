@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="ResultsSection"]//div[contains(@class,"SearchResultsNew BrowseItem")]
+fields: 
+  - name: id
+    xpath: //div[@itemprop="productID"]
+    regExp: (\d+.+)
+    regExpReplace: $1
+  - name: name
+    singleValue: true
+    xpath: //h3[@id="skuName"]
+  - name: productUrl
+    xpath: //div[contains(@class,"skuImageInner")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.quill.com/$1
+  - name: thumbnail
+    xpath: //div[contains(@class,"skuImageInner")]//a//img/@src
+  - name: aggregateRating
+    xpath: //span[@id="productRating"]
+  - name: reviewCount
+    xpath: //span[@class="darkGray"]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: price
+    xpath: //span[@itemprop="price"]
+    regExp: (\d+\.\d+)
+    regExpReplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
