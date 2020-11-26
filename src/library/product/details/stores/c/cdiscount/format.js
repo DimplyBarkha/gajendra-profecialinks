@@ -26,11 +26,16 @@ const transform = (data) => {
           row.alternateImages.shift();
         }
   
-        if (row.variantId) {
-          row.variantId.forEach(variantIdItem => {
-            variantIdItem.text = variantIdItem.text.toUpperCase();
+        if (row.sku) {
+          row.sku.forEach(skuItem => {
+            skuItem.text = skuItem.text.toUpperCase();
           });
         }
+        // if (row.variantId) {
+        //   row.variantId.forEach(variantIdItem => {
+        //     variantIdItem.text = variantIdItem.text.toUpperCase();
+        //   });
+        // }
   
         if (row.videos) {
           row.videos.forEach(videosItem => {
