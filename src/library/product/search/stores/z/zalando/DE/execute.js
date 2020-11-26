@@ -5,9 +5,9 @@ module.exports = {
     country: 'DE',
     store: 'zalando',
     domain: 'zalando.de',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://m-en.zalando.de/men/?q={searchTerms}',
+    loadedSelector: 'script[id="z-nvg-cognac-props"]',
+    noResultsXPath: '//span[contains(text(), "Try a different search term or check the spelling.")]',
     zipcode: '',
   },
 };

@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: '//ol[@id="added_product_list"]/li'
 fields:
   - name: id
     singleValue: false
@@ -9,12 +9,15 @@ fields:
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //@name
   - name: productUrl
     singleValue: false
+    xpath: //@product_url
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //@thumbnail
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,8 +28,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //@price
   - name: manufacturer
     singleValue: true
+    xpath: //@manufacturer
   - name: soldBy
     singleValue: true
   - name: endorsementText
