@@ -36,7 +36,7 @@ fields:
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  xpath: //div[@class="c-product-hero__description"]//h1
+  xpath: //div[@data-js-action="productHeroDescription"]//h1
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
