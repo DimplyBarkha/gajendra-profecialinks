@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'falabella.com',
-    timeout: 50000,
     country: 'CL',
     store: 'falabella',
+    domain: 'falabella.com',
     zipcode: '',
   },
 };
