@@ -1,0 +1,19 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"search-service-rsTiles")]/div[@class='search-service-product']
+fields:
+  - name: productUrl
+    xpath: //input[@name="listingId"]/@url
+  - name: thumbnail
+    xpath: //div[@class="search-service-rsProductsMedia"]//img/@src
+  - name: name
+    xpath: //div[@class="search-service-productTitle"]/div/text()
+  - name: price
+    xpath: //div[@class="search-service-productPrice"]|//div[@class="search-service-productOfferPrice"]
+    regExp: (\d+.\d+|\d+)
+    regExpreplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: id
+    xpath: //input[@name="listingId"]/@number
