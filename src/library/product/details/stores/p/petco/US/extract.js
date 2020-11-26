@@ -20,27 +20,27 @@ async function implementation (
     };
 
     function getproductInfo () {
-      const array = document.querySelectorAll('div[class*="ProductVariationsstyled__OptionsContainer"] select option');
-      const varInfo = [...document.querySelectorAll('div[class*="ProductVariationsstyled__OptionsContainer"] select option')].map((ele) => ele.getAttribute('label'));
+      const array = document.querySelectorAll('div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select option');
+      const varInfo = [...document.querySelectorAll('div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select option')].map((ele) => ele.getAttribute('label'));
       for (let i = 0; i < Object.keys(jsonString).length; i++) {
         const images = [];
-        array[i].setAttribute('name', jsonString[parseInt(Object.keys(jsonString)[i])].name);
-        array[i].setAttribute('variantId', jsonString[parseInt(Object.keys(jsonString)[i])].id);
-        array[i].setAttribute('sku', jsonString[parseInt(Object.keys(jsonString)[i])].id);
-        array[i].setAttribute('price', jsonString[parseInt(Object.keys(jsonString)[i])].price.price_USD);
-        array[i].setAttribute('listPrice', jsonString[parseInt(Object.keys(jsonString)[i])].price.listprice_USD);
-        array[i].setAttribute('mainImage', jsonString[parseInt(Object.keys(jsonString)[i])].thumbnail);
-        array[i].setAttribute('upcNumber', jsonString[parseInt(Object.keys(jsonString)[i])].upcNumber);
+        array[i].setAttribute('name', jsonString[Object.keys(jsonString)[i]].name);
+        array[i].setAttribute('variantId', jsonString[Object.keys(jsonString)[i]].id);
+        array[i].setAttribute('sku', jsonString[Object.keys(jsonString)[i]].id);
+        array[i].setAttribute('price', jsonString[Object.keys(jsonString)[i]].price.price_USD);
+        array[i].setAttribute('listPrice', jsonString[Object.keys(jsonString)[i]].price.listprice_USD);
+        array[i].setAttribute('mainImage', jsonString[Object.keys(jsonString)[i]].thumbnail);
+        array[i].setAttribute('upcNumber', jsonString[Object.keys(jsonString)[i]].upcNumber);
         array[i].setAttribute('size', varInfo[i]);
-        array[i].setAttribute('directions', jsonString[parseInt(Object.keys(jsonString)[i])].directions.directions);
-        array[i].setAttribute('warranty', jsonString[parseInt(Object.keys(jsonString)[i])].warranty.warranty);
-        array[i].setAttribute('availability', jsonString[parseInt(Object.keys(jsonString)[i])].inventory.inventoryStatus);
-        for (var j = 1; j < jsonString[parseInt(Object.keys(jsonString)[i])].pip.images.length; j++) {
-          images.push(`https:${jsonString[parseInt(Object.keys(jsonString)[i])].pip.images[j].imgURL}`);
+        array[i].setAttribute('directions', jsonString[Object.keys(jsonString)[i]].directions.directions);
+        array[i].setAttribute('warranty', jsonString[Object.keys(jsonString)[i]].warranty.warranty);
+        array[i].setAttribute('availability', jsonString[Object.keys(jsonString)[i]].inventory.inventoryStatus);
+        for (var j = 1; j < jsonString[Object.keys(jsonString)[i]].pip.images.length; j++) {
+          images.push(`https:${jsonString[Object.keys(jsonString)[i]].pip.images[j].imgURL}`);
         }
         array[i].setAttribute('alternateImages', images);
         array[i].setAttribute('variantCount', Object.keys(jsonString).length);
-        array[i].setAttribute('firstVariant', jsonString[parseInt(Object.keys(jsonString)[0])].sku);
+        array[i].setAttribute('firstVariant', jsonString[Object.keys(jsonString)[0]].sku);
         array[i].setAttribute('variants', Object.keys(jsonString));
         array[i].setAttribute('varInfo', varInfo);
       }
@@ -48,17 +48,18 @@ async function implementation (
 
     function optionTag() {
       var option = document.createElement('option');
-      document.querySelector('div[class*="ProductVariationsstyled__OptionsContainer"] select').appendChild(option);
+      document.querySelector('div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select').appendChild(option);
     }
 
-    const isAvailable = document.querySelector('div[class*="ProductVariationsstyled__OptionsContainer"] select');
+    const isAvailable = document.querySelector('div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select');
     if (isAvailable) {
-      const length = document.querySelectorAll('div[class*="ProductVariationsstyled__OptionsContainer"] select option').length;
+      const length = document.querySelectorAll('div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select option').length;
       if (length === Object.keys(jsonString).length) {
         optionalWait('main h1[class*="ProductNamestyled"]');
         getproductInfo();
       } else {
         optionalWait('main h1[class*="ProductNamestyled"]');
+        optionTag();
         getproductInfo();
       }
     } else {
@@ -66,10 +67,13 @@ async function implementation (
       var newDiv = document.createElement('div');
       newDiv.className = 'ProductVariationsstyled__OptionsContainer';
       document.querySelector('fieldset[class*="SelectDeliveryMethodstyled"]').append(newDiv);
+      var newDiv1 = document.createElement('div');
+      newDiv1.className = 'floats__FloatContainer';
+      document.querySelector('fieldset[class*="SelectDeliveryMethodstyled"] div[class*="ProductVariationsstyled__OptionsContainer"]').append(newDiv1);
       var newSelect = document.createElement('select');
-      document.querySelector('fieldset[class*="SelectDeliveryMethodstyled"] div[class*="ProductVariationsstyled__OptionsContainer"]').append(newSelect);
+      document.querySelector('fieldset[class*="SelectDeliveryMethodstyled"] div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]').append(newSelect);
       var option = document.createElement('option');
-      document.querySelector('fieldset[class*="SelectDeliveryMethodstyled"] div[class*="ProductVariationsstyled__OptionsContainer"] select').appendChild(option);
+      document.querySelector('fieldset[class*="SelectDeliveryMethodstyled"] div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"] select').appendChild(option);
       getproductInfo();
     }
   });

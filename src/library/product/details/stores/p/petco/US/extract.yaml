@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div[class*="ProductVariationsstyled__OptionsContainer"] select option
-recordXPath: //div[contains(@class,"ProductVariationsstyled__OptionsContainer")]//select//option
+recordSelector: div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select option
+recordXPath: //div[contains(@class,"ProductVariationsstyled__OptionsContainer")]//div[contains(@class,"floats__FloatContainer")][last()]//select//option
 fields:
   - name: image
     xpath: //@mainimage
@@ -35,7 +35,7 @@ fields:
   - name: quantity
     xpath: //@size[not(contains(.,"null"))]
   - name: gtin
-    xpath: //@upcnumber
+    xpath: //@upcnumber[not(contains(.,"null"))]
   - name: sku
     xpath: //@sku
   - name: variantId
@@ -46,17 +46,15 @@ fields:
   - name: directions
     xpath: //@directions[not(contains(.,"null"))]
   - name: warnings
-  - name: ratingCount
-    xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//ul[contains(@class,"StarRatingsstyled__RatingsList")]/@title
-    regExp: (.+)(\s.+)
-    regExpReplace: $1
-  - name: reviewCount
-    xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//ul[contains(@class,"StarRatingsstyled__RatingsList")]/@title
-    regExp: (.+)(\s.+)
-    regExpReplace: $1
   - name: aggregateRatingText
+    xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//ul[contains(@class,"StarRatingsstyled__RatingsList")]/@title
+    regExp: ^[^\s]*\s
+  - name: aggregateRatingText
+    xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//ul[contains(@class,"StarRatingsstyled__RatingsList")]/@title
+    regExp: ^[^\s]*\s
+  - name: ratingCount
     xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//a[@data-track-value="product review"]/text()
-  - name: aggregateRating
+  - name: reviewCount
     xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//a[@data-track-value="product review"]/text()
   - name: shippingInfo
   - name: shippingDimensions
@@ -93,6 +91,8 @@ fields:
   - name: pricePerUnitUom
   - name: promotion
     xpath: ancestor::html//span[@id="best-price"]
+    regExp: (.+off)(.+)
+    regExpReplace: $1
   - name: alcoholContent
   - name: variantInformation
     xpath: //@varinfo
