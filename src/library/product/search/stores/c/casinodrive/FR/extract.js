@@ -9,23 +9,23 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  // await context.evaluate(async function (results) {
-  //   const productCards = document.querySelectorAll('div[class*="viewports-enabled-fop__"]');
-  //   if (productCards && productCards.length > 0) {
-  //     const length = (productCards.length > results) ? results : productCards.length;
-  //     for (let i = 0; i < length; i++) {
-  //       if ((i % 5) === 3) {
-  //         productCards[i].scrollIntoView({ behavior: 'smooth' });
-  //         await new Promise(resolve => setTimeout(resolve, 500));
-  //       }
-  //       const loadedCards = productCards[i].querySelector('div[class*="base__BoxCard"]');
-  //       if (!loadedCards) {
-  //         productCards[i].scrollIntoView({ behavior: 'smooth' });
-  //         await new Promise(resolve => setTimeout(resolve, 5000));
-  //       }
-  //     }
-  //   }
-  // }, results);
+  await context.evaluate(async function (results) {
+    const totalResultsNode = document.querySelector('span[class="header-article-title"]');
+    let totalResults = 0;
+    if (totalResultsNode) {
+      const totalResultsStr = totalResultsNode.textContent.split(':')[1].trim().split(' ')[0];
+      totalResults = parseInt(totalResultsStr, 10);
+    }
+    let productCards = document.querySelectorAll('div[class="lazyload"] ul[class*="prodlist"] li');
+    const length = (totalResults > results) ? results : totalResults;
+    const footer = document.querySelector('div[class="footerV2"]');
+    while (productCards.length < length) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      productCards = document.querySelectorAll('div[class="lazyload"] ul[class*="prodlist"] li');
+    }
+    productCards[length - 1].scrollIntoView({ behavior: 'smooth' });
+  }, results);
 
   return await context.extract(productDetails, { transform });
 }

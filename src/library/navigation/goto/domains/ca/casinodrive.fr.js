@@ -17,18 +17,9 @@ module.exports = {
       css_enabled: false,
       random_move_mouse: true,
     });
-    // await context.waitForSelector('input[class="input-text-custom__input"]');
-    // await context.setInputValue('input[class="input-text-custom__input"]', 'Bourg-en-Bresse (01000)');
-    // await context.click('button[class*="input-text-custom__submit"]');
     await context.waitForSelector('div[class*="map-box__block-store"]:first-of-type a[class*="block-store__main-link"]');
     await context.click('div[class*="map-box__block-store"]:first-of-type a[class*="block-store__main-link"]');
     await context.stop();
-    // try {
-    //   await context.waitForSelector('div[class="lightbox-content"] a[class*="lightbox-close"]', { timeout: 10000 });
-    //   await context.click('div[class="lightbox-content"] a[class*="lightbox-close"]');
-    // } catch (err) {
-    //   console.log('Pop up not appeared.');
-    // }
 
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
