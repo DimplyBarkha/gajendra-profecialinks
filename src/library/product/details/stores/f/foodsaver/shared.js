@@ -4,24 +4,42 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const cleanUp = (data, context) => {
-    let dataStr = JSON.stringify(data);
-    console.log('INSIDE OF CLEANUP');
-    dataStr = dataStr.replace(/(?:\\r\\n|\\r|\\n)/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
-      .replace(/[^\x00-\x7F]/g, '');
-
-    return JSON.parse(dataStr);
-  };
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+  // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
-    for (let row of group) {
+    for (const row of group) {
+      if (row.description) {
+        let desc = '';
+        row.description.forEach(item => {
+          desc += `${item.text}`;
+        });
+        row.description = [
+          {
+            text: desc.replace(/\n \n/g, ' || '),
+          },
+        ];
+      }
+      if (row.specifications) {
+        let desc = '';
+        row.specifications.forEach(item => {
+          desc += `${item.text}`;
+        });
+        row.specifications = [
+          {
+            text: desc.replace(/\n \n/g, ' || '),
+          },
+        ];
+      }
       if (row.shippingDimensions) {
         row.shippingDimensions.forEach(item => {
           const locText = item.text;
@@ -32,42 +50,6 @@ const transform = (data) => {
           }
           console.log(item.text);
         });
-      }
-      if (row.description) {
-        const nDesc = [];
-        let newDesc = '';
-        let idx = 0;
-        row.description.forEach(item => {
-          nDesc[0] = item;
-          if (idx > 0) {
-            newDesc = newDesc + '||';
-          }
-          newDesc = newDesc + item.text;
-          idx++;
-        });
-        nDesc.forEach(item => {
-          item.text = newDesc;
-        });
-        row.description = nDesc;
-
-        row = cleanUp(row);
-      }
-      if (row.specifications) {
-        const nDesc = [];
-        let newDesc = '';
-        let idx = 0;
-        row.specifications.forEach(item => {
-          nDesc[0] = item;
-          if (idx > 0) {
-            newDesc = newDesc + '||';
-          }
-          newDesc = newDesc + item.text;
-          idx++;
-        });
-        nDesc.forEach(item => {
-          item.text = newDesc;
-        });
-        row.specifications = nDesc;
       }
       if (row.videos) {
         const nDesc = [];
@@ -100,17 +82,11 @@ const transform = (data) => {
         });
         row.variants = nvariants;
       }
-      if (row.availabilityText) {
-        for (const item of row.availabilityText) {
-          if (item.text.includes('In Stock')) {
-            item.text = 'In Stock';
-          } else {
-            item.text = 'Out of Stock';
-          }
-        }
-      }
     }
   }
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 
