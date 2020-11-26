@@ -13,7 +13,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, "image-wrapper") and  position()>1 ]//img[contains(@class, "slider-image")]//@data-zoom
+    xpath: //div[contains(@class,'thumb-item')][not(contains(@class,'current'))]//img/@src
     # xpath: //div[contains(@class, "image-wrapper")]//img[contains(@class, "slider-image")]//@data-zoom
   - name: metaKeywords
     singleValue: true
