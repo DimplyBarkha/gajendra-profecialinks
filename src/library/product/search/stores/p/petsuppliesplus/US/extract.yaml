@@ -30,7 +30,7 @@ fields:
     xpath: //div[@class="prod-rating"]/span
     regExp: \d+
   - name: price
-    xpath: //div[@class="actual-price-1"]/span[@class="price"][2]/strong
+    xpath: //div[contains(@class,"actual-price")]/*[last()]/strong
   - name: endorsementText
     xpath: //div[@class="advert"]/p[@class="bg-red"]
   - name: rank

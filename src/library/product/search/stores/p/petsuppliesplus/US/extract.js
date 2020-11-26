@@ -7,6 +7,6 @@ module.exports = {
     store: 'petsuppliesplus',
     transform,
     domain: 'petsuppliesplus.com',
-    zipcode: '',
+    zipcode: '60440-2380',
   },
 };

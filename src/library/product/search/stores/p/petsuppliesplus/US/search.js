@@ -5,6 +5,6 @@ module.exports = {
     country: 'US',
     store: 'petsuppliesplus',
     domain: 'petsuppliesplus.com',
-    zipcode: '',
+    zipcode: '60440-2380',
   },
 };

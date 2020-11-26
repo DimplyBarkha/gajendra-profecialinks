@@ -7,6 +7,6 @@ module.exports = {
     domain: 'petsuppliesplus.com',
     url: 'https://petsuppliesplus.com/Search#q={searchTerms}&sort=relevancy',
     noResultsXPath: '//div[@class="coveo-query-summary-no-results-string"]',
-    zipcode: '',
+    zipcode: '60440-2380',
   },
 };
