@@ -143,10 +143,10 @@ const transform = (data, context) => {
       if (row.listPrice) {
         if (row.listPrice.length > 1) {
           row.minListPrice = [{
-            text: row.price[0],
+            text: row.listPrice[0],
           }];
           row.maxListPrice = [{
-            text: row.price[1],
+            text: row.listPrice[1],
           }];
         }
       }

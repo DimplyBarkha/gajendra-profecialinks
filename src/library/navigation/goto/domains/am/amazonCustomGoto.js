@@ -33,7 +33,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
   const pageContext = async () => {
     return await context.evaluate(() => {
       console.log('context.evaluate');
-      
+
       const selectors = {
         hasProdDetails: '#prodDetails, #detailBullets_feature_div',
         hasSalesRank: '#detailBullets_feature_div a[href*="bestsellers"], #detailBullets a[href*="bestsellers"], #prodDetails a[href*="bestsellers"], #SalesRank',
@@ -259,7 +259,11 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
     console.log('solved captcha, waiting for page change');
     await context.waitForNavigation(30);
-
+    if (await context.evaluate(() => !document.querySelector('#a-popover-root'))) {
+      await context.reload();
+      await context.waitForNavigation(30);
+      await new Promise(r => setTimeout(r, 2000));
+    }
     console.log('Captcha vanished');
 
     const page = await pageContext();
@@ -429,9 +433,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     }
 
     if (lastResponseCode !== 200 && (page.is400Page || page.is500Page)) {
-      if(lastResponseCode){
+      if (lastResponseCode) {
         return context.reportBlocked(lastResponseCode, 'Blocked: ' + lastResponseCode);
-      }else{
+      } else {
         return context.reportBlocked(lastResponseCode, 'Blocked: 400 or 500 response');
       }
     }

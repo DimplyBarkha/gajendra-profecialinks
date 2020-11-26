@@ -70,7 +70,8 @@ async function implementation (
   }
   const { pager } = dependencies;
 
-  const success = openSearchDefinition ? false : await pager({ keywords, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
+  // We want pager to prioritze pager execution before moving to openSearchDefinition directly to avoid goto for each page especially for Amazon.
+  const success = await pager({ keywords, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
 
   if (success) {
     return true;
