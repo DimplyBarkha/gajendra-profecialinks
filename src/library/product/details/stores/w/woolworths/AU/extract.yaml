@@ -1,0 +1,49 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@class="imageZoomerComponent-main--image u-noOutline"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@class="imageZoomerComponent-main--image u-noOutline"]/@alt
+  - name: availabilityText
+    singleValue: false
+    xpath: //section[@class="shelfProductTile has-header"]//div[@class="cartControls ng-star-inserted"]//button[contains(text(),'Add to cart')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //section[@class="shelfProductTile has-header"]//div[@class="price price--large ng-star-inserted"]
+  - name: alternateImages
+    singleValue: false
+    xpath: //img[@class="thumbnail-image"]/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//img[@class="thumbnail-image"]/@src)
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: sku
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin13")]
+    regExp: gtin13":"([^"]+)
+    regExpReplace: $1    
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="shelfProductTile-title heading3"]
+  - name: description
+    xpath: //script[@type="application/ld+json"][contains(text(),"description")]
+    regExp: description":"([^"]+)
+    regExpReplace: $1    
+  - name: listPrice
+    singleValue: false
+    xpath: //section[@class="shelfProductTile has-header"]//div[@class="price-was price--large ng-star-inserted"]
