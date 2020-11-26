@@ -2,11 +2,14 @@ input:
   _url: http://victoryonline.co.il
   URL: http://www.victoryonline.co.il/פיטנס_שקדים_ודבש_נסטלה_585_גרם/מוצר
 extractions:
-  - html: https://workbench.import.io/html/run=e11e3094-31ff-451d-bab1-db17132add20/task=2e00ec87-99f8-4f10-b725-68d057432980/2a8efa53-cd7d-4ae4-83fb-90a38d08c1e1.html
+  - html: https://workbench.import.io/html/run=4c58cab4-1a03-4919-9641-55d0ab3d61eb/task=8ff006c2-571c-4aae-9b0c-7f27326e4065/b412258b-9e4a-4115-8eeb-9bb97eada386.html
     extractionConfigId: product/details/stores/v/victoryonline/IL/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.victoryonline.co.il/%D7%A4%D7%99%D7%98%D7%A0%D7%A1_%D7%A9%D7%A7%D7%93%D7%99%D7%9D_%D7%95%D7%93%D7%91%D7%A9_%D7%A0%D7%A1%D7%98%D7%9C%D7%94_585_%D7%92%D7%A8%D7%9D/%D7%9E%D7%95%D7%A6%D7%A8
+                xpath: /html/head[1]/meta[5]/@content
+            image:
               - text: https://gcimages.mysupermarket.co.il/victory/products/74/034374.jpg?v=88
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
@@ -15,18 +18,35 @@ extractions:
             availabilityText:
               - text: לא קיים בויקטורי
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]
-            quantity:
-              - text: 585 גרם
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[2]/span[1]
-            name:
-              - text: פיטנס שקדים ודבש נסטלה
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]/span[1]
             description:
               - text: >-
                   פיטנס שקדים ודבש נסטלה 
 
                   דגנים מחיטה מלאה ואורז עם שקדים ודבש, מועשרים בויטמינים ומינרלים ביניהם: סידן, ברזל וחומצה פולית
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/p[1]
+            quantity:
+              - text: 585 גרם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[2]/span[1]
+            gtin:
+              - text: "7613034042170"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[6]
+            sku:
+              - text: "34374"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@productid
+            variantId:
+              - text: "34374"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@productid
+            legalDisclaimer:
+              - text: ט.ל.ח - התמונות, הנתונים והתיאורים הינם להמחשה בלבד, הנתונים המדויקים
+                  מופיעים על גבי אריזת המוצר, אין להסתמך על הפירוט באתר ביחס
+                  לנתוני המוצר ו/או רכיביו, יתכנו טעויות או אי התאמות, יש לבדוק
+                  את הנתונים על גבי אריזת המוצר טרם השימוש בו. יתכן ומוצר שיסופק
+                  לצרכן נושא סימון תזונתי חדש ו/או סימון בסמל אדום, על אף שסימון
+                  כאמור אינו מופיע עדיין באתר.
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[7]
+            name:
+              - text: פיטנס שקדים ודבש נסטלה
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]/span[1]
             servingSize:
               - text: "100"
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
@@ -78,17 +98,6 @@ extractions:
             proteinPerServingUom:
               - text: גרם
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[4]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
-            gtin:
-              - text: "7613034042170"
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[6]
-            legalDisclaimer:
-              - text: ט.ל.ח - התמונות, הנתונים והתיאורים הינם להמחשה בלבד, הנתונים המדויקים
-                  מופיעים על גבי אריזת המוצר, אין להסתמך על הפירוט באתר ביחס
-                  לנתוני המוצר ו/או רכיביו, יתכנו טעויות או אי התאמות, יש לבדוק
-                  את הנתונים על גבי אריזת המוצר טרם השימוש בו. יתכן ומוצר שיסופק
-                  לצרכן נושא סימון תזונתי חדש ו/או סימון בסמל אדום, על אף שסימון
-                  כאמור אינו מופיע עדיין באתר.
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[7]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -101,5 +110,5 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-        xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]
-    timestamp: 1606331068117
+        xpath: /
+    timestamp: 1606399256857

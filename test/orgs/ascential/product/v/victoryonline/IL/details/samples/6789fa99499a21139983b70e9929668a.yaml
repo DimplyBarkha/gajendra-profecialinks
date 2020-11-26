@@ -2,11 +2,49 @@ input:
   _url: http://victoryonline.co.il
   URL: http://www.victoryonline.co.il/קרקר_לחמית_חיטה_מלאה_אסם_1_קג/מוצר
 extractions:
-  - html: https://workbench.import.io/html/run=e11e3094-31ff-451d-bab1-db17132add20/task=84a41882-5a68-4426-8e4a-5eb2b1b6de58/d683dd6f-3e75-45fc-8270-a48aa4f4be3f.html
+  - html: https://workbench.import.io/html/run=4c58cab4-1a03-4919-9641-55d0ab3d61eb/task=b62bc111-54a8-4498-8128-72218aab5bc5/376f445f-20e2-4f3d-a949-e1c127567af8.html
     extractionConfigId: product/details/stores/v/victoryonline/IL/extract
     data:
       - group:
-          - servingSize:
+          - productUrl:
+              - text: https://www.victoryonline.co.il/%D7%A7%D7%A8%D7%A7%D7%A8_%D7%9C%D7%97%D7%9E%D7%99%D7%AA_%D7%97%D7%99%D7%98%D7%94_%D7%9E%D7%9C%D7%90%D7%94_%D7%90%D7%A1%D7%9D_1_%D7%A7%D7%92/%D7%9E%D7%95%D7%A6%D7%A8
+                xpath: /html/head[1]/meta[5]/@content
+            image:
+              - text: https://gcimages.mysupermarket.co.il/victory/products/58/004458.jpg?v=93
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: קרקר לחמית חיטה מלאה אסם (1 ק"ג)
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            listPrice:
+              - text: "24.90"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/text()[1]
+            price:
+              - text: "19.90"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]/text()[1]
+            quantity:
+              - text: 1 ק"ג
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[2]/span[1]
+            gtin:
+              - text: "7290000074740"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]
+            sku:
+              - text: "4458"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@productid
+            variantId:
+              - text: "4458"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@productid
+            legalDisclaimer:
+              - text: ט.ל.ח - התמונות, הנתונים והתיאורים הינם להמחשה בלבד, הנתונים המדויקים
+                  מופיעים על גבי אריזת המוצר, אין להסתמך על הפירוט באתר ביחס
+                  לנתוני המוצר ו/או רכיביו, יתכנו טעויות או אי התאמות, יש לבדוק
+                  את הנתונים על גבי אריזת המוצר טרם השימוש בו. יתכן ומוצר שיסופק
+                  לצרכן נושא סימון תזונתי חדש ו/או סימון בסמל אדום, על אף שסימון
+                  כאמור אינו מופיע עדיין באתר.
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[6]
+            name:
+              - text: קרקר לחמית חיטה מלאה אסם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]/span[1]
+            servingSize:
               - text: "100"
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             servingSizeUom:
@@ -15,18 +53,6 @@ extractions:
             caloriesPerServing:
               - text: "401"
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
-            totalCarbPerServing:
-              - text: "66.4"
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
-            totalCarbPerServingUom:
-              - text: גרם
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
-            totalSugarsPerServing:
-              - text: "4.4"
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
-            totalSugarsPerServingUom:
-              - text: g
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
             totalFatPerServing:
               - text: "7.5"
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
@@ -39,44 +65,30 @@ extractions:
             saturatedFatPerServingUom:
               - text: גרם
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
-            dietaryFibrePerServing:
-              - text: "10.0"
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
-            dietaryFibrePerServingUom:
-              - text: g
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
             sodiumPerServing:
               - text: "400.0"
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
             sodiumPerServingUom:
               - text: מ"ג
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
-            image:
-              - text: https://gcimages.mysupermarket.co.il/victory/products/58/004458.jpg?v=93
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: קרקר לחמית חיטה מלאה אסם (1 ק"ג)
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
-            price:
-              - text: "19.90"
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]/text()[1]
-            quantity:
-              - text: 1 ק"ג
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[2]/span[1]
-            name:
-              - text: קרקר לחמית חיטה מלאה אסם
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]/span[1]
-            gtin:
-              - text: "7290000074740"
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]
-            legalDisclaimer:
-              - text: ט.ל.ח - התמונות, הנתונים והתיאורים הינם להמחשה בלבד, הנתונים המדויקים
-                  מופיעים על גבי אריזת המוצר, אין להסתמך על הפירוט באתר ביחס
-                  לנתוני המוצר ו/או רכיביו, יתכנו טעויות או אי התאמות, יש לבדוק
-                  את הנתונים על גבי אריזת המוצר טרם השימוש בו. יתכן ומוצר שיסופק
-                  לצרכן נושא סימון תזונתי חדש ו/או סימון בסמל אדום, על אף שסימון
-                  כאמור אינו מופיע עדיין באתר.
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[6]
+            totalCarbPerServing:
+              - text: "66.4"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            totalCarbPerServingUom:
+              - text: גרם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            dietaryFibrePerServing:
+              - text: "10.0"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalSugarsPerServing:
+              - text: "4.4"
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
             availabilityText:
               - text: In Stock
             technicalInformationPdfPresent:
@@ -91,5 +103,5 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-        xpath: /html
-    timestamp: 1606331068386
+        xpath: /
+    timestamp: 1606399266512
