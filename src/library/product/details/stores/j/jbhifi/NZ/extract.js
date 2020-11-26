@@ -20,14 +20,17 @@ async function implementation (
     // description
     let descContent = document.querySelector("div[class*='info'] div[itemprop*='description'] ul") ? document.querySelector("div[class*='info'] div[itemprop*='description'] ul").innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
     descContent = descContent.substring(descContent.indexOf('||')).trim();
-
-    let description = document.evaluate("//div[@id='tab1']//ul", document, null, XPathResult.ANY_TYPE, null);
+    try{
+      let description = document.evaluate("//div[@id='tab1']//ul", document, null, XPathResult.ANY_TYPE, null);
     // @ts-ignore
     description = description.iterateNext().innerText;
     if (descContent) {
       addHiddenDiv('desc', descContent + ' | ' + description);
     } else {
       addHiddenDiv('desc', description);
+    }
+    }catch(err){
+      console.log('No description present', err.message);
     }
     // enhancedContent
     // @ts-ignore

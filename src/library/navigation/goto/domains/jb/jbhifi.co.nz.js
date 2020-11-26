@@ -13,11 +13,8 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setLoadAllResources(true);
     await context.setBlockAds(false);
-    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"anti_fingerprint":false,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
-    console.log(zipcode);
-    if (zipcode) {
-      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
-    }
+    await context.setLoadImages(true);
+    // url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"anti_fingerprint":false,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    await context.goto(url, { firstRequestTimeout: 60000, timeout: timeout, waitUntil: 'load', checkBlocked: true });
   },
 };
