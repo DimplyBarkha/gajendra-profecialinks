@@ -41,6 +41,9 @@ const cleanUp = (data, context) => {
                 text = row.description.map((element) => element.text.trim()).join(' ');
                 row.description = [{ text }];
             }
+            if (row.aggregateRating) {
+                row.aggregateRating[0].text = row.aggregateRating[0].text.replace(/\./g, ',');
+            }
             // row.description.forEach(item => {
             // row.description.text= row.description.map((element)=>element.trim()).join(' ')
             // row.description[0].text = row.description[0].text.replace(/\s{1,}/g, ' ');
