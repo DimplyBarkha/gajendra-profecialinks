@@ -15,15 +15,15 @@ module.exports = {
     const { productDetails } = dependencies;
 
     await context.evaluate(async () => {
-    // getting data from directions tab
+      // getting data from directions tab
       const directionsTab = document.querySelector('li#react-tabs-4');
       if (directionsTab) {
-      // @ts-ignore
+        // @ts-ignore
         directionsTab.click();
         const directions = document.querySelector('div.react-tabs__tab-content')
           ? document
             .querySelector('div.react-tabs__tab-content')
-          // @ts-ignore
+            // @ts-ignore
             .innerText.trim()
           : '';
         directionsTab.setAttribute('directions', directions);
@@ -32,12 +32,12 @@ module.exports = {
       // getting data from ingredients tab
       const ingredientsTab = document.querySelector('li#react-tabs-2');
       if (ingredientsTab) {
-      // @ts-ignore
+        // @ts-ignore
         ingredientsTab.click();
         const ingredientsXpath = '//p[b[contains(text(), "Ingredients")]]';
         const ingredients = document.evaluate(ingredientsXpath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
           ? document.evaluate(ingredientsXpath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
-          // @ts-ignore
+            // @ts-ignore
             .innerText.replace(/Ingredients:\n/g, '')
           : '';
         ingredientsTab.setAttribute('ingredients', ingredients);
@@ -45,7 +45,7 @@ module.exports = {
         const nutritionalXpath = '//p[b[contains(text(), "Analysis")]]';
         const nutritionalInfo = document.evaluate(nutritionalXpath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
           ? document.evaluate(nutritionalXpath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
-          // @ts-ignore
+            // @ts-ignore
             .innerText.trim()
           : '';
         ingredientsTab.setAttribute('nutritional', nutritionalInfo);
@@ -54,7 +54,7 @@ module.exports = {
       // going back to main tab to extract data through the yaml file
       const descriptionTab = document.querySelector('li#react-tabs-0');
       if (descriptionTab) {
-      // @ts-ignore
+        // @ts-ignore
         descriptionTab.click();
       }
     });
