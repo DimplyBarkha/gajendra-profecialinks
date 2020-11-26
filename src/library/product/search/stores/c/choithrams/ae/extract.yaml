@@ -6,11 +6,12 @@ recordXPath:
   # //div[@id='added_row']
 fields:
 - name: price
-  singleValue: true
+  singleValue: false
   xpath: //div[@id='price']
+    # //div[@id='price']
     # //div[@class='price']//span[1]
 - name: name
-  singleValue: true
+  singleValue: false
   xpath: //div[@id='name']
 - name: productUrl
   singleValue: false
@@ -23,10 +24,10 @@ fields:
 #   regExp: (.+)
 #   regExpReplace: https://www.choithrams.com$1
 - name: id
-  singleValue: true
+  singleValue: false
   xpath: //div[@id='id']
     # //div[@id='added_row']/@idMatch
 - name: searchUrl
-  singleValue: true
+  singleValue: false
   xpath: //div[@id='added-searchurl']
 
