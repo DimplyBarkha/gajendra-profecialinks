@@ -11,11 +11,6 @@ fields:
   - name: name
     singleValue: true
     xpath: //h2
-  - name: rankOrganic
-    singleValue: false
-    xpath:
-    regExp: (.+) out of
-    regExpReplace: $1
   - name: productUrl
     singleValue: false
     xpath: //h2/a/@href
@@ -23,7 +18,7 @@ fields:
     regExpReplace: https://www.amazon.sa$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class, 'image')]/img/@src
+    xpath: (//*[contains(@class, 'image')]/img/@src)[1]
   - name: aggregateRating
     singleValue: false
     xpath: (//i[contains(@class, "a-icon a-icon-star-small")]/span[@class='a-icon-alt'])[1]
@@ -50,7 +45,7 @@ fields:
     xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
   - name: manufacturer
     singleValue: true
-    xpath:
+    xpath: //div[@id='detailBullets_feature_div']/ul/li/span[@class='a-list-item']/span[contains(text(),"Manufacturer")]/following-sibling::span | //table[@id='productDetails_techSpec_section_1']/tbody/tr/th[contains(text(),"Brand")]/following-sibling::td/text()
   - name: soldBy
     singleValue: true
     xpath:
