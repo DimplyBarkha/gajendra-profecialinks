@@ -27,5 +27,6 @@ module.exports = {
     store: 'albertheijn',
     transform,
     domain: 'ah.nl',
-  },implementation
+  },
+  implementation,
 };
