@@ -30,7 +30,7 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'AU',
-    store: 'mecca',
+    store: 'meccaMweb',
     transform: transform,
     domain: 'mecca.com.au',
     zipcode: '',

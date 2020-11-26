@@ -27,7 +27,7 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'AU',
-    store: 'mecca',
+    store: 'meccaMweb',
     domain: 'mecca.com.au',
     url: 'https://www.mecca.com.au/search?q={searchTerms}',
     loadedSelector: 'div[class="search-result-content"]',

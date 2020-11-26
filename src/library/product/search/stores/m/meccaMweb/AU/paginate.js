@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
+    template: null,
     country: 'AU',
-    store: 'mecca',
+    store: 'meccaMweb',
     nextLinkSelector: 'a[class="page-next"], a[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
