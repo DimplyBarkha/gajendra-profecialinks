@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="well clearfix"]//div[@class="div_prod_griglia ombra_div"]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //input[@name="item"]/@value
+  - name: name
+    SingleValue: false
+    xpath: //div[5]//a[@class="descr_prod griglia"]
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[5]//a[@class="descr_prod griglia"]/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //img[@name="foto"]/@src
+  - name: price
+    SingleValue: false
+    xpath: //div[@id="divextra"]//b[@class="tesros20"]
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1
