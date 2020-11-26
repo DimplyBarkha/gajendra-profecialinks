@@ -1,0 +1,141 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //a[@id='big-photo']//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: alternateImages
+    singleValue: false
+    #xpath: //div[@class='product-photos']//li[1]//following-sibling::li//a/@href
+    #//div[@class='product-photos']//li/a/@href
+    #xpath: //div[@id='miniatures-list']//li[position()>1]/a/@href
+    xpath: //div[@class="rd__product-details__image__slider__item slick-slide"]/img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,"keyword")]/@content
+  - name: description
+    singleValue: false
+    xpath: //meta[contains(@property,"description")][1]/@content 
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin13")]
+    regExp: gtin13":\s"([^"]+)
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":\s"([^"]+)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
+    regExp: reviewCount":\s"([^"]+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
+    regExp: ratingValue":\s"([^"]+)
+    regExpReplace: $1
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@id='big-photo']//img//@alt
+  - name: category
+    singleValue: false
+    xpath: //div[@id='breadcrumb']//ul//li[position()>1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='product-header']//h1/text()
+    #regExp: name":\s"([^"]+)
+    #regExpReplace: $1
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id='product-top']//div[@class='price-old'] | //ul[@class="price-tabs"]//li[@data-context="standard"]//div[@class="price-old"]
+  - name: price
+    singleValue: false
+    xpath: //div[@id='product-top']//div[@class='price-normal selenium-price-normal'] | //ul[@class="price-tabs"]//li[@data-context="standard"]//div[@class="product-price"]
+  - name: availabilityText
+    singleValue: false
+    xpath: (//button[contains(@class,"add-product-to-cart")])[1]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock 
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@id='description-text']//ul//li)
+  - name: brandText
+    singleValue: false
+    xpath: //a[@class="product-brand"]/@title
+  - name: manufacturer
+    singleValue: false
+    xpath: normalize-space(//td[contains(text(),'Nazwa producenta / importera')]//following-sibling::td/text())
+  - name: weightGross
+    singleValue: false
+    xpath: normalize-space(//td[contains(.//text(),'Waga z opakowaniem')]//following-sibling::td)
+  - name: variantId
+    singleValue: false
+    xpath: (//div[@class="action-buttons"]/a/@data-product)[1]
+    #xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    # regExp: sku":\s"([^"]+)
+    # regExpReplace: $1
+  - name: shippingDimensions
+    singleValue: false
+    xpath: normalize-space(//td[contains(text(),'Wymiary opakowania')]//following-sibling::td)
+  - name: shippingWeight
+    xpath: normalize-space(//td[contains(.//text(),'Waga z opakowaniem')]//following-sibling::td)
+    singleValue: false
+  - name: color
+    singleValue: false
+    xpath: normalize-space(//tr//td[contains(text(),'Kolor')]//following-sibling::td)
+  - name: manufacturerDescription
+    singleValue: false
+    xpath:  //div[contains(@class,"esm-col")]/div/span  | //div[contains(@class,"esm-col")]/div/p |//div[@class="col-desc"] |//p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p
+    # //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()      //div[@id="description-text"]//div[contains(@class,"esm-col")]/text()
+  - name: name
+    singleValue: false
+    xpath: //meta[contains(@property,"og:title")]/@content
+  - name: specifications
+    singleValue: false
+    xpath: //table[@class='description-tech-details js-tech-details']//tr[not(@class='group-name')]
+  - name: warranty
+    singleValue: false
+    xpath: //td[contains(text(),'Gwarancja')][1]//following-sibling::td/text()
+  - name: energyEfficiency
+    singleValue: false
+    xpath: normalize-space(//a[contains(text(),'Klasa energetyczna')]//..//following-sibling::td)
+  - name: videos
+    singleValue: 
+    xpath: //div[@id="description-videos"]//iframe/@src
+    # //button[@class='video-preview js-video-preview']/@data-src
+  - name: weightNet
+    singleValue: false
+    xpath: normalize-space(//td[contains(text(),"Waga") and not(contains(text(),"opakowaniem"))]//following-sibling::td) 
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="esm-image"]//img[@class="lazy loaded"]/@data-original | //div[@class="col-img"]/img/@src | //div[@class="description-py5"][2]//following-sibling::div//img/@src
+      # //div[@class="description-py5"][2]//following-sibling::div//img/@src
+    # //div[@class='margin-t-lg-32']//div[@class='tct']//img[@class='lazy loaded']/@src
+    regExp: (.+)
+    regExpReplace: https://www.euro.com.pl$1
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class='variant-list disable-active-item']//div//a)
+  # - name: -url
+  #   singleValue: false
+  #   xpath: //meta[contains(@property,"og:url")]/@content
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id="product-variants"]/div/div/div
+    # xpath: //div[@class='current-variant']//div[@class='name']/text()
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class='current-variant']//div[@class='value']/text()
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@id="product-variants"]//a)
+  - name: promotion
+    singleValue: false
+    xpath: //ul[@class="price-tabs"]//li[@data-context="instalment"]//div[@class="instalment-message-label"]
