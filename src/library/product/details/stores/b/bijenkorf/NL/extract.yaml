@@ -1,46 +1,66 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
+recordSelector: ul.dbk-product-carousel--list > li
+recordXPath: //ul[contains(@class, 'dbk-product-carousel--list')]/li
 fields:
   - name: image
-    xpath: //div[contains(@class, 'dbk-image-gallery--display')]//ul[contains(@class, 'dbk-image-carousel--list')]/li[1]//img/@src
+    xpath: //div[contains(@id, 'variantImages') and contains(@position, '0')]/@href
+    regExp: \/\/cdn(.+)
+    regExpReplace: cdn$1
+  - name: singleProductImageAlt
+    xpath: ancestor::html//ul/li[contains(@class, 'dbk-image-carousel--listitem f-left')][1]//img/@alt
+  - name: imageAlt
+    xpath: //div[contains(@id, 'variantImages') and contains(@position, '0')]/@alt
+  - name: singleProductimage
+    xpath: ancestor::html//ul/li[contains(@class, 'dbk-image-carousel--listitem f-left')][1]//img/@src
     regExp: \/\/cdn(.+)
     regExpReplace: cdn$1
   - name: category
-    xpath: //ul[contains(@class, 'dbk-breadcrumb-group')]/li/a
+    xpath: ancestor::html//ul[contains(@class, 'dbk-breadcrumb-group')]/li/a
+  - name: singleProductVariantInformation
+    xpath: ancestor::html//div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1] | //p[contains(@class, 'dbk-product-indicator')]/span[contains(@class, 'dbk-product-indicator--value')]
   - name: variantInformation
-    xpath: //div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1] | //p[contains(@class, 'dbk-product-indicator')]/span[contains(@class, 'dbk-product-indicator--value')]
+    xpath: //div[@id='variantInfo']
   - name: brandText
-    xpath: //a[contains(@class, 'product-heading__brand--anchor')]
+    xpath: ancestor::html//a[contains(@class, 'product-heading__brand--anchor')]
   - name: name
-    xpath : //div[contains(@class, 'dbk-product-summary product-element__container')]//p[contains(@class, 'description')]
+    xpath : ancestor::html//div[contains(@class, 'dbk-product-summary product-element__container')]//p[contains(@class, 'description')]
   - name: price
-    xpath: //div[contains(@class, 'product-element__container')]//span[contains(@data-at, 'final-price')]
+    xpath: ancestor::html//div[contains(@class, 'product-element__container')]//span[contains(@data-at, 'final-price')]
   - name: availabilityText
-    xpath: //link[contains(@itemprop, 'availability')]/@href
+    xpath: ancestor::html//link[contains(@itemprop, 'availability')]/@href
     regExp: (.+)
     regExpReplace: In stock
     defaultValue: Out of stock
   - name: description
-    xpath: //h3[contains(., 'Productinformatie')]/following-sibling::div
+    xpath: ancestor::html//h3[contains(., 'Productinformatie')]/following-sibling::div
   - name: ingredientsList
-    xpath: //span[@data-at='specifications-Ingrediënten']
+    xpath: ancestor::html//span[@data-at='specifications-Ingrediënten']
   - name: quantity
-    xpath: //div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1] | //p[contains(@class, 'dbk-product-indicator')]/span[contains(@class, 'dbk-product-indicator--value')]
+    xpath: ancestor::html//div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1] | //p[contains(@class, 'dbk-product-indicator')]/span[contains(@class, 'dbk-product-indicator--value')]
   - name: directions
-    xpath: //p[contains(., 'Gebruikstips:')]
+    xpath: ancestor::html//p[contains(., 'Gebruikstips:')]
   - name: alternateImages
-    xpath: //div[contains(@class, 'dbk-image-gallery--display')]//ul[contains(@class, 'dbk-image-carousel--list')]/li[position()>1]//img/@src
+    xpath: //div[contains(@id, 'variantImages') and not(contains(@position, '0'))]/@href
+    regExp: \/\/cdn(.+)
+    regExpReplace: cdn$1
+  - name: singleProductAlternateImages
+    xpath: ancestor::html//ul/li[contains(@class, 'dbk-image-carousel--listitem f-left') and position()>1]//img/@src
     regExp: \/\/cdn(.+)
     regExpReplace: cdn$1
   - name: specifications
-    xpath: //h3[contains(., 'Samenstelling')]/following-sibling::ul/li
+    xpath: ancestor::html//h3[contains(., 'Samenstelling')]/following-sibling::ul/li
   - name: promotion
-    xpath: //span[contains(@data-at, 'discount-percentage')]
+    xpath: ancestor::html//span[contains(@data-at, 'discount-percentage')]
   - name: listPrice
-    xpath: //div[contains(@class, 'product-element__container')]//span[contains(@data-at, 'list-price')]
+    xpath: ancestor::html//div[contains(@class, 'product-element__container')]//span[contains(@data-at, 'list-price')]
   - name: secondaryImageTotal
-    xpath: count(//div[contains(@class, 'dbk-image-gallery--display')]//ul[contains(@class, 'dbk-image-carousel--list')]/li[position()>1]//img)
+    xpath: //div[contains(@id, 'secondaryImageCount')]
+  - name: singleProductSecondaryImageTotal
+    xpath: count(ancestor::html//ul/li[contains(@class, 'dbk-image-carousel--listitem f-left') and position()>1])
+  - name: singleProductsku
+    xpath: ancestor::html//span[contains(@itemprop,"sku")]
   - name: sku
-    xpath: //span[contains(@itemprop,"sku")]
+    xpath: //div[@id='skuInfo']
+  - name: variantCount
+    xpath: count(ancestor::html(//ul[contains(@class, 'dbk-product-carousel--list')]/li))

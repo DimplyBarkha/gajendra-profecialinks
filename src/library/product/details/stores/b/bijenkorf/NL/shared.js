@@ -24,6 +24,30 @@ const transform = (data) => {
           row.specifications[i].text = `| ${row.specifications[i].text}`;
         }
       }
+
+      if (!row.image && row.singleProductimage) {
+        row.image = row.singleProductimage;
+      }
+
+      if (!row.variantInformation && row.singleProductVariantInformation) {
+        row.variantInformation = row.singleProductVariantInformation;
+      }
+
+      if (!row.alternateImages && row.singleProductAlternateImages) {
+        row.alternateImages = row.singleProductAlternateImages;
+      }
+
+      if (!row.sku && row.singleProductsku) {
+        row.sku = row.singleProductsku;
+      }
+
+      if (!row.secondaryImageTotal && row.singleProductSecondaryImageTotal) {
+        row.secondaryImageTotal = row.singleProductSecondaryImageTotal;
+      }
+
+      if (!row.imageAlt && row.singleProductImageAlt) {
+        row.imageAlt = row.singleProductImageAlt;
+      }
     }
   }
 

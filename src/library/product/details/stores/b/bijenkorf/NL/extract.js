@@ -8,28 +8,11 @@ module.exports = {
     domain: 'debijenkorf.nl',
     zipcode: '',
   },
-  // implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-  //   await context.evaluate(async function () {
-  //     const specifications = document.querySelector('button[data-at="expansion-panel-header--Specificaties"]');
-  //     if (specifications) {
-  //       // @ts-ignore
-  //       specifications.click();
-  //     }
-  //   });
-  //   return await context.extract(productDetails, { transform: transformParam });
-  // },
+
   implementation: async (inputs, { country, domain, transform: transformParam }, context, { productDetails }) => {
     const productDetailsLink = await context.evaluate(function (inputs) {
       const productList = document.querySelectorAll('ul.productlist__list > li a');
       for (let i = 0; i < productList.length; i++) {
-        // const productCodeEle = productList[i].querySelector('div.is-productCode');
-        // if (productCodeEle) {
-        //   const productCode = productCodeEle.textContent.trim();
-        //   if (productCode.includes(inputs.id)) {
-        //     const productDetailsEle = productList[i].querySelector('div.c-offerBox_photo a');
-        //     return productDetailsEle ? productDetailsEle.getAttribute('href') : null;
-        //   }
-        // }
         const productRpc = productList[i].getAttribute('name');
         if (productRpc.includes(inputs.id)) {
           return productList[i].getAttribute('href');
@@ -39,10 +22,9 @@ module.exports = {
       }
     }, inputs);
     if (productDetailsLink) {
-      console.log('found product');
       const url = productDetailsLink;
       await context.goto(url, {
-        timeout: 60000,
+        timeout: 30000,
         waitUntil: 'load',
         checkBlocked: true,
         js_enabled: true,
@@ -51,7 +33,7 @@ module.exports = {
       });
     } else {
       const noProductsFound = await context.evaluate(function (inputs) {
-        const noResults = document.querySelector('div.is-noResults');
+        const noResults = document.querySelector('div.dbk-search-empty');
         return noResults;
       });
       if (noProductsFound) {
@@ -59,9 +41,64 @@ module.exports = {
       }
     }
 
-    // await context.waitForNavigation({ timeout: 60000, waitUntil: 'networkidle0' });
-  
-    // console.log(JSON.stringify(videos));
+    await context.evaluate(async function (inputs) {
+      const variantsList = document.querySelectorAll('ul.dbk-product-carousel--list li');
+      if (variantsList.length > 0) {
+        for (let i = 0; i < variantsList.length; i++) {
+          if (i === 0) {
+            await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+          }
+          // @ts-ignore
+          variantsList[i].querySelector('div input').click();
+          await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+          const variantInfoSpan = document.querySelector('p.dbk-product-indicator span.dbk-product-indicator--value');
+
+          if (variantInfoSpan) {
+            const variantInfoEle = document.createElement('div');
+            variantInfoEle.setAttribute('id', 'variantInfo');
+            variantInfoEle.textContent = variantInfoSpan.textContent;
+            variantInfoEle.style.visibility = 'hidden';
+            variantsList[i].appendChild(variantInfoEle);
+          }
+
+          const skuInfoSpan = document.querySelector('span[itemprop="sku"]');
+
+          if (skuInfoSpan) {
+            const skuInfoEle = document.createElement('div');
+            skuInfoEle.setAttribute('id', 'skuInfo');
+            skuInfoEle.textContent = skuInfoSpan.textContent;
+            skuInfoEle.style.visibility = 'hidden';
+
+            variantsList[i].appendChild(skuInfoEle);
+          }
+
+          const images = document.querySelectorAll('div.dbk-image-gallery--display ul.dbk-image-carousel--list > li  img');
+          const secondaryImageCountDiv = document.createElement('div');
+          secondaryImageCountDiv.setAttribute('id', 'secondaryImageCount');
+          secondaryImageCountDiv.textContent = (images.length - 1).toString();
+          secondaryImageCountDiv.style.visibility = 'hidden';
+          variantsList[i].appendChild(secondaryImageCountDiv);
+
+          for (let j = 0; j < images.length; j++) {
+            const variantImageDiv = document.createElement('div');
+            variantImageDiv.setAttribute('id', 'variantImages');
+            variantImageDiv.setAttribute('href', images[j].getAttribute('src'));
+            variantImageDiv.setAttribute('alt', images[j].getAttribute('alt'));
+            variantImageDiv.setAttribute('position', j.toString());
+            variantImageDiv.style.visibility = 'hidden';
+            variantsList[i].appendChild(variantImageDiv);
+          }
+        }
+      } else {
+        const dummyUl = document.createElement('ul');
+        dummyUl.setAttribute('class', 'dbk-product-carousel--list');
+        const li = document.createElement('li');
+        dummyUl.appendChild(li);
+        const body = document.querySelector('body');
+        body.appendChild(dummyUl);
+      }
+    });
+
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
