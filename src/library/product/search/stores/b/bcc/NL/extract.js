@@ -24,7 +24,7 @@ module.exports = {
         const rating = product[i].querySelector('div.rating');
         if (rating) {
           const rValue = rating.style.width.match(/[0-9]+/g) / 20;
-          rating.setAttribute('rValue', rValue);
+          rating.setAttribute('rvalue', rValue);
         }
       }
     });
