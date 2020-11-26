@@ -13,16 +13,16 @@ async function implementation (inputs, parameters, context, dependencies) {
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    
+
     if (document.querySelector('div.productStrate__raw')) {
       let desc = document.querySelector('div.productStrate__raw').innerHTML;
       desc = desc.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim();
       addHiddenDiv('desc', desc);
     }
-    
-    let desc = document.querySelector('script[type="application/ld+json"]').innerText
+
+    let desc = document.querySelector('script[type="application/ld+json"]').innerText;
     desc = JSON.parse(desc);
-    if(desc.brand) {
+    if (desc.brand) {
       addHiddenDiv('brandText', desc.brand.name);
     }
   });
@@ -40,5 +40,5 @@ module.exports = {
     domain: 'fnac.es',
     zipcode: '',
   },
-  implementation
+  implementation,
 };

@@ -6,7 +6,7 @@ module.exports = {
     store: 'fnac',
     domain: 'fnac.es',
     loadedSelector: 'div.productPageTop',
-    noResultsXPath: null,
+    noResultsXPath: '//body[@class="home-page"]',
     zipcode: '',
   },
 };
