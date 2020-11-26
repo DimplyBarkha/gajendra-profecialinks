@@ -1,0 +1,55 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@data-oo_zoombox_role="display-container"]/img/@src
+  - name: category
+    singleValue: false
+    xpath: //li[@property="itemListElement"][3]
+  - name: Price
+    singleValue: true
+    xpath: //div[@class="current-price-container"]//span
+  - name: description
+    singleValue: false
+    xpath: (//div[@class="ooB-mb12 ads_default_ullifix"]/p)[1]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: //ul[@class="bullet"]
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+    xpath: //label[@class="mengelist ooX-fs12"]
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="loadbeeLink"]/@data-loadbee-product
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@class="code-info"]/span[2]
+  - name: aggregateRatingText
+    singleValue: true
+    xpath: //div[@id="rating-overall-detail-wrapper"]/h3
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class="rating-stars-copy"]
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+    xpath: //div[@class="bullet-before-container ooB-mt12"]
+  - name: variantId
+    singleValue: true
+    description: Number of variants listed
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="title"]/@data-property
+
+
+
+
+
