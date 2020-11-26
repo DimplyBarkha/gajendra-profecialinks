@@ -27,9 +27,7 @@ fields:
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-act-$"] | //div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-rng"]
   - name: id
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//a/@href
-    regExp: (\/)(\d+)
-    regExpReplace: $2
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//@id
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[contains(@class,"sc-1b7wdu0-5")]//div[contains(@class,"styles__RatingDiv")]//@aria-label
