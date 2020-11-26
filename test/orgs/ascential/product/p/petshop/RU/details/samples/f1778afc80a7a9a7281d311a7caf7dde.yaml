@@ -2,34 +2,34 @@ input:
   id: 406020
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=72353ef7-a199-4ef5-a927-a869aa7c99b8/task=8b6e5a98-bce2-4714-942b-2e537921d773/05a0e38f-8d28-4a63-8462-27dc334c3f68.html
+  - html: https://workbench.import.io/html/run=52e6424b-74e8-40de-8565-8dcddd39998b/task=a22087fe-cf0e-424d-b3e1-aa7f6c6640f0/150c9995-03c0-43c5-b5c4-d258bb412de8.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
           - image:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
             imageAlt:
               - text: alt text
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@alt
             alternateImages:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[2]/@src
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[3]/@src
             nameExtended:
               - text: Purina Pro Plan - Корм Purina Pro Plan для собак крупных пород мощного
                   телосложения с чувствительным пищеварением с ягненком, Large
-                  Adult Robust Lamb - 40602
+                  Adult Robust Lamb - 406020
                 xpath: /html/body/ol[1]/li[1]/@name_extended
             listPrice:
-              - text: 4 941 ₽
+              - text: 4 225 ₽
                 xpath: /html/body/ol[1]/li[1]/@list_price
             price:
-              - text: 3 706 ₽
+              - text: 3 972 ₽
                 xpath: /html/body/ol[1]/li[1]/@price
             availabilityText:
-              - text: В наличии
+              - text: Товар закончился
                 xpath: /html/body/ol[1]/li[1]/@availability_text
             description:
               - text: >-
@@ -81,7 +81,7 @@ extractions:
               - text: Purina Pro Plan
                 xpath: /html/body/ol[1]/li[1]/@brand
             variantId:
-              - text: "40602"
+              - text: "406020"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
             ratingCount:
               - text: "330"
@@ -107,10 +107,6 @@ extractions:
             Image360Present:
               - text: "false"
                 xpath: /html/body/ol[1]/li[1]/@image_360_present
-                type: BOOLEAN
-                raw: "false"
-                locale: ru
-                value: false
             category:
               - text: Каталог
                 xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
@@ -135,29 +131,29 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - image:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@src
             imageAlt:
               - text: alt text
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@alt
             alternateImages:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[2]/@src
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[3]/@src
             nameExtended:
               - text: Purina Pro Plan - Корм Purina Pro Plan для собак крупных пород мощного
                   телосложения с чувствительным пищеварением с ягненком, Large
-                  Adult Robust Lamb - 406020
+                  Adult Robust Lamb - 40602
                 xpath: /html/body/ol[1]/li[2]/@name_extended
             listPrice:
-              - text: 4 225 ₽
+              - text: 4 941 ₽
                 xpath: /html/body/ol[1]/li[2]/@list_price
             price:
-              - text: 3 972 ₽
+              - text: 3 706 ₽
                 xpath: /html/body/ol[1]/li[2]/@price
             availabilityText:
-              - text: Товар закончился
+              - text: В наличии
                 xpath: /html/body/ol[1]/li[2]/@availability_text
             description:
               - text: >-
@@ -209,7 +205,7 @@ extractions:
               - text: Purina Pro Plan
                 xpath: /html/body/ol[1]/li[2]/@brand
             variantId:
-              - text: "406020"
+              - text: "40602"
                 xpath: /html/body/ol[1]/li[2]/@variant_id
             ratingCount:
               - text: "330"
@@ -235,10 +231,6 @@ extractions:
             Image360Present:
               - text: "false"
                 xpath: /html/body/ol[1]/li[2]/@image_360_present
-                type: BOOLEAN
-                raw: "false"
-                locale: ru
-                value: false
             category:
               - text: Каталог
                 xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
@@ -263,29 +255,29 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - image:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@src
             imageAlt:
               - text: alt text
                 xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@alt
             alternateImages:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[3]/ol[1]/li[2]/@src
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[3]/ol[1]/li[3]/@src
             nameExtended:
               - text: Purina Pro Plan - Корм Purina Pro Plan для собак крупных пород мощного
                   телосложения с чувствительным пищеварением с ягненком, Large
-                  Adult Robust Lamb - 40604.акция.сроки
+                  Adult Robust Lamb - 40604
                 xpath: /html/body/ol[1]/li[3]/@name_extended
             listPrice:
-              - text: 1 234 ₽
+              - text: 1 406 ₽
                 xpath: /html/body/ol[1]/li[3]/@list_price
             price:
-              - text: 740 ₽
+              - text: 1 055 ₽
                 xpath: /html/body/ol[1]/li[3]/@price
             availabilityText:
-              - text: Товар закончился
+              - text: В наличии
                 xpath: /html/body/ol[1]/li[3]/@availability_text
             description:
               - text: >-
@@ -337,7 +329,7 @@ extractions:
               - text: Purina Pro Plan
                 xpath: /html/body/ol[1]/li[3]/@brand
             variantId:
-              - text: 40604.акция.сроки
+              - text: "40604"
                 xpath: /html/body/ol[1]/li[3]/@variant_id
             ratingCount:
               - text: "330"
@@ -363,10 +355,6 @@ extractions:
             Image360Present:
               - text: "false"
                 xpath: /html/body/ol[1]/li[3]/@image_360_present
-                type: BOOLEAN
-                raw: "false"
-                locale: ru
-                value: false
             category:
               - text: Каталог
                 xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
@@ -391,29 +379,29 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
           - image:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[4]/ol[1]/li[1]/@src
             imageAlt:
               - text: alt text
                 xpath: /html/body/ol[1]/li[4]/ol[1]/li[1]/@alt
             alternateImages:
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7f/75/52/386001_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[4]/ol[1]/li[2]/@src
-              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/8e/5b/dc/386002_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[4]/ol[1]/li[3]/@src
             nameExtended:
               - text: Purina Pro Plan - Корм Purina Pro Plan для собак крупных пород мощного
                   телосложения с чувствительным пищеварением с ягненком, Large
-                  Adult Robust Lamb - 40604
+                  Adult Robust Lamb - 40604.акция.сроки
                 xpath: /html/body/ol[1]/li[4]/@name_extended
             listPrice:
-              - text: 1 406 ₽
+              - text: 1 234 ₽
                 xpath: /html/body/ol[1]/li[4]/@list_price
             price:
-              - text: 1 055 ₽
+              - text: 740 ₽
                 xpath: /html/body/ol[1]/li[4]/@price
             availabilityText:
-              - text: В наличии
+              - text: Товар закончился
                 xpath: /html/body/ol[1]/li[4]/@availability_text
             description:
               - text: >-
@@ -465,7 +453,7 @@ extractions:
               - text: Purina Pro Plan
                 xpath: /html/body/ol[1]/li[4]/@brand
             variantId:
-              - text: "40604"
+              - text: 40604.акция.сроки
                 xpath: /html/body/ol[1]/li[4]/@variant_id
             ratingCount:
               - text: "330"
@@ -491,10 +479,6 @@ extractions:
             Image360Present:
               - text: "false"
                 xpath: /html/body/ol[1]/li[4]/@image_360_present
-                type: BOOLEAN
-                raw: "false"
-                locale: ru
-                value: false
             category:
               - text: Каталог
                 xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
@@ -519,4 +503,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606312719820
+    timestamp: 1606390838768

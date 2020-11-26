@@ -2,7 +2,7 @@ input:
   id: 36158
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=72353ef7-a199-4ef5-a927-a869aa7c99b8/task=a4b5e491-3818-4fbb-b06f-716ed4c3d181/d690f7e8-10bc-4685-94d2-70bbf3c709f3.html
+  - html: https://workbench.import.io/html/run=52e6424b-74e8-40de-8565-8dcddd39998b/task=1b00ca58-a798-4aa9-bb38-8c83b89a1ed2/572bc391-4226-49cc-ad7b-e15589050428.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -91,10 +91,6 @@ extractions:
             Image360Present:
               - text: "false"
                 xpath: /html/body/ol[1]/li[1]/@image_360_present
-                type: BOOLEAN
-                raw: "false"
-                locale: ru
-                value: false
             category:
               - text: Каталог
                 xpath: /html/body/div[6]/div[1]/ul[1]/li[3]
@@ -112,4 +108,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606312708346
+    timestamp: 1606390830572
