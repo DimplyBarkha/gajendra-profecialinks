@@ -2,19 +2,13 @@ input:
   id: "103063"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=6d0f4f5b-2f25-4459-804c-f2a1f86e7709/task=28c9019f-e4a7-4aa3-9eb3-f87f8cc1c9de/41b2f6d3-00ef-419d-b942-a7b03ca4743a.html
+  - html: https://workbench.import.io/html/run=b091c724-9c1f-4817-8e47-0aead44a8522/task=bb8d8102-f1e9-49f9-bfd5-cf4ceb396bde/6649b34a-ccd6-4a40-983a-b39acb37ff4d.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
           - category:
               - text: Browse Categories
                 xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
-              - text: Greengrocery
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[3]
-              - text: Fresh Vegetables
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[4]
-              - text: Potatoes
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/span[5]
             image:
               - text: https://www.booker.co.uk/bbimages/1/cb82be10-88ab-4235-856d-3ce439d1777b.jpg
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
@@ -98,4 +92,4 @@ extractions:
             packaging:
               - text: ""
         xpath: /html
-    timestamp: 1606400600807
+    timestamp: 1606406367776

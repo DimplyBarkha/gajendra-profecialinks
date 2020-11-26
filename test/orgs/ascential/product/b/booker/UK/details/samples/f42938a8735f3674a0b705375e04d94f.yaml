@@ -2,103 +2,106 @@ input:
   id: "135923"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=6d0f4f5b-2f25-4459-804c-f2a1f86e7709/task=bb2f7580-b050-47c6-8cf4-253f74bceae8/a90d8141-4784-4124-be59-a50bb1dff9c3.html
+  - html: https://workbench.import.io/html/run=b091c724-9c1f-4817-8e47-0aead44a8522/task=6474702c-b3ee-45de-9bf4-b2aa3a882dd6/1482f4cd-5e53-43bd-b172-fccc4b2f7e2e.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
           - image:
-              - text: https://www.booker.co.uk/bbimages/1/4d345efc-9bb0-41e2-b45e-721f86fe8f5e.jpg
+              - text: https://www.booker.co.uk/bbimages/1/1c045914-aa7c-4be8-a63f-6c796f80b79a.jpg
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
-              - text: Chef's Larder Jalfrezi Sauce 2.15L - Click for larger image
+              - text: Chef's Larder Jalfrezi Sauce 2.15 Litres - Click for larger image
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             quantity:
               - text: 4 x 2.15ltr
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
             sku:
-              - text: "250705"
+              - text: "135923"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
             variantId:
-              - text: "250705"
+              - text: "135923"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
             brandText:
               - text: Chef's Larder
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/span[1]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/span[1]
             brandLink:
               - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=630&searchTerm=By+Brand%3a+Chef%27s+Larder
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/span[1]/a[1]/@href
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/span[1]/a[1]/@href
             storage:
               - text: Ambient
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/span[1]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
             description:
-              - text: Chilli rating - hot - 3. Ready to use, professional, culinary sauce. Bain
-                  Marie Stable. UK salt target compliant. Suitable for
-                  Vegetarians. Suitable for Vegans.
+              - text: Chilli rating - hot - 3. Bain marie stable. FSA 2012 salt target
+                  compliant. Suitable for vegetarians.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
             servingSize:
               - text: 100g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             servingSizeUom:
               - text: old
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
-              - text: 338kJ/81kcal
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+              - text: 352kJ/84kcal
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             totalFatPerServing:
-              - text: "3.3"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+              - text: "4.1"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
             totalFatPerServingUom:
               - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+            saturatedFatPerServing:
+              - text: "0.4"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
             totalCarbPerServing:
-              - text: "11"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+              - text: "9.8"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
             totalCarbPerServingUom:
               - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
             dietaryFibrePerServing:
-              - text: "1.1"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+              - text: "1.6"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
             dietaryFibrePerServingUom:
               - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+            totalSugarsPerServing:
+              - text: "6.9"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
             proteinPerServing:
               - text: "1.2"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[8]/td[1]
             saltPerServing:
-              - text: "0.59"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
+              - text: "0.75"
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
             saltPerServingUom:
               - text: g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
             directions:
-              - text: "Preparation Instructions: Heat 30ml vegetable oil in a frying pan until
-                  hot. Add 1.0-1.5kg diced meat and stir fry until thoroughly
-                  cooked. Add the contents of the container to the pan and heat
-                  thoroughly. Some oil separation may occur over time. This is
-                  perfectly natural and will not affect the performance of the
-                  product. Shake well before use."
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/p[1]
+              - text: "Shake well before use. Preparation Instructions: Heat 30ml vegetable oil
+                  in a frying pan until hot. Add 1.0-1.5 kg diced meat and stir
+                  fry until thoroughly cooked. Add the contents of the container
+                  to the pan and heat thoroughly."
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
             countryOfOrigin:
               - text: United Kingdom
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]/ul[1]/li[1]/span[1]
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[11]/ul[1]/li[1]/span[1]
             category:
               - text: Browse Categories
                 xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
-              - text: Grocery - Catering
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[3]
-              - text: Cooking Sauce & Paste Catering
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[4]
-              - text: Cooking Sauces & Pastes - Indian
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/span[5]
             nameExtended:
-              - text: Chef's Larder Jalfrezi Sauce 2.15L
+              - text: Chef's Larder Jalfrezi Sauce 2.15 Litres
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             name:
-              - text: Chef's Larder Jalfrezi Sauce 2.15L
+              - text: Chef's Larder Jalfrezi Sauce 2.15 Litres
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             termsAndConditions:
               - text: Yes
@@ -131,7 +134,7 @@ extractions:
                   House Vintners, Chef's Larder, Drop Shipment
                 xpath: /html/body/meta-key[1]
             availabilityText:
-              - text: In Stock
+              - text: Out of Stock
                 xpath: /html/body/availability[1]
             technicalInformationPdfPresent:
               - text: No
@@ -144,20 +147,19 @@ extractions:
             warnings:
               - text: Contains MustardContains Wheat
             variantCount:
-              - text: "1"
+              - text: "2"
             ingredientsList:
-              - text: Water,Tomato Purée (14%),Onion,Red and Green Bell Peppers (10%),Diced
-                  Tomatoes (9%),Sugar,Rapeseed Oil,Modified Maize Starch,Acidity
-                  Regulators (Lactic Acid, Citric Acid),Coriander Leaf
-                  (0.5%),Salt,Concentrated Lemon Juice,Chilli Pepper
-                  (0.4%),Ground Coriander (0.4%),Ground Ginger,Turmeric,Cayenne
-                  Pepper (0.2%),Cumin,Garlic Powder,Preservative (Potassium
-                  Sorbate),Black Pepper,Allspice,Fenugreek,Mustard Flour,Colour
-                  (Paprika Extract),Nutmeg,Bay Leaf,Wheat Flour (contains
-                  Calcium Carbonate, Iron, Nicotinamide, Thiamin),Dried
-                  Oregano,Firming Agent (Calcium Chloride)
+              - text: Water,Diced Red and Green Peppers (13%),Tomato Paste
+                  (8%),Onion,Sugar,Rapeseed Oil,Modified Maize Starch,Coriander
+                  Leaf (1%),Chilli Pepper (0.7%),Salt,Ground Coriander,Acidity
+                  Regulator (Lactic Acid),Ground Ginger,Turmeric,Concentrated
+                  Lemon Juice,Cumin,Garlic Powder,Colour (Paprika
+                  Extract),Preservative (Potassium Sorbate),Allspice,Black
+                  Pepper,Fenugreek,Mustard Flour,Bay Leaf,Nutmeg,Wheat Flour
+                  (contains Calcium Carbonate, Iron, Nicotinamide,
+                  Thiamin),Dried Oregano,Cayenne Pepper
             dietaryInformation:
-              - text: ""
+              - text: Free From Artificial Colours
             allergyAdvice:
               - text: Contains MustardContains Wheat
             recyclingInformation:
@@ -165,4 +167,4 @@ extractions:
             packaging:
               - text: Type Plastic Bottle
         xpath: /html
-    timestamp: 1606400619014
+    timestamp: 1606406369761
