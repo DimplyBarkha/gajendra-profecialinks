@@ -1,0 +1,82 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //a[@class='js-gallery-item']//img[@class='display-image']/@src
+    regExp: (.+)
+    regExpReplace: https://www.nordicfeel.se$1
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@class='js-gallery-item']//img[@class='display-image']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class='product--gallery__thumbnails']//li[position()>1]//a[@class='js-gallery-item']//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.nordicfeel.se$1
+  - name: metaKeywords
+    singleValue: true
+    xpath: //title
+  - name: category
+    singleValue: false
+    xpath: //div[@class='header--breadcrumbs breadcrumbs text-xs']//ol[@class='breadcrumbs']//li[not(contains(@class,'current')) and position()>1]//a//span
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,'flex-grow-1')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'product--details d-flex')]//div[contains(@class,'product--price')]//span[contains(@class,'price-old')]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'product--details d-flex')]//div[contains(@class,'product--price')]//span[contains(@class,'price-campaign')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //a[@class='button buy-button btn btn-dark btn-block my-2 js-buy-button' and @data-notification-id="added-to-cart"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'product--content--desktop')]//div[@class='description--desktop']//div[@class='description']
+  - name: brandText
+    singleValue: false
+    xpath: //h1[contains(@class,'flex-grow-1')]//span[contains(@class,'product--details--brand')]//a  
+  - name: quantity
+    singleValue: false
+    xpath: //a[@class='button buy-button btn btn-dark btn-block my-2 js-buy-button' and @data-notification-id="added-to-cart"]
+    regExp: (.+)
+    regExpReplace: 1
+  - name: sku
+    singleValue: false
+    xpath: //input[@id='userNotifyVariantId']/@value
+  - name: variantId
+    singleValue: false
+    xpath: //input[@id='userNotifyVariantId']/@value  
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='review-button']//span[@class='productvolume js-product-stars']//a[contains(@href,'seeAllReviews')]
+    regExp: (.+)\s+Recensi(.+)
+    regExpReplace: $1  
+  - name: aggregateRating
+    singleValue: false
+    xpath: count(//div[@class='review-button']//span[@class='productvolume js-product-stars']//div[@class='stars']//i[@class='icon-star icon-star--active'])  
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class='product--variants']//ul[@class='product--variants--size']//li)  
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'flex-grow-1')]//span[contains(@class,'product--details--name')]  
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'product--content--desktop')]//div[@class='description--desktop']//table[contains(@class,'product--table')]//tr  
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='product--variants']//ul[@class='product--variants--size']//li//span[@class='product--variants--name']
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class='product--variants']//ul[@class='product--variants--size']//li[position()=1]/@data-variant-id
+  - name: variants
+    singleValue: false
+    xpath: //div[@class='product--variants']//ul[@class='product--variants--size']//li/@data-variant-id
