@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/details',
   parameterValues: {
     country: 'ES',
-    domain: 'alcampo.es',
     store: 'alcampo',
+    domain: 'alcampo.es',
     zipcode: '',
   },
 };
