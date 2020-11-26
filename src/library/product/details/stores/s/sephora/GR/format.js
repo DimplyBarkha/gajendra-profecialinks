@@ -24,7 +24,27 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (let row of group) {       
-      
+      if(row.nameExtended){
+        let tmpName='';
+        row.nameExtended.forEach(item=>{
+          if(tmpName==''){
+            tmpName=item.text;
+          }else{
+            tmpName=tmpName+' - '+item.text;
+          }
+        })
+        row.nameExtended=[{"text":tmpName}];
+      }
+      if(row.variants){
+        let inf=[];
+        row.variants.forEach(item=>{
+          inf.push(item.text);
+        })
+        row.variants=[{"text":inf.join(' | ')}];
+        row.variantCount=[{"text":inf.length}];
+      }else{
+        row.variantCount=[{"text":0}];
+      }
     }
   }
   return cleanUp(data);

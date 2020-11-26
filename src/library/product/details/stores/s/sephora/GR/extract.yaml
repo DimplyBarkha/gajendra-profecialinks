@@ -38,7 +38,7 @@ fields:
     xpath: //div[contains(@class,"product-title-wrapper")]/h6
   - name: ratingCount
     singleValue: false
-    xpath: //div[@id="dyn4"]//span[contains(@class,"text-red-sephora")]
+    xpath: //div[contains(@class,"product-details")]//div[contains(@class,"grades-wrapper")]//span[contains(@class,"text-red-sephora")]
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"block_product_rating")]//span[@class="rating_value"]
@@ -50,7 +50,7 @@ fields:
     defaultValue: Yes
   - name: variantCount
     singleValue: false
-    xpath: //div[@class="product-variations-color"]//div[contains(@class,"slick-list")]//div[contains(@class,"slick-slide")]
+    xpath: //div[@class="product-variations-color"]//div[contains(@class,"slick-list")]//div[contains(@class,"slick-slide")]/@tabindex
   - name: variantInformation
     singleValue: false
     xpath: //div[@class="product-variations-color"]/div[contains(@class,"color_variation_name")]/span
