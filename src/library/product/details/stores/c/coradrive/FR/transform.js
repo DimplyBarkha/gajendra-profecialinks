@@ -18,6 +18,17 @@ const cleanUp = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.caloriesPerServing) {
+        let text = '';
+        row.caloriesPerServing.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.caloriesPerServing = [
+          {
+            text: text.slice(0, -3),
+          },
+        ];
+      }
       if (row.price) {
         const newPrice = row.price.map(item => {
           return {

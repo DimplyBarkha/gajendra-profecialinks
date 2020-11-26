@@ -85,6 +85,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
+    xpath: //div[contains(@id,"productMoreInfo")]//h3[contains(text(),"Mode d'emploi")]/following-sibling::h4
     description: Content under "directions" header
   - name: warnings
     singleValue: false
@@ -221,8 +222,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    description: null
-    type: NUMBER
+    xpath: count(//div[contains(@class,"picture")]//div[contains(@id,"thumbs")]//li[position()>1]//img/@src)
   - name: news
     singleValue: false
     description: null
@@ -235,8 +235,6 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@id,"productMoreInfo")]//h4[contains(text(),"Ingrédients")]
-    regExp: ([Ii]ngrédients:)(.+)
-    regExpReplace: $2
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
@@ -295,10 +293,15 @@ fields:
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: false
-    xpath: //table[contains(@class,"list")]//tr/td[contains(text(),"Calcium")]/following-sibling::td[1]
+    xpath: //table[contains(@class,"list")]//tr/td[contains(text(),"Sodium")]/following-sibling::td[1]
+    regExp: ([.,0-9]+)\s(.+)
+    regExpReplace: $1
   - name: sodiumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Sodium content
+    xpath: //table[contains(@class,"list")]//tr/td[contains(text(),"Sodium")]/following-sibling::td[1]
+    regExp: ([.,0-9]+)\s(.+)
+    regExpReplace: $2
   - name: totalCarbPerServing
     singleValue: false
     xpath: //table[contains(@class,"list")]//tr/td[contains(text(),"Glucides")]/following-sibling::td[1]
@@ -341,20 +344,24 @@ fields:
     regExpReplace: $2
   - name: vitaminAPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin A content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //table[contains(@class,"list")]//tr/td[contains(text(),"Vitamine A")]/following-sibling::td[1]
+    regExp: ([.,0-9]+)\s(.+)
+    regExpReplace: $1
   - name: vitaminAPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Vitamin A
+    xpath: //table[contains(@class,"list")]//tr/td[contains(text(),"Vitamine A")]/following-sibling::td[1]
+    regExp: ([.,0-9]+)\s(.+)
+    regExpReplace: $2
   - name: vitaminCPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin C content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //table[contains(@class,"list")]//tr/td[contains(text(),"Vitamine C")]/following-sibling::td[1]
+    regExp: ([.,0-9]+)\s(.+)
+    regExpReplace: $1
   - name: vitaminCPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Vitamin C
+    xpath: //table[contains(@class,"list")]//tr/td[contains(text(),"Vitamine C")]/following-sibling::td[1]
+    regExp: ([.,0-9]+)\s(.+)
+    regExpReplace: $2
   - name: calciumPerServing
     singleValue: false
     xpath: //table[contains(@class,"list")]//tr/td[contains(text(),"Calcium")]/following-sibling::td[1]
@@ -405,7 +412,7 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
-    xpath: //div[contains(@id,"productMoreInfo")]//h4[contains(text(),"conserver")]
+    xpath: //div[contains(@id,"productMoreInfo")]//h3[contains(text(),"Conseils")]/following-sibling::h4 |  //div[contains(@id,"productMoreInfo")]//h4[contains(text(),"conserver")]
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
@@ -426,9 +433,14 @@ fields:
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: false
+    xpath: //div[@id="pd_price_per_unit"]
     description: Price of the product split into certain units
   - name: pricePerUnitUom
     singleValue: false
+    xpath: //div[contains(@class,"note")]/span
+    regExp: >-
+      Prix au\s(.+)\s:
+    regExpReplace: $1
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
@@ -509,7 +521,7 @@ fields:
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: false
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    xpath: //div[contains(@class,"picture")]//div[contains(@id,"slides")]//img[contains(@class,"cloudzoom")]/@src
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No

@@ -22,6 +22,7 @@ module.exports = {
         const dataObject = window.vue.ProductDetail.product;
         if (dataObject) {
           addHiddenDiv('variantId', dataObject.id);
+          addHiddenDiv('pd_price_per_unit', dataObject.prix_unite_ref_tri.replace('.', ','));
         }
       } catch (error) {
         console.log('data object not present');
