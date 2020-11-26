@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: /html/body[@id="product"]
 fields:
   - name: image
     singleValue: false
@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,"product-primary-image")]/img/@alt
   - name: category
     singleValue: false
-    xpath: //ol[contains(@class,"breadcrumb")]/li/a[not(contains(@class,"home"))]
+    xpath: //nav[@aria-label="breadcrumb"]/ol[contains(@class,"breadcrumb")]/li/a[not(contains(@class,"home"))]
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class,"product-title-wrapper")]/span/a | //h1[contains(@class,"description_group")]
@@ -26,7 +26,7 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@id="productDescriptionContentBody"]
+    xpath: //div[@id="productDescriptionContentBody"]/text()[1]
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,"product-title-wrapper")]/span/a
@@ -42,32 +42,21 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"block_product_rating")]//span[@class="rating_value"]
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,"description_group")]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
   - name: variantCount
     singleValue: false
-    xpath: //div[@class="product-variations-color"]//div[@class="slick-track"]/div[contains(@class,"slick-slide")]
-  - name: name
-    singleValue: true
-    xpath: //h1[contains(@class,"description_group")]
+    xpath: //div[@class="product-variations-color"]//div[contains(@class,"slick-list")]//div[contains(@class,"slick-slide")]
   - name: variantInformation
-    singleValue: true
-    description: colour / scent / flavour / other
+    singleValue: false
+    xpath: //div[@class="product-variations-color"]/div[contains(@class,"color_variation_name")]/span
   - name: firstVariant
-    singleValue: true
-    description: Unique identifier for a collection of variants. For a subset of
-      core feeds (43) we have a column "first_variant" that is populated with a
-      common code to link all variants for a product. method 1 (Preferred) = use
-      common tag (Could be parent sku) that is same value for all variants of a
-      product. method 2 = first_variant method technique, Identify the first
-      varient in the sequence and use this rpc to populate "first_variant" for
-      all variants of a product, this rpc becomes the common link between other
-      variants. method 3 = apply some logic to determine link between variants,
-      this will need analysis
+    singleValue: false
+    xpath: //div[@class="product-variations-color"]//div[contains(@class,"slick-list")]//div[contains(@class,"slick-slide") and position()=1]//div[contains(@class,"d-inline-block")]/@data-id-product
   - name: variants
     singleValue: false
-    description: null
-  - name: imageZoomFeaturePresent
-    singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    xpath: //div[@class="product-variations-color"]//div[contains(@class,"slick-list")]//div[contains(@class,"slick-slide")]//div[contains(@class,"d-inline-block")]/@data-id-product
