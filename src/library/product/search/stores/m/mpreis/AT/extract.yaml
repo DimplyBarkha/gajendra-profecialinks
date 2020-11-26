@@ -8,10 +8,9 @@ fields:
     xpath: //@href
     regExp: -(\d+)"*$
     regExpReplace: $1
-    # searchUrl is not collected manualy, there is no pagination, all results are presented on one pege.
-  # - name: searchUrl
-  #   singleValue: true
-  #   xpath: //@searchurl
+  - name: searchUrl
+    singleValue: false
+    xpath: //span[@class="c3-product__name"]/@searchurl
   - name: name
     singleValue: false
     xpath: //span[@class="c3-product__name"]
@@ -38,14 +37,12 @@ fields:
     singleValue: false
   - name: ratingCount
     singleValue: false
-    # todo here i finished. Price still works bad. Cant collect when "|" if in selector.
   - name: price
     singleValue: false
     xpath: //div[contains(@class, "_price--has-discount")]|//div[@class="c3-product__price"]
-    # regExp: (\d{1,7},\d{2}).+
-    # regExpReplace: $1
-  - name: manufacturerexit
-    singleValue: true
+    regExp: ^[\d,]+
+  - name: manufacturer
+    singleValue: false
     xpath: //span[@class="c3-product__producer"]
   - name: soldBy
     singleValue: true
@@ -55,10 +52,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //span[@class="c3-product__name"]/@rank
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //span[@class="c3-product__name"]/@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid

@@ -22,12 +22,12 @@ async function implementation (
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(1000);
-        scrollTop += 1000;
+      while (scrollTop !== 80000) {
+        await stall(100);
+        scrollTop += 1080;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(1000);
+        if (scrollTop >= 80000) {
+          await stall(100);
           break;
         }
       }
@@ -42,15 +42,22 @@ async function implementation (
   };
   await applyScroll(context);
 
+  
+
   await context.evaluate(() => {
     const addProp = (selector, iterator, propName, value) => {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     };
 
+    const curentUrl = window.location.href.match(/(.+)\?/)[1];
+    console.log(`URL TO JEST: ${curentUrl}`);
+
     const allProducts = document.querySelectorAll('a[class*="c3-product-grid__item"]');
-    const searchUrl = document.URL;
+    console.log(`All products length is ${allProducts.length}`);
     for (let i = 0; i < allProducts.length; i++) {
-      // addProp('a[class*="c3-product-grid__item"]', i, 'searchurl', searchUrl);
+      console.log(`All products length is ${allProducts.length}`);
+      addProp('span.c3-product__name', i, 'rank', `${i + 1}`);
+      addProp('span.c3-product__name', i, 'searchurl', curentUrl);
     }
   });
 
