@@ -14,7 +14,14 @@ module.exports = {
       const buttonIngredients = document.querySelector('div[class*="accIngredients"] a[role="button"]');
       if (buttonIngredients) buttonIngredients.click();
     });
-
-    return await context.extract(productDetails, { transform });
+    var data = await context.extract(productDetails, { transform });
+    for (let k = 0; k < data.length; k++) {
+      for (let i = 0; i < data[k].group.length; i++) {
+        if ('availabilityText' in data[k].group[i]) {
+          data[k].group[i].availabilityText[0].text = 'In Stock';
+        }
+      }
+    }
+    return data;
   },
 };

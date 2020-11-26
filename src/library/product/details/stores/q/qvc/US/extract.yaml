@@ -51,7 +51,7 @@ fields:
 - name: availabilityText
   singleValue: false
   type: STRING
-  xpath: //p[@class="status instock" and contains(@style, "block")]
+  xpath: //p[@class="status instock" and contains(@style, "block")] | //ul[@role="radiogroup"]/li[contains(@ats,"Y")][1]//input/@aria-label
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
@@ -441,7 +441,6 @@ fields:
     desription info
 - name: variantInformation
   singleValue: true
-  xpath: //ul[@aria-label="Color" or @aria-label="Option"]/li[@ats="Y" and @state="selected"]/@data-original-title
   description: colour / scent / flavour / other
 - name: firstVariant
   singleValue: true
@@ -455,6 +454,7 @@ fields:
     between variants, this will need analysis
 - name: variants
   singleValue: false
+  xpath: //ul[@role="radiogroup"]/li[contains(@ats,"Y")]/@data-original-title
   description: 
 - name: additionalDescBulletInfo
   singleValue: false
