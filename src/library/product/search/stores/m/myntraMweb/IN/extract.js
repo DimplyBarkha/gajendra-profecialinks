@@ -30,7 +30,7 @@ module.exports = {
       const products = document.querySelectorAll('ul.results-base li.product-base');
       for (let i = 0; i < products.length; i++) {
         const aggRating = products[i].querySelector('div.product-ratingsContainer span:nth-child(1)') ? products[i].querySelector('div.product-ratingsContainer span:nth-child(1)').textContent : '';
-        if (aggRating) products[i].setAttribute('aggrating', aggRating.replace('.', ','));
+        if (aggRating) products[i].setAttribute('aggrating', aggRating);
         products[i].setAttribute('rank', `${lastProductPosition + i}`);
       }
       localStorage.setItem('prodCount', `${lastProductPosition + products.length}`);

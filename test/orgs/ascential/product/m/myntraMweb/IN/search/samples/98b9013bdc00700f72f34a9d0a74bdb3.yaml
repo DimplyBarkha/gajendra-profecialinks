@@ -2,7 +2,7 @@ input:
   Keywords: bb cream
   _url: http://myntra.com
 extractions:
-  - html: https://workbench.import.io/html/run=33dfc052-2515-4959-8c91-baf05ad83265/task=ca89164d-05b5-4500-963a-ea7bd7876010/58d61a77-336d-4193-b82c-21f736424a09.html
+  - html: https://workbench.import.io/html/run=cd65086c-1d3d-471e-ba30-f967f69f7afb/task=43cdc113-c165-4b17-8614-d38dbc73c6c0/9d410a2a-750e-4bc1-a382-c46f726d5f27.html
     extractionConfigId: product/search/stores/m/myntraMweb/IN/extract
     data:
       - group:
@@ -19,8 +19,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12087896/2020/10/9/260b64ff-b2e6-4b4c-9063-bde005e6a3041602267008638MamaearthVitaminCCreamForFaceWithVitaminCSPF201.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "136"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "136"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[2]/div[1]/text()[2]
@@ -42,26 +49,33 @@ extractions:
                 locale: en
                 value: 1
           - id:
-              - text: "12683662"
+              - text: "376706"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/@href
             name:
-              - text: Unisex Set of 3 Face Kit
+              - text: Spotlight Illuminating Lotion
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/mamaearth/mamaearth-unisex-set-of-3-face-kit/12683662/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/colorbar/colorbar-spotlight-illuminating-lotion-30-ml/376706/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12683662/2020/10/6/72e2b9db-9842-4485-847c-50b29b9d454e1601963024402-Mamaearth-Unisex-BB-and-CC-Cream-5211601963023985-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/376706/2019/1/11/b58620cf-69fc-4083-8a8a-d3491e36b03a1547196686480-Colorbar-Spotlight-Illuminating-Lotion-501547196686307-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "172"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "956"
+              - text: "172"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1247
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 760
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/@rank
@@ -77,25 +91,32 @@ extractions:
                 locale: en
                 value: 2
           - id:
-              - text: "11914720"
+              - text: "12683662"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/@href
             name:
-              - text: Flawless SPF30+ BB Cream 15
+              - text: Unisex Set of 3 Face Kit
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/sugar/sugar-cosmetics-goddess-of-flawless-spf30-bb-cream-5-cappuccino-light---25-ml/11914720/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/mamaearth/mamaearth-unisex-set-of-3-face-kit/12683662/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11914720/2020/6/5/9fd2c5a8-5677-482b-8e45-1a8f434cf0cd1591335792629-SUGAR-Cosmetics-Goddess-Of-Flawless-SPF30-BB-Cream-5-Cappucc-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12683662/2020/10/6/72e2b9db-9842-4485-847c-50b29b9d454e1601963024402-Mamaearth-Unisex-BB-and-CC-Cream-5211601963023985-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,9
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "343"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "7"
+              - text: "343"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 699
+              - text: Rs. 1247
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "3"
@@ -112,26 +133,33 @@ extractions:
                 locale: en
                 value: 3
           - id:
-              - text: "376706"
+              - text: "10443768"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/@href
             name:
-              - text: Spotlight Illuminating Lotion
+              - text: Anti-Ageing BB Cream 50 g
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/colorbar/colorbar-spotlight-illuminating-lotion-30-ml/376706/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/olay/olay-anti-ageing-touch-of-foundation-spf-15-bb-cream-50-g/10443768/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/376706/2019/1/11/b58620cf-69fc-4083-8a8a-d3491e36b03a1547196686480-Colorbar-Spotlight-Illuminating-Lotion-501547196686307-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10443768/2020/1/9/0d5b34a3-8d5a-4317-aac6-57c75a064ab11578572259286-Olay-Women-Face-Moisturisers-7411578572257518-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "4.9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/@aggrating
+                type: NUMBER
+                raw: "4.9"
+                locale: en
+                value: 4.9
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "172"
+              - text: "10"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 760
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 899
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/@rank
@@ -147,25 +175,32 @@ extractions:
                 locale: en
                 value: 4
           - id:
-              - text: "10443768"
+              - text: "11914720"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/@href
             name:
-              - text: Anti-Ageing BB Cream 50 g
+              - text: Flawless SPF30+ BB Cream 15
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/olay/olay-anti-ageing-touch-of-foundation-spf-15-bb-cream-50-g/10443768/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/sugar/sugar-cosmetics-goddess-of-flawless-spf30-bb-cream-5-cappuccino-light---25-ml/11914720/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10443768/2020/1/9/0d5b34a3-8d5a-4317-aac6-57c75a064ab11578572259286-Olay-Women-Face-Moisturisers-7411578572257518-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11914720/2020/6/5/9fd2c5a8-5677-482b-8e45-1a8f434cf0cd1591335792629-SUGAR-Cosmetics-Goddess-Of-Flawless-SPF30-BB-Cream-5-Cappucc-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,9
+              - text: "4.9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/@aggrating
+                type: NUMBER
+                raw: "4.9"
+                locale: en
+                value: 4.9
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "10"
+              - text: "7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 899
+              - text: Rs. 699
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "5"
@@ -194,10 +229,17 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12683584/2020/10/6/55c87449-cf05-40f6-85f9-54efe46e4a161601962992266-Mamaearth-Unisex-BB-and-CC-Cream-6841601962991788-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "147"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "696"
+              - text: "147"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[2]/div[1]/text()[2]
             price:
               - text: Rs. 1247
@@ -217,22 +259,29 @@ extractions:
                 locale: en
                 value: 6
           - id:
-              - text: "11914722"
+              - text: "11914726"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/@href
             name:
-              - text: Goddess Of Flawless BB Cream
+              - text: SPF30+ BB Cream
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/sugar/sugar-cosmetics-goddess-of-flawless-bb-cream-spf30-macchiato-25-ml/11914722/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/sugar/sugar-cosmetics-goddess-of-flawless-spf30-bb-cream---32-cortado-medium-25-ml/11914726/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/5/335b0571-0a3a-4f18-87a4-9dfca50436651591307210325-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/5/5df8651e-e8ae-4fa4-b3e4-7a65e82eb1371591307173590-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,6
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "13"
+              - text: "9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[2]/div[1]/text()[2]
             price:
               - text: Rs. 699
@@ -252,22 +301,29 @@ extractions:
                 locale: en
                 value: 7
           - id:
-              - text: "11914726"
+              - text: "11914722"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/@href
             name:
-              - text: SPF30+ BB Cream
+              - text: Goddess Of Flawless BB Cream
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/sugar/sugar-cosmetics-goddess-of-flawless-spf30-bb-cream---32-cortado-medium-25-ml/11914726/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/sugar/sugar-cosmetics-goddess-of-flawless-bb-cream-spf30-macchiato-25-ml/11914722/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/5/5df8651e-e8ae-4fa4-b3e4-7a65e82eb1371591307173590-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/5/335b0571-0a3a-4f18-87a4-9dfca50436651591307210325-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.6"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/@aggrating
+                type: NUMBER
+                raw: "4.6"
+                locale: en
+                value: 4.6
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "9"
+              - text: "13"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[2]/div[1]/text()[2]
             price:
               - text: Rs. 699
@@ -287,19 +343,19 @@ extractions:
                 locale: en
                 value: 8
           - id:
-              - text: "11914724"
+              - text: "11761944"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/@href
             name:
-              - text: SPF30+ BB Cream - 47 Borgia
+              - text: BB CREAM CARAMEL
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/sugar/sugar-goddess-of-flawless-spf30-bb-cream---47-borgia/11914724/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/daily-life-forever52/daily-life-forever52-bb-cream-caramel-50ml/11761944/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/7/0d2cd3b4-3f7e-4f4e-8904-131a126a26bd1591483116296-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11761944/2020/3/27/ba488187-d0d0-41e1-b0fe-f9c070ce0acb1585292263057DailyLifeForever521.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             price:
-              - text: Rs. 699
+              - text: Rs. 1199
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "9"
@@ -316,25 +372,32 @@ extractions:
                 locale: en
                 value: 9
           - id:
-              - text: "1663942"
+              - text: "11761946"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/@href
             name:
-              - text: SPF 20 5-in-1 BB Cream 30 ml
+              - text: BB CREAM FAIR
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/deborah/deborah-milano-sand-spf-20-5-in-1-bb-cream-03-30-ml/1663942/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/daily-life-forever52/daily-life-forever52-bb-cream-fair/11761946/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1663942/2019/11/12/c6cb0611-3dd7-4714-a1da-9958c1d070b21573544299836DeborahMilanoSandSPF205-in-1BBCream0330ml1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11761946/2020/3/27/400a5039-2080-45c9-a8d9-cf9c231004521585292213146DailyLifeForever521.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "11"
+              - text: "9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 695
+              - text: Rs. 1199
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "10"
@@ -351,20 +414,33 @@ extractions:
                 locale: en
                 value: 10
           - id:
-              - text: "11761944"
+              - text: "376709"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/@href
             name:
-              - text: BB CREAM CARAMEL
+              - text: Ultimate Blemish Corrector
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/daily-life-forever52/daily-life-forever52-bb-cream-caramel-50ml/11761944/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/colorbar/colorbar-ultimate-blemish-corrector-75-ml/376709/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11761944/2020/3/27/ba488187-d0d0-41e1-b0fe-f9c070ce0acb1585292263057DailyLifeForever521.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/376709/2019/1/11/a2f24ca2-f9f7-4245-98e1-3c41f15b919d1547196701780-Colorbar-Ultimate-Blemish-Corrector-661547196701606-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "3.5"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/@aggrating
+                type: NUMBER
+                raw: "3.5"
+                locale: en
+                value: 3.5
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1199
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 600
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "11"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/@rank
@@ -380,25 +456,19 @@ extractions:
                 locale: en
                 value: 11
           - id:
-              - text: "11761946"
+              - text: "11914724"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/@href
             name:
-              - text: BB CREAM FAIR
+              - text: SPF30+ BB Cream - 47 Borgia
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/daily-life-forever52/daily-life-forever52-bb-cream-fair/11761946/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/sugar/sugar-goddess-of-flawless-spf30-bb-cream---47-borgia/11914724/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11761946/2020/3/27/400a5039-2080-45c9-a8d9-cf9c231004521585292213146DailyLifeForever521.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/7/0d2cd3b4-3f7e-4f4e-8904-131a126a26bd1591483116296-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,1
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/@aggrating
-            ratingCount:
-              - text: "9"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1199
+              - text: Rs. 699
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "12"
@@ -427,8 +497,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/9/a8790c3a-35e5-42ab-8a01-64bfa4b6e0161591653447408-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/div[2]/div[1]/text()[2]
@@ -450,25 +527,32 @@ extractions:
                 locale: en
                 value: 13
           - id:
-              - text: "7735408"
+              - text: "1663942"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/@href
             name:
-              - text: Daily Protection BB Cream 06
+              - text: SPF 20 5-in-1 BB Cream 30 ml
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/kiko-milano/kiko-milano-spf-30-daily-protection-bb-cream-06/7735408/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/deborah/deborah-milano-sand-spf-20-5-in-1-bb-cream-03-30-ml/1663942/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7735408/2018/12/15/a89531a9-c394-46d9-ad23-0ea25fa4d9001544874018787-KIKO-MILANO-Women-Foundation-and-Primer-5201544874018718-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1663942/2019/11/12/c6cb0611-3dd7-4714-a1da-9958c1d070b21573544299836DeborahMilanoSandSPF205-in-1BBCream0330ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: "3"
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "2"
+              - text: "11"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1290
+              - text: Rs. 695
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "14"
@@ -485,20 +569,33 @@ extractions:
                 locale: en
                 value: 14
           - id:
-              - text: "6160558"
+              - text: "11404102"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/@href
             name:
-              - text: BB Cream 01
+              - text: Medium 9-in-1 SPF 15 BB Cream
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/note/note-advanced-skin-corrector-bb-cream-01/6160558/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/rimmel/rimmel-medium-9-in-1-spf-15-bb-cream-30-ml/11404102/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6160558/2018/6/20/46ab6fad-6fa8-4b0f-9a81-974730d81ddf1529476897705-Note-Women-Foundation-and-Primer-1501529476897693-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11404102/2020/2/24/f310084c-22b8-4ec7-89e0-76df953169d71582549561241RIMMELMedium9-in-1SPF15BBCream30ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "3.7"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/@aggrating
+                type: NUMBER
+                raw: "3.7"
+                locale: en
+                value: 3.7
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1259
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 499
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "15"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/@rank
@@ -514,20 +611,33 @@ extractions:
                 locale: en
                 value: 15
           - id:
-              - text: "6160391"
+              - text: "7735408"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/@href
             name:
-              - text: BB Cream 02
+              - text: Daily Protection BB Cream 06
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/note/note-advanced-skin-corrector-bb-cream-02/6160391/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/kiko-milano/kiko-milano-spf-30-daily-protection-bb-cream-06/7735408/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6160391/2018/6/20/41053a03-7d59-43d6-b802-c442ea4ccb981529476872640-Note-Women-Foundation-and-Primer-6061529476872628-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7735408/2018/12/15/a89531a9-c394-46d9-ad23-0ea25fa4d9001544874018787-KIKO-MILANO-Women-Foundation-and-Primer-5201544874018718-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/@aggrating
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1259
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 1290
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "16"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/@rank
@@ -543,26 +653,20 @@ extractions:
                 locale: en
                 value: 16
           - id:
-              - text: "11761942"
+              - text: "6160558"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/@href
             name:
-              - text: BEIGE BB CREAM
+              - text: BB Cream 01
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/daily-life-forever52/daily-life-forever52-beige-bb-cream-50ml/11761942/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/note/note-advanced-skin-corrector-bb-cream-01/6160558/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11761942/2020/3/27/d3d87286-4a83-45f4-88e2-62750473a0681585292217130DailyLifeForever521.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6160558/2018/6/20/46ab6fad-6fa8-4b0f-9a81-974730d81ddf1529476897705-Note-Women-Foundation-and-Primer-1501529476897693-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,8
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/@aggrating
-            ratingCount:
-              - text: "9"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1199
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 1259
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "17"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/@rank
@@ -578,19 +682,19 @@ extractions:
                 locale: en
                 value: 17
           - id:
-              - text: "12219556"
+              - text: "6160391"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/@href
             name:
-              - text: BB Beauty Cream 8in1 Sand 4
+              - text: BB Cream 02
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/dermacol/dermacol-1263-bb-magic-beauty-cream-8in1-sand-4-30-ml/12219556/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/note/note-advanced-skin-corrector-bb-cream-02/6160391/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/8/7/856aea54-1602-4dbf-a4ee-d6a63fa6d9c11596756185513-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6160391/2018/6/20/41053a03-7d59-43d6-b802-c442ea4ccb981529476872640-Note-Women-Foundation-and-Primer-6061529476872628-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             price:
-              - text: Rs. 919
+              - text: Rs. 1259
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "18"
@@ -607,25 +711,19 @@ extractions:
                 locale: en
                 value: 18
           - id:
-              - text: "376709"
+              - text: "12219556"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/@href
             name:
-              - text: Ultimate Blemish Corrector
+              - text: BB Beauty Cream 8in1 Sand 4
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/colorbar/colorbar-ultimate-blemish-corrector-75-ml/376709/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/dermacol/dermacol-1263-bb-magic-beauty-cream-8in1-sand-4-30-ml/12219556/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/376709/2019/1/11/a2f24ca2-f9f7-4245-98e1-3c41f15b919d1547196701780-Colorbar-Ultimate-Blemish-Corrector-661547196701606-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/8/7/856aea54-1602-4dbf-a4ee-d6a63fa6d9c11596756185513-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 3,5
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/@aggrating
-            ratingCount:
-              - text: "10"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 600
+              - text: Rs. 919
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "19"
@@ -642,19 +740,32 @@ extractions:
                 locale: en
                 value: 19
           - id:
-              - text: "11914728"
+              - text: "1663941"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/@href
             name:
-              - text: BB Cream
+              - text: SPF 20 5-in-1 BB Cream 30 ml
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/sugar/sugar-cosmetics-goddess-of-flawless-spf30-bb-cream-55-americano-25-ml/11914728/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/deborah/deborah-milano-fair-spf-20-5-in-1-bb-cream-01-30-ml/1663941/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/5/d1740ec7-739e-4937-aa15-8fba2f5085fc1591307132294-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1663941/2019/11/12/c5957814-1697-40c2-9e06-2edd074052581573544340058DeborahMilanoFairSPF205-in-1BBcream0130ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.3"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "30"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "30"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 699
+              - text: Rs. 695
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "20"
@@ -671,25 +782,19 @@ extractions:
                 locale: en
                 value: 20
           - id:
-              - text: "1663941"
+              - text: "11914728"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/@href
             name:
-              - text: SPF 20 5-in-1 BB Cream 30 ml
+              - text: BB Cream
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/deborah/deborah-milano-fair-spf-20-5-in-1-bb-cream-01-30-ml/1663941/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/sugar/sugar-cosmetics-goddess-of-flawless-spf30-bb-cream-55-americano-25-ml/11914728/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1663941/2019/11/12/c5957814-1697-40c2-9e06-2edd074052581573544340058DeborahMilanoFairSPF205-in-1BBcream0130ml1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/5/d1740ec7-739e-4937-aa15-8fba2f5085fc1591307132294-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,3
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/@aggrating
-            ratingCount:
-              - text: "30"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 695
+              - text: Rs. 699
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "21"
@@ -706,25 +811,32 @@ extractions:
                 locale: en
                 value: 21
           - id:
-              - text: "11404102"
+              - text: "11761942"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/@href
             name:
-              - text: Medium 9-in-1 SPF 15 BB Cream
+              - text: BEIGE BB CREAM
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/bb-and-cc-cream/rimmel/rimmel-medium-9-in-1-spf-15-bb-cream-30-ml/11404102/buy
+              - text: https://www.myntra.com/bb-and-cc-cream/daily-life-forever52/daily-life-forever52-beige-bb-cream-50ml/11761942/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11404102/2020/2/24/f310084c-22b8-4ec7-89e0-76df953169d71582549561241RIMMELMedium9-in-1SPF15BBCream30ml1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11761942/2020/3/27/d3d87286-4a83-45f4-88e2-62750473a0681585292217130DailyLifeForever521.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,7
+              - text: "4.8"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/@aggrating
+                type: NUMBER
+                raw: "4.8"
+                locale: en
+                value: 4.8
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "3"
+              - text: "9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 499
+              - text: Rs. 1199
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "22"
@@ -753,8 +865,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/9/14/823b45f3-343a-48ae-bd6b-3b2c6117fa961568449853283-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,4
+              - text: "3.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/@aggrating
+                type: NUMBER
+                raw: "3.4"
+                locale: en
+                value: 3.4
+            reviewCount:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/div[2]/div[1]/text()[2]
@@ -848,6 +967,13 @@ extractions:
             aggregateRating2:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/@aggrating
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/div[2]/div[1]/text()[2]
@@ -941,6 +1067,13 @@ extractions:
             aggregateRating2:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/@aggrating
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/div[2]/div[1]/text()[2]
@@ -1119,8 +1252,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7729405/2019/2/26/cd36e5f0-6df7-4cf7-839c-06c4f99448871551177573649-Deborah-Women-BB-and-CC-Cream-7891551177573068-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "37"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "37"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/div[2]/div[1]/text()[2]
@@ -1142,4 +1282,4 @@ extractions:
                 locale: en
                 value: 35
         xpath: /html
-    timestamp: 1606398929113
+    timestamp: 1606400092019

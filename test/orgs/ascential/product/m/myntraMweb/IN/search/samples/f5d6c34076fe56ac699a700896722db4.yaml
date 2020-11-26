@@ -2,7 +2,7 @@ input:
   Keywords: loreal paris serum for hair
   _url: http://myntra.com
 extractions:
-  - html: https://workbench.import.io/html/run=33dfc052-2515-4959-8c91-baf05ad83265/task=50fb9261-8bf8-403a-bfd2-3a3f96018765/f7cc5324-f74c-4175-bf5b-29755b4ea9bc.html
+  - html: https://workbench.import.io/html/run=cd65086c-1d3d-471e-ba30-f967f69f7afb/task=bc1084b2-a2f6-4989-a2b2-f54d4bc05318/9b7c935a-968a-47d6-a196-02ad5de94466.html
     extractionConfigId: product/search/stores/m/myntraMweb/IN/extract
     data:
       - group:
@@ -19,8 +19,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1967079/2017/6/22/11498114420885-LOreal-Unisex-Hair-Serum-4231498114420581-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: 5.5k
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: 5.5k
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[2]/div[1]/text()[2]
@@ -54,8 +61,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12371164/2020/9/10/5fbd1a95-ab2e-4699-af1f-14d6b56732291599740376808-LOreal-Women-Hair-Serum-7791599740376357-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,6
+              - text: "4.6"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/@aggrating
+                type: NUMBER
+                raw: "4.6"
+                locale: en
+                value: 4.6
+            reviewCount:
+              - text: "430"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "430"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[2]/div[1]/text()[2]
@@ -89,8 +103,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7642483/2018/11/9/6f7570ac-eee3-4f88-b607-b5d1282042d71541766557614-LOreal-Paris-Unisex-Set-Of-2-Smooth-Intense-Smoothing-Serum-100-ml-5911541766557572-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: 5.5k
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: 5.5k
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[2]/div[1]/text()[2]
@@ -124,10 +145,17 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7762727/2018/12/1/7d69c775-8ceb-4b84-9ebc-3ce90d6a23bf1543661737656-LOreal-Paris-Smooth-Smoothing-Serum-100-ml--Anti-Aging-Plus--1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: 6.2k
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: 3.9k
+              - text: 6.2k
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
             price:
               - text: Rs. 240
@@ -147,4 +175,4 @@ extractions:
                 locale: en
                 value: 4
         xpath: /html
-    timestamp: 1606398916479
+    timestamp: 1606400082995

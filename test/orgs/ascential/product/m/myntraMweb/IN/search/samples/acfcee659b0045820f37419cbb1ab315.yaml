@@ -2,7 +2,7 @@ input:
   Keywords: haircolor
   _url: http://myntra.com
 extractions:
-  - html: https://workbench.import.io/html/run=33dfc052-2515-4959-8c91-baf05ad83265/task=c82192b8-ad08-4134-b6ac-ca9fb8c1d6a8/5d24f085-f1b0-4095-9b3a-98629426f4ee.html
+  - html: https://workbench.import.io/html/run=cd65086c-1d3d-471e-ba30-f967f69f7afb/task=b93c7de8-9ed2-4e1f-b399-7c45a4b81968/bbc67c3c-2bb2-4867-af1d-d19546af2450.html
     extractionConfigId: product/search/stores/m/myntraMweb/IN/extract
     data:
       - group:
@@ -19,8 +19,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10611236/2020/6/9/02e2f41f-3787-4052-b9ee-935dfc21e2fe1591691598978KAMAAYURVEDAUnisexOrganicHairColorKit1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "110"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "110"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[2]/div[1]/text()[2]
@@ -54,8 +61,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10611232/2020/6/9/c3c6f96b-46b5-4b89-aaab-e050aa48436d1591691598446KAMAAYURVEDAUnisexLesJardinsDIndeOrganicIndigoPowderHairColo1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/@aggrating
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "139"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "139"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[2]/div[1]/text()[2]
@@ -89,8 +103,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1967197/2020/10/19/8fad2119-aa15-402e-b615-98882ed074bd1603091036449-LOreal-Paris-Casting-Creme-Gloss-Hair-Color---Praline-Brown--1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "180"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "180"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[2]/div[1]/text()[2]
@@ -124,8 +145,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11986210/2020/10/19/43bc6cee-774a-4c7e-99cc-ea31052f2ddc1603103679151-LOreal-Paris-No-Ammonia-Excellence-Creme-Hair-Colour--Aishwa-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "361"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "361"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
@@ -159,8 +187,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11793466/2020/10/19/9b2eddb6-dc77-4759-b62b-2be4e60aa3ed1603095713477-LOreal-Paris-Women-Casting-Creme-Gloss-Hair-Colour-with-Mani-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "583"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "583"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[2]/div[1]/text()[2]
@@ -194,8 +229,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/135701/2020/10/19/ca4e40c2-2bf7-40b1-a854-59f9bba8c6fa1603090518220-LOreal-Paris-Women-Casting-Creme-Gloss-Hair-Colour---Dark-Br-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "718"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "718"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[2]/div[1]/text()[2]
@@ -229,8 +271,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10251807/2020/10/13/84c78afe-5478-4ba8-866a-65587d438b0d1602594009824-LOreal-Women-Hair-Colour-1221602594008776-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "76"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "76"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[2]/div[1]/text()[2]
@@ -264,8 +313,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6617864/2020/10/19/531d150b-3983-4dbb-a92d-58640c7e90c91603096112757-Garnier-Color-Naturals-Creme-Caramel-Brown-Hair-Color-Shade--1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "151"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "151"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[2]/div[1]/text()[2]
@@ -299,8 +355,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10611238/2020/6/9/367d5084-b836-4d5f-9444-6db707eb6f7f1591691628740KAMAAYURVEDAUnisexOrganicHennaPowder100g1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/@aggrating
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "119"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "119"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[2]/div[1]/text()[2]
@@ -334,8 +397,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1967200/2020/10/19/9cb251eb-d13b-4709-8b84-57e3b0e7cc941603093880498-LOreal-Paris-Women-Casting-Creme-Gloss-Hair-Colour---Medium--1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "240"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "240"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[2]/div[1]/text()[2]
@@ -371,6 +441,13 @@ extractions:
             aggregateRating2:
               - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/@aggrating
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            reviewCount:
+              - text: "65"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "65"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[2]/div[1]/text()[2]
@@ -404,8 +481,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1967189/2020/10/19/66ca0410-3686-46ce-a1e7-669760ef6c961603090994549-LOreal-Paris-Casting-Creme-Gloss-Hair-Color---Mahogany-550-8-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "196"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "196"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[2]/div[1]/text()[2]
@@ -439,8 +523,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812358/2020/4/23/6ba5237a-94c8-4560-9bba-6bc5f28fd5b81587631103042ShampooandConditionerLoveBeautyPlanetWomenSunscreenLakmeWome1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "310"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "310"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/div[2]/div[1]/text()[2]
@@ -474,8 +565,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9350631/2019/4/23/0eb41459-4af7-48ad-996d-e7b29e1320981556014580351-Garnier-Women-Hair-Colour-3951556014579739-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "110"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "110"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/div[2]/div[1]/text()[2]
@@ -509,8 +607,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12442324/2020/10/1/787077ed-7159-4cd6-a297-e1604f1c5ffa1601537245423-LOreal-Women-Hair-Colour-4661601537245189-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "424"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "424"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/div[2]/div[1]/text()[2]
@@ -544,8 +649,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12260406/2020/10/19/8dc05d36-d18f-412b-92f6-9492804b461b1603103690719-LOreal-Paris-Women-Excellence-Creme-Hair-Color---01-Black-30-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "323"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "323"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/div[2]/div[1]/text()[2]
@@ -579,8 +691,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1967196/2020/10/19/cb310294-d444-414c-a8c0-bf9d0840bd651603091027267-LOreal-Paris-Casting-Creme-Gloss-Hair-Colour---Sonams-Dark-C-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "217"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "217"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/div[2]/div[1]/text()[2]
@@ -614,8 +733,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11793436/2020/10/19/d6e325ca-059c-40cb-a652-2d8dc70690741603095656050-LOreal-Paris-Casting-Creme-Gloss-Hair-Colour---Medium-Brown--1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "251"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "251"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/div[2]/div[1]/text()[2]
@@ -649,8 +775,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1967188/2020/10/19/e6c57e16-666d-4954-b149-6e3b1ce7915c1603090985739-LOreal-Paris-Casting-Creme-Gloss-Hair-Color---Iced-Chocolate-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "123"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "123"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/div[2]/div[1]/text()[2]
@@ -684,8 +817,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/135698/2020/10/19/6c39d0b4-eb58-44e8-8c16-cc849508cb901603102459049-LOreal-Paris-Excellence-Creme-Hair-Colour---Natural-Brown-04-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "293"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "293"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/div[2]/div[1]/text()[2]
@@ -719,8 +859,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/135696/2020/10/19/6e5f3f41-cdd2-40e0-8112-f950f2eaceab1603102425988-LOreal-Paris-Excellence-Creme-Hair-Colour---Burgundy-316-72m-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "196"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "196"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/div[2]/div[1]/text()[2]
@@ -754,8 +901,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10203327/2019/12/4/2efe5f80-301d-412b-8654-63ead03fe9241575465279678-Beardo-Beard-Color-For-Men---Natural-Black-5701575465279427-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,9
+              - text: "3.9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/@aggrating
+                type: NUMBER
+                raw: "3.9"
+                locale: en
+                value: 3.9
+            reviewCount:
+              - text: "48"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "48"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/div[2]/div[1]/text()[2]
@@ -789,8 +943,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6617856/2020/10/19/93831bbd-23bc-463c-8c6f-19ada73680a11603096294019-Garnier-Women-Darkest-Brown-Color-Naturals-Hair-Color-3-4811-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "234"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "234"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/div[2]/div[1]/text()[2]
@@ -824,8 +985,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/135706/2020/10/19/d599cdbb-dd3b-4cfc-88ff-3b961608463a1603090556227-LOreal-Paris-Casting-Creme-Gloss-Hair-Color---Burgundy-316-8-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "259"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "259"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/div[2]/div[1]/text()[2]
@@ -859,8 +1027,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11793442/2020/10/19/b9e3170d-caac-4668-ad79-9de17bcd453a1603095672627-LOreal-Paris-Casting-Creme-Gloss-Hair-Colour-Dark-Brown-400--1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "724"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "724"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/div[2]/div[1]/text()[2]
@@ -894,8 +1069,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1661439/2017/6/20/11497953990248-Biotique-Bio-Henna-Fresh-Powder-Hair-Colour-8401497953990153-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "300"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "300"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/div[2]/div[1]/text()[2]
@@ -929,8 +1111,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11793462/2020/10/19/362bbc5b-25a0-400e-826b-794ab9201fba1603095735811-LOreal-Paris-Casting-Creme-Gloss-Hair-Colour-Ebony-Black-200-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "372"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "372"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/div[2]/div[1]/text()[2]
@@ -964,8 +1153,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1967191/2020/10/19/de396b40-98dd-4bc7-a32f-9ef12d900f621603091013158-LOreal-Paris-Casting-Creme-Gloss-Darkest-Brown-300-Hair-Colo-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "127"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "127"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/div[2]/div[1]/text()[2]
@@ -999,8 +1195,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10696786/2020/10/19/71cdf03e-eeed-4abe-b273-d8a5eaf3f1731603096218316-LOreal-Paris-Women-Casting-Creme-Gloss-Hair-Color---Medium-B-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "21"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "21"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/div[2]/div[1]/text()[2]
@@ -1034,8 +1237,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10844932/2020/10/19/00f5bf06-2f71-4d02-8942-8b14ab2850011603096220872-Garnier-Color-Naturals-Creme-Wine-Burgundy-Hair-Color-420-70-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "47"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "47"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/div[2]/div[1]/text()[2]
@@ -1069,8 +1279,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11793454/2020/10/19/78fc9b8a-450b-4efd-a23c-4b1cc9dd6da31603095694238-LOreal-Paris-Casting-Creme-Gloss-Conditioning-Hair-Colour----1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/@aggrating
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "34"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "34"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/div[2]/div[1]/text()[2]
@@ -1104,8 +1321,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/13/10477b82-185d-482b-83be-4f7fb09a71391591998165544-2.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "40"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "40"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/div[2]/div[1]/text()[2]
@@ -1139,8 +1363,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10848934/2020/2/13/ccf82537-b5f3-4312-9b77-36d21376ac1d1581596197549-LOreal-Paris-Excellence-Creme-Triple-Care-Burgundy-Hair-Colo-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "18"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "18"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/div[2]/div[1]/text()[2]
@@ -1174,8 +1405,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10844930/2020/10/19/d5510739-083c-425a-9a48-3a845d50109d1603096196009-Garnier-Color-Naturals-Creme-Natural-Black-Hair-Color-1-70-m-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/@aggrating
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "22"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "22"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/div[2]/div[1]/text()[2]
@@ -1209,8 +1447,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/5292836/2020/10/16/cde4bdf2-f5a8-4ac6-8411-71a0d337dc771602837105257-LOreal-Women-Hair-Colour-4401602837104401-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: "4.7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/@aggrating
+                type: NUMBER
+                raw: "4.7"
+                locale: en
+                value: 4.7
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/div[2]/div[1]/text()[2]
@@ -1273,8 +1518,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812910/2020/4/27/d2341371-4bd0-42c6-a7e9-e9ca3825bf401587974497657LOrealParisSetof2CastingCremeGlossHairColorsPralineBrown5301.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,6
+              - text: "3.6"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/@aggrating
+                type: NUMBER
+                raw: "3.6"
+                locale: en
+                value: 3.6
+            reviewCount:
+              - text: "71"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "71"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/div[2]/div[1]/text()[2]
@@ -1308,8 +1560,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6617860/2020/10/19/f625ec1f-00a0-4467-912a-ec960af2f18c1603096156949-Garnier-Color-Naturals-Creme-Intense-Red-Hair-Color-660-70ml-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/@aggrating
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "86"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "86"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/div[2]/div[1]/text()[2]
@@ -1372,8 +1631,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1967187/2020/10/19/fa92292f-a515-4a00-b234-5142de5889011603090977249-LOreal-Paris-Casting-Creme-Gloss-Hair-Color---Black-Cherry-3-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "163"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "163"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/div[2]/div[1]/text()[2]
@@ -1436,8 +1702,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/10/a88a46be-0757-4bd0-ab2e-77dec64d28481591740984505-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,8
+              - text: "3.8"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/@aggrating
+                type: NUMBER
+                raw: "3.8"
+                locale: en
+                value: 3.8
+            reviewCount:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/div[2]/div[1]/text()[2]
@@ -1471,8 +1744,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11937154/2020/6/10/298e99be-35b1-47d0-ab7c-84e9a140c1bc1591782977869MakeupRemoverGarnierWomenLipstickLOrealWomenLipstickLOrealWo1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[43]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[43]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "125"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[43]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "125"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[43]/div[2]/div[1]/text()[2]
@@ -1506,8 +1786,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/11/9ae93f10-e13e-4557-8420-32d4e9b8f0fa1591828557283-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[44]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,5
+              - text: "3.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[44]/@aggrating
+                type: NUMBER
+                raw: "3.5"
+                locale: en
+                value: 3.5
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[44]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "10"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[44]/div[2]/div[1]/text()[2]
@@ -1570,8 +1857,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/9/be90b9fe-266d-4a3e-843a-039ffd9551cb1591659086717-2.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[46]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,7
+              - text: "3.7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[46]/@aggrating
+                type: NUMBER
+                raw: "3.7"
+                locale: en
+                value: 3.7
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[46]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[46]/div[2]/div[1]/text()[2]
@@ -1604,6 +1898,19 @@ extractions:
             thumbnail:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12144456/2020/11/11/33f4a9bd-18e1-4e60-98a8-934963e15db71605071775433-LOreal-Paris-Excellence-Creme-Hair-Color---1-Black-72ml100g--1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[47]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[47]/@aggrating
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[47]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[47]/div[2]/div[1]/text()[2]
             price:
               - text: Rs. 540
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[47]/a[1]/div[2]/div[1]/span[1]
@@ -1709,26 +2016,39 @@ extractions:
                 locale: en
                 value: 50
         xpath: /html
-    timestamp: 1606398974608
-  - html: https://workbench.import.io/html/run=33dfc052-2515-4959-8c91-baf05ad83265/task=c82192b8-ad08-4134-b6ac-ca9fb8c1d6a8/cb77338d-aeb8-406e-b667-49501763048a.html
+    timestamp: 1606400135989
+  - html: https://workbench.import.io/html/run=cd65086c-1d3d-471e-ba30-f967f69f7afb/task=b93c7de8-9ed2-4e1f-b399-7c45a4b81968/31a5edf5-8a9c-4d52-964c-97a7ad65550d.html
     extractionConfigId: product/search/stores/m/myntraMweb/IN/extract
     data:
       - group:
           - id:
-              - text: "11927942"
+              - text: "11812516"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/@href
             name:
-              - text: Light Brown 5.0 Hair Color
+              - text: Pack of 2 Shampoo & Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-organically-natural-gel-light-brown-50-hair-color/11927942/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-pack-of-2-colour-protect-shampoo--casting-creme-gloss-hair-color---brown/11812516/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11927942/2020/6/12/33dead08-5aef-46eb-9a03-02af55c3abf01591967965426IndusValleyOrganicallyNaturalGelLightBrown50HairColor2.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812516/2020/4/23/98bb5f46-8fac-45d7-b6d4-9beb72ceb54c1587625192685LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.3"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "794"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "794"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 575
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 854
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "51"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/@rank
@@ -1744,26 +2064,20 @@ extractions:
                 locale: en
                 value: 51
           - id:
-              - text: "11793462"
+              - text: "11927966"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/@href
             name:
-              - text: Hair Colour with Manicure Kit
+              - text: 24 HERBS Certified Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-casting-creme-gloss-hair-colour-ebony-black-200-with-manicure-kit/11793462/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-24-herbs-certified-organic-hair-color---soft-black-150g/11927966/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11793462/2020/10/19/362bbc5b-25a0-400e-826b-794ab9201fba1603095735811-LOreal-Paris-Casting-Creme-Gloss-Hair-Colour-Ebony-Black-200-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/12/356aebed-0458-4897-bc96-da75cc11b8e81591911738686-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,3
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/@aggrating
-            ratingCount:
-              - text: "372"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 522
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 699
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "52"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/@rank
@@ -1779,25 +2093,32 @@ extractions:
                 locale: en
                 value: 52
           - id:
-              - text: "11793436"
+              - text: "11937136"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/@href
             name:
-              - text: Hair Colour with Manicure Kit
+              - text: Set of 2 Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-casting-creme-gloss-hair-colour---medium-brown-500-with-manicure-kit/11793436/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-excellence-creme-triple-care-hair-color---natural-brown-4/11937136/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11793436/2020/10/19/d6e325ca-059c-40cb-a652-2d8dc70690741603095656050-LOreal-Paris-Casting-Creme-Gloss-Hair-Colour---Medium-Brown--1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11937136/2020/6/10/18e0a4de-e5f9-4e51-8dcb-3f94ee3016fe1591782979906MakeupRemoverGarnierWomenLipstickLOrealWomenLipstickLOrealWo1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "293"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "251"
+              - text: "293"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 522
+              - text: Rs. 1003
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "53"
@@ -1814,25 +2135,32 @@ extractions:
                 locale: en
                 value: 53
           - id:
-              - text: "10203327"
+              - text: "11812912"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/@href
             name:
-              - text: Men Natural Black Beard Colour
+              - text: Set of 2 Colors Black Cherry
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/beardo/beardo-men-ammonia-free-natural-black-beard-colour-60-ml/10203327/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-casting-creme-gloss-hair-colors-black-cherry-360/11812912/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10203327/2019/12/4/2efe5f80-301d-412b-8654-63ead03fe9241575465279678-Beardo-Beard-Color-For-Men---Natural-Black-5701575465279427-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812912/2020/4/27/1830edef-5d55-4090-810b-ecf0a61ebcb31587974502395LOrealParisSetof2CastingCremeGlossHairColorsBlackCherry3601.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,9
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "87"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "48"
+              - text: "87"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 405
+              - text: Rs. 935
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "54"
@@ -1849,25 +2177,32 @@ extractions:
                 locale: en
                 value: 54
           - id:
-              - text: "10611238"
+              - text: "10696770"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/@href
             name:
-              - text: Sustain Unisex Henna Powder 100 g
+              - text: Hair Color-Raspberry Red 7.65
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/kama-ayurveda/kama-ayurveda-sustainable-unisex-organic-henna-powder-100-g/10611238/buy
+              - text: https://www.myntra.com/hair-colour/garnier/garnier-color-naturals-ultra-hair-color-raspberry-red-765/10696770/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10611238/2020/6/9/367d5084-b836-4d5f-9444-6db707eb6f7f1591691628740KAMAAYURVEDAUnisexOrganicHennaPowder100g1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10696770/2020/10/19/e7790589-c88f-483c-aafb-33ec14e8172e1603096355013-Garnier-Color-Naturals-Ultra-Hair-Color-Raspberry-Red-765-85-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "19"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "119"
+              - text: "19"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 675
+              - text: Rs. 199
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "55"
@@ -1884,25 +2219,32 @@ extractions:
                 locale: en
                 value: 55
           - id:
-              - text: "11927952"
+              - text: "9350631"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/@href
             name:
-              - text: Bio Organic Henna Hair Color
+              - text: Women Set of 2 Hair Colour
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-bio-organic-dark-brown-henna-hair-color-100-g/11927952/buy
+              - text: https://www.myntra.com/hair-colour/garnier/garnier-women-set-of-2-caramel-brown-color-naturals-hair-colour-532/9350631/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/10/a88a46be-0757-4bd0-ab2e-77dec64d28481591740984505-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9350631/2019/4/23/0eb41459-4af7-48ad-996d-e7b29e1320981556014580351-Garnier-Women-Hair-Colour-3951556014579739-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,8
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "110"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "12"
+              - text: "110"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 199
+              - text: Rs. 360
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "56"
@@ -1919,19 +2261,32 @@ extractions:
                 locale: en
                 value: 56
           - id:
-              - text: "5292848"
+              - text: "2302429"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/@href
             name:
-              - text: Set of Hair Colour & Shampoo
+              - text: Set of 2 Powder Hair Colour
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-casting-creme-gloss-hair-colour-ebony-black-200--shampoo/5292848/buy
+              - text: https://www.myntra.com/hair-colour/biotique/biotique-unisex-set-of-2-bio-henna-fresh-powder-hair-colour/2302429/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/5292848/2020/9/25/c17eee85-0b2a-4f73-aca6-260709dc47361601008230745-LOreal-Paris-Set-of-Casting-Creme-Gloss-Hair-Colour-Ebony-Bl-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2302429/2017/12/5/11512467576577-Biotique-Set-of-2-Bio-Henna-Fresh-Powder-Hair-Colour-9261512467576532-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/@aggrating
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            reviewCount:
+              - text: "198"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "198"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 522
+              - text: Rs. 338
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "57"
@@ -1948,26 +2303,33 @@ extractions:
                 locale: en
                 value: 57
           - id:
-              - text: "12260406"
+              - text: "5416427"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/@href
             name:
-              - text: Creme Hair Color - 01 Black
+              - text: Unisex Neutral Sustainable Natural Henna
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-women-excellence-creme-hair-color---01-black/12260406/buy
+              - text: https://www.myntra.com/hair-colour/khadi-natural/khadi-natural-unisex-neutral-sustainable-natural-henna/5416427/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12260406/2020/10/19/8dc05d36-d18f-412b-92f6-9492804b461b1603103690719-LOreal-Paris-Women-Excellence-Creme-Hair-Color---01-Black-30-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/5416427/2018/5/25/25fa7cf0-59f9-4d1d-894f-6c6e2fb2d0cc1527252155109-Khadi-Natural-Unisex-Hair-Colour-5031527252155084-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "3.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/@aggrating
+                type: NUMBER
+                raw: "3.4"
+                locale: en
+                value: 3.4
+            reviewCount:
+              - text: "26"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "323"
+              - text: "26"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 558
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 275
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "58"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/@rank
@@ -1983,23 +2345,17 @@ extractions:
                 locale: en
                 value: 58
           - id:
-              - text: "135701"
+              - text: "5292848"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/@href
             name:
-              - text: Hair Colour - Dark Brown 400
+              - text: Set of Hair Colour & Shampoo
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-women-casting-creme-gloss-hair-colour---dark-brown-400-875-g--72-ml/135701/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-casting-creme-gloss-hair-colour-ebony-black-200--shampoo/5292848/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/135701/2020/10/19/ca4e40c2-2bf7-40b1-a854-59f9bba8c6fa1603090518220-LOreal-Paris-Women-Casting-Creme-Gloss-Hair-Colour---Dark-Br-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/5292848/2020/9/25/c17eee85-0b2a-4f73-aca6-260709dc47361601008230745-LOreal-Paris-Set-of-Casting-Creme-Gloss-Hair-Colour-Ebony-Bl-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,4
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/@aggrating
-            ratingCount:
-              - text: "718"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[2]/div[1]/text()[2]
             price:
               - text: Rs. 522
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[2]/div[1]/span[1]/span[1]
@@ -2018,26 +2374,20 @@ extractions:
                 locale: en
                 value: 59
           - id:
-              - text: "9361359"
+              - text: "11927950"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/@href
             name:
-              - text: Silver Angel Rainbow Paste
+              - text: Certified Organic Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/makeup-revolution-london/makeup-revolution-london-silver-angel-rainbow-paste-hair-colour-30192/9361359/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-24-herbs-dark-brown-certified-organic-hair-color-150-g/11927950/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9361359/2019/7/4/21c56a58-d21e-495b-9b2c-baa67d5ee17f1562219232948-Makeup-Revolution-London-Silver-Angel-Rainbow-Paste-Hair-Col-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/10/0ab76522-339a-4067-a077-a8d294b84c711591742211520-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: "1"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/@aggrating
-            ratingCount:
-              - text: "4"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 805
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 699
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "60"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/@rank
@@ -2053,25 +2403,32 @@ extractions:
                 locale: en
                 value: 60
           - id:
-              - text: "10611236"
+              - text: "10816736"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/@href
             name:
-              - text: Sustain Unisex Organic Hair Color Kit
+              - text: Hair Color - Plum Brown 4.2
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/kama-ayurveda/kama-ayurveda-sustainable-unisex-organic-hair-color-kit/10611236/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-women-excellence-creme-hair-color---plum-brown-42-72ml100g/10816736/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10611236/2020/6/9/02e2f41f-3787-4052-b9ee-935dfc21e2fe1591691598978KAMAAYURVEDAUnisexOrganicHairColorKit1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10816736/2020/5/16/db02fa86-8f00-4f77-85d9-110c4dde0ea11589611980880-LOreal-Paris-Women-Excellence-Creme-Hair-Color---Plum-Brown--1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "3.6"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/@aggrating
+                type: NUMBER
+                raw: "3.6"
+                locale: en
+                value: 3.6
+            reviewCount:
+              - text: "18"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "110"
+              - text: "18"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1275
+              - text: Rs. 620
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "61"
@@ -2088,19 +2445,19 @@ extractions:
                 locale: en
                 value: 61
           - id:
-              - text: "4328693"
+              - text: "12727350"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/@href
             name:
-              - text: Blue Hair-Colour Set
+              - text: Pack of 2 Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/hair-drama-company/hair-drama-company-blue-hair-colour-set/4328693/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-pack-of-2-bio-organic-soft-black-henna-hair-color---100-g-each/12727350/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/4328693/2018/3/22/11521712954240-HAIR-DRAMA-COMPANY-Blue-Hair-Colour-Set-2361521712954186-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/10/13/9896ffdb-5410-4353-9a2c-8000c7943ee21602539924673-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             price:
-              - text: Rs. 799
+              - text: Rs. 398
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "62"
@@ -2117,26 +2474,33 @@ extractions:
                 locale: en
                 value: 62
           - id:
-              - text: "135696"
+              - text: "10844942"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/@href
             name:
-              - text: Hair Colour - Burgundy 3.16
+              - text: Color Naturals Light Brown Cream Nourishing Permanent Hair Colour
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-excellence-creme-hair-colour---burgundy-316-72ml100g/135696/buy
+              - text: https://www.myntra.com/hair-colour/garnier/garnier-color-naturals-creme-light-brown-hair-color-5-70-ml--60-g/10844942/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/135696/2020/10/19/6e5f3f41-cdd2-40e0-8112-f950f2eaceab1603102425988-LOreal-Paris-Excellence-Creme-Hair-Colour---Burgundy-316-72m-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10844942/2020/8/7/b2f88bdc-0c32-40e1-8b49-2260096b9d511596798921306-Garnier-Color-Naturals-Creme-Light-Brown-Hair-Color-5-70-ml--1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/@aggrating
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "196"
+              - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 531
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 180
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "63"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/@rank
@@ -2152,20 +2516,33 @@ extractions:
                 locale: en
                 value: 63
           - id:
-              - text: "11927958"
+              - text: "11956948"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/@href
             name:
-              - text: Speedy & Easy Men's Hair Color
+              - text: Set of 2 Creme Hair Colour
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-speedy--easy-mens-hair-color-black-100-220g/11927958/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-casting-creme-gloss-hair-colour---400-dark-brown/11956948/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/11/46cd4fae-6147-40cc-a21f-1d28d2a7f4e31591826700808-2.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11956948/2020/6/18/54622bcd-1361-401b-82c4-520c85fb43991592460608870PhysiciansFormulaLN3LightSandNeutralSPF15TheHealthyFoundatio1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.3"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "414"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "414"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 575
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 651
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "64"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/@rank
@@ -2181,26 +2558,33 @@ extractions:
                 locale: en
                 value: 64
           - id:
-              - text: "11927956"
+              - text: "9361355"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/@href
             name:
-              - text: Organic Beard & Hair Color
+              - text: Hair Colour-Purple Wings 30190
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-black-organic-beard--hair-color-soft-20-g/11927956/buy
+              - text: https://www.myntra.com/hair-colour/makeup-revolution-london/makeup-revolution-london-rainbow-paste-hair-colour---purple-wings-30190-75-ml/9361355/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/9/be90b9fe-266d-4a3e-843a-039ffd9551cb1591659086717-2.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9361355/2019/7/4/d38802eb-b319-46d0-ac6a-99641027f6101562218094813-Makeup-Revolution-London-Purple-Wings-Rainbow-Paste-Hair-Col-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,7
+              - text: "3.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/@aggrating
+                type: NUMBER
+                raw: "3.4"
+                locale: en
+                value: 3.4
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "3"
+              - text: "7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 299
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 805
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "65"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/@rank
@@ -2216,19 +2600,19 @@ extractions:
                 locale: en
                 value: 65
           - id:
-              - text: "12727350"
+              - text: "4328693"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/@href
             name:
-              - text: Pack of 2 Hair Color
+              - text: Blue Hair-Colour Set
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-pack-of-2-bio-organic-soft-black-henna-hair-color---100-g-each/12727350/buy
+              - text: https://www.myntra.com/hair-colour/hair-drama-company/hair-drama-company-blue-hair-colour-set/4328693/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/10/13/9896ffdb-5410-4353-9a2c-8000c7943ee21602539924673-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/4328693/2018/3/22/11521712954240-HAIR-DRAMA-COMPANY-Blue-Hair-Colour-Set-2361521712954186-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             price:
-              - text: Rs. 398
+              - text: Rs. 799
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "66"
@@ -2245,25 +2629,19 @@ extractions:
                 locale: en
                 value: 66
           - id:
-              - text: "5416427"
+              - text: "11927942"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/@href
             name:
-              - text: Unisex Neutral Sustainable Natural Henna
+              - text: Light Brown 5.0 Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/khadi-natural/khadi-natural-unisex-neutral-sustainable-natural-henna/5416427/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-organically-natural-gel-light-brown-50-hair-color/11927942/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/5416427/2018/5/25/25fa7cf0-59f9-4d1d-894f-6c6e2fb2d0cc1527252155109-Khadi-Natural-Unisex-Hair-Colour-5031527252155084-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11927942/2020/6/12/33dead08-5aef-46eb-9a03-02af55c3abf01591967965426IndusValleyOrganicallyNaturalGelLightBrown50HairColor2.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 3,4
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/@aggrating
-            ratingCount:
-              - text: "26"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 275
+              - text: Rs. 575
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "67"
@@ -2280,96 +2658,117 @@ extractions:
                 locale: en
                 value: 67
           - id:
-              - text: "11793466"
+              - text: "12145344"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/@href
             name:
-              - text: Women Hair Colour & Nail Kit
+              - text: Hair Colour- Darkest Brown 300
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-women-casting-creme-gloss-hair-colour-with-manicure-kit---darkest-brown-300/11793466/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-women-set-of-2-casting-creme-gloss-hair-colour--darkest-brown-300/12145344/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11793466/2020/10/19/9b2eddb6-dc77-4759-b62b-2be4e60aa3ed1603095713477-LOreal-Paris-Women-Casting-Creme-Gloss-Hair-Colour-with-Mani-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12145344/2020/10/22/8295ce60-622a-431a-84df-4defba38d94a1603367402817-LOreal-Women-Beauty-Gift-Set-421603367401890-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/@aggrating
-            ratingCount:
-              - text: "583"
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            reviewCount:
+              - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/div[2]/div[1]/text()[2]
-            price:
-              - text: Rs. 495
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[2]/div[1]/span[1]/span[1]
-            rank:
-              - text: "68"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/@rank
-                type: NUMBER
-                raw: "68"
-                locale: en
-                value: 68
-            rankOrganic:
-              - text: "68"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/@rank
-                type: NUMBER
-                raw: "68"
-                locale: en
-                value: 68
-          - id:
-              - text: "11927954"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/@href
-            name:
-              - text: Soft Black Henna Hair Color
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[2]/h4[1]
-            productUrl:
-              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-bio-organic-soft-black-henna-hair-color-black-100g/11927954/buy
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/@href
-            thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/11/9ae93f10-e13e-4557-8420-32d4e9b8f0fa1591828557283-1.jpg
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 3,5
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/@aggrating
-            ratingCount:
-              - text: "10"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/div[2]/div[1]/text()[2]
-            price:
-              - text: Rs. 199
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[2]/div[1]/span[1]
-            rank:
-              - text: "69"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/@rank
-                type: NUMBER
-                raw: "69"
-                locale: en
-                value: 69
-            rankOrganic:
-              - text: "69"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/@rank
-                type: NUMBER
-                raw: "69"
-                locale: en
-                value: 69
-          - id:
-              - text: "10844942"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/@href
-            name:
-              - text: Color Naturals Light Brown Cream Nourishing Permanent Hair Colour
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[2]/h4[1]
-            productUrl:
-              - text: https://www.myntra.com/hair-colour/garnier/garnier-color-naturals-creme-light-brown-hair-color-5-70-ml--60-g/10844942/buy
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/@href
-            thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10844942/2020/8/7/b2f88bdc-0c32-40e1-8b49-2260096b9d511596798921306-Garnier-Color-Naturals-Creme-Light-Brown-Hair-Color-5-70-ml--1.jpg
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: "4"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/@aggrating
             ratingCount:
               - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/div[2]/div[1]/text()[2]
+            price:
+              - text: Rs. 749
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[2]/div[1]/span[1]
+            rank:
+              - text: "68"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/@rank
+                type: NUMBER
+                raw: "68"
+                locale: en
+                value: 68
+            rankOrganic:
+              - text: "68"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/@rank
+                type: NUMBER
+                raw: "68"
+                locale: en
+                value: 68
+          - id:
+              - text: "11812490"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/@href
+            name:
+              - text: Set Of Shampoo & Hair Colour
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-colour-protect-shampoo--dark-brown-400-casting-gloss-hair-colour/11812490/buy
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/@href
+            thumbnail:
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812490/2020/4/23/80c7feb3-c93d-4181-b2fc-c7c2884b6a2d1587625189545LOrealParisSetOf2ColourProtectShampooDarkBrown400CastingGlos1.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.4"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: 1.3k
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: 1.3k
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/div[2]/div[1]/text()[2]
+            price:
+              - text: Rs. 834
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[2]/div[1]/span[1]/span[1]
+            rank:
+              - text: "69"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/@rank
+                type: NUMBER
+                raw: "69"
+                locale: en
+                value: 69
+            rankOrganic:
+              - text: "69"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/@rank
+                type: NUMBER
+                raw: "69"
+                locale: en
+                value: 69
+          - id:
+              - text: "9361359"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/@href
+            name:
+              - text: Silver Angel Rainbow Paste
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.myntra.com/hair-colour/makeup-revolution-london/makeup-revolution-london-silver-angel-rainbow-paste-hair-colour-30192/9361359/buy
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/@href
+            thumbnail:
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9361359/2019/7/4/21c56a58-d21e-495b-9b2c-baa67d5ee17f1562219232948-Makeup-Revolution-London-Silver-Angel-Rainbow-Paste-Hair-Col-1.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/@aggrating
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 180
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 805
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "70"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/@rank
@@ -2399,6 +2798,13 @@ extractions:
             aggregateRating2:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/@aggrating
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/div[2]/div[1]/text()[2]
@@ -2420,25 +2826,19 @@ extractions:
                 locale: en
                 value: 71
           - id:
-              - text: "10287805"
+              - text: "2364181"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/@href
             name:
-              - text: Unisex Amla Sustainable Hair Powder 150 g
+              - text: Unisex Hair Colour Kit
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/khadi-natural/khadi-natural-unisex-amla-herbal-sustainable-hair-powder-150-g/10287805/buy
+              - text: https://www.myntra.com/hair-colour/revlon/revlon-unisex-natural-black-top-speed-hair-colour-kit-70/2364181/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10287805/2019/8/12/be788590-3226-407f-a2b2-ad56f37612281565607810599-Khadi-Natural-Unisex-Hair-Colour-3561565607810279-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2364181/2020/10/19/7ee954e9-0ce5-427a-ab90-ae8cc12993631603094859896-Revlon-Unisex-Natural-Black-Top-Speed-Hair-Colour-Kit-70-948-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,4
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/@aggrating
-            ratingCount:
-              - text: "36"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 225
+              - text: Rs. 699
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "72"
@@ -2455,25 +2855,32 @@ extractions:
                 locale: en
                 value: 72
           - id:
-              - text: "11812358"
+              - text: "11937134"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/a[1]/@href
             name:
-              - text: Set of 2 Hair Colours
+              - text: Set of 2 Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-women-set-of-2-hair-colours-dark-brown-400/11812358/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-casting-creme-gloss-hair-color---burgundy-316/11937134/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812358/2020/4/23/6ba5237a-94c8-4560-9bba-6bc5f28fd5b81587631103042ShampooandConditionerLoveBeautyPlanetWomenSunscreenLakmeWome1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11937134/2020/6/10/66c26fc4-d340-4dd5-9f2f-082c30c258691591782979339MakeupRemoverGarnierWomenLipstickLOrealWomenLipstickLOrealWo1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "136"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "310"
+              - text: "136"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 880
+              - text: Rs. 990
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "73"
@@ -2490,25 +2897,32 @@ extractions:
                 locale: en
                 value: 73
           - id:
-              - text: "11812910"
+              - text: "11812902"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/@href
             name:
-              - text: Set of 2 Colors Praline Brown
+              - text: Set of 2 Creme Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-casting-creme-gloss-hair-colors-praline-brown-530/11812910/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-casting-creme-gloss-hair-color---burgundy-316/11812902/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812910/2020/4/27/d2341371-4bd0-42c6-a7e9-e9ca3825bf401587974497657LOrealParisSetof2CastingCremeGlossHairColorsPralineBrown5301.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812902/2020/4/27/2a39b3a6-1341-416d-99bd-cd324ca01e6a1587974503989HairColourLOrealWomen1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,6
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "130"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "71"
+              - text: "130"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 935
+              - text: Rs. 990
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "74"
@@ -2525,26 +2939,20 @@ extractions:
                 locale: en
                 value: 74
           - id:
-              - text: "11937154"
+              - text: "11927946"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/@href
             name:
-              - text: Pack of 2 Hair Color
+              - text: Dark Brown Natural Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-women-pack-of-2-excellence-creme-triple-care-hair-color--burgundy-316/11937154/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-dark-brown-organically-natural-gel-300-hair-color/11927946/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11937154/2020/6/10/298e99be-35b1-47d0-ab7c-84e9a140c1bc1591782977869MakeupRemoverGarnierWomenLipstickLOrealWomenLipstickLOrealWo1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11927946/2020/8/25/9ca2b81c-17eb-4052-be67-945dab85dd491598379015147-Indus-Valley-Dark-Brown-Organically-Natural-Gel-300-Hair-Col-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,3
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/@aggrating
-            ratingCount:
-              - text: "125"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 713
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 599
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "75"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/@rank
@@ -2560,25 +2968,32 @@ extractions:
                 locale: en
                 value: 75
           - id:
-              - text: "11937136"
+              - text: "11812512"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/@href
             name:
-              - text: Set of 2 Hair Color
+              - text: Pack of 2 Shampoo & Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-excellence-creme-triple-care-hair-color---natural-brown-4/11937136/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-pack-of-2-colour-protect-shampoo--excellence-creme-hair-color---burgundy/11812512/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11937136/2020/6/10/18e0a4de-e5f9-4e51-8dcb-3f94ee3016fe1591782979906MakeupRemoverGarnierWomenLipstickLOrealWomenLipstickLOrealWo1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812512/2020/4/23/76272cae-66f0-45ba-9d72-baddfe5a05371587625191944LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "810"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "293"
+              - text: "810"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1003
+              - text: Rs. 889
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "76"
@@ -2595,22 +3010,29 @@ extractions:
                 locale: en
                 value: 76
           - id:
-              - text: "11812516"
+              - text: "11812522"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/@href
             name:
               - text: Pack of 2 Shampoo & Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-pack-of-2-colour-protect-shampoo--casting-creme-gloss-hair-color---brown/11812516/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-pack-of-2-colour-protect-shampoo--casting-creme-gloss-hair-color-chocolate/11812522/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812516/2020/4/23/98bb5f46-8fac-45d7-b6d4-9beb72ceb54c1587625192685LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812522/2020/4/23/a2d915ab-13c4-4f81-8574-8a3862d0d0501587625176117LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "737"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "413"
+              - text: "737"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/div[2]/div[1]/text()[2]
             price:
               - text: Rs. 854
@@ -2630,26 +3052,33 @@ extractions:
                 locale: en
                 value: 77
           - id:
-              - text: "9350631"
+              - text: "11812510"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/@href
             name:
-              - text: Women Set of 2 Hair Colour
+              - text: Pack of 2 Shampoo & Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/garnier/garnier-women-set-of-2-caramel-brown-color-naturals-hair-colour-532/9350631/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-pack-of-2-colour-protect-shampoo-and-casting-creme-hair-color-dark-chocolate/11812510/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9350631/2019/4/23/0eb41459-4af7-48ad-996d-e7b29e1320981556014580351-Garnier-Women-Hair-Colour-3951556014579739-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812510/2020/4/23/c1777db5-8b5d-4c49-ab8f-dfd44406ffff1587625187568LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "831"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "110"
+              - text: "831"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 360
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 854
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "78"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/@rank
@@ -2665,26 +3094,33 @@ extractions:
                 locale: en
                 value: 78
           - id:
-              - text: "2302429"
+              - text: "11937130"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/@href
             name:
-              - text: Set of 2 Powder Hair Colour
+              - text: Set of 2 Hair Colour
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/biotique/biotique-unisex-set-of-2-bio-henna-fresh-powder-hair-colour/2302429/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-excellence-creme-triple-care-hair-colour---burgundy-316/11937130/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2302429/2017/12/5/11512467576577-Biotique-Set-of-2-Bio-Henna-Fresh-Powder-Hair-Colour-9261512467576532-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11937130/2020/6/10/6ab2e8ec-ff81-408f-842a-63ab2bca0e851591782981480MakeupRemoverGarnierWomenLipstickLOrealWomenLipstickLOrealWo1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: "4"
+              - text: "3.9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/@aggrating
+                type: NUMBER
+                raw: "3.9"
+                locale: en
+                value: 3.9
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "198"
+              - text: "7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 338
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 498
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "79"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/@rank
@@ -2700,26 +3136,20 @@ extractions:
                 locale: en
                 value: 79
           - id:
-              - text: "11956948"
+              - text: "11927940"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/a[1]/@href
             name:
-              - text: Set of 2 Creme Hair Colour
+              - text: Hair Color Dark Brown
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-casting-creme-gloss-hair-colour---400-dark-brown/11956948/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-100--botanical-hair-color--dark-brown-120g/11927940/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11956948/2020/6/18/54622bcd-1361-401b-82c4-520c85fb43991592460608870PhysiciansFormulaLN3LightSandNeutralSPF15TheHealthyFoundatio1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/11/0dbb07c9-a665-45f4-8ea1-fa74781f8fc91591833059926-2.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,3
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/@aggrating
-            ratingCount:
-              - text: "414"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 651
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 599
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "80"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/@rank
@@ -2735,26 +3165,20 @@ extractions:
                 locale: en
                 value: 80
           - id:
-              - text: "11812918"
+              - text: "11927958"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/a[1]/@href
             name:
-              - text: Set of 2 Hair Color 500
+              - text: Speedy & Easy Men's Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-casting-creme-gloss-hair-color-medium-brown-500/11812918/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-speedy--easy-mens-hair-color-black-100-220g/11927958/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812918/2020/4/27/d52bffcd-1389-4bea-84b1-4ff90cf4fdb91587974501176LOrealParisSetof2CastingCremeGlossHairColorsIcedChocolate4151.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/11/46cd4fae-6147-40cc-a21f-1d28d2a7f4e31591826700808-2.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 3,6
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/@aggrating
-            ratingCount:
-              - text: "5"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 378
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 575
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "81"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/@rank
@@ -2770,25 +3194,32 @@ extractions:
                 locale: en
                 value: 81
           - id:
-              - text: "11812912"
+              - text: "9361381"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/a[1]/@href
             name:
-              - text: Set of 2 Colors Black Cherry
+              - text: Shots - Pink Universe 30195
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-casting-creme-gloss-hair-colors-black-cherry-360/11812912/buy
+              - text: https://www.myntra.com/hair-colour/makeup-revolution-london/makeup-revolution-london-i-heart-revolution-rainbow-shots---pink-universe-30195-100-ml/9361381/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812912/2020/4/27/1830edef-5d55-4090-810b-ecf0a61ebcb31587974502395LOrealParisSetof2CastingCremeGlossHairColorsBlackCherry3601.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9361381/2019/7/4/b9c26199-b767-4595-af78-003f333756ef1562218766472-Makeup-Revolution-London-Pink-Universe-Rainbow-Shots-30195-5-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "2.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/@aggrating
+                type: NUMBER
+                raw: "2.4"
+                locale: en
+                value: 2.4
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "87"
+              - text: "7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 935
+              - text: Rs. 562
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "82"
@@ -2805,25 +3236,32 @@ extractions:
                 locale: en
                 value: 82
           - id:
-              - text: "11812490"
+              - text: "9361375"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/a[1]/@href
             name:
-              - text: Set Of Shampoo & Hair Colour
+              - text: Sweet Peach Rainbow Shots
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-colour-protect-shampoo--dark-brown-400-casting-gloss-hair-colour/11812490/buy
+              - text: https://www.myntra.com/hair-colour/makeup-revolution-london/makeup-revolution-london-sweet-peach-rainbow-shots-30197/9361375/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812490/2020/4/23/80c7feb3-c93d-4181-b2fc-c7c2884b6a2d1587625189545LOrealParisSetOf2ColourProtectShampooDarkBrown400CastingGlos1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9361375/2019/7/4/9f066335-5e52-4e1e-a2ef-34de96ee85291562224022668-Makeup-Revolution-London-Sweet-Peach-Rainbow-Shots-30197-112-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/@aggrating
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "652"
+              - text: "6"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 834
+              - text: Rs. 562
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "83"
@@ -2840,25 +3278,32 @@ extractions:
                 locale: en
                 value: 83
           - id:
-              - text: "11937134"
+              - text: "11812506"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/a[1]/@href
             name:
-              - text: Set of 2 Hair Color
+              - text: Set Of Shampoo & Hair Colour
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-casting-creme-gloss-hair-color---burgundy-316/11937134/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-women-set-of-2-colour-protect-shampoo--burgundy-316-creme-gloss-hair-color/11812506/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11937134/2020/6/10/66c26fc4-d340-4dd5-9f2f-082c30c258691591782979339MakeupRemoverGarnierWomenLipstickLOrealWomenLipstickLOrealWo1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812506/2020/4/23/3a9b76d0-d988-4813-a1aa-8c9cb2c506b11587625177693LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "873"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "136"
+              - text: "873"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 990
+              - text: Rs. 864
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "84"
@@ -2875,25 +3320,32 @@ extractions:
                 locale: en
                 value: 84
           - id:
-              - text: "11812902"
+              - text: "11812500"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/a[1]/@href
             name:
-              - text: Set of 2 Creme Hair Color
+              - text: Set Of Shampoo & Hair Colour
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-casting-creme-gloss-hair-color---burgundy-316/11812902/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-colour-protect-shampoo--medium-brown-500-creme-gloss-hair-colour/11812500/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812902/2020/4/27/2a39b3a6-1341-416d-99bd-cd324ca01e6a1587974503989HairColourLOrealWomen1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812500/2020/4/23/da596044-c0c4-46d0-b9e3-d100df8719db1587625190391LOrealParisSetOf2ColourProtectShampooMediumBrown500CremeGlos1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "854"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "130"
+              - text: "854"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 990
+              - text: Rs. 864
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "85"
@@ -2910,25 +3362,32 @@ extractions:
                 locale: en
                 value: 85
           - id:
-              - text: "11812512"
+              - text: "11812514"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/a[1]/@href
             name:
               - text: Pack of 2 Shampoo & Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-pack-of-2-colour-protect-shampoo--excellence-creme-hair-color---burgundy/11812512/buy
+              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-pack-of-2-colour-protect-shampoo--casting-creme-gloss-hair-color-mahogany/11812514/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812512/2020/4/23/76272cae-66f0-45ba-9d72-baddfe5a05371587625191944LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812514/2020/4/23/88dfca67-a400-4e8c-8521-38deba123cd21587625176797LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "810"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "456"
+              - text: "810"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 889
+              - text: Rs. 854
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "86"
@@ -2945,26 +3404,20 @@ extractions:
                 locale: en
                 value: 86
           - id:
-              - text: "11812522"
+              - text: "12727348"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/a[1]/@href
             name:
-              - text: Pack of 2 Shampoo & Hair Color
+              - text: Pack of 2 Henna Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-pack-of-2-colour-protect-shampoo--casting-creme-gloss-hair-color-chocolate/11812522/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-pack-of-2-bio-organic-dark-brown-henna-hair-color---100-g-each/12727348/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812522/2020/4/23/a2d915ab-13c4-4f81-8574-8a3862d0d0501587625176117LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/10/13/0743cda2-3d2b-4440-99f4-40a212771ac61602540768915-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,3
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/@aggrating
-            ratingCount:
-              - text: "737"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 854
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 398
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "87"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/@rank
@@ -2980,26 +3433,20 @@ extractions:
                 locale: en
                 value: 87
           - id:
-              - text: "11812510"
+              - text: "11927960"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/a[1]/@href
             name:
-              - text: Pack of 2 Shampoo & Hair Color
+              - text: Organic Beard & Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-pack-of-2-colour-protect-shampoo-and-casting-creme-hair-color-dark-chocolate/11812510/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-organic-beard--hair-color--dark-brown-60g/11927960/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812510/2020/4/23/c1777db5-8b5d-4c49-ab8f-dfd44406ffff1587625187568LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/12/297aa7fc-887c-4140-935a-7261242697e91591911822383-2.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,3
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/@aggrating
-            ratingCount:
-              - text: "446"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 854
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 299
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "88"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/@rank
@@ -3015,25 +3462,19 @@ extractions:
                 locale: en
                 value: 88
           - id:
-              - text: "11937130"
+              - text: "11927944"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/a[1]/@href
             name:
-              - text: Set of 2 Hair Colour
+              - text: Organically Natural Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-excellence-creme-triple-care-hair-colour---burgundy-316/11937130/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-organically-natural-gel-burgundy-36-hair-color-220-g/11927944/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11937130/2020/6/10/6ab2e8ec-ff81-408f-842a-63ab2bca0e851591782981480MakeupRemoverGarnierWomenLipstickLOrealWomenLipstickLOrealWo1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/10/5d0cfffa-b465-46f4-8cfe-e1c58ac47bbf1591742925520-2.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 3,9
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/@aggrating
-            ratingCount:
-              - text: "7"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 498
+              - text: Rs. 575
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "89"
@@ -3050,26 +3491,20 @@ extractions:
                 locale: en
                 value: 89
           - id:
-              - text: "11812506"
+              - text: "11927938"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/a[1]/@href
             name:
-              - text: Set Of Shampoo & Hair Colour
+              - text: Certified Organic Hair Color
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-women-set-of-2-colour-protect-shampoo--burgundy-316-creme-gloss-hair-color/11812506/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-organically-natural-gel-copper-mahogany-54-hair-color-220-g/11927938/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812506/2020/4/23/3a9b76d0-d988-4813-a1aa-8c9cb2c506b11587625177693LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/10/a1b494a7-7e92-4451-a61b-86cc5dd660841591741722240-2.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,3
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/@aggrating
-            ratingCount:
-              - text: "472"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 864
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 575
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "90"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[40]/@rank
@@ -3085,26 +3520,33 @@ extractions:
                 locale: en
                 value: 90
           - id:
-              - text: "11812500"
+              - text: "10287805"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/a[1]/@href
             name:
-              - text: Set Of Shampoo & Hair Colour
+              - text: Unisex Amla Sustainable Hair Powder 150 g
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-set-of-2-colour-protect-shampoo--medium-brown-500-creme-gloss-hair-colour/11812500/buy
+              - text: https://www.myntra.com/hair-colour/khadi-natural/khadi-natural-unisex-amla-herbal-sustainable-hair-powder-150-g/10287805/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812500/2020/4/23/da596044-c0c4-46d0-b9e3-d100df8719db1587625190391LOrealParisSetOf2ColourProtectShampooMediumBrown500CremeGlos1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10287805/2019/8/12/be788590-3226-407f-a2b2-ad56f37612281565607810599-Khadi-Natural-Unisex-Hair-Colour-3561565607810279-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "36"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "462"
+              - text: "36"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 864
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 225
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "91"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/@rank
@@ -3120,26 +3562,20 @@ extractions:
                 locale: en
                 value: 91
           - id:
-              - text: "11812514"
+              - text: "11927964"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/a[1]/@href
             name:
-              - text: Pack of 2 Shampoo & Hair Color
+              - text: Hair Color Dark Brown 3.0
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/hair-colour/loreal/loreal-paris-pack-of-2-colour-protect-shampoo--casting-creme-gloss-hair-color-mahogany/11812514/buy
+              - text: https://www.myntra.com/hair-colour/indus-valley/indus-valley-speedy-and-easy-hair-color-dark-brown-30-220-g/11927964/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812514/2020/4/23/88dfca67-a400-4e8c-8521-38deba123cd21587625176797LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/6/12/d5a9e137-7d18-4c43-9cce-66abcf0498b91591911756684-2.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,4
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/@aggrating
-            ratingCount:
-              - text: "427"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 854
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 575
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "92"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/@rank
@@ -3167,10 +3603,17 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11812518/2020/4/23/cf93ab1d-7de1-4927-b287-897f50da9ce81587625188584LOrealParisWomenSetOf2ColourProtectShampooBurgundy316CremeGl1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[43]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[43]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "777"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[43]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "429"
+              - text: "777"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[43]/div[2]/div[1]/text()[2]
             price:
               - text: Rs. 854
@@ -3190,4 +3633,4 @@ extractions:
                 locale: en
                 value: 93
         xpath: /html
-    timestamp: 1606398974608
+    timestamp: 1606400135989

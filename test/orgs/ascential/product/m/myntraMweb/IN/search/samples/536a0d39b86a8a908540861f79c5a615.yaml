@@ -2,30 +2,37 @@ input:
   Keywords: maskara
   _url: http://myntra.com
 extractions:
-  - html: https://workbench.import.io/html/run=33dfc052-2515-4959-8c91-baf05ad83265/task=a2b48179-1411-4487-bd3a-94d43820d29b/bc9ec39e-efda-444e-8bac-5b913ffd9aac.html
+  - html: https://workbench.import.io/html/run=cd65086c-1d3d-471e-ba30-f967f69f7afb/task=9d28debe-a479-4552-83b0-0405ee7b909b/d9023d6e-4fc8-4b8a-86db-740abdff2dec.html
     extractionConfigId: product/search/stores/m/myntraMweb/IN/extract
     data:
       - group:
           - id:
-              - text: "9588767"
+              - text: "10849140"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/@href
             name:
-              - text: Dimension Waterproof Mascara
+              - text: Washable Mascara - Black
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/mac/mac-black-in-extreme-dimension-waterproof-mascara-1339-g/9588767/buy
+              - text: https://www.myntra.com/mascara/maybelline/maybelline-new-york-hypercurl-washable-mascara---black-92-ml/10849140/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9588767/2020/10/19/693f525a-ac22-4421-b617-8f85cae8c6921603095197210-MAC-Black-In-Extreme-Dimension-Waterproof-Mascara-1339-g-190-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10849140/2019/12/4/b38fbb11-83c1-4eb9-8192-0a9133c54e251575450474477MaybellineNewYorkBlackHypercurlWashableMascara92ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,8
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: 3.1k
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "4"
+              - text: 3.1k
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 2400
+              - text: Rs. 310
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "1"
@@ -42,25 +49,32 @@ extractions:
                 locale: en
                 value: 1
           - id:
-              - text: "10849140"
+              - text: "10849058"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/@href
             name:
-              - text: Washable Mascara - Black
+              - text: Waterproof Mascara - Black
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/maybelline/maybelline-new-york-hypercurl-washable-mascara---black-92-ml/10849140/buy
+              - text: https://www.myntra.com/mascara/maybelline/maybelline-new-york-hypercurl-waterproof-mascara---black-92-ml/10849058/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10849140/2019/12/4/b38fbb11-83c1-4eb9-8192-0a9133c54e251575450474477MaybellineNewYorkBlackHypercurlWashableMascara92ml1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10849058/2019/12/4/2f7c95d5-6e42-41a3-8a87-cede56b7a2c41575450459853MaybellineNewYorkBlackHypercurlWaterproofMascara92ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: 5.2k
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: 3.1k
+              - text: 5.2k
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 310
+              - text: Rs. 335
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "2"
@@ -77,26 +91,33 @@ extractions:
                 locale: en
                 value: 2
           - id:
-              - text: "10849058"
+              - text: "12371542"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/@href
             name:
               - text: Waterproof Mascara - Black
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/maybelline/maybelline-new-york-hypercurl-waterproof-mascara---black-92-ml/10849058/buy
+              - text: https://www.myntra.com/mascara/maybelline/maybelline-new-york-hypercurl-waterproof-mascara---black-92-ml/12371542/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10849058/2019/12/4/2f7c95d5-6e42-41a3-8a87-cede56b7a2c41575450459853MaybellineNewYorkBlackHypercurlWaterproofMascara92ml1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12371542/2020/9/17/cad8b9d4-f490-4c00-bc9b-ea349fb509a31600318917738-Maybelline-Women-Mascara-5211600318917045-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "883"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: 5.2k
+              - text: "883"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 335
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 167
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/@rank
@@ -112,20 +133,33 @@ extractions:
                 locale: en
                 value: 3
           - id:
-              - text: "12817188"
+              - text: "6528964"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/@href
             name:
-              - text: Highly Rated Mascara
+              - text: Lash Paradise Mascara - Black
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/milani/milani-highly-rated-mascara-12-ml/12817188/buy
+              - text: https://www.myntra.com/mascara/loreal/loreal-paris-voluminous-lash-paradise-mascara---black-76-ml/6528964/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12817188/2020/11/23/9b6d0f9c-4a98-4ad3-a579-b389b2abcdf21606139975798-MILANI-Women-Kajal-and-Eyeliner-6711606139975634-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6528964/2018/7/23/d1a27a6e-b3cc-4b07-9b50-849f23d4245e1532343204843-LOreal-Paris-Blackest-Black-Voluminous-Lash-Paradise-Mascara-204-771532343204800-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.3"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "689"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "689"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1200
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 559
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/@rank
@@ -141,25 +175,32 @@ extractions:
                 locale: en
                 value: 4
           - id:
-              - text: "9590771"
+              - text: "10848916"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/@href
             name:
-              - text: Mini Mascara - Well Toned
+              - text: Washable Mascara - Black
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/mac/mac-in-extreme-dimension-mini-lash-mascara---well-toned-4g/9590771/buy
+              - text: https://www.myntra.com/mascara/maybelline/maybelline-new-york-washable-volume-express-colossal-mascara---black-107-g/10848916/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9590771/2019/5/21/e47dbd29-e4de-44e1-96b6-4581ada87f201558426922462-MAC-Women-Mascara-9501558426922323-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10848916/2019/12/4/41638955-0be8-48ae-b3ff-a95c240ff3a01575450472495MaybellineNewYorkGlamBlackWashableVolumeExpressColossalMasca1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: "3"
+              - text: "4.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/@aggrating
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "537"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "4"
+              - text: "537"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1050
+              - text: Rs. 405
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "5"
@@ -176,26 +217,33 @@ extractions:
                 locale: en
                 value: 5
           - id:
-              - text: "12371542"
+              - text: "9591035"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/@href
             name:
-              - text: Waterproof Mascara - Black
+              - text: Mini Mascara - 3D Black
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/maybelline/maybelline-new-york-hypercurl-waterproof-mascara---black-92-ml/12371542/buy
+              - text: https://www.myntra.com/mascara/mac/mac-mini-in-extreme-dimension-lash-mascara---3d-black-4g/9591035/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12371542/2020/9/17/cad8b9d4-f490-4c00-bc9b-ea349fb509a31600318917738-Maybelline-Women-Mascara-5211600318917045-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9591035/2020/1/14/134340b4-a5c1-4c02-b03d-ffa076b82a4b1578988669132-MAC-Women-Mascara-3741578988668902-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "85"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "883"
+              - text: "85"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 167
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 1050
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "6"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/@rank
@@ -211,25 +259,32 @@ extractions:
                 locale: en
                 value: 6
           - id:
-              - text: "6528964"
+              - text: "12045974"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/@href
             name:
-              - text: Lash Paradise Mascara - Black
+              - text: Brow & Lash Sustainable Mascara - E149
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/loreal/loreal-paris-voluminous-lash-paradise-mascara---black-76-ml/6528964/buy
+              - text: https://www.myntra.com/mascara/wet-n-wild/wet-n-wild-megaclear-brow--lash-sustainable-mascara---e149-8-ml/12045974/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6528964/2018/7/23/d1a27a6e-b3cc-4b07-9b50-849f23d4245e1532343204843-LOreal-Paris-Blackest-Black-Voluminous-Lash-Paradise-Mascara-204-771532343204800-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12045974/2020/10/10/b58074f1-619a-4b0e-87c3-5288bb43fcbe1602272899276WetnWildMegaClearBrowLashMascara-E1498ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "298"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "689"
+              - text: "298"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 559
+              - text: Rs. 224
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "7"
@@ -246,25 +301,19 @@ extractions:
                 locale: en
                 value: 7
           - id:
-              - text: "10848916"
+              - text: "12817188"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/@href
             name:
-              - text: Washable Mascara - Black
+              - text: Highly Rated Mascara
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/maybelline/maybelline-new-york-washable-volume-express-colossal-mascara---black-107-g/10848916/buy
+              - text: https://www.myntra.com/mascara/milani/milani-highly-rated-mascara-12-ml/12817188/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10848916/2019/12/4/41638955-0be8-48ae-b3ff-a95c240ff3a01575450472495MaybellineNewYorkGlamBlackWashableVolumeExpressColossalMasca1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12817188/2020/11/23/9b6d0f9c-4a98-4ad3-a579-b389b2abcdf21606139975798-MILANI-Women-Kajal-and-Eyeliner-6711606139975634-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/@aggrating
-            ratingCount:
-              - text: "537"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 405
+              - text: Rs. 1200
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "8"
@@ -281,20 +330,33 @@ extractions:
                 locale: en
                 value: 8
           - id:
-              - text: "12097772"
+              - text: "55956"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/@href
             name:
-              - text: Mini Smokey Eye Mascara
+              - text: Lash Illusion Mascara Duo
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/bobbi-brown/bobbi-brown-women-mini-smokey-eye-mascara---a-blackest-black/12097772/buy
+              - text: https://www.myntra.com/mascara/colorbar/colorbar-lengthening-lash-illusion-mascara-duo-4ml/55956/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12097772/2020/9/22/627f9d80-e448-4804-9691-114227585d771600772469906-Mini-Smokey-Eye-Mascara-1771600772469799-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/55956/2019/1/11/d3504e06-17ea-4597-91ad-471381941dbd1547189140022-Colorbar-Women-Lash-Illusion-Mascara-Duo-DM001-6121547189139-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.1"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "628"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "628"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1900
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 360
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/@rank
@@ -310,25 +372,32 @@ extractions:
                 locale: en
                 value: 9
           - id:
-              - text: "9591035"
+              - text: "11766274"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/@href
             name:
-              - text: Mini Mascara - 3D Black
+              - text: Mascara & Sunglasses Pouch
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/mac/mac-mini-in-extreme-dimension-lash-mascara---3d-black-4g/9591035/buy
+              - text: https://www.myntra.com/mascara/maybelline/maybelline-new-york-women-summer-essentials-kit-mascara--sunglasses-pouch/11766274/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9591035/2020/1/14/134340b4-a5c1-4c02-b03d-ffa076b82a4b1578988669132-MAC-Women-Mascara-3741578988668902-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11766274/2020/9/1/0d105553-c322-470f-a2d8-295d3dc97d601598962436109-Maybelline-New-York-Women-Summer-Essentials-Kit--Mascara--Su-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: 1.3k
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "85"
+              - text: 1.3k
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1050
+              - text: Rs. 335
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "10"
@@ -345,25 +414,32 @@ extractions:
                 locale: en
                 value: 10
           - id:
-              - text: "12045974"
+              - text: "11729934"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/@href
             name:
-              - text: Brow & Lash Sustainable Mascara - E149
+              - text: Scandaleyes Mascara 9ml
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/wet-n-wild/wet-n-wild-megaclear-brow--lash-sustainable-mascara---e149-8-ml/12045974/buy
+              - text: https://www.myntra.com/mascara/incolor/incolor-scandaleyes-mascara-9ml/11729934/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12045974/2020/10/10/b58074f1-619a-4b0e-87c3-5288bb43fcbe1602272899276WetnWildMegaClearBrowLashMascara-E1498ml1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11729934/2020/6/15/7ed28194-09ce-4772-b20b-da15849b9b3b1592226370660INCOLORScandaleyesMascara9ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "3.8"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/@aggrating
+                type: NUMBER
+                raw: "3.8"
+                locale: en
+                value: 3.8
+            reviewCount:
+              - text: "59"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "298"
+              - text: "59"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 224
+              - text: Rs. 225
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "11"
@@ -380,26 +456,33 @@ extractions:
                 locale: en
                 value: 11
           - id:
-              - text: "55956"
+              - text: "10987948"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/@href
             name:
-              - text: Lash Illusion Mascara Duo
+              - text: Curl Lengthening Mascara
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/colorbar/colorbar-lengthening-lash-illusion-mascara-duo-4ml/55956/buy
+              - text: https://www.myntra.com/mascara/sugar/sugar-black-beautyuptown-curl-lengthening-mascara-5g/10987948/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/55956/2019/1/11/d3504e06-17ea-4597-91ad-471381941dbd1547189140022-Colorbar-Women-Lash-Illusion-Mascara-Duo-DM001-6121547189139-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/11/14/8ce4e807-1e7d-43eb-a928-49e300fd0f5b1573728419155-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "4.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/@aggrating
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "179"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "628"
+              - text: "179"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 360
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 499
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "12"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/@rank
@@ -415,25 +498,19 @@ extractions:
                 locale: en
                 value: 12
           - id:
-              - text: "11766274"
+              - text: "9589953"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/@href
             name:
-              - text: Mascara & Sunglasses Pouch
+              - text: Lash Mascara-Up For Everything
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/maybelline/maybelline-new-york-women-summer-essentials-kit-mascara--sunglasses-pouch/11766274/buy
+              - text: https://www.myntra.com/mascara/mac/mac-up-for-everything-lash-mascara---up-for-everything-85g-/9589953/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11766274/2020/9/1/0d105553-c322-470f-a2d8-295d3dc97d601598962436109-Maybelline-New-York-Women-Summer-Essentials-Kit--Mascara--Su-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9589953/2019/5/21/691b4380-b72d-4832-a3f8-2d19e8be97ac1558419439182-MAC-Women-Mascara-3231558419439058-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,4
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/@aggrating
-            ratingCount:
-              - text: 1.3k
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 335
+              - text: Rs. 2400
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[13]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "13"
@@ -450,25 +527,32 @@ extractions:
                 locale: en
                 value: 13
           - id:
-              - text: "11729934"
+              - text: "10984084"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/@href
             name:
-              - text: Scandaleyes Mascara 9ml
+              - text: Women Dense Waterproof Mascara 9ml
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/incolor/incolor-scandaleyes-mascara-9ml/11729934/buy
+              - text: https://www.myntra.com/mascara/incolor/incolor-women-black-dense-long-lasting-super-waterproof-mascara-9ml/10984084/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11729934/2020/6/15/7ed28194-09ce-4772-b20b-da15849b9b3b1592226370660INCOLORScandaleyesMascara9ml1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/11/14/8cf28d2d-3c57-4d57-acff-cca6229f8e091573711630814-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,8
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "280"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "59"
+              - text: "280"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 225
+              - text: Rs. 237
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[14]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "14"
@@ -485,25 +569,32 @@ extractions:
                 locale: en
                 value: 14
           - id:
-              - text: "10987948"
+              - text: "8886439"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/@href
             name:
-              - text: Curl Lengthening Mascara
+              - text: Black Magneteyes Mascara
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/sugar/sugar-black-beautyuptown-curl-lengthening-mascara-5g/10987948/buy
+              - text: https://www.myntra.com/mascara/faces-canada/faces-canada-black-magneteyes-dramatic-volumizing-mascara-95ml/8886439/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/11/14/8ce4e807-1e7d-43eb-a928-49e300fd0f5b1573728419155-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/2/21/60b96188-4550-4d0c-b654-95624bce33f41550747655062-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "58"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "179"
+              - text: "58"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 499
+              - text: Rs. 399
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[15]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "15"
@@ -520,26 +611,33 @@ extractions:
                 locale: en
                 value: 15
           - id:
-              - text: "10984084"
+              - text: "11729932"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/@href
             name:
-              - text: Women Dense Waterproof Mascara 9ml
+              - text: Pen Shape Mascara 9 ml
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/incolor/incolor-women-black-dense-long-lasting-super-waterproof-mascara-9ml/10984084/buy
+              - text: https://www.myntra.com/mascara/incolor/incolor-pen-shape-mascara-9-ml/11729932/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/11/14/8cf28d2d-3c57-4d57-acff-cca6229f8e091573711630814-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11729932/2020/6/15/3ad661f7-8e5f-4c5c-b0ba-98a3b22c405e1592226369463INCOLORPenShapeMascara9ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "3.8"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/@aggrating
+                type: NUMBER
+                raw: "3.8"
+                locale: en
+                value: 3.8
+            reviewCount:
+              - text: "108"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "280"
+              - text: "108"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 237
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 209
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "16"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[16]/@rank
@@ -555,19 +653,32 @@ extractions:
                 locale: en
                 value: 16
           - id:
-              - text: "9589075"
+              - text: "9588767"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/@href
             name:
-              - text: Play Gigablack Mascara 5.7 g
+              - text: Dimension Waterproof Mascara
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/mac/mac-extended-play-gigablack-lash-mascara-57-g/9589075/buy
+              - text: https://www.myntra.com/mascara/mac/mac-black-in-extreme-dimension-waterproof-mascara-1339-g/9588767/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9589075/2019/5/21/96e43516-ecb9-46c4-baf8-141bcca559121558418038967-MAC-Women-Mascara-1421558418038880-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9588767/2020/10/19/693f525a-ac22-4421-b617-8f85cae8c6921603095197210-MAC-Black-In-Extreme-Dimension-Waterproof-Mascara-1339-g-190-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/@aggrating
+                type: NUMBER
+                raw: "4.8"
+                locale: en
+                value: 4.8
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 1950
+              - text: Rs. 2400
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[17]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "17"
@@ -584,25 +695,32 @@ extractions:
                 locale: en
                 value: 17
           - id:
-              - text: "8886439"
+              - text: "11616088"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/@href
             name:
-              - text: Black Magneteyes Mascara
+              - text: Lash Volume Mascara
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/faces-canada/faces-canada-black-magneteyes-dramatic-volumizing-mascara-95ml/8886439/buy
+              - text: https://www.myntra.com/mascara/daily-life-forever52/daily-life-forever52-xl-lash-volume-mascara-jet-black-135-ml-lmm001/11616088/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/2/21/60b96188-4550-4d0c-b654-95624bce33f41550747655062-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/2/29/b44c19fb-e112-4acc-b53d-6d31c05621f41582927171970-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.8"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/@aggrating
+                type: NUMBER
+                raw: "4.8"
+                locale: en
+                value: 4.8
+            reviewCount:
+              - text: "19"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "58"
+              - text: "19"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 399
+              - text: Rs. 849
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "18"
@@ -619,25 +737,19 @@ extractions:
                 locale: en
                 value: 18
           - id:
-              - text: "11729932"
+              - text: "9588933"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/@href
             name:
-              - text: Pen Shape Mascara 9 ml
+              - text: Waterproof Mascara- Black
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/incolor/incolor-pen-shape-mascara-9-ml/11729932/buy
+              - text: https://www.myntra.com/mascara/bobbi-brown/bobbi-brown-no-smudge-waterproof-mascara--black-55-ml/9588933/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11729932/2020/6/15/3ad661f7-8e5f-4c5c-b0ba-98a3b22c405e1592226369463INCOLORPenShapeMascara9ml1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9588933/2020/10/16/2e6abe9b-1d43-4a91-9e24-671b36d16a871602837741589-Bobbi-Brown-Women-Mascara-8421602837741183-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 3,8
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/@aggrating
-            ratingCount:
-              - text: "108"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 209
+              - text: Rs. 2900
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[19]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "19"
@@ -654,26 +766,33 @@ extractions:
                 locale: en
                 value: 19
           - id:
-              - text: "11616088"
+              - text: "10984086"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/@href
             name:
-              - text: Lash Volume Mascara
+              - text: Women Multivitamin Transparent Mascara 9ml
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/daily-life-forever52/daily-life-forever52-xl-lash-volume-mascara-jet-black-135-ml-lmm001/11616088/buy
+              - text: https://www.myntra.com/mascara/incolor/incolor-women-multivitamin-transparent-mascara-9ml/10984086/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/2/29/b44c19fb-e112-4acc-b53d-6d31c05621f41582927171970-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10984086/2020/2/4/94df4674-c0db-42ad-9b1b-4abfc2dec5cc1580808528998-INCOLOR-Women-Multivitamin-Transparent-Mascara-9ml-966158080-3.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,8
+              - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/@aggrating
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            reviewCount:
+              - text: "221"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "19"
+              - text: "221"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 849
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 225
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "20"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[20]/@rank
@@ -689,26 +808,20 @@ extractions:
                 locale: en
                 value: 20
           - id:
-              - text: "10984086"
+              - text: "12097772"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/@href
             name:
-              - text: Women Multivitamin Transparent Mascara 9ml
+              - text: Mini Smokey Eye Mascara
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/incolor/incolor-women-multivitamin-transparent-mascara-9ml/10984086/buy
+              - text: https://www.myntra.com/mascara/bobbi-brown/bobbi-brown-women-mini-smokey-eye-mascara---a-blackest-black/12097772/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10984086/2020/2/4/94df4674-c0db-42ad-9b1b-4abfc2dec5cc1580808528998-INCOLOR-Women-Multivitamin-Transparent-Mascara-9ml-966158080-3.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12097772/2020/9/22/627f9d80-e448-4804-9691-114227585d771600772469906-Mini-Smokey-Eye-Mascara-1771600772469799-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: "4"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/@aggrating
-            ratingCount:
-              - text: "221"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 225
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 1900
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "21"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/@rank
@@ -736,8 +849,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10414860/2019/11/5/94b9b59f-118f-4282-a149-27bcbc4936e81572934735876-Maybelline-New-York-Alice--Olivia-Limited-Edition--Hyper-Cur-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "36"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "36"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[22]/div[2]/div[1]/text()[2]
@@ -771,8 +891,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1631539/2019/1/11/4233290b-87bf-49d4-ba82-169d14720cc51547187327447-Colorbar-30-Days-Growth-Booster-Mascara-DGBM01-9811547187327-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,9
+              - text: "3.9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/@aggrating
+                type: NUMBER
+                raw: "3.9"
+                locale: en
+                value: 3.9
+            reviewCount:
+              - text: "42"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "42"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[23]/div[2]/div[1]/text()[2]
@@ -794,26 +921,33 @@ extractions:
                 locale: en
                 value: 23
           - id:
-              - text: "11750252"
+              - text: "9590771"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/@href
             name:
-              - text: Transparent Mascara 13ml
+              - text: Mini Mascara - Well Toned
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/cameleon/cameleon-transparent-mascara-13ml/11750252/buy
+              - text: https://www.myntra.com/mascara/mac/mac-in-extreme-dimension-mini-lash-mascara---well-toned-4g/9590771/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11750252/2020/7/20/0386413a-7a20-4d64-bfb0-bd9f8346919c1595253830441-Cameleon-Transparent-Mascara-13ml-8761595253829980-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9590771/2019/5/21/e47dbd29-e4de-44e1-96b6-4581ada87f201558426922462-MAC-Women-Mascara-9501558426922323-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: "4"
+              - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/@aggrating
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "30"
+              - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 299
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/div[2]/div[1]/span[1]/span[1]
+              - text: Rs. 1050
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "24"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[24]/@rank
@@ -829,26 +963,33 @@ extractions:
                 locale: en
                 value: 24
           - id:
-              - text: "1452967"
+              - text: "11750252"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/@href
             name:
-              - text: Volume Perfect Mascara
+              - text: Transparent Mascara 13ml
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/faces-canada/faces-canada-glam-on-volume-perfect-mascara/1452967/buy
+              - text: https://www.myntra.com/mascara/cameleon/cameleon-transparent-mascara-13ml/11750252/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1452967/2016/9/8/11473315193677-Faces-Glam-On-Volume-Perfect-Mascara-7571473315193637-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11750252/2020/7/20/0386413a-7a20-4d64-bfb0-bd9f8346919c1595253830441-Cameleon-Transparent-Mascara-13ml-8761595253829980-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,7
+              - text: "4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/@aggrating
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            reviewCount:
+              - text: "30"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "13"
+              - text: "30"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 499
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/div[2]/div[1]/span[1]
+              - text: Rs. 299
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/a[1]/div[2]/div[1]/span[1]/span[1]
             rank:
               - text: "25"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[25]/@rank
@@ -864,19 +1005,32 @@ extractions:
                 locale: en
                 value: 25
           - id:
-              - text: "9589953"
+              - text: "1452967"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/@href
             name:
-              - text: Lash Mascara-Up For Everything
+              - text: Volume Perfect Mascara
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/mac/mac-up-for-everything-lash-mascara---up-for-everything-85g-/9589953/buy
+              - text: https://www.myntra.com/mascara/faces-canada/faces-canada-glam-on-volume-perfect-mascara/1452967/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9589953/2019/5/21/691b4380-b72d-4832-a3f8-2d19e8be97ac1558419439182-MAC-Women-Mascara-3231558419439058-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1452967/2016/9/8/11473315193677-Faces-Glam-On-Volume-Perfect-Mascara-7571473315193637-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "3.7"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/@aggrating
+                type: NUMBER
+                raw: "3.7"
+                locale: en
+                value: 3.7
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "13"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 2400
+              - text: Rs. 499
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "26"
@@ -893,25 +1047,19 @@ extractions:
                 locale: en
                 value: 26
           - id:
-              - text: "11244178"
+              - text: "9589075"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/@href
             name:
-              - text: Waterproof Charming Mascara
+              - text: Play Gigablack Mascara 5.7 g
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/incolor/incolor-black-waterproof-charming-mascara-9-ml/11244178/buy
+              - text: https://www.myntra.com/mascara/mac/mac-extended-play-gigablack-lash-mascara-57-g/9589075/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11244178/2020/2/4/8413eb6b-cb72-47b2-b5a0-f4ba6cba7c6b1580808593465-INCOLOR-Black-Waterproof-Charming-Mascara-9-ml-4421580808592-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9589075/2019/5/21/96e43516-ecb9-46c4-baf8-141bcca559121558418038967-MAC-Women-Mascara-1421558418038880-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,1
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/@aggrating
-            ratingCount:
-              - text: "130"
-                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 250
+              - text: Rs. 1950
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "27"
@@ -928,25 +1076,32 @@ extractions:
                 locale: en
                 value: 27
           - id:
-              - text: "11616090"
+              - text: "11244178"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/@href
             name:
-              - text: Volume & Lengthening Mascara
+              - text: Waterproof Charming Mascara
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/daily-life-forever52/daily-life-forever52-super-volume--lengthening-mascara-95-ml-tbm001/11616090/buy
+              - text: https://www.myntra.com/mascara/incolor/incolor-black-waterproof-charming-mascara-9-ml/11244178/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/2/29/92af9934-ca93-4180-9058-ad01bff222ac1582927330302-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11244178/2020/2/4/8413eb6b-cb72-47b2-b5a0-f4ba6cba7c6b1580808593465-INCOLOR-Black-Waterproof-Charming-Mascara-9-ml-4421580808592-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: "4.1"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/@aggrating
+                type: NUMBER
+                raw: "4.1"
+                locale: en
+                value: 4.1
+            reviewCount:
+              - text: "130"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/div[2]/div[1]/text()[2]
             ratingCount:
-              - text: "23"
+              - text: "130"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 799
+              - text: Rs. 250
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[28]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "28"
@@ -963,19 +1118,32 @@ extractions:
                 locale: en
                 value: 28
           - id:
-              - text: "9588933"
+              - text: "11616090"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/@href
             name:
-              - text: Waterproof Mascara- Black
+              - text: Volume & Lengthening Mascara
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/div[2]/h4[1]
             productUrl:
-              - text: https://www.myntra.com/mascara/bobbi-brown/bobbi-brown-no-smudge-waterproof-mascara--black-55-ml/9588933/buy
+              - text: https://www.myntra.com/mascara/daily-life-forever52/daily-life-forever52-super-volume--lengthening-mascara-95-ml-tbm001/11616090/buy
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/@href
             thumbnail:
-              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/9588933/2020/10/16/2e6abe9b-1d43-4a91-9e24-671b36d16a871602837741589-Bobbi-Brown-Women-Mascara-8421602837741183-1.jpg
+              - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/2/29/92af9934-ca93-4180-9058-ad01bff222ac1582927330302-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/@aggrating
+                type: NUMBER
+                raw: "4.7"
+                locale: en
+                value: 4.7
+            reviewCount:
+              - text: "23"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/div[2]/div[1]/text()[2]
+            ratingCount:
+              - text: "23"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/div[2]/div[1]/text()[2]
             price:
-              - text: Rs. 2900
+              - text: Rs. 799
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[29]/a[1]/div[2]/div[1]/span[1]
             rank:
               - text: "29"
@@ -1004,8 +1172,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7735480/2018/12/8/fda6edab-d9d4-412b-8785-d6cb866a09b11544266295551--KIKO-MILANO-Extra-Sculpt-Waterproof-Mascara-11-ml-783154426-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "10"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[30]/div[2]/div[1]/text()[2]
@@ -1039,8 +1214,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10848932/2019/12/4/45b1d8a9-1e85-4361-9028-4950f62059ab1575456647939-LOreal-Paris-Women-Faux-Cils-Super-Star-Mascara-926157545664-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/@aggrating
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "77"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "77"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[31]/div[2]/div[1]/text()[2]
@@ -1074,8 +1256,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10467484/2019/9/16/0bffcdf4-377e-4d80-92fb-289703940afb1568624213519-Physicians-Formula-Black-Killer-Curves-Voluptuous-Curling-Ma-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,7
+              - text: "3.7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/@aggrating
+                type: NUMBER
+                raw: "3.7"
+                locale: en
+                value: 3.7
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[32]/div[2]/div[1]/text()[2]
@@ -1109,8 +1298,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12380506/2020/9/1/d1a17962-915b-4d91-8cff-4648b717622b1598948865441Cameleon1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,3
+              - text: "3.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/@aggrating
+                type: NUMBER
+                raw: "3.3"
+                locale: en
+                value: 3.3
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[33]/div[2]/div[1]/text()[2]
@@ -1144,8 +1340,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7735399/2018/12/8/10cc613f-f7c7-4873-8046-7b8789d9a94c1544266264274-KIKO-MILANO-Ultra-Tech--Volume-And-Definition-Mascara-12-ml--1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/@aggrating
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[34]/div[2]/div[1]/text()[2]
@@ -1179,8 +1382,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7735273/2018/12/8/6989723d-e5ae-4b41-bb67-394a25e04fde1544266217147-KIKO-MILANO-Women-Black-False-Lashes-Volume--Definition-Maxi-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,2
+              - text: "3.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/@aggrating
+                type: NUMBER
+                raw: "3.2"
+                locale: en
+                value: 3.2
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "14"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[35]/div[2]/div[1]/text()[2]
@@ -1216,6 +1426,13 @@ extractions:
             aggregateRating2:
               - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/@aggrating
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[36]/div[2]/div[1]/text()[2]
@@ -1249,8 +1466,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/8448333/2020/5/27/f328de2d-5046-47f9-aad9-b385d66b8f0f1590583802521FACESCANADABlackUltimeProHDWhopperLashesMascara12ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: "4.7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/@aggrating
+                type: NUMBER
+                raw: "4.7"
+                locale: en
+                value: 4.7
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "15"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[37]/div[2]/div[1]/text()[2]
@@ -1284,8 +1508,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/4941623/2019/11/12/91024420-15e6-404c-a10f-04028f9c9b491573544294100DeborahBrownLoveMyLashesMascara031.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,7
+              - text: "3.7"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/@aggrating
+                type: NUMBER
+                raw: "3.7"
+                locale: en
+                value: 3.7
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "15"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[38]/div[2]/div[1]/text()[2]
@@ -1319,8 +1550,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11403986/2020/2/24/580482b1-e084-48ee-b969-4a96765c32341582545207795RIMMEL002BrownBlackLondon100WaterproofMascara8ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,3
+              - text: "3.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/@aggrating
+                type: NUMBER
+                raw: "3.3"
+                locale: en
+                value: 3.3
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "14"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[39]/div[2]/div[1]/text()[2]
@@ -1383,8 +1621,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/10048321/2019/9/27/d4298280-8a55-4059-a852-8df92a39a6bd1569581125753--Elizabeth-Arden-Black-Lasting-Impression-Mascara-85-ml-6711-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "6"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[41]/div[2]/div[1]/text()[2]
@@ -1418,8 +1663,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2174519/2017/10/13/11507872504245-SUGAR-Lash-Mob-Limitless-Mascara---01-Black-With-A-Bang-Black-281507872504108-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,9
+              - text: "3.9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/@aggrating
+                type: NUMBER
+                raw: "3.9"
+                locale: en
+                value: 3.9
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "15"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[42]/div[2]/div[1]/text()[2]
@@ -1482,8 +1734,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7735723/2018/12/8/47803668-879d-483b-b63e-6d3651850c691544267558087-KIKO-MILANO-Standout-Volume-Buildable-Mascara-115-ml-3251544-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[44]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[44]/@aggrating
+                type: NUMBER
+                raw: "4.3"
+                locale: en
+                value: 4.3
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[44]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "15"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[44]/div[2]/div[1]/text()[2]
@@ -1546,8 +1805,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2249158/2018/1/23/11516698267644-Faces-Women-Mascara-711516698267674-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[46]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,8
+              - text: "4.8"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[46]/@aggrating
+                type: NUMBER
+                raw: "4.8"
+                locale: en
+                value: 4.8
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[46]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "10"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[46]/div[2]/div[1]/text()[2]
@@ -1685,8 +1951,8 @@ extractions:
                 locale: en
                 value: 50
         xpath: /html
-    timestamp: 1606398982472
-  - html: https://workbench.import.io/html/run=33dfc052-2515-4959-8c91-baf05ad83265/task=a2b48179-1411-4487-bd3a-94d43820d29b/4e701785-9798-4276-b5e6-8194baa473d3.html
+    timestamp: 1606400129711
+  - html: https://workbench.import.io/html/run=cd65086c-1d3d-471e-ba30-f967f69f7afb/task=9d28debe-a479-4552-83b0-0405ee7b909b/b63304de-850e-4ec6-aa57-ffafec770498.html
     extractionConfigId: product/search/stores/m/myntraMweb/IN/extract
     data:
       - group:
@@ -1790,8 +2056,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7735542/2018/12/15/147ebb56-91b1-4b80-ad70-47d5bc9a06a61544874117407-KIKO-MILANO-Women-Mascara-821544874117209-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,4
+              - text: "3.4"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/@aggrating
+                type: NUMBER
+                raw: "3.4"
+                locale: en
+                value: 3.4
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "11"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[2]/div[1]/text()[2]
@@ -1856,6 +2129,13 @@ extractions:
             aggregateRating2:
               - text: "3"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/@aggrating
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[2]/div[1]/text()[2]
@@ -2005,8 +2285,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/6619421/2018/8/10/22fec54d-fbec-4e7c-8494-a5763ab2272a1533886194821-BeYu-Women-Mascara-4081533886194733-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/a[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,5
+              - text: "3.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/@aggrating
+                type: NUMBER
+                raw: "3.5"
+                locale: en
+                value: 3.5
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[2]/div[1]/text()[2]
@@ -2216,6 +2503,13 @@ extractions:
             aggregateRating2:
               - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/@aggrating
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[18]/div[2]/div[1]/text()[2]
@@ -2307,8 +2601,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/7735745/2018/12/15/0e420669-c345-4df4-985d-b4ab14220cfc1544874471819-KIKO-MILANO-Women-Mascara-5791544874471693-1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,9
+              - text: "3.9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/@aggrating
+                type: NUMBER
+                raw: "3.9"
+                locale: en
+                value: 3.9
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "14"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[21]/div[2]/div[1]/text()[2]
@@ -2458,8 +2759,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12382430/2020/10/12/f0345bfa-9aae-442a-8726-9f1e6289f8ed1602486845120LOrealParisVoluminousLashParadiseMascara-Black76ml1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.5"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/@aggrating
+                type: NUMBER
+                raw: "4.5"
+                locale: en
+                value: 4.5
+            reviewCount:
+              - text: "170"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "170"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[26]/div[2]/div[1]/text()[2]
@@ -2493,8 +2801,15 @@ extractions:
               - text: https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12303044/2020/10/6/d6aacca2-8e4b-4e04-aedc-f8161fe901471601983130429LOrealParisVolumeMillionLashesWaterproofMascara102g1.jpg
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/a[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/@aggrating
+                type: NUMBER
+                raw: "4.2"
+                locale: en
+                value: 4.2
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/div[2]/div[1]/text()[2]
             ratingCount:
               - text: "9"
                 xpath: /html/body/div[2]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[27]/div[2]/div[1]/text()[2]
@@ -2516,4 +2831,4 @@ extractions:
                 locale: en
                 value: 77
         xpath: /html
-    timestamp: 1606398982472
+    timestamp: 1606400129711

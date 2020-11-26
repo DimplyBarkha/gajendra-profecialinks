@@ -26,10 +26,12 @@ fields:
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
+    type: NUMBER
     xpath: //@aggrating
     singleValue: false
   - name: reviewCount
     singleValue: false
+    xpath: //div[@class="product-ratingsCount"]/text()
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="product-ratingsCount"]/text()
