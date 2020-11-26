@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="product-qa-api"]/table/tbody/tr
+fields:
+  - name: answerAuthor
+    xpath: ./td[@class="answers"]/tr
+    regExp: userNickname":"([^"]+)
+    regExpReplace: $1
+    description: Answer Author
+  - name: answerDate
+    xpath: ./td[@class="answers"]/tr
+    regExp: submissionTime":"([^"]+)
+    regExpReplace: $1
+    description: Answer Date
+  - name: answerId
+    xpath: ./td[@class="answers"]/tr
+    regExp: answerId":"([^"]+)
+    regExpReplace: $1
+    description: Answer ID
+  - name: answersCount
+    description: Answer Count
+    xpath: ./td[@class="totalAnswersCount"]
+  - name: answersCountDb
+    description: Answer CountDb
+    xpath: ./td[@class="totalAnswersCount"]
+  - name: answerText
+    description: Answer Text
+    xpath: ./td[@class="answers"]/tr
+    regExp: answerText":"([^"]+)","
+    regExpReplace: $1
+  - name: helpfulCount
+    description: Answer Yes
+    xpath: ./td[@class="positiveVoteCount"]
+  - name: notHelpfulCount
+    description: Answer No
+    xpath: ./td[@class="negativeVoteCount"]
+  - name: productUrl
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+    description: Product URL
+  - name: questionId
+    xpath: ./td[@class="questionId"]
+    description: Question Id
+  - name: questionText
+    xpath: ./td[@class="questionSummary"]
+    singleValue: false
+    description: Question Text
