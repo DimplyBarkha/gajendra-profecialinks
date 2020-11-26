@@ -52,7 +52,7 @@ fields:
 - name: availabilityText
   singleValue: false
   type: STRING
-  xpath: //div[@class="ty-product-block__button"]//button[@type="submit"]/text()
+  xpath: //div[@class="ty-product-block__button"]//button[@type="submit"]/text() | //span[contains(text(), "Non disponibile")]
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
