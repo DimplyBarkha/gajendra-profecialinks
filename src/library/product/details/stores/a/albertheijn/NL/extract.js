@@ -8,9 +8,10 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
   function addManufacturer () {
     try {
-      const manufacturer = __INITIAL_STATE__.product.card.meta.owner.contacts.pop().name;
+      const manufacturer = window.__INITIAL_STATE__.product.card.meta.owner.contacts.pop().name;
       document.body.setAttribute('manufacturer', manufacturer);
     } catch (err) {
       console.log('Could not add manufacturer');
