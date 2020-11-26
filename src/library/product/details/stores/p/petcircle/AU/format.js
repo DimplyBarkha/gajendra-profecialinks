@@ -30,7 +30,7 @@ const transform = (data) => {
             if(row.availabilityText[0].text === 'false'){
                 row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]                 
             }else{
-                row.availabilityText = [{"text": 'Out of Stock', "xpath": row.availabilityText[0].xpath}] 
+                row.availabilityText = [{"text": '', "xpath": row.availabilityText[0].xpath}] 
             }
         }
         if (row.alternateImages){
@@ -50,6 +50,17 @@ const transform = (data) => {
             strListPrice = strListPrice.replace(/Don't pay† /g, '')
             row.listPrice = [{"text": strListPrice, "xpath": row.listPrice[0].xpath}]
         }
+        if(row.price){
+            var strJSONString   = ''
+            var strPrice        = ''
+            row.price.forEach(item =>{
+                strJSONString   = item.text.replace('(function(){ window.__DOMAIN__ = ', '').trim();
+                strJSONString   = strJSONString.slice(0, -5); 
+                var obj     = JSON.parse(strJSONString);
+                strPrice    = obj.productPrice
+            })
+            row.price = [{"text": strPrice, "xpath": row.price[0].xpath}]
+        }
         if(row.variants){
             var arrVariants = []
             var countVariant = 0
@@ -59,8 +70,8 @@ const transform = (data) => {
                     arrVariants.push(variant.text)
                 })
                 row.variants     = [{"text": arrVariants.join(' | '), "xpath": row.variants[0].xpath}]
-                row.variantCount = [{"text": countVariant, "xpath": row.variants[0].xpath}]
             }
+            row.variantCount = [{"text": countVariant, "xpath": row.variants[0].xpath}]
         }
         if(row.additionalDescBulletInfo){
             var strLongDesc         = ''
