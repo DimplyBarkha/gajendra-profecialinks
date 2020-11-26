@@ -35,11 +35,11 @@ fields:
   - name: manufacturer
     singleValue: true
     # xpath: //h4[@class="product-manufacturer"]
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     xpath: //span[@class="rating_stars__34OwL"]/text()
     regExp: (\d+.\d+)
-    type: FLOAT
+    # type: FLOAT
   - name: reviewCount
     singleValue: true
     xpath: //span[@class="rating_reviews__tWPMc"]/text()
