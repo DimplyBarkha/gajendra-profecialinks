@@ -188,7 +188,8 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //div[contains(@id,"Swatches")]//span[contains(@class,"SwatchName")] | //div[contains(@class,"swatches")]//span[contains(@class,"variant")] | //div[@id="product-details"]//label[contains(@for, "productOption")] | //span[@class="variant-v2 selection-box-v2 "]
+    xpath: //div[contains(@id,"Swatches")]//span[contains(@class,"SwatchName")] | //div[contains(@class,"swatches")]//span[contains(@class,"variant")] | //span[@class="variant-v2 selection-box-v2 "]
+    # | //div[@id="product-details"]//label[contains(@for, "productOption")] 
   # - name: firstVariant
   #   singleValue: false
   # - name: variants
