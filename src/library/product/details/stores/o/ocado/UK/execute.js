@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'ocado',
     domain: 'ocado.uk',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#main-content',
+    noResultsXPath: '//div[@class="nf-resourceNotFound"]',
     zipcode: "''",
   },
 };
