@@ -33,7 +33,7 @@ const transform = (data) => {
       }
       if (row.servingSize) {
         row.servingSize.forEach((servingSizeItem) => {
-          servingSizeItem.text = servingSizeItem.text.replace('Valeur nutritive moyenne par', '') | servingSizeItem.text.replace('Quantité moyenne de minéraux par 100g/', '');
+          servingSizeItem.text = servingSizeItem.text.replace('Valeur nutritive moyenne par', '').replace('Quantité moyenne de minéraux par 100g/', '');
         });
       }
       if (row.sku) {
