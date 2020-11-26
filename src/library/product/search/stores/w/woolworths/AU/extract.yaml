@@ -22,10 +22,10 @@ fields:
     xpath: //a[@class="shelfProductTile-imageWrapper"]/img/@src 
   - name: aggregateRating
     singleValue: false
-    xpath: 
+    xpath: //div[@class="shelfProductTile-ratingBlock"]//div[@class='rating-stars']//div//@class
   - name: reviewCount
     singleValue: false
-    xpath: 
+    xpath: //div[@class="shelfProductTile-ratingBlock"]//span[@class='rating-count']
   - name: price
     singleValue: false
     xpath: concat(//span[@class="price-symbol"],//span[@class="price-dollars"],'.',//span[@class="price-cents"])
