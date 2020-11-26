@@ -30,7 +30,7 @@ const transform = (data) => {
           });
           row.manufacturerDescription = [
             {
-              text: text.slice(0, -4),
+              text: text.slice(0, -2),
             },
           ];
         }
@@ -60,7 +60,9 @@ const transform = (data) => {
           row.description.forEach(item => {
             item.text = `${item.text.replace(/\n{0,}\s{1,}/g, ' ')}`;
           });
-        }        
+        } else {
+          row.description = row.manufacturerDescription;
+        }       
         row = cleanUp(row);
       } catch (exception) {
         console.log(exception);

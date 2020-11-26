@@ -45,7 +45,8 @@ fields:
     xpath: //meta[@property="product:retailer_item_id"]/@content        
   - name: description
     singleValue: false
-    xpath: (//div[@class="product-full-description"]//article//div[@class="lnd_wrapper"]//div[@class="lnd_text lnd_col-8"]//div[@class="lnd_content"])[1]/..
+    xpath: (//div[@class="product-full-description"]//article//div[contains(@class, "lnd_article-main")]//div[@class="lnd_wrapper"]//div[@class="lnd_content"])[1]
+    # (//div[@class="product-full-description"]//article//div[@class="lnd_wrapper"]//div[@class="lnd_text lnd_col-8"]//div[@class="lnd_content"])[1]/..
   - name: aggregateRatingText
     singleValue: false
     xpath: //div[@class="product-review"]//span[@class="product-review__score"]/text()
@@ -66,7 +67,7 @@ fields:
     xpath: //section[@id="productTechSpecs"]//div[@class="specs-group"]//tr[contains(.,"Producent")]//td//ul//li/a    
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="product-full-description"]
+    xpath: //div[@class="product-full-description"]//article
       #//div[@class="product-full-description"]//article//div[@class="lnd_wrapper"]//div[@class="lnd_text lnd_col-8"]//div[@class="lnd_content"]/h3
   - name: manufacturerImages
     singleValue: false
