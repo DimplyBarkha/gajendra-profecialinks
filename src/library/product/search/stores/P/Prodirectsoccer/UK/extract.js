@@ -24,8 +24,7 @@ module.exports = {
             if (star.getAttribute('style').slice(-5, -2)) {
               starValue = Number(star.getAttribute('style').slice(-5, -2)) / 20;
               ratingValue += starValue;
-            }
-            else {
+            } else {
               starValue = Number(star.getAttribute('style').slice(-4, -2)) / 20;
               ratingValue += starValue;
             }
@@ -47,7 +46,7 @@ module.exports = {
             break;
           }
         }
-        function stall(ms) {
+        function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
