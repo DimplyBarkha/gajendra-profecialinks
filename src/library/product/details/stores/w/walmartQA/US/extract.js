@@ -83,9 +83,10 @@ module.exports = {
       const maxPageEl = document.querySelector('#questions-answers [class="paginator-list"] > li:last-child > button > span');
       const maxPage = maxPageEl ? Number(maxPageEl.innerText) : 1;
       let data = [];
+      const productId = window.location.pathname.match(/[^\/]+$/)[0]
       for (let page = 1; page <= maxPage; page++) {
         const body = {
-          productId: '45918917',
+          productId,
           paginationContext: {
             sort: 'totalAnswerCount',
             page: page,
