@@ -31,28 +31,39 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
-      const isAlreadyIndifferentStore = await context.evaluate(async function () {
-        var el = document.querySelector('button.journey-reminder__initial-choice-button');
-        if (el)
-          return false
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      const chooseDriveSelector = await context.evaluate(async function () {
+        var el1 = document.querySelector('button.context-header__button');
+        var el2 = document.querySelector('.journey-reminder__footer button.layer__trigger_journey-reminder');
+        var el3 = document.querySelector('button.journey-reminder__initial-choice-button');
+
+        try {
+          for (var i = 0; i < 10; i++) {
+            document.querySelector('[autotrack-event-action="tutorial_click_useful"]').click();
+          }
+        } catch (err) { }
+        if (el1)
+          return "button.context-header__button";
+        else if (el2)
+          return '.journey-reminder__footer button.layer__trigger_journey-reminder';
+        else if (el3)
+          return 'button.journey-reminder__initial-choice-button';
         else
-          return true;
+          return null;
       });
-      if (isAlreadyIndifferentStore) {
-        await context.waitForSelector('.journey-reminder__footer button.layer__trigger_journey-reminder')
-        await context.click('.journey-reminder__footer button.layer__trigger_journey-reminder')
-      } else {
-        await context.waitForSelector('button.journey-reminder__initial-choice-button')
-        await context.click('button.journey-reminder__initial-choice-button')
+      if (chooseDriveSelector) {
+        await context.waitForSelector(chooseDriveSelector)
+        await context.click(chooseDriveSelector)
+
+        await context.waitForSelector('input.journeySearchInput')
+        await context.setInputValue('input.journeySearchInput', '75020');
+        await context.waitForSelector('li.journey__search-suggest')
+        await context.click('li.journey__search-suggest')
+        await context.waitForSelector('.journey-offering-context__wrapper .journey-offering-context__actions button')
+        await context.click('.journey-offering-context__wrapper .journey-offering-context__actions button')
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+        await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'networkidle0', checkBlocked: true });
       }
-      await context.waitForSelector('input.journeySearchInput')
-      await context.setInputValue('input.journeySearchInput', '75020');
-      await context.waitForSelector('li.journey__search-suggest')
-      await context.click('li.journey__search-suggest')
-      await context.waitForSelector('.journey-offering-context__wrapper .journey-offering-context__actions button')
-      await context.click('.journey-offering-context__wrapper .journey-offering-context__actions button')
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-      await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'networkidle0', checkBlocked: true });
     }
       await context.evaluate(async function () {
         function addHiddenDiv(id, content) {

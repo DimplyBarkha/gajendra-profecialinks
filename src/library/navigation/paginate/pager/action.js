@@ -26,26 +26,26 @@ async function implementation (
     spinnerSelector,
   } = inputs;
 
-  if (spinnerSelector) {
-    // this may replace the section with a loader
-    await context.click(nextLinkSelector);
-    await context.waitForFunction((selector) => {
-      console.log(selector, document.querySelector(selector));
-      return !document.querySelector(selector);
-    }, { timeout: 20000 }, spinnerSelector);
-    console.log('Spinner went away', spinnerSelector);
-    return true;
-  }
+  // if (spinnerSelector) {
+  //   // this may replace the section with a loader
+  //   await context.click(nextLinkSelector);
+  //   await context.waitForFunction((selector) => {
+  //     console.log(selector, document.querySelector(selector));
+  //     return !document.querySelector(selector);
+  //   }, { timeout: 20000 }, spinnerSelector);
+  //   console.log('Spinner went away', spinnerSelector);
+  //   return true;
+  // }
 
-  if (mutationSelector) {
-    // this may replace the section with a loader
-    await Promise.all([
-      context.click(nextLinkSelector),
-      // possible race condition if the data returned too fast, but unlikely
-      context.waitForMutuation(mutationSelector, { timeout: 20000 }),
-    ]);
-    return true;
-  }
+  // if (mutationSelector) {
+  //   // this may replace the section with a loader
+  //   await Promise.all([
+  //     context.click(nextLinkSelector),
+  //     // possible race condition if the data returned too fast, but unlikely
+  //     context.waitForMutuation(mutationSelector, { timeout: 20000 }),
+  //   ]);
+  //   return true;
+  // }
 
   if (nextLinkSelector) {
     console.log('Clicking', nextLinkSelector);
