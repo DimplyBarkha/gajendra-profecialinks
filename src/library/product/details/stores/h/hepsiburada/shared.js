@@ -10,7 +10,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text = row.description.map(elm => elm.text).join(' ').replace(/•/g, '||').replace(/·/g, '||');
+          text = row.description.map(elm => elm.text).join(' ').replace(/•/g, '||').replace(/·|\*/g, '||');
         });
         row.description = [{ text }];
       }

@@ -22,7 +22,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: (//h1[@itemprop="name"])[1]
+    xpath: concat((//h1[@itemprop="name"])[1],' ',//div[contains(@class,'radio-variant')])
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //del[@class="product-old-price price old active"]

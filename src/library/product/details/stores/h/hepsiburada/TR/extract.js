@@ -18,7 +18,7 @@ module.exports = {
       const upc = window.utagData ? window.utagData.product_barcode : '';
       document.body.setAttribute('upc', upc);
       const data = document.querySelector('#productDescriptionContent') ? document.querySelector('#productDescriptionContent').textContent.trim() : '';
-      var bullets = JSON.stringify(data.match(/•/gi) ? data.match(/•/gi).length : '');
+      var bullets = JSON.stringify(data.match(/•|\*/gi) ? data.match(/•|\*/gi).length : '');
       document.body.setAttribute('bullet_count', bullets);
     });
     const { transform } = parameters;
