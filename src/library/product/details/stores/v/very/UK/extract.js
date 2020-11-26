@@ -1,4 +1,45 @@
+const { transform } = require('../../../../shared');
 
+async function implementation(inputs, parameters, context, dependencies) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+
+  await context.evaluate(async () => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 750));
+
+    function addElementToDocument(id, value, key) {
+      const catElement = document.createElement('div');
+      catElement.id = id;
+      catElement.innerText = value;
+      catElement.setAttribute('content', key);
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    };
+
+    const isAvailable = document.querySelector('div.stockMessaging span.indicator')
+      ? document.querySelector('div.stockMessaging span.indicator') : null;
+    // @ts-ignore
+    if (isAvailable !== null && isAvailable.innerText === 'Out of stock') {
+      addElementToDocument('isAvailable', 'Out of Stock', 'No');
+    } else if (document.querySelector('div#addToBasket input#addToBasketButton').value === "Add to basket") {
+      addElementToDocument('isAvailable', 'In Stock', 'Yes');
+    } else {
+      addElementToDocument('isAvailable', '', 'No');
+    }
+
+
+    const isImgZoom = document.querySelector('li.amp-slide div.amp-zoom-overflow img')
+      ? document.querySelector('li.amp-slide div.amp-zoom-overflow img') : null;
+    // @ts-ignore
+    if (isImgZoom !== null) {
+      addElementToDocument('isImgZoom', 'Yes', 'Yes');
+    } else {
+      addElementToDocument('isImgZoom', 'No', 'No');
+    }
+
+  });
+  return await context.extract(productDetails, { transform });
+}
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -7,5 +48,5 @@ module.exports = {
     transform: null,
     domain: 'very.co.uk',
     zipcode: '',
-  },
+  }, implementation,
 };

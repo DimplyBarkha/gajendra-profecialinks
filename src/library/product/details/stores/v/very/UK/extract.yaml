@@ -45,7 +45,7 @@ fields:
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
-  xpath: //div[contains(@class, "stockMessaging")]/span[@class="indicator"]/text()
+  xpath: //div[@id="isAvailable"]
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
@@ -133,6 +133,7 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
+  xpath: count(//ul[contains(@class, "ppOption ")]/li)
   singleValue: true
   description: Number of variants listed
 - name: color
@@ -421,8 +422,8 @@ fields:
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
-- name: promotion
-  xpath: //div[@class="priceNow"]/span/text()
+# - name: promotion 
+  xpath: //div[@class="priceNow"]/span[last()]/text()
   singleValue: true
   description: promotion text on product page
 - name: alcoholContent
@@ -502,10 +503,7 @@ fields:
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
 - name: imageZoomFeaturePresent
-  xpath: //li[contains(@class, "amp-slide")]//div[@class="amp-zoom-overflow"]/img
-  regExp: (.+)
-  regExpReplace: "Yes"
+  xpath: //div[@id="isImgZoom"]
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  # defaultValue: "Yes"
