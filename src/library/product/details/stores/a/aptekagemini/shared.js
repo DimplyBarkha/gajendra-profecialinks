@@ -30,7 +30,7 @@ const cleanUp = (data, context) => {
       }
       if (row.additionalDescBulletInfo && row.description) {
         let text = `${row.description[0].text} ${row.additionalDescBulletInfo[0].text}`
-        row.description = [{ text }]
+        row.description = [{ text: text.trim() }]
       }
     }
   }
