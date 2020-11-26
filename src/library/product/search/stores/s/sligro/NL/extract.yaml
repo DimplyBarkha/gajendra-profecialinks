@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.search div.cmp-productoverview-product
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="cmp-productoverview-product-info"]/a/@href
+    regExp: \/p\.(.+?)\.html/
+    regExpReplace: $1
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="cmp-productoverview-product-info"]/a/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[contains(@class,"cmp-productoverview-product-info-price")]/p[2]/span[not(contains(@class,"cmp-productoverview-product-top-price__old"))]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="cmp-productoverview-product-info"]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="cmp-productoverview-product-info-name"]//a
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
