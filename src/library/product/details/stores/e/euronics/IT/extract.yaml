@@ -86,8 +86,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
-    description: The manufacturer model code (unique) of the product
-    xpath: translate(substring-after(//script[contains(text(), 'MfgId')], 'MfgId'), translate(.,'0123456789',''), '')
+    description: The manufacturer model code (unique) of the product (translate(substring-after(//script[contains(text(), 'MfgId')], 'MfgId'), translate(.,'0123456789',''), ''))
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
