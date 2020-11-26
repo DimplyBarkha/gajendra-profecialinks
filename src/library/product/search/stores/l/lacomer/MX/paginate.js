@@ -8,7 +8,7 @@ module.exports = {
     // nextLinkXpath: '//button[@ng-click="buscaxPaginaSig(pagActual)"][2]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: null,
     loadedXpath: null,
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
