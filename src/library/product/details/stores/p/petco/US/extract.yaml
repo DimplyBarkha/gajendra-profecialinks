@@ -46,7 +46,7 @@ fields:
   - name: directions
     xpath: //@directions[not(contains(.,"null"))]
   - name: warnings
-  - name: aggregateRatingText
+  - name: aggregateRating
     xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//ul[contains(@class,"StarRatingsstyled__RatingsList")]/@title
     regExp: ^[^\s]*\s
   - name: aggregateRatingText
