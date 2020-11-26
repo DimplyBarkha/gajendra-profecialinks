@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class="b-breadcrumbs"]//li[position()>2 and position()<last()]
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@name="keywords"]/@content
+    xpath: //h1[@class="b-productName"]/text()
   - name: listPrice
     singleValue: true
     type: CURRENCY
@@ -46,7 +46,7 @@ fields:
     xpath: //div[contains(@class,"certificates")]//tr[2]//td[3]/text()
   - name: quantity
     singleValue: true
-    xpath: ((//div[@class="b-productParams__row"])[1]//div//input/@value)[1]
+    xpath: ((//span[contains(text(),'Длина')]/following::span)|(//tbody//span[contains(text(),'намотки')]/following::td)|(//tbody//span[contains(text(),'Размер')]/following::td))[1]
   - name: weightNet
     singleValue: true
     xpath: //tbody//span[contains(text(),'Вес, грамм')]/following-sibling::span/span/text()  
@@ -58,7 +58,7 @@ fields:
     xpath: (//div[@class="i-dn js-product-data"]/@data-code)[1]
   - name: packSize
     singleValue: true
-    xpath: (//tbody//span[contains(text(),'Количество штук в транспортном коробе')]/following::td/text())[1]  
+    xpath: (//tbody//span[contains(text(),'Количество штук в упаковке')]/following::td/text())|(//tbody//span[contains(text(),'Количество упаковок в транспортной коробке')]/following::td/text())[1]  
   - name: ratingCount
     singleValue: true
     type: NUMBER
