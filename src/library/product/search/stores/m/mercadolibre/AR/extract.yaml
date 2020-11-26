@@ -5,7 +5,7 @@ recordXPath: //li[contains(@class,'layout__item')]
 fields:
   - name: id
     singleValue: false
-    xpath: //form[contains(@action, 'bookmarks')]/@productId
+    xpath: //form[contains(@action, 'bookmarks')]/@productid
   - name: searchUrl
     singleValue: false
     xpath: ancestor::html//div[@id="searchUrl"][last()]
@@ -14,9 +14,7 @@ fields:
     xpath: //h2[contains(@class, 'title')]
   - name: productUrl
     singleValue: false
-    xpath: //form[contains(@action, 'bookmarks')]/@productId
-    regExp: (.*)
-    regExpReplace: https://articulo.mercadolibre.com.ar/$1
+    xpath: //form[contains(@action, 'bookmarks')]/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail

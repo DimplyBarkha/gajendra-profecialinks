@@ -14,8 +14,14 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
     // set id
     const idPrefix = 'MLA-';
+    const prefixUrl = 'https://articulo.mercadolibre.com.ar/';
     const ids = document.querySelectorAll('form[action*="bookmarks"]');
-    if (ids !== null) ids.forEach(e => e.setAttribute('productId', idPrefix.concat(e.getAttribute('action').split('MLA').pop())));
+    if (ids !== null) {
+      ids.forEach(e => {
+        e.setAttribute('productid', idPrefix.concat(e.getAttribute('action').split('MLA').pop()));
+        e.setAttribute('producturl', prefixUrl.concat(idPrefix.concat(e.getAttribute('action').split('MLA').pop())));
+      });
+    };
 
     const searchUrl = window.location.href;
     addElementToDocument('searchUrl', searchUrl);
