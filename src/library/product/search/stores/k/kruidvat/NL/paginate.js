@@ -4,7 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'kruidvat',
-    nextlinkxpath: 'div.pager.plp-paginator__pager.pager--mobile-bottom > div > e2-plp-page-selectors[css-modifier="pager__link pager__link--next"]',
+    nextLinkXpath: '(//a[@class="pager__link pager__link--next"]/v-slot/v-slot-assigned-content)[1]',
+    // nextLinkSelector: 'div.pager.plp-paginator__pager.pager--mobile-bottom > div > e2-plp-page-selectors[css-modifier="pager__link pager__link--next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
