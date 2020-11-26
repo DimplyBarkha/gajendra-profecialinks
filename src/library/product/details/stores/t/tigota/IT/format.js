@@ -42,13 +42,18 @@ const transform = (data) => {
             }
         }
         if (row.specifications) {
-          let specifications_ar = [];
-          row.specifications.forEach(item => {
-            specifications_ar.push(item.text);
-          });
-          if (specifications_ar.length) {
-            row.specifications = [{ "text": specifications_ar.join(" || "), 'xpath': row.specifications[0].xpath }];
-          }
+            var rowItem = ''
+            var rowCounter = 1
+            row.specifications.forEach(item => {
+              if((rowCounter % 2)){
+                rowItem = rowItem +  item.text 
+              } else{
+                rowItem = rowItem +  item.text + ' || '
+              }
+              rowCounter = rowCounter + 1
+            });
+            row.specifications = [{'text':rowItem, 'xpath': row.specifications[0].xpath}]
+            //console.log(row.specifications)
         }
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
