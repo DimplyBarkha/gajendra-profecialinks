@@ -1,5 +1,5 @@
 async function implementation ({ url, zipcode, storeId }, parameters, context, dependencies) {
-  await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+  await context.goto(url, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
   await context.waitForSelector('.pageLoading');
   let body = await context.evaluate(async function () {
     const body = document.querySelector('.pageLoading');
@@ -14,7 +14,7 @@ async function implementation ({ url, zipcode, storeId }, parameters, context, d
       else return false;
     });
   } while (body);
-  await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+  await context.goto(url, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
 }
 
 module.exports = {

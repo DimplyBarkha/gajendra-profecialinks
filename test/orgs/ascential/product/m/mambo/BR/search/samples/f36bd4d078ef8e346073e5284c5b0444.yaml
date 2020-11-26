@@ -1,0 +1,31 @@
+input:
+  keywords: cos
+  _url: http://mambo.com.br
+extractions:
+  - html: https://workbench.import.io/html/run=80fe1ab2-e0b2-40da-bc0d-4d5f3182630e/task=71c60571-c692-4b3f-95da-62102f36b70a/1510c67b-cd77-4f17-8e34-6dd277bf8a29.html
+    extractionConfigId: product/search/stores/m/mambo/BR/extract
+    data:
+      - group:
+          - id:
+              - text: "236019"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            productUrl:
+              - text: https://www.mambo.com.br/molho-quatro-queijos-taste-co-300g/p/236019
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            gtin:
+              - text: "236019"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1161243726302833814/products/236019_MOLHO-TASTE-CO-300G-QUATRO-QUEIJOS-copiar.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
+            name:
+              - text: Molho Quatro Queijos Taste & Co 300g
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/a[1]/div[2]
+            price:
+              - text: R$ 18,95
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/a[1]/div[3]/div[1]/span[1]
+            manufacturer:
+              - text: Taste&Co
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/a[1]/div[1]
+        xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+    timestamp: 1606396554904

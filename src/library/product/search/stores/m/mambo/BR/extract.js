@@ -1,8 +1,11 @@
 const { transform } = require('./format');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation ({ url, zipcode, storeId }, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  await context.waitForSelector('.CC-searchCountFiltros .CC-count span');
+
   const flag = await context.evaluate(async function () {
     const numberOfProducts = document.querySelector('.CC-searchCountFiltros .CC-count span')
       ? parseInt(document.querySelector('.CC-searchCountFiltros .CC-count span').innerText)
@@ -11,7 +14,20 @@ async function implementation (inputs, parameters, context, dependencies) {
     else return false;
   });
 
-  if (flag) await context.waitForSelector('.CC-seeMore button');
+  if (flag) {
+    let counter = 0;
+    let btn;
+    do {
+      btn = await context.evaluate(async function () {
+        const btn = document.querySelector('.CC-seeMore button');
+        if (btn) return true;
+        else return false;
+      });
+      counter++;
+
+      if (!btn) await context.goto(url, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
+    } while (!btn && counter < 4);
+  }
 
   await context.evaluate(async function () {
     function checkForProducts (selectorForProducts) {
