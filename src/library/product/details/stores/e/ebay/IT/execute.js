@@ -4,7 +4,7 @@ module.exports = {
     country: "IT",
     store: "ebay",
     domain: "ebay.it",
-    loadedSelector: "body",
-    noResultsXPath: '//div[@class="status--4XX"]',
+    loadedSelector: "div#CenterPanelInternal",
+    noResultsXPath: '//p[@class="error-header__headline"]',
   },
 };

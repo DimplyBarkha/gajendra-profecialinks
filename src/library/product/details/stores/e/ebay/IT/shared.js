@@ -6,6 +6,10 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
+      if (!row.image) {
+        delete row.availabilityText;
+        delete row.descriptionBullets;
+      }
       /* if (row.pricePerUnit2) {
         let text = '';
         row.pricePerUnit2.forEach(item => {
