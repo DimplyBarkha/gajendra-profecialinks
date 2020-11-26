@@ -40,15 +40,20 @@ async function implementation (
   await context.waitForSelector('div[class*="is-button-buy"]', { timeout: 100000 });
   await context.evaluate(() => {
     const div = document.evaluate("//div[contains(@class,'product-detail-buy')]//div[contains(@class,'custom-price-style') and not (contains(@class,'instead'))]", document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-    div.innerText = div.innerText.replace(',', '.').replace('\n', '');
+    if (div.innerText.includes('.')) {
+      div.innerText = div.innerText.replace(',', '.').replace('\n', '').replace('.', ',');
+    } else {
+      div.innerText = div.innerText.replace(',', '.').replace('\n', '');
+    }
     const ava2 = document.createElement('div');
     ava2.setAttribute('id', 'availablity');
     ava2.innerText = 'In Stock';
     document.body.append(ava2);
-
-    const desc = document.querySelector('div[class*="custom-detail-short-description"]').innerText;
-    const name = document.querySelector('h2[class*="custom-detail-headline"]');
-    name.innerText = name.innerText + ' ' + desc;
+    if (document.querySelector('div[class*="custom-detail-short-description"]')) {
+      const desc = document.querySelector('div[class*="custom-detail-short-description"]').innerText;
+      const name = document.querySelector('h2[class*="custom-detail-headline"]');
+      name.innerText = name.innerText + ' ' + desc;
+    }
   });
 }
 module.exports = {
