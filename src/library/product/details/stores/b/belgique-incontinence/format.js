@@ -29,11 +29,17 @@ const transform = (data) => {
             item.text = item.text.match(/\d/g);
             item.text = String(item.text).replace(/\,/g,''); 
             var rating = parseInt(item.text);
-            item.text  = rating*5/100;      
+            item.text  = rating*5/100;
+            item.text = parseFloat(item.text);      
           });        
         }
         if (row.price) {         
           row.price.forEach(item => { 
+           item.text = item.text+' €'   
+          });        
+        }
+        if (row.listPrice) {         
+          row.listPrice.forEach(item => { 
            item.text = item.text+' €'   
           });        
         }
@@ -89,6 +95,20 @@ const transform = (data) => {
             info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());            
           });
           row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];          
+        }
+        if (row.shippingInfo) {
+          let info = [];          
+          row.shippingInfo.forEach(item => {
+            info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
+          });
+          row.shippingInfo = [{'text':info.join(' '),'xpath':row.description[0].xpath}];          
+        }
+        if (row.directions) {
+          let info = [];          
+          row.directions.forEach(item => {
+            info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
+          });
+          row.directions = [{'text':info.join(' || '),'xpath':row.directions[0].xpath}];          
         }
         if (row.specifications) {
           let info = [];          

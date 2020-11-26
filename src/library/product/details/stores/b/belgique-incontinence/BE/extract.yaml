@@ -24,6 +24,9 @@ fields:
 - name: price
   singleValue: false
   xpath: //span[@class='price_value']/@content
+- name: listPrice 
+  singleValue: false
+  xpath: //span[@id='ajaxPriceOld']  
 - name: category
   singleValue: false
   xpath: //div[@id='navigation']//li/a
@@ -47,7 +50,7 @@ fields:
   xpath: //div[(@id="contentTab3")]/p//text() | //div[(@id="contentTab3")]//ul/li | //div[(@id="contentTab3")]//tr[position()>1]               
 - name: description
   singleValue: false
-  xpath: //div[(@id="contentTab1")]/p
+  xpath: //div[(@id="contentTab1")]/p | //div[(@id="contentTab1")]//li
 - name: descriptionBullets
   singleValue: false
   xpath: //div[(@id="contentTab1")]/p   
@@ -73,3 +76,9 @@ fields:
 - name: packSize
   singleValue: false
   xpath: //td[contains(.,'Paquets')]/following-sibling::td
+- name: shippingInfo  
+  singleValue: false
+  xpath: //ul[@id='extra_reassurances']/li[1]//p
+- name: directions 
+  singleValue: false
+  xpath: //div[@id="contentTab2"]//li | //div[@id="contentTab2"]//p 
