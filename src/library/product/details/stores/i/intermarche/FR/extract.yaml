@@ -20,11 +20,11 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="styled__ProductLibelle-rc4bd7-1 fARrZk"]
+    xpath: (//div[@class="styled__ProductGeneralInfoContainer-rc4bd7-0 heKoPO"]/div)[position()<5]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -62,12 +62,10 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@class="styled__ProductLibelle-rc4bd7-1 fARrZk"]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[@id="ii_size"]
 
   - name: weightNet
     singleValue: true
@@ -144,8 +142,9 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
+    xpath: (//div[@class="styled__ProductGeneralInfoContainer-rc4bd7-0 heKoPO"]/div)[position()<5]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store

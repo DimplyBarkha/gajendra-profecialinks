@@ -65,6 +65,19 @@ module.exports = {
         var id = url.split("/product/");
         addHiddenDiv("ii_" + "productid", id[1]);
       }
+      if (
+        document.querySelector(
+          ".styled__ProductConditionnement-rc4bd7-2.kvnQKM"
+        ) != null
+      ) {
+        var size = document.querySelectorAll(
+          ".styled__ProductConditionnement-rc4bd7-2.kvnQKM"
+        );
+        var t = size[2].innerText;
+        var s = t.split(" ");
+        var p = s.reverse();
+        addHiddenDiv("ii_" + "size", p[1] + " " + p[0]);
+      }
     });
     await context.extract(dependencies.productDetails);
   },
