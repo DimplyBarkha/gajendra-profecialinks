@@ -1,36 +1,61 @@
 const { transform } = require('../../../../shared');
-// async function implementation (
-// inputs,
-// parameters,
-// context,
-// dependencies,
-// ) {
-// const { transform } = parameters;
-// const { productDetails } = dependencies;
-// await context.evaluate(async () => {
-// while(!!document.querySelector('#container > div > div > div.a.h > main > div > div.b7.b8.b9.ba > div > div.i.j.k.a.b > div.i.j.k.ce.fz.cf.g0.cg.g1.ch.g2.ci.g3.cj.g4.a.b.q.g5 > button')){
-// // @ts-ignore
-// document.querySelector('#container > div > div > div.a.h > main > div > div.b7.b8.b9.ba > div > div.i.j.k.a.b > div.i.j.k.ce.fz.cf.g0.cg.g1.ch.g2.ci.g3.cj.g4.a.b.q.g5 > button').click()
-// await new Promise(r => setTimeout(r, 6000));
-// }
-// })
-// return await context.extract(productDetails, { transform });
-// }
 module.exports = {
-implements: 'product/search/extract',
-parameterValues: {
-country: 'SE',
-store: 'kicks',
-transform: transform,
-domain: 'kicks.se',
-},
-// let a1=document.querySelector('span[class="ed du"]')
-// var count = 0;
-// for(let i=0;i<a1.childElementCount;i++)
-// {
-// if(a1.children[i].className=="ee ef")
-// {
-// count++;
-// }
-// }
-};
+  implements: 'product/search/extract',
+  parameterValues: {
+  country: 'NO',
+  store: 'Kicks',
+  transform,
+  domain: 'kicks.no',
+  zipcode: '',
+  },
+  implementation,
+  };
+  async function implementation(
+  inputs,
+  parameters,
+  context,
+  dependencies,
+  ) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  await context.evaluate(async function () {
+  //for rank
+  function addHiddenDiv(id, content, index) {
+  const newDiv = document.createElement('div');
+  newDiv.id = id;
+  newDiv.textContent = content;
+  newDiv.style.display = 'none';
+  const originalDiv = document.querySelectorAll('span[class="ed dt"]')[index];
+  originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+  }
+  // let rankOrganic;
+  // let url = window.location.href;
+  // let checkPageNumber = url.split('&')[1];
+  // try {
+  // if (checkPageNumber.startsWith('pageNumber=')) {
+  // rankOrganic = checkPageNumber.replace('pageNumber=', '');
+  // }
+  // }
+  // catch (err) {
+  // }
+  // var dup = Number(rankOrganic);
+  // dup = dup - 1;
+  // if (!rankOrganic) {
+  // rankOrganic = 1;
+  // } else {
+  // rankOrganic = (dup * 60) + 1;
+  // }
+  // const urlProduct = document.querySelectorAll('a[class="pt__link"]');
+  // for (let i = 0; i < urlProduct.length; i++) {
+  // addHiddenDiv('rankOrganic', rankOrganic++, i);
+  // }
+  let firstChildNode;
+  const aggregateRating = document.querySelectorAll("span[class='ed dt']")
+  for (let k = 0; k < aggregateRating.length; k++) {
+  firstChildNode = aggregateRating[k].getElementsByClassName('ee ef').length
+  addHiddenDiv('aggregateRating', firstChildNode, k);
+  }
+  });
+  //rank end
+  return await context.extract(productDetails, { transform });
+  }
