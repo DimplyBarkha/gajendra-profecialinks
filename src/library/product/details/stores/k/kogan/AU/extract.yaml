@@ -35,7 +35,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //section[@itemprop="description"]//p[position()>1]//img//@src
+    xpath: //section[@itemprop="description"]//p[position()>1]/img//@src
     # xpath: //img[contains(@class,'_1FhiD')]/@src
   - name: gtin
     singleValue: true
