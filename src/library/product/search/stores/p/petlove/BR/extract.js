@@ -2,6 +2,7 @@ const { transform } = require('../../../../shared');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
+  const { transform } = parameters;
   // Do a scroll down to load all products
   await context.evaluate(async function () {
     let scrollSelector = document.querySelector('a#show-more-products');
@@ -14,24 +15,27 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
   });
 
-  /* await context.evaluate(() => {
-    const productUrlAll = document.querySelectorAll('.catalog-list-item');
-    let productUrl;
-    const ratingSelector = document.querySelectorAll('.catalog-list-stars float-right>span');
-
-    for (let i = 0; i < productUrlAll.length; i++) {
-      if (productUrlAll[i].href.includes('https')) {
-        productUrl = productUrlAll[i].href;
-      } else {
-        productUrl = 'https://www.petlove.com.br' + productUrlAll[i].href;
+  await context.evaluate(async function () {
+    const allProducts = document.querySelectorAll('div[class="catalog-list-item"]');
+    allProducts.forEach(element => {
+      const starsSelector = element.querySelectorAll('div.catalog-list-stars.float-right > span.icon-star , span.icon-star-half');
+      // Create AggregateRating based on stars span
+      if (starsSelector) {
+        let starsScore = Number();
+        starsSelector.forEach(stars => {
+          if (stars.className === 'icon-star') {
+            starsScore += 1;
+          } else if (stars.className === 'icon-star-half') {
+            starsScore += 0.5;
+          }
+        });
+        if (starsScore > 0) {
+          element.setAttribute('ratingvalue', `${starsScore}`);
+        }
       }
-
-      document.querySelectorAll('.catalog-list-item')[i].setAttribute('productUrl', productUrl);
-      document.querySelectorAll('.catalog-list-item')[i].setAttribute('rank', `${i + 1}`);
-      document.querySelectorAll('.catalog-list-item')[i].setAttribute('rankOrganic', `${i + 1}`);
-    };
-  }); */
-  return await context.extract(productDetails);
+    });
+  });
+  return await context.extract(productDetails, { transform });
 }
 module.exports = {
   implements: 'product/search/extract',
