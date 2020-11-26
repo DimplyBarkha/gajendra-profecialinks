@@ -37,6 +37,12 @@ async function implementation(inputs, parameters, context, dependencies) {
       addElementToDocument('isImgZoom', 'No', 'No');
     }
 
+    const ratingCount = document.querySelector('div.bvReviewsNumber a.productRating')
+      ? document.querySelector('div.bvReviewsNumber a.productRating').textContent : '';
+    const regex = /(\d+)/;
+    // @ts-ignore
+    document.querySelector('body').setAttribute('ratingcount', ratingCount.match(regex)[1]);
+
   });
   return await context.extract(productDetails, { transform });
 }

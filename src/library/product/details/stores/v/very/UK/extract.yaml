@@ -110,9 +110,7 @@ fields:
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
-  xpath: //div[@class="bvReviewsNumber"]/a[@class="productRating"]/text()
-  regExp: (\d+)
-  regExpReplace: $1
+  xpath: //ancestor::body/@ratingcount
   singleValue: true
   description: The number of ratings
 - name: aggregateRatingText
@@ -422,8 +420,8 @@ fields:
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
-# - name: promotion 
-  xpath: //div[@class="priceNow"]/span[last()]/text()
+- name: promotion 
+  xpath: //div[@class="priceNow"]/span[contains(@class, "save")]/text()
   singleValue: true
   description: promotion text on product page
 - name: alcoholContent
