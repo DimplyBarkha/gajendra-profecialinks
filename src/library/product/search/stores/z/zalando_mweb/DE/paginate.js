@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'DE',
-    store: 'zalando',
+    store: 'zalando_mweb',
     nextLinkSelector: null,
     nextLinkXpath: '//a[@title="next page" and not(contains(@class, "disabled"))]',
     mutationSelector: null,

@@ -1,10 +1,11 @@
+
 const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'DE',
-    store: 'zalando',
+    store: 'zalando_mweb',
     transform,
     domain: 'zalando.de',
     zipcode: '',

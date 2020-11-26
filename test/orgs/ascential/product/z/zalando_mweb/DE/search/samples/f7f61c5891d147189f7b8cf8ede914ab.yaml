@@ -2,8 +2,8 @@ input:
   keywords: Laufschuhe
   _url: http://zalando.de
 extractions:
-  - html: https://workbench.import.io/html/run=14552371-de29-4511-8bb0-883c61071455/task=c07c0bde-4cf9-45c4-b242-ee17066e5637/2f409ea0-7a71-4db2-89a9-69b0edff71a9.html
-    extractionConfigId: product/search/stores/z/zalando/DE/extract
+  - html: https://workbench.import.io/html/run=42cb843d-7cb1-4c28-bccc-b6ab78ff551d/task=dd1a62fc-c7d7-443f-aa88-0f3ae268b191/8c74e086-96d5-46d9-afa6-032d39a7cdb8.html
+    extractionConfigId: product/search/stores/z/zalando_mweb/DE/extract
     data:
       - group:
           - id:
@@ -73,43 +73,43 @@ extractions:
               - text: Saucony
                 xpath: /html/body/ol[1]/li[3]/@manufacturer
           - id:
-              - text: AD512O00A-A11
+              - text: AD542A3Q4-Q11
                 xpath: /html/body/ol[1]/li[4]/@sku
             searchUrl:
               - text: https://m-en.zalando.de/men/?q=Laufschuhe
                 xpath: /html/body/ol[1]/li[4]/@search_url
             name:
-              - text: NEBZED LAUFSCHUH KINDER - Trainers - core white / glow blue / solar red
+              - text: FX LAUFSCHUH HERREN - Neutral running shoes - core black / cloud white
                 xpath: /html/body/ol[1]/li[4]/@name
             productUrl:
-              - text: https://m-en.zalando.de/adidas-performance-nebzed-laufschuh-kinder-trainers-core-white--glow-blue--solar-red-ad512o00a-a11.html
+              - text: https://m-en.zalando.de/adidas-performance-fx-laufschuh-herren-neutral-running-shoes-core-black--cloud-white-ad542a3q4-q11.html
                 xpath: /html/body/ol[1]/li[4]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a23b59f035bd314584bdee338387fa05/e58ea68b801e444daf3f5ef8627c08de.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/72fa9e4ee63f3aa593bea3de26c0c509/d95e14f47188450591ae174fd94dd671.jpg
                 xpath: /html/body/ol[1]/li[4]/@thumbnail
             price:
-              - text: 51,95 €
+              - text: 60,94 €
                 xpath: /html/body/ol[1]/li[4]/@price
             manufacturer:
               - text: adidas Performance
                 xpath: /html/body/ol[1]/li[4]/@manufacturer
           - id:
-              - text: AD542A3Q4-Q11
+              - text: AD512O00A-A11
                 xpath: /html/body/ol[1]/li[5]/@sku
             searchUrl:
               - text: https://m-en.zalando.de/men/?q=Laufschuhe
                 xpath: /html/body/ol[1]/li[5]/@search_url
             name:
-              - text: FX LAUFSCHUH HERREN - Neutral running shoes - core black / cloud white
+              - text: NEBZED LAUFSCHUH KINDER - Trainers - core white / glow blue / solar red
                 xpath: /html/body/ol[1]/li[5]/@name
             productUrl:
-              - text: https://m-en.zalando.de/adidas-performance-fx-laufschuh-herren-neutral-running-shoes-core-black--cloud-white-ad542a3q4-q11.html
+              - text: https://m-en.zalando.de/adidas-performance-nebzed-laufschuh-kinder-trainers-core-white--glow-blue--solar-red-ad512o00a-a11.html
                 xpath: /html/body/ol[1]/li[5]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/72fa9e4ee63f3aa593bea3de26c0c509/d95e14f47188450591ae174fd94dd671.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/a23b59f035bd314584bdee338387fa05/e58ea68b801e444daf3f5ef8627c08de.jpg
                 xpath: /html/body/ol[1]/li[5]/@thumbnail
             price:
-              - text: 60,94 €
+              - text: 51,99 €
                 xpath: /html/body/ol[1]/li[5]/@price
             manufacturer:
               - text: adidas Performance
@@ -180,4 +180,4 @@ extractions:
               - text: Nike Performance
                 xpath: /html/body/ol[1]/li[8]/@manufacturer
         xpath: /html
-    timestamp: 1606386325679
+    timestamp: 1606394913234

@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search',
   parameterValues: {
     country: 'DE',
-    store: 'zalando',
+    store: 'zalando_mweb',
     domain: 'zalando.de',
     zipcode: '',
   },
