@@ -85,22 +85,28 @@ const transform = (data) => {
 				row.additionalDescBulletInfo = [{ text: newText.slice(0, -4) }];
 			} */
 			if (row.image) {
-				const url = new URL(row.image[0].text);
-				if (url.host == 'www.itvsn.com.au') {
-					row.image = [{ text: row.image[0].text }];
-				} else {
-					row.image = [{ text: 'https://www.itvsn.com.au' + row.image[0].text }];
-				}
+				let text = '';
+				row.image.forEach(item => {
+					if(item.text.match('https:')){
+						text = item.text;
+					}
+					else{
+						text = 'https://www.itvsn.com.au' + item.text;
+					}
+					item.text = text;
+				})
 			}
 			if (row.alternateImages) {
-				const url = new URL(row.image[0].text);
-				row.alternateImages.forEach((item, index) => {
-					if (url.host == 'www.itvsn.com.au') {
-						row.alternateImages[index].text = row.alternateImages[index].text;
-					} else {
-						row.alternateImages[index].text = 'https://www.itvsn.com.au' + row.alternateImages[index].text;
+				let text = '';
+				row.alternateImages.forEach(item => {
+					if(item.text.match('https:')){
+						text = item.text;
 					}
-				});
+					else{
+						text = 'https://www.itvsn.com.au' + item.text;
+					}
+					item.text = text;
+				})
 			}
 			if (row.aggregateRating2) {
 				let newText = "";

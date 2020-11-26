@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'itvsn',
     domain: 'itvsn.com.au',
-    loadedSelector: 'body',
+    loadedSelector: 'div[class="tvsn-productmedia-viewer"] img',
     noResultsXPath: '//div[contains(@class,"row tvsn-category-list")]//div[contains(@class,"tvsn-category-empty")]',
   },
 };
