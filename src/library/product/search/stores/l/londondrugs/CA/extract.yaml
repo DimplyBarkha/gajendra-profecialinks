@@ -1,0 +1,12 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+- name: name
+    description: The product name
+    xpath: //h3[@class="ld-sg-heading--product-tile"]/text()
+- name: rank
+    singleValue: true
+- name: rankOrganic
+    singleValue: false
