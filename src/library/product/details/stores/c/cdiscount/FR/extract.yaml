@@ -41,10 +41,10 @@ fields:
     xpath: //*[@id="descContent"]//td[contains(text(), "Couleur")]//following-sibling::* | //div[@id="presContent"]//text()[contains(., "Couleur:")]
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@class="smallPic"]//li[contains(@class, "fpZoomPic")]//img//@src
+    xpath: //ul[@class="smallPic"]//li[contains(@class, "fpZoomPic") and position()>1]//img//@src
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//ul[@class="smallPic"]//li[contains(@class, "fpZoomPic")]//img//@src)
+    xpath: count(//ul[@class="smallPic"]//li[contains(@class, "fpZoomPic") and position()>1]//img//@src)
   - name: legalDisclaimer
     singleValue: false
     xpath: //*[@class="fpLegacy"]
@@ -57,6 +57,9 @@ fields:
     singleValue: false
     xpath: //*[@id="descContent"]//td[text()="Largeur (emballée)"]/parent::tr | //*[@id="descContent"]//td[text()="Hauteur (Expédition)"]/parent::tr | //*[@id="descContent"]//td[text() ="Profondeur (emballée)"]/parent::tr
   - name: sku
+    singleValue: false
+    xpath: //*[@id="fpSku"]
+  - name: mpc
     singleValue: false
     xpath: //*[@id="fpSku"]
   - name: metaKeywords
@@ -110,7 +113,9 @@ fields:
     xpath: //ul[@class="smallPic"]//li[not(@class)]/@onclick
   - name: variantId
     singleValue: false
-    xpath: //*[@id="fpSku"]
+    xpath: //link[contains(@rel,"canonical")]//@href
+    regExp: (.*)([a-z]-\w+-\w+)(.*)
+    regExpReplace: $2
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //div[@class="fpMainImg"]//img[contains(@class,"fpLoopZoom")]/@id
@@ -126,3 +131,11 @@ fields:
   - name: directions
     singleValue: false
     xpath: //*[@id="descContent"]//td[contains(text(), "Précautions d'emploi") or contains(text(),"Conseils d'utilisation")]//following-sibling::*
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[contains(text(), "Pays d'origine")]//following-sibling::*
+  - name: ageSuitability
+    singleValue: false
+    xpath: //*[@id="descContent"]//td[contains(text(), "Age")]//following-sibling::*
+    regExp: (\d+)
+    regExpReplace: $1
