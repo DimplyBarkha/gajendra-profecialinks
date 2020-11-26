@@ -1,0 +1,169 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[contains(@class,"pdr-ProductDetails-Image")]//picture//img/@src
+  - name: imageAlt
+    xpath: //div[contains(@class,"pdr-ProductDetails-Image")]//picture//img/@alt
+  - name: alternateImages
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    xpath: //div[@class="lr-breadcrumbs"]//a
+  - name: nameExtended
+    xpath: //h1[contains(@class,"pdr-QuickInfo__heading")]
+  - name: listPrice
+  - name: price
+  - name: availabilityText
+  - name: description
+    xpath: //div[contains(@class,"pdr-js-product-description-jumppoint")]/following-sibling::div
+  - name: descriptionBullets
+    xpath: count(//div[contains(@class,"pdr-js-product-description-jumppoint")]/following-sibling::div//text()[contains(.,"- ")][not(contains(.," - "))])
+  - name: brandText
+    xpath: //a[contains(@class,"pdr-QuickInfo__brandLink")]
+  - name: manufacturer
+    xpath: //h3[contains(.,"Kontaktname")]/following-sibling::text()
+  - name: quantity
+    xpath: //div[contains(@class,"pdr-Grammage--Detail")]
+  - name: weightNet
+  - name: weightGross
+  - name: gtin
+    xpath: //h1[contains(@class,"pdr-QuickInfo__heading")]/@gtin
+  - name: sku
+    xpath: //span[contains(@class,"pdr-CallToAction__articleNumber")]
+    regExp: ^[^\s]*
+  - name: variantId
+  - name: mpc
+  - name: packSize
+  - name: legalDisclaimer
+    xpath: //div[@class="pdr-Disclaimer"]
+  - name: directions
+    xpath: //h2[contains(.,"Hinweise")]/parent::div/following-sibling::div[1]
+  - name: warnings
+    xpath: //h2[contains(.,"Gefahren- / Warnhinweise")]/parent::div/following-sibling::div[1] | (//ul[@class="pdr-HazardsAndWarnings__list"])[1]
+  - name: ratingCount
+  - name: aggregateRatingText
+  - name: aggregateRating
+  - name: shippingInfo
+  - name: shippingDimensions
+  - name: shippingWeight
+  - name: variantCount
+  - name: color
+  - name: colorCode
+  - name: manufacturerDescription
+  - name: manufacturerImages
+  - name: videos
+  - name: name
+    xpath: //h1[contains(@class,"pdr-QuickInfo__heading")]
+  - name: coupon
+  - name: brandLink
+    xpath: //a[contains(@class,"pdr-QuickInfo__brandLink")]/@href
+  - name: featureBullets
+  - name: secondaryImageTotal
+  - name: ingredientsList
+    xpath: //h2[contains(.,"Zutaten und Allergene")]/parent::div/following-sibling::div[1]
+  - name: servingSize
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//th[2]
+  - name: servingSizeUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//th[2]
+  - name: numberOfServingsInPackage
+  - name: caloriesPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Energie")]/following-sibling::td
+  - name: caloriesFromFatPerServing
+  - name: totalFatPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[.="Fett"]/following-sibling::td
+  - name: totalFatPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[.="Fett"]/following-sibling::td
+  - name: saturatedFatPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"gesättigte")]/following-sibling::td
+  - name: saturatedFatPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"gesättigte")]/following-sibling::td
+  - name: transFatPerServing
+  - name: transFatPerServingUom
+  - name: cholesterolPerServing
+  - name: cholesterolPerServingUom
+  - name: sodiumPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Natrium")]/following-sibling::td
+  - name: sodiumPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Natrium")]/following-sibling::td
+  - name: totalCarbPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[.="Kohlenhydrate"]/following-sibling::td
+  - name: totalCarbPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[.="Kohlenhydrate"]/following-sibling::td
+  - name: dietaryFibrePerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Ballaststoffe")]/following-sibling::td
+  - name: dietaryFibrePerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Ballaststoffe")]/following-sibling::td
+  - name: totalSugarsPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Zucker")]/following-sibling::td
+  - name: totalSugarsPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Zucker")]/following-sibling::td
+  - name: proteinPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Eiweiß")]/following-sibling::td
+  - name: proteinPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Eiweiß")]/following-sibling::td
+  - name: vitaminAPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Vitamin A")]/following-sibling::td
+  - name: vitaminAPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Vitamin A")]/following-sibling::td
+  - name: vitaminCPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Vitamin C")]/following-sibling::td
+  - name: vitaminCPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Vitamin C")]/following-sibling::td
+  - name: calciumPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Calcium")]/following-sibling::td
+  - name: calciumPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Calcium")]/following-sibling::td
+  - name: ironPerServing
+  - name: ironPerServingUom
+  - name: dietarySymbols
+  - name: magnesiumPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Magnesium")]/following-sibling::td
+  - name: magnesiumPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Magnesium")]/following-sibling::td
+  - name: saltPerServing
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Salz")]/following-sibling::td
+  - name: saltPerServingUom
+    xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Salz")]/following-sibling::td
+  - name: dietaryInformation
+  - name: specifications
+  - name: warranty
+  - name: storage
+    xpath: //h2[contains(.,"Zubereitung und Aufbewahrung")]/parent::div/following-sibling::div[1]
+  - name: countryOfOrigin
+    xpath: //h3[contains(.,"Ursprungsland")]/following-sibling::text()
+  - name: allergyAdvice
+    xpath: //h3[contains(.,"Allergenhinweise")]/following-sibling::text()
+  - name: recyclingInformation
+  - name: productOtherInformation
+  - name: packaging
+  - name: additives
+  - name: pricePerUnit
+  - name: pricePerUnitUom
+  - name: promotion
+  - name: alcoholContent
+    xpath: //h3[contains(.,"Alkoholgehalt")]/following-sibling::text()
+  - name: newVersion
+  - name: variantInformation
+  - name: firstVariant
+  - name: variants
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(@class,"pdr-js-product-description-jumppoint")]/following-sibling::div//text()[contains(.,"- ")][not(contains(.," - "))]
+  - name: prop65Warning
+  - name: ageSuitability
+  - name: energyEfficiency
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: No
