@@ -25,11 +25,23 @@ const transform = (data) => {
     
     for (const { group } of data) {
       for (let row of group) {
-        /*if (row.promotion) {          
-          row.promotion.forEach(item => {
-            item.text = item.text.replace(/(\s*You\s+save\s*:\s*)+/isg, '').trim();
+        if (row.description) {
+          row.description.forEach(item => {
+            //item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
+            item.text = item.text.replace(/[\"]/g, ' " ').trim();
           });
-        }*/
+        }
+        if (row.manufacturerDescription) {
+          row.manufacturerDescription.forEach(item => {
+            //item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
+            item.text = item.text.replace(/[\"]/g, ' " ').trim();
+          });
+        }
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
+            item.text = item.text.replace(/[()]/g,'');
+          });
+        }
       }
     }
     return cleanUp(data);
