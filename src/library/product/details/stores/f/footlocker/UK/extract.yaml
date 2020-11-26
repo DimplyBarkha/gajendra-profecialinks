@@ -37,15 +37,13 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //span[contains(@class,"fl-btn--inner")]
-    regExp: (.+)
-    regExpReplace: In Stock
+    xpath: //div[contains(@class,"error")]/@availability
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[contains(@class,"fl-panel fl-panel")]
+    xpath: //*[contains(@class,"fl-panel fl-panel")]//div[@itemprop="description"]/..
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
