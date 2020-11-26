@@ -18,19 +18,28 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll('div[class="detail-product"] > h3')[index];
+        const originalDiv = document.querySelectorAll('article[class="box-product    "]>form')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      const name = document.querySelectorAll('div[class="detail-product"] > h3');
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+
+      const name = document.querySelectorAll('article[class="box-product    "]>form');
+      // @ts-ignore
+      const URL = window.tc_vars.originalPageURL;
       let price;
       for (let i = 0; i < name.length; i++) {
-        // @ts-ignore
-        addHiddenDiv('prodName', document.querySelectorAll('div[class="detail-product"] > h3')[i].innerText, i);
         // @ts-ignore
         price = document.querySelectorAll('div[class="price-product"]')[i].innerText;
         var priceUpdated = price.replace("€", ".");
         addHiddenDiv('price', '€ ' + priceUpdated, i);
       }
+      addElementToDocument('pd_url', URL);
     });
     return await context.extract(productDetails, { transform });
   },

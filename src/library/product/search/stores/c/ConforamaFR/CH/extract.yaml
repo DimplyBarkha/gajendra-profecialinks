@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[@id="contentSegment"]/article
+recordXPath: //article[@class="box-product    "]
 fields: 
   - name: id
     singleValue: false
-    xpath: //div[@class="awk-wishlist"]/@id
+    xpath: //div[@class="image-product"]/a/@tcproductclick
   - name: productUrl
     singleValue: false
     xpath: //div[@class="image-product"]/a/@href
@@ -13,10 +13,10 @@ fields:
     regExpReplace: https://www.conforama.fr$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="image-product"]/a/img/@src
+    xpath: //div[@class="image-product"]/a/img/@data-frz-src | //div[@class="image-product"]/a/img/@src
   - name: name
     singleValue: false
-    xpath: //html//div[@id='prodName']
+    xpath: //div[@class="detail-product"]/h3/*[1]/text()
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="BVBrowserWebkit"]/span[@class="stars"]/@data
@@ -28,4 +28,7 @@ fields:
     xpath: //span[@class="avisBaazar"]/a/text()
   - name: soldBy
     singleValue: false
-    xpath: //p[@class="sold-other"]/strong/a/text()
+    xpath: //p[@class="sold-other"]/strong/a/text() | //p[@class="sold-default"]/strong/text()
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="pd_url"]
