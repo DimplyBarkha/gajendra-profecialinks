@@ -1,0 +1,104 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: alternateImages
+    xpath: //div[contains(@class,"product-gallery__thumbs")]//div[contains(@class,"swiper-slide")][position()>1]//a//@data-zoom-image
+    regExp: (.+)
+    regExpReplace: https://www.worten.pt$1
+  - name: imageAlt
+    xpath: //div[@class="zoomWrapper"]//img//@alt
+  - name: category 
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //section[@data-module-template="breadcrumbs"]//li
+  - name: nameExtended
+    xpath: //ul//li//span[contains(text(),'Marca')]/../span[position()>last()-1] | //h1
+  - name: listPrice
+    xpath: //span[@class="w-product__price__old"]
+  - name: price
+    xpath: //span[contains(@class,"w-product__price__current")]
+  - name: availabilityText
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[@class="w-product__buttons iss-product-button-container"][contains(.,'Adicionar ao Carrinho')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="w-product-about__info"]//div
+  - name: brandText
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //ul//li//span[contains(text(),'Marca')]/../span[position()>last()-1]
+  - name: weightNet
+    description: Net weight as described on the page
+    xpath: //ul//li//span[contains(text(),'Peso')]/../span[position()>last()-1]
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: //ul//li//span[contains(text(),'EAN') and not (contains(.,'MRKEAN'))]/../span[position()>last()-1]
+  - name: eangtin
+    xpath: //ul//li//span[contains(text(),'EAN') and not (contains(.,'MRKEAN'))]/../span[position()>last()-1]
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //ul//li//span[contains(text(),'Referência')]/../span[position()>last()-1]
+  - name: variantId
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //ul//li//span[contains(text(),'Referência')]/../span[position()>last()-1]
+  - name: mpc
+    xpath: //ul//li//span[contains(text(),'Referência')]/../span[position()>last()-1]
+  - name: legalDisclaimer
+    description: Content under "legal disclaimer" header
+    xpath: //div[contains(@class,"product__legal-disclaimer")]
+  - name: variantCount
+    defaultValue: '0'
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //script[@type="application/ld+json"][1][contains(text(),"reviewCount")]
+    regExp: (.+reviewCount":"([^\"]+).+)
+    regExpReplace: $2
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //body/@rating
+  - name: color
+    description: A textual description of the colour
+    xpath: //ul//li//span[contains(text(),'Cor')]/../span[position()>last()-1]
+  - name: manufacturerDescription
+    description: The extended description of the product supplied by the lister
+    xpath: //div[@id="inpage_container"]//div[@class="inpage_block inpage_selector_feature"]
+  - name: manufacturerImages
+    description: Images within the third party description
+    xpath: //div[@id="flix-std-inpage"]//img//@srcset | //div[@id="inpage_container"]//img//@srcset
+    regExp: (.+)
+    regExpReplace: http:$1
+  - name: videos
+    description: URLs of videos on page
+    xpath: //meta[@itemprop="contentURL"]//@content | //iframe[contains(@id,'youtube')]//@src
+  - name: warranty
+    description: Guarantee associated with the product
+    xpath: //div[@class="w-section__wrapper"]//ul//li//span[contains(text(),'Garantia')]/../span[position()>last()-1]
+  - name: productOtherInformation
+    description: Any other product information
+    xpath: //p[contains(text(),'nformações')]/following-sibling::ul[1]/li/span
+  - name: energyEfficiency
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+    xpath: //ul//li//span[contains(text(),'Eficiencia energética')]/../span[position()>last()-1]
+  - name: imageZoomFeaturePresent
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    defaultValue: Yes
+  - name: image
+    xpath: //div[contains(@class,"zoomContainer")]//div[@class="zoomLens"]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.worten.pt$1
+  - name: name
+    description: The product name
+    xpath: //h1
+  - name: specifications
+    description: The physical dimensions of the product including packaging.
+    xpath: //p[contains(text(),'Características Físicas')]/following-sibling::ul[1]/li[not (contains(.,'Cor'))]/span
