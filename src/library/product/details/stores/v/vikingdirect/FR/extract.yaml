@@ -169,7 +169,7 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-  xpath: //div[@id="ccs-inline-content"]/descendant::img/@src
+  xpath: //div[@id="ccs-inline-content"]/descendant::img/@src | //div[@class="skuTechSpecsProdImage"]/img/@src
 #sasz
 - name: videos
   singleValue: false
