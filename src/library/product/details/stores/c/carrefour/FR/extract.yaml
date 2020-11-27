@@ -24,7 +24,7 @@ fields:
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpaath: //div[@class='main-details__wrap']//h1[contains(@class, 'ds-title')]
+    xpath: (//div[@class='main-details__wrap']//h1[contains(@class, 'ds-title')])[1]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -38,10 +38,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
-    xpath: //div[@class='main-details__pdp-pricing']//div[@class='product-card-price__price']/span[last()]
+    xpath: normalize-space(//script[contains(., 'ONECF_INITIAL_STATE')])
+    regExp: purchasable":(\w+)
+    regExpReplace: $1
+    defaultValue: false
   - name: description
     singleValue: false
     description:
@@ -75,12 +75,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-    xpath: //link[@rel='canonical']/@href
-    regExp: (.*)\/p\/(.*)-(\d+)
-    regExpReplace: $3
+    xpath: //meta[@itemprop='gtin13']/@content
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -137,6 +132,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    defaultValue: false
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -223,17 +219,18 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
-    xpath: //div[@class='pdp__secondary']//div[@class='secondary-details-intro']//p
   - name: otherSellersName
     singleValue: false
     description: null
-    defaultValue: Carrefour
   - name: otherSellersPrice
     singleValue: false
     description: null
     xpath: //div[@class='main-details__pdp-pricing']//div[@class='product-card-price__price']/span[last()]
   - name: otherSellersAvailability
-    xpath: //div[@class='main-details__pdp-pricing']//div[@class='product-card-price__price']/span[last()]
+    xpath: normalize-space(//script[contains(., 'ONECF_INITIAL_STATE')])
+    regExp: purchasable":true
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: otherSellersShipping
     singleValue: false
     description: null
@@ -551,3 +548,7 @@ fields:
     defaultValue: 0
   - name: productUrl
     xpath: //link[@rel='canonical']/@href
+  - name: sku
+    xpath: //link[@rel='canonical']/@href
+    regExp: (.*)\/p\/(.*)-(\d+)
+    regExpReplace: $3
