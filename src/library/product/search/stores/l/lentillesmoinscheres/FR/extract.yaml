@@ -24,7 +24,10 @@ fields:
     xpath: //div[@class="reviews-count-annotation annotation fontRobotoCondensed"]
   - name: id
     singleValue: false
-    xpath: //div/h3/a/text()
+    xpath: //h3/a/@href
+    regExp: (\d.*)[$.]
+    regExpReplace: $1
   - name: sku
-    singleValue: false
-    xpath: //div/h3/a/text()
+    xpath: //h3/a/@href
+    regExp: (\d.*)[$.]
+    regExpReplace: $1
