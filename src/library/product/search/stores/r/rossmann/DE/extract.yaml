@@ -18,7 +18,7 @@ fields:
     regExpReplace: https://www.rossmann.de$1
   - name: thumbnail
     xpath: //picture/img/@data-src
-    regExp: (.*)\?(.*)
+    regExp: (.*?)\?(.*)
     regExpReplace: $1
   - name: name
     singleValue: true
@@ -30,6 +30,8 @@ fields:
   - name: gtin
   - name: aggregateRatingText 
   - name: ratingCount
+    xpath: //span[contains(@class, "rating__note")]
+    regExp: \d+
   - name: reviewCount
     xpath: //span[contains(@class, "rating__note")]
     regExp: \d+
