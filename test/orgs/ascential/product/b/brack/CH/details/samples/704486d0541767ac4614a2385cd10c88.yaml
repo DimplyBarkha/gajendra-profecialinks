@@ -2,7 +2,7 @@ input:
   id: 606282
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=e408ca68-9e88-465b-ac1f-95ee3245a132/task=0e78ac80-22e1-4254-9937-26d39d223517/48e4b235-1062-473a-8202-020fb9a06b2e.html
+  - html: https://workbench.import.io/html/run=229e9782-505a-4659-ba29-440808e7ec10/task=a2606612-0166-48fb-b69f-349e3aa5f9cb/7318aaab-e953-4a3a-a6b7-e2bcb0f8ec18.html
     extractionConfigId: product/details/stores/b/brack/CH/extract
     data:
       - group:
@@ -30,7 +30,7 @@ extractions:
               - text: CHF 12.45
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
             availabilityText:
-              - text: "-89"
+              - text: "119"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
             description:
               - text: |-
@@ -53,11 +53,14 @@ extractions:
               - text: "606282"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
             variantId:
-              - text: "606282"
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+              - text: 1078N
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             mpc:
               - text: 1078N
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            shippingInfo:
+              - text: Bis 17 Uhr bestellt, am Montag portofrei geliefert.
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/div[1]/p[1]
             videos:
               - text: https://www.youtube.com/embed/xTi3Up-oJJQ?rel=0&modestbranding=1&enablejsapi=1
                 xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/iframe[1]/@src
@@ -86,4 +89,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1605180653021
+    timestamp: 1606472011875
