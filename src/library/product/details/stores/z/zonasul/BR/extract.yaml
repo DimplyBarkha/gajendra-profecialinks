@@ -1,0 +1,68 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage__shaft')]//div[contains(@class,'fotorama__active')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage__shaft')]//div[contains(@class,'fotorama__active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage__shaft')]//div[not(contains(@class,'fotorama__active'))]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumb"]//ul//li//a[not(@title='Ir para home')]
+  - name: name
+    singleValue: false
+    xpath: //div[@class='header_info']//h2
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='header_info']//h2
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'hide_mobile')]//div[@class="carrinho_vitrine"]//div[contains(@class,"btn-neemu-addtocart")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'miolo_info')]//div[contains(@class,'div_line_priceInfo')]//div[@class="price"]
+  - name: listPrice
+    singleValue: false
+    # please put login in JS file, first get listPrice, if listPrice is null then price is price else price is listPrice and listPrice is price
+    xpath: //div[contains(@class,'miolo_info')]//div[contains(@class,'div_line_priceInfo')]//div[contains(@class,"price_desconto")]
+  - name:  description
+    singleValue: false
+    xpath: //h2[text()='Detalhe']//parent::div[@class='div_line']//p
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='div_line']//strong[text()='Marca:']//parent::p[string-length(text()) > 0]/text()
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'content_tag_info') and contains(@class,'hide_mobile')]//div[@class="code"]
+    # regex to replace CÓDIGO: from text CÓDIGO: 14658
+    
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'content_tag_info') and contains(@class,'hide_mobile')]//div[@class="code"]
+    # regex to replace CÓDIGO: from text CÓDIGO: 14658
+    
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+    type: NUMBER
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='div_line' and not(h2)]//p
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@class='div_line']//strong[contains(text(),'País de Origem')]//parent::p[string-length(text()) > 0]/text()
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class='div_line']//strong[contains(text(),'Peso')]//parent::p[string-length(text()) > 0]/text()
