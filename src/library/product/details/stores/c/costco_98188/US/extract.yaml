@@ -3,7 +3,7 @@ fields:
     xpath: //img[@id="productImage"]/@src
   - name: imageAlt
   - name: alternateImages
-    xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))]//img/@src
+    xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))][position()>1]//img/@src
   - name: metaKeywords
     xpath: //meta[contains(@name, "keywords")]/@content
   - name: _pageTimestamp
@@ -14,7 +14,7 @@ fields:
   - name: nameExtended
     xpath: //h1[@itemprop="name"]
   - name: price
-    xpath: //div[contains(@class,"online-price")]//span[@class="op-value"]
+    xpath: //div[contains(@class,"online-price")]//span[@class="op-value"] | //div[contains(@class,'online-price active')]//span[@class='op-value']
   - name: priceCurrency
   - name: availability
     xpath: //meta[@property="og:availability"]/@content
@@ -30,7 +30,7 @@ fields:
     singleValue: false
     xpath: //ul[@class="pdp-features"]//li | //div[@class="product-info-description"]/ul/li
   - name: description
-    xpath: //div[@id='product-desc'] # normalize-space(//div[contains(@class,"product-info-description")]) 
+    xpath: //div[@id='product-desc']
   - name: descriptionBullets
     xpath: count(//ul[@class="pdp-features"]//li)
   - name: brandText
@@ -43,7 +43,7 @@ fields:
   - name: eangtin
   - name: asin
   - name: variantId
-    xpath: //span[@itemprop="sku"]
+    xpath: //span[@itemprop="sku"] | //input[@class='addedItemInput']/@value
   - name: mpc
     xpath: //p[@id="product-body-model-number"]//span/@data-model-number
   - name: packSize
@@ -73,7 +73,7 @@ fields:
   - name: inStorePrice
     xpath: //div[contains(@class,"online-price")]//span[@class="op-value"]
   - name: sku
-    xpath: //span[@itemprop="sku"]
+    xpath: //span[@itemprop="sku"] | //input[@class='addedItemInput']/@value
   - name: coupon
     xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
   - name: amazonChoice
