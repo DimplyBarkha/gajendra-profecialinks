@@ -9,7 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    // const timeout = parameters.timeout ? parameters.timeout : 10000;
+    const timeout = parameters.timeout ? parameters.timeout : 10000;
     // context.deleteCookies();
     // await context.evaluate(async () => {
     //   async function deleteAllCookies () {
@@ -24,11 +24,11 @@ module.exports = {
     //   }
     //   await deleteAllCookies();
     // });
-    url = `${url}#[!opt!]{"cookies":[]}[/!opt!]`;
+    // url = `${url}#[!opt!]{"cookies":[]}[/!opt!]`;
     // await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     let count = 0;
-    while (true && count < 3) {
-      await context.goto(url);
+    while (count < 3) {
+      await context.goto(url, { timeout, storage: {}, waitUntil: 'load', checkBlocked: true });
       const proceed = await context.evaluate((reqUrl) => {
         const url = window.location.href;
         const searchTerm = url.replace(/.*w=(.*)&qt=.*/, '$1').replace(/%20/gm, ' ');
@@ -36,8 +36,11 @@ module.exports = {
         return searchTerm == reqSearchTerm;
       }, url);
       if (proceed) {
+        console.log('proceeding');
         break;
-      };
+      } else {
+        console.log('retrying');
+      }
       count++;
     }
     console.log(zipcode);
