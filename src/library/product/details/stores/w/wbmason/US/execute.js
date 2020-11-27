@@ -6,7 +6,7 @@ module.exports = {
     store: 'wbmason',
     domain: 'wbmason.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//span[@id="ctl00_ContentPlaceholder1_NoResultsUC_NoResultsText"]',
     zipcode: '',
   },
 };
