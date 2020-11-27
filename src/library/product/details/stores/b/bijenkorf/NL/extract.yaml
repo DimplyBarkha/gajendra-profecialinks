@@ -27,8 +27,13 @@ fields:
     xpath : ancestor::html//div[contains(@class, 'dbk-product-summary product-element__container')]//p[contains(@class, 'description')]
   - name: price
     xpath: ancestor::html//div[contains(@class, 'product-element__container')]//span[contains(@data-at, 'final-price')]
-  - name: availabilityText
+  - name: singleProdAvailabilityText
     xpath: ancestor::html//link[contains(@itemprop, 'availability')]/@href
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of stock
+  - name: availabilityText
+    xpath: //div[@id='availabilityText']
     regExp: (.+)
     regExpReplace: In stock
     defaultValue: Out of stock
@@ -37,7 +42,7 @@ fields:
   - name: ingredientsList
     xpath: ancestor::html//span[@data-at='specifications-Ingrediënten']
   - name: quantity
-    xpath: ancestor::html//div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1] | //p[contains(@class, 'dbk-product-indicator')]/span[contains(@class, 'dbk-product-indicator--value')]
+    xpath: ancestor::html//div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1]
   - name: directions
     xpath: ancestor::html//p[contains(., 'Gebruikstips:')]
   - name: alternateImages

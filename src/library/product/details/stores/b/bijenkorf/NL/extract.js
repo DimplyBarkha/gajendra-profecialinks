@@ -43,6 +43,11 @@ module.exports = {
     }
 
     await context.evaluate(async function (inputs) {
+      const specSpan = document.querySelector("button[data-at='expansion-panel-header--Specificaties'");
+      if (specSpan) {
+        // @ts-ignore
+        specSpan.click();
+      }
       const variantsList = document.querySelectorAll('ul.dbk-product-carousel--list li');
       if (variantsList.length > 0) {
         for (let i = 0; i < variantsList.length; i++) {
@@ -74,6 +79,16 @@ module.exports = {
               skuInfoEle.style.visibility = 'hidden';
 
               variantsList[i].appendChild(skuInfoEle);
+            }
+
+            const availabilityInfo = document.querySelector('link[itemprop="availability"]');
+            if (availabilityInfo) {
+              const availabilityEle = document.createElement('div');
+              availabilityEle.setAttribute('id', 'availabilityText');
+              availabilityEle.textContent = skuInfoSpan.textContent;
+              availabilityEle.style.visibility = 'hidden';
+
+              variantsList[i].appendChild(availabilityEle);
             }
 
             const images = document.querySelectorAll('div.dbk-image-gallery--display ul.dbk-image-carousel--list > li  img');

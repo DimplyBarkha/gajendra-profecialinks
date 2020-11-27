@@ -48,6 +48,12 @@ const transform = (data) => {
       if (!row.imageAlt && row.singleProductImageAlt) {
         row.imageAlt = row.singleProductImageAlt;
       }
+
+      if (!row.availabilityText && row.singleProdAvailabilityText) {
+        row.availabilityText = row.singleProdAvailabilityText;
+      }
+
+      row.imageZoomFeaturePresent = [{ text: 'Yes' }];
     }
   }
 
