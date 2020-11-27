@@ -13,14 +13,7 @@ fields:
     example: Panasonic
     selector: a.product-title-link .product-brand
   - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
+    xpath: ancestor::html//li[contains(@class,"breadcrumb")][position()=last()]//h1
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
