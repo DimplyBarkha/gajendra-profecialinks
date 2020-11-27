@@ -28,19 +28,6 @@ async function implementation (
           document.body.appendChild(newDiv);
         }
       }
-      async function infiniteScroll () {
-        let prevScroll = document.documentElement.scrollTop;
-        while (true) {
-          window.scrollBy(0, document.documentElement.clientHeight);
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          const currentScroll = document.documentElement.scrollTop;
-          if (currentScroll === prevScroll) {
-            break;
-          }
-          prevScroll = currentScroll;
-        }
-      }
-      await infiniteScroll();
       function getSingleText (xpath, document) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         if (element && element.singleNodeValue) {
