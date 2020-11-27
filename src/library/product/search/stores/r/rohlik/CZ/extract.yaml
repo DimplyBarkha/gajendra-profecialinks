@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[@data-gtm-item="product-card"]
+fields:
+- name: name
+  xpath: //h4[contains(@class,'productCard__title')]
+- name: productUrl
+  xpath: //a[contains(@class,'imgWrapper')]/@href
+- name: thumbnail
+  xpath: //img[contains(@class,'productCard__img')]/@src
+- name: price
+  xpath: //span[@data-test='current-price']
+- name: id
+  xpath: //article[@data-gtm-item="product-card"]/@data-productid
