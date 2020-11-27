@@ -3,22 +3,35 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: input
+    singleValue: true
+    xpath: //div[@id='search_terms']
+  - name: id
+    singleValue: true
+    xpath: //div[@id='view']/ul/li/div/@id
+  - name: _pageTimestamp
+    singleValue: true
   - name: name
     singleValue: true
-    xpath: //div[@class='pro']/a[@class='plink']/h3
-  - name: subName
-    singleValue: true
-    xpath: //div[@class='pro']/a[@class='plink']/h4
-  - name: price
-    singleValue: true
-    xpath: //div[@class='proDetail']/a[@class='newPrice']/ins
+    xpath: //ul[@class='clearfix']/li/div/div/a/h3
   - name: productUrl
     singleValue: true
-    xpath: //ul[@class='clearfix']/li[@class='column ']//a/@href
-  - name: image
+    xpath: //ul[@class='clearfix']/li/div/div/a/@href
+  - name: url
     singleValue: true
-    xpath: //div[@class='pro']/a[@class='plink']/img/@src
-  - name: discount
+    xpath: //div[@id='url']
+  - name: thumbnail
     singleValue: true
-    xpath: //div[@class='proDetail']/div/div/span[@class='ratio']
+    xpath: //ul[@class='clearfix']/li/div/div/a/img/@src
+  - name: aggregateRating
+    singleValue: true
+    xpath: //ul[@class='clearfix']/li/div/div/div[@class='ratingCont']/span[position()=1]/@class
+  - name: reviewCount
+    singleValue: true
+    xpath: //ul[@class='clearfix']/li/div/div/div/span
+    type: NUMBER
+  - name: price
+    singleValue: true
+    xpath: //div[@id='view']/ul/li/div/div/a/ins
+    type: NUMBER
 

@@ -5,7 +5,7 @@ module.exports = {
     country: 'TR',
     store: 'n11',
     domain: 'n11.com',
-    url: 'https://www.n11.com/arama?q={searchTerms}&pg=1',
+    url: 'https://www.n11.com/arama?q={searchTerms}',
     // loadedSelector: '.listView>ul',
     noResultsXPath: null,
     zipcode: '',

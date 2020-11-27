@@ -5,88 +5,90 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@class='proDetailArea']/div/figure/div/div/div/a/img/@src
+    xpath: //div[@class='imgObj']/a/img[@class='unf-p-img']/@src
   - name: image
     singleValue: true
-    xpath: //div[@class='unf-p-left proDetailArea']/div/div/div/div/a/img/@src
+    xpath: //div[@class='imgObj']/a[@class='zoom']/@href
   - name: imageAlt
     singleValue: true
-    xpath: //div[@class='proDetailArea']/div/figure/div/div/div/a/img/@alt
-  - name: alternateImages
+    xpath: //div[@class='imgObj']/a/img[@class='unf-p-img']/@alt
+  - name: alternativeImages
     singleValue: false
-    xpath: //div[@class='thumbsHolder slider singleSlide']/ul/li/img/@src
-  - name: alternateImages
+    xpath: //ul[@class='unf-p-thumbs']/li/img/@src
+  - name: alternativeImages
     singleValue: false
-    xpath: //ul[@class='unf-p-thumbs']/li/@data-full
-  - name: category
+    xpath: //div[@class='thumbsHolder']/ul/li/img/@src
+  - name: url
     singleValue: true
-    xpath: //input[@class='categoryGroup']/@value
-  - name: sub_category
+    xpath: //div[@id='url']
+  - name: category
     singleValue: false
-    xpath: //div[@id='breadCrumb']/ul/li/a/@title
+    xpath: //div[@id='breadCrumb']/ul/li/a
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@name='description']/@content
-  - name: listPrice_currency
+    xpath: //div[@class='nameHolder']/h1
+  - name: nameExtended
     singleValue: true
-    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins/font/span/font
-  - name: listPrice_currency
+    xpath: //div[@class='pro-prop']/div[@class='pro-title']/h1
+  - name: listPrice
     singleValue: true
-    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins/span
+    xpath: //div[@class='price']/div[@class='priceDetail']/del[@class='oldPrice']
+    type: NUMBER
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class='discount-view__row']/p[@class='discount-view__info']/del[@class='price-fullPrice']
+    type: NUMBER
   - name: price
     singleValue: true
-    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins/font/font
+    xpath: //div[@class='price']/div[@class='priceDetail']/div[@class='newPrice']/ins
+    type: NUMBER
   - name: price
     singleValue: true
-    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins/@content
+    xpath: //p[@class='discount-view__info']/ins[@class='price-now is-big']/span[@class='price-amount']
+  - name: availabilityText
+    singleValue: true
+    defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@id='tabPanelProDetail']/div[@class='panelContent']
+    xpath: //div[@class='unf-info-context']/section/div[contains(@class, 'item')]/figure/img/@src
   - name: description
     singleValue: false
-    xpath: //div[@id='unf-info']/div[@class='unf-info-context']/section[@class='uni-content']
-  - name: baseUrl
+    xpath: //div[@class='panelContent']/section[@class='tabPanelItem details']
+  - name: description
+    singleValue: false
+    xpath: //div[@class='content']/p
+  - name: _pageTimestamp
     singleValue: true
-    xpath: //link[@rel='canonical']/@href
-  - name: varianId
+  - name: _input
     singleValue: true
-    xpath: //input[@class='productId']/@value
-  - name: brand
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //section[@class='tabPanelItem excInfo']/div/div/ul/li
+  - name: brandText
     singleValue: false
     xpath: //script[@type='application/ld+json']
   - name: quantity
     singleValue: true
-    xpath: //input[@id='quantity']/@value
-  - name: quantity
+    xpath: //input[@id="quantity"]/@value
+  - name: variantId
     singleValue: true
-    xpath: //div[@class='pDetail-spinner']/div[@class='spinnerField']/input[@class='quantity']/@value
+    xpath: //input[@class="productId"]/@value
+  - name: sku
+    singleValue: true
+    xpath: //input[@class="skuId"]/@value
   - name: ratingCount
+    singleValue: true
+    xpath: //span[@class='ratingText']/span[@class='reviewNum']
+    type: NUMBER
+  - name: aggregateRating
     singleValue: true
     xpath: //div[@class='avarageRating']/div[@class='avarageText']
   - name: shippingInfo
-    singleValue: false
-    xpath: //div[@class='box-view_section delivery-information']/div[@class='info-container']/div
-  - name: variantColor
-    singleValue: false
-    xpath: //ul[@data-unif-seovari='renk']/li/span/@data-unif-seovalue
-  - name: variantColor
-    singleValue: false
-    xpath: //div[@id='skuArea']/fieldset/select/option/@value
+    singleValue: true
+    xpath: //div[@class='paymentDetail']/div[@class='cargo']
+  - name: variantCount
+    singleValue: true
+    xpath: //input[@id="quantity"]/@value
   - name: name
     singleValue: true
-    xpath: //div[@class='nameHolder']/h1
-  - name: image_alt
-    singleValue: false
-    xpath: //div[@class='nameHolder']/h1
-  - name: rpc
-    singleValue: true
-    xpath: //input[@class='skuId']/@value
-  - name: variantId
-    singleValue: true
-    xpath: //input[@class='categoryId']/@value
-  - name: retailer_product_code
-    singleValue: true
-    xpath: //input[@class='productId']/@value
-  - name: zoomImage
-    singleValue: true
-    defaultValue: Yes
+    xpath: //input[@id="quantity"]/@value
