@@ -12,7 +12,7 @@ module.exports = {
     await context.waitForFunction(function () {
       return Boolean(document.querySelector('h1[class="rd-product-detail__title"]') || document.evaluate('//h1[@class="rd-product-detail__title"]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 90000 });
-    
+
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -78,7 +78,7 @@ module.exports = {
           break;
         }
       }
-      var height, diameter, maxCapacity, package_weight,Alcohol,Material;
+      var height, diameter, maxCapacity, package_weight, Alcohol, Material;
       for (index = 0; index < seperateText.length; index++) {
         if (seperateText[index].includes("Höhe")) {
           height = seperateText[index];
@@ -121,6 +121,14 @@ module.exports = {
       try {
         if (Material.length > 0) {
           addElementToDocument('Material', Material);
+        }
+      } catch (error) {
+      }
+      try {
+        // @ts-ignore
+        const size = document.querySelector('h1[class="rd-product-detail__title"]').innerText;
+        if (size.includes('0,7 l')) {
+          addElementToDocument('size', '0.7 Liters');
         }
       } catch (error) {
       }

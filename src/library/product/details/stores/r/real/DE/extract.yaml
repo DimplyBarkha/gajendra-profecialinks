@@ -14,7 +14,7 @@ fields:
     xpath: //nav[@class="rd-product-breadcrumb-navigation"]/a[not(contains(@cs-id,'breadcrumb-level-1-link'))]/text()
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@class="rd-product-detail__title"]/@titles
+    xpath: //h1[@class="rd-product-detail__title"]/@title
   - name: price
     singleValue: true
     xpath: //meta[@property="product:price:amount"]/@content
@@ -33,9 +33,6 @@ fields:
   - name: weightGross
     singleValue: true
     xpath: //html//div[@id='weightGross']
-  - name: sku
-    singleValue: true
-    xpath: //html//div[@id='sku']
   - name: variantId
     singleValue: true
     xpath: //html//div[@id='sku']
@@ -118,3 +115,6 @@ fields:
   - name: materials
     singleValue: true
     xpath: //html//div[@id='Material']
+  - name: quantity
+    singleValue: true
+    xpath: //html//div[@id='size']
