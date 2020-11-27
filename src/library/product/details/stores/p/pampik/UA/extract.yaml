@@ -1,0 +1,104 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id='slider-big']//div[@class='slick-slide slick-current slick-active']//img[@itemprop='image']/@src
+    regExp: (.+)\/middle\/(.+)
+    regExpReplace: https://pampik.com$1/big/$2
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='slider-big']//div[@class='slick-slide slick-current slick-active']//img[@itemprop='image']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='slider-big']//div[@class='slick-slide']//img/@data-src
+    regExp: (.+)\/middle\/(.+)
+    regExpReplace: https://pampik.com$1/big/$2
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumb']//li[not(@class) and position()>1]/a[@itemprop='item']/span[@itemprop='name']
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='page-title ']//h1[@class='title']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='product-info__price']//div[@class='product-info__price-old']//div[@class='product-item__price product-item__price--old']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-info__price']//div[@class='product-info__price-current']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='product-info__status']//span[@class='product-availability availabily' and contains(text(),'Есть в наличии')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@data-tab='product-description']//div[@class='description']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@data-tab='product-description']//div[@class='description']//ul//li)    
+  - name: brandText
+    singleValue: false
+    xpath: //div[@data-tab='product-specifications']//div[@class='specifications']//div[@itemprop="brand"]//a
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@data-tab='product-description']//div[@class='description']//div[@class='description__text']//p/strong[text()='Производитель:']/following-sibling::text()
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='product-info__status']//span[@class='product-availability availabily' and contains(text(),'Есть в наличии')]
+    regExp: (.+)
+    regExpReplace: 1
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@data-tab='product-specifications']//div[@class='specifications']//ul//li//span[text()='Вес коляски']/parent::div[@class='specifications-desc']/following-sibling::div[@class='specifications-val']
+  - name: gtin
+    singleValue: false
+    xpath: //div[@data-tab='product-specifications']//div[@class='specifications']//div[@itemprop="gtin13"]
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id="product-block"]/@data-productid
+  - name: mpc
+    singleValue: false
+    xpath: //meta[@itemprop="mpn"]/@content  
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='product-item__rate']//meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='product-item__rate']//span[@itemprop="ratingValue"]  
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[@data-tab='product-specifications']//div[@class='specifications']//ul//li//span[contains(text(),'Габариты упаковки')]/parent::div[@class='specifications-desc']/following-sibling::div[@class='specifications-val']
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div[@data-tab='product-specifications']//div[@class='specifications']//ul//li//span[text()='Вес упаковки']/parent::div[@class='specifications-desc']/following-sibling::div[@class='specifications-val']
+  - name: variantCount
+    singleValue: false
+    defaultValue: "0"    
+  - name: color
+    singleValue: false
+    xpath: //div[@data-tab='product-specifications']//div[@class='specifications']//ul//li//span[text()='Цвет']/parent::div[@class='specifications-desc']/following-sibling::div[@class='specifications-val']
+  - name: videos
+    singleValue: false
+    xpath: //div[@data-tab='product-video']//div[@class='video-wrapper video-wrapper--youtube']//iframe[@class='js-youtube-video-iframe']/@data-lazy-src
+  - name: name
+    singleValue: false
+    xpath: //div[@class='page-title ']//h1[@class='title']  
+  - name: specifications
+    singleValue: false
+    xpath: //div[@data-tab='product-specifications']//div[@class='specifications']//ul[@class='specifications__list']//li[@class='specifications__list-item']
+  - name: warranty
+    singleValue: false
+    xpath: //div[@data-tab='product-specifications']//div[@class='specifications']//ul//li//span[text()='Срок гарантии']/parent::div[@class='specifications-desc']/following-sibling::div[@class='specifications-val']  
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@data-tab='product-specifications']//div[@class='specifications']//ul//li//span[text()='Страна-производитель']/parent::div[@class='specifications-desc']/following-sibling::div[@class='specifications-val']  
