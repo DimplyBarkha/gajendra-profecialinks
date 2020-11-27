@@ -37,6 +37,9 @@ fields:
     xpath: //div[@class='priceNow']
     regExp: (\d+)(.)(\d+)
     regExpReplace: $1$2$3
+  - name: videos
+    description: URLs of videos on page
+    xpath: //body/@video
   - name: color
     singleValue: false
     # xpath: //table[@class='jsx-1537324451']//tr//td[contains(text(),"Colour Name")]/parent::*/td[2]

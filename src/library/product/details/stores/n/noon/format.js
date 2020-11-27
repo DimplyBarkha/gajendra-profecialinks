@@ -107,7 +107,7 @@ const transform = (data) => {
         });
         if (allvariantsArr.length) {
           row.variants = [{ text: allvariantsArr.join(' | ') }];
-          row.firstVariant = [{ text: row.variantId[0].text }];
+          row.firstVariant = [{ text: allvariantsArr[0] }];
         }
       }
     }

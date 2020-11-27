@@ -17,6 +17,19 @@ module.exports = {
   ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    try{
+      await context.evaluate(()=>{
+        scroll(0, 1500);
+      })
+      await context.waitForSelector('video source');
+      await context.evaluate(() => {
+        let video = '';
+        video = document.querySelector('video source').getAttribute('src');
+        document.querySelector('body').setAttribute('video',video);
+      })
+    }catch(err){
+      console.log('No video present')
+    }
     await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
       console.log(xp, r);
