@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: (//img[@id="landingImage"])[1]/@src
+    xpath: (//img[@id="landingImage"])[1]/@src | //div[@id='main-image-container']/div[@id='img-wrapper']/div/img/@src
   - name: imageAlt
     singleValue: true
     xpath: (//img[@id="landingImage"])[1]/@alt
@@ -72,8 +72,8 @@ fields:
     singleValue:  true
     xpath:   //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
   - name: sku
-    singleValue: true
-    xpath:
+    singleValue: false
+    xpath: //tbody/tr/th[contains(text(),'Model Number')]/following-sibling::td/text()[1]
   - name: variantId
     singleValue: true
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]
@@ -140,7 +140,7 @@ fields:
     xpath:
   - name: asin
     singleValue: true
-    xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
+    xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin | //*[contains(@id,'ASIN')]/@value
   - name: coupon
     singleValue: true
     xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
