@@ -1,0 +1,127 @@
+input:
+  id: 1077929
+  _url: http://mediamarkt.ch
+extractions:
+  - html: https://workbench.import.io/html/run=e58ed27f-1219-4a29-861a-cc16f2f95870/task=d3f6ac72-b541-4a29-b3b1-124d7cfd666a/dcd046d1-7624-4311-8ad6-720eef9dfa24.html
+    extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
+    data:
+      - group:
+          - quantity:
+              - text: 2x 8 capsules
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[8]
+            mpc:
+              - text: 12367419-16
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[11]
+            sku:
+              - text: "1077929"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[12]
+            caloriesPerServing:
+              - text: 448 kcal
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[2]
+            totalFatPerServing:
+              - text: "16.1"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
+            saturatedFatPerServing:
+              - text: "9.7"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[4]
+            totalCarbPerServing:
+              - text: "58.6"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
+            totalSugarsPerServing:
+              - text: "54.8"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
+            dietaryFibrePerServing:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
+            proteinPerServing:
+              - text: "14.6"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
+            saltPerServing:
+              - text: "0.34"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
+            category:
+              - text: Page d’accueil
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
+              - text: Cuisiner & Manger
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
+              - text: Machines à café
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[3]
+              - text: Café & capsules de café
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[4]
+            nameExtended:
+              - text: NESCAFÉ Dolce Gusto Chococino Capsules cacao
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            description:
+              - text: Succombez à la gourmandise de Chococino®, notre chocolat chaud au puissant
+                  arôme de cacao adouci par une délicate mousse de lait.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[5]/article[1]/p[1]
+            manufacturer:
+              - text: NESCAFÉ
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[2]/div[1]
+            name:
+              - text: NESCAFÉ Dolce Gusto Chococino Capsules cacao
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            legalDisclaimer:
+              - text: Tous nos prix s’entendent TVA et taxe anticipée de recyclage (TAR)
+                  incluses. Erreurs et fautes d'impression réservées. © 2020
+                  Media Markt
+                xpath: /html/body/div[3]/footer[1]/div[5]
+            image:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269295/fee_325_225_png/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao
+                xpath: /html/body/div[9]
+            imageAlt:
+              - text: NESCAFÉ Dolce Gusto Chococino - Capsules cacao
+                xpath: /html/body/div[10]
+            alternateImages:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269290/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269291/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269292/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269293/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82269294/wcs_overlay_prod_detail/NESCAF%C3%89-Dolce-Gusto-Chococino---Capsules-cacao
+                xpath: /html/body/div[11]
+            secondaryImageTotal:
+              - text: "5"
+                xpath: /html/body/div[12]
+            price:
+              - text: 5.95 CHF
+                xpath: /html/body/div[13]
+            listPrice:
+              - text: 5.95 CHF
+                xpath: /html/body/div[14]
+            availabilityText:
+              - text: En-ligne disponible Livraison entro 1-4 jours ouvrables Disponibilité en
+                  magasin
+                xpath: /html/body/div[15]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[17]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[18]
+            weightNet:
+              - text: 0.270 kg
+                xpath: /html/body/div[19]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_nescaf%C3%A9-dolce-gusto-chococino-1077929.html?ga_query=%7Bid%7D
+                xpath: /html/body/div[20]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1606479098300

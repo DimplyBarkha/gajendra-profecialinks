@@ -1,0 +1,91 @@
+input:
+  id: 1422442
+  _url: http://mediamarkt.ch
+extractions:
+  - html: https://workbench.import.io/html/run=e58ed27f-1219-4a29-861a-cc16f2f95870/task=945cd352-03bd-4205-a423-6e780123c549/f114131b-f2d1-4e9f-984b-6b3d37089410.html
+    extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
+    data:
+      - group:
+          - category:
+              - text: Page d’accueil
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
+              - text: Cuisiner & Manger
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
+              - text: Machines à café
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[3]
+              - text: Machine à café au système de capsule
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[4]
+            nameExtended:
+              - text: DE-LONGHI NESCAFÉ Dolce Gusto Mini Me Starter Kit Machine à capsule
+                  (Blanc/noir)
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            description:
+              - text: « Bien plus qu’un café! Aromatique caffè lungo, latte macchiato crémeux,
+                  espresso vigoureux ou délicieux chococino-NESCAFÉ Dolce Gusto
+                  garantit la variété des plaisirs à la maison ».
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[5]/article[1]/p[1]
+            manufacturer:
+              - text: DE-LONGHI
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            sku:
+              - text: "1422442"
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[1]/dl[1]/dd[12]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[2]/div[1]
+            name:
+              - text: DE-LONGHI NESCAFÉ Dolce Gusto Mini Me Starter Kit Machine à capsule
+                  (Blanc/noir)
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            promotion:
+              - text: >-
+                  À l'achat d'une machine à café automatique Dolce Gusto, 128
+                  capsules Dolce Gusto offertes*
+                   
+                  *Conditions de l'offre :
+                   Offre valable à l'achat d'une machine à café automatique Dolce Gusto du 16.11.2020 au 31.12.2020. Pour profiter de la promotion, vous devez commander au minimum huit boîtes de capsules. La réduction sera déduite du panier.
+
+                   
+                  Les gammes Starbucks, les boîtes Magnum et Absolute Origins, et les packs avantages sont exclus de l'action. Seulement jusqu'à épuisement des stocks. Offre non cumulable avec d'autres offres.
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+            energyEfficiency:
+              - text: A+
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[1]/dl[1]/dd[7]
+            materials:
+              - text: plastique
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[5]/dl[1]/dd[1]
+            legalDisclaimer:
+              - text: Tous nos prix s’entendent TVA et taxe anticipée de recyclage (TAR)
+                  incluses. Erreurs et fautes d'impression réservées. © 2020
+                  Media Markt
+                xpath: /html/body/div[3]/footer[1]/div[5]
+            image:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80175490/fee_325_225_png/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29
+                xpath: /html/body/div[10]
+            imageAlt:
+              - text: DE-LONGHI NESCAFÉ Dolce Gusto Mini Me Starter Kit - Machine à capsule
+                  (Blanc/noir)
+                xpath: /html/body/div[11]
+            alternateImages:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-64456075/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-64745870/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-79959894/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29,http://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_72619640/wcs_overlay_prod_detail/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29
+                xpath: /html/body/div[12]
+            secondaryImageTotal:
+              - text: "4"
+                xpath: /html/body/div[13]
+            price:
+              - text: 59.95 CHF
+                xpath: /html/body/div[14]
+            listPrice:
+              - text: 59.95 CHF
+                xpath: /html/body/div[15]
+            availabilityText:
+              - text: En-ligne disponible Livraison entro 1-4 jours ouvrables Disponibilité en
+                  magasin
+                xpath: /html/body/div[16]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_de-longhi-nescaf%C3%A9-dolce-gusto-mini-me-starter-kit-1422442.html?ga_query=%7Bid%7D
+                xpath: /html/body/div[18]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1606479097635

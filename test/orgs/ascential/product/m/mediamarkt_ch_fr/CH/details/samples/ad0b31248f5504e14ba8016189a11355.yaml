@@ -1,0 +1,128 @@
+input:
+  id: 1893185
+  _url: http://mediamarkt.ch
+extractions:
+  - html: https://workbench.import.io/html/run=e58ed27f-1219-4a29-861a-cc16f2f95870/task=45e969bf-91fe-4de3-9b76-56473bcc6e77/23f94c22-a3b6-4b30-8436-d5d07302f5f5.html
+    extractionConfigId: product/details/stores/m/mediamarkt_ch_fr/CH/extract
+    data:
+      - group:
+          - category:
+              - text: Page d’accueil
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
+              - text: Ménage, Maison & Hobby
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[2]
+              - text: Climat des locaux
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[3]
+              - text: Purificateur
+                xpath: /html/body/div[2]/nav[1]/ul[1]/li[4]
+            nameExtended:
+              - text: DYSON Pure Hot + Cool Purificateur d'air (Blanc)
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            description:
+              - text: "Le seul appareil capable de purifier et chauffer une pièce. Entière.
+                  Purificateur, chauffage et ventilateur dans un seul appareil
+                  intelligent. 3 Capteurs Détectent automatiquement les
+                  particules et les gaz dans l'air, puis les diagnostiquent et
+                  les signalent en temps réel sur l'écran LCD. Ce qui signifie
+                  que le Pure Hot+Cool de Dyson identifie automatiquement les
+                  polluants présents dans l’air, les capture et diffuse dans
+                  l’ensemble de la pièce l’air purifié et, éventuellement,
+                  réchauffé, à l’aide de la technologie Air Multiplier™.
+                  Technologie Air Multiplier™ et mouvement rotatif à 350° Seuls
+                  les purificateurs d'air de Dyson bénéficient de la technologie
+                  Air Multiplier™ et d'un mouvement rotatif à 350° permettant de
+                  répartir l’air purifié et réchauffé dans toute la pièce.1
+                  Grâce à cette technologie unique, 310 litres d'air par seconde
+                  sont diffusés via un flux d’air puissant et agréable en même
+                  temps – l’air ainsi purifié est réparti dans l’ensemble de la
+                  pièce.2 Filtration scellée sur 360° Le système de filtration
+                  entièrement étanche combine un filtre à charbon actif pour
+                  l'élimination des gaz et un filtre HEPA avec du verre
+                  borosilicate, qui absorbe 99,95% des allergènes et polluants
+                  microscopiques d'une taille de seulement 0,1 micron.3
+                  Réchauffe et refroidit l’air Le purificateur d’air réchauffe
+                  l’air en hiver grâce à sa commande par thermostat intégrée.
+                  Par contre, en été, un puissant flux d'air contribue à
+                  apporter une agréable fraîcheur. Une fonction de chauffage
+                  améliorée grâce à une technologie PTC améliorée Des plaques
+                  semi-conductrices en céramique contribuent à réchauffer la
+                  pièce rapidement, alors que les surfaces du purificateur d’air
+                  restent froides. La température de ces éléments en céramique
+                  PTC ne dépasse jamais 200 °C. Pas d’incommodante odeur de
+                  brûlé. Rapports d'affichage LCD en temps réel PM10, PM2.5,
+                  NO2, VOC (composés organiques volatils), température, humidité
+                  et durée de vie du filtre. Mode répartition En mode
+                  répartition, l'utilisateur peut choisir entre un flux d'air
+                  dirigé vers l'avant et un flux d'air dirigé latéralement. Vous
+                  pouvez donc choisir un nettoyage puissant avec ou sans
+                  fonction de refroidissement. Contrôle de l'application avec
+                  l'appli Dyson Link Lorsque votre appareil est connecté à
+                  l'appli Dyson Link, vous pouvez le commander et le surveiller
+                  depuis n'importe quel endroit, et vous pouvez contrôler la
+                  qualité de l’air de vos pièces lorsque vous n’êtes pas chez
+                  vous. Cette appli fournit des informations détaillées sur les
+                  polluants filtrés dans l’air, la durée de vie du filtre, la
+                  télécommande, et bien d'autres fonctions. 4 Filtres : 2
+                  filtres à charbon actif et 2 filtres HEPA Télécommande,
+                  fonction minuterie de sommeil et mode nuit 1 Test réalisé lors
+                  du nettoyage d’une pièce d’une superficie de 27m2 (TM-003711).
+                  2 À la puissance maximale 3 Particule mesurant jusqu’à 0.1
+                  micron. Testé conformément à EN1822."
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[5]/article[1]/p[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            sku:
+              - text: "1893185"
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[1]/dl[1]/dd[4]
+            mpc:
+              - text: 244352-01
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[3]/dl[1]/dd[6]
+            ratingCount:
+              - text: "116"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[3]/div[1]
+            color:
+              - text: Blanc
+                xpath: /html/body/div[2]/div[2]/div[5]/div[1]/div[6]/div[1]/div[2]/div[1]/section[3]/dl[1]/dd[3]
+            name:
+              - text: DYSON Pure Hot + Cool Purificateur d'air (Blanc)
+                xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            legalDisclaimer:
+              - text: Tous nos prix s’entendent TVA et taxe anticipée de recyclage (TAR)
+                  incluses. Erreurs et fautes d'impression réservées. © 2020
+                  Media Markt
+                xpath: /html/body/div[3]/footer[1]/div[5]
+            image:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80175072/fee_325_225_png/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29
+                xpath: /html/body/div[9]
+            imageAlt:
+              - text: DYSON Pure Hot + Cool - Purificateur d'air (Blanc)
+                xpath: /html/body/div[10]
+            alternateImages:
+              - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078261/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078262/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078377/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078259/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29,http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80078258/wcs_overlay_prod_detail/DYSON-Pure-Hot---Cool---Purificateur-d%27air-%28Blanc%29
+                xpath: /html/body/div[11]
+            secondaryImageTotal:
+              - text: "5"
+                xpath: /html/body/div[12]
+            price:
+              - text: 599 CHF
+                xpath: /html/body/div[13]
+            listPrice:
+              - text: 699 CHF
+                xpath: /html/body/div[14]
+            availabilityText:
+              - text: En-ligne disponible Livraison dans 1-2 jours Disponibilité en magasin
+                xpath: /html/body/div[15]
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/div[16]
+            weightNet:
+              - text: "5.7"
+                xpath: /html/body/div[17]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_dyson-pure-hot-cool-1893185.html?ga_query=%7Bid%7D
+                xpath: /html/body/div[18]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1606479100633
