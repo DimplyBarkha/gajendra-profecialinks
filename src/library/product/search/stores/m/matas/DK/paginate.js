@@ -4,16 +4,18 @@ module.exports = {
   parameterValues: {
     country: 'DK',
     store: 'matas',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div.paging > a.paging__link.paging__link--next.js-pagingLink > div.paging__icon',
+    // 'div.paging > a.paging__link.paging__link--next.js-pagingLink > div'
     // 'div[class="paging"]>a[class="paging__link paging__link--next js-pagingLink "]'
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div.js-productListContent',
     noResultsXPath: null,
     resultsDivSelector: null,
-    openSearchDefinition: {
-      template: 'https://www.matas.dk/soeg?search-query={searchTerms}&page={page}',
-      },
+    openSearchDefinition: null,
+    // {
+    //   template: 'https://www.matas.dk/soeg?search-query={searchTerms}&page={page}',
+    //   },
     domain: 'matas.dk',
     zipcode: '',
   },
