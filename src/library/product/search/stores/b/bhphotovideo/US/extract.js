@@ -30,7 +30,6 @@ async function implementation (
       const manufactStr = dataStr && dataStr.split('fct_brand_name') ? '{' + dataStr.split('fct_brand_name')[1].split('[')[1].split(']')[0] + '}' : '';
 
       const obj = manufactStr.match(/(?<="name":").*?(?=",)/gs);
-      console.log(obj);
       return obj;
     });
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
@@ -72,12 +71,12 @@ async function implementation (
         }
       }
     }
-    if ('thumbnail' in data[0].group[i]) {
-      if (data[0].group[i].humbnail[0].text === 'https://static.bhphoto.com/images/en/na500x500.jpg') {
+    // if ('thumbnail' in data[0].group[i]) {
+    //   if (data[0].group[i].humbnail[0].text === 'https://static.bhphoto.com/images/en/na500x500.jpg') {
         
-      }
+    //   }
 
-    }
+    // }
   }
   return data;
 }

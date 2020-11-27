@@ -4,10 +4,10 @@ recordSelector: null
 recordXPath: //div[@data-selenium="miniProductPage"]
 fields:
   - name: id
-    singleValue: false
-    xpath: //script[@type="application/ld+json"]/text()
-    # regExp: .*product\/([^\/]*)\/.*
-    # regExpReplace: $1
+    singleValue: true
+    type: STRING
+    xpath: //script[@type="application/ld+json"]
+    regExp: (\"sku\":)\"(.*?)\"
   - name: searchUrl
     singleValue: true
   - name: name
