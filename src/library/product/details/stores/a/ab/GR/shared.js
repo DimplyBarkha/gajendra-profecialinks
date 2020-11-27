@@ -50,12 +50,30 @@ const cleanUp = (data, context) => {
       }
 
       if (row.nameExtended && row.brandText) {
-        row.nameExtended = [
-          {
-            text: `${row.brandText[0].text} - ${row.nameExtended[0].text}`,
-          },
-        ];
+        let brandText = row.brandText[0].text;
+        if (brandText && brandText !== '-') {
+          if (brandText.match(/(.+)\s?-\s?-$/)) {
+            brandText = brandText.match(/(.+)\s?-\s?-$/)[1];
+          }
+          row.brandText = [
+            {
+              text: `${brandText}`.trim(),
+            },
+          ];
+          row.nameExtended = [
+            {
+              text: `${brandText.trim()} - ${row.nameExtended[0].text}`,
+            },
+          ];
+        } else {
+          row.brandText = [
+            {
+              text: '',
+            },
+          ];
+        }
       }
+
       if (!row.description && row.descriptionAlternate) {
         row.description = [
           {

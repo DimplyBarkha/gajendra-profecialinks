@@ -59,9 +59,7 @@ fields:
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //script[contains(.,'"@type":"Brand"')]
-    regExp: \"Brand","name":"(.+)"},"Url
-    regExpReplace: $1
+    xpath: normalize-space(//p[contains(@class,'page-title-info')])
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
