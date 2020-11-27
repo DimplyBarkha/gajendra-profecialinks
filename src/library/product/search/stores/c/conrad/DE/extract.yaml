@@ -32,6 +32,11 @@ fields:
     regExp: (\d)
     regExpReplace: $1
     singleValue: false
+  - name: gtin
+    xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//div[@class="productDetailedInfo"]//div[contains(@class,"productDetailedInfo__identifiers")]//p[@class="product__eanNumber"]
+    regExp: (\-?\d+)
+    regExpReplace: $1
+    singleValue: false
   - name: searchUrl
     singleValue: false
     xpath: //div[@id="page_url"]

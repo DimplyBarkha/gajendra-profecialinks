@@ -35,12 +35,17 @@ const transform = (data, context) => {
       }
       if (row.aggregateRating2) {
         let aggregateRating = row.aggregateRating2[0].text.trim();
-        aggregateRating = aggregateRating === '0' ? parseFloat('0').toFixed(2) : parseFloat(aggregateRating.split(' ')[0]).toFixed(1);
+        aggregateRating = aggregateRating === '0' ? '0.0' : aggregateRating.split(' ')[0];
         row.aggregateRating2 = [{ text: aggregateRating.replace('.', ','), xpath: row.aggregateRating2[0].xpath }];
       }
       if (row.reviewCount) {
         const reviewCount = row.reviewCount[0].text === '0' ? '' : row.reviewCount[0].text;
         row.reviewCount = [{ text: reviewCount, xpath: row.reviewCount[0].xpath }];
+      }
+      if (row.thumbnail) {
+        let image = row.thumbnail[0].text.trim();
+        image = image.includes('?') ? image.substring(0, image.lastIndexOf('?')) : image;
+        row.thumbnail = [{ text: image, xpath: row.thumbnail[0].xpath }];
       }
       rankCounter += 1;
       if (!row.sponsored) {
