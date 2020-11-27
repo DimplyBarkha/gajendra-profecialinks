@@ -57,10 +57,10 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
     xpath: //div[@class="loadbeeTabContent"]/@data-loadbee-gtin
-  - name: mpc
+  - name: sku
     singleValue: true
-    description: The manufacturer model code (unique) of the product
-    xpath: //input[@id="productCode"]/@value
+    description: The store-specific product identifier
+    xpath: //a[@class="js-gtm-product-link"]/@data-code
   - name: ratingCount
     singleValue: true
     description: The number of ratings
