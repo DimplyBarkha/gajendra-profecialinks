@@ -24,7 +24,13 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   });
 
-  return await context.extract(productDetails, { transform });
+  var data = await context.extract(productDetails, { transform });
+  for (let i = 0; i < data[0].group.length; i++) {
+    if ('price' in data[0].group[i]) {
+      data[0].group[i].price[0].text = data[0].group[i].price[0].text.replace('.', ',');
+    }
+  }
+  return data;
 }
 module.exports = {
   implements: 'product/search/extract',
