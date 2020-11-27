@@ -88,4 +88,5 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'Długość') or contains(text(), 'Szerokość') or contains(text(), 'Wysokość') or contains(text(), 'Średnica')] ])
+    # xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'Długość') or contains(text(), 'Szerokość') or contains(text(), 'Wysokość') or contains(text(), 'Średnica')] ])
+    xpath: //div[contains(@class,"spec-set__list")]/ul
