@@ -37,17 +37,29 @@ const transform = (data) => {
       //   });
       //   row.descriptionBullets = [{ text: '|| ' + bulletArr.join(' || ') }];
       // }
-      // if (row.specifications) {
-      //   var arrSpecs = [];
-      //   row.specifications.forEach(item => {
-      //     item.text = item.text.replace(/\n\s+\n/, ':');
-      //     arrSpecs.push(item.text);
-      //   });
-      //   row.specifications = [{ text: arrSpecs.join(' || ') }];
-      // }
+      if (row.specifications) {
+        var arrSpecs = [];
+        row.specifications.forEach(item => {
+          item.text = item.text.replace(/\s*:\s*/, ' : ');
+          arrSpecs.push(item.text);
+        });
+        row.specifications = [{ text: arrSpecs.join(' || ') }];
+      }
       if (row.price) {
         row.price.forEach(item => {
           item.text = item.text.replace(',', '');
+        });
+      }
+      if (row.variantId) {
+        row.variantId.forEach(item => {
+          item.text = item.text.replace('Código:', '');
+          item.text = item.text.trim();
+        });
+      }
+      if (row.sku) {
+        row.sku.forEach(item => {
+          item.text = item.text.replace('Código:', '');
+          item.text = item.text.trim();
         });
       }
       if (row.listPrice) {
