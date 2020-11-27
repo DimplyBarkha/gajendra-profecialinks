@@ -11,28 +11,24 @@ module.exports = {
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     try {
-      await context.evaluate(async () => {
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
+      var iframe = await context.evaluate(async () => {
+        const element = document.querySelector('div#standoutDivAutomatico');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => setTimeout(resolve, 30000));
         }
-        await context.evaluate(async () => {
-          const element = document.querySelector('div#standoutDivAutomatico');
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-            await new Promise((resolve) => setTimeout(resolve, 30000));
-            const element1 = Array.from(document.querySelectorAll('div#standoutDivAutomatico iframe div[class*=box] img src'));
-            addHiddenDiv('element1', element1);
-          }
-        });
+        iframe = document.querySelector('div#standoutDivAutomatico iframe') ? document.querySelector('div#standoutDivAutomatico iframe').getAttribute('src') : null;
+        iframe = 'https:' + iframe;
+        return iframe;
       });
+      await context.extract(productDetails, { transform }, { type: 'APPEND' });
+      if (iframe) {
+        await context.goto(iframe);
+      }
     } catch (e) {
       console.log(e);
     };
     await new Promise(resolve => setTimeout(resolve, 10000));
-    return await context.extract(productDetails, { transform });
+    return await context.extract(productDetails, { transform }, { type: 'MERGE_ROWS' });
   },
 };

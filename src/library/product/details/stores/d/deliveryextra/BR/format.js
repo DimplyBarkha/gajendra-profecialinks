@@ -18,12 +18,6 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      console.log('row.alternateImages', row.alternateImages);
-      console.log('row.servingSize', row.servingSize);
-      console.log('row.category', row.category);
-      console.log('row.sodiumPerServing', row.sodiumPerServing);
-      console.log('row.totalCarbPerServing', row.totalCarbPerServing);
-
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace('x200x200', '');
