@@ -3,8 +3,8 @@ module.exports = {
   implements: 'product/details',
   parameterValues: {
     country: 'CH',
-    store: 'mediamarkt',
-    domain: 'mediamarkt.ch/fr',
+    store: 'mediamarkt_ch_fr',
+    domain: 'mediamarkt.ch',
     zipcode: "''",
   },
 };

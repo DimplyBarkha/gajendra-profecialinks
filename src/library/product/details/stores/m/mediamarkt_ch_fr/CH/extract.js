@@ -4,9 +4,9 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CH',
-    store: 'mediamarkt',
+    store: 'mediamarkt_ch_fr',
     transform: cleanUp,
-    domain: 'mediamarkt.ch/fr',
+    domain: 'mediamarkt.ch',
     zipcode: "''",
   },
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {

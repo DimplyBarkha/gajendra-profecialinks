@@ -33,9 +33,9 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CH',
-    store: 'mediamarkt',
+    store: 'mediamarkt_ch_fr',
     transform: transform,
-    domain: 'mediamarkt.ch/fr',
+    domain: 'mediamarkt.ch',
     zipcode: "''",
   },
   implementation,
