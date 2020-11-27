@@ -1,0 +1,74 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'product-primary-image') and contains(@class,'hidden-phone')]//a//img[@class='primary-image']/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'product-primary-image') and contains(@class,'hidden-phone')]//a//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="thumbnails"]//ul[@class="swiper-wrapper"]//li[not(contains(@class,'selected'))]/a/@href
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,'breadcrumb')]//li//a[not(@title='Home')]
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[@id='availability-value' and contains(text(),'In stock')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[@id="product-content"]//div[contains(@class,'upper-product-price')]//div[@class='product-price']
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'description-text') and contains(@class,'hidden-phone')]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    # https://www.thewarehouse.co.nz/p/living-co-essentials-dinner-plate-white-24cm/R1912527.html#start=1
+    xpath: //div[contains(@class,'description-text') and contains(@class,'hidden-phone')]//ul//li
+  - name: brandText
+    singleValue: false
+    xpath: //script/@data-flix-brand
+  - name: eangtin
+    singleValue: false
+    xpath: //script/@data-flix-ean
+  - name: ean
+    singleValue: false
+    xpath: //script/@data-flix-ean
+  - name: sku
+    singleValue: false
+    xpath: //script/@data-flix-sku
+  - name: variantId
+    singleValue: false
+    # https://www.thewarehouse.co.nz/p/active-intent-womens-short-with-inner-bike-shorts/R2654257.html
+    xpath: //div[@id='product-recommendations-container']/@data-product-id
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='product-promotion']
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'featuresbenefits-text ')]//ul//li
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
