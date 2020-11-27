@@ -4,14 +4,12 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'galeriakaufhof',
-    nextLinkSelector: 'a[class="page-next"]',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
-    // openSearchDefinition: {
-    //   template: 'https://www.galeria.de/search?q=shampoo#q={searchTerms}&start={page}&sz=36',
-    // },
+    openSearchDefinition: null,
     domain: 'galeria.de',
     zipcode: '',
   },

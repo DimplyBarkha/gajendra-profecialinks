@@ -5,23 +5,23 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="product-tile g-product-tile"]/@data-itemid
+    xpath: //div[@class="gkk-product-hit-tile "]/@data-pid
     # type: NUMBER
     # regExp: \d+
     # regExpReplace: ''
   - name: name
     singleValue: false
-    xpath: //span[@class="h3 product-brand g-product-tile__product-brand g-headline--level5"]/text()
+    xpath: //a[@class="gkk-product-hit-tile__thumbnail-link"]/@title
   - name: productUrl
     singleValue: false
     # regExp: (/.+)
     # regExpReplace: https://www.luluhypermarket.com$1
-    xpath: //h3[@class="product-name g-product-tile__product-text"]/a/@href
+    xpath: //a[@class="gkk-product-hit-tile__thumbnail-link"]/@href
   - name: thumbnail
     singleValue: false
     # regExp: (/.+)
     # regExpReplace: https://www.luluhypermarket.com$1
-    xpath: //img[@class="tile-image g-product-tile__tile-image"]/@src
+    xpath: //img[@class="gkk-product-hit-tile__thumbnail-image"]/@src
   - name: url
     singleValue: false
     xpath: //span[@class="g-breadcrumb-result-text__search-query"]/a/@href
@@ -29,20 +29,12 @@ fields:
     # regExpReplace: https://www.luluhypermarket.com$1
   - name: price
     singleValue: false
-    xpath: //span[@class="cell c-price g-product-tile__price-val g-product-tile__price-val--c-price g-price-text--sale"]
+    xpath: //div[@class="gkk-product-hit-tile__list-price"]|//div[@class="gkk-product-hit-tile__sale-price"]
   - name: rankOrganic
     singleValue: false
-    type: Number
-    # xpath: //html//div[@id="rankOrganic"]/text()
+    xpath: //div[@id="rankOrganic"]/text()
   - name: rank
     singleValue: false
-    # xpath: //html//div[@id="rankOrganic"]/text()
-    type: NUMBER
-  - name: aggregateRating
-    singleValue: false
-    xpath: //div[@itemprop="ratingValue"]
-    # type: NUMBER  
-  - name: reviewCount
-    singleValue: false
-    xpath: //meta[@itemprop="reviewCount"]/@content  
+    xpath: //div[@id="rankOrganic"]/text()
+    # type: NUMBER
 
