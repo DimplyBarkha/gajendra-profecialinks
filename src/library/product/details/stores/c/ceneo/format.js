@@ -56,13 +56,37 @@ const transform = (data) => {
             },
           ];
         }
+
         if (row.description) {
+          let text = '';
           row.description.forEach(item => {
             item.text = `${item.text.replace(/\n{0,}\s{1,}/g, ' ')}`;
+            text = text + (text ? ' ' : '') + item.text;
           });
+          row.description = [{ text }];
         } else {
-          row.description = row.manufacturerDescription;
-        }       
+          if (row.myDescription) {
+            let text = '';
+              row.description.forEach(item => {
+              item.text = `${item.text.replace(/\n{0,}\s{1,}/g, ' ')}`;
+              text = text + (text ? ' ' : '') + item.text;
+            });
+            row.description = [{ text }];
+          } else {
+            row.description = row.manufacturerDescription;
+          }
+        }   
+        // if (row.description) {
+        //   row.description.forEach(item => {
+        //     item.text = `${item.text.replace(/\n{0,}\s{1,}/g, ' ')}`;
+        //   });
+        // } else {
+        //   if (row.manufacturerDescription) {
+        //     row.description = row.manufacturerDescription;
+        //   } else {
+        //     row.description = row.myDescription;
+        //   }
+        // }       
         row = cleanUp(row);
       } catch (exception) {
         console.log(exception);
