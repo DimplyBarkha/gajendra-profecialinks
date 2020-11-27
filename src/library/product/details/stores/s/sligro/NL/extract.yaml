@@ -1,0 +1,114 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'gallery-top')]//div[contains(@class,'swiper-slide') and contains(@class,'swiper-slide-active')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'gallery-top')]//div[contains(@class,'swiper-slide') and contains(@class,'swiper-slide-active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'gallery-top')]//div[contains(@class,'swiper-slide') and not(contains(@class,'swiper-slide-active'))]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="breadcrumb"]//li//a[not(text()='Home')]
+  - name: name
+    singleValue: false
+    xpath: //h2[@class='cmp-productdetail__title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h2[@class='cmp-productdetail__title']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='cmp-productdetail__price-left']//p[2]/text()
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='cmp-productdetail__price-left']//p//span
+  - name:  description
+    singleValue: false
+    xpath: //h3[text()='Product omschrijving']//following-sibling::div
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='cmp-productdetail__subinfo--brand']//a
+  - name: brandLink
+    singleValue: false
+    xpath: //div[@class='cmp-productdetail__subinfo--brand']//a/@href
+  - name: gtin
+    singleValue: false
+    xpath: //h3[text()='Algemeen']//following-sibling::div//p[contains(text(),'GTIN:')]
+    # regex to remove GTIN: from GTIN: 08710401803415
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='cmp-productdetail__subinfo--articlenr']//span[not(text()='Artikelnummer:')]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //h3[text()='Ingrediënten']//following-sibling::div
+  - name: specifications
+    singleValue: false
+    xpath: //h3[text()='Inhoud, gewicht & afmetingen']//following-sibling::div//table//tr
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //h3[text()='Allergie informatie']//following-sibling::div
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Koolhydraten')]//following-sibling::td[1]
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Voedingsvezel')]//following-sibling::td[1]
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Natrium')]//following-sibling::td[1]
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'waarvan verzadigd vet')]//following-sibling::td[1]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Eiwitten')]//following-sibling::td[1]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Vetten')]//following-sibling::td[1]
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Calcium')]//following-sibling::td[1]
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Energie in kJ en kcal')]//following-sibling::td[1]
+  - name: ironPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'IJzer')]//following-sibling::td[1]
+  - name: vitaminAPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Vitamine A')]//following-sibling::td[1]
+  - name: vitaminCPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Vitamine C')]//following-sibling::td[1]
+  - name: saltPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Zout')]//following-sibling::td[1]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'waarvan suikers')]//following-sibling::td[1]
+  - name: magnesiumPerServing
+    singleValue: false
+    # https://www.sligro.nl/p.192653.html/coca-cola-coca-cola-regular-24-blikjes-x-33-cl.html
+    xpath: //h3[text()='Voedingswaarde']//following-sibling::div//td[contains(text(),'Magnesium')]//following-sibling::td[1]
+  - name: shippingInfo1
+    singleValue: false
+    # Length
+    xpath: //h3[text()='Inhoud, gewicht & afmetingen']//following-sibling::div//table//td[text()='Diepte verpakking']//following-sibling::td
+  - name: shippingInfo2
+    singleValue: false
+    # Width
+    xpath: //h3[text()='Inhoud, gewicht & afmetingen']//following-sibling::div//table//td[text()='Breedte verpakking']//following-sibling::td
+  - name: shippingInfo3
+    singleValue: false
+    # Height
+    xpath: //h3[text()='Inhoud, gewicht & afmetingen']//following-sibling::div//table//td[text()='Hoogte verpakking']//following-sibling::td
+  - name: shippingInfo
+    singleValue: false
