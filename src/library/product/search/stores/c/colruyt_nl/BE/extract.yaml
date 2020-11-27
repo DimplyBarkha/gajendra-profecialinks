@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //a[@class="card card--article"]
 fields:
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="added_search_url"]
   - name: paid
     singleValue: false
     description: Whether this is a sponsored/paid result
