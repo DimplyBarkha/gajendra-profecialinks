@@ -5,6 +5,6 @@ module.exports = {
     country: 'US',
     store: 'petsmart',
     domain: 'petsmart.com',
-    zipcode: "''",
+    zipcode: "",
   },
 };

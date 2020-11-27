@@ -50,7 +50,7 @@ module.exports = {
     store: 'petsmart',
     transform: null,
     domain: 'petsmart.com',
-    zipcode: "''",
+    zipcode: "",
   },
   implementation,
 };

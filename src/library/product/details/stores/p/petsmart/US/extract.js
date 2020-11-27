@@ -33,12 +33,12 @@ async function implementation(
   //     actualAvailabilityArray.push('Out Of stock');
   //   }
   // })
-  try {
-    await context.waitForSelector('div[class="react-viewer-canvas"]>img', { timeout: 50000 });
-    console.log(`selector loaded successfully`)
-  } catch (e) {
-    console.log(`selector did not load at all`);
-  }
+  // try {
+  await context.waitForSelector('div[class="react-viewer-canvas"]>img', { timeout: 50000 });
+  // console.log(`selector loaded successfully`)
+  // } catch (e) {
+  //   console.log(`selector did not load at all`);
+  // }
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
