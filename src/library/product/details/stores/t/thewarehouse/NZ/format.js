@@ -29,14 +29,14 @@ const transform = (data) => {
           item.text = 'https://www.thewarehouse.co.nz' + item.text;
         });
       }
-      // if (row.specifications) {
-      //   var arrSpecs = [];
-      //   row.specifications.forEach(item => {
-      //     item.text = item.text.replace(/\n\s+\n/, ':');
-      //     arrSpecs.push(item.text);
-      //   });
-      //   row.specifications = [{ text: arrSpecs.join(' || ') }];
-      // }
+      if (row.specifications) {
+        var arrSpecs = [];
+        row.specifications.forEach(item => {
+          item.text = item.text.replace(/\n\s+\n/, ' : ');
+          arrSpecs.push(item.text);
+        });
+        row.specifications = [{ text: arrSpecs.join(' || ') }];
+      }
       // if (row.price) {
       //   row.price.forEach(item => {
       //     item.text = item.text.replace(',', '');
