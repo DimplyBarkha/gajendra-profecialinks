@@ -28,4 +28,4 @@ fields:
     # regExp: (\d+)
   - name: price
     singleValue: false
-    xpath: //div[@class='preis_gelb_links']/p | //div[@class="oo-pricelabel_price"]/p 
+    xpath: //div/p/span[contains(@id,'__minprice')]
