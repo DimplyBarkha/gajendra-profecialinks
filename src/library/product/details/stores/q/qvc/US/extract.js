@@ -18,7 +18,12 @@ module.exports = {
     for (let k = 0; k < data.length; k++) {
       for (let i = 0; i < data[k].group.length; i++) {
         if ('availabilityText' in data[k].group[i]) {
-          data[k].group[i].availabilityText[0].text = 'In Stock';
+          if ( data[k].group[i].availabilityText[0].text.includes('In Stock')){
+            data[k].group[i].availabilityText[0].text = 'In Stock';
+          }
+          if ( data[k].group[i].availabilityText[0].text.includes('not available')){
+            data[k].group[i].availabilityText[0].text = 'Out of Stock';
+          }
         }
       }
     }
