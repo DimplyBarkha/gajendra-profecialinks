@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'dns-shop',
     domain: 'dns-shop.ru',
-    loadedSelector: null,
+    loadedSelector: 'div.opinions-widget',
     noResultsXPath: null,
     reviewUrl: null,
     sortButtonSelectors: null,
