@@ -41,5 +41,6 @@ module.exports = {
     };
     await solveCaptchaIfNecessary();
     await context.waitForNavigation();
+    await new Promise((r) => setTimeout(r, 50000));
   },
 };
