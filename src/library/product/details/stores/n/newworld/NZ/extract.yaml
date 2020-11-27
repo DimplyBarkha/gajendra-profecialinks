@@ -1,0 +1,41 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@class="sxa-recipe-brief__image-container"]//img/@src    
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,'field-ingredients')]//li[@itemprop='recipeIngredient']
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="sxa-recipe-brief__image-container"]//img/@alt
+  - name: category
+    singleValue: false
+    xpath: //nav[@class="sxa-breadcrumb__nav"]//ol//li//a[not(@title='Home')]
+  - name: name
+    singleValue: false
+    xpath: //h3[@itemprop="name"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h3[@itemprop="name"]
+  - name: description
+    singleValue: false
+    xpath: //p[@itemprop="description"]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'component-content') and contains(@class,'field-preparation')]//li
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class="component-content field-ingredients"]//ul//li
+  - name: servingSize
+    singleValue: false
+    xpath: //metta[@itemprop="recipeYield"]/@content
+  - name: videos
+    singleValue: false
+    xpath: //iframe[contains(@src,'youtube')]/@src
