@@ -2,7 +2,7 @@ input:
   _url: http://victoryonline.co.il
   URL: http://www.victoryonline.co.il/קרקר_לחמית_חיטה_מלאה_אסם_1_קג/מוצר
 extractions:
-  - html: https://workbench.import.io/html/run=4c58cab4-1a03-4919-9641-55d0ab3d61eb/task=b62bc111-54a8-4498-8128-72218aab5bc5/376f445f-20e2-4f3d-a949-e1c127567af8.html
+  - html: https://workbench.import.io/html/run=01f8ef8a-a5e8-442a-8647-b97aa3f9f416/task=cd146c08-a9b2-47ef-8135-74c82ac592e5/fc545494-fbe8-4fd5-942d-f647cb052f7d.html
     extractionConfigId: product/details/stores/v/victoryonline/IL/extract
     data:
       - group:
@@ -16,11 +16,11 @@ extractions:
               - text: קרקר לחמית חיטה מלאה אסם (1 ק"ג)
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
             listPrice:
-              - text: "24.90"
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/text()[1]
+              - text: ₪24.90
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]
             price:
-              - text: "19.90"
-                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]/text()[1]
+              - text: ₪19.90
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]
             quantity:
               - text: 1 ק"ג
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[2]/span[1]
@@ -89,6 +89,12 @@ extractions:
             totalSugarsPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            pricePerUnit:
+              - text: ₪1.99 / 100
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            pricePerUnitUom:
+              - text: גרם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
             availabilityText:
               - text: In Stock
             technicalInformationPdfPresent:
@@ -104,4 +110,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: No
         xpath: /
-    timestamp: 1606399266512
+    timestamp: 1606470721487

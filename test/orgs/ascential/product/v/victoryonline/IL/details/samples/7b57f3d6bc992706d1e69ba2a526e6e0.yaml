@@ -2,7 +2,7 @@ input:
   _url: http://victoryonline.co.il
   URL: http://www.victoryonline.co.il/קציצות_קינואה_וברוקולי_99_קלוריות_פרווה_טבעול_525_גרם/מוצר
 extractions:
-  - html: https://workbench.import.io/html/run=4c58cab4-1a03-4919-9641-55d0ab3d61eb/task=96aad51b-49ec-4fc6-93ef-9d888ca41d7a/e7e545ac-da5a-44d5-89c3-e81cb546022f.html
+  - html: https://workbench.import.io/html/run=01f8ef8a-a5e8-442a-8647-b97aa3f9f416/task=e3487854-187c-4305-ac53-be7757c22396/1012dc23-8607-47c3-8c60-f7f8702558f6.html
     extractionConfigId: product/details/stores/v/victoryonline/IL/extract
     data:
       - group:
@@ -16,7 +16,7 @@ extractions:
               - text: קציצות קינואה וברוקולי 99 קלוריות - פרווה טבעול (525 גרם)
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
             price:
-              - text: "30.90"
+              - text: ₪30.90
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]
             quantity:
               - text: 525 גרם
@@ -89,6 +89,12 @@ extractions:
             proteinPerServingUom:
               - text: גרם
                 xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            pricePerUnit:
+              - text: ₪5.89 / 100
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            pricePerUnitUom:
+              - text: גרם
+                xpath: /html/body/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
             availabilityText:
               - text: In Stock
             technicalInformationPdfPresent:
@@ -104,4 +110,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: No
         xpath: /
-    timestamp: 1606399255348
+    timestamp: 1606470725935
