@@ -23,11 +23,6 @@ const clean = text => text.toString()
   for (const { group } of data) {
     for (const row of group) {
       if (row.thumbnail) {
-        row.thumbnail.forEach(item => {
-          item.text = 'https:' + item.text
-        });
-      }
-      if (row.thumbnail) {
         let thumbnail = [];
         row.thumbnail.forEach(item => {
           if (item.text.indexOf('https:') === -1) {
