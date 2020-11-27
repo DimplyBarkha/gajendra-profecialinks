@@ -1,0 +1,78 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//a[contains(@class,'image-link')])[1]/img/@src
+    default: ''
+  - name: imageAlt
+    singleValue: false
+    xpath: (//a[contains(@class,'image-link')])[1]/img/@alt
+  - name: availabilityText
+    singleValue: false
+    xpath: //input[contains(@class,'sku-option')]/@data-issoldout
+  - name: price
+    singleValue: false
+    xpath: //script[42]
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[contains(@class,'secondary-image')]/img/@data-main-image
+  - name: category
+    singleValue: false
+    xpath: (//li[@itemprop='itemListElement'][position() > 1])/a[@class='ghost-btn']
+  - name: nameExtended
+    singleValue: true
+    xpath: //span[@id='brandlessDisplayName']
+  - name: listPrice
+    singleValue: true
+    xpath: //span[@class='prod-rrp']
+  - name: variants
+    singleValue: false
+    xpath: //input[@name='rad']/@data-sku
+  - name: sku
+    singleValue: true
+    xpath: //li[contains(@class,'active-sku')]/input[@name='rad']/@data-sku
+  - name: variantId
+    singleValue: true
+    xpath: //li[contains(@class,'active-sku')]/input[@name='rad']/@data-sku
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@class='review']/a[@class='ghost-btn']
+    regExp: (\b\d[\d,.]*\b)
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@itemprop='ratingValue']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //meta[@itemprop='description']/@content
+  - name: descriptionBullets
+    singleValue: true
+    type: NUMBER
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //div[@class='prescription-terms']
+  - name: brandText
+    singleValue: true
+    xpath: //span[@class='product-brand']
+  - name: variantCount
+    singleValue: true
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'branded-content')]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'branded-content')]/descendant::img[@class="img-mobile"]/@src
+  - name: name
+    singleValue: true
+    xpath: //span[@class='name' and @itemprop='name']
+  - name: variantInformation
+    singleValue: false
+    xpath: //span[@class="sku-data-size"]
+  - name: firstVariant
+    singleValue: true
+    xpath: //li[contains(@class,'active-sku')]/input[@name='rad']/@data-sku
+  - name: ingredientsList
+    singleValue: true
+    xpath: //div[@class="ingredients-section"]

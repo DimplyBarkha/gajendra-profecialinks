@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id='productListing']/li
+fields: 
+  - name: thumbnail
+    singleValue: false
+    xpath: //figure/a/img/@src
+  - name: name
+    singleValue: false
+    xpath: //span[@class='product-name']
+  - name: brandText
+    singleValue: false
+    xpath: //h3[@class='product-name']/a/span[1]
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-tags-wrapper']/span
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="product-reviews-handler"]
+    regExp: (\b\d[\d,.]*\b)
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="sizes-wrapper"]/input[contains(@class,'active')]/@id
+  - name: variantType
+    singleValue: false
+    xpath: //div[@class="sizes-wrapper"]/input[contains(@class,'select-sizes')]/@value
+  - name: rankOrganic
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: productUrl
+    singleValue: false
+    xpath: //figure/a/@href
+  - name: id
+    singleValue: false
+    xpath: //div[@class="sizes-wrapper"]/input[contains(@class,'active')]/@id
