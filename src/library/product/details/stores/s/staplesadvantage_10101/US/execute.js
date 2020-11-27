@@ -13,6 +13,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   await context.goto(loginUrl);
 
   await context.waitForNavigation();
+
   // the popup is visible after a moment -> delaying the removal
   await new Promise((resolve) => setTimeout(resolve, 3000));
   const isPopupPresent = await context.evaluate(async () => {
@@ -41,7 +42,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     await context.click('input[name="userId"]');
     // after filling in the account number input and clicking away, the page is reloaded
     // and the extractor needs to wait to fill in the rest of the inputs
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     await context.evaluate(async () => {
       document.querySelector('input[name="userId"]').setAttribute('value', 'LLAWSON');
     });
@@ -72,6 +73,18 @@ async function implementation(inputs, parameters, context, dependencies) {
     });
   };
 
+  await context.evaluate(() => {
+    let descriptionFixed = '';
+    const description = document.querySelectorAll('div[id="ProductDetailsSummaryWrapper"]>ul>li');
+    console.log(description);
+    if (description.length !== 0) {
+      description.forEach(element => {
+        descriptionFixed = descriptionFixed + element.textContent + ' || ';
+      });
+      document.querySelector('div[id="ProductDetailsSummaryWrapper"]>ul').setAttribute('description', descriptionFixed);
+    }
+  });
+
   return await context.evaluate(function (xp) {
     const r = document.evaluate(
       xp,
@@ -83,6 +96,20 @@ async function implementation(inputs, parameters, context, dependencies) {
     const e = r.iterateNext();
     return !e;
   }, parameters.noResultsXPath);
+};
+
+module.exports = {
+  implements: 'product/details/execute',
+  parameterValues: {
+    country: 'US',
+    store: 'staplesadvantage',
+    domain: 'staplesadvantage.com',
+    url: 'https://www.staplesadvantage.com//product_{id}',
+    loadedSelector: 'div.js-content>div',
+    noResultsXPath: "//div[@class='errorpage__error_page']",
+    zipcode: '',
+  },
+  implementation,
 };
 
 module.exports = {
