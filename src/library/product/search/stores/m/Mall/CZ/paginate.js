@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'div[class="nav-pagin--block--show-next"]>button',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     openSearchDefinition: {
      // offset = 30,
