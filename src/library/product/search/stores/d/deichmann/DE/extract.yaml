@@ -10,7 +10,7 @@ fields:
     regExpReplace: $2
   - name: name
     singleValue: false
-    xpath: //article[contains(@class,'m-product-card-entry')]//a
+    xpath: concat(//article[contains(@class,'m-product-card-entry')]//h3,//article[contains(@class,'m-product-card-entry')]//h4)
   - name: productUrl
     singleValue: false
     xpath: //article[contains(@class,'m-product-card-entry')]//a//@href

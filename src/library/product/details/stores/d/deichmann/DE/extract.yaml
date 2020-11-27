@@ -22,7 +22,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//strong[contains(@class,'brand')],//section[contains(@class,'basic-info')]//h1,//p[contains(@class,'selected-variant')]//span,//section[contains(@class,'open-size-selector')])
+    xpath: concat(//strong[contains(@class,'brand')],//section[contains(@class,'basic-info')]//h1,//p[contains(@class,'selected-variant')]//span,//div[@id='document_variant'])
   - name: name
     singleValue: false
     description: The product name
@@ -104,7 +104,7 @@ fields:
     xpath: //div[@id='document_variant']
   - name: variants
     singleValue: false
-    xpath: //div[@id='document_variants']   
+    xpath: //div[@id='document_variants']//p   
   - name: promotion
     singleValue: false
     xpath: //p[contains(@class,'interferer-icon')]
