@@ -34,7 +34,7 @@ async function implementation (
       return response.json();
     };
 
-    const productDetails = await postData('https://www.7now.com/api/inventory/digital/v3/store/26872/products/search', { query: 'pizza', suggest: false });
+    const productDetails = await postData('https://www.7now.com/api/inventory/digital/v3/store/26872/products/search', { query: inputs.keywords, suggest: false });
 
     productDetails.Items.forEach((item, index) => {
       const allData = document.createElement('div');
@@ -61,7 +61,7 @@ async function implementation (
       allData.appendChild(price);
       document.body.appendChild(allData);
     });
-  });
+  }, [inputs]);
 
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
