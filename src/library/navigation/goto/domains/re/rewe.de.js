@@ -3,18 +3,18 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'rewe.de',
-    timeout: 100000,
+    timeout: 70000,
     country: 'DE',
     store: 'Rewe',
     zipcode: '',
   },
   implementation: async (
-    { url },
-    parameters,
-    context,
-    dependencies,
+    { url, zipcode, storeId },
+    parameters, context, dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
+    const maxRetries = 3;
+    let numberOfCaptchas = 0;
 
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -23,27 +23,17 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
 
-    const responseStatus = await context.goto(url, {
+    await context.goto(url, {
       firstRequestTimeout: 60000,
       timeout: timeout,
       waitUntil: 'load',
-      checkBlocked: false,
+      checkBlocked: true,
       antiCaptchaOptions: {
         type: 'HCAPTCHA',
       },
     });
-    console.log('Status :', responseStatus.status);
-    console.log('URL :', responseStatus.url);
 
-    const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";
-    const maxRetries = 3;
-    let numberOfCaptchas = 0;
-
-    try {
-      await context.waitForSelector(captchaFrame);
-    } catch (e) {
-      console.log("Didn't find Captcha.");
-    }
+    const captchaFrame = 'iframe[_src*="https://assets.hcaptcha.com"]';
 
     const checkExistance = async (selector) => {
       return await context.evaluate(async (captchaSelector) => {
@@ -53,7 +43,7 @@ module.exports = {
 
     const checkRedirection = async () => {
       try {
-        await context.waitForSelector('h2.pdp-title', { timeout });
+        await context.waitForSelector('#my-account-option, span[itemprop="productID"]', { timeout });
         console.log('Redirected to another page.');
         return true;
       } catch (e) {
@@ -63,7 +53,6 @@ module.exports = {
     };
 
     let isCaptchaFramePresent = await checkExistance(captchaFrame);
-    console.log('isCaptcha:' + isCaptchaFramePresent);
 
     while (isCaptchaFramePresent && numberOfCaptchas < maxRetries) {
       console.log('isCaptcha', true);

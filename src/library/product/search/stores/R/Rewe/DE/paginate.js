@@ -11,7 +11,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: '.search-service-rsProductsMedia>picture>img',
     loadedXpath: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="search-service-rsZeroResultsHeaderTitle"]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
