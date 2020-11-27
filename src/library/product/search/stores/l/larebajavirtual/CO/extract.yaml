@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: null
+recordSelector: null
+fields:
+  - name: name
+    singleValue: true
+    xpath: //div[@class='nameProduct']/a/@title
+  - name: price
+    singleValue: false
+    xpath: //div[@class='priceFinal']/text()
+  - name: id
+    singleValue: false
+    xpath: //input[@id='codigo-producto-gtm']/@value
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='nameProduct']/a/@href
+    regExp: (\/catalogo.+)
+    regExpReplace: https://www.larebajavirtual.com$1
+  - name: gtin
+    singleValue: true
+    xpath: //button[@class='maxBtn btnQuanty']/@data-id
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='img-list-products']/a/figure/img/@src
+    regExp: (\/images.+)
+    regExpReplace: https://www.larebajavirtual.com$1
+  - name: rank
+    singleValue: false
+    xpath:
+  - name: rankOrganic
+    singleValue: false
+    xpath:
