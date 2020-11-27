@@ -44,11 +44,6 @@ fields:
     regExp: \D+(.*)\/
     regExpReplace: $1
     singleValue: false
-  - name: pricePerUnitUom
-    # xpath: (//div[contains(@class, 'product-detail-wrap')]//span[contains(@class, 'product-compare-price')])
-    # regExp: \D+(.*)\/
-    # regExpReplace: $1
-    # singleValue: false
   - name: imageAlt
     xpath: //div[@class="product-image"]//img/@alt
     singleValue: false

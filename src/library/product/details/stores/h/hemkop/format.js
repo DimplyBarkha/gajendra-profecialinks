@@ -43,7 +43,6 @@ const transform = (data) => {
         row.category = cat.map((item) => {
           return { text: item, xpath: row.category[0].xpath };
         });
-        // row.category = [{ text: categoryArray.join(), xpath: row.category[0].xpath }];
       }
       if (row.description) {
         const descriptionArr = row.description.map((item) => {
@@ -53,27 +52,9 @@ const transform = (data) => {
       }
       if (row.pricePerUnit) {
         const pricePerUnit = row.pricePerUnit[0].text.trim().split(' ')[0];
-        // const priceperunit2 = row.priceperunit2.map((item) => {
-        //   return typeof (item.text) === 'string' ? item.text.trim().split(' ')[0] : '';
-        // });
         row.pricePerUnit = [{ text: pricePerUnit, xpath: row.pricePerUnit[0].xpath }];
         row.pricePerUnitUom = [{ text: 'kr', xpath: row.pricePerUnit[0].xpath }];
       }
-      // if (row.priceperUnitUom) {
-      //   const priceperUnitUom = row.priceperUnitUom[0].text.trim().split(' ')[1];
-      //   // const priceperUnitUom = row.priceperUnitUom.map((item) => {
-      //   //   console.log('item.text', item.text);
-      //   //   return typeof (item.text) === 'string' ? item.text.trim().split(' ')[1] : '';
-      //   // });
-      //   row.pricePerUnitUom = [{ text: priceperUnitUom, xpath: row.priceperUnitUom[0].xpath }];
-      //   console.log('row.pricePerUnitUom ->', row.pricePerUnitUom[0].text);
-      // }
-      // if (row.price && row.price.length) {
-      //   row.price[0].text.replace('.', ',');
-      // }
-      // Object.keys(row).forEach(header => row[header].forEach(el => {
-      //   el.text = cleanUp(el.text);
-      // }));
     }
   }
 
