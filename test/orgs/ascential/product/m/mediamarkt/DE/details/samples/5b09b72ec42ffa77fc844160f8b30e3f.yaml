@@ -1,0 +1,240 @@
+input:
+  _url: http://mediamarkt.de
+  URL: https://www.mediamarkt.de/de/product/_oral-b-orthocare-3er-1183660.html
+extractions:
+  - html: https://workbench.import.io/html/run=57ee569f-9c4b-44e5-a6e8-a6a1ccaa760a/task=72bb1653-c354-4e25-9b0e-e451e0945a68/dc457c7b-8c4a-4c8a-8ce9-2a1835f1bcd8.html
+    extractionConfigId: product/details/stores/m/mediamarkt/DE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mediamarkt.de/de/product/_oral-b-orthocare-3er-1183660.html
+                xpath: /html/body/div[8]
+            image:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-79810053/fee_325_225_png
+                xpath: /html/body/div[4]
+            imageAlt:
+              - text: pixelboxx-mss-79810053
+                xpath: /html/body/div[5]
+            alternateImages:
+              - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-78217644/fee_325_225_png,https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82204881/fee_325_225_png,https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-82204879/fee_325_225_png
+                xpath: /html/body/div[6]
+            category:
+              - text: Haushalt & Bad
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]
+              - text: Mund- & Zahnpflege
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]
+              - text: Zahnbürsten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]
+              - text: Aufsteckbürsten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]
+            nameExtended:
+              - text: ORAL-B OrthoCare 3er Aufsteckbürsten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 15. 99
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "11.77"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/span[2]
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/button[1]
+            description:
+              - text: >-
+                  Mundpflege mit Köpfchen – Oral-B Aufsteckbürsten für Ihre
+                  individuellen Mundpflege-Bedürfnisse. Für eine effektive und
+                  bequeme Reinigung bei fest sitzenden Zahnspangen. Sie wünschen
+                  sich eine effektive und bequeme Reinigung bei fest sitzenden
+                  Zahnspangen? Dann ist die Oral-B OrthoCare Essentials ideal
+                  für Sie, denn sie reinigt die Zahnzwischenräume unter Brücken,
+                  Kronen, Implantaten und entfernt Plaque gründlich und sanft.
+                  Die Oral-B Interspace Aufsteckbürste ist passend für alle
+                  Oral-B elektrischen Zahnbürsten mit rundem oder
+                  TriZone-Bürstenkopf. Entdecken Sie darüber hinaus die Vielfalt
+                  an Oral-B Aufsteckbürsten: Tiefen-Reinigung, 3D White und
+                  Precision Clean für eine präzise Zahn-für-Zahn-Reinigung oder
+                  der Oral-B TriZone-Bürstenkopf für das Putzen wie mit einer
+                  Handzahnbürste. 
+
+                  Produkteigenschaften:
+
+                  - Für eine effektive und bequeme Reinigung bei fest sitzenden Zahnspangen
+
+                  - Gründliche und angenehme Reinigung unter Zahnspangen
+
+                  - Die Ortho Aufsteckbürsten verfügen über einen speziellen Borstenkranz zur gründlichen und sanften Plaqueentfernung bei fest sitzenden Zahnspangen
+
+                  - Die Interspace-Aufsteckbürste dient der Reinigung von Zahnzwischenräumen sowie der Reinigung unter Brücken, Kronen und Implantaten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: ORAL-B
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]/span[1]
+            manufacturer:
+              - text: ORAL-B
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
+            weightNet:
+              - text: 31 g
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[8]/td[2]
+            gtin:
+              - text: "4210201849735"
+                xpath: /html/body/div[9]
+            sku:
+              - text: "1183660"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            variantId:
+              - text: "1183660"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            legalDisclaimer:
+              - text: >-
+                  Alle Preise in Euro und inkl. der gesetzlichen Mehrwertsteuer,
+                  zzgl. Versandkosten. Änderungen und Irrtümer vorbehalten.
+                  Abbildungen ähnlich. Nur solange der Vorrat reicht.
+                  Liefergebiet: Deutschland.
+
+                  0% effektiver Jahreszins, ab € 100.- Finanzierungssumme, monatliche Mindestrate € 10.-, Laufzeit 6 - 10 Monate – für alle Online Bestellungen und Lieferungen. Erst- und Schlussrate kann abweichen. Bonität vorausgesetzt. Bei der BNP Paribas erfolgt die Finanzierung über einen Kreditrahmen mit Mastercard®. Für diesen gilt ergänzend: Nettodarlehensbetrag bonitätsabhängig bis € 10.000.-. Vertragslaufzeit auf unbestimmte Zeit. Gebundener Sollzinssatz von 0 % gilt nur für Verfügungen beim kreditvermittelnden Händler, für diesen Einkauf zeitlich befristet für die oben angegebene Zeit ab Vertragsschluss. Danach und für alle weiteren Verfügungen beträgt der veränderliche Sollzinssatz (jährlich) 14,84 % (15,90 % effektiver Jahreszinssatz). Höhe und Anzahl der monatlichen Raten können sich verändern, wenn weitere Verfügungen über den Kreditrahmen vorgenommen werden. Vermittlung erfolgt ausschließlich für unsere Finanzierungspartner: Santander Consumer Bank AG, Santander-Platz 1,41061Mönchengladbach • Targobank AG, Kasernenstr. 10,40213Düsseldorf • BNP Paribas S.A. Niederlassung Deutschland, Standort München: Schwanthalerstr. 31,80336München • Hanseatic Bank GmbH & Co KG, Bramfelder Chaussee 101,22177 Hamburg. Finanzierungspartner marktabhängig.
+
+                  * Gratislieferung gilt nur für direkt von MediaMarkt angebotene Produkte. Wir liefern Ihnen Ihre Bestellung ab einem Warenkorbwert von 59 € kostenfrei direkt nach Hause (gilt nicht für Großgeräte per Speditionslieferung und FSK18 Artikel). Die Versandkosten werden automatisch im Warenkorb (ab einem Wert von 59 €, berücksichtigt werden nur direkt von MediaMarkt angebotene Produkte ) abgezogen. Großgeräte per Speditionslieferung sind Haushaltsgroßgeräte und TVs ab 42 Zoll. Die Versandkosten betragen 29,90€.
+
+                  ** Gilt nur für direkt von MediaMarkt angebotene Produkte
+
+                  *** Monatliche Prämie abhängig vom Gerätepreis. Mindestvertragslaufzeit 12 Monate, anschließend verlängert sich der Vertrag automatisch um jeweils weitere 12 Monate, wenn nicht mit einer Frist von 3 Monaten zum Ende der Mindestvertragslaufzeit bzw. eines jeden Verlängerungszeitraums gekündigt wird. Ab dem 36. Monat ist der Vertrag monatlich kündbar. Einmalige Beitragsrückerstattung für Schadensfreiheit nach einer Laufzeit von 36 Monaten ab Vertragsbeginn – max. € 40.-, min. € 10.-. Neben der monatlichen Zahlungsvariante besteht auch die Möglichkeit einer Einmalzahlung für 36 Monate.
+
+                  ¹ Bei wirksamer Erstanmeldung über unserem Onlineshop unter mediamarkt.de für entweder den Online- oder den Club-Newsletter erhalten Sie einen Willkommens-Coupon über 10 €. Nicht bei Newsletter Anmeldung über die stationären Media Märkten vor Ort. Den Coupon-Code erhalten Sie nach Anklicken der Bestätigens-Mail zum Newsletter E-Mail (Double-Opt-In) und sofern bisher noch kein Newsletter-Versand an die angegebene Mailadresse erfolgte (auch, wenn zwischenzeitlich eine Abmeldung vom Newsletter erfolgte). Der Coupon-Code ist ab Zustellung 48 Stunden lang ausschließlich in unserem Onlineshop unter mediamarkt.de (nicht einlösbar bei Drittanbietern auf mediamarkt.de sowie in stationären Media Märkten vor Ort) einlösbar. Der Coupon Code ist einlösbar ab einem Bestellwert von 100 €. Der Coupon-Code nicht einlösbar für: Verträge mit Drittanbietern, sämtliche Download-/Content-/GamingCards, Gutscheinkarten oder –boxen, Prepaid-Aufladekarten/-Services, E-Books/Bücher, digitale Guthabenkarten, Zusatzgarantien, Lieferservices, Reparaturdienstleistungen, Fotoservices, Lebensmittel, Tchibo Cafissimo Produkte, IQOS, E-Zigaretten, Heets, Liquids und Versandkosten. Coupon nicht kombinierbar mit anderen Aktionen und bei Online-Käufen nicht mit anderen Coupons.
+
+                  2) Aktion gültig im Markt vom 23.11. bis 28.11. und online unter www.mediamarkt.de vom 22.11., ab 21 Uhr bis 29.11.2020, 17.59 Uhr. Vorbehaltlich einer Verlängerung, nur solange der Vorrat reicht. Alle Angebote ohne Dekoration.
+
+                  Mit dem Kauf bei einem Marktplatz Verkäufer akzeptieren Sie dessen AGB. Weitere Informationen zum Verkäufer erhalten Sie, indem Sie auf dessen Verkäufernamen klicken.
+                xpath: /html/body/div[1]/div[2]/footer[1]/div[2]/div[1]/div[2]/div[1]
+            ratingCount:
+              - text: "64"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+                type: NUMBER
+                raw: Basierend auf 64 Bewertungen
+                locale: de_DE
+                value: 64
+            aggregateRatingText:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            shippingDimensions:
+              - text: 1.8 x 22 x 6 cm
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[10]/td[2]
+            color:
+              - text: Weiß
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            videos:
+              - text: https://mycliplister.com/vx/157815/1a18c19c98a8a90f9654761c51a2011fc29c91d05d70b98aa8abe8940ce1041d6738d5282dcd31199b61dbe3e38e13a99945f2cf1e44ed140ff27c8273d468038_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd5639918c2cfe24077a4501afc677f69b9746646aba17e3d9245d2eae0d5b2b2c63e873752374706a3c89c0abf7b8514d0a066da5acac895eeb4cfd07183058b9b0b4c2eccb8f87481c6b1b7602fcf2d93dd39,https://mycliplister.com/vx/157815/1a18c19c98a8a90f9654761c51a2011fc29c91d05d70b98aa8abe8940ce1041d68653ab2b16e5e815fbf14ae751507a2fd55047e1f9d5c83ee96d5ec767cd17d9_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd5639918c2cfe24077a4501afc677f69b9746646aba17e3d9245d2eae0d5b2b2c63e873752374706a3c89c0abf7b8514d0a066da5acac895eeb4cfd07183058b9b0b4c2eccb8f87481c6b1b7602fcf2d93dd39,https://mycliplister.com/vx/157815/1a18c19c98a8a90f9654761c51a2011fc29c91d05d70b98aa8abe8940ce1041d67f576a84db2376dadfe35368462120314dd03a4cc8db691879bffaa7dc16694a_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd5639918c2cfe24077a4501afc677f69b9746646aba17e3d9245d2eae0d5b2b2c63e873752374706a3c89c0abf7b8514d0a066da5acac895eeb4cfd07183058b9b0b4c2eccb8f87481c6b1b7602fcf2d93dd39
+                xpath: /html/body/div[10]
+            name:
+              - text: ORAL-B OrthoCare 3er Aufsteckbürsten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            secondaryImageTotal:
+              - text: "3"
+                xpath: /html/body/div[7]
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+            productOtherInformation:
+              - text: Produkttyp
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+              - text: Aufsteckbürsten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+              - text: Passend für
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+              - text: Passend für alle routierende Oral-B Zahnbürsten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+              - text: Besondere Merkmale
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]
+              - text: Oral-B - die Zahnbürstenmarke, die Zahnärzte weltweit am häufigsten selbst
+                  verwenden
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+              - text: Breite
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+              - text: 18 mm
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+              - text: Höhe
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+              - text: 220 mm
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+              - text: Tiefe
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[1]
+              - text: 60 mm
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+              - text: Farbe
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[1]
+              - text: Weiß
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+              - text: Produkttyp
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[1]
+              - text: Aufsteckbürsten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[2]
+              - text: Passend für
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[2]/td[1]
+              - text: Passend für alle routierende Oral-B Zahnbürsten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[2]/td[2]
+              - text: Besondere Merkmale
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[3]/td[1]
+              - text: Oral-B - die Zahnbürstenmarke, die Zahnärzte weltweit am häufigsten selbst
+                  verwenden
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[3]/td[2]
+              - text: Breite
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[4]/td[1]
+              - text: 18 mm
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[4]/td[2]
+              - text: Höhe
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[5]/td[1]
+              - text: 220 mm
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[5]/td[2]
+              - text: Tiefe
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[6]/td[1]
+              - text: 60 mm
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[6]/td[2]
+              - text: Farbe
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[7]/td[1]
+              - text: Weiß
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[7]/td[2]
+              - text: Gewicht
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[8]/td[1]
+              - text: 31 g
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[8]/td[2]
+              - text: Lieferumfang
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[9]/td[1]
+              - text: 3 Ortho Care Essentials Aufsteckbürsten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[9]/td[2]
+              - text: Packmaße (BxHxT) (cm)
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[10]/td[1]
+              - text: 1.8 x 22 x 6 cm
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[10]/td[2]
+              - text: Verkaufsmenge
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[11]/td[1]
+              - text: 3 Stück
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[11]/td[2]
+            packaging:
+              - text: 3 Ortho Care Essentials Aufsteckbürsten
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[9]/td[2]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[1]/div[2]/footer[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[2]/text()[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[1]/@class
+            technicalInformationPdfPresent:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            specifications:
+              - text: Packmaße (BxHxT) (cm)1.8 x 22 x 6 cm Breite18 mm Höhe220 mm Tiefe60 mm
+                  Gewicht31 g
+        xpath: /
+    timestamp: 1606467570264
