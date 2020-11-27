@@ -72,5 +72,10 @@ module.exports = {
     if (customerServiceAvailability && customerServiceAvailability[0].text !== 'No') {
       customerServiceAvailability[0].text = 'Yes';
     }
+
+    const rpcNumber = dataRef[0].group[0].variantId;
+    if (rpcNumber) {
+      rpcNumber[0].text = rpcNumber[0].text.match(/("sku":)"(.*?)"/)[2];
+    }
   },
 };

@@ -2,7 +2,7 @@ input:
   id: APAPCRBC130
   _url: http://bhphotovideo.com
 extractions:
-  - html: https://workbench.import.io/html/run=c0e65966-6e81-4c13-9129-ca491b664855/task=d913c51d-cedf-477c-a066-5483db949115/a3b9c718-6909-4e5e-8036-deba1450eb0c.html
+  - html: https://workbench.import.io/html/run=89466931-62a1-4b7c-9f23-e39febf820de/task=9843a080-c79e-4e88-a2db-c46d25af320c/777a146c-9cdf-4933-98ea-b38d47ee42de.html
     extractionConfigId: product/details/stores/b/bhphotovideo/US/extract
     data:
       - group:
@@ -66,11 +66,11 @@ extractions:
               - text: "731304285168"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[2]/div[2]/div[1]
             sku:
-              - text: "1026833"
-                xpath: /html/head[1]/meta[11]/@content
+              - text: APAPCRBC130
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/script[1]
             variantId:
-              - text: "1026833"
-                xpath: /html/head[1]/meta[11]/@content
+              - text: APAPCRBC130
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/script[1]
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/span[1]/div[1]/a[1]/span[2]
@@ -115,7 +115,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/aside[1]/div[1]/div[1]/ul[1]/li[3]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[5]/section[1]/div[1]
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[4]/section[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -131,4 +131,4 @@ extractions:
             variantInformation:
               - text: "0"
         xpath: /
-    timestamp: 1605192050652
+    timestamp: 1606471386178
