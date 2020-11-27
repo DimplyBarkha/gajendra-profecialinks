@@ -46,6 +46,15 @@ async function implementation (
   });
 
   await context.evaluate(async () => {
+    // add sku attribute
+    var sku = document.querySelectorAll('script[type="application/ld+json"]');
+    for ( let i = 0; i < sku.length; i++) {
+      console.log(sku[i].innerText.split('sku'));
+      // ('(\"sku\":)\"(.*?)\"');
+    };
+  });
+
+  await context.evaluate(async () => {
     for (let i = 0; i <= document.body.scrollHeight; i = i + 500) {
       window.scroll(0, i);
       await new Promise((resolve) => setTimeout(resolve, 1000));
