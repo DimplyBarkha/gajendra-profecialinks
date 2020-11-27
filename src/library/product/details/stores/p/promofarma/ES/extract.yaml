@@ -22,7 +22,7 @@ fields:
 - name: price
   singlevalue: true
   type: CURRENCY
-  xpath: (//span[@id="price"])[1]
+  xpath: (//section[@id="productSheetCont"]//span[@id="price"])[1]
 - name: availabilityText
   singleValue: true
   xpath: //div[@itemprop="offers"]/meta[@itemprop="availability"]/@content
@@ -48,6 +48,9 @@ fields:
 - name: sku
   singleValue: true
   xpath: //meta[@itemprop="sku"]/@content
+- name: video
+  singleValue: true
+  xpath: //div[@id='description']/div[@id='wrapper-description']/div[@id='content-video']/iframe/@src
 - name: variantId
   singleValue: true
   xpath: //div[@id="main"]/section/@data-product-id

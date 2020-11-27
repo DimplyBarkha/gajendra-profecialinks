@@ -10,6 +10,9 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
+      // @ts-ignore
+      document.querySelector('div[class="text-center"]>button').click()
+      await new Promise(r => setTimeout(r, 6000));
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
