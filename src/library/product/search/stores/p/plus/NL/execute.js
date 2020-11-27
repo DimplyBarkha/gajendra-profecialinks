@@ -63,9 +63,9 @@ async function implementation(
 
         const products = document.evaluate('//li[@class="ish-productList-item"]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const productsCount = products.snapshotLength;
-        scrollTop += 1000;
+        scrollTop += 3000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000 || productsCount > 160) {
+        if (scrollTop >= 80000 || productsCount > 160) {
           await stall(10000);
           break;
         }
