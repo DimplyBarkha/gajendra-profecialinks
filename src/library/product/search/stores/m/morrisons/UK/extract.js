@@ -35,7 +35,13 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
   });
 
-  return await context.extract(productDetails, { transform });
+  var dataRef = await context.extract(productDetails, { transform });
+
+  if (dataRef[0].group.length > 150) {
+    dataRef[0].group = dataRef[0].group.slice(0, 150);
+  }
+
+  return dataRef;
 }
 
 module.exports = {
