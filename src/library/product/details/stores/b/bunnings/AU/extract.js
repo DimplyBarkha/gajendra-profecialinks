@@ -1,11 +1,11 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/extract',
   parameterValues: {
-    domain: 'bunnings.com.au',
-    timeout: '100000',
     country: 'AU',
     store: 'bunnings',
+    transform: null,
+    domain: 'bunnings.com.au',
     zipcode: '',
   },
 };

@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'bunnings.com.au',
-    timeout: '100000',
+    prefix: null,
+    url: null,
     country: 'AU',
     store: 'bunnings',
     zipcode: '',
