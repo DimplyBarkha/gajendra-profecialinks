@@ -7,6 +7,8 @@ fields:
   xpath: //h4[contains(@class,'productCard__title')]
 - name: productUrl
   xpath: //a[contains(@class,'imgWrapper')]/@href
+  regExp: (.+)
+  regExpReplace: https://www.rohlik.cz$1
 - name: thumbnail
   xpath: //img[contains(@class,'productCard__img')]/@src
 - name: price

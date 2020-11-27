@@ -7,10 +7,14 @@ module.exports = {
         store: 'rohlik',
         zipcode: '',
     },
-    implementation: async(inputs, parameterValues, context, dependencies) => {
-        const url = `${inputs.url}`;
-        await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
-        await context.waitForSelector(('a[class*="imgWrapper"]'), { timeout: 100000 });
-        await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    implementation: async({ url }, parameters, context, dependencies) => {
+        await context.goto(url, {
+            first_request_timeout: 60000,
+            block_ads: false,
+            load_all_resources: true,
+            images_enabled: true,
+            timeout: 200000,
+            waitUntil: 'load',
+        });
     },
 };
