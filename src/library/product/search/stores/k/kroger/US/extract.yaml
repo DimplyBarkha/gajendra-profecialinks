@@ -20,15 +20,7 @@ fields:
     description: The brand name
     example: Panasonic
   - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
-    xpath: //nav[@aria-labelledby="breadcrumb-heading"]//li[position()=last()]//span
+    xpath: ancestor::html//nav[@aria-labelledby="breadcrumb-heading"]//li[position()=last()]//span
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
