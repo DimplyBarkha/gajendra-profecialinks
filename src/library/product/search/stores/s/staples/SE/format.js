@@ -27,7 +27,7 @@ const transform = (data) => {
       for (let row of group) { 
         if(row.productUrl){
             row.productUrl.forEach(item=>{
-                item.text="https://www.jpg.fr"+item.text;
+                item.text="https://www.staples.se"+item.text;
             })
         } 
         if(row.thumbnail){
