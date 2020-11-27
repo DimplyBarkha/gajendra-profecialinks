@@ -131,7 +131,7 @@ fields:
 - name: shippingWeight
   singleValue: true
   description: Stated shipping weight
-  xpath: //li[contains(., 'Produktgewicht')]
+  xpath: (//li[contains(., 'Produktgewicht')])[1]
   regExp: '[^t]*$'
 - name: variantCount
   singleValue: true
