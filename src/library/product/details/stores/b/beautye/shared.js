@@ -100,6 +100,21 @@ const transform = (data) => {
           },
         ];
       }
+      if(row.alternateImages) {
+        const imgs = row.image && row.image[0].text.split("/");
+        console.log("imgs:: ", imgs);
+        let url = "";
+        row.alternateImages.forEach(item => {
+          const altArr =  item.text.split("/");
+          console.log("arr:: ", altArr);
+          altArr[8] = imgs[8];
+          console.log("arr afterr:: ", altArr);
+          url = altArr.join("/");
+          item.text = url;
+        });
+
+      }
+      
     }
   }
   return data;
