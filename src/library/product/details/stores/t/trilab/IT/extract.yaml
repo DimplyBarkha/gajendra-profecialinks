@@ -1,0 +1,75 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@class='fotorama__stage__shaft']//div[contains(@class,'fotorama__active')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='fotorama__stage__shaft']//div[contains(@class,'fotorama__active')]//img/@alt
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='items']//li[not(contains(@class,'home'))]//a
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="page-title"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="page-title"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //form[@id='product_addtocart_form']//div[contains(@class,'box-tocart')]//button//span[text()='Aggiungi al carrello']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-info-price']//div[contains(@class,'price-box')]//span[@data-price-type="finalPrice"]//span[@class="price"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='product-info-price']//div[contains(@class,'price-box')]//span[@data-price-type="oldPrice"]//span[@class="price"]
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'description-label-container') or contains(@class,'attribute description')]
+  - name: brandText
+    singleValue: false
+    xpath: //table[@id="product-attribute-specs-table"]//th[text()='Marca']//following-sibling::td
+  - name: eangtin
+    singleValue: false
+    xpath: //table[@id="product-attribute-specs-table"]//th[text()='EAN']//following-sibling::td
+  - name: sku
+    singleValue: false
+    xpath: //div[@itemprop="sku"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@itemprop="sku"]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='media-discount-label-container']//span[@class="discount-label"]
+  - name: specifications
+    singleValue: false
+    xpath: //table[@id="product-attribute-specs-table"]//tr
+  - name: ratingCount
+    singleValue: false
+    # Get it from script JSON
+    xpath: //script[contains(text(),'AggregateRating')]
+    #"reviewCount":"5"
+    regExp: \"reviewCount\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    # Get it from script JSON
+    xpath: //script[contains(text(),'AggregateRating')]
+    #"ratingValue":"5.0"
+    regExp: \"ratingValue\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  
