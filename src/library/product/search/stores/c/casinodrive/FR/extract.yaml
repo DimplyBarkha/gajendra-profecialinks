@@ -52,8 +52,6 @@ fields:
     singleValue: false
     description: The offered price for the product
     xpath: //div[@class="inner"]//div[@itemprop="price"]
-    regExp: P-([0-9]+)
-    regExpReplace: $1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
