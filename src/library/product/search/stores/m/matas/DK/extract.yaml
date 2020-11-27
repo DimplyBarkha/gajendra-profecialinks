@@ -1,8 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields:
+recordXPath: //div[@class="productlist__item col-xs-6 col-md-4 col-lg-3 col-xl-3"]
+fields: 
   - name: id
     singleValue: false
     xpath: //label[@class="product-item__favourite "]/@data-js-modal-url
@@ -38,7 +38,7 @@ fields:
   #   singleValue: false
   - name: price
     singleValue: false
-    type: CURRENCY
+    # type: CURRENCY
     xpath: //div[@class='productlist__products']//span[@class='nowrap']
     # //div[@class='productlist__products']//div[@class='product-item__price']
   - name: manufacturer
