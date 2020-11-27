@@ -42,7 +42,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //h3[contains(text(),"Product Description")]/following-sibling::h2/text() | //h3[contains(text(),"Product Description")]/../text()
+    xpath: //h3[contains(text(),"Product Description")]/following-sibling::h2/text() | //h3[contains(text(),"Product Description")]/../text() | //span[@itemprop="description"]/ul/li | //ul[@class="product-attribute-list"]/li
     # xpath: //h3[contains(text(),"Product Description")]//..//text()
   - name: descriptionBullets
     singleValue: false
