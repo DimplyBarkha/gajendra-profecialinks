@@ -11,6 +11,8 @@ fields:
     xpath: //@name
   - name: alternateImages
     xpath: //@alternateimages
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class,"Thumbnails__InnerWrapper")]//div[contains(@class,"Shared__CarouselItem")][position()>1])
   - name: metaKeywords
   - name: category
     xpath: ancestor::html//ul[contains(@class,"Breadcrumbsstyled__BreadcrumbContainer")]//li[position()>1]//a
