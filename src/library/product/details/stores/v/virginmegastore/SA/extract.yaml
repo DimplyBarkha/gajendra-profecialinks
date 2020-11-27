@@ -96,7 +96,7 @@ fields:
     xpath: //h1[@class="name"]
   - name: specifications
     singleValue: false
-    xpath: //p[@class="longDesc"]/strong[contains(text(),'المواصفات')]/following-sibling::text()[preceding-sibling::strong[1][contains(text(),'المواصفات')]]
+    xpath: //div[@class='product-classifications']/table | //p[@class="longDesc"]/strong[contains(text(),'المواصفات')]/following-sibling::text()[preceding-sibling::strong[1][contains(text(),'المواصفات')]]
   - name: termsAndConditions
     singleValue: false
     defaultValue: No
