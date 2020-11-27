@@ -1,0 +1,50 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: '//div[contains(@class,"category__products")]//div[contains(@class, "grid__content")]'
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: true
+    description: The brand name
+    xpath: //div[@itemprop="brand"]
+  - name: category
+  - name: productUrl
+    xpath: //div[contains(@class,"title")]/a/@href
+    regExp: ^(.*)
+    regExpReplace: https://www.rossmann.de$1
+  - name: thumbnail
+    xpath: //picture/img/@data-src
+    regExp: (.*)\?(.*)
+    regExpReplace: $1
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@itemprop="name"]
+  - name: sku
+    xpath: //div[contains(@class,"category__products")]//div[contains(@class, "grid__content")]/div/a/@data-product-id
+  - name: mpc
+  - name: gtin
+  - name: aggregateRatingText 
+  - name: ratingCount
+  - name: reviewCount
+    xpath: //span[contains(@class, "rating__note")]
+    regExp: \d+
+  - name: price
+    xpath: //div[@itemprop="price"]/@content | //span[@itemprop="priceCurrency"]
+  - name: listPrice
+    xpath: //span[contains(@class,"price__strikethrough")]
+  - name: manufacturer
+  - name: soldBy
+  - name: endorsementText
+    xpath: //div[contains(@class,"badges")]/span[2]
+  - name: shippingInfo
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+  - name: id
+    xpath: //div[contains(@class,"category__products")]//div[contains(@class, "grid__content")]/div/a/@data-product-id
+  - name: aggregateRating
