@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    // loadedSelector: '.content-area.main-content',
+    loadedSelector: null,
     noResultsXPath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
