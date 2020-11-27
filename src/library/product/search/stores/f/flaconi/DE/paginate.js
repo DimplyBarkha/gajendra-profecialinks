@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'flaconi',
-    nextLinkSelector: 'body > div.wrapper.off-canvas-wrap > div.inner-wrap.row-collapse > div > div.content > div > div > div.toolbar.row > div > div > div:nth-child(3) > a',
+    nextLinkSelector: null,
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
@@ -13,9 +13,9 @@ module.exports = {
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
-    // openSearchDefinition: {
-    //   template: 'https://www.flaconi.de/search/?q={searchTerms}&page={page}',
-    //   },
+    openSearchDefinition: {
+      template: 'https://www.flaconi.de/search/?q={searchTerms}&page={page}',
+      },
     domain: 'flaconi.de',
     zipcode: '',
   },
