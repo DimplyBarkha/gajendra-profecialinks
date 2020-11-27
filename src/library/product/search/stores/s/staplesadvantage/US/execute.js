@@ -35,7 +35,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const isPopupPresent = await context.evaluate(async () => {
     return document.querySelector('div.truste_box_overlay');
   });
-  // when the popup is present it returns undefined, when not - null
+    // when the popup is present it returns undefined, when not - null
   if (isPopupPresent !== null) {
     await context.evaluate(() => {
       document.querySelector('div.truste_box_overlay').remove();
@@ -48,7 +48,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     const currentUrl = window.location.href;
     return !currentUrl.includes('idm');
   });
-  // when the user is not logged in, the extractor fills out the form
+    // when the user is not logged in, the extractor fills out the form
   if (!isUserLogged) {
     // filling in the inputs only works after clicking them first
     await context.click('input#accountNumber');
