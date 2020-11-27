@@ -23,17 +23,17 @@ const transform = (data) => {
     for (const row of group) {
       if (row.price) {
         row.price.forEach((priceItem) => {
-          priceItem.text = priceItem.text.replace('/pc.', '').replace(',', '.');
+          priceItem.text = priceItem.text.replace('/pc.', '').replace('/st', '').replace(',', '.').replace('€', '').trim();
         });
       }
       if (row.ingredientsList) {
         row.ingredientsList.forEach((ingredientsListItem) => {
-          ingredientsListItem.text = ingredientsListItem.text.replace('Ingrédients Ingrédients:', '');
+          ingredientsListItem.text = ingredientsListItem.text.replace('Ingrediënten Ingrediënten:', '');
         });
       }
       if (row.servingSize) {
         row.servingSize.forEach((servingSizeItem) => {
-          servingSizeItem.text = servingSizeItem.text.replace('Valeur nutritive moyenne par', '') | servingSizeItem.text.replace('Quantité moyenne de minéraux par 100g/', '');
+          servingSizeItem.text = servingSizeItem.text.replace('Gemiddelde voedingswaarde per', '');
         });
       }
       if (row.sku) {

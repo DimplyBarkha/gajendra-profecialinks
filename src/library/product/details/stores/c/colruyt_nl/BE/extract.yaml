@@ -22,7 +22,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    xpath: concat(//h1[contains(@class,"product__name")]/text() ,' ', //div[contains(@class,"product__description")]/text())
+    xpath: //h1[contains(@class,"product__name")]/text()
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -44,7 +44,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //p[contains(@class,"product__details")]
+    xpath: //p[contains(@class,"product__info")]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -490,6 +490,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  - name: variantCount
-    singleValue: false
-    defaultValue: '0'
+  
