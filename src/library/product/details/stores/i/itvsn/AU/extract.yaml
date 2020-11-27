@@ -116,6 +116,10 @@ fields:
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
+- name: aggregateRating
+  singleValue: true   
+  description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@class="col-sm-6 tvsn-products-reviews-avg"]//div//strong
 - name: aggregateRating2
   singleValue: true   
   description: The stated aggregate rating normalized to be out of 5
