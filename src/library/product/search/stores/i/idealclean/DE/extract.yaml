@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    type: URL
+    xpath: //div[@class='ProductCard_productDescription__3l4j5']/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.idealclean.de$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@class='ProductCard_imageHolder__hJKKy']/img/@src
+  - name: name
+    singleValue: true
+    type: TEXT
+    xpath: //div[@class='ProductCard_productDescription__3l4j5']//span[@class='ant-typography LYSTypography_h4__Tirm_ ProductCard_productName__1avVW']//text()
+  - name: id
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@class='ProductCard_productDescription__3l4j5']/span[@class='ant-typography ant-typography-secondary'][2]/font[3]/font//text()
+  - name: aggregateRating2
+    singleValue: true
+    xpath: //div[@class="ts-reviewSummary-averageRating"]/span[@class="ts-reviewSummary-ratingValue"]/text()
+  - name: ratingCount
+    singleValue: true
+    type: NUMBER
+    xpath: //span[@class="ts-stars-reviewCount"]/text()
+  - name: price
+    description: The offered price for the product
+    type: CURRENCY
+    xpath: //div[@class='ProductPrice_mainPriceHolder__250xx']//text()
+  - name: manufacturer
+    type: TEXT
+    xpath: //div[@class='ProductCard_brandImage__yA3fy']/img/@alt
