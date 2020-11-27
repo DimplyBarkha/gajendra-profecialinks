@@ -3,13 +3,18 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: product_url
+    description: URL of the main product 
+    type: URL
+    xpath: //link[@rel='canonical']/@href
   - name: product_image
     description: URL of the main product image
-    xpath: //div[@class='product-image-details']//img/@src
+    xpath: //div[@class='product-image-details']/picture/img/@src
   - name: imageAlt
     singleValue: true
+    type: TEXT
     description: Alt text of the main product image
-    xpath: //picture[@class='img-responsive center-block']/img/@alt
+    xpath: //div[@class='product-image-details']/picture/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -18,6 +23,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
+    type: TEXT[]
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[@class="sub-nav breadcrumbs pdpCrumbs col-12 col-sm-12 col-md-12 col-lg-12"]/ul/li[position()>1 and position()<5]
   - name: nameExtended
@@ -26,41 +32,40 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: list_price
     singleValue: true
-    type: CURRENCY
     description: The stated undiscounted price for the product
-    xpath: (//div[@class='product-prices-wrapper']/del//text())[2]
   - name: online_price
     singleValue: true
-    type: CURRENCY
     description: The offered price for the selected product variant
-    xpath: //div[@class='product-content']/div[@class='product-prices-wrapper']/span/text()
+    manualSelector: script[type='application/ld+json']
+    regExp: '(\"price\"\: ")([^["]+)'
+    regExpReplace: $2
+  - name: online_price_currency
+    description: The offered price for the selected product variant
+    manualSelector: script[type='application/ld+json']
+    regExp: '(\"priceCurrency\"\: ")([^["]+)'
+    regExpReplace: $2
   - name: availability
     singleValue: true
-    type: TEXT
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     manualSelector: script[type='application/ld+json']
-    regExp: '(\"availability\"\:\")(\w+)'
+    regExp: '(\"availability\"\:\ ")(\w+)'
     regExpReplace: $2
   - name: Additional_description
-    singleValue: False
     type: TEXT[]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='details']//div[@class='content-detail']//div//text()
-    # xpath: (//div[@id='details']//div[@class='content-detail']//div//text())[1]||((//div[@id='details']//div[@class='content-detail']//div//text())[3])
+    xpath: //div[contains(@class,'content-detail')]/div//text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brand
     singleValue: true
-    type: TEXT
     description: Product brand shown - this may actually NOT be just a brand name
     xpath: //div//h1[@class='modal-heading']//text()
-    regExp: '(^(?:\S+\s+\n?){1,2})'
-    regExpReplace: $1
+    regExp: '^(?:\S+\s+\n?){1,2}'
   - name: manufacturer
     singleValue: true
     type: TEXT
@@ -82,11 +87,11 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class='container-fluid product-details-wrapper']/@data-bpn
-  - name: rpc
+    xpath: //div[@class='product-content']//product-detail//@data-product-id
+  - name: retailer_product_code
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class='container-fluid product-details-wrapper']/@data-bpn
+    xpath: //div[@class='product-content']//product-detail//@data-product-id
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -96,6 +101,8 @@ fields:
   - name: pack_size
     singleValue: true
     description: The number of packs in the product offer
+    xpath: //div[@class='product-heading']/h1//text()
+    regExp: '[^-]*$'
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -131,6 +138,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultvalue: false
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -149,11 +157,13 @@ fields:
   - name: product_description
     singleValue: true
     description: The product name
-    xpath: //div[@class='product-content']//product-detail/@data-product-name
+    manualSelector: script[type='application/ld+json']
+    regExp: '(\"description\"\: ")([^["]+)'
+    regExpReplace: $2
   - name: harvested_product_description
     singleValue: true
     description: The product name
-    xpath: //div[@class='product-content']//product-detail/@data-product-name
+    # xpath: //div[@class='product-content']//product-detail/@data-product
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -261,11 +271,10 @@ fields:
     xpath: //div[@id='ingredients']//div/following-sibling::div//text()
   - name: servingSize
     singleValue: true
-    type: TEXT
     description: The size of serving Nutritional information is based on.
     xpath: (//div[@id='ingredients']//tr//td)[1]//span[1]
     # xpath: (//div[@id='ingredients']//tr//td)[1]//text()
-    regExp: ':(.*)'
+    regExp: '(\d+)'
     regExpReplace: $1
   - name: servingSizeUom
     singleValue: true
@@ -279,10 +288,9 @@ fields:
     type: TEXT
     xpath: //div[@id='ingredients']//tr//td//span[2]
     regExp: ':(.*)'
-    # regExpReplace: $1
+    regExpReplace: $1
   - name: caloriesPerServing
     singleValue: true
-    type: TEXT
     description: Nutritional Information for Calories Per Serving content - Usually
      based on per 100g serving
     xpath: (//td[@class='table-ingredients-text']//text())[2]
@@ -517,7 +525,7 @@ fields:
     type: CURRENCY
     description: Price of the product split into certain units
     xpath: //div[@class='product-quantity']/span[1]//text()
-    regExp: (.\d+\.*\d+)
+    regExp: '.\d+\.*\d+'
   - name: pricePerUnitUom
     singleValue: true
     type: TEXT
