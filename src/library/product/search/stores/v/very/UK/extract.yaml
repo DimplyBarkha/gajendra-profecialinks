@@ -11,7 +11,7 @@ fields:
     xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
-    xpath: //span[@class="productBrandDesc"]
+    xpath: //li[@class="product"]//a[@class="productTitle"]/h3
   - name: productUrl
     singleValue: false
     xpath: //a[@class="productTitle"]/@href
@@ -36,7 +36,7 @@ fields:
     singleValue: false
     xpath: //a[@class="productPrice"]/@price
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //em[@class="productBrand"]
   - name: soldBy
     singleValue: true
