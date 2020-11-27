@@ -62,7 +62,7 @@ const transform = (data, context) => {
           item.text = String(item.text).replace(/\,/g,''); 
           var rating = parseInt(item.text);
           item.text  = rating*5/100;
-          item.text = parseFloat(item.text);      
+          item.text = item.text.toString();      
         });        
       }
     }
