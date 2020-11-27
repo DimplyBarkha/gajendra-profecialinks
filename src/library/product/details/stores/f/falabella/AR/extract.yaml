@@ -94,3 +94,9 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //table[contains(@class,'specification-table')]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'fb-product-information__product-information-tab')]//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'fb-product-information__product-information-tab')]

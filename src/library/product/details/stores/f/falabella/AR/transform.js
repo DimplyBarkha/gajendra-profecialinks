@@ -29,6 +29,11 @@ const transform = (data) => {
       //     item.text = item.text.replace(/(\s?\n)+/g, ' | ').trim();
       //   });
       // }
+      if (row.videos) {
+        row.videos.forEach(item => {
+          item.text = item.text.indexOf('https:') === -1 ? ("https:" + item.text) : item.text;
+        });
+      }
       if (row.specifications) {
         row.specifications.forEach(item => {
           const specs = item.text.trim().split('\n');

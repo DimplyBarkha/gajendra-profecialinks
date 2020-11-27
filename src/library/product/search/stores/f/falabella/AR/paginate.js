@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'AR',
     store: 'falabella',
-    nextLinkSelector: 'div.arrow right',
-    mutationSelector: "//div[contains(@class,'search-results--actionbar')and not(contains(@class,'bottom'))]//div[contains(@class,'pagination')]/ol",
+    nextLinkSelector: 'button#testId-pagination-top-arrow-right',
+    mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: "//div[contains(@class,'no-result')]",
