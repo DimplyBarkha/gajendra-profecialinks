@@ -86,6 +86,7 @@ fields:
     regExp: \"productId":(\d+)
     regExpReplace: $1 
   - name: category
+    xpath: ancestor::html//head/@category
   - name: pageTimestamp 
     singleValue: false
     xpath:   
