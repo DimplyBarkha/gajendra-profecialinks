@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'morrisons',
     domain: 'groceries.morrisons.com',
-    url: 'https://groceries.morrisons.com/search?entry={searchTerms}',
+    url: 'https://groceries.morrisons.com/search?display=150&entry={searchTerms}',
     loadedSelector: 'ul[class="fops fops-regular fops-shelf"]',
     noResultsXPath: '//div[@class="nf-resourceNotFound"]',
     zipcode: '',

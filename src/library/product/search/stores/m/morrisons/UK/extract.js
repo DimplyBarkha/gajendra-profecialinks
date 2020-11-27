@@ -14,17 +14,6 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
     }
 
-    while (
-      document.querySelector('button[class="btn-primary show-more"]') !== null
-    ) {
-      document.querySelector('button[class="btn-primary show-more"]').click();
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, 2000);
-      });
-    }
-
     var prodContainer = document.querySelectorAll(
       'li[class="fops-item fops-item--cluster"]',
     );
@@ -35,6 +24,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     var rawNumber = document.querySelector('div[class="total-product-number"]').textContent;
     const regex = /\d+/gm;
     var match = parseInt(rawNumber.match(regex)[0]);
+    if (match > 150) match = 150;
 
     let scrollTop = 0;
     const scrollLimit = match * 40;
