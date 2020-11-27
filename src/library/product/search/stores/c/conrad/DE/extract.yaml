@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="resultsList"]//div[contains(@class,"tableLayout__wrapper")]//table[@class="tableLayout__table"]//tr
 fields:
   - name: name
     xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//a[@class="product__title"]
@@ -24,7 +24,7 @@ fields:
   - name: soldBy
     xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//div[@class="product__sellerWrapper"]
     singleValue: false
-  - name: aggregateRating
+  - name: aggregateRating2
     xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//div[@class="product__ratingWrapper"]//div[@class="product__ratingBase"]/@title | //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td//div[@class="product__ratingWrapper"]//div[@class="product__ratingBase"]/@tabindex
     singleValue: false
   - name: reviewCount
@@ -32,3 +32,6 @@ fields:
     regExp: (\d)
     regExpReplace: $1
     singleValue: false
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]

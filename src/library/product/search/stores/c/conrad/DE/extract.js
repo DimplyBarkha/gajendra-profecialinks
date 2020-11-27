@@ -10,14 +10,27 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  const policyAcceptPopup = await context.evaluate(function () {
+    return !!document.evaluate('//div[@class="cmsCookieNotification__button cmsCookieNotification__button--accept"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+  });
+  if (policyAcceptPopup) {
+    await context.click('.cmsCookieNotification__button--accept');
+  }
+
+  const policyAcceptPopup1 = await context.evaluate(function () {
+    return !!document.evaluate('//li[@class="cmsHeaderMain__item cmsHeaderMain__item--settings"]//div[@class="cmsHeaderIdentificationPopup cmsHeaderIdentificationPopup--flyout div cmsIdentificationPopup__buttons"] //div[@class="cmsIdentificationPopup__button cmsIdentificationPopup__button__b2c"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+  });
+  if (policyAcceptPopup1) {
+    await context.click('li.cmsHeaderMain__item.cmsHeaderMain__item--settings div.cmsHeaderIdentificationPopup.cmsHeaderIdentificationPopup--flyout div.cmsIdentificationPopup__buttons div.cmsIdentificationPopup__button.cmsIdentificationPopup__button__b2c');
+  }
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
+      while (scrollTop !== 10000) {
         await stall(1000);
-        scrollTop += 1000;
+        scrollTop += 500;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
+        if (scrollTop === 10000) {
           await stall(5000);
           break;
         }
@@ -31,6 +44,24 @@ async function implementation (
       }
     });
   };
+  await applyScroll(context);
+  await context.evaluate(async function () {
+    const URL = window.location.href;
+    function addHiddenDiv (id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('tr.contentRow')[index];
+      originalDiv.appendChild(newDiv);
+      console.log('child appended ' + index);
+    }
+    const product = document.querySelectorAll('tr.contentRow');
+    // select query selector and loop and add div
+    for (let i = 0; i < product.length; i++) {
+      addHiddenDiv('page_url', URL, i);
+    }
+  });
   await applyScroll(context);
   return await context.extract(productDetails, { transform });
 }
