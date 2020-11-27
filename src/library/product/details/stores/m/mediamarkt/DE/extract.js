@@ -11,74 +11,6 @@ module.exports = {
   },
   // @ts-ignore
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
-    const popUpsButton = await context.evaluate(async function () {
-      return !!document.querySelector('button#privacy-layer-accept-all-button');
-    });
-
-    const popUps = async function () {
-      await context.evaluate(async function () {
-        if (document.querySelector('button#privacy-layer-accept-all-button')) {
-          // @ts-ignore
-          document.querySelector('button#privacy-layer-accept-all-button').click();
-        }
-      });
-    };
-
-    try {
-      await context.waitForSelector('button#privacy-layer-accept-all-button', { timout: 5000 });
-    } catch (error) {
-      console.log('No pop-ups!');
-    }
-
-    if (popUpsButton) {
-      await context.click('button#privacy-layer-accept-all-button');
-    }
-
-    popUps();
-
-    const manufDescButton = await context.evaluate(async function () {
-      return !!document.querySelector('div[class^="RichProductDescription"] button');
-    });
-
-    const expandDetailsButton = await context.evaluate(async function () {
-      return !!document.querySelector('div[class^="ProductFeatures"] button[class*="ExpandLink"]');
-    });
-
-    if (expandDetailsButton) {
-      await context.click('div[class^="ProductFeatures"] button[class*="ExpandLink"]');
-      await context.evaluate(async function () {
-        if (document.querySelector('div[class^="ProductFeatures"] button[class*="ExpandLink"]') && !(document.querySelector('div[class^="ProductFeatures"] button[class*="ExpandLink"]').textContent.includes('Details ausblenden'))) {
-          // @ts-ignore
-          document.querySelector('div[class^="ProductFeatures"] button[class*="ExpandLink"]').click();
-        }
-      });
-    }
-
-    let manufacturerObj;
-    if (manufDescButton) {
-      try {
-        await context.click('div[class^="RichProductDescription"] button');
-        await context.waitForSelector('div.inpage_features,div.flix-features-columns', { timeout: 10000 });
-        manufacturerObj = await context.evaluate(async function () {
-          const result = {};
-          // @ts-ignore
-          const desc = [...document.querySelectorAll('div.inpage_features > ul > li')].map(el => el.innerText).filter(el => !!el);
-          // @ts-ignore
-          const additionalDesc = [...document.querySelectorAll('div.flix-features-columns div.flix-std-content')].map(el => el.innerText).filter(el => !!el);
-          // @ts-ignore
-          const images = [...document.querySelectorAll('div.flix-features-columns img')].map(el => {
-            const imagePath = el.getAttribute('data-srcset');
-            if (imagePath) return imagePath.includes('https:') ? el.getAttribute('data-srcset') : 'https:' + el.getAttribute('data-srcset');
-          }).filter(el => !!el);
-          result.images = images;
-          result.description = [...desc, ...additionalDesc].map(el => el.replace(/^\s+$/, '')).filter(el => !!el);
-          return result;
-        });
-      } catch (err) {
-        console.log('Looks like the website may not have manufacturer content');
-      }
-    }
-
     async function getElementByXpath (xpath) {
       return await context.evaluate((xpath) => {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -87,8 +19,6 @@ module.exports = {
         return text;
       }, xpath);
     }
-
-    const productID = await getElementByXpath('(//span[contains(@class, "DetailsHeader__")]//span)[1]');
 
     async function graphQLCallObj (productID) {
       const obj = await context.evaluate(async function (productID) {
@@ -168,10 +98,114 @@ module.exports = {
       }, productID);
       return obj;
     }
-    // @ts-ignore
+
+    const popUps = async function () {
+      await context.evaluate(async function () {
+        if (document.querySelector('button#privacy-layer-accept-all-button')) {
+          // @ts-ignore
+          document.querySelector('button#privacy-layer-accept-all-button').click();
+        }
+      });
+    };
+
+    // Extract vidoes
+    async function extractVideos () {
+      let result = [];
+      try {
+        const videoElements = await context.evaluate(async function () {
+          return document.querySelectorAll('img[alt="Play Video"]').length;
+        });
+        for (let i = 0; i < videoElements; i++) {
+          // @ts-ignore
+          await context.evaluate(async function (i) {
+            // @ts-ignore
+            await document.querySelectorAll('img[alt="Play Video"]')[i].click();
+          }, i);
+          await new Promise(resolve => setTimeout(resolve, 5000));
+          // @ts-ignore
+          await context.evaluate(async function (i) {
+            // @ts-ignore
+            await document.querySelectorAll('#playButton > div')[i].click();
+          }, i);
+          await context.waitForXPath('//div[@data-test="mms-video-player"]//video/@src', { timeout: 10000 });
+        }
+        result = await context.evaluate(async function () {
+          // @ts-ignore
+          return [...document.querySelectorAll('div[data-test="mms-video-player"] video')].map(el => el.getAttribute('src')).filter(el => !!el);
+        });
+      } catch (e) {
+        console.log(e);
+        console.log('Error extracting videos.');
+      }
+      return result;
+    }
+
+    const popUpsButton = await context.evaluate(async function () {
+      return !!document.querySelector('button#privacy-layer-accept-all-button');
+    });
+
+    try {
+      await context.waitForSelector('button#privacy-layer-accept-all-button', { timeout: 10000 });
+    } catch (error) {
+      console.log('No pop-ups!');
+    }
+
+    if (popUpsButton) {
+      await context.click('button#privacy-layer-accept-all-button');
+    }
+
+    popUps();
+
+    const manufDescButton = await context.evaluate(async function () {
+      return !!document.querySelector('div[class^="RichProductDescription"] button');
+    });
+
+    const expandDetailsButton = await context.evaluate(async function () {
+      return !!document.querySelector('div[class^="ProductFeatures"] button[class*="ExpandLink"]');
+    });
+
+    if (expandDetailsButton) {
+      await context.click('div[class^="ProductFeatures"] button[class*="ExpandLink"]');
+      await context.evaluate(async function () {
+        if (document.querySelector('div[class^="ProductFeatures"] button[class*="ExpandLink"]') && !(document.querySelector('div[class^="ProductFeatures"] button[class*="ExpandLink"]').textContent.includes('Details ausblenden'))) {
+          // @ts-ignore
+          document.querySelector('div[class^="ProductFeatures"] button[class*="ExpandLink"]').click();
+        }
+      });
+    }
+
+    let manufacturerObj;
+    if (manufDescButton) {
+      try {
+        await context.click('div[class^="RichProductDescription"] button');
+        await context.waitForSelector('div.inpage_features,div.flix-features-columns', { timeout: 10000 });
+        manufacturerObj = await context.evaluate(async function () {
+          const result = {};
+          // @ts-ignore
+          const desc = [...document.querySelectorAll('div.inpage_features > ul > li')].map(el => el.innerText).filter(el => !!el);
+          // @ts-ignore
+          const additionalDesc = [...document.querySelectorAll('div.flix-features-columns div.flix-std-content')].map(el => el.innerText).filter(el => !!el);
+          // @ts-ignore
+          const images = [...document.querySelectorAll('div.flix-features-columns img')].map(el => {
+            const imagePath = el.getAttribute('data-srcset');
+            if (imagePath) return imagePath.includes('https:') ? el.getAttribute('data-srcset') : 'https:' + el.getAttribute('data-srcset');
+          }).filter(el => !!el);
+          result.images = images;
+          result.description = [...desc, ...additionalDesc].map(el => el.replace(/^\s+$/, '')).filter(el => !!el);
+          return result;
+        });
+      } catch (err) {
+        console.log('Looks like the website may not have manufacturer content');
+      }
+    }
+
+    const productID = await getElementByXpath('(//span[contains(@class, "DetailsHeader__")]//span)[1]');
+
     const graphQLObj = await graphQLCallObj(productID);
 
-    await context.evaluate(async ({ graphQLObj, manufacturerObj }) => {
+    const videos = await extractVideos();
+
+    await context.evaluate(async ({ graphQLObj, manufacturerObj, videos }) => {
       const addElementToDocument = (key, value) => {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -189,32 +223,6 @@ module.exports = {
         }
       }
 
-      async function extractVideos () {
-        let result = [];
-        try {
-          const videoElements = document.querySelectorAll('img[alt="Play Video"]');
-          for (let i = 0; i < videoElements.length; i++) {
-            // @ts-ignore
-            await document.querySelectorAll('img[alt="Play Video"]')[i].click();
-            await new Promise(resolve => setTimeout(resolve, 2500));
-            // @ts-ignore
-            await document.querySelectorAll('#playButton > div')[i].click();
-            await new Promise(resolve => setTimeout(resolve, 250));
-          }
-          // @ts-ignore
-          result = [...document.querySelectorAll('div[data-test="mms-video-player"] video')].map(el => el.getAttribute('src')).filter(el => !!el);
-          console.log(result);
-          await new Promise(resolve => setTimeout(resolve, 200));
-          // @ts-ignore
-          result = [...document.querySelectorAll('div[data-test="mms-video-player"] video')].map(el => el.getAttribute('src')).filter(el => !!el);
-          console.log(result);
-        } catch (e) {
-          console.log(e);
-          console.log('Error extracting videos.');
-        }
-        return result;
-      }
-
       const data = {};
       // @ts-ignore
       const photos = [...document.querySelectorAll('div > picture > source + img')];
@@ -222,16 +230,19 @@ module.exports = {
       data.imgAlt = photos[0].getAttribute('alt');
       data.alternateImages = photos.slice(1).map(el => el.getAttribute('src'));
       data.secImagesCount = data.alternateImages.length;
-      data.videos = await extractVideos();
       data.url = window.location.href;
+      let allVideos = videos;
       if (graphQLObj) {
         if (graphQLObj.ean) data.ean = graphQLObj.ean;
-        if (graphQLObj.videos) data.videos = [...data.videos, graphQLObj.videos];
+        if (graphQLObj.videos && graphQLObj.videos.length) allVideos = [...videos, ...graphQLObj.videos];
       }
-      if (manufacturerObj.images.length) data.manufacturerImages = manufacturerObj.images;
-      if (manufacturerObj.description.length) data.manufacturerDesc = manufacturerObj.description;
+      data.videos = allVideos.filter(function (i, p) { return allVideos.indexOf(i) === p; });
+      if (manufacturerObj) {
+        if (manufacturerObj.images.length) data.manufacturerImages = manufacturerObj.images;
+        if (manufacturerObj.description.length) data.manufacturerDesc = manufacturerObj.description;
+      }
       appendData(data);
-    }, { graphQLObj, manufacturerObj });
+    }, { graphQLObj, manufacturerObj, videos });
     await context.extract(productDetails, { transform });
   },
 };
