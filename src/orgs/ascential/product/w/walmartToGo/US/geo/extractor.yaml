@@ -3,6 +3,15 @@ parameters:
   country: US
   domain: walmart.com
   store: walmartToGo
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 7
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     development:
