@@ -9,8 +9,8 @@ const transform = (data) => {
       /*  if (!row.image) {
         delete row.availabilityText;
         delete row.descriptionBullets;
-      } */
-      /* if (row.pricePerUnit2) {
+      } 
+       if (row.pricePerUnit2) {
         let text = '';
         row.pricePerUnit2.forEach(item => {
           if (item.text.endsWith('p/')) {
