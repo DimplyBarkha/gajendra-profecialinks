@@ -29,3 +29,6 @@ fields:
     xpath: //a[contains(@class,'hyperlinkstyles__Link-j02w35-0 hXBJsz')]/@href
     regExp: produto\/(\d+)
     regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
