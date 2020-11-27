@@ -47,9 +47,9 @@ module.exports = {
     country: 'US',
     store: 'petsmart',
     domain: 'petsmart.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="react-viewer-canvas"]>img',
+    noResultsXPath: '//p[contains(@class,"showing-result-msg")]',
     zipcode: '',
   },
-  implementation,
+  // implementation,
 };
