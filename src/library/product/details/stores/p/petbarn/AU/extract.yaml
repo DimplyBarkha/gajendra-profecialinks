@@ -1,0 +1,89 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //a[@id='main-image']//img[@class='zoomImg']/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@id='main-image']//img[position()=1]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@id='thumbnails']//li//a[not(contains(@class,'selected'))]/@href
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@id='product-attribute-specs-table']//ul//li//div[@class='label' and text()='Product Category']/following-sibling::div[@class='data']
+  - name: nameExtended
+    singleValue: false
+    xpath: concat(//div[@class='product-name']//h1,' - ',//div[@id='product-attribute-specs-table']//ul//li//div[@class='label' and text()='Brand']/following-sibling::div[@class='data'])
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='price-box']//p[@class="special-price"]//span[@id='rrpice']//strong
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price-box']//div[@class="regular-price"]//span[contains(@id,'regular-price')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='add-to-cart']//button[@id='product-addtocart-button']//span[@class='added' and text()='Add to Cart']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class='product-info-copy']//h3[@class='title' and text()='Product description']/following-sibling::div[@class='widget-container product-info']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class='product-info-copy']//h3[@class='title' and text()='Product description']/following-sibling::div[@class='widget-container product-info']//ul//li)    
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id='product-attribute-specs-table']//ul//li//div[@class='label' and text()='Brand']/following-sibling::div[@class='data']
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='add-to-cart']//button[@id='product-addtocart-button']//span[@class='added' and text()='Add to Cart']
+    regExp: (.+)
+    regExpReplace: 1  
+  - name: sku
+    singleValue: false
+    xpath: //input[@id='product-sku']/@value
+  - name: variantId
+    singleValue: false
+    xpath: //input[@id='product-sku']/@value
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='product-name']//meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='product-name']//meta[@itemprop="ratingValue"]/@content
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-name']//h1  
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id='product-attribute-specs-table']//ul//li//div[@class='label' and text()='Ingredients']/following-sibling::div[@class='data']
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='product-attribute-specs-table']//ul//li
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="product-size"]//div[@class='nsd-dropdown']//div[@class='nsd-ul']//ul//li)
+    defaultValue: "0"
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="product-size"]//div[@class='nsd-dropdown']//div[@class='nsd-ul']//ul//li
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="product-shop"]//div[contains(@itemtype,"schema.org/Product")]//meta[@itemprop="sku"]/@content
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[@class="product-shop"]//div[contains(@itemtype,"schema.org/Product")]//meta[@itemprop="sku"]/@content)[1]
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class="product-shop"]//div[contains(@itemtype,"schema.org/Product")]//meta[@itemprop="gtin"]/@content
+  - name: tmp_sku
+    singleValue: false
+    xpath: //div[@class="product-shop"]//div[contains(@itemtype,"schema.org/Product")]//meta[@itemprop="sku"]/@content
