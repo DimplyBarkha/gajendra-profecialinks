@@ -81,8 +81,9 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
+    xpath: //h3[@class="product-name"]/text()
+    regExp: \Wx\W(.+)
+    regExpReplace: $1
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header

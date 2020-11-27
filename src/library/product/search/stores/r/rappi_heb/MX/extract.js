@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../../shared');
 async function implementation (
   inputs,
   parameters,
@@ -69,8 +69,9 @@ module.exports = {
   parameterValues: {
     country: 'MX',
     store: 'rappi_heb',
-    transform: null,
+    transform: transform,
     domain: 'rappi.com.mx',
     zipcode: '',
   },
+  implementation,
 };

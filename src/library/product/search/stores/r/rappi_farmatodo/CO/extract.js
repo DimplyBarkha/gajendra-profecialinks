@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../shared');
 async function implementation (
   inputs,
   parameters,
@@ -32,12 +32,11 @@ async function implementation (
     console.log('query ==  ', query);
     const body = {
       query: query,
-      stores: [33367],
+      stores: [900065872],
       page: page,
       size: size,
     };
-
-    const response = await fetch(`https://services.mxgrability.rappi.com/api/es-proxy/search/v2/products?page=${page}`, {
+    const response = await fetch(`https://services.grability.rappi.com/api/es-proxy/search/v2/products?page=${page}`, {
       headers: {
         'content-type': 'application/json',
       },
@@ -69,8 +68,9 @@ module.exports = {
   parameterValues: {
     country: 'CO',
     store: 'rappi_farmatodo',
-    transform: null,
+    transform: transform,
     domain: 'rappi.com.co',
     zipcode: '',
   },
+  implementation,
 };

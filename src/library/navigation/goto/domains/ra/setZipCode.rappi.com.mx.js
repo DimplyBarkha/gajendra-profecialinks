@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'MX',
     domain: 'rappi.com.mx',
-    store: 'rappi',
+    //store: 'rappi',
     zipcode: '',
   },
 };

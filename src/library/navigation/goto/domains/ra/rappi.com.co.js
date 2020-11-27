@@ -5,7 +5,7 @@ module.exports = {
     domain: 'rappi.com.co',
     timeout: 50000,
     country: 'CO',
-    store: 'rappi',
+    //store: 'rappi',
     zipcode: '',
   },
 };
