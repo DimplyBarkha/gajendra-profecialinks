@@ -28,30 +28,37 @@ fields:
     xpath: //meta[@name='title']/@content
   - name: listPrice
     singleValue: true
-    xpath: (//div[@id="price"]//span[contains(@class,"a-text-strike")]|//*[@id="priceblock_ourprice"])[1]
+    xpath: //div[@id="price"]//span[contains(@id,"priceblock_dealprice")][not(contains(@id,"priceblock_ourprice"))]
+    defaultValue:
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id='twister_feature_div']//img/@alt | //form[@id='twister']//div/div[@class='twisterTextDiv text']/span/text()
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[@id='twister_feature_div']//img/@alt | //form[@id='twister']//div/div[@class='twisterTextDiv text']/span/text())[1]
   - name: price
     singleValue: true
     xpath: //*[@id="priceblock_ourprice"]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: substring-before(normalize-space(//div[@id='availability']/span[contains(text(),'In Stock')]),'.')
+    xpath: //div[@id='availability']/span[contains(text(),"in stock")] | //div[@id='availability']/span[contains(text(),"In Stock")]
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //*[@id='detailBullets_feature_div']/ul/li | //div[@id='productDescription_feature_div']/div[@id='productDescription']/p
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
+    xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)] | //*[@id='detailBullets_feature_div']/ul/li | //div[@id='productDescription_feature_div']/div[@id='productDescription']/p)
   - name: brandText
     singleValue: true
     xpath: //*[@id='bylineInfo']
   - name: manufacturer
-    singleValue: true
-    xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]
+    singleValue: false
+    xpath: //div[@id='detailBullets_feature_div']/ul/li/span[@class='a-list-item']/span[contains(text(),"Manufacturer")]/following-sibling::span | //table[@id='productDetails_techSpec_section_1']/tbody/tr/th[contains(text(),"Brand")]/following-sibling::td/text()
   - name: quantity
-    singleValue: true
+    singleValue: false
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
   - name: weightNet
     singleValue: true
@@ -60,9 +67,7 @@ fields:
     regExpReplace: $1
   - name: weightGross
     singleValue: false
-    xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
-    regExp: ([^()]+)
-    regExpReplace: $1
+    xpath: concat((substring-after(//div[@id='detailBullets_feature_div']/ul/li/span/span[contains(text(), 'Kilograms')], ';')), ' ', (substring-after(//div[@id='detailBullets_feature_div']/ul/li/span/span[contains(text(), 'Grams')], ';')))
   - name: gtin
     singleValue:  true
     xpath:   //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
@@ -90,8 +95,8 @@ fields:
     singleValue: true
     xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1]
   - name: ratingCount
-    singleValue: true
-    xpath: substring-before(//*[@id="acrCustomerReviewText"]/text(),' ratings')
+    singleValue: false
+    xpath: substring-before(//*[@id="acrCustomerReviewText"]/text(),' rating')
   - name: aggregateRatingText
     singleValue: true
     xpath:
@@ -105,14 +110,12 @@ fields:
     xpath: normalize-space(//*[@id="shipsFromSoldByInsideBuyBox_feature_div"])
   - name: shippingDimensions
     singleValue: false
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+    xpath: substring-before(//div[@id='detailBullets_feature_div']/ul/li/span/span[contains(text(), ' x ')], ';')
   - name: shippingWeight
     singleValue: false
-    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
-    regExp: ([^()]+)
-    regExpReplace: $1
+    xpath: concat((substring-after(//div[@id='detailBullets_feature_div']/ul/li/span/span[contains(text(), 'Kilograms')], ';')), ' ', (substring-after(//div[@id='detailBullets_feature_div']/ul/li/span/span[contains(text(), 'Grams')], ';')))
   - name: variantCount
-    singleValue: true
+    singleValue: false
     xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: color
     singleValue: true
@@ -135,7 +138,7 @@ fields:
   - name: inStorePrice
     sinlgeValue: true
     xpath:
-  - name: sku
+  - name: asin
     singleValue: true
     xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
   - name: coupon
@@ -160,14 +163,10 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
   - name: salesRank
     singleValue: false
-    xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")]
-    regExp: \#([0-9]{1,})
-    regExpReplace: $1
+    xpath: concat(substring-before(substring-after(//div[@id='detailBullets_feature_div']/following-sibling::ul/li/span/span[contains(text(),'Rank')]/following-sibling::text(),'#'),' in '),' | ', (substring-before(substring-after( (//div[@id='detailBullets_feature_div']/following-sibling::ul/li/span/span[contains(text(),'Rank')]/following-sibling::ul/li/span),'#'),' in ')))
   - name: salesRankCategory
     singleValue: false
-    xpath: //*[@id="SalesRank"]/text()[contains(., "in")] | //*[@id="SalesRank"]//span[contains(., "in")]/a
-    regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*$+-]{1,})
-    regExpReplace: $1
+    xpath: concat(substring-before(substring-after(//div[@id='detailBullets_feature_div']/following-sibling::ul/li/span/span[contains(text(),'Rank')]/following-sibling::text(),' in '),'('),' | ', (substring-after( (//div[@id='detailBullets_feature_div']/following-sibling::ul/li/span/span[contains(text(),'Rank')]/following-sibling::ul/li/span),' in ')))
   - name: subscriptionPrice
     singleValue: true
     xpath: //*[@id="sns-base-price"]
@@ -209,7 +208,7 @@ fields:
   - name: variantAsins
     singleValue: false
     xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
-    regExp: p\/([A-Z0-9]{9,})\/
+    regExp: dp\/([A-Z0-9]{9,})\/
     regExpReplace: $1
   - name: specifications
     singleValue: false
@@ -238,7 +237,7 @@ fields:
     singleValue: true
     xpath:
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
   - name: news
     singleValue: true
@@ -412,8 +411,8 @@ fields:
     singleValue: true
     xpath:
   - name: variants
-    singleValue: true
-    xpath:
+    singleValue: false
+    xpath: //div[@id='twister_feature_div']//img/@alt | //form[@id='twister']//div/div[@class='twisterTextDiv text']/span/text()
   - name: additionalDescBulletInfo
     singleValue: true
     xpath:
@@ -447,3 +446,6 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+    regExp: (.+)
+    regExpReplace: 'No'
+    defaultValue: 'Yes'
