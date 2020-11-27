@@ -9,7 +9,28 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  if (inputs.id) {
+    await context.evaluate(async function () {
+      const isSelector = document.querySelector('div.search-service-rsTilesDefault > div.search-service-product:first-child div.search-service-productDetailsWrapper a');
+      if (isSelector) {
+        try {
+          isSelector.click();
+        // await context.waitForNavigation({ timeout: 60000, waitUntil: 'load' });
+        // await context.waitForNavigation({ timeout: 60000, waitUntil: 'load' });
+        } catch (err) {
+          console.log('Not clicked' + err);
+        }
+      }
+    });
+  }
+  // if (inputs.id) {
+  //   await context.evaluate(async function () {
+  //     const isSelector = document.querySelector('div.search-service-rsTilesDefault > div.search-service-product:first-child div.search-service-productDetailsWrapper a');
+  //     if (isSelector) {
+  //       isSelector.click();
+  //     }
+  //   });
+  // }
   await context.evaluate(async function () {
     const optionalWait = async (sel) => {
       try {
@@ -18,18 +39,10 @@ async function implementation (
         console.log(`Couldn't load selector => ${sel}`);
       }
     };
-    // if (inputs.id) {
-    //   const isSelector = document.querySelector('div.search-service-rsTilesDefault > div.search-service-product:first-child div.search-service-productDetailsWrapper picture');
-    //   if (isSelector) {
-    //     isSelector.click();
-    //     // await context.waitForNavigation({ timeout: 60000, waitUntil: 'load' });
-    //     optionalWait('h1.pdr-QuickInfo__heading');
-    //   }
-    // }
     optionalWait('h1.pdr-QuickInfo__heading');
     const gtinSelector = document.evaluate('//script[@type="application/ld+json"][contains(.,"gtin")]', document).iterateNext();
     if (gtinSelector) {
-      let gtin = gtinSelector.textContent.split('gtin13":"')[1].split('",')[0];
+      const gtin = gtinSelector.textContent.split('gtin13":"')[1].split('",')[0];
       document.querySelector('h1.pdr-QuickInfo__heading').setAttribute('gtin', gtin);
     }
   });
