@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: body[id="product"]
 recordXPath: null
 fields:
 - name: _input
@@ -8,52 +8,51 @@ fields:
 - name: _url
   singleValue: false
 #sasz
-#- name: productUrl
-#  singleValue: false
-#  xpath: //link[@rel='canonical']/@href
+- name: productUrl
+  singleValue: false
+  xpath: //link[@rel='canonical']/@href
 - name: _pageTimeStamp
   singleValue: false
-# - name: image
-#   singleValue: true
-#   description: URL of the main product image
-#   xpath: //img[@id="mainSkuProductImageNoJS"]/@src
+- name: image
+  singleValue: true
+  description: URL of the main product image
+  xpath: //img[@id="mainSkuProductImageNoJS"]/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-#- name: alternateImages
-#  singleValue: false
-#  description: Other product images (not in manufacturer description)
-#  xpath: //div[@state="default"]/@style
-#  regExp: '(\((.*?)\))'
-#  regExpReplace: $2
+- name: alternateImages
+  singleValue: false
+  description: Other product images (not in manufacturer description)
+  xpath: //div[@state="default"]/@style
+  regExp: '(\((.*?)\))'
+  regExpReplace: $2
 #sasz
 #  regExp: \"(.+)wid
 #  regExpReplace: $1wid=600&hei=600&fmt=png
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
-# - name: category
-#   singleValue: false
-#   description: The categories (e.g. from breadcrumbs)
-#   xpath: //div[@id='breadcrumbSection']/div/a
-# - name: nameExtended
-#   singleValue: true
-#   description: The product name, prefixing "${brand} - " if not included in "name"
-#     and appending " - ${variantType}" if necessary (fixed per feed)
-#   xpath: //h1[@class='sku_Title']
-# - name: listPrice
-#   singleValue: true
-#   description: The stated undiscounted price for the product
-#   xpath: //div[@id='dealBoxDealDescription']
-#   regExp: '(normal )(.*€)'
-#   regExpReplace: $2
-# - name: price
-#   singleValue: true
-#   description: The offered price for the selected product variant - if a user clicks
-#     add to basket this is the price they would be charged
-#   xpath: //div[@class="skuPriceBlock"]/descendant::span[@class='bigPrice']/font/font  /* font/font written during page translation? */
+- name: category
+  singleValue: false
+  description: The categories (e.g. from breadcrumbs)
+  xpath: //div[@id='breadcrumbSection']/div/a
+- name: nameExtended
+  singleValue: true
+  description: The product name, prefixing "${brand} - " if not included in "name"
+    and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@class='sku_Title']
+- name: listPrice
+  singleValue: true
+  description: The stated undiscounted price for the product
+  xpath: //div[@id='dealBoxDealDescription']
+  regExp: '(normal )(.*€)'
+  regExpReplace: $2
+- name: price
+  singleValue: true
+  description: The offered price for the selected product variant - if a user clicks
+    add to basket this is the price they would be charged
+  xpath: //div[@class='skuPriceBreakLineColumn2 priceNoTax0'] | //div[@class='skuPriceBlock']//span[@class='bigPrice'][not(//div[@class='skuPriceBreakLineColumn2 priceNoTax0'])]
 #sasz
-#   xpath: //div[@class='skuPriceBreakLineColumn2 priceNoTax0'] | //div[@class='skuPriceBlock']//span[@class='bigPrice'][not(//div[@class='skuPriceBreakLineColumn2 priceNoTax0'])]
 #covers all cases
 # url1: https://www.vikingdirect.fr/a/pb/Essuie-mains-Niceday-Professional-Standard-2-epaisseurs-Pliage-en-Z-Blanc-25-Unites-de-150-Feuilles/id=1002823/?id=1002823
 # big price is not valid because its not the price we get if we add item to cart
@@ -61,68 +60,67 @@ fields:
 # here we should get the big price but bigPrice span element its not direct descendant of skuPriceBlock if we have product with promotion
 # url3: https://www.vikingdirect.fr/a/pb/Bobines-d-essuyage-a-devidage-central-Kimberly-Clark-Professional-Bleu-30-x-45-x-183-cm-6-Unites/id=1099071/?pr=Q20
 # here we just get big price
-# - name: availabilityText
-#   singleValue: true
-#   description: Availability as described on page for the selected variant. If there
-#     is no availability but the product can be added to cart, this field should be
-#     "In Stock"
-#   defaultValue: 'In Stock'
-#   xpath: //input[@id='skuAddToCart']
-# - name: description
-#   singleValue: false
-#   description: Product description supplied by website - may be concatenanted from
-#     multiple places; specifically not the manufacturer description
-#   xpath: //div[@class="skuBottomInfoBlock"][contains(., 'Description')]
-# - name: descriptionBullets
-#   singleValue: true
-#   description: Number of ul > li tags in the description
-#   xpath: count(//div[@id="bulletsWrapper"]/p[@class='skuBullet'])
-# - name: brandText
-#   singleValue: true
-#   description: Product brand shown - this may actually NOT be just a brand name, e.g.
-#     "Visit the Gillette Store"
-#   xpath: //td[@id="attributemarquekey"]
-# - name: manufacturer
-#   singleValue: true
-#   description: Product manufacturer
-#   xpath: //td[@id="attributemarquekey"]
+- name: availabilityText
+  singleValue: true
+  description: Availability as described on page for the selected variant. If there
+    is no availability but the product can be added to cart, this field should be
+    "In Stock"
+  defaultValue: 'In Stock'
+  xpath: //input[@id='skuAddToCart']
+- name: description
+  singleValue: false
+  description: Product description supplied by website - may be concatenanted from
+    multiple places; specifically not the manufacturer description
+  xpath: //div[@class="skuBottomInfoBlock"][contains(., 'Description')]
+- name: descriptionBullets
+  singleValue: true
+  description: Number of ul > li tags in the description
+  xpath: count(//div[@id="bulletsWrapper"]/p[@class='skuBullet'])
+- name: brandText
+  singleValue: true
+  description: Product brand shown - this may actually NOT be just a brand name, e.g.
+    "Visit the Gillette Store"
+  xpath: //td[@id="attributemarquekey"]
+- name: manufacturer
+  singleValue: true
+  description: Product manufacturer
+  xpath: //td[@id="attributemarquekey"]
 #sasz
-#- name: quantity
-#  singleValue: true
-#  description: Quantity as described on the page
-#  xpath: //th[contains(., 'Contenu')]/following-sibling::td  //or this (better): //th[contains(., 'Quantité')]/following-sibling::td  url: https://www.vikingdirect.fr/a/pb/Mouchoirs-Tork-140278-2-epaisseurs-30-Unites-de-100-Feuilles/id=5394911/?id=5394911
-# - name: weightNet
-#   singleValue: true
-#   description: Net weight as described on the page
-#   xpath: //tbody/tr[@class="techSpecsRow "]/th[contains(., 'Poids')]/following-sibling::td
+- name: quantity
+  singleValue: true
+  description: Quantity as described on the page
+  xpath: //th[contains(., 'Quantité')]/following-sibling::td  # url: https://www.vikingdirect.fr/a/pb/Mouchoirs-Tork-140278-2-epaisseurs-30-Unites-de-100-Feuilles/id=5394911/?id=5394911
+- name: weightNet
+  singleValue: true
+  description: Net weight as described on the page
 #sasz
-#   xpath: //th[contains(., 'Poids')]/following-sibling::td
+  xpath: //th[contains(., 'Poids')]/following-sibling::td
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
 #sasz gtin - barcode
-  #- name: gtin
-#  singleValue: true
-#  description: GTIN code (includes UPC/EAN)
-#  xpath: //td[@id='attributecode_eankey']
-# - name: sku
-#   singleValue: true
-#   description: The store-specific product identifier
-#   xpath: //td[@id="attributecode_eankey"]
-# - name: variantId
-#   singleValue: true
-#   description: Identifier for a variant from a store where variants share the same
-#     sku
-#   xpath: //td[@id="attributecode_eankey"]
-# - name: mpc
-#   singleValue: true
-#   description: The manufacturer model code (unique) of the product
-#   xpath: //td[@id="attributer_f_rence_fabricantkey"]
-# - name: packSize
-#   singleValue: true
-#   description: The number of packs in the product offer (if stated separately on the
-#     site to quantity)
-#   xpath: //td[@id="attributequantit__emball_ekey"]
+- name: gtin
+  singleValue: true
+  description: GTIN code (includes UPC/EAN)
+  xpath: //td[@id='attributecode_eankey']
+- name: sku
+  singleValue: true
+  description: The store-specific product identifier
+  xpath: //td[@id="attributecode_eankey"]
+- name: variantId
+  singleValue: true
+  description: Identifier for a variant from a store where variants share the same
+    sku
+  xpath: //td[@id="attributecode_eankey"]
+- name: mpc
+  singleValue: true
+  description: The manufacturer model code (unique) of the product
+  xpath: //td[@id="attributer_f_rence_fabricantkey"]
+- name: packSize
+  singleValue: true
+  description: The number of packs in the product offer (if stated separately on the
+    site to quantity)
+  xpath: //td[@id="attributequantit__emball_ekey"]
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -145,45 +143,46 @@ fields:
   singleValue: true
   description: Shipping information for the product
 #sasz  should be here? 
-#- name: shippingDimensions
-#  singleValue: true
-#  description: Stated shipping dimensions
-#  xpath: normalize-space(concat(//p[contains(text(),'Dimensions')],//p[contains(text(),'Poids')]))
-#  regExp: (\d.+)
-#  regExpReplace: $1
+- name: shippingDimensions
+  singleValue: true
+  description: Stated shipping dimensions
+  xpath: normalize-space(concat(//p[contains(text(),'Dimensions')],//p[contains(text(),'Poids')]))
+  regExp: (\d.+)
+  regExpReplace: $1
 - name: shippingWeight
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-# - name: color
-#   singleValue: true
-#   description: A textual description of the colour
-#   xpath: //td[@id='attributecouleurkey']
+- name: color
+  singleValue: true
+  description: A textual description of the colour
+  xpath: //td[@id='attributecouleurkey']
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-# - name: manufacturerImages
-#   singleValue: false
-#   description: Images within the third party description
-#   xpath: //div[@id="ccs-inline-content"]/descendant::img/@src
+  xpath: //div[@id="ccs-inline-content"]/text()
+- name: manufacturerImages
+  singleValue: false
+  description: Images within the third party description
+  xpath: //div[@id="ccs-inline-content"]/descendant::img/@src
 #sasz
-#- name: videos
-#  singleValue: false
-#  description: URLs of videos on page
-#  xpath: //video/source/@src #todo
-# - name: name
-#   singleValue: true
-#   description: The product name
-#   xpath: //h1[@class='sku_Title']
-# - name: inStorePrice
-#   singleValue: true
-#   description: Price in the selected store
-#   xpath: //span[@class='bigPrice']
+- name: videos
+  singleValue: false
+  description: URLs of videos on page
+  xpath: //video/source/@src #todo
+- name: name
+  singleValue: true
+  description: The product name
+  xpath: //h1[@class='sku_Title']
+- name: inStorePrice
+  singleValue: true
+  description: Price in the selected store
+  xpath: //span[@class='bigPrice']
 - name: asin
   singleValue: true
   description: 
@@ -228,10 +227,10 @@ fields:
 - name: pasin
   singleValue: true
   description: Parent asin
-- name: videoLength
-  singleValue: false
-  description: 
-  xpath: #todo
+# - name: videoLength
+#   singleValue: false
+#   description: 
+#   xpath: #todo
 - name: ingredientImagePresent
   singleValue: true
   description: 
@@ -272,6 +271,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count(//div[@class="s7thumbcell"])
 - name: news
   singleValue: true
   description: 
@@ -413,10 +413,10 @@ fields:
 - name: dietaryInformation
   singleValue: true
   description: 
-# - name: specifications
-#   singleValue: true
-#   description: The physical dimensions of the product including packaging.
-#   xpath: //td[@id="attributedimensionskey"]
+- name: specifications
+  singleValue: true
+  description: The physical dimensions of the product including packaging.
+  xpath: //td[@id="attributedimensionskey"]
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
@@ -441,6 +441,7 @@ fields:
 - name: additives
   singleValue: true
   description: List of additives in the product
+  xpath: //div[@id="special-offer-content"]
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
@@ -448,10 +449,10 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
 #sasz
-#- name: promotion
-#  singleValue: true
-#  description: promotion text on product page
-#  xpath: //div[@id='dealBoxDealDescription']
+- name: promotion
+  singleValue: true
+  description: promotion text on product page
+  xpath: //div[@id='dealBoxDealDescription']
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -484,7 +485,8 @@ fields:
   description: 
 - name: additionalDescBulletInfo
   singleValue: false
-  description: 
+  description:
+  xpath: //div[@id="ccs-inline-content"]/descendant::ul/li
 - name: prop65Warning
   singleValue: true
   description: 
@@ -496,11 +498,12 @@ fields:
   singleValue: true
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
   example: A+, A+++, B
-- name: technicalInformationPdfPresent
-  singleValue: true
-  description: If there is for example a manual in pdf format on the website. ['Yes','No']
-  example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+# - name: technicalInformationPdfPresent
+#   singleValue: true
+#   description: If there is for example a manual in pdf format on the website. ['Yes','No']
+#   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+#   defaultValue: false
+#   xpath: 
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
@@ -513,19 +516,19 @@ fields:
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
   defaultValue: false
-# - name: materials
-#   singleValue: true
-#   description: Materials used to make the product
-#   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-#   xpath: //td[@id="attributemat_riaukey"]
+- name: materials
+  singleValue: true
+  description: Materials used to make the product
+  example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  xpath: //td[@id="attributemat_riaukey"]
 - name: Image360Present
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
-# - name: imageZoomFeaturePresent
-#   singleValue: true
-#   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
-#   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-#   defaultValue: 'Yes'
-#   xpath: //div[@class="s7highlight"]
+- name: imageZoomFeaturePresent
+  singleValue: true
+  description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+  example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+  defaultValue: 'Yes'
+  xpath: //div[@class="s7highlight"]
