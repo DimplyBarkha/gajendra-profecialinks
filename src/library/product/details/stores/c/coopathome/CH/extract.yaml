@@ -15,7 +15,8 @@ fields:
     # xpath: //a[contains(@class,"carousel__pagination-item")]/img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //a[@class="carousel__link carousel__link--preload"]/@title
+    xpath: //a[@class="carousel__link carousel__link--preload"]//img/@alt
+    # xpath: //a[@class="carousel__link carousel__link--preload"]/@title
   - name: alternateImages
     singleValue: false
     xpath: (//div[contains(@class,"carousel__pagination--supermarket")]//img[contains(@class,"responsive-image")]/@src)[position()>1]
@@ -47,7 +48,8 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="productInformation"]//div[contains(text(),"Beschreibung")]//following-sibling::div
+    xpath: //div[@class="productInformation"]//div[@class="line-clamp__content"]/text()
+    # xpath: //div[@class="productInformation"]//div[contains(text(),"Beschreibung")]//following-sibling::div
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Description")]//following-sibling::div
   - name: descriptionBullets
     singleValue: false
@@ -61,7 +63,8 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    xpath: //span[@itemprop="weight"]//text()
+    xpath: concat(//span[@itemprop="value"]/text() , (//span[@itemprop="weight"]/text())[2])
+    # xpath: //span[@itemprop="weight"]//text()
   - name: weightNet
     singleValue: false
     description: 
@@ -120,17 +123,23 @@ fields:
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Ingrédients")]//following-sibling::div
   - name: servingSize
     singleValue: false
-    xpath: //a[@class="nutritionInformation-heading__option-link"]/text()
-    regExp: \s\W([^\W]+)
-    regExpReplace: $1
+    xpath: //a[contains(@class,"nutritionInformation-heading__option-link--active")]/text()
+    regExp: \d+
+    # xpath: //a[@class="nutritionInformation-heading__option-link"]/text()
+    # regExp: \s\W([^\W]+)
+    # regExpReplace: $1
   - name: servingSizeUom
     singleValue: false
-    xpath: //a[@class="nutritionInformation-heading__option-link"]/text()
-    regExp: \s\W([^\W]+)
-    regExpReplace: g
+    xpath: //a[contains(@class,"nutritionInformation-heading__option-link--active")]/text()
+    regExp: \d+(.+)
+    regExpReplace: $1
+    # regExp: \s\W([^\W]+)
+    # regExpReplace: g
   - name: saturatedFatPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fettsäuren")]//following::span[1]/span
+    regExp: (.+)g
+    regExpReplace: $1
   - name: saturatedFatPerServingUom
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fettsäuren")]//following::span[1]/span
@@ -145,6 +154,8 @@ fields:
   - name: totalFatPerServing
     singleValue: false
     xpath: (//span[@class="list--dotted-item__label"]//span[contains(text(),"Fett")]//following::span[1]/span)[1]
+    regExp: (.+)g
+    regExpReplace: $1
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"saturé gras")]//following::span[1]/span
   - name: totalFatPerServingUom
     singleValue: false
@@ -154,6 +165,8 @@ fields:
   - name: totalCarbPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kohlenhydrate")]//following::span[1]/span
+    regExp: (.+)g
+    regExpReplace: $1
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Glucides")]//following::span[1]/span
   - name: totalCarbPerServingUom
     singleValue: false
@@ -164,6 +177,8 @@ fields:
   - name: dietaryFibrePerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Nahrungsfasern (Ballaststoffe)")]//following::span[1]/span
+    regExp: (.+)g
+    regExpReplace: $1
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Fibres alimentaires")]//following::span[1]/span
   - name: dietaryFibrePerServingUom
     singleValue: false
@@ -174,6 +189,8 @@ fields:
   - name: totalSugarsPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Zucker")]//following::span[1]/span
+    regExp: (.+)g
+    regExpReplace: $1
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"dont sucres")]//following::span[1]/span
   - name: totalSugarsPerServingUom
     singleValue: false
@@ -184,6 +201,8 @@ fields:
   - name: proteinPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Eiweiss")]//following::span[1]/span
+    regExp: (.+)g
+    regExpReplace: $1
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Protéines")]//following::span[1]/span
   - name: proteinPerServingUom
     singleValue: false
@@ -210,6 +229,8 @@ fields:
   - name: calciumPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kalzium")]//following::span[1]/span
+    regExp: (.+)g
+    regExpReplace: $1
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
   - name: calciumPerServingUom
     singleValue: false
@@ -220,6 +241,8 @@ fields:
   - name: magnesiumPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnesium")]//following::span[1]/span
+    regExp: (.+)mg
+    regExpReplace: $1
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnésium")]//following::span[1]/span
   - name: magnesiumPerServingUom
     singleValue: false
@@ -230,6 +253,8 @@ fields:
   - name: saltPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Salz")]//following::span[1]/span
+    regExp: (.+)g
+    regExpReplace: $1
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Sel")]//following::span[1]/span
   - name: saltPerServingUom
     singleValue: false
