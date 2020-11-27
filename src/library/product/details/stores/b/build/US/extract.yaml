@@ -1,0 +1,60 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: shownImages
+    xpath: //div[contains(@class,"slick-slide ")]//img/@src|//img[@class="zoomImg"]/@src
+  - name: category
+    xpath: //div[@class="pb2 f6"]
+    singleValue: false
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,"pt1-ns")]
+  - name: availabilityText
+    singleValue: true
+    xpath: //script[@type="application/ld+json"]
+    regExp: (availability\"\:\"http\://schema\.org/)(\w+)
+    regExpReplace: $2
+    defaultValue: OutofStock
+  - name: description
+    xpath: //div[@class="description"]
+  - name: descriptionBullets
+    xpath: //div[@class="description"]//ul/li
+  - name: brandText
+    singleValue: true
+    xpath: //h1//span[@class="lh-title"]
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@class="js-rating-link pad-left text-link"]
+    regExp: (\d+)
+    defaultValue: ''
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
+    defaultValue: ''
+  - name: quantity
+    singleValue: true
+  - name: upc
+    singleValue: true
+  - name: sku
+    singleValue: true
+    xpath: //ul[contains(@class,"finishes-list")] 
+    regExp: (\d+)
+  - name: variants
+    xpath: //ul[@class="finishes-list additionalSku row"]//li[position()>1]
+    regExp: (\d+) 
+    singleValue: true
+  - name: name
+    singleValue: true
+    xpath: //h1//span[@class="lh-copy lh-title-ns fw2 db di-ns f5 f3-ns"]
+  # - name: variantInformation
+  #   xpath: //ul[@class="finishes-list additionalSku row"]//li
+  #   regExp: (\w+\s\d+)
+    regExpReplace: $1
+  - name: manufacturerImages
+    singleValue: false
+  
