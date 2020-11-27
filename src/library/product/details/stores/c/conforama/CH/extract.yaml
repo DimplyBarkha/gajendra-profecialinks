@@ -53,7 +53,10 @@ fields:
     xpath: count(//ul[@class="pointForts"]/li)
   - name: brandText
     singleValue: false
-    xpath: //button[contains(@class,"btnGreen")]/@data-brandnamenormalized | //div[@id="brandText"] | //button[contains(@class,"btn-primary ")]/@data-brandnamenormalized
+    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]/text()
+    regExp: Thing\W+name\W+([^"]+)
+    regExpReplace: $1
+    #//button[contains(@class,"btnGreen")]/@data-brandnamenormalized | //div[@id="brandText"] | //button[contains(@class,"btn-primary ")]/@data-brandnamenormalized
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -63,8 +66,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin 
-    #//script/@data-flix-ean
+    xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin | //script/@data-flix-ean
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -82,7 +84,7 @@ fields:
     xpath: //div[@itemprop="ratingValue"]
   - name: shippingDimensions
     singleValue: false
-    xpath: //strong[contains(text(), "Grösse (BxTxH)")]//..//following-sibling::td
+    xpath: (//strong[contains(text(), "Grösse")]//..//following-sibling::td)[1] | //strong[contains(text(), "Grösse (BxTxH)")]//..//following-sibling::td
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
