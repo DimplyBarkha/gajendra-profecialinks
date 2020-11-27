@@ -17,6 +17,14 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('div[class="ah-image-carousel-nav-wrapper palm-hidden"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
@@ -26,6 +34,13 @@ module.exports = {
         }
         return result;
       };
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
       const sliceURL = (data) => {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(":")) {
@@ -33,7 +48,7 @@ module.exports = {
           } else {
             temp = data[index].replace(":-", ".");
           }
-          addElementToDocument('altImage1', temp+"SEK");
+          addElementToDocument('altImage1', temp + "SEK");
         }
       };
       var backgroundURL = getAllXpath("(//b[@class='ah-price'])[1]/text()", 'nodeValue');
@@ -45,20 +60,33 @@ module.exports = {
           } else {
             temp = data[index].replace(":-", ".");
           }
-          addElementToDocument('altImage2', temp+"SEK");
+          addElementToDocument('altImage2', temp + "SEK");
         }
       };
       var backgroundURL1 = getAllXpath("//div[@class='ah-offer-regular']/b[@class='ah-price']/text()", 'nodeValue');
       sliceURL1(backgroundURL1);
-    //   const sliceURL2 = (data) => {
-    //     var singleSeparatorText = data[0].split(',');
-    //     for (let i = 0; i < singleSeparatorText.length; i++) {
-    //       var output = singleSeparatorText[i].split(" ");
-    //       addElementToDocument('altImage', 'https://www.ahlens.se/' + output[0]);
-    //     }
-    //   };
-    //   var backgroundURL2 = getAllXpath("//div[@class='slick-list draggable']/div[@class='slick-track']/li[@class='ah-image-carousel-nav__item slick-slide']/img[@class='ah-product-image']/@src", 'nodeValue');
-    //   sliceURL2(backgroundURL2);
+      function getUnique(array){
+        var uniqueArray = [];
+        var i = 0
+        // Loop through array values
+        for(i=0; i < array.length; i++){
+        if(uniqueArray.indexOf(array[i]) === -1) {
+        uniqueArray.push(array[i]);
+        }
+        }
+        return uniqueArray;
+        }
+      var images = getAllXpath("//*[@id='pdp-image-carousel-nav']/div/div/li[position()>=2]/img/@src", 'nodeValue');
+      if (images != null){
+        var uniqueNames = getUnique(images);
+        for(var j = 0; j<uniqueNames.length;j++){
+          uniqueNames[j]="https://www.ahlens.se"+uniqueNames[j]
+          addElementToDocument('altImage', uniqueNames[j]);
+        }
+        
+
+      }
+
     });
     await context.extract(productDetails, { transform: transformParam });
   },

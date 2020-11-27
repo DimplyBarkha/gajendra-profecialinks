@@ -8,7 +8,7 @@ fields:
     description: URL of the main product image
     xpath: //div[@class='slick-track']/li[@class='ah-image-carousel__item slick-slide slick-current slick-active']/img[@class='ah-product-image']/@src
     regExp: (/.+)
-    regExpReplace: https://www.ahlens.se/$1
+    regExpReplace: https://www.ahlens.se$1
   - name: url
     singleValue: true
     xpath: /html/head/link[4]/@href
@@ -18,17 +18,15 @@ fields:
     xpath: (//*[@id="pdp-image-carousel"]/div/div/li/img/@alt)[1]     
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='slick-list draggable']/div[@class='slick-track']/li[@class='ah-image-carousel-nav__item slick-slide']/img[@class='ah-product-image']/@src
-    regExp: (/.+)
-    regExpReplace: https://www.ahlens.se/$1
-  # - name: secondaryImageTotal
-  #   singleValue: false
-  #   xpath: count(//html//div[@class='altImage'])
+    xpath: //html//div[@class='altImage'] 
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//html//div[@class='altImage'])
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class='ah-pdp-info']/div/a/text() |  //div[@class='ah-pdp-info']/h1[@class='mb-- weight--light ah-product-info__title'] 
+    xpath: concat(//div[@class='ah-pdp-info']/div/a/text() ," ", //div[@class='ah-pdp-info']/h1[@class='mb-- weight--light ah-product-info__title']) 
   - name: listPrice
     singleValue: true
     type: CURRENCY
@@ -61,9 +59,9 @@ fields:
     singleValue: false  
     xpath: //ul[@class="ul--plain"]/li/text()
     regExp: ([^•]+)
-  # - name: directions
-  #   singleValue: true   
-  #   xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Användning')]/ancestor::li/div
+  - name: directions
+    singleValue: true   
+    xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Användning')]/ancestor::li/div
   - name: quantity
     singleValue: true   
     xpath: //ul[@class="ul--plain"]/li[contains(text(),'Volym')]
@@ -86,11 +84,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //li[@class="rainbow--light-gray"]/@content
-  - name: variantCount
-    singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
-    xpath: count(//div/div/ng-include/div/div[2]/ul/li/@ng-repeat)
+    xpath: //li[@class="rainbow--light-gray"]/@content  
   - name: variantInformation
     singleValue: true
     xpath: //div[@class='ah-dropdown__title']/span/text()
