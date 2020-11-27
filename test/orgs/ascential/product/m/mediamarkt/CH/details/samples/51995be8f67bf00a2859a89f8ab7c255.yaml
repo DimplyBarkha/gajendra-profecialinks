@@ -2,7 +2,7 @@ input:
   id: 1893185
   _url: http://mediamarkt.ch/fr
 extractions:
-  - html: https://workbench.import.io/html/run=bc7e877e-b30a-4446-bc8d-4bd672698e62/task=e65f0a4e-faae-49d0-bd21-56307d3cd6a8/3c2b997b-60f1-4b92-acdf-97e90d2e5a92.html
+  - html: https://workbench.import.io/html/run=fcbb7e35-1dd9-41d5-8dc8-b515cda39d22/task=7b6bc015-c62a-46db-a303-50fbf4aefa6e/94b82696-1a1d-4f0d-95d8-439f16590438.html
     extractionConfigId: product/details/stores/m/mediamarkt/CH/extract
     data:
       - group:
@@ -116,7 +116,10 @@ extractions:
             weightNet:
               - text: "5.7"
                 xpath: /html/body/div[18]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_dyson-pure-hot-cool-1893185.html?ga_query=%7Bid%7D
+                xpath: /html/body/div[19]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606226399446
+    timestamp: 1606291002490

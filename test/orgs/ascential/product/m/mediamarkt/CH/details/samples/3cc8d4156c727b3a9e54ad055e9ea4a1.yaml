@@ -2,7 +2,7 @@ input:
   id: 1231849
   _url: http://mediamarkt.ch/fr
 extractions:
-  - html: https://workbench.import.io/html/run=bc7e877e-b30a-4446-bc8d-4bd672698e62/task=45f5fee4-a91e-4d69-9e00-47ca5921b384/a82419b5-e7b6-4264-b172-851de89e26f0.html
+  - html: https://workbench.import.io/html/run=fcbb7e35-1dd9-41d5-8dc8-b515cda39d22/task=2ba74f83-472f-4dcd-906a-462ead1abc18/39caa79a-7050-4c08-b556-43c098391ae0.html
     extractionConfigId: product/details/stores/m/mediamarkt/CH/extract
     data:
       - group:
@@ -106,7 +106,10 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[19]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_nescaf%C3%A9-dolce-gusto-cortado-espresso-macchiato-1231849.html?ga_query=%7Bid%7D
+                xpath: /html/body/div[20]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606226398555
+    timestamp: 1606291004257

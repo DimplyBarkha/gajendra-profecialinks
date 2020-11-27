@@ -2,62 +2,11 @@ input:
   id: 1056734
   _url: http://mediamarkt.ch/fr
 extractions:
-  - html: https://workbench.import.io/html/run=bc7e877e-b30a-4446-bc8d-4bd672698e62/task=2c555a95-7f1c-4a04-a39c-81ab22dadfa2/bbded753-3047-44c2-97dc-c9034fd45dbb.html
+  - html: https://workbench.import.io/html/run=fcbb7e35-1dd9-41d5-8dc8-b515cda39d22/task=344c0a34-ca0e-48c4-8144-d8bd3f523bfd/d0d0ee21-9ad9-4e0e-a8ae-eae0c7adaac5.html
     extractionConfigId: product/details/stores/m/mediamarkt/CH/extract
     data:
       - group:
-          - quantity:
-              - text: 16 capsules
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[8]
-            mpc:
-              - text: 12423323-16
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[11]
-            sku:
-              - text: "1056734"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[12]
-            caloriesPerServing:
-              - text: 267 kcal
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[2]
-            totalFatPerServing:
-              - text: "17.1"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
-            totalFatPerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
-            saturatedFatPerServing:
-              - text: "7.6"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[4]
-            totalCarbPerServing:
-              - text: "0.2"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
-            totalCarbPerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
-            totalSugarsPerServing:
-              - text: "0.2"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
-            totalSugarsPerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
-            dietaryFibrePerServing:
-              - text: "38.7"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
-            dietaryFibrePerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
-            proteinPerServing:
-              - text: "8.1"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
-            proteinPerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
-            saltPerServing:
-              - text: "0.03"
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
-            saltPerServingUom:
-              - text: g
-                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
-            category:
+          - category:
               - text: Page d’accueil
                 xpath: /html/body/div[2]/nav[1]/ul[1]/li[1]
               - text: Cuisiner & Manger
@@ -73,12 +22,60 @@ extractions:
             manufacturer:
               - text: NESCAFÉ
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            quantity:
+              - text: 16 capsules
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[8]
+            sku:
+              - text: "1056734"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[12]
+            mpc:
+              - text: 12423323-16
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[1]/dl[1]/dd[11]
             ratingCount:
               - text: "0"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/dl[1]/dd[2]/div[1]/div[1]/button[1]/div[2]/div[1]
             name:
               - text: NESCAFÉ Dolce Gusto Lungo Capsules de café
                 xpath: /html/body/div[2]/div[2]/div[1]/h1[1]
+            caloriesPerServing:
+              - text: 267 kcal
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[3]
+            saturatedFatPerServing:
+              - text: "7.6"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[4]
+            totalCarbPerServing:
+              - text: "0.2"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[5]
+            dietaryFibrePerServing:
+              - text: "38.7"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[7]
+            totalSugarsPerServing:
+              - text: "0.2"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[6]
+            proteinPerServing:
+              - text: "8.1"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[8]
+            saltPerServing:
+              - text: "0.03"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[2]/div[2]/div[4]/div[1]/div[6]/div[2]/div[1]/section[2]/dl[1]/dd[9]
             legalDisclaimer:
               - text: Tous nos prix s’entendent TVA et taxe anticipée de recyclage (TAR)
                   incluses. Erreurs et fautes d'impression réservées. © 2020
@@ -115,7 +112,10 @@ extractions:
             weightNet:
               - text: 112 g
                 xpath: /html/body/div[20]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_nescaf%C3%A9-dolce-gusto-lungo-1056734.html?ga_query=%7Bid%7D
+                xpath: /html/body/div[21]
             imageZoomFeaturePresent:
               - text: "true"
-        xpath: /html
-    timestamp: 1606226395228
+        xpath: /html/body
+    timestamp: 1606290998737

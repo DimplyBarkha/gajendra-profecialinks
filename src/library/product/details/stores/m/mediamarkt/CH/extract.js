@@ -52,6 +52,7 @@ module.exports = {
       if (!weight || weight === '-') weight = document.evaluate('//dl[@class="specification"]/dt[text()="Volume de ventes:"]/following-sibling::dd[1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (!weight || weight === '-') weight = document.evaluate('//dl[@class="specification"]/dt[text()="Quantité de remplissage nette:"]/following-sibling::dd[1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (weight && weight !== '-') data.weightNet = weight;
+      data.url = window.location.href;
       appendData(data);
     });
     await context.extract(productDetails, { transform });

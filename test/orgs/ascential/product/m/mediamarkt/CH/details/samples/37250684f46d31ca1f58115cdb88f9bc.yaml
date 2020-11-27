@@ -2,7 +2,7 @@ input:
   id: 1422442
   _url: http://mediamarkt.ch/fr
 extractions:
-  - html: https://workbench.import.io/html/run=bc7e877e-b30a-4446-bc8d-4bd672698e62/task=afa877a0-cdad-4926-8788-092ddb56574c/536b6d65-d699-4b20-9516-f679d8ae0564.html
+  - html: https://workbench.import.io/html/run=fcbb7e35-1dd9-41d5-8dc8-b515cda39d22/task=ba858fa0-1e34-4dfe-8a3e-89d63d96224b/eafe71dd-e090-417a-8979-d4708c523652.html
     extractionConfigId: product/details/stores/m/mediamarkt/CH/extract
     data:
       - group:
@@ -54,7 +54,7 @@ extractions:
               - text: Tous nos prix s’entendent TVA et taxe anticipée de recyclage (TAR)
                   incluses. Erreurs et fautes d'impression réservées. © 2020
                   Media Markt
-                xpath: /html/body/div[4]/footer[1]/div[5]
+                xpath: /html/body/div[3]/footer[1]/div[5]
             image:
               - text: http://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80175490/fee_325_225_png/DE-LONGHI-NESCAF%C3%89-Dolce-Gusto-Mini-Me-Starter-Kit---Machine-%C3%A0-capsule-%28Blanc-noir%29
                 xpath: /html/body/div[10]
@@ -69,16 +69,19 @@ extractions:
               - text: "4"
                 xpath: /html/body/div[13]
             price:
-              - text: 79.95 CHF
+              - text: 124.95 CHF
                 xpath: /html/body/div[14]
             listPrice:
-              - text: 79.95 CHF
+              - text: 124.95 CHF
                 xpath: /html/body/div[15]
             availabilityText:
               - text: Ce produit est épuisé en ligne, veuillez sélectionner 'Disponibilité en
                   magasin'! Disponibilité en magasin
                 xpath: /html/body/div[16]
+            productUrl:
+              - text: https://www.mediamarkt.ch/fr/product/_de-longhi-nescaf%C3%A9-dolce-gusto-mini-me-starter-kit-1422442.html?ga_query=%7Bid%7D
+                xpath: /html/body/div[18]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1606226398759
+    timestamp: 1606291002648
