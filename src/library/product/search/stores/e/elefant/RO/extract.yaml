@@ -5,22 +5,31 @@ recordXPath: //div[contains(@class,'product-list main-list row')]//div[contains(
 fields:
   - name: id
     SingleValue: false
-    xpath: //input[contains(@class,'product_id')]//@value
+    xpath: //div[@class='product-tile']//@data-dynamic-block-product-id
   - name: productUrl
     SingleValue: false
-    xpath: //a[contains(@class,'product-link')]//@href
+    xpath: //a[@class='product-title']//@href
   - name: thumbnail
     SingleValue: false
-    xpath: //img[contains(@class,'product-card-image')]//@src
+    xpath: //img[@class='product-image']//@src
   - name: name
     SingleValue: false
-    xpath: //h5[contains(@class,'title product-card-title')]//a
+    xpath: //a[@class='product-title']//h2
   - name: price
     SingleValue: false
-    xpath: //div[contains(@class,'price-tag')]//span
+    xpath: //div[contains(@class,'current-price  sale-price')]
   - name: listprice
     SingleValue: false
-    xpath: //div[contains(@class,'campaign-tag')]//span
+    xpath: //div[contains(@class,'was-price')]
+  - name: aggregateRating
+    SingleValue: false
+    xpath: //a[@class='star-one']/parent::*/parent::*/@class
+  - name: ratingCount
+    SingleValue: false
+    xpath: //span[@id='rating-total-count']   
+  - name: manufacturer
+    SingleValue: false
+    xpath: //a[@class='product-manufacturer']//div    
   - name: rankOrganic
     SingleValue: false
     defaultValue: 1

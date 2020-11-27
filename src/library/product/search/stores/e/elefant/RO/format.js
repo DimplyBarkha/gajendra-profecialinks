@@ -23,20 +23,41 @@ const transform = (data) => {
         return data;
     };    
 
-    var p_count = 1;
+    let p_count = 1;
 
     for (const { group } of data) {
         for (let row of group) {          
-            if (row.rankOrganic && row.rank) {
+            if(row.rankOrganic && row.rank) {
                 row.rankOrganic = [{'text':p_count}];
                 row.rank = [{'text':p_count}];
                 p_count = p_count + 1;
-            } 
-            if (row.productUrl) {
-                row.productUrl.forEach(item => {                    
-                    item.text = "https://www.migros.com.tr" + item.text;
+            }    
+            if(row.ratingCount) {
+                row.ratingCount.forEach(item => {                    
+                    item.text = item.text.replace('.','');
                 });
-            }      
+            }  
+            if(row.aggregateRating) {
+                 let count = 0;
+                row.aggregateRating.forEach(item => {     
+                    if(item.text.includes('rating-one')){
+                        count = 1;
+                    }   
+                    if(item.text.includes('rating-two')){
+                        count = 2;
+                    } 
+                    if(item.text.includes('rating-three')){
+                        count = 3;
+                    } 
+                    if(item.text.includes('rating-four')){
+                        count = 4;
+                    } 
+                    if(item.text.includes('rating-five')){
+                        count = 5;
+                    }  
+                });
+                row.aggregateRating = [{'text':count,'xpath':row.aggregateRating[0].xpath}];
+            }   
         }
     }
     return cleanUp(data);

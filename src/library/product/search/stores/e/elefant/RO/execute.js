@@ -6,8 +6,8 @@ module.exports = {
     store: 'elefant',
     domain: 'elefant.ro',
     url: 'https://www.elefant.ro/search?SearchTerm={searchTerms}&StockAvailability=true',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'img.product-image',
+    noResultsXPath: '//div[@class="no-search-result"]//h1',
     zipcode: '',
   },
 };
