@@ -36,7 +36,7 @@ fields:
   - name: price
     singleValue: false
     type: STRING
-    xpath: //div[@class="search-results-page-product-pricing"]/span/text()
+    xpath: //div[@class="search-results-page-product-pricing"]//span/text()
   - name: manufacturer
     singleValue: false
     xpath: //a[@class="brand-name"]/@title
