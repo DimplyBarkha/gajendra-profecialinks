@@ -18,7 +18,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //nav[@id='data-produit-filariane']/ol/li
+    xpath: //nav[@id='data-produit-filariane']/ol/li[position()<count(//ol/li)]
   - name: nameExtended
     singleValue: true
     description:
@@ -129,6 +129,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //body/@import-enhanced-content
     defaultValue: false
   - name: videos
     singleValue: false
