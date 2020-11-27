@@ -1,24 +1,42 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"product-list")]/div
+recordXPath: //div[contains(@class,"product-list")]/div[@data-id]
 
 fields:
-  - name: product_name
+  - name: productUrl
+    singleValue: false    
+    xpath: //div[contains(@class, "product-picture")]/a/@href   
+  - name: thumbnail
     singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[contains(@class, "product-picture")]/a/img/@src 
+  - name: name
+    singleValue: false
+    description: The product name
     xpath: //div[contains(@class, "product-title")]/a//@title
-  - name: product_images
+    - name: id
     singleValue: false
-    xpath: //div[contains(@class, "product-picture")]/a/img/@src
-  - name: product_url
+    description: Unique id (within this extractor)
+    xpath: //div[contains(@class, 'product js-factfinder-track')]/@data-id 
+  - name: price
     singleValue: false
-    xpath: //div[contains(@class, "product-picture")]/a/@href
-  - name: product_rating
+    description: The offered price for the product
+    xpath: //div[@class="product-price-bulk is--list"]//span[@class='product-price is--new']
+   - name: listPrice
     singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //div[@class="product-prices is--list"]//span
+  - name:  ratingCount
+    singleValue: false
+    description: The number of ratings
     xpath: //div[contains(@class, "product-rating")]//span[contains(@class, 'product-rating-count')]
-  - name: product_offers_price
+  - name: rank
     singleValue: false
-    xpath: //div[contains(@class, "product-price-container is--list")]//span[@class='product-price is--new']
-  - name: product_id
+    description: search/listing rank
+    type: NUMBER    
+  - name: priceCurrency
     singleValue: false
-    xpath: //div[contains(@class, 'product js-factfinder-track')]/@data-id
+    xpath: //div[@class="product-prices is--list"]//span
+ 
+    

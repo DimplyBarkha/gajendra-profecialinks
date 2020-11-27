@@ -26,15 +26,25 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (const row of group) {
-        if (row.product_rating) {
-          row.product_rating.forEach(item => {
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
             item.text = item.text.replace('(', ' ').trim();
             item.text = item.text.replace(')', '').trim();
           });
         }
-        if (row.product_offers_price) {
-          row.product_offers_price.forEach(item => {
+        if (row.price) {
+          row.price.forEach(item => {
             item.text = item.text.replace('€', ' ').trim();
+          });
+        }
+        if (row.listPrice) {
+          row.listPrice.forEach(item => {
+            item.text = item.text.replace('€', ' ').trim();
+          });
+        }
+        if (row.priceCurrency) {
+          row.priceCurrency.forEach(item => {
+            item.text = item.text.slice(-1);
           });
         }
       }
