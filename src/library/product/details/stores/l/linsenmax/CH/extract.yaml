@@ -60,10 +60,9 @@ fields:
     singleValue: false
     xpath: //div[@class='productdetail-radio__item']//input/@value
   - name: variantId
-    singleValue: false
-    # getting it from URL not exist in body
-    regExp: (.+?)unitId=
-    regExpReplace: $1
+    singleValue: false    
+    xpath: //div[@id='trustedShopsReviews']/@data-prj-productid
+    
   - name: variantCount
     singleValue: false
     # count inputs (radio buttons)
