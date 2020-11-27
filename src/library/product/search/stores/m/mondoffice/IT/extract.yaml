@@ -7,7 +7,7 @@ fields:
     singleValue: true
     description: url of product
     xpath: //section[@class='page-category__products-cards']/article/a/@href
-  - name: product_image
+  - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
     xpath: //figure/img[@class='product-card__pic']/@src
@@ -23,12 +23,11 @@ fields:
     singleValue: true
     description: The offered price for the product
     xpath: //section[@class='page-category__products-cards']/article/form/div/span/span/span[@class='product-card__price-value']/span[@class='price-value']
-  - name: search_url
+  - name: _input
     singleValue: true
-    xpath: //div[@id='search_url']
-#  - name: review_rating
-#    singleValue: true
-#    xpath: //div[@id='ResultsSection']/div/div/div/div/div/a[@id='hypReadReviews']/span[@id='productRating']
-#  - name: number_of_reviews
-#    singleValue: true
-#    xpath: //div[@id='ResultsSection']/div/div/div/div/div/a[@id='hypReadReviews']/span[@class='darkGray']/span[@class='link']
+  - name: _pageTimestamp
+    singleValue: true
+  - name: _url
+    singleValue: true
+
+
