@@ -3,6 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class,'ProductCard')][contains(@data-qa,'product-card')]
 fields:
+  - name: _input
   - name: paid
     singleValue: true
     description: Whether this is a sponsored/paid result
@@ -27,6 +28,7 @@ fields:
       - Electric Toothbrushes & Accessories
       - Electric Toothbrushes
       - Rotating
+    xpath: //nav[@aria-labelledby="breadcrumb-heading"]//li[position()=last()]//span
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
