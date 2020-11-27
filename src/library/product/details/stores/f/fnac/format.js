@@ -50,6 +50,13 @@ const transform = (data) => {
       if (row.mpc) {
         row.mpc[0].text = row.mpc[0].text.trim();
       }
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = el.text ? cleanUp(el.text) : el.text;
+      }));
+      if (row.description) {
+        row.productDescriptionLength = [{ text: row.description[0].text.length }];
+        row.productDescriptionWordCount = [{ text: row.description[0].text.split(' ').length }];
+      }
     }
   }
   return data;

@@ -128,3 +128,6 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //dd[contains(@class, "f-shopBox-MPInfoSellerStatus")]
+  - name: sellerCount
+    xpath: normalize-space(//li[@data-track-click='{"action":"MpAllOffer"}']/span[1])
+    regExp: ^[^\s]+
