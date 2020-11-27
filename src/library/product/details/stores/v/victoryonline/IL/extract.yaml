@@ -36,13 +36,12 @@ fields:
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: //span[@id='OfferStub']/parent::div/span[@class='Price']/text()
+  xpath: //span[@id='OfferStub']/parent::div/span[@class='Price']
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //span[@id="OfferStub"]/text()  | //span[@class="Price" and contains(text(), ".")][not(//span[@id="OfferStub"])]
-  regExp: (\d+.?\d*)
+  xpath: //span[@id="OfferStub"] | //span[@class="Price" and contains(text(), ".")][not(//span[@id="OfferStub"])]
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -451,9 +450,13 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //span[@id='PPU']
+  regExp: (.+)\b
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //span[@id='PPU']
+  regExp: (גרם|g)
 - name: promotion
   singleValue: true
   description: promotion text on product page
