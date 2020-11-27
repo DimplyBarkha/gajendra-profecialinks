@@ -94,7 +94,7 @@ fields:
     xpath: //ul[@class="sizes__list"]//li[@aria-selected="true"]//span[@class="sizes__info"]
   - name: variantId
     singleValue: false
-    xpath: //ul[@class="sizes__list"]//li[@class="sizes__size sizes__size--selected"]/@data-id
+    xpath: //ul[@class="sizes__list"]//li[@class="sizes__size sizes__size--selected"]/@data-id | //div[@data-scope="conversion-zone"]//div[@role="contentinfo"]//span[@class="sizes__size sizes__size--solo-sku sizes__size--selected"]/@data-id
   - name: firstVariant
     singleValue: false
     xpath: //small[@class="product-data-model-id"]
