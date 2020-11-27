@@ -50,8 +50,9 @@ fields:
     singleValue: false
     description: The number of reviews
   - name: price
-    singleValue: true
-    manualSelector: div[class*='pricingtag-leftcell'] , div[class='prodlist-regprice pricing-font']
+    singleValue: false
+    # manualSelector: div[class*='pricingtag-leftcell'] , div[class='prodlist-regprice pricing-font']
+    xpath: //div[contains(@class,"prodlist-regprice") or contains(@class,"saleprice")]
     description: The offered price for the product
   - name: listPrice
     singleValue: true
