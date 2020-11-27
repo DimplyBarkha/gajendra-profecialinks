@@ -50,10 +50,19 @@ fields:
     xpath:  //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li//div//span[contains(text(),'Modell nummer')]
   - name: gtin
     singleValue: false
-    xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li//div//span[contains(text(),'GTIN')]
+    xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li//div//span[contains(text(),'GTIN')]//parent::div//span[@class='data-value']
   - name: sku
     singleValue: false
     xpath: //span[@class='sku']
+  - name: variantId
+    singleValue: false
+    xpath: //span[@class='sku']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'buy-button-wrap-anonymous')]//a[text()='Logga in och köp']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: variantCount
     singleValue: false
     defaultValue: '0'    
@@ -69,16 +78,16 @@ fields:
     xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li
   - name: countryOfOrigin
     singleValue: false
-    xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li//div//span[contains(text(),'Land')]
+    xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li//div//span[contains(text(),'Land')]//parent::div//span[@class='data-value']
   - name: storage
     singleValue: false
     xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//div//span[contains(text(),'Lagringsform')]//following-sibling::span
-  # - name: pricePerUnit
-  #   singleValue: false
-  #   xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li//div//span[contains(text(),'Antal per enhet')]
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li//div//span[contains(text(),'Antal per enhet')]//parent::div//span[@class='data-value']
   - name: weightGross
     singleValue: false
-    xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li//div//span[contains(text(),'Bruttovikt')]
+    xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li//div//span[contains(text(),'Bruttovikt')]//parent::div//span[@class='data-value']
   - name: alcoholContent
     singleValue: false
     xpath: //strong[@class='card-heading' and text()='Detaljer']//parent::div//following-sibling::div//li//div//span[contains(text(),'Alkoholhalt')]
