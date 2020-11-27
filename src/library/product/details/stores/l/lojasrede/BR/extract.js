@@ -71,8 +71,10 @@ async function implementation(
     }
     catch (err) {
     }
-
-      var price = getXpath('//div[@class="row product-details"]//em[@class="valor-por price-best-price"]/strong/text()', 'nodeValue');
+    
+      // var price = getXpath('//div[@class="row product-details"]//em[@class="valor-por price-best-price"]/strong/text()', 'nodeValue');
+      var price = getXpath('(//strong[@class="skuBestPrice"])[1]/text()', 'nodeValue');
+      alert(price)
       try{
       if(price != null)
       {
