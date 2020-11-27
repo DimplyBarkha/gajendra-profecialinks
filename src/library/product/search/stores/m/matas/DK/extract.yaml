@@ -1,0 +1,52 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //label[@class="product-item__favourite "]/@data-js-modal-url
+    regExp: (\d+)
+  # - name: rankOrganic
+  #   singleValue: false
+  #   # xpath: //li/@data-position
+  - name: name
+    singleValue: false
+    xpath: //div[@class='productlist__products']//span[@class='product-item__title']
+      # //span[@class='product-item__title']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='productlist__products']//div[@class='product-item__top-padding']/a/@href
+    regExp: (/.+)
+    regExpReplace: https://www.matas.dk$1
+      # //div[@class="product-item__top-padding"]//a/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='productlist__products']//div[@class='product-item__img-container']/img/@src
+  - name: ratingCount
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@class='productlist__products']//span[@class='product-item__rating-count']
+    regExp: (\d+)
+  - name: aggregateRating
+    singleValue: false
+    xpath: //html//div[@id='agg']
+    # type: NUMBER
+    # xpath: //div[@class='productlist__products']//div[@class='review-stars__container review-stars__container--border']/@data-js-border-offset
+  # - name: reviewCount
+  #   singleValue: false
+  - name: price
+    singleValue: false
+    type: CURRENCY
+    xpath: //div[@class='productlist__products']//span[@class='nowrap']
+    # //div[@class='productlist__products']//div[@class='product-item__price']
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
