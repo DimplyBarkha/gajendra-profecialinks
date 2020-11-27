@@ -4,6 +4,7 @@ recordSelector: 'div.Article-item[id]'
 recordXPath: //div[contains(@class,"Article-item") and @id]
 fields:
   - name: category
+    xpath: //li[@class='f-breadcrumb-item'][position()=last()]
   - name: _input
   - name: productUrl
     singleValue: false
@@ -19,7 +20,10 @@ fields:
     xpath: //li[@class="moreInfos-item"]/span[contains(text(),"Modelo")]/following-sibling::span
   - name: manufacturer
     singleValue: false
-    xpath: ancestor::html//li[@class="moreInfos-item"]/span[contains(text(),"Fabricante/Marca")]/following-sibling::span
+    #xpath: ancestor::html//li[@class="moreInfos-item"]/span[contains(text(),"Fabricante/Marca")]/following-sibling::span
+    xpath: ancestor::html//script[@type="application/ld+json"]
+    regExp: (.*)Brand","name":"(.*?)"(.*)
+    regExpReplace: $2
   - name: ratingCount
     singleValue: false
     xpath: //span[contains(@class,"Article-rate")]/span/span[2]
