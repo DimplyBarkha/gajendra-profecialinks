@@ -8,9 +8,9 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  await context.waitForSelector('div[class="product-image"] img', {}, { timeout: 5000000 });
   await context.evaluate(async function () {
-    // function addHiddenDiv (id, content) {
+    // function addHiddenDiv (id, content) { div[class="product-image"] img'
     //   const newDiv = document.createElement('div');
     //   newDiv.id = id;
     //   newDiv.textContent = content;
@@ -47,7 +47,6 @@ async function implementation (
       }
       return result;
     };
-
     const priceText = getAllXpath("//div[@class='price']//span[1]//text()", 'nodeValue').join('|');
     var priceTextValue = priceText.split('|');
 
@@ -63,16 +62,20 @@ async function implementation (
     const idPath = getAllXpath("//div[@class='small-product-box']//script//text()", 'nodeValue').join('|');
     var myIdArr = idPath.split('|');
     for (var i = 0; i < myIdArr.length; i++) {
-      const idObj = JSON.stringify(myIdArr[i]);
-      var myIdArrFinal = idObj.split(':');
-      var myIdValue = myIdArrFinal[2].match(/'(.*?)'/);
-      console.log('Array of Ids to be displayed ', myIdValue);
-      addElementToDocumentOld('id', myIdValue[1]);
-      addElementToDocumentOld('price', priceTextValue[i]);
-      addElementToDocumentOld('name', nameTextValue[i]);
-      addElementToDocumentOld('productUrl', 'https://www.choithrams.com' + productURLTextValue[i]);
-      addElementToDocumentOld('thumbnail', 'https://www.choithrams.com' + thumbNailTextValue[i]);
-      addElementToDocumentOld('added-searchurl', url);
+      try {
+        const idObj = JSON.stringify(myIdArr[i]);
+        var myIdArrFinal = idObj.split(':');
+        var myIdValue = myIdArrFinal[2].match(/'(.*?)'/);
+        console.log('Array of Ids to be displayed ', myIdValue);
+        addElementToDocumentOld('id', myIdValue[1]);
+        addElementToDocumentOld('price', priceTextValue[i]);
+        addElementToDocumentOld('name', nameTextValue[i]);
+        addElementToDocumentOld('productUrl', 'https://www.choithrams.com' + productURLTextValue[i]);
+        addElementToDocumentOld('thumbnail', 'https://www.choithrams.com' + thumbNailTextValue[i]);
+        addElementToDocumentOld('added-searchurl', url);
+      } catch (err) {
+        console.log('@@@@@@@@##########################################', err);
+      }
       // console.log('@@@@@@@@##########################################', url);
       // addHiddenDiv('added-searchurl', url);
       // const row = addElementToDocument('added_row', '');
