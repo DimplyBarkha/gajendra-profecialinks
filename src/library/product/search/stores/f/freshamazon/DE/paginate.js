@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'freshamazon',
-    nextLinkSelector: 'li[class="a-last"]',
+    // nextLinkSelector: 'li[class="a-last"]',
     // nextLinkXpath: '(//a[@data-test="next-btn"])[2]',
     mutationSelector: null,
     spinnerSelector: null,
