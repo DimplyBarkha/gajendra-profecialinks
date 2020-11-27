@@ -20,7 +20,7 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //div[contains(@id,"breadcrumb")]/a[position()>1][position()<last()]
+    xpath: //div[contains(@id,"breadcrumb")]/a[position()>1]
     # xpath: //div[contains(@id,"breadcrumb")]/a[@class="home"]/following-sibling::a
   - name: nameExtended
     singleValue: false
@@ -41,7 +41,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"ui-tabs-panel")]/h3/text() | //h3[contains(text(),"Produktbeschreibung")]/../ul/li
+    xpath: //div[contains(@class,"ui-tabs-panel")]/h3/text() | //h3[contains(text(),"Produktbeschreibung")]/../ul/li | //div[@id="tabs-1"]/p/text()
     # xpath: //h3[contains(text()," Produktbeschreibung")]/../../following-sibling::tr[position()>1] | //div[@id="tabs-1"]/ul/li | //h3[contains(text(),"Beschreibung")]/../../following-sibling::tr[position()>1]
     # xpath: //h3[contains(text()," Description ")]/../../following-sibling::tr[position()>1] | //div[@id="tabs-1"]/ul/li
     # xpath: //div[@id="description"]
@@ -66,7 +66,10 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin | //script/@data-flix-ean
+    xpath: //script[@data-fstrz-fragment-selector="script:contains(var tc_vars)"]/text()
+    regExp: productEAN\W+([^']+)
+    regExpReplace: $1
+    # xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin | //script/@data-flix-ean
   - name: sku
     singleValue: false
     description: The store-specific product identifier
