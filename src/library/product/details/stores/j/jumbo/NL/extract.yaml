@@ -46,7 +46,7 @@ fields:
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: concat(//span[@class='jum-product-price__current-price--larger'],',',//span[@class='jum-product-price__current-price--larger']/following-sibling::span)
+  xpath: concat(//span[@class='jum-product-price__current-price--larger'],',',//span[@class='jum-product-price__current-price--larger']/following-sibling::span,//span[@class='jum-price-format-mnemonic'])
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
