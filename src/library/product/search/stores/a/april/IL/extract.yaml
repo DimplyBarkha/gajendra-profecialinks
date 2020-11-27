@@ -6,8 +6,9 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[contains(@class,'products')]//div[contains(@class,'item')]//a[1]/@href
-    regExp: (page_)([0-9]+)
-    regExpReplace: $2
+    # regExp: (page_)([0-9]+)
+    regExp: ((page_)|(product\?c0=))(\d+)
+    regExpReplace: $4
   - name: name
     singleValue: false
     xpath: //div[@class="description"]/h2
