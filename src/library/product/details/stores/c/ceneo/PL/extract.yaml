@@ -15,7 +15,10 @@ fields:
     singleValue: false
     xpath: //ul[@class="product-top-2020__image-carousel__miniatures js_product-pictures-miniatures"]//li[position()>1]/a/@href
     regExp: (.+)
-    regExpReplace: https:$1    
+    regExpReplace: https:$1
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//ul[@class="product-top-2020__image-carousel__miniatures js_product-pictures-miniatures"]//li[position()>1]/a/@href)
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -211,10 +214,6 @@ fields:
   - name: otherSellersShipping
     singleValue: false
     description: null
-  - name: secondaryImageTotal
-    singleValue: true
-    description: null
-    type: NUMBER
   - name: news
     singleValue: true
     description: null
