@@ -49,7 +49,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //ul//li//span[contains(text(),'Referência')]/../span[position()>last()-1]
   - name: mpc
-    xpath: //ul//li//span[contains(text(),'Referência')]/../span[position()>last()-1]
+    xpath: //ul//li//span[contains(text(),'Modelo')]/../span[position()>last()-1]
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
     xpath: //div[contains(@class,"product__legal-disclaimer")]
@@ -65,7 +65,7 @@ fields:
     xpath: //body/@rating
   - name: color
     description: A textual description of the colour
-    xpath: //ul//li//span[contains(text(),'Cor')]/../span[position()>last()-1]
+    xpath: //p[contains(text(),"Características Físicas")]/following-sibling::ul//li//span[contains(text(),'Cor')]/../span[position()>last()-1]
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
     xpath: //div[@id="inpage_container"]//div[@class="inpage_block inpage_selector_feature"]
@@ -82,7 +82,7 @@ fields:
     xpath: //div[@class="w-section__wrapper"]//ul//li//span[contains(text(),'Garantia')]/../span[position()>last()-1]
   - name: productOtherInformation
     description: Any other product information
-    xpath: //p[contains(text(),'nformações')]/following-sibling::ul[1]/li/span
+    xpath: //p[contains(text(),'nformações')]/following-sibling::ul[1]/li/span/text()
   - name: energyEfficiency
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
@@ -93,7 +93,7 @@ fields:
       carousel,['Yes','No']
     defaultValue: Yes
   - name: image
-    xpath: //div[contains(@class,"zoomContainer")]//div[@class="zoomLens"]/img/@src
+    xpath: (//img[@class="w-product-gallery__main_image__pic"]/@data-zoom-image)[1]
     regExp: (.+)
     regExpReplace: https://www.worten.pt$1
   - name: name
@@ -101,4 +101,4 @@ fields:
     xpath: //h1
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //p[contains(text(),'Características Físicas')]/following-sibling::ul[1]/li[not (contains(.,'Cor'))]/span
+    xpath: //p[contains(text(),'Características Físicas')]/following-sibling::ul[1]/li[not (contains(.,'Cor'))]/span/text()

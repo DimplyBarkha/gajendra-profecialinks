@@ -1,20 +1,20 @@
-ingleRecord: false
+singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//div[@class="w-product__wrapper"]
 fields:
   - name: productUrl
-    xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//div[@class="w-product__wrapper"]/a//@href
+    xpath: //a//@href
     regExp: (.+)
     regExpReplace: https://www.worten.es/$1
   - name: thumbnail
-    xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//img//@data-src
+    xpath: //img//@data-src
     regExp: (.+)
     regExpReplace: https://www.worten.es/$1
   - name: name
-    xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//h3
+    xpath: //h3
   - name: id
-    xpath: //div[@id="products-list-block"]/div[contains(@class,"w-product")]//a[1]/@data-sku
+    xpath: //a[1]/@data-sku
   - name: ratingCount
     xpath: //div[@itemprop="aggregateRating"]//em
     regExp: \d+
@@ -24,9 +24,7 @@ fields:
   - name: price
     xpath: //span[contains(@class,"w-currentPrice")]
   - name: aggregateRating2
-    xpath: //div//@aggregaterating
+    xpath: //div/@aggregaterating
   - name: rank
   - name: rankOrganic
   - name: sponsored
- 
- 

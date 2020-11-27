@@ -22,7 +22,7 @@ module.exports = {
     await context.evaluate(function () {
       var rating = document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext() && document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent && document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent.replace(/(.+ratingValue":"([^\"]+).+)/g, '$2');
       if (rating) {
-        var Frating = Number(rating).toFixed(1);
+        var Frating = Number(rating).toFixed(1).replace('.', ',');
         document.body.setAttribute('rating', Frating);
       }
       console.log('Scrolling to the bottom of page.');

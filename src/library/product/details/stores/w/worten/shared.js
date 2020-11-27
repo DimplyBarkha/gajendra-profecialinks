@@ -14,9 +14,45 @@ const transform = (data) => {
         });
         row.nameExtended = [{ text }];
       }
+
+      if (row.specifications) {
+        let text = '';
+        let count = 0;
+        row.specifications.forEach(item => {
+          count++;
+          const val = (count % 2);
+          if (val === 0) {
+            text += `: ${item.text}`;
+          } else {
+            text += ` | ${item.text}`;
+          }
+        });
+        row.specifications = [
+          {
+            text: text.replace(new RegExp('(\\s\\||\\s)(.+)', 'g'), '$2'),
+          },
+        ];
+      }
+      if (row.productOtherInformation) {
+        let text = '';
+        let count = 0;
+        row.productOtherInformation.forEach(item => {
+          count++;
+          const val = (count % 2);
+          if (val === 0) {
+            text += `: ${item.text}`;
+          } else {
+            text += ` | ${item.text}`;
+          }
+        });
+        row.productOtherInformation = [
+          {
+            text: text.replace(new RegExp('(\\s\\|\\s)(.+)', 'g'), '$2'),
+          },
+        ];
+      }
     }
   }
-
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')

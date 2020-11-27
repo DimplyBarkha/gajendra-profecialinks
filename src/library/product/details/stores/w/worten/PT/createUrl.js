@@ -7,6 +7,5 @@ module.exports = {
     url: null,
     country: 'PT',
     store: 'worten',
-    zipcode: '',
   },
 };

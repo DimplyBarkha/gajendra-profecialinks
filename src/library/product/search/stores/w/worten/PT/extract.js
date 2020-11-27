@@ -8,10 +8,7 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    var cookiebox = document.querySelector('div.w-cookies-popup__footer__primary-button button.w-button-primary');
-    if(cookiebox){
-      cookiebox.click();
-    }
+ 
     function timeout(ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
@@ -43,10 +40,10 @@ async function implementation(
     dataArr.forEach(item => {
       if (item.rating_bazaar) {
         console.log(item.name)
-        document.querySelectorAll("#products-list-block > div").forEach(val => {
+        document.querySelectorAll("#products-list-block > div > div").forEach(val => {
           var sku = val.getAttribute('data-sku');
           if (sku === item.sku) {
-            var rating = Number(item.rating_bazaar).toFixed(1);
+            var rating = Number(item.rating_bazaar).toFixed(1).replace('.', ',');;
             val.setAttribute('aggregaterating', rating);
           }
         });

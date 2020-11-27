@@ -5,8 +5,7 @@ module.exports = {
     country: 'PT',
     store: 'worten',
     domain: 'worten.pt',
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: '',
+    loadedSelector: 'div#maincontent',
+    noResultsXPath: '//h3[contains(text(),"Não conseguimos encontrar o que procuras.")]',
   },
 };
