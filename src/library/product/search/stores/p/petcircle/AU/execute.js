@@ -5,7 +5,7 @@ module.exports = {
     store: 'petcircle',
     domain: 'petcircle.com.au',
     url: 'https://www.petcircle.com.au/search/{searchTerms}',
-    loadedSelector: 'ul#productListing',
+    loadedSelector: 'ul#productListing>li',
     noResultsXPath: '//div[@class="top-content"]',
     zipcode: '',
   },

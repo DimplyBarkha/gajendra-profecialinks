@@ -7,7 +7,7 @@ module.exports = {
     mutationSelector: null,
 //    spinnerSelector: 'div.loader',
     spinnerSelector: null,
-    loadedSelector: 'ul#productListing',
+    loadedSelector: 'ul#productListing>li',
     noResultsXPath: '//div[@class="top-content"]',
     openSearchDefinition: null,
     domain: 'petcircle.com.au',
