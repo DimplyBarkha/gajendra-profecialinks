@@ -45,16 +45,16 @@ const transform = (data) => {
       //   });
       //   row.specifications = [{ text: arrSpecs.join(' || ') }];
       // }
-      // if (row.price) {
-      //   row.price.forEach(item => {
-      //     item.text = item.text.replace(',', '');
-      //   });
-      // }
-      // if (row.listPrice) {
-      //   row.listPrice.forEach(item => {
-      //     item.text = item.text.replace(',', '');
-      //   });
-      // }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(',', '');
+        });
+      }
+      if (row.listPrice) {
+        var tempLprice = row.listPrice[0].text;
+        row.listPrice = [{ text: row.price[0].text }];
+        row.price = [{ text: tempLprice }];
+      }
       // if (row.variantCount) {
       //   row.variantCount = [{ text: row.variantCount.length }];
       // }
