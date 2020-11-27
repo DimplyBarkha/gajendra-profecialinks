@@ -1,0 +1,99 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //a[@id="pipHeroAnchor"]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@id="pipHeroAnchor"]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='image-container']//div[@class="scroller"]//ul//li[not(contains(@class,'hide')) ]//a[not(contains(@class,'active'))  and not(contains(@class,'videoThumbnail'))]/@href
+  - name: category
+    singleValue: false
+    xpath: //ul[@id="breadcrumb-list"]//li//a//span[not(text()='Home')]
+  - name: name
+    singleValue: false
+    xpath: //div[@class="pip-summary"]//h1
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="pip-summary"]//h1
+  - name: availabilityText
+    singleValue: false
+    xpath: //section[contains(@class,'simple-subset')]//div[contains(@class,"add-cart-container")]//button[normalize-space()='Add to Cart']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price1
+    singleValue: false
+    xpath: //div[@class="pip-summary"]//span[contains(@class,'price-standard')]//span[contains(@class,'currencyUSD')]
+  - name: price2
+    singleValue: false
+    # for multiple prices
+    xpath: //div[@class="pip-summary"]//span[contains(@class,'price-special')]//span[contains(@class,'currencyUSD')]
+  - name: price
+    singleValue: false
+  - name: listPrice
+    singleValue: false
+    xpath: (//div[@class="pip-summary"]//span[contains(@class,'price-strike-special')]//span[contains(@class,'currencyUSD')])[1]
+  - name:  description
+    singleValue: false
+    xpath: //dt[normalize-space()='Summary']//following-sibling::dd[1]//p
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //dt[normalize-space()='Summary']//following-sibling::dd[1]//ul//li
+  - name: sku
+    singleValue: false
+    # GET SKU from script JSON
+    xpath: //script[contains(text(),'sku') and contains(text(),'@context')]
+    #\"sku\":\"3130879\"
+    regExp: \"sku\":\"(.+?)\"
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    # GET SKU from script JSON
+    xpath: //script[contains(text(),'sku') and contains(text(),'@context')]
+    #\"sku\":\"3130879\"
+    regExp: \"sku\":\"(.+?)\"
+    regExpReplace: $1
+  - name: directions
+    singleValue: false
+    xpath: //dt[normalize-space()='Use & Care']//following-sibling::dd[1]//ul//li
+  - name: ingredientsList
+    singleValue: false
+    xpath: //dt[normalize-space()='Ingredients']//following-sibling::dd[1]//li
+  - name: specifications
+    singleValue: false
+    xpath: //dt[normalize-space()='Dimensions & More Info']//following-sibling::dd[1]//ul//li
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class='pip-content-block-full']//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class='pip-content-block-full']
+  - name: ratingCount
+    singleValue: false
+    # Get reviewCount from script JSON
+    xpath: //script[contains(text(),'aggregateRating')]
+  - name: aggregateRating
+    singleValue: false
+    # Get ratingValue from script JSON
+    xpath: //script[contains(text(),'aggregateRating')]
+  - name: videos1
+    singleValue: false
+    # youtube videos in page
+    xpath: //iframe[contains(@src,'youtube')]/@src
+  - name: videos2
+    singleValue: false
+    # youtube videos in gallery
+    # this will return JSON Sample: {mediaType: 'video', provider: 'youtube', id: 'rwo2zGqa7kw'}. Get Id from it and append you tube URL before it https://www.youtube.com/watch?v=
+    # https://www.williams-sonoma.com/products/silpat-silicone-muffin-pan-12-well/?pkey=cbakeware-silicone
+    xpath: //div[@class='image-container']//div[@class="scroller"]//ul//li[not(contains(@class,'hide')) ]//a[contains(@class,'videoThumbnail')]/@data-thumbnail
+  - name: videos
+    singleValue: false
