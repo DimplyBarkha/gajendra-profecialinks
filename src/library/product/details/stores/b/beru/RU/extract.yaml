@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -7,10 +7,8 @@ fields:
     xpath: //ul[@data-tid="2c199bef"]//li[position()=1]//img/@src
     regExp: (.*)/(.*)
     regExpReplace: https:$1/orig
-    singleValue: true
   - name: url
     xpath: //link[@rel="canonical"]/@href
-    singleValue: true
   - name: category
     xpath: //div[contains(@data-auto,"breadcrumb-item")]
     singleValue: false
@@ -28,12 +26,10 @@ fields:
     singleValue: false
   - name: ingredients
     xpath: boolean(//span[contains(.,'Состав')]/../..//span[@data-tid])
-    singleValue: true
   - name: brandText
     xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
-    regExp: (.*)brandName":"(.*?)"(.*)
-    regExpReplace: $2
-    singleValue: true
+    regExp: brandName":"([^"]+)
+    regExpReplace: $1
   - name: sku
     xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
     regExp: (.*)skuId":"(.*?)"(.*)
@@ -42,9 +38,7 @@ fields:
     xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
     regExp: (.*)skuId":"(.*?)"(.*)
     regExpReplace: $2
-    singleValue: true
   - name: warnings
-    singleValue: true
   - name: alternateImages
     xpath: //ul[@data-tid="2c199bef"]//li[position()>1]//img/@src
     regExp: (.*)/(.*)
@@ -55,7 +49,6 @@ fields:
     singleValue: false
   - name: allergyAdvice
     xpath: //div[@class="nutrition-allergens"]//span[@class="nutrition-allergens__contain"]
-    singleValue: true
   - name: packaging
     xpath: //span[contains(.,'Упаковка')]/../..//span[@data-tid]
     singleValue: false
@@ -69,7 +62,6 @@ fields:
     singleValue: false
   - name: imageAlt
     xpath: (//div[@class="product-pics__container"]//img/@alt)[1]
-    singleValue: true
   - name: secondaryImageTotal
     xpath: //body/@secondary_image_total
     singleValue: false
@@ -105,7 +97,6 @@ fields:
   - name: ratingCount
     xpath: //div[@data-zone-name="summary"]//span[contains(.,'отзывов')]
     regExp: (\d+)
-    singleValue: true
   - name: additionalDescBulletInfo
     xpath: //div[@data-zone-name="specs"]//ul//li
   - name: aggregateRating
