@@ -48,22 +48,20 @@ fields:
   - name: sku
     singleValue: false
     xpath: //meta[@property='product:sku']/@content
-  - name: variants
-    singleValue: false
-    # get skus of varient id from script JSON inside offers element
-    xpath: //script[contains(text(),'sku') and not(contains(text(),'__RUNTIME__'))]
+  # - name: variants
+  #   singleValue: false
+  #   # get skus of varient id from script JSON inside offers element
+  #   xpath: //script[contains(text(),'sku') and not(contains(text(),'__RUNTIME__'))]
   - name: variantId
     singleValue: false
     xpath: //meta[@property='product:retailer_item_id']/@content
   - name: variantCount
     singleValue: false
-    # get skus of varient id from script JSON inside offers elementand count it
-    xpath: //script[contains(text(),'sku') and not(contains(text(),'__RUNTIME__'))]
     defaultValue: '0'
     type: NUMBER
-  - name: variantInformation
-    singleValue: false
-    xpath: //div[contains(@class,'vtex-store-components-3-x-frameAround')  and contains(@class,'ba')]
+  # - name: variantInformation
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'vtex-store-components-3-x-frameAround')  and contains(@class,'ba')]
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,'--product-main')]//div[contains(@class,'exito-product-details-3-x-badgeExito')]
