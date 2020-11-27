@@ -74,59 +74,107 @@ fields:
   - name: caloriesFromFatPerServing
   - name: totalFatPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[.="Fett"]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: totalFatPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[.="Fett"]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: saturatedFatPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"gesättigte")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: saturatedFatPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"gesättigte")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: transFatPerServing
   - name: transFatPerServingUom
   - name: cholesterolPerServing
   - name: cholesterolPerServingUom
   - name: sodiumPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Natrium")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: sodiumPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Natrium")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: totalCarbPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[.="Kohlenhydrate"]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: totalCarbPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[.="Kohlenhydrate"]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: dietaryFibrePerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Ballaststoffe")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: dietaryFibrePerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Ballaststoffe")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: totalSugarsPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Zucker")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: totalSugarsPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Zucker")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: proteinPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Eiweiß")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: proteinPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Eiweiß")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: vitaminAPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Vitamin A")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: vitaminAPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Vitamin A")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: vitaminCPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Vitamin C")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: vitaminCPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Vitamin C")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: calciumPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Calcium")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: calciumPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Calcium")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: ironPerServing
   - name: ironPerServingUom
   - name: dietarySymbols
   - name: magnesiumPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Magnesium")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: magnesiumPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Magnesium")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: saltPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Salz")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $1
   - name: saltPerServingUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Salz")]/following-sibling::td
+    regExp: (.+)(\s)(.+)
+    regExpReplace: $3
   - name: dietaryInformation
   - name: specifications
   - name: warranty
@@ -147,8 +195,11 @@ fields:
     xpath: //h3[contains(.,"Alkoholgehalt")]/following-sibling::text()
   - name: newVersion
   - name: variantInformation
+    xpath: //h1[contains(@class,"pdr-QuickInfo__heading")]/@varinfo
   - name: firstVariant
+    xpath: //span[contains(@class,"articleNumber")]/text()[2]
   - name: variants
+    xpath: //h1[contains(@class,"pdr-QuickInfo__heading")]/@varinfoids
   - name: additionalDescBulletInfo
     xpath: //div[contains(@class,"pdr-js-product-description-jumppoint")]/following-sibling::div//text()[contains(.,"- ")][not(contains(.," - "))]
   - name: prop65Warning

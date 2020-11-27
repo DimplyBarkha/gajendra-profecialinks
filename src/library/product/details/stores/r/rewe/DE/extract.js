@@ -40,6 +40,22 @@ async function implementation (
       }
     };
     optionalWait('h1.pdr-QuickInfo__heading');
+    const isFound = document.evaluate('//span[contains(@class,"articleNumber")]/text()[2]', document).iterateNext();
+    if (isFound) {
+      const response = await fetch(`https://shop.rewe.de/api/product-group?productId=${isFound.textContent}`);
+      if (response.status !== 404) {
+        var json = await response.json();
+        console.log(json.group.groupList);
+        const varInfoIds = [];
+        const varInfo = [];
+        varInfoIds.push(json.group.groupList.map((ele) => ele.productId));
+        varInfo.push(json.group.groupList.map((ele) => ele.discriminatorValue));
+        document.querySelector('h1.pdr-QuickInfo__heading').setAttribute('productId', varInfoIds);
+        document.querySelector('h1.pdr-QuickInfo__heading').setAttribute('varInfo', varInfo);
+      } else {
+        console.log('404');
+      }
+    }
     const gtinSelector = document.evaluate('//script[@type="application/ld+json"][contains(.,"gtin")]', document).iterateNext();
     if (gtinSelector) {
       const gtin = gtinSelector.textContent.split('gtin13":"')[1].split('",')[0];
