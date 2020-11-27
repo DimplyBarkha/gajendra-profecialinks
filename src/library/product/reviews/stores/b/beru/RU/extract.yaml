@@ -32,9 +32,8 @@ fields:
     description: Rating normalized to be out of 5
     xpath: //div/@data-reviewrating
   - name: reviewText
-    singleValue: true
     description: The text of the review
-    xpath: //div[@class='b_2_CxadNVFG']
+    xpath: ancestor::html//div[@class='b_2_CxadNVFG']
   - name: reviewTitle
     singleValue: false
     description: The title of the review
