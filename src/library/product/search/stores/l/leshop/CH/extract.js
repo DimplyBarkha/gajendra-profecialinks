@@ -17,12 +17,12 @@ module.exports = {
     }, { timeout: 90000 });
 
     await context.waitForFunction(async function () {
-      while(!!document.querySelector('div[class="btn-view-more-products ng-star-inserted"]>button')){
+      while (!!document.querySelector('div[class="btn-view-more-products ng-star-inserted"]>button')) {
         // @ts-ignore
         document.querySelector('div[class="btn-view-more-products ng-star-inserted"]>button').click()
         await new Promise(r => setTimeout(r, 6000));
       }
-      
+
       var elem, scrollTotalHeight;
       elem = document.querySelector('main[id="main"]');
       await scroll();
@@ -60,6 +60,21 @@ module.exports = {
       }
       const url = window.location.href;
       addHiddenDiv('added-searchurl', url);
+      function allElementToDocument(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll("a[class='show-product-image']")[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
+      const addID = document.querySelectorAll("div[class='current-quantity-centered ng-star-inserted']");
+      var temp;
+      for (let i = 0; i < addID.length; i++) {
+        temp = addID[i].attributes[2].textContent;
+        temp = temp.replace('currentQuantityCentered-', '');
+        allElementToDocument('addID', temp, i);
+      }
       
     });
     return await context.extract(productDetails, { transform });
