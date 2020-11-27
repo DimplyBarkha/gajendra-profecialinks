@@ -9,6 +9,10 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    await context.waitForFunction(function () {
+      return Boolean(document.querySelector('h1[class="rd-product-detail__title"]') || document.evaluate('//h1[@class="rd-product-detail__title"]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, { timeout: 90000 });
+    
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');

@@ -18,6 +18,10 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await context.waitForFunction(function () {
+    return Boolean(document.querySelector('div[id="rd-item-grid"]') || document.evaluate('//div[@id="rd-item-grid"]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+  }, { timeout: 90000 });
+
   await context.evaluate(async function () {
     function addclass(xpathforpagination) {
       var elems = document.querySelectorAll(xpathforpagination);

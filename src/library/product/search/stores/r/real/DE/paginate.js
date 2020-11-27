@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'real',
-    nextLinkSelector: 'a[class="btn -default pagination"]',
+    nextLinkXpath: "//a[@class='btn -default pagination']",
     loadedSelector: 'div#page',
     domain: 'real.de',
     zipcode: '',
