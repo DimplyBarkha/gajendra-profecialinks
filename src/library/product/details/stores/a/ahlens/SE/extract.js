@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'SE',
     store: 'ahlens',
-    transform: cleanUp,
+    transform: transform,
     domain: 'ahlens.se',
     zipcode: '',
   },
@@ -45,6 +45,8 @@ module.exports = {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(":")) {
             var temp = data[index].replace(":", ".");
+          } else if (data[index].includes(",")){
+            var temp = data[index].replace(",", ".");
           } else {
             temp = data[index].replace(":-", ".");
           }
@@ -57,13 +59,15 @@ module.exports = {
         for (let index = 0; index < data.length; index++) {
           if (data[index].includes(":")) {
             var temp = data[index].replace(":", ".");
+          } else if (data[index].includes(",")){
+            var temp = data[index].replace(",", ".");
           } else {
             temp = data[index].replace(":-", ".");
           }
           addElementToDocument('altImage2', temp + "SEK");
         }
       };
-      var backgroundURL1 = getAllXpath("//div[@class='ah-offer-regular']/b[@class='ah-price']/text()", 'nodeValue');
+      var backgroundURL1 = getAllXpath("//div[@class='ah-pdp-product-price pt-- mb--']/div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price']/text()", 'nodeValue');
       sliceURL1(backgroundURL1);
       function getUnique(array){
         var uniqueArray = [];
