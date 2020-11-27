@@ -9,12 +9,11 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   const manuf = await context.evaluate(async function () {
     const GetTagByIdUsingRegex = (tag, html) => {
       return new RegExp('<' + tag + '>window.dlo.*[\\s\\S]?(\n\t{3}var.*\n\t{3}BH.*\n\t{3}B.*\n\t{2})</' + tag + '>').exec(html);
     };
-
+    // get array of manufacturers
     const manufactArr = await fetch(window.location.href, {
       method: 'GET',
     }).then(r => r.text()).then(htm => {
@@ -45,21 +44,21 @@ async function implementation (
     });
   });
 
-  await context.evaluate(async () => {
-    // add sku attribute
+  const information = await context.evaluate(async () => {
+    // get sku, image and url values
     var sku = document.querySelectorAll('script[type="application/ld+json"]');
+    var info = [];
     for ( let i = 0; i < sku.length; i++) {
-      console.log(sku[i].innerText.split('sku'));
-      // ('(\"sku\":)\"(.*?)\"');
+      var obj = JSON.parse(sku[i].innerText);
+      var element = {};
+      element.id = obj.sku;
+      element.image = obj.image;
+      element.url = obj.url;
+      info.push(element);
     };
+    return info;
   });
 
-  await context.evaluate(async () => {
-    for (let i = 0; i <= document.body.scrollHeight; i = i + 500) {
-      window.scroll(0, i);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-    }
-  });
   var data = await context.extract(productDetails, { transform });
   for (let i = 0; i < data[0].group.length; i++) {
     if ('price' in data[0].group[i]) {
@@ -80,12 +79,18 @@ async function implementation (
         }
       }
     }
-    // if ('thumbnail' in data[0].group[i]) {
-    //   if (data[0].group[i].humbnail[0].text === 'https://static.bhphoto.com/images/en/na500x500.jpg') {
-        
-    //   }
-
-    // }
+    if ('id' in data[0].group[i]) {
+      data[0].group[i].id[0].text = information[i].id;
+    } 
+    if ('productUrl' in data[0].group[i]) {
+      data[0].group[i].productUrl[0].text = information[i].url;
+    }
+    if ('thumbnail' in data[0].group[i]) {
+      data[0].group[i].thumbnail[0].text = information[i].image;
+      if (data[0].group[i].thumbnail[0].text === 'https://static.bhphoto.com/images/en/na500x500.jpg') {
+        data[0].group[i].thumbnail[0].text = '';
+      }
+    }
   }
   return data;
 }

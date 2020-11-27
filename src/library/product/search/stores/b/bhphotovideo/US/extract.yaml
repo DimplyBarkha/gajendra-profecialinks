@@ -5,21 +5,17 @@ recordXPath: //div[@data-selenium="miniProductPage"]
 fields:
   - name: id
     singleValue: true
-    type: STRING
-    xpath: //script[@type="application/ld+json"]
-    regExp: (\"sku\":)\"(.*?)\"
+    xpath: //a[@data-selenium="miniProductPageProductNameLink"]/@href
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    description: The product name
+    description: The product names
     xpath: //span[@data-selenium="miniProductPageProductName"]
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
     xpath: //a[@data-selenium="miniProductPageProductNameLink"]/@href
-    regExp: (.+)
-    regExpReplace: https://www.bhphotovideo.com$1
   - name: gtin
     singleValue: false
   - name: thumbnail
