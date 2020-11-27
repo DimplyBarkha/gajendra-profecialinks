@@ -59,15 +59,28 @@ const transform = (data) => {
 
         if (row.description) {
           let text = '';
-          row.description.forEach(item => {
-            item.text = `${item.text.replace(/\n{0,}\s{1,}/g, ' ')}`;
-            text = text + (text ? ' ' : '') + item.text;
-          });
-          row.description = [{ text }];
+          if (row.description.length == 0) {
+            if (row.myDescription && row.myDescription.length > 0) {
+              let text = '';
+                row.myDescription.forEach(item => {
+                item.text = `${item.text.replace(/\n{0,}\s{1,}/g, ' ')}`;
+                text = text + (text ? ' ' : '') + item.text;
+              });
+              row.description = [{ text }];
+            } else {
+              row.description = row.manufacturerDescription;
+            }
+          } else {
+            row.description.forEach(item => {
+              item.text = `${item.text.replace(/\n{0,}\s{1,}/g, ' ')}`;
+              text = text + (text ? ' ' : '') + item.text;
+            });
+            row.description = [{ text }];
+          }
         } else {
           if (row.myDescription) {
             let text = '';
-              row.description.forEach(item => {
+              row.myDescription.forEach(item => {
               item.text = `${item.text.replace(/\n{0,}\s{1,}/g, ' ')}`;
               text = text + (text ? ' ' : '') + item.text;
             });
