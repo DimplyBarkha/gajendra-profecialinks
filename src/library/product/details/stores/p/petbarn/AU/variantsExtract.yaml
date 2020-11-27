@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-shop"]//div[contains(@itemtype,"schema.org/Product")]
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: variantUrl
+    singleValue: false
+    xpath: //div[@itemprop='offers']//link[@itemprop="url"]/@content
+  - name: variant
+    singleValue: false
+    xpath: //meta[@itemprop="size"]/@content
