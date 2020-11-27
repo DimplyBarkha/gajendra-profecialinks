@@ -27,7 +27,6 @@ fields:
     xpath: //div[@class='productlist__products']//div[@class='product-item__img-container']/img/@src
   - name: ratingCount
     singleValue: false
-    type: NUMBER
     xpath: //div[@class='productlist__products']//span[@class='product-item__rating-count']
     regExp: (\d+)
   - name: aggregateRating
