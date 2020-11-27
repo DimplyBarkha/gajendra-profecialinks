@@ -1,7 +1,6 @@
 singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: null
+regionsSelector: 
+recordSelector: 
 fields:
 - name: _input
   singleValue: false
@@ -9,43 +8,56 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //li[@class='product']/a/@href
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //div[@class='product-essential']//a//img/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //div[@class='product-essential']//a//img/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
+  xpath: //meta[@name='keywords']/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //div[@class='breadcrumbs']/ul/li[not(@class='product') and position()>1]/a/span
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@class='product__name']
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-- name: price
+  xpath: //div[@class='product-essential']//div[@class='price-box card__price']/p[@class='old-price']/span[last()] 
+- name: price 
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //div[@class='product-essential']//div[@class='price-box card__price']/span/span | //div[@class='product-essential']//div[@class='price-box card__price']/p[last()]/span
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //div[@class='add-to-cart']/button/@title
+  regExp: "(.+)"
+  regExpReplace: In Stock
+  defaultValue: Out of Stock
 - name: description
-  singleValue: false
+  singleValue: true
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //div[@class='short-description']//p | //div[@class='short-description']/div/text()
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -53,12 +65,15 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //div[@class='product__brand']
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-- name: quantity
+  xpath: //div[@class='product__brand']
+- name: quantity 
   singleValue: true
   description: Quantity as described on the page
+  xpath: //table//td[@class='data last']
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -71,12 +86,16 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //meta[@itemprop='productID']/@content
+  regExp: (?<=sku:).+
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //meta[@itemprop='productID']/@content
+  regExp: (?<=sku:).+
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -86,23 +105,28 @@ fields:
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
-  singleValue: true
+  singleValue: false
   description: Content under "directions" header
+  xpath: //div[@class='product-collateral']//div[@class='std']/p[position()>last() - 1]/text()
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
-- name: ratingCount
+- name: ratingCount 
   singleValue: true
   description: The number of ratings
-- name: aggregateRatingText
+  xpath: //div[@class='fdt_productsealblackwhite_txt_opinions']/b
+- name: aggregateRatingText 
   singleValue: true
   description: The stated aggregate rating
-- name: aggregateRating
+  xpath: //div[@class='fdt_productsealblackwhite_ratx']/@rating
+- name: aggregateRating 
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@class='fdt_productsealblackwhite_ratx']/@rating
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //div[@class='product__shipping']/p
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -118,10 +142,11 @@ fields:
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
-- name: manufacturerDescription
+- name: manufacturerDescription 
   singleValue: false
   description: The extended description of the product supplied by the lister
-- name: manufacturerImages
+  xpath: //div[@class='product-collateral']//div[@class='std']/p[position()<last() - 1]
+- name: manufacturerImages 
   singleValue: false
   description: Images within the third party description
 - name: videos
@@ -130,6 +155,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
+  xpath: //h1[@class='product__name']
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -362,7 +388,6 @@ fields:
   singleValue: true
   description: 
 - name: specifications
-  singleValue: true
   description: The physical dimensions of the product including packaging.
 - name: warranty
   singleValue: true
@@ -389,10 +414,8 @@ fields:
   singleValue: true
   description: List of additives in the product
 - name: pricePerUnit
-  singleValue: true
   description: Price of the product split into certain units
 - name: pricePerUnitUom
-  singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
@@ -412,7 +435,6 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
-  singleValue: true
   description: colour / scent / flavour / other
 - name: firstVariant
   singleValue: true
@@ -445,7 +467,7 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: 'No'
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
@@ -463,12 +485,14 @@ fields:
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
 - name: Image360Present
-  singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
-- name: imageZoomFeaturePresent
+  defaultValue: 'No'
+- name: imageZoomFeaturePresent 
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  xpath: //div[@class='pswp__container']/@class
+  regExp: (.+?)
+  regExpReplace: 'Yes'
+  defaultValue: 'No'

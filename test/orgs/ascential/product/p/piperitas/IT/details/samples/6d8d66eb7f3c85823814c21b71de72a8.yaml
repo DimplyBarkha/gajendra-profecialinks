@@ -1,0 +1,76 @@
+input:
+  id: 1021
+  _url: http://piperitas.com
+extractions:
+  - html: https://workbench.import.io/html/run=4d856c92-3b58-4fa2-8af5-92a5ba3ad4e4/task=503c541b-24ec-4465-a027-9a62e14d832b/a66df10b-eff0-4076-aa0a-6829a0b0d86a.html
+    extractionConfigId: product/details/stores/p/piperitas/IT/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://piperitas.com/fix-max-gel-200-ml.html
+                xpath: /html/body/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            image:
+              - text: https://piperitas.com/media/catalog/product/cache/1/image/700x700/9df78eab33525d08d6e5fb8d27136e95/f/i/fix_max_-_gel_200_ml.jpg.jpg
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/figure[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Fix Max - Gel 200 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/figure[1]/a[1]/img[1]/@alt
+            metaKeywords:
+              - text: Fix Max - Gel 200 ml
+                xpath: /html/head[1]/meta[4]/@content
+            nameExtended:
+              - text: Fix Max - Gel 200 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 19,00 €
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[4]/div[1]/p[1]/span[2]
+            price:
+              - text: 11,40 €
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[4]/div[1]/p[2]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[6]/div[2]/button[1]/@title
+            description:
+              - text: Gel modellante extra tenuta.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[2]/div[1]/p[1]
+            brandText:
+              - text: L'Oréal Professionnel
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: L'Oréal Professionnel
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            quantity:
+              - text: 200 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: "1021"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
+            variantId:
+              - text: "1021"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
+            directions:
+              - text: Applicare con le mani per una maggiore tenuta del look oppure utilizzare
+                  le dita per definire le singole ciocche.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]/text()[1]
+            shippingInfo:
+              - text: Spedizione gratuita per ordini superiori a 59€. Consegna con corriere BRT
+                  in 48/72 ore.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[7]/p[1]
+            manufacturerDescription:
+              - text: Gel modellante extra tenuta,ideale per acconciature che richiedono una
+                  massima tenuta , definisce senza lasciare residui e garantisce
+                  una lunga durata. Profumo fresco. Asciuga rapidamente. Filtro
+                  UV.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            name:
+              - text: Fix Max - Gel 200 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/h1[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@class
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+        xpath: /
+    timestamp: 1605865928689
