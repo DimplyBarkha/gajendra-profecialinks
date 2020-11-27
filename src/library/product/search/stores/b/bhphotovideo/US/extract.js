@@ -38,6 +38,15 @@ async function implementation (
   });
 
   await context.evaluate(async () => {
+    // add rank attribute
+    var rank = document.querySelectorAll('div[data-selenium="miniProductPage"]');
+
+    rank.forEach((element, index) => {
+      element.setAttribute('rank', (index + 1).toString());
+    });
+  });
+
+  await context.evaluate(async () => {
     for (let i = 0; i <= document.body.scrollHeight; i = i + 500) {
       window.scroll(0, i);
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -62,6 +71,12 @@ async function implementation (
           }
         }
       }
+    }
+    if ('thumbnail' in data[0].group[i]) {
+      if (data[0].group[i].humbnail[0].text === 'https://static.bhphoto.com/images/en/na500x500.jpg') {
+        
+      }
+
     }
   }
   return data;

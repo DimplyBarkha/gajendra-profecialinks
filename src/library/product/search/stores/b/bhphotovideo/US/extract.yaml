@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //*[@data-selenium="miniProductPage"]
+recordXPath: //div[@data-selenium="miniProductPage"]
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@data-selenium="miniProductPageProductNameLink"]/@href
-    regExp: .*product\/([^\/]*)\/.*
-    regExpReplace: $1
+    xpath: //script[@type="application/ld+json"]/text()
+    # regExp: .*product\/([^\/]*)\/.*
+    # regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
@@ -29,8 +29,6 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: count(*//div/*[contains(@class, "star")][contains(@class, "full")])+0.5*count(*//*[@href="#StarHalfIconColored"])
   - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
@@ -59,12 +57,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: count(preceding-sibling::div)+1
+    xpath: //div[@data-selenium="miniProductPage"]/@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: count(preceding-sibling::div)+1
+    xpath: //div[@data-selenium="miniProductPage"]/@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
