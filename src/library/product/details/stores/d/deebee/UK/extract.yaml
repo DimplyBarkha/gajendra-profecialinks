@@ -14,7 +14,7 @@ fields:
     xpath: //div[contains(@class,'page-header')]//h1
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class,'panel-body')]//h3[@itemprop="alternateName"]
+    xpath: //div[contains(@class,'page-header')]//h1
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'hproduct')]//small[contains(@class,'sku')]//span
@@ -31,7 +31,7 @@ fields:
     xpath: //div[contains(@class, 'panel-body')]//ul//li//span[@itemprop='manufacturer']/text() | //div[contains(@class, 'product-section')]//strong[contains(text(),'Manufacturer')]//following-sibling::span
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, 'product-section')]//span[@itemprop='description']
+    xpath: //div[@id='custom-product-description']/text()
   - name: brandText
     singleValue: false
     xpath: (//div[contains(@class, 'product-section')]//strong[contains(text(), 'Brand')]/..//span)[1]
@@ -44,6 +44,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@id='content-center']//h3[contains(text(), 'Product Images')]/..//img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id='content-center']//h3[contains(text(), 'Product Images')]/..//img/@src)
   - name: allergyAdvice
     singleValue: false
     xpath: //div[@id='content-center']//h3[contains(text(), 'Allergy Advice')]/following-sibling::*
@@ -171,4 +174,4 @@ fields:
     xpath: //div[@id='product-nutrition']//tbody//tr//td[contains(text(),'Vitamin C')]//following-sibling::td[1]
   - name: promotion
     singleValue: false
-    xpath: //div[@id='product-promotions']
+    xpath: //div[@id='product-promotions']//li

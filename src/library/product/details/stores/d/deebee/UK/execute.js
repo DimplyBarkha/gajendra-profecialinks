@@ -13,36 +13,59 @@ async function implementation(
     random_move_mouse: true,
   });
   const userCompany = await context.evaluate(function () {
+    function addHiddenDiv(id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    try {
+      var description = "";
+      console.log('nilesh');
+      var dINode = document.evaluate("//div[contains(@class, 'product-section')]//h3[contains(text(),'Product Information')]//following-sibling::p//text()", document, null, XPathResult.ANY_TYPE);
+      console.log('dINode', dINode);
+      do {
+        var descriptionData = dINode.iterateNext();
+
+        if (descriptionData) {
+          description += descriptionData.data + ' ';
+        }
+
+      } while (descriptionData);
+
+      addHiddenDiv('custom-product-description', description);
+    } catch (err) { }
     return document.querySelector('span#user-company').innerText;
   });
   // console.log('userCompany', userCompany);
-  if (userCompany.indexOf('SUPPLIER') === -1) {
-    await context.goto('https://www.deebee.co.uk/account/logon', {
-      timeout: 100000,
-      waitUntil: 'load',
-      checkBlocked: true,
-      js_enabled: true,
-      css_enabled: false,
-      random_move_mouse: true,
-    });
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-    await context.waitForNavigation({ waitUntil: 'load' });
+  // if (userCompany.indexOf('SUPPLIER') === -1) {
+  //   await context.goto('https://www.deebee.co.uk/account/logon', {
+  //     timeout: 100000,
+  //     waitUntil: 'load',
+  //     checkBlocked: true,
+  //     js_enabled: true,
+  //     css_enabled: false,
+  //     random_move_mouse: true,
+  //   });
+  //   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  //   await context.waitForNavigation({ waitUntil: 'load' });
 
-    await context.setInputValue('#custname', 'S00001');
-    await context.setInputValue('#custpass', 'supplier');
+  //   await context.setInputValue('#custname', 'S00001');
+  //   await context.setInputValue('#custpass', 'supplier');
 
-    // document.querySelector('div.login-details input.input-login').click();
-    await context.click('form[action="https://www.deebee.co.uk/account/logon"] button[type="submit"]');
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-    await context.goto(`https://www.deebee.co.uk/product/id/${inputs.id}`, {
-      timeout: 100000,
-      waitUntil: 'load',
-      checkBlocked: true,
-      js_enabled: true,
-      css_enabled: false,
-      random_move_mouse: true,
-    });
-  }
+  //   // document.querySelector('div.login-details input.input-login').click();
+  //   await context.click('form[action="https://www.deebee.co.uk/account/logon"] button[type="submit"]');
+  //   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  //   await context.goto(`https://www.deebee.co.uk/product/id/${inputs.id}`, {
+  //     timeout: 100000,
+  //     waitUntil: 'load',
+  //     checkBlocked: true,
+  //     js_enabled: true,
+  //     css_enabled: false,
+  //     random_move_mouse: true,
+  //   });
+  // }
   await context.waitForNavigation({ waitUntil: 'load' });
 
   return await context.evaluate(function (xp) {

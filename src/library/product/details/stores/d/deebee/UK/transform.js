@@ -32,6 +32,10 @@ const transform = (data) => {
         row.alternateImages = row.alternateImages.filter((item) => {
           return item.text !== mainImage;
         });
+        row.secondaryImageTotal = [{
+          text: row.alternateImages.length,
+          xpath: ''
+        }];
       }
       if (row.availabilityText && row.availabilityText.length) {
         row.availabilityText.map(item => {
@@ -55,6 +59,13 @@ const transform = (data) => {
           }
           item.text = unit;
         })
+      }
+      if (row.promotion && row.promotion.length) {
+        var cp = '';
+        row.promotion.map(item => {
+          cp += item.text + ' || '
+        });
+        row.promotion = [{ text: cp.substring(0, cp.length - 4), xpath: '' }];
       }
     }
   }
