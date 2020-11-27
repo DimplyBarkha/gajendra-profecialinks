@@ -20,7 +20,16 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    const searchURL = window.location.href;
+    addHiddenDiv('added_search_url', searchURL);
+  
     let scrollTop = 0;
     while (scrollTop !== 20000) {
       await stall(500);
