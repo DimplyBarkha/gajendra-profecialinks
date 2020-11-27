@@ -6,8 +6,11 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="product-name"]
-  - name: thumbnail
+  - name: id
     singleValue: false
+    xpath: //a[contains(@class, "search-result")]/@href
+  - name: thumbnail
+    singleValue: falses
     xpath: //div[@class="product-image"]/img/@src
   - name: productUrl
     singleValue: false

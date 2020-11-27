@@ -25,6 +25,12 @@ const transform = (data) => {
     for (const { group } of data) {
       var rank = 1;
       for (let row of group) {  
+          if(row.id){
+              row.id.forEach(item => {
+                  var slpltId = item.text.split('/');
+                  item.text = slpltId[2];
+              })
+          }
           if(row.productUrl){
               row.productUrl.forEach(item => {
                   item.text = "https://www.chemistwarehouse.co.nz"+item.text;

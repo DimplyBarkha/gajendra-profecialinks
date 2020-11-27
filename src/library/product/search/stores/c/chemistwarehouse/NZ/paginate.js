@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'NZ',
     store: 'chemistwarehouse',
-    nextLinkSelector: 'div.pager-results a',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#p_lt_ctl08_pageplaceholder_p_lt_ctl00_RowLayout_RowLayout_4_wSR_srchResults_pnlSearchResults',
