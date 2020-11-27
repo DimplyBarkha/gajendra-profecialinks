@@ -15,11 +15,11 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[contains(@class, 'product-image')]/a//img/@data-src
+    xpath: //div[contains(@class, 'product-image')]/a//img/@src
   - name: name
     singleValue: false
     description: The product name
-    xpath: //h3[contains(@class, 'product-name')]/a/@data-copy-title
+    xpath: //h3[contains(@class, 'product-name')]
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -38,6 +38,7 @@ fields:
   - name: reviewCount
     singleValue: false
     description: The number of reviews
+    xpath: //span[@class='bv-rating']/span
   - name: price
     singleValue: false
     description: The offered price for the product
@@ -59,7 +60,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //h3[contains(@class, 'product-name')]/a/@data-copy-title
+    xpath: //h3[contains(@class, 'product-name')]
   - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
