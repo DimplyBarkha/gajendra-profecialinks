@@ -1,6 +1,6 @@
 const { transform } = require('./format');
 
-async function implementation ({ url, zipcode, storeId }, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -12,6 +12,10 @@ async function implementation ({ url, zipcode, storeId }, parameters, context, d
       : 0;
     if (numberOfProducts > 12) return true;
     else return false;
+  });
+
+  const url = await context.evaluate(async function () {
+    return window.location.href;
   });
 
   if (flag) {
