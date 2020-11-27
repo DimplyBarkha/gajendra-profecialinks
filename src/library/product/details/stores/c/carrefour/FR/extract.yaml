@@ -39,8 +39,8 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: normalize-space(//script[contains(., 'ONECF_INITIAL_STATE')])
-    regExp: purchasable":(\w+)
-    regExpReplace: $1
+    regExp: (.*)purchasable":(\w+)(.*)
+    regExpReplace: $2
     defaultValue: false
   - name: description
     singleValue: false
@@ -228,7 +228,7 @@ fields:
     xpath: //div[@class='main-details__pdp-pricing']//div[@class='product-card-price__price']/span[last()]
   - name: otherSellersAvailability
     xpath: normalize-space(//script[contains(., 'ONECF_INITIAL_STATE')])
-    regExp: purchasable":true
+    regExp: (.*)purchasable":true(.*)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: otherSellersShipping
