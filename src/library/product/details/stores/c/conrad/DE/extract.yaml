@@ -1,0 +1,65 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="productDetails__wrapper"]
+fields:
+  - name: name
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//header//h1
+    singleValue: false
+  - name: nameExtended
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//header//h1
+    singleValue: false    
+  - name: image
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@class="productImage__container"]//div[@class="productImage__mainImageWrapper"]//img/@src
+    singleValue: false
+  - name: alternateImages
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@class="productImage__container"]//div[@class="productImage__imageListSidebar"]//ul//li//img/@src
+    singleValue: false
+  - name: imageAlt
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@class="productImage__container"]//div[@class="productImage__mainImageWrapper"]//img/@alt
+    singleValue: false
+  - name: manufacturer
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//meta[@itemprop="manufacturer"]/@content
+    singleValue: false
+  - name: brandText
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//meta[@itemprop="manufacturer"]/@content
+    singleValue: false
+  - name: sku
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//meta[@itemprop="productID"]/@content
+    singleValue: false
+  - name: variantId
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//meta[@itemprop="productID"]/@content
+    singleValue: false
+  - name: eangtin
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//meta[@itemprop="gtin13"]/@content
+    singleValue: false
+  - name: mpc
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//meta[@itemprop="mpn"]/@content
+    singleValue: false
+  - name: availabilityText
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@id="availabilitySection"]//div[@id="priceAvailabilityWrapper"]//div[contains(@class, "currentOfferAvailability")]//p[1]
+    singleValue: false
+  - name: category
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//div[@class="productBreadcrumb__wrapper"]//ul//li[@itemprop="itemListElement"]
+    singleValue: false
+  - name: description
+    xpath: concat(//div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@id="productDetailsSection"]//div[@id="productHighlights"]//section[@id="descriptionTitle__productHighlights"]//div[@class="productHighlights__block"], //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@id="productDetailsSection"]//div[@class="productDetailsContainer"]//section//div[@id="productDescription"]//div)
+    singleValue: false
+  - name: attributesNotesCustom
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@id="productDetailsSection"]//div[@class="productDetailsContainer"]//section//div[@id="attributesNotes_facts"]//ul//li
+    singleValue: false
+  - name: shippingDimensions
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@id="productDetailsSection"]//div[@class="productDetailsContainer"]//section[@class="descriptionBlock"]//p[contains(text(), 'Breite')]/../..
+    singleValue: false
+  - name: price
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@id="availabilitySection"]//div[@id="priceAvailabilityWrapper"]//div[@class="priceAvailability__content"]//div[@id="productPrice"]//p
+    singleValue: false
+  - name: productOtherInformation
+    xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//div[@id="productDetailsSection"]//div[@class="productDetailsContainer"]//div[@class="productTechData__hasSimilarButton"]//dl
+    singleValue: false
+  - name: videos
+    xpath: //video//source/@src
+    singleValue: false
+  - name: videoLength
+    xpath: //div[contains(text(), "00 / ")]
+    singleValue: false
