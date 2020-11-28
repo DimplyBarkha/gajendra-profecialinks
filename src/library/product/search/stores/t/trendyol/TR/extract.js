@@ -128,7 +128,7 @@ module.exports = {
       try {
         var index = 0;
         (document.querySelectorAll('div.prdct-cntnr-wrppr div a')).forEach((node) => {
-          node.setAttribute('productCode', results[0][index].code);
+          node.setAttribute('data-product-code', results[0][index].code);
           index++;
         });
       } catch (error) {
