@@ -32,6 +32,11 @@ const transform = (data) => {
           item.text = 'https://www.newworld.co.nz/' + item.text;
         });
       }
+      if (row.variantId) {
+        row.variantId.forEach(item => {
+          item.text = item.text.replace('https://www.newworld.co.nz:443/', '').replace(/\//g, '-');
+        });
+      }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
         row.additionalDescBulletInfo.forEach(item => {

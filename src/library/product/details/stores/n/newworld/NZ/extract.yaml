@@ -39,3 +39,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //iframe[contains(@src,'youtube')]/@src
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+
+
+    
