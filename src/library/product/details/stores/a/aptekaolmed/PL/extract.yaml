@@ -61,7 +61,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: concat(//td/span[contains(text(),'Marka')]/following::td[1], '||' ,//a[@class="brand"])
+    xpath: //html//div[@id='brandd']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -96,7 +96,7 @@ fields:
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: //h1
-    regExp: ((\s+)\d+(.+))$
+    regExp: (\d+)\d(?!.*\d)(.+)
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -507,9 +507,9 @@ fields:
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    xpath: //span[@class="title_terms_form"]
-    regExpReplace: Yes
-    defaultValue: No
+    # xpath: //span[@class="title_terms_form"]
+    # regExpReplace: Yes
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']

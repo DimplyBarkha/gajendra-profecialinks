@@ -41,8 +41,19 @@ module.exports = {
       xyz.push(backgroundURL[i]);
       }
     }
+    // @ts-ignore
     xyz = xyz.join(" || ");
     addElementToDocument('xyz', xyz);
+    // console.log(xyz,'xyz------------')
+    var backgroundURL1 = getAllXpath('//td/span[contains(text(),"Marka")]/following::td[1]//text()', 'nodeValue');
+    var brandd;
+    if (backgroundURL1.length > 0 ) {
+      brandd = backgroundURL1
+    }
+    else{
+      brandd = backgroundURL1 = getAllXpath('//a[@class="brand"]//text()', 'nodeValue');
+    }
+    addElementToDocument('brandd', brandd);
   });
   await context.extract(productDetails);
   },
