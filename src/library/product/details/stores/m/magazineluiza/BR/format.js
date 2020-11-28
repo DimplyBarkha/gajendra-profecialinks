@@ -51,8 +51,8 @@ const transform = (data) => {
       if (row.price) {
         var arrPrice = [];
         row.price.forEach(item => {
-          item.text = item.text.replace(',', '.');
           item.text = item.text.replace('.', '');
+          item.text = item.text.replace(',', '.');
           arrPrice.push(item.text);
         });
         if (arrPrice.length) {
@@ -62,8 +62,8 @@ const transform = (data) => {
       if (row.listPrice) {
         row.listPrice.forEach(item => {
           item.text = item.text.replace('de ', '');
-          item.text = item.text.replace(',', '.');
           item.text = item.text.replace('.', '');
+          item.text = item.text.replace(',', '.');
         });
       }
       if (row.sku) {
