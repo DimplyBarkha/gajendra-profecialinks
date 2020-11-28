@@ -17,7 +17,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@class="breadcrumb null in-pdp"]/li
+    xpath: //ol[@class='breadcrumb null in-pdp']/li[@itemprop='itemListElement']
   - name: nameExtended
     description:
       The product name, prefixing "${brand} - " if not included in "name"
@@ -29,19 +29,16 @@ fields:
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='product-main-info']//div[@class='prices']//span[contains(@class, 'sales')]/span[contains(@class, 'value')]/@content
+    xpath: //div[@class='product-main-info']//div[@class='prices']//span[contains(@class, 'sales')]/span[contains(@class, 'value')]
   - name: availabilityText
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //script[contains(@type,"application/ld+json")]
-    regExp: (InStock)
-    regExpReplace: $1
+    xpath: //body/@import-purchasability
   - name: description
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: normalize-space(//div[@class='product-description-and-detail']//div[@aria-labelledby='tab-ingredientAndAllergens'])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -126,6 +123,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //body/@import-enhanced-content
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -212,10 +210,9 @@ fields:
     description: null
   - name: otherSellersName
     description: null
-    defaultValue: Carrefour
   - name: otherSellersPrice
     description: null
-    xpath: //div[@class='product-main-info']//div[@class='prices']//span[contains(@class, 'sales')]/span[contains(@class, 'value')]/@content
+    xpath: //div[@class='product-main-info']//div[@class='prices']//span[contains(@class, 'sales')]/span[contains(@class, 'value')]
   - name: otherSellersBuyboxWinner
     defaultValue: false
   - name: otherSellersFulfilledByAmazon
@@ -244,6 +241,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: normalize-space(//p[contains(., 'Ingredienti')]/following::ul[1])
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -525,13 +523,9 @@ fields:
   - name: priceCurrency
     defaultValue: EUR
   - name: shownImages
-    xpath: //div[contains(@class,"swiper-slide")]//img/@srcset
-    regExp: (.+.png)\?sw=260&sh=260&sm=fit 960w
-    regExpReplace: $1
+    xpath: //import-image/@data
   - name: highQualityImages
-    xpath: //div[contains(@class,"swiper-slide")]//img/@srcset
-    regExp: (.+.png)\?sw=260&sh=260&sm=fit 960w
-    regExpReplace: $1
+    xpath: //import-image/@data
   - name: mpn
     xpath: //script[contains(@type,"application/ld+json")]
     regExp: (mpn)\"\:\"(\d+)
@@ -548,3 +542,7 @@ fields:
     xpath: //link[@rel='canonical']/@href
     regExp: (.*)
     regExpReplace: https://www.carrefour.it$1
+  - name: allergens
+    xpath: //p[contains(., 'Allergeni')]/following::p[1]
+  - name: nutritionInfo
+    xpath: //div[contains(@class, 'table-nutritionInfo')]/div[not(contains(@class, 'head'))]
