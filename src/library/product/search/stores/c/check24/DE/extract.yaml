@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="srp__container js-srp-container"]//div[@class="srp-row products-grid"]//div[@class="grid-product"]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="grid-product__details"]//a
+  - name: id
+    singleValue: false
+    xpath: //div[@class="grid-product__details"]//a[@class="grid-product__title hover-link"]//@data-id
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="grid-product__figure"]//a//img//@src
+  - name: price
+    sigleValue: false
+    xpath: //span[@class="grid-product__price"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="count"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="grid-product__figure"]//a//@href
+  - name: rank
+  - name: rankOrganic
