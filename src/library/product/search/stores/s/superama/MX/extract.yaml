@@ -9,7 +9,7 @@ fields:
     regExpReplace: https://www.superama.com.mx$1
     singleValue: false    
   - name: thumbnail
-    xpath: //img[@class="lazyload"]/@src
+    xpath:   //img[@class="lazyload"]/@data-original | //img[@class="lazyload"]/@src
     # regExp: (.*)hd_280x(.*)
     # regExpReplace: $1hd_560x$2
     singleValue: false
@@ -30,4 +30,8 @@ fields:
   - name: rankOrganic
   - name: gtin
     xpath: //div[contains(@class,"add2CartTrigger")]/@data-upc
+    singleValue: false
+  - name: sponsored
+    defaultValue: false
+    type: BOOLEAN
     singleValue: false
