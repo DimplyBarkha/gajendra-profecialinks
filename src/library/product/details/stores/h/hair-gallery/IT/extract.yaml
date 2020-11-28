@@ -23,7 +23,7 @@ fields:
     xpath: //h1[@itemprop='name']
   - name: availabilityText
     singleValue: false
-    xpath: //input[@id='button-cart' and @value='Acquista']
+    xpath: //input[@id='button-cart' and @value='Acquista']/@value
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
