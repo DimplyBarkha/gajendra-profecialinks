@@ -39,7 +39,6 @@ const transform = (data) => {
       }
       if (row.alternateImages) {
         row.image = [{ text: row.alternateImages[0].text }];
-        row.alternateImages.splice(0, 1);
       }
       if (row.image) {
         row.image.forEach(item => {
