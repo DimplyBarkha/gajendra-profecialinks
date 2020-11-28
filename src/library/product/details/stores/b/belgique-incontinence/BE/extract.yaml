@@ -44,16 +44,16 @@ fields:
   xpath: //div[@class='pdtbrand'] 
 - name: metaKeywords
   singleValue: false
-  xpath: //meta[@name="keywords"]/@content 
-- name: specifications
-  singleValue: false
-  xpath: //div[(@id="contentTab3")]/p//text() | //div[(@id="contentTab3")]//ul/li | //div[(@id="contentTab3")]//tr[position()>1]               
+  xpath: //meta[@name="keywords"]/@content               
 - name: description
   singleValue: false
   xpath: //div[(@id="contentTab1")]/p | //div[(@id="contentTab1")]//li
 - name: descriptionBullets
   singleValue: false
-  xpath: //div[(@id="contentTab1")]/p   
+  xpath: //div[(@id="contentTab1")]/p | //div[(@id="contentTab1")]//li
+- name: additionalDescBulletInfo
+  singleValue: false
+  xpath: //div[(@id="contentTab3")]/p//text() | //div[(@id="contentTab3")]//ul/li     
 - name: alternateImage
   singleValue: false
   xpath: //p[@class="pd07"]/a/img/@src

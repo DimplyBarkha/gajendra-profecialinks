@@ -30,17 +30,19 @@ const transform = (data) => {
             item.text = String(item.text).replace(/\,/g,''); 
             var rating = parseInt(item.text);
             item.text  = rating*5/100;
-            item.text = parseFloat(item.text);      
+            item.text = item.text.toString().replace(".",",");      
           });        
         }
         if (row.price) {         
           row.price.forEach(item => { 
-           item.text = item.text+' €'   
+           item.text = item.text+' €'
+           item.text = String(item.text).replace('.',',')   
           });        
         }
         if (row.listPrice) {         
           row.listPrice.forEach(item => { 
-           item.text = item.text+' €'   
+           item.text = item.text+' €'
+           item.text = String(item.text).replace('.',',')   
           });        
         }
         if (row.category) {
@@ -94,8 +96,8 @@ const transform = (data) => {
           row.description.forEach(item => {
             info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());            
           });
-          row.description[0].text = '||' + row.description[0].text;
-          row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];          
+          row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];
+          row.description[0].text = ' || ' + row.description[0].text;          
         }
         if (row.shippingInfo) {
           let info = [];          
@@ -109,16 +111,16 @@ const transform = (data) => {
           row.directions.forEach(item => {
             info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
           });
-          row.description[0].text = '||' + row.description[0].text
-          row.directions = [{'text':info.join(' || '),'xpath':row.directions[0].xpath}];          
+          row.directions = [{'text':info.join(' || '),'xpath':row.directions[0].xpath}];
+          row.directions[0].text = ' || ' + row.directions[0].text          
         }
-        if (row.specifications) {
+        if (row.additionalDescBulletInfo) {
           let info = [];          
-          row.specifications.forEach(item => {
-            item.text = item.text.replace(/\n\s*\n\s*\n\s*/g,' : ').trim();
+          row.additionalDescBulletInfo.forEach(item => {
             info.push(item.text)            
           });
-          row.specifications= [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
+          row.additionalDescBulletInfo= [{'text':info.join(' | '),'xpath':row.additionalDescBulletInfo[0].xpath}];
+          row.additionalDescBulletInfo[0].text = ' | ' + row.additionalDescBulletInfo[0].text          
         }
       }
   }
