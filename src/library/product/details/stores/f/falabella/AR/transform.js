@@ -31,17 +31,17 @@ const transform = (data) => {
       // }
       if (row.videos) {
         row.videos.forEach(item => {
-          item.text = item.text.indexOf('https:') === -1 ? ("https:" + item.text) : item.text;
+          item.text = item.text.indexOf('https:') === -1 ? ('https:' + item.text) : item.text;
         });
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
           const specs = item.text.trim().split('\n');
           console.log('specs', specs[0])
-          var cs = "";
+          var cs = '';
           var flag = true;
           specs.forEach((spec, index) => {
-            cs += spec + (flag ? " : " : " || ");
+            cs += spec + (flag ? ' : ' : ' || ');
             flag = !flag;
           });
           item.text = cs;

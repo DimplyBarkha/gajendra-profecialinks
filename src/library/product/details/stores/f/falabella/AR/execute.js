@@ -1,14 +1,16 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  var url = "";
-  if (inputs.id)
+  var url = '';
+  if (inputs.id) {
     url = `https://www.falabella.com.ar/falabella-ar/product/${inputs.id}`;
-  else
-    url = inputs.URL || inputs.url
+  }
+  else {
+    url = inputs.URL || inputs.url;
+  }
   await context.goto(url, {
     timeout: 100000,
     waitUntil: 'load',
@@ -35,5 +37,5 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
-  implementation
+  implementation,
 };
