@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='productMainDetailsImage']//img[@class='sparImageResponsive']//@src
+  - name: sku
+    singleValue: false
+    xpath: //div[@class='descriptionLabels']//label[@class='productDetailsArticleNumber']
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='descriptionLabels']//label[@class='productDetailsArticleNumber']  
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class='breadcrumbContainer']//ul[@class='cf']//li[position()>1]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //label[@class='productDetailsName']
+  - name: name
+    singleValue: false
+    xpath: //label[@class='productDetailsName']
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsPrice']  
+  - name: availabilityText
+    singleValue: false
+    xpath: //button[@class='addToCartButton']//label
+    defaultValue: "In Stock"
+  - name: quantity
+    singleValue: false
+    defaultValue: 1  
+  - name: description
+    singleValue: false
+    xpath: //div[@class='detail__container']      
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='productMainDetailsImage']//img[@class='sparImageResponsive']//@data-desktop-zoom-src 
+  
