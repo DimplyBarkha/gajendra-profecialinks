@@ -22,7 +22,9 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      rankCounter += 1;
+      if (row.id) {
+        rankCounter += 1;
+      }
       if (!row.sponsored) {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];

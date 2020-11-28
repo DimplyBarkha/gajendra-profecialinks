@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div//div[@class="prdct-cntnr-wrppr"]//div
+recordXPath: //div[@class="prdct-cntnr-wrppr"]//div[contains(@class, "p-card-wrppr")]
 fields:
   - name: paid
     singleValue: false
@@ -14,7 +14,14 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+    example:
+      [
+        "Dental Care",
+        "Toothbrushes & Accessories",
+        "Electric Toothbrushes & Accessories",
+        "Electric Toothbrushes",
+        "Rotating",
+      ]
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
@@ -59,22 +66,22 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    type: NUMBER    
+    type: NUMBER
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER 
+    type: NUMBER
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
-    type: BOOLEAN    
+    type: BOOLEAN
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
     xpath: //div[contains(@class,"prdct-cntnr-wrppr")]//a//@productCode
   - name: aggregateRating2
     singleValue: false
-    description: The stated aggregate rating normalized to be out of 5 
+    description: The stated aggregate rating normalized to be out of 5
     xpath: //*[contains(@class,"p-card-wrppr")]//div[@class="ratings"]//@sum
   - name: searchUrl
     singleValue: false
