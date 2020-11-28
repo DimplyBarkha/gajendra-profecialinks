@@ -13,9 +13,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //li[contains(@class,'video-thumb')]/span[@itemprop='url']/@content
-  - name: availability
+  - name: availabilityText
     singleValue: false
-    defaultValue: InStock
+    defaultValue: In Stock
     xpath: //p[@class='stars']/strong[@class='stock-status out-stock']/strong
   - name: price
     singleValue: false
