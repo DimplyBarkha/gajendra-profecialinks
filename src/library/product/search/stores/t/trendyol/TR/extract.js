@@ -62,13 +62,12 @@ module.exports = {
     const mainUrl = await context.evaluate(async function () {
       return document.URL;
     });
-    console.log('mainUrl', mainUrl);
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
-          await stall(500);
+          await stall(2000);
           scrollTop += 1000;
           window.scroll(0, scrollTop);
           if (scrollTop === 20000) {
@@ -101,7 +100,6 @@ module.exports = {
 
     for (var i = 0; i < maxCount; i++) {
       const detailPageUrl = results[i].url.includes('https://www.trendyol.com/') ? results[i].url : `https://www.trendyol.com/${results[i].url}`;
-
       await context.goto(detailPageUrl, {
         timeout: 10000000,
         waitUntil: 'load',
