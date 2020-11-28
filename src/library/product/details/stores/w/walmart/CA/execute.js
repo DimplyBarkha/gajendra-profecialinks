@@ -6,7 +6,7 @@ module.exports = {
     store: 'walmart',
     domain: 'walmart.ca',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="css-1prhyoh e10qp9yc1"]',
     zipcode: '',
   },
 };
