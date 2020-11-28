@@ -10,7 +10,10 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: (//a[contains(@class,'image-link')])[1]/img/@alt
-  - name: availabilityText
+  - name: videos
+    singleValue: false
+    xpath: //li[contains(@class,'video-thumb')]/span[@itemprop='url']/@content
+  - name: availability
     singleValue: false
     defaultValue: InStock
     xpath: //p[@class='stars']/strong[@class='stock-status out-stock']/strong
@@ -59,10 +62,10 @@ fields:
     xpath: //span[@class='product-brand']
   - name: variantCount
     singleValue: true
-  - name: manufacturerDescription
+  - name: enhanced_content
     singleValue: false
-    xpath: //section[@id='customBrandContent']//text()
-  - name: manufacturerImages
+    xpath: //section[@id='customBrandContent']//*[not(self::style)]
+  - name: aplus_images
     singleValue: false
     xpath: //section[@id='customBrandContent']//img/@src
   - name: name

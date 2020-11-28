@@ -37,6 +37,13 @@ const transform = (data) => {
                 });
             }
         }
+        if (row.videos){
+            let arrVideos = [];
+            row.videos.forEach(video => {
+                arrVideos.push(video.text)
+            });
+            row.videos = [{"text": arrVideos.join(' | '), "xpath": row.videos[0].xpath}]
+        }
         if(row.listPrice){
             var strListPrice = row.listPrice[0].text
             strListPrice = strListPrice.replace(/Don't pay† /g, '')
@@ -84,21 +91,19 @@ const transform = (data) => {
             })
             row.variantInformation = [{"text": arrTemp.join(' | '), "xpath": row.variantInformation[0].xpath}]
         }
-        if(row.manufacturerImages){
-            console.log(row.manufacturerImages)
+        if(row.aplus_images){
             var arrTemp = []  
-            row.manufacturerImages.forEach(Images => {
+            row.aplus_images.forEach(Images => {
                 arrTemp.push(Images.text)
             })
-            row.manufacturerImages = [{"text": arrTemp.join(' | '), "xpath": row.manufacturerImages[0].xpath}]
+            row.aplus_images = [{"text": arrTemp.join(' | '), "xpath": row.aplus_images[0].xpath}]
         }
-        if(row.manufacturerDescription){
-            console.log(row.manufacturerDescription)
+        if(row.enhanced_content){
             var arrTemp = []  
-            row.manufacturerDescription.forEach(Desc => {
+            row.enhanced_content.forEach(Desc => {
                 arrTemp.push(Desc.text)
             })
-            row.manufacturerDescription = [{"text": arrTemp.join(' '), "xpath": row.manufacturerDescription[0].xpath}]
+            row.enhanced_content = [{"text": arrTemp.join(' '), "xpath": row.enhanced_content[0].xpath}]
         }
         
       }
