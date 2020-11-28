@@ -28,11 +28,13 @@ const transform = (data) => {
         row.image.forEach(item => {
           item.text = 'https:' + item.text;
           item.text = item.text.replace('150x150', '1000x1000');
+          item.text = item.text.replace('size=60', 'size=600');
         });
       }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace('150x150', '1000x1000');
+          item.text = item.text.replace('size=60', 'size=600');
           item.text = 'https:' + item.text;
         });
       }
@@ -89,10 +91,10 @@ const transform = (data) => {
       // }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
-        row.price.forEach(item => {
+        row.additionalDescBulletInfo.forEach(item => {
           arrBullets.push(item.text);
         });
-        row.additionalDescBulletInfo = [{ text: '||' + arrBullets.join('||') }];
+        row.additionalDescBulletInfo = [{ text: '|| ' + arrBullets.join(' || ') }];
         row.descriptionBullets = [{ text: arrBullets.length }];
       }
       // if (row.aggregateRating) {
