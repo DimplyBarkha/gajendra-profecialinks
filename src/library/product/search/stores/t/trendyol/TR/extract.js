@@ -43,7 +43,7 @@ module.exports = {
     }
     await context.evaluate(async function () {
       const URL = window.location.href;
-      function addHiddenDiv (id, content, index) {
+      function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -76,7 +76,7 @@ module.exports = {
             break;
           }
         }
-        function stall (ms) {
+        function stall(ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -85,7 +85,7 @@ module.exports = {
         }
       });
     };
-
+    await applyScroll(context);
     var results = await context.evaluate(async function () {
       const result = [];
       (document.querySelectorAll('div.prdct-cntnr-wrppr div a')).forEach((elem) => {
@@ -96,8 +96,13 @@ module.exports = {
       });
       return result;
     });
-    for (var i = 0; i < results.length; i++) {
-      await context.goto(results[i].url, {
+
+    const maxCount = results.length > 150 ? 150 : results.length;
+
+    for (var i = 0; i < maxCount; i++) {
+      const detailPageUrl = results[i].url.includes('https://www.trendyol.com/') ? results[i].url : `https://www.trendyol.com/${results[i].url}`;
+
+      await context.goto(detailPageUrl, {
         timeout: 10000000,
         waitUntil: 'load',
         checkBlocked: true,
@@ -118,7 +123,7 @@ module.exports = {
     // });
 
     await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
-    await applyScroll(context);
+    //await applyScroll(context);
     await context.evaluate(async function (results) {
       try {
         var index = 0;
