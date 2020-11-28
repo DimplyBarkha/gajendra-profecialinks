@@ -22,18 +22,19 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if(row.id){
-      rankCounter += 1;
-      if (!row.sponsored) {
-        orgRankCounter += 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
+      if (row.id) {
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        console.log('rankCounter ==', rankCounter);
+        row.rank = [{ text: rankCounter }];
+        Object.keys(row).forEach(header => row[header].forEach(el => {
+          el.text = clean(el.text);
+        }));
       }
-      row.rank = [{ text: rankCounter }];
-      Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }));
     }
-  }
   }
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });

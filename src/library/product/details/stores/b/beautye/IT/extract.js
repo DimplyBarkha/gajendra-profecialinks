@@ -16,13 +16,12 @@ async function implementation (
   if (variantLength > 1) {
     for (let j = 0; j < variantLength; j++) {
       try {
-        await context.evaluate( (j) => {
-          return document.querySelectorAll('div.swatch-option')[j].click();
-        }, j);
-        // await context.click('div.swatch-option div.custom-option-bg');
-        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-        console.log('Inside variants', j);
-        // await preparePage(j, variantLength);
+        try {
+          await context.evaluate( (j) => {
+            return document.querySelectorAll('div.swatch-option')[j].click();
+          }, j);
+          console.log('Inside variants', j);
+        } catch (err) {}
         if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
       } catch (err) {}
     }

@@ -5,32 +5,33 @@ recordXPath: //li[contains(@class,"product-item")]
 fields:
   - name: id
     singleValue: false
-    xpath: //strong[contains(@class,"product-item-name")]/a/@href
-    regExp: \W([\d]+).html
-    regExpReplace: $1
+    xpath: //div[@id="added-id"]
+    #   //strong[contains(@class,"product-item-name")]/a/@href
+    # regExp: \W([\d]+).html
+    # regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //strong[contains(@class,"product-item-name")]
+    xpath: //div[@id="added-name"]
+    # //strong[contains(@class,"product-item-name")]
   - name: productUrl
     singleValue: false
-    xpath:  //strong[contains(@class,"product-item-name")]/a/@href
-    # regExp: (.+)
-    # regExpReplace: https://www.elcorteingles.es$1
+    xpath: //strong[contains(@class,"product-item-name")]/a/@href
   - name: thumbnail
     singleValue: false
-    xpath:  //a[@tabindex="-1"]/img/@data-src
+    xpath: //a[@tabindex="-1"]/img/@data-src
     # regExp: (.+)
     # regExpReplace: https:$1
   # - name: aggregateRating
   #   xpath: 
   #   singleValue: false
-  # - name: reviewCount
-  #   singleValue: false
-  #   xpath: 
   - name: price
     singleValue: false
     xpath: //span[@data-price-type="finalPrice"]//span[@class="price"]
   - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
   - name: rankOrganic
-  - name: sponsored
-    defaultValue: false
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
