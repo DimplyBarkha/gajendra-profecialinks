@@ -27,11 +27,14 @@ const transform = (data) => {
       if (row.image) {
         row.image.forEach(item => {
           item.text = 'https://www.officemag.ru' + item.text;
+          item.text = item.text.replace('_x.', '_xl.');
         });
       }
       if (row.alternateImages) {
+        row.alternateImages.splice(0, 1);
         row.alternateImages.forEach(item => {
           item.text = 'https://www.officemag.ru' + item.text;
+          item.text = item.text.replace('_s.', '_xl.');
         });
       }
       if (row.shippingInfo) {
