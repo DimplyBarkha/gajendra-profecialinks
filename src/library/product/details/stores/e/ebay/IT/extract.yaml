@@ -1,13 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
 fields:
   - name: image
-    singleValue: false
+    singleValue: true
     xpath: //div[@id="mainImgHldr"]//img[@id="icImg"]/@src
-  - name: _url
-    singleValue: false
-    xpath: //html/head/link[@rel='canonical']/@href
-  - name: urlId
-    singleValue: false
-    xpath: //html/head/link[@rel='canonical']/@href
   - name: imageAlt
     singleValue: true
     xpath: //div[@id="mainImgHldr"]//img[@id="icImg"]/@alt
@@ -30,48 +28,48 @@ fields:
     #   regExp: Aggiungi al carrello
     #   regExpReplace: In stock
     defaultValue: In stock
-# - name: description
-#   singleValue: true
-#   xpath: //div[@class='itemAttr']//table[@role='presentation']
-#- name: descriptionBullets
-#  singleValue: true
-#  xpath: count(//ul[contains(@class,'a-spacing-mini')])
-# - name: brandText
-#   singleValue: true
-#   xpath: //td[contains(text(), 'Marca')]/following-sibling::*[1]
-# - name: quantity
-#   singleValue: true
-#  xpath: //input[@class='qtyInput']/@value
-# - name: weightNet
-#   singleValue: true
-#   xpath: //th[contains(text(), 'Peso articolo')]/following-sibling::*[1]
-# - name: weightGross
-#   singleValue: true
-#   xpath: //th[contains(text(), 'Peso articolo')]/following-sibling::*[1]
-# - name: gtin
-#  singleValue: true
-#   xpath: //td[contains(text(), 'EAN')]/following-sibling::*[1]
-# - name: variantId
-#   singleValue: true
-#   xpath: //div[@id='descItemNumber']
-# - name: sku
-#   singleValue: true
-#    xpath: //div[@id='descItemNumber']
-#  - name: ratingCount
-#   singleValue: true
-#   xpath: //span[@class='ebay-reviews-count']
-# - name: aggregateRatingText
-#   singleValue: true
-#   xpath: //span[@class='ebay-reviews-count']
-# - name: aggregateRating
-#   singleValue: true
-#   xpath: //div[@class='ebay-review-start-rating']
-# - name: shippingInfo
-#   singleValue: true
-#  xpath: //div[@id='shipNHadling']
-#- name: color
-#  singleValue: true
-#  xpath: //div[@id='shipNHadling']
-#- name: manufacturerDescription
-#  singleValue: false
-#  xpath: //div[@id="wc-power-page"]/div[@id="wc-aplus"]//div[contains(@class,"wc-text-wrap")]
+  - name: description
+    singleValue: true
+    xpath: //div[@class='itemAttr']//table[@role='presentation']
+  #- name: descriptionBullets
+  #  singleValue: true
+  #  xpath: count(//ul[contains(@class,'a-spacing-mini')])
+  - name: brandText
+    singleValue: true
+    xpath: //td[contains(text(), 'Marca')]/following-sibling::*[1]
+  - name: quantity
+    singleValue: true
+    xpath: //input[@class='qtyInput']/@value
+  - name: weightNet
+    singleValue: true
+    xpath: //th[contains(text(), 'Peso articolo')]/following-sibling::*[1]
+  - name: weightGross
+    singleValue: true
+    xpath: //th[contains(text(), 'Peso articolo')]/following-sibling::*[1]
+  - name: gtin
+    singleValue: true
+    xpath: //td[contains(text(), 'EAN')]/following-sibling::*[1]
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id='descItemNumber']
+  - name: sku
+    singleValue: true
+    xpath: //div[@id='descItemNumber']
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@class='ebay-reviews-count']
+  - name: aggregateRatingText
+    singleValue: true
+    xpath: //span[@class='ebay-reviews-count']
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class='ebay-review-start-rating']
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@id='shipNHadling']
+  - name: color
+    singleValue: true
+    xpath: //div[@id='shipNHadling']
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="wc-power-page"]/div[@id="wc-aplus"]//div[contains(@class,"wc-text-wrap")]
