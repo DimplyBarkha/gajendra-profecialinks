@@ -32,7 +32,7 @@ fields:
     defaultValue: Out of Stock
   - name: price
     singleValue: false
-    xpath: //span[contains(@id,'from')]//span[@class='price']
+    xpath: //meta[@property="product:price:amount"]/@content
   - name: listPrice
     singleValue: false
     xpath: //span[contains(@id,'old-price')]//span[@class='price']
@@ -79,3 +79,9 @@ fields:
   - name: materials
     singleValue: false
     xpath: //div[@id='rich-content-product-specifications']//div[@class='specification-label' and text()='Material']//following-sibling::div
+  - name: ratingCount
+    singleValue: false
+    #get from JSON in script ratingValue
+    xpath: //script[not(contains(text(),'function')) and contains(text(),'aggregateRating')]
+  - name: aggregateRating
+    singleValue: false    

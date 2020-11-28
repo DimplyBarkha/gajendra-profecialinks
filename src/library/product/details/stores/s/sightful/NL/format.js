@@ -32,40 +32,30 @@ const transform = (data) => {
         });
         row.specifications = [{ text: arrSpecs.join(' || ') }];
       }
-      // if (row.price1 && row.price2) {
-      //   row.price = [{ text: row.price1[0].text + row.price2[0].text }];
-      //   if (row.price3) {
-      //     row.price = [{ text: row.price[0].text + '.' + row.price3[0].text }];
-      //     delete row.price3;
-      //   }
-      //   delete row.price1;
-      //   delete row.price2;
-      // }
-      // if (row.additionalDescBulletInfo) {
-      //   var arrBullet = [];
-      //   row.additionalDescBulletInfo.forEach(item => {
-      //     arrBullet.push(item.text);
-      //   });
-      //   row.additionalDescBulletInfo = [{ text: '|| ' + arrBullet.join(' || ') }];
-      //   row.descriptionBullets = [{ text: arrBullet.length }];
-      // }      
-      // if (row.brandLink) {
-      //   row.brandLink.forEach(item => {
-      //     item.text = 'https://www.sams.com.mx' + item.text;
-      //   });
-      // }
-      // if (row.image) {
-      //   row.image.forEach(item => {
-      //     item.text = item.text.replace('img_icon', 'img_large');
-      //     item.text = item.text.replace('i.jpg', 'l.jpg');
-      //   });
-      // }
-      // if (row.alternateImages) {
-      //   row.alternateImages.forEach(item => {
-      //     item.text = item.text.replace('img_icon', 'img_large');
-      //     item.text = item.text.replace('i.jpg', 'l.jpg');
-      //   });
-      // }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(',', '');
+          item.text = item.text.replace('.', ',');
+          item.text = '€ ' + item.text;
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace(',', '');
+          item.text = item.text.replace('.', ',');
+        });
+      }
+      if (row.ratingCount) {
+        var dataJson = JSON.parse(row.ratingCount[0].text);
+        if (dataJson.aggregateRating) {
+          if (dataJson.aggregateRating.ratingValue) {
+            row.aggregateRating = [{ text: dataJson.aggregateRating.ratingValue }];
+          }
+          if (dataJson.aggregateRating.reviewCount) {
+            row.ratingCount = [{ text: dataJson.aggregateRating.reviewCount }];
+          }
+        }
+      }
     }
   }
   return cleanUp(data);
