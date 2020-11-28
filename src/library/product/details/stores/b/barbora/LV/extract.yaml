@@ -17,7 +17,6 @@ fields:
     xpath: //span[@class="b-product-price-current-number"]
   - name: availabilityText
     singleValue: false
-    xpath: 
     defaultValue: "Out of stock"   
   - name: description
     singleValue: false
@@ -26,6 +25,9 @@ fields:
     singleValue: false
     xpath: //dl[@class="b-dl-align-left b-product-info--info1"]//dd[3]
   - name: sku
+    singleValue: false
+    xpath: //div[@class="b-product-info b-product--js-hook"]//@data-b-item-id
+  - name: variantId
     singleValue: false
     xpath: //div[@class="b-product-info b-product--js-hook"]//@data-b-item-id
   - name: listPrice
@@ -37,3 +39,6 @@ fields:
   - name: privacyPolicy
     singleValue: false
     defaultValue: "yes"
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
