@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id='image_with_flyout']//div[contains(@class,'s7staticimage')]//img[1]//@src
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='product product2comp']//@data-lineid 
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'reference_cms')]     
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: true
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,'title_product prod_desc')]
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'title_product prod_desc')]
+  - name: price
+    singleValue: true 
+  - name: availabilityText
+    singleValue: true
+  - name: description
+    singleValue: false
+    xpath: //section[@id='productDetail']
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='image_with_flyout']//div[contains(@class,'s7staticimage')]//img[1]//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'s7flyoutzoom') and @role='img']//div//img[position()>1]//@src
+
