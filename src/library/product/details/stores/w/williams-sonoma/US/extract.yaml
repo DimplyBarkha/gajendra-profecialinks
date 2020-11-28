@@ -95,5 +95,8 @@ fields:
     # this will return JSON Sample: {mediaType: 'video', provider: 'youtube', id: 'rwo2zGqa7kw'}. Get Id from it and append you tube URL before it https://www.youtube.com/watch?v=
     # https://www.williams-sonoma.com/products/silpat-silicone-muffin-pan-12-well/?pkey=cbakeware-silicone
     xpath: //div[@class='image-container']//div[@class="scroller"]//ul//li[not(contains(@class,'hide')) ]//a[contains(@class,'videoThumbnail')]/@data-thumbnail
+    #{mediaType: 'video', provider: 'youtube', id: 'Edk4uNgakmo'}
+    regExp: id:\s*\'(.+?)\'
+    regExpReplace: https://www.youtube.com/watch?v=$1
   - name: videos
     singleValue: false

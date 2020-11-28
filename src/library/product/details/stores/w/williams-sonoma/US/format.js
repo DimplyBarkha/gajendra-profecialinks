@@ -55,11 +55,19 @@ const transform = (data) => {
         delete row.price1;
       }
       if (row.videos1) {
-        row.videos = [{ text: row.videos1[0].text }];
+        var arrVideo = [];
+        row.videos1.forEach(item => {
+          arrVideo.push({ text: item.text });
+        });
+        row.videos = arrVideo;
         delete row.videos1;
       }
       else if (row.videos2) {
-        row.videos = [{ text: row.videos2[0].text }];
+        var arrVideo2 = [];
+        row.videos2.forEach(item => {
+          arrVideo2.push({ text: item.text });
+        });
+        row.videos = arrVideo2;
         delete row.videos2;
       }
       if (row.ratingCount) {
