@@ -24,36 +24,17 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      // if (row.alternateImages) {
-      //   row.alternateImages.splice(0, 1);
-      //   if (row.alternateImages.length == 0) {
-      //     delete row.alternateImages;
-      //   }
-      // }
-      // // if (row.descriptionBullets) {
-      // //   var bulletArr = [];
-      // //   row.descriptionBullets.forEach(item => {
-      // //     bulletArr.push(item.text.replace(/^\s*-\s*/,''));
-      // //   });
-      // //   if (row.description && bulletArr.length) {
-      // //     row.description = [{ "text": "|| " + bulletArr.join(" || ") + " | " + row.description[0]["text"] }];
-      // //   }
-      // //   row.descriptionBullets = [{ "text": row.descriptionBullets.length }];
-      // // }
-      // if (row.category) {
-      //   if (row.category.length) {
-      //     row.category.splice(0, 1);
-      //   }
-      // }
-      // if (row.price) {
-      //   row.price.forEach(item => {
-      //     item.text = item.text.replace('.', '');
-      //     item.text = item.text.replace(',', '.');
-      //   });
-      // }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(',', '');
+          item.text = item.text.replace('.', ',');
+        });
+      }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
           item.text = item.text.replace('P. Reg.:', '');
+          item.text = item.text.replace(',', '');
+          item.text = item.text.replace('.', ',');
           item.text = item.text.trim();
         });
       }
