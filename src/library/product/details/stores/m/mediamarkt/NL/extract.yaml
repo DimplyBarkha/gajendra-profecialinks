@@ -34,37 +34,37 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[@id='mm_subCategory']
-  - name: size
+  - name: quantity
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[@id='mm_size']
-  - name: netWeight
+  - name: weightNet
     singleValue: false
     xpath: //div[@id='mm_weight']
   - name: warranty
     xpath: //div[@id='mm_warranty']
-  - name: eanGtin
+  - name: eangtin
     xpath: //div[@id='mm_upc']
-  - name: upc
+  - name: gtin
     xpath: //div[@id='mm_upc']
-  - name: skuCode
+  - name: sku
     xpath: //div[@id='mm_skuCode']
-  - name: retailerProductCode
+  - name: variantId
     xpath: //div[@id='mm_retailerProductCode']
-  - name: numberOfCustomerReviews
+  - name: ratingCount
     xpath: //div[@id='mm_numberOfCustomerReviews']
   - name: mpc
     xpath: //div[@id='mm_mpc']
-  - name: colour
+  - name: color
     xpath: //div[@id='mm_color']
   - name: energyEfficiency
     xpath: //div[@id='mm_energy']
-  - name: customerReviewRating
+  - name: aggregateRating
     singleValue: true
     xpath: //div[@itemprop='ratingValue']
   - name: promotion
     xpath: //div[@class='product-promobox']/h4
-  - name: secondaryImage-total
+  - name: secondaryImageTotal
     xpath: count(//aside[@id='product-sidebar']/ul[@class='thumbs']/li[not(@class='active')]/a)
   - name: nameExtended
     singleValue: true
@@ -106,26 +106,9 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-  - name: quantity
-    singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
-  - name: weightNet
-    singleValue: true
-    description: Net weight as described on the page
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: variantId
-    singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -142,20 +125,11 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    xpath: //span[@itemprop='reviewCount']
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
     xpath: //div[@class='bv-details-bar']/div[@class='bv-percent-recommend-container']
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //span[@itemprop='ratingValue']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -170,9 +144,6 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-  - name: color
-    singleValue: true
-    description: A textual description of the colour
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -277,10 +248,6 @@ fields:
   - name: otherSellersShipping
     singleValue: false
     description: null
-  - name: secondaryImageTotal
-    singleValue: true
-    description: null
-    type: NUMBER
   - name: news
     singleValue: true
     description: null
