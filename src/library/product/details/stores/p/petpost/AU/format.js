@@ -48,6 +48,25 @@ const transform = (data) => {
           item.text=item.text.replace('product_form_','');
         })
       }
+      if(row.variantCount){
+        let inf=[]
+        row.variantCount.forEach(item=>{
+          inf.push(item.text);
+        })
+        row.variantCount=[{"text":inf.length}];
+      }
+      if(row.descriptionBullets){
+        let inf=[];
+        row.descriptionBullets.forEach(item=>{
+          inf.push(item.text);
+        })
+        row.descriptionBullets=[{"text":inf.length}];
+      }
+      if(row.alternateImages){
+        row.alternateImages.forEach(item=>{
+          item.text="https:"+item.text;
+        })
+      }
     }
   }
   return cleanUp(data);
