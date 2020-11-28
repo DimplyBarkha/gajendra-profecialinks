@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'vikingdirect',
     domain: 'vikingdirect.fr',
-    loadedSelector: 'div[id="contentContainer"]',
+    loadedSelector: 'body', // 'div[id="contentContainer"]',
     noResultsXPath: '//h1[contains(.,"Référence invalide")]',
     zipcode: '',
   },

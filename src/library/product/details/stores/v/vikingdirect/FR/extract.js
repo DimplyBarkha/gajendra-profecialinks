@@ -2,29 +2,42 @@ const { cleanUp } = require('../../../../shared');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
-  const { transform } = cleanUp;
+  const { transform } = parameters;
 
-  const variantsArray = await context.evaluate(async () => {
-    const variantsSelector = document.querySelectorAll('.multiSkuDimensionValues>div');
-    const variants = variantsSelector;
-    return variants;
-  });
-
-  if (variantsArray !== null) {
-    for (let i = 0; i < variantsArray.length; i++) {
-      if (variantsArray[i + 1] === null) {
-        return await context.extract(productDetails, { transform });
+  if (await context.evaluate(() => {
+    return document.querySelectorAll('.multiSkuDimensionValues>div')[0];
+  }) !== undefined) {
+    for (let i = 0; i < await context.evaluate(() => {
+      return document.querySelectorAll('.multiSkuDimensionValues>div').length;
+    }); i++) {
+      if (await context.evaluate(() => {
+        return document.querySelectorAll('.multiSkuDimensionValues>div')[i + 1];
+      }) === undefined) {
+        return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
       }
       await context.evaluate(() => {
-        variantsArray[i].click();
+        document.querySelectorAll('.multiSkuDimensionValues>div')[i].click();
+        i++;
       });
-      await context.extract(productDetails, { transform });
 
       // wait for extraction
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    };
 
-  return await context.extract(productDetails, { transform });
+      await context.extract(productDetails, { transform }, 'MERGE_ROWS');
+    }
+  } else {
+    await context.evaluate(() => {
+      const videoSelector = document.querySelectorAll('div[type="video"]');
+
+      if (videoSelector) {
+        videoSelector.forEach(video => {
+          video.click();
+        });
+      }
+    });
+
+    return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
+  };
 }
 
 module.exports = {
