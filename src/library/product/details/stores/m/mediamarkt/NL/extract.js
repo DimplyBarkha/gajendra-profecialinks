@@ -26,6 +26,7 @@ module.exports = {
       let size = '';
       let weight = '';
       let warranty = '';
+      let mpc = '';
       document.querySelectorAll('dl.specification').forEach(specificationGroup => {
         specifications += `${specificationGroup.innerText}\n`;
         specificationGroup.children.forEach((item, index) => {
@@ -42,12 +43,17 @@ module.exports = {
           if (item.innerText === 'Fabrieksgarantie:') {
             warranty = specificationGroup.children[index + 1].innerText;
           }
+          // Getting mpc
+          if (item.innerText === 'Manufacturer Part Number (MPN):') {
+            mpc = specificationGroup.children[index + 1].innerText;
+          }
         });
       });
       addElementToDocument('mm_specifications', specifications);
       addElementToDocument('mm_size', size);
       addElementToDocument('mm_weight', weight);
       addElementToDocument('mm_warranty', warranty);
+      addElementToDocument('mm_mpc', mpc);
 
       // Getting upc code
       const upc = eval(`window.product${urlParams.get('ga_query')}.ean`);

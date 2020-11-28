@@ -54,11 +54,15 @@ fields:
     xpath: //div[@id='mm_retailerProductCode']
   - name: numberOfCustomerReviews
     xpath: //div[@id='mm_numberOfCustomerReviews']
+  - name: mpc
+    xpath: //div[@id='mm_mpc']
   - name: customerReviewRating
     singleValue: true
     xpath: //div[@itemprop='ratingValue']
   - name: promotion
     xpath: //div[@class='product-promobox']/h4
+  - name: secondaryImage-total
+    xpath: count(//aside[@id='product-sidebar']/ul[@class='thumbs']/li[not(@class='active')]/a)
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
