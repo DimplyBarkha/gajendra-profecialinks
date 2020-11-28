@@ -25,7 +25,7 @@ async function implementation (
     }
     // @ts-ignore
     const enhancedContent = (document.querySelector('div#productdetail-tabs-overview')) ? document.querySelector('div#productdetail-tabs-overview').innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
-    if (document.querySelector('div#productdetail-tabs-overview img') || document.querySelector("div[id='productdetail-tabs-overview'] center iframe")) {
+    if (document.querySelector('div#productdetail-tabs-overview img')) {
       addHiddenDiv('ii_enhancedContent', enhancedContent);
     } else if (enhancedContent) {
       descContent = descContent.trim() + ' | ' + enhancedContent;
