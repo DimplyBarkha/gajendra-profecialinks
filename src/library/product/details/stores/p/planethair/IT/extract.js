@@ -10,12 +10,11 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-
     await context.evaluate(async () => {
       // add alternateImages src
       var alternativeImg = document.querySelectorAll('a[class*="hidden"] img');
-      if (alternativeImg !== null){
-        for (let i=0; i < alternativeImg.length; i++){
+      if (alternativeImg !== null) {
+        for (let i = 0; i < alternativeImg.length; i++) {
           const element = document.createElement('div');
           const parent = document.querySelector('div[class="ty-tygh  "]');
           element.id = 'alternateImages';
@@ -37,8 +36,6 @@ module.exports = {
         document.body.appendChild(element);
       }
     });
-  
-
     var data = await context.extract(productDetails, { transform });
     for (let k = 0; k < data.length; k++) {
       for (let i = 0; i < data[k].group.length; i++) {
