@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: 'span[class="goods-count j-goods-count"]',
     spinnerSelector: null,
     loadedSelector: 'div[class="catalog_main_table j-products-container"]',
-    noResultsXPath: '//p[contains(@class,"searching-results-text")]',
+    noResultsXPath: '//p[contains(@class,"searching-results-text")][contains(.,"По Вашему")]',
     domain: 'wildberries.ru',
     zipcode: '',
   },

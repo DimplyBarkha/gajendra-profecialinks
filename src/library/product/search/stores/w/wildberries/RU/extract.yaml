@@ -5,7 +5,9 @@ recordXPath: //div[contains(@class,"j-products-container")]//div[contains(@class
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,"j-card-item")]/@data-catalogercod1s
+    xpath: //div[@id="added-id"]
+    # //div[@id="added-id"]
+    #  //div[contains(@class,"j-card-item")]/@data-catalogercod1s
   - name: name
     singleValue: false
     xpath: //div[contains(@class,"card-item")]//div[contains(@class,"dtlist-inner-brand-name")]
