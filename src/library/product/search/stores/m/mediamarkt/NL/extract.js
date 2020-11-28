@@ -30,7 +30,7 @@ module.exports = {
         const aggregateRating = product[i].querySelector('a.rating').classList[1].match(/\d/g);
         let rating = +aggregateRating[0];
         rating += aggregateRating[1] ? 0.5 : 0;
-        addHiddenDiv('mm_aggregateRating', rating, i);
+        addHiddenDiv('mm_aggregateRating', product[i].querySelector('a.rating>div').classList.value.replace('value-', ''), i);
 
         // Gets rating count
         const reviewCount = product[i].querySelector('a.rating + a');
