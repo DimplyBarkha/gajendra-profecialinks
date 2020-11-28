@@ -19,12 +19,29 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      // Getting specifications
+      // Getting specifications, size
       let specifications = '';
+      let size = '';
+      let weight = '';
       document.querySelectorAll('dl.specification').forEach(specificationGroup => {
         specifications += `${specificationGroup.innerText}\n`;
+        specificationGroup.children.forEach((item, index) => {
+          console.log(item, item.innerText);
+          // Getting size
+          if (item.innerText === 'Afmetingen (B/H/D):' || item.innerText === 'Afmetingen (B x H x D):' || item.innerText === 'Inhoud:') {
+            size = specificationGroup.children[index + 1].innerText;
+            console.log('size', size);
+          }
+          // Getting weight
+          if (item.innerText === 'Gewicht:') {
+            weight = specificationGroup.children[index + 1].innerText;
+            console.log('weight', weight);
+          }
+        });
       });
       addElementToDocument('mm_specifications', specifications);
+      addElementToDocument('mm_size', size);
+      addElementToDocument('mm_weight', weight);
 
       // Getting images
       const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));

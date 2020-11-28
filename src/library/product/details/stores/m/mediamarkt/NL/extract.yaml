@@ -33,6 +33,14 @@ fields:
   - name: subCategory
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@id='mm_size']
+  - name: size
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@id='mm_weight']
+  - name: netWeight
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
     xpath: //div[@id='mm_subCategory']
   - name: nameExtended
     singleValue: true
@@ -75,7 +83,6 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //meta[@itemprop='brand']/@content
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
