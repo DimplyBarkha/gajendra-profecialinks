@@ -9,7 +9,7 @@ fields:
   - name: name
     singleValue: false
     xpath: //span[@class='product-name']
-  - name: brandText
+  - name: manufacturer
     singleValue: false
     xpath: //h3[@class='product-name']/a/span[1]
   - name: price
@@ -31,7 +31,7 @@ fields:
     singleValue: false
   - name: productUrl
     singleValue: false
-    xpath: //figure/a/@href
+    xpath: //div[@class="sizes-wrapper"]/input[contains(@class,'active')]/@data-producturl
   - name: id
     singleValue: false
     xpath: //div[@class="sizes-wrapper"]/input[contains(@class,'active')]/@id
