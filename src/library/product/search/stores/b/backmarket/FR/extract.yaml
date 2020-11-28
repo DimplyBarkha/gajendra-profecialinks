@@ -1,49 +1,35 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.card__product
-recordXPath: null
+recordSelector: div[data-test="product-thumb"]
+recordXPath: //div[@data-test="product-thumb"]
 fields:
-  - name: id
-    singleValue: false
-    xpath: //div[@class='extra-info']/@data-id
+  # - name: id
+  #   singleValue: false
+  #   xpath: //div[@productid="36827"]
   - name: searchUrl
     singleValue: true
-    xpath: ancestor::html//div[@id='filtered-url']
-  - name: name
-    singleValue: false
-    xpath: //div[@name="product-title"]
-  - name: productUrl
-    singleValue: false
-    xpath: //div[contains(@class,"product__text")]/a//@href
-    regExp: (.+)
-    regExpReplace: https://www.walgreens.com$1
+  # - name: name
+  #   singleValue: false
+  #   xpath: //a[@data-test="product-thumb-link"]/@title
+  # - name: productUrl
+  #   singleValue: false
+  #   xpath: //a[@data-test="product-thumb-link"]
   - name: gtin
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-upc
-  - name: thumbnail
-    singleValue: false
-    xpath: //div[contains(@class,"card__product")]//a//*[contains(@class,"product__img")]//img/@src
-    regExp: ^(.*[\/])
-    regExpReplace: https:$1300.jpg
+  # - name: thumbnail
+  #   singleValue: false
+  #   xpath: //img[@data-test="image"]/@src
   - name: aggregateRating
     singleValue: false
-    xpath: //*[contains(@class,"product__rating")]//img//@title
-    regExp: >-
-      ^.{0,3}
   - name: aggregateRating2
     singleValue: false
-    xpath: //*[contains(@class,"product__rating")]//img//@title
-    regExp: >-
-      ^.{0,3}
   - name: reviewCount
     singleValue: false
-    xpath: //*[contains(@class,"product__rating")]//figcaption
-    regExp: (\d+)
   - name: ratingCount
     singleValue: false
-  - name: price
-    singleValue: false
-    xpath: //div[contains(@class,"product__details")]//*[contains(@class,"price__contain")]//*[contains(@class,"product__price")]/text()
+  # - name: price
+  #   singleValue: false
+  #   xpath: //div[@data-test="price"]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -62,7 +48,6 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //*[contains(@class,"card__product")]//*[contains(@class,"sponsored")]//span
   # - name: totalRecordCount
   #   singleValue: true 
   #   xpath: ancestor::html//p[contains(@name, 'searchresultcount')]/strong/text()
