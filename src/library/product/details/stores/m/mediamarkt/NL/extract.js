@@ -19,6 +19,8 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
+      let urlParams = new URLSearchParams(window.location.search);
+
       // Getting specifications, size
       let specifications = '';
       let size = '';
@@ -30,18 +32,20 @@ module.exports = {
           // Getting size
           if (item.innerText === 'Afmetingen (B/H/D):' || item.innerText === 'Afmetingen (B x H x D):' || item.innerText === 'Inhoud:') {
             size = specificationGroup.children[index + 1].innerText;
-            console.log('size', size);
           }
           // Getting weight
           if (item.innerText === 'Gewicht:') {
             weight = specificationGroup.children[index + 1].innerText;
-            console.log('weight', weight);
           }
         });
       });
       addElementToDocument('mm_specifications', specifications);
       addElementToDocument('mm_size', size);
       addElementToDocument('mm_weight', weight);
+
+      // Getting ean code
+      let upc = eval(`window.product${urlParams.get('ga_query')}.ean`);
+      addElementToDocument('mm_upc', upc);
 
       // Getting images
       const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
