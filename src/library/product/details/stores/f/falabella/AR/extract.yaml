@@ -100,3 +100,9 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,'fb-product-information__product-information-tab')]
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'color-swatch-container')]//span[contains(@class,'normal')]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'Yes'
