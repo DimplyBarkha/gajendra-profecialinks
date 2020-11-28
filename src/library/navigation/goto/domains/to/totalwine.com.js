@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'totalwine.com',
-    timeout: 35000,
+    timeout: 60000,
     country: 'US',
     store: 'totalwine',
     zipcode: '',
@@ -18,6 +18,11 @@ module.exports = {
     // await context.setLoadAllResources(true);
     // await context.setLoadImages(true);
     // const inputUrl = `${url}#[!opt!]{"discard_CSP_header":true, "block_ads": false}[/!opt!]`;
+    if (url.includes('?')) {
+      url += '&pageSize=150';
+    } else {
+      url += '?pageSize=150';
+    }
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
     // console.log(zipcode);
     // if (zipcode) {

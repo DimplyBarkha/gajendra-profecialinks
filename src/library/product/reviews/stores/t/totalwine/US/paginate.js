@@ -1,15 +1,12 @@
 
 module.exports = {
-  // implements: 'product/reviews/paginate',
   implements: 'navigation/paginate',
   parameterValues: {
     country: 'US',
     store: 'totalwine',
-    // nextLinkSelector: 'button.bv-content-btn',
-    nextLinkSelector: null,
+    nextLinkSelector: 'button.bv-content-btn-pages-load-more',
     mutationSelector: null,
-    // spinnerSelector: 'div.bv-mbox-spinner',
-    spinnerSelector: null,
+    spinnerSelector: 'div.bv-mbox-spinner',
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,

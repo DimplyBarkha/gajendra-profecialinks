@@ -6,6 +6,6 @@ module.exports = {
     store: 'totalwine',
     domain: 'totalwine.com',
     zipcode: '',
-    mergeType: null,
+    mergeType: 'MERGE_ROWS',
   },
 };
