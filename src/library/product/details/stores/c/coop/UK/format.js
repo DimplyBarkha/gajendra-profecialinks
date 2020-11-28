@@ -30,6 +30,13 @@ const transform = (data) => {
           item.text = item.text.trim();
         });
       }
+      if (row.image) {
+        row.image.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
+          }
+        });
+      }
     }
   }
   return cleanUp(data);
