@@ -46,6 +46,7 @@ fields:
     singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: productUrl
+    xpath: ancestor::html//link[@rel="canonical"]/@href
     singleValue: false
     description: The url of the product details page
   - name: verifiedPurchase
@@ -59,6 +60,7 @@ fields:
     singleValue: false
     description: Stated place the review was syndicated from
   - name: reviewUrl
+    xpath: ancestor::html//link[@rel="canonical"]/@href
     singleValue: false
     description: A direct link to the review
   - name: reviewedSku

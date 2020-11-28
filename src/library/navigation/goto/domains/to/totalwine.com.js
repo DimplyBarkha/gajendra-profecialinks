@@ -24,6 +24,7 @@ module.exports = {
       url += '?pageSize=150';
     }
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
+    await context.waitForSelector('#avg-rating-button').catch(err => { console.log('No rating found', err); });
     // console.log(zipcode);
     // if (zipcode) {
     //   await dependencies.setZipCode({ url: url, zipcode: zipcode });
