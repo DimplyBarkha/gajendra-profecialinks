@@ -18,7 +18,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="descriptionAndReference_cms "]/h1/text()  
+    xpath: concat(//parent::div[@class="blocSP"]//preceding-sibling::span[contains(text(),'Mar')]//following-sibling::span[@class='SP2']/text(),' ',//div[@class="descriptionAndReference_cms "]/h1/text())
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -41,3 +41,12 @@ fields:
     singlevalue: true
     description: a textual description of the color
     xpath: //span[contains(text(),'Couleur')]/following::span[1]/text()
+  - name: variantInformation
+    singlevalue: true
+    xpath: //div[@class="product-selector--attributeValue product-selector--attributeSELECTED"]/div[@class="product-selector--valueDisplay"]/text()
+  - name: name
+    singlevalue: true
+    xpath: //div[@class="descriptionAndReference_cms "]/h1/text()
+  - name: packSize
+    singlevalue: true
+    xpath: //span[contains(text(),'unités emballées')]/following::span[1]/text()
