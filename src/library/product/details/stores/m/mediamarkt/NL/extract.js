@@ -19,7 +19,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      let urlParams = new URLSearchParams(window.location.search);
+      const urlParams = new URLSearchParams(window.location.search);
 
       // Getting specifications, size
       let specifications = '';
@@ -44,13 +44,17 @@ module.exports = {
       addElementToDocument('mm_weight', weight);
 
       // Getting upc code
-      let upc = eval(`window.product${urlParams.get('ga_query')}.ean`);
+      const upc = eval(`window.product${urlParams.get('ga_query')}.ean`);
       addElementToDocument('mm_upc', upc);
 
       // Getting sku code
-      let sku = urlParams.get('ga_query');
+      const sku = urlParams.get('ga_query');
       addElementToDocument('mm_skuCode', sku);
       addElementToDocument('mm_retailerProductCode', sku);
+
+      // Getting number of customer reviews
+      const reviews = document.querySelector('.bv_numReviews_text').innerText.replace(/\(|\)/g, '');
+      addElementToDocument('mm_numberOfCustomerReviews', reviews);
 
       // Getting images
       const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
