@@ -34,15 +34,15 @@ const transform = (data) => {
       }
       if (row.price) {
         row.price.forEach(item => {
-          item.text = item.text.replace(',', '');
-          // item.text = item.text.replace('.', ',');
+          // item.text = item.text.replace(',', '');
+          item.text = item.text.replace('.', ',');
           item.text = '€ ' + item.text;
         });
       }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
-          item.text = item.text.replace(',', '');
-          //item.text = item.text.replace('.', ',');
+          // item.text = item.text.replace(',', '');
+          item.text = item.text.replace('.', ',');
         });
       }
       if (row.ratingCount) {
