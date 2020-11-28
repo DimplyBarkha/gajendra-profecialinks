@@ -53,7 +53,8 @@ const transform = (data, context) => {
               priceArray2.push(priceArray[i]);  
             }
            }
-           item.text = String(priceArray2).replace(/\,/,' '); 
+           item.text = String(priceArray2).replace(/\,/,' ');
+           item.text = String(item.text).replace('.',',') 
         });        
       }
       if (row.aggregateRating) {         
@@ -62,7 +63,7 @@ const transform = (data, context) => {
           item.text = String(item.text).replace(/\,/g,''); 
           var rating = parseInt(item.text);
           item.text  = rating*5/100;
-          item.text = item.text.toString();      
+          item.text = item.text.toString().replace(".",",");      
         });        
       }
     }
