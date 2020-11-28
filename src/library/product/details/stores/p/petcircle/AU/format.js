@@ -25,14 +25,6 @@ const transform = (data) => {
     
     for (const { group } of data) {
       for (const row of group) {
-        if (row.availabilityText){
-            var strStock = ''
-            if(row.availabilityText[0].text === 'false'){
-                row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]                 
-            }else{
-                row.availabilityText = [{"text": '', "xpath": row.availabilityText[0].xpath}] 
-            }
-        }
         if (row.alternateImages){
             let arrSecImg = [];
             row.alternateImages.forEach(item => {
@@ -91,6 +83,22 @@ const transform = (data) => {
                 arrTemp.push(variantInfo.text)
             })
             row.variantInformation = [{"text": arrTemp.join(' | '), "xpath": row.variantInformation[0].xpath}]
+        }
+        if(row.manufacturerImages){
+            console.log(row.manufacturerImages)
+            var arrTemp = []  
+            row.manufacturerImages.forEach(Images => {
+                arrTemp.push(Images.text)
+            })
+            row.manufacturerImages = [{"text": arrTemp.join(' | '), "xpath": row.manufacturerImages[0].xpath}]
+        }
+        if(row.manufacturerDescription){
+            console.log(row.manufacturerDescription)
+            var arrTemp = []  
+            row.manufacturerDescription.forEach(Desc => {
+                arrTemp.push(Desc.text)
+            })
+            row.manufacturerDescription = [{"text": arrTemp.join(' '), "xpath": row.manufacturerDescription[0].xpath}]
         }
         
       }
