@@ -3,26 +3,12 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@data-zone-name="review"]
 fields:
-  - name: helpfulCount
-    singleValue: true
-    type: NUMBER
-    description: Number of people who said the review was helpful
-  - name: commentCount
-    singleValue: true
-    type: NUMBER
-    description: Number of comments on the review
-  - name: brandText
-    singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
-  - name: name
-    singleValue: true
-    description: The product name
   - name: sku
-    singleValue: true
+    xpath: (ancestor::html//div[contains(@data-zone-data,"skuId")]/@data-zone-data)[1]
+    regExp: skuId":"([^"]+)
+    regExpReplace: $1
     description: The store-specific product identifier
   - name: reviewDate
-    singleValue: true
     type: DATETIME
     description: Date the review was made
     xpath: //div[@class="b_I_N6IMOcwb"]
@@ -30,39 +16,24 @@ fields:
     type: NUMBER
     singleValue: false
     description: Rating normalized to be out of 5
-    xpath: //div/@data-reviewrating
+    xpath: //@review-rating
   - name: reviewText
     description: The text of the review
-    xpath: ancestor::html//div[@class='b_2_CxadNVFG']
+    xpath: //span[contains(@class,"commentText")]
   - name: reviewTitle
     singleValue: false
     description: The title of the review
     xpath: //div[@class="b_3aVcLCACC9"]
-  - name: reviewerTags
-    singleValue: false
-    description: The tags a reviewer has
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
   - name: productUrl
     xpath: ancestor::html//div[@data-zone-name="schema"]//meta[@itemprop="url"]/@content
     description: The url of the product details page
-  - name: verifiedPurchase
-    singleValue: true
-    type: BOOLEAN
-    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: manufacturerResponse
-    singleValue: true
     description: The response of the manufacturer (if any)
-    xpath: ancestor::div//div[@class="b_2C06Ssbn8s"]/span/span[@class="b_3JsGNgDHFb"]
-  - name: syndicatedFrom
-    singleValue: true
-    description: Stated place the review was syndicated from
+    xpath: ./following-sibling::div//span[@class="b_3JsGNgDHFb"]
   - name: reviewUrl
     xpath: ancestor::html//link[@rel="alternate"]/@href
     description: A direct link to the review
   - name: reviewedSku
-    singleValue: true
     description: The SKU of the item that was reviewed (may be different from the
       sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
       value, transform will handle the value.
@@ -82,7 +53,7 @@ fields:
   #   xpath: //div[@class="b_dkDeduCKVt"]
   - name: responseAuthor
     singleValue: false
-    xpath: ancestor::div//div[@class="b_dkDeduCKVt"]
+    xpath: ./following-sibling::div//div[@class="b_dkDeduCKVt"]
   - name: reviewId
     singleValue: false
     xpath: //div/@data-id

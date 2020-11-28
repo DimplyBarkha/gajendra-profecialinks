@@ -111,7 +111,7 @@ fields:
   - name: boughtTogether
     xpath: //div[@data-zone-name="ScrollBox" and (contains(.,'С этим товаром покупают'))]//div[@data-tid="518f5fc0"]/span
   - name: imageZoomFeaturePresent
-    defaultValue: true 
+    defaultValue: 'Yes' 
   - name: imageCount
     xpath: count(//ul[@data-tid="2c199bef"]//li//img/@src)
   - name: manufacturer
@@ -119,7 +119,7 @@ fields:
   - name: productDescriptionLength
   - name: productDescriptionWordCount  
   - name: ratingScale
-    defaultValue: 5
+    defaultValue: '5'
   - name: reviewCount
     xpath: //meta[@itemprop="reviewCount"]/@content
   - name: image360Present

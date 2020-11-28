@@ -14,8 +14,6 @@ async function implementation (
 ) {
   const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 999 } = inputs;
   const id = RPC || SKU || inputs.id;
-  console.log('results14')
-  console.log(results)
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
   const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
