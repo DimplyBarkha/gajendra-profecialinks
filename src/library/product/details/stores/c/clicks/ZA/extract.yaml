@@ -25,7 +25,13 @@ fields:
     xpath: //ul[@class="breadcrumb"]//li[position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class="product-name"]/text()
+    xpath: //head/title/text()
+    regExp: (.+)\W\W\WClicks
+    regExpReplace: $1
+    # xpath: (//script[contains(.,"description")])[1]/text()
+    # regExp: description\W+([^"]+)
+    # regExpReplace: $1
+    # xpath: //h1[@class="product-name"]/text()
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -54,7 +60,8 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    xpath: //p//b[contains(text(),"Quantity in pack")]/../text()
+    xpath: //p//b[contains(text(),"Pack size")]/../text()
+    # xpath: //p//b[contains(text(),"Quantity in pack")]/../text()
   - name: weightNet
     singleValue: false
     xpath: //p//b[contains(text(),"Pack size")]/../text()
@@ -64,9 +71,9 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-  # - name: sku
-  #   singleValue: false
-  #   xpath: //div[contains(@class,"product-code")]/text()
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"product-code")]/text()
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,"product-code")]/text()
@@ -214,8 +221,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    description: null
-    type: NUMBER
+    xpath: count(//li[@class="slide"][position()>1]//a/@href)
   - name: news
     singleValue: false
     description: null

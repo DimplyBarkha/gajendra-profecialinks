@@ -108,13 +108,9 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text = row.description.map(elm => elm.text).join(' ').replace(/●/g, '||');
         });
-        row.description = [
-          {
-            text: text.slice(0, -4),
-          },
-        ];
+        row.description = [{ text }];
       }
       if (row.specifications) {
         let text = '';
@@ -123,7 +119,7 @@ const transform = (data) => {
         });
         row.specifications = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -3),
           },
         ];
       }
@@ -134,7 +130,7 @@ const transform = (data) => {
         });
         row.variants = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -3),
           },
         ];
       }
