@@ -24,10 +24,10 @@ async function implementation (
     let noResultsXpath = '//div[contains(@class,"findologic-result") and contains(.,"Keine Ergebnisse für")]';
     let noResultsElm = document.evaluate(noResultsXpath, document, null, 7, null);
     if (noResultsElm.snapshotLength > 0) {
-      console.log('we have some results');
-    } else {
       console.log('we have no results - not moving further');
       return;
+    } else {
+      console.log('we have some results');
     }
 
     console.log(' we are on this page as of now - ' + window.location.href);
