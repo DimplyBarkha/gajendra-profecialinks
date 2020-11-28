@@ -30,6 +30,10 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[@id='mm_category']
+  - name: subCategory
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@id='mm_subCategory']
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
