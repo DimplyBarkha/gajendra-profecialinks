@@ -48,29 +48,6 @@ const transform = (data) => {
       if (row.price) {
         row.price = [{ text: row.price[row.price.length - 1].text }];
       }
-      // if (row.listPrice) {
-      //   row.listPrice.forEach(item => {
-      //     item.text = item.text.replace(',', '');
-      //   });
-      // }
-      // if (row.variantCount) {
-      //   row.variantCount = [{ text: row.variantCount.length }];
-      // }
-      // if (row.variants) {
-      //   var scriptJSON = JSON.parse(row.variants[0].text);
-      //   if (scriptJSON.productVariants) {
-      //     var objectsInVariants = Object.keys(scriptJSON.productVariants).length;
-      //     var varientIds = [];
-      //     for (var i = 0; i < objectsInVariants; i++) {
-      //       var keyName = Object.keys(scriptJSON.productVariants)[i];
-      //       var variants = scriptJSON.productVariants[keyName].variants;
-      //       variants.forEach(function (item, index) {
-      //         varientIds.push(item.fupid);
-      //       });
-      //     }
-      //   }
-      //   row.variants = [{ text: varientIds.join(' | ') }];
-      // }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
         row.price.forEach(item => {
@@ -86,6 +63,11 @@ const transform = (data) => {
         if (row.image.length > 1) {
           row.image = [{ text: row.image[row.image.length - 1].text }];
         }
+      }
+      if (row.brandLink) {
+        row.brandLink.forEach(item => {
+          item.text = 'https://www.linsenmax.ch' + item.text;
+        });
       }
       if (row.imageAlt) {
         if (row.imageAlt.length > 1) {
