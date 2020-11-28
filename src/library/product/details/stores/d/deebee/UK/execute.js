@@ -4,7 +4,12 @@ async function implementation(
   context,
   dependencies,
 ) {
-  await context.goto(`https://www.deebee.co.uk/product/id/${inputs.id}`, {
+  var url = "";
+  if (inputs.id)
+    url = `https://www.deebee.co.uk/product/id/${inputs.id}`;
+  else
+    url = inputs.URL || inputs.url
+  await context.goto(url, {
     timeout: 100000,
     waitUntil: 'load',
     checkBlocked: true,
