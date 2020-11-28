@@ -26,7 +26,7 @@ fields:
     xpath: //h1[@class='page-title']
   - name: availabilityText
     singleValue: false
-    xpath: //meta[@property='product:availability' and @content='instock']
+    xpath: //button[@class='action primary tocart']/span[text()='Add to cart']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
