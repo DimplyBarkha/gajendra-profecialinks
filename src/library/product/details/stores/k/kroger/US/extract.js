@@ -1,4 +1,4 @@
-const { myTransform } = require('./transform');
+const { transform } = require('./transform');
 
 const implementation = async (
   inputs,
@@ -82,7 +82,7 @@ const implementation = async (
       }
       descriptionText += bulletInfo;
 
-      addHiddenDiv('bullet-info', bulletInfo);
+      addHiddenDiv('bullet-info', bulletInfo.replace(/ \|\| /g, '|').trim());
       addHiddenDiv('bulletCount', bulletCount);
       addHiddenDiv('description', descriptionText);
     }
@@ -172,7 +172,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'kroger',
-    transform: myTransform,
+    transform,
     domain: 'kroger.com',
   },
   inputs: [
