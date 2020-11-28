@@ -6,8 +6,8 @@ module.exports = {
     store: 'thebay',
     domain: 'thebay.com',
     url: 'https://www.thebay.com/search?q={searchTerms}',
-    loadedSelector: 'div.image-container a.thumb-link  img.tile-image',
-    noResultsXPath: '//span[@class="search-keywords"]',
+    loadedSelector: 'div.row.product-grid',
+    noResultsXPath: null,
     zipcode: '',
   },
 };
