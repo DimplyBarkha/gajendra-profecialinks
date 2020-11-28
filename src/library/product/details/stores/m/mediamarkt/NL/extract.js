@@ -25,6 +25,7 @@ module.exports = {
       let specifications = '';
       let size = '';
       let weight = '';
+      let warranty = '';
       document.querySelectorAll('dl.specification').forEach(specificationGroup => {
         specifications += `${specificationGroup.innerText}\n`;
         specificationGroup.children.forEach((item, index) => {
@@ -37,11 +38,16 @@ module.exports = {
           if (item.innerText === 'Gewicht:') {
             weight = specificationGroup.children[index + 1].innerText;
           }
+          // Getting warranty
+          if (item.innerText === 'Fabrieksgarantie:') {
+            warranty = specificationGroup.children[index + 1].innerText;
+          }
         });
       });
       addElementToDocument('mm_specifications', specifications);
       addElementToDocument('mm_size', size);
       addElementToDocument('mm_weight', weight);
+      addElementToDocument('mm_warranty', warranty);
 
       // Getting upc code
       const upc = eval(`window.product${urlParams.get('ga_query')}.ean`);
