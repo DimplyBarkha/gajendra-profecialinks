@@ -12,6 +12,12 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //ul[contains(@class,'js-photosList')]/li//img/@src
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='order__wrapper']//a[contains(@class,'js-addToBasket') and text()='В корзину']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: videos
     singleValue: false
     xpath: //ul[contains(@class,'js-photosList')]//a[contains(@class,'video')]/input/@value
