@@ -9,9 +9,8 @@ async function implementation (inputs, parameters, context, dependencies) {
     let imageUrl;
     const categorySelector = document.querySelectorAll('.row.breadcrumbs-section>ol>li');
     let category;
-    let j = 0;
 
-    for (; j < categorySelector.length; j++) {
+    for (let j = 0; j < categorySelector.length; j++) {
       if (category !== null && category !== undefined) {
         category = categorySelector[j].textContent;
         category = category.replace('Zurück zu:', '');
@@ -20,7 +19,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
     }
 
-    j = 0;
+    let k = 0;
 
     for (let i = 0; i < images.length; i++) {
       imageUrl = images[i].src;
@@ -28,8 +27,8 @@ async function implementation (inputs, parameters, context, dependencies) {
       if (imageUrl.includes('youtube.com')) {
         const urlProp = imageUrl.replace('.jpg', '');
 
-        document.querySelectorAll('.media-wrapper.video-wrapper')[j].setAttribute('videoUrl', urlProp);
-        j++;
+        document.querySelectorAll('.media-wrapper.video-wrapper')[k].setAttribute('videoUrl', urlProp);
+        k++;
       };
     };
   });
