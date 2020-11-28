@@ -1,0 +1,63 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class='col-md-12 product-listing product-grid product-grid']/div
+fields:
+  - name: id
+    singleValue: false
+    xpath: //input[@name='productCodePost']/@value
+  - name: searchUrl
+    singleValue: true
+    xpath: //div/@searchurl
+  - name: name
+    singleValue: false
+    xpath: //div[@class='item-name']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='item js-product-card-item  product-card-grid']/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.pnp.co.za$1
+  - name: gtin
+    singleValue: false
+    xpath: //input[@name='productCodePost']/@value
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='thumb']/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class='rating-stars']/following::a[1]
+    regExp: (\d+)
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='rating-stars']/following::a[1]
+    regExp: (\d+)
+  - name: price
+    singleValue: false
+    xpath: //div[@class='item-price']/div[@class='currentPrice  '] | //div[@class='item-price']/div[@class='currentPrice  hasSavings']
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    xpath: //div/@count
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div/@count
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
