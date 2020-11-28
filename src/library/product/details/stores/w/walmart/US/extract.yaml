@@ -51,6 +51,8 @@ fields:
   - name: quantity
     xpath: //div[contains(@id,"Size")]//span[contains(@class, "content")]
   - name: weightNet
+    xpath: //*[@id="about-product-section"]//li[contains(.,"Net Weight:")]
+    regExp: '[^:]+$'
   - name: weightGross
   - name: gtin
     xpath: //*[contains(@itemprop,'gtin')]/@content
@@ -82,34 +84,34 @@ fields:
   - name: warranty
     xpath: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  | //div[contains(@title,'Warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span 
   
-  # - name: ratingCount
-  #   xpath: //*[@itemprop='aggregateRating']//span[@class='stars-reviews-count-node']
-  #   regExp: (\d*)  
-  # - name: aggregateRating
-  #   manualSelector: script[id=item]
-  #   regExp: roundedAverageOverallRating":\s*([^,]+)
-  #   regExpReplace: $1
-  # - name: agRatingFromPage
-  #   xpath: //button[contains(@class,"rating button")]//span[@itemprop="ratingValue"]
-  # - name: shippingInfo 
-  #   xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"] | //div[contains(@class, 'seller-info-container')]//a[contains(@class,'seller-name')]
-  # - name: shippingInfo1
-  #   singleValue: false
-  #   xpath: //script[@id='item'] | //script[@id='product']
-  #   #regExp: \"sellerDisplayName\"\:\"([^"]+)(\"\,\"showSold) 
-  #   regExp: sellerDisplayName\"\s?:\s?\"([^\"]+) 
-  #   regExpReplace: $1
-  # - name: shippingDimensions
-  #   xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides'] | //td[contains(text(),"Assembled Product Dimensions")]/following-sibling::td/div
-  # - name: specifications
-  #   xpath: //table[contains(@class,"product-specification")]
-  # - name: shippingWeight
-  #   xpath: //td[contains(text(),'Product Weight')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
-  # - name: variantCount
-  # - name: variantInformation
-  #   singleValue: false 
-  #   manualSelector: script[id='item'], script[id='product']
-  #   regExp: '{"name":"\w*_?\w*","value":"(\w*_?\w*-[^\"]*)"}'
+  - name: ratingCount
+    xpath: //*[@itemprop="reviewCount"]   
+    defaultValue: '0' 
+  - name: aggregateRating
+    xpath: //script[@id='item'][contains(.,"roundedAverageOverallRating")]
+    regExp: roundedAverageOverallRating":\s*([^,]+)
+    regExpReplace: $1
+  - name: agRatingFromPage
+    xpath: //button[contains(@class,"rating button")]//span[@itemprop="ratingValue"]
+  - name: shippingInfo 
+    xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"] | //div[contains(@class, 'seller-info-container')]//a[contains(@class,'seller-name')]
+  - name: shippingInfo1
+    singleValue: false
+    xpath: //script[@id='item'][contains(.,"sellerDisplayName")] | //script[@id='product'][contains(.,"sellerDisplayName")]
+    #regExp: \"sellerDisplayName\"\:\"([^"]+)(\"\,\"showSold) 
+    regExp: sellerDisplayName\"\s?:\s?\"([^\"]+) 
+    regExpReplace: $1
+  - name: shippingDimensions
+    xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides'] | //td[contains(text(),"Assembled Product Dimensions")]/following-sibling::td/div
+  - name: specifications
+    xpath: //table[contains(@class,"product-specification")]
+  - name: shippingWeight
+    xpath: //td[contains(text(),'Product Weight')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
+  - name: variantCount
+  - name: variantInformation
+    singleValue: false 
+    xpath: //script[@id='item'] | //script[@id='product']
+    regExp: '{"name":"\w*_?\w*","value":"(\w*_?\w*-[^\"]*)"}'
 
   - name: variants
     singleValue: false

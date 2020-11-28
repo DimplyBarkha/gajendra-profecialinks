@@ -137,10 +137,10 @@ const transform = (data, context) => {
           });
           row.promotion = [{ text: promotionsWithoutRollback }];
         }
-
-        if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
-          row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
-        }
+        // concat in JQ.
+        // if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
+        //   row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+        // }
 
         if ((row.price && row.price[0].text === '0') || (!row.price) || (row.unavailableMsg) || (row.outOfStockMsg)) {
           row.availabilityText = [{ text: 'Out of Stock' }];
@@ -312,6 +312,10 @@ const transform = (data, context) => {
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = el.text ? clean(el.text) : el.text;
         }));
+        if (row.description) {
+          row.productDescriptionLength = [{ text: row.description[0].text.length }];
+          row.productDescriptionWordCount = [{ text: row.description[0].text.split(' ').length }];
+        }
       } catch (exception) { console.log('Error in transform', exception); }
       try {
         Object.keys(row).forEach(header => row[header].forEach(el => {
