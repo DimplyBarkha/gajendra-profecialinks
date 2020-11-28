@@ -58,6 +58,11 @@ const transform = (data) => {
           }];
         }
       }
+      if (row.ratingDistribution) {
+        row.ratingDistribution  = row.ratingDistribution.reverse();
+      } else {
+        row.ratingDistribution = new Array(5).fill().map(() => ({ text: 0 }));
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = el.text ? clean(el.text) : el.text;
       }));

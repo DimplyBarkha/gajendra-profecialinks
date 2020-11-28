@@ -1,58 +1,58 @@
-const implementation = async function(
-    inputs,
-    parameters,
-    context,
-    dependencies,
+const implementation = async function (
+  inputs,
+  parameters,
+  context,
+  dependencies,
 ) {
-    let { url, id, zipcode } = inputs;
-    if (!url) {
-        if (!id) {
-            throw new Error('no id provided');
-        }
-        url = await dependencies.createUrl({ id });
+  let { url, id, zipcode } = inputs;
+  if (!url) {
+    if (!id) {
+      throw new Error('no id provided');
     }
+    url = await dependencies.createUrl({ id });
+  }
 
-    try {
-        const response = await context.goto(url, { timeout: 30000, waitUntil: 'networkidle0', checkBlocked: true });
-        console.log('Response ' + JSON.stringify(response));
-        if (response.message && response.message.includes('code 403')) {
-            console.log('Response failed');
-            return context.reportBlocked(451, 'Blocked!');
-        }
-    } catch (err) {
-        console.log('Error response' + JSON.stringify(err));
-        if (err.message && err.message.includes('code 403')) {
-            console.log('403 Response');
-            return context.reportBlocked(451, 'Blocked!');
-        }
-        throw err;
+  try {
+    const response = await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: true });
+    console.log('Response ' + JSON.stringify(response));
+    if (response.message && response.message.includes('code 403')) {
+      console.log('Response failed');
+      return context.reportBlocked(451, 'Blocked!');
     }
-
-    if (parameters.loadedSelector) {
-        await context.waitForFunction(function(sel, xp) {
-            return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-        }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  } catch (err) {
+    console.log('Error response' + JSON.stringify(err));
+    if (err.message && err.message.includes('code 403')) {
+      console.log('403 Response');
+      return context.reportBlocked(451, 'Blocked!');
     }
+    throw err;
+  }
 
-    async function getData(variantUrl) {
-        console.log('URL passed - ' + variantUrl);
-        const data = await context.evaluate(async function(reqUrl) {
-            const response = await fetch(reqUrl, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            return response.json();
-        }, variantUrl);
-        return data;
-    };
+  if (parameters.loadedSelector) {
+    await context.waitForFunction(function (sel, xp) {
+      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  }
 
-    // Check if variants exists
-    const variantsExist = await context.evaluate(function() {
-        const variants = document.querySelectorAll('ul[role="listbox"][class*="reset"] > li');
-        return variants.length > 1;
-    });
+  async function getData (variantUrl) {
+    console.log('URL passed - ' + variantUrl);
+    const data = await context.evaluate(async function (reqUrl) {
+      const response = await fetch(reqUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      return response.json();
+    }, variantUrl);
+    return data;
+  };
+
+  // Check if variants exists
+  const variantsExist = await context.evaluate(function () {
+    const variants = document.querySelectorAll('ul[role="listbox"][class*="reset"] > li');
+    return variants.length > 1;
+  });
 
   if (!variantsExist) {
     return;
@@ -86,6 +86,12 @@ const implementation = async function(
   } catch (err) {
     console.log('ERROR while calling the API' + err);
     throw err;
+  }
+  try {
+    await context.hover('#avg-rating-button');
+    await context.hover('h1[class^="productTitle"]');
+  } catch (err) {
+    console.log('cannot hover on rating');
   }
 };
 
