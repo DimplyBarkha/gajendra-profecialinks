@@ -1,12 +1,15 @@
 robot: product/reviews
-proxy:
-  zone: USA
-  type: RESIDENTIAL
 parameters:
   store: kroger
   country: US
   domain: kroger.com
-  zipcode: ""
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+policy:
+  numberRetries: 4
+  priority: MEDIUM
+  retryDelay: 60
 meta:
   branches:
     staging:

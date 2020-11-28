@@ -2,7 +2,7 @@ async function implementation (
   inputs, parameters, context, dependencies,
 ) {
   const { zipcode } = inputs;
-
+  /*
   const getCurrentZip = async () => {
     return await context.evaluate(async function () {
       const element = document.querySelector('span[data-testid="CurrentModality-vanityName"]');
@@ -73,6 +73,44 @@ async function implementation (
       overlay.click();
     }
   });
+  await new Promise((resolve, reject) => setTimeout(resolve, 2000)); */
+
+  async function getStoreDetails (zipcode) {
+    const API = 'https://www.kroger.com/atlas/v1/modality/options';
+    const body = {
+      address: {
+        postalCode: zipcode.toString(),
+      },
+    };
+    const response = await fetch(API, {
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'include',
+    });
+    const json = await response.json();
+    const modalities = json.data.modalityOptions.PICKUP.slice(0, 1);
+    const primaryModality = { PICKUP: modalities[0].id };
+    const preferencesBody = {
+      modalities,
+      primaryModality,
+      activeModality: 'PICKUP',
+    };
+    await fetch('https://www.kroger.com/atlas/v1/modality/preferences', {
+      headers: {
+        'content-type': 'application/json',
+      },
+      method: 'PUT',
+      mode: 'cors',
+      credentials: 'include',
+      body: JSON.stringify(preferencesBody),
+
+    });
+  }
+  await context.evaluate(getStoreDetails, zipcode);
+  await context.reload();
+  await context.waitForNavigation({ waitUntil: 'load', timeout: 30000 });
   await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 }
 

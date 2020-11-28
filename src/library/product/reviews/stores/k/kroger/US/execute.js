@@ -1,4 +1,4 @@
-async function implementation(
+/* async function implementation(
   { url, id, zipcode, date, days },
   { reviewUrl, sortButtonSelectors, loadedSelector, noResultsXPath },
   context,
@@ -39,7 +39,7 @@ async function implementation(
     console.log(e);
     return !e;
   }, noResultsXPath);
-}
+} */
 
 module.exports = {
   implements: 'product/reviews/execute',
@@ -47,11 +47,10 @@ module.exports = {
     country: 'US',
     store: 'kroger',
     domain: 'kroger.com',
-    loadedSelector: 'div.ProductDetails',
-    noResultsXPath: '//div[@id="notFound"] | //h2[contains(text(),"to have a bad link")] | //div[contains(@data-bv-show,"reviews") and (@class="hidden")]',
-    reviewUrl: '',
-    sortButtonSelectors: null,
+    loadedSelector: '#BVRRContainer',
+    noResultsXPath: '//*[@id="ratings-summary"][contains(@aria-label,"No rating value")] | //div[@id="notFound"] | //h2[contains(text(),"to have a bad link")] | //div[contains(@data-bv-show,"reviews") and (@class="hidden")]',
+    reviewUrl: 'https://www.kroger.com/p/upc/{id}',
+    sortButtonSelectors: '[aria-labelledby="bv-dropdown-select-reviews bv-dropdown-title-reviews"]|ul[id="bv-dropdown-select-reviews-sortby"] > li[data-bv-dropdown-value="mostRecent"]',
     zipcode: '',
   },
-  implementation,
 };

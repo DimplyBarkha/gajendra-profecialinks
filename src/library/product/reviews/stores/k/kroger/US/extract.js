@@ -8,5 +8,6 @@ module.exports = {
     transform,
     domain: 'kroger.com',
     zipcode: '',
+    filterReviews: true,
   },
 };

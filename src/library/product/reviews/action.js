@@ -12,7 +12,7 @@ async function implementation (
   context,
   { execute, extract, paginate },
 ) {
-  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 999 } = inputs;
+  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = Infinity } = inputs;
   const id = RPC || SKU || inputs.id;
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
@@ -26,8 +26,8 @@ async function implementation (
     return;
   }
 
-  const pageOne = await extract({});
-  let collected = length(pageOne);
+  const pageOne = await extract({ date, results });
+  let collected = length(pageOne.data);
 
   console.log(`Got initial number of results: ${collected}`);
 
@@ -36,9 +36,12 @@ async function implementation (
 
   let page = 2;
   while (results > collected && await paginate({ id, page, offset: collected, date })) {
-    const data = await extract({});
+    const { data, stop } = await extract({ date, results });
     const count = length(data);
-    if (count === 0) break; // no results
+    if (count === 0 || stop) {
+      // no results
+      break;
+    }
     collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
     console.log('Got more results', collected);
     page++;
