@@ -41,33 +41,9 @@ module.exports = {
         document.querySelector('.prdct-cntnr-wrppr > div:nth-child(13)').scrollIntoView({ behavior: 'smooth' });
       });
     }
-    const applyScroll = async function (context) {
-      await context.evaluate(async function () {
-        let scrollTop = 0;
-        while (scrollTop !== 10000) {
-          await stall(1000);
-          scrollTop += 250;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 10000) {
-            await stall(5000);
-            break;
-          }
-        }
-        function stall(ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
-        }
-      });
-    };
-    await new Promise(resolve => setTimeout(resolve, 5000));
-    await applyScroll(context);
-    await new Promise(resolve => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
       const URL = window.location.href;
-      function addHiddenDiv(id, content, index) {
+      function addHiddenDiv (id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -82,6 +58,78 @@ module.exports = {
         addHiddenDiv('page_url', URL, i);
       }
     });
+
+    const mainUrl = await context.evaluate(async function () {
+      return document.URL;
+    });
+    console.log('mainUrl', mainUrl);
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+
+    var results = await context.evaluate(async function () {
+      const result = [];
+      (document.querySelectorAll('div.prdct-cntnr-wrppr div a')).forEach((elem) => {
+        result.push({
+          url: elem.getAttribute('href'),
+          code: '',
+        });
+      });
+      return result;
+    });
+    for (var i = 0; i < results.length; i++) {
+      await context.goto(results[i].url, {
+        timeout: 10000000,
+        waitUntil: 'load',
+        checkBlocked: true,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+      const productCode = await context.evaluate(async function () {
+        const productCode = window.__PRODUCT_DETAIL_APP_INITIAL_STATE__.product.productCode;
+        return productCode;
+      });
+      results[i].code = productCode;
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    };
+    // var productcodes = [];
+    // results.map((item) => {
+    //   productcodes.push(item.code);
+    // });
+
+    await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
+    await applyScroll(context);
+    await context.evaluate(async function (results) {
+      try {
+        var index = 0;
+        (document.querySelectorAll('div.prdct-cntnr-wrppr div a')).forEach((node) => {
+          node.setAttribute('productCode', results[0][index].code);
+          index++;
+        });
+      } catch (error) {
+        console.log('Error: ', error);
+      }
+    }, [results]);
     await delay(5000);
     await context.waitForSelector('div.srch-prdcts-cntnr img');
     await delay(5000);

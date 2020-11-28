@@ -49,7 +49,7 @@ const transform = (data, context) => {
         let text = '';
         row.productUrl.forEach(item => {
           text = item.text.match(/.+/g);
-          item.text = 'https://www.trendyol.com/' + text;
+          item.text = 'https://www.trendyol.com' + text;
         });
       }
       if (row.aggregateRating2) {
