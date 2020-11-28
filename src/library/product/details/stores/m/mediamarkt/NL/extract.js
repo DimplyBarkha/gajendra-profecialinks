@@ -25,6 +25,7 @@ module.exports = {
       let specifications = '';
       let size = '';
       let weight = '';
+      let color = '';
       let warranty = '';
       let mpc = '';
       document.querySelectorAll('dl.specification').forEach(specificationGroup => {
@@ -39,6 +40,10 @@ module.exports = {
           if (item.innerText === 'Gewicht:') {
             weight = specificationGroup.children[index + 1].innerText;
           }
+          // Getting color
+          if (item.innerText === 'Kleur:') {
+            color = specificationGroup.children[index + 1].innerText;
+          }
           // Getting warranty
           if (item.innerText === 'Fabrieksgarantie:') {
             warranty = specificationGroup.children[index + 1].innerText;
@@ -52,6 +57,7 @@ module.exports = {
       addElementToDocument('mm_specifications', specifications);
       addElementToDocument('mm_size', size);
       addElementToDocument('mm_weight', weight);
+      addElementToDocument('mm_color', color);
       addElementToDocument('mm_warranty', warranty);
       addElementToDocument('mm_mpc', mpc);
 
