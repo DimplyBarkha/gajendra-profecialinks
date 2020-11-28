@@ -7,5 +7,6 @@ module.exports = {
     nextLinkSelector: 'div.pagination a:last-child',
     loadedSelector: 'div.page',
     domain: 'sphere-sante.com',
+    zipcode: '',
   },
 };
