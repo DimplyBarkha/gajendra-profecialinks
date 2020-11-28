@@ -32,13 +32,7 @@ fields:
     xpath: //div[@class="price-control-wrapper"]//div/span
   - name:  description
     singleValue: false
-    xpath: //div[@class='groupItem']//h3[text()='Product Description']//following-sibling::div
-  - name:  description
-    singleValue: false
-    xpath: //div[@class='groupItem']//h3[text()='Product Description']//following-sibling::div
-  - name:  description2
-    singleValue: false
-    xpath: //div[@class='productDetailsContainer']//div[@class='content']    
+    xpath: //div[@class='groupItem']//h3[text()='Termékleírás' or text()='Product Description']//following-sibling::div
   - name: manufacturer
     singleValue: false
     xpath: //h4[@class='itemHeader' and text()='Vevőszolgálat']//following-sibling::p
@@ -75,7 +69,7 @@ fields:
     xpath: //h3[text()='Safety Information']//following-sibling::div
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@class='groupItem']//h3[text()='Ingredients']//following-sibling::div
+    xpath: //div[@class='groupItem']//h3[text()='Ingredients' or text()='Termékadatok']//following-sibling::div
   - name: shippingInfo
     singleValue: false
     xpath: //h4[@class='itemHeader' and text()='Forgalmazó cím']//following-sibling::p

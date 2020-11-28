@@ -76,10 +76,6 @@ const transform = (data) => {
         });
         row.description = [{ text: arrDesc.join(' ') }];
       }
-      else if (row.description2) {
-        row.description = [{ text: row.description2[0].text }];
-        delete row.description2;
-      }
       if (row.countryOfOrigin) {
         row.countryOfOrigin.forEach(item => {
           item.text = item.text.replace('Származási ország:', '');
