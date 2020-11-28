@@ -6,7 +6,7 @@ module.exports = {
     store: 'aptekaolmed',
     domain: 'aptekaolmed.pl',
     url: 'https://www.aptekaolmed.pl/search.php?text={searchTerms}',
-    //'https://www.aptekaolmed.pl/search.php?text=tena',
+    // url: 'https://www.aptekaolmed.pl/search.php?text=pieluchomajtki',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
