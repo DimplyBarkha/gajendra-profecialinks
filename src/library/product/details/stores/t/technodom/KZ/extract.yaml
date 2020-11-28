@@ -41,13 +41,24 @@ fields:
     xpath: //meta[@itemprop='sku']/@content
   - name: description
     singleValue: false
-    xpath: //article[@class="ProductDetails"]
+    xpath: //div[@class="ProductDetails-ShortDescription"]/li
   - name: listPrice
     singleValue: false
     xpath: //div[@class="ProductInformation-Row"]//del[@aria-label="Старая цена продукта"]  
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id="product-information-active"]//li//h3[text()="Основные характеристики"]//following-sibling::ul//li
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="ProductSwatches"]//div[@class="ProductSwatches-SwatchesConfigurable"]//a/data/@title
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="ProductSwatches"]//div[@class="ProductSwatches-SwatchesConfigurable"]//a/data/@title
+  - name: firstVariant
+    singleValue: false
+  - name: color
+    singleValue: false  
+    xpath: //section[@aria-label="Цвет"]/h4[@class="ProductSwatches-SwatchesLabel"]//strong
   - name: variantCount
     singleValue: false
     defaultValue: 0
-  - name: specifications
-    singleValue: false
-    xpath: //div[@id="product-information-active"]//li//h3[text()="Основные характеристики"]//following-sibling::ul//li    

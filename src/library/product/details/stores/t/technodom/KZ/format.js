@@ -30,14 +30,7 @@ const transform = (data) => {
                 item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
                 item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
               });
-            }
-            /*if (row.specifications) {         
-              var inf = [];
-              row.specifications.forEach(item => {
-                inf.push(item.text);                
-              });
-              row.specifications=[{"text":inf.join(" || ")}];
-            }*/
+            }            
             if (row.specifications) {
               var temp_arr = [];
               row.specifications.forEach(item => {
@@ -47,6 +40,31 @@ const transform = (data) => {
                 row.specifications= [{ "text": temp_arr.join(" || "), "xpath": row.specifications[0]["xpath"] }]
               } else {
                 delete row.specifications;
+              }
+            }
+            if (row.variants) {
+              var temp_arr = [];
+              row.variants.forEach(item => {
+                item.text = item.text.replace(/.+-(\d+)/g, '$1');
+                temp_arr.push(item.text);
+              });
+              row.firstVariant = [{ "text": row.variants[0]["text"], "xpath": row.variants[0]["xpath"] }];
+              if (temp_arr.length) {
+                row.variantCount = [{ "text": temp_arr.length, "xpath": row.variants[0]["xpath"] }];
+                row.variants = [{ "text": temp_arr.join(' | '), "xpath": row.variants[0]["xpath"] }];
+              } else {
+                delete row.variants;
+              }
+            }
+            if (row.variantInformation) {
+              var temp_arr = [];
+              row.variantInformation.forEach(item => {          
+                temp_arr.push(item.text);
+              });
+              if (temp_arr.length) {
+                row.variantInformation = [{ "text": temp_arr.join(' | '), "xpath": row.variantInformation[0]["xpath"] }];
+              } else {
+                delete row.variantInformation;
               }
             }
       }
