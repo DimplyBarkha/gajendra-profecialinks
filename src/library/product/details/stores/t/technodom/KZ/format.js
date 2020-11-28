@@ -26,10 +26,11 @@ const transform = (data) => {
       var variantCount = 0;
       for (let row of group) {              
             if (row.description) {
+              let inf =  [];
               row.description.forEach(item => {
-                item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
-                item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
+                inf.push(item.text);                
               });
+              row.description= [{ "text": inf.join(" || "), "xpath": row.description[0]["xpath"] }]
             }            
             if (row.specifications) {
               var temp_arr = [];
