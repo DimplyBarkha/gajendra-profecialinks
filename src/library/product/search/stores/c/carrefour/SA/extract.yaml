@@ -1,25 +1,25 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: section.plp-list .plp-list__item
+recordSelector: div[class*="-jyyiad"]
 recordXPath: null
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[@class="plp-list__item"]//a/@data-gtm-prod-data
-    regExp: \"id\"\s*:\s*\"(.+?)\"
+    xpath: //div[contains(@class,"-cssveg")]//a/@href
+    regExp: \/p\/(.+)
     regExpReplace: $1
   - name: productUrl
     SingleValue: false
-    xpath: //div[@class="plp-list__item"]//div[@class="comp-productcard__top-wrap"]//a/@href
+    xpath: //div[contains(@class,"-cssveg")]//a/@href
   - name: price
     SingleValue: false
     xpath: //div[@class="plp-list__item"]//p[@class="comp-productcard__price"]/strong
   - name: thumbnail
     SingleValue: false
-    xpath: //div[@class="comp-productcard__top-wrap"]//img[@class="comp-productcard__img"]/@src
+    xpath: //div[contains(@class,"-cssveg")]//a/img/@src
   - name: name
     SingleValue: false
-    xpath: //div[@class="plp-list__item"]//p[@class="comp-productcard__name"]
+    xpath: //div[contains(@class,"-12fzzt2")]//a
   - name: rankOrganic
     SingleValue: true
   - name: rank

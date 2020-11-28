@@ -6,8 +6,8 @@ module.exports = {
     store: 'carrefour',
     domain: 'carrefourksa.com',
     url: 'https://www.carrefourksa.com/mafsau/en/v1/search={searchTerms}',
-    loadedSelector: 'section.plp-list .plp-list__item',
-    noResultsXPath: '//p[@class="not-found__para"]',
+    loadedSelector: 'div[class*="-jyyiad"]',
+    noResultsXPath: '//h2[@data-testid="no-result-text"]',
     zipcode: "''",
   },
 };
