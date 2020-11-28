@@ -147,10 +147,12 @@ fields:
     regExpReplace: g
   - name: caloriesPerServing
     singleValue: false
-    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Energie in kJ")]//following::span[1]/span
+    xpath: concat(//span[@class="list--dotted-item__label"]//span[contains(text(),"Energie in kJ")]//following::span[1]/span, ' ', //span[@class="list--dotted-item__label"]//span[contains(text(),"Energie in kcal")]//following::span[1]/span)
   - name: caloriesFromFatPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Energie in kcal")]//following::span[1]/span
+    regExp: \d+
+    # regExpReplace: $1
   - name: totalFatPerServing
     singleValue: false
     xpath: (//span[@class="list--dotted-item__label"]//span[contains(text(),"Fett")]//following::span[1]/span)[1]
@@ -213,14 +215,18 @@ fields:
   - name: vitaminAPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin A")]//following::span[1]/span
+    regExp: (.+)µg
+    regExpReplace: $1
   - name: vitaminAPerServingUom
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin A")]//following::span[1]/span
     regExp: (.+)
-    regExpReplace: g
+    regExpReplace: µg
   - name: vitaminCPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin C")]//following::span[1]/span
+    regExp: (.+)mg
+    regExpReplace: $1
   - name: vitaminCPerServingUom
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Vitamin C")]//following::span[1]/span
@@ -229,7 +235,7 @@ fields:
   - name: calciumPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kalzium")]//following::span[1]/span
-    regExp: (.+)g
+    regExp: (.+)mg
     regExpReplace: $1
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
   - name: calciumPerServingUom
@@ -237,7 +243,7 @@ fields:
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Kalzium")]//following::span[1]/span
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Calcium")]//following::span[1]/span
     regExp: (.+)
-    regExpReplace: g
+    regExpReplace: mg
   - name: magnesiumPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnesium")]//following::span[1]/span
