@@ -50,7 +50,7 @@ const transform = (data) => {
       }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
-        row.price.forEach(item => {
+        row.additionalDescBulletInfo.forEach(item => {
           arrBullets.push(item.text);
         });
         row.additionalDescBulletInfo = [{ text: '||' + arrBullets.join('||') }];
