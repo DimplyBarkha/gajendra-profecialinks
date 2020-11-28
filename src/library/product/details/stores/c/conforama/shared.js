@@ -146,15 +146,13 @@ const transform = (data, context) => {
       //   });
       //   row.variantId = variantIds;
       // }
-      // if (row.availabilityText) {
-      //   row.availabilityText.forEach(item => {
-      //     if((item.text.includes('Ajouter au panier')) || (item.text.includes('Ajouter au panier'))){
-      //     item.text = 'In Stock';
-      //     }else{
-      //       item.text = 'Out of Stock';
-      //     }
-      //   });
-      // }
+      if (row.gtin) {
+        row.gtin.forEach(item => {
+          if ((item.text.includes('undefined;\ntc_vars[')) || (item.text.includes('NaN'))) {
+            item.text = '';
+          }
+        });
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
