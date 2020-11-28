@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'johnlewis',
     domain: 'johnlewis.com',
-    url: 'https://www.johnlewis.com/search?search-term=4+k+tv',
+    url: 'https://www.johnlewis.com/search?search-term={searchTerms}',
     loadedSelector: '.PLP_plp__3vv2c',
     noResultsXPath: null,
     zipcode: '',
