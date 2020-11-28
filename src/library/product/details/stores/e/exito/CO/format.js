@@ -24,19 +24,15 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      // if (row.alternateImages) {
-      //   row.alternateImages.splice(0, 1);
-      //   if (row.alternateImages.length === 0) {
-      //     delete row.alternateImages;
-      //   }
-      // }
-      // if (row.descriptionBullets) {
-      //   var bulletArr = [];
-      //   row.descriptionBullets.forEach(item => {
-      //     bulletArr.push(item.text.replace(/^\s*-\s*/, ''));
-      //   });
-      //   row.descriptionBullets = [{ text: '|| ' + bulletArr.join(' || ') }];
-      // }
+      if (row.specifications1 && row.specifications2) {
+        var arrSpec = [];
+        for (var i = 0; i < row.specifications1.length; i++) {
+          arrSpec.push(row.specifications1[i].text + ' : ' + row.specifications2[i].text);
+        }
+        row.specifications = [{ text: arrSpec.join(' || ') }];
+        delete row.specifications1;
+        delete row.specifications2;
+      }
       // if (row.specifications) {
       //   var arrSpecs = [];
       //   row.specifications.forEach(item => {
