@@ -31,31 +31,32 @@ module.exports = {
       let energy = '';
       document.querySelectorAll('dl.specification').forEach(specificationGroup => {
         specifications += `${specificationGroup.innerText}\n`;
-        specificationGroup.children.forEach((item, index) => {
+        var specificationsItems = Array.from(specificationGroup.children);
+        specificationsItems.forEach((item, index) => {
           console.log(item, item.innerText);
           // Getting size
           if (item.innerText === 'Afmetingen (B/H/D):' || item.innerText === 'Afmetingen (B x H x D):' || item.innerText === 'Inhoud:') {
-            size = specificationGroup.children[index + 1].innerText;
+            size = specificationsItems[index + 1].innerText;
           }
           // Getting weight
           if (item.innerText === 'Gewicht:') {
-            weight = specificationGroup.children[index + 1].innerText;
+            weight = specificationsItems[index + 1].innerText;
           }
           // Getting color
           if (item.innerText === 'Kleur:') {
-            color = specificationGroup.children[index + 1].innerText;
+            color = specificationsItems[index + 1].innerText;
           }
           // Getting warranty
           if (item.innerText === 'Fabrieksgarantie:') {
-            warranty = specificationGroup.children[index + 1].innerText;
+            warranty = specificationsItems[index + 1].innerText;
           }
           // Getting mpc
           if (item.innerText === 'Manufacturer Part Number (MPN):') {
-            mpc = specificationGroup.children[index + 1].innerText;
+            mpc = specificationsItems[index + 1].innerText;
           }
           // Getting energy
           if (item.innerText === 'Energie-efficiëntieklasse:') {
-            energy = specificationGroup.children[index + 1].innerText;
+            energy = specificationsItems[index + 1].innerText;
           }
         });
       });
