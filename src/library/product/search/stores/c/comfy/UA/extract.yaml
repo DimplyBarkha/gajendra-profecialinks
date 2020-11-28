@@ -1,0 +1,104 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //div[@class="price-box__content price-box__content_old"]/span[@class="price-value"]
+    regExp: (\d+)?(\s*)(\d+)
+    regExpReplace: $1$3     
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+  - name: productUrl
+    singleValue: true
+    description: The URL for the product details page
+    xpath: //a[@class="product-item__name-link js-gtm-product-title"]/@href
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    xpath: //li[@class="product-item-gallery__item slick-slide slick-current slick-active"]//img/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //a[@class="product-item__name-link js-gtm-product-title"]
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //div[@class="product-item__sku hide-on-mobile"]/text()
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    xpath: //a[@class="js-gtm-product-review js-gtm-product-title product-item__review-item"]/span/text() | //span[@class="js-gtm-product-review"]/text()
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath: //a[@class="js-gtm-product-review js-gtm-product-title product-item__review-item"]/span/text() | //span[@class="js-gtm-product-review"]/text()
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //div[@class="price-box__content-i"]/span[@class="price-value"]
+    regExp: (\d+)?(\s*)(\d+)
+    regExpReplace: $1$3
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    xpath: //div[@class="rank"]
+    type: NUMBER  
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    xpath: //div[@class="rank"]
+    type: NUMBER 
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN    
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[@class="product-item__sku hide-on-mobile"]/text()
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //a[@class="product-item__name-link js-gtm-product-title"]
+  - name: aggregateRating2
+    singleValue: true
+    type: NUMBER
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class="aggregateRating"]
