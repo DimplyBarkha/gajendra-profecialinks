@@ -8,6 +8,14 @@ module.exports = {
     timeout: 200000,
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
+    if (storeId) {
+      const datetime = new Date().getTime();
+      url = `${url}#[!opt!]{"storage":{},"cookie_jar":[{"name":"t-loc-psid","value":"${datetime}|${storeId}"}]}[/!opt!]`;
+    } else {
+      url = `${url}#[!opt!]{"cookie_jar":[]}[/!opt!]`;
+    }
+    console.log(url);
+    console.log('###############################################');
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     const memory = {};
     const backconnect = !!memory.backconnect;
@@ -25,8 +33,8 @@ module.exports = {
 
     const isCaptcha = async () => {
       return await context.evaluate(async function () {
-        return !!document.querySelector('div.re-captcha')
-      })
+        return !!document.querySelector('div.re-captcha');
+      });
     };
 
     const solveCaptcha = async () => {
@@ -40,9 +48,9 @@ module.exports = {
       console.log('solved captcha, waiting for page change');
       const res = await Promise.race([
         context.waitForSelector('span[data-automation-id="zero-results-message"], .g-recaptcha, div[id="product-overview"]'),
-        new Promise((r, j) => setTimeout(j, 2e4 )),
+        new Promise((r, j) => setTimeout(j, 2e4)),
       ]);
-        
+
       console.log('Captcha vanished');
     };
 
@@ -52,12 +60,12 @@ module.exports = {
         if (backconnect) {
           throw Error('CAPTCHA received');
         }
-        console.log('Solving a captcha');       
-        console.log("captcha start time:", new Date())
+        console.log('Solving a captcha');
+        console.log('captcha start time:', new Date());
         await solveCaptcha();
-        captchas += 1
-        console.log("captcha end time:", new Date())
-        await new Promise(resolve => setTimeout(resolve,10000));
+        captchas += 1;
+        console.log('captcha end time:', new Date());
+        await new Promise(resolve => setTimeout(resolve, 10000));
       }
       if (await isCaptcha()) {
         if (!benchmark) {
@@ -71,7 +79,7 @@ module.exports = {
     };
 
     await context.goto(url, {
-      firstRequestTimeout: 40000,
+      firstRequestTimeout: 60000,
       timeout,
       waitUntil: 'load',
       checkBlocked: true,
@@ -80,8 +88,37 @@ module.exports = {
       },
     });
 
-    if (!await solveCaptchaIfNecessary()) {
+    // try {
+    //   await context.waitForSelector(captchaFrame, { timeout: 10000 });
+    // } catch (error) {
+    //   console.log('No iframe captcha');
+    // }
+
+    const checkExistance = async (selector) => {
+      return await context.evaluate(async (captchaSelector) => {
+        return Boolean(document.querySelector(captchaSelector));
+      }, selector);
+    };
+    if (await checkExistance('#bot-handling-challenge')) {
       return;
     }
-},
-}
+    // const isCaptchaFramePresent = await checkExistance(captchaFrame);
+    // try {
+    //   if (isCaptchaFramePresent) {
+    //     console.log('isCaptcha', true);
+    //     await context.waitForNavigation({ timeout });
+    //     // @ts-ignore
+    //     // eslint-disable-next-line no-undef
+    //     await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+    //     console.log('solved captcha, waiting for page change');
+    //     await context.waitForNavigation({ timeout });
+    //     await context.waitForSelector('#questions-answers', { timeout });
+    //   }
+    // } catch (err) {
+    //   console.log('Failed to solve Iframe Captcha');
+    // }
+    if (!await solveCaptchaIfNecessary()) {
+
+    }
+  },
+};
