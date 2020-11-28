@@ -27,29 +27,20 @@ const transform = (data) => {
     for (const row of group) {
       if (row.productUrl) {
         row.productUrl.forEach(item => {
-          item.text = 'https://shop.coop.co.uk' + item.text;
+          item.text = 'https://www.coop.co.uk' + item.text;
         });
+        if (row.productUrl.length > 1) {
+          row.productUrl.splice(1);
+        }
       }
       if (row.id) {
-        row.id.forEach(item => {
-          var myRegexp = /.+-(.+)/g;
-          var match = myRegexp.exec(item.text);
-          if (match) {
-            item.text = match[1].trim();
-          } else {
-            delete row.id;
-          }
-        });
+        if (row.id.length > 1) {
+          row.id.splice(1);
+        }
       }
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {
-          var myRegexp = /.+?1280w,(http.+?_1024x1024)/g;
-          var match = myRegexp.exec(item.text);
-          if (match) {
-            item.text = match[1].trim();
-          } else {
-            delete row.thumbnail;
-          }
+          item.text = 'https:' + item.text.replace('w=300&h=300', 'w=600&h=600');
         });
       }
       row.rank = row.rankOrganic = [{ text: rank }];

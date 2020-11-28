@@ -14,7 +14,7 @@ fields:
     xpath: //div[contains(@class,'ItemInfo-image')]//img/@alt
   - name: nameExtended
     singleValue: false
-    xpath: //h1[contains(@class,'ItemInfo-heading')]  
+    xpath: //h1[contains(@class,'ItemInfo-heading')]
   - name: gtin
     singleValue: false
     xpath: //article[contains(@class,'js-mainProduct')]//script[@class='js-model']
@@ -26,7 +26,7 @@ fields:
     singleValue: false
     defaultValue: '0'
   - name: weightNet
-    singleValue: false    
+    singleValue: false
   - name: storage
     singleValue: false
     xpath: //div[contains(@class,'u-marginBmd u-textSmall')]/div
@@ -47,7 +47,7 @@ fields:
     xpath: //span[contains(@itemprop,'sugarContent')]/@content
   - name: saturatedFatPerServing
     singleValue: false
-    xpath: //span[contains(@itemprop,'saturatedFatContent')]/@content    
+    xpath: //span[contains(@itemprop,'saturatedFatContent')]/@content
   - name: saltPerServing
     singleValue: false
     xpath: //ul[contains(@class,'List')]//span[contains(text(),'Salt')]/@content
@@ -56,12 +56,12 @@ fields:
     xpath: //div[contains(@class,'u-marginBmd u-textSmall')]//h5[contains(text(),'Ingredienser')]/parent::*
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,'Breadcrumb-container')]//div[contains(@class,'Breadcrumb-item')]//span
+    xpath: //div[contains(@data-page-type,"productPage")]//div[contains(@class,'Breadcrumb-container')]//div[contains(@class,'Breadcrumb-item')]//span
   - name: description
     singleValue: false
     xpath: //span[contains(@itemprop,'description')]
   - name: brandText
-    singleValue: false    
+    singleValue: false
   - name: price
     singleValue: false
     xpath: (//div[contains(@class,'ItemInfo-details')]//span[contains(@class,'ItemInfo-priceValue')])[1]
@@ -70,7 +70,18 @@ fields:
     xpath: //div[contains(@class,'ItemInfo-details')]//span[@aria-label='Award']
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,'ItemInfo-details')]//div[@class='AddToCart-container']//button[@aria-label='Increase number']
-    defaultValue: 'In Stock'
+    xpath: //div[contains(@class,'ItemInfo-details')]//div[@class='AddToCart-container']//button[@aria-label='Öka antal']/@aria-label
   - name: manufacturer
-    singleValue: false    
+    singleValue: false
+  - name: gtin
+    singleValue: false
+    xpath: //article[contains(@class,'js-mainProduct')]//script[@class='js-model']
+  - name: shownImages
+    singleValue: false
+    xpath: //div[contains(@class,'ItemInfo-image')]//img/@src
+  - name: highQualityImages
+    singleValue: false
+    xpath: //div[contains(@class,'ItemInfo-image')]//img/@src
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@data-page-type,"productPage")]//ancestor::html//link[@rel="canonical"]/@href

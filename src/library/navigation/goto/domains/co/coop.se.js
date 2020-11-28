@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'coop.se',
-    timeout: null,
+    timeout: 60000,
     country: 'SE',
     store: 'coop',
     zipcode: "''",

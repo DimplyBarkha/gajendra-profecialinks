@@ -13,10 +13,10 @@ fields:
     regExpReplace: https://www.coop.ch$1 
   - name: price
     SingleValue: false
-    xpath: //dd[@class="productTile__price-value productTile__price-value-lead"]
+    xpath: //dd[contains(@class,"productTile__price-value-lead")]
   - name: thumbnail
     SingleValue: false
-    xpath: //div[@class="product-listing__thumbnail-image"]/img/@src
+    xpath: //img[contains(@class,"product-listing__thumbnail__image")]/@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: name
@@ -28,7 +28,7 @@ fields:
     SingleValue: true
   - name: aggregateRating2
     xpath: //i[@class="visuallyhidden"]/text()
-    regExp: \W\s(.+) sur 5
+    regExp: \W\s(.+) von 5
     regExpReplace: $1
   - name: reviewCount
     SingleValue: false
@@ -36,4 +36,8 @@ fields:
   - name: ratingCount
     SingleValue: false
     xpath: //span[@itemprop="reviewCount"]/text()
+  - name: aggregateRating
+    xpath: //i[@class="visuallyhidden"]/text()
+    regExp: \W\s(.+) von 5
+    regExpReplace: $1
     
