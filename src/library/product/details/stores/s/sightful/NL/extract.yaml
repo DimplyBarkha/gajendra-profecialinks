@@ -32,7 +32,7 @@ fields:
     defaultValue: Out of Stock
   - name: price
     singleValue: false
-    xpath: //meta[@property="product:price:amount"]/@content
+    xpath: (//meta[@property="product:price:amount"]/@content)[1]
   - name: listPrice
     singleValue: false
     xpath: //span[contains(@id,'old-price')]//span[@class='price']
