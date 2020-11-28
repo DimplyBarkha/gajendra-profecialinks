@@ -48,7 +48,7 @@ async function implementation (
     // get sku, image and url values
     var sku = document.querySelectorAll('script[type="application/ld+json"]');
     var info = [];
-    for ( let i = 0; i < sku.length; i++) {
+    for (let i = 0; i < sku.length; i++) {
       var obj = JSON.parse(sku[i].innerText);
       var element = {};
       element.id = obj.sku;
@@ -81,7 +81,7 @@ async function implementation (
     }
     if ('id' in data[0].group[i]) {
       data[0].group[i].id[0].text = information[i].id;
-    } 
+    }
     if ('productUrl' in data[0].group[i]) {
       data[0].group[i].productUrl[0].text = information[i].url;
     }
