@@ -41,6 +41,18 @@ const transform = (data) => {
           item.text = item.text.replace('Product Weight:', '');
         });
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('Sale Price', '');
+          item.text = item.text.trim();
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace('Strikethrough List Price', '');
+          item.text = item.text.trim();
+        });
+      }
       if (row.materials) {
         row.materials.forEach(item => {
           item.text = item.text.replace('Main Fabric:', '');
