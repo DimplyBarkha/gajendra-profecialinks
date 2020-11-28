@@ -39,6 +39,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //span[@class="js-sku-selected"]//@data-currentsku
+  - name: variantId
+    singleValue: false
+    xpath: //span[@class="js-sku-selected"]//@data-currentsku
   - name: ratingCount
     singleValue: false
     xpath: //span[@itemprop="ratingCount"]
@@ -57,3 +60,6 @@ fields:
   - name: privacyPolicy
     singleValue: false
     defaultValue: "yes"
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
