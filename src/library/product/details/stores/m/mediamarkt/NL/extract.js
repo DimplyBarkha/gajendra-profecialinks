@@ -43,9 +43,14 @@ module.exports = {
       addElementToDocument('mm_size', size);
       addElementToDocument('mm_weight', weight);
 
-      // Getting ean code
+      // Getting upc code
       let upc = eval(`window.product${urlParams.get('ga_query')}.ean`);
       addElementToDocument('mm_upc', upc);
+
+      // Getting sku code
+      let sku = urlParams.get('ga_query');
+      addElementToDocument('mm_skuCode', sku);
+      addElementToDocument('mm_retailerProductCode', sku);
 
       // Getting images
       const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
