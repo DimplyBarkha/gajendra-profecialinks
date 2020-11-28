@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id='productImgID']//figure[@class='zoom']//img//@src
+  - name: sku
+    singleValue: false
+    xpath: //ul//div[@class='pdp-desc-font']
+  - name: variantId
+    singleValue: false
+    xpath: //ul//div[@class='pdp-desc-font'] 
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[@class='breadcrumb']//li[contains(@class,'breadcrumb__crumb')]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'prod-name')]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'prod-name')]
+  - name: price
+    singleValue: false
+    xpath: //span[@class='price prod--price']  
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[contains(@class,'add-to-cart-btn')]
+    defaultValue: "In Stock"
+  - name: description
+    singleValue: false
+    xpath: //div[@class='accordion__content--chrome accordion__content pdp-desc-font']//p[@class='pdp-desc-font'] 
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='brands-view']//div[@class='col-1']//a//img//@alt    
+  - name: aggregateRating
+    singleValue: true
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='productImgID']//figure[@class='zoom']//img//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='pdp__thumb']//img//@src
