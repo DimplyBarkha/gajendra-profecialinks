@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'falabella.com.ar',
     prefix: null,
-    url: 'https://www.falabella.com.ar/falabella-ar/product/{id}',
+    url: null,
     country: 'AR',
     store: 'falabella',
     zipcode: '',
