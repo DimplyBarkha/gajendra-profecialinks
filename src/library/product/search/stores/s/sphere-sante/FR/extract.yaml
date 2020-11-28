@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'row-produit')]
+fields: 
+  - name: id
+    xpath: //div[contains(@class,'row-produit')]//a/@id
+    singleValue: false
+  - name: rank
+  - name: name
+    xpath: //div[contains(@class,'row-produit')]//a/@title
+    singleValue: false
+  - name: thumbnail
+    xpath: //div[contains(@class,'row-produit')]//div[contains(@class,'produit-col')]//div[contains(@class,'col-photos')]//div[contains(@class,'image')]//div[contains(@class,'contentImg')]//img/@src
+    singleValue: false
+  - name: productUrl
+    xpath: //div[contains(@class,'produit-col')]//a/@href
+    singleValue: false
+  - name: price
+    xpath: //div[contains(@class,'row-produit')]//div[contains(@class,'bloc-price')]//p//span
+    singleValue: false
+    regExp: (\d+(\.\d{1,5})?)
+    regExpReplace: $1
+  - name: aggregateRating
+    xpath: //div[contains(@class,'row-produit')]//a/@data-aggregate-rating
+    singleValue: false
+  - name: reviewCount
+    xpath: //div[contains(@class,'row-produit')]//a/@data-rating-count
+    singleValue: false

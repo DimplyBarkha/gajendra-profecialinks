@@ -1,0 +1,97 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //meta[contains(@itemprop, "image")]/@content
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class, "main-image")]//img/@alt
+  - name: brandLink
+    singleValue: false
+    xpath: //div[contains(@itemprop,'brand')]/meta[contains(@itemprop,'url')]/@content
+  - name: alternateImages
+    singleValue: false
+    xpath: (//ul[@id='slider']//li/img/@src)[position() > 1]
+  - name: category
+    singleValue: false
+    xpath: //nav[contains(@id,'arianne')]//ul//li[position()>1 and position()<last()]
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@itemprop,'brand')]/meta[contains(@itemprop,'name')]/@content
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@itemprop,'brand')]/meta[contains(@itemprop,'name')]/@content
+  - name: priceCurrency
+    singleValue: false
+    defaultValue: €
+  - name: variantId
+    singleValue: false
+    xpath: //p[contains(., 'Référence fabricant :')]/span
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'page')]//div[contains(@class,'content')]//h1/span
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'page')]//div[contains(@class,'content')]//h1/span
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'row')]//div[contains(@class,'row form')]//p[contains(@class,'price')]
+    regExp: (\d+(\.\d{1,5})?)
+    regExpReplace: $1
+  - name: promotion
+    singleValue: false
+    xpath: //table[contains(@class,'table-promos')]//tbody//tr[contains(@class,'line-promo')]
+  - name: url
+    singleValue: false
+    xpath: //div[contains(@class,'row form')]//meta[contains(@itemprop,'url')]/@content
+  - name: sku
+    singleValue: false
+    xpath: //meta[contains(@itemprop, "sku")]/@content
+  - name: packSize
+    singleValue: false
+    xpath: //p[contains(., "Nombre d'unités par paquet :")]/span
+  - name: mpc
+    singleValue: false
+    xpath: //p[contains(., 'Référence fabricant :')]/span
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //p[contains(., 'Dimensions :')]/span
+  - name: gtin
+    singleValue: false
+    xpath: //meta[contains(@itemprop, "gtin")]/@content
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'column description-detaillee')]//ul//li
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'column description-detaillee')]//ul//li | //div[contains(@class,'column description-detaillee')]//p
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class,'column description-detaillee')]//ul//li)
+  - name: aggregateRating
+    singleValue: false
+    xpath: //ul[contains(@class,'rating')]//li[contains(@class,'nb-votes')]//span[contains(@itemprop,'ratingValue')]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@itemprop,'reviewCount')]
+  - name: videos
+    singleValue: false
+    xpath: //p[contains(@class,'content-center')]//iframe/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count((//ul[@id='slider']//li/img/@src)[position() > 1])
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'content blue')]//div[contains(@class,'row')]//div[contains(@class,'column')]//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'content blue')]//div[contains(@class,'row')]//div[contains(@class,'column')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'page')]//div[contains(@class,'content')]//div[contains(@class,'stock')]
+    regExp: (En stock)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
