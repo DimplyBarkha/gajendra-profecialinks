@@ -57,8 +57,8 @@ const transform = (data, context) => {
            item.text = String(item.text).replace('.',',') 
         });        
       }
-      if (row.aggregateRating) {         
-        row.aggregateRating.forEach(item => { 
+      if (row.aggregateRating2) {         
+        row.aggregateRating2.forEach(item => { 
           item.text = item.text.match(/\d/g);
           item.text = String(item.text).replace(/\,/g,''); 
           var rating = parseInt(item.text);
