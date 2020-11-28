@@ -7,8 +7,7 @@ async function implementation (
   var url = '';
   if (inputs.id) {
     url = `https://www.falabella.com.ar/falabella-ar/product/${inputs.id}`;
-  }
-  else {
+  } else {
     url = inputs.URL || inputs.url;
   }
   await context.goto(url, {
