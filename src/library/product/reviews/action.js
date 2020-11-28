@@ -8,12 +8,14 @@
  */
 async function implementation (
   inputs,
-  { mergeType, zipcode },
+  parameters,
   context,
   { execute, extract, paginate },
 ) {
-  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 999 } = inputs;
+  let { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 999 } = inputs;
+  const { mergeType, zipcode } = parameters;
   const id = RPC || SKU || inputs.id;
+  results = parameters.results || input.results;
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
   const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);

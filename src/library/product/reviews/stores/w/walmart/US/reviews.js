@@ -7,5 +7,6 @@ module.exports = {
     domain: 'walmart.com',
     zipcode: '',
     mergeType: null,
+    results: 10000,
   },
 };

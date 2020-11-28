@@ -6,7 +6,7 @@ module.exports = {
     store: 'walmart',
     nextLinkSelector: 'button.paginator-btn.paginator-btn-next',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div.sar-filter-result-loading',
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
