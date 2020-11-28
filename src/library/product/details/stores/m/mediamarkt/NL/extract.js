@@ -81,6 +81,9 @@ module.exports = {
       const reviews = document.querySelector('.bv_numReviews_text').innerText.replace(/\(|\)/g, '');
       addElementToDocument('mm_numberOfCustomerReviews', reviews);
 
+      // Gets aggregate rating
+      addElementToDocument('mm_aggregateRating', document.querySelector('div[itemprop=ratingValue]').innerText.replace('value-', '').replace('-', '.'));
+
       // Getting images
       const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
       const image = `https:${images[0].dataset.magnifier}`;
