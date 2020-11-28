@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@itemprop="image"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@itemprop="image"]/@alt
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="breadcrumb"]/li[position()>1]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+  - name: price
+    singleValue: false
+    xpath: //div[@id='cenaZeZnizka']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id='naszaCena']
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@id="tab_opis"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id="tab_param"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop="aggregateRating"]/span[@itemprop="ratingValue"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop="reviewCount"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@id='tab_param']/table//th[text()="Producent"]/parent::*/td
