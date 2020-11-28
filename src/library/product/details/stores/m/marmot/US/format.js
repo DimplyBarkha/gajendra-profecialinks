@@ -46,38 +46,6 @@ const transform = (data) => {
           item.text = item.text.replace('Main Fabric:', '');
         });
       }
-      // if (row.descriptionBullets) {
-      //   var bulletArr = [];
-      //   row.descriptionBullets.forEach(item => {
-      //     bulletArr.push(item.text.replace(/^\s*-\s*/,''));
-      //   });
-      //   if (row.description && bulletArr.length) {
-      //     row.description = [{ "text": "|| " + bulletArr.join(" || ") + " | " + row.description[0]["text"] }];
-      //   }
-      //   row.descriptionBullets = [{ "text": row.descriptionBullets.length }];
-      // }
-      // if (row.category) {
-      //   if (row.category.length) {
-      //     row.category.splice(0, 1);
-      //   }
-      // }
-      
-      // if (row.listPrice) {
-      //   row.listPrice.forEach(item => {
-      //     item.text = item.text.replace('.', '');
-      //     item.text = item.text.replace(',', '.');
-      //   });
-      // }
-      // if (row.variantCount) {
-      //   row.variantCount = [{ 'text': row.variantCount.length }];
-      // }
-      // if (row.variants) {
-      //   var arr_temp = [];
-      //   row.price.forEach(item => {
-      //     arr_temp.push(item.text);
-      //   });
-      //   row.variants = [{ 'text': arr_temp.join('|') }];
-      // }
       if (row.specifications) {
         var arrSpec = [];
         row.specifications.forEach(item => {
