@@ -6,7 +6,7 @@ module.exports = {
     store: 'fnac',
     domain: 'fnac.es',
     loadedSelector: 'section.customerReviewsSection',
-    noResultsXPath: '//section[@class="customerReviewsEmptySection"]',
+    noResultsXPath: '//section[@class="customerReviewsEmptySection"]|/html[not(//*[@class="js-customer-reviews"])]',
     reviewUrl: '',
     sortButtonSelectors: null,
     zipcode: '',

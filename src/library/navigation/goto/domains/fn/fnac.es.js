@@ -1,91 +1,72 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    country: 'ES',
     domain: 'fnac.es',
+    timeout: 60000,
+    country: 'ES',
     store: 'fnac',
+    zipcode: '',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
-    const memory = {};
-    const backconnect = !!memory.backconnect;
-    console.log('backconnect', backconnect);
-    const benchmark = !!memory.benchmark;
-    console.log('benchmark', benchmark);
-    const start = Date.now();
-    const MAX_CAPTCHAS = 3;
+  implementation: async (
+    { url, zipcode, storeId },
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    const timeout = parameters.timeout ? parameters.timeout : 60000;
+    await context.setJavaScriptEnabled(true);
+    await context.setCssEnabled(true);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setBlockAds(false);
+    const responseStatus = await context.goto(url, {
+      antiCaptchaOptions: {
+        provider: '2-captcha',
+        type: 'GEETEST',
+      },
+      firstRequestTimeout: 60000,
+      timeout: timeout,
+      waitUntil: 'load',
+      checkBlocked: false,
+    });
+    console.log('Status :', responseStatus.status);
+    console.log('URL :', responseStatus.url);
 
-    // let pageId;
-    let captchas = 0;
-    let hasCaptcha = false;
-    let lastResponseData;
-    // eslint-disable-next-line
-    // const js_enabled = true; // Math.random() > 0.7;
-    // console.log('js_enabled', js_enabled); ;
+    await context.waitForNavigation({ timeout: 30000 });
+    try {
+      await context.waitForSelector('iframe[src*="captcha"],iframe[_src*="captcha"]');
+      await context.evaluateInFrame('iframe[src*="captcha"],iframe[_src*="captcha"]',
+        function () {
+          // @ts-ignore
+          const code = geetest
+            .toString()
+            .replace(
+              /appendTo\("#([^"]+)"\)/,
+              'appendTo(document.getElementById("$1"))',
+            );
 
-    const isCaptcha = async () => {
-      return await context.evaluate(async function () {
-        const captchaEl = document.evaluate("//img[contains(@src,'/captcha/')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if (captchaEl.snapshotLength) {
-          return 'true';
-        } else {
-          return 'false';
-        }
-      });
-    };
+          console.log(`${code})('/captcha/geetest');`);
+          return eval(`(${code})('/captcha/geetest');`);
+        },
+      );
 
-    const solveCaptcha = async () => {
-      console.log('isCaptcha', true);
-
-      await context.solveCaptcha({
-        type: 'IMAGECAPTCHA',
-        inputElement: 'form input[type=text][name]',
-        imageElement: 'form img',
-        autoSubmit: true,
-      });
-      console.log('solved captcha, waiting for page change');
-      context.waitForNavigation();
-      console.log('Captcha vanished');
-    };
-
-    const solveCaptchaIfNecessary = async () => {
-      console.log('Checking for CAPTCHA');
-      while (await isCaptcha() === 'true' && captchas < MAX_CAPTCHAS) {
-        captchas++;
-        if (backconnect) {
-          throw Error('CAPTCHA received');
-        }
-        console.log('Solving a captcha', await isCaptcha(), captchas);
-        await solveCaptcha();
-      }
-      if (await isCaptcha() === 'true') {
-        if (!benchmark) {
-          // we failed to solve the CAPTCHA
-          console.log('We failed to solve the CAPTCHA');
-          return context.reportBlocked(lastResponseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
-        }
-        return false;
-      }
-      return true;
-    };
-    const run = async () => {
-      // do we perhaps want to go to the homepage for amazon first?
-      lastResponseData = await context.goto(url, {
-        timeout: 10000,
-        waitUntil: 'load',
-        checkBlocked: false,
-      });
-
-      if (lastResponseData.status === 403) {
-        return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
-      }
-
-      if (!await solveCaptchaIfNecessary) {
-        hasCaptcha = true;
-        return;
-      }
-    };
-
-    await run();
-  }
+      await new Promise(resolve => setTimeout(resolve, 500));
+      await context.evaluateInFrame('iframe[src*="captcha"],iframe[_src*="captcha"]',
+        function () {
+          // @ts-ignore
+          document.querySelector('.captcha-handler').click();
+        },
+      );
+      await new Promise(resolve => setTimeout(resolve, 60000));
+      await context.waitForSelector('#produit > div.product_head');
+    } catch (error) {
+      console.log('error: NO CPATCHA ENCOUNTER', error);
+    }
+    await context.evaluate(() => {
+      document.querySelector('a[title="Close"]') && document.querySelector('a[title="Close"]').click();
+    })
+    if (await context.evaluate(() => !!document.querySelector('iframe[src*="captcha"],iframe[_src*="captcha"]'))) {
+      return context.reportBlocked(responseStatus.status, 'Blocked: Could not solve CAPTCHA');
+    }
+  },
 };
