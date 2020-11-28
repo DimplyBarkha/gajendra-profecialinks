@@ -94,6 +94,7 @@ const transform = (data) => {
           row.description.forEach(item => {
             info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());            
           });
+          row.description[0].text = '||' + row.description[0].text;
           row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];          
         }
         if (row.shippingInfo) {
@@ -108,6 +109,7 @@ const transform = (data) => {
           row.directions.forEach(item => {
             info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
           });
+          row.description[0].text = '||' + row.description[0].text
           row.directions = [{'text':info.join(' || '),'xpath':row.directions[0].xpath}];          
         }
         if (row.specifications) {
