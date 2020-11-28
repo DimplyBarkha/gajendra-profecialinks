@@ -22,24 +22,33 @@ const transform = (data) => {
       }))));
       return data;
     };
-    for (const { group } of data) {
-      var rank = 1;
-      for (let row of group) {  
-            if(row.productUrl){
-                row.productUrl.forEach(item=>{
-                    item.text="https://www.technodom.kz"+item.text;
-                })
+    for (const { group } of data) {      
+      var variantCount = 0;
+      for (let row of group) {              
+            if (row.description) {
+              row.description.forEach(item => {
+                item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
+                item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
+              });
             }
-            if(row.id){
-                row.id.forEach(item=>{
-                    let idArr=item.text.split('?');
-                    let idArr1=idArr[0].split('-');
-                    item.text=idArr1.pop();
-                })
-            }             
-        row.rank = [{ "text": rank }];
-        row.rankOrganic = [{ "text": rank }];
-        rank++;
+            /*if (row.specifications) {         
+              var inf = [];
+              row.specifications.forEach(item => {
+                inf.push(item.text);                
+              });
+              row.specifications=[{"text":inf.join(" || ")}];
+            }*/
+            if (row.specifications) {
+              var temp_arr = [];
+              row.specifications.forEach(item => {
+                temp_arr.push(item.text);
+              });
+              if (temp_arr.length > 1) {
+                row.specifications= [{ "text": temp_arr.join(" || "), "xpath": row.specifications[0]["xpath"] }]
+              } else {
+                delete row.specifications;
+              }
+            }
       }
     }
     return cleanUp(data);

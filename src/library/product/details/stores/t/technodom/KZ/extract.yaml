@@ -1,17 +1,53 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields:
+recordXPath: //div[@id="root"]
+fields:  
+  - name: image
+    singleValue: false
+    xpath: //div[@class="ProductGallery"]//div[@role="button"]/picture[position()=1]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="ProductGallery"]//div[@role="button"]/picture[position()=1]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="ProductGallery"]//div[@role="button"]/picture[position()>1]/img/@src
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="Breadcrumbs-List"]/li[position()>1]/a//span
   - name: name
     singleValue: false
     xpath: //h1[@itemprop='name']
-  - name: name
+  - name: nameExtended
     singleValue: false
-    xpath: //h1[@itemprop='name']
+    xpath: //h1[@itemprop='name']  
+  - name: price
+    singleValue: false
+    xpath: //meta[@itemprop="price"]/@content
   - name: aggregateRating
     singleValue: false
     xpath: //meta[@itemprop='ratingValue']/@content
   - name: reviewCount
     singleValue: false
     xpath: //meta[@itemprop='reviewCount']/@content
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: sku
+    singleValue: false
+    xpath: //meta[@itemprop='sku']/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop='sku']/@content
+  - name: description
+    singleValue: false
+    xpath: //article[@class="ProductDetails"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="ProductInformation-Row"]//del[@aria-label="Старая цена продукта"]  
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id="product-information-active"]//li//h3[text()="Основные характеристики"]//following-sibling::ul//li    
