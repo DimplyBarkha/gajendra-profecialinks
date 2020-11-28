@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: 'div.Article-item[id]'
+# recordSelector: 'div.Article-item[id]'
 recordXPath: //div[contains(@class,"Article-item") and @id]
 fields:
   - name: category
@@ -8,13 +8,14 @@ fields:
   - name: _input
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a/@href
+    xpath: //*[@itemprop="name"]/a | //a[contains(@class,"Article-title")]
+    type: LINK
   - name: thumbnail
     singleValue: false
     xpath: //img[contains(@class,"Article-itemVisualImg")]/@data-lazyimage|//img[contains(@class,"Article-itemVisualImg")]/@src
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a
+    xpath: //*[@itemprop="name"]/a | //a[contains(@class,"Article-title")]
   - name: mpc
     singleValue: false
     xpath: //li[@class="moreInfos-item"]/span[contains(text(),"Modelo")]/following-sibling::span
@@ -39,7 +40,7 @@ fields:
     xpath: //div[contains(@class,"Article-list")]//div[@class="thumbnail-toolbar"]/button[position()=1]/@data-prid
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a
+    xpath: //*[@itemprop="name"]/a | //a[contains(@class,"Article-title")]
   - name: aggregateRating
     singleValue: false
     xpath: //span[contains(@class,"Article-rate")]/span/span[contains(@class,"f-star")]
