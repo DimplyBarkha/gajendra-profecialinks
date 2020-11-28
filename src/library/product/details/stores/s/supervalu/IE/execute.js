@@ -6,7 +6,7 @@ module.exports = {
     store: 'supervalu',
     domain: 'supervalu.ie',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="title-404"]',
     zipcode: '',
   },
 };
