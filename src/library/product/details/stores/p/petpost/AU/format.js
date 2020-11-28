@@ -48,31 +48,6 @@ const transform = (data) => {
           item.text=item.text.replace('product_form_','');
         })
       }
-      if(row.variantId){
-        row.variantId.forEach(item=>{
-          fvariantId=item.text;
-        })
-      }
-      if(row.variants){
-        let strPos=-1;
-        let vinf=[];
-        row.variants.forEach(item=>{
-          strPos=item.text.indexOf("window.ShopifyAnalytics = window.ShopifyAnalytics || {}; window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {}; window.ShopifyAnalytics.meta.currency = 'AUD';");
-          let tmpStr=item.text.replace("window.ShopifyAnalytics = window.ShopifyAnalytics || {}; window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {}; window.ShopifyAnalytics.meta.currency = 'AUD'; var meta = ",'');
-           tmpStr=tmpStr.replace("; for (var attr in meta) { window.ShopifyAnalytics.meta[attr] = meta[attr]; }",'');
-           //console.log('final script data ::',tmpStr);
-           let metaObj=JSON.parse(tmpStr);
-           let varintObj=metaObj.product.variants;
-           //console.log('varintObj :: ',varintObj);
-           varintObj.forEach(element => {
-             vinf.push(element.id);
-           });
-           //console.log('vinf : ',vinf);
-        })
-        if(vinf.length>0){
-          row.variants=[{"text":vinf.join(" | ")}];
-        }
-      }
     }
   }
   return cleanUp(data);
