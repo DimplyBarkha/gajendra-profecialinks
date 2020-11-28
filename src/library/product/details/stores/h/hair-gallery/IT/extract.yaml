@@ -29,11 +29,7 @@ fields:
     defaultValue: Out of Stock
   - name: price
     singleValue: false
-  #   xpath: //div[@itemprop='offers']//div[@class='price']
-  # - name: price1
-  #   singleValue: false
-  #   # Price1 is case when list price is not exist
-  #   xpath: //div[@itemprop='offers']//div[@class='price']
+    xpath: //meta[@itemprop='price']/@content  
   - name: listPrice
     singleValue: false
     xpath: //div[@itemprop='offers']//div[@class='price']//span[@class='price-old']
@@ -60,7 +56,7 @@ fields:
     xpath: //meta[@itemprop='sku']/@content
   - name: variantCount
     singleValue: false
-    defaultValue: 0
+    defaultValue: '0'
     type: NUMBER
   - name: ratingCount
     singleValue: false
