@@ -543,4 +543,4 @@ fields:
     xpath: //meta[contains(@property,'og:image')]/@content
 
   - name: ratingDistribution
-    xpath: //div[@class="bv_histogram_component_container"]//div[@class="bv_histogram_row_container"]/div[@class="bv_histogram_row_rating"]
+    xpath: //div[@class="css-11axrf1"][not(ancestor::html//div[@class="bv_histogram_component_container"])] | //div[@class="bv_histogram_component_container"]//div[@class="bv_histogram_row_container"]/div[@class="bv_histogram_row_rating"]
