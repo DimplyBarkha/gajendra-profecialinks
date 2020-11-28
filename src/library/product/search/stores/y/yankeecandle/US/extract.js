@@ -6,6 +6,6 @@ module.exports = {
     store: 'yankeecandle',
     transform: cleanUp,
     domain: 'yankeecandle.com',
-    zipcode: '',
+    zipcode: '', 
   },
 };
