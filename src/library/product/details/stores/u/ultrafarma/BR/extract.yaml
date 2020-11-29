@@ -1,0 +1,93 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: keywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@id,'container')]//section[contains(@class,'pdp')]//div[contains(@class,'container')]//div[contains(@class,'figure-ctn')]//div[contains(@class,'img-wrapper')]//div//a[1]//img[contains(@id,'img-principal')]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'figure-ctn')]//div[contains(@class,'img-wrapper')]//div//a[1]//img[contains(@id,'img-principal')]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[contains(@class,'img-wrapper')]//div/a/img[contains(@id,'img-principal')]/@src)[position() > 1]
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@class,'breadcrumb')]//li[position()>1 and position()<last()]
+  - name: brandText
+    singleValue: false
+    xpath: //span[contains(@class,'brandName')]//a
+  - name: manufacturer
+    singleValue: false
+    xpath: //span[contains(@class,'brandName')]//a
+  - name: priceCurrency
+    singleValue: false
+    defaultValue: R$
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"product-code")]//span
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'product-actions')]//p[contains(@class,'text-muted')]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //script[@type='application/ld+json' and contains(text(), "aggregateRating")]
+    regExp: ("ratingValue":\s"(\d+(\,\d{1,5})?)")
+    regExpReplace: $2
+  - name: ratingCount
+    singleValue: false
+    xpath: //script[@type='application/ld+json' and contains(text(), "aggregateRating")]
+    regExp: ("ratingValue":\s"(\d+(\,\d{1,5})?)")
+    regExpReplace: $2
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'product-price')]//p//span/@data-preco
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'product-price')]//p[contains(@class,'product-price-old')]//del/@data-preco
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'product-stock')]
+    regExp: (Disponível em estoque)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'product-image-container')]//span[contains(@class,'product-price-discount')]
+  - name: url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"product-code")]//span
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,"product-code")]//span
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[contains(@id,'productCard-zoomContainer')]
+    regExp: (Aby zamknąć kliknij w obrazek)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'product-details-section')][1]//div
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@id,'pdp-section-outras-informacoes')]//div//ul//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@id,'pdp-section-outras-informacoes')]//div//ul//li)
+  - name: warnings
+    singleValue: false
+    xpath: //div[contains(@id,'pdp-section-advertencia-anvisa')]
+  - name: directions
+    singleValue: false
+    xpath: //b[contains(text(), 'Modo de Preparo:')]/../text()|//b[contains(text(), 'Modo de usar:')]/../text()|//strong[contains(text(), 'Modo de usar:')]/../text()
+  - name: ingredients
+    singleValue: false
+    xpath: //b[contains(text(), 'Ingredientes:')]/../text()|//b[contains(text(), 'Ingredientes:')]/../text()| //strong[contains(text(), 'Ingredientes:')]/../text()

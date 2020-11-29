@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'product-list product-list-holder')]//div[contains(@class,'row')]//div[contains(@class,'prd-list-item')]/div[contains(@class,'product-wrapper')]/div[contains(@class,'product-wrapper-container')]
+fields:
+  - name: id
+    xpath: //div[contains(@class,'product-list product-list-holder')]//div[contains(@class,'row')]//div[contains(@class,'prd-list-item')]/div[contains(@class,'product-wrapper')]/div[contains(@class,'product-wrapper-container')]/@data-product-id
+    singleValue: false
+  - name: rank
+    xpath: //div[contains(@class,'product-list product-list-holder')]//div[contains(@class,'row')]//div[contains(@class,'prd-list-item')]/div[contains(@class,'product-wrapper')]/div[contains(@class,'product-wrapper-container')]/@data-product-position
+    singleValue: false
+  - name: name
+    xpath: //div[contains(@class,'product-list product-list-holder')]//div[contains(@class,'row')]//div[contains(@class,'prd-list-item')]/div[contains(@class,'product-wrapper')]/div[contains(@class,'product-wrapper-container')]/@data-product-name
+    singleValue: false
+  - name: thumbnail
+    xpath: //div[contains(@class,'product-list product-list-holder')]//div[contains(@class,'row')]//div[contains(@class,'prd-list-item')]/div[contains(@class,'product-wrapper')]/div[contains(@class,'product-wrapper-container')]//a[contains(@class,'product-item-link in_stock')]/figure/img/@src
+    singleValue: false
+  - name: productUrl
+    xpath: //div[contains(@class,'product-list product-list-holder')]//div[contains(@class,'row')]//div[contains(@class,'prd-list-item')]/div[contains(@class,'product-wrapper')]/div[contains(@class,'product-wrapper-container')]//a[contains(@class,'product-item-link in_stock')][1]/@href
+    singleValue: false
+  - name: price
+    xpath: //div[contains(@class,'product-list product-list-holder')]//div[contains(@class,'row')]//div[contains(@class,'prd-list-item')]/div[contains(@class,'product-wrapper')]/div[contains(@class,'product-wrapper-container')]/@data-product-price
+    singleValue: false
