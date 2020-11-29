@@ -3,22 +3,22 @@ regionsSelector: null
 recordSelector: div[data-test="product-thumb"]
 recordXPath: //div[@data-test="product-thumb"]
 fields:
-  # - name: id
-  #   singleValue: false
-  #   xpath: //div[@productid="36827"]
+  - name: id
+    singleValue: false
+    xpath: //div[@data-test="product-thumb"]/@productid
   - name: searchUrl
     singleValue: true
-  # - name: name
-  #   singleValue: false
-  #   xpath: //a[@data-test="product-thumb-link"]/@title
-  # - name: productUrl
-  #   singleValue: false
-  #   xpath: //a[@data-test="product-thumb-link"]
+  - name: name
+    singleValue: false
+    xpath: //a[@data-test="product-thumb-link"]/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@data-test="product-thumb-link"]/@producturl
   - name: gtin
     singleValue: false
-  # - name: thumbnail
-  #   singleValue: false
-  #   xpath: //img[@data-test="image"]/@src
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@data-test="image"]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -27,9 +27,9 @@ fields:
     singleValue: false
   - name: ratingCount
     singleValue: false
-  # - name: price
-  #   singleValue: false
-  #   xpath: //div[@data-test="price"]
+  - name: price
+    singleValue: false
+    xpath: //div[@data-test="price"]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -40,10 +40,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //a[@data-test="product-thumb-link"]/@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //a[@data-test="product-thumb-link"]/@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
