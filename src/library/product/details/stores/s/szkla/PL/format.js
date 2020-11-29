@@ -29,7 +29,7 @@ const transform = (data) => {
             row.description.forEach(item => {
               tmp_array.push(item.text);
             });
-            row.description = [{"text":tmp_array.join(' || '),"xpath":row.specifications[0]['xpath']}];
+            row.description = [{"text":tmp_array.join(' || '),"xpath":row.description[0]['xpath']}];
         }
         if (row.specifications) {
             let tmp_array = []; 
