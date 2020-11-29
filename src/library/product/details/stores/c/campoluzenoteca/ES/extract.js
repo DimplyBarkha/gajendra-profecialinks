@@ -57,5 +57,8 @@ module.exports = {
     domain: 'campoluzenoteca.com',
     zipcode: '',
   },
+<<<<<<< HEAD
   implementation,
+=======
+>>>>>>> fb6112b7a7d102156d8ceac379d24f75b33983c4
 };
