@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'contentPadding')]//div//table[contains(@class,'lista_')]
+fields:
+  - name: id
+    xpath: //div[contains(@class,'contentPadding')]//table/tbody/tr/td[contains(@class,'pad_lista_prod')]/a/@href
+    singleValue: false
+    regExp: (\d{4,10})
+    regExpReplace: $1
+  - name: rank
+  - name: thumbnail
+    xpath: //div[contains(@class,'contentPadding')]//table/tbody/tr/td[contains(@class,'td1')]/a/img/@src
+    singleValue: false
+  - name: name
+    xpath: //div[contains(@class,'contentPadding')]//table/tbody/tr/td[contains(@class,'pad_lista_prod')]/a
+    singleValue: false
+  - name: productUrl
+    xpath: //div[contains(@class,'contentPadding')]//table/tbody/tr/td[contains(@class,'pad_lista_prod')]/a/@href
+    singleValue: false
+  - name: price
+    xpath: //div[contains(@class,'contentPadding')]//table/tbody/tr/td[contains(@class,'pad_lista_prod')]/a/@data-price
+    singleValue: false
+    regExp: (\d+(\.\d{1,5})?)
+    regExpReplace: $1

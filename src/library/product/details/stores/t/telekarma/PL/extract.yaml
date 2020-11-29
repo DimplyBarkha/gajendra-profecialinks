@@ -1,0 +1,96 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: keywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@id,'srodek')]/div[contains(@class,'row')]/div/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@id,'srodek')]/div[contains(@class,'row')]/div/img/@alt
+  - name: brandLink
+    singleValue: false
+    xpath: //div[contains(@id,'productCard')]/h3/a/@href
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@id,'productCard')]/h3/a
+  - name: priceCurrency
+    singleValue: false
+    defaultValue: zł
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@id,'productCardPrice')]//span[@class='productCardPrice-price']
+    regExp: (\d+(\.\d{1,5})?)
+    regExpReplace: $1
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@id,'productCardPrice')]//span[contains(@class,'productCardPrice-priceOld')]
+    regExp: (\d+(\.\d{1,5})?)
+    regExpReplace: $1
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,'row nopadding')]//div/ul[contains(@id,'productCardAtributes')]//li[last()]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "productId")]
+    regExp: ("productId":\s"(\d+))
+    regExpReplace: $2
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'row nopadding')]//div/ul[contains(@id,'productCardAtributes')]//text()[contains(.,'Produkt chwilowo niedostępny.')]
+    regExp: (Produkt chwilowo niedostępny)
+    regExpReplace: Out Of Stock
+    defaultValue: In Stock
+  - name: packSize
+    singleValue: false
+    xpath: //li[contains(.,'Wielkość opakowania')]
+    regExp: (Wielkość opakowania:\s*(.*))
+    regExpReplace: $2
+  - name: mpc
+    singleValue: false
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "productId")]
+    regExp: ("productId":\s"(\d+))
+    regExpReplace: $2
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@id,'productCard-descBoxContent')]//img/@src
+  - name: videos
+    singleValue: false
+    xpath: //iframe[contains(@src,"youtube")]/@src
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[contains(@id,'productCard-zoomContainer')]
+    regExp: (Aby zamknąć kliknij w obrazek)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@id,'productCard-descBoxContent')]//text()[contains(.,'•')] | //div[contains(@id,'productCard-descBoxContent')]//ul//li)
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@id,'productCard-descBoxContent')]//text()[contains(.,'•')] | //div[contains(@id,'productCard-descBoxContent')]//ul//li
+  - name: firstVariant
+    singleValue: false
+    xpath: //select[contains(@name,'variant')]//option[position()=1]/@value
+    regExp: (\d{4,10})
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: count(//select[contains(@name,'variant')]//option)
+  - name: url
+    singleValue: false
+    xpath: //div[contains(@id,'head-4')]//a[last()]/@href
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@id,'productCard-descBoxContent')]
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@id,'var-prodcard-id')] | //select[contains(@name,'variant')]//option/@value
+    regExp: (\d{4,10})
+    regExpReplace: $1
