@@ -50,7 +50,7 @@ implementation: async (
     for(let i=0;i< thumbnail.length;i++){
       let thumbnailSrc=document.querySelectorAll("div.product_img img.primImg.primaryImage_prodcat")[i].getAttribute('data-src')
       let finalImageSrc=' https://www.marionnaud.fr'+thumbnailSrc
-      addHiddenDiv('thumbnailSrc', finalImageSrc, i);
+      addHiddenDiv('thumbnailSrc', finalImageSrc, i); 
     }
     const productUrl=document.querySelectorAll("a.ProductInfoAnchor")
     for(let i=0;i<productUrl.length;i++){
