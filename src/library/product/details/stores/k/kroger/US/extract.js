@@ -131,7 +131,6 @@ const implementation = async (
         listPrice.textContent = pickupPriceText.slice(mIndex + 1);
       } else {
         price.textContent = pickupPriceText;
-        listPrice.textContent = pickupPriceText;
       }
     }
 
