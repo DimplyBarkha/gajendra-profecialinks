@@ -9,16 +9,16 @@ const transform = (data) => {
       if (row.variantId) {
         row.variantId.forEach(item => {
           var splitData = item.text.split('-');
-          item.text = splitData[splitData.length-1];
+          item.text = splitData[splitData.length - 1];
         });
       }
       if (row.variantUrl) {
         row.variantUrl.forEach(item => {
-          item.text = 'https://www.mvideo.ru/'+item.text;
+          item.text = 'https://www.mvideo.ru/' + item.text;
         });
       }
     }
-  } 
+  }
   return data;
 };
 module.exports = { transform };
