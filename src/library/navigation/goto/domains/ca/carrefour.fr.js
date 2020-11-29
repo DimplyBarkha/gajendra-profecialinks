@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'carrefour.fr',
-    timeout: 90000,
+    timeout: 100000,
     country: 'FR',
     store: 'carrefour',
     zipcode: '',
@@ -32,7 +32,7 @@ module.exports = {
         type: 'RECAPTCHA',
       },
     });
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    await new Promise((resolve) => setTimeout(resolve, 10000));
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
     let captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), div.g-recaptcha";
@@ -73,7 +73,7 @@ module.exports = {
       }
     }
     try {
-      await context.waitForXPath('//button[@id="footer_tc_privacy_button"]', { timeout });
+      await context.waitForXPath('//button[@id="footer_tc_privacy_button"]', { timeout: 5000 });
       await context.evaluateInFrame('iframe', () => {
         let cookieButton = document.querySelector('button#footer_tc_privacy_button');
         if (cookieButton) {
@@ -112,6 +112,18 @@ module.exports = {
       }
     }
     await infiniteScroll();
-  })
+    })
+    await context.evaluate(async function () {
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+        let productButton = document.querySelector('.pagination ~ #data-plp_produits .ds-product-card__shimzone--large>a');
+        if (productButton) {
+          // @ts-ignore
+          productButton.click();
+        }
+      } catch (error) {
+        console.log('product not found'); 
+      }
+    });
   },
 };

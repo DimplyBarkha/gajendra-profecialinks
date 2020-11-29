@@ -4,10 +4,14 @@ parameters:
   domain: carrefour.fr
   store: carrefour
   zipcode: ""
-proxy:
-  zone: ZFR
+proxy: null
+zone: ZFR
+type: DATA_CENTER
 meta:
   branches:
     dev:
       extractor: 6200cb1d-8bb9-43e5-9bbb-f3a90fe59204
       legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
+    techops_carrefour_fr_core_test:
+      extractor: cc2aeb67-d335-4d63-b38a-293f5e78b452
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
