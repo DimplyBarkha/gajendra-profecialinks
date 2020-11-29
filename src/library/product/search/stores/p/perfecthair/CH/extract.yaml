@@ -10,7 +10,7 @@ fields:
     regExpReplace: $2
   - name: productUrl
     SingleValue: false
-    xpath: //div[@class="product--actions"]//a[@class='product--action action--compare']/@href
+    xpath: //div[@class="product--info"]//a[@class='product--image']/@href
   - name: thumbnail
     SingleValue: false
     xpath: //span[@class="image--media"]//img/@srcset
