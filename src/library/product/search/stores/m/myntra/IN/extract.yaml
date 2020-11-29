@@ -12,7 +12,7 @@ fields:
     SingleValue: false
     xpath: //li[@class='product-base']/a/@href
     regExp: (.+)
-    regExpReplace: https://www.myntra.com$1
+    regExpReplace: https://www.myntra.com/$1
   - name: thumbnail
     SingleValue: false
     xpath: //div[@class='product-imageSliderContainer']//picture/img/@src
