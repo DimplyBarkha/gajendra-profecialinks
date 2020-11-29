@@ -1,32 +1,62 @@
 /**
  *
- * @param { { keywords: string, zipcode: string } } inputs
- * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
+ * @param { { id: string, url: string, zipcode: string, date: string, days: string } } inputs
+ * @param { { url: string, loadedSelector?: string, noResultsXPath: string, sortButtonSelectors: string, reviewUrl: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action} } dependencies
  */
 async function implementation (
-  { zipcode, keywords },
-  { url, loadedSelector, noResultsXPath },
+  { url, id, zipcode, date, days },
+  { reviewUrl, sortButtonSelectors, loadedSelector, noResultsXPath },
   context,
   dependencies,
 ) {
-  const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords));
-  await dependencies.goto({ url: destinationUrl, zipcode });
+  const patternReplace = () => {
+    if (!reviewUrl) throw new Error('No pattern provided to generate a valid URL');
+    let tempUrl = reviewUrl;
+    if (id) tempUrl = tempUrl.replace(/{id}/g, encodeURIComponent(id));
+    if (date) tempUrl = tempUrl.replace(/{date}/g, encodeURIComponent(date));
+    if (days) tempUrl = tempUrl.replace(/{days}/g, encodeURIComponent(days));
+    return tempUrl;
+  };
+  const destinationUrl = url || patternReplace();
 
+  await dependencies.goto({ url: destinationUrl, zipcode });
   if (loadedSelector) {
-    await context.waitForFunction(function (sel, xp) {
+    await context.waitForFunction((sel, xp) => {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, loadedSelector, noResultsXPath);
   }
+
   console.log('Checking no results', noResultsXPath);
-  return await context.evaluate((xp) => {
+  const noResults = await context.evaluate((xp) => {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
     const e = r.iterateNext();
     console.log(e);
     return !e;
   }, noResultsXPath);
+
+  if (!noResults) return noResults;
+
+  if (sortButtonSelectors) {
+    console.log('Sorting reivews....', sortButtonSelectors);
+    const selectors = sortButtonSelectors.split('|');
+    for (const [i, selector] of selectors.entries()) {
+      console.log(selector, selectors[i + 1]);
+      await context.click(selector);
+      if (i < selectors.length - 1) {
+        console.log('waiting for selector', selectors[i + 1]);
+        await context.waitForSelector(selectors[i + 1]);
+      }
+    }
+    if (loadedSelector) {
+      await context.waitForFunction((sel, xp) => {
+        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+      }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+    }
+  }
+  return true;
 }
 
 module.exports = {
@@ -44,10 +74,6 @@ module.exports = {
       description: 'top private domain (e.g. amazon.com)',
     },
     {
-      name: 'url',
-      description: 'Open Search search url pattern, e.g. http://example.com/?q={searchTerms}',
-    },
-    {
       name: 'loadedSelector',
       description: 'XPath to tell us the page has loaded',
       optional: true,
@@ -56,17 +82,29 @@ module.exports = {
       name: 'noResultsXPath',
       description: 'XPath to tell us the page has loaded',
     },
+    {
+      name: 'reviewUrl',
+      description: 'review url pattern. Ex: https://www.amazon.in/product-reviews/{id} supports {date} and {days} in the url',
+    },
+    {
+      name: 'sortButtonSelectors',
+      description: 'Button to click to sort if url doesn\'t has options',
+      optional: true,
+    },
   ],
   inputs: [
-    {
-      name: 'keywords',
-      description: 'keywords to search for',
-      type: 'string',
-    },
     {
       name: 'zipcode',
       description: 'keywords to search for',
       type: 'string',
+    },
+    {
+      name: 'url',
+      description: 'review url',
+    },
+    {
+      name: 'id',
+      description: 'product id',
     },
   ],
   dependencies: {

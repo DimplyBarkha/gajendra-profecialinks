@@ -1,3 +1,52 @@
+
+/**
+ *
+ * @param { { URL: string, id: any, RPC: string, SKU: string, date: any, days: number, results} } inputs
+ * @param { { store: any, domain: any, country: any, zipcode: any, mergeType: any } } parameters
+ * @param { ImportIO.IContext } context
+ * @param { { execute: ImportIO.Action, extract: ImportIO.Action, paginate: ImportIO.Action } } dependencies
+ */
+async function implementation (
+  inputs,
+  { mergeType, zipcode },
+  context,
+  { execute, extract, paginate },
+) {
+  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = Infinity } = inputs;
+  const id = RPC || SKU || inputs.id;
+  const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
+
+  const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
+  console.log(`Date Limit: "${date}"`);
+
+  const resultsReturned = await execute({ url, id, zipcode, date, days });
+
+  if (!resultsReturned) {
+    console.log('No results were returned');
+    return;
+  }
+
+  const pageOne = await extract({ date, results });
+  let collected = length(pageOne.data);
+
+  console.log(`Got initial number of results: ${collected}`);
+
+  // check we have some data
+  if (collected === 0) return;
+
+  let page = 2;
+  while (results > collected && await paginate({ id, page, offset: collected, date })) {
+    const { data, stop } = await extract({ date, results });
+    const count = length(data);
+    if (count === 0 || stop) {
+      // no results
+      break;
+    }
+    collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
+    console.log('Got more results', collected);
+    page++;
+  }
+}
 module.exports = {
   parameters: [
     {
@@ -17,78 +66,55 @@ module.exports = {
       description: 'to set location',
       optional: true,
     },
+    {
+      name: 'mergeType',
+      description: 'For merge rows results calculation.',
+      optional: true,
+    },
   ],
   inputs: [
     {
-      name: 'keywords',
-      description: 'keywords to search for',
+      name: 'URL',
+      description: 'direct url for product review page',
       type: 'string',
+      optional: true,
     },
     {
-      name: 'Keywords',
-      description: 'keywords to search for',
+      name: 'id',
+      description: 'unique identifier for product',
       type: 'string',
+      optional: true,
     },
     {
-      name: 'Brands',
-      description: 'brands to search for',
+      name: 'RPC',
+      description: 'rpc for product',
       type: 'string',
+      optional: true,
     },
     {
-      name: 'results',
-      description: 'the minimum number of results required',
+      name: 'SKU',
+      description: 'sku for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'date',
+      description: 'earliest date to extract a review',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'days',
+      description: 'reviews from last number of days',
       type: 'number',
-    },
-    {
-      name: 'Brands',
-      description: 'brands to search for',
-      type: 'string',
+      optional: true,
     },
   ],
   dependencies: {
-    execute: 'action:product/search/execute',
+    execute: 'action:product/reviews/execute',
+    extract: 'action:product/reviews/extract',
     paginate: 'action:navigation/paginate',
-    extract: 'action:product/search/extract',
   },
-  path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    const { keywords, Keywords, results = 150, Brands } = inputs;
-
-    const inputKeywords = Keywords || keywords || Brands;
-
-    // TODO: consider moving this to a reusable function
-    const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
-
-    const resultsReturned = await execute({
-      keywords: inputKeywords,
-      zipcode: inputs.zipcode || zipcode,
-    });
-
-    // do the search
-
-    if (!resultsReturned) {
-      console.log('No results were returned');
-      return;
-    }
-
-    // try gettings some search results
-    const pageOne = await extract({});
-
-    let collected = length(pageOne);
-
-    console.log('Got initial number of results', collected);
-
-    // check we have some data
-    if (collected === 0) return;
-
-    let page = 2;
-    while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
-      const data = await extract({});
-      const count = length(data);
-      if (count === 0) break; // no results
-      collected += count;
-      console.log('Got more results', collected);
-      page++;
-    }
-  },
+  path: './reviews/stores/${store[0:1]}/${store}/${country}/reviews',
+  implementation,
 };
