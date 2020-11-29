@@ -5,9 +5,7 @@ recordXPath: null
 fields:
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class, 'dbh-product-color-selector')]//div[contains(@class, 'pw-swatch__item')]//a/@href
-    regExp: .*_(\d+)_-1.*
-    regExpReplace: $1
+    xpath: //div[@id='custom-attr-product-variant']//span[@class='variant-id']/text()
   - name: variantUrl
     singleValue: false
-    xpath: //div[contains(@class, 'dbh-product-color-selector')]//div[contains(@class, 'pw-swatch__item')]//a/@href
+    xpath: //div[@id='custom-attr-product-variant']//span[@class='variant-url']/text()

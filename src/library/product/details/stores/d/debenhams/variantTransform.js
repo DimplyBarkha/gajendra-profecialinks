@@ -21,12 +21,12 @@ const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
 
-        if (row.variantUrl) {
-            row.variantUrl.map(x => {
-                const route = x.text.split("webapp/")[1];
-                x.text = `https://debenhams.com/webapp/${route}`;
-            });
-        }
+        // if (row.variantUrl) {
+        //     row.variantUrl.map(x => {
+        //         const route = x.text.split("webapp/")[1];
+        //         x.text = `https://debenhams.com/webapp/${route}`;
+        //     });
+        // }
 
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
