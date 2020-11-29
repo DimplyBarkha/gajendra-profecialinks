@@ -22,7 +22,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//strong[contains(@class,'brand')],//section[contains(@class,'basic-info')]//h1,//p[contains(@class,'selected-variant')]//span,//div[@id='document_variant'])
+    xpath: concat(//strong[contains(@class,'brand')],//section[contains(@class,'basic-info')]//h1,//p[contains(@class,'selected-variant')]//span,' ',//div[@id='document_type'])
   - name: name
     singleValue: false
     description: The product name
@@ -81,7 +81,7 @@ fields:
     xpath: //div[contains(@class,'product-item')]//div[contains(@class,'zoom')]
   - name: sku
     singleValue: false
-    xpath: //div[@id='document_sku']
+    xpath: (//dl[contains(@class,'stats')]//dt[contains(text(),'Artikelnummer:')]//following-sibling::dd)[1]
   - name: variantId
     singleValue: false
     xpath: //div[@id='document_productId']
@@ -101,13 +101,16 @@ fields:
     xpath: count((//div[contains(@class,'product-item')]//div[contains(@class,'m-product-image')]//img//@src)[position() > 1])
   - name: variantInformation
     singleValue: false
-    xpath: //div[@id='document_variant']
+    xpath: concat(//p[contains(@class,'selected-variant')]//span,' ',//div[@id='document_type'])
   - name: variants
     singleValue: false
     xpath: //div[@id='document_variants']//p   
-  - name: promotion
-    singleValue: false
-    xpath: //p[contains(@class,'interferer-icon')]
+  # - name: promotion
+  #   singleValue: false
+  #   xpath: //p[contains(@class,'interferer-icon')]
   - name: manufacturer
     singleValue: false
     xpath: //div[@id='document_manufacturer']
+  - name: quantity
+    singleValue: false
+    xpath: //div[@id='document_type']

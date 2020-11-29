@@ -49,9 +49,9 @@ const transform = (data) => {
         }
 
 
-        if(row.nameExtended){
-          row.nameExtended[0].text = (row.nameExtended[0].text).replace("Größe","").replace(":","");
-        }
+        // if(row.nameExtended){
+        //   row.nameExtended[0].text = (row.nameExtended[0].text).replace("Größe","").replace(":","") + " " + row.variantInformation[0].text;
+        // }
         if(row.aggregateRating){
           row.aggregateRating[0].text = (row.aggregateRating[0].text).replace(".",",");
         }
