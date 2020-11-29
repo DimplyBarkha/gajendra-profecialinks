@@ -5,9 +5,9 @@ module.exports = {
     country: 'IE',
     store: 'arnotts',
     domain: 'arnotts.ie',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.arnotts.ie/search/?q={searchTerms}',
+    loadedSelector: 'div[id="main"]',
+    noResultsXPath: '//p[@class="no-hits-content-results"]',
     zipcode: "''",
   },
 };

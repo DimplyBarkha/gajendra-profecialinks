@@ -1,5 +1,57 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
-fields: null
+recordSelector: li[class="grid-tile js-product-grid-tile"]
+recordXPath: //li[@class="grid-tile js-product-grid-tile"]
+fields:
+  # - name: id
+  #   singleValue: false
+  #   xpath: //li[@class="grid-tile js-product-grid-tile"]/div/div/@data-product-id
+  - name: searchUrl
+    singleValue: true
+  # - name: name
+  #   singleValue: false
+  #   xpath: //span[@class="product-name name-link"]
+  # - name: productUrl
+  #   singleValue: false
+  #   xpath: //a[@class="product-description-link js-product-url"]/@href
+  - name: gtin
+    singleValue: false
+  # - name: thumbnail
+  #   singleValue: false
+  #   xpath: //img[@class="js-product-image-img ls-is-cached lazyloaded"]/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  # - name: price
+  #   singleValue: false
+  #   xpath: //span[@title="Sale Price"]
+  #   regExp: '€.*'
+  # - name: manufacturer
+  #   singleValue: true
+  #   xpath: //span[@class="product-brand"]
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //*[contains(@class,"card__product")]//*[contains(@class,"sponsored")]//span
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   xpath: ancestor::html//p[contains(@name, 'searchresultcount')]/strong/text()
+  #   type: NUMBER
