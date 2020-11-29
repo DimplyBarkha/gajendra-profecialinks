@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: //img[@itemprop="image"]/@src | //img[class="fancybox-image"]/@src
     regExp: (.+)
-    regExpReplace: https://www.cleanitsupply.com$1
+    regExpReplace: https:$1
   - name: imageAlt
     singleValue: false
     xpath: //img[@itemprop="image"]/@alt
@@ -42,7 +42,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //h3[contains(text(),"Product Description")]/following-sibling::h2/text() | //h3[contains(text(),"Product Description")]/../text() | //span[@itemprop="description"]/ul/li | //ul[@class="product-attribute-list"]/li
+    xpath: //h3[contains(text(),"Product Description")]/../h2 | //h3[contains(text(),"Product Description")]/.. | //span[@itemprop="description"]/ul/li | //ul[@class="product-attribute-list"]/li
     # xpath: //h3[contains(text(),"Product Description")]//..//text()
   - name: descriptionBullets
     singleValue: false
@@ -55,17 +55,17 @@ fields:
     # regExpReplace: $1
   - name: manufacturer
     singleValue: false
-    xpath: //li[contains(text(),"Manufacturer:")]
-    regExp: Manufacturer\W\W(.+)
+    xpath: //li[contains(text(),"Manufacturer Name")] | //li[contains(text(),"Manufacturer")][1]
+    regExp: :\W+(.+)
     regExpReplace: $1
   - name: quantity
     singleValue: false
-    xpath: //li[contains(text(),"Quantity:")]
-    regExp: Quantity\W\W(.+)
+    xpath: //li[contains(text(),"Quantity")]
+    regExp: :\W+(.+)
     regExpReplace: $1
   - name: weightNet
     singleValue: false
-    xpath: //li[contains(text(),"Weight:")]
+    xpath: //li[contains(text(),"Weight")]
     regExp: Weight\W\W(.+)
     regExpReplace: $1
   - name: weightGross
@@ -91,9 +91,9 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
-    xpath: //li[contains(text(),"pack:")] | //li[contains(text(),"Package Quantity")]
-    # regExp: Product SKU\W\s(.+)
-    # regExpReplace: $1
+    xpath: //li[contains(text(),"pack")] | //li[contains(text(),"Package Quantity")]
+    regExp: :\W+(.+)
+    regExpReplace: $1
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -118,11 +118,11 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-  - name: shippingDimensions
-    singleValue: false
-    xpath: //li[contains(text(),"Dimensions:")]
-    regExp: Dimensions\W\W(.+)
-    regExpReplace: $1 
+  # - name: shippingDimensions
+  #   singleValue: false
+  #   xpath: //li[contains(text(),"Dimensions:")]
+  #   regExp: Dimensions\W\W(.+)
+  #   regExpReplace: $1 
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
@@ -132,8 +132,8 @@ fields:
   - name: color
     singleValue: false
     xpath: //ul[@class="product-attribute-list"]//li[contains(text(),"Color")]
-    regExp: \s(.+)
-    # regExpReplace: $1
+    regExp: :\W+(.+)
+    regExpReplace: $1
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -410,16 +410,16 @@ fields:
     singleValue: false
     xpath: //li[contains(text(),"Packaging")]
     regExp: Packaging\W\W(.+)
-    regExpReplace:
+    regExpReplace: $1
   - name: additives
     singleValue: false
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: false
-    description: Price of the product split into certain units
+    xpath: //span[@class="price"]/text()
   - name: pricePerUnitUom
     singleValue: false
-    description: The unit of measurement used in price_per_unit
+    xpath: //div[@class="bulk-price-message"]/text()[position()=last()]
   - name: promotion
     singleValue: false
     xpath: //span[@class="price-savings"]/text()
@@ -492,7 +492,7 @@ fields:
     singleValue: false
     xpath: //li[contains(text(),"Material")]
     # regExp: Material\W\W(.+)
-    regExp: Material\Ws\W\W(.+)
+    regExp: :\W+(.+)
     regExpReplace: $1
   - name: Image360Present
     singleValue: false

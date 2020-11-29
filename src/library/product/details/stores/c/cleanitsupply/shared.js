@@ -49,6 +49,7 @@ const transform = (data) => {
         let cnt = 0;
         row.description.forEach(item => {
           specs[0] = item;
+          item.text = item.text.replace('Product Description', '');
           item.text = item.text.replace(/(\s?\n)+/g, ' ');
           if (cnt > 0) newTxt = newTxt + ' || ' + item.text;
           else newTxt = newTxt + item.text;
@@ -67,7 +68,7 @@ const transform = (data) => {
         row.additionalDescBulletInfo.forEach(item => {
           descs[0] = item;
           item.text = item.text.replace(/(\s?\n)+/g, ' ').trim();
-          if (cnt > 0) newTxt = newTxt + '|' + item.text;
+          if (cnt > 0) newTxt = newTxt + '||' + item.text;
           else newTxt = newTxt + item.text;
           cnt++;
         });
