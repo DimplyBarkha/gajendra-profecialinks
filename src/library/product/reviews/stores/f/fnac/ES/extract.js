@@ -1,10 +1,10 @@
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
     country: 'ES',
     store: 'fnac',
-    transform: null,
+    transform,
     domain: 'fnac.es',
     zipcode: '',
   },
