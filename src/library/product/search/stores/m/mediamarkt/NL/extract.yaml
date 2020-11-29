@@ -4,48 +4,48 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: paid
-    singleValue: true
+    singleValue: false
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
   - name: brand
-    singleValue: true
+    singleValue: false
     description: The brand name
     example: Panasonic
     xpath: //div[@class='product-wrapper']//a[contains(@class, 'manufacturer')]/img/@alt
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
     xpath: concat('https://www.mediamarkt.nl', //div[@class='product-wrapper']//h2/a/@href)
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
     xpath: //div[@class='product-wrapper']//div[@class='mm_thumbnail']
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
     xpath: //div[@class='product-wrapper']//h2/a
   - name: rpc
-    singleValue: true
+    singleValue: false
     description: The rpc code of the product
     xpath: //div[@class='product-wrapper']/@data-modelnumber
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
     xpath: //div[@class='product-wrapper']//div[@class='mm_reviewCount']
   - name: reviewCount
-    singleValue: true
+    singleValue: false
     description: The number of reviews
     xpath: //div[@class='product-wrapper']//div[@class='mm_reviewCount']
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the product
     xpath: //div[@class='product-wrapper']//div[contains(@class, 'price-box')]//div[contains(@class, 'price') and not(contains(@class, 'price-old'))]
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
     xpath: //div[@class='product-wrapper']//div[contains(@class, 'price-box')]//div[contains(@class, 'price-old')]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
     xpath: //div[@class='product-wrapper']//a[contains(@class, 'manufacturer')]/img/@alt
   - name: id
@@ -53,6 +53,6 @@ fields:
     description: Unique id (within this extractor)
     xpath: //div[@class='product-wrapper']/@data-modelnumber
   - name: aggregateRating2
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@class='product-wrapper']//div[@class="mm_aggregateRating"]
