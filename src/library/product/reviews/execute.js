@@ -22,13 +22,6 @@ async function implementation (
   const destinationUrl = url || patternReplace();
 
   await dependencies.goto({ url: destinationUrl, zipcode });
-
-  if (sortButtonSelectors) {
-    const selectors = sortButtonSelectors.split('|');
-    for (const selector of selectors) {
-      await context.click(selector);
-    }
-  }
   if (loadedSelector) {
     await context.waitForFunction((sel, xp) => {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
@@ -36,13 +29,34 @@ async function implementation (
   }
 
   console.log('Checking no results', noResultsXPath);
-  return await context.evaluate((xp) => {
+  const noResults = await context.evaluate((xp) => {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
     const e = r.iterateNext();
     console.log(e);
     return !e;
   }, noResultsXPath);
+
+  if (!noResults) return noResults;
+
+  if (sortButtonSelectors) {
+    console.log('Sorting reivews....', sortButtonSelectors);
+    const selectors = sortButtonSelectors.split('|');
+    for (const [i, selector] of selectors.entries()) {
+      console.log(selector, selectors[i + 1]);
+      await context.click(selector);
+      if (i < selectors.length - 1) {
+        console.log('waiting for selector', selectors[i + 1]);
+        await context.waitForSelector(selectors[i + 1]);
+      }
+    }
+    if (loadedSelector) {
+      await context.waitForFunction((sel, xp) => {
+        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+      }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+    }
+  }
+  return true;
 }
 
 module.exports = {

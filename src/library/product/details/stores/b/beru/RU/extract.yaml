@@ -4,9 +4,9 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //ul[@data-tid="2c199bef"]//li[position()=1]//img/@src
-    regExp: (.*)/(.*)
-    regExpReplace: https:$1/orig
+    xpath: //meta[@property="og:image"]/@content| //ul[@data-tid="2c199bef"]//li[position()=1]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: url
     xpath: //link[@rel="canonical"]/@href
   - name: category
@@ -113,7 +113,7 @@ fields:
   - name: imageZoomFeaturePresent
     defaultValue: 'Yes' 
   - name: imageCount
-    xpath: count(//ul[@data-tid="2c199bef"]//li//img/@src)
+    xpath: count(//ul[@data-tid="2c199bef"]//li//img/@src | /html[not(//ul[@data-tid="2c199bef"]//li//img/@src)]//meta[@property="og:image"]/@content)
   - name: manufacturer
     xpath: //div[@data-zone-name="productVendor"]//div[2]
   - name: productDescriptionLength
