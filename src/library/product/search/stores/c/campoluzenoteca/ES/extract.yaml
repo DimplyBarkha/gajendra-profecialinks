@@ -1,0 +1,100 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null #'#center_column > ul > li'
+recordXPath: //div[@id="columns"]/div/div/ul/li
+fields:
+  - name: paid
+    singleValue: false
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: false
+    description: The brand name
+    example: Panasonic
+    xpath: //*[@id="center_column"]/ul/li/div/div/div[2]/div[1]/p
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //*[@id="center_column"]/ul/li/div/div/div[2]/h5/a/@href
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //*[@class="product-container"]/div/div/a/img/@src
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //div[@id="center_column"]/ul/li/div/div/div[2]/h5/a/text()
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: false
+    description: The model code of the product
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="gtin"]
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //*[@id="center_column"]/ul/li/div/div/div[2]/div[1]/div/span[1]
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //div[@class="price_container"]/span[@class="old-price product-price"]/text()
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+    xpath: //div[@class="product-container"]/div/div[2]/div/p[@class="pro_list_manufacturer"]/text()
+  - name: soldBy
+    singleValue: false
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: false
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER    
+    xpath: //div[@class="rank"]
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+    xpath: //div[@class="rank"]
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN    
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    # xpath: //div[@class="product-container"]/div/div/div/a/@data-id-product
+    xpath: //div[@class="id"]
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //div[@id="center_column"]/ul/li/div/div/div[2]/h5/a/text()
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER 
+    xpath: //div[@class="rating_box"]/meta[@itemprop="ratingValue"]/@content
