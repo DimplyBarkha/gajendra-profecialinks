@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'marionnaud.at',
-    timeout: 50000,
+    prefix: null,
+    url: null,
     country: 'AT',
     store: 'marionnaud',
     zipcode: '',
