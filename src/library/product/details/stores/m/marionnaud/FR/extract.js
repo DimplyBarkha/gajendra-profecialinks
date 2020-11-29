@@ -31,14 +31,14 @@ async function implementation (
     const Price1 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/text()[1]",'nodeValue');
     const Price2 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/sup/text()",'nodeValue');
     const Price3 = Price2[0].replace("€", ".");
-    let finalprice=Price1[0] + Price3+"€";
+    let finalprice=Price1[0] + Price3;
     addHiddenDiv('price', finalprice);
   // @ts-ignore
   const brandText = window.dataLayer[0].ecommerce.detail.products[0].brand;
   addHiddenDiv('brandText', brandText);
     // @ts-ignore
     let listPrice=window.dataLayer[0].ecommerce.detail.products[0].price
-    listPrice=listPrice+'€'
+    listPrice=listPrice
     addHiddenDiv('listPrice', listPrice);
   // @ts-ignore
   const availabilityText = window.dataLayer[0].ecommerce.detail.products[0].stock;
