@@ -1,0 +1,22 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product-tile-group")]/ul/li[contains(@class,"product-tile")]
+fields:
+  - name: productUrl
+    xpath: //div[contains(@class,"product-tile__details__info")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.realcanadiansuperstore.ca$1
+  - name: thumbnail
+    xpath: //div[@class="product-tile__thumbnail__image"]//img/@src
+  - name: name
+    xpath: //h3//span[contains(@class,"product-name__item--name")]
+  - name: price
+    xpath: //li[@class="selling-price-list__item"][1]//span[contains(@class,"price__value")]
+    regExp: (\d+.\d+|\d+)
+    regExpReplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: id
+    xpath: //div[@class="product-tracking"]/@data-track-product-id
+ 
