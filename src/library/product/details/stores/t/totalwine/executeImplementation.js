@@ -13,7 +13,7 @@ const implementation = async function (
   }
 
   try {
-    const response = await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: true });
+    const response = await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
     console.log('Response ' + JSON.stringify(response));
     if (response.message && response.message.includes('code 403')) {
       console.log('Response failed');
@@ -59,6 +59,7 @@ const implementation = async function (
   }
 
   try {
+    id = id || url.match(/\/p\/(\d+)/)[1];
     if (id) {
     // API call to fetch variants
       const sku = url.match(/p\/(.+)\?s=/g)[0].replace('?s=', '').replace('p/', '');
@@ -67,7 +68,9 @@ const implementation = async function (
       console.log('API call done');
       try {
         const variations = productDetails.skus.map(elm => elm.options.map(e => (`${e.type} - ${e.value}`)).join(', ')).join('|');
-        document.body.setAttribute('variations', variations);
+        await context.evaluate((text) => {
+          document.body.setAttribute('variations', text);
+        }, variations);
       } catch (err) {
         console.log('ERROR WHILE GETTING VARIANTS INFO', err);
       }
