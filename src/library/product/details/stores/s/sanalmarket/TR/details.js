@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'migros.com.tr',
-    timeout: 50000000,
     country: 'TR',
     store: 'sanalmarket',
+    domain: 'migros.com.tr',
     zipcode: '',
   },
 };

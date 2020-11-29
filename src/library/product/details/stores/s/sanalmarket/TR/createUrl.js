@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'migros.com.tr',
-    timeout: 50000000,
+    prefix: null,
+    url: null,
     country: 'TR',
     store: 'sanalmarket',
     zipcode: '',
