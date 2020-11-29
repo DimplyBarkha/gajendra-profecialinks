@@ -12,6 +12,7 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.waitForSelector('#tab-description');
+    await context.waitForSelector('div.woocommerce-product-gallery > ol > li > img');
     await context.evaluate(async function () {
       // Removing spaces between colors e.g. 'schwarz / nickel' to 'schwarz/nickel'
       const colorInH1 = document.querySelector('h1.product_title.entry-title');

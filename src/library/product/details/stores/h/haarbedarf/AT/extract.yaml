@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //ol/li/img/@src
+    xpath: //div[contains(@class,"woocommerce-product-gallery")]//ol/li/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
