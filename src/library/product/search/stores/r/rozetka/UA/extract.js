@@ -1,9 +1,10 @@
-
+const {transform}=require('../UA/format')
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/search/extract',
   parameterValues: {
-    country: 'AU',
+    country: 'UA',
     store: 'rozetka',
+    transform,
     domain: 'rozetka.com.ua',
     zipcode: '',
   },

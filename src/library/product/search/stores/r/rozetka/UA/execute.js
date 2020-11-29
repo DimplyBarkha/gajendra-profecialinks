@@ -59,13 +59,12 @@ async function implementation (
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
-    country: 'AU',
+    country: 'UA',
     store: 'rozetka',
     domain: 'rozetka.com.ua',
     url: 'https://rozetka.com.ua/search/?text={searchTerms}',
     loadedSelector: 'div.wrapper, central-wrapper, js-wrapper>div.layout',
     noResultsXPath: '//div[@class="search-nothing__wrap"]',
     zipcode: '',
-  },
-  implementation,
+  },implementation,
 };

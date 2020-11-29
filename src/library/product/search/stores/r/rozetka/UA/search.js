@@ -1,10 +1,9 @@
-const {transform}=require('../AU/format')
+
 module.exports = {
-  implements: 'product/search/extract',
+  implements: 'product/search',
   parameterValues: {
-    country: 'AU',
+    country: 'UA',
     store: 'rozetka',
-    transform,
     domain: 'rozetka.com.ua',
     zipcode: '',
   },

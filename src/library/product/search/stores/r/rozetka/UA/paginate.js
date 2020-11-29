@@ -2,9 +2,8 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'AU',
+    country: 'UA',
     store: 'rozetka',
-    nextLinkSelector: null,
     nextLinkXpath: '//div[@class="pagination"]/a[contains(@class,"pagination__direction_type_forward")]',
     mutationSelector: null,
     spinnerSelector: null,
