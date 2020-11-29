@@ -432,12 +432,16 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
+    # xpath: //div[@class="pdp-btn"]/input[@name="productCode"]/@value
     xpath: //div[@class="variant_options"]//span/text()
   - name: firstVariant
     singleValue: false
+    # xpath: //div[@class="pdp-btn"]/input[@name="productCode"]/@value
     xpath: //ul//li[@data-index="1"] | //div[@class="variant_options"]//ul//li[1]//img/@alt
   - name: variants
     singleValue: false
+    # xpath: //select[@id="Size"]/option[position()>1]/@value
+    # regExp: \d{4,}
     xpath: //div[@class="selectric-scroll"]//ul//li[position()>1]/text() | //div[@class="variant_options"]//ul//li//img/@alt
   - name: additionalDescBulletInfo
     singleValue: false
