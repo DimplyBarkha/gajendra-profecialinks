@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="imageDetailBox"]/a/img[@id="ContentPlaceHolder1_ItemImage"]/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //table[@class="itemBasic"]//div[@class="treePaths"]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@id="ContentPlaceHolder1_itemDetailDiv"]//span[@class="title"]/span
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: brandText
+    singleValue: false
+    xpath: //table[@class="itemDetailMiddleBox"]//td[@class="brandImage"]/a[@id="brandImageRef"]/@href
+  - name: sku
+    singleValue: false
+    xpath: //div[@id="ContentPlaceHolder1_itemDetailDiv"]//span[@class="title"]/text()
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id="ContentPlaceHolder1_itemDetailDiv"]//span[@class="title"]/text()
+  - name: specifications
+    singleValue: false
+    xpath: //table[@class="itemBasic"]//table[@class="dataTable"]//td
