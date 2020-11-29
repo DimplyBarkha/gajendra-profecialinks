@@ -19,7 +19,7 @@ const transform = (data) => {
                             if (j_data['props']['initialStoreState']['detail']['product']['summary']['productURI']){
                                 p_url = j_data['props']['initialStoreState']['detail']['product']['summary']['productURI'];
                             }
-                            if (j_data['props']['initialStoreState']['detail']['product']['summary']['variants']){
+                            if (j_data['props'] && j_data['props']['initialStoreState'] && j_data['props']['initialStoreState']['detail'] && j_data['props']['initialStoreState']['detail']['product'] && j_data['props']['initialStoreState']['detail']['product']['summary'] && j_data['props']['initialStoreState']['detail']['product']['summary']['variants'] && j_data['props']['initialStoreState']['detail']['product']['summary']['variants'] != null && j_data['props']['initialStoreState']['detail']['product']['summary']['variants'].length>0){
                                 j_data['props']['initialStoreState']['detail']['product']['summary']['variants'].forEach(variation => {
                                 let tmp_variations = {};
                                 tmp_variations["variantId"] = [];
@@ -37,19 +37,24 @@ const transform = (data) => {
                                         }
                                     }
                                     
+                                }                                
+                                if (variation['color'] != null && variation['color']['value']){
+                                    tmp_variations["variant"].push({"text": variation['color']['value'], "xpath": item["xpath"]});
                                 }
-                                if (variation['name']){                                    
+                                else if(variation['name'] != null && variation['name'] != 'DEFAULT'){
                                     tmp_variations["variant"].push({"text": variation['name'], "xpath": item["xpath"]});
                                 }
                                 final_variations.push(tmp_variations);
                                 });
                             }
                         } catch (error) {
-                            console.log(error.message);
-                            delete row.variantId;
+                            console.log(error.message);                            
                         }
                     }                                    
                 });
+                if(final_variations.length == 0){
+                    delete row.variantId;
+                }
             }
         }
     }    
