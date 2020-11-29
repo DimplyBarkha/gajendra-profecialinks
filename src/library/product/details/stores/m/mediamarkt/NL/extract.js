@@ -82,7 +82,7 @@ module.exports = {
       addElementToDocument('mm_numberOfCustomerReviews', reviews);
 
       // Gets aggregate rating
-      addElementToDocument('mm_aggregateRating', document.querySelector('div[itemprop=ratingValue]').innerText.replace('-', ','));
+      addElementToDocument('mm_aggregateRating', document.querySelector('div[itemprop=ratingValue]').innerText.replace('.', ','));
 
       // Getting images
       const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
