@@ -65,7 +65,12 @@ const implementation = async function (
       const storeUniqueId = zipcode === '95825' ? 1108 : url.match(/s=(\d+)/g)[0].replace('s=', '');
       const productDetails = await getData(`https://www.totalwine.com/product/api/product/product-detail/v1/getProduct/${sku}?shoppingMethod=INSTORE_PICKUP&state=US-CA&storeId=${storeUniqueId}`);
       console.log('API call done');
-
+      try {
+        const variations = productDetails.skus.map(elm => elm.options.map(e => (`${e.type} - ${e.value}`)).join(', ')).join('|');
+        document.body.setAttribute('variations', variations);
+      } catch (err) {
+        console.log('ERROR WHILE GETTING VARIANTS INFO', err);
+      }
       await context.evaluate(async function (details) {
         // Add skus to DOM
         for (let i = 0; i < details.skus.length; i++) {
