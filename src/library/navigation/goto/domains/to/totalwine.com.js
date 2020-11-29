@@ -18,8 +18,10 @@ module.exports = {
     // await context.setLoadAllResources(true);
     // await context.setLoadImages(true);
     // const inputUrl = `${url}#[!opt!]{"discard_CSP_header":true, "block_ads": false}[/!opt!]`;
-    if (url.includes('?') && !url.includes('pageSize=')) {
-      url += '&pageSize=150';
+    if (url.includes('?')) {
+      if (!url.includes('pageSize=')) {
+        url += '&pageSize=150';
+      }
     } else {
       url += '?pageSize=150';
     }
