@@ -65,6 +65,9 @@ module.exports = {
     } catch (error) {
       console.log('error: NO CPATCHA ENCOUNTER', error);
     }
+    if (await context.evaluate(() => !!document.querySelector('a[title="Close"]'))) {
+      await context.click('a[title="Close"]');
+    }
     if (await context.evaluate(() => !!document.querySelector('iframe[src*="captcha"],iframe[_src*="captcha"]'))) {
       return context.reportBlocked(responseStatus.status, 'Blocked: Could not solve CAPTCHA');
     }
