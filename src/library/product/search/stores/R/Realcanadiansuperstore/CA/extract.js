@@ -24,7 +24,7 @@ module.exports = {
           window.scroll(0, scrollTop);
           await stall(1000);
         }
-        function stall(ms) {
+        function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -35,7 +35,7 @@ module.exports = {
     };
     await applyScroll(context);
 
-    async function getProductsCount(context) {
+    async function getProductsCount (context) {
       return context.evaluate(async function () {
         const products = document.evaluate('//div[@class="product-tile__thumbnail__image"]//img/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         return products.snapshotLength;
