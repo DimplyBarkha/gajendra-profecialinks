@@ -12,15 +12,6 @@ fields:
     description: The brand name
     example: Panasonic
     xpath: //div[@class='product-wrapper']//a[contains(@class, 'manufacturer')]/img/@alt
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
@@ -37,18 +28,6 @@ fields:
     singleValue: true
     description: The rpc code of the product
     xpath: //div[@class='product-wrapper']/@data-modelnumber
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -69,35 +48,10 @@ fields:
     singleValue: true
     description: Product manufacturer
     xpath: //div[@class='product-wrapper']//a[contains(@class, 'manufacturer')]/img/@alt
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-  - name: rank
-    singleValue: true
-    description: search/listing rank
-    type: NUMBER
-  - name: rankOrganic
-    singleValue: true
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
-  - name: sponsored
-    singleValue: true
-    description: Is sponsored/paid
-    type: BOOLEAN
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
     xpath: //div[@class='product-wrapper']/@data-modelnumber
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
