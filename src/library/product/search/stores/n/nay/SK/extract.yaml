@@ -31,6 +31,8 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    #xpath: //span[@class="name"]/text()
+    #xpath: //span[@itemprop="name"]/text()
     xpath: //h3[@class="title"]/span[@itemprop="name"]/text()
   - name: sku
     singleValue: true
@@ -47,6 +49,7 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    #xpath: //*[@id="lb-results"]/div/div/ul/li/div/div/a/div/p/span/span/span[2]/text()
   - name: reviewCount
     singleValue: true
     description: The number of reviews
@@ -89,14 +92,36 @@ fields:
     singleValue: true
     description: Unique id (within this extractor)
     xpath: //h3[@class="title"]/span[@itemprop="name"]/text()
+    #xpath: //span[@itemprop="name"]/text()
+    #xpath: //div[@class="item-top"]/h3/span[2]/text()
+    #xpath: //div[@id='pd_variantId']
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
     xpath: //h3[@class="title"]/span[@itemprop="name"]/text()
+    #xpath: //span[@itemprop="name"]/text()
+    #xpath: //span[@class="name"]/text()
+    #- name: aggregateRating
+    #singleValue: false
+    #description: The stated aggregate rating normalized to be out of 5
+    #type: NUMBER
+    #xpath: //div[@id="aggregateRating"]
+    #regExp: (\d+)(\.)(\d+)
+    #regExpReplace: $1,$3
   - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
+    #type: NUMBER
     xpath: //div[@id="aggregateRating"]
     regExp: (\d+)(\.)(\d+)
     regExpReplace: $1,$3
+
+    #xpath: //*[@id="lb-results"]/div/div/ul/li/div/div/a/div/p/span/span/span[2]/text()
+    #- name: aggregateRating
+    #singleValue: true
+    #description: The stated aggregate rating normalized to be out of 5
+    #type: NUMBER
+    #xpath: //div[@id="aggregateRating"]
+    #regExp: (\d.+)(\d)
+    #regExpReplace: $1.$2

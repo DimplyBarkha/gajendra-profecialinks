@@ -31,6 +31,27 @@ async function implementation (
       addHiddenDiv(itemContainer, 'rank', totalRank);
       rank++;
     }
+    // function addElementToDocument (key, value) {
+    //   const catElement = document.createElement('div');
+    //   catElement.id = key;
+    //   catElement.textContent = value;
+    //   catElement.style.display = 'none';
+    //   document.body.appendChild(catElement);
+    // }
+    // const arr = document.querySelectorAll('#lb-results > div > div');
+    // console.log(arr.length);
+    // for (let i = 0; i < arr.length; i++) {
+    // let a = arr[i].getAttribute("data-id-product");
+    // console.log(a);
+    // let a1 = a.concat('-')
+    // let b = arr[i].getAttribute("data-id-product-attribute");
+    // let mainDataObj = window.rcTagManagerLib.getInstance.productsListCache[a1.concat(b)].ean13
+    // let mainDataObj = window.dataLayer[4].ecommerce.impressions[0];
+    // console.log(mainDataObj);
+    //   if (mainDataObj) {
+    //     addElementToDocument('pd_variantId', mainDataObj.dimension2);
+    //   }
+    // }
   });
   return await context.extract(productDetails);
 }

@@ -1,3 +1,4 @@
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -10,6 +11,9 @@ module.exports = {
 
   implementation: async ({ url }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
+    // @ts-ignore
+      // @ts-ignore
+      // @ts-ignore
       // @ts-ignore
       function stall (ms) {
         return new Promise((resolve, reject) => {
@@ -18,6 +22,7 @@ module.exports = {
           }, ms);
         });
       }
+      // const dataObj = window.dataLayer[0].product;
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -54,6 +59,7 @@ module.exports = {
       if (mainDataObj) {
         addElementToDocument('pd_variantId', mainDataObj);
       }
+      // await context.waitForXPath("//a[@class='product-top__main-image-link img-box compare-add-img']/img[@class='img-box__img js-lazy js-only jsOnly product-top__main-image compare-img js-lazy--loaded']/@src | //a[@class='product-top__main-image-link img-box compare-add-img']/img[@class='img-box__img js-lazy js-only jsOnly product-top__main-image compare-img js-lazy--loaded']/@src | //a[@class='product-top__main-image-link img-box compare-add-img js-pdbox']/img[@class='img-box__img js-lazy js-only jsOnly product-top__main-image compare-img js-lazy--loaded']/@src");
       await stall(7000);
       const image = document.querySelector('#product-main-img > a > img').getAttribute('src');
       console.log(image);

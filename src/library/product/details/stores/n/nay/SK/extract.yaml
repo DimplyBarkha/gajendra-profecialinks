@@ -6,6 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    #xpath: //a[@class='product-top__main-image-link img-box compare-add-img']/img[@class='img-box__img js-lazy js-only jsOnly product-top__main-image compare-img js-lazy--loaded']/@src | //a[@class='product-top__main-image-link img-box compare-add-img']/img[@class='img-box__img js-lazy js-only jsOnly product-top__main-image compare-img js-lazy--loaded']/@src | //a[@class='product-top__main-image-link img-box compare-add-img js-pdbox']/img[@class='img-box__img js-lazy js-only jsOnly product-top__main-image compare-img js-lazy--loaded']/@src
     xpath: //div[@id='image']
   - name: imageAlt
     singleValue: true
@@ -21,7 +22,11 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    #xpath: //div[@id='main']/div[@class='bread-share']/div[@id='breadcrumbs']/p[@class='reset']/span[2]/a/span | //div[@id='main']/div[@class='bread-share']/div[@id='breadcrumbs']/p[@class='reset']/span[2]/a/span
     xpath: //*[contains(@itemprop,"itemListElement")][position() > 1]
+    #- name: subCategory
+    #singleValue: false
+    #xpath: concat(//div[@id='breadcrumbs']/p[@class='reset']/span[3]/a/span,' > ',//div[@id='breadcrumbs']/p[@class='reset']/span[4]/a/span, ' > ',//div[@id='breadcrumbs']/p[@class='reset']/span[5]/a/span, ' > ',//div[@id='breadcrumbs']/p[@class='reset']/span[6]/a/span) | concat(//div[@id='breadcrumbs']/p[@class='reset']/span[3]/a/span,' > ',//div[@id='breadcrumbs']/p[@class='reset']/span[4]/a/span, ' > ',//div[@id='breadcrumbs']/p[@class='reset']/span[5]/a/span, ' > ',//div[@id='breadcrumbs']/p[@class='reset']/span[6]/a/span)
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -36,6 +41,8 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //*[@id="navbar"]/div[2]/div/p[2]/strong
+    #xpath: /html/body/div[1]/div[3]/div[2]/div/div[2]/div[2]/div[2]/div/p[1]/strong
+    #xpath: //div[@class='product-top__prices-wrap']/p[@class='product-top__price']/strong[@class='product-top__price-value'] | //div[@class='product-top__prices-wrap']/p[@class='product-top__price']/strong[@class='product-top__price-value']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -79,17 +86,27 @@ fields:
     singleValue: false
     description: GTIN code (includes UPC/EAN)
     xpath: //div[@id='pd_variantId']
+    #xpath: //script[contains(text(), "gtin13")]/text()
+    #regExp: gtin13":([^,]+)
+    #regExpReplace: $1
   - name: sku
     singleValue: false
     description: The store-specific product identifier
     xpath: //th[contains(text(), 'Kód produktu')]/following-sibling::*[1] | //th[contains(text(), 'Kód produktu')]/following-sibling::*[1]
+    #xpath: //script[contains(text(), "sku")]/text()
+    #regExp: sku":([^,]+)
+    #regExpReplace: $1
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //th[contains(text(), 'Kód produktu')]/following-sibling::*[1] | //th[contains(text(), 'Kód produktu')]/following-sibling::*[1]
+    #xpath: //script[contains(text(), "sku")]/text()
+    #regExp: sku":([^,]+)
+    #regExpReplace: $1
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    #xpath: //h1[@class='product-top__title'] | //h1[@class='product-top__title']
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
