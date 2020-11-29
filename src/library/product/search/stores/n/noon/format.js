@@ -3,6 +3,8 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
+// not in use, has rank issue.
+// Issue: Return 1-50 rank and repeats for every page. Causing duplicate ranks.
 const transform = (data) => {
   const cleanUp = (data, context) => {
     const clean = text => text.toString()
@@ -14,7 +16,7 @@ const transform = (data) => {
       .replace(/"\s{1,}/g, '"')
       .replace(/\s{1,}"/g, '"')
       .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x1F]/g, '')
       .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
@@ -22,14 +24,15 @@ const transform = (data) => {
     }))));
     return data;
   };
-  for (const { group } of data) {
-    var rank_temp = 1
+  for (const { group }
+    of data) {
+    var rankTemp = 1;
     for (const row of group) {
-      row.rank = row.rankOrganic = [{ 'text': rank_temp }];
-      rank_temp = rank_temp + 1;
+      row.rank = row.rankOrganic = [{ text: rankTemp }];
+      rankTemp = rankTemp + 1;
       if (row.productUrl) {
         row.productUrl.forEach(item => {
-          item.text = "https://www.noon.com" + item.text;
+          item.text = 'https://www.noon.com' + item.text;
         });
       }
       if (row.id) {
