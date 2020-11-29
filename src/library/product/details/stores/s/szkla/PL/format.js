@@ -25,16 +25,18 @@ const transform = (data) => {
     for (const { group } of data) {      
       for (let row of group) { 
         if (row.description) {
+            let tmp_array = []; 
             row.description.forEach(item => {
-              item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
-              item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
+              tmp_array.push(item.text);
             });
+            row.description = [{"text":tmp_array.join(' || '),"xpath":row.specifications[0]['xpath']}];
         }
         if (row.specifications) {
+            let tmp_array = []; 
             row.specifications.forEach(item => {
-              item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
-              item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
+              tmp_array.push(item.text);
             });
+            row.specifications = [{"text":tmp_array.join(' || '),"xpath":row.specifications[0]['xpath']}];
         }        
       }
     }
