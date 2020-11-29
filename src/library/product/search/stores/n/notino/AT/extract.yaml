@@ -8,7 +8,9 @@ fields:
     xpath: //li[@class='item']/@data-product-code
   - name: productUrl
     SingleValue: false
-    xpath: /a[@class='spc push-to-dl']/@href
+    xpath: //a[@class='spc push-to-dl']/@href
+    regExp: (.+)
+    regExpReplace: https://www.notino.at$1
   - name: thumbnail
     SingleValue: false
     xpath: //span[@class='img-wrap']//img[@class='loaded']/@src
