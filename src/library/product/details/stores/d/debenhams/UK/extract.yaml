@@ -76,7 +76,7 @@ fields:
     xpath: //div[contains(@class, 'description-text-container')]//div[contains(@class, 'product-item-number')]//*[contains(@class, 'item-number-value')]/text()
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class, 'description-text-container')]//div[contains(@class, 'product-item-number')]//*[contains(@class, 'item-number-value')]/text()
+    xpath: //div[@id='custom-attr-product-sku-number']/text()
   - name: directions
     singleValue: false
     xpath: //div[@id='custom-attr-product-directions']/text()

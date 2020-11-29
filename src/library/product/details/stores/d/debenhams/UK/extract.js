@@ -183,6 +183,11 @@ module.exports = {
               addHiddenDiv("single-custom-attr-product-first_variant", first_variant);
             }
 
+            const products = (window.getTagProduct_Child_Sku() || "").split("|");
+            if (products.length) {
+              addHiddenDiv("custom-attr-product-sku-number", products[j] || "");
+            }
+
             const selectedVariant = productVariationsField[j];
             if (selectedVariant) {
               const selected = selectedVariant.querySelector("div.pw-swatch__chip-inner div");
