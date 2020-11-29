@@ -54,7 +54,7 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false
   xpath: //div[(@id="contentTab3")]/p//text() | //div[(@id="contentTab3")]//ul/li     
-- name: alternateImage
+- name: alternateImages
   singleValue: false
   xpath: //p[@class="pd07"]/a/img/@src
 - name: nameExtended
@@ -63,6 +63,12 @@ fields:
 - name: variantId
   singleValue: false
   xpath: //meta[@itemprop='sku']/@content
+- name: firstVariant
+  singleValue: false
+  xpath: //div[@class="option"]/select/option[position()=2]/@value
+- name: variants
+  singleValue: false
+  xpath: //div[@class="option"]/select/option[position()>1]/@value     
 - name: variantInformation
   singleValue: false
   xpath: //select[@class="link-img"]/option[position()>1]

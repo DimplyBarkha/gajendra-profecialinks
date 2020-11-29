@@ -62,6 +62,10 @@ const transform = (data) => {
           row.variantCount.forEach(item => {
             tot++;
           });
+          if(tot==1)
+          {
+            tot=0;
+          }
           row.variantCount=[{'text':tot}];
         }
         if(row.variantInformation){
@@ -70,6 +74,13 @@ const transform = (data) => {
             arr_info.push(item.text)
           });
           row.variantInformation=[{text:arr_info.join(' | ')}];
+        }
+        if(row.variants){
+          var arr_info=[];
+          row.variants.forEach(item => {          
+            arr_info.push(item.text)
+          });
+          row.variants=[{text:arr_info.join(' | ')}];
         }
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length,'xpath':row.descriptionBullets[0].xpath}];
