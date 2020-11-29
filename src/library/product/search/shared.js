@@ -28,6 +28,23 @@ const transform = (data, context) => {
         row.rankOrganic = [{ text: orgRankCounter }];
       }
       row.rank = [{ text: rankCounter }];
+      if (row.price) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.price.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + '';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.price = nDesc;
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

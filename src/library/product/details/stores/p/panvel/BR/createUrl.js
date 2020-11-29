@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'panvel.com',
     prefix: null,
-    url: null,
+    url: 'https://www.panvel.com/panvel/buscarProduto.do?paginaAtual=1&termoPesquisa={id}',
     country: 'BR',
     store: 'panvel',
     zipcode: '',
