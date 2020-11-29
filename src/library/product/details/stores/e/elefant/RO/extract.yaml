@@ -1,0 +1,54 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id='prodimgcarousel']//div[contains(@class,'product-img-main')]//div[1]//img//@src
+  - name: sku
+    singleValue: false
+    xpath: //div[@class='product-info']//div[@class='product-number']//span
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='product-info']//div[@class='product-number']//span  
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[@class='breadcrumbs-list']//li//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //ol[@class='breadcrumbs-list']//li[contains(@class,'breadcrumbs-list-active')]
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-info']//h2[@class='product-brand']//a
+  - name: price
+    singleValue: false
+    xpath: //table[@class='pdp-table']//div[@class='current-price  sale-price']
+  - name: listPrice
+    singleValue: false
+    xpath: //table[@class='pdp-table']//div[@class='was-price']  
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='add-to-cart']//button
+    defaultValue: "In Stock"
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'product-description')]//div[contains(@class,'panel-collapse')]//p 
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='product-info']//div[@class='product-attributes']//a    
+  - name: ratingCount
+    sinngleValue: false
+    xpath: //div[@class='product-info']/preceding-sibling::div[@class='product-rating clearfix']//ul//li[position() = 1]//a//@data-rating-count   
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='product-info']/preceding-sibling::div[@class='product-rating clearfix']//ul//li[position() = 1]//a//@data-average-rating
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='prodimgcarousel']//div[contains(@class,'product-img-main')]//div[1]//img//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='prodimgcarousel']//div[contains(@class,'product-img-main')]//div[position()>1]//img//@src
