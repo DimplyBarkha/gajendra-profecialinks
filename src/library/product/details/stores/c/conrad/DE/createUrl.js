@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'conrad.de',
     prefix: null,
-    url: null,
+    url: 'https://www.conrad.de/de/productlink-{id}',
     country: 'DE',
     store: 'conrad',
     zipcode: '',
