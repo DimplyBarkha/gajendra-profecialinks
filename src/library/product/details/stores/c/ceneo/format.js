@@ -34,17 +34,60 @@ const transform = (data) => {
             },
           ];
         }
-        if (row.specifications) {
-          let text = '';
-          row.specifications.forEach(item => {
-            text += `${item.text.replace(/\n{0,}\s{1,}/g, ' ')} || `;
+
+        if (row.manufacturerImages) {
+          row.manufacturerImages.forEach(item => {
+            if (item.text.indexOf('https:') == -1) {
+              item.text = `https:${item.text}`;
+            }
           });
-          row.specifications = [
+        }
+
+        if (!row.brandText) {
+          let text = row.name[0].text.split(' ')[0];
+          row.brandText = [
             {
-              text: text.slice(0, -4),
+              text: text,
             },
           ];
         }
+
+        if (row.variantInformation) {
+          let text = '';
+          row.variantInformation.forEach(item => {
+            if (item.text.indexOf('https:') == -1) {
+              text += `${item.text}|`;
+            }
+          });
+          row.variantInformation = [
+            {
+              text: text.slice(0, -1),
+            },
+          ];
+        }
+
+        if (row.variants && row.variants.length > 0) {
+          const arr = [];
+          console.log('variants ::', row.sku[0]);
+          arr.push(row.sku[0].text);
+          row.variants.forEach(item => {
+            arr.push(item.text.replace('/', ''));
+          });
+          if (arr.length > 1) {
+            row.variants = [
+              {
+                text: arr.join('|'),
+              },
+            ];
+          } else {
+            row.variants = [
+              {
+                text: '',
+              },
+            ];
+          }
+        }
+
         if (row.specifications) {
           let text = '';
           row.specifications.forEach(item => {
