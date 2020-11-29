@@ -1,0 +1,100 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+    
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+  - name: productUrl
+    singleValue: true
+    description: The URL for the product details page
+    xpath: //div[@class="row gutters-items-v2 grid-wrapper product-grid-v2"]/product-item-v2/div/div/div/h3/a/@href | //div[@class="row gutters-items-v2 grid-wrapper product-grid-v2"]/product-item-v2/div/div/a/@href 
+    regExp: (.+)
+    regExpReplace: https://www.tomthumb.com$1
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class="product-level-4"]/search-grid/div/product-item-v2/div/div/div/h3/a/text()
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+    xpath: //div[@class="product-price-con"]/p/span/text()
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //div[@class="product-price-con"]/p/del/text() 
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@class="rank"]  
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[@class="rank"] 
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[2]/search-grid[1]/div[1]/product-item-v2/div[1]/div[1]/a[1]/picture[1]/img[1]/@data-src
+    regExp: (https:)?(.+)
+    regExpReplace: https:$2    
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+    xpath: //div[@class="product-level-4"]/search-grid/div/product-item-v2/div/div/div/h3/a/@id
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //div[@class="product-level-4"]/search-grid/div/product-item-v2/div/div/div/h3/a/text()
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER 
