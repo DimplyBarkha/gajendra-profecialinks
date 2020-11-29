@@ -36,6 +36,10 @@ module.exports = {
         // Gets thumbnail
         const thumbnail = `https:${product[i].querySelector('a.photo img').attributes.src.value}`;
         addHiddenDiv('mm_thumbnail', thumbnail, i);
+
+        // Get URL
+        const url = 'https://www.mediamarkt.nl' + product[i].querySelector('.product-wrapper h2 a').attributes.href.value;
+        addHiddenDiv('mm_productUrl', url, i);
       }
     });
     return await context.extract(productDetails, { transform });

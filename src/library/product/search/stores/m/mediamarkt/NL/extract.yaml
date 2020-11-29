@@ -15,7 +15,7 @@ fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: concat('https://www.mediamarkt.nl', //div[@class='product-wrapper']//h2/a/@href)
+    xpath: //div[@class='product-wrapper']//div[@class='mm_productUrl']
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
