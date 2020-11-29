@@ -1,5 +1,4 @@
 const { transform } = require('../shared');
-
 //const { transform } = require('../shared');
 async function implementation(
   inputs,
@@ -13,9 +12,8 @@ async function implementation(
   const { url, id } = inputs;
   console.log("parameters:: ", parameters);
   if (id) {
-    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.waitForXPath('//article//a');
-
     await context.waitForSelector('article> a');
     console.log('everything fine !!!');
     await context.evaluate(() => {
@@ -24,63 +22,39 @@ async function implementation(
     });
   }
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 
-  
-  var variantLength = await context.evaluate(async () => {
-    return (document.querySelectorAll('label.cw-form-button-toggle__label')) ? document.querySelectorAll('label.cw-form-button-toggle__label').length : 0;
-  });
-  console.log('Variant Length', variantLength);
-  if (variantLength >= 1) {
-    for (let j = 0; j < variantLength; j++) {
-      await preparePage(j, variantLength, true);
-      console.log('Inside variants', j);
-      if (j !== variantLength) { await context.extract(productDetails, { transform }); }
+  // await context.evaluate(async function () {
+  //   function addHiddenDiv(id, content) {
+  //     const newDiv = document.createElement('div');
+  //     newDiv.id = id;
+  //     newDiv.textContent = content;
+  //     newDiv.style.display = 'none';
+  //     document.body.appendChild(newDiv);
+  //   }
+  // });
+  await context.evaluate(async function () {
+    function addHiddenDiv(id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
     }
-    return;
+  });
+  var variantLength = await context.evaluate(async () => {
+    return (document.querySelectorAll('div.buybox-wrapper label.cw-form-button-toggle__label')) ? document.querySelectorAll('div.buybox-wrapper label.cw-form-button-toggle__label').length : 0;
+  });
+  console.log("variantLength:: ", variantLength);
+  if (variantLength > 1) {
+    for (let j = 0; j < variantLength; j++) {
+      await context.evaluate(async (j) => {
+        return document.querySelectorAll('div.buybox-wrapper label.cw-form-button-toggle__label')[j].click();
+      }, j);
+      console.log('Inside variants', j);
+      if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+    }    
   }
-
-  async function preparePage(index, variantLength) {
-    await context.evaluate(async (index, variantLength) => {
-      function getSingleText(xpath, document, index) {
-        const element = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if (element && element.snapshotLength > 0) {
-          const elem = element.snapshotItem(index)
-          return elem ? elem.textContent : '';
-        } else {
-          return '';
-        }
-      }
-
-      function addHiddenDiv(id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-
-      const qtyXpath = '//div/input[@name="Size"]/..//label[@class="cw-form-button-toggle__label"]/span[2]';
-      const qty = getSingleText(qtyXpath, document, index);
-      addHiddenDiv('my-qty', qty);
-
-      const variantIdXpath = '//div/input[@name="Size"]/..//label[@class="cw-form-button-toggle__label"]/span[2] | //div/input[@name="Color"]/..//label[@class="cw-form-button-toggle__label"]/span[2]';
-      const variantId = getSingleText(variantIdXpath, document, index);
-      addHiddenDiv('my-variantId', variantId);
-
-      const variantIdXpath1 = '//div/input[@name="Color"]/..//label[@class="cw-form-button-toggle__label"]/span[2] ';
-      const variantId1 = getSingleText(variantIdXpath1, document, index);
-      addHiddenDiv('my-variantId1', variantId1 | variantId);
-      
-      const colorXpath = '//div/input[@name="Color"]/..//label[@class="cw-form-button-toggle__label"]/span[2]';
-      const color = getSingleText(colorXpath, document, index);
-      addHiddenDiv('my-color', color); 
-
-      return [`#qty:${qty}`, `#variantId:${variantId}`, `#variantId1:${variantId1}`, `#color:${color}`]; //`#price:${price}`, `#availab:${availab}`, `#listPrice:${listPrice}`
-    }, index, variantLength);
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-  }
-  console.log('ready to extract');
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

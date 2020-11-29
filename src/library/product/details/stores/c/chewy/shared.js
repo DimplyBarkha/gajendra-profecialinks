@@ -29,7 +29,7 @@ const transform = (data) => {
 
       if (row.manufacturerDescription) {
         row.manufacturerDescription = [{
-          text: row.manufacturerDescription.reduce((item, currentItem) => `${item} | ${currentItem.text.replace(/(\s*\n\s\n)+/g, ': ')}`, '').slice(4),
+          text: row.manufacturerDescription.reduce((item, currentItem) => `${item} | ${currentItem.text.replace(/(\s*\n\s\n)+/g, ': ')}`, '').slice(2),
         },
         ];
       }
