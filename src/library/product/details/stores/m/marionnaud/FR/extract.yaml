@@ -30,7 +30,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //*[@id="top-bar"]/div[5]/div/div/ol/li[not(contains(@class, "back-btn"))] [not(contains(@class, "home"))]
+    xpath: //div[@class="breadcrumb-section"]/ol/li[position()>1 and position()<last()]/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -56,7 +56,7 @@ fields:
     singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[@id="productTabs"]/div[@class='productInformationSection']/div[1][@class='row']/div/div[2]/p[1]
+    xpath: //*[@id="productTabs"]/div[@class='productInformationSection']/div[1][@class='row']/div/div[2]/p[1] | //*[@id="productTabs"]/div[@class='productInformationSection']/div[1][@class='row']/div/div[2]/p/font[2]/font/text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -254,7 +254,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    xpath: count(//*[@id="images_old_gallary"]/li)-1
+    xpath: count(//*[@id="images_old_gallary"]/li[position()>1])
     type: NUMBER
   - name: news
     singleValue: true

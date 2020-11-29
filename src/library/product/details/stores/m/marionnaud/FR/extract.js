@@ -47,13 +47,22 @@ async function implementation (
      const variantId = window.dataLayer[0].ecommerce.detail.products[0].variant;
   addHiddenDiv('variantId', variantId)
   //gtin
-  const productInfo=document.getElementById('auditedOpinionsInfo').getAttribute('data-auditedopinionurl');
-  const splitProductInfo=productInfo.split('&')
-  console.log(splitProductInfo)
-  const getGtin=splitProductInfo[5]
-  const gtinData=getGtin.split('=')
-  const gtinValue=gtinData[1]
-  addHiddenDiv('gtinValue', gtinValue)
+  // const productInfo=document.getElementById('auditedOpinionsInfo').getAttribute('data-auditedopinionurl');
+  // const splitProductInfo=productInfo.split('&')
+  // console.log(splitProductInfo)
+  // const getGtin=splitProductInfo[5]
+  // const gtinData=getGtin.split('=')
+  // const gtinValue=gtinData[1]
+  // addHiddenDiv('gtinValue', gtinValue)
+  const productInfo=document.querySelectorAll('#auditedOpinionsInfo')[0];
+  if(productInfo.attributes[5].value !== ''){
+    const splitProductInfo=productInfo.attributes[5].value.split('&')
+    const getGtin=splitProductInfo[5]
+    const gtinData=getGtin.split('=')
+    const gtinValue=gtinData[1]
+    addHiddenDiv('gtinValue', gtinValue)
+  }
+
  
    // @ts-ignore
   //  let warningInfo="";
