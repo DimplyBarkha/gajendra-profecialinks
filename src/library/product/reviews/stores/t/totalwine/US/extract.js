@@ -6,17 +6,9 @@ module.exports = {
     country: 'US',
     store: 'totalwine',
     transform,
-    filterReviews: null,
+    filterReviews: true,
     domain: 'totalwine.com',
+    mergeType: 'MERGE_TYPE',
     zipcode: '',
-  },
-  implementation: async (
-    inputs,
-    parameters,
-    context,
-    dependencies) => {
-    const { transform } = parameters;
-    const { productReviews } = dependencies;
-    return await context.extract(productReviews, { transform, type: 'MERGE_ROWS' });
-  },
+  }
 };

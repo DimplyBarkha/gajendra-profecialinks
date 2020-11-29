@@ -7,8 +7,8 @@ module.exports = {
     domain: 'totalwine.com',
     loadedSelector: 'div#BVRRContainer',
     noResultsXPath: '//div[@class="content-wrapper"]/div/h1 | //h1[contains(., "Sorry we’re coming up dry.") and contains(.,"Whoops!")]',
-    reviewUrl: null,
-    sortButtonSelector: null,
+    reviewUrl: 'https://www.totalwine.com/p/{id}',
+    sortButtonSelectors: null,
     zipcode: '',
   },
 };
