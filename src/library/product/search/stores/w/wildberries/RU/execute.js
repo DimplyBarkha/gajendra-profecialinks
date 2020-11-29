@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'wildberries',
     domain: 'wildberries.ru',
-    url: 'https://www.wildberries.ru/catalog/0/search.aspx?search={searchTerms}',
+    url: 'https://www.wildberries.ru/catalog/0/search.aspx?search={searchTerms}&xsearch=true',
     loadedSelector: 'div[class="catalog_main_table j-products-container"]',
     noResultsXPath: '//p[contains(@class,"searching-results-text")][contains(.,"По Вашему")]',
     zipcode: '',

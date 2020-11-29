@@ -8,15 +8,16 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
   // const applyScroll = async function (context) {
   //   await context.evaluate(async function () {
   //     let scrollTop = 0;
   //     while (scrollTop !== 20000) {
   //       await stall(500);
-  //       scrollTop += 1000;
+  //       scrollTop += 2000;
   //       window.scroll(0, scrollTop);
   //       if (scrollTop === 20000) {
-  //         await stall(2000);
+  //         await stall(1000);
   //         break;
   //       }
   //     }
@@ -32,7 +33,7 @@ async function implementation(
   // await new Promise((resolve, reject) => setTimeout(resolve, 2000));
   // await context.setLoadAllResources()
   // await applyScroll(context);
-  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  // await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
   await context.evaluate(async function () {
     function addElementToDocument(doc, key, value) {
@@ -70,33 +71,35 @@ async function implementation(
       return {};
     }
 
-    function findCatalogJsonData(startString, endString) {
-      try {
-        const xpath = '//script[@type="text/javascript"][contains(.,"shortProducts:")]';
-        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        const scriptContent = element.textContent;
-        const startIdx = scriptContent.indexOf(startString);
-        let jsonStr = scriptContent.substring(startIdx + startString.length).trim();
-        const endIdx = jsonStr.indexOf(endString);
+    // function findCatalogJsonData(startString, endString) {
+    //   try {
+    //     const xpath = '//script[@type="text/javascript"][contains(.,"shortProducts:")]';
+    //     const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    //     const scriptContent = element.textContent;
+    //     const startIdx = scriptContent.indexOf(startString);
+    //     let jsonStr = scriptContent.substring(startIdx + startString.length).trim();
+    //     const endIdx = jsonStr.indexOf(endString);
 
-        jsonStr = jsonStr.substring(0, endIdx + endString.length - 1).trim();
-        jsonStr = jsonStr.trim();
-        jsonStr = jsonStr.replace('shortProducts', '"shortProducts"').replace('nms', '"nms"');
-        return JSON.parse(jsonStr);
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
+    //     jsonStr = jsonStr.substring(0, endIdx + endString.length - 1).trim();
+    //     jsonStr = jsonStr.trim();
+    //     jsonStr = jsonStr.replace('shortProducts', '"shortProducts"').replace('nms', '"nms"');
+    //     const jsonObj = JSON.parse(jsonStr);
+    //     console.log('jsonObj ==', jsonObj);
+    //     return jsonObj;
+    //   } catch (error) {
+    //     console.log(error.message);
+    //   }
+    // }
 
-    function findId(dataObj, idToCheck) {
-      try {
-        const val = dataObj[idToCheck];
-        if (val) {
-          return val.sizes[0].ch;
-        }
-      } catch (err) { }
-      return "";
-    }
+    // function findId(dataObj, idToCheck) {
+    //   try {
+    //     const val = dataObj[idToCheck];
+    //     if (val) {
+    //       return val.sizes[0].ch;
+    //     }
+    //   } catch (err) { }
+    //   return "";
+    // }
 
     function findIdFromApi(dataObj, idToCheck) {
       try {
@@ -109,23 +112,22 @@ async function implementation(
     }
 
     // elements from data Layer object
-    let catalogDataObj = findCatalogJsonData('{shortProducts:', '}},')
-    if (catalogDataObj) {
-      const objArr = [];
-      const idsToCheckArr = [];
+    // let catalogDataObj = findCatalogJsonData('shortProducts:', '}},')
+    // if (catalogDataObj) {
+    //   const objArr = [];
+    //   const idsToCheckArr = [];
 
-      const arr = document.querySelectorAll('div.catalog_main_table.j-products-container>div.dtList.i-dtList.j-card-item');
-      for (let i = 0; i < arr.length; i++) {
-        const doc = arr[i];
-        const idSelc = doc.getAttribute('data-catalogercod1s');
-        idsToCheckArr.push(idSelc);
-        let prodId = findId(catalogDataObj, idSelc);
-        objArr.push(prodId);
-        if (prodId === '') prodId = idSelc;
-        addElementToDocument(doc, 'added-id', prodId);
-      }
-      // return ['this is from if block::', catalogDataObj];
-    } else {
+    //   const arr = document.querySelectorAll('div.catalog_main_table.j-products-container>div.dtList.i-dtList.j-card-item');
+    //   for (let i = 0; i < arr.length; i++) {
+    //     const doc = arr[i];
+    //     const idSelc = doc.getAttribute('data-catalogercod1s');
+    //     idsToCheckArr.push(idSelc);
+    //     let prodId = findId(catalogDataObj, idSelc);
+    //     objArr.push(prodId);
+    //     if (prodId === '') prodId = idSelc;
+    //     addElementToDocument(doc, 'added-id', prodId);
+    //   }
+    // } else {
       const idArry = [];
       const arr = document.querySelectorAll('div.catalog_main_table.j-products-container>div.dtList.i-dtList.j-card-item');
       for (let i = 0; i < arr.length; i++) {
@@ -144,7 +146,7 @@ async function implementation(
         addElementToDocument(doc, 'added-id', prodId);
       }
       // return  ['this is from else block::', ids, prodInfo];;
-    }
+    // }
   });
 
   return await context.extract(productDetails, { transform });
