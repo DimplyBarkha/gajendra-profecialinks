@@ -1,8 +1,8 @@
 /**
-*
-* @param {ImportIO.Group[]} data
-* @returns {ImportIO.Group[]}
-*/
+ *
+ * @param {ImportIO.Group[]} data
+ * @returns {ImportIO.Group[]}
+ */
 const transform = (data) => {
   const cleanUp = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
@@ -17,7 +17,8 @@ const transform = (data) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
-  for (const { group } of data) {
+  for (const { group }
+    of data) {
     for (const row of group) {
       if (row.alternateImages) {
         row.alternateImages.forEach(alternateImages => {
@@ -73,25 +74,21 @@ const transform = (data) => {
         row.variantAsins.forEach(item => {
           text += `${item.text.replace('/', '')} | `;
         });
-        row.variantAsins = [
-          {
-            text: cleanUp(text.slice(0, -3)),
-          },
-        ];
+        row.variantAsins = [{
+          text: cleanUp(text.slice(0, -3)),
+        }];
       }
       if (row.variants) {
-        if (row.variants.length == 1) {
+        if (row.variants.length === 1) {
           row.variants.shift();
         } else {
           let text = '';
           row.variants.forEach(item => {
             text += `${item.text.replace('/', '')} | `;
           });
-          row.variants = [
-            {
-              text: cleanUp(text.slice(0, -3)),
-            },
-          ];
+          row.variants = [{
+            text: cleanUp(text.slice(0, -3)),
+          }];
         }
       }
       if (row.variantUrl) {
@@ -111,22 +108,18 @@ const transform = (data) => {
         row.specifications.forEach(item => {
           text += `${item.text} || `;
         });
-        row.specifications = [
-          {
-            text: cleanUp(text.slice(0, -3)),
-          },
-        ];
+        row.specifications = [{
+          text: cleanUp(text.slice(0, -3)),
+        }];
       }
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {
           text += `Colore: ${item.text.replace('Colore', '')} | `;
         });
-        row.variantInformation = [
-          {
-            text: cleanUp(text.slice(0, -3)),
-          },
-        ];
+        row.variantInformation = [{
+          text: cleanUp(text.slice(0, -3)),
+        }];
       }
     }
   }

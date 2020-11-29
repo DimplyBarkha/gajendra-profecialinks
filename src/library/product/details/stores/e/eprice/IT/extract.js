@@ -27,7 +27,7 @@ module.exports = {
       }
       const specsArrSelector = document.querySelectorAll('div#anchorTech ul li');
       if (specsArrSelector) {
-        let specsArr = [];
+        const specsArr = [];
         for (let i = 0; i < specsArrSelector.length; i++) {
           specsArr.push(specsArrSelector[i].querySelector('span:nth-child(1)').innerText + ': ' + specsArrSelector[i].querySelector('span:nth-child(2)').innerText);
           addHiddenDiv('specsArr', specsArr[i]);
