@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'jumbo',
-    nextLinkSelector: 'button.jum-button.pagination-buttons.secondary',
+    nextLinkSelector: 'span[class="content"] span[class="d-xs-inline d-l-none"]', // not pushed, check out if selector is fine
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '.rw',
