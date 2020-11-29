@@ -19,7 +19,6 @@ fields:
     xpath: //h1[@class="product-header__name"]
     singleValue: false
   - name: description
-    xpath: //p[contains(text(), "Descripción") or contains(text(), "Información del producto")]/following-sibling::div | //span[@class="nutrition-more-info__list-name" and contains(text(),"Denominación del alimento")]/following-sibling::span/text() | //div[p[contains(text(), "Información adicional del producto")]]/following-sibling::div
     singleValue: false
   - name: ingredientsList
     xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p[contains(@class,"ingredients__content")]
@@ -60,11 +59,11 @@ fields:
     singleValue: false
   - name: pricePerUnit
     xpath: //div[@class="buybox__price-per-unit"]/span
-    regExp: '^[^/]+'
+    regExp: "^[^/]+"
     singleValue: false
   - name: pricePerUnitUom
     xpath: //div[@class="buybox__price-per-unit"]/span[last()]
-    regExp: '[^/]+$'
+    regExp: "[^/]+$"
     singleValue: false
   - name: imageAlt
     xpath: (//div[@class="product-pics__container"]//img/@alt)[1]
@@ -155,9 +154,6 @@ fields:
     xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
     regExp: calcio\s\([^\s]+\s([^\)]+)
     regExpReplace: $1
-  - name: availabilityText
-    xpath: //button[@class="add-to-cart-button__full-button add-to-cart-button__button"]
-    defaultValue: Out of Stock
   - name: caloriesPerServing
     xpath: //div[@class="nutrition-graph__text-graph"]/p[not(contains(@class,"nutrition-graph__energy-value"))]
   - name: gtin
@@ -167,7 +163,7 @@ fields:
     singleValue: true
   - name: listPrice
     xpath: //span[@class="buybox__price-strikethrough"]
-  - name:  descriptionBullets
+  - name: descriptionBullets
     xpath: count(//p[contains(text(),'Descripción')]/following-sibling::div[@class="additional-info__description additional-info__text2"]/p)
   - name: dietaryFibrePerServing
     xpath: //p[contains(.,'Fibras')]
@@ -180,12 +176,12 @@ fields:
     # -----------------------------------------
   - name: priceCurrency
     defaultValue: EUR
-  - name: featureBullets
-    xpath: //p[contains(., 'Datos del producto')]/../div
   - name: shownImages
-    xpath: //ul[@class='pics-slider__thumbnails'][count(*)>1]//li//img/@src | //div[@class='product-pics'][count(*)=1]//div[@class='product-pics__container']//div[@class="main-image__container"]//img/@src
+    xpath: //div[@class='pdp-view__left']/div/div[contains(@class, 'product-pics')][count(div)=1]//img/@src | //div[@class='pdp-view__left']/div/div[contains(@class, 'product-pics')][count(div)>1]/div[contains(@class, 'product-pics__slider')]//ul/li//img/@src
+    regExp: (.*)(hd_100x_|hd_510x_)(.*)
+    regExpReplace: $1hd_510x_$3
   - name: highQualityImages
-    xpath: //ul[@class='pics-slider__thumbnails'][count(*)>1]//li//img/@src | //div[@class='product-pics'][count(*)=1]//div[@class='product-pics__container']//div[@class="main-image__container"]//img/@src
+    xpath: //div[@class='pdp-view__left']/div/div[contains(@class, 'product-pics')][count(div)=1]//img/@src | //div[@class='pdp-view__left']/div/div[contains(@class, 'product-pics')][count(div)>1]/div[contains(@class, 'product-pics__slider')]//ul/li//img/@src
     regExp: (.*)(hd_100x_|hd_510x_)(.*)
     regExpReplace: $1hd_1500x_$3
   - name: questionsCount
@@ -193,8 +189,12 @@ fields:
   - name: productUrl
     xpath: //link[@rel="canonical"]/@href
   - name: otherSellersPrice
-    xpath: otherSellersPrice
-  - name: otherSellersName
-    defaultValue: Carrefour
+    xpath: //span[@class="buybox__price"] | //span[@class="buybox__price--current"]
   - name: manufacturerImages
-    xpath: //div[@class="flix-content"]
+    xpath: //body/@import-enhanced-content
+  - name: nutritionInfo
+    xpath: //div[@class='nutrition']//div[@class='nutrition-legend__box']/div
+  - name: otherSellersAvailability
+    xpath: //body/@import-puchasability
+  - name: availabilityText
+    xpath: //body/@import-puchasability
