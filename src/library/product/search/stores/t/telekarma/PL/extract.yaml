@@ -7,7 +7,7 @@ fields:
     xpath: //div[contains(@class,'contentPadding')]//table/tbody/tr/td[contains(@class,'pad_lista_prod')]/a/@href
     singleValue: false
     regExp: (p(\d{3,10}))
-    regExpReplace: $1
+    regExpReplace: $2
   - name: rank
   - name: thumbnail
     xpath: //div[contains(@class,'contentPadding')]//table/tbody/tr/td[contains(@class,'td1')]/a/img/@src
