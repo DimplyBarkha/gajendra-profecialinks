@@ -27,7 +27,7 @@ module.exports = {
       const product = document.querySelectorAll('div.product-wrapper');
       for (let i = 0; i < product.length; i++) {
         // Gets aggregate rating
-        addHiddenDiv('mm_aggregateRating', product[i].querySelector('a.rating>div').classList.value.replace('value-', '').replace('-', '.'), i);
+        addHiddenDiv('mm_aggregateRating', product[i].querySelector('a.rating>div').classList.value.replace('value-', '').replace('-', ','), i);
 
         // Gets rating count
         const reviewCount = product[i].querySelector('a.rating + a');
