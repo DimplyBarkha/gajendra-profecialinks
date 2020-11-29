@@ -45,6 +45,7 @@ fields:
     regExpReplace: $2
   - name: category
     singleValue: false
+    xpath: //*[@id="breadcrumb-heading"]/following-sibling::ol/li/a[not(.="Home")]
     description: The categories (e.g. from breadcrumbs)
     example:
       - Dental Care
@@ -52,7 +53,6 @@ fields:
       - Electric Toothbrushes & Accessories
       - Electric Toothbrushes
       - Rotating
-    xpath: //ol[@class='list-reset']/li
   - name: subCategory
     xpath: concat(//ol[@class='list-reset']/li[position()=2],' > ',//ol[@class='list-reset']/li[position()=3])
   - name: description

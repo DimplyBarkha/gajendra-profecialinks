@@ -163,7 +163,10 @@ const implementation = async (
 
     document.body.append(available);
   }, zipcode);
-
+  await context.evaluate(() => {
+    Array.from(document.querySelectorAll('[class="NutritionIngredients-Disclaimer"] a'))
+      .filter(elm => elm.innerText.includes('Read More')).forEach(elm => elm.click());
+  });
   return await context.extract(productDetails, { transform });
 };
 
