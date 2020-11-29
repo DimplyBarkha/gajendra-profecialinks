@@ -9,9 +9,6 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: //div[@class="product-image__nav-scroll"]//button[contains(@class, "product-image__nav-item--active")]//img/@alt
-  - name: alternateImages
-    singleValue: false
-    xpath: //div[@class="product-image__nav-scroll"]//button[contains(@class, "product-image__nav-item--video")]//img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -75,3 +72,6 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[contains(@class, "js-pdp-accordion-specification")]//tr/th
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class, "product-image__video-player-main")]//video/@src
