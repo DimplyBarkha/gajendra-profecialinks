@@ -4,8 +4,14 @@ parameters:
   domain: walmart.com
   store: walmart
   zipcode: ""
+policy:
+  numberRetries: 20
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 99
 proxy:
-  zone: ZUS
+  zone: USA
   type: RESIDENTIAL
 meta:
   branches:

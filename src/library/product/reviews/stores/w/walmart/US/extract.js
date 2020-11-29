@@ -6,18 +6,8 @@ module.exports = {
     country: 'US',
     store: 'walmart',
     transform,
-    filterReviews: null,
+    filterReviews: true,
     domain: 'walmart.com',
     zipcode: '',
-  },
-  // implementation: async (
-  //   { url, id, zipcode, date, days },
-  //   { reviewUrl, sortButtonSelectors, loadedSelector, noResultsXPath },
-  //   context,
-  //   dependencies,
-  // ) => {
-  //   await context.evaluate(async function () {
-  //     console.log('testing');
-  //   });
-  // },
+  }
 };
