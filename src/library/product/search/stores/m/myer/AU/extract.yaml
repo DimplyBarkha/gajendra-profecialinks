@@ -12,8 +12,8 @@ fields:
   - name: producturl
     xpath: //h3/a/@href
     singleValue: false
-    regExp: (https://www.myer.com.au)?(.+)
-    regExpReplace: https://www.myer.com.au$2
+    regExp: (.+)
+    regExpReplace: https://www.myer.com.au$1
   - name: brandText
     xpath: //h3//span[@data-automation='product-brand']
     singleValue: false    
