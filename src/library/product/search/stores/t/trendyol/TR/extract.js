@@ -41,34 +41,35 @@ module.exports = {
         document.querySelector('.prdct-cntnr-wrppr > div:nth-child(13)').scrollIntoView({ behavior: 'smooth' });
       });
     }
-    await context.evaluate(async function () {
-      const URL = window.location.href;
-      function addHiddenDiv(id, content, index) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll('div div.p-card-wrppr')[index];
-        originalDiv.appendChild(newDiv);
-        console.log('child appended ' + index);
-      }
-      const product = document.querySelectorAll('div div.p-card-wrppr');
-      // select query selector and loop and add div
-      for (let i = 0; i < product.length; i++) {
-        addHiddenDiv('page_url', URL, i);
-      }
-    });
+    // await context.evaluate(async function () {
+    //   const URL = window.location.href;
+    //   function addHiddenDiv(id, content, index) {
+    //     const newDiv = document.createElement('div');
+    //     newDiv.id = id;
+    //     newDiv.textContent = content;
+    //     newDiv.style.display = 'none';
+    //     const originalDiv = document.querySelectorAll('div div.p-card-wrppr')[index];
+    //     originalDiv.appendChild(newDiv);
+    //     console.log('child appended ' + index);
+    //   }
+    //   const product = document.querySelectorAll('div div.p-card-wrppr');
+    //   // select query selector and loop and add div
+    //   for (let i = 0; i < product.length; i++) {
+    //     addHiddenDiv('page_url', URL, i);
+    //   }
+    // });
 
     const mainUrl = await context.evaluate(async function () {
       return document.URL;
     });
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
-          await stall(2000);
-          scrollTop += 1000;
+          await stall(3000);
+          scrollTop += 500;
           window.scroll(0, scrollTop);
           if (scrollTop === 20000) {
             await stall(5000);
@@ -85,6 +86,7 @@ module.exports = {
       });
     };
     await applyScroll(context);
+
     var results = await context.evaluate(async function () {
       const result = [];
       (document.querySelectorAll('div.prdct-cntnr-wrppr div a')).forEach((elem) => {
