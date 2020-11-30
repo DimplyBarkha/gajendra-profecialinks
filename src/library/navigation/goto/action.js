@@ -38,7 +38,7 @@ module.exports = {
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
-      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
+      await dependencies.setZipCode({ url, zipcode, storeId });
     }
   },
 };
