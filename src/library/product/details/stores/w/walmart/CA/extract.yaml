@@ -45,6 +45,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //div[contains(text(), "SKU")]//following::div[1]
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(text(), "SKU")]//following::div[1]
   - name: packSize
     singleValue: false
     xpath: //span[@data-automation="quantity"]/input/@value
@@ -81,3 +84,6 @@ fields:
   - name: privacyPolicy
     singleValue: false
     defaultValue: "Yes"
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
