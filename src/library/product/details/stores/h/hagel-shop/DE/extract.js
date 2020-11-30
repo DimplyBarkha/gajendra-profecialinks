@@ -34,13 +34,14 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-
+//variants
       var vari = getAllXpath('//div[@class="simple-product-list"]//td/a[@class="product-name"]/strong/text()', 'nodeValue');
       if (vari != null) {
         var variants = vari.join(" | ");
         addElementToDocument('variants', variants);
       }
 
+//aggregate rating
       var agg = getXpath('//div[@class="col-sm-7"]//div[@class="rating-box"]/div/@style', 'nodeValue');
       if (agg != null) {
         var aggregate = agg.split(":")[1].slice(0, -1);
@@ -48,7 +49,7 @@ module.exports = {
         addElementToDocument('aggregate', aggregate);
       }
 
-      //specifications
+//specifications
       var spec = getAllXpath('//div[@id="product_attributes"]/table/tbody/tr/th/text()', 'nodeValue');
       var spec2 = getAllXpath('//div[@id="product_attributes"]/table/tbody/tr/td/text()', 'nodeValue');
       if(spec != null){
@@ -63,6 +64,30 @@ module.exports = {
         // var specifications = spec.join(" || ");
         addElementToDocument('specifications', specifications);
       }
+
+//price 
+      var price = getXpath('//div[@class="price-details"]/div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text() | //div[@class="simple-product-list"]/table/tbody/tr[1]//p[@class="special-price"]/span[@class="price"]/text() | //div[@class="price-details"]/div[@class="price-box"]/span[@class="regular-price"]//span[@class="price"]/text()', 'nodeValue');
+      if(price != null){
+        price = price.replace(",",".");
+        addElementToDocument('price', price);
+      }
+
+//size [ quantity ]
+      var size = getXpath("//th[contains(text(),'Menge')]/following::td[1]/text() | //div[@class='product_description row']//p/strong[contains(text(),'ml')]/text()", 'nodeValue');
+      if( size != null ){
+        addElementToDocument('size', size);
+      } else {
+        size = getXpath('//div[@class="page-title product-name"]/h1/text()', 'nodeValue');
+        if(size != null){
+          var ar = size.split(" ");
+          if(ar[ar.length-1]="ml"){
+            size = ar[ar.length-2]+" ml";
+            addElementToDocument('size', size);
+          }
+        }
+      }
+      
+
 
 
     });
