@@ -8,7 +8,7 @@ module.exports = {
     transform,
     filterReviews: true,
     domain: 'totalwine.com',
-    mergeType: 'MERGE_TYPE',
+    mergeType: 'MERGE_ROWS',
     zipcode: '',
-  }
+  },
 };

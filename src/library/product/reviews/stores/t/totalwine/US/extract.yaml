@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[@class="bv-content-item bv-content-top-review bv-content-review"]
+recordXPath: //*[@class="bv-content-list bv-content-list-reviews"]/li[@itemprop="review"]
 fields:
   - name: helpfulCount
     singleValue: false
@@ -38,7 +38,7 @@ fields:
   - name: reviewTitle
     singleValue: false
     description: The title of the review
-    xpath: //div[contains(@class, 'bv-content-title-container')]//h3[contains(@*, 'bv-content-title')]/text()
+    xpath: //h3[@itemprop="headline"]
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
@@ -74,6 +74,6 @@ fields:
   - name: aggregateRating
     description: The product rating
   - name: reviewAuthor
-    xpath: //div[contains(@class, 'bv-content-author-name')]//h3/text()
+    xpath: (//div[@class="bv-author"])[1]
   - name: reviewRatingScale
     xpath: //div[contains(@class, 'bv-content-header-meta')]//meta[contains(@*, 'bestRating')]/@content
