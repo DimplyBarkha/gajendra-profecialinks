@@ -11,7 +11,7 @@ async function implementation (
   await new Promise((resolve) => setTimeout(resolve, 3000));
   // Check for noResultXpath
   const noResultXpath = await context.evaluate(async function () {
-    const noXpath = document.evaluate('//h1[contains(text(), "did not match any products")] | //span[contains(text(), "Select a product")]',
+    const noXpath = document.evaluate('//h1[contains(text(), "did not match any products")] | //span[contains(text(), "Select a product")] | //h1[contains(text(), "Page Not Found")]',
       document, null, XPathResult.STRING_TYPE, null);
     if (noXpath.stringValue) {
       return noXpath.stringValue;

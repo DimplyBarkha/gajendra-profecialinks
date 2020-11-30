@@ -2,7 +2,7 @@ input:
   RPC: 111539
   _url: http://viovet.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=acc9a286-5c0c-4061-94c1-f9132f2a3943/task=199732f5-614b-4b45-b7a5-47478a55ad9b/ee14a43c-f8eb-4121-9b79-a9a589194f05.html
+  - html: https://workbench.import.io/html/run=18b433e3-e9a4-4f89-91eb-0cc94d05916f/task=28c6a659-6f10-4cc5-870a-509d87e3149c/9b6a8a79-ea3f-4690-9c08-8739969162e6.html
     extractionConfigId: product/details/stores/v/viovet/UK/extract
     data:
       - group:
@@ -10,12 +10,12 @@ extractions:
               - text: https://www.viovet.co.uk/PRO-PLAN-Optistart-Original-Kitten-Dry-Cat-Food-Chicken/c5997/?quick_find=111539
                 xpath: /html/body/@url
             image:
-              - text: //static2.viovet.co.uk/opt/s=kr/pi/image_import_1575630982.jpg
+              - text: https://static2.viovet.co.uk/opt/s=kr/pi/image_import_1575630982.jpg
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
             alternateImages:
-              - text: //static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/purina-pro-plan-original-kitten-dry-cat-food-with-optistart-op60.jpg.webp
+              - text: https://static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/purina-pro-plan-original-kitten-dry-cat-food-with-optistart-op60.jpg.webp
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@content
-              - text: //static2.viovet.co.uk/opt/s=kr/pi/image_import_1575631048.jpg.webp
+              - text: https://static2.viovet.co.uk/opt/s=kr/pi/image_import_1575631048.jpg.webp
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/img[1]/@content
             category:
               - text: Cats
@@ -364,4 +364,4 @@ extractions:
             quantity:
               - text: "1"
         xpath: /html
-    timestamp: 1606306819099
+    timestamp: 1606730244891

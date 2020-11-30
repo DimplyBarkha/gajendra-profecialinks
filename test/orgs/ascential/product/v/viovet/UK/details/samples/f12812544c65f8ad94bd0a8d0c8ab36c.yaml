@@ -2,7 +2,7 @@ input:
   RPC: 111578
   _url: http://viovet.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=acc9a286-5c0c-4061-94c1-f9132f2a3943/task=06365569-b456-4d59-a154-6b317583d1b5/2fbafc81-c20f-43d5-a529-5a734922ed1e.html
+  - html: https://workbench.import.io/html/run=18b433e3-e9a4-4f89-91eb-0cc94d05916f/task=2ef897d0-149f-4bda-9df5-cdbf5e622318/c4477534-5779-4e24-b66a-679ad489a4c5.html
     extractionConfigId: product/details/stores/v/viovet/UK/extract
     data:
       - group:
@@ -10,12 +10,12 @@ extractions:
               - text: https://www.viovet.co.uk/PRO-PLAN-VETERINARY-DIETS-DRM-Dermatosis-Dry-Dog-Food/c541/?quick_find=111578
                 xpath: /html/body/@url
             image:
-              - text: //static1.viovet.co.uk/opt/s=kr/pi/image_import_1575561890.jpg
+              - text: https://static1.viovet.co.uk/opt/s=kr/pi/image_import_1575561890.jpg
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
             alternateImages:
-              - text: //static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/drm-formula-onro.jpg.webp
+              - text: https://static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/drm-formula-onro.jpg.webp
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@content
-              - text: //static2.viovet.co.uk/opt/s=kr/pi/image_import_1575561860.jpg.webp
+              - text: https://static2.viovet.co.uk/opt/s=kr/pi/image_import_1575561860.jpg.webp
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/img[1]/@content
             category:
               - text: Dogs
@@ -227,4 +227,4 @@ extractions:
             quantity:
               - text: "1"
         xpath: /html
-    timestamp: 1606306820845
+    timestamp: 1606730244425

@@ -2,7 +2,7 @@ input:
   RPC: 111742
   _url: http://viovet.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=acc9a286-5c0c-4061-94c1-f9132f2a3943/task=06ec60a2-7c99-462d-98f6-98a8e0e64270/0f272ab0-43f0-4568-9fc3-aadafe0dcf40.html
+  - html: https://workbench.import.io/html/run=18b433e3-e9a4-4f89-91eb-0cc94d05916f/task=a344886f-2ff7-4813-a4da-96197b959838/dddc1b18-1f9f-4897-9059-582eac7681bb.html
     extractionConfigId: product/details/stores/v/viovet/UK/extract
     data:
       - group:
@@ -10,18 +10,18 @@ extractions:
               - text: https://www.viovet.co.uk/Bakers-Dental-Delicious-Dog-Chews/c5729/?quick_find=111742
                 xpath: /html/body/@url
             image:
-              - text: //static2.viovet.co.uk/opt/s=kr/pi/image_import_1504099206.jpg
+              - text: https://static2.viovet.co.uk/opt/s=kr/pi/image_import_1504099206.jpg
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/img[1]/@src
             alternateImages:
-              - text: //static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/bakers-dental-delicious-spx8.jpg.webp
+              - text: https://static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/bakers-dental-delicious-spx8.jpg.webp
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@content
-              - text: //static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/bakers-dental-delicious-6ddg.jpg.webp
+              - text: https://static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/bakers-dental-delicious-6ddg.jpg.webp
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@content
-              - text: //static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/bakers-dental-delicious-osol.jpg.webp
+              - text: https://static1.viovet.co.uk/opt/s=kr,width=360,height=360/familygallery/bakers-dental-delicious-osol.jpg.webp
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/img[1]/@content
-              - text: //static1.viovet.co.uk/opt/s=kr/pi/image_import_1504099230.jpg.webp
+              - text: https://static1.viovet.co.uk/opt/s=kr/pi/image_import_1504099230.jpg.webp
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/img[1]/@content
-              - text: //static2.viovet.co.uk/opt/s=kr/pi/image_import_1504099174.jpg.webp
+              - text: https://static2.viovet.co.uk/opt/s=kr/pi/image_import_1504099174.jpg.webp
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6]/img[1]/@content
             category:
               - text: Dogs
@@ -65,13 +65,13 @@ extractions:
               - text: "111742"
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[4]/span[1]/span[1]
             ratingCount:
-              - text: "7"
+              - text: "8"
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/a[1]/span[2]/span[1]
             aggregateRatingText:
-              - text: "4.7"
+              - text: "4.8"
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
             aggregateRating:
-              - text: "4.7"
+              - text: "4.8"
                 xpath: /html/body/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
             inStorePrice:
               - text: £1.89
@@ -100,4 +100,4 @@ extractions:
             quantity:
               - text: "1"
         xpath: /html
-    timestamp: 1606306892048
+    timestamp: 1606730246781

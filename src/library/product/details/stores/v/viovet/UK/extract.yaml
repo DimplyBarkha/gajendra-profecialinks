@@ -16,6 +16,8 @@ fields:
   singleValue: false
   description: URL of the main product image
   xpath: //div[@class='swiper-slide swiper-slide-active']/img[1]/@src
+  regExp: (.+)
+  regExpReplace: https:$1
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
@@ -24,6 +26,7 @@ fields:
   description: Other product images (not in manufacturer description)
   xpath: //div[contains(@class, 'swiper-slide')][not(@class='swiper-slide swiper-slide-active')]/img[1]/@content
   regExp: ([\/A-z\d\.\=\,\-]+)
+  regExpReplace: https:$1
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
