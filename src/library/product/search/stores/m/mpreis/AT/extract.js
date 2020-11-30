@@ -50,10 +50,8 @@ async function implementation (
     };
 
     const curentUrl = window.location.href.match(/(.+)\?/)[1];
-    console.log(`URL TO JEST: ${curentUrl}`);
 
     const allProducts = document.querySelectorAll('a[class*="c3-product-grid__item"]');
-    console.log(`All products length is ${allProducts.length}`);
     for (let i = 0; i < allProducts.length; i++) {
       console.log(`All products length is ${allProducts.length}`);
       addProp('span.c3-product__name', i, 'rank', `${i + 1}`);
