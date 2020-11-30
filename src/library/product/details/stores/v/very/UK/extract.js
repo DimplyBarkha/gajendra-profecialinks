@@ -1,13 +1,13 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
     await new Promise((resolve, reject) => setTimeout(resolve, 750));
 
-    function addElementToDocument(id, value, key) {
+    function addElementToDocument (id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -21,12 +21,11 @@ async function implementation(inputs, parameters, context, dependencies) {
     // @ts-ignore
     if (isAvailable !== null && isAvailable.innerText === 'Out of stock') {
       addElementToDocument('isAvailable', 'Out of Stock', 'No');
-    } else if (document.querySelector('div#addToBasket input#addToBasketButton').value === "Add to basket") {
+    } else if (document.querySelector('div#addToBasket input#addToBasketButton').value === 'Add to basket') {
       addElementToDocument('isAvailable', 'In Stock', 'Yes');
     } else {
       addElementToDocument('isAvailable', '', 'No');
     }
-
 
     const isImgZoom = document.querySelector('li.amp-slide div.amp-zoom-overflow img')
       ? document.querySelector('li.amp-slide div.amp-zoom-overflow img') : null;
@@ -42,7 +41,6 @@ async function implementation(inputs, parameters, context, dependencies) {
     const regex = /(\d+)/;
     // @ts-ignore
     document.querySelector('body').setAttribute('ratingcount', ratingCount.match(regex)[1]);
-
   });
   return await context.extract(productDetails, { transform });
 }
@@ -51,8 +49,9 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'very',
-    transform: null,
+    transform: transform,
     domain: 'very.co.uk',
     zipcode: '',
-  }, implementation,
+  },
+  implementation,
 };

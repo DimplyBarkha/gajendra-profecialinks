@@ -7,7 +7,8 @@ module.exports = {
     country: 'UK',
     store: 'very',
     zipcode: '',
-  }, implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
+  },
+  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     await context.setBlockAds(false);
     await context.setFirstRequestTimeout(100000);
     await context.goto(url,
