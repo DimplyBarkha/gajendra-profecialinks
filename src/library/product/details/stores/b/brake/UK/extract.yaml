@@ -9,7 +9,9 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
-  xpath: //div[contains(@id, "productUrl")]
+  xpath: //form[@id="quantityCartPost"]/@action
+  regExp: (.+)
+  regExpReplace: https://www.brake.co.uk$1
 - name: _pageTimeStamp
   singleValue: false
 - name: image
