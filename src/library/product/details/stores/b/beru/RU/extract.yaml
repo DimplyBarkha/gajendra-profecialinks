@@ -115,7 +115,7 @@ fields:
   - name: imageCount
     xpath: count(//ul[@data-tid="2c199bef"]//li//img/@src | /html[not(//ul[@data-tid="2c199bef"]//li//img/@src)]//meta[@property="og:image"]/@content)
   - name: manufacturer
-    xpath: //div[@data-zone-name="productVendor"]//div[2]
+    xpath: //div[@data-zone-name="productVendor"]//div[2]|//div[@data-apiary-widget-name="@marketplace/SkuVendorInfo"]//a[2]
   - name: productDescriptionLength
   - name: productDescriptionWordCount  
   - name: ratingScale
