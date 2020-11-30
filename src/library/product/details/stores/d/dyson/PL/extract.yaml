@@ -1,0 +1,92 @@
+extends: ../shared 
+fields:
+  - name: image
+    xpath: (//div[contains(@class,'hero__media')]//img)[1]/@src|(//div[contains(@class,'hgroup__main-image')]//img)[1]/@src
+  - name: imageAlt
+    xpath: (//div[contains(@class,'hero__media')]//img)[1]/@alt|(//div[contains(@class,'hgroup__main-image')]//img)[1]/@alt
+  - name: alternateImages #missing
+    singleValue: false
+    xpath: //div[contains(@class, "slider__list__slide")]//img/@src
+    description: Other product images (not in manufacturer description)
+  - name: nameExtended
+    singleValue: true
+    xpath: //h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1
+  - name: price
+    singleValue: true
+    xpath: translate(//span[@data-price-type="finalPrice"]/@data-price-amount|//meta[@property="product:price:amount"]/@content, ".", ",")
+  - name: listPrice
+    singleValue: true
+    xpath: translate(//div[contains(@class, "hero")]//span[@data-price-type="oldPrice"]/@data-price-amount, ".", ",")
+  - name: priceCurrency
+    default: zł
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class, "product__action")]//button[@title="Dodaj do koszyka"]
+    default: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]|//div[contains(@class, "product__claims")]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]//li|//div[contains(@class, "product__claims")]//li)
+  - name: weightNet #localedependent
+    singleValue: true
+    regExp: ([0-9,\.]+.+)
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'Waga')]])[1]
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //script[contains(text(), "productSKU")]
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //script[contains(text(), "productSKU")]
+  # - name: mpc
+  #   singleValue: true
+  #   description: The manufacturer model code (unique) of the product
+  #   xpath: //script[contains(text(), "productSKU")]
+  - name: ratingCount
+    singleValue: true
+    xpath: (//span[@itemprop="reviewCount"])
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+    xpath: (//span[@itemprop="ratingValue"])[1]
+  - name: aggregateRating
+    singleValue: true
+    xpath: (//span[@itemprop="ratingValue"])[1]
+  - name: aggregateRating12
+    singleValue: true
+    xpath: (//span[@itemprop="ratingValue"])[1]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'promos')]//text()
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[contains(@class,'promos')]//img/@src
+  - name: videos #localedependent
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[contains(@id, "product_mini_gallery_video")]//video//source/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1
+  - name: warranty #localedependent
+    singleValue: true
+    description: Guarantee associated with the product
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),'icon-info-set')][.//.//*[contains(text(),'gwarancji')]])//strong[contains(text(),'gwarancji')]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]//li||//div[contains(@class, "product__claims")]//li
+  - name: termsAndConditions #localedependent
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: 'No'
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    # xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'Długość') or contains(text(), 'Szerokość') or contains(text(), 'Wysokość') or contains(text(), 'Średnica')] ])
+    xpath: //div[contains(@class,"spec-set__list")]/ul

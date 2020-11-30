@@ -1,0 +1,306 @@
+input:
+  _url: http://dyson.co.uk
+  URL: https://www.dyson.co.uk/sticks/dyson-v11-absolute-nickel-blue.html
+extractions:
+  - html: https://workbench.import.io/html/run=ddf16d9b-0628-44a8-aa26-1dcf09c63d70/task=40ad72f2-4a61-48d7-86a7-509051269371/8207f951-dab2-4054-a0ce-82d9a1cb32fb.html
+    extractionConfigId: product/details/stores/d/dyson/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/vacuum-cleaners-category/7452271-FC-August-BH--Leap-PDP%20(1).jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V11 Absolute vacuum
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/form[1]/a[1]/text()[1]
+            description:
+              - text: >-
+                  Dyson V11 Absolute vacuum (Nickel/Blue)
+                   
+                  Engineered to deep clean, anywhere.
+                   
+                  Up to 60 minutes of powerful floor cleaning.¹
+                   
+                  Free next-day delivery.
+                   
+                  2-year guarantee on machine and parts, including filter and battery.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "1099"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+                type: NUMBER
+                raw: 1099 Reviews
+                locale: en_GB
+                value: 1099
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            name:
+              - text: Dyson V11 Absolute vacuum (Nickel/Blue)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            firstVariant:
+              - text: Nickel / Blue
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@alt
+            variants:
+              - text: Nickel / Blue
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@alt
+              - text: Gold
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/span[1]/img[1]/@alt
+            shippingInfo:
+              - text: >-
+                  Free scheduled delivery
+                   
+
+                   
+                  Free next-day delivery
+                   
+                  Please note, the cut off for next-day delivery on Saturday 12 & Sunday 13 September 2020 is 4pm.
+                   
+                  On orders placed before 8pm seven days a week. (Location restrictions apply, please click here for details)
+                   
+
+                   
+                  Scheduled delivery
+                   
+                  Pick a day and time slot that suits you. Free options available.
+                   
+                  Click and collect
+                   
+                  We’ll deliver your machine to a pick-up location of your choice.
+                   
+                  Spares, tools and accessories
+                   
+                  Please note that spares, tools and accessories are dispatched separately and will be delivered within 3-5 days.
+                   
+                  This is charged at £3 for orders under £35, or free for orders over £35.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]
+            warranty:
+              - text: >-
+                  Money back guarantee
+                   
+
+                   
+                  Money back guarantee.
+                   
+                  We offer a 35-day returns policy, in case you change your mind (on vacuums, hair care, lighting, purifiers, fans and heaters only).
+                   
+                  - You may cancel up to 35 days after receiving your machine.
+                   
+                  - Contact us on 0800 298 0298 or askdyson@dyson.co.uk to cancel.
+                   
+                  See our returns policy for further details.
+                   
+
+                   
+
+                   
+                  2-year or 5-year guarantee.
+                   
+                  We don't stop caring about our machines once they're yours. We offer a guarantee on parts and labour.
+                   
+                  5-year guarantee on:
+                   
+                  - Upright and cylinder vacuums.
+                   
+                  2-year guarantee on:
+                   
+                  - Cordless vacuums;
+                   
+                  - Hair dryers;
+                   
+                  - Purifiers, fans and heaters.
+                   
+                  Auto registration
+                   
+                  Register your guarantee automatically when buying direct.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]
+            weightNet:
+              - text: 3.01 kg
+                xpath: /html/body/main[1]/div[2]/div[16]/section[1]/div[1]/ul[1]/li[2]
+            specifications:
+              - text: |-
+                  Height
+                   
+                   261 mm 
+                   
+                   
+                   
+                  Length
+                   
+                   1,286 mm 
+                   
+                   
+                   
+                  Width
+                   
+                   250 mm
+                xpath: /html/body/main[1]/div[2]/div[16]/section[1]/div[1]/div[1]/ul[1]
+            category:
+              - text: Shop
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Vacuum cleaners
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Cordless stick vacuums
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+              - text: Dyson V11™ vacuums
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[5]/span[1]/a[1]/span[1]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[6]/div[1]
+            sku:
+              - text: 298793-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 298793-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 298793-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Nickel-Blue
+                xpath: /html/body/div[10]
+            currencyOverride:
+              - text: £
+                xpath: /html/body/div[11]
+            price:
+              - text: "599.00"
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson V11 Absolute vacuum (Nickel/Blue) - Nickel / Blue
+                xpath: /html/body/div[13]
+            variantInformation:
+              - text: Nickel / Blue
+                xpath: /html/body/div[14]
+            productOtherInformation:
+              - text: Cleaner head High Torque & Soft Roller Weight 3.01 kg Charge time 4.5 hrs
+                  Run time Up to 60 min Cyclone technology 14 concentric
+                  cyclones Filtration Advanced whole-machine filtration Bin
+                  volume 0.76 L Run time (Suction mode 1) Up to 60 min Suction
+                  Power (Boost Mode) 185 AW Height 261 mm Length 1,286 mm Width
+                  250 mm
+                xpath: /html/body/div[15]
+            manufacturerDescription:
+              - text: Twice the suction of any other cordless vacuum¹ Cord-free cleaning, made
+                  easier, with twice the suction of any other cordless vacuum.¹
+                  With fade-free battery power and a battery-saving trigger.
+                  Monitors system performance and reports in real time on the
+                  LCD screen to give you control of your clean. Features The
+                  right cleaning mode for the right task Three cleaning modes
+                  optimised for a variety of tasks. The right balance of power
+                  and run time, where you need it. Powerful cleaning on floors
+                  and carpets An integrated digital motor spins the brush bar up
+                  to 60 times a second. It drives stiff nylon bristles deep into
+                  carpet to remove dirt, while carbon fibre filaments capture
+                  fine dust on hard floors. Intelligently reports in real time
+                  Monitors system performance 8,000 times a second, then reports
+                  in real time on the LCD screen. Unique battery power
+                  management system Dyson’s power-optimising technology and
+                  battery-saving trigger help maximise run time, only using
+                  power when you need it. ‘Point and shoot’ hygienic bin
+                  emptying The ‘point and shoot’ mechanism hygienically ejects
+                  dust and debris deep into your bin, in one action – so there’s
+                  no need to touch the dirt. Drop-in docking The Dyson V11™
+                  vacuum drops into the wall-mounted dock, to charge it and
+                  tidily store tools. So it’s ready to grab and go. Click-in
+                  battery pack It's easy to remove and replace the click-in
+                  battery at the press of a button. If you have a spare battery,
+                  we recommend that you swap them out from time to time, so that
+                  they both have time to naturally discharge. Learn more about
+                  battery life and maintenance. Washable filter Washing your
+                  Dyson filter is quick and easy and keeps your machine
+                  performing at its best. Once washed, leave it for at least 24
+                  hours in an area with good airflow, to ensure it's completely
+                  dry before returning it to the machine. Learn more about how
+                  to care for your filter. Technology Fade-free power The
+                  seven-cell nickel-cobalt-aluminium battery has the fade-free
+                  power to clean here, there and everywhere around your home.
+                  Learn more about your battery life and how to preserve its
+                  power. Powered by a Dyson Hyperdymium™ motor Spins at up to
+                  125,000rpm, creating more suction power than most corded
+                  vacuums.² Radial Root Cyclone™ technology 14 cyclones generate
+                  forces of 79,000g to fling dust into the bin without clogging
+                  the filter, so there’s no loss of suction. Advanced
+                  whole-machine filtration Dyson's fully-sealed, six-layer
+                  filtration system is developed by the same engineers that make
+                  Dyson machines. It's tested to trap 99.97% of particles as
+                  small as 0.3 microns² – and expel cleaner air into your home.
+                  Acoustically engineered Designed to absorb vibrations and
+                  dampen noise, to keep sound levels down. In-line configuration
+                  The motor, bin and cyclone are aligned, so air is drawn into
+                  the cyclones in a straight line – helping to create powerful
+                  Dyson suction. Are you an owner?
+                xpath: /html/body/div[16]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/gb/fc/tr-logo-large-1.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/div[17]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/right-cleaning-modes?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Features%202.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Features%203.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Features%204.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Features%205.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Features%206.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Features%207.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[8]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/services-and-support/filter-care/dyson-v11-filter-clean-feature.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[9]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Tech%201.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[10]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Tech%202.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[11]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Tech%203.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[12]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Tech%204.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[13]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Tech%205.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[14]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248l-j/variants/features/Tech-6.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[15]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/icons/owner-footer/register-my-machine.png?scl=1&fmt=png-alpha
+                xpath: /html/body/div[17]/ul[1]/li[16]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/icons/owner-footer/tools-accessories.png?scl=1&fmt=png-alpha
+                xpath: /html/body/div[17]/ul[1]/li[17]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/icons/owner-footer/spares-replacement-parts.png?scl=1&fmt=png-alpha
+                xpath: /html/body/div[17]/ul[1]/li[18]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/icons/owner-footer/support.png?scl=1&fmt=png-alpha
+                xpath: /html/body/div[17]/ul[1]/li[19]
+            videos:
+              - text: www.dyson.co.uk/content/dam/dyson/video/products/primary/298793-01.mp4
+                xpath: /html/body/div[19]/ul[1]/li[1]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            enhancedContentHTML:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            variantCount:
+              - text: "2"
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+        xpath: /html
+    timestamp: 1600336076958

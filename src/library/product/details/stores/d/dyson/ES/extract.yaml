@@ -1,0 +1,10 @@
+extends: ../shared 
+fields:
+  - name: availabilityText
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'cesta')]//text()
+  - name: weightNet
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Peso')]])[1]
+  - name: shippingInfo
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'nvío')]])[1]
+  - name: warranty
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arantía ')][not(contains(text(),'devolución'))]])[1]
