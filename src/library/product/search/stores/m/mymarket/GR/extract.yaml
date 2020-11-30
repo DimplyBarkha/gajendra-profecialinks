@@ -1,5 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"findastic-content")]//div[contains(@class,"views-row--product-teaser views-row")]
+fields: 
+  - name: productUrl
+    singlgeValue: false
+    xpath: //div[contains(@class,"findastic-content")]//a[contains(@class,"product-link")]/@href
+  - name: id
+    singlgeValue: false
+    xpath: //div[contains(@class,"findastic-content")]//div[@class="field__item"]/form/@data-variation-id

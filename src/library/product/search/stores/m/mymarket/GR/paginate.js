@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div.findastic-content',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'mymarket.gr',
