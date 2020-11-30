@@ -6,7 +6,7 @@ module.exports = {
     store: 'semprefarmacia',
     domain: 'semprefarmacia.it',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="tesros12"]',
     zipcode: '',
   },
 };
