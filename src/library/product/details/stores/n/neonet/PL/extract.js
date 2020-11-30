@@ -32,22 +32,108 @@ async function implementation (
   }
   await new Promise((resolve) => setTimeout(resolve, 10000));
   // Function to check whether video content exists
-  async function checkVideo () {
-    return await context.evaluate(async function () {
+  let productUrl = '';
+  async function checkVideo (productUrl) {
+    return await context.evaluate(async function (productUrl) {
+      productUrl = window.location.href;
+      async function timeout(ms) {
+        console.log('waiting for ' + ms + ' millisecs');
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+      let videoThumbnail = document.querySelectorAll('button[class*="commonCss-thumb-Dw9"] button[class*="playIcon"]');
+      if(videoThumbnail.length > 0) {
+        videoThumbnail[0].parentElement.parentElement.parentElement.click();
+        await timeout(3000);
+      } else {
+        console.log('we do not have any thumbnail for video');
+      }
+     
       const videoSelector = document.evaluate('//iframe[@title="movie"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const videoSrc = videoSelector ? videoSelector.src : '';
+      let videoSrc = '';
+      if(videoSelector && videoSelector.hasAttribute('src')) {
+        videoSrc = videoSelector.src;
+      } else {
+        console.log('iframe has no src');
+      }
+
+      console.log(videoSrc + ' is the video link that we need to check');
       if (videoSrc) {
+        // let videoSrc = "https://www.youtube.com/embed/dqbmkF7rn0k?rel=0&enablejsapi=1&version=3&playerapiid=ytplayer";
+        const regex = /embed\/(.+)\?/g;
+        let codeElm = [];
+        let code = ""
+        if(videoSrc.includes("youtube")) {
+          console.log('video link is - ' + videoSrc);
+          codeElm = [...videoSrc.matchAll(regex)];
+          code = codeElm[0][1];
+          let gotoVideoUrl = '';
+          if(code) {
+            gotoVideoUrl = `https://www.youtube.com/watch?v=${code}`;
+            console.log('video url to go to is - ' + gotoVideoUrl);
+          } else {
+            console.log('we do not have the code to go to url');
+          }
+          return gotoVideoUrl;
+        } else {
+        console.log("This is not a youtube video - not sure if it is playable or not");
+        }
+
         return videoSrc;
       } else {
+        console.log('we do not have the video link in the iframe');
         return false;
       }
-    });
+    }, productUrl);
   }
 
-  const videoLink = await checkVideo();
+  async function checkVideoPlayable (videoLink) {
+    await context.goto(videoLink, {
+      firstRequestTimeout: 60000,
+      timeout: 40000,
+      waitUntil: 'load',
+      checkBlocked: true,
+      antiCaptchaOptions: {
+        type: 'RECAPTCHA',
+      },
+    });
+    try {
+       await context.waitForSelector('div[class*="g-recaptcha"]');
+       // @ts-ignore
+       await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+       await context.waitForNavigation();
+    } catch (err) {
+      console.log('either captcha not found or not solved', err.message);
+    }
+
+    return await context.evaluate(async function () {
+      let videoPlayable = true;
+      let b = document.evaluate('//script[contains(.,"ytInitialData")]', document, null, 7, null);
+      if(b.snapshotLength > 0 && b.snapshotItem(0).textContent) {
+        videoPlayable = !(b.snapshotItem(0).textContent.trim().includes("Video unavailable"));
+      }
+  
+      console.log('is video playable - ' + videoPlayable);
+      return videoPlayable;
+    });
+  }
+  
+  
+
+  let videoLink = await checkVideo(productUrl);
   // console.log('videoLink ....', videoLink);
   await new Promise((resolve) => setTimeout(resolve, 10000));
+  console.log('product url is - ' + inputs.url);
   console.log('Correct till here...............videoLink --', videoLink);
+  let videoPlayable = true;
+  if(videoLink && videoLink.includes("youtube")) {
+    videoPlayable = await checkVideoPlayable(videoLink);
+  }
+  if(!videoPlayable) {
+    videoLink = '';
+  }
+
+  await context.goto(inputs.url);
+  await context.waitForNavigation();
   // Function to check whether manufacturer content exists
   async function checkmanufacturerContent () {
     return await context.evaluate(async function () {
