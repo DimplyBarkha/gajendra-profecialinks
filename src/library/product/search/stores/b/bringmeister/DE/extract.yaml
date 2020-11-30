@@ -6,12 +6,12 @@ fields:
   - name: productUrl
     xpath: //div[@data-cy="productInfoTitle"]/a/@href
     regExp: (.+)
-    regExpReplace: https://www.bringmeister.de/$1
+    regExpReplace: https://www.bringmeister.de$1
     description: The URL for the product details page
   - name: thumbnail
     xpath: //div[@class="css-1nj8hlg er7sitt0"]//@src
     regExp: (.+)
-    regExpReplace: https:$1
+    regExpReplace: https://www.bringmeister.de$1
     description: The URL for the product thumbnail image
   - name: name
     xpath: //span[@class="css-d9sin2 e1gyaih30"]
@@ -21,8 +21,7 @@ fields:
     description: The store-specific product identifier
     regExp: \d+
   - name: price
-    xpath: (//p[@class="DQd30"][2])
-    regExp: ^[^\s]+
+    xpath: //div[@class="css-5hsjzt e14k98vr0"]
     type: CURRENCY
     description: The offered price for the product
   - name: quantity
@@ -32,9 +31,6 @@ fields:
     regExp: ((\s+)\d+(.+))$
   - name: rank
     singleValue: false
-    xpath: //div[@id='rankOrganic']
   - name: rankOrganic
     singleValue: false
-    type: NUMBER
-    xpath: //div[@id='rankOrganic']
     
