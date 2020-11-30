@@ -82,9 +82,11 @@ const transform = (data) => {
         row.description.forEach(element => {
           desc += '' + element.text;
         });
-        row.additionalDescBulletInfo.forEach((ele) => {
-          desc += ' || ' + ele.text;
-        });
+        if(row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo.forEach((ele) => {
+            desc += ' || ' + ele.text;
+          });
+        }
         row.description = [{
           text: desc.trim(),
         }];
