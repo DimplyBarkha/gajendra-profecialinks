@@ -16,6 +16,15 @@ const transform = (data, context) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.nutritionInfo) {
+        let text = '';
+        text = row.nutritionInfo.map(element => element.text.trim()).join(' ');
+        row.nutritionInfo = [{ text }]
+      }
+    }
+  }
   const state = context.getState();
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
