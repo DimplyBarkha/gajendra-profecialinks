@@ -1,97 +1,56 @@
+
 singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //div[@id='added_row']
 fields:
-  - name: name
-    singleValue: true
-    description: The product name
-    xpath: //div[@id='added_row']/@added_name
-  - name: productUrl 
-    singleValue: true
-    description: The URL for the product details page
-    xpath: //div[@id='added_row']/@added_producturl
-  - name: gtin #missing
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: thumbnail
-    singleValue: true
-    description: The URL for the product thumbnail image
-    xpath: //div[@id='added_row']/@added_thumbnail
-  - name: paid #missing
-    singleValue: true
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: true
-    description: The brand name
-    example: Panasonic
-    defaultValue: Dyson
-    xpath: //div[@id='added_row']/@added_brand
-  - name: category #missing
+  - name: id
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@id='added_row']/@added_sku
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //div[@id='added_row']/@added_name
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id='added_row']/@added_producturl
+  - name: gtin
+    singleValue: false
   - name: thumbnail
-    singleValue: true
-    description: The URL for the product thumbnail image
+    singleValue: false
     xpath: //div[@id='added_row']/@added_thumbnail
-  - name: aggregateRatingText #missing
-    singleValue: true
-    description: The stated aggregate rating
-  - name: reviewCount #missing
-    singleValue: true
-    description: The number of reviews
-  - name: ratingCount #missing
-    singleValue: true
-    description: The number of ratings
-  - name: price 
-    singleValue: true
-    description: The offered price for the product
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
     xpath: //div[@id='added_row']/@added_price
-  - name: manufacturer 
+  - name: manufacturer
     singleValue: true
-    description: Product manufacturer
     defaultValue: Dyson
   - name: soldBy
+    singleValue: true
     defaultValue: Dyson
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-    xpath: //div[@id='added_row']/@added_mpc
-  - name: listPrice 
-    singleValue: true
-    description: The stated undiscounted price for the product
-    xpath: //div[@id='added_row']/@added_listprice
-  - name: endorsementText #missing
-    singleValue: true
-    description: The text that signifies that a product is endorsed
+  - name: endorsementText
+    singleValue: false
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-  - name: sponsored #missing
-    singleValue: true
+  - name: sponsored
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-  - name: id 
-    singleValue: true
-    description: Unique id (within this extractor)
-    xpath: //div[@id='added_row']/@added_sku
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //div[@id='added_row']/@added_nameextended
-  - name: aggregateRating #missing
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER

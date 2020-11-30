@@ -70,7 +70,7 @@ module.exports.implementation = async function implementation (
           const isDiscontinued = product.discontinued;
           const name = product.webName || '';
           const prefix = name && name.includes(brand) ? '' : brand;
-          row.setAttribute('added_productURL', `${domain}${product.productURL}`);
+          row.setAttribute('added_productURL', `https://www.${domain}${product.productURL}`);
           row.setAttribute('added_brand', brand);
           row.setAttribute('added_thumbnail', img);
           row.setAttribute('added_sku', product.code || '');
@@ -83,7 +83,7 @@ module.exports.implementation = async function implementation (
       } else {
         const row = addElementToDocument('added_row', '');
         const name = category.name || '';
-        row.setAttribute('added_productURL', `${domain}${category.url}`);
+        row.setAttribute('added_productURL', `https://www.${domain}${category.url}`);
         row.setAttribute('added_brand', brand);
         row.setAttribute('added_thumbnail', img);
         row.setAttribute('added_name', name);
