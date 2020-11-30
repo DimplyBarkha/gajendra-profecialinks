@@ -13,6 +13,7 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setFirstRequestTimeout(60000);
     url = url.replace(/^http:\/\//i, 'https://');
+    console.log(`url after adding https is - ${url}`);
 
     const lastResponseData = await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
 
