@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'lookfantastic',
-    nextLinkSelector: '#mainContent > div.responsiveProductListPage_sortAndPagination > div.responsiveProductListPage_topPagination > nav > ul > li:nth-child(6) > button',
+    nextLinkSelector: '#mainContent > div.responsiveProductListPage_bottomPagination > nav > ul > li:nth-child(6) > button',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: "li[class*='productListProducts_product'] , div.noresults",

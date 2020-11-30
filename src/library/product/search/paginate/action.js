@@ -53,11 +53,9 @@ async function implementation (
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
-
   if (!url) {
     return false;
   }
-
   console.log('Going to url', url);
   await dependencies.goto({ url });
   if (loadedSelector) {
