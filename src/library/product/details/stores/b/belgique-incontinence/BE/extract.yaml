@@ -15,9 +15,9 @@ fields:
 - name: _url
   singleValue: false
   xpath: //meta[contains(@property,"og:url")]/@content
-- name: reviewCount
+- name: ratingCount
   singleValue: false
-  xpath: //div[@id='extra_avis']/a/font
+  xpath: //div[@id='extra_avis']/a//text()
 - name: aggregateRating
   singleValue: false
   xpath: //div[@id='extra_avis']//span[@class='ratestar_average']/@style

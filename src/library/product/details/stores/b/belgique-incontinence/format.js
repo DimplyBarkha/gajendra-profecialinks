@@ -33,6 +33,12 @@ const transform = (data) => {
             item.text = item.text.toString().replace(".",",");      
           });        
         }
+        if (row.ratingCount) {         
+          row.ratingCount.forEach(item => { 
+            item.text = item.text.match(/\d/g);
+            item.text = String(item.text).replace(/\,/g,'');       
+          });        
+        }
         if (row.price) {         
           row.price.forEach(item => { 
            item.text = item.text+' €'
