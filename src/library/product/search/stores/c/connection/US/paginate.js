@@ -3,16 +3,12 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'connection',
-    nextLinkSelector: 'div[class="search-navigation-bottom row ExcludeFromEmail"] a[aria-label="Next Page"]',
+    nextLinkSelector: '.pager-page.active ~ .pager-page',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
-    openSearchDefinition: {
-      offset: 12,
-      template: 'https://www.connection.com/IPA/Shop/Product/Search/?q=1&term={searchTerms}',
-
-    },
+    openSearchDefinition: null,
     domain: 'connection.com',
     zipcode: '',
   },
