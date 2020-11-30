@@ -62,13 +62,18 @@ module.exports = {
                 console.log(e);
               }
             } else {
-              addElementToDocument('finish', 'finish');
+              const hrefs = [];
+              const el = document.getElementsByClassName('blocoproduto__link');
+              for (let i = 0; i < el.length; i++) {
+                hrefs.push(el[i].getAttribute('href'));
+              }
+              addElementToDocument('hrefs', hrefs);
             }
           });
       }
       getData();
     });
-    await context.waitForSelector('#finish');
+    await context.waitForSelector('#hrefs');
     return await context.extract(productDetails, { transform });
   },
 };
