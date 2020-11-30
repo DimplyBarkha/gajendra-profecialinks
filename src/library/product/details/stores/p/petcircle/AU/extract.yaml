@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -22,7 +22,12 @@ fields:
     xpath: //script[42]
   - name: alternateImages
     singleValue: false
-    xpath: //li[contains(@class,'secondary-image')]/img/@data-main-image
+    xpath: //li[contains(@class,"main-image-slides")][position() > 1]//figure/a//img/@src
+    # xpath: (//li[contains(@class,"main-image-slides")][position() > 1]//figure/a/img/@src)
+    # xpath: (//figure[@class='figure'])[position() > 1]/a/img/@src
+  - name: largeImageCount
+    singleValue: false
+    xpath: count(//li[contains(@class,"main-image-slides")][position() > 1])
   - name: category
     singleValue: false
     xpath: (//li[@itemprop='itemListElement'][position() > 1])/a[@class='ghost-btn']

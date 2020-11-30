@@ -25,18 +25,21 @@ const transform = (data) => {
     
     for (const { group } of data) {
       for (const row of group) {
-        if (row.alternateImages){
-            let arrSecImg = [];
-            row.alternateImages.forEach(item => {
-                arrSecImg.push(item.text)
-            });
-            if (arrSecImg.length) {
-                row.alternateImages = [];
-                arrSecImg.forEach(item => {
-                    row.alternateImages.push({ "text": item });
-                });
-            }
-        }
+        // if (row.alternateImages){
+        //     console.log(row.alternateImages)
+        //     let arrSecImg = [];
+        //     row.alternateImages.forEach(item => {
+        //         arrSecImg.push(item.text)
+        //     });
+        //     console.log(arrSecImg)
+        //     if (arrSecImg.length) {
+        //         row.alternateImages = [];
+        //         arrSecImg.forEach(item => {
+        //             row.alternateImages.push({ "text": item });
+        //         });
+        //     }
+        //     console.log(row.alternateImages)
+        // }
         if (row.videos){
             let arrVideos = [];
             row.videos.forEach(video => {
