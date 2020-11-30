@@ -17,7 +17,7 @@
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -48,14 +48,20 @@ async function implementation (
     return next.href;
   });
 
+  // if (!url && openSearchDefinition) {
+  //   const { pageStartNb, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
+  //   const pageNb = page + pageStartNb - 1;
+  //   url = template
+  //     .replace('{searchTerms}', encodeURIComponent(keywords))
+  //     .replace('{page}', (pageNb + (pageOffset || 0)).toString())
+  //     .replace('{index}', (pageNb * (pageIndexMultiplier || 0)).toString())
+  //     .replace('{offset}', (offset + (indexOffset || 0)).toString());
+  // }
   if (!url && openSearchDefinition) {
-    const { pageStartNb, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
-    const pageNb = page + pageStartNb - 1;
-    url = template
+    url = openSearchDefinition.template
       .replace('{searchTerms}', encodeURIComponent(keywords))
-      .replace('{page}', (pageNb + (pageOffset || 0)).toString())
-      .replace('{index}', (pageNb * (pageIndexMultiplier || 0)).toString())
-      .replace('{offset}', (offset + (indexOffset || 0)).toString());
+      .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
+      .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
 
   if (!url) {

@@ -1,14 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[@class="items-list "]/li/article
 fields:
-  # - name: rank
-  #   singleValue: false
-  #   xpath: //div[@id="rankOrganic"]/text()
-  # - name: rankOrganic
-  #   singleValue: false
-  #   xpath: //div[@id="rankOrganic"]/text()
   - name: thumbnail
     singleValue: false
     xpath: //img[@class=" lazyloaded"]/@src
