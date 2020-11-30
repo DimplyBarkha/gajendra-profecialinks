@@ -33,6 +33,19 @@ async function implementation(
       const originalDiv = document.querySelectorAll('div[class="search-item"]')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
+    const getAllXpath = (xpath, prop) => {
+      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const result = [];
+      for (let index = 0; index < nodeSet.snapshotLength; index++) {
+      const element = nodeSet.snapshotItem(index);
+      if (element) result.push(prop ? element[prop] : element.nodeValue);
+      }
+      return result;
+      };
+      var vari = getAllXpath("//div[@class='details']/div/span/text()", 'nodeValue');
+      for (let i = 0; i < vari.length; i++) {
+        addHiddenDiv('id', vari[i], i);
+      }
     let rankOrganic;
     let url = window.location.href;
     // let checkPageNumber1 = url.split('?')[1];
