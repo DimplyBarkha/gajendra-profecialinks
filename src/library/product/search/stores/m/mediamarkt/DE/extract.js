@@ -1,37 +1,7 @@
 const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  const checkUrl = async function (context) {
-    async function currentUrl () {
-      return await context.evaluate(function () {
-        let url = document.location.href;
-        if (url.includes('shop/marke/')) {
-          url = url.match(/(?<=marke\/)\w+/)[0];
-          return url;
-        }
-        if (url.includes('de/category/')) {
-          url = url.match(/(?<=category\/)\w+/)[0];
-          return url;
-        }
-        return false;
-      });
-    }
-    const url = await currentUrl();
 
-    if (url) {
-      await context.goto(
-        `https://www.mediamarkt.de/de/search.html?query=%27${url}%27`,
-        {
-          timeout: 700000,
-          waitUntil: 'load',
-          checkBlocked: true,
-          actionTimeout: 700000,
-        },
-      );
-    }
-  };
-
-  await checkUrl(context);
   async function autoScroll () {
     await context.evaluate(async function () {
       await new Promise((resolve, reject) => {

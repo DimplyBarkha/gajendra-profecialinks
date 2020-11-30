@@ -42,7 +42,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[contains(@class,"PriceContainer")]//div[contains(@class,"UnbrandedPriceDisplay")]/div[not(contains(@class, "Strike"))]
-    regExp: (\d+)(\.)(\d+)
+    regExp: (\d+)(\.)(.+)
     regExpReplace: $1,$3
   - name: manufacturer
     xpath: //span[@data-test="product-manufacturer"]
