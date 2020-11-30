@@ -21,7 +21,7 @@ module.exports = {
       if (jsonData) {
         jsonData = JSON.parse(jsonData.textContent);
         let availability = jsonData.offers.availability;
-        availability = availability.includes('InStock') ? 'In stock' : 'Out of stock';
+        availability = availability.includes('InStock') ? true : false;
         document.querySelector('body').setAttribute('import-purchasability', availability);
         let images = jsonData.image;
 

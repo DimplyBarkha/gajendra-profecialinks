@@ -545,4 +545,4 @@ fields:
   - name: allergens
     xpath: //p[contains(., 'Allergeni')]/following::p[1]
   - name: nutritionInfo
-    xpath: //div[contains(@class, 'table-nutritionInfo')]/div[not(contains(@class, 'head'))]
+    xpath: normalize-space(//div[contains(@class, 'table-nutritionInfo')])
