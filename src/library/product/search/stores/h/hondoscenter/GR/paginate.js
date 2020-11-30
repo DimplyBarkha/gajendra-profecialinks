@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
@@ -9,11 +8,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
-    resultsDivSelector: null,
     openSearchDefinition: null,
-    // {
-      // template: 'https://www.hondoscenter.com/en/apotelesmata-proionton/p{page}/?search-for={searchTerms}',
-      // },
     domain: 'hondoscenter.com',
     zipcode: '',
   },
