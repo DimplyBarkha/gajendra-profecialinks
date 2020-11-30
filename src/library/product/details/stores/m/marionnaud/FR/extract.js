@@ -54,6 +54,8 @@ async function implementation (
   // const gtinData=getGtin.split('=')
   // const gtinValue=gtinData[1]
   // addHiddenDiv('gtinValue', gtinValue)
+  
+  try{
   const productInfo=document.querySelectorAll('#auditedOpinionsInfo')[0];
   if(productInfo.attributes[5].value !== ''){
     const splitProductInfo=productInfo.attributes[5].value.split('&')
@@ -62,6 +64,10 @@ async function implementation (
     const gtinValue=gtinData[1]
     addHiddenDiv('gtinValue', gtinValue)
   }
+}
+catch(error){
+
+}
 
  
    // @ts-ignore
