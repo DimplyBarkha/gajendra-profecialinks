@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class='products-grid']/li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //p[@class='sku']
+  - name: searchUrl
+    singleValue: false
+    xpath: //h2[@class='product-name']/@searchurl
+  - name: name
+    singleValue: false
+    xpath: //h2[@class='product-name']
+  - name: productUrl
+    singleValue: false
+    xpath: //h2[@class='product-name']/a/@href
+  - name: gtin
+    singleValue: false
+    xpath: //p[@class='sku']
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class='product-image']/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //li[contains(@class, 'price-now')]
+  - name: manufacturer
+    singleValue: true
+    xpath: //li[@class='manufacturer']/child::*/following-sibling::*
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
