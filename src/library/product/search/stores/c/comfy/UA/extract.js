@@ -36,19 +36,6 @@ async function implementation (
       singleRating = singleRating.toFixed(1);
       addHiddenDiv(aggregateRating[k], 'aggregateRating', singleRating);
     }
-
-    const readButton = document.getElementsByTagName('a');
-    console.log(readButton);
-
-    // @ts-ignore
-    for (const itemContainer of readButton) {
-      console.log(itemContainer);
-      console.log(itemContainer.getAttribute('data-tab-name') === 'video');
-      if (itemContainer && itemContainer.getAttribute('data-tab-name') === 'video') {
-        itemContainer.click();
-        console.log('itemContainer');
-      }
-    }
   });
   return await context.extract(productDetails, { transform });
 }
