@@ -44,7 +44,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'ulta',
-    transform,
+    transform : transform ,
     domain: 'ulta.us',
     zipcode: '',
   },

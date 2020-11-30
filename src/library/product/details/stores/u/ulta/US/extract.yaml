@@ -7,10 +7,7 @@ fields:
     singleValue: false
     xpath: //div[@id="scene7Container0_container_inner"]//div[@class= 's7staticimage']//img/@src
     regExp: (.*)\?.*
-    regExpReplace: $1
-  - name: imageAlt
-    singleValue: false
-    xpath: //div[@id="scene7Container0_container_inner"]//div[@class= 's7staticimage']//img/@alt
+    regExpReplace: $1  
   - name: alternateImages
     singleValue: false
     xpath: //div[@class= 's7staticimage']//img/@src
@@ -28,13 +25,13 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"ProductPricingPanel")]//span[not(contains(@class,"Text--line-through"))]/text()
+    xpath: (//div[contains(@class,"ProductPricingPanel")]//span[not(contains(@class,"Text--line-through"))])[1]/text()
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,"ProductPricingPanel")]//span[contains(@class,"Text--line-through")]/text()
   - name: availabilityText
     singleValue: false
-    manualSelector: button[aria-label="Add To Bag"]
+    xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -122,6 +119,9 @@ fields:
   - name: quantity
     singleValue: false 
     xpath: //p[contains(.,'Size')]/text()
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class='ProductDetail__ingredients']//div[@class='Collapsible']//text()
     
   
     
