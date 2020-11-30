@@ -23,13 +23,13 @@ fields:
     xpath: count(//div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__image')]//div[contains(@class, 't-product-details__thumbs')]//button[not(contains(@class, 'active'))]//img/@src)
   - name: brandText
     singleValue: false
-    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1//span[contains(@class, 'dbh-brand-name')]
+    xpath: (//div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//h1//span)[1]
     regExp: (.*)-.*
     regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[contains(@class, 'dbh-product-price')]
-    regExp: .*£(\d+)
+    regExp: .*£(.*)
     regExpReplace: £$1
   - name: promotion
     singleValue: false
@@ -39,7 +39,7 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[contains(@class, 'dbh-product-original')]
-    regExp: .*£(\d+)
+    regExp: .*£(.*)
     regExpReplace: £$1
   - name: ratingCount
     singleValue: false

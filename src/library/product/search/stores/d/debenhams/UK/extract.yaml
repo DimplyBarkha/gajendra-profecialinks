@@ -17,7 +17,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//div[contains(@class, 'dbh-price') or contains(@class, 'dbh-now')]
-    regExp: .*£(\d+)
+    regExp: .*£(.*)
     regExpReplace: £$1
   - name: thumbnail
     singleValue: false

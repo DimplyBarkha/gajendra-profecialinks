@@ -100,7 +100,10 @@ module.exports = {
               addHiddenDiv("custom-attr-product-availability", isDisabled ? "Out of Stock" : "In Stock");
             }
 
-            const productDescriptionEl = document.querySelectorAll("div.description-text-container div.product-item-number ~ div");
+            let productDescriptionEl = document.querySelectorAll("div.description-text-container div.product-item-number ~ div");
+            if (!productDescriptionEl) {
+              productDescriptionEl = document.querySelectorAll("div.description-text-container__chanel");
+            }
             if (productDescriptionEl) {
               let str = "";
               productDescriptionEl.forEach(x => {
@@ -112,7 +115,10 @@ module.exports = {
             const editorNotesEl = document.querySelector("div[id='editors_notes'] div.item-subheading ~ p");
             const editorsNotes = editorNotesEl ? editorNotesEl.innerText : null;
 
-            const descriptionList = document.querySelectorAll("div.description-text-container ul li");
+            let descriptionList = document.querySelectorAll("div.description-text-container ul li");
+            if (!descriptionList) {
+              descriptionList = document.querySelectorAll("div.description-text-container__chanel ul li");
+            }
             const descriptionLiItems = [''];
             const additionalBulletInfoEl = document.createElement("ul");
             descriptionList.forEach(x => {
