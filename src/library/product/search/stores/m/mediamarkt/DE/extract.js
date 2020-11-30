@@ -20,7 +20,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       });
     });
   }
-  autoScroll();
+  await autoScroll();
 
   const addRanking = async function (context) {
     await context.evaluate(async function () {

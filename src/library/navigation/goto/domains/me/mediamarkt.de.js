@@ -31,9 +31,8 @@ module.exports = {
       const categoryOrBrandInUrl = await checkUrlForCategoryOrBrand();
 
       if (categoryOrBrandInUrl) {
-        const searchTerm = url.match(/(?<=query=)\w+/)[0];
+        const searchTerm = url.match(/(?<=query=).*?(?=&page|$)/)[0];
         url = url.replace(searchTerm, `%27${searchTerm}%27`);
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! inside', searchTerm, url);
         await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
       }
     };
