@@ -1,27 +1,59 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, "c-listing-items__item")]
+recordXPath: //div[@class='listing-items c-listing-items initialized']/div
 fields:
   - name: id
     singleValue: false
-    xpath: //button[contains(@class, "--wishlist")]/@data-product-id
-  - name: name
-    singleValue: false
-    xpath: concat(//h5[@class = "c-prod-card__cta-box-product-title"], ' ', //span[@class = "c-prod-card__cta-box-description"])
-  - name: productUrl
-    singleValue: false
-    xpath: //a[@class = "c-prod-card__cta-box-link-mask"]/@href
-    regExp: (.+)
-    regExpReplace: https://www.selfridges.com$1
-  - name: thumbnail
-    singleValue: false
-    xpath: //img[contains(@class, "c-prod-card__images-image --img")]/@src
-    regExp: (.+)
-    regExpReplace: https:$1
-  - name: price
-    singleValue: false
-    xpath: //span[contains(@class, "c-prod-card__cta-box-price")]
+    xpath: //div[@class='c-prod-card__cta-box-wishlist']/button/@data-product-id
   - name: searchUrl
     singleValue: false
-    xpath: //div[@id = "import_page_url"]
+    xpath: //div[@class='listing-items c-listing-items initialized']/div/@searchurl
+  - name: name
+    singleValue: false
+    xpath: //span[@class='c-prod-card__cta-box-description']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='c-prod-card --plp']/a/@href
+    regExp: (.+)
+    regExpReplace: 'https://selfridges.com$1'
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='c-prod-card --plp']/a/img/@src | //div[@class='c-prod-card --plp']/a/img/@data-src
+    regExp: (.+)
+    regExpReplace: 'https:$1'
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    type: STRING
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[@class='c-prod-card__cta-box-price '] | //span[@class='c-prod-card__cta-box-price --reduced']
+  - name: manufacturer
+    singleValue: false
+    xpath: //h5[@class='c-prod-card__cta-box-product-title']
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@class='listing-items c-listing-items initialized']/div/@data-analytics-position
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[@class='listing-items c-listing-items initialized']/div/@data-analytics-position
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN

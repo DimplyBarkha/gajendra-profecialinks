@@ -1,0 +1,290 @@
+input:
+  keywords: Board Oil
+  _url: http://selfridges.com
+extractions:
+  - html: https://workbench.import.io/html/run=5d527247-073d-4a69-8bc1-c72e86b618d8/task=39fd5f03-86ad-4cf6-97d3-ca2cf34fc0f7/12e3cb31-cb27-4b2e-b08b-22263e6a08b8.html
+    extractionConfigId: product/search/stores/s/selfridges/UK/extract
+    data:
+      - group:
+          - id:
+              - text: "3554689"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=Board%20Oil&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/@searchurl
+            name:
+              - text: Oud Wood conditioning beard oil 30ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/tom-ford-oud-wood-conditioning-beard-oil-30ml_450-3001058-T3EX01/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/450-3001058-T3EX01_ALT10?defaultImage=450-3001058-T3EX01_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £46.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: TOM FORD
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/@data-analytics-position
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/@data-analytics-position
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+          - id:
+              - text: "8353855"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=Board%20Oil&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/@searchurl
+            name:
+              - text: Fabulous Conditioning Beard Oil 30ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/tom-ford-fabulous-conditioning-beard-oil-30ml_453-3001058-T7MG010000/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/453-3001058-T7MG010000_ALT10?defaultImage=453-3001058-T7MG010000_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £60.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: TOM FORD
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/@data-analytics-position
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/@data-analytics-position
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+          - id:
+              - text: "6235547"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=Board%20Oil&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/@searchurl
+            name:
+              - text: Beard Oil 60ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/le-labo-beard-oil-60ml_1067-3005660-G001060100/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/1067-3005660-G001060100_ALT10?defaultImage=1067-3005660-G001060100_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £48.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: LE LABO
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/@data-analytics-position
+                type: NUMBER
+                raw: "3"
+                locale: en_GB
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/@data-analytics-position
+                type: NUMBER
+                raw: "3"
+                locale: en_GB
+                value: 3
+          - id:
+              - text: "5182085"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=Board%20Oil&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/@searchurl
+            name:
+              - text: Nourishing Beard Grooming Oil 30ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/kiehls-nourishing-beard-grooming-oil-30ml_372-2000636-S2361100/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/372-2000636-S2361100_ALT10?defaultImage=372-2000636-S2361100_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £18.50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: KIEHL'S
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/@data-analytics-position
+                type: NUMBER
+                raw: "4"
+                locale: en_GB
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/@data-analytics-position
+                type: NUMBER
+                raw: "4"
+                locale: en_GB
+                value: 4
+          - id:
+              - text: "6589868"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=Board%20Oil&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/@searchurl
+            name:
+              - text: Ricki Hall’s Booze & Baccy Beard Oil 10ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/captain-fawcett-ricki-halls-booze-baccy-beard-oil-10ml_373-3005856-5060338440317/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/373-3005856-5060338440317_ALT10?defaultImage=373-3005856-5060338440317_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £11.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: CAPTAIN FAWCETT
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/@data-analytics-position
+                type: NUMBER
+                raw: "5"
+                locale: en_GB
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/@data-analytics-position
+                type: NUMBER
+                raw: "5"
+                locale: en_GB
+                value: 5
+          - id:
+              - text: "6589864"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=Board%20Oil&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/@searchurl
+            name:
+              - text: Private Stock Beard Oil 50ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/captain-fawcett-private-stock-beard-oil-50ml_373-3005856-5060338440058/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/373-3005856-5060338440058_ALT10?defaultImage=373-3005856-5060338440058_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £34.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: CAPTAIN FAWCETT
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/@data-analytics-position
+                type: NUMBER
+                raw: "6"
+                locale: en_GB
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/@data-analytics-position
+                type: NUMBER
+                raw: "6"
+                locale: en_GB
+                value: 6
+          - id:
+              - text: "8022567"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=Board%20Oil&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/@searchurl
+            name:
+              - text: Jimmy Niggles beard oil 10ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/captain-fawcett-jimmy-niggles-beard-oil-10ml_373-3005856-1115/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/373-3005856-1115_ALT10?defaultImage=373-3005856-1115_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £14.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: CAPTAIN FAWCETT
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/@data-analytics-position
+                type: NUMBER
+                raw: "7"
+                locale: en_GB
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/@data-analytics-position
+                type: NUMBER
+                raw: "7"
+                locale: en_GB
+                value: 7
+          - id:
+              - text: "6589882"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=Board%20Oil&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/@searchurl
+            name:
+              - text: Barberism™ Beard Oil Signature Series 10ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/captain-fawcett-barberism-beard-oil-signature-series-10ml_373-3005856-5060338440751/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/373-3005856-5060338440751_ALT10?defaultImage=373-3005856-5060338440751_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £12.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: CAPTAIN FAWCETT
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/@data-analytics-position
+                type: NUMBER
+                raw: "8"
+                locale: en_GB
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/@data-analytics-position
+                type: NUMBER
+                raw: "8"
+                locale: en_GB
+                value: 8
+        xpath: /html
+    timestamp: 1605451662093

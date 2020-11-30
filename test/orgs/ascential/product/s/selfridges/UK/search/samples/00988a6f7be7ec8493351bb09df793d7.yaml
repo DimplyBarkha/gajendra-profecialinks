@@ -1,0 +1,80 @@
+input:
+  keywords: Dyson Vacuum
+  _url: http://selfridges.com
+extractions:
+  - html: https://workbench.import.io/html/run=5d527247-073d-4a69-8bc1-c72e86b618d8/task=a6b101af-ddb2-4084-bbf1-418062e2e703/d3bd73d5-b14b-4046-a41e-5dd7abe46376.html
+    extractionConfigId: product/search/stores/s/selfridges/UK/extract
+    data:
+      - group:
+          - id:
+              - text: "7860242"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=Dyson%20Vacuum&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/@searchurl
+            name:
+              - text: Dyson Cordless Vacuum toy
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/casdon-dyson-cordless-vacuum-toy_355-3006000-687/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/355-3006000-687_ALT10?defaultImage=355-3006000-687_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £22.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: CASDON
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/@data-analytics-position
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/@data-analytics-position
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+          - id:
+              - text: "6934729"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=Dyson%20Vacuum&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/@searchurl
+            name:
+              - text: Dyson Ball Vacuum Cleaner toy
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/casdon-dyson-ball-vacuum-cleaner-toy_355-3006000-641/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/355-3006000-641_ALT10?defaultImage=355-3006000-641_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £22.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: CASDON
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/@data-analytics-position
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/@data-analytics-position
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+        xpath: /html
+    timestamp: 1605451663878

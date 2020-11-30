@@ -1,0 +1,80 @@
+input:
+  _url: http://selfridges.com
+  url: https://www.import.io
+extractions:
+  - html: https://workbench.import.io/html/run=1e4c89fd-9728-4627-97c7-8438e5a0e956/task=f6c3d529-f44d-4a4b-85de-941c93489e29/5d732de9-8998-4aab-beed-540b4fb92ce7.html
+    extractionConfigId: product/search/stores/s/selfridges/UK/extract
+    data:
+      - group:
+          - id:
+              - text: "2400335"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=undefined&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/@searchurl
+            name:
+              - text: L'Homme eau de toilette
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/yves-saint-laurent-lhomme-eau-de-toilette_456-84033258-HOMMEEDT/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/456-84033258-HOMMEEDT_ALT10?defaultImage=456-84033258-HOMMEEDT_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £54.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: YVES SAINT LAURENT
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/@data-analytics-position
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/@data-analytics-position
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+          - id:
+              - text: "5194479"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/button[1]/@data-product-id
+            searchUrl:
+              - text: https://www.selfridges.com/GB/en/cat/?freeText=undefined&srch=Y
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/@searchurl
+            name:
+              - text: Pure Lacquer Lips 6.5ml
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/span[1]
+            productUrl:
+              - text: https://selfridges.com/GB/en/cat/zoeva-pure-lacquer-lips-65ml_277-3004737-PLL001/?previewAttribute=SENSUALCURVE
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.selfridges.com/is/image/selfridges/277-3004737-PLL001_SENSUALCURVE_ALT10?defaultImage=277-3004737-PLL001_SENSUALCURVE_M&$PLP_ALL$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: £11.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/span[1]
+            manufacturer:
+              - text: ZOEVA
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[1]/h5[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/@data-analytics-position
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/@data-analytics-position
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+        xpath: /html
+    timestamp: 1605094406409
