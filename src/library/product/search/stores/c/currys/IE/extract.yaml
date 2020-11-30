@@ -1,0 +1,60 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[contains(@class,"result-prd")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@data-productid]/@data-productid
+  - name: searchUrl
+    singleValue: false
+  - name: name
+    singleValue: false
+    xpath: //header[@class="productTitle"]/a
+  - name: productUrl
+    singleValue: false
+    xpath: //header[@class="productTitle"]/a/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-images"]/img/@src | //div[@class="product-images"]/picture/@data-iesrc
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[contains(@class,"score-")]/@class | //div[@data-component="Rating"]/@data-score
+    regExp: score-(\d+)
+    regExpReplace: $1
+  - name: reviewCount
+    xpath: //a/div/div[contains(@class,"reevoo-placeholder")]
+    singleValue: true
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"main-amount")]//strong[@class="price"] | //span[span][contains(@class,"ProductPriceBlock__Price")]
+  - name: manufacturer
+    singleValue: true
+    xpath: //span[@data-product="brand"]
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    xpath: //@sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    defaultValue: false
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER 
