@@ -1,0 +1,22 @@
+input:
+  _url: http://petstock.com.au
+  URL: https://www.petstock.com.au/product/dog/petlife-click-go-outdoor-bed/56331
+extractions:
+  - html: https://workbench.import.io/html/run=f22ec54a-7892-4044-b183-606843f8c23d/task=2b6e0094-1062-4a3e-af85-b5925adbbe54/9dc85bcd-93bc-4264-bfb5-4bb69e09b1ee.html
+    extractionConfigId: product/details/stores/p/petstock/AU/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/dog/petlife-click-go-outdoor-bed/56326
+                xpath: /html/body/div[4]
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/dog/petlife-click-go-outdoor-bed/56328
+                xpath: /html/body/div[5]
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/dog/petlife-click-go-outdoor-bed/56330
+                xpath: /html/body/div[6]
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/dog/petlife-click-go-outdoor-bed/56331
+                xpath: /html/body/div[7]
+        xpath: /html/body
+    timestamp: 1606752441977

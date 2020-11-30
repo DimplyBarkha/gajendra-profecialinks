@@ -1,0 +1,16 @@
+input:
+  _url: http://petstock.com.au
+  URL: https://www.petstock.com.au/product/bird/harmony-lorikeet-honeyeater-mix/49185
+extractions:
+  - html: https://workbench.import.io/html/run=f22ec54a-7892-4044-b183-606843f8c23d/task=472dba7e-ad48-4e4a-a420-18986acd247a/4a059c07-2c69-43e7-a86b-f071e7af26de.html
+    extractionConfigId: product/details/stores/p/petstock/AU/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/bird/harmony-lorikeet-honeyeater-mix/49183
+                xpath: /html/body/div[4]
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/bird/harmony-lorikeet-honeyeater-mix/49185
+                xpath: /html/body/div[5]
+        xpath: /html/body
+    timestamp: 1606752445331

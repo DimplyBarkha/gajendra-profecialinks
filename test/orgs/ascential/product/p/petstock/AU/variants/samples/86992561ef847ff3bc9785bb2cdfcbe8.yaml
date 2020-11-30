@@ -1,0 +1,16 @@
+input:
+  _url: http://petstock.com.au
+  URL: https://www.petstock.com.au/product/dog/royal-canin-miniature-schnauzer-adult-dry-dog-food/48960
+extractions:
+  - html: https://workbench.import.io/html/run=f22ec54a-7892-4044-b183-606843f8c23d/task=04ed47dc-7507-4c4c-a0e3-da2231ec271e/8f99ddc6-dac9-4968-8a87-115ecb997443.html
+    extractionConfigId: product/details/stores/p/petstock/AU/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/dog/royal-canin-miniature-schnauzer-adult-dry-dog-food/48960
+                xpath: /html/body/div[4]
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/dog/royal-canin-miniature-schnauzer-adult-dry-dog-food/48961
+                xpath: /html/body/div[5]
+        xpath: /html/body
+    timestamp: 1606752448081

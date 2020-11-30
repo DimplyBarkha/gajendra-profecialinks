@@ -1,0 +1,13 @@
+input:
+  _url: http://petstock.com.au
+  URL: https://www.petstock.com.au/product/dog/my-dog-chef-select-chicken-supreme-wet-dog-food-6x100g/50303
+extractions:
+  - html: https://workbench.import.io/html/run=f22ec54a-7892-4044-b183-606843f8c23d/task=6959f1c3-a3d9-4524-b516-c3dab1923d25/5ace6440-e6a3-44c6-9cb5-ec01108ee208.html
+    extractionConfigId: product/details/stores/p/petstock/AU/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.petstock.com.au/product/dog/my-dog-chef-select-chicken-supreme-wet-dog-food-6x100g/50303
+                xpath: /html/body/div[4]
+        xpath: /html/body
+    timestamp: 1606752444874
