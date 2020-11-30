@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'pinalli',
-    transform ,
+    transform,
     domain: 'pinalli.it',
     zipcode: '',
   },
