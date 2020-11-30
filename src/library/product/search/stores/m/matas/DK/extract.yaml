@@ -1,44 +1,44 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="productlist__item col-xs-6 col-md-4 col-lg-3 col-xl-3"]
 # //div[@class="productlist__item col-xs-6 col-md-4 col-lg-3 col-xl-3"]
 fields: 
   - name: id
-    singleValue: false
+    singleValue: true
     xpath: //label[@class="product-item__favourite "]/@data-js-modal-url
     regExp: (\d+)
   # - name: rankOrganic
   #   singleValue: false
   #   # xpath: //li/@data-position
   - name: name
-    singleValue: false
+    singleValue: true
     xpath: //div[@class='productlist__products']//span[@class='product-item__title']
       # //span[@class='product-item__title']
   - name: productUrl
-    singleValue: false
+    singleValue: true
     xpath: //div[@class='productlist__products']//div[@class='product-item__top-padding']/a/@href
     regExp: (/.+)
     regExpReplace: https://www.matas.dk$1
       # //div[@class="product-item__top-padding"]//a/@href
   - name: gtin
-    singleValue: false
+    singleValue: true
   - name: thumbnail
-    singleValue: false
+    singleValue: true
     xpath: //div[@class='productlist__products']//div[@class='product-item__img-container']/img/@src
   - name: reviewCount
-    singleValue: false
+    singleValue: true
     xpath: //div[@class='productlist__products']//span[@class='product-item__rating-count']
     regExp: (\d+)
   - name: aggregateRating
-    singleValue: false
+    singleValue: true
     xpath: //html//div[@id='agg']
     # type: NUMBER
     # xpath: //div[@class='productlist__products']//div[@class='review-stars__container review-stars__container--border']/@data-js-border-offset
   # - name: reviewCount
   #   singleValue: false
   - name: price
-    singleValue: false
+    singleValue: true
     # type: CURRENCY
     xpath: //html//div[@id='price']
     # //div[@class='productlist__products']//span[@class='nowrap']
@@ -51,3 +51,6 @@ fields:
     singleValue: false
   - name: endorsementText
     singleValue: false
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id="pd_url"]
