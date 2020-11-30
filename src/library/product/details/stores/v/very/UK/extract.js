@@ -1,13 +1,13 @@
 const { transform } = require('../../../../shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
     await new Promise((resolve, reject) => setTimeout(resolve, 750));
 
-    function addElementToDocument (id, value, key) {
+    function addElementToDocument(id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -41,6 +41,23 @@ async function implementation (inputs, parameters, context, dependencies) {
     const regex = /(\d+)/;
     // @ts-ignore
     document.querySelector('body').setAttribute('ratingcount', ratingCount.match(regex)[1]);
+
+    const color = document.querySelector('h1.productHeading span')
+      ? document.querySelector('h1.productHeading span').textContent : '';
+    const regexColor = /- (.+)$/;
+    // @ts-ignore
+    document.querySelector('body').setAttribute('color', color.match(regexColor)[1]);
+
+
+    const description2 = document.querySelectorAll('span[itemprop="description"] ul li');
+    const bulletsArr = [description2];
+    const bulletsArrSliced = bulletsArr.slice(1);
+    description2.forEach(e => bulletsArrSliced.push(e.textContent));
+    const concatDesc = bulletsArrSliced.join(' || ');
+    addElementToDocument('description', concatDesc);
+    // };
+
+
   });
   return await context.extract(productDetails, { transform });
 }

@@ -51,12 +51,12 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: //span[@itemprop="description"]
+  xpath: //div[@id='description']
   singleValue: true
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
-  xpath: count(//span[@itemprop="description"]//ul/li)
+  xpath: count(//tr[1]//span[@itemprop="description"]//ul/li)
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
@@ -65,7 +65,6 @@ fields:
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
-  xpath: //h1[@class="productHeading"]/text()
   singleValue: true
   description: Product manufacturer
 - name: quantity
@@ -82,7 +81,7 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN) 
 - name: sku
-  xpath: //span[@id="catalogueNumber"]/text()
+  xpath: //div[@id="microdata"]/div[1]/meta[@itemprop="sku"]/@content
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
@@ -121,7 +120,6 @@ fields:
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
-  xpath: //div[@class="E3921-delivery--message"]/text()
   singleValue: true
   description: Shipping information for the product
 - name: shippingDimensions
@@ -135,9 +133,7 @@ fields:
   singleValue: true
   description: Number of variants listed
 - name: color
-  xpath: //h1[@class="productHeading"]/span/text()
-  regExp: ( - (.+)$)
-  regExpReplace: $2
+  xpath: //ancestor::body/@color
   singleValue: true
   description: A textual description of the colour
 - name: colorCode
@@ -153,6 +149,7 @@ fields:
   singleValue: false
   description: URLs of videos on page
 - name: name
+  xpath: //h1[@class="productHeading"]
   singleValue: true
   description: The product name
 - name: inStorePrice
@@ -440,9 +437,11 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
-  singleValue: true
+  xpath: //ul//li[@class="ppOption__item"]/label/@rel
+  singleValue: false
   description: colour / scent / flavour / other
 - name: firstVariant
+  xpath: //div[@id="microdata"]/div[1]/meta[@itemprop="sku"]/@content
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
     feeds (43) we have a column "first_variant" that is populated with a common code
@@ -453,17 +452,19 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
+  xpath: //div[@id="microdata"]//meta[@itemprop="sku"]/@content
   singleValue: false
   description: 
 - name: additionalDescBulletInfo
+  xpath: //tr[1]//span[@itemprop="description"]//ul/li
   singleValue: false
   description: 
 - name: prop65Warning
   singleValue: true
   description: 
 - name: ageSuitability
-  xpath: //li[contains(text(),"Age")]/text()|//span[@itemprop="description"]//p/text()
-  regExp: (Ag.+ (\d{1,}) years)
+  xpath: //li[contains(text(),"Age")]/text()|//li[contains(text(),"age")]/text()
+  regExp: (\d+.+ years)
   regExpReplace: $1
   singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
