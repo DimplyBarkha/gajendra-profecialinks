@@ -5,9 +5,11 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
+    xpath: //div[@class="css-1yzcbqr e1x44kgu1"]//@src
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
+    xpath: //div[@class="css-1yzcbqr e1x44kgu1"]//@alt
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
@@ -17,13 +19,16 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
+    xpath: (//div[@class="_3cVpr"][position()>0]/a)
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
+    xpath: //div[@class="css-1yzcbqr e1x44kgu1"]//@alt
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
+    xpath: (//div[@class="css-w2sp5s exz0zev2"])[2]
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
@@ -31,6 +36,7 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
+    xpath: //a[@class="css-18b6tdh exz0zev5"]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -39,6 +45,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
+    xpath: (//div[@class="QBJCV"])[2]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -47,6 +54,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
+    defaultValue: bringmeister
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -68,9 +76,13 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
+    xpath: //div[@class="oFNhT"]
+    regExp: (\d+)
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
+    xpath: //div[@class="oFNhT"]
+    regExp: (\d+)
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
