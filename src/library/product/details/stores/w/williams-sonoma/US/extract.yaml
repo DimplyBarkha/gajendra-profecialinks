@@ -67,6 +67,9 @@ fields:
     #\"sku\":\"3130879\"
     regExp: \"sku\":\"(.+?)\"
     regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
   - name: directions
     singleValue: false
     xpath: //dt[normalize-space()='Use & Care']//following-sibling::dd[1]//ul//li
