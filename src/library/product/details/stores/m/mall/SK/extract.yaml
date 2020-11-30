@@ -6,6 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: (//div[@class="gallery-magnifier gallery-modal__slide"]/img/@src)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -38,8 +39,8 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    type: NUMBER
     xpath: //div[@id="product-detail-description"]//ul/li/span/text()
+    type: NUMBER
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -54,11 +55,10 @@ fields:
     description: The number of ratings
     xpath: //div[@class="panel-rating-stats-at-top"]/h2/text()
     type: NUMBER
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    xpath: //span[@class="rating-percent"]/text()
-    type: NUMBER
+  # - name: aggregateRating
+  #   singleValue: true
+  #   description: The stated aggregate rating normalized to be out of 5
+  #   xpath: //span[@class="rating-percent"]/text()
   - name: name
     singleValue: true
     description: The product name
