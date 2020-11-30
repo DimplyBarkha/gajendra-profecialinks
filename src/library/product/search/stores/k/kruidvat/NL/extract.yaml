@@ -25,13 +25,10 @@ fields:
     singleValue: true
   - name: aggregateRating
     singleValue: true
-    xpath: //e2-rating/@rating
+    xpath: (//div[@id="aggregateRating"])
   - name: price
-    xpath: //div[@class="pricebadge__new-price"]
-    # regExp: (\d+)(.+)(\d+)
-    # regExpReplace: $1.$3
+    xpath: //div[@id="price_rate"]
     singleValue: false
-    type: text
   - name: manufacturer
     singleValue: true
   - name: soldBy

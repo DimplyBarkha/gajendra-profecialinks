@@ -42,18 +42,37 @@ async function implementation(
     newDiv.id = id;
     newDiv.textContent = content;
     newDiv.style.display = 'none';
-    const originalDiv = document.querySelectorAll('div[class="star-rating__front"]')[index];
+    const originalDiv = document.querySelectorAll("div[class='rating__fg']")[index];
     originalDiv.parentNode.insertBefore(newDiv, originalDiv);
   }
-  // const aggregateRating = document.querySelectorAll("div[class='star-rating__front']")
-  // for (let k = 0; k < aggregateRating.length; k++) {
-  // // @ts-ignore
-  // let singleRating = aggregateRating[k].style.width;
-  // singleRating = singleRating.slice(0, singleRating.length - 1)
-  // singleRating = (5 * singleRating) / 100;
-  // singleRating = singleRating.toFixed(1);
-  // addHiddenDiv('aggregateRating', singleRating, k);
-  // }
+  function addHiddenDiv1(id, content, index) {
+    const newDiv = document.createElement('div');
+    newDiv.id = id;
+    newDiv.textContent = content;
+    newDiv.style.display = 'none';
+    const originalDiv1 = document.querySelectorAll("div[class='pricebadge__new-price']")[index];
+    originalDiv1.parentNode.insertBefore(newDiv, originalDiv1);
+  }
+  const aggregateRating = document.querySelectorAll("div[class='rating__fg']")
+  for (let k = 0; k < aggregateRating.length; k++) {
+  // @ts-ignore
+  let singleRating = aggregateRating[k].style.width;
+  singleRating = singleRating.slice(0, singleRating.length - 1)
+  singleRating = (5 * singleRating) / 100;
+  singleRating = singleRating.toFixed(1);
+  addHiddenDiv('aggregateRating', singleRating, k);
+  }
+  const priceDecimal = document.querySelectorAll("div[class='pricebadge__new-price-decimal']")
+  const priceDecimal1 = document.querySelectorAll("div[class='pricebadge__new-price-separator']")
+  const priceDecimal2 = document.querySelectorAll("div[class='pricebadge__new-price-fractional']")
+  for (let k = 0; k < priceDecimal.length; k++) {
+    let singleDecimal=priceDecimal[k].innerHTML
+    let singleDecimal1=priceDecimal1[k].innerHTML
+    let singleDecimal2=priceDecimal2[k].innerHTML
+    let price_rate= singleDecimal + singleDecimal1 +singleDecimal2
+    addHiddenDiv1('price_rate', price_rate, k);
+  }
+
 });
   return await context.extract(productDetails, { transform });
   // return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
