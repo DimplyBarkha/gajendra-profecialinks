@@ -24,13 +24,13 @@ store: 'kicks',
 transform: transform,
 domain: 'kicks.se',
 },
-let a1=document.querySelector('span[class="ed du"]')
-var count = 0;
-for(let i=0;i<a1.childElementCount;i++)
-{
-if(a1.children[i].className=="ee ef")
-{
-count++;
-}
-}
+// let a1=document.querySelector('span[class="ed du"]')
+// var count = 0;
+// for(let i=0;i<a1.childElementCount;i++)
+// {
+// if(a1.children[i].className=="ee ef")
+// {
+// count++;
+// }
+// }
 };
