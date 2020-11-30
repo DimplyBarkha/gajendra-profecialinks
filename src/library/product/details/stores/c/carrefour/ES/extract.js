@@ -41,7 +41,9 @@ module.exports = {
 
       document.body.setAttribute('import-enhanced-content', enhancedContentAvailable.toString());
       const purchasability = document.querySelector('.pdp-view__buybox .buybox__price') ? true : false;
-      document.body.setAttribute('import-puchasability', purchasability.toString());
+      document.body.setAttribute('import-puchasability', purchasability);
+      const availability = document.querySelector('.pdp-view__buybox .buybox__price') ? 'In stock' : 'Out of stock';
+      document.body.setAttribute('import-avaiability', availability);
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
