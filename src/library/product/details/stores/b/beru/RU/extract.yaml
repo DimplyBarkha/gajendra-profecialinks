@@ -103,7 +103,7 @@ fields:
     xpath: //meta[@itemprop="ratingValue"]/@content
     singleValue: false
   - name: availabilityText
-    xpath: //div[@data-zone-name="skuAvailability"]//span
+    xpath: //div[@data-zone-name="skuAvailability"]//span|//div[contains(@class, "tabulator-row")]//div[@tabulator-field="availabilityText"]//div[1]
   - name: listPrice
     xpath: //div[@data-zone-name="offer-cart"]//div[@data-auto="old-price"]
   - name:  descriptionBullets
