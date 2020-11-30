@@ -64,7 +64,7 @@ module.exports = {
               null,
             ).stringValue;
             const productCode = variantElement.querySelector('input').value;
-            const variantId = productCode.replace(sku, '');
+            const currentVariantId = productCode.replace(sku, '');
 
             variantName = variantElement.querySelector('span > div > span:nth-of-type(1)') ? variantElement.querySelector('span > div > span:nth-of-type(1)').textContent : '';
 
@@ -73,14 +73,24 @@ module.exports = {
             if (availabilityText === 'Notify Me') {
               availabilityText = 'Out of stock';
             }
+            const variants = [];
+            const totalVariants = document.querySelectorAll('form[name="size-picker-form"] div[role="presentation"] > input');
+            for (let j = 0; j < totalVariants.length; j++) {
+              const variantId = totalVariants[j].getAttribute('value').replace(sku, '');
+              if (variantId !== currentVariantId) variants.push(variantId);
+            }
 
-            addedVariant.setAttribute('variant_id', variantId);
+            addedVariant.setAttribute('variant_id', currentVariantId);
+            addedVariant.setAttribute('variants', variants.join('|'));
+            addedVariant.setAttribute('variants', variants.join('|'));
           }
           addedVariant.setAttribute('availability_text', availabilityText);
 
           const brand = document.querySelector('x-wrapper-re-1-3 h3') ? document.querySelector('x-wrapper-re-1-3 h3').textContent.trim() : '';
           const productName = document.querySelector('x-wrapper-re-1-3 > h1') ? document.querySelector('x-wrapper-re-1-3 > h1').textContent.trim() : '';
+          const colorName = document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child') ? document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child').textContent : '';
           const nameExtended = [brand, productName];
+          if (colorName) nameExtended.push(colorName);
           if (variantName) nameExtended.push(variantName);
 
           addedVariant.setAttribute('name_extended', nameExtended.join(' - '));
@@ -117,6 +127,8 @@ module.exports = {
           XPathResult.BOOLEAN_TYPE,
           null,
         ).booleanValue;
+
+        addElementToDocument('product_url', window.location.href);
         addElementToDocument('variant_count', iterations);
         addElementToDocument('image_zoom_feature_present', imageZoomFeaturePresent);
       },

@@ -2,29 +2,172 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
 extractions:
-  - html: https://workbench.import.io/html/run=2ad984fe-53e9-443b-90a7-c596237e74e6/task=1311407c-9cbe-4a43-a1c7-823f40d89d83/ab4feda9-4394-468d-9b75-762011b2c65a.html
+  - html: https://workbench.import.io/html/run=75a5753e-c108-4a5d-8e86-2ca89ed9fa2e/task=0b28f5a3-b56c-47fb-bfcc-b98f79a02ca3/2805166a-ca95-4b84-9214-e49ef1aeec3a.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
+                xpath: /html/body/div[14]
+            image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/56b34b6bdd6c303b9378cf162236a6e0/0a8642b9739146b69f0f2350c366f804.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/e62359afcc573c3fa25b01b7434c3fd9/6abe181e66834052b91427dc5726e122.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Michael Kors - NICK - Trainers - 40
+              - text: Michael Kors - NICK - Trainers - natural - 40
+                xpath: /html/body/div[7]/@name_extended
+            price:
+              - text: 218,95 €
+                xpath: /html/body/div[7]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[7]/@availability_text
+            manufacturer:
+              - text: Michael Kors
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
+            sku:
+              - text: 1MI12O00X-B11
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
+            variantId:
+              - text: "0007000"
+                xpath: /html/body/div[7]/@variant_id
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[7]/@rating_count
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[7]/@aggregate_rating
+            variantCount:
+              - text: "7"
+                xpath: /html/body/div[15]
+            color:
+              - text: natural
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
+            name:
+              - text: NICK - Trainers
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
+            brandLink:
+              - text: https://en.zalando.de/michaelkors/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            variants:
+              - text: 0008000|0009000|0010000|0011000|0012000|0013000
+                xpath: /html/body/div[7]/@variants
+            materials:
+              - text: |-
+                  Upper material: Leather and textile
+                  Lining: Textile
+                  Insole: Leather
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Care instructions: Treat with a suitable protector before wear
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - productUrl:
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
+                xpath: /html/body/div[14]
+            image:
+              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Michael Kors - NICK - Trainers - natural
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/56b34b6bdd6c303b9378cf162236a6e0/0a8642b9739146b69f0f2350c366f804.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/e62359afcc573c3fa25b01b7434c3fd9/6abe181e66834052b91427dc5726e122.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+            nameExtended:
+              - text: Michael Kors - NICK - Trainers - natural - 41
+                xpath: /html/body/div[8]/@name_extended
+            price:
+              - text: 218,95 €
+                xpath: /html/body/div[8]/@price
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[8]/@availability_text
+            manufacturer:
+              - text: Michael Kors
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
+            sku:
+              - text: 1MI12O00X-B11
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
+            variantId:
+              - text: "0008000"
+                xpath: /html/body/div[8]/@variant_id
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[8]/@rating_count
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[8]/@aggregate_rating
+            variantCount:
+              - text: "7"
+                xpath: /html/body/div[15]
+            color:
+              - text: natural
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
+            name:
+              - text: NICK - Trainers
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
+            brandLink:
+              - text: https://en.zalando.de/michaelkors/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            variants:
+              - text: 0007000|0009000|0010000|0011000|0012000|0013000
+                xpath: /html/body/div[8]/@variants
+            materials:
+              - text: |-
+                  Upper material: Leather and textile
+                  Lining: Textile
+                  Insole: Leather
+                  Sole: Synthetics
+                  Padding type: Cold padding
+                  Care instructions: Treat with a suitable protector before wear
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
+            imageZoomFeaturePresent:
+              - text: "true"
+          - productUrl:
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
+                xpath: /html/body/div[14]
+            image:
+              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Michael Kors - NICK - Trainers - natural
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/56b34b6bdd6c303b9378cf162236a6e0/0a8642b9739146b69f0f2350c366f804.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/e62359afcc573c3fa25b01b7434c3fd9/6abe181e66834052b91427dc5726e122.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg?imwidth=762
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+            nameExtended:
+              - text: Michael Kors - NICK - Trainers - natural - 42
                 xpath: /html/body/div[9]/@name_extended
             price:
               - text: 218,95 €
@@ -34,12 +177,12 @@ extractions:
                 xpath: /html/body/div[9]/@availability_text
             manufacturer:
               - text: Michael Kors
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
-              - text: "0007000"
+              - text: "0009000"
                 xpath: /html/body/div[9]/@variant_id
             ratingCount:
               - text: "1"
@@ -49,31 +192,19 @@ extractions:
                 xpath: /html/body/div[9]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[15]
             color:
               - text: natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
             name:
               - text: NICK - Trainers
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
               - text: https://en.zalando.de/michaelkors/
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             variants:
-              - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+              - text: 0007000|0008000|0010000|0011000|0012000|0013000
+                xpath: /html/body/div[9]/@variants
             materials:
               - text: |-
                   Upper material: Leather and textile
@@ -82,28 +213,31 @@ extractions:
                   Sole: Synthetics
                   Padding type: Cold padding
                   Care instructions: Treat with a suitable protector before wear
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
+                xpath: /html/body/div[14]
+            image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/56b34b6bdd6c303b9378cf162236a6e0/0a8642b9739146b69f0f2350c366f804.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/e62359afcc573c3fa25b01b7434c3fd9/6abe181e66834052b91427dc5726e122.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Michael Kors - NICK - Trainers - 41
+              - text: Michael Kors - NICK - Trainers - natural - 43
                 xpath: /html/body/div[10]/@name_extended
             price:
               - text: 218,95 €
@@ -113,12 +247,12 @@ extractions:
                 xpath: /html/body/div[10]/@availability_text
             manufacturer:
               - text: Michael Kors
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
-              - text: "0008000"
+              - text: "0010000"
                 xpath: /html/body/div[10]/@variant_id
             ratingCount:
               - text: "1"
@@ -128,31 +262,19 @@ extractions:
                 xpath: /html/body/div[10]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[15]
             color:
               - text: natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
             name:
               - text: NICK - Trainers
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
               - text: https://en.zalando.de/michaelkors/
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             variants:
-              - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+              - text: 0007000|0008000|0009000|0011000|0012000|0013000
+                xpath: /html/body/div[10]/@variants
             materials:
               - text: |-
                   Upper material: Leather and textile
@@ -161,28 +283,31 @@ extractions:
                   Sole: Synthetics
                   Padding type: Cold padding
                   Care instructions: Treat with a suitable protector before wear
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
+                xpath: /html/body/div[14]
+            image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/56b34b6bdd6c303b9378cf162236a6e0/0a8642b9739146b69f0f2350c366f804.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/e62359afcc573c3fa25b01b7434c3fd9/6abe181e66834052b91427dc5726e122.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Michael Kors - NICK - Trainers - 42
+              - text: Michael Kors - NICK - Trainers - natural - 44
                 xpath: /html/body/div[11]/@name_extended
             price:
               - text: 218,95 €
@@ -192,12 +317,12 @@ extractions:
                 xpath: /html/body/div[11]/@availability_text
             manufacturer:
               - text: Michael Kors
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
-              - text: "0009000"
+              - text: "0011000"
                 xpath: /html/body/div[11]/@variant_id
             ratingCount:
               - text: "1"
@@ -207,31 +332,19 @@ extractions:
                 xpath: /html/body/div[11]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[15]
             color:
               - text: natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
             name:
               - text: NICK - Trainers
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
               - text: https://en.zalando.de/michaelkors/
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             variants:
-              - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+              - text: 0007000|0008000|0009000|0010000|0012000|0013000
+                xpath: /html/body/div[11]/@variants
             materials:
               - text: |-
                   Upper material: Leather and textile
@@ -240,28 +353,31 @@ extractions:
                   Sole: Synthetics
                   Padding type: Cold padding
                   Care instructions: Treat with a suitable protector before wear
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
+                xpath: /html/body/div[14]
+            image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/56b34b6bdd6c303b9378cf162236a6e0/0a8642b9739146b69f0f2350c366f804.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/e62359afcc573c3fa25b01b7434c3fd9/6abe181e66834052b91427dc5726e122.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Michael Kors - NICK - Trainers - 43
+              - text: Michael Kors - NICK - Trainers - natural - 45
                 xpath: /html/body/div[12]/@name_extended
             price:
               - text: 218,95 €
@@ -271,12 +387,12 @@ extractions:
                 xpath: /html/body/div[12]/@availability_text
             manufacturer:
               - text: Michael Kors
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
-              - text: "0010000"
+              - text: "0012000"
                 xpath: /html/body/div[12]/@variant_id
             ratingCount:
               - text: "1"
@@ -286,31 +402,19 @@ extractions:
                 xpath: /html/body/div[12]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[15]
             color:
               - text: natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
             name:
               - text: NICK - Trainers
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
               - text: https://en.zalando.de/michaelkors/
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             variants:
-              - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+              - text: 0007000|0008000|0009000|0010000|0011000|0013000
+                xpath: /html/body/div[12]/@variants
             materials:
               - text: |-
                   Upper material: Leather and textile
@@ -319,28 +423,31 @@ extractions:
                   Sole: Synthetics
                   Padding type: Cold padding
                   Care instructions: Treat with a suitable protector before wear
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://en.zalando.de/michael-kors-nick-trainers-natural-1mi12o00x-b11.html
+                xpath: /html/body/div[14]
+            image:
               - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Michael Kors - NICK - Trainers - natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
               - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/56b34b6bdd6c303b9378cf162236a6e0/0a8642b9739146b69f0f2350c366f804.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/e62359afcc573c3fa25b01b7434c3fd9/6abe181e66834052b91427dc5726e122.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
             nameExtended:
-              - text: Michael Kors - NICK - Trainers - 44
+              - text: Michael Kors - NICK - Trainers - natural - 46
                 xpath: /html/body/div[13]/@name_extended
             price:
               - text: 218,95 €
@@ -350,12 +457,12 @@ extractions:
                 xpath: /html/body/div[13]/@availability_text
             manufacturer:
               - text: Michael Kors
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             sku:
               - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
             variantId:
-              - text: "0011000"
+              - text: "0013000"
                 xpath: /html/body/div[13]/@variant_id
             ratingCount:
               - text: "1"
@@ -365,31 +472,19 @@ extractions:
                 xpath: /html/body/div[13]/@aggregate_rating
             variantCount:
               - text: "7"
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[15]
             color:
               - text: natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
             name:
               - text: NICK - Trainers
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
             brandLink:
               - text: https://en.zalando.de/michaelkors/
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
             variants:
-              - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
+              - text: 0007000|0008000|0009000|0010000|0011000|0012000
+                xpath: /html/body/div[13]/@variants
             materials:
               - text: |-
                   Upper material: Leather and textile
@@ -398,166 +493,8 @@ extractions:
                   Sole: Synthetics
                   Padding type: Cold padding
                   Care instructions: Treat with a suitable protector before wear
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
-            imageZoomFeaturePresent:
-              - text: "true"
-          - image:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: Michael Kors - NICK - Trainers - natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
-            alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/56b34b6bdd6c303b9378cf162236a6e0/0a8642b9739146b69f0f2350c366f804.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/e62359afcc573c3fa25b01b7434c3fd9/6abe181e66834052b91427dc5726e122.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
-            nameExtended:
-              - text: Michael Kors - NICK - Trainers - 45
-                xpath: /html/body/div[14]/@name_extended
-            price:
-              - text: 218,95 €
-                xpath: /html/body/div[14]/@price
-            availabilityText:
-              - text: In stock
-                xpath: /html/body/div[14]/@availability_text
-            manufacturer:
-              - text: Michael Kors
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
-            variantId:
-              - text: "0012000"
-                xpath: /html/body/div[14]/@variant_id
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[14]/@rating_count
-            aggregateRating:
-              - text: "5"
-                xpath: /html/body/div[14]/@aggregate_rating
-            variantCount:
-              - text: "7"
-                xpath: /html/body/div[16]
-            color:
-              - text: natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
-            name:
-              - text: NICK - Trainers
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
-            brandLink:
-              - text: https://en.zalando.de/michaelkors/
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
-            variants:
-              - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
-            materials:
-              - text: |-
-                  Upper material: Leather and textile
-                  Lining: Textile
-                  Insole: Leather
-                  Sole: Synthetics
-                  Padding type: Cold padding
-                  Care instructions: Treat with a suitable protector before wear
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
-            imageZoomFeaturePresent:
-              - text: "true"
-          - image:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb0ff51429fa3f72b2f6e890bcca8fb1/d6209cba543a46f2a9d4f8a380010d51.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@src
-            imageAlt:
-              - text: Michael Kors - NICK - Trainers - natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
-            alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/0abe988d8a0e398e94d23fde0c1cc94a/0d9789fade114d688ad8ed09845144d2.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/3abd35137c5834139a565f5763ca4576/43e614e7eef3405b89479fb542aa83e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/56b34b6bdd6c303b9378cf162236a6e0/0a8642b9739146b69f0f2350c366f804.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/e62359afcc573c3fa25b01b7434c3fd9/6abe181e66834052b91427dc5726e122.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/302eafc1cbe434fa8398c2652818cde3/a503c809479343d88c1bbd4ba74ef6c6.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
-            nameExtended:
-              - text: Michael Kors - NICK - Trainers - 46
-                xpath: /html/body/div[15]/@name_extended
-            price:
-              - text: 218,95 €
-                xpath: /html/body/div[15]/@price
-            availabilityText:
-              - text: Only 2 left
-                xpath: /html/body/div[15]/@availability_text
-            manufacturer:
-              - text: Michael Kors
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
-            sku:
-              - text: 1MI12O00X-B11
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/span[2]
-            variantId:
-              - text: "0013000"
-                xpath: /html/body/div[15]/@variant_id
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[15]/@rating_count
-            aggregateRating:
-              - text: "5"
-                xpath: /html/body/div[15]/@aggregate_rating
-            variantCount:
-              - text: "7"
-                xpath: /html/body/div[16]
-            color:
-              - text: natural
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[5]/div[1]/span[2]
-            name:
-              - text: NICK - Trainers
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/h1[1]
-            brandLink:
-              - text: https://en.zalando.de/michaelkors/
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
-            variants:
-              - text: "40"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "41"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[2]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "42"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[3]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "43"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[4]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "44"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[5]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "45"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/label[1]/span[1]/div[1]/span[1]
-              - text: "46"
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/form[1]/div[1]/div[7]/div[1]/label[1]/span[1]/div[1]/span[1]
-            materials:
-              - text: |-
-                  Upper material: Leather and textile
-                  Lining: Textile
-                  Insole: Leather
-                  Sole: Synthetics
-                  Padding type: Cold padding
-                  Care instructions: Treat with a suitable protector before wear
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1605685972739
+    timestamp: 1606744544400

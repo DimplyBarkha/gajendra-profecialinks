@@ -9,6 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: ancestor::html//div[@id="product_url"]
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -444,7 +445,7 @@ fields:
 - name: variants
   singleValue: false
   description: 
-  xpath: ancestor::html//form[@name="size-picker-form"]//div[@role="presentation"]//label/span//span[1]
+  xpath: "@variants"
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
