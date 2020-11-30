@@ -1,17 +1,18 @@
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'shop-apotheke',
-    transform: null,
+    transform,
     domain: 'shop-apotheke.com',
   },
-  implementation: async ({ url }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       // @ts-ignore
       const dataObj = window.dataLayer[0].product;
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -32,17 +33,22 @@ module.exports = {
         addElementToDocument('pd_availabilityText', mainDataObj.product.stockStatus.statusReason.trim());
         addElementToDocument('pd_sku', mainDataObj.currentVariantId);
         addElementToDocument('pd_ratingCount', mainDataObj.product.numberOfRatings);
+        addElementToDocument('pd_mpn', mainDataObj.variants[0].manufacturerCode);
+        addElementToDocument('pd_image', mainDataObj.product.thumbnailURL);
+        // addElementToDocument('pd_variant_ids', mainDataObj.variants.slice(1).map(elm=>elm.id));
         if (mainDataObj.product.rating) {
           addElementToDocument('pd_aggregateRating', mainDataObj.product.rating);
         }
-        addElementToDocument('pd_image', mainDataObj.product.thumbnailURL);
+        if (mainDataObj.variants.length > 1) {
+          const variantIds = mainDataObj.variants.slice(1).map(elm => elm.id);
+          addElementToDocument('pd_variant_ids', variantIds);
+          addElementToDocument('pd_first_variant', dataObj.unitQuantityString + ' ' + dataObj.unit);
+          addElementToDocument('pd_variant_info', mainDataObj.currentVariantId);
+        } else {
+          console.log('variant not found');
+        }
       }
-      const descXpath = '//*[@id="o-ProductAdditionalInformation__teaser"]';
-      let temp = document.evaluate(descXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      // @ts-ignore
-      temp = temp ? temp.innerText : '';
-      addElementToDocument('pd_description', temp);
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };
