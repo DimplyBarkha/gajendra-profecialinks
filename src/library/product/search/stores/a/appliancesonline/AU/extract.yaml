@@ -3,12 +3,16 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class,'grid-container-flex')]/aol-product
 fields:
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //aol-product/div/@class
+    regExp: ([0-9]+)
+  - name: searchUrl
+    singleValue: true
   - name: name
     singleValue: false
     xpath: //div[contains(@class, 'product-name')]
-  - name: price
-    singleValue: false
-    xpath: //div[contains(@class, 'price')]
   - name: productUrl
     singleValue: false
     xpath: //a[contains(@class, 'body-link')]/@href
@@ -27,8 +31,12 @@ fields:
     singleValue: false
     xpath: //div//a[contains(@class, 'rating-text ng-star')]/span
     regExp: ([0-9]+)
-  - name: searchUrl
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, 'price')]
+  - name: manufacturer
     singleValue: true
+    description: Product manufacturer
   - name: rank
     singleValue: false
     description: search/listing rank
@@ -41,11 +49,3 @@ fields:
     singleValue: true
     description: Is sponsored/paid
     type: BOOLEAN
-  - name: id
-    singleValue: false
-    description: Unique id (within this extractor)
-    xpath: //aol-product/div/@class
-    regExp: ([0-9]+)
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer

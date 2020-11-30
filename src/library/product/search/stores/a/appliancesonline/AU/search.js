@@ -5,5 +5,6 @@ module.exports = {
     country: 'AU',
     store: 'appliancesonline',
     domain: 'appliancesonline.com.au',
+    zipcode: '',
   },
 };
