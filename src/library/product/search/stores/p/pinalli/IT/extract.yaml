@@ -1,0 +1,57 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-uk-rr-algolia='results']/div
+fields:
+  - name: paid
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+  - name: productUrl
+    xpath: //div[@data-uk-rr-algolia='results']/div//div[@class="card__body"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.pinalli.it$1
+  - name: thumbnail
+    xpath: //div[@data-uk-rr-algolia='results']/div//div[@class="card__wrap-image card__wrap-image_small uk-overlay uk-overlay-hover"]//img/@src
+  - name: name
+    xpath: //div[@class="card__data"]
+  - name: sku
+    description: The store-specific product identifier
+  - name: mpc
+    description: The model code of the product
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    description: The stated aggregate rating
+  - name: ratingCount
+    description: The number of ratings
+  - name: reviewCount
+    description: The number of reviews
+  - name: price
+    xpath: //div[@data-uk-rr-algolia='results']/div//div[@class="card__price"]/div
+    regExp: ((\d+),(\d+))
+    regExpReplace: $1
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    description: Shipping information for the product
+  - name: rank
+    description: search/listing rank   
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: id
+    xpath: //div[@data-uk-rr-algolia='results']/div//div[@class="card__body"]/a/@href
+    regExp: (v=(.+))
+    regExpReplace: $2
+  - name: nameExtended
+    xpath: //div[@class="card__data"]
