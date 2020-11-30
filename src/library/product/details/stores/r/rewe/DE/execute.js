@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'rewe',
     domain: 'rewe.de',
-    loadedSelector: null,
+    loadedSelector: 'div#pdr-product-details-component',
     noResultsXPath: null,
     zipcode: "''",
   },
