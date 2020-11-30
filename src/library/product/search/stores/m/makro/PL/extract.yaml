@@ -21,6 +21,8 @@ fields:
   - name: thumbnail
     singleValue: true
     xpath: //picture/img/@src
+    regExp: (.+)\?
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
