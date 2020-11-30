@@ -126,7 +126,7 @@ fields:
     defaultValue: No
   - name: minAge
     xpath: //span[contains(text(), "Рекомендуемый возраст")]//ancestor::div[1]/following-sibling::div
-  - name: variantAsins
-    xpath: //div[@data-zone-name="filter"]//input/@value
+  - name: variantCount
+    xpath: count(//div[@data-zone-name="filter"]//input/@value)
   - name: variantsInfo
     xpath: //div[@data-zone-name="filter"]//div[contains(@class, "b_1hvhLkjFFt")]//span[1]
