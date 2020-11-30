@@ -7,9 +7,9 @@ fields:
   - name: drive
     singleValue: false
     xpath: //span[@id="glow-ingress-line2"]
-    regExp: .*?\s+(\w+).*
-  - name: retailer_id
+    regExp: (.*)\s(\d+)
+    regExpReplace: $2
+  - name: retailerId
     xpath: //span[@id="glow-ingress-line2"]
-    singleValue: false
-    regExp: .*?\s+(\w+).*
-    regExpReplace: $1
+    regExp: (.*)\s(\d+)
+    regExpReplace: $2
