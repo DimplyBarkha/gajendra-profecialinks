@@ -9,27 +9,32 @@ fields:
   - name: image
     singleValue: true
     xpath: //div[@class='imgObj']/a[@class='zoom']/@href
+#
   - name: imageAlt
     singleValue: true
     xpath: //div[@class='imgObj']/a/img[@class='unf-p-img']/@alt
+#
   - name: alternativeImages
     singleValue: false
     xpath: //ul[@class='unf-p-thumbs']/li/img/@src
   - name: alternativeImages
     singleValue: false
     xpath: //div[@class='thumbsHolder']/ul/li/img/@src
+#
   - name: url
     singleValue: true
     xpath: //div[@id='url']
   - name: category
     singleValue: false
     xpath: //div[@id='breadCrumb']/ul/li/a
+#
   - name: nameExtended
     singleValue: true
     xpath: //div[@class='nameHolder']/h1
   - name: nameExtended
     singleValue: true
     xpath: //div[@class='pro-prop']/div[@class='pro-title']/h1
+#
   - name: listPrice
     singleValue: true
     xpath: //div[@class='price']/div[@class='priceDetail']/del[@class='oldPrice']
@@ -45,18 +50,18 @@ fields:
   - name: price
     singleValue: true
     xpath: //p[@class='discount-view__info']/ins[@class='price-now is-big']/span[@class='price-amount']
+    type: NUMBER
+#
   - name: availabilityText
     singleValue: true
     defaultValue: In Stock
-  - name: description
-    singleValue: false
-    xpath: //div[@class='unf-info-context']/section/div[contains(@class, 'item')]/figure/img/@src
   - name: description
     singleValue: false
     xpath: //div[@class='panelContent']/section[@class='tabPanelItem details']
   - name: description
     singleValue: false
     xpath: //div[@class='content']/p
+#
   - name: _pageTimestamp
     singleValue: true
   - name: _input
@@ -67,9 +72,14 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //script[@type='application/ld+json']
+#
   - name: quantity
     singleValue: true
     xpath: //input[@id="quantity"]/@value
+  - name: quantity
+    singleValue: true
+    xpath: //input[@id='quantyInput']/@value
+#
   - name: variantId
     singleValue: true
     xpath: //input[@class="productId"]/@value
@@ -83,12 +93,49 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //div[@class='avarageRating']/div[@class='avarageText']
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //div[@class='pro-ratings']/div[@class='stars']/div
   - name: shippingInfo
     singleValue: true
     xpath: //div[@class='paymentDetail']/div[@class='cargo']
   - name: variantCount
-    singleValue: true
-    xpath: //input[@id="quantity"]/@value
+    singleValue: false
+    xpath: //ul[@class='unf-p-sku-type' and @data-unif-seovari='renk']/li
+    defaultVarian: 1
+#
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div/div[@class='pro']/a[@class='adGroupImg']/img/@src
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //ul[@class='slidesjs-slide']/li/a/img/@src
+#
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='unf-prop-context']/ul/li
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //ul[@class='slidesjs-slide']/li/a/@title
+#
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: //ul[@class='unf-p-thumbs']/li/img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: //div[@class='thumbsHolder']/ul/li/img/@src
   - name: name
     singleValue: true
-    xpath: //input[@id="quantity"]/@value
+    xpath: //div[@class='pro-title']/h1
+  - name: termsAndConditions
+    singleValue: true
+    defaultValue: Yes
+  - name: privacyPolicy
+    singleValue: true
+    defaultValue: Yes
+  - name: customerServiceAvailability
+    singleValue: true
+    defaultValue: Yes
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
