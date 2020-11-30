@@ -2,7 +2,7 @@ input:
   id: 67591
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=2327cb04-9435-4633-85d0-3cb180265a78/task=5ce01218-721c-495b-8602-2cb953b97b3a/8ce3cdce-335d-4c43-83a9-40351183de86.html
+  - html: https://workbench.import.io/html/run=cec5178e-4cf3-4d72-a5d9-e3e1bbb0c095/task=ef561cad-42a6-40c2-9b5d-33e45dfcb3dc/b56cdaf2-d2f8-4a5e-b416-764a28c6d612.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
@@ -41,9 +41,6 @@ extractions:
             weightNet:
               - text: 330g
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[7]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/span[2]
-            sku:
-              - text: "67591"
-                xpath: /html/head[1]/link[2]/@href
             variantId:
               - text: "67591"
                 xpath: /html/head[1]/link[2]/@href
@@ -118,20 +115,22 @@ extractions:
             availabilityText:
               - text: In Stock
             variantCount:
-              - text: "0"
+              - text: 1
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
-              - text: No
+              - text: Yes
             privacyPolicy:
-              - text: No
+              - text: Yes
             customerServiceAvailability:
-              - text: No
+              - text: Yes
             Image360Present:
-              - text: No
+              - text: Yes
             imageZoomFeaturePresent:
               - text: No
             descriptionBullets:
               - text: "0"
+            secondaryImageTotal:
+              - text: "0"
         xpath: /
-    timestamp: 1606119793693
+    timestamp: 1606723193890
