@@ -117,6 +117,14 @@ const transform = (data) => {
         };
         row.nameExtended = [{ text: nameExtended }];
       }
+
+      if (row.pricePerUnit) {
+        const pricePerUnit = row.pricePerUnit[0].text;
+        row.pricePerUnit[0].text = pricePerUnit.split('\/')[0];
+        row.pricePerUnitUom = [{ text: pricePerUnit.split('\/')[1]}];
+      }
+
+      row.imageZoomFeaturePresent = [{ text: 'Yes' }];
     }
   }
 

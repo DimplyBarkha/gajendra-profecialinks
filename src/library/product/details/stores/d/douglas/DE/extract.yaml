@@ -34,9 +34,11 @@ fields:
   - name: brandText
     xpath: //span[contains(@class,"rd__product-header__title__brandname")]//a[1] | //span[@class='rd__product-header__title__brand']
   - name: ratingCount
-    xpath: //span[contains(@class, 'rd__product-header__rating__count')]/a
+    xpath: //span[contains(@class, 'rd__product-header__rating__count')]/a | //div[contains(@class, 'rd__product-details__rating')]/span[2]
+    regExp: \d+
   - name: reviewCount
-    xpath: //span[contains(@class, 'rd__product-header__rating__count')]/a
+    xpath: //span[contains(@class, 'rd__product-header__rating__count')]/a | //div[contains(@class, 'rd__product-details__rating')]/span[2]
+    regExp: \d+
   - name: aggregateRating2
     xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: aggregateRating
@@ -106,3 +108,5 @@ fields:
     regExpReplace: $2
   - name: warranty
     xpath: //div[contains(@class, 'rd__product-details__description__collapsible')]//li[contains(., 'garantie') and not(contains(@type,'non-bullet'))] | //div[contains(@class, 'rd__product-details__description__collapsible')]//div[contains(., 'garantie')]
+  - name: pricePerUnit
+    xpath: //div[contains(@class, 'rd__product-details__options__price__item__quantity')]/span[2]
