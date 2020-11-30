@@ -27,12 +27,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       .replace('{searchTerms}', encodeURIComponent(keywords))
       .replace(
         '{page}',
-        (page + (openSearchDefinition.pageOffset || 0)).toString()
-      )
+        (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace(
         '{offset}',
-        (offset + (openSearchDefinition.indexOffset || 0)).toString()
-      );
+        (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
 
   if (!url) {
