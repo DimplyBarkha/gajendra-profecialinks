@@ -75,10 +75,10 @@ fields:
     regExpReplace: $1    
   - name: sku
     singleValue: false
-    xpath: //div[@id="sku-selector"]/@data-current-sku-part-number
+    xpath: //div[@id="sku-selector"]/@data-current-sku-part-number | //div[@class="value js-part-number"]/span
   - name: variantId
     singleValue: false
-    xpath: //div[@id="sku-selector"]/@data-current-sku-part-number
+    xpath: //div[@id="sku-selector"]/@data-current-sku-part-number | //div[@class="value js-part-number"]/span 
     # xpath: //script[contains(text(),"rootCategoryId")] 
     # regExp: productId\W\s([^,]+)
     # regExpReplace: $1 
@@ -268,6 +268,8 @@ fields:
   - name: calciumPerServing
     singleValue: false
     xpath: //td[contains(text(),"Calcium")]/following-sibling::td
+    regExp: \s(.+)min
+    regExpReplace: $1
   - name: calciumPerServingUom
     singleValue: false
     xpath: //td[contains(text(),"Calcium")]/following-sibling::td
