@@ -15,7 +15,7 @@ fields:
 - name: _url
   singleValue: false
   xpath: //meta[contains(@property,"og:url")]/@content
-- name: ratingCount
+- name: reviewCount
   singleValue: false
   xpath: //div[@id='extra_avis']/a/font
 - name: aggregateRating
@@ -87,4 +87,10 @@ fields:
   xpath: //ul[@id='extra_reassurances']/li[1]//p
 - name: directions 
   singleValue: false
-  xpath: //div[@id="contentTab2"]//li | //div[@id="contentTab2"]//p 
+  xpath: //div[@id="contentTab2"]//li | //div[@id="contentTab2"]//p
+- name: imageZoomFeaturePresent
+  singleValue: true
+  defaultValue: Yes
+- name: secondaryImageTotal
+  singleValue: true
+  xpath: count(//p[@class="pd07"]/a/img/@src)   
