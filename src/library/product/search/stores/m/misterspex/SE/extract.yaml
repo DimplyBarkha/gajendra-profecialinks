@@ -1,5 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@class="spex-productList__products"]//div[@class="spex-productList__item"]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="spex-productList__products"]//a[@data-qa="product-tile"]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="spex-productList__products"]//a[@data-qa="product-tile"]/@data-sku
