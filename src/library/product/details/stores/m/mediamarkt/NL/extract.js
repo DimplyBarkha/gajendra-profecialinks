@@ -74,8 +74,10 @@ module.exports = {
       addElementToDocument('mm_packSize', packSize);
 
       // Getting upc code
-      const upc = eval(`window.product${urlParams.get('ga_query')}.ean`);
-      addElementToDocument('mm_upc', upc);
+      if (eval(`window.product${urlParams.get('ga_query')}`)) {
+        const upc = eval(`window.product${urlParams.get('ga_query')}.ean`);
+        addElementToDocument('mm_upc', upc);
+      }
 
       // Getting sku code
       const sku = urlParams.get('ga_query');
