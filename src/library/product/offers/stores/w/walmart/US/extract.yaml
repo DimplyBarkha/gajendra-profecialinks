@@ -1,1 +1,47 @@
-extends: ../shared
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[starts-with(@data-tl-id,"ProductSellerCard")]
+fields:
+  - name: name
+    xpath: ancestor::html//*[@class="product-title"]
+    description: product_name - Product title
+  - name: image
+    xpath: ancestor::html//img[@class="prod-product-card--image-src"]/@src
+    regExp: ^(//)?([^?]+)
+    regExpReplace: https://$2
+    description: product_images - First image on the product listing, dont assign
+      'src, img' attribute only select the class that contains it and import
+      will scrape the image properly
+  - name: resellerName
+    xpath: //*[@data-tl-id="ProductSellerCardSellerInfo-SellerName"]
+    description: reseller_name - Seller Name, if the website does not have sellers,
+      put the website name as seller
+  - name: resellerId
+    xpath: //a[@data-tl-id="ProductSellerCardSellerInfo-SellerName"]/@href
+    regExp: /seller/(\d+)
+    regExpReplace: $1
+    description: reseller_id - Unique seller ID
+  - name: resellerLink
+    xpath: //a[@data-tl-id="ProductSellerCardSellerInfo-SellerName"]
+    type: LINK
+    description: reseller_link - Link to the seller page
+  - name: shippingCost
+    xpath: //div[contains(@class, "product-shipping-price ")]//span[@class="font-semibold"]
+    description: shipping_cost - Product shipping cost
+  - name: productId
+    xpath: ancestor::html//a[@itemprop="url"]/@href
+    regExp: '[^\/]+$'
+    description: product_id - Unique Page ID for the product listing (NOT AMAZON
+      SPECIFIC, ALL SITES SHOULD INCLUDE EXCEPT EBAY)
+  - name: price
+    xpath: //span[contains(@class,"price--stylized")]//*[@class="price-group"]
+    description: price - Product Price
+  - name: sku
+    xpath: ancestor::html//a[@itemprop="url"]/@href
+    regExp: '[^\/]+$'
+    description: product_sku - Product SKU
+  - name: country
+    description: country - Country of the website scraped (US, DE, UK, ES, IT, FR,
+      NL,). Could be handled in workbench too.
+    defaultValue: 'US'

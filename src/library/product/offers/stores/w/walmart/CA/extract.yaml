@@ -1,0 +1,85 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="product-offers-api"]/table/tbody/tr
+fields:
+  - name: name
+    description: product_name - Product title
+    xpath: ancestor::html//h1[@data-automation="product-title"]
+  - name: aggregateRating
+    xpath: ancestor::html//*[@class="bv-rating"]
+    description: "product_reviews - Product reviews, usually out of 5, if not append
+      the amount its out of. ex: 4.5/10"
+  - name: reviewCount
+    xpath: ancestor::html//button[@data-automation="review-link"]/text()
+    type: NUMBER
+    description: "product_review_count - # of reviews the product has"
+  - name: description
+    xpath: ancestor::html//div[@data-automation="long-description"]/text()
+    description: product_description - product description, try and not capture it
+      all if the charecter limit exceeds 255 chars
+  - name: image
+    xpath: ancestor::html//img[@id="main-image"]/following-sibling::img/@src
+    type: IMAGE
+    description: product_images - First image on the product listing, dont assign
+      'src, img' attribute only select the class that contains it and import
+      will scrape the image properly
+  - name: resellerName
+    xpath: ./td[@class="sellerName"]
+    description: reseller_name - Seller Name, if the website does not have sellers,
+      put the website name as seller
+  - name: shippingCost
+    xpath: ./td[@class="shippingCost"]
+    description: shipping_cost - Product shipping cost
+  - name: productId
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+    regExp: '[^\/]+$'
+    description: product_id - Unique Page ID for the product listing (NOT AMAZON
+      SPECIFIC, ALL SITES SHOULD INCLUDE EXCEPT EBAY)
+  - name: price
+    xpath: ./td[@class="price"]
+    description: price - Product Price
+  - name: sku
+    xpath: ancestor::html//*[text()="SKU"]/following-sibling::*[1]
+    description: product_sku - Product SKU
+  - name: gtin
+    xpath: ancestor::html//*[text()="UPC"]/following-sibling::*[1]
+    description: upc_user_input - Product UPC
+  - name: mpn
+    xpath: 'ancestor::html//*[text()="Model #"]/following-sibling::*[1]'
+    description: mpn_user_input - Product MPN (Manufactures part number)
+  - name: brandText
+    xpath: ancestor::html//*[@data-automation="brand"]
+    description: brand_user_input - Brand the product is associated with
+  - name: category
+    xpath: ancestor::html//*[@data-automation="desktop-breadcrumbs"]/li[position()>1]/a 
+    description: parent_category - First category in a given tree, use (Xpath)[1] to
+      select on the first instance of the category. Get category list workbench
+      can handle splitting between category to parent_category and
+      child_category.
+    singleValue: false
+  - name: listPrice
+    xpath: ancestor::html//*[@data-automation="buybox-price-old"]
+    description: previous_sales_price - Original price that the product was being
+      sold at, typically will be the greyed out or crossed out price
+  - name: variants
+    xpath: ancestor::html/body/@variant
+    description: product_style - Stlye, color and or any variant of the product
+      here, if the product has options and one or two are selected scrape both
+      into this column
+    singleValue: false
+  - name: country
+    description: country - Country of the website scraped (US, DE, UK, ES, IT, FR,
+      NL,). Could be handled in workbench too.
+    defaultValue: 'CA'
+  - name: deliveryDate
+    xpath: ./td[@class="deliveryDate"]
+    description: delivery_date - Date the product will be delivered, check the site
+      before extractor setup, if the site provides this info by putting in a zip
+      code, use interaction to get this data
+  - name: resellerId
+    xpath: ./td[@class="sellerId"]
+    description: reseller_id - Unique seller ID
+  - name: unitsStock
+    xpath: ./td[@class="stock"]
+    description: units_stock - Number of stock the item has
