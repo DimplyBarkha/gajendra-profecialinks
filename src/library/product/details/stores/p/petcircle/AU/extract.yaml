@@ -22,9 +22,7 @@ fields:
     xpath: //script[42]
   - name: alternateImages
     singleValue: false
-    xpath: //li[contains(@class,"main-image-slides")][position() > 1]//figure/a//img/@src
-    # xpath: (//li[contains(@class,"main-image-slides")][position() > 1]//figure/a/img/@src)
-    # xpath: (//figure[@class='figure'])[position() > 1]/a/img/@src
+    xpath: //li[contains(@class,'secondary')]/img/@data-main-image
   - name: largeImageCount
     singleValue: false
     xpath: count(//li[contains(@class,"main-image-slides")][position() > 1])
