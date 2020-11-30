@@ -1,0 +1,22 @@
+input:
+  _url: http://zalando.de
+  URL: https://en.zalando.de/skins-skins-kompressionshose-s5-superpose-leggings-navy-blue-ss842e00w-k11.html
+extractions:
+  - html: https://workbench.import.io/html/run=69186a25-d0e9-41db-a851-95416236a895/task=5c0e293f-6cd9-4a9c-86b6-c77cee245a2b/6cb1413a-a1cc-4da4-ac4d-19337745ccbe.html
+    extractionConfigId: product/details/stores/z/zalando/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: ss842e00w-k11
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://en.zalando.de/skins-skins-kompressionshose-s5-superpose-leggings-navy-blue-ss842e00w-k11.html
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: ss842e00w-q11
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://en.zalando.de/skins-skins-kompressionshose-s5-superpose-leggings-black-ss842e00w-q11.html
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1606733698743
