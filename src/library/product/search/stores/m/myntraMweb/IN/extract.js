@@ -29,6 +29,12 @@ module.exports = {
       const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
       const products = document.querySelectorAll('ul.results-base li.product-base');
       for (let i = 0; i < products.length; i++) {
+        const ProductBrand = products[i].querySelector('h3.product-brand');
+        const productBrandTxt = ProductBrand ? ProductBrand.textContent : '';
+        const productName = products[i].querySelector('h4.product-product');
+        const productNameText = productName ? productName.textContent : '';
+        const fullProductName = productBrandTxt && productNameText ? productBrandTxt + ' ' + productNameText : '';
+        if (fullProductName) products[i].setAttribute('fullproductname', fullProductName);
         const aggRating = products[i].querySelector('div.product-ratingsContainer span:nth-child(1)') ? products[i].querySelector('div.product-ratingsContainer span:nth-child(1)').textContent : '';
         if (aggRating) products[i].setAttribute('aggrating', aggRating);
         products[i].setAttribute('rank', `${lastProductPosition + i}`);
