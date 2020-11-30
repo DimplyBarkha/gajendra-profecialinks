@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[@class='swatch']/a/@href
+    regExp: (https:\/\/www.appliancesonline.com.au)?(.+)
+    regExpReplace: www.appliancesonline.com.au$2
+  - name: variantUrl
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[@class='swatch']/a/@href
+    regExp: (https:\/\/www.appliancesonline.com.au)?(.+)
+    regExpReplace: www.appliancesonline.com.au$2
