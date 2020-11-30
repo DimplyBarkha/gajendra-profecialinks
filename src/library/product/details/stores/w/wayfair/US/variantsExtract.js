@@ -37,7 +37,7 @@ async function implementation (
     }
     try {
       if (val.length === 0) {
-        var data = wf.reactData;
+        var data = window.wf.reactData;
         for (const key in data) {
           if (data[key].react_component_name === 'pure_react_pdp') {
             var variant = data[key].bootstrap_data.optionComboToPartId;
