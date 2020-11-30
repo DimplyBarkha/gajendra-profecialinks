@@ -88,8 +88,9 @@ module.exports = {
         // addElementToDocument('addedOnlinePriceCurrency', jsonObj.offers.priceCurrency);
         console.log('jsonObj' + jsonObj.sku);
         addElementToDocument('addedSku', jsonObj.sku);
-        console.log('jsonObj' + jsonObj.aggregateRating.reviewCount);
-        addElementToDocument('addedReviewCount', jsonObj.aggregateRating.reviewCount);
+        let reviewCount = jsonObj.aggregateRating && jsonObj.aggregateRating.reviewCount ? jsonObj.aggregateRating.reviewCount : "";  
+        console.log('jsonObj' + reviewCount);
+        addElementToDocument('addedReviewCount', reviewCount);
       }
 
       const manufacturerImageXpath = getAllXpath("//div[@class='right']/img/@src", 'nodeValue');
