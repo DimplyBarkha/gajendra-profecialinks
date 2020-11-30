@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: rank
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id="rankOrganic"]/text()
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article/div/a/img/@src
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article//h3[@class="lst-product-item-title"]/a/text()
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article/div/a/@id
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article/div/a/@href
+    regExp: (kava/.*)
+    regExpReplace: https://www.mall.sk/$1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article//span[@class="lst-product-item-price-value"]/text()
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article/div/div[@class="lst-product-item-body"]//span[@class="rat--small"]
+
+    
