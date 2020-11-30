@@ -1,0 +1,70 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="image-view-magnifier-wrap"]/img[@class="magnifier-image"]/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[position()>1]/div[@class="images-view-item"]/img/@src
+  - name: name
+    singledValue: false
+    xpath: //h1[@class="product-title-text"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-price-current"]/span[@class="product-price-value"]
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="product-title-text"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="reviewCount"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
+  - name: color
+    singleValue: false
+    xpath: //div[@class="product-sku"]//div[@class="sku-property"][1]//span[@class="sku-title-value"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="product-price-del"]/span[@class="product-price-value"]
+  - name: variantCount
+    singleValue: false
+    defultValue: 0
+  - name: quantity
+    singleValue: false
+    xpath: //span[contains(@class,"next-input-group-auto-width")]/input/@value
+    defultValue: 1
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="next-message-content"]
+    defaultValue: 'In Stock'
+  - name: shippingInfo
+    singleValue: false
+    xpath: //ul[@class="sku-property-list"]/li[1]
+  - name: coupon
+    singleValue: false
+    xpath: //div[@class="coupon-mark-new"]
+  - name: specifications
+    singleValue: false
+    xpath: //ul[contains(@class,"product-specs-list")]/li
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: videos
+    singleValue: false
+    xpath: //video/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class="detail-desc-decorate-richtext"]/div/div/img/@src
