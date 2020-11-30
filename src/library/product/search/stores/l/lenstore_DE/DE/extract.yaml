@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //picture[@class="c-product-list__figure"]/source[1]/@srcset
+  - name: name
+    singleValue: false
+    xpath: //h3[@class="c-product-list__title"]/a/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //ul[@id="ProductList"]/li//a[@class="u-fill-container"]/@href
+  - name: id
+    singleValue: false
+    xpath: //ul[@id="ProductList"]/li/@data-ga-id
+    regExp: \d+
+  - name: price
+    singleValue: false
+    xpath: //html//div[@id="price"]
