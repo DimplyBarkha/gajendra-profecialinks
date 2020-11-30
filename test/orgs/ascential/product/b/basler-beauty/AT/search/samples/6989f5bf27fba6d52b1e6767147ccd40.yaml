@@ -1,0 +1,56 @@
+input:
+  Keywords: Dyson+airwrap
+  _url: http://basler-beauty.at
+extractions:
+  - html: https://workbench.import.io/html/run=d5b04b1b-282d-4f0b-a336-884c7e6b01ef/task=bc95eddc-407a-42f8-9b54-0a6b713840e4/7f785b14-d104-4a00-a487-e34658296cc1.html
+    extractionConfigId: product/search/stores/b/basler-beauty/AT/extract
+    data:
+      - group:
+          - id:
+              - text: "1339966"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[1]/form[1]/div[1]/input[8]/@value
+            name:
+              - text: Dyson Airwrap Complete Haarstyler
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[1]/form[1]/div[5]/h3[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.basler-beauty.at/marken/dyson/dyson-airwrap-complete-haarstyler.html?listtype=search&searchparam=Dyson%2Bairwrap
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[1]/form[1]/div[5]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.basler-beauty.de/out/pictures/master/product/thumb/Dyson-Airwrap-Complete-Haarstyler.0326b6d5.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[1]/form[1]/div[3]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+            reviewCount:
+              - text: "68"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[1]/form[1]/div[4]/div[1]
+            price:
+              - text: 479,00 €
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[1]/form[1]/div[6]/div[1]/span[2]
+            searchUrl:
+              - text: https://www.basler-beauty.at/index.php?cl=search&searchparam=Dyson%2Bairwrap
+                xpath: /html/body/div[8]
+          - id:
+              - text: "1345427"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/form[1]/div[1]/input[8]/@value
+            name:
+              - text: Dyson Airwrap Complete Long Haarstyler
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/form[1]/div[4]/h3[1]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.basler-beauty.at/marken/dyson/dyson-airwrap-complete-long-haarstyler.html?listtype=search&searchparam=Dyson%2Bairwrap
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/form[1]/div[4]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://cdn.basler-beauty.de/out/pictures/master/product/thumb/Dyson-Airwrap-Complete-Long-Haarstyler.0803a917.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/form[1]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/form[1]/div[3]/div[1]
+            price:
+              - text: 499,00 €
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/form[1]/div[5]/div[1]/span[1]
+            searchUrl:
+              - text: https://www.basler-beauty.at/index.php?cl=search&searchparam=Dyson%2Bairwrap
+                xpath: /html/body/div[8]
+        xpath: /html
+    timestamp: 1606738113527
