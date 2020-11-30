@@ -54,6 +54,24 @@ const transform = (data) => {
         row.price = [{ text: row.price1[0].text }];
         delete row.price1;
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('Our Price', '');
+          item.text = item.text.trim();
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace('Sugg. Price', '');
+          item.text = item.text.trim();
+        });
+      }
+      if (row.mpc) {
+        row.mpc.forEach(item => {
+          item.text = item.text.replace('Model', '');
+          item.text = item.text.trim();
+        });
+      }
       if (row.videos1) {
         var arrVideo = [];
         row.videos1.forEach(item => {

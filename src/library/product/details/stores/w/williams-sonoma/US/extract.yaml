@@ -21,6 +21,11 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="pip-summary"]//h1
+  - name: brandText
+    singleValue: false
+    xpath: //script[contains(text(),'sessionCookieName ')]
+    regExp: brand\s*:\s*\"(.+?)\"
+    regExpReplace: $1
   - name: nameExtended
     singleValue: false
     xpath: //div[@class="pip-summary"]//h1
@@ -32,16 +37,16 @@ fields:
     defaultValue: Out of Stock
   - name: price1
     singleValue: false
-    xpath: //div[@class="pip-summary"]//span[contains(@class,'price-standard')]//span[contains(@class,'currencyUSD')]
+    xpath: //div[@class='subset-skus']//span[@class='product-price']//span[contains(@class,'price-standard')]
   - name: price2
     singleValue: false
     # for multiple prices
-    xpath: //div[@class="pip-summary"]//span[contains(@class,'price-special')]//span[contains(@class,'currencyUSD')]
+    xpath: //div[@class='subset-skus']//span[@class='product-price']//div[contains(@class,'price-special')]
   - name: price
     singleValue: false
   - name: listPrice
     singleValue: false
-    xpath: (//div[@class="pip-summary"]//span[contains(@class,'price-strike-special')]//span[contains(@class,'currencyUSD')])[1]
+    xpath: //div[@class='subset-skus']//span[@class='product-price']//div[contains(@class,'price-strike-special')]
   - name:  description
     singleValue: false
     xpath: //dt[normalize-space()='Summary']//following-sibling::dd[1]//p
@@ -100,3 +105,15 @@ fields:
     regExpReplace: https://www.youtube.com/watch?v=$1
   - name: videos
     singleValue: false
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,'accordion-contents')]//li[contains(text(),'Model')]
+  - name: variantInformation
+    singleValue: false
+    xpath: //section[contains(@class,'simple-subset')]//h4//span[contains(@class,'oldSelectedValue')]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='alert-message alert'] | //li[contains(@class,'freeship')]
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
