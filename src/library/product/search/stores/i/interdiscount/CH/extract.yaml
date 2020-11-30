@@ -42,3 +42,8 @@ fields:
   - name: rankOrganic
     singleValue: false
     type: NUMBER
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,"_3UBePl _8Zn5sH _1__h-Q")]/div//img/@alt
+    regExp: (\w+)(.+)
+    regExpReplace: $1
