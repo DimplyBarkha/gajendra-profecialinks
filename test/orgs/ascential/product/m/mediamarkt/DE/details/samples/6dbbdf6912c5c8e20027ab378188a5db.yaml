@@ -2,7 +2,7 @@ input:
   _url: http://mediamarkt.de
   URL: https://www.mediamarkt.de/de/product/_samsung-gq-75-q-80-2640795.html
 extractions:
-  - html: https://workbench.import.io/html/run=467c0094-1704-4379-9232-545c936a8eb2/task=64a574bd-1a3c-4462-b34e-3eff0c16de73/920dd0ff-fd23-4574-978c-a62972567e91.html
+  - html: https://workbench.import.io/html/run=62e073a7-e93b-4cf6-b0dc-6a18c11fdf45/task=fb06ddf3-247a-4acd-95d4-a69a7a8c8930/91dfe4b8-50a3-44f1-86a3-39385743893b.html
     extractionConfigId: product/details/stores/m/mediamarkt/DE/extract
     data:
       - group:
@@ -29,11 +29,11 @@ extractions:
               - text: SAMSUNG GQ75Q80T QLED TV (Flat, 75 Zoll / 189 cm, UHD 4K, SMART TV)
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]
             listPrice:
-              - text: 3020. 87
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+              - text: 3020,87
+                xpath: /html/body/div[9]
             price:
-              - text: 2499.–
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/span[2]
+              - text: 2499,–
+                xpath: /html/body/div[10]
             availabilityText:
               - text: In den Warenkorb
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[6]/button[1]
@@ -91,11 +91,8 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[8]/tbody[1]/tr[13]/td[2]
             gtin:
               - text: "8806090347528"
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[11]
             sku:
-              - text: "2640795"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
-            variantId:
               - text: "2640795"
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
             mpc:
@@ -133,14 +130,17 @@ extractions:
               - text: "4.6"
                 xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/text()[1]
             aggregateRating:
-              - text: "4.6"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/text()[1]
+              - text: 4,6
+                xpath: /html/body/div[8]
             shippingDimensions:
               - text: 1931 mm / 1115 mm / 214 mm
                 xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[8]/tbody[1]/tr[16]/td[2]
             color:
               - text: Carbonsilber
                 xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[8]/tbody[1]/tr[4]/td[2]
+            videos:
+              - text: https://mycliplister.com/vx/157815/1733be58cd1e94ecd10517f2722e78cca570e64a13f622777f9d961e59db156bd437f1a976f501500d657cfdbf78844c3b644228dacb87dc7354f47d5e55ea214_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd56399ea5b562a64a720504d71d4ab792e0c25a8c0d47bfe940bd0c8394ea8fa50f2c7df5f74fc23b1b47d700d56c85f3e1c578540a15fe57ccdfd525c03b8436f72ba42bf6da03fb9a0f1dcf5d3e18660e8c6
+                xpath: /html/body/div[12]
             name:
               - text: SAMSUNG GQ75Q80T QLED TV (Flat, 75 Zoll / 189 cm, UHD 4K, SMART TV)
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]
@@ -431,4 +431,4 @@ extractions:
                   mm Höhe ohne Standfuß958.7 mm Tiefe ohne Standfuß53.9 mm
                   Gewicht ohne Standfuß34.4 kg
         xpath: /
-    timestamp: 1606720617020
+    timestamp: 1606721067985

@@ -2,7 +2,7 @@ input:
   _url: http://mediamarkt.de
   URL: https://www.mediamarkt.de/de/product/-1587029.html
 extractions:
-  - html: https://workbench.import.io/html/run=467c0094-1704-4379-9232-545c936a8eb2/task=b6dffa55-f9b8-407d-92dd-9d434a0aa862/d509c8ea-2149-435e-adb0-7742202e0bc8.html
+  - html: https://workbench.import.io/html/run=62e073a7-e93b-4cf6-b0dc-6a18c11fdf45/task=7c4e3b1f-f1c6-4c27-a808-04e56ca24e32/f843ddde-f6a9-47ed-b1d5-d1c98f2c0dca.html
     extractionConfigId: product/details/stores/m/mediamarkt/DE/extract
     data:
       - group:
@@ -29,11 +29,11 @@ extractions:
               - text: "BOSCH TAT 3A 014 Toaster Rot/Hellgrau (980 Watt, Schlitze: 2)"
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]
             listPrice:
-              - text: 34. 99
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+              - text: 34,99
+                xpath: /html/body/div[9]
             price:
-              - text: "25.55"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/span[2]
+              - text: 25,55
+                xpath: /html/body/div[10]
             availabilityText:
               - text: In den Warenkorb
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[6]/button[1]
@@ -62,11 +62,8 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[7]/td[2]
             gtin:
               - text: "4242002717289"
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[11]
             sku:
-              - text: "1587029"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
-            variantId:
               - text: "1587029"
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
             mpc:
@@ -104,8 +101,8 @@ extractions:
               - text: "4.8"
                 xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/text()[1]
             aggregateRating:
-              - text: "4.8"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/text()[1]
+              - text: 4,8
+                xpath: /html/body/div[8]
             shippingDimensions:
               - text: 210 mm / 220 mm / 340 mm
                 xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[9]/td[2]
@@ -260,4 +257,4 @@ extractions:
               - text: Packmaße (BxHxT) (cm)210 mm / 220 mm / 340 mm Breite310 mm Höhe190 mm
                   Tiefe160 mm Gewicht1680 g
         xpath: /
-    timestamp: 1606720597806
+    timestamp: 1606721057655

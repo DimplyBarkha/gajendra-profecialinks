@@ -2,7 +2,7 @@ input:
   _url: http://mediamarkt.de
   URL: https://www.mediamarkt.de/de/product/-1885377.html
 extractions:
-  - html: https://workbench.import.io/html/run=467c0094-1704-4379-9232-545c936a8eb2/task=acbca4e3-d904-4165-a9c0-e3ae48a5df7c/d112e050-ceaa-439a-bb61-6795e349ce29.html
+  - html: https://workbench.import.io/html/run=62e073a7-e93b-4cf6-b0dc-6a18c11fdf45/task=7a1f5d27-4c02-4b65-b93f-eb075e0788c1/c3b7154f-f01c-4883-a1bc-8177fea8a406.html
     extractionConfigId: product/details/stores/m/mediamarkt/DE/extract
     data:
       - group:
@@ -26,11 +26,11 @@ extractions:
               - text: PANASONIC ER-GB 60 Trimmer
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]
             listPrice:
-              - text: 58. 48
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+              - text: 58,48
+                xpath: /html/body/div[9]
             price:
-              - text: "42.98"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/span[2]
+              - text: 42,98
+                xpath: /html/body/div[10]
             availabilityText:
               - text: In den Warenkorb
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/button[1]
@@ -69,11 +69,8 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
             gtin:
               - text: "5025232782611"
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[11]
             sku:
-              - text: "1885377"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
-            variantId:
               - text: "1885377"
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
             mpc:
@@ -111,8 +108,8 @@ extractions:
               - text: "4.2"
                 xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/text()[1]
             aggregateRating:
-              - text: "4.2"
-                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/text()[1]
+              - text: 4,2
+                xpath: /html/body/div[8]
             shippingDimensions:
               - text: 65 mm / 245 mm / 200 mm
                 xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[5]/tbody[1]/tr[3]/td[2]
@@ -120,8 +117,8 @@ extractions:
               - text: Grau/Schwarz
                 xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[5]/tbody[1]/tr[1]/td[2]
             videos:
-              - text: https://mycliplister.com/vx/157815/1b3a98b37530b5cbd70c3be80ac5c1b4e9828f49170086dc364ee4397f3d02c42d348b936bf250fc1d7a76b0e74067542e9a1bd1c9659efb2de944eef402b734e_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd5639912b667dcb916ee3e13afa06fa95c2613a481c100ee08abfc1eb3bf0a0307eaab4fbdd8674b6d4045f39da9224a8f359d0a54ec4bed794f5c16b51ccf2a3cc8bf4add5b4940f5d2b853b6bb1d851f841f,https://mycliplister.com/vx/157815/1b3a98b37530b5cbd70c3be80ac5c1b4e9828f49170086dc364ee4397f3d02c42104a299360033a4b01deaa9141045fc8ac8101e0ecac8cde7c8010b3efea6c82_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd5639912b667dcb916ee3e13afa06fa95c2613a481c100ee08abfc1eb3bf0a0307eaab4fbdd8674b6d4045f39da9224a8f359d0a54ec4bed794f5c16b51ccf2a3cc8bf4add5b4940f5d2b853b6bb1d851f841f,https://mycliplister.com/vx/157815/1b3a98b37530b5cbd70c3be80ac5c1b4e9828f49170086dc364ee4397f3d02c425ce01de26cf140c031cceae1e0b95a42412aae159353212942e49b25b27de068_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd5639912b667dcb916ee3e13afa06fa95c2613a481c100ee08abfc1eb3bf0a0307eaab4fbdd8674b6d4045f39da9224a8f359d0a54ec4bed794f5c16b51ccf2a3cc8bf4add5b4940f5d2b853b6bb1d851f841f
-                xpath: /html/body/div[9]
+              - text: https://mycliplister.com/vx/157815/1b3a98b37530b5cbd70c3be80ac5c1b4e9828f49170086dc364ee4397f3d02c42e99567f8ca7d4af9a0fc5c8c4cf1c4347bb0a31ed9c2b5cae1457f3b8e4e29c1_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd5639912b667dcb916ee3e13afa06fa95c2613a481c100ee08abfc1eb3bf0a0307eaab4fbdd8674b6d4045f39da9224a8f359d0a54ec4bed794f5c16b51ccf2a3cc8bf4add5b4940f5d2b853b6bb1d851f841f,https://mycliplister.com/vx/157815/1b3a98b37530b5cbd70c3be80ac5c1b4e9828f49170086dc364ee4397f3d02c420b0496d38290a995a6a8f25c24621b30dc157e05f9607cb677970ae22c35c37f_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd5639912b667dcb916ee3e13afa06fa95c2613a481c100ee08abfc1eb3bf0a0307eaab4fbdd8674b6d4045f39da9224a8f359d0a54ec4bed794f5c16b51ccf2a3cc8bf4add5b4940f5d2b853b6bb1d851f841f,https://mycliplister.com/vx/157815/1b3a98b37530b5cbd70c3be80ac5c1b4e9828f49170086dc364ee4397f3d02c423da1eb94b138f5bd74243ef931e58a26ae1d93a3fdcf9b229fec41ccc58a7d71_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd5639912b667dcb916ee3e13afa06fa95c2613a481c100ee08abfc1eb3bf0a0307eaab4fbdd8674b6d4045f39da9224a8f359d0a54ec4bed794f5c16b51ccf2a3cc8bf4add5b4940f5d2b853b6bb1d851f841f
+                xpath: /html/body/div[12]
             name:
               - text: PANASONIC ER-GB 60 Trimmer
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]
@@ -253,4 +250,4 @@ extractions:
             specifications:
               - text: "Packmaße (BxHxT) (cm)65 mm / 245 mm / 200 mm    "
         xpath: /
-    timestamp: 1606720615021
+    timestamp: 1606721074230
