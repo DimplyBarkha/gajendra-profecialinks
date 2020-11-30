@@ -29,7 +29,7 @@ module.exports = {
     for (let k = 0; k < data.length; k++) {
       for (let i = 0; i < data[k].group.length; i++) {
         if ('aggregateRating' in data[k].group[i]) {
-          data[k].group[i].aggregateRating[0].text = Number(data[k].group[i].aggregateRating[0].text).toFixed(1).replace('.', ',');;
+          data[k].group[i].aggregateRating[0].text = Number(data[k].group[i].aggregateRating[0].text).toFixed(1).replace('.', ',');
         }
       }
     }
