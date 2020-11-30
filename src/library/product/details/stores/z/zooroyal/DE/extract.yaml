@@ -49,6 +49,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@class='article-number']//span[@itemprop="sku"]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="rating-nr"]
