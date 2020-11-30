@@ -11,7 +11,7 @@ module.exports = {
     noResultsXPath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
-    domain: 'mall.com',
+    domain: 'mall.sk',
     zipcode: '',
   },
 };

@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'SK',
     store: 'mall',
-    domain: 'mall.com',
-    loadedSelector: 'body',
+    domain: 'mall.sk',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },

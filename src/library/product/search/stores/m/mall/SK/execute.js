@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'SK',
     store: 'mall',
-    domain: 'mall.com',
+    domain: 'mall.sk',
     url: 'https://www.mall.sk/hladaj?s={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,

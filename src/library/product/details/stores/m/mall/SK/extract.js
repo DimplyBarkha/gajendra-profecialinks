@@ -1,4 +1,3 @@
-const transform = require("../../../w/walmart/US/transform");
 
 module.exports = {
   implements: 'product/details/extract',
@@ -6,7 +5,7 @@ module.exports = {
     country: 'SK',
     store: 'mall',
     transform: null,
-    domain: 'mall.com',
+    domain: 'mall.sk',
     zipcode: '',
   },
 };

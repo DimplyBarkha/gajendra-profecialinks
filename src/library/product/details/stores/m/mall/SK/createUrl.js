@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'mall.com',
+    domain: 'mall.sk',
     prefix: null,
     url: null,
     country: 'SK',
