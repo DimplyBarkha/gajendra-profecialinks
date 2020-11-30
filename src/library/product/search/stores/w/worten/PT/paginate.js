@@ -7,6 +7,6 @@ module.exports = {
     nextLinkSelector: 'li.pagination-next a',
     loadedSelector: 'div.w-product-list__row',
     domain: 'worten.pt',
-    spinnerSelector: 'div.w-loading'
+    spinnerSelector: 'div.w-loading',
   },
 };

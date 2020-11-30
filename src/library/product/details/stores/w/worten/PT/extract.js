@@ -7,7 +7,8 @@ module.exports = {
     transform,
     domain: 'worten.pt',
     zipcode: '',
-  }, implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
+  },
+  implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
     try {
       await context.waitForSelector('.w-cookies-popup__wrapper .w-button-primary', { timeout: 10000 });
       await context.evaluate(function () {
@@ -20,9 +21,9 @@ module.exports = {
 
     await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
     await context.evaluate(function () {
-      var rating = document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext() && document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent && document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent.replace(/(.+ratingValue":"([^\"]+).+)/g, '$2');
+      const rating = document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext() && document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent && document.evaluate('//script[@type="application/ld+json"][1][contains(text(),"ratingValue")]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent.replace(/(.+ratingValue":"([^"]+).+)/g, '$2');
       if (rating) {
-        var Frating = Number(rating).toFixed(1).replace('.', ',');
+        const Frating = Number(rating).toFixed(1).replace('.', ',');
         document.body.setAttribute('rating', Frating);
       }
       console.log('Scrolling to the bottom of page.');
