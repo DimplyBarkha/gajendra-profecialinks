@@ -2,6 +2,7 @@ extends: ../shared
 fields:
   - name: availabilityText
     xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'carrello')]//text()
+    defaultValue: 'Out Of Stock'
   - name: weightNet
     xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Peso')]])[1]
   - name: shippingInfo
