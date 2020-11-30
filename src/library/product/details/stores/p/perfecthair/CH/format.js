@@ -23,11 +23,19 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      for (let row of group) {
-        if (row.color) {
-          row.color = [{ text: row.color.map(item => item.text).join() }]
-        }
+      for (let row of group) {        
         
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
+          });
+        }
+
+        if (row.listPrice) {
+          row.listPrice.forEach(item => {
+            item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
+          });
+        }
         
         if (row.productOtherInformation) {
           row.productOtherInformation.map(item => {
@@ -40,13 +48,7 @@ const transform = (data) => {
         if (row.videos) {
           row.videos = Array.from(new Set(row.videos.map(item => item.text)).values()).map(item => { return { text: item } });
         }
-        if (row.manufacturerImages) {
-            let info = [];          
-            row.manufacturerImages.forEach(item => {
-                info.push(item.text);            
-            });
-            row.manufacturerImages = [{'text':info.join(' | '),'xpath':row.manufacturerImages[0].xpath}];          
-        }
+        
         if (row.manufacturerDescription) {
             let info = [];          
             row.manufacturerDescription.forEach(item => {

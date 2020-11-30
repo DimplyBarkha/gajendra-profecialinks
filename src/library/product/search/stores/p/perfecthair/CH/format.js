@@ -35,6 +35,7 @@ const transform = (data, context) => {
             row.aggregateRatinghalf.forEach(item => {
               half_rating = 5;
             });
+            delete row.aggregateRatinghalf;
           }
         if (row.aggregateRating2) {
           let info = []

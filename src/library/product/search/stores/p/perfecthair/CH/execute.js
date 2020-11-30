@@ -7,7 +7,7 @@ module.exports = {
     domain: 'perfecthair.ch',
     url: "https://www.perfecthair.ch/de/search?sSearch={searchTerms}",
     loadedSelector: 'div[class="listing--container"] div[class="listing"] div[class="product--box box--minimal"] span[class="image--media"] img',
-    noResultsXPath: "//div[contains(text(),'No products matching your search')]",
+    noResultsXPath: "//div[contains(text(),'Leider wurden zu Ihrer Suchanfrage keine Artikel gefunden')]",
     zipcode: '',
   },
 };
