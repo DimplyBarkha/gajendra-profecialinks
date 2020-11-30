@@ -22,7 +22,8 @@ fields:
     xpath: //script[42]
   - name: alternateImages
     singleValue: false
-    xpath: //li[contains(@class,'secondary')]/img/@data-main-image
+    xpath: //li[@data-content='secondary regularImage']/img/@data-main-image
+#    xpath: //li[@data-content='secondary regularImage']/img/@data-main-image
   - name: largeImageCount
     singleValue: false
     xpath: count(//li[contains(@class,"main-image-slides")][position() > 1])
