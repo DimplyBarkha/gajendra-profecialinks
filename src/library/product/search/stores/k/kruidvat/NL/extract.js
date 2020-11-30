@@ -45,15 +45,15 @@ async function implementation(
     const originalDiv = document.querySelectorAll('div[class="star-rating__front"]')[index];
     originalDiv.parentNode.insertBefore(newDiv, originalDiv);
   }
-//   const aggregateRating = document.querySelectorAll("div[class='star-rating__front']")
-//   for (let k = 0; k < aggregateRating.length; k++) {
-//   // @ts-ignore
-//   let singleRating = aggregateRating[k].style.width;
-//   singleRating = singleRating.slice(0, singleRating.length - 1)
-//   singleRating = (5 * singleRating) / 100;
-//   singleRating = singleRating.toFixed(1);
-//   addHiddenDiv('aggregateRating', singleRating, k);
-//   }
+  // const aggregateRating = document.querySelectorAll("div[class='star-rating__front']")
+  // for (let k = 0; k < aggregateRating.length; k++) {
+  // // @ts-ignore
+  // let singleRating = aggregateRating[k].style.width;
+  // singleRating = singleRating.slice(0, singleRating.length - 1)
+  // singleRating = (5 * singleRating) / 100;
+  // singleRating = singleRating.toFixed(1);
+  // addHiddenDiv('aggregateRating', singleRating, k);
+  // }
 });
   return await context.extract(productDetails, { transform });
   // return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
