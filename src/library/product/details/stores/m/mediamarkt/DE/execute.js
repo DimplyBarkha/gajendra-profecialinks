@@ -6,7 +6,7 @@ module.exports = {
     store: 'mediamarkt',
     domain: 'mediamarkt.de',
     loadedSelector: 'div[class*=PriceContainer]',
-    noResultsXPath: '//p[contains(text(),"Ups! Etwas ist schiefgelaufen!")] | //div[contains(@class, "ProductNotAvailable")]',
+    noResultsXPath: '//p[contains(text(),"Ups! Etwas ist schiefgelaufen!")]',
     zipcode: "''",
   },
 };

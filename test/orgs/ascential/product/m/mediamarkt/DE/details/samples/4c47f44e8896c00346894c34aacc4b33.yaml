@@ -2,22 +2,22 @@ input:
   _url: http://mediamarkt.de
   URL: https://www.mediamarkt.de/de/product/-2324730.html
 extractions:
-  - html: https://workbench.import.io/html/run=57ee569f-9c4b-44e5-a6e8-a6a1ccaa760a/task=fe92eeec-6d1e-4e65-a4b0-46ff9951b46d/a83ae37e-f30b-4f7b-8fa8-ac466d9844a7.html
+  - html: https://workbench.import.io/html/run=467c0094-1704-4379-9232-545c936a8eb2/task=bd03c1d9-16db-4b31-bec3-9cca811b4cef/b4dec924-60be-42bd-943a-67deb299ecb2.html
     extractionConfigId: product/details/stores/m/mediamarkt/DE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.mediamarkt.de/de/product/_bosch-wvg30443-2324730.html
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[7]
             image:
               - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76674070/fee_325_225_png
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[3]
             imageAlt:
               - text: pixelboxx-mss-76674070
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[4]
             alternateImages:
               - text: https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76674069/fee_325_225_png,https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76674074/fee_325_225_png,https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76674066/fee_325_225_png,https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76674072/fee_325_225_png,https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76674067/fee_325_225_png
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[5]
             category:
               - text: Haushaltsgroßgeräte
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]
@@ -65,7 +65,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[7]/tbody[1]/tr[15]/td[2]
             gtin:
               - text: "4242005063932"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[8]
             sku:
               - text: "2324730"
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
@@ -116,14 +116,14 @@ extractions:
               - text: weiß
                 xpath: /html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/section[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
             videos:
-              - text: https://mycliplister.com/vx/157815/166aea1283d8dceeabd107176f202a6f4e3c47b68bbdeff16a36712e49af268831b2ea7fcc5df134fcc99fd9f33448a7c56e8c6ef7f4e5411bff675b509c4ef70_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd56399126ef95b355f16d1e40de2aeb7d9396626811162f51a9c48c9b214d62d94dfaa47a3d69360c10d1f6ecea9455c6adf21a5d4a1b45249e983500793e4e2ff0efe56e61f02f28409154aa64429f5e13b6b
-                xpath: /html/body/div[10]
+              - text: https://mycliplister.com/vx/157815/166aea1283d8dceeabd107176f202a6f4794c9a7e74c06c4d129e75504a2c0c8132091d5890a27a2b48bca2a7271fd553f349a7070e4ef5199f2f2d24825469fa_x4c002731b13c1f45b3e232a7d57a46cb9ffced33f69d74265324f32be1b7dc93f0d424eb76abcb6966c0b9d3acaa77a37ccf99dd8a121bb028e4474f7cd56399126ef95b355f16d1e40de2aeb7d9396626811162f51a9c48c9b214d62d94dfaa47a3d69360c10d1f6ecea9455c6adf21a5d4a1b45249e983500793e4e2ff0efe56e61f02f28409154aa64429f5e13b6b
+                xpath: /html/body/div[9]
             name:
               - text: BOSCH WVG30443 Serie 6 Waschtrockner (7,0 kg / 4,0 kg, 1500 U/Min.)
                 xpath: /html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]
             secondaryImageTotal:
               - text: "5"
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
                 type: NUMBER
                 raw: "5"
                 locale: de_DE
@@ -590,4 +590,4 @@ extractions:
               - text: Packmaße (BxHxT) (cm)66.5 x 89.5 x 69.8 cm Breite600 mm Höhe mit
                   Arbeitsplatte850 mm Tiefe590 mm Gewicht81.725 kg
         xpath: /
-    timestamp: 1606467568637
+    timestamp: 1606720603320

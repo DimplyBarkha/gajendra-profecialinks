@@ -205,7 +205,13 @@ module.exports = {
 
     const videos = await extractVideos();
 
-    await context.evaluate(async ({ graphQLObj, manufacturerObj, videos }) => {
+    const rating = await getElementByXpath('//div[contains(@class, "ReviewHeader")]//span//text()');
+
+    const listPrice = await getElementByXpath('(//div[contains(@class, "StrikePriceWrapper")]//div[contains(@class, "BrandedStrikePrice")]//span)[1]');
+
+    const price = await getElementByXpath('(//div[contains(@class, "PriceRow")]//span[contains(@font-family, "price")]|//meta[@itemprop="price"]/@content)[1]');
+
+    await context.evaluate(async ({ graphQLObj, manufacturerObj, videos, rating, listPrice, price }) => {
       const addElementToDocument = (key, value) => {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -231,6 +237,9 @@ module.exports = {
       data.alternateImages = photos.slice(1).map(el => el.getAttribute('src'));
       data.secImagesCount = data.alternateImages.length;
       data.url = window.location.href;
+      if (rating) data.rating = rating.toString().replace('.', ',');
+      if (listPrice) data.listPrice = listPrice.toString().match(/(?:([\d.,]+)[^.]*$)/)[0].replace('.', ',').replace(/\s/g, '');
+      if (price) data.price = price.toString().replace('.', ',');
       let allVideos = videos;
       if (graphQLObj) {
         if (graphQLObj.ean) data.ean = graphQLObj.ean;
@@ -242,7 +251,7 @@ module.exports = {
         if (manufacturerObj.description.length) data.manufacturerDesc = manufacturerObj.description;
       }
       appendData(data);
-    }, { graphQLObj, manufacturerObj, videos });
+    }, { graphQLObj, manufacturerObj, videos, rating, listPrice, price });
     await context.extract(productDetails, { transform });
   },
 };
