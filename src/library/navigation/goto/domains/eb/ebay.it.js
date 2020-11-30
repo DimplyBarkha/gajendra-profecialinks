@@ -1,11 +1,10 @@
-
 module.exports = {
-  implements: 'navigation/goto',
+  implements: "navigation/goto",
   parameterValues: {
-    domain: 'ebay.it',
+    domain: "ebay.it",
     timeout: null,
-    country: 'IT',
-    store: 'ebay',
-    zipcode: '',
+    country: "IT",
+    store: "ebay",
+    zipcode: "",
   },
 };
