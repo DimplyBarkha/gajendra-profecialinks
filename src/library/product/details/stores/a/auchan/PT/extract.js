@@ -1,4 +1,4 @@
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -25,7 +25,7 @@ async function implementation (
   }
   const addOptionalWait = async (selector) => {
     try {
-      await context.waitForSelector(selector, { timeout: 30000 });
+      await context.waitForSelector(selector, { timeout: 50000 });
       console.log(`${selector} loaded successfully`);
     } catch (e) {
       console.log(`${selector} did not load at all`);
@@ -38,6 +38,7 @@ async function implementation (
     }, selector);
   };
   const navigationSelector = 'div[class="product-item-header"] > a';
+  await new Promise(resolve => setTimeout(resolve, 30000));
   const isPresent = await checkExistance(navigationSelector);
   if (isPresent) {
     await context.click(navigationSelector);

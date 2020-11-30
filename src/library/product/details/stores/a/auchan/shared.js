@@ -16,6 +16,11 @@ const cleanUp = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.price) {
+        if (row.price[0].text.includes(' ')) {
+          row.price[0].text = row.price[0].text.replace(' ', '');
+        }
+      }
       if (row.description) {
         let text = '';
         text = row.description.map((element) => element.text.trim()).join(' ');

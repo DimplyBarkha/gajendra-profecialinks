@@ -25,7 +25,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //span[@class="item-price"]
-    regExp: (\d+)(,)(\d+)
+    regExp: ([^€]+)
   - name: availabilityText
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
@@ -51,7 +51,7 @@ fields:
     xpath: //td[contains(text(),"Quantidade Liquida")]/following-sibling::td
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-    xpath: //meta[@itemprop="gtin13"]/@content
+    xpath: //meta[contains(@itemprop,"gtin")]/@content
   - name: sku
     description: The store-specific product identifier
     xpath: //meta[@itemprop="sku"]/@content
