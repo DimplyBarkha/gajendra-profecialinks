@@ -10,7 +10,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_zoomImage")]/@alt
+    #xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_zoomImage")]/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -145,7 +145,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-    defaultValue: 1
+    xpath: //div[@id="added_variantCount"]/text()
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -245,7 +245,7 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
-    xpath: //div[@id="featureBullets"]/text()
+    #xpath: //div[@id="featureBullets"]/text()
   - name: otherSellersName
     singleValue: false
     description: null
@@ -421,6 +421,7 @@ fields:
     singleValue: true
     description: The physical dimensions of the product including packaging.
     #xpath: //div[contains(@class,"product-info-specs")]
+    xpath: //div[@id="added_specValue"]/text()
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -456,6 +457,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //p[@class='merchandisingText']/text()
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -491,7 +493,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@id="additionalDescBulletInfo"]/text()
+    #xpath: //div[@id="additionalDescBulletInfo"]/text()
   - name: prop65Warning
     singleValue: true
     description: null
@@ -536,4 +538,3 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
