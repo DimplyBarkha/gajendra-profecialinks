@@ -28,7 +28,7 @@ fields:
     xpath: //ol[@class="breadcrumb"]//li//a//span[not(contains(., 'Online Apotheke Startseite'))]
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@name="description"]/@content
+    xpath: //b[@itemprop="name"]
   - name: listPrice
     singleValue: true
     type: CURRENCY
@@ -42,7 +42,7 @@ fields:
     xpath:  //div[@class="stock stock--available"]/text()
   - name: description
     singleValue: true
-    xpath: //span[@class="productDetails-name"] | //div[@class="content content--productDescription"]
+    xpath:  //div[@class="content content--productDescription"]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class="content content--productDescription"]/ul/li)
@@ -64,7 +64,7 @@ fields:
     xpath: //span[@itemprop="gtin14"]
   - name: sku
     singleValue: true
-    xpath: //div[@id="productDetails"]/@data-tracking-product-code
+    #xpath: //div[@id="productDetails"]/@data-tracking-product-code
   - name: variantId
     singleValue: true
     xpath: //div[@id="productDetails"]/@data-tracking-product-code
