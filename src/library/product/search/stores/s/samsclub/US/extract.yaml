@@ -1,45 +1,43 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@role="list"]/li
+recordXPath: //div[contains(@class,"sc-infinite-loader")]//ul//li
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="sc-channel-container-channels"]/@id
+    xpath: //div[contains(@class,"sc-pc-medium-desktop-card sc-plp-cards-card")]/a/@href
+    regExp: /((prod)?(\d+))
+    regExpReplace: $1
   - name: rankOrganic
-    singleValue: true
-    xpath: //div[@id='pd_rank']
   - name: name
     singleValue: false
-    xpath: //div[@class="sc-product-card-title"]
+    xpath: //h3
   - name: productUrl
     singleValue: false
-    xpath: //a[@class="sc-product-card-pdp-link"]/@href
+    xpath: //div[contains(@class,"sc-pc-medium-desktop-card sc-plp-cards-card")]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.samsclub.com$1
   - name: gtin
     singleValue: true
   - name: thumbnail
+    xpath: //div[contains(@class,"sc-pc-medium-desktop-card sc-plp-cards-card")]//a//img/@src
+  - name: aggregateRating2
     singleValue: false
-    xpath: //img[@class="sc-product-card-image"]/@src
-  - name: url
-    singleValue: false
-  - name: aggregateRating
-    singleValue: false
-    xpath: //span[@class="seo-avg-rating"]
+    xpath: //div[contains(@class,"sc-pc-medium-desktop-card sc-plp-cards-card")]/a/@aria-label
+    regExp: (Average Rating:.)(\d\.\d+)
+    regExpReplace: $2
   - name: reviewCount
     singleValue: false
-    xpath: //span[@class="seo-review-count"]
-  - name: ratingCount
-    singleValue: false
-    xpath: //span[@class="seo-review-count"]
+    xpath: //span[contains(@class,"sc-stars-reviews")]
+    regExp: (\d+)
   - name: price
     singleValue: false
-    xpath: //span[@class="Price-group"]
+    xpath: //span[contains(@class,"Price-group")]/@title
+    regExp: (\d+\.\d+)
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
   - name: soldBy
     singleValue: true
   - name: rank
-    singleValue: true
-    xpath: //div[@id='pd_rank']
   - name: endorsementText
-    singleValue: true

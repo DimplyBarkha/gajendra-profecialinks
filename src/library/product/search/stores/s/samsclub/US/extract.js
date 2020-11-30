@@ -1,40 +1,40 @@
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { productDetails } = dependencies;
-
-  await context.evaluate(async function () {
-    function addElementToDocument (doc, key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      doc.appendChild(catElement);
-    }
-    const productList = document.querySelectorAll('div.sc-infinite-loader.sc-product-cards.analytics ul li');
-    const paginationDiv = document.querySelector('div.sc-page-range-label');
-    let pageStartIndex = paginationDiv ? paginationDiv.innerText.match(/\d+/) : 0;
-    pageStartIndex = pageStartIndex ? +pageStartIndex[0] : 1;
-
-    productList && productList.forEach((item1, index) => {
-      const doc = item1;
-      addElementToDocument(doc, 'pd_rank', pageStartIndex);
-      pageStartIndex++;
-    });
-  });
-  return await context.extract(productDetails);
-}
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'samsclub',
-    transform: null,
+    transform,
     domain: 'samsclub.com',
   },
-  implementation,
+  implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await context.evaluate(async () => {
+      const closePopupButton = document.querySelector('.sc-modal-content > div button ');
+      if (closePopupButton) {
+        // didn't work with context.click() outside context.evaluate()
+        // @ts-ignore
+        closePopupButton.click();
+      }
+    });
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          scrollTop += 500;
+          window.scroll(0, scrollTop);
+          await stall(1000);
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
+    return await context.extract(productDetails, { transform });
+  }
 };
