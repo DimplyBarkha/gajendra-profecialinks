@@ -54,12 +54,10 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: //div[contains(@data-test,"mms-search-srp-productlist-item")]/div[@id='pd_rank']/text()
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //div[contains(@data-test,"mms-search-srp-productlist-item")]/div[@id='pd_rank']/text()
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
