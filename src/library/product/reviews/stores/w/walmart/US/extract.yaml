@@ -3,52 +3,52 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class,"QAItem-wrapper")]
 fields:
-  # - name: answerAuthor
-  #   singleValue: true
-  #   type: STRING
-  #   description: Answer Author
-  #   xpath: //div[@class="QAItem-meta QAItem-font"]/span[@class="QAItem-font"]
-  # - name: answerDate
-  #   singleValue: true
-  #   type: STRING
-  #   description: Answer Date
-  #   xpath: //div[@class="QAItem-meta QAItem-font"]/span[@class="QAItem-date"]
-  # - name: answerId
-  #   singleValue: true
-  #   type: STRING
-  #   description: Answer ID
-  # - name: answersCount
-  #   singleValue: true
-  #   type: STRING
-  #   description: Answer Count
-  #   xpath: //p[@class="btn-link QAItem-answer-answer"]
-  # - name: answersCountDb
-  #   singleValue: true
-  #   type: STRING
-  #   description: Answer CountDb
-  # - name: answerText
-  #   singleValue: true
-  #   type: STRING
-  #   description: Answer Text
-  #   xpath: //div[@class="QAItem-item"]/div/span[2]
-  # - name: helpfulCount
-  #   singleValue: true
-  #   type: STRING
-  #   description: Answer Yes
-  #   xpath: //div[@class='QAItem-item']//div[@class="helpful-voting"]//button[@data-tl-id="ReviewHelpfulness-YesCount"]//span[@class="yes-no-count underline"]
-  # - name: notHelpfulCount
-  #   singleValue: true
-  #   type: STRING
-  #   description: Answer No
-  #   xpath: //div[@class='QAItem-item']//div[@class="helpful-voting"]//button[@data-tl-id="ReviewHelpfulness-NoCount"]//span[@class="yes-no-count underline"]
-  # - name: productUrl
-  #   singleValue: true
-  #   type: STRING
-  #   description: Product URL
-  # - name: questionId
-  #   singleValue: true
-  #   type: STRING
-  #   description: Question Id
+  - name: answerAuthor
+    singleValue: false
+    type: STRING
+    description: Answer Author
+    xpath: //div[@class="QAItem-meta QAItem-font"]/span[@class="QAItem-font"]
+  - name: answerDate
+    singleValue: false
+    type: STRING
+    description: Answer Date
+    xpath: //div[@class="QAItem-meta QAItem-font"]/span[@class="QAItem-date"]
+  - name: answerId
+    singleValue: false
+    type: STRING
+    description: Answer ID
+  - name: answersCount
+    singleValue: false
+    type: STRING
+    description: Answer Count
+    xpath: //p[@class="btn-link QAItem-answer-answer"]
+  - name: answersCountDb
+    singleValue: false
+    type: STRING
+    description: Answer CountDb
+  - name: answerText
+    singleValue: false
+    type: STRING
+    description: Answer Text
+    xpath: //div[@class="QAItem-item"]/div/span[2]
+  - name: helpfulCount
+    singleValue: false
+    type: STRING
+    description: Answer Yes
+    xpath: //div[@class='QAItem-item']//div[@class="helpful-voting"]//button[@data-tl-id="ReviewHelpfulness-YesCount"]//span[@class="yes-no-count underline"]
+  - name: notHelpfulCount
+    singleValue: false
+    type: STRING
+    description: Answer No
+    xpath: //div[@class='QAItem-item']//div[@class="helpful-voting"]//button[@data-tl-id="ReviewHelpfulness-NoCount"]//span[@class="yes-no-count underline"]
+  - name: productUrl
+    singleValue: false
+    type: STRING
+    description: Product URL
+  - name: questionId
+    singleValue: false
+    type: STRING
+    description: Question Id
   - name: questionText
     singleValue: false
     type: STRING

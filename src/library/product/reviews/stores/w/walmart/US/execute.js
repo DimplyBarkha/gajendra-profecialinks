@@ -96,14 +96,14 @@ async function implementation(
       await scrollToSmoothly(elem.offsetTop);
     }, selector);
   };
-  // await scrollToContent('div#questions-answers');
+  await scrollToContent('div#questions-answers');
   if (loadedSelector) {
     await context.waitForFunction((sel, xp) => {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 45000 }, loadedSelector, noResultsXPath);
+    }, { timeout: 65000 }, loadedSelector, noResultsXPath);
   }
 
-  await context.waitForXPath('//div[contains(@class,"QAItem-wrapper")]', { timeout: 35000 })
+  await context.waitForXPath('//div[contains(@class,"QAItem-wrapper")]', { timeout: 65000 })
     .catch( ()=> console.log('waited for reviews to load, none found '));
 
   console.log('Checking no results', noResultsXPath);
