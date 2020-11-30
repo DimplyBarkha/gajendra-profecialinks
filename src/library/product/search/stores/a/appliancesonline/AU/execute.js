@@ -7,6 +7,6 @@ module.exports = {
     store: 'appliancesonline',
     url: 'https://www.appliancesonline.com.au/search/{searchTerms}',
     loadedSelector: 'div.grid-container-flex',
-    noResultsXPath: '//div[@class="no-filter ng-star-inserted"]',
+    noResultsXPath: '//h2[text()="Sorry, no results found for \'dyson\'"] | //picture[@class="overlay-image"] | //div[@class="ngxcarousel"]',
   },
 };
