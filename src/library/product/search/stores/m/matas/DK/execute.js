@@ -6,7 +6,7 @@ module.exports = {
     store: 'matas',
     domain: 'matas.dk',
     url: 'https://www.matas.dk/soeg?search-query={searchTerms}',
-    loadedSelector: 'div.js-productListContent',
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
