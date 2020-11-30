@@ -32,7 +32,8 @@ module.exports = {
         return uomValue;
       }
 
-      addElementToDocument('productUrl', window.location.href);
+      const productUrl = window.location.href;
+      addElementToDocument('producturl', productUrl);
       const addToCartBtn = document.querySelector('div.product-details__price-panel.visible-md a.cart__add-button');
       const productAvailability = addToCartBtn ? 'In stock' : 'Out of stock';
       addElementToDocument('productAvailability', productAvailability);
