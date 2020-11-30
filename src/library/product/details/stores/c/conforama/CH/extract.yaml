@@ -91,7 +91,7 @@ fields:
     xpath: //div[@itemprop="ratingValue"]
   - name: shippingDimensions
     singleValue: false
-    xpath: (//strong[contains(text(), "Grösse")]//..//following-sibling::td)[1] | //strong[contains(text(), "Grösse (BxTxH)")]//..//following-sibling::td
+    xpath:  //strong[contains(text(), "Grösse (BxTxH)")]//..//following-sibling::td
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
@@ -117,8 +117,8 @@ fields:
     singleValue: false
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,"ui-tabs-panel")]/h3/text() | //div[@class="detailCaracts"]//tr[position()>1]
-    # xpath: //div[@id="tabs-2"]//div/table/tbody/tr[position()>1]
+    # xpath: //div[contains(@class,"ui-tabs-panel")]/h3/text() | //div[@class="detailCaracts"]//tr
+    xpath: //div[@class="detailCaracts"]//tr
   - name: variantId
     singleValue: false
     xpath: //div[@class="infos_Product"]/span/text() 
@@ -168,4 +168,8 @@ fields:
     xpath: //a[@title="More"]/@href
   - name: imageZoomFeaturePresent
     singleValue: false
-    defaultValue: Yes 
+    defaultValue: Yes
+  - name: termsAndConditions
+    singleValue: flase
+    defaultValue: Yes
+  

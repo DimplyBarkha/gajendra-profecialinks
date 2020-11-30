@@ -18,17 +18,17 @@ const transform = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      if (row.specifications) {
-        let text = '';
-        row.specifications.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ' : ')} || `;
-        });
-        row.specifications = [
-          {
-            text: text,
-          },
-        ];
-      }
+      // if (row.specifications) {
+      //   let text = '';
+      //   row.specifications.forEach(item => {
+      //     text += `${item.text.replace(/\n \n/g, ' : ')} || `;
+      //   });
+      //   row.specifications = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
       if (row.image) {
         row.image.forEach(item => {
           if (item.text.includes('https:')) {
@@ -108,26 +108,51 @@ const transform = (data, context) => {
       }
       if (row.specifications) {
         let text = '';
+        // console.log("specifications: --- ", row.specifications);
         row.specifications.forEach(item => {
+          item.text = item.text.replace(/\n \n \n/g, '####');
+          const idx = item.text.indexOf('####');
+          if (idx > -1) {
+            item.text = item.text.substring(0, idx);
+          }
           text += `${item.text.replace(/\n \n/g, ':')} || `;
         });
+        console.log('text: ', text);
         row.specifications = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -3),
           },
         ];
       }
       if (row.additionalDescBulletInfo) {
-        let text = '';
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
         row.additionalDescBulletInfo.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = '||' + newDesc;
+            newDesc += `${item.text.replace(/\n \n/g, ':')} || `;
+          }
+          newDesc = newDesc + item.text;
+          idx++;
         });
-        row.additionalDescBulletInfo = [
-          {
-            text: text.slice(0, -4),
-          },
-        ];
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.additionalDescBulletInfo = nDesc;
       }
+      // if (row.additionalDescBulletInfo) {
+      //   let text = '';
+      //   row.additionalDescBulletInfo.forEach(item => {
+      //     text += `${item.text.replace(/\n \n/g, ':')} || `;
+      //   });
+      //   row.additionalDescBulletInfo = [
+      //     {
+      //       text: text.slice(0, -3),
+      //     },
+      //   ];
+      // }
       // if (row.variantId) {
       //   const variantIds = [];
       //   let dup = "";
