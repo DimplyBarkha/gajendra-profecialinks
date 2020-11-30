@@ -64,8 +64,6 @@ fields:
     xpath: //meta[@itemprop='brand']/@content
   - name: aggregateRatingText
     xpath: //div[@class='bv-details-bar']/div[@class='bv-percent-recommend-container']
-  - name: shippingInfo
-    xpath: //ul[@class='usp_price_sidebar']/li
   - name: name
     xpath: //aside[@id='product-sidebar']/h1
   - name: brandLink
@@ -74,3 +72,5 @@ fields:
     xpath: //div[@id='mm_specifications']
   - name: imageZoomFeaturePresent
     xpath: //div[@id='mm_imageZoomFeaturePresent']
+  - name: packSize
+    xpath: //div[@id='mm_packSize']

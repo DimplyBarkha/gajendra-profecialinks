@@ -29,11 +29,11 @@ module.exports = {
       let warranty = '';
       let mpc = '';
       let energy = '';
+      let packSize = '';
       document.querySelectorAll('dl.specification').forEach(specificationGroup => {
         specifications += `${specificationGroup.innerText}\n`;
         var specificationsItems = Array.from(specificationGroup.children);
         specificationsItems.forEach((item, index) => {
-          console.log(item, item.innerText);
           // Getting size
           if (item.innerText === 'Afmetingen (B/H/D):' || item.innerText === 'Afmetingen (B x H x D):' || item.innerText === 'Inhoud:') {
             size = specificationsItems[index + 1].innerText;
@@ -58,6 +58,10 @@ module.exports = {
           if (item.innerText === 'Energie-efficiëntieklasse:') {
             energy = specificationsItems[index + 1].innerText;
           }
+          // Pack size
+          if (item.innerText === 'Verpakkingsinhoud:') {
+            packSize = specificationsItems[index + 1].innerText;
+          }
         });
       });
       addElementToDocument('mm_specifications', specifications);
@@ -67,6 +71,7 @@ module.exports = {
       addElementToDocument('mm_warranty', warranty);
       addElementToDocument('mm_mpc', mpc);
       addElementToDocument('mm_energy', energy);
+      addElementToDocument('mm_packSize', packSize);
 
       // Getting upc code
       const upc = eval(`window.product${urlParams.get('ga_query')}.ean`);
@@ -82,7 +87,9 @@ module.exports = {
       addElementToDocument('mm_numberOfCustomerReviews', reviews);
 
       // Gets aggregate rating
-      addElementToDocument('mm_aggregateRating', document.querySelector('div[itemprop=ratingValue]').innerText.replace('.', ','));
+      if (document.querySelector('div[itemprop=ratingValue]')) {
+        addElementToDocument('mm_aggregateRating', document.querySelector('div[itemprop=ratingValue]').innerText.replace('.', ','));
+      }
 
       // Getting images
       const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
