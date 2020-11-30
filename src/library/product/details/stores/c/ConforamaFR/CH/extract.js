@@ -21,32 +21,42 @@ module.exports = {
         const originalDiv = document.querySelectorAll('div[class="productInfosContent normal clearfix"]')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
+      var brandName = "";
       try {
         let listPrice, price;
         // @ts-ignore
         listPrice = document.querySelectorAll('span[class="old-infos oldPrice"]')[0].innerText;
         var listpriceUpdated = listPrice.replace("€", ".");
         addHiddenDiv('listpriceUpdated', '€ ' + listpriceUpdated, 0);
+      } catch (error) {
+
+      }
+      try {
+        let price;
         // @ts-ignore
         price = document.querySelectorAll('div[class="currentPrice"]')[0].innerText;
         var priceUpdated = price.replace("€", ".");
         addHiddenDiv('priceUpdated', '€ ' + priceUpdated, 0);
-
-        // @ts-ignore
-        let dataScript = document.querySelectorAll('script[type="application/ld+json"]')[2].innerText;
-        dataScript = JSON.parse(dataScript);
-        addHiddenDiv('availabilty', dataScript.offers.availability, 0);
-        addHiddenDiv('brand', dataScript.brand.name, 0);
       } catch (error) {
       }
       try {
         // @ts-ignore
-        let skuScript = document.querySelectorAll('script[type="application/ld+json"]')[2].innerText;
-        skuScript = JSON.parse(skuScript);
-        addHiddenDiv('sku', skuScript.sku, 0);
+        let dataScript = document.querySelectorAll('script[type="application/ld+json"]')[2].innerText;
+        dataScript = JSON.parse(dataScript);
+        addHiddenDiv('availabilty', dataScript.offers.availability, 0);
+        brandName = dataScript.brand.name;
       } catch (error) {
-      }
 
+      }
+      if (brandName.length == 0 || brandName == 'Conforama') {
+        // @ts-ignore
+        brandName = document.querySelector('div[class="productTitle"]>div>h1>a').innerText;
+        brandName = brandName.split(' ')[0];
+        addHiddenDiv('brand', brandName, 0);
+      }
+      else {
+        addHiddenDiv('brand', brandName, 0);
+      }
       // Method to Retrieve Xpath content of a Multiple Nodes
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -60,7 +70,7 @@ module.exports = {
       // Double Pipe Concatenation
       const pipeSeparatorDouble = (id, data) => {
         var doubleSeparatorText = data.join(' || ');
-        addHiddenDiv(id, doubleSeparatorText,0);
+        addHiddenDiv(id, doubleSeparatorText, 0);
       };
       // XPATH Data Extraction For Additional Description Bullet
       const addDescBulletInfo = getAllXpath("//div[@id='tabs-1']/ul/li/text()", 'nodeValue');
