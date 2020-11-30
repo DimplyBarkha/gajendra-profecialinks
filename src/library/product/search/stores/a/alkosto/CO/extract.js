@@ -13,7 +13,7 @@ async function implementation (
     const addProp = (selector, iterator, propName, value) => {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     };
-    const allProducts = document.querySelectorAll('li[class~="salesperson-products-grid-item"]');
+    const allProducts = document.querySelectorAll('ul[class*="products"] > li[class*="item"]');
     for (let i = 0; i < allProducts.length; i++) {
       const rawData = allProducts[i].querySelector('script[type="text/javascript"]').innerText.trim();
       const cutOnS = rawData.indexOf('{', (rawData.indexOf('{') + 1));
@@ -22,7 +22,6 @@ async function implementation (
       const data = JSON.parse(rawJson);
       addProp('h2.product-name', i, 'name', data.name);
       addProp('h2.product-name', i, 'id', data.id);
-      addProp('h2.product-name', i, 'producturl', data.url);
       addProp('h2.product-name', i, 'manufacturer', data.brand);
       addProp('h2.product-name', i, 'rankorganic', `${i + 1}`);
     }

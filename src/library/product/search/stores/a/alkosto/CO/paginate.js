@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'CO',
     store: 'alkosto',
-    nextLinkSelector: 'a.next.salesperson-text-decoration-none',
+    nextLinkSelector: 'a[class*=next]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.toolbar',
-    noResultsXPath: '//div[@class="bannerpro-pager"]',
+    noResultsXPath: '//div[@class="contenedor elementos"]',
     openSearchDefinition: null,
     domain: 'alkosto.com',
     zipcode: '',

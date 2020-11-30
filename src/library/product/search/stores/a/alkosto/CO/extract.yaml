@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[contains(@class, 'salesperson-products-grid-item')]
+recordXPath: //ul[contains(@class,'products')]//li[contains(@class,'item')]
 fields:
   - name: id
     description: Unique id (within this extractor)
@@ -9,13 +9,12 @@ fields:
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //h2[@class="product-name"]/@rankorganic
   - name: name
     description: The product name
     xpath: //h2[@class="product-name"]/@name
   - name: productUrl
     description: The URL for the product details page
-    xpath: //h2[@class="product-name"]/@producturl
+    xpath: //h2[@class="product-name"]/a/@href
   - name: gtin
     description: GTIN code (includes UPC/EAN)
     xpath: //h2[@class="product-name"]/@id
@@ -44,7 +43,6 @@ fields:
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
-    xpath: //h2[@class="product-name"]/@rankorganic
   - name: endorsementText
     description: The text that signifies that a product is endorsed
   - name: sponsored #todo
