@@ -6,10 +6,10 @@ fields:
   - name: price
     singleValue: false
     xpath: //a[@class="price"]
-    # type: CURRENCY
+    type: CURRENCY
   - name: name
     singleValue: true
-    xpath: //ul[@class='products-catalog row']/li/div/h3/a/@title
+    xpath: //ul[@class='products-catalog row']/li/div/h3/a/text()
     type: TEXT
   - name: productUrl
     singleValue: false
