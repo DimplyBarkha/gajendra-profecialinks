@@ -28,7 +28,7 @@ module.exports = {
     });
 
     try {
-      await context.waitForSelector('#flixmediaInsert', { timeout: 10000 });
+      await context.waitForSelector('#flixmediaInsert', { timeout: 60000 });
     } catch (err) {
       console.log('Enhanced content did not load');
     }

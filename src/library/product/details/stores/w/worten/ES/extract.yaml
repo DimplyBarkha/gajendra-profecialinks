@@ -81,7 +81,7 @@ fields:
     xpath: //div[@id="flix-std-inpage"]//img//@srcset | //div[@id="inpage_container"]//img//@srcset[contains(.,'jpg')]
   - name: videos
     description: URLs of videos on page
-    xpath: //meta[@itemprop="contentURL"]//@content
+    xpath: //div[contains(@class,'video-slider')]//iframe[contains(@id,'youtube')]/@src | //iframe[contains(@id,'flix-iframe')]/@src
   - name: warranty
     description: Guarantee associated with the product
     xpath: //div[@class="w-section__wrapper"]//ul//li//span[contains(text(),'Garantía')]/../span[position()>last()-1]
