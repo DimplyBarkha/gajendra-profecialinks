@@ -17,7 +17,5 @@ module.exports = {
     const URL = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true,"force200": true}[/!opt!]`;
     await context.goto(URL, { timeout: 100000, waitUntil: 'load' });
     await context.waitForNavigation({ timeout: 100000, waitUntil: 'networkidle0' });
-    await context.waitForSelector('div.w-product-list__row');
-
   },
 };

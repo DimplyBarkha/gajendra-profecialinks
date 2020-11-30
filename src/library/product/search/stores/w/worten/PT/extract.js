@@ -7,8 +7,12 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await context.waitForSelector('div.w-product-list__row');
   await context.evaluate(async function () {
- 
+    var popup = document.querySelector('div.w-cookies-popup__footer__primary-button button');
+    if (popup) {
+      popup.click();
+    }
     function timeout(ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
@@ -52,7 +56,7 @@ async function implementation(
   });
   return await context.extract(productDetails, { transform });
 }
- module.exports = {
+module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'PT',
@@ -60,5 +64,5 @@ async function implementation(
     transform,
     domain: 'worten.pt',
   },
-implementation,
+  implementation,
 };
