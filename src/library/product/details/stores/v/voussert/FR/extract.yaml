@@ -45,6 +45,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //span[@id="ctl00_cphProduits_lblRef2"]
+  - name: variantId
+    singleValue: false
+    xpath: //span[@id="ctl00_cphProduits_lblRef2"]
   - name: packSize
     singleValue: false
     xpath: //input[@id="nbrProduit"]/@value
@@ -78,3 +81,6 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     defaultValue: "Yes"
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
