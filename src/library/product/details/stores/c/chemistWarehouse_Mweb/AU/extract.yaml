@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[@class="pi_slide"][1]/a[@class="image_enlarger"]/img[contains(@class, "hero_image") and @itemprop="image"]
+    xpath: //div[@class="pi_slide"][1]/a[@class="image_enlarger"]/img[contains(@class, "hero_image") and @itemprop="image"]/@src
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -33,7 +33,7 @@ fields:
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@itemprop="price"]//span[@class="product__price"]
+    xpath: //div[contains(@class, "discount-section")]//span[@class="sale-price product__price"] | //div[@itemprop="price"]//span[@class="product__price"]
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -47,7 +47,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="product-info-container"]//section[@class="product-info-section general-info"]//h2[contains(text(), "General Information")]/following-sibling::div[contains(@class, "details")]
+    xpath: //div[@class="product-info-container"]//section[@class="product-info-section general-info"]//h2[contains(text(), "General Information")]/following-sibling::div[contains(@class, "details")] | //div[@class="product-info-container"]//section[@class="product-info-section general-info "]//h2[contains(text(), "General Information")]/following-sibling::div[contains(@class, "details")]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
