@@ -50,6 +50,9 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+  - name: brand1
+    singleValue: false
+    xpath: //script[contains(@type,"application/javascript") and  contains(text(),"vue.ProductDetail")]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -113,7 +116,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -234,7 +237,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: //div[contains(@id,"productMoreInfo")]//h4[contains(text(),"Ingrédients")]
+    xpath: //div[contains(@id,"productMoreInfo")]//h3[contains(text(),'Ingrédients')]//following-sibling::h4
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.

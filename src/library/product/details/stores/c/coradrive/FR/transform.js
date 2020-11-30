@@ -37,6 +37,11 @@ const cleanUp = (data, context) => {
         });
         row.price = newPrice;
       }
+      if (row.brand1) {
+        if (row.brand1[0].text.match(/(.*)"marque":"(.*)","prix":(.*)/)) {
+          row.brandText = [{ text: row.brand1[0].text.replace(/(.*)"marque":"(.*)","prix":(.*)/, '$2') }];
+        }
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
