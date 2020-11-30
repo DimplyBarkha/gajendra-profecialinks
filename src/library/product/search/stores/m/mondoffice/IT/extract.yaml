@@ -23,11 +23,12 @@ fields:
     singleValue: true
     description: The offered price for the product
     xpath: //section[@class='page-category__products-cards']/article/form/div/span/span/span[@class='product-card__price-value']/span[@class='price-value']
-  - name: _input
-    singleValue: true
   - name: _pageTimestamp
     singleValue: true
-  - name: _url
+  - name: url
     singleValue: true
-
+    xpath: //div[@id='url']
+  - name: input
+    singleValue: true
+    xpath: //div[@id='input']
 
