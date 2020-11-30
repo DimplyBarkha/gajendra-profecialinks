@@ -6,24 +6,26 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //a[@aria-describedby="slick-slide00"]//div[@data-t-name="Img"]//img/@src
+    xpath: //a[@data-slick-index="0"]//div[@data-t-name="Img"]//img/@src
+    regExp: (productimages/.*)
+    regExpReplace: https://www.manor.ch/$1
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="m-breadcrumb js-breadcrumb"]/a[2]/text()
+    xpath: //div[@class="m-breadcrumb js-breadcrumb"]/a[position()>1 and position()<5]
   - name: name
     singlevalue: true
     description: the name of the product
-    xpath: //div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"][normalize-space()]/h1/text()
+    xpath: (//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"][normalize-space()]/h1)[1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"][normalize-space()]/h1/text()
-  - name: listPrice
+    xpath: concat((//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"]/h2)[1]/text(),' ',//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"][normalize-space()]/h1/text())
+  - name: price
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@class="m-productpricev-2__price  price__discount "][normalize-space()]/span
+    xpath: //div[@class="productpricecomponent js-price-section"]/div/span
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -39,11 +41,11 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"]/h2
+    xpath: (//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"]/h2)[1]/text()
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //input[@class="m-quantityselector__qty js-qty-field"]
+    xpath: //span[contains(text(),'Grösse')]/parent::span/text()
     # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     # regExpReplace: $1$2$3$4
   - name: gtin
