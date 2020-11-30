@@ -16,7 +16,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
 
-    const cssProduct = "a.product-card-image";
+    const cssProduct = ".pdp__secondary";
     const cssProductDetails = 'div.pdp__main';
 
     const isSelectorAvailable = async (cssSelector) => {

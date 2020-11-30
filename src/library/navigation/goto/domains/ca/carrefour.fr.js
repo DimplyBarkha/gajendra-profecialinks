@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
@@ -94,6 +93,10 @@ module.exports = {
         if (cookieButton) {
           // @ts-ignore
           cookieButton.click();
+        }
+        let addButton = document.querySelector('.modal__close');
+       if(addButton){
+          addButton.click();
         }
       } catch (error) {
         console.log('error: ', error);
