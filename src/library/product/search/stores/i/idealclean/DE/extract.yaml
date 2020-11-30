@@ -21,16 +21,14 @@ fields:
     description: The store-specific product identifier
     xpath: //div[@class='ProductCard_productDescription__3l4j5']/span[@class='ant-typography ant-typography-secondary'][2]/text()[3]
   - name: aggregateRating2
-    singleValue: true
-    xpath: //div[@class="ts-reviewSummary-averageRating"]/span[@class="ts-reviewSummary-ratingValue"]/text()
+    xpath: //div[@class='ts-reviewSummary-averageRating']//span[@class='ts-reviewSummary-ratingValue']//text()
   - name: ratingCount
-    singleValue: true
     type: NUMBER
-    xpath: //span[@class="ts-stars-reviewCount"]/text()
+    xpath: //div[@class='ts-rating-light ts-rating de_DE productreviewsSummary']//span[@class='ts-stars-reviewCount']//text()
   - name: price
     description: The offered price for the product
     type: CURRENCY
     xpath: //div[@class='ProductPrice_mainPriceHolder__250xx']//text()
-  - name: manufacturer
+  - name: brand
     type: TEXT
     xpath: //div[@class='ProductCard_brandImage__yA3fy']/img/@alt
