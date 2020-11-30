@@ -42,3 +42,18 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //div[@id='tab_param']/table//th[text()="Producent"]/parent::*/td
+  - name: variantId
+    singleValue: false
+    xpaht: //input[@id="produkt_id"]/@value
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"tab-content")]//div[@class="embed-responsive embed-responsive-16by9"]/iframe/@src
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,"tab-content")]/div[@id="tab_opis"]//table[@class="table table-striped"]//th[text()="Kolor"]/parent::*/td
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
