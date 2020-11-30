@@ -5,7 +5,7 @@ module.exports = {
     country: 'SK',
     store: 'mall',
     domain: 'mall.com',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
