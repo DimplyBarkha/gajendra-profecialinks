@@ -47,55 +47,20 @@ const transform = (data) => {
       }
       if (row.price) {
         row.price.forEach(item => {
-          item.text = item.text.replace(',', '');
-        });
-      }
-      if (row.variantId) {
-        row.variantId.forEach(item => {
-          item.text = item.text.replace('Código:', '');
-          item.text = item.text.trim();
-        });
-      }
-      if (row.sku) {
-        row.sku.forEach(item => {
-          item.text = item.text.replace('Código:', '');
+          item.text = item.text.replace('por:', '');
           item.text = item.text.trim();
         });
       }
       if (row.listPrice) {
-        var tempLprice = row.listPrice[0].text;
-        row.listPrice = [{ text: row.price[0].text }];
-        row.price = [{ text: tempLprice }];
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace('De:', '');
+          item.text = item.text.trim();
+        });
       }
-      // if (row.variantCount) {
-      //   row.variantCount = [{ text: row.variantCount.length }];
-      // }
-      // if (row.variants) {
-      //   var scriptJSON = JSON.parse(row.variants[0].text);
-      //   if (scriptJSON.productVariants) {
-      //     var objectsInVariants = Object.keys(scriptJSON.productVariants).length;
-      //     var varientIds = [];
-      //     for (var i = 0; i < objectsInVariants; i++) {
-      //       var keyName = Object.keys(scriptJSON.productVariants)[i];
-      //       var variants = scriptJSON.productVariants[keyName].variants;
-      //       variants.forEach(function (item, index) {
-      //         varientIds.push(item.fupid);
-      //       });
-      //     }
-      //   }
-      //   row.variants = [{ text: varientIds.join(' | ') }];
-      // }
-      // if (row.additionalDescBulletInfo) {
-      //   var arrBullets = [];
-      //   row.price.forEach(item => {
-      //     arrBullets.push(item.text);
-      //   });
-      //   row.additionalDescBulletInfo = [{ text: '||' + arrBullets.join('||') }];
-      // }
-      // if (row.aggregateRating) {
-      //   row.aggregateRating.forEach(item => {
-      //     item.text = (item.text * 5) / 10;
-      //   });
+      // if (row.listPrice) {
+      //   var tempLprice = row.listPrice[0].text;
+      //   row.listPrice = [{ text: row.price[0].text }];
+      //   row.price = [{ text: tempLprice }];
       // }
     }
   }

@@ -32,12 +32,11 @@ fields:
     defaultValue: Out of Stock
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'miolo_info')]//div[contains(@class,'div_line_priceInfo')]//div[@class="price"]
+    xpath: //div[@class='vtex-product-price-zonasul__difference']//span[@class='vtex-difference__por']
   - name: listPrice
-    singleValue: false
-    # please put login in JS file, first get listPrice, if listPrice is null then price is price else price is listPrice and listPrice is price
-    xpath: //div[contains(@class,'miolo_info')]//div[contains(@class,'div_line_priceInfo')]//div[contains(@class,"price_desconto")]
-  - name:  description
+    singleValue: false    
+    xpath: //div[@class='vtex-product-price-zonasul__difference']//span[@class='vtex-difference__de']
+  - name: description
     singleValue: false
     xpath: //h2[text()='Detalhe']//parent::div[@class='div_line']//p
   - name: brandText
@@ -45,17 +44,13 @@ fields:
     xpath: //div[@class='div_line']//strong[text()='Marca:']//parent::p[string-length(text()) > 0]/text()
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class,'content_tag_info') and contains(@class,'hide_mobile')]//div[@class="code"]
-    # regex to replace CÓDIGO: from text CÓDIGO: 14658
-    
+    xpath: //meta[@property='product:sku']    
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,'content_tag_info') and contains(@class,'hide_mobile')]//div[@class="code"]
-    # regex to replace CÓDIGO: from text CÓDIGO: 14658
-    
+    xpath: //span[contains(@class,'identifier__value')]    
   - name: variantCount
     singleValue: false
-    defaultValue: 0
+    defaultValue: '0'
     type: NUMBER
   - name: specifications
     singleValue: false
