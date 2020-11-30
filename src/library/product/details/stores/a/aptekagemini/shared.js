@@ -32,6 +32,9 @@ const cleanUp = (data, context) => {
         let text = `${row.description[0].text} ${row.additionalDescBulletInfo[0].text}`
         row.description = [{ text: text.trim() }]
       }
+      if (row.description) {
+        row.description[0].text = row.description[0].text.trim();
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
