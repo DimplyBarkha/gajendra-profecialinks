@@ -11,7 +11,7 @@ module.exports = {
     loadedSelector: '#id-productos-list , .next a',
     noResultsXPath: null,
     openSearchDefinition: {
-      template: 'https://www.larebajavirtual.com/catalogo/buscar/ajax/id-productos-list/subMenuCategory/on/busqueda/{searchTerms}/codigoProducto_page/{page}?ajax=id-productos-list&pageSize=1000',
+      template: 'https://www.larebajavirtual.com/catalogo/buscar/ajax/id-productos-list/subMenuCategory/on/busqueda/{searchTerms}/codigoProducto_page/{page}?ajax=id-productos-list&pageSize=500',
     },
     domain: 'larebajavirtual.com',
     zipcode: '',
