@@ -1,4 +1,4 @@
-const { transform } = require('../../shared');
+const { transform } = require('./shared');
 async function implementation (
   inputs,
   parameters,
@@ -61,7 +61,7 @@ async function implementation (
       i++;
     }
   });
-  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  await new Promise((resolve, reject) => setTimeout(resolve,5000));
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

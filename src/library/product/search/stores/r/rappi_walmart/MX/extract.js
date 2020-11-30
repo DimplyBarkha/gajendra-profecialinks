@@ -7,7 +7,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 20000));
 
   await context.evaluate(async function () {
     function addHiddenDiv (i, productCards, divId, value) {
@@ -72,6 +72,6 @@ module.exports = {
     transform: transform,
     domain: 'rappi.com.mx',
     zipcode: '',
-    implementation,
   },
+  implementation,
 };
