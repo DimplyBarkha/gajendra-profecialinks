@@ -14,6 +14,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setAntiFingerprint(false);
+    url = url.replace(/(.+)(noon\.com)(.+)/g,'https://www.$2$3'); // handles incorrect format "https://www.noon.comhttps://noon.com/saudi-en/product/N28903612A/p?o=cb2b110b8c01e95d"
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
   },
 };
