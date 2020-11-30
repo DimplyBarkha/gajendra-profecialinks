@@ -27,15 +27,16 @@ fields:
   - name: ingredients
     xpath: boolean(//span[contains(.,'Состав')]/../..//span[@data-tid])
   - name: brandText
-    xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
-    regExp: brandName":"([^"]+)
-    regExpReplace: $1
+    xpath: (//div[contains(@itemtype,"BreadcrumbList")]//div[last()]//a/@title)[last()]
+    # xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
+    # regExp: brandName":"([^"]+)
+    # regExpReplace: $1
   - name: sku
-    xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
+    xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data|//div[@data-apiary-widget-name="@marketplace/Fink"]//div/@data-zone-data
     regExp: (.*)skuId":"(.*?)"(.*)
     regExpReplace: $2
   - name: variantId
-    xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
+    xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data|//div[@data-apiary-widget-name="@marketplace/Fink"]//div/@data-zone-data
     regExp: (.*)skuId":"(.*?)"(.*)
     regExpReplace: $2
   - name: warnings
