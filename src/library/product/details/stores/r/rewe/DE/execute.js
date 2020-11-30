@@ -6,7 +6,7 @@ module.exports = {
     store: 'rewe',
     domain: 'shop.rewe.de',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//span[contains(@class,"search-service-rsZeroResultsSearchTerm")]',
     zipcode: '',
   },
 };

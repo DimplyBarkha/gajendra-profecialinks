@@ -11,12 +11,28 @@ async function implementation (
   const { productDetails } = dependencies;
   if (inputs.id) {
     await context.evaluate(async function () {
+      const optionalWait = async (sel) => {
+        try {
+          await context.waitForSelector(sel, { timeout: 60000 });
+        } catch (err) {
+          console.log(`Couldn't load selector => ${sel}`);
+        }
+      };
+      const noResultsSelector = document.querySelector('span.search-service-rsZeroResultsSearchTerm');
+      if (noResultsSelector) {
+        throw new Error('No results for this RPC');
+      }
+      let isCookieSelector = document.querySelector('button[id="uc-btn-accept-banner"]');
+      if (isCookieSelector) {
+        isCookieSelector.click();
+      }
       const isSelector = document.querySelector('div.search-service-rsTilesDefault > div.search-service-product:first-child div.search-service-productDetailsWrapper a');
       if (isSelector) {
         try {
           isSelector.click();
-        // await context.waitForNavigation({ timeout: 60000, waitUntil: 'load' });
-        // await context.waitForNavigation({ timeout: 60000, waitUntil: 'load' });
+          // await context.waitForNavigation({ timeout: 60000, waitUntil: 'load' });
+          // await context.waitForNavigation({ timeout: 60000, waitUntil: 'load' });
+          optionalWait('h1.pdr-QuickInfo__heading');
         } catch (err) {
           console.log('Not clicked' + err);
         }
@@ -39,6 +55,10 @@ async function implementation (
         console.log(`Couldn't load selector => ${sel}`);
       }
     };
+    let isCookieSelector = document.querySelector('button[id="uc-btn-accept-banner"]');
+    if (isCookieSelector) {
+      isCookieSelector.click();
+    }
     optionalWait('h1.pdr-QuickInfo__heading');
     const isFound = document.evaluate('//span[contains(@class,"articleNumber")]/text()[2]', document).iterateNext();
     if (isFound) {

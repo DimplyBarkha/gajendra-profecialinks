@@ -16,6 +16,7 @@ fields:
     xpath: //h1[contains(@class,"pdr-QuickInfo__heading")]
   - name: listPrice
   - name: price
+    xpath: //mark[@itemprop="price"]
   - name: availabilityText
   - name: description
     xpath: //div[contains(@class,"pdr-js-product-description-jumppoint")]/following-sibling::div
@@ -32,8 +33,7 @@ fields:
   - name: gtin
     xpath: //h1[contains(@class,"pdr-QuickInfo__heading")]/@gtin
   - name: sku
-    xpath: //span[contains(@class,"pdr-CallToAction__articleNumber")]
-    regExp: ^[^\s]*
+    xpath: //span[contains(@class,"pdr-CallToAction__articleNumber")]/text()[2]
   - name: variantId
   - name: mpc
   - name: packSize
@@ -60,6 +60,8 @@ fields:
   - name: coupon
   - name: brandLink
     xpath: //a[contains(@class,"pdr-QuickInfo__brandLink")]/@href
+    regExp: (.+)
+    regExpReplace: https://shop.rewe.de$1
   - name: featureBullets
   - name: secondaryImageTotal
   - name: ingredientsList
