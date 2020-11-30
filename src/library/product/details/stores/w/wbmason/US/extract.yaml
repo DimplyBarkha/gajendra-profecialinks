@@ -41,6 +41,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //input[@id="ctl00_ContentPlaceholder1_ucProductDetail_fvProductDetail_btnAddToCart"]/@data-product-sku
+  - name: variantId
+    singleValue: false
+    xpath: //input[@id="ctl00_ContentPlaceholder1_ucProductDetail_fvProductDetail_btnAddToCart"]/@data-product-sku
   - name: name
     singleValue: false
     xpath: //h1[@class="item-name"]
@@ -56,3 +59,6 @@ fields:
   - name: privacyPolicy
     singleValue: false
     defaultValue: "Yes"
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
