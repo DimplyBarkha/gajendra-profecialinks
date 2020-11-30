@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div.spex-productList__products',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'misterspex.se',
