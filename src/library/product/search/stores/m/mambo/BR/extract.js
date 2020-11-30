@@ -63,6 +63,8 @@ async function implementation (inputs, parameters, context, dependencies) {
     if (productCards.length) {
       for (let i = 0; i < productCards.length; i++) {
         addProp('.CC-shelf.shelf-block .shelf-product', i, 'rank-organic', `${i + 1}`);
+        const productImage = productCards[i].querySelector('.shelf-image img').getAttribute('src').replace(/ /g, '%20');
+        productCards[i].setAttribute('data-product-image-url', productImage);
       }
     }
   });

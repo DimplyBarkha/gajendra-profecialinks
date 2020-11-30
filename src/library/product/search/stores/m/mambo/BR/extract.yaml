@@ -18,12 +18,9 @@ fields:
     xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-quickview"]/a/@href
   - name: gtin
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-quickview"]/a/@href
-    regExp: .*\/p\/(\d.*)
-    regExpReplace: $1
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-image"]//img/@src
+    xpath: //div[contains(@class,'shelf-block')][contains(@class, 'CC-shelf')]//div[contains(@class, 'shelf-product')]/@data-product-image-url
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -44,7 +41,6 @@ fields:
     xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-prices"]/div[@class="shelf-price-por"]/span
   - name: manufacturer
     singleValue: false
-    xpath: //div[contains(@class,"CC-shelf")]//div[@class="shelf-product"]//div[@class="shelf-brand"]
   - name: soldBy
     singleValue: true
   - name: endorsementText

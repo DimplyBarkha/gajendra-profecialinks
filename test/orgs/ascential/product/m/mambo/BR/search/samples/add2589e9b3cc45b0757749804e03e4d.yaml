@@ -1,0 +1,68 @@
+input:
+  keywords: Amstel
+  _url: http://mambo.com.br
+extractions:
+  - html: https://workbench.import.io/html/run=9dde6c0c-cdf7-42ff-8a07-d924d4db0d8b/task=aafaaa34-2f09-40bd-a982-ad38b1602c78/a1c7bed8-e19b-4d0a-86b4-a971abc94631.html
+    extractionConfigId: product/search/stores/m/mambo/BR/extract
+    data:
+      - group:
+          - id:
+              - text: "220086"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            name:
+              - text: Cerveja Amstel Lata 269ml
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/a[1]/div[2]
+            productUrl:
+              - text: https://www.mambo.com.br/cerveja-amstel-lata-269ml/p/220086
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1343739868577049036/products/220086_HI_Cerveja%20Amstel%20Lata%20269ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@data-product-image-url
+            price:
+              - text: R$ 2,79
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/a[1]/div[3]/div[1]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@rank-organic
+                type: NUMBER
+                raw: "1"
+                locale: pt_BR
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@rank-organic
+                type: NUMBER
+                raw: "1"
+                locale: pt_BR
+                value: 1
+          - id:
+              - text: "202489"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Cerveja Amstel Lata 350ml
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[3]/a[1]/div[2]
+            productUrl:
+              - text: https://www.mambo.com.br/cerveja-amstel-lata-350ml/p/202489
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2259986958184410941/products/202489_HI_Cerveja%20Amstel%20Lata%20350ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/@data-product-image-url
+            price:
+              - text: R$ 3,19
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[3]/a[1]/div[3]/div[1]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/@rank-organic
+                type: NUMBER
+                raw: "2"
+                locale: pt_BR
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/@rank-organic
+                type: NUMBER
+                raw: "2"
+                locale: pt_BR
+                value: 2
+        xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
+    timestamp: 1606737158715
