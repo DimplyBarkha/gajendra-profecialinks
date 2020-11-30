@@ -6,9 +6,10 @@ fields:
   - name: price
     singleValue: false
     xpath: //a[@class="price"]
+    # type: CURRENCY
   - name: name
     singleValue: true
-    xpath: //h3/a/@title
+    xpath: //ul[@class='products-catalog row']/li/div/h3/a/@title
     type: TEXT
   - name: productUrl
     singleValue: false
@@ -17,11 +18,11 @@ fields:
     regExpReplace: https://www.lentillesmoinscheres.com/$1
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="img-responsive lazyloaded"]//@src
-  - name: reviewCount
-    singleValue: false
-    type: NUMBER
-    xpath: //div[@class="reviews-count-annotation annotation fontRobotoCondensed"]
+    xpath: //ul[@class='products-catalog row']//li//div[@class='picture']//img/@src
+  # - name: reviewCount
+  #   singleValue: false
+  #   type: NUMBER
+  #   xpath: //div[@class="reviews-count-annotation annotation fontRobotoCondensed"]
   - name: id
     singleValue: false
     xpath: //h3/a/@href
