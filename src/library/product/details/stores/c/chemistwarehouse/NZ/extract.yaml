@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="deviceDetector"]
 fields:
   - name: image
     singleValue: false
-    xpath: //img[contains(@class, "product-thumbnail")]/@src2
+    xpath: //div[@class="slides_container"]//div[@class="pi_slide" and @debug-id="slide-0"]/a/@href
   - name: imageAlt
     singleValue: false
-    xpath: //img[contains(@class, "product-thumbnail")]/@alt
+    xpath: //div[@class="slides_container"]//div[@class="pi_slide" and @debug-id="slide-0"]/a/img/@alt
   - name: category
     singleValue: false
     xpath: //div[@class="breadcrumbs"]/a[position()>1]
@@ -30,6 +30,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@data-bv-show="rating_summary"]/@data-bv-product-id
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'  
   - name: name
     singleValue: false
     xpath: //div[@class="product-name"]
