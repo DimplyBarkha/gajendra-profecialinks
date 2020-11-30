@@ -29,15 +29,16 @@ async function implementation (
     const page = 1;
     const size = 40;
     const query = search;
+    // const store_type: "market"
     console.log('query ==  ', query);
     const body = {
       query: query,
-      stores: [1306702047],
+      stores: [6660086],
       page: page,
       size: size,
     };
 
-    const response = await fetch(`https://services.mxgrability.rappi.com/api/es-proxy/search/v2/products?page=${page}`, {
+    const response = await fetch(`https://services.grability.rappi.com/api/es-proxy/search/v2/products?page=${page}`, {
       headers: {
         'content-type': 'application/json',
       },
@@ -69,8 +70,9 @@ module.exports = {
   parameterValues: {
     country: 'CO',
     store: 'rappi',
-    transform: null,
+    transform: transform,
     domain: 'rappi.com.co',
     zipcode: '',
   },
+  implementation,
 };
