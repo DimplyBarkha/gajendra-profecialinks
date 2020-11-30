@@ -5,9 +5,9 @@ module.exports = {
     country: 'AR',
     store: 'farmacity',
     domain: 'farmacity.com',
-    url: null,
+    url: 'https://www.farmacity.com/{searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="main-text"]/h2',
     zipcode: '',
   },
 };
