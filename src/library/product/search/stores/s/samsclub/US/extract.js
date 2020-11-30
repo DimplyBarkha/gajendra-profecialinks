@@ -25,7 +25,7 @@ module.exports = {
           window.scroll(0, scrollTop);
           await stall(1000);
         }
-        function stall(ms) {
+        function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -36,5 +36,5 @@ module.exports = {
     };
     await applyScroll(context);
     return await context.extract(productDetails, { transform });
-  }
+  },
 };
