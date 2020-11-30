@@ -5,9 +5,9 @@ module.exports = {
     country: 'BR',
     store: 'roge',
     domain: 'roge.com.br',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.roge.com.br/search?q={searchTerms}',
+    loadedSelector: 'div[id="product-listing-container"]',
+    noResultsXPath: '//div[@class="no-result"]',
     zipcode: '',
   },
 };

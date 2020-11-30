@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
@@ -9,13 +8,13 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div[id="product-listing-container"]',
     loadedXpath: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="no-result"]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'roge.com.br',
     zipcode: '',
   },
-};
+}
