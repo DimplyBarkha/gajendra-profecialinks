@@ -1,0 +1,132 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,'detail-image-container')]//img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,'detail-image-container')]//img/@alt
+  - name: description
+    singleValue: true
+    xpath: //*[contains(@class,'detailEntryText')]
+  - name: brandText
+    singleValue: true
+    xpath:  //h1[contains(@class,'js-title')]/span[@class='brand']
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category 
+    singleValue: false
+    xpath: //div[contains(@id,'breadCrumb')]//li[position()>1 and position()<last()]
+  - name: specifications
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[@class="description"]//ul[not(@class="checkListing")]/li
+  # - name: subCategory 
+  #   singleValue: false
+  #   xpath: //div[contains(@id,'breadCrumb')]//li[position()>1 and position()<last()]
+  - name: price
+    singleValue: true
+    xpath: //div[@class="detail-price"]//p[@class="price actual-price black"]
+  - name: listPrice
+    singleValue: true
+    xpath:  //div[@class="detail-price"]//p[@class="old-price"]//span
+    # type: CURRENCY
+  - name: availabilityText
+    singleValue: true
+    xpath: //meta[@itemprop='availability']/@content
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of Stock
+  - name: productUrl
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: descriptionBullets
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[contains(@class, 'detailEntryText')]/ul/li)
+  - name: name
+    singleValue: true
+    xpath: //h1[contains(@class,'js-title')]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'thumbImages')]//a/img/@src
+  - name: sku
+    singleValue: true
+    xpath: //meta[@itemprop='sku']/@content
+  - name: gtin
+    singleValue: true
+    xpath: //meta[@itemprop='gtin13']/@content
+  - name: variantId
+    singleValue: true
+    xpath: //meta[@itemprop='sku']/@content
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class, 'blockWrapper')]//picture//img/@srcset
+  - name: aggregateRating
+    singleValue: true
+    xpath: //meta[@itemprop='ratingValue']/@content
+  #- name: manufacturer
+  #  singleValue: true
+  #  xpath:  //li[contains(text(), 'Marke')]
+  #  regExp: (?<=:).*
+  - name: mpc
+    singleValue: true
+    # xpath: //meta[@itemprop='sku']/@content
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(@class,'js-title')]
+  - name: ratingCount
+    singleValue: true
+    xpath: //meta[@itemprop="ratingCount"]/@content
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="detailVideo"]//iframe//@src
+  #- name: price_currency
+  #  singleValue: false
+  #  xpath: //meta[@itemprop="priceCurrency"]/@content
+  - name: weightNet
+    singleValue: false
+    xpath: //li[contains(text(), 'Gewicht')]
+    regExp: ([0-9]+) .*
+  - name: warranty
+    singleValue: false
+    xpath: //li[contains(text(), 'Geräte-Garantie')]
+    regExp: ([0-9]+) .*
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@class="blockWrapper inner clear"]
+  - name: color
+    singleValue: true
+    xpath:  //li[contains(text(), 'Farbe')]
+    regExp: (?<=:).*
+  #- name: packSize
+  #  singleValue: true
+  #  xpath:  //li[contains(text(), 'Ausstattung')]
+  #  regExp: (?<=:).*
+  - name: variantCount
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[contains(@class, 'selectBox')]//select[contains(@id, 'js-variant')]/option)
+  - name: firstVariant
+    singleValue: true
+    type: TEXT
+    xpath: //div[contains(@class, 'selectBox')]//select[contains(@id, 'js-variant')]/option[1]/@value
+  - name: variantInformation
+    singleValue: true
+    type: TEXT
+    xpath:  //div[contains(@class, 'selectBox')]//select[contains(@id, 'js-variant')]/option[@selected]
+  - name: variants
+    singleValue: false
+    xpath:  //div[contains(@class, 'selectBox')]//select[contains(@id, 'js-variant')]/option/@value
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //*[contains(@class,'detailEntryText')]/ul/li
+  - name: promotion
+    singleValue: true
+    xpath: //div[@class="detail-price"]//div[@class="staffelPrice"]
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class="detail-price"]//p[contains(@class,"small")]
