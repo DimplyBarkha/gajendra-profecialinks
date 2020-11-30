@@ -2,11 +2,14 @@ input:
   id: 11122
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=52e6424b-74e8-40de-8565-8dcddd39998b/task=dd017280-0f20-46ab-8b2a-ecf10b2919c7/1e5692a0-9340-45d8-a421-f29fb2a24d0b.html
+  - html: https://workbench.import.io/html/run=65ad2503-086b-4e82-8b62-88251be9e4be/task=16d915ad-2cb9-40a0-802f-8cd3dbc31fc9/1b379784-5c94-49a0-97b0-078bd65985ac.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/schenki/dlya_schenkov_gigantskih_porod_8_18_mes_giant_junior_31_891/?oid=2290
+                xpath: /html/body/ol[1]/li[1]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/35/c0/76/453562_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
             imageAlt:
@@ -86,7 +89,10 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[2]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/schenki/dlya_schenkov_gigantskih_porod_8_18_mes_giant_junior_31_891/?oid=500336
+                xpath: /html/body/ol[1]/li[2]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/35/c0/76/453562_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@src
             imageAlt:
@@ -164,4 +170,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606390840044
+    timestamp: 1606719358209

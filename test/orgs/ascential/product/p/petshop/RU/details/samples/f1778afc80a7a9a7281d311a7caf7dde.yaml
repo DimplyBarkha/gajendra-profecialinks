@@ -2,11 +2,14 @@ input:
   id: 406020
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=52e6424b-74e8-40de-8565-8dcddd39998b/task=a22087fe-cf0e-424d-b3e1-aa7f6c6640f0/150c9995-03c0-43c5-b5c4-d258bb412de8.html
+  - html: https://workbench.import.io/html/run=65ad2503-086b-4e82-8b62-88251be9e4be/task=a38124a7-7fb7-4968-911d-a2bce72555f3/136ff4bd-3ab9-41ca-8688-77dc3c9b60e4.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=499310
+                xpath: /html/body/ol[1]/li[1]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
             imageAlt:
@@ -130,7 +133,10 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=386882
+                xpath: /html/body/ol[1]/li[2]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@src
             imageAlt:
@@ -254,7 +260,10 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=513231
+                xpath: /html/body/ol[1]/li[3]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@src
             imageAlt:
@@ -268,16 +277,16 @@ extractions:
             nameExtended:
               - text: Purina Pro Plan - Корм Purina Pro Plan для собак крупных пород мощного
                   телосложения с чувствительным пищеварением с ягненком, Large
-                  Adult Robust Lamb - 40604
+                  Adult Robust Lamb - 40604.акция.сроки
                 xpath: /html/body/ol[1]/li[3]/@name_extended
             listPrice:
-              - text: 1 406 ₽
+              - text: 1 234 ₽
                 xpath: /html/body/ol[1]/li[3]/@list_price
             price:
-              - text: 1 055 ₽
+              - text: 740 ₽
                 xpath: /html/body/ol[1]/li[3]/@price
             availabilityText:
-              - text: В наличии
+              - text: Товар закончился
                 xpath: /html/body/ol[1]/li[3]/@availability_text
             description:
               - text: >-
@@ -329,7 +338,7 @@ extractions:
               - text: Purina Pro Plan
                 xpath: /html/body/ol[1]/li[3]/@brand
             variantId:
-              - text: "40604"
+              - text: 40604.акция.сроки
                 xpath: /html/body/ol[1]/li[3]/@variant_id
             ratingCount:
               - text: "330"
@@ -378,7 +387,10 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/dogs/syxoi/vzroslye_1_6let/dlya_sobak_krupnyh_porod_s_moschnym_teloslozheniem_s_chuvstvitelnym_pischevareniem_s_yagnenkom_large_adult_robust_lamb_12294786_40602/?oid=386888
+                xpath: /html/body/ol[1]/li[4]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/22/8c/5a/452089_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[4]/ol[1]/li[1]/@src
             imageAlt:
@@ -392,16 +404,16 @@ extractions:
             nameExtended:
               - text: Purina Pro Plan - Корм Purina Pro Plan для собак крупных пород мощного
                   телосложения с чувствительным пищеварением с ягненком, Large
-                  Adult Robust Lamb - 40604.акция.сроки
+                  Adult Robust Lamb - 40604
                 xpath: /html/body/ol[1]/li[4]/@name_extended
             listPrice:
-              - text: 1 234 ₽
+              - text: 1 406 ₽
                 xpath: /html/body/ol[1]/li[4]/@list_price
             price:
-              - text: 740 ₽
+              - text: 1 055 ₽
                 xpath: /html/body/ol[1]/li[4]/@price
             availabilityText:
-              - text: Товар закончился
+              - text: В наличии
                 xpath: /html/body/ol[1]/li[4]/@availability_text
             description:
               - text: >-
@@ -453,7 +465,7 @@ extractions:
               - text: Purina Pro Plan
                 xpath: /html/body/ol[1]/li[4]/@brand
             variantId:
-              - text: 40604.акция.сроки
+              - text: "40604"
                 xpath: /html/body/ol[1]/li[4]/@variant_id
             ratingCount:
               - text: "330"
@@ -503,4 +515,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606390838768
+    timestamp: 1606719370729

@@ -2,11 +2,14 @@ input:
   id: 36158
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=52e6424b-74e8-40de-8565-8dcddd39998b/task=1b00ca58-a798-4aa9-bb38-8c83b89a1ed2/572bc391-4226-49cc-ad7b-e15589050428.html
+  - html: https://workbench.import.io/html/run=65ad2503-086b-4e82-8b62-88251be9e4be/task=95bc90b0-ff3c-41fa-b19b-28b93dcd3da3/ca67717e-42d3-4a4e-a09e-0ff87610c38c.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/cats/Vitaminss/lakomstva/the-crunchy-treat-with-the-taste-of-the-fish-for-kittons/
+                xpath: /html/body/ol[1]/li[1]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/35/ce/b1/479188_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
             imageAlt:
@@ -52,7 +55,7 @@ extractions:
               - text: "36158"
                 xpath: /html/body/ol[1]/li[1]/@variant_id
             ratingCount:
-              - text: "24"
+              - text: "25"
                 xpath: /html/body/ol[1]/li[1]/@rating_count
             aggregateRating:
               - text: "47"
@@ -108,4 +111,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606390830572
+    timestamp: 1606719366302

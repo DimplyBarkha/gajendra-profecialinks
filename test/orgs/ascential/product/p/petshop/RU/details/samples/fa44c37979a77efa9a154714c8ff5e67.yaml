@@ -2,11 +2,14 @@ input:
   id: 37492
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=52e6424b-74e8-40de-8565-8dcddd39998b/task=5c592949-1c13-446b-844c-8d7c4b932cda/d05aa946-571a-4dff-93df-ac1b3627f15e.html
+  - html: https://workbench.import.io/html/run=65ad2503-086b-4e82-8b62-88251be9e4be/task=4ba648a8-5644-4979-9fb5-598acf11e38a/cb33d662-8a3c-4f1b-aebe-dc35d713e007.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/cat-food-turkey-and-oatmeal-pet-cats/?oid=548667
+                xpath: /html/body/ol[1]/li[1]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7c/aa/d2/486983_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
             imageAlt:
@@ -30,7 +33,7 @@ extractions:
               - text: 725 ₽
                 xpath: /html/body/ol[1]/li[1]/@price
             availabilityText:
-              - text: В наличии
+              - text: Товар закончился
                 xpath: /html/body/ol[1]/li[1]/@availability_text
             description:
               - text: >-
@@ -194,7 +197,10 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/cat-food-turkey-and-oatmeal-pet-cats/?oid=548660
+                xpath: /html/body/ol[1]/li[2]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7c/aa/d2/486983_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@src
             imageAlt:
@@ -379,7 +385,10 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/cat-food-turkey-and-oatmeal-pet-cats/?oid=548673
+                xpath: /html/body/ol[1]/li[3]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7c/aa/d2/486983_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@src
             imageAlt:
@@ -564,7 +573,10 @@ extractions:
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[3]/div[1]/label[4]/div[1]/div[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/cat-food-turkey-and-oatmeal-pet-cats/?oid=548662
+                xpath: /html/body/ol[1]/li[4]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7c/aa/d2/486983_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[4]/ol[1]/li[1]/@src
             imageAlt:
@@ -750,4 +762,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606390837217
+    timestamp: 1606719361723

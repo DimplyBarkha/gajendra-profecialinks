@@ -92,6 +92,7 @@ module.exports = {
           }
           listElem.appendChild(videosList);
 
+          const productUrl = window.location.href;
           const name = document.querySelector('div[class^="style_info_product_name"] h1') ? document.querySelector('div[class^="style_info_product_name"] h1').textContent : '';
           const brandElem = document.querySelector('a[class*="brand_name"], a[class*="ProductBrand"]');
           const brandName = brandElem ? brandElem.textContent : '';
@@ -114,6 +115,7 @@ module.exports = {
           const availabilityText = document.evaluate('//div[@data-testid="deliveryInfo"]', document, null, XPathResult.STRING_TYPE, null).stringValue;
           const couponText = document.querySelector('div.product-info div.flag') ? document.querySelector('div.product-info div.flag').textContent : '';
 
+          listElem.setAttribute('product_url', productUrl);
           listElem.setAttribute('product_name', name);
           listElem.setAttribute('brand', brandName);
           listElem.setAttribute('brand_link', brandLink);

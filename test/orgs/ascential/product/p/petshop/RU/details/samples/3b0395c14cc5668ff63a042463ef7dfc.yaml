@@ -2,11 +2,14 @@ input:
   id: 25199
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/run=52e6424b-74e8-40de-8565-8dcddd39998b/task=3839136d-1f5b-4e0c-9cac-2170ce704071/9373aef9-107b-4e21-be51-4adf07185e4c.html
+  - html: https://workbench.import.io/html/run=65ad2503-086b-4e82-8b62-88251be9e4be/task=d8ad224d-dd6e-4adb-93f4-91a126d66e7e/92b575c0-184f-4421-9a21-fdf7f01a56cb.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/cats/cat-tinned/pauchi/kusochki_v_souse_dlya_koshek_pri_mochekamennoy_bolezni_s_kuricey_ur_25199/
+                xpath: /html/body/ol[1]/li[1]/@product_url
+            image:
               - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/3a/eb/e2/364147_1600x1600.jpg
                 xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
             imageAlt:
@@ -109,4 +112,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606390828168
+    timestamp: 1606719352977
