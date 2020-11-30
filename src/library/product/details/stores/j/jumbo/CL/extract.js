@@ -20,12 +20,12 @@ module.exports = {
         catElement.setAttribute('content', key);
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
-      };
+      }
 
-      const imageLink = document.querySelector('div.product-image div.zoomed-image') ? 
-      (document.querySelector('div.product-image div.zoomed-image').getAttribute('style') ? 
-        (document.querySelector('div.product-image div.zoomed-image').getAttribute('style').match(/url\("([^"]+)/)? 
-        document.querySelector('div.product-image div.zoomed-image').getAttribute('style').match(/url\("([^"]+)/)[1] : null) : null) : null
+      const imageLink = document.querySelector('div.product-image div.zoomed-image')
+        ? (document.querySelector('div.product-image div.zoomed-image').getAttribute('style')
+          ? (document.querySelector('div.product-image div.zoomed-image').getAttribute('style').match(/url\("([^"]+)/)
+            ? document.querySelector('div.product-image div.zoomed-image').getAttribute('style').match(/url\("([^"]+)/)[1] : null) : null) : null;
       // @ts-ignore
       if (imageLink !== null) {
         // @ts-ignore
@@ -52,7 +52,7 @@ module.exports = {
 
       if (nutritionalInfo) {
         nutritionalInfo.forEach(e => {
-          const val = e.textContent.match(/^[^(]+\((\w+)\)/) ? e.textContent.match(/^[^(]+\((\w+)\)/)[1] : null ;
+          const val = e.textContent.match(/^[^(]+\((\w+)\)/) ? e.textContent.match(/^[^(]+\((\w+)\)/)[1] : null;
           e.setAttribute('unitOfMeasure', val);
         });
       }

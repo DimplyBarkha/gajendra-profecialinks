@@ -1,0 +1,679 @@
+input:
+  keywords: Detergentes
+  _url: http://jumbo.cl
+extractions:
+  - html: https://workbench.import.io/html/run=dffefe80-69a1-4ee6-82ea-912a8084c151/task=61209082-4718-4566-987e-6afdd174bc09/a62e3d0b-ddde-4f2d-abb6-6bac220d8732.html
+    extractionConfigId: product/search/stores/j/jumbo/CL/extract
+    data:
+      - group:
+          - id:
+              - text: pack-de-detergentes-fuzol-2-botellas-3-l-cu-protege-los-colores-y-deja-los-blancos-brillantes-2
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Pack de Detergentes Fuzol 2 botellas, 3 L c/u,...
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/pack-de-detergentes-fuzol-2-botellas-3-l-cu-protege-los-colores-y-deja-los-blancos-brillantes-2/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[1]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/165691-150-150/1351239.jpg?v=636150596727100000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 14.659
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/text()[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: es
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: es
+                value: 1
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-liquido-flores-frescas-2-8-l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido flores frescas 2.8 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-liquido-flores-frescas-2-8-l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[2]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/366879-150-150/Detergente-liquido-flores-frescas-28-L.jpg?v=637413888525370000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 6.419
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: es
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: es
+                value: 2
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-flores-frescas-1-8-l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente flores frescas 1.8 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-flores-frescas-1-8-l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[3]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/366869-150-150/Detergente-flores-frescas-18-L.jpg?v=637413888498300000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 5.290
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[3]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: es
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[3]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: es
+                value: 3
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-ace-natural-1-kg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente en polvo 2 en 1 manzanilla 1 kg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-ace-natural-1-kg/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[4]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/322199-150-150/Principal-37986.jpg?v=637139216243670000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 1.494
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[4]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: es
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[4]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: es
+                value: 4
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-en-polvo-ace-3-kg-regular-power
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente en polvo 2 en 1 brisa fresca 3 kg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-en-polvo-ace-3-kg-regular-power/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[5]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/322197-150-150/Principal-20926.jpg?v=637139216235370000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 4.734
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[5]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: es
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[5]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: es
+                value: 5
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: www-jumbo-clrinso-detergenteliquido-matic-liriosyrosas-3l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido lirios y rosas 3 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/www-jumbo-clrinso-detergenteliquido-matic-liriosyrosas-3l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[6]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324586-150-150/Principal-10942.jpg?v=637159014329430000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 6.799
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[6]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: es
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[6]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: es
+                value: 6
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: www-jumbo-clomo-detergenteliquido-matic-multiaccion-3l-2
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido matic multiacción 3 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/www-jumbo-clomo-detergenteliquido-matic-multiaccion-3l-2/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[7]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/328770-150-150/Principal-10924.jpg?v=637197247830630000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 6.539
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[7]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: es
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[7]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: es
+                value: 7
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: www-jumbo-cldrive-detergenteliquido-perfectresults-botella-3l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido perfect results 3 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/www-jumbo-cldrive-detergenteliquido-perfectresults-botella-3l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[8]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324579-150-150/Principal-10904.jpg?v=637159014297300000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 6.839
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[8]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: es
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[8]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: es
+                value: 8
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-liquido-drive-perfect-results-recarga-3-l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido perfect results 3 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-liquido-drive-perfect-results-recarga-3-l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[9]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324577-150-150/Principal-10901.jpg?v=637159014281000000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 6.599
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[9]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: es
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[9]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: es
+                value: 9
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-liquido-omo-matic-multiaccion-3-l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido matic multiacción 3 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-liquido-omo-matic-multiaccion-3-l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[10]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324582-150-150/Principal-10922.jpg?v=637159014305630000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 6.359
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[10]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: es
+                value: 10
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[10]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: es
+                value: 10
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-ariel-revitacolor-2-8-l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido Revitacolor 2.8 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-ariel-revitacolor-2-8-l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[11]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/328786-150-150/Detergente-liquido-Revitacolor-28-L-1-101750280.jpg?v=637197249468200000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 9.959
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "11"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[11]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: es
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[11]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: es
+                value: 11
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: www-jumbo-clrinso-detergenteliquido-liriosyrosas-recarga-3l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido lirios y rosas 3 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/www-jumbo-clrinso-detergenteliquido-liriosyrosas-recarga-3l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[12]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/357839-150-150/Principal-10943.jpg?v=637364143792100000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 4.390
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/div[2]/div[1]/text()[1]
+            rank:
+              - text: "12"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[12]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: es
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[12]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: es
+                value: 12
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: www-jumbo-clrinso-detergenteliquido-azul-recarga-3l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido hortensias y flores 3 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/www-jumbo-clrinso-detergenteliquido-azul-recarga-3l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[13]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324585-150-150/Principal-10941.jpg?v=637159014323600000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 4.390
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/div[2]/div[1]/text()[1]
+            rank:
+              - text: "13"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[13]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: es
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[13]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: es
+                value: 13
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: www-jumbo-clrinso-detergenteliquido-matic-verde-1l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido lirios y rosas 1 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/www-jumbo-clrinso-detergenteliquido-matic-verde-1l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[14]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/328772-150-150/Principal-11649.jpg?v=637197247837200000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 1.990
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            rank:
+              - text: "14"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[14]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: es
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[14]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: es
+                value: 14
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-ariel-revitacolor-1-2-l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido Revitacolor 1.2 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-ariel-revitacolor-1-2-l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[15]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/328787-150-150/Detergente-liquido-Revitacolor-12-L-1-101750282.jpg?v=637197249473200000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 5.099
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "15"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[15]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: es
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[15]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: es
+                value: 15
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: pack-de-detergentes-drive-3-l-doypack-3-l-quix-500-ml-cif-750-ml-2
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Pack detergente líquido 2 un. 3 L c/u + lavalo...
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/pack-de-detergentes-drive-3-l-doypack-3-l-quix-500-ml-cif-750-ml-2/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[16]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324580-150-150/Principal-10905.jpg?v=637159014300700000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 14.990
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            rank:
+              - text: "16"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[16]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: es
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[16]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: es
+                value: 16
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: www-jumbo-clomo-detergenteliquido-baby-recarga-1l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido hipoalergénico 1 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/www-jumbo-clomo-detergenteliquido-baby-recarga-1l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[17]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324463-150-150/Principal-11647.jpg?v=637154911266270000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 2.579
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "17"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[17]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: es
+                value: 17
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[17]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: es
+                value: 17
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-liquido-omo-multiaccion-con-toque-de-soft-aloe-vera-3-l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido soft aloe vera 3 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-liquido-omo-multiaccion-con-toque-de-soft-aloe-vera-3-l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[18]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324584-150-150/Principal-10925.jpg?v=637159014316500000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 6.539
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "18"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[18]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: es
+                value: 18
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[18]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: es
+                value: 18
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-liquido-omo-soft-aloe-vera-3-l-doypack
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido soft aloe vera 3 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-liquido-omo-soft-aloe-vera-3-l-doypack/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[19]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324583-150-150/Principal-10923.jpg?v=637159014312600000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 6.359
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "19"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[19]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: es
+                value: 19
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[19]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: es
+                value: 19
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: www-jumbo-clomo-detergenteliquido-multiaccion-recarga-1l
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente líquido matic multiacción 1 L
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/www-jumbo-clomo-detergenteliquido-multiaccion-recarga-1l/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[20]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/324581-150-150/Principal-10921.jpg?v=637159014303570000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $ 2.639
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "20"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[20]/@rankorganic
+                type: NUMBER
+                raw: "20"
+                locale: es
+                value: 20
+            rankOrganic:
+              - text: "20"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[20]/@rankorganic
+                type: NUMBER
+                raw: "20"
+                locale: es
+                value: 20
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+          - id:
+              - text: detergente-en-capsulas-ariel-power-pods-3-en-1-57-unidades-1855829
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            name:
+              - text: Detergente en capsulas 3 en 1 Power Pods 57 un.
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/div[1]/div[2]/div[1]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.jumbo.cl/detergente-en-capsulas-ariel-power-pods-3-en-1-57-unidades-1855829/p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[21]/@producturl
+            thumbnail:
+              - text: https://jumbo.vteximg.com.br/arquivos/ids/366928-150-150/Detergente-en-capsulas-power-pods-3-en-1-de-57-un.jpg?v=637413888774270000
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            rank:
+              - text: "21"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[21]/@rankorganic
+                type: NUMBER
+                raw: "21"
+                locale: es
+                value: 21
+            rankOrganic:
+              - text: "21"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[1]/ul[1]/li[21]/@rankorganic
+                type: NUMBER
+                raw: "21"
+                locale: es
+                value: 21
+            searchUrl:
+              - text: https://www.jumbo.cl/busca?ft=Detergentes
+                xpath: /html/body/div[2]
+        xpath: /html
+    timestamp: 1606740465782
