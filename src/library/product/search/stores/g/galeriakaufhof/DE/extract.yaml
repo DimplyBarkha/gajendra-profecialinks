@@ -11,7 +11,7 @@ fields:
     # regExpReplace: ''
   - name: name
     singleValue: false
-    xpath: //a[@class="gkk-product-hit-tile__thumbnail-link"]/@title
+    xpath: //a[@class="gkk-product-hit-tile__thumbnail-link"]/@title|//a[@class="gkk-product-hit-tile__thumbnail-link gkk-product-hit-tile__thumbnail-link--vue"]/@title
   - name: productUrl
     singleValue: false
     # regExp: (/.+)
@@ -28,7 +28,8 @@ fields:
     # regExp: (/.+)
     # regExpReplace: https://www.luluhypermarket.com$1
   - name: price
-    singleValue: false
+    singleValue: true
+    type: CURRENCY
     xpath: //div[@class="gkk-product-hit-tile__list-price"]|//div[@class="gkk-product-hit-tile__sale-price"]
   - name: rankOrganic
     singleValue: false
