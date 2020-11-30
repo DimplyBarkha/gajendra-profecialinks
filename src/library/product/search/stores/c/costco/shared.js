@@ -25,23 +25,17 @@ const transform = (data, context) => {
       if (!row.aggregateRating2 && row.aggregateRatingText) {
         row.aggregateRating2 = row.aggregateRatingText;
       }
-      if (row.id && row.id[0] && productCodes.indexOf(row.id[0].text) === -1) {
-        productCodes.push(row.id[0].text);
-        rankCounter += 1;
-        if (!row.sponsored) {
-          orgRankCounter += 1;
-          row.rankOrganic = [{ text: orgRankCounter }];
-        }
-        row.rank = [{ text: rankCounter }];
-      } else {
-        row.id = [{ text: '' }];
+      rankCounter += 1;
+      if (!row.sponsored) {
+        orgRankCounter += 1;
+        row.rankOrganic = [{ text: orgRankCounter }];
       }
+      row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
     }
   }
-
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });
   context.setState({ productCodes });

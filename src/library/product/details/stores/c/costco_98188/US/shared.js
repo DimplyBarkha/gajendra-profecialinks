@@ -32,8 +32,12 @@ const transform = (data) => {
       }
       if (row.description) {
         var desc = '';
+        var bullets = bulletsText.split('||');
         row.description.forEach((ele) => {
           desc += ' ' + ele.text;
+        });
+        bullets.forEach((el) => {
+          desc = desc.replace(el, '');
         });
         row.description = [
           {
@@ -53,6 +57,21 @@ const transform = (data) => {
         row.specifications = [{
           text: (specText.slice(0, -3)).trim(),
         }];
+      }
+      if (row.category && row.category.length) {
+        row.category = row.category.map((e) => {
+          e.text = e.text.replace('Go to ', '');
+          return e;
+        });
+      }
+      if (row.alternateImages && row.alternateImages.length) {
+        row.alternateImages = row.alternateImages.map((e) => {
+          e.text = e.text.replace('recipeId=735', 'recipeId=728');
+          return e;
+        });
+      }
+      if (row.price && (!row.price[0].text.includes('$'))) {
+        row.price[0].text = '$'.concat(row.price[0].text);
       }
     }
   }

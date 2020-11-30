@@ -78,15 +78,21 @@ const transform = (data) => {
 
       if (row.variantInformation) {
         let text = '';
-        row.variantInformation.forEach(item => {
-          const arr = item.text.split(' ');
-          if (arr.length > 1) {
-            item.text = arr.slice(1).join();
-          }
-          text += `${item.text} | `;
-        });
-        row.variantInformation = [ {text: text.slice(0, -3), }, ];
+        if (row.variantInformation.length > 1) {
+          row.variantInformation.forEach(item => {
+            item.text = item.text.replace(/[0-9]\s/g, '').trim();
+            // const arr = item.text.split(' ');
+            // if (arr.length > 1) {
+            //   item.text = arr.slice(1).join();
+            // }
+            text += `${item.text} | `;
+          });
+          row.variantInformation = [ {text: text.slice(0, -3), }, ];
+        } else {
+          row.variantInformation = [ {text: "", }, ];
+        }
       }
+
       if (row.variantId) {
         for (const item of row.variantId) {
           const arr = item.text.split(' ');
