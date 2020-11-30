@@ -40,7 +40,7 @@ module.exports = {
       if (availabilityText != null && (availabilityText.includes('add to bag') || availabilityText.includes('ADD TO BAG'))) {
         addElementToDocument('added_availabilityText', 'In Stock');
       } else {
-        await context.reportWrongGeocoding();
+        // await context.reportWrongGeocoding();
         addElementToDocument('added_availabilityText', 'Out of Stock');
       }
       const description = getXpath('//p[@class="c-margin-bottom-3v"]', 'innerText');

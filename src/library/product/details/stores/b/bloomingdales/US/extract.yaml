@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@src
+    xpath: //div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@src | //ul[@class="slider no-bullet"]//li[@class="main-image first-image"]//picture//img//@src
       # //div[@id='added_prodcutImage']//text()
     regExp: (.+)(\?)
     regExpReplace: $1
@@ -112,12 +112,12 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //div[@id="added_ratingCount"]/text()
-    # //div[@class="product-header-reviews-count"]//text()
-    # regExp: (\(([^)]+)\))
-    # regExpReplace: $2
+    xpath: //div[@class="product-header-reviews-count"]/text()
+    # //div[@id="added_ratingCount"]/text()
+    regExp: (\(([^)]+)\))
+    regExpReplace: $2
     description: The number of ratings
-    # type: NUMBER
+    type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
