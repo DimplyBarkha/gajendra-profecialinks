@@ -1,0 +1,65 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="zoomPad"]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="zoomPad"]/img/@title
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class="thumbs"]/li/a/img/@src
+  - name: category
+    singleValue: false
+    xpath: //div[@class="bread-crumb"]/ul/li[2]/a/span
+  - name: nameExtended
+    singleValue: false
+    xpath: //meta[@name="Abstract"]/@content
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="product-price desktop-only"]//strong[@class="skuListPrice"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-price desktop-only"]//strong[@class="skuBestPrice"]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class="productDescription"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="brand-name desktop-only"]//a
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="quantity-selected"]/strong
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="product-row product-details"]/@data-sku-reference
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product-row product-details"]/@data-sku-reference
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+  - name: name
+    singleValue: true
+    description: //meta[@name="Abstract"]/@content
+  - name: brandLink
+    singleValue: false
+    xpath: //div[@class="brand-name desktop-only"]//a/@href
+  - name: videos
+    singleValue: false
+    description: //div[@class="productDescription"]/iframe/@src
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //meta[@name="country"]/@content
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: "Yes"
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: "Yes"
