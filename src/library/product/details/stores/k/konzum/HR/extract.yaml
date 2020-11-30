@@ -26,6 +26,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: (//div[@class="thumb-slide"]/img/@alt)[1]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -59,12 +60,15 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    defaultValue: konzum  
   - name: manufacturer
     singleValue: true
+    xpath: //dt[contains(text(),'Proizvođač:')]/following::dd[1]
     description: Product manufacturer
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
+    xpath: //dt[contains(text(),'Neto količina:')]/following::dd[1]
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
@@ -145,6 +149,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: (//div[@class="thumb-slide"]/img/@alt)[1]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
