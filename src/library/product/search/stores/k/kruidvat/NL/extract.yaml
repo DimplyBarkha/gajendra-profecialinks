@@ -18,14 +18,16 @@ fields:
     singleValue: false
   - name: reviewCount
     xpath: //a[@class="rating__link"]
-    regExp: (\d+)
-    singleValue: false
+    # singleValue: false
   - name: thumbnail
     xpath: concat('https://www.kruidvat.nl', //a[@class="ClickSearchResultEvent_Class tile__product-slide-link"]/img/@src)
     singleValue: true
   - name: aggregateRating
-    singleValue: true
     xpath: (//div[@id="aggregateRating"])
+    type: NUMBER
+  # - name: aggregateRating
+  #   singleValue: true
+  #   xpath: (//div[@id="aggregateRating"])
   - name: price
     xpath: //div[@id="price_rate"]
     singleValue: false
