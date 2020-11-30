@@ -61,11 +61,11 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: //div[contains(@id,"basketButton-productdetail")]/@data-cug
+    xpath: //div[contains(@class,"infos-pdt")]//div[contains(@id,"basketButton-productdetail")]/@data-cug
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[contains(@id,"basketButton-productdetail")]/@data-cug
+    xpath: //div[contains(@class,"infos-pdt")]//div[contains(@id,"basketButton-productdetail")]/@data-cug
   - name: directions
     singleValue: false
     description: Content under "directions" header
@@ -136,6 +136,32 @@ fields:
     xpath: (//table[contains(@class,"nutrition")]//td[contains(text(),"Acides gras saturés")]/following-sibling::td)[1]
     regExp: ([0-9]+[.]?[0-9]*)(\w+)
     regExpReplace: $2
+  - name: ironPerServing
+    singleValue: false
+    description: Nutritional Information for Iron content - Usually based on per
+      100g servings
+    xpath: (//table[contains(@class,"nutrition")]//td[contains(text(),"Fer")]/following-sibling::td)[1]
+    regExp: ([0-9]+[.]?[0-9]*)(\w+)
+    regExpReplace: $1
+  - name: ironPerServingUom
+    singleValue: false
+    description: Unit of Measure Data for Iron
+    xpath: (//table[contains(@class,"nutrition")]//td[contains(text(),"Fer")]/following-sibling::td)[1]
+    regExp: ([0-9]+[.]?[0-9]*)(\w+)
+    regExpReplace: $2
+  - name: cholesterolPerServing
+    singleValue: false
+    description: Nutritional Information for Cholesterol content - Usually based on
+      per 100g serving
+    xpath: (//table[contains(@class,"nutrition")]//td[contains(text(),"Cholestérol")]/following-sibling::td)[1]
+    regExp: ([0-9]+[.]?[0-9]*)(\w+)
+    regExpReplace: $1
+  - name: cholesterolPerServingUom
+    singleValue: false
+    description: Unit of Measure Data for Cholesterol content
+    xpath: (//table[contains(@class,"nutrition")]//td[contains(text(),"Cholestérol")]/following-sibling::td)[1]
+    regExp: ([0-9]+[.]?[0-9]*)(\w+)
+    regExpReplace: $2
   - name: sodiumPerServing
     singleValue: false
     description: Nutritional Information for Sodium content - Usually based on per
@@ -143,11 +169,6 @@ fields:
     xpath: (//table[contains(@class,"nutrition")]//td[contains(text(),"Sodium")]/following-sibling::td)[1]
     regExp: ([0-9]+[.]?[0-9]*)(\w+)
     regExpReplace: $1
-  - name: sodiumPerServing1
-    singleValue: false
-    xpath: //div[contains(@class,"tab-pane")]//h2[contains(text(),"Ingrédients")]//following-sibling::p
-    regExp: (.*)(sodium|Sodium)(.*?)(:?|=?) ([0-9]+[,]?[0-9]*)(\,?)(.*)
-    regExpReplace: $5
   - name: sodiumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Sodium content
@@ -241,11 +262,6 @@ fields:
     xpath: (//table[contains(@class,"nutrition")]//td[contains(text(),"Calcium")]/following-sibling::td)[1]
     regExp: ([0-9]+[.]?[0-9]*)(\w+)
     regExpReplace: $1
-  - name: calciumPerServing1
-    singleValue: false
-    xpath: //div[contains(@class,"tab-pane")]//h2[contains(text(),"Ingrédients")]//following-sibling::p
-    regExp: (.*)(calcium|Calcium)(.*?)(:?|=?) ([0-9]+[,]?[0-9]*)(\,?|\/?)(.*)
-    regExpReplace: $5
   - name: calciumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Calcium
@@ -261,11 +277,6 @@ fields:
     xpath: (//table[contains(@class,"nutrition")]//td[contains(text(),"Magnésium")]/following-sibling::td)[1]
     regExp: ([0-9]+[.]?[0-9]*)(\w+)
     regExpReplace: $1
-  - name: magnesiumPerServing1
-    singleValue: false
-    xpath: //div[contains(@class,"tab-pane")]//h2[contains(text(),"Ingrédients")]//following-sibling::p
-    regExp: (.*)(Magnésium|magnésium)(.*?)(:?|=?) ([0-9]+[,]?[0-9]*)(\,?|\/?)(.*)
-    regExpReplace: $5
   - name: magnesiumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Magnesium

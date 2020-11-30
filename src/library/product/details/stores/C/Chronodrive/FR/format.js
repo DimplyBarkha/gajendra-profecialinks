@@ -37,7 +37,7 @@ const transform = (data) => {
       if (row.ingredientsList) {
         let desc = '';
         row.ingredientsList.forEach(item => {
-          desc += `${item.text} `;
+          desc += `${item.text}`;
         });
         row.ingredientsList = [
           {
@@ -48,20 +48,29 @@ const transform = (data) => {
       if (row.manufacturer) {
         row.manufacturer = [{ text: row.manufacturer[0].text.replace(/\n/g, ' ').replace(/Nom de l'exploitant : (.*) Adress(.*)/, '$1') }];
       }
-      if (!row.magnesiumPerServing && row.magnesiumPerServing1) {
-        row.magnesiumPerServing = row.magnesiumPerServing1;
+      if (!row.magnesiumPerServing && row.ingredientsList) {
+        if (row.ingredientsList[0].text.match(/(.*)(Magnésium Mg\+\+|magnésium Mg\+\+)(:?|=?) ([0-9]+[,]?[0-9]*)(,?|\/?|;?)(.*)/)) {
+          row.magnesiumPerServing = [{ text: row.ingredientsList[0].text.replace(/(.*)(Magnésium Mg\+\+|magnésium Mg\+\+)(:?|=?) ([0-9]+[,]?[0-9]*)(,?|\/?|;?)(.*)/, '$4').replace(/([0-9]+[,]?[0-9]*),$/, '$1') }];
+        }
+        if (row.ingredientsList[0].text.match(/(.*)(Magnésium|magnésium) (:?|=?) ([0-9]+[,]?[0-9]*)(,?|\/?|;?)(.*)/)) {
+          row.magnesiumPerServing = [{ text: row.ingredientsList[0].text.replace(/(.*)(Magnésium|magnésium) (:?|=?) ([0-9]+[,]?[0-9]*)(,?|\/?|;?)(.*)/, '$4').replace(/([0-9]+[,]?[0-9]*),$/, '$1') }];
+        }
       }
       if (!row.magnesiumPerServingUom && row.magnesiumPerServingUom1) {
         row.magnesiumPerServingUom = row.magnesiumPerServingUom1;
       }
-      if (!row.calciumPerServing && row.calciumPerServing1) {
-        row.calciumPerServing = row.calciumPerServing1;
+      if (!row.calciumPerServing && row.ingredientsList) {
+        if (row.ingredientsList[0].text.match(/(.*)(calcium|Calcium|Calcium Ca\+\+|calcium Ca\+\+) (:?|=?) ([0-9]+[,]?[0-9]*)(,?|\/?|;?)(.*)/)) {
+          row.calciumPerServing = [{ text: row.ingredientsList[0].text.replace(/(.*)(calcium|Calcium|Calcium Ca\+\+|calcium Ca\+\+) (:?|=?) ([0-9]+[,]?[0-9]*)(,?|\/?|;?)(.*)/, '$4').replace(/([0-9]+[,]?[0-9]*),$/, '$1') }];
+        }
       }
       if (!row.calciumPerServingUom && row.calciumPerServingUom1) {
         row.calciumPerServingUom = row.calciumPerServingUom1;
       }
-      if (!row.sodiumPerServing && row.sodiumPerServing1) {
-        row.sodiumPerServing = row.sodiumPerServing1;
+      if (!row.sodiumPerServing && row.ingredientsList) {
+        if (row.ingredientsList[0].text.match(/(.*)(sodium|Sodium|sodium Na\+|Sodium Na\+) (:?|=?) ([0-9]+[,]?[0-9]*)(,?|\/?|;?)(.*)/)) {
+          row.sodiumPerServing = [{ text: row.ingredientsList[0].text.replace(/(.*)(sodium|Sodium|sodium Na\+|Sodium Na\+) (:?|=?) ([0-9]+[,]?[0-9]*)(,?|\/?|;?)(.*)/, '$4').replace(/([0-9]+[,]?[0-9]*),$/, '$1') }];
+        }
       }
       if (!row.sodiumPerServingUom && row.sodiumPerServingUom1) {
         row.sodiumPerServingUom = row.sodiumPerServingUom1;
