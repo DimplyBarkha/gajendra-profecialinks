@@ -36,6 +36,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //form[@class="product-favourite"]//input[@name="isUsual"]/@data-product-id
+  - name: variantId
+    singleValue: false
+    xpath: //form[@class="product-favourite"]//input[@name="isUsual"]/@data-product-id
   - name: legalDisclaimer
     singleValue: false
     xpath: //h3[contains(text(), "Disclaimer")]/following::p[1]
@@ -63,3 +66,6 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     defaultValue: "Yes"
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
