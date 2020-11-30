@@ -1,11 +1,12 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'woolworths.com.au',
-    timeout: 800000,
+    prefix: null,
+    url: null,
     country: 'AU',
     store: 'woolworths',
-    zipcode: "''",
+    zipcode: '',
   },
 };

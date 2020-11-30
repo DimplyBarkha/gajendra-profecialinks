@@ -1,0 +1,60 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //shared-image-zoomer[contains(@class,'main-image')]//img[contains(@class,'imageZoomerComponent-main--image')]//@src
+  - name: sku
+    singleValue: false
+    xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
+  - name: variantId
+    singleValue: true
+    xpath: //shared-image-zoomer[contains(@class,'main-image')]//img[contains(@class,'imageZoomerComponent-main--image')]//@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: 
+  - name: category
+    singleValue: true
+    xpath: 
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='shelfProductTile-information']//h1
+  - name: name
+    singleValue: false
+    xpath: //div[@class='shelfProductTile-information']//h1
+  - name: price
+    singleValue: false
+    xpath: //shared-price
+  - name: availabilityText
+    singleValue: false
+    xpath: //wow-product-details-panel//div[contains(@class,'cartControls')]//button[contains(@class,'cartControls-addButton')]
+    defaultValue: "In Stock"
+  - name: description
+    singleValue: true
+    xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
+  - name: variantCount
+    singleValue: true
+    defaultValue: 0    
+  - name: ratingCount
+    sinngleValue: false
+    xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
+  - name: imageAlt
+    singleValue: false
+    xpath: //shared-image-zoomer[contains(@class,'main-image')]//img[contains(@class,'imageZoomerComponent-main--image')]//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[contains(@class,'thumbnails')]//li[position()>1]//a//img//@src
+  - name: directions
+    singleValue: true
+    xpath: //h3[text()='Directions']/parent::section[contains(@class,'directions')]
+  - name: warnings
+    singleValue: true
+    xpath: //h3[text()='Product Warnings']/parent::section[contains(@class,'product-warnings')]  
+  - name: gtin
+    singleValue: true
+    xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
