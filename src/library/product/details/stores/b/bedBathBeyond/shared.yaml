@@ -111,7 +111,7 @@ fields:
     xpath: //td[@class="name"]
     description: The product name
   - name: specifications
-    xpath: td[@class="specifications"]
+    xpath: td[@class="specifications"] | //div[contains(@id,"specification-")]
     description: The physical dimensions of the product including packaging.
   - name: warranty
     xpath: td[@class="warranty"] | ancestor::html//div[@id="productDetails"]//ul/li[contains(text(),"warranty")]

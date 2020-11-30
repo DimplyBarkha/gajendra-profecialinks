@@ -120,11 +120,30 @@ async function implementation (
   }
 
   async function closePopUp () {
-    const popUpSelector = 'button[data-click="close"]';
-    const popUp = await context.evaluate((selector) => !!document.querySelector(selector), popUpSelector);
+    let popUpSelector = 'button[data-click="close"]';
+    let popUp = await context.evaluate((selector) => !!document.querySelectorAll(selector), popUpSelector);
     if (popUp) {
-      await context.click(popUpSelector);
-      await context.waitForNavigation({ waitUntil: 'load' });
+      try{
+        await context.click(popUpSelector);
+        await context.waitForNavigation({ waitUntil: 'load' });
+      } catch (e) {
+        console.log('did not find selector - button[data-click="close"]');
+      }
+    } else {
+      console.log('we do not have pop up');
+    }
+
+    popUpSelector = 'a[data-click="close"][class="bx-close bx-close-link bx-close-inside"]';
+    popUp = await context.evaluate((selector) => !!document.querySelectorAll(selector), popUpSelector);
+    if (popUp) {
+      try{
+        await context.click(popUpSelector);
+        await context.waitForNavigation({ waitUntil: 'load' });
+      } catch (e) {
+        console.log('did not find selector - a[data-click="close"][class="bx-close bx-close-link bx-close-inside"]');
+      }
+    } else {
+      console.log('we do not have pop up');
     }
   }
 
@@ -179,6 +198,7 @@ async function implementation (
   if (jsonData) {
     await context.evaluate(generateDynamicTable, jsonData);
   }
+  await addSpecification();
   await context.evaluate(() => {
     let video = document.querySelector('button[data-locator="pdp-productalternateimage"] > a');
     if(video) {
@@ -186,6 +206,36 @@ async function implementation (
     }
   });
   await context.evaluate(addRating);
+  async function addSpecification() {
+    await context.evaluate(async function () {
+      window.scrollTo(0, document.body.scrollHeight);
+      async function timeout(ms) {
+        console.log('waiting for ' + ms + ' millisecs');
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+      await timeout(3000);
+      let specificationElms = document.querySelectorAll('div[id*="wc-specs"] *[class*="row"]');
+      if(specificationElms && specificationElms.length > 0) {
+        console.log('we have the specification tab');
+        for(let i = 0; i < specificationElms.length; i++) {
+          let text = '';
+          if(specificationElms[i] && specificationElms[i].innerText) {
+            text = specificationElms[i].innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' ');
+            console.log(text);
+          } else {
+            console.log('we do not have the spec elm or its innercontent for ' + i + 'th element');
+          }
+          const newDiv = document.createElement('div');
+          newDiv.id = 'specification-' + i;
+          newDiv.textContent = text;
+          document.body.appendChild(newDiv);
+        }
+      } else {
+        console.log('we do not have the specification tab in the webpage, it might be a case that the spec tab has not loaded yet. If you see one - check with specificationElms selector');
+      }
+    });
+  }
+  
   const { transform } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform });
