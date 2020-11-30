@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: "div[class='content-page-liste'] div.product-container.short-product-title-line",
+    loadedSelector: "div[class='content-page-liste']",
     noResultsXPath: '//div[@class="no-result-content"]',
     openSearchDefinition: {
       template: 'https://www.but.fr/Common/Search/SearchProductsList?KeyWords={searchTerms}&PageIndex={page}',

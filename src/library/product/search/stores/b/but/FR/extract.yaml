@@ -3,110 +3,73 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class, "products-list")]/div[contains(@class,"product-container short-product-title-line")]
 fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="products-list gtm gtm-list"]/div/a/@href
+    regExp: produits\/(.*)\/
+    regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
   - name: name
     singleValue: false
-    description: Whether this is a sponsored/paid result
     xpath: //p[@class="product-title"]
-  - name: brandText
-    singleValue: false
-    description: The brand name
-    xpath: //p[@class="product-title"]/span/strong
-    example: Panasonic
   - name: productUrl
     singleValue: false
-    description: The URL for the product details page
     xpath: //div[@class="products-list gtm gtm-list"]/div/a/@href
-  - name: thumbnail
-    singleValue: false
-    description: The URL for the product thumbnail image
-    xpath: //div[@class="products-list gtm gtm-list"]//p[@class="product-visu"]/img/@src
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
-    xpath: //div[@class="products-list gtm gtm-list"]/div/a/@href
-    regExp: produits\/(.*)\/
-    regExpReplace: $1
-  - name: mpc
-    singleValue: false
-    description: The model code of the product
-    xpath: //div[@class="products-list gtm gtm-list"]/div/a/@href
-    regExp: produits\/(.*)\/
-    regExpReplace: $1
+    regExp: (.*)
+    regExpReplace: https://www.but.fr$1
   - name: gtin
     singleValue: false
-    description: GTIN code (includes UPC/EAN)
     xpath: //div[@class="products-list gtm gtm-list"]/div/a/@href
     regExp: produits\/(.*)\/
     regExpReplace: $1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="products-list gtm gtm-list"]//p[@class="product-visu"]/img/@src
+  - name: aggregateRating
+    singleValue: false
   - name: aggregateRating2
     singleValue: false
-    description: The stated aggregate rating
     xpath: //p[@class="product-rating note-5"]/@class | //a[@id="product-rating-top"]/@class | //p[@title="avis-produit"]/@class
     regExp: note-(.*)
     regExpReplace: $1
-  - name: ratingCount
-    singleValue: false
-    description: The number of ratings
-    xpath: //p[@class="product-rating note-5"]/span | //p[@title="avis-produit"]/span
-    regExp: \((.*)\)
-    regExpReplace: $1
   - name: reviewCount
     singleValue: false
-    description: The number of reviews
     xpath : //p[@class="product-rating note-5"]/span | //p[@title="avis-produit"]/span
+    regExp: \((.*)\)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //p[@class="product-rating note-5"]/span | //p[@title="avis-produit"]/span
     regExp: \((.*)\)
     regExpReplace: $1
   - name: price
     singleValue: false
-    description: The offered price for the product
     xpath: //div[@class="product-prices"]//p[@class="prix"]
-  - name: listPrice
+  - name: manufacturer
     singleValue: false
-    description: The stated undiscounted price for the product
-    xpath: //div[@class="product-prices"]//p[@class="prix-old"]
-  # - name: manufacturer
-  #   singleValue: false
-  #   description: Product manufacturer
-  # - name: soldBy
-  #   singleValue: false
-  #   description: The name of the seller of the item (if available)
-  # - name: endorsementText
-  #   singleValue: false
-  #   description: The text that signifies that a product is endorsed
-  #   xpath: //div[@class="exclu-web"]
-
-  # - name: shippingInfo
-  #   singleValue: false
-  #   description: Shipping information for the product
+    xpath: //p[@class="product-title"]/span/strong
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+    xpath: //div[@class="exclu-web"]
   - name: rank
     singleValue: false
     description: search/listing rank
-    type: NUMBER 
+    type: NUMBER
+    xpath: //@rank
   - name: rankOrganic
-    singleValue: false
+    singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER 
+    type: NUMBER
+    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
-    type: BOOLEAN 
-
-    # Should these be source specific formulas or in the extractor? 
-  - name: id
-    singleValue: false
-    description: Unique id (within this extractor)
-    xpath: //div[@class="products-list gtm gtm-list"]/div/a/@href
-    regExp: produits\/(.*)\/
-    regExpReplace: $1
-  - name: nameExtended
-    singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //p[@class="product-title"]
-  # - name: aggregateRating
-  #   singleValue: false
-  #   description: The stated aggregate rating normalized to be out of 5
+    type: BOOLEAN
+    xpath: //div[contains(@class,"sponsored")]/@sponsored
+    defaultValue: false
+  # - name: totalRecordCount
+  #   singleValue: true 
   #   type: NUMBER
-  # - name: category
-  #   singleValue: false
-  #   description: The categories (e.g. from breadcrumbs)
-  #   example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
