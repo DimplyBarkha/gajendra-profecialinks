@@ -36,7 +36,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//h2[contains(@class,'price')]/span/following-sibling::text())[1]
+    xpath: (//h2[contains(@class,'price')]/span/following-sibling::text())[1] | (//h2[contains(@class,'price')]/text())[1]
     regExp: (\d+(,)?(\d+)?)
     regExpReplace: $1
   - name: availabilityText
