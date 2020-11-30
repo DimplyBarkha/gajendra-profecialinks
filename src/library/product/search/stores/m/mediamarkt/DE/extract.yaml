@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@data-test,"mms-search-srp-productlist-item")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='ProductFlexBox__StyledListItem-sc-1xuegr7-0 cBIIIT']//a/@href
+    regExp: (?<=-)(\d+)(?=.html)
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[contains(@data-test,"mms-search-srp-productlist-item")]/@searchurl
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"ProductHeader")]//p
+  - name: productUrl
+    singleValue: false
+    xpath: //a/@href
+    regExp: (.+)
+    regExpReplace: https://www.mediamarkt.de$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath:  //picture//img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    type: STRING
+    singleValue: false
+    xpath: //div[contains(@class, "ProductRating")]/@aria-label
+    regExp: (\d)(\.)(\d+)
+    regExpReplace: $1,$3
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"Rating")]//span
+    regExp: \d+
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,"Rating")]//span
+    regExp: \d+
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"PriceContainer")]//div[contains(@class,"UnbrandedPriceDisplay")]/div[not(contains(@class, "Strike"))]
+    regExp: (\d+)(\.)(\d+)
+    regExpReplace: $1,$3
+  - name: manufacturer
+    xpath: //span[@data-test="product-manufacturer"]
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[contains(@data-test,"mms-search-srp-productlist-item")]/div[@id='pd_rank']/text()
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[contains(@data-test,"mms-search-srp-productlist-item")]/div[@id='pd_rank']/text()
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
