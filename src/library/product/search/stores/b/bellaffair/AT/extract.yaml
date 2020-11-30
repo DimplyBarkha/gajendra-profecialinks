@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'gridlist_item')]
+recordXPath: //div[@class="gridlist_item"]
 fields:
   - name: id
     singleValue: false
@@ -41,10 +41,12 @@ fields:
     singleValue: false
   - name: rank
     singleValue: false
+    xpath: //div[@class="gridlist_item"]/@rank
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class="gridlist_item"]/@rank
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored

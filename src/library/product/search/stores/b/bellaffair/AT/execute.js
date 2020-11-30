@@ -5,7 +5,7 @@ module.exports = {
     country: 'AT',
     store: 'bellaffair',
     domain: 'bellaffair.at',
-    url: "https://www.bellaffair.at/suche?keyword={searchTerms}",
+    url: 'https://www.bellaffair.at/suche?keyword="{searchTerms}"',
     loadedSelector: 'div.productlist',
     noResultsXPath: '//div[@class="column-two clear"]/p',
   },
