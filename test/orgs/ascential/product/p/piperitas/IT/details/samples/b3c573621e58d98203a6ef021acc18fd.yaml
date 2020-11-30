@@ -1,0 +1,79 @@
+input:
+  id: 3514
+  _url: http://piperitas.com
+extractions:
+  - html: https://workbench.import.io/html/run=4d856c92-3b58-4fa2-8af5-92a5ba3ad4e4/task=265e2004-d375-4ade-a8f6-d5a44dc08d29/b6074c7b-8fd0-45ef-a01c-88480bb5cf0d.html
+    extractionConfigId: product/details/stores/p/piperitas/IT/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://piperitas.com/aura-botanica-concentre-essentiel-50ml.html
+                xpath: /html/body/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            image:
+              - text: https://piperitas.com/media/catalog/product/cache/1/image/700x700/9df78eab33525d08d6e5fb8d27136e95/a/u/aura_botanica_concentre_essentiel_50ml.jpg_2.jpg
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/figure[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Aura Botanica Concentrè Essentiel 50ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/figure[1]/a[1]/img[1]/@alt
+            metaKeywords:
+              - text: Aura Botanica Concentrè Essentiel 50ml
+                xpath: /html/head[1]/meta[4]/@content
+            nameExtended:
+              - text: Aura Botanica Concentrè Essentiel 50ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 44,00 €
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[4]/div[1]/p[1]/span[2]
+            price:
+              - text: 26,40 €
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[4]/div[1]/p[2]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[6]/div[2]/button[1]/@title
+            description:
+              - text: Concentrato nutriente e ammorbidente agli oli essenziali.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[2]/div[1]/text()[1]
+            brandText:
+              - text: Kérastase
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Kérastase
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            quantity:
+              - text: 50ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: "3514"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
+            variantId:
+              - text: "3514"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
+            directions:
+              - text: -Usato insieme al Soin, ne incrementa l'effetto condizionante e
+                  ammorbidente, in particolar modo sui capelli medio grossi.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]/text()[1]
+            shippingInfo:
+              - text: Spedizione gratuita per ordini superiori a 59€. Consegna con corriere BRT
+                  in 48/72 ore.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[7]/p[1]
+            manufacturerDescription:
+              - text: Il concentrè di Aura Botanica è il primo siero di Kerastase costituito per
+                  il 96% da sostanze attive naturali, con Olio di Noce di Cocco
+                  di Samoa e Olio di Argan che idratano e ammorbidiscono
+                  qualsiasi tipo di capello, la fibra risulta essere più nutrita
+                  fino in profondità.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: "Il siero può essere usato secondo due modalità:"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
+            name:
+              - text: Aura Botanica Concentrè Essentiel 50ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/h1[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@class
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+        xpath: /
+    timestamp: 1605865931957

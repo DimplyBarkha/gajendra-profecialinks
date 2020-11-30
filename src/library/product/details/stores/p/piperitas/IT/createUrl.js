@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'piperitas.com',
     prefix: null,
-    url: null,
+    url: 'https://piperitas.com/catalogsearch/result/?q={id}',
     country: 'IT',
     store: 'piperitas',
     zipcode: '',

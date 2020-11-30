@@ -1,0 +1,74 @@
+input:
+  id: 1012
+  _url: http://piperitas.com
+extractions:
+  - html: https://workbench.import.io/html/run=4d856c92-3b58-4fa2-8af5-92a5ba3ad4e4/task=053035f7-8e7e-4d87-ab90-894384bc4af2/96a45094-56bf-4d55-937b-34e7d02d99b9.html
+    extractionConfigId: product/details/stores/p/piperitas/IT/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://piperitas.com/crepage-de-chignon-200-ml.html
+                xpath: /html/body/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            image:
+              - text: https://piperitas.com/media/catalog/product/cache/1/image/700x700/9df78eab33525d08d6e5fb8d27136e95/c/r/crepage_de_chignon_200_ml.jpg.jpg
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/figure[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Crepage De Chignon 200 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/figure[1]/a[1]/img[1]/@alt
+            metaKeywords:
+              - text: Crepage De Chignon 200 ml
+                xpath: /html/head[1]/meta[4]/@content
+            nameExtended:
+              - text: Crepage De Chignon 200 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 26,00 €
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[4]/div[1]/p[1]/span[2]
+            price:
+              - text: 18,00 €
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[4]/div[1]/p[2]/span[1]
+            description:
+              - text: Polvere a diffusione orizzontale, effetto selvaggio.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[2]/div[1]/p[1]
+            brandText:
+              - text: L'Oréal Professionnel
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: L'Oréal Professionnel
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            quantity:
+              - text: 200 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: "1012"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
+            variantId:
+              - text: "1012"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
+            directions:
+              - text: Agitare bene prima dell' uso e tra un'erogazione el'altra. Spruzzare su
+                  capelli asciutti.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]/text()[1]
+            shippingInfo:
+              - text: Spedizione gratuita per ordini superiori a 59€. Consegna con corriere BRT
+                  in 48/72 ore.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[7]/p[1]
+            manufacturerDescription:
+              - text: Polvere a diffusione orizzontale, per un look naturale ed effetto
+                  selvaggio. I capelli risultano ultra voluminosi con un effetto
+                  soffice e leggero.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            name:
+              - text: Crepage De Chignon 200 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/h1[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@class
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+        xpath: /
+    timestamp: 1605865928948

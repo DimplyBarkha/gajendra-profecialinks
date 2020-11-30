@@ -1,0 +1,80 @@
+input:
+  id: 5535
+  _url: http://piperitas.com
+extractions:
+  - html: https://workbench.import.io/html/run=4d856c92-3b58-4fa2-8af5-92a5ba3ad4e4/task=f2399c17-59dd-4c20-b4ef-efb03ddd0460/8977fa2e-20e0-4d51-88e2-3049c9f8de51.html
+    extractionConfigId: product/details/stores/p/piperitas/IT/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://piperitas.com/soin-regard-des-lagons-creme-yeux-15-ml.html
+                xpath: /html/body/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            image:
+              - text: https://piperitas.com/media/catalog/product/cache/1/image/700x700/9df78eab33525d08d6e5fb8d27136e95/s/o/soin_regard_des_lagons_creme_yeux_15_ml.jpg.jpg
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/figure[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Soin Regard Des Lagons Creme Yeux 15 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/figure[1]/a[1]/img[1]/@alt
+            metaKeywords:
+              - text: Soin Regard Des Lagons Creme Yeux 15 ml
+                xpath: /html/head[1]/meta[4]/@content
+            nameExtended:
+              - text: Soin Regard Des Lagons Creme Yeux 15 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 63,00 €
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[4]/div[1]/p[1]/span[2]
+            price:
+              - text: 46,00 €
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[4]/div[1]/p[2]/span[1]
+            description:
+              - text: Crema gel contorno occhi decongenstionante e idratante
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[2]/div[1]/text()[1]
+            brandText:
+              - text: Carita
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Carita
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            quantity:
+              - text: 15ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: "5535"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
+            variantId:
+              - text: "5535"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
+            directions:
+              - text: Apllicare mattina a esera sulla zona contorno occhi detersa, massaggiare
+                  delicatamente fino a completo assorbimento.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]/text()[1]
+            shippingInfo:
+              - text: Spedizione gratuita per ordini superiori a 59€. Consegna con corriere BRT
+                  in 48/72 ore.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[7]/p[1]
+            manufacturerDescription:
+              - text: Nuova formulazione per la crema contorno occhi della linea Ideak
+                  Hydratation, gli effetti idratanti e antirughe si vedono
+                  nell'immediato, grazie alla caffeina , energizzante e
+                  drenante, all'escina che stimola il microcircolo, e alll'acido
+                  ialuronico idratante e rinforzante.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: La pelle delicata e sensibile del contorno occhi risulta quindi essere
+                  protetta e idratata, decongestionata e con un aspetto più
+                  tonico e luminoso.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
+            name:
+              - text: Soin Regard Des Lagons Creme Yeux 15 ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/h1[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@class
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+        xpath: /
+    timestamp: 1605865932288

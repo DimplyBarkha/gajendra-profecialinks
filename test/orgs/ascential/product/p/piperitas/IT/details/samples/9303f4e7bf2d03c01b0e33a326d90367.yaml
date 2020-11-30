@@ -1,0 +1,83 @@
+input:
+  id: 6597
+  _url: http://piperitas.com
+extractions:
+  - html: https://workbench.import.io/html/run=4d856c92-3b58-4fa2-8af5-92a5ba3ad4e4/task=1e45ecb4-8c4e-498f-9e11-99e7876d1ed3/4c986190-bf41-4f61-a099-5c18be85137f.html
+    extractionConfigId: product/details/stores/p/piperitas/IT/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://piperitas.com/inforcer-b6-biotin-spray-60ml.html
+                xpath: /html/body/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            image:
+              - text: https://piperitas.com/media/catalog/product/cache/1/image/700x700/9df78eab33525d08d6e5fb8d27136e95/i/n/inforcer_b6_biotin_spray_60ml.jpg.jpg
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/figure[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Inforcer B6+Biotin Spray 60ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/figure[1]/a[1]/img[1]/@alt
+            metaKeywords:
+              - text: Inforcer B6+Biotin Spray 60ml
+                xpath: /html/head[1]/meta[4]/@content
+            nameExtended:
+              - text: Inforcer B6+Biotin Spray 60ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 23,00 €
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[4]/div[1]/p[1]/span[2]
+            price:
+              - text: 6,90 €
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[4]/div[1]/p[2]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[6]/div[2]/button[1]/@title
+            description:
+              - text: Spray conditioner rinforzante senza risciacquo
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[2]/div[1]/text()[1]
+            brandText:
+              - text: L'Oréal Professionnel
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: L'Oréal Professionnel
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            quantity:
+              - text: 60ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: "6597"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
+            variantId:
+              - text: "6597"
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/meta[1]/@content
+            directions:
+              - text: Spruzzare direttamente sulla spazzola, quindi pettinare i capelli ancora
+                  umidi dopo lo shampoo e procere con l'asciugatura senza
+                  sciacquare.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]/text()[1]
+            shippingInfo:
+              - text: Spedizione gratuita per ordini superiori a 59€. Consegna con corriere BRT
+                  in 48/72 ore.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[7]/p[1]
+            manufacturerDescription:
+              - text: lo Spray condionante della Inforcer, va applicato direttamente sulla
+                  spazzola e poi passato sui capelli, senza risciacquo, agisce
+                  andando a proteggere il capello fragile e con doppie punte dal
+                  processo di asciugatura.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Anch'esso formulato con Biotina, la proteina che protegge la fibra
+                  capillare prevendone la rottura e rinforzandola, e grazie alla
+                  presenza della Vitamina B6, con spiccate proprietà
+                  antiossidanti, i capelli risulteranno protetti e molto più
+                  uminosi alla fine dell'asciugatura.
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
+            name:
+              - text: Inforcer B6+Biotin Spray 60ml
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/h1[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[2]/div[1]/@class
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+        xpath: /
+    timestamp: 1605865933837
