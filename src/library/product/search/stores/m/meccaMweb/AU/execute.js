@@ -8,7 +8,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   if (isRightPage != null) {
     const url1 = 'https://www.mecca.com.au/search?q="{searchTerms}"'.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
     await context.goto(url1);
-   } 
+  }
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
