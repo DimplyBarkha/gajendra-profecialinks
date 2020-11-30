@@ -32,7 +32,7 @@ fields:
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  xpath: normalize-space(concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"]))
+  xpath: concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"])
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
@@ -50,7 +50,6 @@ fields:
   regExp: (.+)
   regExpReplace: "In Stock"
   singleValue: true
-  # defaultValue: "In Stock"
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
@@ -135,7 +134,7 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
-  xpath: count(//div[@class="pp-colour-selector"]//img)
+  xpath: count(//div[@class="pp-colour-selector"]//img) + count(//div[@class="pp-size-selector"]/button)
   singleValue: true
   description: Number of variants listed
 - name: color
@@ -156,6 +155,7 @@ fields:
   singleValue: false
   description: URLs of videos on page
 - name: name
+  xpath: concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"])
   singleValue: true
   description: The product name
 - name: inStorePrice
