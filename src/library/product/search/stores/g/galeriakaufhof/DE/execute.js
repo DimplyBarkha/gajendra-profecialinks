@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'galeriakaufhof',
     domain: 'galeria.de',
-    url: 'https://www.galeria.de/search?q={searchTerms}',
+    url: "https://www.galeria.de/search?q={searchTerms}",
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
