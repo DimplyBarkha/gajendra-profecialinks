@@ -2,7 +2,6 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class,"product-list")]/div[@data-id]
-
 fields:
   - name: productUrl
     singleValue: false    
@@ -15,7 +14,7 @@ fields:
     singleValue: false
     description: The product name
     xpath: //div[contains(@class, "product-title")]/a//@title
-    - name: id
+  - name: id
     singleValue: false
     description: Unique id (within this extractor)
     xpath: //div[contains(@class, 'product js-factfinder-track')]/@data-id 
@@ -23,7 +22,7 @@ fields:
     singleValue: false
     description: The offered price for the product
     xpath: //div[@class="product-price-bulk is--list"]//span[@class='product-price is--new']
-   - name: listPrice
+  - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
     xpath: //div[@class="product-prices is--list"]//span
@@ -38,5 +37,3 @@ fields:
   - name: priceCurrency
     singleValue: false
     xpath: //div[@class="product-prices is--list"]//span
- 
-    
