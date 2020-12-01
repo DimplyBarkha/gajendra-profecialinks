@@ -6,8 +6,8 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //li[@id="variant"]/@variantid
+    xpath: //div[@class="variantid"]/@id
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //li[@id="variant"]/@urlvalue
+    xpath: //div[@class="variantid"]/@url
