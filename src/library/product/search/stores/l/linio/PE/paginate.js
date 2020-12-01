@@ -4,12 +4,13 @@ module.exports = {
   parameterValues: {
     country: 'PE',
     store: 'linio',
-    nextLinkXpath: '(//a[@rel="nofollow"]/span)[1]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.linio.com.pe/search?scroll=&q={searchTerms}&page={page}',
+    },
     domain: 'linio.com',
     zipcode: '',
   },
