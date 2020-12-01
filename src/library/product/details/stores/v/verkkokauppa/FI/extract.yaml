@@ -102,7 +102,7 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     # xpath: //section[contains(@class,'product-details')]/div[1]/table/tbody/tr[5][contains(@class,'product-details-row')]/td[contains(@class,'product-details-row__value')]
-    xpath: //*[contains(@id,"skuId")]
+    xpath: //*[contains(@id,"skuId")] | //section[contains(@class,"page__product")]/@data-pid
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
