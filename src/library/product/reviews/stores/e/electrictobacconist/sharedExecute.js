@@ -16,7 +16,6 @@ async function implementation(
     await context.waitForSelector('iframe:not([src])', { timeout: 7000 })
         .catch(() => console.log('No age verification needed!'));
     await context.evaluate(() => {
-        // multiple iframes on details page, need better selector for age ver one
         const ageConfIframe = document.querySelector('iframe:not([src])');
         if (ageConfIframe) {
             const dismissButton = ageConfIframe.contentDocument.querySelector('button[data-trigger="dismiss"]');
