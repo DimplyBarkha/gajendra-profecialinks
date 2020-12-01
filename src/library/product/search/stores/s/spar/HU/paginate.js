@@ -10,7 +10,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'img.tile-basic__image.tile-basic__image--product',
     loadedXpath: null,
-    noResultsXPath: '//h2[contains(@class,"h4 headline__h4 text--center")]',
+    noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
