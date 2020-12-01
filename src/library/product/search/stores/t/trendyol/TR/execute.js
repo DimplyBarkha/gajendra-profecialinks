@@ -1,4 +1,4 @@
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -27,7 +27,7 @@ module.exports = {
     country: 'TR',
     store: 'trendyol',
     domain: 'trendyol.com',
-    url: 'https://www.trendyol.com/tum--urunler?q={searchTerms}&qt={searchTerms}&st={searchTerms}',
+    url: 'https://www.trendyol.com/tum--urunler?q={searchTerms}&qt={searchTerms}&st={searchTerms}&pi=1',
     loadedSelector: 'div.srch-prdcts-cntnr img',
     noResultsXPath: '//*[@class="srch-no-rslt"]',
     zipcode: '',

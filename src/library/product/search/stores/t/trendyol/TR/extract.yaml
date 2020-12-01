@@ -32,7 +32,8 @@ fields:
     xpath: //*[contains(@class,"p-card-wrppr")]//*[@class="p-card-img"]//@src
   - name: name
     description: The product name
-    xpath: //*[contains(@class,"p-card-wrppr")]//*[contains(@class,"prdct-desc-cntnr-ttl-w")]//span
+    singleValue: false
+    xpath: //div[@class="prdct-cntnr-wrppr"]//div[contains(@class, "p-card-wrppr")]//div[@class="p-card-chldrn-cntnr"]//div[@class="prdct-desc-cntnr-wrppr"]//div[contains(@class, "prdct-desc-cntnr")]//div[contains(@class, "prdct-desc-cntnr-ttl-w")]
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -77,7 +78,6 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    description: Unique id (within this extractor)
     xpath: //div[contains(@class,"prdct-cntnr-wrppr")]//a//@data-product-code
   - name: aggregateRating2
     singleValue: false

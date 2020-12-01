@@ -62,17 +62,17 @@ module.exports = {
     const mainUrl = await context.evaluate(async function () {
       return document.URL;
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
-    const applyScroll = async function (context) {
-      await context.evaluate(async function () {
+    const applyScroll = async function (context, lengthToScroll) {
+      await context.evaluate(async function (lengthToScroll) {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
-          await stall(3000);
-          scrollTop += 500;
+          await stall(1000);
+          scrollTop += lengthToScroll;
           window.scroll(0, scrollTop);
           if (scrollTop === 20000) {
-            await stall(5000);
+            await stall(1000);
             break;
           }
         }
@@ -83,9 +83,9 @@ module.exports = {
             }, ms);
           });
         }
-      });
+      }, [lengthToScroll]);
     };
-    await applyScroll(context);
+    await applyScroll(context, 500);
 
     var results = await context.evaluate(async function () {
       const result = [];
@@ -110,6 +110,7 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
       const productCode = await context.evaluate(async function () {
         const productCode = window.__PRODUCT_DETAIL_APP_INITIAL_STATE__.product.productCode;
         return productCode;
@@ -135,9 +136,8 @@ module.exports = {
         console.log('Error: ', error);
       }
     }, [results]);
-    await delay(5000);
+    await applyScroll(context, 100);
     await context.waitForSelector('div.srch-prdcts-cntnr img');
-    await delay(5000);
     return await context.extract(productDetails, { transform });
   },
 };
