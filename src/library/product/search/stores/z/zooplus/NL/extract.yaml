@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="exo-results"]//ul[@id="exo-result-list"]//li[@class="exo-result"]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@id="exo-results"]//ul[@id="exo-result-list"]//li[@class="exo-result"]//div[@data-zta="productVariants"]//div[contains(@class,'product__offer')][1]//meta[@itemprop="price"]/@content
+    regExp: (.+)
+    regExpReplace: € $1    
+  - name: name
+    singleValue: false
+    xpath: //div[@id="exo-results"]//ul[@id="exo-result-list"]//li[@class="exo-result"]//a[@data-zta="productListLink"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="exo-results"]//ul[@id="exo-result-list"]//li[@class="exo-result"]//a[@data-zta="productListLink"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.zooplus.nl$1     
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id="exo-results"]//ul[@id="exo-result-list"]//li[@class="exo-result"]//span[@class="image__wrapper"]//img/@src
+  - name: id
+    singleValue: false
+    xpath: //div[@id="exo-results"]//ul[@id="exo-result-list"]//li[@class="exo-result"]//div[@data-zta="productVariants"]//div[contains(@class,'product__offer')][1]/@data-variant-id
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']      
+  - name: aggregateRating
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@id="exo-results"]//ul[@id="exo-result-list"]//li[@class="exo-result"]//div[@class="product__rating__teaser"]/@data-feedback
+  - name: reviewCount
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@id="exo-results"]//ul[@id="exo-result-list"]//li[@class="exo-result"]//div[@class="product__rating__teaser"]//span[contains(@class,'review__text')]/text()
+    regExp: (\d*)
+    regExpReplace: $1
