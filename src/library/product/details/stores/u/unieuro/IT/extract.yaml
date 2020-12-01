@@ -24,7 +24,10 @@ fields:
   xpath: //div[@class="prices-content"]/div[@class='price']  
 - name: availabilityText
   singleValue: true
-  xpath: (//*[@id="features"]/div[1]/div/div/span[2])[1]  
+  xpath: (//div[@class="buttons-container "]//a//text())[1]
+  regExp: (.+)
+  regExpReplace: In Stock
+  defaultValue: Out of Stock
 - name: description
   singleValue: true
   xpath: //div[@class='descriptions']/ul

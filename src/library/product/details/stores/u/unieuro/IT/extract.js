@@ -36,7 +36,10 @@ module.exports = {
         return result;
       };
       const sliceURL = (data2, data3, data4) => {
-        var old = "height " + data2 + "*depth" + data3 + "*Width" + data4
+        var old = ""
+        if (data2 != null) old = old + "height" + data2;
+        if (data3 != null) old = old + "*depth" + data3;
+        if (data4 != null) old = old + "*Width" + data4;
         addElementToDocument('altImages', old);
 
       };
