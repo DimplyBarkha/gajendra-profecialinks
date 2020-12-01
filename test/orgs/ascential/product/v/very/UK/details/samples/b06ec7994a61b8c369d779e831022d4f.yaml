@@ -1,0 +1,80 @@
+input:
+  _url: http://very.co.uk
+  URL: https://www.very.co.uk/hasbro-cluedonbspthe-classic-mystery-game-from-hasbro-gaming/799952281.prd
+extractions:
+  - html: https://workbench.import.io/html/run=391c06b1-16a6-4634-ae36-378ed113effc/task=06591c6c-05af-473e-b475-5107f201e1a8/82ae37bd-fd10-4960-a60a-c5314575fb61.html
+    extractionConfigId: product/details/stores/v/very/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.very.co.uk/hasbro-cluedonbspthe-classic-mystery-game-from-hasbro-gaming/799952281.prd
+                xpath: /html/head[1]/meta[26]/@content
+            image:
+              - text: https://media.very.co.uk/i/very/UC569_SQ1_0000000099_N_A_SLf?$550x733_standard$&$roundel_very$&p1_img=v_must_have_opaque
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://media.very.co.uk/i/very/UC569_SQ1_0000000099_N_A_SLf?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/img[1]/@src
+              - text: https://media.very.co.uk/i/very/UC569_SQ2_0000000099_N_A_SLp?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[2]/img[1]/@src
+              - text: https://media.very.co.uk/i/very/UC569_SQ3_0000000099_N_A_SLa?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[3]/img[1]/@src
+              - text: https://media.very.co.uk/i/very/UC569_SQ4_0000000099_N_A_SLd?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[4]/img[1]/@src
+            metaKeywords:
+              - text: Hasbro Cluedo The Classic Mystery Game from Hasbro Gaming
+                xpath: /html/head[1]/meta[3]/@content
+            nameExtended:
+              - text: Hasbro Cluedo The Classic Mystery Game from Hasbro Gaming
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]
+            price:
+              - text: £21.99
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/text()[1]
+            description:
+              - text: >-
+                  Cluedo The Classic Mystery Game from Hasbro Gaming
+
+                  One murder…6 suspects. In this suspenseful Cluedo game, players have to find out who's responsible for murdering Dr. Black of Tudor Mansion in his own home. Get the scoop on the mansion's rooms, weapons and guests and start detecting! Was it Plum with the wrench in the library? Or Green with the candlestick in the study? Eliminate information throughout the game in this classic whodunit. The player who correctly accuses Who, What, and Where wins! 
+
+                  Includes 1 gameboard, 6 character tokens, 6 miniature weapons, 50 Cards (6 character cards, 6 weapon cards, 9 room cards, and 29 clue cards, 1 case file envelope, 1 pad of detective notebook sheets, 2 dice, and game guide.
+
+                  Ages 8 years and up. For 2 to 6 players.
+
+                  Character: No Character
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            brandText:
+              - text: Hasbro
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
+            manufacturer:
+              - text: Hasbro
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
+            gtin:
+              - text: "5010994321833"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/p[1]/span[1]/text()[2]
+            sku:
+              - text: UC5692S
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/span[1]/text()[1]
+            variantId:
+              - text: "799952281"
+                xpath: /html/head[1]/meta[26]/@content
+            aggregateRating:
+              - text: "4.9"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]/span[1]/text()[1]
+            shippingInfo:
+              - text: FREE delivery with Click & Collect on orders £30 or more (product
+                  exclusions apply), and free returns.
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[3]/div[1]/text()[1]
+            brandLink:
+              - text: https://www.very.co.uk/hasbro/e/b/4294953660.end
+                xpath: /html/body/div[2]/div[2]/div[4]/ul[1]/li[2]/a[1]/@href
+            ageSuitability:
+              - text: Ages 8 years
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/p[2]/text()[3]
+            availabilityText:
+              - text: In Stock
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "2"
+        xpath: /
+    timestamp: 1605031858392
