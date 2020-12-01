@@ -31,6 +31,13 @@ const transform = (data) => {
 				row.additionalDescBulletInfo = [{ text: newText }];
 			}
 
+			if (row.aggregateRating) {				
+				row.aggregateRating.forEach(item => {                    			
+					item.text = item.raw.replace(',','.');
+					item.value = item.text;
+				});
+			}
+
 			if (row.description) {				
 				let newText = '';
 				console.log(row.description);
