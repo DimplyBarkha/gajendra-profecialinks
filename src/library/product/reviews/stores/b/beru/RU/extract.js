@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./shared');
 async function preExtraction (context) {
   await context.evaluate(async function () {
     const reviews = document.querySelectorAll('div[data-zone-name="review"]');
