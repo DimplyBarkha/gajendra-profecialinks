@@ -21,14 +21,19 @@ const transform = (data) => {
         if (gr && gr.aggregateRating) gr.aggregateRating[0].text = onlyNumbersAndDot(gr.aggregateRating[0].text);
         if (gr && gr.variantCount) gr.variantCount = [{ text: gr.variantCount.length }];
         if (gr && gr.secondaryImageTotal) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length }];
-        if (gr.specifications) {
-          gr.specifications.forEach(el => {
-            el.text = el.text.replace(/\s+/g, ' ').trim();
-          });
-        };
-        if (gr && gr.aggregateRatingText) {
-          const numbers = gr.aggregateRatingText.map(e => +onlyNumbersAndDot(e.text));
-          gr.aggregateRatingText = [{ text: numbers.reduce((a, b) => a + b, 0) }];
+        try {
+          if (gr.specifications) {
+            gr.specifications.forEach(el => {
+              el.text = el.text.replace(/\s+/g, ' ').trim();
+            });
+          };
+          if (gr && gr.aggregateRatingText) {
+            const numbers = gr.aggregateRatingText.map(e => +onlyNumbersAndDot(e.text));
+            gr.aggregateRatingText = [{ text: numbers.reduce((a, b) => a + b, 0) }];
+          }
+        } catch (e) {
+          gr.specifications = [];
+          gr.aggregateRatingText = [];
         }
       } catch (e) {
         console.log(e);
