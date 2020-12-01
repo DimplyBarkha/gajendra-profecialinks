@@ -120,8 +120,6 @@ fields:
   singleValue: false
   description: The stated aggregate rating normalized to be out of 5
   xpath: //div[@class="rating rating-large"]//span[@class="count sc"]
-  regExp: (\d+)\.?\,?(\d+)?
-  regExpReplace: $1,$2
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -422,7 +420,8 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
   xpath: normalize-space(//div[@class='items-heading']//div[@class="item-summary"][contains(.,'$')])
-  regExp: ([^\/]+$)
+  regExp: \$\/(\w+)
+  regExpReplace: $1
 - name: promotion
   singleValue: true
   description: promotion text on product page
