@@ -1,11 +1,11 @@
 module.exports = {
-    implements: 'navigation/goto',
-    parameterValues: {
-        domain: 'bebitus.com',
-        timeout: 50000,
-        country: 'ES',
-        store: 'bebitus',
-        zipcode: '',
-    },
+  implements: 'navigation/goto',
+  parameterValues: {
+    domain: 'bebitus.com',
+    timeout: 60000,
+    country: 'ES',
+    store: 'bebitus',
+    zipcode: '',
+  },
 
 };
