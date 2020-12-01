@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //script[contains(text(),'"skus"')]
+    regExp: \"skus\"\s*:\s*(\[.+?\])\}\},
+    regExpReplace: $1    
+  - name: variantUrl
+    singleValue: false    
+  - name: variant
+    singleValue: false    
