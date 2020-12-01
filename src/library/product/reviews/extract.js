@@ -12,7 +12,7 @@ async function implementation (
   dependencies,
 ) {
   const { date, results } = inputs;
-  const { transform } = parameters;
+  const { transform, mergeType } = parameters;
   let filterReviews = parameters.filterReviews;
   const { productReviews } = dependencies;
   // Adding current page url
@@ -31,27 +31,32 @@ async function implementation (
     currentPageDiv ? currentPageDiv.textContent = currentPageUrl : addElementToDocument('currentPageUrl', currentPageUrl);
   });
 
-  const data = await context.extract(productReviews, { transform });
-  let stop = false;
+  console.log(`mergeType: ${mergeType}`);
+  const mergeOptions = mergeType ? { transform, type: mergeType } : { transform } ;
+  const data = await context.extract(productReviews, mergeOptions);
+  // const data = await context.extract(productReviews, { transform });
+
+  // let stop = false;
   // Fiter out reviews in case reviews outside limit is present in the page.
-  if (data && data[0]) {
-    const filteredReivews = data[0].group.filter(review => {
-      const reviewDate = new Date(review.reviewDate[0].text).setHours(0, 0, 0, 0);
-      const dateLimit = new Date(new Date(date)).setHours(0, 0, 0, 0);
-      return (reviewDate - dateLimit) >= 0;
-    });
-    if (filteredReivews.length < data[0].group.length) {
-      stop = true;
-    }
-    if (results !== Infinity) {
-      stop = false;
-      filterReviews = false;
-    }
-    if (filterReviews) {
-      data[0].group = filteredReivews;
-    }
-  }
-  return { data, stop };
+  // if (data && data[0]) {
+  //   const filteredReivews = data[0].group.filter(review => {
+  //     const reviewDate = new Date(review.reviewDate[0].text).setHours(0, 0, 0, 0);
+  //     const dateLimit = new Date(new Date(date)).setHours(0, 0, 0, 0);
+  //     return (reviewDate - dateLimit) >= 0;
+  //   });
+  //   if (filteredReivews.length < data[0].group.length) {
+  //     stop = true;
+  //   }
+  //   if (results !== Infinity) {
+  //     stop = false;
+  //     filterReviews = false;
+  //   }
+  //   if (filterReviews) {
+  //     data[0].group = filteredReivews;
+  //   }
+  // }
+  // return { data, stop };
+  return { data, };
 }
 
 module.exports = {

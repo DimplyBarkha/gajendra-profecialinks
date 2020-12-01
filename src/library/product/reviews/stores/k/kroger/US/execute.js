@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'kroger',
     domain: 'kroger.com',
-    loadedSelector: 'div[@class="ProductDetails-reviews"]',
+    loadedSelector: 'div[class="ProductDetails-reviews"]',
     noResultsXPath: '//div[@class="mt-80 text-center"]/h2',
     reviewUrl: null,
     sortButtonSelector: null,

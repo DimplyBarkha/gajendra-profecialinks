@@ -6,6 +6,26 @@ fields:
   - name: rating
     singleValue: false
     xpath: count(//div[@class="alternate-reviews__review-stars"]/i[contains(@class,"icon-star")])
+  - name: sourceUrl
+    singleValue: false
+    xpath: ancestor::html//meta[@property="og:url"]/@content
+  - name: flavour
+    singleValue: false
+    xpath: ancestor::html//div[contains(@class,"product-tabs__content__cms")]//*[contains(text(),"Flavor Profile:")] | //div[contains(@class,"product-tabs__content__cms")]//*[contains(text(),"Flavor profile:")]
+    regExp: >-
+      (?<=: )(.+)
+  - name: location
+    singleValue: false
+    defaultValue: USA
+  - name: pageTitle
+    singleValue: false
+    xpath: ancestor::html//head/title
+  - name: productRange
+    singleValue: false
+    xpath: ancestor::html//meta[@itemprop="position" and @content="2"]//parent::li/a
+  - name: productFamily
+    singleValue: false
+    xpath: ancestor::html//div[@class="breadcrumb--container"]
   - name: helpfulCount
     singleValue: false
     type: NUMBER
@@ -14,10 +34,11 @@ fields:
     singleValue: false
     type: NUMBER
     description: Number of comments on the review
-  - name: brandText
+  - name: brand
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//span[contains(@class,"title--brand")]
   - name: name
     singleValue: false
     description: The product name

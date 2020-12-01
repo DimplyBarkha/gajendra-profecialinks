@@ -1,4 +1,3 @@
-// const { implementation } = require('../../../../../search/stores/e/electrictobacconist/sharedExecute');
 async function implementation(
   inputs,
   parameters,
@@ -14,11 +13,11 @@ async function implementation(
   }
   await dependencies.goto({ url, zipcode: inputs.zipcode });
 
-  await context.waitForSelector('iframe', { timeout: 7000 })
+  await context.waitForSelector('iframe:not([src])', { timeout: 7000 })
     .catch(() => console.log('No age verification needed!'));
   await context.evaluate(() => {
     // multiple iframes on details page, need better selector for age ver one
-    const ageConfIframe = document.querySelector('iframe');
+    const ageConfIframe = document.querySelector('iframe:not([src])');
     if (ageConfIframe) {
       const dismissButton = ageConfIframe.contentDocument.querySelector('button[data-trigger="dismiss"]');
       if (dismissButton) {
