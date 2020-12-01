@@ -5,13 +5,16 @@ recordXPath: null
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[@class="image"]/a/@href
+    xpath: //div[@class="image"]//img/@src
   - name: productUrl
     SingleValue: false
     xpath: //div[@class="image"]/a/@href
   - name: price
     SingleValue: false
     xpath: //span[@class="price-new"]
+  - name: price_1
+    SingleValue: false
+    xpath: //div[@class="price"]    
   - name: thumbnail
     SingleValue: false
     xpath: //div[@class="image"]//img/@src

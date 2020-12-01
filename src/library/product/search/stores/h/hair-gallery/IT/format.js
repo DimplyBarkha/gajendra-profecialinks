@@ -27,7 +27,7 @@ const transform = (data) => {
     for (const row of group) {
       if (row.id) {
         row.id.forEach(item => {
-          var myRegexp = /.+\/(.+?)[\?|$]/g;
+          var myRegexp = /\/A_(.+?)-/g;
           var match = myRegexp.exec(item.text);
           if (match) {
             if (match.length) {
@@ -37,6 +37,12 @@ const transform = (data) => {
             }
           }
         });
+      }
+      if (!row.price) {
+        if (row.price_1) {
+          row.price = [{ text: row.price_1[0].text }];
+        }
+        delete row.price_1;
       }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
