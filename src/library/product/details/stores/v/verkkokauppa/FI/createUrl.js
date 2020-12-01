@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'verkkokauppa.com',
     prefix: null,
-    url: null,
+    url: 'https://www.verkkokauppa.com/fi/search?query={id}',
     country: 'FI',
     store: 'verkkokauppa',
     zipcode: '',
