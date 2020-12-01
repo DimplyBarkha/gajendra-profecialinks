@@ -18,10 +18,10 @@ fields:
     xpath: //div[@class='name']//a/@href
   - name: price
     singleValue: false
-    xpath: //div[@class='functions functions-discount clearfix ']//span[contains(@class,'price-wrapper')]//span[contains(@class,'price')]
+    xpath: //span[contains(@class,'price-wrapper')]//span[contains(@class,'price')]
   - name: thumbnail
     singleValue: false
     xpath: //div[@class='image']//img/@src    
   - name: aggregateRating2
     SingleValue: false
-    xpath: //div[@class='more-info clearfix']//div[contains(@class,'rating-stars ratting_')]/@data-rating
+    xpath: //div[contains(@class,'rating-stars')]/@data-rating
