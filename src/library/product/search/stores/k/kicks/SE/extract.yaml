@@ -18,9 +18,9 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //*[contains(./@id, 'product-card')]//img/@src
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: false
-    xpath: //html//div[@id='aggregateRating']
+    xpath: //div[@id='aggregateRating']
   - name: reviewCount
     singleValue: false
     type: NUMBER

@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'kicks',
     domain: 'kicks.se',
-    url: 'https://www.kicks.no/sok?q=blush',
+    url: 'https://www.kicks.se/sok?q=primer',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
