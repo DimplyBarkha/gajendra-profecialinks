@@ -9,5 +9,8 @@ module.exports = {
     loadedSelector: 'div[class*="productResultContainer"]',
     noResultsXPath: '//input[contains(@value,"Not Found")] | //p[contains(.,"doesn’t exist")]',
   },
+  dependencies: {
+    setZipCode: 'action:navigation/goto/setZipCode',
+  },
   implementation,
 };

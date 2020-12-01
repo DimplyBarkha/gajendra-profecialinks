@@ -4,7 +4,9 @@ const implementation = async function (
   context,
   dependencies,
 ) {
-  let { url, id, zipcode } = inputs;
+  let { url, id } = inputs;
+
+  const zipcode = inputs.zipcode || parameters.zipcode;
   if (!url) {
     if (!id) {
       throw new Error('no id provided');
@@ -26,6 +28,10 @@ const implementation = async function (
       return context.reportBlocked(451, 'Blocked!');
     }
     throw err;
+  }
+
+  if (zipcode) {
+    await dependencies.setZipCode({ url, zipcode });
   }
 
   if (parameters.loadedSelector) {
