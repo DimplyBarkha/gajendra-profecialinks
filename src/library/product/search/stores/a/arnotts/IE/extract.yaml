@@ -28,10 +28,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //ul[@id="product-search-result-items"]/li/@rank
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //ul[@id="product-search-result-items"]/li/@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid

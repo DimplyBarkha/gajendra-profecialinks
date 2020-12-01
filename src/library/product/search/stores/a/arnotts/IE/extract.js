@@ -1,4 +1,4 @@
-const { transform } = require('./transform');
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
@@ -42,10 +42,13 @@ module.exports = {
 
       const searchUrl = window.location.href;
       const productList = document.querySelectorAll('ul#product-search-result-items li');
+      let j = 0;
 
       productList && productList.forEach((item1) => {
         const doc = item1;
         addElementToDocument(doc, 'searchUrl', searchUrl);
+        document.querySelectorAll('ul#product-search-result-items li')[j].setAttribute('rank', `${j + 1}`);
+        j++;
       });
     });
     return await context.extract(productDetails, { transform });
