@@ -104,7 +104,9 @@ fields:
     xpath: //meta[@itemprop="ratingValue"]/@content
     singleValue: false
   - name: availabilityText
-    xpath: //div[@data-zone-name="skuAvailability"]//span|//div[contains(@class, "tabulator-row")]//div[@tabulator-field="availabilityText"]//div[1]
+    # xpath: //meta[@itemprop="availability"]/@content
+    xpath: (//div[@data-zone-name="skuAvailability"]//span|//div[contains(@class, "tabulator-row")]//div[@tabulator-field="availabilityText"]//div[1]|//meta[@itemprop="availability"]/@content)[1]
+    singleValue: false
   - name: listPrice
     xpath: //div[@data-zone-name="offer-cart"]//div[@data-auto="old-price"]
   - name:  descriptionBullets
