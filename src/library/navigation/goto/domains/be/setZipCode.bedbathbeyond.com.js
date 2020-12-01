@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'US',
-    domain: 'bedbathbeyond.us',
+    domain: 'bedbathbeyond.com',
     store: 'bedbathbeyond',
     zipcode: '',
   },

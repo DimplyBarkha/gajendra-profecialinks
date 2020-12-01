@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'bedbathbeyond',
-    domain: 'bedbathbeyond.us',
-    url: 'https://www.bedbathandbeyond.com/store/s/{searchTerms}?ta=typeahead',
-    loadedSelector: "section[class='productSearch'] div[role='region'] article[class *='Card-inline_'] img[data-locator='product_tile_image']",
-    noResultsXPath: "//p[contains(@class,'SearchResultsFound_') and text()='No Search Results For']",
+    domain: 'bedbathbeyond.com',
+    url: 'https://www.bedbathandbeyond.com/store/s/{searchTerms}/1-24',
+    loadedSelector: 'div[class^="ProductGrid-inline"] article img[data-locator="product_tile_image"]',
+    noResultsXPath: '//p[contains(.,"No Search Results For")] | /html[not(//div[starts-with(@class,"ProductGrid-inline")]//article)]',
     zipcode: '',
   },
 };

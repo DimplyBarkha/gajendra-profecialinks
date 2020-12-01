@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'bedbathbeyond',
-    domain: 'bedbathbeyond.us',
+    domain: 'bedbathbeyond.com',
     zipcode: '',
   },
 };

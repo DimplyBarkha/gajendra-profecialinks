@@ -4,13 +4,15 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'bedbathbeyond',
-    nextLinkSelector: "ul[class *='Pagination_'] li a[class *='__btnNext']",
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: "section[class='productSearch'] div[role='region'] article[class *='Card-inline_'] img[data-locator='product_tile_image']",
-    noResultsXPath: "//p[contains(@class,'SearchResultsFound_') and text()='No Search Results For']",
-    openSearchDefinition: null,
-    domain: 'bedbathbeyond.us',
+    loadedSelector: 'div[class^="ProductGrid-inline"] article img[data-locator="product_tile_image"]',
+    noResultsXPath: '//p[contains(.,"No Search Results For")] | /html[not(//div[starts-with(@class,"ProductGrid-inline")]//article)]',
+    openSearchDefinition: {
+      template: 'https://www.bedbathandbeyond.ca/store/s/{searchTerms}/{page}-24',
+    },
+    domain: 'bedbathbeyond.com',
     zipcode: '',
   },
 };

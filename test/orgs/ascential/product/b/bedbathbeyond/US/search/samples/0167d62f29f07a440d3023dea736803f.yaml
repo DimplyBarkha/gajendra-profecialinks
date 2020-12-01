@@ -1,0 +1,238 @@
+input:
+  keywords: Contigo
+  _url: http://bedbathbeyond.com
+extractions:
+  - html: https://workbench.import.io/html/run=f29f724b-9315-4de6-861a-b3b5a758dcf0/task=d57f6bfc-1aab-4f75-ac95-a1dec7d31fba/03df266e-0cd4-4d37-abc8-3176560c3f1b.html
+    extractionConfigId: product/search/stores/b/bedbathbeyond/US/extract
+    data:
+      - group:
+          - name:
+              - text: Contigo® Jackson Water Bottle
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/div[2]/@title
+            productUrl:
+              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-jackson-water-bottle/3293769
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/8659193293769m?&wid=2000&hei=2000
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
+            reviewCount:
+              - text: "204"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "204"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $10.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/div[3]/div[3]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            id:
+              - text: "3293769"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@id
+            aggregateRating2:
+              - text: "4.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@rating
+          - name:
+              - text: Contigo® Luxe 16 oz. Autoseal Insulated Travel Mug in Black
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[2]/@title
+            productUrl:
+              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-luxe-16-oz-autoseal-insulated-travel-mug-in-black/5466002
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/386054869264962p?&wid=2000&hei=2000
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
+            reviewCount:
+              - text: "79"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "79"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $24.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[3]/div[3]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+            id:
+              - text: "5466002"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@id
+            aggregateRating2:
+              - text: "4.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@rating
+          - name:
+              - text: Contigo® SnapSeal™ Superior 20 oz. Travel Mug
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[2]/@title
+            productUrl:
+              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-snapseal-trade-superior-20-oz-travel-mug/3293697
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/86543146106469p?&wid=2000&hei=2000
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
+            reviewCount:
+              - text: "81"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "81"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $13.99 Each
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[3]/div[3]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            id:
+              - text: "3293697"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@id
+            aggregateRating2:
+              - text: "3.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@rating
+          - name:
+              - text: Contigo® Luxe 18 oz. Stainless Steel Tumbler in Licorice
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[2]/@title
+            productUrl:
+              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-luxe-18-oz-stainless-steel-tumbler-in-licorice/5430569
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/379496469294822p?&wid=2000&hei=2000
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
+            reviewCount:
+              - text: "59"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "59"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            price:
+              - text: $24.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[3]/div[3]/span[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            id:
+              - text: "5430569"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@id
+            aggregateRating2:
+              - text: "4.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@rating
+          - name:
+              - text: Contigo® SnapSeal™ Byron Travel Mug
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[2]/@title
+            productUrl:
+              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-snapseal-trade-byron-travel-mug/3293695
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/86542246106315p?&wid=2000&hei=2000
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
+            reviewCount:
+              - text: "486"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "486"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "$13.99 "
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[3]/div[3]/span[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            id:
+              - text: "3293695"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@id
+            aggregateRating2:
+              - text: "4.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@rating
+          - name:
+              - text: Contigo® AutoSeal® Cortland Water Bottle
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[2]/@title
+            productUrl:
+              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-autoseal-reg-cortland-water-bottle/3293765
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/8659023293765m?&wid=2000&hei=2000
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
+            reviewCount:
+              - text: "452"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            ratingCount:
+              - text: "452"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+            price:
+              - text: "$11.99 "
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[3]/div[3]/span[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            id:
+              - text: "3293765"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/@id
+            aggregateRating2:
+              - text: "4.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/@rating
+        xpath: /html
+    timestamp: 1606813964880

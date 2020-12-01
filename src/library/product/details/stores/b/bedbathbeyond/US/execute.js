@@ -32,7 +32,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'bedbathbeyond',
-    domain: 'bedbathbeyond.us',
+    domain: 'bedbathbeyond.com',
     loadedSelector: "h2[id='reviewsHeading']",
     noResultsXPath: "//h1//span[text()='Results Not Found']",
     zipcode: '',
