@@ -25,13 +25,14 @@ module.exports = {
         priceOutOfStock.setAttribute('correctprice', text);
       }
     });
-    await context.evaluate(() => {
-      const rating = document.querySelector(
-        '.cn_product_visited > .rating_value',
-      );
-      const ratingValueConverted = rating.innerHTML.replace('.', ',');
-      rating.setAttribute('ratingvalueconverted', ratingValueConverted);
-    });
-    return await context.extract(productDetails, { transform });
+    var data = await context.extract(productDetails, { transform });
+    for (let k = 0; k < data.length; k++) {
+      for (let i = 0; i < data[k].group.length; i++) {
+        if ('aggregateRating' in data[k].group[i]) {
+          data[k].group[i].aggregateRating[0].text = Number(data[k].group[i].aggregateRating[0].text).toFixed(1).replace('.', ',');
+        }
+      }
+    }
+    return data;
   },
 };
