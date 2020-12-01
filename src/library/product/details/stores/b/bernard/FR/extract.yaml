@@ -100,7 +100,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    type: TEXT
+    # type: TEXT
     xpath: //div[@class="formLabel"]/@content
     regExp: (\d{3,9})
   - name: packSize
@@ -422,7 +422,6 @@ fields:
     description: The physical dimensions of the product including packaging.
     xpath: //div[@id="skuTabSpecifications"]
     type: TEXT
-    xpath: //div[@id="skuTabSpecifications"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -453,12 +452,11 @@ fields:
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-  - name: promotion
-    singleValue: true
-    description: promotion text on product page
-    xpath: (//span[@id="spnNavItemName"])[6]
-    type: TEXT
-    xpath: (//span[@id="spnNavItemName"])[6]
+  # - name: promotion
+  #   singleValue: true
+  #   description: promotion text on product page
+  #   xpath: (//span[@id="spnNavItemName"])[6]
+  #   type: TEXT
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -496,7 +494,6 @@ fields:
     description: null
     xpath: //div[@id="SkuTabDescription"]
     type: TEXT[]
-    xpath: //div[@id="SkuTabDescription"]
   - name: prop65Warning
     singleValue: true
     description: null
