@@ -6,7 +6,7 @@ module.exports = {
     store: 'zooroyal',
     domain: 'zooroyal.de',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="error-page"]//div[@class="col-md-6"][2]',
     zipcode: '',
   },
 };
