@@ -1,3 +1,5 @@
+const { transform } = require('../../../../shared');
+
 const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
   const { productDetails } = dependencies;
@@ -39,6 +41,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   await context.evaluate(() => {
     const rating = document.querySelectorAll('.rating');
     rating.forEach((el) => {
+      // @ts-ignore
       const trimmedAndDivided = (el.style.width.slice(0, -1)) / 20;
       const numericRate1Decimal = trimmedAndDivided.toFixed(1);
       el.setAttribute('numericrating', numericRate1Decimal);
@@ -60,7 +63,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'mifarma',
-    transform: null,
+    transform: transform,
     domain: 'mifarma.es',
     zipcode: '',
   },
