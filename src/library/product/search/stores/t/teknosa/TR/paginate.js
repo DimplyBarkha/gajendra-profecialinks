@@ -7,7 +7,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//strong[text()="Aradığınız kriterlere uygun sonuç bulamadık."]',
     openSearchDefinition: null,
     domain: 'teknosa.com',
     zipcode: '',

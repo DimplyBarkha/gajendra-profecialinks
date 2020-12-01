@@ -6,7 +6,7 @@ module.exports = {
     domain: 'teknosa.com',
     url: 'https://www.teknosa.com/arama/?s={searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//strong[text()="Aradığınız kriterlere uygun sonuç bulamadık."]',
     zipcode: '',
   },
 };
