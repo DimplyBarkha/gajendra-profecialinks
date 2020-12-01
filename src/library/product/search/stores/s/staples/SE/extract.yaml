@@ -18,3 +18,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[contains(@class,"BrowseItem")]//div[@class="itemPriceDetails"]//span[@class="priceupdate"]
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id="ItemSrchCompare"]/div[@itemprop="ean"]/text()
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,"BrowseItem")]//div[@class="itemDetails"]//div[@class="skuBrowseBullet" and contains(text(),"Varumärke:")]

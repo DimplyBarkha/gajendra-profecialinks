@@ -34,7 +34,17 @@ const transform = (data) => {
             row.thumbnail.forEach(item=>{
                 item.text="https"+item.text;
             })
-        }              
+        }
+        if(row.price){
+          row.price.forEach(item=>{
+            item.text=item.text.replace(',','');
+          })
+        }
+        if(row.manufacturer){
+          row.manufacturer.forEach(item=>{
+            item.text=item.text.replace('Varumärke:','');
+          })
+        }
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;
