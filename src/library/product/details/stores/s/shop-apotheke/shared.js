@@ -7,20 +7,6 @@ const transform = (data) => {
   for (const { group }
     of data) {
     for (const row of group) {
-      if (row.variants) {
-        let text;
-        row.variants.forEach(item => {
-          if (item.text.includes(',')) {
-            text = item.text.split(',').map(e => {
-              return { text: e.trim() };
-            });
-          } else {
-            text = [];
-          }
-        });
-        row.variants = text;
-      }
-
       if (row.category) {
         let text;
         row.category.forEach(item => {

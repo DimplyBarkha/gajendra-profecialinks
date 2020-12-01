@@ -32,11 +32,11 @@ fields:
   - name: manufacturer
     xpath: //ul[contains(@class,'m-ProductData')]//li[4]//dd
   - name: quantity
-    xpath: //div[@id='pd_quantity']
+    xpath: //div[contains(@class,"m-ProductVariant__label--checked")]//div[contains(@class,"ProductVariant--units")]
   - name: sku
-    xpath: //div[@id='pd_sku'] 
+    xpath: //span[@data-qa-id="product-attribute-pzn"]
   - name: variantId
-    xpath: //div[@id='pd_variantId'] 
+    xpath: //span[@data-qa-id="product-attribute-pzn"]
   - name: directions
     xpath: //p//*[contains(text(), "Anwendung")]/parent::p/text()
   - name: warnings
@@ -60,13 +60,13 @@ fields:
   - name: mpc
     xpath: //div[@id='pd_mpn'] 
   - name: variants
-    xpath: //div[@id='pd_variant_ids']
+    xpath: //div[@id="h_ProductVariants"]//ul//li//a/@data-product-variant-id
   - name: variantCount
     xpath: count(//ul[@class="a-list-reset"]//li[position()>1]/div[contains(@class,'m-ProductVariant')])
   - name: variantInformation
-    xpath: //div[@id='pd_first_variant']
+    xpath: //div[contains(@class,"m-ProductVariant__label--checked")]//div[contains(@class,"ProductVariant--units")]
   - name: firstVariant
-    xpath: //div[@id='pd_variant_info']
+    xpath: //span[@data-qa-id="product-attribute-pzn"]
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions
