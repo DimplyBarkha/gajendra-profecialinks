@@ -6,7 +6,7 @@ module.exports = {
     store: 'ochkarik',
     domain: 'ochkarik.ru',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//p[@class="not-found__text text2"]',
     zipcode: '',
   },
 };
