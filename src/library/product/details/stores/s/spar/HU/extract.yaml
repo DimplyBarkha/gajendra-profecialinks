@@ -26,7 +26,7 @@ fields:
     xpath: //label[@class='productDetailsName']
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsPrice']  
+    xpath: //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsPrice ']  
   - name: availabilityText
     singleValue: false
     xpath: //button[@class='addToCartButton']//label
@@ -34,6 +34,9 @@ fields:
   - name: quantity
     singleValue: false
     defaultValue: 1  
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0   
   - name: description
     singleValue: false
     xpath: //div[@class='detail__container']      
