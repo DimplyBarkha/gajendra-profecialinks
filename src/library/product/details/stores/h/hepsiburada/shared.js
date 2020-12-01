@@ -21,13 +21,13 @@ const transform = (data) => {
         });
         row.ingredientsList = [{ text }];
       }
-      if (row.nameExtended) {
-        let text = '';
-        row.nameExtended.forEach(item => {
-          text = row.nameExtended.map(elm => elm.text).join(' ');
-        });
-        row.nameExtended = [{ text }];
-      }
+      // if (row.nameExtended) {
+      //   let text = '';
+      //   row.nameExtended.forEach(item => {
+      //     text = row.nameExtended.map(elm => elm.text).join(' ');
+      //   });
+      //   row.nameExtended = [{ text }];
+      // }
       // if (row.warranty) {
       //   let text = '';
       //   row.warranty.forEach(item => {
