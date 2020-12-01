@@ -48,16 +48,12 @@ async function implementation(inputs, parameters, context, dependencies) {
     // @ts-ignore
     document.querySelector('body').setAttribute('color', color.match(regexColor)[1]);
 
-
     const description2 = document.querySelectorAll('span[itemprop="description"] ul li');
     const bulletsArr = [description2];
     const bulletsArrSliced = bulletsArr.slice(1);
     description2.forEach(e => bulletsArrSliced.push(e.textContent));
     const concatDesc = bulletsArrSliced.join(' || ');
     addElementToDocument('description', concatDesc);
-    // };
-
-
   });
   return await context.extract(productDetails, { transform });
 }
