@@ -104,7 +104,7 @@ module.exports = {
                     var aggregatematchData = aggregateRatingSummary.match(/([^\\/]+)/i);
                     console.log(aggregateRatingSummary);
                     var aggregateRatingArray = aggregatematchData[0].split(' ');
-                    const finalAggregate=aggregateRatingArray[aggregateRatingArray.length - 1];
+                    const finalAggregate = aggregateRatingArray[aggregateRatingArray.length - 1];
                     addElementToDocument('added_rating', finalAggregate.replace(/\./g, ','));
                   } catch (err) {
                     console.log('Rating is the problem');
