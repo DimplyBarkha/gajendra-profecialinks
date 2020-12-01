@@ -10,8 +10,23 @@ async function implementation (inputs, parameters, context, dependencies) {
     const categorySelector = document.querySelectorAll('.row.breadcrumbs-section>ol>li');
     let category;
 
-    for (let j = 0; j < categorySelector.length; j++) {
-      if (category !== null && category !== undefined) {
+    let ratingPresentSelector = document.querySelector('span[itemprop="ratingValue"]');
+    let ratingAbsentSelector = document.querySelector('.ratings-list-no-ratings');
+
+    if (ratingAbsentSelector !== null) {
+      ratingAbsentSelector = 'Noch keine Bewertungen.';
+
+      document.querySelector('.selection-separation-line').setAttribute('rating', ratingAbsentSelector);
+    }
+
+    if (ratingPresentSelector !== null) {
+      ratingPresentSelector = ratingPresentSelector.textContent.replace('.', ',');
+
+      document.querySelector('.selection-separation-line').setAttribute('rating', ratingPresentSelector);
+    }
+
+    for (let j = 1; j < categorySelector.length; j++) {
+      if (categorySelector[j] !== null && categorySelector[j] !== undefined) {
         category = categorySelector[j].textContent;
         category = category.replace('Zurück zu:', '');
 
