@@ -169,6 +169,13 @@ module.exports = {
               addHiddenDiv('custom-product-saltPerServing', filteredValue[0].value);
               addHiddenDiv('custom-product-saltPerServingUom', 'g');
             }
+
+            let nutritionInfo = '';
+            for (const data of nutriData) {
+              nutritionInfo = nutritionInfo + data.key + ':' + data.value + ' ';
+            }
+            document.body.setAttribute('nutritionInfo', nutritionInfo);
+
           } catch (err) { }
         }
       } catch (error) {

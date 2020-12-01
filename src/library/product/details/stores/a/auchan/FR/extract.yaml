@@ -22,7 +22,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: Aggregate Rating of product
-    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | (//div[@itemprop='aggregateRating']//meter/@value)[1]
+    xpath: (//div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | (//div[contains(@class, "product__top")]//div[@itemprop='aggregateRating']//meter/@value)[1] | //div[@class="reviews__statistics"]//span[@class="rating-value--big bolder"])[1]
   - name: aggregateRating2
     singleValue: false
     description: Aggregate Rating of product
@@ -34,7 +34,8 @@ fields:
   - name: ratingCount
     singleValue: false
     description: Rating Count of product
-    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='reviewCount']/@content | (//div[@itemprop='aggregateRating']//span)[1]
+    xpath: (//div[contains(@class, 'product-detail--rating')]//meta[@itemprop='reviewCount']/@content | (//div[@class="product__top"]//div[@itemprop='aggregateRating']//span)[1] | //div[@class="reviews__statistics"]//span[@class="bolder"])[1]
+    regExp: (\d+)
   - name: description
     singleValue: false
     description: Description of product
@@ -115,7 +116,7 @@ fields:
   - name: category
     singleValue: false
     description: Product Category
-    xpath: (//span[contains(@class, 'ui-breadcrumb--item')]//a)[position()>1 and string(text())]
+    xpath: (//span[contains(@class, 'ui-breadcrumb--item')]//a)[position()>1 and string(text())] | (//span[contains(@class, 'site-breadcrumb__item')]/a)[string(text())]
   - name: availabilityText
     singleValue: false
     description: Product availability Text
@@ -229,4 +230,29 @@ fields:
     singleValue: false
     description:
     xpath: //button[contains(@class,'product-gallery__zoom icon-zoom openGallery')]/@class
+    # Salsify
+  - name: shownImages
+    singleValue: false
+    xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content | //div[contains(@class, 'product-gallery__wrapper')]//img/@src
+  - name: highQualityImages
+    singleValue: false
+    xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content | //div[contains(@class, 'product-gallery__wrapper')]//img/@src
+  - name: shownImages
+    singleValue: false
+    xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content | //div[contains(@class, 'product-gallery__wrapper')]//img/@src
+  - name: allergens
+    singleValue: true
+    xpath: //span[contains(@class,"product-features__title") and contains(text(),'Allergènes')]//following::span[1]
+  - name: sku
+    singleValue: true
+    xpath: //div[contains(@class,"product-description__feature-group-wrapper")]//span[contains(text(),'Réf / EAN :')]/following::div[1]
+    regExp: (\d+)(\s)(\/)(\s\d+)
+    regExpReplace: auchan_fr_$1
+  - name: nutritionInfo
+    singleValue: true
+    xpath: //body//@nutritionInfo
+  - name: sponsoredProductUrls
+    singleValue: false
+    xpath: //span[@class="product-thumbnail__picture-wrapper"]//figure//img//@src
+
 
