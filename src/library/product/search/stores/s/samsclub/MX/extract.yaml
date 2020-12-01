@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.product-listing div.grid-itemBox-wrp
+recordXPath: null
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //a[@class="item-name"]/@href
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[@class="item-name"]/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="item-newprice new-price-content"]/span[@class="normal"]
+  - name: price_decimal
+    SingleValue: false
+    xpath: //div[@class="item-newprice new-price-content"]/span[@class="sup"]    
+  - name: thumbnail
+    SingleValue: false
+    xpath: //a[@class="item-image"]/img/@data-src
+  - name: name
+    SingleValue: false
+    xpath: //a[@class="item-name"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
