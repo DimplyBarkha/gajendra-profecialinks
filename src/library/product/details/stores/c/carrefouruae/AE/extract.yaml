@@ -1,7 +1,7 @@
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //html
 fields:
   - name: image
     singleValue: false
@@ -38,11 +38,13 @@ fields:
       clicks add to basket this is the price they would be charged
     xpath: //h2[contains(@class , "productinfo__price")] | //h2[contains(@class , "css-1ju41kp")] | //meta[@property="product:price:amount"]/@content | //h2[@class="css-1601px7"]
   - name: availabilityText
-    singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[@class="productinfo-addcart"]/* | //div[@id="cc_availabilityText"] | //div[@class="css-1kn3dx7"] | //button[@data-testid="add_to_cart_button" and contains(text(), "Add To Cart")]
+    xpath: //script[@type="application/ld+json"][contains(.,'availability')]
+    regExp: InStock
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from

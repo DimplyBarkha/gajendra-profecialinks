@@ -29,16 +29,16 @@ const transform = (data) => {
              }
           });
         }
-        if (row.availabilityText) {
-          let text = '';
-          row.availabilityText.forEach(item => {
-            if((item.text.includes('TEMP OUT OF STOCK')) ||(item.text.includes('outOfStock'))) {
-              item.text = 'Out of Stock'
-            } else if((item.text.includes('Add To Cart'))|| (item.text.includes('in stock')) || (item.text.includes('inStock'))) {
-              item.text = 'In Stock'
-            } 
-          });
-        }
+        // if (row.availabilityText) {
+        //   let text = '';
+        //   row.availabilityText.forEach(item => {
+        //     if((item.text.includes('TEMP OUT OF STOCK')) ||(item.text.includes('outOfStock'))) {
+        //       item.text = 'Out of Stock'
+        //     } else if((item.text.includes('Add To Cart'))|| (item.text.includes('in stock')) || (item.text.includes('inStock'))) {
+        //       item.text = 'In Stock'
+        //     } 
+        //   });
+        // }
         if (row.description) {
           row.description.forEach(item => {
              item.text = item.text.replace(/(\|\|\s\|\|)/g,'||').replace(/(\s*[\r\n]\s*)+/g, ' ').replace('&amp;','&').replace(/&nbsp;/g, ' ').trim();
