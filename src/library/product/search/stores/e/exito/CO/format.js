@@ -30,6 +30,11 @@ const transform = (data) => {
           item.text = 'https://www.exito.com' + item.text;
         });
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('.', ',');
+        });
+      }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
