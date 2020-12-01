@@ -1,0 +1,101 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    xpath: //h1[@class="product-title qa-title"] 
+  - name: image
+    singleValue: false
+    xpath: //div[@class="product-images grid-x"]//div//img[@class="cell shrink qa-image"]//@src
+  - name: imageAlt
+    singleValue: false 
+    xpath: //div[@class="product-images grid-x"]//div//img[@class="cell shrink qa-image"]//@alt
+  - name: alternateImages 
+    singleValue: false
+    xpath: //div[@class="slick-list draggable"]//div[contains(@class,'slick-track')]//div[position()>1]//a//@data-image
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="slick-list draggable"]//div[contains(@class,'slick-track')]//div[position()>1]//a//@data-image)
+  - name: category
+    singleValue: false
+    xpath: (//div[@id="wf-breadcrumbs"]//span//a)[1]
+  - name: category
+    singleValue: false
+    xpath: //div[@id="wf-breadcrumbs"]//span[position()>1]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="product-title qa-title"]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="discount-details__value"]//span[@class="discount-details__best-price qa-best-price qa-offer-price"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="discount-details__row"]//span[@class="discount-details__value strikethrough qa-strikethrough-price"]
+  - name: description
+    singleValue: false
+    xpath: concat(//div[@id="descr"]//div//table, //div[@class="detail-list qa-detail-list"])
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class="detail-list qa-detail-list"]//span)
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="detail-list qa-detail-list"]//span
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="pdp-rating__count qa-amount"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="price-info__brand-name-container"]//a[@class="qa-manufacturer"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="price-info__brand-name-container"]//a[@class="qa-manufacturer"]
+  - name: weightNet
+    singleValue: false
+    xpath: //div//*[contains(text(),'Gewicht in kg:')]//following::div[1]//span
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div//*[contains(text(),'Abmessungen in cm:')]//following::div[1]//span
+  - name: shippingInfo
+    singleValue: false
+    xpath: concat(//span[@class="shop-sub qa-text"], //strong[@class="qa-partner shop-sub__partner-name"], //div[@class="offer-list__provider-info qa-check24-info"])
+  - name: color
+    singleValue: false
+    xpath: //div//*[contains(text(),'Farbe:')]//following::div[1]//span
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="product-video-content js-youtube"]//iframe//@src
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="variations__tiles qa-variation-container-1"]//div[contains(@class,'variations__container')])
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@id="details"]//div[@class="table-view further"]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="price-info__info-text qa-points-info"]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div//*[contains(text(),'Farbe:')]//following::div[1]//span
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[@class="product-images grid-x"]//div//span[contains(text(),'Für größere Ansicht Maus übers Bild ziehen')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="boosting-element-container qa-delivery-time"]//span[contains(text(),'Lieferung')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
