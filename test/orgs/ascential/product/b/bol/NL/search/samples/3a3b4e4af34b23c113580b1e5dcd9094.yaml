@@ -1,0 +1,1570 @@
+input:
+  keywords: ben and jerry
+  _url: http://bol.com
+extractions:
+  - html: https://workbench.import.io/html/run=22c11ef1-9e4b-4d7f-967d-2cf6be247685/task=a2e37906-d333-4c28-99ef-394a569e1697/fd8cf2e3-f828-4c45-a3df-b97f29525a96.html
+    extractionConfigId: product/search/stores/b/bol/NL/extract
+    data:
+      - group:
+          - id:
+              - text: "9200000131982367"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/@data-id
+            name:
+              - text: Columbia Classics Collection - Volume 1 (4K Ultra HD Blu-ray)
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/columbia-classics-collection-volume-1/9200000131982367/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/q7gGGrqBqXzD/168x103.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 94,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: nl_BE
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: nl_BE
+                value: 1
+          - id:
+              - text: "1002004000001267"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/@data-id
+            name:
+              - text: First Knight
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/first-knight/1002004000001267/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/NQQ0KY0YLzK/151x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 12,95
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: nl_BE
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: nl_BE
+                value: 2
+          - id:
+              - text: "1001004000718266"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/@data-id
+            name:
+              - text: Ben & Jerrys Ice Cream & Dessert
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-jerrys-ice-cream-dessert/1001004000718266/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/qPEBXWg2mVr/168x152.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,2
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 13,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+          - id:
+              - text: "1002004006067203"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/@data-id
+            name:
+              - text: First Knight (Blu-ray)
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/first-knight/1002004006067203/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/mAMKkp5Kmn3/163x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 10,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "4"
+                locale: nl_BE
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: nl_BE
+                value: 4
+          - id:
+              - text: "1002004000012035"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/@data-id
+            name:
+              - text: Delta Force
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/delta-force/1002004000012035/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/31RBAmMzZJQA/148x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 11,50
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: nl_BE
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: nl_BE
+                value: 5
+          - id:
+              - text: "1002004005471637"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/@data-id
+            name:
+              - text: First Knight
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/first-knight/1002004005471637/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/BLm6vmKwYQkX/147x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 9,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "6"
+                locale: nl_BE
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: nl_BE
+                value: 6
+          - id:
+              - text: "9200000025708597"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/@data-id
+            name:
+              - text: Ben & Jerry's Homemade Ice Cream & Dessert Book
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-jerry-s-homemade-ice-cream-dessert-book/9200000025708597/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/9k8QgR9JGrD/168x152.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,2
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 8,39
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+          - id:
+              - text: "1002004000077974"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/@data-id
+            name:
+              - text: Quiz Show
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/quiz-show/1002004000077974/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/Y7O7WYn08Ey2/147x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 29,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "8"
+                locale: nl_BE
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: nl_BE
+                value: 8
+          - id:
+              - text: "1002004000000690"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/@data-id
+            name:
+              - text: Spanish Prisoner, The
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/spanish-prisoner-the/1002004000000690/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/yPlwGzrQqDNW/147x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 16,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "9"
+                locale: nl_BE
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: nl_BE
+                value: 9
+          - id:
+              - text: "1000004000095192"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/@data-id
+            name:
+              - text: And His Golden West
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/and-his-golden-west/1000004000095192/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gJ5ZVYqqX6E6/168x168.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 237,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "10"
+                locale: nl_BE
+                value: 10
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: nl_BE
+                value: 10
+          - id:
+              - text: "9200000056859667"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/@data-id
+            name:
+              - text: Zoolander 1-2 Box
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/zoolander-1-2-box/9200000056859667/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/qwKZpYoMvB2/146x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 23,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "11"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "11"
+                locale: nl_BE
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: nl_BE
+                value: 11
+          - id:
+              - text: "9200000056859669"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/@data-id
+            name:
+              - text: Zoolander 1-2 Box (Blu-ray)
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/zoolander-1-2-box/9200000056859669/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/793KQqQj2zvj/168x195.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            rank:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "12"
+                locale: nl_BE
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: nl_BE
+                value: 12
+          - id:
+              - text: "9200000059433588"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/@data-id
+            name:
+              - text: Teenage Mutant Ninja Turtles Amazing Adventures Volume 3
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/teenage-mutant-ninja-turtles-amazing-adventures-volume-3/9200000059433588/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/xOmA3zpXB19/138x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 22,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "13"
+                locale: nl_BE
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: nl_BE
+                value: 13
+          - id:
+              - text: "9200000086627441"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/@data-id
+            name:
+              - text: Ben and Jerry's - Japan Strategic Analysis and the expansion to the
+                  Japanese market
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-and-jerry-s-japan-strategic-analysis-and-the-expansion-to-the-japanese-market/9200000086627441/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/RWqJMoqv7jL/148x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 14,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "14"
+                locale: nl_BE
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: nl_BE
+                value: 14
+          - id:
+              - text: "1001004001722406"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/@data-id
+            name:
+              - text: Ben And Jerry's Double-Dip
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-and-jerry-s-double-dip/1001004001722406/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/J6Zl9AwLWrlK/137x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 25,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "15"
+                locale: nl_BE
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: nl_BE
+                value: 15
+          - id:
+              - text: "1002004000079190"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/@data-id
+            name:
+              - text: Zoolander
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/zoolander/1002004000079190/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/YEpy6G1lMLpK/146x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,9
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 9,42
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "16"
+                locale: nl_BE
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: nl_BE
+                value: 16
+          - id:
+              - text: "1002004000095170"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/@data-id
+            name:
+              - text: Alamo
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/alamo/1002004000095170/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/738EPWL3D951/147x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 12,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "17"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "17"
+                locale: nl_BE
+                value: 17
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: nl_BE
+                value: 17
+          - id:
+              - text: "1002004000054993"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/@data-id
+            name:
+              - text: Ben Hur
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-hur/1002004000054993/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/qYvg2WgnV4o7/147x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,9
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "28"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 13,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "18"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "18"
+                locale: nl_BE
+                value: 18
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: nl_BE
+                value: 18
+          - id:
+              - text: "1002004007140993"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/@data-id
+            name:
+              - text: 10 Beste Familie Films (D)
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/10-beste-familie-films/1002004007140993/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/7NxKkwgGY18/146x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 99,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "19"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "19"
+                locale: nl_BE
+                value: 19
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: nl_BE
+                value: 19
+          - id:
+              - text: "9200000051419689"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/@data-id
+            name:
+              - text: Evaluate the social responsibility of Ben & Jerry's in a global economy
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/evaluate-the-social-responsibility-of-ben-jerry-s-in-a-global-economy/9200000051419689/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/JGNq4mzj7Yy/91x130.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 8,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "20"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "20"
+                locale: nl_BE
+                value: 20
+            rankOrganic:
+              - text: "20"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "20"
+                locale: nl_BE
+                value: 20
+          - id:
+              - text: "9200000092990725"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/@data-id
+            name:
+              - text: Erläuterung von Social-Media-Kampagnen. Coca-Cola, Greenpeace und
+                  Ben&Jerry's
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/erlauterung-von-social-media-kampagnen-coca-cola-greenpeace-und-ben-jerry-s/9200000092990725/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: //s.s-bol.com/nl/static/images/main/noimage_226x213default.png
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 24,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "21"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "21"
+                locale: nl_BE
+                value: 21
+            rankOrganic:
+              - text: "21"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "21"
+                locale: nl_BE
+                value: 21
+          - id:
+              - text: "9200000066498172"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/@data-id
+            name:
+              - text: Ben & Jerry
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-jerry/9200000066498172/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: //s.s-bol.com/nl/static/images/main/noimage_226x213default.png
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 29,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "22"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "22"
+                locale: nl_BE
+                value: 22
+            rankOrganic:
+              - text: "22"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "22"
+                locale: nl_BE
+                value: 22
+          - id:
+              - text: "1000004000380798"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/@data-id
+            name:
+              - text: "The Best Of Loma Records: The Rise And Fall Of..."
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/the-best-of-loma-records-the-rise-and-fall-of/1000004000380798/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/krxgvzGrkkwr/168x166.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 63,68
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "23"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "23"
+                locale: nl_BE
+                value: 23
+            rankOrganic:
+              - text: "23"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "23"
+                locale: nl_BE
+                value: 23
+          - id:
+              - text: "9200000013026319"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/@data-id
+            name:
+              - text: Ben R. Harriman, Jerry Siner, and Frank Louis Derosa, Petitioners, V.
+                  United States of America. U.S. Supreme Court Transcript of
+                  Record with Supporting Pleadings
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-r-harriman-jerry-siner-and-frank-louis-derosa-petitioners-v-united-states-of-america-u-s-supreme-court-transcript-of-record-with-supporting-pleadings/9200000013026319/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gJJkWl9y4gPG/161x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 25,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "24"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "24"
+                locale: nl_BE
+                value: 24
+            rankOrganic:
+              - text: "24"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "24"
+                locale: nl_BE
+                value: 24
+        xpath: /html
+    timestamp: 1606826717696
+  - html: https://workbench.import.io/html/run=22c11ef1-9e4b-4d7f-967d-2cf6be247685/task=a2e37906-d333-4c28-99ef-394a569e1697/5df0b19c-64cf-4ac5-85df-5f10c1b973b1.html
+    extractionConfigId: product/search/stores/b/bol/NL/extract
+    data:
+      - group:
+          - id:
+              - text: "9200000020760999"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/@data-id
+            name:
+              - text: Ben & Jerry's Double-Dip Capitalism
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-jerry-s-double-dip-capitalism/9200000020760999/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/mZZA9x4OY8YA/168x168.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 10,18
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: nl_BE
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: nl_BE
+                value: 1
+          - id:
+              - text: "1001004001721736"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/@data-id
+            name:
+              - text: Ben & Jerry's
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-jerry-s/1001004001721736/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: //s.s-bol.com/nl/static/images/main/noimage_226x213default.png
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 17,95
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: nl_BE
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: nl_BE
+                value: 2
+          - id:
+              - text: "1000004001404740"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/@data-id
+            name:
+              - text: Ben & Jerry's Newport Folk Festival '88 Live
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-jerry-s-newport-folk-festival-88-live/1000004001404740/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/g1RM1k2357r/168x165.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 18,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+          - id:
+              - text: "1002004006522316"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/@data-id
+            name:
+              - text: The Heartbreak Kid (Blu-ray)
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/the-heartbreak-kid/1002004006522316/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/BN378kmp2qLQ/167x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 24,95
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "4"
+                locale: nl_BE
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: nl_BE
+                value: 4
+          - id:
+              - text: "1002004000001171"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/@data-id
+            name:
+              - text: Quiz Show
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/quiz-show/1002004000001171/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/qxRnY26qRm8D/147x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 9,73
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: nl_BE
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: nl_BE
+                value: 5
+          - id:
+              - text: "9200000044863787"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/@data-id
+            name:
+              - text: Convergence Infinite Earths Book One
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/convergence-infinite-earths-book-one/9200000044863787/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/qwG3rQ0xx9r/137x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 21,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "6"
+                locale: nl_BE
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: nl_BE
+                value: 6
+          - id:
+              - text: "1002004012268787"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/@data-id
+            name:
+              - text: ZOOLANDER
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/zoolander/1002004012268787/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/JGmp7YLp9Jo/168x200.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 9,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+          - id:
+              - text: "1002004000086629"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/@data-id
+            name:
+              - text: Head Over Heels (D)
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/head-over-heels/1002004000086629/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/grm4x8WWDKr/147x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 54,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "8"
+                locale: nl_BE
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: nl_BE
+                value: 8
+          - id:
+              - text: "9200000004973730"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/@data-id
+            name:
+              - text: Ben & Jerry's Original Eiscreme & Dessert
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-jerry-s-original-eiscreme-dessert/9200000004973730/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/37007KwyAZM/168x157.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 14,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "9"
+                locale: nl_BE
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: nl_BE
+                value: 9
+          - id:
+              - text: "9200000017764035"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/@data-id
+            name:
+              - text: "Ben & Jerry's: The Inside Scoop"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-jerry-s-the-inside-scoop/9200000017764035/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/mZZZG8q8oEon/139x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 6,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "10"
+                locale: nl_BE
+                value: 10
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: nl_BE
+                value: 10
+          - id:
+              - text: "1002004000088836"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/@data-id
+            name:
+              - text: Flight Of The Black Angel
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/flight-of-the-black-angel/1002004000088836/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/8kKZWmrNP6W/168x112.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 10,95
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "11"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "11"
+                locale: nl_BE
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: nl_BE
+                value: 11
+          - id:
+              - text: "1001004000813273"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/@data-id
+            name:
+              - text: Ben Jerry's Double Dip
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ben-jerry-s-double-dip/1001004000813273/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/jq64B8GK9R75/140x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 18,59
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "12"
+                locale: nl_BE
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: nl_BE
+                value: 12
+          - id:
+              - text: "9300000004843142"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/@data-id
+            name:
+              - text: Full-Time Parent... Part-Time Coach!
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/full-time-parent-part-time-coach/9300000004843142/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/71Ev0KMvrZOy/131x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 16,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "13"
+                locale: nl_BE
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: nl_BE
+                value: 13
+          - id:
+              - text: "9200000022365548"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/@data-id
+            name:
+              - text: Ice Cream Social
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ice-cream-social/9200000022365548/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/8m3BEyxxq4o/135x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 12,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "14"
+                locale: nl_BE
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: nl_BE
+                value: 14
+          - id:
+              - text: "9200000013994796"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/@data-id
+            name:
+              - text: Ice Cream Social
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/ice-cream-social/9200000013994796/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/Y4RX9lkwxQn/135x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 19,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "15"
+                locale: nl_BE
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: nl_BE
+                value: 15
+          - id:
+              - text: "9200000059373731"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/@data-id
+            name:
+              - text: The JV Team
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/the-jv-team/9200000059373731/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/OQK711J6ynY/139x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 32,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "16"
+                locale: nl_BE
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: nl_BE
+                value: 16
+          - id:
+              - text: "1001004009691928"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/@data-id
+            name:
+              - text: A Repair Network Concept for Air Force Maintenance
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/a-repair-network-concept-for-air-force-maintenance/1001004009691928/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/g11n4vKKLgl/139x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 24,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "17"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "17"
+                locale: nl_BE
+                value: 17
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: nl_BE
+                value: 17
+          - id:
+              - text: "9200000019821023"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/@data-id
+            name:
+              - text: Corporate Social Responsibility
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/corporate-social-responsibility/9200000019821023/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/NPv1Vvw1Lr8/147x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 25,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "18"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "18"
+                locale: nl_BE
+                value: 18
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: nl_BE
+                value: 18
+        xpath: /html
+    timestamp: 1606826717696

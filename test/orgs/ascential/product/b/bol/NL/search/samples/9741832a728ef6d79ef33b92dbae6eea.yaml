@@ -1,0 +1,2343 @@
+input:
+  keywords: jbl headphone
+  _url: http://bol.com
+extractions:
+  - html: https://workbench.import.io/html/run=22c11ef1-9e4b-4d7f-967d-2cf6be247685/task=db914caa-c73a-4fa1-9640-3629a9c45db7/2d721fa1-58d6-44ba-bdc0-7448162d063d.html
+    extractionConfigId: product/search/stores/b/bol/NL/extract
+    data:
+      - group:
+          - id:
+              - text: "9300000009699479"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/@data-id
+            name:
+              - text: JBL JR310BT Kids - Blauw/Roze - Draadloze On-Ear Koptelefoon
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-jr310bt-kids-blauw-roze-draadloze-on-ear-koptelefoon/9300000009699479/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/ojRJNnVOL3Ek/168x190.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "233"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 49,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: nl_BE
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: nl_BE
+                value: 1
+          - id:
+              - text: "9200000126666901"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/@data-id
+            name:
+              - text: JBL Tune 500BT - Draadloze on-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-tune-500bt-draadloze-on-ear-koptelefoon-zwart/9200000126666901/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/3l8VQ87ZO4Bn/115x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "381"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 35,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: nl_BE
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: nl_BE
+                value: 2
+          - id:
+              - text: "9200000107070900"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/@data-id
+            name:
+              - text: JBL Live 400BT - On-ear bluetooth koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-live-400bt-on-ear-bluetooth-koptelefoon-zwart/9200000107070900/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/qlNW0PoROX5R/110x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "39"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 54,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+          - id:
+              - text: "9200000098045183"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/@data-id
+            name:
+              - text: JBL T500BT Wit - Draadloze on-ear koptelefoon
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t500bt-wit-draadloze-on-ear-koptelefoon/9200000098045183/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/YyOXX6VVxjQM/118x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "134"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 39,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "4"
+                locale: nl_BE
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: nl_BE
+                value: 4
+          - id:
+              - text: "9200000121983823"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/@data-id
+            name:
+              - text: JBL Tune 750BT - Over-ear koptelefoon met Noise Cancelling - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-tune-750bt-over-ear-koptelefoon-met-noise-cancelling-zwart/9200000121983823/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gJ9NBowj1jYY/136x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "33"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 97,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: nl_BE
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: nl_BE
+                value: 5
+          - id:
+              - text: "9200000082610007"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/@data-id
+            name:
+              - text: JBL E65BT NC - Draadloze over-ear koptelefoon met noise cancelling - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-e65bt-nc-draadloze-over-ear-koptelefoon-met-noise-cancelling-zwart/9200000082610007/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gLQ9kYYw24wG/132x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "253"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 98,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "6"
+                locale: nl_BE
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: nl_BE
+                value: 6
+          - id:
+              - text: "9200000107071194"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/@data-id
+            name:
+              - text: JBL Live 500BT - Over-ear Bluetooth Koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-live-500bt-over-ear-bluetooth-koptelefoon-zwart/9200000107071194/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/Jqx5OyDD6Voo/116x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "80"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 69,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+          - id:
+              - text: "9200000090257656"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/@data-id
+            name:
+              - text: JBL C45BT - Draadloze on-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-c45bt-draadloze-on-ear-koptelefoon-zwart/9200000090257656/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/BlLJmBMNvw2/168x176.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "72"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 54,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "8"
+                locale: nl_BE
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: nl_BE
+                value: 8
+          - id:
+              - text: "9200000098045179"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/@data-id
+            name:
+              - text: JBL T500 - On-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t500-on-ear-koptelefoon-zwart/9200000098045179/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/ElWYnB4A2N7Y/168x150.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "104"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 24,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "9"
+                locale: nl_BE
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: nl_BE
+                value: 9
+          - id:
+              - text: "9200000107071584"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/@data-id
+            name:
+              - text: JBL Live 650BT NC - Noise cancelling koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-live-650bt-nc-noise-cancelling-koptelefoon-zwart/9200000107071584/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/OmpxzvyLpqr/118x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "69"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 122,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "10"
+                locale: nl_BE
+                value: 10
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: nl_BE
+                value: 10
+          - id:
+              - text: "9200000083418026"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/@data-id
+            name:
+              - text: JBL T460BT Zwart - Draadloze on-ear koptelefoon
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t460bt-zwart-draadloze-on-ear-koptelefoon/9200000083418026/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/3yWmnoG51AxM/124x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "449"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 39,46
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "11"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "11"
+                locale: nl_BE
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: nl_BE
+                value: 11
+          - id:
+              - text: "9200000090189164"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/@data-id
+            name:
+              - text: JBL T205BT Zwart - In-Ear Bluetooth Headphone
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t205bt-zwart-in-ear-bluetooth-headphone/9200000090189164/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/r2Kno83ojE0W/165x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "92"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 34,98
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "12"
+                locale: nl_BE
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: nl_BE
+                value: 12
+          - id:
+              - text: "9300000003038067"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/@data-id
+            name:
+              - text: JBL Tune 700BT - Draadloze over-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-tune-700bt-draadloze-over-ear-koptelefoon-zwart/9300000003038067/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/ql19OKPv6yQG/168x176.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 66,61
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "13"
+                locale: nl_BE
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: nl_BE
+                value: 13
+          - id:
+              - text: "9200000064299118"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/@data-id
+            name:
+              - text: JBL E55BT - Draadloze over-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-e55bt-draadloze-over-ear-koptelefoon-zwart/9200000064299118/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/xkkxYN15Br3q/167x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "492"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 89,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "14"
+                locale: nl_BE
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: nl_BE
+                value: 14
+          - id:
+              - text: "9200000078448821"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/@data-id
+            name:
+              - text: JBL JR300 Rood - On-ear kinder koptelefoon
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-jr300-rood-on-ear-kinder-koptelefoon/9200000078448821/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/R4V78vy1gM0/122x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "189"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 19,95
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "15"
+                locale: nl_BE
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: nl_BE
+                value: 15
+          - id:
+              - text: "9200000090189158"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/@data-id
+            name:
+              - text: JBL Tune 600BTNC - Draadloze on-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-tune-600btnc-draadloze-on-ear-koptelefoon-zwart/9200000090189158/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/Nk96ogxNVJoL/161x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "81"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 82,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "16"
+                locale: nl_BE
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: nl_BE
+                value: 16
+          - id:
+              - text: "9200000100417625"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/@data-id
+            name:
+              - text: JBL Everest 710GA - Draadloze over-ear hoofdtelefoon - Zilver
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-everest-710ga-draadloze-over-ear-hoofdtelefoon-zilver/9200000100417625/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/9NBpJLOYogZ/143x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 127,95
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "17"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "17"
+                locale: nl_BE
+                value: 17
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: nl_BE
+                value: 17
+          - id:
+              - text: "9200000098045189"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/@data-id
+            name:
+              - text: JBL T500 - On-ear koptelefoon - Wit
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t500-on-ear-koptelefoon-wit/9200000098045189/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gJLxLpoGpzKk/109x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "104"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 38,12
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "18"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "18"
+                locale: nl_BE
+                value: 18
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: nl_BE
+                value: 18
+          - id:
+              - text: "9200000107071586"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/@data-id
+            name:
+              - text: JBL Live 500BT - Over-ear bluetooth koptelefoon - Rood
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-live-500bt-over-ear-bluetooth-koptelefoon-rood/9200000107071586/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/056A2kDJ487/120x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "80"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            rank:
+              - text: "19"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "19"
+                locale: nl_BE
+                value: 19
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: nl_BE
+                value: 19
+        xpath: /html
+    timestamp: 1606826745597
+  - html: https://workbench.import.io/html/run=22c11ef1-9e4b-4d7f-967d-2cf6be247685/task=db914caa-c73a-4fa1-9640-3629a9c45db7/9d2aea45-9e5e-4ea8-afba-5d5d52f05844.html
+    extractionConfigId: product/search/stores/b/bol/NL/extract
+    data:
+      - group:
+          - id:
+              - text: "9300000000338382"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/@data-id
+            name:
+              - text: JBL Club 950NC - Draadloze over-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-club-950nc-draadloze-over-ear-koptelefoon-zwart/9300000000338382/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/oZXRy6nGvQvA/168x204.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,9
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 175,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: nl_BE
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: nl_BE
+                value: 1
+          - id:
+              - text: "9200000107071053"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/@data-id
+            name:
+              - text: JBL Live 400BT - On-ear bluetooth koptelefoon - Blauw
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-live-400bt-on-ear-bluetooth-koptelefoon-blauw/9200000107071053/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/N9yrzGgqo79m/110x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "39"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 59,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: nl_BE
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: nl_BE
+                value: 2
+          - id:
+              - text: "9200000129157147"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/@data-id
+            name:
+              - text: JBL Quantum 600 - draadloze over-ear gamekoptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-quantum-600-draadloze-over-ear-gamekoptelefoon-zwart/9200000129157147/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/yrQq87JL7l5R/168x166.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 148,27
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+            sponsored:
+              - text: "true"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/wsp-sponsored-product-label[1]/div[1]
+                type: BOOLEAN
+                raw: Gesponsord
+                locale: nl_BE
+                value: true
+          - id:
+              - text: "9200000090189164"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/@data-id
+            name:
+              - text: JBL T205BT Zwart - In-Ear Bluetooth Headphone
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t205bt-zwart-in-ear-bluetooth-headphone/9200000090189164/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/r2Kno83ojE0W/165x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "92"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 42,95
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "4"
+                locale: nl_BE
+                value: 4
+            sponsored:
+              - text: "true"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/wsp-sponsored-product-label[1]/div[1]
+                type: BOOLEAN
+                raw: Gesponsord
+                locale: nl_BE
+                value: true
+          - id:
+              - text: "9200000098045185"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/@data-id
+            name:
+              - text: JBL T500 - On-ear koptelefoon - Blauw
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t500-on-ear-koptelefoon-blauw/9200000098045185/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/qxYVxr0lV603/102x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "104"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 24,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: nl_BE
+                value: 5
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+          - id:
+              - text: "9200000084169004"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/@data-id
+            name:
+              - text: JBL Under Armour Sport Wireless Train Zwart - Sport koptelefoon
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-under-armour-sport-wireless-train-zwart-sport-koptelefoon/9200000084169004/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/rQO5o3NjRgW/136x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: //s.s-bol.com/nl/upload/images/expertlabels/award_kieskeurig_apr_2019.png
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[2]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,2
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 154,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "6"
+                locale: nl_BE
+                value: 6
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: nl_BE
+                value: 4
+          - id:
+              - text: "9200000107071843"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/@data-id
+            name:
+              - text: JBL Live 650BT NC - Noise cancelling koptelefoon - Wit
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-live-650bt-nc-noise-cancelling-koptelefoon-wit/9200000107071843/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/BLjMwBYrp8nX/123x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "69"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 122,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: nl_BE
+                value: 5
+          - id:
+              - text: "9200000090189162"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/@data-id
+            name:
+              - text: JBL Tune 600BT NC - Draadloze on-ear koptelefoon met noise cancelling -
+                  Blauw
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-tune-600bt-nc-draadloze-on-ear-koptelefoon-met-noise-cancelling-blauw/9200000090189162/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/YkYg2DAxD8A/112x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "81"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 85,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "8"
+                locale: nl_BE
+                value: 8
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: nl_BE
+                value: 6
+          - id:
+              - text: "9200000100417627"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/@data-id
+            name:
+              - text: JBL T500BT - Draadloze on-ear koptelefoon - Roze
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t500bt-draadloze-on-ear-koptelefoon-roze/9200000100417627/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/jYQomPXMEowv/109x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 39,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "9"
+                locale: nl_BE
+                value: 9
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+          - id:
+              - text: "9200000121983825"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/@data-id
+            name:
+              - text: JBL Tune 750BT Blauw - Over-ear koptelefoon met Noise Cancelling
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-tune-750bt-blauw-over-ear-koptelefoon-met-noise-cancelling/9200000121983825/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gJErpxrVVm6Y/136x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "33"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 89,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "10"
+                locale: nl_BE
+                value: 10
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: nl_BE
+                value: 8
+          - id:
+              - text: "9200000064299138"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/@data-id
+            name:
+              - text: JBL E35 - On-ear koptelefoon - Wit
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-e35-on-ear-koptelefoon-wit/9200000064299138/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/mlmB8zKxV00/97x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "25"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 46,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "11"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "11"
+                locale: nl_BE
+                value: 11
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: nl_BE
+                value: 9
+          - id:
+              - text: "9200000082610005"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/@data-id
+            name:
+              - text: JBL E65BT NC Wit - Draadloze over-ear koptelefoon met noise cancelling
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-e65bt-nc-wit-draadloze-over-ear-koptelefoon-met-noise-cancelling/9200000082610005/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/R6g1m6E8Ew6V/132x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "253"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 102,01
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "12"
+                locale: nl_BE
+                value: 12
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: nl_BE
+                value: 10
+          - id:
+              - text: "9300000009520247"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/@data-id
+            name:
+              - text: JBL Tune 700BT - Draadloze over-ear koptelefoon - Coral
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-tune-700bt-draadloze-over-ear-koptelefoon-coral/9300000009520247/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gnlXX587G1gl/168x182.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 67,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "13"
+                locale: nl_BE
+                value: 13
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: nl_BE
+                value: 11
+          - id:
+              - text: "9300000000338791"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/@data-id
+            name:
+              - text: JBL Club One - draadloze over-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-club-one-draadloze-over-ear-koptelefoon-zwart/9300000000338791/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/83K8EWzl7Q8g/163x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 219,85
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "14"
+                locale: nl_BE
+                value: 14
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: nl_BE
+                value: 12
+          - id:
+              - text: "9200000107071584"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/@data-id
+            name:
+              - text: JBL Live 650BT NC - Noise cancelling koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-live-650bt-nc-noise-cancelling-koptelefoon-zwart/9200000107071584/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/OmpxzvyLpqr/118x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "69"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 122,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "15"
+                locale: nl_BE
+                value: 15
+            sponsored:
+              - text: "true"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/wsp-sponsored-product-label[1]/div[1]
+                type: BOOLEAN
+                raw: Gesponsord
+                locale: nl_BE
+                value: true
+          - id:
+              - text: "9200000098533700"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/@data-id
+            name:
+              - text: JBL E500BT - Draadloze over-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-e500bt-draadloze-over-ear-koptelefoon-zwart/9200000098533700/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/311BoYKYlqPx/168x185.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 71,10
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "16"
+                locale: nl_BE
+                value: 16
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: nl_BE
+                value: 13
+          - id:
+              - text: "9300000000337765"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/@data-id
+            name:
+              - text: JBL CLUB 700BT - Draadloze on-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-club-700bt-draadloze-on-ear-koptelefoon-zwart/9300000000337765/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gnzWjBD1zkrl/148x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 95,26
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "17"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "17"
+                locale: nl_BE
+                value: 17
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: nl_BE
+                value: 14
+          - id:
+              - text: "9200000100023887"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/@data-id
+            name:
+              - text: JBL Everest Elite 150NC - In-Ear Wireless Headphone - ANC - Gun Metal
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-everest-elite-150nc-in-ear-wireless-headphone-anc-gun-metal/9200000100023887/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/xkvn0KyxmXq3/168x177.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 179,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "18"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "18"
+                locale: nl_BE
+                value: 18
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: nl_BE
+                value: 15
+          - id:
+              - text: "9200000064299136"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/@data-id
+            name:
+              - text: JBL E55BT - Draadloze over-ear koptelefoon - Blauw
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-e55bt-draadloze-over-ear-koptelefoon-blauw/9200000064299136/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/J6qMGVmZDw4J/166x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "492"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 139,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "19"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "19"
+                locale: nl_BE
+                value: 19
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: nl_BE
+                value: 16
+          - id:
+              - text: "9200000100023869"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/@data-id
+            name:
+              - text: JBL Under Armour Sport Wireless Train Zwart met Rood - Sport koptelefoon
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-under-armour-sport-wireless-train-zwart-met-rood-sport-koptelefoon/9200000100023869/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/mLJnmDQ1lL9/136x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,2
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 144,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "20"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "20"
+                locale: nl_BE
+                value: 20
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: nl_BE
+                value: 17
+        xpath: /html
+    timestamp: 1606826745597
+  - html: https://workbench.import.io/html/run=22c11ef1-9e4b-4d7f-967d-2cf6be247685/task=db914caa-c73a-4fa1-9640-3629a9c45db7/c6b641e5-956e-4918-986f-b3fc64f7d950.html
+    extractionConfigId: product/search/stores/b/bol/NL/extract
+    data:
+      - group:
+          - id:
+              - text: "9200000078448817"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/@data-id
+            name:
+              - text: JBL Everest 710BT - Draadloze over-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-everest-710bt-draadloze-over-ear-koptelefoon-zwart/9200000078448817/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/mlP625oyJQp/146x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 179,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: nl_BE
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[1]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: nl_BE
+                value: 1
+          - id:
+              - text: "9200000079764016"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/@data-id
+            name:
+              - text: JBL Soundgear - Wearable sound zone - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-soundgear-wearable-sound-zone-zwart/9200000079764016/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/KZ2y5llnPLll/168x61.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 277,89
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: nl_BE
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[2]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: nl_BE
+                value: 2
+          - id:
+              - text: "9200000107071584"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/@data-id
+            name:
+              - text: JBL Live 650BT NC - Noise cancelling koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-live-650bt-nc-noise-cancelling-koptelefoon-zwart/9200000107071584/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/OmpxzvyLpqr/118x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "69"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 122,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+            sponsored:
+              - text: "true"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[3]/div[2]/div[1]/wsp-sponsored-product-label[1]/div[1]
+                type: BOOLEAN
+                raw: Gesponsord
+                locale: nl_BE
+                value: true
+          - id:
+              - text: "9200000107071072"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/@data-id
+            name:
+              - text: JBL Live 400BT - On-ear bluetooth koptelefoon - Wit
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-live-400bt-on-ear-bluetooth-koptelefoon-wit/9200000107071072/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/71RJJ81YRWxB/104x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "39"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 59,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "4"
+                locale: nl_BE
+                value: 4
+            sponsored:
+              - text: "true"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[4]/div[2]/div[1]/wsp-sponsored-product-label[1]/div[1]
+                type: BOOLEAN
+                raw: Gesponsord
+                locale: nl_BE
+                value: true
+          - id:
+              - text: "9200000107598674"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/@data-id
+            name:
+              - text: JBL Endurance RUN Headset oorhaak Zwart, Geel
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-endurance-run-headset-oorhaak-zwart-geel/9200000107598674/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/Y2gWw9zly6M/168x143.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: nl_BE
+                value: 5
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[5]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+          - id:
+              - text: "9200000025743829"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/@data-id
+            name:
+              - text: JBL Synchros S400BT - On-ear koptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-synchros-s400bt-on-ear-koptelefoon-zwart/9200000025743829/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/8PpN0oo8V6W/129x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 173,49
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "6"
+                locale: nl_BE
+                value: 6
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[6]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: nl_BE
+                value: 4
+          - id:
+              - text: "9200000074417568"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/@data-id
+            name:
+              - text: IN EAR HEADPHONE WITH 1 BUTTON MIC
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/in-ear-headphone-with-1-button-mic/9200000074417568/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/R6g5DgWjkrow/130x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 26,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[7]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: nl_BE
+                value: 5
+          - id:
+              - text: "9200000059134221"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/@data-id
+            name:
+              - text: JBL Nano Patch+ Rotary volume control
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-nano-patch-rotary-volume-control/9200000059134221/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/xkG5EwzlgvK9/168x115.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 83,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "8"
+                locale: nl_BE
+                value: 8
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[8]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: nl_BE
+                value: 6
+          - id:
+              - text: "9200000059134197"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/@data-id
+            name:
+              - text: JBL LSR310S subwoofer
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-lsr310s-subwoofer/9200000059134197/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/YE6xN1xoGg4n/168x169.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 438,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "9"
+                locale: nl_BE
+                value: 9
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[9]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+          - id:
+              - text: "9200000130863489"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/@data-id
+            name:
+              - text: Dolphix Oorkussens universeel (75mm) compatibel met o.a. AKG, ASUS, Audio
+                  Technica, Cresyn, JBL, JVC, Panasonic en Sony hoofdtelefoons /
+                  zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/dolphix-oorkussens-universeel-compatibel-met-o-a-akg-asus-audio-technica-cresyn-jbl-jvc-panasonic-sony-hoofdtelefoons-zwart/9200000130863489/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/mQ2o3JrPw1G0/168x113.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 18,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "10"
+                locale: nl_BE
+                value: 10
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[10]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: nl_BE
+                value: 8
+          - id:
+              - text: "9300000011825415"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/@data-id
+            name:
+              - text: JBL TUNE 125TWS Hoofdtelefoons In-ear Roze Bluetooth USB Type-C
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-tune-125tws-hoofdtelefoons-in-ear-roze-bluetooth-usb-type-c/9300000011825415/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/YyOXX6Vl97LM/168x169.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            rank:
+              - text: "11"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "11"
+                locale: nl_BE
+                value: 11
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[11]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: nl_BE
+                value: 9
+          - id:
+              - text: "9200000129157147"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/@data-id
+            name:
+              - text: JBL Quantum 600 - draadloze over-ear gamekoptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-quantum-600-draadloze-over-ear-gamekoptelefoon-zwart/9200000129157147/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/yrQq87JL7l5R/168x166.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 148,27
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "12"
+                locale: nl_BE
+                value: 12
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[12]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: nl_BE
+                value: 10
+          - id:
+              - text: "9200000129157189"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/@data-id
+            name:
+              - text: JBL Quantum 400 - bedrade over-ear gamekoptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-quantum-400-bedrade-over-ear-gamekoptelefoon-zwart/9200000129157189/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/32BMMY20vQ8x/168x168.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 86,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "13"
+                locale: nl_BE
+                value: 13
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[13]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: nl_BE
+                value: 11
+          - id:
+              - text: "9200000129157207"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/@data-id
+            name:
+              - text: JBL Quantum 100 - Bedrade over-ear Gamekoptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-quantum-100-bedrade-over-ear-gamekoptelefoon-zwart/9200000129157207/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/Ro2g36MjqwEK/168x205.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "null"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 39,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "14"
+                locale: nl_BE
+                value: 14
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[14]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: nl_BE
+                value: 12
+          - id:
+              - text: "9200000090189164"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/@data-id
+            name:
+              - text: JBL T205BT Zwart - In-Ear Bluetooth Headphone
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t205bt-zwart-in-ear-bluetooth-headphone/9200000090189164/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/r2Kno83ojE0W/165x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "92"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 42,95
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "15"
+                locale: nl_BE
+                value: 15
+            sponsored:
+              - text: "true"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[15]/div[2]/div[1]/wsp-sponsored-product-label[1]/div[1]
+                type: BOOLEAN
+                raw: Gesponsord
+                locale: nl_BE
+                value: true
+          - id:
+              - text: "9300000009069875"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/@data-id
+            name:
+              - text: Rde Topic Koptelefoon Hoes voor jouw Hoofdtelefoon –Headphone case- Jbl
+                  Koptelefoon - Sony - On-ear - Over-ear koptelefoon
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/rde-topic-koptelefoon-hoes-voor-jouw-hoofdtelefoon-headphone-case-jbl-koptelefoon-sony-on-ear-over-ear-koptelefoon/9300000009069875/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/qQJAr0P4y2rp/168x146.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,9
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 20,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "16"
+                locale: nl_BE
+                value: 16
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[16]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: nl_BE
+                value: 13
+          - id:
+              - text: "9200000129157185"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/@data-id
+            name:
+              - text: JBL Quantum 200 - Bedrade over-ear gamekoptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-quantum-200-bedrade-over-ear-gamekoptelefoon-zwart/9200000129157185/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/mQlx3pKjv3mp/154x210.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 59,98
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "17"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "17"
+                locale: nl_BE
+                value: 17
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[17]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: nl_BE
+                value: 14
+          - id:
+              - text: "9200000064299114"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/@data-id
+            name:
+              - text: JBL T110 - In-ear oortjes - Wit
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t110-in-ear-oortjes-wit/9200000064299114/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/zmBx7MAoz8jr/168x136.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,2
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "314"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 10,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "18"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "18"
+                locale: nl_BE
+                value: 18
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[18]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: nl_BE
+                value: 15
+          - id:
+              - text: "9200000129157173"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/@data-id
+            name:
+              - text: JBL Quantum Duo Game Speaker
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-quantum-duo-game-speaker/9200000129157173/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gL1pEYL9xkOj/168x168.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 158,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "19"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "19"
+                locale: nl_BE
+                value: 19
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[19]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: nl_BE
+                value: 16
+          - id:
+              - text: "9200000129157219"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/@data-id
+            name:
+              - text: JBL Quantum 300 - Bedrade over-ear Gamekoptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-quantum-300-bedrade-over-ear-gamekoptelefoon-zwart/9200000129157219/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/qYwODW19goMD/168x168.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,9
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 63,99
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "20"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "20"
+                locale: nl_BE
+                value: 20
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[20]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: nl_BE
+                value: 17
+          - id:
+              - text: "9200000129157171"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/@data-id
+            name:
+              - text: JBL Quantum One - bedrade over-ear gamekoptelefoon - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-quantum-one-bedrade-over-ear-gamekoptelefoon-zwart/9200000129157171/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/xnq7ZBlypOMP/168x189.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,2
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "16"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 249,00
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "21"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "21"
+                locale: nl_BE
+                value: 21
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[21]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: nl_BE
+                value: 18
+          - id:
+              - text: "9200000074418539"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/@data-id
+            name:
+              - text: IN EAR HEADPHONE
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/in-ear-headphone/9200000074418539/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gJJ2JpvzJ8yZ/168x181.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            rank:
+              - text: "22"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "22"
+                locale: nl_BE
+                value: 22
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[22]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: nl_BE
+                value: 19
+          - id:
+              - text: "9200000100023871"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/@data-id
+            name:
+              - text: JBL T160BT Zwart - Wireless In-Ear Headphones
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-t160bt-zwart-wireless-in-ear-headphones/9200000100023871/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/mZRMzDWJP8gA/168x165.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,5
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/div[1]/div[2]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/div[1]/div[2]/div[1]/@ratingscount
+            price:
+              - text: 31,38
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "23"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "23"
+                locale: nl_BE
+                value: 23
+            rankOrganic:
+              - text: "20"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[23]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "20"
+                locale: nl_BE
+                value: 20
+          - id:
+              - text: "9200000072177246"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/@data-id
+            name:
+              - text: JBL UA Headphones Wireless - Sport oortjes - Zwart
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/jbl-ua-headphones-wireless-sport-oortjes-zwart/9200000072177246/
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[1]/div[1]/a[1]/@producturl
+            thumbnail:
+              - text: https://media.s-bol.com/gvx2rrRWNjD/168x172.jpg
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[1]/div[1]/a[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/div[1]/div[3]/div[1]/@newrating
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/div[1]/div[3]/div[1]/@ratingscount
+            price:
+              - text: 100,95
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/wsp-buy-block[1]/div[1]/section[1]/div[1]/div[1]/meta[1]/@newprice
+                type: STRING
+            rank:
+              - text: "24"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/wsp-buy-block[1]/@rank
+                type: NUMBER
+                raw: "24"
+                locale: nl_BE
+                value: 24
+            rankOrganic:
+              - text: "21"
+                xpath: /html/body/div[1]/main[1]/wsp-async-browse[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[4]/wsp-async-browse-product-list[1]/ul[1]/li[24]/div[2]/wsp-buy-block[1]/@rankorganic
+                type: NUMBER
+                raw: "21"
+                locale: nl_BE
+                value: 21
+        xpath: /html
+    timestamp: 1606826745597
