@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //li[@class='rmq-926ae505 rmq-6898c4bf item-card']//a/@href
+  - name: rankOrganic
+    singleValue: false
+    xpath: //li/@data-position
+  - name: name
+    singleValue: false
+    xpath: //span[@class='full-item-name']
+  - name: productUrl
+    singleValue: false
+    xpath: //li[@class='rmq-926ae505 rmq-6898c4bf item-card']//a/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='item-card-image-wrapper']/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    # type: CURRENCY
+    xpath: //div[@class='item-price']/span
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
