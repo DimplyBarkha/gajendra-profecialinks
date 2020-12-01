@@ -26,7 +26,7 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
       // @ts-ignore
-      const rawdata = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/text()[1]",'nodeValue');
+      const rawdata = getAllXpath("//p[@class='breadcrumb']/following::script[2]",'nodeValue');
       const jsondata = JSON.parse(rawdata);
       const gtin = jsondata.gtin13;
       if (gtin != null){
