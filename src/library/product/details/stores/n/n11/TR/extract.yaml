@@ -9,49 +9,49 @@ fields:
   - name: image
     singleValue: true
     xpath: //div[@class='imgObj']/a[@class='zoom']/@href
-#
+
   - name: imageAlt
     singleValue: true
     xpath: //div[@class='imgObj']/a/img[@class='unf-p-img']/@alt
-#
+
   - name: alternativeImages
     singleValue: false
     xpath: //ul[@class='unf-p-thumbs']/li/img/@src
   - name: alternativeImages
     singleValue: false
     xpath: //div[@class='thumbsHolder']/ul/li/img/@src
-#
+
   - name: url
     singleValue: true
     xpath: //div[@id='url']
   - name: category
     singleValue: false
     xpath: //div[@id='breadCrumb']/ul/li/a
-#
+
   - name: nameExtended
     singleValue: true
     xpath: //div[@class='nameHolder']/h1
   - name: nameExtended
     singleValue: true
     xpath: //div[@class='pro-prop']/div[@class='pro-title']/h1
-#
+
   - name: listPrice
     singleValue: true
     xpath: //div[@class='price']/div[@class='priceDetail']/del[@class='oldPrice']
-    type: NUMBER
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins
   - name: listPrice
     singleValue: true
     xpath: //div[@class='discount-view__row']/p[@class='discount-view__info']/del[@class='price-fullPrice']
-    type: NUMBER
+
   - name: price
     singleValue: true
     xpath: //div[@class='price']/div[@class='priceDetail']/div[@class='newPrice']/ins
-    type: NUMBER
   - name: price
     singleValue: true
     xpath: //p[@class='discount-view__info']/ins[@class='price-now is-big']/span[@class='price-amount']
-    type: NUMBER
-#
+
   - name: availabilityText
     singleValue: true
     defaultValue: In Stock
@@ -61,25 +61,27 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[@class='content']/p
-#
+
   - name: _pageTimestamp
     singleValue: true
-  - name: _input
+  - name: input
     singleValue: true
+    xpath: //a[@id='getWishList']/@data-productid
+
   - name: descriptionBullets
     singleValue: false
     xpath: //section[@class='tabPanelItem excInfo']/div/div/ul/li
   - name: brandText
     singleValue: false
     xpath: //script[@type='application/ld+json']
-#
+
   - name: quantity
     singleValue: true
     xpath: //input[@id="quantity"]/@value
   - name: quantity
     singleValue: true
     xpath: //input[@id='quantyInput']/@value
-#
+
   - name: variantId
     singleValue: true
     xpath: //input[@class="productId"]/@value
@@ -103,21 +105,18 @@ fields:
     singleValue: false
     xpath: //ul[@class='unf-p-sku-type' and @data-unif-seovari='renk']/li
     defaultVarian: 1
-#
+
   - name: manufacturerImages
     singleValue: false
-    xpath: //div/div[@class='pro']/a[@class='adGroupImg']/img/@src
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //ul[@class='slidesjs-slide']/li/a/img/@src
-#
+    xpath: //section[@class='uni-content']/div/figure/img/@src
+
   - name: specifications
     singleValue: false
     xpath: //div[@class='unf-prop-context']/ul/li
   - name: manufacturerDescription
-    singleValue: false
-    xpath: //ul[@class='slidesjs-slide']/li/a/@title
-#
+    singleValue: true
+    xpath: //section[@class='uni-content']
+
   - name: secondaryImageTotal
     singleValue: false
     xpath: //ul[@class='unf-p-thumbs']/li/img/@src
@@ -137,5 +136,8 @@ fields:
     singleValue: true
     defaultValue: Yes
   - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
+  - name: promotion
     singleValue: true
     defaultValue: Yes

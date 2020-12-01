@@ -17,7 +17,7 @@ const transform = (data) => {
   const filterSearch = searchTerms.filter(e => e)[0].input;
   const productUrl = url.filter(e => e)[0].url;
   data.forEach(el => {
-    el.group.forEach(gr => {
+    el.group.forEach((gr, index) => {
       try {
         gr['_input'] = filterSearch;
         gr['_url'] = productUrl;

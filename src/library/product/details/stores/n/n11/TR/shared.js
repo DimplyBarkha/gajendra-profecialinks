@@ -12,6 +12,7 @@ const transform = (data) => {
     el.group.forEach(gr => {
       try {
         gr['_url'] = gr.url;
+        gr['_input'] = gr.input;
         gr.category.shift();
         if (gr && gr.brandText) {
           const info = JSON.parse(gr.brandText.find(e => e.text.includes('brand')).text);
@@ -20,7 +21,7 @@ const transform = (data) => {
         }
         if (gr && gr.aggregateRating) gr.aggregateRating[0].text = onlyNumbersAndDot(gr.aggregateRating[0].text);
         if (gr && gr.variantCount) gr.variantCount = [{ text: gr.variantCount.length }];
-        if (gr && gr.secondaryImageTotal) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length }];
+        if (gr && gr.secondaryImageTotal) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length - 1 }];
         try {
           if (gr.specifications) {
             gr.specifications.forEach(el => {
