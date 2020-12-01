@@ -68,5 +68,7 @@ async function implementation (
       }
     }
   });
+
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   return await context.extract(productDetails, { transform });
 }
