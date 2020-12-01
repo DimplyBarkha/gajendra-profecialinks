@@ -35,7 +35,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class='productNameInfo ']/span[@class='producRangeName']
+    xpath: //h1[@class='productNameInfo ']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -90,6 +90,9 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //div[@id='variantId']
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@class='size-box-wrapper']//span
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -159,7 +162,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1[@class='productNameInfo ']
+    xpath: //h1[@class='productNameInfo ']/span[@class='productName']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
