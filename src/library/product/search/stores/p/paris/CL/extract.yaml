@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class,"flex-item-products")] | //ul[contains(@id,"search-result-items")]/li
+fields:
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="added_search_url"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product-tile "]//@data-itemid
+    regExp: (.+)
+    regExpReplace: https://www.paris.cl/search?q=$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class,"img-prod lazy image-primary loaded")]//@src | //img[contains(@class,"img-prod lazy loaded")]//@src
+  - name: name
+    singleValue: false
+    xpath: //h4[@class="name-product-plp"]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"item-price offer-price price-tc")]//span[1]
+    description: The offered price for the product
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,"item-price price-normal")]//span
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product-tile "]//@data-itemid
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="item-rating-info"]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false

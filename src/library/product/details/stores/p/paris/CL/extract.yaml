@@ -1,0 +1,159 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//li/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")])[1]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: (//li/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")])[1]/@title
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[position()>1]/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")]/@src 
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: false
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,"breadcrumb mt-20")]/a/span | //a[contains(@class,"breadcrumb-element")]
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,"product-name")]/text()[normalize-space()]
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue: false
+    xpath: (//*[@id="pdpMain"]//div[@class="item-price price-normal"]//span[@itemprop="price"])[1]
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: false
+    xpath: (//div[contains(@class,"item-price offer-price price-tc cencosud-price-2")]/node()[not(self::input)])[1] | (//div[contains(@class,"default-price")]/text()[normalize-space()])[1] 
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id="added_availabilityText"]
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+  - name: brandText
+    singleValue: false
+    xpath: //td[contains(text(), "Marca")]//following-sibling::td
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+  - name: quantity
+    singleValue: false
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: false
+    xpath: //td[text()="Peso sin Base (kg)"]//following-sibling::td
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: false
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id="added_gtinText"]
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"product-sku")]
+    description: The store-specific product identifier
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"product-sku")]
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    singleValue: false
+    xpath: //td[contains(text(), "Modelo")]//following-sibling::td
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    singleValue: false
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    singleValue: false
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: false
+    description: Content under "directions" header
+  - name: warnings
+    singleValue: false
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,"bv_numReviews_text")]
+    description: The number of ratings
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //div[contains(@class,"bv_numReviews_text")]
+    description: The stated aggregate rating
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"bv_avgRating")]
+    description: The stated aggregate rating normalized to be out of 5
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //font[contains(text(), "Dimensiones con Base")]/../parent::*/following-sibling::td | //td[contains(text(), "Dimensiones con Base")]//following-sibling::td
+    description: Stated shipping dimensions
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+  - name: colorCode
+    singleValue: false
+    description: A code description of the color (e.g. RGB hex)
+  - name: description
+    singleValue: false
+    xpath: //div[@class="description-table"]//descendant::text()[not(contains(@id,'inpage_container'))]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class="description-table"]//descendant::*[(contains(@id,'inpage_container'))]
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="description-table"]//img/@src
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,"product-name")]/text()[normalize-space()]
+    description: The product name
+  - name: specifications
+    singleValue: false
+    xpath: //table[@class="table-data-product-details"]//tr
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    singleValue: false
+    xpath: //td[contains(text(), "Garantía")]//following-sibling::td
+    description: Guarantee associated with the product
+  - name: promotion
+    singleValue: false
+    xpath: //span[@class="discount-2"]
+    description: promotion text on product page
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//li[position()>1]/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")]/@src)
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@class="description-table"]//a[contains(@href, ".pdf")]/@href
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //span[contains(@class,'onboarding-desktop')]
