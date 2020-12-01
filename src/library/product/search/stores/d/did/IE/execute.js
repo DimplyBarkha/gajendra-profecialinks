@@ -7,7 +7,7 @@ module.exports = {
     domain: 'did.ie',
     url: 'https://www.did.ie/catalogsearch/result/where/limit/all/q/{searchTerms}',
     loadedSelector: 'div#catalog-listing',
-    noResultsXPath: '//p[@class="note-msg"]',
+    noResultsXPath: '//p[@class="note-msg"] | //div[@class="product-essential"]',
     zipcode: '',
   },
 };
