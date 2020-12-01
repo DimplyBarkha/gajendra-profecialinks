@@ -112,7 +112,7 @@ module.exports = {
                 const arr = nutData.getElementsByClassName('nutritional__cell');
                 var index = 0;
                 for (var item of arr) {
-                  if (topIndex ===0) {
+                  if (topIndex === 0) {
                     nutriData.push({ key: item.innerText, value: '' });
                   } else if (topIndex === 1) {
                     nutriData[index].value = item.innerText;
@@ -181,6 +181,36 @@ module.exports = {
       } catch (error) {
         console.log('Error: ', error);
       }
+    })
+
+    await context.evaluate(async function () {
+      var dINode = document.evaluate("//div[contains(@class,'nutritional__table')]//div[contains(@class,'nutritional__column')]", document, null, XPathResult.ANY_TYPE);
+
+      var nutriData = [];
+      var topIndex = 0;
+      do {
+        var nutData = dINode.iterateNext();
+        if (nutData) {
+          const arr = nutData.getElementsByClassName('nutritional__cell');
+          var index = 0;
+          for (var item of arr) {
+            if (topIndex === 0) {
+              nutriData.push({ key: item.innerText, value: '' });
+            } else if (topIndex === 1) {
+              nutriData[index].value = item.innerText;
+              index++;
+            }
+          }
+        }
+        topIndex++;
+      } while (nutData)
+
+      let nutritionInfo = '';
+      for (const data of nutriData) {
+        nutritionInfo = nutritionInfo + data.key + ':' + data.value + ' ';
+      }
+      document.head.setAttribute('nutritioninfo', nutritionInfo);
+
     })
     return await context.extract(data, { transform });
   }

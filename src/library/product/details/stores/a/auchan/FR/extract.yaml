@@ -128,7 +128,7 @@ fields:
   - name: nameExtended
     singleValue: false
     description: Extended Name of product
-    xpath: //h1[contains(@class,'product-detail--title')] | //p[contains(@class,'offer-selector__description')]
+    xpath: //h1
   - name: manufacturerImages
     singleValue: false
     description:
@@ -234,12 +234,13 @@ fields:
   - name: shownImages
     singleValue: false
     xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content | //div[contains(@class, 'product-gallery__wrapper')]//img/@src
+    regExp: (.+)(230x230|188x188)(.+)
+    regExpReplace: $11200x1200$3
   - name: highQualityImages
     singleValue: false
     xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content | //div[contains(@class, 'product-gallery__wrapper')]//img/@src
-  - name: shownImages
-    singleValue: false
-    xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content | //div[contains(@class, 'product-gallery__wrapper')]//img/@src
+    regExp: (.+)(230x230|188x188)(.+)
+    regExpReplace: $11200x1200$3
   - name: allergens
     singleValue: true
     xpath: //span[contains(@class,"product-features__title") and contains(text(),'Allergènes')]//following::span[1]
@@ -250,7 +251,7 @@ fields:
     regExpReplace: auchan_fr_$1
   - name: nutritionInfo
     singleValue: true
-    xpath: //body//@nutritionInfo
+    xpath: //body//@nutritionInfo | //head//@nutritioninfo
   - name: sponsoredProductUrls
     singleValue: false
     xpath: //span[@class="product-thumbnail__picture-wrapper"]//figure//img//@src
