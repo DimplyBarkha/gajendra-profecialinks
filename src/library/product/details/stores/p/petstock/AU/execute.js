@@ -5,8 +5,8 @@ module.exports = {
     country: 'AU',
     store: 'petstock',
     domain: 'petstock.com.au',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[itemprop="product"]',
+    noResultsXPath: '//div[@class="container"]//h1[@class="h2"][contains(text(),"Whoops")]',
     zipcode: '',
   },
 };

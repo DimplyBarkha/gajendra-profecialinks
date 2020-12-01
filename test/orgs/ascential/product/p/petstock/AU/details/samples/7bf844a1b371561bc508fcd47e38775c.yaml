@@ -1,0 +1,115 @@
+input:
+  _url: http://petstock.com.au
+  URL: https://www.petstock.com.au/product/bird/harmony-lorikeet-honeyeater-mix/49185
+extractions:
+  - html: https://workbench.import.io/html/run=8d7318fc-5f1d-4654-ab89-7fb5120519da/task=a8166d77-1aaa-4fe3-b046-72b0734bd5a2/1900b177-f2ac-417d-a048-15b0da4e43ad.html
+    extractionConfigId: product/details/stores/p/petstock/AU/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.petstock.com.au/images/cache/product_zoom/images/products/59c9e4bed9a490.39175308.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
+            imageAlt:
+              - text: Harmony Wild Bird Harmony Lorikeet & Honeyeater Mix
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
+            category:
+              - text: Bird
+                xpath: /html/body/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Food & Treats
+                xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Soft
+                xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+            brandText:
+              - text: Harmony Wild Bird
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
+            legalDisclaimer:
+              - text: PETstock online aims to provide up to date product information including
+                  ingredients, size and colour specifications, packaging and
+                  product features, as provided to us by the product
+                  manufacturer. As product details change from time to time,
+                  this information is intended as a guide only and some delay
+                  may occur in the updating of our listing. Product images are
+                  indicative of the appearance and the product delivered may
+                  vary slightly from the product image show. When precise
+                  information is important, we recommend that you read the label
+                  on the products you purchase or contact the manufacturer of
+                  the product.
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            directions:
+              - text: We recommend that your pet consumes treats under supervision.
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]
+            name:
+              - text: Harmony Lorikeet & Honeyeater Mix
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-name
+            variantInformation:
+              - text: 500g
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[1]/div[1]/div[1]/div[2]/div[1]/div[2]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
+            nameExtended:
+              - text: Harmony Lorikeet & Honeyeater Mix 500g
+                xpath: /html/body/div[5]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[6]
+            sku:
+              - text: "49185"
+                xpath: /html/body/div[7]
+            variantId:
+              - text: "49185"
+                xpath: /html/body/div[7]
+            ingredientsList:
+              - text: Cereals (Rice, Wheat and Barley); Sugar (including Dextrose and Sucrose);
+                  Vegetable Oil; Milk Solids; Salt; Vanilla Powder; Vitamins;
+                  Minerals; Antioxidant.
+                xpath: /html/body/div[8]
+            variants:
+              - text: 49183 | 49185
+                xpath: /html/body/div[9]
+            variantCount:
+              - text: "2"
+                xpath: /html/body/div[10]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[11]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[12]
+            price:
+              - text: $8.99
+            description:
+              - text: Harmony Lorikeet & Honeyeater Mix. Bring nature (and nurture) into your
+                  life with Harmony bird feed - made in Australia from carefully
+                  selected ingredients to suit the dietary requirements of wild
+                  Australian birds. Harmonys Lorikeet and Honeyeater Mix is a
+                  delight for nectar-loving birds, and has been formulated to
+                  attract a number of wild birds to your backyard, such as
+                  Rainbow Lorikeets. This mix can simply be placed in a dish,
+                  sprinkled over fruit, or mixed with warm water to entice birds
+                  in a healthy manner.Product NotesView all Harmony Wild
+                  BirdView all Soft PETstock online aims to provide up to date
+                  product information including ingredients, size and colour
+                  specifications, packaging and product features, as provided to
+                  us by the product manufacturer. As product details change from
+                  time to time, this information is intended as a guide only and
+                  some delay may occur in the updating of our listing. Product
+                  images are indicative of the appearance and the product
+                  delivered may vary slightly from the product image show. When
+                  precise information is important, we recommend that you read
+                  the label on the products you purchase or contact the
+                  manufacturer of the product.
+            descriptionBullets:
+              - text: "0"
+            quantity:
+              - text: 500g
+            weightNet:
+              - text: 500g
+            pricePerUnit:
+              - text: $17.98
+            pricePerUnitUom:
+              - text: $/kg
+            promotion:
+              - text: Autoship Price (Save 10%)
+        xpath: /html/body
+    timestamp: 1606828315844

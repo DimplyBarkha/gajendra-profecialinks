@@ -1,81 +1,80 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='items-rows items']/div[@class='item']
+recordXPath:  null
 fields:
 - name: _input
   singleValue: false
 - name: _url
   singleValue: false
-  xpath: ancestor::html//div[@id="pageUrl"]/@content
 - name: productUrl
   singleValue: false
-  xpath: ancestor::html//div[@id="pageUrl"]/@content
 - name: _pageTimeStamp
   singleValue: false
 - name: image
-  singleValue: true
   description: URL of the main product image
-  xpath: ancestor::html//div[@id="prodImage"]/@content
+  xpath: (//img[@class='etalage_source_image']/@src)[1]
+  regExp: (\/images.*)
+  regExpReplace: https://www.petstock.com.au$1
 - name: imageAlt
-  singleValue: true
   description: Alt text of the main product image
-  xpath: ancestor::html//section[@class="product-media clearfix"]//li/a/@data-name
+  xpath: (//img[@class='etalage_source_image']/@alt)[1]
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: (ancestor::html//section[@class="product-media clearfix"]//li/a/@imgUrl)[position()>1]
+  xpath: //div[@id='imgUrl']
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: (ancestor::html//ul[@class="breadcrumb"]/li//span[@itemprop='name'])[position()>1][position() < last()]
+  xpath: (//ul[@class="breadcrumb"]/li//span[@itemprop='name'])[position()>1][position() < last()]
 - name: nameExtended
   singleValue: false
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //div[@nameExtended]/@nameExtended
+  xpath: //div[@id='nameExtended']
 - name: listPrice
   singleValue: false
   description: The stated undiscounted price for the product
-  xpath: //div[@class="item-total"]
+  xpath: //div[@class="list-price-savings"]//div[@class="list-total"]
 - name: price
   singleValue: false
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //div[@class="item-total"]
+  xpath: normalize-space(//div[contains(@class,'active')]//div[@class="item-total"])
 - name: availabilityText
   singleValue: false
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //span[@class="out-of-stock"]
+  xpath: //div[@id='availability']
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: ancestor::html//div[@itemprop="description"]
+  xpath: normalize-space(//div[@itemprop="description"])
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(ancestor::html//div[@itemprop="description"]//li)
+  xpath: count(//div[@itemprop="description"]//li)
 - name: brandText
   singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: ancestor::html//div[@itemprop="product"]/@data-brand
+  xpath: //div[@itemprop="product"]/@data-brand
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: ancestor::html//div[@itemprop="product"]/@data-brand
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: normalize-space(//div[contains(@class,'active')]//div[@class="item-value"])
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
+  xpath: normalize-space(//div[contains(@class,'active')]//div[@class="item-value"])
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -85,12 +84,12 @@ fields:
 - name: sku
   singleValue: false
   description: The store-specific product identifier
-  xpath: //div[@class='sku']
+  xpath: //div[@id='product-sku']
 - name: variantId
   singleValue: false
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //div[@class='sku']
+  xpath: //div[@id='product-sku']
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -101,28 +100,31 @@ fields:
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
+  xpath: //div[@class="product-disclaimer"]
 - name: directions
   singleValue: true
   description: Content under "directions" header
+  xpath: //div[@id="tab3"]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
   description: The number of ratings
-  xpath: (ancestor::html//span[@itemprop="reviewCount"])[1]
+  xpath: //div[@class="rating rating-large"]//span[@itemprop="reviewCount"]
 - name: aggregateRatingText
   singleValue: false
   description: The stated aggregate rating
-  xpath: ancestor::html//div[@class="rating-meta"]/span[@class="reviews-count"]/span[@class="count sc"]
+  xpath: //div[@class="rating rating-large"]//span[contains(@class,"rating")]/@title
 - name: aggregateRating
   singleValue: false
   description: The stated aggregate rating normalized to be out of 5
-  xpath: ancestor::html//div[@class="rating-meta"]/span[@class="reviews-count"]/span[@class="count sc"]
+  xpath: //div[@class="rating rating-large"]//span[@class="count sc"]
+  regExp: (\d+)\.?\,?(\d+)?
+  regExpReplace: $1,$2
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: ancestor::html//div[contains(@class,"delivery-info ")]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -132,11 +134,11 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-  xpath: count(//div[@class='item'])
+  xpath: //div[@id='variants-count']
 - name: color
   singleValue: false
   description: A textual description of the colour
-  xpath: //div[@class='color']
+  xpath: //label[contains(@class,'active')][div[contains(@class,'color')]]/@title
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -152,7 +154,7 @@ fields:
 - name: name
   singleValue: false
   description: The product name
-  xpath: ancestor::html//div[@class="product content-area"]/@data-name
+  xpath: //div[@class="product content-area"]/@data-name
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -256,7 +258,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: ancestor::html//div[@class="tab-pane"][@id="tab2"]
+  xpath: //div[@id='ingredients']
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -415,14 +417,16 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
-  xpath: //div[@class="item-summary"]
+  xpath: normalize-space(//div[contains(@class,'active')]//div[@class="item-summary"][contains(.,'$')])
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
-  xpath: ancestor:html//div[@class="item-summary"][1]
+  xpath: normalize-space(//div[@class='items-heading']//div[@class="item-summary"][contains(.,'$')])
+  regExp: ([^\/]+$)
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: normalize-space(//div[@class="autoship offer"])
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -440,7 +444,7 @@ fields:
 - name: variantInformation
   singleValue: flase
   description: colour / scent / flavour / other
-  xpath: ancestor::html//div[@variantname]/@variantname | ancestor::html//h3[@variantname]/@variantname
+  xpath: //label[contains(@class,'active')]/@title | //div[contains(@class,'active')]//div[@class="item-value"]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -454,6 +458,7 @@ fields:
 - name: variants
   singleValue: false
   description: 
+  xpath: //div[@id='variants-sku']
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
@@ -476,15 +481,18 @@ fields:
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  xpath: //a[@href="/help/terms"]
+  regExp: (.*)
+  regExpReplace: 'Yes'
+  defaultValue: 'No'
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  xpath: //div[@id='privacyPolicy']
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  xpath: //div[@id='customerService']
 - name: materials
   singleValue: true
   description: Materials used to make the product

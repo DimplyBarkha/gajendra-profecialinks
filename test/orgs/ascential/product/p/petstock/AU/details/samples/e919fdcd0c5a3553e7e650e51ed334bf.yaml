@@ -1,0 +1,116 @@
+input:
+  _url: http://petstock.com.au
+  URL: https://www.petstock.com.au/product/dog/petlife-click-go-outdoor-bed/56331
+extractions:
+  - html: https://workbench.import.io/html/run=8d7318fc-5f1d-4654-ab89-7fb5120519da/task=824899cf-af7d-408b-a19e-dfd5ef0e335d/2e903592-ec14-4f4a-b53d-def3fbeeda72.html
+    extractionConfigId: product/details/stores/p/petstock/AU/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.petstock.com.au/images/cache/product_zoom/images/products/5f9a442d8b9d78.49970884.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
+            imageAlt:
+              - text: Petlife PetLife Click & Go Outdoor Bed
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
+            category:
+              - text: Dog
+                xpath: /html/body/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Beds & Houses
+                xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Bedding
+                xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+            brandText:
+              - text: Petlife
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
+            legalDisclaimer:
+              - text: PETstock online aims to provide up to date product information including
+                  ingredients, size and colour specifications, packaging and
+                  product features, as provided to us by the product
+                  manufacturer. As product details change from time to time,
+                  this information is intended as a guide only and some delay
+                  may occur in the updating of our listing. Product images are
+                  indicative of the appearance and the product delivered may
+                  vary slightly from the product image show. When precise
+                  information is important, we recommend that you read the label
+                  on the products you purchase or contact the manufacturer of
+                  the product.
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/strong[1]/span[1]
+            aggregateRatingText:
+              - text: Rated 4.2 out of 5
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/span[1]/@title
+            aggregateRating:
+              - text: 4,2
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1]
+            name:
+              - text: PetLife Click & Go Outdoor Bed
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-name
+            variantInformation:
+              - text: X Large
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/section[1]/div[3]/form[1]/ol[1]/li[1]/div[1]/div[1]/label[4]/@title
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
+            nameExtended:
+              - text: PetLife Click & Go Outdoor Bed X Large
+                xpath: /html/body/div[5]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[6]
+            sku:
+              - text: "56331"
+                xpath: /html/body/div[7]
+            variantId:
+              - text: "56331"
+                xpath: /html/body/div[7]
+            ingredientsList:
+              - text: .
+                xpath: /html/body/div[8]
+            variants:
+              - text: 56326 | 56328 | 56330 | 56331
+                xpath: /html/body/div[9]
+            variantCount:
+              - text: "4"
+                xpath: /html/body/div[10]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[11]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[12]
+            price:
+              - text: $179.00
+            description:
+              - text: The PetLife Click & Go Bed makes setting up and moving your outdoor pet
+                  bed a breeze. The bed clicks together in one easy step with no
+                  tools required.The bed is flea and water resistant and is easy
+                  to clean so it's ideal for outdoor use.Suitable for:Small
+                  breed dogsFeatures and BenefitsOne click assembly - no tools
+                  requiredFlea and Water resistantAvailable in 4 sizesProduct
+                  NotesView all PetlifeView all Bedding PETstock online aims to
+                  provide up to date product information including ingredients,
+                  size and colour specifications, packaging and product
+                  features, as provided to us by the product manufacturer. As
+                  product details change from time to time, this information is
+                  intended as a guide only and some delay may occur in the
+                  updating of our listing. Product images are indicative of the
+                  appearance and the product delivered may vary slightly from
+                  the product image show. When precise information is important,
+                  we recommend that you read the label on the products you
+                  purchase or contact the manufacturer of the product.
+            descriptionBullets:
+              - text: "3"
+            quantity:
+              - text: ""
+            weightNet:
+              - text: ""
+            pricePerUnit:
+              - text: ""
+            pricePerUnitUom:
+              - text: ""
+            promotion:
+              - text: ""
+        xpath: /html/body
+    timestamp: 1606828313257

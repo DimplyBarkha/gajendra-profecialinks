@@ -1,0 +1,117 @@
+input:
+  _url: http://petstock.com.au
+  URL: https://www.petstock.com.au/product/dog/my-dog-chef-select-chicken-supreme-wet-dog-food-6x100g/50303
+extractions:
+  - html: https://workbench.import.io/html/run=8d7318fc-5f1d-4654-ab89-7fb5120519da/task=def47f1c-6d4c-4f88-9020-baeb1d0d691f/53dd4163-4513-4427-ba39-89128ed66c5e.html
+    extractionConfigId: product/details/stores/p/petstock/AU/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.petstock.com.au/images/cache/product_zoom/images/products/5f9b56171994d4.35844736.jpeg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@src
+            imageAlt:
+              - text: My Dog My Dog Chef Select Chicken Supreme Wet Dog Food 6x100G
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/ul[1]/li[1]/a[1]/img[2]/@alt
+            category:
+              - text: Dog
+                xpath: /html/body/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]
+              - text: Food
+                xpath: /html/body/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Wet Food
+                xpath: /html/body/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]
+            brandText:
+              - text: My Dog
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-brand
+            legalDisclaimer:
+              - text: PETstock online aims to provide up to date product information including
+                  ingredients, size and colour specifications, packaging and
+                  product features, as provided to us by the product
+                  manufacturer. As product details change from time to time,
+                  this information is intended as a guide only and some delay
+                  may occur in the updating of our listing. Product images are
+                  indicative of the appearance and the product delivered may
+                  vary slightly from the product image show. When precise
+                  information is important, we recommend that you read the label
+                  on the products you purchase or contact the manufacturer of
+                  the product.
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            name:
+              - text: My Dog Chef Select Chicken Supreme Wet Dog Food 6x100G
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/@data-name
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]
+            alternateImages:
+              - text: https://www.petstock.com.au/images/cache/product_zoom/images/products/5f9b56240327a0.55543863.jpeg
+                  |
+                  https://www.petstock.com.au/images/cache/product_zoom/images/products/5f9b56274deec4.05887014.jpeg
+                  |
+                  https://www.petstock.com.au/images/cache/product_zoom/images/products/5f9b562a1dd299.96468462.jpeg
+                  |
+                  https://www.petstock.com.au/images/cache/product_zoom/images/products/5f9b562d5aeaf9.91072179.jpeg
+                  |
+                  https://www.petstock.com.au/images/cache/product_zoom/images/products/5f9b563070a4a3.17967924.jpeg
+                xpath: /html/body/div[4]
+            nameExtended:
+              - text: My Dog Chef Select Chicken Supreme Wet Dog Food 6x100G
+                xpath: /html/body/div[5]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[6]
+            sku:
+              - text: "50303"
+                xpath: /html/body/div[7]
+            variantId:
+              - text: "50303"
+                xpath: /html/body/div[7]
+            ingredientsList:
+              - text: Meats Including Chicken, Lamb, Beef, Pork; Gelling Agents; Cereal;
+                  Vegetable Oil; Minerals; Colours; Flavours; Dill; Vitamins. "
+                xpath: /html/body/div[8]
+            variants:
+              - text: "50303"
+                xpath: /html/body/div[9]
+            variantCount:
+              - text: "1"
+                xpath: /html/body/div[10]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[11]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[12]
+            price:
+              - text: $8.59
+            description:
+              - text: My Dog Chicken Supreme is a favourite in the My Dog range. Not only is it
+                  highly nutritious, but this dish is rich in meaty goodness
+                  with succulent chicken cooked in its own juices. This
+                  convenient six pack saves you money as well as trips to the
+                  store. The My Dog range is made in Australia using recipes
+                  that meet the nutritional levels established by AAFCO Dog Food
+                  Nutrition Profiles for adult dogs. Product NotesView all My
+                  DogView all Wet Food PETstock online aims to provide up to
+                  date product information including ingredients, size and
+                  colour specifications, packaging and product features, as
+                  provided to us by the product manufacturer. As product details
+                  change from time to time, this information is intended as a
+                  guide only and some delay may occur in the updating of our
+                  listing. Product images are indicative of the appearance and
+                  the product delivered may vary slightly from the product image
+                  show. When precise information is important, we recommend that
+                  you read the label on the products you purchase or contact the
+                  manufacturer of the product.
+            descriptionBullets:
+              - text: "0"
+            quantity:
+              - text: ""
+            weightNet:
+              - text: ""
+            pricePerUnit:
+              - text: ""
+            pricePerUnitUom:
+              - text: ""
+            promotion:
+              - text: Autoship Price (Save 10%)
+        xpath: /html/body
+    timestamp: 1606828313629
