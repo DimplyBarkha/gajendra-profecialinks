@@ -63,7 +63,7 @@ module.exports = {
       await new Promise(resolve => setTimeout(resolve, 60000));
       await context.waitForSelector('#produit > div.product_head');
     } catch (error) {
-      console.log('error: NO CPATCHA ENCOUNTER', error);
+      console.log('error: NO CAPTCHA ENCOUNTER', error);
     }
     if (await context.evaluate(() => !!document.querySelector('a[title="Close"]'))) {
       await context.click('a[title="Close"]');

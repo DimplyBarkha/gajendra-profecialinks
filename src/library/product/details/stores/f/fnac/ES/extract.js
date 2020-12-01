@@ -27,7 +27,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
   });
 
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  // await new Promise((resolve) => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }
 

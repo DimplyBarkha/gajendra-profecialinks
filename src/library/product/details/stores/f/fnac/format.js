@@ -39,7 +39,8 @@ const transform = (data) => {
 
       if (row.brandText && row.name) {
         if (row.name[0].text.split(' ')[0] !== row.brandText[0].text) {
-          row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.name[0].text;
+          // row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.name[0].text;
+          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
         }
       }
 
