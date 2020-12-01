@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'but',
     domain: 'but.fr',
-    loadedSelector: '#main-product-sheet img',
-    noResultsXPath: '//div[@id="bloc_central_interieur"]',
+    loadedSelector: '#product-main',
+    noResultsXPath: '//div[@id="bloc_central_interieur"] | //div[@id="products-list-content"]',
     zipcode: '',
   },
 };
