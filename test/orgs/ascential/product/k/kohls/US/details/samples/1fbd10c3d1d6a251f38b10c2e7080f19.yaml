@@ -1,0 +1,91 @@
+input:
+  _url: http://kohls.com
+  URL: https://www.kohls.com/product/prd-3003839/yankee-candle-samplers-pink-sands-votive-candle.jsp?prdPV=113
+extractions:
+  - html: https://workbench.import.io/html/run=46342222-063e-448e-97e9-208f5393b7e6/task=b5008681-578e-4402-8c7f-e569d164e085/1504ffcd-fc77-4048-938f-d2f06b1154e1.html
+    extractionConfigId: product/details/stores/k/kohls/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.kohls.com/product/prd-3003839/yankee-candle-samplers-pink-sands-votive-candle.jsp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[3]/@content
+            image:
+              - text: https://media.kohlsimg.com/is/image/kohls/3003839?wid=600&hei=600&op_sharpen=1
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Yankee Candle Samplers Pink Sands Votive Candle
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://media.kohlsimg.com/is/image/kohls/3003839_ALT?wid=96&hei=96&op_sharpen=1
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/img[1]/@src
+            category:
+              - text: Home Decor
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Candles
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Votive & Tealight Candles
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: Yankee Candle
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
+            nameExtended:
+              - text: Yankee Candle Samplers Pink Sands Votive Candle
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
+            price:
+              - text: $1.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/p[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[17]
+            description:
+              - text: >-
+                  Make your home smell of a lovely island escape with this
+                  Yankee Candle Pink Sands votive candle, featuring a brilliant
+                  blend of sweet florals, citrus and spicy vanilla. 
+
+                  PRODUCT FEATURES
+                   
+                  Fresh & clean scent 
+                   
+
+                   
+                  PRODUCT DETAILS
+                   
+                  1.9"H x 1.8"W x 1.8"D
+                   
+                  2.22-oz.
+                   
+                  Plastic, paraffin wax, cotton wick 
+                   
+                  Burns up to 15 hours 
+                   
+                  One wick 
+                   
+                  Wipe clean
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Yankee Candle
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[5]/@content
+            manufacturer:
+              - text: Yankee Candle
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[5]/@content
+            sku:
+              - text: "3003839"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/@data-bv-productid
+            variantId:
+              - text: "3003839"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/@data-bv-productid
+            ratingCount:
+              - text: "48"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/button[1]/div[3]/div[1]
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]
+            name:
+              - text: Yankee Candle Samplers Pink Sands Votive Candle
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
+            descriptionBullets:
+              - text: "7"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1606828789620

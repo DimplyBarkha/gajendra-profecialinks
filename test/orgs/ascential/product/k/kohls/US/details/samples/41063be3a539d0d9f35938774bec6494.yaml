@@ -1,0 +1,247 @@
+input:
+  _url: http://kohls.com
+  URL: https://www.kohls.com/product/prd-2297766/product.jsp
+extractions:
+  - html: https://workbench.import.io/html/run=46342222-063e-448e-97e9-208f5393b7e6/task=dc50d3bb-f619-42a5-9823-bccc3f7ae83e/08a6ac07-d972-4669-9818-947acf7773f8.html
+    extractionConfigId: product/details/stores/k/kohls/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.kohls.com/product/prd-2297766/calphalon-10-pc-hard-anodized-nonstick-aluminum-cookware-set.jsp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[3]/@content
+            image:
+              - text: https://media.kohlsimg.com/is/image/kohls/2297766?wid=600&hei=600&op_sharpen=1
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Calphalon Signature 10-pc. Hard-Anodized Nonstick Aluminum Cookware Set
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            category:
+              - text: Kitchen & Dining
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Cookware & Bakeware
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Cookware Sets
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: Calphalon
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
+            nameExtended:
+              - text: Calphalon Signature 10-pc. Hard-Anodized Nonstick Aluminum Cookware Set
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $699.99 Reg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/p[1]/span[1]
+            price:
+              - text: $599.99 Sale
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/p[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[20]
+            description:
+              - text: >-
+                  Every home chef will love to have this Calphalon Signature
+                  cookware set on hand.
+
+                  Watch the product video here.
+
+                  Gift Givers: This item ships in its original packaging. If intended as a gift, the packaging may reveal the contents.
+                   
+                  See how your cookware stacks up with this Calphalon comparison guide.
+                   
+                  PRODUCT FEATURES
+
+                  Hard-anodized construction ensures quick heat up and even heat distribution.
+
+                  Durable aluminum distributes heat evenly for perfect cooking results.
+
+                  Nonstick surface makes cooking and cleanup a breeze.
+
+                  Tempered glass lids lock in heat, moisture and flavor.
+
+                  Stay-cool stainless steel handles provide a secure grip.
+
+                  WHAT'S INCLUDED
+
+                  10-in. omelet pan
+
+                  12-in. omelet pan
+
+                  2-qt. covered saucepan
+
+                  3-qt. covered saucepan
+
+                  3-qt. covered saute pan
+
+                  8-qt. covered stock pot
+
+                  PRODUCT CONSTRUCTION & CARE
+
+                  Aluminum, stainless steel, glass
+
+                  Dishwasher safe
+
+                  Manufacturer's lifetime limited warranty
+
+                  For warranty information please click here
+
+                  PRODUCT DETAILS
+
+                  Model no. 1948248
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Calphalon
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[5]/@content
+            manufacturer:
+              - text: Calphalon
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[5]/@content
+            sku:
+              - text: "2297766"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/@data-bv-productid
+            variantId:
+              - text: "2297766"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/@data-bv-productid
+            ratingCount:
+              - text: "23"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/button[1]/div[3]/div[1]
+            aggregateRating:
+              - text: "3.9"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]
+            manufacturerDescription:
+              - text: >-
+                  From the Manufacturer|Powered by 
+
+                  Professional Performance. Exceptional Results.
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Calphalon Signature Nonstick Cookware can do it all: sear foods beautifully, stand up to metal utensils, heat evenly and precisely, and safely go in the dishwasher. 
+
+                   
+
+                   
+
+                   
+
+                   
+                  What's In The Box
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   • 10-Inch Omelette Pan 
+                  • 12-Inch Omelette Pan 
+
+                  • 2-Quart Sauce Pan & Cover 
+
+                  • 3-Quart Sauce Pan & Cover 
+
+                  • 3-Quart Sauté Pan & Cover 
+
+                  • 8-Quart Stock Pot & Cover 
+                   
+
+                   
+
+                   
+
+                   
+                  Calphalon Signature Nonstick Cookware
+
+                  Interactive Tour
+                   
+                  {"hideMenu":false,"ipiOnly":false,"tourViews":[{"viewImage":{"sources":[{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/a2433eb3-b733-4e31-b9bf-d9cd82fd7152.jpeg.w1920.jpg","width":1000,"height":629},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/a2433eb3-b733-4e31-b9bf-d9cd82fd7152.jpeg.w960.jpg","width":960,"height":603},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/a2433eb3-b733-4e31-b9bf-d9cd82fd7152.jpeg.w480.jpg","width":480,"height":301},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/a2433eb3-b733-4e31-b9bf-d9cd82fd7152.jpeg.w240.jpg","width":240,"height":150}],"src":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/a2433eb3-b733-4e31-b9bf-d9cd82fd7152.jpeg","width":1000,"height":629},"runtimeSrc":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/a2433eb3-b733-4e31-b9bf-d9cd82fd7152.jpeg.web.jpg","width":1000,"height":629},"assetWrapper":"tour","editorOriginalName":"1948249_001.jpeg","isAdaCompliant":false},"hotspots":[{"hotspotX":0.2946666666666667,"hotspotY":0.6334745762711864,"captionFromAttr":"Sear Nonstick Cooking Surface","description":"Textured Sear Nonstick surface allows you to evenly sear, brown and sauté foods","direction":"left"},{"hotspotX":0.544,"hotspotY":0.673728813559322,"captionFromAttr":"Metal Utensil Safe","description":"Cook with metal spatulas, spoons and whisks without damaging the nonstick surface","media":{"sources":[{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/45d74cdb-7e4f-4072-b9af-71390190d950.jpeg.w1920.jpg","width":1000,"height":1000},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/45d74cdb-7e4f-4072-b9af-71390190d950.jpeg.w960.jpg","width":960,"height":960},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/45d74cdb-7e4f-4072-b9af-71390190d950.jpeg.w480.jpg","width":480,"height":480},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/45d74cdb-7e4f-4072-b9af-71390190d950.jpeg.w240.jpg","width":240,"height":240}],"src":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/45d74cdb-7e4f-4072-b9af-71390190d950.jpeg","width":1000,"height":1000},"runtimeSrc":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/45d74cdb-7e4f-4072-b9af-71390190d950.jpeg.web.jpg","width":1000,"height":1000},"assetWrapper":"tour","editorOriginalName":"1948250-calpahlon-signature-nonstick-8in-10in-omelette-set-seafood-brunch-in-use-5-RGB.jpeg","isAdaCompliant":false,"type":"IMAGE"},"direction":"right"},{"hotspotX":0.2866666666666667,"hotspotY":0.7923728813559322,"captionFromAttr":"Dishwasher Safe","description":"Pans go right in the dishwasher so you can enjoy fast and convenient cleanup","media":{"sources":[{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/3cc8d411-08fc-498f-b066-9cba8b6cbbb1.jpeg.w1920.jpg","width":1000,"height":787},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/3cc8d411-08fc-498f-b066-9cba8b6cbbb1.jpeg.w960.jpg","width":960,"height":755},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/3cc8d411-08fc-498f-b066-9cba8b6cbbb1.jpeg.w480.jpg","width":480,"height":377},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/3cc8d411-08fc-498f-b066-9cba8b6cbbb1.jpeg.w240.jpg","width":240,"height":188}],"src":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/3cc8d411-08fc-498f-b066-9cba8b6cbbb1.jpeg","width":1000,"height":787},"runtimeSrc":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/3cc8d411-08fc-498f-b066-9cba8b6cbbb1.jpeg.web.jpg","width":1000,"height":787},"assetWrapper":"tour","editorOriginalName":"dishwasher.jpeg","isAdaCompliant":false,"type":"IMAGE"},"direction":"left"},{"hotspotX":0.5706666666666667,"hotspotY":0.7817796610169492,"captionFromAttr":"Hard-Anodized Aluminum Construction","description":"Durable, heavy-gauge hard-anodized aluminum conducts heat evenly","media":{"sources":[{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/209b40cf-8471-4298-8250-5c51fd394679.jpeg.w1920.jpg","width":500,"height":338},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/209b40cf-8471-4298-8250-5c51fd394679.jpeg.w960.jpg","width":500,"height":338},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/209b40cf-8471-4298-8250-5c51fd394679.jpeg.w480.jpg","width":480,"height":324},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/209b40cf-8471-4298-8250-5c51fd394679.jpeg.w240.jpg","width":240,"height":162}],"src":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/209b40cf-8471-4298-8250-5c51fd394679.jpeg","width":500,"height":338},"runtimeSrc":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/209b40cf-8471-4298-8250-5c51fd394679.jpeg.web.jpg","width":500,"height":338},"assetWrapper":"tour","editorOriginalName":"soup.jpeg","isAdaCompliant":false,"type":"IMAGE"},"direction":"right"},{"hotspotX":0.07466666666666667,"hotspotY":0.4491525423728814,"captionFromAttr":"Oven Safe to 500 Degrees F","description":"Cook foods on the stovetop, then finish in the oven","direction":"left"},{"hotspotX":0.376,"hotspotY":0.3093220338983051,"captionFromAttr":"Tempered Glass Cover","description":"Oven-safe glass lid with stainless steel handle lets you watch foods while they&apos;re cooking","media":{"sources":[{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/9f86c1ce-b8d8-436f-87dc-78118b1c8c8f.jpeg.w1920.jpg","width":1000,"height":1000},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/9f86c1ce-b8d8-436f-87dc-78118b1c8c8f.jpeg.w960.jpg","width":960,"height":960},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/9f86c1ce-b8d8-436f-87dc-78118b1c8c8f.jpeg.w480.jpg","width":480,"height":480},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/9f86c1ce-b8d8-436f-87dc-78118b1c8c8f.jpeg.w240.jpg","width":240,"height":240}],"src":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/9f86c1ce-b8d8-436f-87dc-78118b1c8c8f.jpeg","width":1000,"height":1000},"runtimeSrc":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/9f86c1ce-b8d8-436f-87dc-78118b1c8c8f.jpeg.web.jpg","width":1000,"height":1000},"assetWrapper":"tour","editorOriginalName":"dutch not cropped.jpeg","isAdaCompliant":false,"type":"IMAGE"},"direction":"left"},{"hotspotX":0.944,"hotspotY":0.057203389830508475,"captionFromAttr":"Stay-Cool Stainless Steel Handle","description":"Long, ergonomic stainless steel handle is triple-riveted and stays cool while you&apos;re cooking on the stovetop","media":{"sources":[{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/5a3d3c38-b1d7-4d92-8635-bdb523b6688e.jpeg.w1920.jpg","width":1000,"height":668},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/5a3d3c38-b1d7-4d92-8635-bdb523b6688e.jpeg.w960.jpg","width":960,"height":641},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/5a3d3c38-b1d7-4d92-8635-bdb523b6688e.jpeg.w480.jpg","width":480,"height":320},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/5a3d3c38-b1d7-4d92-8635-bdb523b6688e.jpeg.w240.jpg","width":240,"height":160}],"src":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/5a3d3c38-b1d7-4d92-8635-bdb523b6688e.jpeg","width":1000,"height":668},"runtimeSrc":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/5a3d3c38-b1d7-4d92-8635-bdb523b6688e.jpeg.web.jpg","width":1000,"height":668},"assetWrapper":"tour","editorOriginalName":"handle2.jpeg","isAdaCompliant":false,"type":"IMAGE"},"direction":"right"},{"hotspotX":0.7266666666666667,"hotspotY":0.451271186440678,"captionFromAttr":"Full Lifetime Warranty","description":"Enjoy lasting durability and peace of mind with Calphalon&apos;s Full Lifetime Warranty","media":{"sources":[{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/7bef780e-fb10-4553-9a7c-bbb4a37dc705.jpeg.w1920.jpg","width":207,"height":207},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/7bef780e-fb10-4553-9a7c-bbb4a37dc705.jpeg.w960.jpg","width":207,"height":207},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/7bef780e-fb10-4553-9a7c-bbb4a37dc705.jpeg.w480.jpg","width":207,"height":207},{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/7bef780e-fb10-4553-9a7c-bbb4a37dc705.jpeg.w240.jpg","width":207,"height":207}],"src":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/7bef780e-fb10-4553-9a7c-bbb4a37dc705.jpeg","width":207,"height":207},"runtimeSrc":{"src":"/_cp/products/1444225060458/tab-9a1f5e05-684a-4b82-b3ec-0422b5c9c75c/7bef780e-fb10-4553-9a7c-bbb4a37dc705.jpeg.web.jpg","width":207,"height":207},"assetWrapper":"tour","editorOriginalName":"warranty.jpeg","isAdaCompliant":false,"type":"IMAGE"},"direction":"right"}]}],"ipiCompatible":false}
+                   
+
+                   
+                  See More
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Show More
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]
+            manufacturerImages:
+              - text: https://scontent.webcollage.net/_wc/default-defs/resources/common/syndigo.svg?v=2020.7.2.487
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/h1[1]/span[1]/span[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533149955045_a4d8d419-08a9-4950-897a-5e5ecced1b2d/module/calphalon/_cp/products/1444225060458/tab-6205b908-3a4d-4440-9274-f6afbc30761b/bf58ad9a-f23b-49bb-aae7-318658fa4536.jpeg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533149955045_a4d8d419-08a9-4950-897a-5e5ecced1b2d/module/calphalon/_cp/products/1444225060458/tab-8c805614-4acd-40aa-bf81-e8adf9969ade/cda3cd97-346d-4001-afae-30e1cb1db909.jpeg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533149955045_a4d8d419-08a9-4950-897a-5e5ecced1b2d/module/calphalon/_cp/products/1444225060458/tab-824585c0-1309-4172-8237-21609ffbba8c/f50e97fe-2091-4646-93f7-f00937463a40.jpeg.w240.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/kohls/images/image-gallery/enlarge.png
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533149955045_a4d8d419-08a9-4950-897a-5e5ecced1b2d/module/calphalon/_cp/products/1444225060458/tab-824585c0-1309-4172-8237-21609ffbba8c/db66a24b-3298-4525-8b0d-b6b55266f02e.jpeg.w240.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/kohls/images/image-gallery/enlarge.png
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533149955045_a4d8d419-08a9-4950-897a-5e5ecced1b2d/module/calphalon/_cp/products/1444225060458/tab-824585c0-1309-4172-8237-21609ffbba8c/4e8e0e21-0da3-4687-b34e-cffc66ade4a3.jpeg.w240.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[3]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/kohls/images/image-gallery/enlarge.png
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[3]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533149955045_a4d8d419-08a9-4950-897a-5e5ecced1b2d/module/calphalon/_cp/products/1444225060458/tab-824585c0-1309-4172-8237-21609ffbba8c/c80f905d-6546-41c9-9b40-9cbbf7a7b28b.jpeg.w240.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[4]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/kohls/images/image-gallery/enlarge.png
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[4]/div[1]/div[2]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533149955045_a4d8d419-08a9-4950-897a-5e5ecced1b2d/module/calphalon/_cp/products/1444225060458/tab-824585c0-1309-4172-8237-21609ffbba8c/1a631860-200d-4ad2-9c71-ca77464ba17a.jpeg.w240.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[5]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://scontent.webcollage.net/apps/pp/assets/kohls/images/image-gallery/enlarge.png
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/span[1]/table[1]/tbody[1]/tr[1]/td[1]/div[5]/div[1]/div[2]/img[1]/@src
+            name:
+              - text: Calphalon Signature 10-pc. Hard-Anodized Nonstick Aluminum Cookware Set
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
+            descriptionBullets:
+              - text: "16"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1606828784726

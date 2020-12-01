@@ -1,0 +1,111 @@
+input:
+  _url: http://kohls.com
+  URL: https://www.kohls.com/product/prd-4445986/mens-adidas-navy-real-salt-lake-2020-on-field-anthem-full-zip-jacket.jsp?prdPV=92
+extractions:
+  - html: https://workbench.import.io/html/run=46342222-063e-448e-97e9-208f5393b7e6/task=aea644a9-4b21-444e-9802-a1d5af1e8594/6ac9868a-4d52-4f9b-8b9f-1821bf6f1027.html
+    extractionConfigId: product/details/stores/k/kohls/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.kohls.com/product/prd-4445986/mens-adidas-navy-real-salt-lake-2020-on-field-anthem-full-zip-jacket.jsp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[3]/@content
+            image:
+              - text: https://media.kohlsimg.com/is/image/kohls/4445986?wid=600&hei=600&op_sharpen=1
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Men's adidas Navy Real Salt Lake 2020 On-Field Anthem Full-Zip Jacket
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://media.kohlsimg.com/is/image/kohls/4445986_ALT?wid=96&hei=96&op_sharpen=1
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://media.kohlsimg.com/is/image/kohls/4445986_ALT2?wid=96&hei=96&op_sharpen=1
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/div[1]/img[1]/@src
+              - text: https://media.kohlsimg.com/is/image/kohls/4445986_ALT3?wid=96&hei=96&op_sharpen=1
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/div[1]/img[1]/@src
+              - text: https://media.kohlsimg.com/is/image/kohls/4445986_ALT4?wid=96&hei=96&op_sharpen=1
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[5]/div[1]/img[1]/@src
+            category:
+              - text: Mens
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Clothing
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Outerwear
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
+              - text: Coats & Jackets
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
+              - text: adidas
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]
+            nameExtended:
+              - text: Men's adidas Navy Real Salt Lake 2020 On-Field Anthem Full-Zip Jacket
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $84.99 Reg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/p[1]/span[1]
+            price:
+              - text: $67.99 Sale
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/p[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[20]
+            description:
+              - text: >-
+                  Since you are such a devoted Real Salt Lake fan, you want to
+                  be prepared, no matter the weather. Stay comfortable in cooler
+                  weather by wearing this Real Salt Lake Anthem raglan full-zip
+                  jacket. This adidas jacket features crisp Real Salt Lake
+                  graphics, perfect for showcasing your fandom.
+
+                  PRODUCT FEATURES
+
+                  Material: 86% Polyester/14% Spandex
+
+                  Embroidered fabric applique
+
+                  Lightweight jacket suitable for mild temperatures
+
+                  Two zippered front pockets
+
+                  Zipper garage
+
+                  Locker loop
+
+                  Raglan sleeves
+
+                  Olympic collar
+
+                  Long sleeve
+
+                  Full Zip
+
+                  Machine wash, tumble dry low
+
+                  Officially licensed
+
+                  Imported
+
+                  Brand: adidas
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]
+            brandText:
+              - text: adidas
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[5]/@content
+            manufacturer:
+              - text: adidas
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[5]/@content
+            sku:
+              - text: "4445986"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/@data-bv-productid
+            variantId:
+              - text: "4445986"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/@data-bv-productid
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]/div[1]
+            name:
+              - text: Men's adidas Navy Real Salt Lake 2020 On-Field Anthem Full-Zip Jacket
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/h1[1]
+            descriptionBullets:
+              - text: "14"
+            variantCount:
+              - text: "1"
+        xpath: /
+    timestamp: 1606828789743
