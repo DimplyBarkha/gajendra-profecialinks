@@ -1,0 +1,99 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class, "easyzoom")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.lidl.de$1
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class, "easyzoom")]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[not(contains(@class, "active"))]/div/img/@data-zoom-image-url
+    regExp: (.+)
+    regExpReplace: https://www.lidl.de$1
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[not(contains(@class, "active"))]/div/img/@data-zoom-image-url)
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name = "keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class, "breadcrumb")]//li[not(@class = "bc-current")]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class, "product-detail-hero")]//h1
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class, "product-detail-price")]//span[@id = "recommendedPriceId"]
+  - name: price
+    singleValue: false
+    xpath: //div[@id="import_product_price"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class, "product-availability-wrapper")]//span/text()
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, "features")]//li
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id="import_product_brand"]
+  - name: weightNet
+    singleValue: false
+    xpath: //strong[text() = "Gewicht"]//following-sibling::div
+  - name: sku
+    singleValue: false
+    xpath: //input[@name = "productId"]/@value
+  - name: mpc
+    singleValue: false
+    xpath: //p[contains(@class, "article-no")]//text()[2]
+  - name: variantId
+    singleValue: false
+    xpath: //input[@name = "productId"]/@value
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class = "product-variants"]//a/@title
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[contains(@class, "legaltextcontent")]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@id="import_product_ratingcount"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="import_product_rating"]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //strong[text() = "Maße"]//following-sibling::div
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class = "product-variants"]//a) + count(//select[@id = "article1"]//option)
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, "product-detail-hero")]//h1
+  - name: productUrl
+    singleValue: false
+    xpath: //link[@rel = "canonical"]/@href
+  - name: variants
+    singleValue: false
+    xpath: //div[@class = "product-variants"]//a/@title | //select[@id = "article1"]//option/text()
+  - name: promotion
+    singleValue: false
+    xpath: //span[contains(@class, "product-detail-price")]//div[contains(@class, "pricelabel__action-text")]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class = "features" and position() != last()]//text()
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: count(//div[contains(@class, "easyzoom")])
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class = "features" and position() = last()]//text()
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class = "features" and position() = last()]//text())
