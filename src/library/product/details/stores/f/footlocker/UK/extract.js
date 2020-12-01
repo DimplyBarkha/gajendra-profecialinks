@@ -17,7 +17,7 @@ module.exports = {
     try {
       await context.waitForSelector('.slick-list.draggable .slick-active img', { timeout: 30000 });
       await context.evaluate(async () => {
-        function getDivWithId(id){
+        function getDivWithId (id) {
           const div = document.createElement('div');
           div.setAttribute('id', id);
           return div;
