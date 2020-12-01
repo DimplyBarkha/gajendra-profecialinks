@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'inkafarma.pe',
-    timeout: 9000000,
     country: 'PE',
     store: 'inkafarma',
+    domain: 'inkafarma.pe',
     zipcode: '',
   },
 };

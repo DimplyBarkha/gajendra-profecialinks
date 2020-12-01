@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'inkafarma.pe',
-    timeout: 9000000,
+    prefix: null,
+    url: null,
     country: 'PE',
     store: 'inkafarma',
     zipcode: '',
