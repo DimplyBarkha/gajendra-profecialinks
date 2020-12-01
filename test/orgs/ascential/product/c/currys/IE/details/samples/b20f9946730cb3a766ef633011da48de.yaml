@@ -1,0 +1,168 @@
+input:
+  _url: http://currys.ie
+  URL: https://www.currys.ie/ieen/home-appliances/health-beauty/hair-dryers/dyson-supersonic-hair-dryer-iron-fuchsia-10150662-pdt.html
+extractions:
+  - html: https://workbench.import.io/html/run=cd1cdf9b-4443-4e30-b41f-9bda55ecba46/task=5427fbb5-dd6c-4e63-b0a3-41c4d5b70f5f/723ac33a-db48-4fe4-82cf-5cf8f1fd2077.html
+    extractionConfigId: product/details/stores/c/currys/IE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/health-beauty/hair-dryers/dyson-supersonic-hair-dryer-iron-fuchsia-10150662-pdt.html
+                xpath: /html/body/div[11]
+            image:
+              - text: https://brain-images-ssl.cdn.dixons.com/2/6/10150662/u_10150662.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: DYSON Supersonic Hair Dryer - Iron & Fuchsia
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://brain-images-ssl.cdn.dixons.com/2/6/10150662/l_10150662_001.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/2/6/10150662/l_10150662_002.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/2/6/10150662/l_10150662_007.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/2/6/10150662/l_10150662_008.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[5]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/2/6/10150662/l_10150662_009.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[6]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/2/6/10150662/l_10150662_010.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/2/6/10150662/l_10150662_011.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/2/6/10150662/l_10150662_012.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[9]/a[1]/img[1]/@src
+            metaKeywords:
+              - text: DYSON Supersonic Hair Dryer - Iron & Fuchsia,buy DYSON Supersonic Hair
+                  Dryer - Iron & Fuchsia,cheap DYSON Supersonic Hair Dryer -
+                  Iron & Fuchsia,low price DYSON Supersonic Hair Dryer - Iron &
+                  Fuchsia,DYSON Supersonic Hair Dryer - Iron & Fuchsia deals
+                xpath: /html/head[1]/meta[7]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]
+              - text: Home Appliances
+                xpath: /html/body/div[2]/div[1]/div[3]/div[1]/a[2]/span[1]
+              - text: Health & beauty
+                xpath: /html/body/div[2]/div[1]/div[3]/div[1]/a[3]/span[1]
+              - text: Hair dryers
+                xpath: /html/body/div[2]/div[1]/div[3]/div[1]/a[4]/span[1]
+            nameExtended:
+              - text: DYSON Supersonic Hair Dryer - Iron & Fuchsia
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[1]/h1[1]
+            price:
+              - text: €399.00
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[3]/div[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[7]
+            description:
+              - text: "Power: 1600 W"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: 3 speed settings
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Intelligent heat control
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Powerful digital motor in handle
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Magnetic attachments
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[8]
+            weightNet:
+              - text: 659 g
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[4]/tr[1]/td[1]
+            sku:
+              - text: "174985"
+                xpath: /html/body/div[10]
+            mpc:
+              - text: "10150662"
+                xpath: /html/body/div[2]/script[10]/@data-flix-mpn
+            color:
+              - text: Iron & fuchsia
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[3]/tr[1]/td[1]
+            manufacturerDescription:
+              - text: >-
+                  Top features: 
+
+                  - Helps you maintain shinier, healthier hair 
+
+                  - Fast drying with Air Multiplier technology and a digital motor 
+
+                  - Acoustically tuned for lower noise 
+
+                  - Smoothing nozzle and accessories so you can get creative 
+
+                  Helps you maintain shinier, healthier hair
+
+                  Maintaining consistent, controlled temperatures, the Dyson Supersonic Hair Dryer prevents irreversible damage to your hair. Since temperatures over 150 degrees can create micro pores, the hairdryer won't over-heat your hair as you dry, helping to maintain even surfaces for greater shine.
+
+                  Fast drying
+
+                  You'll have your hair dried in less time with an air volume of 41 litres per second. The Dyson Supersonic uses Air Multiplier technology and a powerful digital motor to focus air output so you can spend less time drying your hair and more time getting ready to go out or get to work.
+
+                  Acoustically tuned
+
+                  Since it's acoustically tuned, the hair dryer doesn't vibrate as much as standard models, so it sounds less abrasive and noisy for more pleasant drying. The Dyson Supersonic features a motor small enough to fit in its handle, so it's lighter and more comfortable to use.
+
+                  Smoothing nozzle and accessories
+
+                  Use the included smoothing nozzle to dry and style simultaneously. It delivers a gentle, low-force airflow to help you sculpt your hair to look the way you want it.
+
+                  Take advantage of other styling accessories to look your best, including a concentrator and diffuser. A non-slip mat and hang-up loop allow for easy storage when you're done.
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]
+            videos:
+              - text: https://flv.isitetv.com/media/video/2544/video_url_227191_2544.m4v,https://flv.isitetv.com/media/video/2544/video_url_114506_2544.m4v,https://flv.isitetv.com/media/video/2544/video_url_234327_2544.m4v,https://flv.isitetv.com/media/video/2544/video_url_234325_2544.m4v,https://flv.isitetv.com/media/video/2544/video_url_234323_2544.m4v,https://flv.isitetv.com/media/video/1499/video_url_113225_1499.m4v,https://flv.isitetv.com/media/video/1499/video_url_113229_1499.m4v,https://flv.isitetv.com/media/video/1499/video_url_113233_1499.m4v,https://flv.isitetv.com/media/video/1499/video_url_113237_1499.m4v,https://flv.isitetv.com/media/video/1499/video_url_113241_1499.m4v
+                xpath: /html/body/div[12]
+            name:
+              - text: DYSON Supersonic Hair Dryer - Iron & Fuchsia
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[1]/h1[1]
+            featureBullets:
+              - text: "Power: 1600 W"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: 3 speed settings
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Intelligent heat control
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Powerful digital motor in handle
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Magnetic attachments
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[5]
+            specifications:
+              - text: 245 x 78 x 97 mm (H x W x D)
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[3]/tr[1]/td[1]
+            warranty:
+              - text: 2 years
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[5]/tr[1]/td[1]
+            productOtherInformation:
+              - text: |-
+                  - Acoustically tuned
+                   - Fast drying
+                   - Smoothing nozzle
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[2]/div[1]/div[1]/table[2]/tbody[7]/tr[1]/td[1]
+            variants:
+              - text: "10182825"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            descriptionBullets:
+              - text: "5"
+                type: NUMBER
+                raw: "5"
+                locale: en_GB
+                value: 5
+            variantCount:
+              - text: "2"
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+            secondaryImageTotal:
+              - text: "8"
+                type: NUMBER
+                raw: "8"
+                locale: en_GB
+                value: 8
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /
+    timestamp: 1606821509121
