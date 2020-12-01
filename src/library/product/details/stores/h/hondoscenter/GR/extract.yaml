@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@data-oo_zoombox_role="display-container"]/img/@src
+    xpath: (//div[@class="cloud-zoom-wrap"]//a//@href)[1]
   - name: category
     singleValue: false
-    xpath: //li[@property="itemListElement"][3]
+    xpath: //div[@class="inner-area inner-area-one"]/nav/ul/li[not(contains(@class, "item0 first "))]
   - name: Price
     singleValue: true
     xpath: //div[@class="current-price-container"]//span
