@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //li[@class="swiper-slide current swiper-slide-active"]/a/img/@src
+    xpath: //div[@class="productPics"]/a/@href
   - name: alternateImages
     singleValue: false
     xpath: //li[contains(@class,"swiper-slide")]/a[not(parent::li[contains(@class,'swiper-slide current swiper-slide-active')])]/img/@src
@@ -50,10 +50,10 @@ fields:
     xpath: //div[@class="loadbeeTabContent"]/@data-loadbee-gtin
   - name: sku
     singleValue: true
-    xpath: //html//div[@id='sku']
+    xpath: //form[@id="productSheet"]/@data-product
   - name: variantId
     singleValue: true
-    xpath: //html//div[@id='sku']
+    xpath: //form[@id="productSheet"]/@data-product
   - name: ratingCount
     singleValue: true
     type: NUMBER
@@ -69,10 +69,6 @@ fields:
   - name: name
     singleValue: true
     xpath: //div[@class="name"]/h1/a/text()
-  - name: variantInformation
-    singleValue: true
-    description: colour / scent / flavour / other
-    xpath: //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Couleur')]/parent::td/following-sibling::td
   - name: color
     singleValue: true
     description: colour / scent / flavour / other
@@ -98,3 +94,6 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: Yes
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class="mc-delivTop"]/a/strong/text()
