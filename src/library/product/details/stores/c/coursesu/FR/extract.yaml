@@ -48,7 +48,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@id, 'panel1') and contains(@class, 'tab-content')]
+    xpath: //div[contains(@id, 'panel1') and contains(@class, 'tab-content')]/p[1]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -63,6 +63,7 @@ fields:
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
+    xpath: //li[contains(@class, 'contact-info')][1]
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
@@ -71,7 +72,9 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //h1[contains(@class, 'product-name')]
+    xpath: //*[contains(text(), 'Poids net')]
+    regExp: net(.+)
+    regExpReplace: $1
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -252,7 +255,7 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //div[contains(@id, 'panel1') and contains(@class, 'tab-content')]
+    xpath: //div[contains(@id, 'panel1') and contains(@class, 'tab-content')]/p
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
@@ -280,10 +283,13 @@ fields:
     singleValue: false
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    xpath: //*[contains(text(), 'Matières grasses')] | //*[contains(text(), 'Matières grasses')]/following-sibling::*
+    xpath: //*[contains(text(), 'Matières grasses')]/following-sibling::*
   - name: totalFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Fat content
+    xpath: //*[contains(text(), 'Matières grasses')] | //*[contains(text(), 'Matières grasses')]/following-sibling::*
+    regExp: \d+(\.\d+)? (.+)
+    regExpReplace: $2
   - name: saturatedFatPerServing
     singleValue: false
     description: Nutritional Information for Saturated Fat content - Usually based
@@ -292,6 +298,9 @@ fields:
   - name: saturatedFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Saturated Fat content
+    xpath: //*[contains(text(), 'Acides gras saturés')]/following-sibling::*
+    regExp: \d+(\.\d+)? (.+)
+    regExpReplace: $2
   - name: transFatPerServing
     singleValue: false
     description: Nutritional Information for Trans Fat content - Usually based on
@@ -332,6 +341,9 @@ fields:
   - name: dietaryFibrePerServingUom
     singleValue: false
     description: Unit of Measure Data for Dietary Fibre content
+    xpath: //*[contains(text(), 'Fibres alimentaires')]/following-sibling::*
+    regExp: \d+(\.\d+)? (.+)
+    regExpReplace: $2
   - name: totalSugarsPerServing
     singleValue: false
     description: Nutritional Information for Total Sugar content - Usually based on
@@ -340,6 +352,9 @@ fields:
   - name: totalSugarsPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Sugar content
+    xpath: //*[contains(text(), 'Dont sucres')]/following-sibling::*
+    regExp: \d+(\.\d+)? (.+)
+    regExpReplace: $2
   - name: proteinPerServing
     singleValue: false
     description: Nutritional Information for Protein content - Usually based on per
@@ -348,6 +363,9 @@ fields:
   - name: proteinPerServingUom
     singleValue: false
     description: Unit of Measure Data for Protein
+    xpath: //*[contains(text(), 'Protéines')]/following-sibling::*
+    regExp: \d+(\.\d+)? (.+)
+    regExpReplace: $2
   - name: vitaminAPerServing
     singleValue: false
     description: Nutritional Information for Vitamin A content - Usually based on
@@ -391,6 +409,9 @@ fields:
   - name: magnesiumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Magnesium
+    xpath: //*[contains(text(), 'Magnésium')]/following-sibling::*
+    regExp: \d+(\.\d+)? (.+)
+    regExpReplace: $2
   - name: saltPerServing
     singleValue: false
     description: Nutritional Information for Salt content - Usually based on per
@@ -399,6 +420,9 @@ fields:
   - name: saltPerServingUom
     singleValue: false
     description: Unit of Measure Data for Salt
+    xpath: //*[contains(text(), 'Sel')]/following-sibling::*
+    regExp: \d+(\.\d+)? (.+)
+    regExpReplace: $2
   - name: dietaryInformation
     singleValue: false
     description: null

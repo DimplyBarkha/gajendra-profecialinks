@@ -19,15 +19,6 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-    //   if (row.alternateImages) {
-    //     if (row.alternateImages.length > 0) {
-    //       row.secondaryImageTotal = [
-    //         {
-    //           text: row.alternateImages.length - 1,
-    //         },
-    //       ];
-    //     }
-    //   }
       if (row.ingredientsList) {
         let text = '';
         row.ingredientsList.forEach(item => {
@@ -35,54 +26,43 @@ const transform = (data) => {
         });
         row.ingredientsList = [
           {
-            text: cleanUp(text.slice(0, -3)),
+            text: cleanUp(text.slice(0, -1)),
           },
         ];
       }
-      //   if (row.shippingDimensions) {
-      //     let text = '';
-      //     row.shippingDimensions.forEach(item => {
-      //       text += `${item.text}`;
-      //     });
-      //     row.shippingDimensions = [
-      //       {
-      //         text: cleanUp(text),
-      //       },
-      //     ];
-      //   }
-      //   if (row.manufacturerDescription) {
-      //     let text = '';
-      //     row.manufacturerDescription.forEach(item => {
-      //       text += `${item.text}`;
-      //     });
-      //     row.manufacturerDescription = [
-      //       {
-      //         text: cleanUp(text),
-      //       },
-      //     ];
-      //   }
-      //   if (row.specifications) {
-      //     let text = '';
-      //     row.specifications.forEach(item => {
-      //       text += `${item.text} || `;
-      //     });
-      //     row.specifications = [
-      //       {
-      //         text: cleanUp(text.slice(0, -3)),
-      //       },
-      //     ];
-      //   }
-      //   if (row.shippingWeight) {
-      //     let text = '';
-      //     row.shippingWeight.forEach(item => {
-      //       text = item.text;
-      //     });
-      //     row.shippingWeight = [
-      //       {
-      //         text: cleanUp(text),
-      //       },
-      //     ];
-      //   }
+      if (row.proteinPerServing) {
+        let text = '';
+        row.proteinPerServing.forEach(item => {
+          text = item.text.replace(/~/g, '').trim();
+        });
+        row.proteinPerServing = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.dietaryFibrePerServing) {
+        let text = '';
+        row.dietaryFibrePerServing.forEach(item => {
+          text = item.text.replace(/~/g, '').trim();
+        });
+        row.dietaryFibrePerServing = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.caloriesPerServing) {
+        let text = '';
+        row.caloriesPerServing.forEach(item => {
+          if (item.text.includes('_url')) { text = ''; } else text = item.text.replace(/~/g, '').trim();
+        });
+        row.caloriesPerServing = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
       if (row.aggregateRating) {
         let rating;
         if (row.aggregateRating[0].text) {
@@ -99,9 +79,7 @@ const transform = (data) => {
       if (row.weightNet) {
         let text = '';
         row.weightNet.forEach(item => {
-          if (item.text.includes(',')) {
-            text = item.text.split(',')[1];
-          }
+          text = item.text.replace(': ', '');
         });
         row.weightNet = [
           {
