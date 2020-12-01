@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'DK',
     store: 'nemlig',
-    nextLinkSelector: 'button.btn.searchresult__loadmore_button',
+    nextLinkSelector: 'div.searchresult__loadmore_container:not(.ng-hide) button.btn.searchresult__loadmore_button',
     mutationSelector: 'div#searchscrollable',
     spinnerSelector: null,
     loadedSelector: 'div#searchscrollable div.searchresult__item-container productlist-item',

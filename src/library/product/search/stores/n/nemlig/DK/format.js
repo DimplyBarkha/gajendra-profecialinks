@@ -30,6 +30,16 @@ const transform = (data) => {
           item.text = item.text.replace('w=250&h=250', '.w=623&h=623');
         });
       }
+      if (row.price) {
+        if (row.price_decimal) {
+          row.price.forEach(item => {
+            item.text = item.text + '.' + row.price_decimal[0].text;
+          });
+        }
+      }
+      if (row.price_decimal) {
+        delete row.price_decimal;
+      }
       if (row.productUrl) {
         row.productUrl.forEach(item => {
           item.text = 'https://www.nemlig.com/' + item.text;
