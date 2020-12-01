@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'bol.com',
-    timeout: 50000,
     country: 'NL',
     store: 'bol',
+    domain: 'bol.com',
     zipcode: '',
   },
 };

@@ -1,0 +1,61 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: ul[data-test="products"]>li
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li/@data-id
+  - name: searchUrl
+    singleValue: true
+    xpath: //div[@class="h-o-hidden"]/a/@currenturl
+  - name: name
+    singleValue: false
+    xpath: //a[@data-test='product-title']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="h-o-hidden"]/a/@producturl
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@data-test="product-image"]/descendant::img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    type: STRING
+    xpath: //div[@class='star-rating']/@newrating
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class='star-rating']/@ratingscount
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    type: STRING
+    xpath: //meta[@itemprop="price"]/@newprice
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    xpath: //wsp-buy-block[@class='product-item__options hit-area']/@rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //wsp-buy-block[@class="product-item__options hit-area"]/@rankorganic
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //div[@class='h-color-subtext h-bottom--xs small_details']
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   xpath: ancestor::html//p[contains(@name, 'searchresultcount')]/strong/text()
