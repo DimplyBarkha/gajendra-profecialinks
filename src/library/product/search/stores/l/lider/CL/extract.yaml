@@ -1,0 +1,51 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: id
+    singleValue: true
+    xpath: //div[@id='content-prod-boxes']/div/@prod-number
+    # regExp: (\d+)
+  - name: rankOrganic
+    singleValue: false
+  - name: name
+    singleValue: true
+    xpath: //div[@class='product-details']/a/span
+      # //span[@class='product-item__title']
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@class='product-details']/a/@href
+    regExp: (/.+)
+    regExpReplace: https://www.lider.cl$1
+      # //div[@class="product-item__top-padding"]//a/@href
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    singleValue: true
+    xpath: //div[@class='photo-container']/img/@src
+  - name: reviewCount
+    singleValue: true
+    # xpath: //div[@class='productlist__products']//span[@class='product-item__rating-count']
+    # regExp: (\d+)
+  - name: aggregateRating
+    singleValue: true
+    # xpath: //html//div[@id='agg']
+    # type: NUMBER
+    # xpath: //div[@class='productlist__products']//div[@class='review-stars__container review-stars__container--border']/@data-js-border-offset
+  # - name: reviewCount
+  #   singleValue: false
+  - name: price
+    singleValue: true
+    # type: CURRENCY
+    xpath: //span[@class='price-sell']
+    # //div[@class='productlist__products']//span[@class='nowrap']
+    # //div[@class='productlist__products']//div[@class='product-item__price']
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
