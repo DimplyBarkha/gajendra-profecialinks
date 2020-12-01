@@ -1,5 +1,5 @@
 const { cleanUp } = require('../../../../shared');
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -18,11 +18,11 @@ async function implementation (
 
   await stall(5000);
 
-  const productUrl = await context.evaluate(function() {
+  const productUrl = await context.evaluate(function () {
     return window.location.href;
   });
 
-  const sku = await context.evaluate(function() {
+  const sku = await context.evaluate(function () {
     if (document.querySelector('.sku-man.hide-for-small')) {
       return document.querySelector('.sku-man.hide-for-small').innerText.split(' ')[1];
     }
@@ -35,10 +35,10 @@ async function implementation (
   }, sku);
 
   if (ratingsAndReviews) {
-   ratingsAndReviews = ratingsAndReviews.substring(ratingsAndReviews.indexOf('{')).replace('})', '}');
+    ratingsAndReviews = ratingsAndReviews.substring(ratingsAndReviews.indexOf('{')).replace('})', '}');
   }
 
-  await context.evaluate(async function(ratingsAndReviews) {
+  await context.evaluate(async function (ratingsAndReviews) {
 
     function stall(ms) {
       return new Promise(resolve => {
@@ -60,7 +60,7 @@ async function implementation (
 
     await stall(10000);
 
-    function addHiddenDiv (id, content) {
+    function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -76,12 +76,27 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-    if (ratingsAndReviews) {
-      const ratingsAndReviewsData = JSON.parse(ratingsAndReviews);
-      addHiddenDiv('ratingCount', ratingsAndReviewsData.review_count);
-      if (ratingsAndReviewsData.average_score) {
-        addHiddenDiv('aggregatedRating', (ratingsAndReviewsData.average_score / 2).toString().replace('.', ','));
-        addHiddenDiv('aggregatedRatingText', (ratingsAndReviewsData.average_score / 2).toString().replace('.', ',') + ' out of 5');
+    // if (ratingsAndReviews) {
+    //   const ratingsAndReviewsData = JSON.parse(ratingsAndReviews);
+    //   addHiddenDiv('ratingCount', ratingsAndReviewsData.review_count);
+    //   if (ratingsAndReviewsData.average_score) {
+    //     addHiddenDiv('aggregatedRating', (ratingsAndReviewsData.average_score / 2).toString().replace('.', ','));
+    //     addHiddenDiv('aggregatedRatingText', (ratingsAndReviewsData.average_score / 2).toString().replace('.', ',') + ' out of 5');
+    //   }
+    // }
+
+    let skuNode = document.querySelector('div[class*=description] [class*=sku]');
+    let sku = skuNode && skuNode.innerText ? skuNode.innerText.split(' ')[1] : "";
+    if (sku) {
+      let reviewsApi = `https://mark.reevoo.com/reevoomark/product_summary?sku=${sku}&trkref=ERI&callback=ReevooLib.Data.callbacks._362159477`;
+      let prom = await fetch(reviewsApi);
+      let text = await prom.text();
+      let data = text.replace(/(.+)(\()(.+)(\))/g, "$3");
+      data = JSON.parse(data);
+      if (data.average_score) {
+        //return Math.floor(data.average_score/2)
+        addHiddenDiv('aggregateRating', (data.average_score / 2).toString());
+        addHiddenDiv('aggregatedRatingText', (data.average_score / 2).toString().replace('.', ',') + ' out of 5');
       }
     }
 
@@ -128,7 +143,7 @@ async function implementation (
 
     let description = '';
     document.querySelector('#specificationTab').querySelectorAll('h3, h4, p').forEach(el => {
-      if(el.tagName === 'H3' || el.tagName === 'H4') {
+      if (el.tagName === 'H3' || el.tagName === 'H4') {
         description += ' || ' + el.innerText;
       } else {
         description += el.innerText;
@@ -138,9 +153,9 @@ async function implementation (
       addHiddenDiv('description', description);
     }
 
-    if (document.querySelector('.sku-man.hide-for-small')) {
-      addHiddenDiv('brandName', document.querySelector('.sku-man.hide-for-small').innerText.split(' ')[0]);
-      addHiddenDiv('sku', document.querySelector('.sku-man.hide-for-small').innerText.split(' ')[1]);
+    if (document.querySelector('div[class*=description] [class*=sku]')) {
+      addHiddenDiv('brandName', document.querySelector('div[class*=description] [class*=sku]').innerText.split(' ')[0]);
+      addHiddenDiv('sku', document.querySelector("div[class*=description] [class*=sku]").innerText.split(' ')[1]);
     }
 
     let enhancedContent = '';
@@ -183,7 +198,7 @@ async function implementation (
     const specifications = [];
     if (document.querySelector('#specificationTab').querySelector('table')) {
       document.querySelector('#specificationTab').querySelector('table').querySelectorAll('tr').forEach(tr => {
-        if(!tr.querySelectorAll('td')[0]) {
+        if (!tr.querySelectorAll('td')[0]) {
           return;
         }
         if (tr.querySelectorAll('td')[0].innerText === 'Weight (kg)') {
