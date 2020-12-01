@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='productDetail__image  j-carouselItem']/img/@src
+    xpath: //div[@class='owl-item']//div[@class='productDetail__image  j-carouselItem']/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -170,9 +170,9 @@ fields:
     singleValue: false
     xpath: //*[contains(text(), 'Classe consumo energetico')]/following-sibling::*[1]
   - name: technicalInformationPdfPresent
-    singleValue: false
-    xpath: //div[@class='flix-std-clmn-lg-12']/a[@class='flix-doc-download flix-std-clmn-lg-4 flix-std-clmn-sm-11 flix-align-right']/@href
-    defaultValue: No
+    singleValue: true
+    xpath: substring('Yes', 1, string-length(//a[contains(@href, '.pdf')]/@href))
+    defaultValue: no
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -491,7 +491,7 @@ fields:
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']

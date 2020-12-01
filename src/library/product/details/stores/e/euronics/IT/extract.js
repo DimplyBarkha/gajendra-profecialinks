@@ -9,7 +9,9 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    await context.click('.productDetail__image');
-    await context.extract(productDetails);
+    await context.evaluate(() => {
+      document.querySelector('.productDetail__image').click();
+    });
+    return await context.extract(productDetails);
   },
 };
