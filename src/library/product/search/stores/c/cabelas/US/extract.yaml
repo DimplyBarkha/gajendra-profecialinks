@@ -12,14 +12,14 @@ fields:
     # xpath: //div[@class="product_price "]/@id
     # type: NUMBER
     # regExp: (\d+)
-  - name: rankOrganic
-    singleValue: single
-    type: NUMBER
-    xpath: //ul[@class="grid_mode grid"]/li/@data-ss-variation-applied
-  - name: rank
-    singleValue: single
-    type: NUMBER
-    xpath: //ul[@class="grid_mode grid"]/li/@data-ss-variation-applied
+  # - name: rankOrganic
+  #   singleValue: single
+  #   type: NUMBER
+  #   xpath: //ul[@class="grid_mode grid"]/li/@data-ss-variation-applied
+  # - name: rank
+  #   singleValue: single
+  #   type: NUMBER
+  #   xpath: //ul[@class="grid_mode grid"]/li/@data-ss-variation-applied
   - name: price
     singleValue: single
     xpath: (//span[@class="price "]/span)
@@ -33,3 +33,6 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: (//div/span[@class="bvReviews"])
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@id, 'bps_plp_reviews')]/span/@class
