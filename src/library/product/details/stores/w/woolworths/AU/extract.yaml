@@ -10,14 +10,8 @@ fields:
     singleValue: false
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
   - name: variantId
-    singleValue: true
-    xpath: //shared-image-zoomer[contains(@class,'main-image')]//img[contains(@class,'imageZoomerComponent-main--image')]//@src
-  - name: metaKeywords
     singleValue: false
-    xpath: 
-  - name: category
-    singleValue: true
-    xpath: 
+    xpath: //shared-image-zoomer[contains(@class,'main-image')]//img[contains(@class,'imageZoomerComponent-main--image')]//@src
   - name: nameExtended
     singleValue: false
     xpath: //div[@class='shelfProductTile-information']//h1
@@ -32,16 +26,16 @@ fields:
     xpath: //wow-product-details-panel//div[contains(@class,'cartControls')]//button[contains(@class,'cartControls-addButton')]
     defaultValue: "In Stock"
   - name: description
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
   - name: variantCount
-    singleValue: true
+    singleValue: false
     defaultValue: 0    
   - name: ratingCount
     sinngleValue: false
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
   - name: imageAlt
     singleValue: false
@@ -50,11 +44,11 @@ fields:
     singleValue: false
     xpath: //ul[contains(@class,'thumbnails')]//li[position()>1]//a//img//@src
   - name: directions
-    singleValue: true
+    singleValue: false
     xpath: //h3[text()='Directions']/parent::section[contains(@class,'directions')]
   - name: warnings
-    singleValue: true
+    singleValue: false
     xpath: //h3[text()='Product Warnings']/parent::section[contains(@class,'product-warnings')]  
   - name: gtin
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
