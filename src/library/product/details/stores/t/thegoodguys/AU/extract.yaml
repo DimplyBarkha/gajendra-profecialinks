@@ -33,6 +33,11 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[contains(@class,'pricepoint')]//div[contains(@class,'beforecashback')]//span[@itemprop="price"]
+  - name: price2
+    singleValue: false
+    xpath: //script[@type='application/ld+json' and contains(text(),'sku')]
+    regExp: \"price\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,'price-wrap')]//div[contains(@class,'ticketprice')]//span
@@ -105,3 +110,9 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //table[contains(@class,'speci_area')]//tr//th[contains(normalize-space(),'Energy Rating')]//following-sibling::td
+  - name: quantity
+    singleValue: false
+    xpath: //tr[th[contains(text(),'Screen Size:')]]/td | //tr[th[contains(text(),'Total Capacity')]]/td    
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: Yes

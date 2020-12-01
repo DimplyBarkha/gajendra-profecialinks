@@ -56,6 +56,12 @@ const transform = (data) => {
           }
         });
       }
+      if (row.price2) {
+        if (!row.price) {
+          row.price = [{ text: '$' + row.price2[0].text }];
+        }
+        delete row.price2;
+      }
       if (row.aggregateRating) {
         var scriptJSON = JSON.parse(row.aggregateRating[0].text);
         if (scriptJSON.aggregateRating) {
