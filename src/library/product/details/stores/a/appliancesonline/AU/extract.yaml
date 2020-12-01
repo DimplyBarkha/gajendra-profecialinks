@@ -99,6 +99,8 @@ fields:
   - name: ratingCount
     singleValue: true
     xpath: //div[contains(@class, 'review-count')]
+    regExp: (\d+)
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: true
     xpath: //span[@class='rating']/strong
@@ -144,7 +146,7 @@ fields:
     xpath: //span[contains(text(), 'Package Dimensions (H x W x D)')]/following::div[1]
   - name: promotion
     singleValue: true
-    xpath: //aol-product-price-details[contains(@class,'cart-panel__details')]//div[contains(@class,'__discount')]/descendant::text()
+    xpath: (//span[@class="discount-price"])[1]
   - name: countryOfOrigin
     singleValue: true
     xpath: //span[contains(text(), 'Origin')]/following::div[1]

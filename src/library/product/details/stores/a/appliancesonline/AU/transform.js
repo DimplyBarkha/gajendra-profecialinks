@@ -29,9 +29,9 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
-        if (row.ratingCount) {
-          row.ratingCount = [{ text: row.ratingCount[0].text.split(' ')[2] }];
-        }
+        // if (row.ratingCount) {
+        //   row.ratingCount = [{ text: row.ratingCount[0].text.split(' ')[2] }];
+        // }
         if (row.Image360Present) {
           row.Image360Present = [
             { text: row.Image360Present[0].text === 'true' ? 'YES' : 'NO' },
