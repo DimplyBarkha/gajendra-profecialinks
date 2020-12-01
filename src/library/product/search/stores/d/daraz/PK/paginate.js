@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'PK',
     store: 'daraz',
-    nextLinkSelector: 'li.ant-pagination-next a.ant-pagination-item-link',
+    nextLinkSelector: 'li.ant-pagination-next:not(.ant-pagination-disabled) a.ant-pagination-item-link',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[data-qa-locator="product-item"]',
