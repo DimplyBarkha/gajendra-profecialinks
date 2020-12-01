@@ -2,13 +2,13 @@ input:
   _url: http://very.co.uk
   URL: https://www.very.co.uk/dyson-dyson-v7-absolute-vacuum-cleaner/1600458721.prd?Ntt=Dyson%20car%20vacuum
 extractions:
-  - html: https://workbench.import.io/html/run=391c06b1-16a6-4634-ae36-378ed113effc/task=d87d8fe7-3c48-4904-a7f8-56a8caebdea1/5f83572b-b62d-4f31-b4e7-4c7c5dbdc34a.html
+  - html: https://workbench.import.io/html/run=384c3c87-974d-4995-8dbb-476c99d72544/task=5b23de67-834d-4962-a3b7-cc992451df8e/059e0179-d9d3-493e-af62-e838fbe55d1e.html
     extractionConfigId: product/details/stores/v/very/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.very.co.uk/dyson-dyson-v7-absolute-vacuum-cleaner/1600458721.prd
-                xpath: /html/head[1]/meta[26]/@content
+                xpath: /html/head[1]/link[1]/@href
             image:
               - text: https://media.very.co.uk/i/very/Q9FAR_SQ1_0000000088_NO_COLOR_SLf?$550x733_standard$
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[2]/div[1]/div[1]/img[1]/@src
@@ -37,123 +37,111 @@ extractions:
               - text: £299.99
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/text()[1]
             availabilityText:
-              - text: Out of Stock
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[6]
+              - text: In Stock
+                xpath: /html/body/div[15]
             description:
-              - text: >-
-                  Powerful. Lightweight. Versatile.
-
-                  Up to 30 minutes of Dyson power¹
-
-                  An advanced, rechargeable battery powers the Dyson V7 Animal™ cord-free vacuum, for up to 30 minutes of fade-free suction.
-
-                  Lightweight, only 2.2kg
-
-                  Easy to clean anywhere up high, down low, on the stairs or under furniture. 
-
-                  Direct Drive technology deep cleans carpets and hard floors
-
-                  The motor inside the cleaner head drives stiff nylon bristles deep into carpets to suck up fine dust and ground-in dirt.
-
-                  An extra Soft roller cleaner head for expert hard floor cleaning
-
-                  The soft woven nylon is gentle on delicate hard floors, tough on dirt. Perfect for kitchens, it picks up large crumbs and fine dust all at once.
-
-                  NEW Reach under tool
-
-                  Twists and locks for easy cleaning under furniture. No need to bend down.
-
-                  No loss of suction
-
-                  Advanced cyclone technology helps deliver strong, consistent suction from start to finish. 
-
-                  Changes to a handheld in one click
-
-                  Quickly converts from a floor vacuum to a handheld vacuum. For easy cleaning around the home and car.
-
-                  Certified asthma and allergy friendly™ 
-
-                  Advanced whole-machine filtration captures allergens and expels cleaner air back into your home. 
-
-                  Four cleaning tools included
-
-                  Combination and Crevice tool to clean surfaces, edges and right into narrow gaps.
-
-                  Mini motorhead to tackle pet hair on upholstery, stairs and in the car.
-
-                  Soft dusting brush for gentle dusting on delicate surfaces. 
-
-                  Awarded with a Which? Best Buy 2019.
-                   
-                  ¹Applies in powerful suction mode with non-motorised tool attached.
-
-                  Depth: 1243 MM
-
-                  Height: 210 MM
-
-                  Width: 250 MM
-
-                  Carpet Pickup: N
-
-                  Charge Time (in hrs): 3.5
-
-                  Cordless: Y
-
-                  Dust Collection: Bagless
-
-                  Filter Type: Whole Machine filtration
-
-                  Handheld: Y
-
-                  Hardfloor Pickup: Y
-
-                  Run Time (in hrs): .2
-
-                  Up to 30 minutes of powerful fade-free suction¹ ¹Applies in powerful suction mode with non-motorised tool attached.
-
-                  Lightweight, only 2.2kg
-
-                  Direct Drive technology deep cleans carpets and hard floors
-
-                  Extra Soft roller cleaner head for hard floor cleaning - picks up large debris and fine dust. NEW Reach under tool for easy cleaning under furniture
-
-                  Changes to a handheld in one click with 4 cleaning tools for the stairs, upholstery and car
-
-                  2 Tier Radial™ cyclones for no loss of suction
-
-                  Certified asthma and allergy friendly™ with advanced whole-machine filtration
-
-                  Max power setting for really stubborn dirt and Hygienic bin emptying
-
-                  Max power setting for really stubborn dirt and Hygienic bin emptying
-
-                  Awarded with a Which? Best Buy 2019
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+              - text: "Depth: 1243 MM || Height: 210 MM || Width: 250 MM || Carpet Pickup: N ||
+                  Charge Time (in hrs): 3.5 || Cordless: Y || Dust Collection:
+                  Bagless || Filter Type: Whole Machine filtration || Handheld:
+                  Y || Hardfloor Pickup: Y || Run Time (in hrs): .2 || Up to 30
+                  minutes of powerful fade-free suction¹ ¹Applies in powerful
+                  suction mode with non-motorised tool attached. || Lightweight,
+                  only 2.2kg || Direct Drive technology deep cleans carpets and
+                  hard floors || Extra Soft roller cleaner head for hard floor
+                  cleaning - picks up large debris and fine dust. NEW Reach
+                  under tool for easy cleaning under furniture || Changes to a
+                  handheld in one click with 4 cleaning tools for the stairs,
+                  upholstery and car || 2 Tier Radial™ cyclones for no loss of
+                  suction || Certified asthma and allergy friendly™ with
+                  advanced whole-machine filtration || Max power setting for
+                  really stubborn dirt and Hygienic bin emptying || Max power
+                  setting for really stubborn dirt and Hygienic bin emptying ||
+                  Awarded with a Which? Best Buy 2019"
+                xpath: /html/body/div[17]
             brandText:
-              - text: Dyson
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
-            manufacturer:
               - text: Dyson
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
             gtin:
               - text: "5025155046371"
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/p[1]/span[2]/text()[2]
             sku:
-              - text: Q9FAR1A
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/span[1]/text()[1]
+              - text: Q9FAR
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
             variantId:
               - text: "1600458721"
-                xpath: /html/head[1]/meta[26]/@content
+                xpath: /html/head[1]/link[1]/@href
+            ratingCount:
+              - text: "2749"
+                xpath: /html/body/@ratingcount
             aggregateRating:
               - text: "4.6"
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]/span[1]/text()[1]
-            shippingInfo:
-              - text: FREE delivery with Click & Collect on orders £30 or more (product
-                  exclusions apply), and free returns.
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[3]/div[1]/text()[1]
+            name:
+              - text: Dyson Dyson V7 Absolute Vacuum Cleaner
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]
+            brandLink:
+              - text: https://www.very.co.uk/dyson/e/b/4294958017.end
+                xpath: /html/body/div[2]/div[2]/div[4]/ul[1]/li[2]/a[1]/@href
+            firstVariant:
+              - text: Q9FAR
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            variants:
+              - text: Q9FAR
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            additionalDescBulletInfo:
+              - text: "Depth: 1243 MM"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[1]
+              - text: "Height: 210 MM"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[2]
+              - text: "Width: 250 MM"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[3]
+              - text: "Carpet Pickup: N"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[4]
+              - text: "Charge Time (in hrs): 3.5"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[5]
+              - text: "Cordless: Y"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[6]
+              - text: "Dust Collection: Bagless"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[7]
+              - text: "Filter Type: Whole Machine filtration"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[8]
+              - text: "Handheld: Y"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[9]
+              - text: "Hardfloor Pickup: Y"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[10]
+              - text: "Run Time (in hrs): .2"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[11]
+              - text: Up to 30 minutes of powerful fade-free suction¹ ¹Applies in powerful
+                  suction mode with non-motorised tool attached.
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[12]
+              - text: Lightweight, only 2.2kg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[13]
+              - text: Direct Drive technology deep cleans carpets and hard floors
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[14]
+              - text: Extra Soft roller cleaner head for hard floor cleaning - picks up large
+                  debris and fine dust. NEW Reach under tool for easy cleaning
+                  under furniture
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[15]
+              - text: Changes to a handheld in one click with 4 cleaning tools for the stairs,
+                  upholstery and car
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[16]
+              - text: 2 Tier Radial™ cyclones for no loss of suction
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[17]
+              - text: Certified asthma and allergy friendly™ with advanced whole-machine
+                  filtration
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[18]
+              - text: Max power setting for really stubborn dirt and Hygienic bin emptying
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[19]
+              - text: Max power setting for really stubborn dirt and Hygienic bin emptying
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[20]
+              - text: Awarded with a Which? Best Buy 2019
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[21]
             imageZoomFeaturePresent:
               - text: Yes
+                xpath: /html/body/div[16]
             descriptionBullets:
-              - text: "42"
+              - text: "21"
+            variantCount:
+              - text: "0"
         xpath: /
-    timestamp: 1605031870842
+    timestamp: 1606830084682

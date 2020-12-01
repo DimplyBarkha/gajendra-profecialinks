@@ -1,68 +1,74 @@
 input:
   _url: http://very.co.uk
-  URL: https://www.very.co.uk/adidas-youth-boys-must-haves-badge-of-sport-t-shirt-medium-grey-heather/1600425784.prd
+  URL: https://www.very.co.uk/adidas-childrens-logo-short-sleeve-t-shirt-navy/1600388763.prd
 extractions:
-  - html: https://workbench.import.io/html/run=384c3c87-974d-4995-8dbb-476c99d72544/task=aff1f700-2cae-48f0-9bd4-a170f7219e56/afe1b00b-8053-4cab-ac78-4d6802a303ff.html
+  - html: https://workbench.import.io/html/run=384c3c87-974d-4995-8dbb-476c99d72544/task=c59a4029-ec5d-46a8-bbca-a416f4b906dc/a68631b5-9120-4c8b-a6ad-2073cea434cf.html
     extractionConfigId: product/details/stores/v/very/UK/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.very.co.uk/adidas-youth-boys-must-haves-badge-of-sport-t-shirt-medium-grey-heather/1600425784.prd
+              - text: https://www.very.co.uk/adidas-childrens-logo-short-sleeve-t-shirt-navy/1600388763.prd
                 xpath: /html/head[1]/link[1]/@href
             image:
-              - text: https://media.very.co.uk/i/very/PRPCP_SQ1_0000000390_MEDIUM_GREY_HEATHER_SLf?$550x733_standard$
+              - text: https://media.very.co.uk/i/very/PCMUR_SQ1_0000000048_NAVY_SLf?$550x733_standard$&$roundel_very$&p1_img=ve-clearance-roundel
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/div[1]/div[1]/img[1]/@src
             alternateImages:
-              - text: https://media.very.co.uk/i/very/PRPCP_SQ1_0000000390_MEDIUM_GREY_HEATHER_SLf?$70x93_standard$
+              - text: https://media.very.co.uk/i/very/PCMUR_SQ1_0000000048_NAVY_SLf?$70x93_standard$
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/img[1]/@src
-              - text: https://media.very.co.uk/i/very/PRPCP_SQ3_0000000390_MEDIUM_GREY_HEATHER_SLb?$70x93_standard$
+              - text: https://media.very.co.uk/i/very/PCMUR_SQ3_0000000048_NAVY_SLb?$70x93_standard$
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[2]/img[1]/@src
-              - text: https://media.very.co.uk/i/very/PRPCP_SQ4_0000000390_MEDIUM_GREY_HEATHER_SLd?$70x93_standard$
+              - text: https://media.very.co.uk/i/very/PCMUR_SQ4_0000000048_NAVY_SLd?$70x93_standard$
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[3]/img[1]/@src
             metaKeywords:
-              - text: adidas Youth Boys Must Haves Badge of Sport T-Shirt - Medium Grey Heather
+              - text: adidas Childrens Logo Short Sleeve T-Shirt - Navy
                 xpath: /html/head[1]/meta[3]/@content
             nameExtended:
-              - text: adidas Youth Boys Must Haves Badge of Sport T-Shirt - Medium Grey Heather
+              - text: adidas Childrens Logo Short Sleeve T-Shirt - Navy
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]
-            price:
+            listPrice:
               - text: £13
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/text()[1]
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: £2.40
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/text()[1]
             availabilityText:
               - text: Out of Stock
                 xpath: /html/body/div[14]
             description:
-              - text: "Available in ages: 3-16 years || Youth Boys Must Haves Badge of Sport
-                  T-Shirt by adidas || Medium Grey Heather || This super soft
-                  T-shirt is a timeless addition to his wardrobe with its light
-                  grey hue and vibrant yellow logo! || Pure cotton for a
-                  breathable wear || Ribbed crew neck || Short, practical
-                  sleeves"
+              - text: Available in ages 3-16 years || adidas Childrens Logo Short Sleeve T-Shirt
+                  by adidas || Navy || This simply styled tee by adidas is ideal
+                  for kids to match with everything from jeans to joggers. In a
+                  smart navy shade, it's branded with 3 stripe detail to the
+                  short sleeves, plus adidas logo at the chest. || Crew neckline
+                  || Short sleeves
                 xpath: /html/body/div[16]
             brandText:
               - text: adidas
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
             gtin:
-              - text: "4062049511653"
+              - text: "4062049136108"
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/p[1]/span[1]/text()[2]
             sku:
-              - text: PTJ74
+              - text: PD9M4
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
             variantId:
-              - text: "1600425784"
+              - text: "1600388763"
                 xpath: /html/head[1]/link[1]/@href
             ratingCount:
-              - text: "251"
+              - text: "22"
                 xpath: /html/body/@ratingcount
             aggregateRating:
-              - text: "4.8"
+              - text: "5.0"
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]/span[1]/text()[1]
             color:
-              - text: Medium Grey Heather
+              - text: Navy
                 xpath: /html/body/@color
             name:
-              - text: adidas Youth Boys Must Haves Badge of Sport T-Shirt - Medium Grey Heather
+              - text: adidas Childrens Logo Short Sleeve T-Shirt - Navy
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]
+            promotion:
+              - text: (Save up to £12.60)
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[2]/text()[1]
             variantInformation:
               - text: 3-4 YEARS
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[1]/label[1]/@rel
@@ -81,41 +87,41 @@ extractions:
               - text: 15-16 YEARS
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[8]/label[1]/@rel
             firstVariant:
-              - text: PTJ74
+              - text: PD9M4
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
             variants:
-              - text: PTJ74
+              - text: PD9M4
                 xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
-              - text: PTJ76
+              - text: PD9M6
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/meta[1]/@content
-              - text: PTJ77
+              - text: PD9M7
                 xpath: /html/body/div[2]/div[2]/div[1]/div[3]/meta[1]/@content
-              - text: PTJ79
+              - text: PD9M9
                 xpath: /html/body/div[2]/div[2]/div[1]/div[4]/meta[1]/@content
-              - text: PTJ7A
+              - text: PD9KL
                 xpath: /html/body/div[2]/div[2]/div[1]/div[5]/meta[1]/@content
-              - text: PTJ6W
+              - text: PD9LW
                 xpath: /html/body/div[2]/div[2]/div[1]/div[6]/meta[1]/@content
-              - text: PTJ6X
+              - text: PD9LY
                 xpath: /html/body/div[2]/div[2]/div[1]/div[7]/meta[1]/@content
-              - text: PTJ6Y
+              - text: PD9M3
                 xpath: /html/body/div[2]/div[2]/div[1]/div[8]/meta[1]/@content
             additionalDescBulletInfo:
-              - text: "Available in ages: 3-16 years"
+              - text: Available in ages 3-16 years
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[1]
-              - text: Youth Boys Must Haves Badge of Sport T-Shirt by adidas
+              - text: adidas Childrens Logo Short Sleeve T-Shirt by adidas
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[1]
-              - text: Medium Grey Heather
+              - text: Navy
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[2]
-              - text: This super soft T-shirt is a timeless addition to his wardrobe with its
-                  light grey hue and vibrant yellow logo!
+              - text: This simply styled tee by adidas is ideal for kids to match with
+                  everything from jeans to joggers. In a smart navy shade, it's
+                  branded with 3 stripe detail to the short sleeves, plus adidas
+                  logo at the chest.
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[3]
-              - text: Pure cotton for a breathable wear
+              - text: Crew neckline
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[4]
-              - text: Ribbed crew neck
+              - text: Short sleeves
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[5]
-              - text: Short, practical sleeves
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[6]
             ageSuitability:
               - text: 3-16 years
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]/ul[1]/li[1]/text()[1]
@@ -123,8 +129,8 @@ extractions:
               - text: Yes
                 xpath: /html/body/div[15]
             descriptionBullets:
-              - text: "7"
+              - text: "6"
             variantCount:
               - text: "8"
         xpath: /
-    timestamp: 1606830089023
+    timestamp: 1606830087350

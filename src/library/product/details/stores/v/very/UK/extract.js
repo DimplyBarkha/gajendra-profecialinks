@@ -21,6 +21,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     // @ts-ignore
     if (isAvailable !== null && isAvailable.innerText === 'Out of stock') {
       addElementToDocument('isAvailable', 'Out of Stock', 'No');
+    // @ts-ignore
     } else if (document.querySelector('div#addToBasket input#addToBasketButton').value === 'Add to basket') {
       addElementToDocument('isAvailable', 'In Stock', 'Yes');
     } else {
@@ -40,17 +41,18 @@ async function implementation (inputs, parameters, context, dependencies) {
       ? document.querySelector('div.bvReviewsNumber a.productRating').textContent : '';
     const regex = /(\d+)/;
     // @ts-ignore
-    document.querySelector('body').setAttribute('ratingcount', ratingCount.match(regex)[1]);
+    if (ratingCount.match(regex)) document.querySelector('body').setAttribute('ratingcount', ratingCount.match(regex)[1]);
 
     const color = document.querySelector('h1.productHeading span')
       ? document.querySelector('h1.productHeading span').textContent : '';
     const regexColor = /- (.+)$/;
     // @ts-ignore
-    document.querySelector('body').setAttribute('color', color.match(regexColor)[1]);
+    if (color.match(regexColor)) document.querySelector('body').setAttribute('color', color.match(regexColor)[1]);
 
     const description2 = document.querySelectorAll('span[itemprop="description"] ul li');
     const bulletsArr = [description2];
     const bulletsArrSliced = bulletsArr.slice(1);
+    // @ts-ignore
     description2.forEach(e => bulletsArrSliced.push(e.textContent));
     const concatDesc = bulletsArrSliced.join(' || ');
     addElementToDocument('description', concatDesc);

@@ -2,13 +2,13 @@ input:
   _url: http://very.co.uk
   URL: https://www.very.co.uk/under-armour-tech-t-shirt-black/1600262737.prd
 extractions:
-  - html: https://workbench.import.io/html/run=391c06b1-16a6-4634-ae36-378ed113effc/task=3e107890-50b3-4984-bcf5-d95d8c9b27b7/d031d202-7bab-4a39-9bd6-14165c131e69.html
+  - html: https://workbench.import.io/html/run=384c3c87-974d-4995-8dbb-476c99d72544/task=2342474e-ff43-4bc7-a89b-d681862d8bea/a404c251-a119-440e-bf37-2b27ce28144e.html
     extractionConfigId: product/details/stores/v/very/UK/extract
     data:
       - group:
           - productUrl:
               - text: https://www.very.co.uk/under-armour-tech-t-shirt-black/1600262737.prd
-                xpath: /html/head[1]/meta[26]/@content
+                xpath: /html/head[1]/link[1]/@href
             image:
               - text: https://media.very.co.uk/i/very/MNT6Y_SQ1_0000000004_BLACK_MDf?$550x733_standard$
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/div[1]/div[1]/img[1]/@src
@@ -30,69 +30,102 @@ extractions:
             price:
               - text: £23
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[15]
             description:
-              - text: >-
-                  Under Armour Tech Mens T-Shirt
-
-                  Size & Fit
-
-                  Regular fit - order your usual size
-
-                  Model is 6'1" and is wearing size M
-
-                  Details
-
-                  End use – Training
-
-                  Men's Tech T-Shirt by Under Armour
-
-                  Black
-
-                  Be serious about your training with the Tech tee by Under Armour. With the black backdrop, the round neck collar, short sleeve shape and visible stitching, it has a natural-feeling synthetic that wicks sweat away and dries super fast.
-
-                  Raglan sleeves
-
-                  Under Armour logo to chest
-
-                  Material
-
-                  Material Content: 100% Polyester
-
-                  Washing Instructions: Machine Washable
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+              - text: "Regular fit - order your usual size || Model is 6'1\" and is wearing size
+                  M || End use – Training || Men's Tech T-Shirt by Under Armour
+                  || Black || Be serious about your training with the Tech tee
+                  by Under Armour. With the black backdrop, the round neck
+                  collar, short sleeve shape and visible stitching, it has a
+                  natural-feeling synthetic that wicks sweat away and dries
+                  super fast. || Raglan sleeves || Under Armour logo to chest ||
+                  Material Content: 100% Polyester || Washing Instructions:
+                  Machine Washable"
+                xpath: /html/body/div[17]
             brandText:
-              - text: UNDER ARMOUR
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
-            manufacturer:
               - text: UNDER ARMOUR
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
             gtin:
               - text: "192006314288"
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/p[1]/span[1]/text()[2]
             sku:
-              - text: MNT6Y
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/span[1]/text()[1]
+              - text: MPCRT
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
             variantId:
               - text: "1600262737"
-                xpath: /html/head[1]/meta[26]/@content
+                xpath: /html/head[1]/link[1]/@href
+            ratingCount:
+              - text: "16"
+                xpath: /html/body/@ratingcount
             aggregateRating:
               - text: "4.9"
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]/span[1]/text()[1]
-            shippingInfo:
-              - text: FREE delivery with Click & Collect on orders £30 or more (product
-                  exclusions apply), and free returns.
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[4]/div[1]/text()[1]
             color:
               - text: Black
-                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/span[1]/text()[1]
+                xpath: /html/body/@color
+            name:
+              - text: UNDER ARMOUR Tech T-Shirt - Black
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]
+            variantInformation:
+              - text: S
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[1]/label[1]/@rel
+              - text: M
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[2]/label[1]/@rel
+              - text: L
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[3]/label[1]/@rel
+              - text: XL
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[4]/label[1]/@rel
+              - text: 2XL
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[5]/label[1]/@rel
+            firstVariant:
+              - text: MPCRT
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            variants:
+              - text: MPCRT
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+              - text: MPCRR
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/meta[1]/@content
+              - text: MPCRQ
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/meta[1]/@content
+              - text: MPCRU
+                xpath: /html/body/div[2]/div[2]/div[1]/div[4]/meta[1]/@content
+              - text: MPCRP
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/meta[1]/@content
+            additionalDescBulletInfo:
+              - text: Regular fit - order your usual size
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[1]
+              - text: Model is 6'1" and is wearing size M
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[2]
+              - text: End use – Training
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[1]
+              - text: Men's Tech T-Shirt by Under Armour
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[2]
+              - text: Black
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[3]
+              - text: Be serious about your training with the Tech tee by Under Armour. With the
+                  black backdrop, the round neck collar, short sleeve shape and
+                  visible stitching, it has a natural-feeling synthetic that
+                  wicks sweat away and dries super fast.
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[4]
+              - text: Raglan sleeves
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[5]
+              - text: Under Armour logo to chest
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[6]
+              - text: "Material Content: 100% Polyester"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[3]/li[1]
+              - text: "Washing Instructions: Machine Washable"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[3]/li[2]
             materials:
               - text: "Material Content: 100% Polyester"
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[3]/li[1]/text()[1]
-            availabilityText:
-              - text: In Stock
             imageZoomFeaturePresent:
               - text: Yes
+                xpath: /html/body/div[16]
             descriptionBullets:
-              - text: "20"
+              - text: "10"
+            variantCount:
+              - text: "5"
         xpath: /
-    timestamp: 1605031855391
+    timestamp: 1606830092530

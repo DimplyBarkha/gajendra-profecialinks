@@ -1,0 +1,145 @@
+input:
+  _url: http://very.co.uk
+  URL: https://www.very.co.uk/adidas-mts-urban-hooded-tracksuit-inknbsp/1600394998.prd
+extractions:
+  - html: https://workbench.import.io/html/run=384c3c87-974d-4995-8dbb-476c99d72544/task=3880cb82-00fc-49e8-8343-0f44b63045f1/0dafbf65-5f79-4a72-b8e2-b63ee0fbaf4b.html
+    extractionConfigId: product/details/stores/v/very/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.very.co.uk/adidas-mts-urban-hooded-tracksuit-inknbsp/1600394998.prd
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://media.very.co.uk/i/very/PEQE9_SQ1_0000000391_INK_MDf?$550x733_standard$&$roundel_very$&p1_img=ve-clearance-roundel
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://media.very.co.uk/i/very/PEQE9_SQ1_0000000391_INK_MDf?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[1]/img[1]/@src
+              - text: https://media.very.co.uk/i/very/PEQE9_SQ2_0000000391_INK_MDb?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[2]/img[1]/@src
+              - text: https://media.very.co.uk/i/very/PEQE9_SQ4_0000000391_INK_MDd?$70x93_standard$
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/div[1]/li[3]/img[1]/@src
+            metaKeywords:
+              - text: adidas MTS Urban Hooded Tracksuit - Ink
+                xpath: /html/head[1]/meta[3]/@content
+            nameExtended:
+              - text: adidas MTS Urban Hooded Tracksuit - Ink
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]
+            listPrice:
+              - text: £65
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: £38
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/text()[1]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[15]
+            description:
+              - text: "Regular fit - order your usual size || Model is 6'1\" with a 31\" waist
+                  and is wearing a size M || End Use: Training/Lifestyle ||
+                  Men's Urban Hooded Tracksuit by adidas || Ink || In a deep
+                  blue hue, the Urban hooded tracksuit by adidas adds impact to
+                  your laid back looks. Fuelled by Aeroready tech, you're kept
+                  cool and comfortable on the go, while signature detailing and
+                  logos add authenticity. || Aeroready tech sweeps away sweat
+                  and allows it to evaporate || Full zip front and an adjustable
+                  drawcord hood for enhanced coverage || Cuffed sleeves and hem
+                  secure the perfect fit || Front pockets provide handy storage
+                  and warmth || 3 Stripes and a Badge of Sport to both pieces ||
+                  Adjustable drawcord waist provides the perfect fit || Cuffed
+                  at the ankle to show off your sneakers || Shiny tricot fabric
+                  gives a nod to their athletic inspiration"
+                xpath: /html/body/div[17]
+            brandText:
+              - text: adidas
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]/text()[1]
+            gtin:
+              - text: "4062058787049"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/p[1]/span[1]/text()[2]
+            sku:
+              - text: PFAHU
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            variantId:
+              - text: "1600394998"
+                xpath: /html/head[1]/link[1]/@href
+            ratingCount:
+              - text: "31"
+                xpath: /html/body/@ratingcount
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/span[1]/span[1]/text()[1]
+            color:
+              - text: Ink
+                xpath: /html/body/@color
+            name:
+              - text: adidas MTS Urban Hooded Tracksuit - Ink
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/span[1]/h1[1]
+            promotion:
+              - text: (Save £27)
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/text()[1]
+            variantInformation:
+              - text: S
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[1]/label[1]/@rel
+              - text: M
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[2]/label[1]/@rel
+              - text: L
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[3]/label[1]/@rel
+              - text: XL
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[4]/label[1]/@rel
+              - text: 2XL
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/ul[1]/li[1]/ul[1]/li[5]/label[1]/@rel
+            firstVariant:
+              - text: PFAHU
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+            variants:
+              - text: PFAHU
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/meta[1]/@content
+              - text: PFAHT
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/meta[1]/@content
+              - text: PFAHR
+                xpath: /html/body/div[2]/div[2]/div[1]/div[3]/meta[1]/@content
+              - text: PFAHM
+                xpath: /html/body/div[2]/div[2]/div[1]/div[4]/meta[1]/@content
+              - text: PFAHQ
+                xpath: /html/body/div[2]/div[2]/div[1]/div[5]/meta[1]/@content
+            additionalDescBulletInfo:
+              - text: Regular fit - order your usual size
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[1]
+              - text: Model is 6'1" with a 31" waist and is wearing a size M
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[1]/li[2]
+              - text: "End Use: Training/Lifestyle"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[1]
+              - text: Men's Urban Hooded Tracksuit by adidas
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[2]
+              - text: Ink
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[3]
+              - text: In a deep blue hue, the Urban hooded tracksuit by adidas adds impact to
+                  your laid back looks. Fuelled by Aeroready tech, you're kept
+                  cool and comfortable on the go, while signature detailing and
+                  logos add authenticity.
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[4]
+              - text: Aeroready tech sweeps away sweat and allows it to evaporate
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[5]
+              - text: Full zip front and an adjustable drawcord hood for enhanced coverage
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[6]
+              - text: Cuffed sleeves and hem secure the perfect fit
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[7]
+              - text: Front pockets provide handy storage and warmth
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[8]
+              - text: 3 Stripes and a Badge of Sport to both pieces
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[9]
+              - text: Adjustable drawcord waist provides the perfect fit
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[10]
+              - text: Cuffed at the ankle to show off your sneakers
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[11]
+              - text: Shiny tricot fabric gives a nod to their athletic inspiration
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]/ul[2]/li[12]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[16]
+            descriptionBullets:
+              - text: "14"
+            variantCount:
+              - text: "5"
+        xpath: /
+    timestamp: 1606830083634
