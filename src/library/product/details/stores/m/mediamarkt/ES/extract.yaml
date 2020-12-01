@@ -1,7 +1,5 @@
 extends: ../TR/extract
 fields:
-  - name: description
-    xpath: //article[@class="description"]/*[not(@id="featuresComponent")][not(contains(text(),"Descripción"))]
   - name: shippingDimensions
     xpath: //div[@id="features"]//dt[contains(.,"Tamaño embalaje")]/following-sibling::dd[1]
   - name: shippingWeight
