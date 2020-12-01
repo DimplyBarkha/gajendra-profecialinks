@@ -21,7 +21,6 @@ fields:
     singleValue: false
     type: TEXT[]
     description: The categories (e.g. from breadcrumbs)
-    # xpath: (//div[@id='breads']//span[position()>1 and position()<6])//text()
     xpath: //div[@id='breads']//span[position()>1 and position()<10]/following-sibling::span[not(contains(@class,'active'))]
   - name: nameExtended
     singleValue: true
@@ -30,13 +29,11 @@ fields:
     xpath: //h1[@itemprop='name']//text()
   - name: price
     singleValue: true
+    type: CURRENCY
     description: The stated undiscounted price for the product.
-    xpath: //div[@class='itemPrices']//span[@class='pri']//text()
+    xpath: //div[@class='itemPrices']//span[@data-e2e='product-price']
   - name: online_price
     singleValue: true
-    type: CURRENCY
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -79,10 +76,9 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    type: NUMBER
     description: GTIN code (includes UPC/EAN)
     manualSelector: script[type='text/javascript']
-    regExp: '(upc)([^"].*)'
+    regExp: '(upc: ")(\d+)'
     regExpReplace: $2
   - name: sku
     singleValue: true
@@ -112,7 +108,6 @@ fields:
     description: The number of ratings
     xpath: //div[@class='productMain']//div[@class='pr-snippet-rating-decimal']//text()
   - name: ratingCount
-    type: NUMBER
     description: The stated aggregate rating
     xpath: //div[@class='productMain']//a[@class='pr-snippet-review-count']//text()
   - name: shippingInfo
@@ -128,8 +123,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-    xpath: //div[@class='varThumbs']/h3//text()
-    defaultValue: $0
+    xpath: count(//div[@class='productMain']//div[@class='options']//button)
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -485,7 +479,6 @@ fields:
       this will need analysis
     xpath: //div[@class='wishlistPopout']/@data-productsku
   - name: variants
-    type: TEXT[]
     xpath: //div[@class='productMain']//div[@id='productSizeStock']/button/@data-sku
   - name: additionalDescBulletInfo
     singleValue: false
