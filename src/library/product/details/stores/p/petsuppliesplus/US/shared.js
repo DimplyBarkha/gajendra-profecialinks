@@ -48,11 +48,20 @@ const cleanUp = (data, context) => {
           row.quantity[0].text = '';
         }
       }
-      if (row.variantInformation) {
-        if (row.variantInformation[0].text.includes('undefined')) {
-          row.variantInformation[0].text = '';
-        }
-      }
+      // if (row.variantInformation) {
+      //   if (row.variantInformation[0].text.includes('undefined')) {
+      //     row.variantInformation[0].text = '';
+      //   }
+      // }
+      // if (row.quantity && row.variantInformation) {
+      //   if (row.quantity[0].text.includes('undefined') && row.variantInformation[0].text) {
+      //     row.variantInformation[0].text = `${row.variantInformation[0].text}`;
+      //   } else if (row.variantInformation[0].text.includes('undefined') && row.quantity[0].text) {
+      //     row.variantInformation[0].text = `${row.quantity[0].text}`;
+      //   } else {
+      //     row.variantInformation[0].text = `${row.variantInformation[0].text} ${row.quantity[0].text}`;
+      //   }
+      // }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

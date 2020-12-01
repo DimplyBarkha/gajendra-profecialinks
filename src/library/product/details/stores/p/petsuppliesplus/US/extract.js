@@ -31,7 +31,7 @@ async function implementation(
     // const primaryImage = secondaryImages && secondaryImages.slice(0, 1);
     // const secondaryImagesTotal = secondaryImagesArray && secondaryImagesArray.length;
     // const secondaryImageData = secondaryImagesArray && secondaryImagesArray.map((element) => element.trim()).join('|');
-    const sizeArray = productData && productData.ProductVarientViewModelList && productData.ProductVarientViewModelList.map(element => element && element.VariantAttributes[0] && element.VariantAttributes[0].Data);
+    // const sizeArray = productData && productData.ProductVarientViewModelList && productData.ProductVarientViewModelList.map(element => element && element.VariantAttributes[0] && element.VariantAttributes[0].Data);
     const actualSku = productData && productData.ProductId;
     const nameArray = productData && productData.ProductVarientViewModelList && productData.ProductVarientViewModelList.map(element => element && element.SkuVariantName);
     const ingredientInformationArray = productData && productData.ProductVarientViewModelList && productData.ProductVarientViewModelList.map(element => element && element.IngredientsComposition);
@@ -70,6 +70,35 @@ async function implementation(
       finalPrimaryImageArray.push(primaryImage);
       secondaryImageTotal.push(totalSecondaryImages);
     })
+    function getSizeAndFlavor() {
+      const productData = window && window.ProductDetail && window.ProductDetail.productObj;
+      const sizeArray = [];
+      const flavourArray = [];
+      productData && productData.ProductVarientViewModelList && productData.ProductVarientViewModelList.forEach((element, index) => {
+        element && element.VariantAttributes && element.VariantAttributes.forEach((element, index) => {
+          if (element && element.Key == "Flavors") {
+            if (element.Data != undefined) {
+              flavourArray.push(element.Data);
+            } else {
+              flavourArray.push('');
+            }
+          }
+          if (element && element.Key == "Product Size") {
+            if (element.Data != undefined) {
+              sizeArray.push(element.Data);
+            } else {
+              sizeArray.push('');
+            }
+          }
+        })
+      })
+      return {
+        sizeArray: sizeArray,
+        flavourArray: flavourArray
+      }
+    }
+    const { sizeArray, flavourArray } = getSizeAndFlavor();
+
     if (variantId.length) {
       variantId.forEach((element, index) => {
         const variantElement = document.createElement('div');
@@ -80,6 +109,7 @@ async function implementation(
         variantElement.setAttribute('upc', sku[index]);
         variantElement.setAttribute('availability', availabilityStatus[index]);
         variantElement.setAttribute('size', sizeArray[index]);
+        variantElement.setAttribute('flavour', flavourArray[index]);
         variantElement.setAttribute('sku', actualSku);
         variantElement.setAttribute('name', nameArray[index]);
         variantElement.setAttribute('ingredientinfo', ingredientInformationArray[index]);
