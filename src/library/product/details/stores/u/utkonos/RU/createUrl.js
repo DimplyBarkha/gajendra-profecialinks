@@ -1,11 +1,12 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'utkonos.ru',
-    timeout: 500000,
+    prefix: null,
+    url: null,
     country: 'RU',
     store: 'utkonos',
-    zipcode: "''",
+    zipcode: '',
   },
 };
