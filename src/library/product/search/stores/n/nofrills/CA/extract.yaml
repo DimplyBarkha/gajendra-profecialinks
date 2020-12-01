@@ -17,10 +17,10 @@ fields:
     xpath: //div[@class='product-tile__thumbnail']//div[@class='product-tile__thumbnail__image']//img/@src    
   - name: name
     singleValue: false
-    xpath: //div[@class='product-tile__details']//h3[@class='product-tile__details__info__name']//a[@class='product-tile__details__info__name__link']  
+    xpath: concat(//h3[@class='product-tile__details__info__name']//span[@class='product-name product-name--product-tile']//span[@class='product-name__item product-name__item--brand'], ' ' ,//h3[@class='product-tile__details__info__name']//span[@class='product-name product-name--product-tile']//span[@class='product-name__item product-name__item--name'])
   - name: price
     singleValue: false
-    xpath: //div[@class='product-tile__details']//li[@class='selling-price-list__item']//span[@class='price selling-price-list__item__price selling-price-list__item__price--now-price']  
+    xpath: //div[@class='product-tile__details']//li[@class='selling-price-list__item']//span[@class='price selling-price-list__item__price selling-price-list__item__price--now-price']//span[@class='price__value selling-price-list__item__price selling-price-list__item__price--now-price__value']
   - name: rank
     singleValue: false
   - name: rankOrganic
