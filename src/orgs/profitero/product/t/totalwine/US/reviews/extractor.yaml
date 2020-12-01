@@ -4,6 +4,15 @@ parameters:
   domain: totalwine.com
   store: totalwine
   zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 20
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     staging:
