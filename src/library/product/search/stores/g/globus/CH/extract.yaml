@@ -22,7 +22,7 @@ fields:
     xpath: //div[@class='mzg-components-module-product-listing__item__caption']//p[@class='text-uppercase']
   - name: price
     singleValue: false
-    xpath: //span[@class='mzg-component-price']//span[@class='mzg-component-price__original']
+    xpath: //span[@class='mzg-component-price']//span[@class='mzg-component-price__original' or @class='mzg-component-price__original mzg-component-price__original_sale']
   - name: rank
     singleValue: false
   - name: rankOrganic
