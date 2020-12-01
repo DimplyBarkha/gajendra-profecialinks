@@ -25,7 +25,11 @@ module.exports = {
     } else {
       url += '?pageSize=150';
     }
+    url = url + '#[!opt!]{"cookie_jar":[{"name":"twm-userStoreInformation","value":"ispStore~402:ifcStore~null@ifcStoreState~US-MD@method~INSTORE_PICKUP"}]}[/!opt!]';
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
+    if (await context.evaluate(() => !!document.querySelector('img[src*="NotFoundPage"]'))) {
+      throw new Error('Error: Whoops!, Sorry we’re coming up dry.');
+    }
     await context.waitForSelector('#avg-rating-button').catch(err => { console.log('No rating found', err); });
     // console.log(zipcode);
     // if (zipcode) {
