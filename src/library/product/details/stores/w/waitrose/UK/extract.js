@@ -14,7 +14,7 @@ module.exports = {
     { country, domain, transform },
     context,
     { productDetails }) => {
-      //remove cookies popup
+    // remove cookies popup
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
       const cookies = document.querySelector('div.acceptCookieCTA___NwqHh button');
@@ -48,15 +48,15 @@ module.exports = {
       for (let i = 0; i < data[k].group.length; i++) {
         if ('legalDisclaimer' in data[k].group[i]) {
           for (let j = 0; j < data[k].group[i].legalDisclaimer.length; j++) {
-          data[k].group[i].legalDisclaimer[k].text += data[k].group[i].legalDisclaimer[j].text;
+            data[k].group[i].legalDisclaimer[k].text += data[k].group[i].legalDisclaimer[j].text;
           }
-          data[k].group[i].legalDisclaimer.splice(1, data[k].group[i].legalDisclaimer.length-1);
+          data[k].group[i].legalDisclaimer.splice(1, data[k].group[i].legalDisclaimer.length - 1);
         }
         if ('recyclingInformation' in data[k].group[i]) {
           for (let j = 0; j < data[k].group[i].recyclingInformation.length; j++) {
-          data[k].group[i].recyclingInformation[k].text += ', ' + data[k].group[i].recyclingInformation[j].text;
+            data[k].group[i].recyclingInformation[k].text += ', ' + data[k].group[i].recyclingInformation[j].text;
           }
-          data[k].group[i].recyclingInformation.splice(1, data[k].group[i].recyclingInformation.length-1);
+          data[k].group[i].recyclingInformation.splice(1, data[k].group[i].recyclingInformation.length - 1);
         }
       }
     }
