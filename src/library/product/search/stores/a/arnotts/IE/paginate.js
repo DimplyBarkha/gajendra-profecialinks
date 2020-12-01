@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'IE',
     store: 'arnotts',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div.products__load-more.js-product-load-more',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,

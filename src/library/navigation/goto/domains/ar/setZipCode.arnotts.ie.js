@@ -5,6 +5,6 @@ module.exports = {
     country: 'IE',
     domain: 'arnotts.ie',
     store: 'arnotts',
-    zipcode: "''",
+    zipcode: '',
   },
 };
