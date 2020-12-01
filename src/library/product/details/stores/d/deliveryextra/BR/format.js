@@ -16,12 +16,6 @@ const transform = (data) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  if (data[1]) {
-    if (data[1].group[0].manufacturerDescription) {
-      const a = data[0].group[0];
-      a.manufacturerDescription = data[1].group[0].manufacturerDescription;
-    }
-  }
   for (const { group } of data) {
     for (const row of group) {
       if (row.alternateImages) {
