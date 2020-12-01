@@ -5,6 +5,9 @@ recordXPath: null
 fields:
   - name: batteryInfo
     xpath: //tr[contains(.,'Potencia')]//b
+  - name: promoText
+    singleValue: false
+    xpath: //span[contains(@class,"f-productOffer-optionType")] | //span[contains(@class,"f-productOffer-commercial")]
   - name: _input
     xpath: //link[@rel="canonical"]/@href
   - name: clearProductName
@@ -16,7 +19,8 @@ fields:
   - name: imageCount
     xpath: count((//div[@class="slick-track"])[1]//div[@data-type="image"][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))]/@data-src)
   - name: videoCount
-    xpath: count(//div[@class="slick-track"]//div[contains(@class,'f-productVisuals-thumbnail--video')][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))])
+    xpath: count(//meta[@itemprop="contentURL"]/@content[1] | //iframe[contains(@id,'flix-iframe')]/@src)
+    # xpath: count(//div[@class="slick-track"]//div[contains(@class,'f-productVisuals-thumbnail--video')][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))])
   - name: ratingScale
     defaultValue: 5
   - name: ratingDistribution
