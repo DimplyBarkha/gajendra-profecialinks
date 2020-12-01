@@ -58,7 +58,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //span[@class="rating-percent"]/text()
+    xpath: //html//div[@id="agr"]
   - name: name
     singleValue: true
     description: The product name
