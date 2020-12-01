@@ -27,8 +27,8 @@ fields:
   - name: price
     singleValue: false
     #xpath: //div//span['NVfoXb']/b/text()
-    xpath: (//tr[position()=1]//div[@class='QXiyfd']//div)[1]
-    regExp: (.+)
+    xpath: //div[contains(@class, 'price')]
+    regExp: (.*) at
     regExpReplace: $1
   - name: availabilityText
     singleValue: false
@@ -102,7 +102,9 @@ fields:
   - name: shippingInfo
     singleValue: false
     #xpath: //section[@id='online']//tr//td//div//a/span[not(@class)]
-    xpath: //section[@id='online']//div[@class='u5QDkd']//table//tbody//tr//td//div//a[@class='sh-osd__seller-link shntl']//span[position()=1]
+    xpath: //div[contains(@class, 'price')]
+    regExp: at (.*)
+    regExpReplace: $1 
   - name: shippingDimensions
     singleValue: false
     xpath: //div[@id="added-shippingDimensions"]
