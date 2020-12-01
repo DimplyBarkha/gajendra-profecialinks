@@ -28,7 +28,7 @@ module.exports = {
 
       const isEanSelector = document.querySelector('h2.product-description-ean');
       if (isEanSelector) {
-        const sku = isEanSelector.textContent.split(' ')[1].split('-')[0];
+        const sku = isEanSelector.textContent;
         document.querySelector('h1[itemprop="name"]').setAttribute('sku', sku);
       }
     });
