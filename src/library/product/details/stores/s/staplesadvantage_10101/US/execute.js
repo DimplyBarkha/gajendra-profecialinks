@@ -102,20 +102,6 @@ module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
     country: 'US',
-    store: 'staplesadvantage',
-    domain: 'staplesadvantage.com',
-    url: 'https://www.staplesadvantage.com//product_{id}',
-    loadedSelector: 'div.js-content>div',
-    noResultsXPath: "//div[@class='errorpage__error_page']",
-    zipcode: '',
-  },
-  implementation,
-};
-
-module.exports = {
-  implements: 'product/details/execute',
-  parameterValues: {
-    country: 'US',
     store: 'staplesadvantage_10101',
     domain: 'staplesadvantage.com',
     loadedSelector: 'div.js-content>div',
