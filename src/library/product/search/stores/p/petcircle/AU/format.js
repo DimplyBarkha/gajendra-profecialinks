@@ -37,6 +37,31 @@ const transform = (data) => {
         if(row.name){
           row.name[0].text = row.name[0].text.split(',')[0]
         }
+        if(row.aggregateRating2){
+          var srtRating = ''
+          var strRatingCount = 0
+          srtRating = row.aggregateRating2[0].text.match(/one|two|three|four|five/g)
+          switch(srtRating[0]){
+            case 'one':
+              strRatingCount = 1
+              break;
+            case 'two':
+              strRatingCount = 2
+              break;
+            case 'three':
+              strRatingCount = 3
+              break;
+            case 'four':
+              strRatingCount = 4
+              break;
+            case 'five':
+              strRatingCount = 5
+              break;
+            default:
+             strRatingCount = 0
+          }
+          row.aggregateRating2[0].text = strRatingCount
+        }
         if(row.productUrl){
           row.productUrl[0].text = 'https://www.petcircle.com.au' + row.productUrl[0].text
         }
