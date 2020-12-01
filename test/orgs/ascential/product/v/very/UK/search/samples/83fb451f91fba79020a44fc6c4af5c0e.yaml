@@ -1,0 +1,78 @@
+input:
+  keywords: jenga
+  _url: http://very.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=b0c95c13-fe7c-41fe-ae32-1b939e6c59ca/task=229534df-b0c3-4f69-bf15-5c1098469f03/152421ac-526d-4148-b89f-0a2d4499e167.html
+    extractionConfigId: product/search/stores/v/very/UK/extract
+    data:
+      - group:
+          - id:
+              - text: "1600321603"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[1]/@data-sdg-id
+            name:
+              - text: Hasbro Jenga
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[1]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.very.co.uk/hasbro-jenga/1600321603.prd?Ntt=jenga
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://media.very.co.uk/i/very/NFHUN_SQ1_0000000099_N_A_SLf/hasbro-jenga.jpg?$234x312_standard$&$roundel_very$&p1_img=v_must_have_opaque
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[1]/div[2]/div[1]/div[2]/a[1]/span[1]
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[1]/div[2]/div[1]/div[2]/a[1]/span[1]
+            price:
+              - text: £12.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[1]/div[2]/dl[1]/a[1]/@price
+            manufacturer:
+              - text: Hasbro
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[1]/div[2]/a[1]/h3[1]/em[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[1]/div[2]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            searchUrl:
+              - text: https://www.very.co.uk/e/q/jenga.end
+                xpath: /html/body/div[8]
+          - id:
+              - text: "1600499117"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[2]/@data-sdg-id
+            name:
+              - text: "Hasbro Jenga: Super Mario Edition Game"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.very.co.uk/hasbro-jenga-super-mario-edition-game/1600499117.prd?Ntt=jenga
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://media.very.co.uk/i/very/QNMPJ_SQ1_0000000088_NO_COLOR_SLf/hasbro-jenga-super-mario-edition-game.jpg?$234x312_standard$
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[2]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[2]/div[2]/div[1]/div[2]/a[1]/span[1]
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[2]/div[2]/div[1]/div[2]/a[1]/span[1]
+            price:
+              - text: £19.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[2]/div[2]/dl[1]/a[1]/@price
+            manufacturer:
+              - text: Hasbro
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[2]/div[2]/a[1]/h3[1]/em[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/ul[1]/li[2]/div[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+            searchUrl:
+              - text: https://www.very.co.uk/e/q/jenga.end
+                xpath: /html/body/div[8]
+        xpath: /html
+    timestamp: 1606829641970
