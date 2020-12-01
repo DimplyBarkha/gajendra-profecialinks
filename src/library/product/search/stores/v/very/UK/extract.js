@@ -21,28 +21,30 @@ async function implementation (inputs, parameters, context, dependencies) {
     var prices = document.querySelectorAll('a[class="productPrice"]');
 
     prices.forEach((element) => {
-      let price = '';
+      let price = null;
       if (element.querySelector('dd[class="productPrice"')) {
         price = element.querySelector('dd[class="productPrice"').textContent;
       } else if (element.querySelector('dd[class="productNowPrice"')) {
         price = element.querySelector('dd[class="productNowPrice"').textContent;
       }
 
-      if (price !== '') {
+      if (price) {
         price = price.replace(/(\r\n|\n|\r)/gm, '');
         const results = price.match(/.\d+\.?(\d+)?/gm);
 
-        element.setAttribute('price', results[0].toString());
+        if (results[0]) {
+          element.setAttribute('price', results[0].toString());
+        }
       }
     });
   });
 
   await context.evaluate(async () => {
     // add rank
-    var prices = document.querySelectorAll(
+    var products = document.querySelectorAll(
       'ul[class="productList"] div[class="productInfo"]');
 
-    prices.forEach((element, index) => {
+    products.forEach((element, index) => {
       element.setAttribute('rank', (index + 1).toString());
     });
   });
