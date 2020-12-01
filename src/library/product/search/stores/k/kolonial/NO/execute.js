@@ -5,7 +5,7 @@ module.exports = {
     country: 'NO',
     store: 'kolonial',
     domain: 'kolonial.no',
-    url: 'https://kolonial.no/sok/?q=Chips',
+    url: 'https://kolonial.no/sok/?q={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
