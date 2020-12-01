@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'lenstore.co.uk',
     prefix: null,
-    url: 'https://www.lenstore.co.uk/acuvue/monthly-disposables/acuvue-vita_p474',
+    url: null,
     country: 'UK',
     store: 'lenstore',
     zipcode: '',
