@@ -2,7 +2,7 @@ input:
   _url: http://viking.de
   URL: https://www.viking.de/de/tork-hand-and-body-lotion-420202-475-ml-p-6621909
 extractions:
-  - html: https://workbench.import.io/html/run=085b7643-efa6-4c5f-9bae-2b3007e5bcb9/task=5f4e9788-e63e-4768-bdf9-50f9278913fc/d1336751-8338-4780-a632-000c36c3aaff.html
+  - html: https://workbench.import.io/html/run=f108b7aa-8450-4abf-9b3d-7f039a4b5462/task=41f2f021-1c7f-433d-a742-db3f0034e7cc/9a9231c3-12fb-4bb2-ab14-abceeb799ab9.html
     extractionConfigId: product/details/stores/v/viking/DE/extract
     data:
       - group:
@@ -34,7 +34,7 @@ extractions:
               - text: Tork Hand und Body Lotion S2 Premium Neutral 8 Stück à 475 ml
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
             price:
-              - text: 76,99 €
+              - text: 63,99 €
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             availabilityText:
               - text: Aktuell verfügbar
@@ -63,95 +63,6 @@ extractions:
             packSize:
               - text: Pack 8
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[13]/td[2]
-            shippingInfo:
-              - text: >-
-                  Wir liefern kostenlos ab einem Warenwert von 49,- €
-                  (zzgl.USt).
-                   
-                  Bei Bestellungen unter 49,- € erheben wir eine Lieferpauschale von 4,90 € (zzgl. USt). Sie setzt sich zusammen aus 2,95 € Versandkosten und 1,95 € Versicherungspauschale, wobei die Versicherungspauschale bei jeder Lieferung berechnet wird.
-                   
-                  Bei Teillieferungen wird die Liefergebühr auch auf der Grundlage des Gesamtbetrages (exkl. MwSt.) Ihrer Bestellung berechnet. 
-                   
-                  Klicken Sie hier für aktuelle Informationen zu Bestellung und Lieferung während COVID-19.
-                   
-                  Einige Produkte, die direkt vom Hersteller geliefert werden, können unter Umständen vom freien Versand ausgeschlossen sein.
-                   
-                  Wann wird meine Bestellung geliefert bzw. wie sind die Lieferzeiten?
-                   
-
-                   
-
-                   
-
-                   
-                  Bestelltag
-                   
-                  Liefertag*
-                   
-
-                   
-
-                   
-                  Montag bis Donnerstag vor 17:00 Uhr
-                   
-                  nächster Werktag*
-                   
-
-                   
-
-                   
-                  Montag bis Donnerstag nach 17:00 Uhr
-                   
-                  übernächster Werktag*
-                   
-
-                   
-
-                   
-                  Freitag vor 17:00 Uhr
-                   
-                  Montag
-                   
-
-                   
-
-                   
-                  Freitag nach 17:00 Uhr
-                   
-                  Dienstag
-                   
-
-                   
-
-                   
-                  Samstag
-                   
-                  Dienstag
-                   
-
-                   
-
-                   
-                  Sonntag
-                   
-                  Dienstag
-                   
-
-                   
-
-                   
-                  *Werktage: Montag bis Freitag
-                   
-                  Auslieferzeit: 08:00 bis 18:00 Uhr
-                   
-
-                   
-
-                   
-
-                   
-                  Bitte beachten Sie, für Direktlieferungsartikeln beträgt Lieferzeit 1-4 Werktage (Mo.-Fr.), für Möbel kann die Anlieferung bis zu 21 Werktage (Mo.-Fr.) in Anspruch nehmen.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[1]
             color:
               - text: Weiß
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
@@ -176,6 +87,9 @@ extractions:
             recyclingInformation:
               - text: Nordic Swan
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            promotion:
+              - text: -16%
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/@id
@@ -190,4 +104,4 @@ extractions:
             customerServiceAvailability:
               - text: No
         xpath: /
-    timestamp: 1606131715718
+    timestamp: 1606806178310

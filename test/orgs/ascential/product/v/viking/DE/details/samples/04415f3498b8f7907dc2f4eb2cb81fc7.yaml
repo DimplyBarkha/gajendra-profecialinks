@@ -2,7 +2,7 @@ input:
   _url: http://viking.de
   URL: https://www.viking.de/de/tork-servietten-wei-p-1027698
 extractions:
-  - html: https://workbench.import.io/html/run=085b7643-efa6-4c5f-9bae-2b3007e5bcb9/task=13afc122-5f70-4ca0-8d10-15cb36f502fa/ba1ca09b-3155-44c3-aa23-98c35374a18a.html
+  - html: https://workbench.import.io/html/run=f108b7aa-8450-4abf-9b3d-7f039a4b5462/task=aa1db033-a74a-4a81-861e-56975b097d79/1343e1b8-2e46-40a4-9650-086d5f5df91e.html
     extractionConfigId: product/details/stores/v/viking/DE/extract
     data:
       - group:
@@ -15,6 +15,13 @@ extractions:
             imageAlt:
               - text: Tork Servietten 32,5 x 32,5 cm Weiß 8 Stück à 500 Blatt
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
+            alternateImages:
+              - text: https://static.viking.de/is/image/odeu13/%211027698_alt1?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[2]/div[1]/@style
+              - text: https://static.viking.de/is/image/odeu13/%211027698_alt2?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[3]/div[1]/@style
+              - text: https://static.viking.de/is/image/odeu13/%211027698_alt3?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[4]/div[1]/@style
             metaKeywords:
               - text: Tork,Servietten,32,5,x,cm,Weiß,8,Stück,à,500,Blatt,Bewirtung,&,Küche,Tischgedeck,Servietten
                 xpath: /html/head[1]/meta[5]/@content
@@ -57,95 +64,6 @@ extractions:
             packSize:
               - text: Pack 8
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
-            shippingInfo:
-              - text: >-
-                  Wir liefern kostenlos ab einem Warenwert von 49,- €
-                  (zzgl.USt).
-                   
-                  Bei Bestellungen unter 49,- € erheben wir eine Lieferpauschale von 4,90 € (zzgl. USt). Sie setzt sich zusammen aus 2,95 € Versandkosten und 1,95 € Versicherungspauschale, wobei die Versicherungspauschale bei jeder Lieferung berechnet wird.
-                   
-                  Bei Teillieferungen wird die Liefergebühr auch auf der Grundlage des Gesamtbetrages (exkl. MwSt.) Ihrer Bestellung berechnet. 
-                   
-                  Klicken Sie hier für aktuelle Informationen zu Bestellung und Lieferung während COVID-19.
-                   
-                  Einige Produkte, die direkt vom Hersteller geliefert werden, können unter Umständen vom freien Versand ausgeschlossen sein.
-                   
-                  Wann wird meine Bestellung geliefert bzw. wie sind die Lieferzeiten?
-                   
-
-                   
-
-                   
-
-                   
-                  Bestelltag
-                   
-                  Liefertag*
-                   
-
-                   
-
-                   
-                  Montag bis Donnerstag vor 17:00 Uhr
-                   
-                  nächster Werktag*
-                   
-
-                   
-
-                   
-                  Montag bis Donnerstag nach 17:00 Uhr
-                   
-                  übernächster Werktag*
-                   
-
-                   
-
-                   
-                  Freitag vor 17:00 Uhr
-                   
-                  Montag
-                   
-
-                   
-
-                   
-                  Freitag nach 17:00 Uhr
-                   
-                  Dienstag
-                   
-
-                   
-
-                   
-                  Samstag
-                   
-                  Dienstag
-                   
-
-                   
-
-                   
-                  Sonntag
-                   
-                  Dienstag
-                   
-
-                   
-
-                   
-                  *Werktage: Montag bis Freitag
-                   
-                  Auslieferzeit: 08:00 bis 18:00 Uhr
-                   
-
-                   
-
-                   
-
-                   
-                  Bitte beachten Sie, für Direktlieferungsartikeln beträgt Lieferzeit 1-4 Werktage (Mo.-Fr.), für Möbel kann die Anlieferung bis zu 21 Werktage (Mo.-Fr.) in Anspruch nehmen.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/section[1]/div[1]
             color:
               - text: Weiß
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
@@ -173,4 +91,4 @@ extractions:
             customerServiceAvailability:
               - text: No
         xpath: /
-    timestamp: 1606131725858
+    timestamp: 1606806180280
