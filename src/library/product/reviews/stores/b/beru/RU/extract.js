@@ -1,5 +1,37 @@
 const { transform } = require('../../../../shared');
-async function preExtraction () {
+async function preExtraction (context) {
+  await context.evaluate(async function () {
+    const reviews = document.querySelectorAll('div[data-zone-name="review"]');
+    reviews.forEach((review) => {
+      const upperDiv = document.createElement('div');
+      upperDiv.setAttribute('class', 'iio_reviews');
+      upperDiv.style.display = 'none';
+
+      const reviewText = review.querySelector('span').closest('div[data-tid]').parentNode.parentNode.textContent;
+      let reviewNum = '';
+      switch (reviewText) {
+        case 'Ужасный товар':
+          reviewNum = '1';
+          break;
+        case 'Плохой товар':
+          reviewNum = '2';
+          break;
+        case 'Обычный товар':
+          reviewNum = '3';
+          break;
+        case 'Хороший товар':
+          reviewNum = '4';
+          break;
+        case 'Отличный товар':
+          reviewNum = '5';
+          break;
+        default:
+          reviewNum = '';
+      }
+      upperDiv.setAttribute('data-reviewRating', reviewNum);
+      review.append(upperDiv);
+    });
+  });
   try {
     await context.evaluate(() => {
       Array.from(document.querySelectorAll('.commentText .b_8lynrUTtGG')).forEach(elm => elm.click());

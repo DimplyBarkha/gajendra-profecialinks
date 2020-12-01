@@ -44,7 +44,13 @@ async function implementation (
     const selectors = sortButtonSelectors.split('|');
     for (const [i, selector] of selectors.entries()) {
       console.log(selector, selectors[i + 1]);
-      await context.click(selector);
+      try {
+        await context.click(selector);
+      } catch (error) {
+        await context.evaluate(function (selector) {
+          document.querySelector(selector).click();
+        }, selector);
+      }
       if (i < selectors.length - 1) {
         console.log('waiting for selector', selectors[i + 1]);
         await context.waitForSelector(selectors[i + 1]);

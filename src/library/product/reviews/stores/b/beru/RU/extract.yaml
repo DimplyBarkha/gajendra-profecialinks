@@ -11,15 +11,20 @@ fields:
   - name: reviewDate
     type: DATETIME
     description: Date the review was made
-    xpath: //div[@class="b_I_N6IMOcwb"]
+    xpath: //div[@class="b_I_N6IMOcwb"]|//div[1]//div[4]
   - name: reviewRating
-    type: NUMBER
+    # type: NUMBER
     singleValue: false
     description: Rating normalized to be out of 5
-    xpath: //@review-rating
+    xpath: //div/@data-reviewrating[1]
+    # xpath: //span//ancestor::div[contains(@data-tid, "")]//div//div[contains(text(), "Хороший товар")]|//span//ancestor::div[contains(@data-tid, "")]//div//div[contains(text(), "Плохой товар")]|//span//ancestor::div[contains(@data-tid, "")]//div//div[contains(text(), "Обычный товар")]|//span//ancestor::div[contains(@data-tid, "")]//div//div[contains(text(), "Хороший товар")]|//span//ancestor::div[contains(@data-tid, "")]//div//div[contains(text(), "Отличный товар")]
+    # xpath: //@review-rating|//div/@data-reviewrating
   - name: reviewText
     description: The text of the review
-    xpath: //span[contains(@class,"commentText")]
+    # xpath: concat(//span[contains(text(), "Достоинства")], " ", //span[contains(text(), "Достоинства")]//following-sibling::span, //span[contains(text(), "Недостатки")], " ", //span[contains(text(), "Недостатки")]//following-sibling::span, //span[contains(text(), "Комментарий")], " ", //span[contains(text(), "Комментарий")]//following-sibling::span)
+    # xpath: //span[contains(text(), "Достоинства")]//ancestor::div[1]//ancestor::div[1]|//span[contains(text(), "Недостатки")]//ancestor::div[1]//ancestor::div[1]|//span[contains(text(), "Комментарий")]//ancestor::div[1]//ancestor::div[1]
+    xpath: //span[contains(text(), "Достоинства")]|//span[contains(text(), "Достоинства")]//following-sibling::span|//span[contains(text(), "Недостатки")]| //span[contains(text(), "Недостатки")]//following-sibling::span|//span[contains(text(), "Комментарий")]|//span[contains(text(), "Комментарий")]//following-sibling::span
+    # xpath: //span[contains(text(), "Достоинства")]//ancestor::div[1]|//span[contains(text(), "Недостатки")]//ancestor::div[1]|//span[contains(text(), "Комментарий")]//ancestor::div[1]
   - name: reviewTitle
     singleValue: false
     description: The title of the review
