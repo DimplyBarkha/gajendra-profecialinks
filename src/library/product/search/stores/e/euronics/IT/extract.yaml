@@ -36,8 +36,11 @@ fields:
   - name: endorsementText
     singleValue: false
   - name: rank
+    singleValue: false
     xpath: //input[contains(@id, 'log_position')]/@rank
   - name: rankOrganic
+    singleValue: false
+    xpath: //input[contains(@id, 'log_position')]/@rankOrganic
   - name: sponsored
     defaultValue: false
 
