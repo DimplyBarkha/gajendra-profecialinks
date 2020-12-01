@@ -44,7 +44,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[@class="product-details"]
+    xpath: '@additional-description'
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -78,7 +78,7 @@ fields:
     xpath: //span[@itemprop="sku"]
   - name: mpc
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@id="features"]//dt[contains(.,"MPN") or contains(.,"mpn")]/following-sibling::dd[1]
+    xpath: //span[@itemprop="sku"]
   - name: packSize
     description:
       The number of packs in the product offer (if stated separately on
@@ -173,7 +173,7 @@ fields:
       new desription info
   - name: variantInformation
     description: colour / scent / flavour / other
-    xpath: //div[contains(@class,"product-attributes") and contains(@class,"active")]/@data-value | //div[contains(@class,"product-attributes")]//option[@selected="true"]
+    xpath: //div[@id="features"]//dt[contains(.,"Renk:")]/following-sibling::dd[1]
   - name: firstVariant
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a

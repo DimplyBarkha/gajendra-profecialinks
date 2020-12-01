@@ -42,13 +42,17 @@ const transform = (data, context) => {
       if (row.videos) {
         let text = '';
         row.videos.forEach(item => {
-          if (item.text.search('540p') !== -1) {
-            item.text = item.text.replace('540p', '720p');
-          } else if (item.text.search('youtube.com') === -1) {
-            item.text = item.text.match(/"file":"(.+)","image"/)[1];
-            item.text = 'https:' + item.text.split('\\').join('');
+          if (item.text.search('undefined') !== -1) {
+            text = '';
+          } else {
+            if (item.text.search('540p') !== -1) {
+              item.text = item.text.replace('540p', '720p');
+            } else if (item.text.search('youtube.com') === -1) {
+              item.text = item.text.match(/"file":"(.+)","image"/)[1];
+              item.text = 'https:' + item.text.split('\\').join('');
+            }
+            text = text + (text ? ' | ' : '') + item.text;
           }
-          text = text + (text ? ' | ' : '') + item.text;
         });
         const split = text.split(' | ');
         // @ts-ignore
@@ -101,26 +105,6 @@ const transform = (data, context) => {
         });
         text = '|| ' + text;
         row.additionalDescBulletInfo = [{ text }];
-      }
-      if (row.description || row.additionalDescBulletInfo) {
-        let text = '';
-        if (row.description) {
-          for (let i = 0; i < row.description.length; i += 2) {
-            text += (text ? ' ' : '') + row.description[i].text;
-          }
-        }
-        let text2 = '';
-        if (row.additionalDescBulletInfo) {
-          row.additionalDescBulletInfo.forEach(item => {
-            text2 = text2 + (text2 ? ' || ' : '') + item.text;
-          });
-          if (text !== '') {
-            text = text + ' ' + text2;
-          } else {
-            text = text2;
-          }
-        }
-        row.description = [{ text }];
       }
     }
   }
