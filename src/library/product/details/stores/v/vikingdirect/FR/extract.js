@@ -4,6 +4,12 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
   const { transform } = parameters;
 
+  await context.evaluate(() => {
+    const productUrl = window.location.href;
+
+    document.querySelector('div[id="contentContainer"]').setAttribute('producturl', productUrl);
+  });
+
   if (await context.evaluate(() => {
     return document.querySelectorAll('.multiSkuDimensionValues>div')[0];
   }) !== undefined) {
