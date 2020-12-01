@@ -17,7 +17,10 @@ fields:
     xpath: normalize-space(//div[contains(@class,"pdp-title")])
   - name: listPrice
     singleValue: true
-    xpath : //div[@id='listPrice']
+    # xpath : //div[@id='listPrice']|//div[contains(@class,'price _before')]
+    xpath: //div[contains(@class,'price _before')]
+    regExp: (.+)( €)
+    regExpReplace: $1
   - name: price
     singleValue: true
     xpath : //div[@id='price']
