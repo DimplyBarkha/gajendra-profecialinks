@@ -1,29 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]
+recordXPath: //*[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]
 fields:
   - name: price
     singleValue: false
-    xpath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//div[@class='product-pricing-section']//div[@class='price']//span/text()
+    xpath: //*[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//div[@class='product-pricing-section']//div[@class='price']//span/text()
     regExp: (.+)
     regExpReplace: AED $1    
   - name: name
     singleValue: false
-    xpath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//div[@id='product-title']
+    xpath: //*[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//div[@id='product-title']
   - name: productUrl
     singleValue: false
-    xpath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//a[@class='js-gtm-product-link']/@href
+    xpath: //*[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//a[@class='js-gtm-product-link']/@href
     regExp: (.+)
     regExpReplace: https://www.luluhypermarket.com$1     
   - name: thumbnail
     singleValue: false
-    xpath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//div[@class='plp-prod-img']//img/@src
+    xpath: //*[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//div[@class='plp-prod-img']//img/@src
     regExp: (.+)
     regExpReplace: https://www.luluhypermarket.com$1
   - name: id
     singleValue: false
-    xpath: //ul[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//a[@class='js-gtm-product-link']/@data-code
+    xpath: //*[@id='moreLoadedProducts']//div[contains(@class,'plp-product-div')]//a[@class='js-gtm-product-link']/@data-code
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id='added-searchurl']      

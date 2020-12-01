@@ -16,7 +16,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id='slider-thumbs']//ul//li//img/@src
+    xpath: //div[@id='pdpViewCarousel']//div[@class='carousel-inner']//div[contains(@class,'item')]//img[@class='lazyOwl']/@src
     regExp: (.+)
     regExpReplace: https://www.luluhypermarket.com$1
   - name: metaKeywords
@@ -91,10 +91,14 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //input[@name="productCodePost"]/@value
+    regExp: (\d+)(\_)?(.+)?
+    regExpReplace: $1
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //input[@name="productCodePost"]/@value
+    regExp: (\d+)(\_)?(.+)?
+    regExpReplace: $1
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -151,7 +155,8 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class,'flix-carousel')]//ul//li//img/@srcset | //div[contains(@class,'flix-background-image')]//img/@srcset | //div[contains(@class,'fl1xcarousel')]//ul//li//img/@srcset
+    # xpath: //div[contains(@class,'flix-carousel')]//ul//li//img/@srcset | //div[contains(@class,'flix-background-image')]//img/@srcset | //div[contains(@class,'fl1xcarousel')]//ul//li//img/@srcset | //div[contains(@class,'flix-feature-image')]//img/@srcset | //div[contains(@class,'inpage_block')]//img/@srcset | //div[contains(@class,'inpage_block_inner')]//ul//li//img/@srcset
+    xpath: //div[contains(@class,'product-details-tab-main')]//img/@srcset
     regExp: (.+)
     regExpReplace: https:$1
   - name: videos

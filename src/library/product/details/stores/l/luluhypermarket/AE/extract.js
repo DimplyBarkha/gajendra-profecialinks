@@ -25,7 +25,15 @@ module.exports = {
           }, ms);
         });
       }
-
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        await stall(1000);
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+          break;
+        }
+      };
       // Method to Retrieve Xpath content of a Single Node
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -96,55 +104,31 @@ module.exports = {
       onlinePrice = 'AED ' + onlinePrice;
       addElementToDocument('addedonlinePrice', onlinePrice);
 
-      window.setTimeout(function () {
-        const specificationsList = getAllXpath("//div[contains(@class,'inpage_selector_specification')]//table[1]//tbody//tr//th/text() | //div[contains(@class,'inpage_selector_specification')]//table[1]//tbody//tr//td/text()| //div[contains(@class,'inpage_selector_specification')]//div[@class='flix-tech-spacs-contents']//ul//li//div[@class='flix-dt']/text() | //div[contains(@class,'inpage_selector_specification')]//div[@class='flix-tech-spacs-contents']//ul//li//div[@class='flix-dd']/text() | //div[contains(@class,'inpage_selector_specification')]//div[@class='flix_mainspecs']//div[@class='flix-border-specs-right']//text()[normalize-space(.) and normalize-space(translate(/,'&#10;', '')) and normalize-space(translate(/,'&#09;', ''))]", 'nodeValue');
-        if (specificationsList !== null && specificationsList.length > 0) {
-          var specValue = specificationsList.join(' || ');
-          addElementToDocument('addedSpecification', specValue);
-        }
+      const specificationsList = getAllXpath("//div[contains(@class,'inpage_selector_specification')]//table[1]//tbody//tr//th/text() | //div[contains(@class,'inpage_selector_specification')]//table[1]//tbody//tr//td/text()| //div[contains(@class,'inpage_selector_specification')]//div[@class='flix-tech-spacs-contents']//ul//li//div[@class='flix-dt']/text() | //div[contains(@class,'inpage_selector_specification')]//div[@class='flix-tech-spacs-contents']//ul//li//div[@class='flix-dd']/text() | //div[contains(@class,'inpage_selector_specification')]//div[@class='flix_mainspecs']//div[@class='flix-border-specs-right']//text()[normalize-space(.) and normalize-space(translate(/,'&#10;', '')) and normalize-space(translate(/,'&#09;', ''))]", 'nodeValue');
+      if (specificationsList !== null && specificationsList.length > 0) {
+        var specValue = specificationsList.join(' || ');
+        addElementToDocument('addedSpecification', specValue);
+      }
 
-        const enhancedContent = getAllXpath("//div[contains(@class,'inpage_selector_feature')]//div[contains(@class,'flix-model-name')]/text() | //div[contains(@class,'inpage_selector_feature')]//div[contains(@class,'flix-model-title')]/text() | //div[contains(@class,'inpage_selector_feature')]//ul[contains(@class,'flix-key-feature')]//li/text() | //div[contains(@class,'inpage_selector_feature')]//div[@class='flix-std-feattitle']/text() | //div[contains(@class,'inpage_selector_feature')]//div[@class='flix-std-feattitle-sm']/text() | //div[contains(@class,'inpage_selector_feature')]//div[@class='flix-std-desc']/text() | //div[contains(@class,'inpage_selector_feature')]//div[contains(@class,'flix-footnote')]//text()", 'nodeValue');
-        if (enhancedContent !== null && enhancedContent.length > 0) {
-          var contentValue = enhancedContent.join(' | ');
-          addElementToDocument('enhancedContent', contentValue);
-        }
+      const enhancedContent = getAllXpath("//div[@id='inpage_container']//text()[normalize-space(.) and normalize-space(translate(/,'&#10;', '')) and normalize-space(translate(/,'&#09;', ''))]", 'nodeValue');
+      if (enhancedContent !== null && enhancedContent.length > 0) {
+        var contentValue = enhancedContent.join('');
+        addElementToDocument('enhancedContent', contentValue);
+      }
 
-        const videoLinkNodesOne = getAllXpath("//div[@class='flix-background-image']//following::div[contains(@class,'fullJwPlayerWarp')]//input/@value", 'nodeValue');
-        const videoLinkNodesTwo = getXpath("//div[@id='fullPlaylist']//div[contains(@class,'fullJwPlayerWarp')]//input/@value | //div[contains(@class,'fullJwPlayerWarp')]//input/@value", 'nodeValue');
-        var videoTwoObject = JSON.parse(videoLinkNodesTwo);
-        console.log('videoLinkNodesOne', videoLinkNodesOne);
-        console.log('videoLinkNodesTwo', videoLinkNodesTwo);
-        console.log('videoTwoObject', videoTwoObject);
-        var videoObjects = [];
-        var videoContent = [];
-        if (videoLinkNodesTwo) {
-          videoObjects = videoTwoObject.playlist;
-          videoObjects.forEach(function (element, index) {
-            var temp = 'https:' + element.file;
-            videoContent.push(temp);
-          });
-        } else {
-          videoLinkNodesOne.forEach(function (element, index) {
-            videoObjects.push(JSON.parse(element));
-          });
-          videoObjects.forEach(function (element, index) {
-            var temp = 'https:' + element.playlist[0].file;
-            videoContent.push(temp);
-          });
-        }
-        var videoLinks = videoContent.join(' || ');
-        addElementToDocument('addedVideos', videoLinks);
-      }, 8000);
-
-      let scrollTop = 500;
-      while (true) {
-        window.scroll(0, scrollTop);
-        await stall(1000);
-        scrollTop += 500;
-        if (scrollTop === 10000) {
-          break;
-        }
-      };
+      const videoLinkNodesOne = getAllXpath("//*[contains(@class,'fullJwPlayerWarp')]//input/@value", 'nodeValue');
+      var videoOneObjects = [];
+      var videoOneContent = [];
+      if (videoLinkNodesOne != null) {
+        videoLinkNodesOne.forEach(function (element, index) {
+          videoOneObjects.push(JSON.parse(element));
+        });
+        videoOneObjects.forEach(function (element, index) {
+          var temp = 'https:' + element.playlist[0].file;
+          videoOneContent.push(temp);
+        });
+      }
+      addElementToDocument('addedVideos', videoOneContent.join(' || '));
     });
     await context.extract(productDetails, { transform: transformParam });
   },
