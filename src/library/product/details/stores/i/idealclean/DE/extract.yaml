@@ -33,7 +33,7 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //div[@class='ProductInformation_productInfo__3zJhw']/h1[@class='ant-typography LYSTypography_h3__3I_BO']//text()
-  - name: listPrice
+  - name: price
     singleValue: true
     type: CURRENCY
     description: The stated undiscounted price for the product
@@ -64,26 +64,35 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //img[@class='ProductDetail_brandInfo__2cUAy BrandInfo_brandInfo__3BD4q']/@alt
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    type: TEXT
+    xpath: //tbody[@class='ant-table-tbody']//td[contains(text(),'Lieferant Katalog')]/following-sibling::td//text()
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //button[@class='ant-btn VariantSwitch_variantSwitchButton__1C3XB VariantSwitch_variantSwitchButtonSelected__3OD_M ant-btn-primary ant-btn-sm ant-btn-background-ghost']//text()
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //tbody[@class='ant-table-tbody']//td[contains(text(),'Gewicht')]/following-sibling::td//text()
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    manualSelector: script[type='application/ld+json]
+    regExp: '(",\"gtin13\":\")(\w+)'
+    regExpReplace: $2
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    manualSelector: script[type='application/ld+json]
+    regExp: '(",\"sku\":\")(\w+)'
+    regExpReplace: $2
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -117,6 +126,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //a[@class='StoreLogo_storeLogo__3Umjk AppBar_storeLogo__2FwH1']/img/@alt
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -130,6 +140,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //tbody[@class='ant-table-tbody']//td[contains(text(),'Farbe')]/following-sibling::td//text()
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -145,6 +156,8 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    type: TEXT
+    xpath: //h1[@class='ant-typography LYSTypography_h3__3I_BO']//text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -503,6 +516,7 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //tbody[@class='ant-table-tbody']//td[contains(text(),'Material')]/following-sibling::td//text()
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
