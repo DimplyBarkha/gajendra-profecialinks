@@ -36,8 +36,10 @@ fields:
     xpath: //div[@class='product-price']//li[@class='price-was']
   - name: availabilityText
     singleValue: false
+    xpath: //span[@class="availability"]
+    regExp: InStock
+    regExpReplace: In stock
     defaultValue: Out of Stock
-    manualSelector: span#landingpage-stock > span
   - name: shippingInfo
     singleValue: false
     xpath: (//div[contains(@class,'product-seller')]/text())[1] | (//div[@class="product-seller"]//a)[1]
@@ -132,3 +134,31 @@ fields:
   - name: videos
     singleValue: false
     manualSelector: div#video-url
+
+    # salsify
+  - name: shownImages
+    singleValue: false
+    xpath: //div[contains(@class,"mainSlide")]//img/@src
+  - name: questionsCount
+    singleValue: false
+    xpath: //head//@questioncount
+    regExp: (\d+)
+  - name: highQualityImages
+    singleValue: false
+    xpath: //div[contains(@class,"mainSlide")]//img/@src
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[contains(@class,'product-bullets')]//li
+  - name: mpn
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"mpn")]
+    regExp: mpn":"([^"]+)
+    regExpReplace: $1
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
+  - name: sponsoredProductUrls
+    singleValue: false
+    xpath: //h2[contains(text(),'Sponsored Products')]/following::div[1]//a//@href
+    regExp: (.+)
+    regExpReplace: https://www.newegg.com$1

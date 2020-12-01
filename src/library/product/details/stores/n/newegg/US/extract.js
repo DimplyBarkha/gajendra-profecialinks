@@ -25,7 +25,7 @@ module.exports = {
           addHiddenDiv('video-url', url);
         }
       }
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -33,6 +33,21 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
     });
+    await new Promise(resolve => setTimeout(resolve, 20000));
+    await context.evaluate(async () => {
+      let questtionCount = document.querySelector("#product-details > div.tab-navs > div:nth-child(4)");
+      if (questtionCount) {
+        questtionCount.click();
+      }
+    });
+    await new Promise(resolve => setTimeout(resolve, 20000));
+    await context.evaluate(async () => {
+      let questtionCountValue = document.querySelector("#tt-qa-list > div.tt-c-questions__toolbar.tt-c-toolbar > div > span");
+      if (questtionCountValue) {
+        document.head.setAttribute('questioncount', questtionCountValue.textContent);
+      }
+    });
+
     return await context.extract(productDetails, { transform });
   },
 };
