@@ -26,48 +26,32 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
       // @ts-ignore
-      const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[3].innerText;
+      const rawdata = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/text()[1]",'nodeValue');
       const jsondata = JSON.parse(rawdata);
       const gtin = jsondata.gtin13;
-      addElementToDocument('gtin', gtin);
-
+      if (gtin != null){
+        addElementToDocument('gtin', gtin);
+      }
+      
       const sku = jsondata.sku;
+      if (sku != null){
       addElementToDocument('sku', sku);
+      }
 
       const url = jsondata.url;
+      if (url != null){
       addElementToDocument('url', url);
+      }
 
       const productID = jsondata.productID;
+      if (productID != null){
       addElementToDocument('id', productID);
+      }
 
       const brand = jsondata.brand;
+      if (brand != null){
       addElementToDocument('brand', brand);
-      // @ts-ignore
-      // const sku = window.dataLayer[1].product.sku;
-      // addElementToDocument('sku', sku);
-      // // @ts-ignore
-      // const mpc = window.dataLayer[1].product_id;
-      // addElementToDocument('mpc', mpc);
-      // // @ts-ignore
-      // const Brand = window.dataLayer[1].product.brand_name;
-      // addElementToDocument('Brand', Brand);
-      // // @ts-ignore
-      // var fullText = document.querySelector('div[id="descriptionTabContent"] p').innerText;
-      // fullText = fullText.replace(/\n\n/g, "_____");
-      // const seperateText = fullText.split('_____');
-      // var index;
-      // for (index = 0; index < seperateText.length; index++) {
-      //   if (seperateText[index].includes("Ingredients")) {
-      //     addElementToDocument('ingredientsList', seperateText[index]);
-      //     break;
-      //   }
-      // }
-      // for (index = 0; index < seperateText.length; index++) {
-      //   if (seperateText[index].includes("To use")) {
-      //     addElementToDocument('directions', seperateText[index]);
-      //     break;
-      //   }
-      // }
+      }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
