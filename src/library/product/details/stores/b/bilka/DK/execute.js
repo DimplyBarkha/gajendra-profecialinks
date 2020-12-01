@@ -5,7 +5,7 @@ module.exports = {
     country: 'DK',
     store: 'bilka',
     domain: 'bilka.dk',
-    loadedSelector: 'body',
+    loadedSelector: 'div#product-view-details',
     noResultsXPath: '//div[@class="no-results"]',
     zipcode: '',
   },
