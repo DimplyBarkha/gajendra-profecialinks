@@ -18,7 +18,7 @@ fields:
     xpath: //div[@class='info-wrapper']//h2[@class='product-name']/a  
   - name: price
     singleValue: false
-    xpath: //div[@class='info-wrapper']//div[@class='product-info']//div[@class='price-box']//span[@class='regular-price']//span[@class='price']
+    xpath: //div[@class='info-wrapper']//div[@class='product-info']//div[@class='price-box']//span[@class='regular-price']//span[@class='price'] | //div[@class='info-wrapper']//div[@class='product-info']//div[@class='price-box']//p[@class='special-price']//span[@class='price']
   - name: brandText
     singleValue: false
     xpath: //div[@class='info-wrapper']//h2[@class='product-name']/span[@class='dex-lab']
