@@ -31,6 +31,18 @@ module.exports = {
       await context.goto('https://www.waitrose.com' + detailsPage);
       await context.waitForNavigation();
     }
+    await context.evaluate(async () => {
+      // add productUrl
+      var productUrl = window.location.href;
+      if (productUrl !== null) {
+        const element = document.createElement('a');
+        element.id = 'productUrl';
+        element.title = productUrl;
+        element.style.display = 'none';
+        document.body.appendChild(element);
+  
+      }
+    });
     var data = await context.extract(productDetails, { transform });
     for (let k = 0; k < data.length; k++) {
       for (let i = 0; i < data[k].group.length; i++) {

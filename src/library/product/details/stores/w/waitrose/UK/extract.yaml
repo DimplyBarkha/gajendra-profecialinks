@@ -9,6 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //a[@id="productUrl"]/@title
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -26,8 +27,8 @@ fields:
   singleValue: true
   description: The <meta> keywords content
 - name: category
-  singleValue: true
-  xpath: //li[@class="crumb___gkCdp"]/following-sibling::li
+  singleValue: false
+  xpath: //section[@class="wrapper___2WIo4"]//a
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
@@ -435,7 +436,7 @@ fields:
   description: Suggested storage location for product
 - name: countryOfOrigin
   singleValue: true
-  xpath: //h3[text()="Origin Information"]/following-sibling::ul
+  xpath: //h3[text()="Origin Information"]/following-sibling::ul/li
   description: The country from which the product originates
 - name: allergyAdvice
   singleValue: true
@@ -452,8 +453,8 @@ fields:
   singleValue: true
   description: Packaging information
 - name: additives
-  singleValue: true
-  xpath: //h3[text()="Additives"]/following-sibling::ul
+  singleValue: false
+  xpath: //h3[text()="Additives"]/following-sibling::ul/li
   description: List of additives in the product
 - name: pricePerUnit
   singleValue: true
