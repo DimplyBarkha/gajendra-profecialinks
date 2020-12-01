@@ -2,28 +2,31 @@ Search:
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="m-offerBox_content clearfix"] | //div[@class="m-productsBox_container"]
+recordXPath: //div[@class='m-offerBox_content'] | //div[@class="m-productsBox_container"]
 fields: 
 - name: name
-  xpath: //div[@class="m-offerBox_header"]/h2[contains(@class,"headline")]/a | //p[@class="m-productsBox_name"]/a/@title
+  xpath: //a[@class='b-ofr_headDataTitle']
 - name: productUrl
-  xpath: //div[@class="m-offerBox_header"]/h2[contains(@class,"headline")]/a/@href | //p[@class="m-productsBox_name"]/a/@href
+  xpath: //a[@class='b-ofr_headDataTitle']/@href
   regExp: (.+)
   regExpReplace: https://mediamarkt.pl$1
 - name: thumbnail
-  xpath: //div[contains(@class,"m-offerBox_box")]/a/img/@src | //div[contains(@class,"m-productsBox_photo")]/a/img/@src
+  xpath: //img[contains(@class,'js-lazyLoad_img')]/@src
   regExp: (.+)
   regExpReplace: https:$1
 - name: id
-  xpath: //h2[@class="m-offerBox_headline"]/a/@data-offer-erp | //p[@class="m-productsBox_name"]/a/@data-offer-erp
+  xpath: //input[contains(@class,'js-compare')]/@data-offer-erp
 - name: price
-  xpath: //h2[@class="m-offerBox_headline"]/a/@data-offer-price | //p[@class="m-productsBox_name"]/a/@data-offer-price
+  xpath: //div[@class='b-ofrBox_cta']/a/@data-price
 - name: gtin
-  xpath: //h2[@class="m-offerBox_headline"]/a/@data-offer-ean | //p[@class="m-productsBox_name"]/a/@data-offer-ean
+  xpath: //div[@class='b-ofrBox_cta']/a/@data-offer-ean
+- name: brand
+  xpath: //div[@class='b-ofrBox_cta']/a/@data-offer-brand
 - name: reviewCount
-  xpath: //div[@class="m-offerBox_rating"]/a/span | //div[@class="m-productsBox_rating"]/a/span
+  xpath: //div[@class='b-offerRWD_reviews']/a/span
   regExp: (\d+)
 - name: aggregateRating2
-  xpath: //h2[@class="m-offerBox_headline"]/a/@ratingvalue | //p[@class="m-productsBox_name"]/a/@ratingvalue
+  xpath: //div[@class='b-offerRWD_reviews']/span/@title
+  regExp: (\d+)
 - name: searchUrl
-  xpath: //h2[@class="m-offerBox_headline"]/a/@searchurl | //p[@class="m-productsBox_name"]/a/@searchurl
+  xpath: //a[@class='b-ofr_headDataTitle']/@searchurl
