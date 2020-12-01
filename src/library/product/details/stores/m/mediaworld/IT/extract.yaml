@@ -16,7 +16,8 @@ fields:
     description: Other product images (not in manufacturer description)
     #xpath: //div[@class="thumb-slider-container"]//div[contains(@class,'thumb-slider')]//div[contains(@class,'slick-slide') and contains(@class,'slick-active')]//div[contains(@class,'thumb-item-image')]/@data-img-large
     #xpath: //div[contains(@class,'slick-active')]//div[contains(@class,'thumb-item-image')]//img[position()>1]/@src
-    xpath: //div[contains(@class,'slick-active')and @data-slick-index!="0"]//div[contains(@class,'thumb-item-image')]//img/@src
+    #xpath: //div[contains(@class,'slick-active')and @data-slick-index!="0"]//div[contains(@class,'thumb-item-image')]//img/@src
+    xpath: //div[contains(@class,'slick-active') and @data-slick-index!="0" or (@class="slick-slide")]//div[contains(@class,'thumb-item-image')]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -265,7 +266,11 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count(//div[@class="thumb-slider-container"]//div[contains(@class,'thumb-slider')]//div[contains(@class,'slick-slide') and contains(@class,'slick-active')]//div[contains(@class,'thumb-item-image')]/@data-img-large)
+    xpath: count(//div[contains(@class,'slick-active') and @data-slick-index!="0" or (@class="slick-slide")]//div[contains(@class,'thumb-item-image')]//img)
+    #xpath: //div[@class="added_secondary"]
+    #xpath: count(//ul[@class="slick-dots"]//li[not(@class="slick-active")]|//div[@class="thumb-slider-container"]//div[@class="slick-track"]//div[@class='slick-slide slick-active'])
+    #xpath: count(//ul[@class="slick-dots"]//li[not(@class="slick-active")])
+    #xpath: count(//div[@class="thumb-slider-container"]//div[contains(@class,'thumb-slider')]//div[contains(@class,'slick-slide') and contains(@class,'slick-active')]//div[contains(@class,'thumb-item-image')]/@data-img-large)
   - name: news
     singleValue: true
     description: null
