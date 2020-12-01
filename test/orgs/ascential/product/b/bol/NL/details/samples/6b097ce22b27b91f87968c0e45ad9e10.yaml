@@ -1,0 +1,327 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/totum-fashion-foamarmbandjes-maken/1004004006938205/
+extractions:
+  - html: https://workbench.import.io/html/run=ecb57a78-1f0e-4039-aac0-7dfe848b424b/task=4ca3725d-dd6c-48ec-98e9-8433c38bfdf3/6469d9d1-260c-4aec-9c10-3df97fb7575c.html
+    extractionConfigId: product/details/stores/b/bol/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bol.com/be/p/totum-fashion-foamarmbandjes-maken/1004004006938205/
+                xpath: /html/head[1]/link[7]/@href
+            image:
+              - text: https://media.s-bol.com/733p8W6YYkgw/538x840.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: Totum Fashion - Foamarmbandjes maken
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://media.s-bol.com/733p8W6YYkgw/99x155.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/img[1]/@src
+              - text: https://media.s-bol.com/r0PRv4GpX1vw/124x124.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[2]/img[1]/@src
+              - text: https://media.s-bol.com/3oLMz7wkO6M/114x155.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
+              - text: https://media.s-bol.com/gvYK41Mzvw9/103x155.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[4]/img[1]/@src
+              - text: https://media.s-bol.com/zmYO5kMr4BZO/124x123.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[5]/img[1]/@src
+              - text: https://media.s-bol.com/nZLro4WxYW5R/102x155.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[6]/img[1]/@src
+            category:
+              - text: Speelgoed
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Knutselen voor kinderen
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Mode & Juwelen
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[4]/span[1]/a[1]/span[1]
+              - text: Juwelen maken
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/a[1]/span[1]
+              - text: Sieradenpakket
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/a[1]/span[1]
+            nameExtended:
+              - text: Totum Fashion - Foamarmbandjes maken
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            price:
+              - text: €6,09
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: Op voorraad
+                xpath: /html/body/div[5]
+            description:
+              - text: >-
+                  Maak een hele serie armbandjes van gekleurd foam. Beplak ze
+                  met strass steentjes in de vorm van kroontjes, vlinders,
+                  hartjes en bloemetjes en maak het af met zilver glitterlijm. 
+
+                  Inhoud:
+
+                  - gekleurde foam armbandjes
+
+                  - diverse vormen gekleurde strass steentjes
+
+                  - sluitclips
+
+                  - glitterlijm
+
+                  - gebruiksaanwijzing
+
+                  Knutselen doe je met Totum!
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]
+            brandText:
+              - text: TM Essentials
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            manufacturer:
+              - text: TM Essentials
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/p[1]/a[1]/text()[1]
+            weightNet:
+              - text: 105 g
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[5]/dl[1]/dd[9]
+            gtin:
+              - text: "8714274029255"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[1]
+            sku:
+              - text: "1004004006938205"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/wsp-wishlist-button[1]/@global-id
+            variantId:
+              - text: "1004004006938205"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/wsp-wishlist-button[1]/@global-id
+            ratingCount:
+              - text: "54"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[2]/div[2]/div[1]/div[2]/strong[1]
+            aggregateRating:
+              - text: 4,3
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/@rating
+            shippingInfo:
+              - text: Voor 23:59 uur besteld, donderdag in huis
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/div[2]/div[1]/div[2]/span[1]
+            color:
+              - text: Fashion
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[1]
+            manufacturerDescription:
+              - text: >-
+                  Afmetingen & Maten
+                   
+                   
+                   Afmetingen product 
+                   
+                   19 x 12,5 x 3,5 cm (lxbxh) 
+
+                   
+
+                   
+
+                   
+
+                   
+                  Producteigenschappen
+                   
+                   
+                   Kleur 
+                   
+                   Fashion 
+                   
+                   Verpakkingsinhoud 
+                   
+                   voorgestanst foam, diamant stickers, glitterlijm, kraaltjes, gebruiksaanwijzing voor 8 armbandjest 
+                   
+                   Personage 
+                   
+                   Geen personage 
+
+                   
+
+                   
+
+                   
+
+                   
+                  Gebruiksinformatie
+                   
+                   
+                   Aanbevolen leeftijd 
+                   
+                   6 - 12 jaar 
+
+                   
+
+                   
+
+                   
+
+                   
+                  Productinformatie
+                   
+                   
+                   EAN 
+                   
+                   8714274029255 
+                   
+                   Keurmerk 
+                   
+                   CE 
+                   
+                   Merk 
+                   
+                   Totum 
+                   
+                   Uitgever 
+                   
+                   TM Essentials 
+
+                   
+
+                   
+
+                   
+
+                   
+                  Overige kenmerken
+                   
+                   
+                   Aantal benodigde accu's/batterijen 
+                   
+                   0 
+                   
+                   Aantal meegeleverde accu's/batterijen 
+                   
+                   Geen 
+                   
+                   Aantal producten per pakket 
+                   
+                   8 
+                   
+                   Accu/batterij code 
+                   
+                   Geen batterij 
+                   
+                   Accu/batterij model 
+                   
+                   Geen batterijen 
+                   
+                   Accu/batterij technologie 
+                   
+                   Geen batterijen 
+                   
+                   Doelgroep 
+                   
+                   Kinderen 
+                   
+                   Geslacht 
+                   
+                   Meisjes 
+                   
+                   Gewicht 
+                   
+                   105 g 
+                   
+                   Materiaal 
+                   
+                   Kunststof 
+                   
+                   Taal handleiding 
+                   
+                   Geen taal 
+                   
+                   Thema 
+                   
+                   Fantasy 
+                   
+                   Type hobby 
+                   
+                   Sieraden maken 
+                   
+                   Verpakking breedte 
+                   
+                   131 mm 
+                   
+                   Verpakking hoogte 
+                   
+                   40 mm 
+                   
+                   Verpakking lengte 
+                   
+                   215 mm 
+                   
+                   Voedingstype 
+                   
+                   Niet-elektrisch 
+
+                   
+
+                   
+
+                   
+                  Je vindt dit artikel in
+                   
+                   
+                   Categorieën 
+
+                   
+
+                   
+
+                   
+                  Knutselpakketten
+                   
+                  Sieradenpakket
+                   
+                   
+                   
+                   Leeftijd 
+                   
+                   9-12 jaar, 7-8 jaar, 5-6 jaar 
+                   
+                   Merk 
+                   
+                   Totum 
+                   
+                   Personage 
+                   
+                   Geen personage 
+                   
+                   Snelle bezorgopties 
+                   
+                   Vandaag Bezorgd, Vandaag Ophalen, Avondbezorging, Zondagbezorging, Gratis verzending
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://media.s-bol.com/733p8W6YYkgw/538x840.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/r0PRv4GpX1vw/550x550.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/3oLMz7wkO6M/550x744.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/gvYK41Mzvw9/550x825.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/zmYO5kMr4BZO/550x549.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/nZLro4WxYW5R/550x832.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            name:
+              - text: Totum Fashion - Foamarmbandjes maken
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            inStorePrice:
+              - text: €6,09
+                xpath: /html/body/div[4]
+            specifications:
+              - text: 19 x 12,5 x 3,5 cm (lxbxh)
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]
+            variants:
+              - text: Amigo
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@title
+              - text: Fashion
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/a[2]/img[1]/@title
+              - text: Slide-it
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/img[1]/@title
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "3"
+        xpath: /
+    timestamp: 1606827465992

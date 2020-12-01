@@ -1,0 +1,204 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/hugo-boss-bottled-200-ml-eau-toilette-herenparfum/9200000016313339/
+extractions:
+  - html: https://workbench.import.io/html/run=ecb57a78-1f0e-4039-aac0-7dfe848b424b/task=efe77029-3d21-4ade-94e5-b3553ff87900/90064f51-d304-46fc-aa72-c8c4dd5eb3ff.html
+    extractionConfigId: product/details/stores/b/bol/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bol.com/be/p/hugo-boss-bottled-200-ml-eau-toilette-herenparfum/9200000016313339/
+                xpath: /html/head[1]/link[7]/@href
+            image:
+              - text: https://media.s-bol.com/RPmN4A7OJZDL/370x840.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: Hugo Boss Bottled 200 ml - Eau de Toilette - Herenparfum
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://media.s-bol.com/RPmN4A7OJZDL/68x155.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+              - text: https://media.s-bol.com/KLnOAAO1NQPn/124x125.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/img[1]/@src
+            category:
+              - text: Beauty
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Parfum
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Herenparfum
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[4]/span[1]/a[1]/span[1]
+            nameExtended:
+              - text: Hugo Boss Bottled 200 ml - Eau de Toilette - Herenparfum
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            listPrice:
+              - text: € 140,99
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/section[1]/div[1]/del[1]
+            price:
+              - text: €47,99
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: Op voorraad
+                xpath: /html/body/div[5]
+            description:
+              - text: >-
+                  Boss Bottled van Hugo Boss is een houtachtig kruidige geur
+                  voor heren. Boss Bottled werd uitgebracht in 1998. Hugo Boss
+                  Bottled is een ware klassieker van de moderne geuren! 
+
+                  Topnoten: appel, bergamot en een beetje kaneel. 
+
+                  Hartnoten: geranium, klaver en tagete. 
+
+                  Basisnoten: ceder en sandelhout, vetiver grass en olijfbomenhout.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]
+            brandText:
+              - text: Hugo Boss
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            manufacturer:
+              - text: Hugo Boss
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/p[1]/a[1]/text()[1]
+            weightNet:
+              - text: 0,6 kg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[1]
+            gtin:
+              - text: "0737052189765"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[2]
+            sku:
+              - text: "9200000016313339"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/wsp-wishlist-button[1]/@global-id
+            variantId:
+              - text: "9200000016313339"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/wsp-wishlist-button[1]/@global-id
+            ratingCount:
+              - text: "1142"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[2]/div[2]/div[1]/div[2]/strong[1]
+            aggregateRating:
+              - text: 4,7
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/@rating
+            shippingInfo:
+              - text: Voor 23:59 besteld, morgen in huis
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/div[3]/div[1]/div[2]/span[1]
+            manufacturerDescription:
+              - text: |-
+                  Parfumadvies
+                   
+                   
+                   Geslacht 
+                   
+                   Voor mannen 
+                   
+                   
+                   
+                   
+                  Productinformatie
+                   
+                   
+                   Gewicht 
+                   
+                   0,6 kg 
+                   
+                   EAN 
+                   
+                   0737052189765 
+                   
+                   
+                   
+                   
+                  Overige kenmerken
+                   
+                   
+                   Geursoort 
+                   
+                   Kruidig 
+                   
+                   Inhoud 
+                   
+                   200 ml 
+                   
+                   Inhoud per dispenser 
+                   
+                   200 ml 
+                   
+                   Limited Edition 
+                   
+                   Nee 
+                   
+                   Navulbaar 
+                   
+                   Nee 
+                   
+                   Signaalwoord 
+                   
+                   Niet van toepassing 
+                   
+                   Type dispenser 
+                   
+                   Spray 
+                   
+                   Verpakking breedte 
+                   
+                   80 mm 
+                   
+                   Verpakking hoogte 
+                   
+                   75 mm 
+                   
+                   Verpakking lengte 
+                   
+                   175 mm 
+                   
+                   Verpakkingsinhoud 
+                   
+                   200ml Eau De Toilette 
+                   
+                   Voorzorgsmaatregelen 
+                   
+                   n.v.t. 
+                   
+                   
+                   
+                  Je vindt dit artikel in
+                   
+                   
+                   Categorieën 
+                   
+                   
+                   
+                  Herenparfum
+                   
+                   
+                   
+                   Merk 
+                   
+                   Hugo Boss 
+                   
+                   Korting 
+                   
+                   vanaf 50%, vanaf 30%, vanaf 20% 
+                   
+                   Inhoud 
+                   
+                   200 ml 
+                   
+                   Aanbieding 
+                   
+                   Aanbieding
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]
+            name:
+              - text: Hugo Boss Bottled 200 ml - Eau de Toilette - Herenparfum
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            inStorePrice:
+              - text: €47,99
+                xpath: /html/body/div[4]
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "4"
+        xpath: /
+    timestamp: 1606827465836

@@ -1,0 +1,419 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/escape-room-the-game-jumanji-familie-editie/9200000099915035/
+extractions:
+  - html: https://workbench.import.io/html/run=ecb57a78-1f0e-4039-aac0-7dfe848b424b/task=b2e9d55b-d469-4fe4-9366-9adacedff6b9/c7205d43-4f79-406f-bf05-2d5f3b3734e6.html
+    extractionConfigId: product/details/stores/b/bol/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bol.com/be/p/escape-room-the-game-jumanji-familie-editie/9200000099915035/
+                xpath: /html/head[1]/link[7]/@href
+            image:
+              - text: https://media.s-bol.com/J6qnPOXvmDAJ/550x616.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: Escape Room The Game - Jumanji Familie Editie
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://media.s-bol.com/J6qnPOXvmDAJ/124x138.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/img[1]/@src
+              - text: https://media.s-bol.com/319YBE4RlWNr/124x73.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[2]/img[1]/@src
+              - text: https://media.s-bol.com/3l05Ek9PM5Nn/124x92.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
+              - text: https://media.s-bol.com/7365YJ6Jj9ZA/124x82.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[4]/img[1]/@src
+              - text: https://media.s-bol.com/7365B8G0J27r/124x82.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[5]/img[1]/@src
+              - text: https://media.s-bol.com/gJk71MYqqAG3/124x121.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[6]/img[1]/@src
+              - text: https://media.s-bol.com/qll2oyDN1Gk3/124x137.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[7]/img[1]/@src
+            category:
+              - text: Speelgoed
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Spellen
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Breinbrekers
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[4]/span[1]/a[1]/span[1]
+            nameExtended:
+              - text: Escape Room The Game - Jumanji Familie Editie
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            listPrice:
+              - text: € 29,99
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/wsp-visibility-switch[1]/section[1]/div[1]/del[1]
+            price:
+              - text: €24,99
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: Op voorraad
+                xpath: /html/body/div[5]
+            description:
+              - text: >-
+                  Voel de spanning van een Escape Room in je eigen huiskamer met
+                  deze Jumanji familie editie! In deze allereerste familie
+                  editie (10+) van Escape Room The Game moet je samenwerken om
+                  puzzels op te lossen en verborgen aanwijzingen te vinden. Deze
+                  Jumanji editie bevat 3 spannende avonturen geheel passend in
+                  het Jumanji thema. Het spel is volledig Nederlandstalig.
+
+                  Het is altijd een race tegen de klok; je hebt maar 60 minuten om te ontsnappen. De Chrono Decoder telt af, zorgt voor de juiste sfeer en geeft aan wanneer je hints mag gebruiken. In dit spel win je samen of verlies je samen. Alle spelers moeten het beste uit zichzelf halen. Om raadsels en puzzels op tijd te kunnen oplossen, is samenwerken de sleutel tot succes. Als je nog nooit een Escape Room hebt gespeeld, bereid je dan voor op een compleet nieuwe ervaring. Onvoorstelbaar hoe snel een uur voorbijgaat in het heetst van de strijd...
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Identity Games
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            manufacturer:
+              - text: Identity Games
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/p[1]/a[1]/text()[1]
+            weightNet:
+              - text: 0,807 kg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[2]
+            gtin:
+              - text: "8714649010178"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/dl[1]/dd[2]
+            sku:
+              - text: "9200000099915035"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/wsp-wishlist-button[1]/@global-id
+            variantId:
+              - text: "9200000099915035"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/wsp-wishlist-button[1]/@global-id
+            mpc:
+              - text: "03010178"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/dl[1]/dd[1]
+            ratingCount:
+              - text: "41"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/div[2]/div[1]/div[2]/strong[1]
+            aggregateRating:
+              - text: 4,4
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/@rating
+            shippingInfo:
+              - text: Nu besteld, vrijdag in huis
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/wsp-visibility-switch[1]/div[2]/div[1]/div[2]/span[1]
+            manufacturerDescription:
+              - text: >-
+                  Speleigenschappen
+                   
+                   
+                   Aanbevolen leeftijd 
+                   
+                   10 - 99 jaar 
+                   
+                   Aantal spelers 
+                   
+                   3 tot 5 spelers 
+                   
+                   Speeltijd 
+                   
+                   60 minuten 
+                   
+                   Spelsoort 
+                   
+                   Coöperatief spel | Denkspel | Escape room spel 
+                   
+                   Taal 
+                   
+                   Nederlands 
+                   
+                   Taal handleiding 
+                   
+                   Nederlands 
+                   
+                   In de doos 
+
+                   
+                  In de doos
+                   Wat er wordt meegeleverd als je dit product bestelt. 
+                   Tooltip 
+                   
+                   Chrono Decoder, Hint Decoder, 16 sleutels, 3x8 hintkaarten, spelregels, 3 verschillende avonturen oplopend in moeilijkheidsgraad: De Drummende Kast, De Zoektocht naar Jesse en Verbreek de Vloek 
+                   
+                   Benodigd aantal batterijen 
+                   
+                   3 
+
+                   
+
+                   
+
+                   
+
+                   
+                  Afmetingen & Maten
+                   
+                   
+                   Afmetingen verpakking 
+                   
+                   27 x 26,6 x 12,1 cm (lxbxh) 
+                   
+                   Gewicht 
+                   
+                   0,807 kg 
+
+                   
+
+                   
+
+                   
+
+                   
+                  Productinformatie
+                   
+                   
+                   Artikelnummer 
+                   
+                   03010178 
+                   
+                   EAN 
+                   
+                   8714649010178 
+                   
+                   Keurmerk 
+                   
+                   CE 
+                   
+                   Materiaal 
+                   
+                   Kunststof 
+
+                   
+
+                   
+
+                   
+
+                   
+                  Mogelijke vereisten instellen en gebruik
+                   
+                   
+                   Kan zelfstandig met internet verbinden 
+
+                   
+                  Kan zelfstandig met internet verbinden
+                   Dit product kan (direct of indirect) zelfstandig verbinding maken met internet, wifi en/of mobiele data 
+                   Tooltip 
+                   
+                   Nee 
+                   
+                   App vereist voor gehele functionaliteit 
+
+                   
+                  App vereist voor gehele functionaliteit
+                   Als de app niet werkt op iOS of Android smartphones staat dit bij de productinformatie. Je kunt ook in de App Store of Play Store meer info opzoeken over de app, zoals de voorwaarden. 
+                   Tooltip 
+                   
+                   Nee 
+                   
+                   App werkt op besturingssysteem 
+
+                   
+                  App werkt op besturingssysteem
+                   Als de app niet werkt op iOS of Android smartphones staat dit bij de productinformatie. In de App Store of Play Store staat ook meer info over de app. 
+                   Tooltip 
+                   
+                   Android | iOS 
+                   
+                   Delen van gebruikersgegevens vereist 
+
+                   
+                  Delen van gebruikersgegevens vereist
+                   Sommige Internet-of-Things-apparaten gebruiken gebruikersgegevens en werken met een account. Je geeft toestemming om gebruikersgegevens te delen wanneer je het account aanmaakt. Zonder account zijn de mogelijkheden vaak beperkt. 
+                   Tooltip 
+                   
+                   Nee 
+                   
+                   Wifi vereist 
+
+                   
+                  Wifi vereist
+                   De meeste Internet of Things-apparaten werken op je thuisnetwerk (wifi). Als er bijzondere eisen voor wifi zijn, staat dit altijd bij productinformatie. 
+                   Tooltip 
+                   
+                   Niet van toepassing 
+                   
+                   Bluetooth vereist 
+                   
+                   Niet van toepassing 
+                   
+                   Mobiele data verbinding mogelijk 
+
+                   
+                  Mobiele data verbinding mogelijk
+                   Sommige Internet of Things-apparaten werken ook op mobiele data. Als er bijzondere eisen zijn, bijv. 5G, staat dit altijd bij productinformatie. 
+                   Tooltip 
+                   
+                   Niet van toepassing 
+                   
+                   Betaalde diensten vereist 
+
+                   
+                  Betaalde diensten vereist
+                   Een aantal IoT-apparaten werken met betaalde diensten. Ze werken ook zonder, maar hebben dan minder mogelijkheden. Bij het nemen van zo'n dienst moet je vaak toestemming geven om persoons- en/of gebruikersgegevens te delen. 
+                   Tooltip 
+                   
+                   Nee 
+                   
+                   Compatibel met 
+
+                   
+                  Compatibel met
+                   Soms kun je apparaten met andere apparaten verbinden. Bij de productinformatie tonen we de meest relevante apparaten of ecosystemen waarmee het artikel kan verbinden. We zouden graag een volledige lijst willen opnemen, maar dan wordt het heel lang. En het verandert ook sneller dan wij kunnen typen 
+                   Tooltip 
+                   
+                   Niet van toepassing 
+
+                   
+
+                   
+
+                   
+
+                   
+                  Introductie en ondersteuning
+                   
+                   
+                   Introductiejaar 
+                   
+                   2018 
+                   
+                   Ondersteuning met updates 
+                   
+                   Niet van toepassing 
+
+                   
+
+                   
+
+                   
+
+                   
+                  Overige kenmerken
+                   
+                   
+                   Aantal meegeleverde accu's/batterijen 
+                   
+                   0 
+                   
+                   Accu/batterij code 
+                   
+                   LR06 
+                   
+                   Accu/batterij model 
+                   
+                   Penlite 
+                   
+                   Accu/batterij technologie 
+                   
+                   Alkaline 
+                   
+                   Doelgroep 
+                   
+                   Kinderen en volwassenen 
+                   
+                   Gewonnen prijzen 
+                   
+                   Genomineerd voor Speelgoed van het Jaar 2019’ 
+                   
+                   Jaar van uitgave 
+                   
+                   2018 
+                   
+                   Leerthema 
+                   
+                   Bordspel 
+                   
+                   Personage 
+                   
+                   Geen personage 
+                   
+                   Speleditie 
+                   
+                   Standaard editie 
+                   
+                   Taal spel 
+                   
+                   Nederlands 
+                   
+                   Voedingstype 
+                   
+                   Batterij 
+
+                   
+
+                   
+
+                   
+                  Je vindt dit artikel in
+                   
+                   
+                   Categorieën 
+
+                   
+
+                   
+
+                   
+                  Breinbrekers
+                   
+                  Bordspellen
+                   
+                  Spellen voor volwassenen
+                   
+                   
+                   
+                   Serie 
+                   
+                   Escape Room the Game 
+                   
+                   Leeftijd 
+                   
+                   13 jaar en ouder, 9-12 jaar 
+                   
+                   Merk 
+                   
+                   Identity Games 
+                   
+                   Aantal spelers 
+                   
+                   3 tot 4 spelers, 5 tot 6 spelers 
+                   
+                   Spelsoort 
+                   
+                   Denkspel, Escape room spel, Coöperatief spel
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://media.s-bol.com/J6qnPOXvmDAJ/550x616.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/319YBE4RlWNr/550x327.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/3l05Ek9PM5Nn/550x410.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/7365YJ6Jj9ZA/550x366.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/7365B8G0J27r/550x366.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/gJk71MYqqAG3/550x538.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+              - text: https://media.s-bol.com/qll2oyDN1Gk3/550x610.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            name:
+              - text: Escape Room The Game - Jumanji Familie Editie
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            inStorePrice:
+              - text: €24,99
+                xpath: /html/body/div[4]
+            promotion:
+              - text: altijd scherp geprijsd
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/wsp-visibility-switch[1]/section[1]/section[1]/div[2]/a[1]/span[1]
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1606827465857

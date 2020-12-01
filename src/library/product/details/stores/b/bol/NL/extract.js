@@ -37,6 +37,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     // autoclick
     var moreButtons = document.querySelectorAll('a.show-more__button');
     moreButtons.forEach(async (element) => {
+      // @ts-ignore
       element.click();
     });
     await new Promise((resolve, reject) => {
