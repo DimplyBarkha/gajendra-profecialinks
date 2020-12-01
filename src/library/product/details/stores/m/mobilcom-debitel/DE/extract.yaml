@@ -11,22 +11,32 @@ fields:
     regExpReplace: 'https://www.mobilcom-debitel.de$1'
   - name: imageAlt
     singleValue: true
+    xpath: //div[@class="grid-slider__item column small-12 swiper-slide swiper-slide-active"]/img/@alt
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
+    xpath: //div[@id="altImages_added"]
     description: Other product images (not in manufacturer description)
+    # regExp: [^(.*)$] 
+    # regExpReplace: 'https://www.mobilcom-debitel.de$1'
   - name: metaKeywords
     singleValue: true
+    xpath: //meta[@name="keywords"]/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
+    xpath: //div[@id="added_nameExtended"]
     description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+      and appending " - ${variantType}" if necessary (fixed per feed) 
+  - name: online_price_currency
+    singleValue: true
+    xpath: //div[@class='price-item__unit-icon']
   - name: listPrice
     singleValue: true
+    xpath: //div[@id='listPriceXpath_added']
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
@@ -35,17 +45,18 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="product-detail-device-offer__pricebox-cta"]//a
+    xpath: //div[@id="added_availabilityText"]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@class='product-info-box-text__content js-product-info-box-text-offset']//ul
+    xpath: //div[@id="added_desc"]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
+    xpath: count(//div[@class='product-info-box-text__content js-product-info-box-text-offset']/ul/li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -55,6 +66,8 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: true
+    xpath: //div[@class='table-list-grouping__items-wrapper']//div[@class='table-list-grouping__item']//div[contains(.,'Manufacturer')]/following-sibling::div//text()
+    #xpath: //div[@id="manXpath_added"]
     description: Product manufacturer
   - name: quantity
     singleValue: true
@@ -73,12 +86,12 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div[@class="product-detail-device-offer__image"]/@data-binki
+    #xpath: //div[@id="added_retailer_product_code"]
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
-    xpath: //link[@rel='canonical']/@href
+    xpath: //div[@id="added_retailer_product_code"]
     description: Identifier for a variant from a store where variants share the same sku
-    regExp: [0-9]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -104,6 +117,7 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
+    xpath: //span[@class="_1geiv5n xh-highlight"]
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -111,7 +125,6 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
-    xpath: //div[@class="table-list-grouping__items-wrapper"]//div[@class="table-list-grouping__item"]//div[contains(.,"Dimensions")]/following-sibling::div
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
@@ -122,12 +135,14 @@ fields:
     type: NUMBER
   - name: color
     singleValue: true
+    xpath: //div[@class='table-list-grouping__items-wrapper']//div[@class='table-list-grouping__item']//div[contains(.,'colour')]/following-sibling::div[1]/font/font/text()
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    #xpath: //div[@class='site-md__main-content']/div[@class='site-md__page-product-detail js-page-product-detail']/section[@class='content-section js-product-detail-device-details-target']
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
@@ -137,11 +152,12 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
-    xpath: //div[@class="product-detail-device-offer__headline-box"]
+    xpath: //div[@class="product-detail-device-offer__headline-box"]//h1
     description: The product name
-  - name: inStorePrice
+  - name: variantCount
     singleValue: true
-    description: Price in the selected store
+    xpath: count(//div[@class='variant-switch -color-picker -compact js-product-detail-device-colorpicker']/div/div)
+    description: variantCount of the product
   - name: asin
     singleValue: true
     description: null
@@ -389,8 +405,8 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
-    xpath: //div[@class="table-list-grouping__items-wrapper"]
+    singleValue: false
+    xpath: //div[@id="specificationXpath_added"]
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
@@ -442,6 +458,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
+    xpath: //div[@id="added_varientInfo"]
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
@@ -507,5 +524,5 @@ fields:
     defaultValue: No
   - name: url
     singleValue: true
-    xpath: //link[@rel="canonical"]/@href
+    #xpath: //link[@rel="canonical"]/@href
     description: If Zoom feature is available for Main image or images in the

@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'mobilcom-debitel',
-    transform: null,
+    transform: transform,
     domain: 'mobilcom-debitel.de',
     zipcode: '',
   },
@@ -48,38 +48,99 @@ module.exports = {
       const priceXpath1 = getXpath("//div[@class='price-item__euro js-product-detail-device-once-euro']",'innerText');
       const priceXpath2 = getXpath("//span[@class='price-item__cent-value js-product-detail-device-once-cent']",'innerText');
       const currencyXpath = getXpath("//div[@class='price-item__unit-icon']",'innerText');
-      console.log("priceXpath1", priceXpath1);
-      console.log("priceXpath2", priceXpath2);
-      console.log("currencyXpath", currencyXpath);
-      const priceXpath = priceXpath1.concat('.').concat(priceXpath2).concat(currencyXpath);
-      console.log("priceXpath: ", priceXpath);
+
+      //const priceXpath = (priceXpath1.concat(',').concat(priceXpath2)).concat(currencyXpath);
+      const priceXpath = currencyXpath.concat((priceXpath1.concat(',').concat(priceXpath2)));
+      console.log("priceXpath- new : ", priceXpath);
+      //console.log("priceXpath: ", priceXpath)
       addElementToDocument('added_price', priceXpath);
 
-
-      //const descXpath = getXpath("//div[@class='product-info-box-text__content js-product-info-box-text-offset']//ul",'innerText');
-      //console.log("descXpath", descXpath);
-
+      const pXpath = getXpath("//div[@class='site-md__main-content']//script[3]",'nodeValue');
+      //div[@class="site-md__main-content"]//script/text()
       const jsonStr = getXpath("//div[@class='site-md__main-content']//script[@type='application/ld+json']",'innerText');
       if(jsonStr){
         const jsonObj = JSON.parse(jsonStr);
-        console.log('jsonObj: ' + jsonObj.brand);
+
+        var sku1 = jsonObj.isSimilarTo[0].sku;
+        var color1 = jsonObj.isSimilarTo[0].color;
+        var sku2 = "";
+        var color2 = "";
+        console.log("color1: ", color1);
+        var skuColr1 = (color1.concat(" - ")).concat(sku1);
+        //
+        if(jsonObj.isSimilarTo[1] != null){
+          sku2 = jsonObj.isSimilarTo[1].sku;
+          color2 = jsonObj.isSimilarTo[1].color;
+          var skuColr2 = (color2.concat(" - ")).concat(sku2);
+          var varientInfo  = (skuColr1.concat(" | ")).concat(skuColr2);
+          addElementToDocument('added_varientInfo', varientInfo);
+        }else{
+          addElementToDocument('added_varientInfo', skuColr1);
+        }
+
         addElementToDocument('added_brand', jsonObj.brand);
+        addElementToDocument('added_nameExtended', jsonObj.name);
+
+        var availabilityTextPath = jsonObj.offers.availability;
+        var availabilityTextPathValue = availabilityTextPath.split('/')[3];
+        //console.log("availabilityTextPathValue: ", availabilityTextPathValue)
+        addElementToDocument('added_availabilityText',  availabilityTextPathValue);
+
+        
+        var descriptionTextPath = jsonObj.isSimilarTo[0].description;
+        //console.log("descriptionTextPath: ", descriptionTextPath);
+        const depSplitText = (descriptionTextPath.split('|')).join('||');
+        //console.log("depSplitText: ", depSplitText);
+        addElementToDocument('added_desc', depSplitText);
+
       }
+
+      const manuXpath = getAllXpath("//div[@class='table-list-grouping__items-wrapper']//div[@class='table-list-grouping__item']//div[contains(.,'Manufacturer')]/following-sibling::div[1]",'textContent');
+      //const manuXpath = getAllXpath("//div[@class='table-list-grouping__items-wrapper']/div[@class='table-list-grouping__item']/div[@class='table-list-grouping__item-label']/font/font",'innerText');
+      console.log("manuXpath: ", manuXpath);
      
-      const jsonStr1 = getXpath(" //div[@class='site-md__main-content']//script[2]",'innerText');
-      if(jsonStr1){
-        const jsonObj = JSON.parse(jsonStr);
-        console.log('jsonObj: ' + jsonObj);
-        addElementToDocument('added_brand', jsonObj.brand);
+      // const somePath = getAllXpath("//div[@class='site-md__product-details-technicaldata']/div[@class='table-list-grouping']/div[@class='table-list-grouping__items-wrapper']/div[@class='table-list-grouping__item'][3]/div[@class='table-list-grouping__item-value']",'innerText');
+      // //console.log("somePath: ", somePath);
+      // addElementToDocument('added_dimentions', somePath);
+   
+      const retailerCodeXpath = getXpath("//link[@rel='canonical']/@href",'nodeValue').split('/');
+      var retailerCodeXpathLength = retailerCodeXpath.length;
+      addElementToDocument('added_retailer_product_code', (retailerCodeXpath[retailerCodeXpathLength-1]).split("-")[2]);
+
+      const specificationXpath = getAllXpath("//div[@class='table-list-grouping__items-wrapper']//div[@class='table-list-grouping__item']",'innerText').join(' || ');
+      console.log("specificationXpath: ", specificationXpath);
+      addElementToDocument('specificationXpath_added', specificationXpath);
+      //addElementToDocument('added_desc', descXpath);
+
+      const listPriceXpath = getXpath("//span[@class='price-item__strike']",'innerText');
+      //console.log("listPriceXpath: ", listPriceXpath);
+      addElementToDocument('listPriceXpath_added', listPriceXpath);
+
+      const colorXpath = getXpath("//div[@class='table-list-grouping__items-wrapper']//div[@class='table-list-grouping__item']//div[contains(.,'colour')]/following-sibling::div[1]",'outerText');
+      console.log("colorXpath: ", colorXpath);
+
+      const imgXpath = getAllXpath("//div[@class='swiper-wrapper js-grid-slider-wrapper']/div[position()>1]/img/@src",'nodeValue');
+      var url = "https://www.mobilcom-debitel.de";
+          
+      var strImageValue = '';
+      var emptyImageArray = [];
+     
+      if(imgXpath.length > 1){
+        for(var i=0; i<imgXpath.length; i++){
+          strImageValue =  ((imgXpath.join('||')).split('||'))[i];
+          console.log("strImageValue: ", url.concat(strImageValue));
+          var stringArray = [url.concat(strImageValue)];
+         console.log("ArrayImg is: ", stringArray);
+         emptyImageArray.push(stringArray);
+        }
+        console.log("emptyImageArray: ", emptyImageArray.join('  || '));
+        addElementToDocument('altImages_added',  emptyImageArray.join('  || '));
+      }else if(imgXpath.length == 1){
+        var Str = imgXpath[0];
+        console.log("altImages:-2  ", url.concat(Str));
+        addElementToDocument('altImages_added', url.concat(Str));
       }
-      //div[@class="table-list-grouping__items-wrapper"]//div[@class="table-list-grouping__item"]//div[contains(.,"Dimensions")]/following-sibling::div[2]
-      const dimentionXpath = getXpath("/html/body/div[1]/div[2]/div/section[4]/div/div/div/div/div[4]/div/div/div[2]/div[contains(.,'Dimensions')]/following-sibling::div",'nodeValue');
-      console.log("dimentionXpath: ", dimentionXpath);
-
-      //meta[@property="og:url"]/@content
-      const retailerCodeXpath = getXpath("//link[@rel='canonical']/@href",'nodeValue');
-      console.log("retailerCodeXpath: ", retailerCodeXpath);
-
+      
   });
   await context.extract(productDetails, { transform: transformParam });
   },
