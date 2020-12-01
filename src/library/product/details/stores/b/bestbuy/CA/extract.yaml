@@ -1,3 +1,4 @@
+
 singleRecord: true
 regionsSelector: null
 recordSelector: null
@@ -11,7 +12,10 @@ fields:
     xpath: //span[@itemprop="offers"]/meta[@itemprop="price"]/@content
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="availabilityMessageProduct_29UPa"]/div/span[2]
+    xpath: //link[@itemprop="availability"]/@href
+    regExp: InStock
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class="soldByBestBuy_1hMn-"] | //div[@class="soldBy_3u6LA"]
