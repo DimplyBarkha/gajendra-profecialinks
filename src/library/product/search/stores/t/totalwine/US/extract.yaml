@@ -39,3 +39,5 @@ fields:
     xpath: //article[@class="productCard__2nWxIKmi"]//div[contains(@style,"width")]/@style
     regExp: (.+)(width:\s?)(\d+)(.+)
     regExpReplace: $3
+  - name: endorsementText
+    xpath: //div[contains(@class,"directBanner")] | //div[@id="ratingBanner"]/span

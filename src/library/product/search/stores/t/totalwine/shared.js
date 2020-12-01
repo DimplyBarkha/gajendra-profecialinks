@@ -29,6 +29,9 @@ const transform = (data, context) => {
       if (row.aggregateRating2) {
         row.aggregateRating2 = [{ text: ((row.aggregateRating2[0].text) / 20).toFixed(1) }];
       }
+      if (row.endorsementText) {
+        row.endorsementText = [{ text: row.endorsementText.map(elm => elm.text).join(' | ') }];
+      }
     }
   }
   const state = context.getState();
