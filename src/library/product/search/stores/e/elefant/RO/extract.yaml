@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'product-list main-list row')]//div[contains(@class,'product-list-item')]
+recordXPath: //div[@class='search-product-list']//div[contains(@class,'product-list-item')]
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[@class='product-tile']//@data-dynamic-block-product-id
+    xpath: //div[@class='product-detail']//a[@class='sku']//@value
   - name: productUrl
     SingleValue: false
     xpath: //a[@class='product-title']//@href
