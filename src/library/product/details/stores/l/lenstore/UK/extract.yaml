@@ -28,7 +28,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: //p[@class="priceBox"]/span/span[@class="undiscountedPrice"]/text()
+    xpath: //p[@class="priceBox"]/span/span[@class="undiscountedPrice"]/text() | //p[@class="priceBox"]/span/span[@class="discountedPrice"]/text()
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -38,11 +38,11 @@ fields:
     regExpReplace: In Stock
     # defaultValue: Out of Stock
   - name: description
-    singleValue: false
-    xpath: (//div[@class="clear"]/p/text())[1] | //div[@id="relatedShift"]/p/text()
+    singleValue: true
+    xpath: (//div[@class="clear"]/p/text())[1] | //div[@id="relatedShift"]
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@class='clear']//ul[2]/li)
+    xpath: count(//div[@class='relatedInfo']//ul[2]/li)
     type: NUMBER
   - name: brandText
     singleValue: true
@@ -78,7 +78,7 @@ fields:
     xpath: //p[@class="prodDuration"]/span/text()
   - name: legalDisclaimer
     singleValue: true
-    xpath: //p[@class="reviewsDisclaimer clear"]/text()
+    xpath: //p[@class="reviewsDisclaimer clear"]/text()[2]
     # regExp: (\\n(\\t)+)
     # regExpReplace: $1
   - name: directions
