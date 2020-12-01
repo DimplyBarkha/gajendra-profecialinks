@@ -105,9 +105,13 @@ async function implementation(
     };
     var backgroundURL = getAllXpath('//span[@class="product__name__productitemno"]/text()', 'nodeValue');
     sliceURL(backgroundURL);
+
+    const URL = window.location.href;
+    if(URL != null){
+      addElementToDocument('pd_url', URL);
+    }
+
+
   });
-  //rank end
-
-
   return await context.extract(productDetails, { transform });
 }

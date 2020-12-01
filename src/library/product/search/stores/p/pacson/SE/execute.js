@@ -6,7 +6,7 @@ module.exports = {
     store: 'pacson',
     domain: 'pacson.se',
     url: 'https://pacson.se/sokresultat?q={searchTerms}',
-    loadedSelector: 'body',
+    loadedSelector: 'ul[class="row product-list"]',
     noResultsXPath: null,
     zipcode: '',
   },
