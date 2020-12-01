@@ -11,10 +11,10 @@ fields:
     xpath:  //img[contains(@class," product-image-large")]/@alt
   - name: category
     singleValue: false
-    xpath: //ul[contains(@class,"breadcrumb ")]/li/a
+    xpath: //div[contains(@class,"product-detail-wrapper")]//div[@class="span7"]//table//td[contains(text(),"Categorie")]/parent::*/td[2]/a
   - name: nameExtended
     singleValue: false
-    xpath: //header//h1
+    xpath: //header//h1 | //div[contains(@class,"product-detail-wrapper")]//div[@class="span7"]//table//td[contains(text(),"Merk")]/parent::*/td[2]
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
@@ -63,3 +63,30 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     defultValue: 0
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //div[contains(@class,"nutrition-nutrients")]/div[@class="span9"]/table[contains(@class,"nutrient-list")]//td[position()=1 and text()="Energie"]/parent::*/td[3]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //div[contains(@class,"nutrition-nutrients")]/div[@class="span9"]/table[contains(@class,"nutrient-list")]//td[position()=1 and text()="Vet"]/parent::*/td[3]
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //div[contains(@class,"nutrition-nutrients")]/div[@class="span9"]/table[contains(@class,"nutrient-list")]//td[position()=1 and contains(text(),"waarvan verzadigd")]/parent::*/td[3]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //div[contains(@class,"nutrition-nutrients")]/div[@class="span9"]/table[contains(@class,"nutrient-list")]//td[position()=1 and contains(text(),"waarvan suikers")]/parent::*/td[3]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //div[contains(@class,"nutrition-nutrients")]/div[@class="span9"]/table[contains(@class,"nutrient-list")]//td[position()=1 and text()="Eiwitten"]/parent::*/td[3]
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //div[contains(@class,"nutrition-nutrients")]/div[@class="span9"]/table[contains(@class,"nutrient-list")]//td[position()=1 and text()="Voedingsvezel"]/parent::*/td[3]
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class,"nutrition-further-details")]/div[@class="span3"]/h5[text()="Aanvullende vermeldingen"]/parent::*/parent::*/div[@class="span9"]
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[contains(@class,"nutrition-allergens")]/div[@class="span3"]/h5[text()="Allergenen"]/parent::*/parent::*/div[@class="span9"]/ul/li
+  - name: saltPerServing
+    singleValue: false
+    xpath: //div[contains(@class,"nutrition-nutrients")]/div[@class="span9"]/table[contains(@class,"nutrient-list")]//td[position()=1 and text()="Zout"]/parent::*/td[3]

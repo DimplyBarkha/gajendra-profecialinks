@@ -29,6 +29,38 @@ const transform = (data) => {
             item.text='https:'+item.text;
           });
         }
+        if(row.nameExtended){
+          let inf=[];
+          row.nameExtended.forEach(item=>{
+            inf.push(item.text);
+          })
+          row.nameExtended=[{"text":inf[1]+" - "+inf[0]}];
+        }
+        if(row.totalFatPerServing){
+          row.totalFatPerServingUom=[{"text":"g"}];
+        }
+        if(row.saturatedFatPerServing){
+          row.saturatedFatPerServingUom=[{"text":"g"}];
+        }
+        if(row.totalSugarsPerServing){
+          row.totalSugarsPerServingUom=[{"text":"g"}];
+        }
+        if(row.proteinPerServing){
+          row.proteinPerServingUom=[{"text":"g"}];
+        }
+        if(row.dietaryFibrePerServing){
+          row.dietaryFibrePerServingUom=[{"text":"g"}];
+        }
+        if(row.allergyAdvice){
+          let inf=[];
+          row.allergyAdvice.forEach(item=>{
+            inf.push(item.text);
+          })
+          row.allergyAdvice=[{"text":inf.join(" ,")}];
+        }
+        if(row.saltPerServing){
+          row.saltPerServingUom=[{"text":"g"}];
+        }
       }
     }
     return cleanUp(data);
