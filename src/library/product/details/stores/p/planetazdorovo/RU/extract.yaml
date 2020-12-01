@@ -1,0 +1,71 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //input[@name="item_id"]/@value
+  - name: productUrl
+    singleValue: false
+    xpath: //meta[@name="canonical"]/@content
+  - name: image
+    singleValue: false
+    xpath: //*[@class='product-detail__over-image']//div[@class='product-detail__image']/@style
+  - name: url
+    singleValue: false
+    xpath: //meta[@name="canonical"]/@content
+  - name: category
+    singleValue: false
+    xpath: //nav[@class="nav-bread-crumbs"]//ul/li
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="product-detail__title"]/text()
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="product-detail__title"]/text()
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-detail__price-wrap"]//div[contains(@class,"new")]//text()
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="product-detail__availability"]//p//text()
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id="description_COMPOSITION"]//div[@class="product-detail-description-content__item-content"]//text()
+  - name: brandText
+    singleValue: false
+    xpath: //table[@class="product-detail__spec"]//tr[contains(td, "Бренд:")]
+  - name: manufacturer
+    singleValue: false
+    xpath: //table[@class="product-detail__spec"]//tr[contains(td, "Производитель:")]
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="product-detail card"]//div[@class="product-detail__info"]//input[@name="uuid"]/@value
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product-detail card"]//div[@class="product-detail__info"]//input[@name="uuid"]/@value
+  - name: directions
+    singleValue: false
+    xpath: //div[@id="description_CONTRAINDICATIONS"]//div[@class="product-detail-description-content__item-content"]//text()
+  - name: description
+    singleValue: false
+    xpath: //table[@class="product-detail__spec"] | //div[@id="description_COMPOSITION"]//div[@class="product-detail-description-content__item-content"]//text()
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id="description_COMPOSITION"]//div[@class="product-detail-description-content__item-content"]//text()
+  - name: directions
+    singleValue: false
+    xpath: //div[@id="description_CONTRAINDICATIONS"]//text() | //div[@id="description_DOSAGE"]//text() | //div[@id="description_INDICATIONS"]//text()
+  - name: warnings
+    singleValue: false
+    xpath: //div[@id="description_INTERACTION"]//text() | //div[@id="description_OVERDOSE"]//text() | //div[@id="description_PHARMACOLOGY"]//text() | //div[@id="description_PREGNANCY"]//text() | //div[@id="description_SELL"]//text() | //div[@id="description_SIDEEFFECT"]//text() | //div[@id="description_SPECIALS"]//text() | //div[@id="description_STORAGE"]//text() | //div[@id="description_USEMETHODANDDOSES"]//text()
+  - name: numberOfServingsInPackage
+    singleValue: false
+    xpath: //table[@class="product-detail__spec"]//tr[contains(td, "Количество в упаковке:")]
+  - name: storage
+    singleValue: false
+    xpath: //div[@id="description_STORAGE"]//div[@class="product-detail-description-content__item-content"]
+  - name: otherSellersName
+    singleValue: false
+    xpath: //table[@class="product-detail__spec"]//tr[contains(td, "Производитель:")]
