@@ -10,7 +10,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
-    let locationUrl = await context.evaluate(async () => {
+    const locationUrl = await context.evaluate(async () => {
       return window.location.href;
     });
     var iframe = await context.evaluate(async () => {
@@ -25,13 +25,19 @@ module.exports = {
     });
     if (iframe) {
       await context.goto(iframe);
-      let manufactDes = await context.evaluate(() => {
+      const manufactDes = await context.evaluate(() => {
         return document.querySelector("div[class*='tab-pane active']") ? document.querySelector("div[class*='tab-pane active']").innerText : '';
       });
-      // let images =
+      const manufactImg = await context.evaluate(() => {
+        const arrImgSel = document.querySelectorAll("div[class*='box'] img[src]") ? Array.from(document.querySelectorAll("div[class*='box'] img[src]")) : '';
+        const img = arrImgSel.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
+        const imgURL = img.join(' , ');
+        return imgURL;
+      });
       await context.goto(locationUrl, { timeout: 30000 });
-      await context.evaluate((manufactDes) => {
+      await context.evaluate((manufactDes, manufactImg) => {
         addHiddenDiv('ii_manu', manufactDes);
+        addHiddenDiv('ii_img', manufactImg);
         function addHiddenDiv (id, content) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
@@ -39,7 +45,7 @@ module.exports = {
           newDiv.style.display = 'none';
           document.body.appendChild(newDiv);
         }
-      }, manufactDes);
+      }, manufactDes, manufactImg);
       return await context.extract(productDetails, { transform }, { type: 'APPEND' });
     }
     return await context.extract(productDetails, { transform });

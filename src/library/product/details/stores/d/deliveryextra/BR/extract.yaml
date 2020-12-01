@@ -50,10 +50,12 @@ fields:
     regExpReplace: $1
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class='tab-pane active']
+    # xpath: //div[@class='tab-pane active']
+    manualSelector: div#ii_manu
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class='box']//img/@src
+    # xpath: //div[@class='box']//img/@src
+    manualSelector: div#ii_img
   - name: caloriesPerServing
     singleValue: false
     xpath: //tr[contains(@class,'eXbGuj')]/td[contains(text(),'Valor Energético')]/following::td[1]
