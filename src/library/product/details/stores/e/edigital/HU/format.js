@@ -23,8 +23,7 @@ const transform = (data) => {
       return data;
     };    
       for (const { group } of data) {
-        for (let row of group) {
-          let brand = '';
+        for (let row of group) {          
           let variant_id = '';
           
           if (row.variantId) {
@@ -37,18 +36,14 @@ const transform = (data) => {
                 item.text = "https:" + item.text;
             });
           }
-          if (row.additionalDescBulletInfo) {            
+          if (row.additionalDescBulletInfo) {
+            let info = [];          
             row.additionalDescBulletInfo.forEach(item => {
-              item.text = "|" + item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();            
+              info.push(item.text.trim());            
             });
+            row.additionalDescBulletInfo = [{'text':info.join(' | '),'xpath':row.additionalDescBulletInfo[0].xpath}];
           }
-          if (row.descriptionBullets) {
-            row.descriptionBullets.forEach(item => {
-               let info = item.text.split("\n");
-               item.text = info.length;
-              
-            });
-          }
+          
           if (row.alternateImages) {
             row.alternateImages.forEach(item => {
                 item.text = "https:" + item.text;
@@ -58,25 +53,17 @@ const transform = (data) => {
             row.brandText.forEach(item => {
                 let data = JSON.parse(item.text);
                 if(data['brand']){
-                    item.text = data['brand'];
-                    brand = item.text;
+                    item.text = data['brand'];                    
                 }
                 else{
                     delete row.brandText;
                 }
             });
-          }
-          if (row.nameExtended) {            
-            row.nameExtended.forEach(item => {
-                if(brand != ''){
-                    item.text = item.text + " - " + brand;
-                }
-            });
-          }
+          }          
           if (row.description) {
             let info = [];          
             row.description.forEach(item => {
-              info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
+              info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());            
             });
             row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
           }
@@ -87,16 +74,13 @@ const transform = (data) => {
             });
             
             if (info.length>0){
-              row.specifications = [{'text':info.join(' | '),'xpath':row.specifications[0].xpath}];            
+              row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];            
             }
-          }
-          if (row.metaKeywords) {
-            row.metaKeywords = [{'text':row.metaKeywords[0]['text'],'xpath':row.metaKeywords[0].xpath}];            
-          }
+          }          
           if (row.availabilityText) {            
             row.availabilityText.forEach(item => {
               if(item.text == 'Out of Stock'){
-                delete row.quantity;
+                
               }
               else{
                 item.text = "In Stock";
@@ -141,10 +125,7 @@ const transform = (data) => {
                 }
             });
             row.variants = [{'text':info.join(' | '),'xpath':row.variants[0].xpath}];
-          }
-          if (row.variantCount) {
-            row.variantCount = [{'text':row.variantCount.length,'xpath':row.variantCount[0].xpath}];
-          }
+          }          
         }
       }
       return cleanUp(data);
