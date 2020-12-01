@@ -11,6 +11,9 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    // await context.waitForFunction(function () {
+    //   return Boolean(document.querySelector('//div[@class="product-list-item "]//img/@src', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    // }, { timeout: 90000 });
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -40,6 +43,12 @@ module.exports = {
       //   addElementToDocument('rank1', i);
       // }
       ranking(rank);
+      const URL = window.location.href;
+      try {
+        document.getElementById('pd_url').remove();
+      } catch (error) {
+      }
+      addElementToDocument('pd_url', URL);
     });
     return await context.extract(productDetails, { transform });
   },
