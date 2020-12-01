@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="col-6 col-md-4 col-lg-3"]
 fields:
   - name: id
     singleValue: true
@@ -17,17 +17,14 @@ fields:
     regExpReplace: https://www.kruidvat.nl$1
     singleValue: false
   - name: reviewCount
-    xpath: //a[@class="rating__link"]
-    # singleValue: false
+    singleValue: false
+    xpath: //div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@reviews-number
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@rating
   - name: thumbnail
     xpath: concat('https://www.kruidvat.nl', //a[@class="ClickSearchResultEvent_Class tile__product-slide-link"]/img/@src)
     singleValue: true
-  - name: aggregateRating
-    xpath: (//div[@id="aggregateRating"])
-    type: NUMBER
-  # - name: aggregateRating
-  #   singleValue: true
-  #   xpath: (//div[@id="aggregateRating"])
   - name: price
     xpath: //div[@id="price_rate"]
     singleValue: false

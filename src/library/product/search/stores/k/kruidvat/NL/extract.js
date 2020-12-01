@@ -37,14 +37,24 @@ async function implementation(
       });
     }
   
-  function addHiddenDiv(id, content, index) {
-    const newDiv = document.createElement('div');
-    newDiv.id = id;
-    newDiv.textContent = content;
-    newDiv.style.display = 'none';
-    const originalDiv = document.querySelectorAll("div[class='rating__fg']")[index];
-    originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-  }
+  // function addHiddenDiv(id, content, index) {
+  //   const newDiv = document.createElement('div');
+  //   newDiv.id = id;
+  //   newDiv.textContent = content;
+  //   newDiv.style.display = 'none';
+  //   const originalDiv = document.querySelectorAll("div[class='rating']")[index];
+  //   originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+  // }
+  // const aggregateRating = document.querySelectorAll("e2-rating")
+  // for (let k = 0; k < aggregateRating.length; k++) {
+  // // @ts-ignore
+  // let singleRating = aggregateRating[k].className.toString();
+  // // singleRating = singleRating.slice(0, singleRating.length - 1)
+  // // singleRating = (5 * singleRating) / 100;
+  // // singleRating = singleRating.toFixed(1);
+  // console.log(singleRating,'=singleRating')
+  // addHiddenDiv('aggregateRating', singleRating, k);
+  // }
   function addHiddenDiv1(id, content, index) {
     const newDiv = document.createElement('div');
     newDiv.id = id;
@@ -52,15 +62,6 @@ async function implementation(
     newDiv.style.display = 'none';
     const originalDiv1 = document.querySelectorAll("div[class='pricebadge__new-price']")[index];
     originalDiv1.parentNode.insertBefore(newDiv, originalDiv1);
-  }
-  const aggregateRating = document.querySelectorAll("div[class='rating__fg']")
-  for (let k = 0; k < aggregateRating.length; k++) {
-  // @ts-ignore
-  let singleRating = aggregateRating[k].style.width;
-  singleRating = singleRating.slice(0, singleRating.length - 1)
-  singleRating = (5 * singleRating) / 100;
-  singleRating = singleRating.toFixed(1);
-  addHiddenDiv('aggregateRating', singleRating, k);
   }
   const priceDecimal = document.querySelectorAll("div[class='pricebadge__new-price-decimal']")
   const priceDecimal1 = document.querySelectorAll("div[class='pricebadge__new-price-separator']")
