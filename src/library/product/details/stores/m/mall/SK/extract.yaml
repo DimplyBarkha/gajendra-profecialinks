@@ -36,11 +36,11 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //p[@itemprop="description"]
-  - name: descriptionBullets
+  - name: additionalDescBulletInfo
     singleValue: true
     description: Number of ul > li tags in the description
     xpath: //div[@id="product-detail-description"]//ul/li/span/text()
-    type: NUMBER
+    # type: NUMBER
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
