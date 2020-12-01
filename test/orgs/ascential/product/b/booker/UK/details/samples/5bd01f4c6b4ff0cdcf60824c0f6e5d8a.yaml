@@ -2,7 +2,7 @@ input:
   id: "488"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=b091c724-9c1f-4817-8e47-0aead44a8522/task=89da58dd-252d-48ec-b61b-9c1e15b829f5/07baa5b6-c0ce-4413-a4ba-2eb87e04f539.html
+  - html: https://workbench.import.io/html/run=4b4fc31d-0837-4bfc-b81c-3e94c0a55430/task=dd752c83-330e-4107-8449-a5065df1b3c2/b907afd6-7e41-4c73-9846-fddc4753685e.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -12,15 +12,18 @@ extractions:
             imageAlt:
               - text: Smarties Milk Chocolate Tube 38g - Click for larger image
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            quantity:
-              - text: 48 x 38g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
             sku:
               - text: "488"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
             variantId:
               - text: "488"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            quantity:
+              - text: 48 x 38g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
+            price:
+              - text: £21.83
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[4]/span[1]
             brandText:
               - text: Smarties
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
@@ -128,7 +131,7 @@ extractions:
                 xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
             privacyPolicy:
               - text: Yes
-                xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[4]/a[1]
+                xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[5]/a[1]
             legalDisclaimer:
               - text: The image and summary details have been prepared for illustration and
                   information purposes only. On occasion the actual product may
@@ -186,4 +189,4 @@ extractions:
             packaging:
               - text: Type Box
         xpath: /html
-    timestamp: 1606406369864
+    timestamp: 1606840170633

@@ -12,15 +12,19 @@ module.exports = {
   implementation: async (inputs, parameterValues, context, dependencies) => {
     const url = `${inputs.url}`;
     await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
-    await context.waitForSelector('input[name="OutsideHomePageControl$cmdPostCode"]');
-    await context.click('input[name="OutsideHomePageControl$cmdPostCode"]');
-    await context.waitForSelector('input[name="BLC$txtPostcode"]');
-    await context.setInputValue('input[name="BLC$txtPostcode"]', 'SY23 3JQ');
-    await context.click('input[name="BLC$cmdLookupPostcode"]');
-    await context.waitForSelector('input[id="cmdProceed"]');
-    await context.click('input[id="cmdProceed"]');
-    await context.waitForSelector('input[name="BranchInfo$cmdBrowseSite"]');
-    await context.click('input[name="BranchInfo$cmdBrowseSite"]');
-    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    const pageAfterLogin = await context.evaluate(async () => {
+      return document.querySelector('ul[id="tabmenu"]');
+    });
+    if (!pageAfterLogin) {
+      await context.waitForSelector('input[name="OutsideHomePageControl$CustomerNumber"]');
+      await context.setInputValue('input[name="OutsideHomePageControl$CustomerNumber"]', '703636209');
+      await context.click('input[name="OutsideHomePageControl$cmdCustomerNumber"]');
+      await context.waitForSelector('input[name="LoginControl$EmailSingle"]');
+      await context.setInputValue('input[name="LoginControl$EmailSingle"]', 'russell.kirkham@unilever.com');
+      await context.setInputValue('input[name="LoginControl$PasswordSingle"]', 'george');
+      await context.click('input[name="LoginControl$EnterEmailPasswordSubmit"]');
+      await context.waitForSelector('ul[id="tabmenu"]');
+      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    }
   },
 };
