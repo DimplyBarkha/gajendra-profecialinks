@@ -5,14 +5,12 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    # xpath: //ul[@id='productListMain']//span[@class='itemTitle']//a/@href
     xpath: //ul[@id='productListMain']//a[@class='itemImage']/@href
     regExp: (.+)
     regExpReplace: https://www.jdsports.co.uk$1
   - name: thumbnail
-    type: FILE
     description: The URL for the product thumbnail image
-    xpath: //ul[@id='productListMain']//span[@class='thumbnail overlay-thumbnail']/picture/source/@srcset
+    xpath: //ul[@id='productListMain']//a[@class='itemImage']/picture/source/@srcset
   - name: name
     singleValue: true
     type: TEXT

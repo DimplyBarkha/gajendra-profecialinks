@@ -13,9 +13,6 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: (//img[@class='imgMed owl-lazy']/@alt)[1]
-  - name: alternateImages
-    singleValue: false
-    description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -24,24 +21,22 @@ fields:
     singleValue: false
     type: TEXT[]
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//div[@id='breads']//span[position()>1 and position()<6])//text()
+    # xpath: (//div[@id='breads']//span[position()>1 and position()<6])//text()
+    xpath: //div[@id='breads']//span[position()>1 and position()<10]/following-sibling::span[not(contains(@class,'active'))]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1[@itemprop='name']//text()
-  - name: listPrice
+  - name: price
     singleValue: true
-    description: The stated undiscounted price for the product
+    description: The stated undiscounted price for the product.
+    xpath: //div[@class='itemPrices']//span[@class='pri']//text()
   - name: online_price
     singleValue: true
     type: CURRENCY
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='itemPrices']//span[@class='pri']//text()
-  - name: harvested_price
-    type: CURRENCY
-    xpath: //div[@class='itemPrices']//span[@class='pri']//text()
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -56,7 +51,7 @@ fields:
     type: TEXT[]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: (//div[@id='itemInfoContainer']//div[@class='tab-info']/text())
+    xpath: //div[@id='itemInfoContainer']//div[@class='tab-info']//text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -83,19 +78,20 @@ fields:
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
+    singleValue: false
+    type: NUMBER
     description: GTIN code (includes UPC/EAN)
+    manualSelector: script[type='text/javascript']
+    regExp: '(upc)([^"].*)'
+    regExpReplace: $2
   - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-    xpath: //div[@class='wishlistPopout']/@data-productsku
-  - name: retailer_product_code
     singleValue: true
     description: The store-specific product identifier
     xpath: //div[@class='wishlistPopout']/@data-productsku
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class='wishlistPopout']/@data-productsku
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -112,30 +108,16 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-  - name: ratingCount
-    singleValue: true
+  - name: aggregateRating2
     description: The number of ratings
-    manualSelector: script[type='application/ld+json']
-    regExp: '(\"ratingValue\"\:)(\d*\.?\d+)'
-    regExpReplace: $2
-  - name: number_of_customer_reviews
-    singleValue: true
-    description: The stated aggregate rating
-    manualSelector: script[type='application/ld+json']
-    regExp: '(\"reviewCount\"\:)(\d*\.?\d+)'
-    regExpReplace: $2
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class='productMain']//div[@class='pr-snippet-rating-decimal']//text()
+  - name: ratingCount
     type: NUMBER
+    description: The stated aggregate rating
+    xpath: //div[@class='productMain']//a[@class='pr-snippet-review-count']//text()
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-    type: TEXT
-    xpath: //div[@class='tab-delivery']//text()
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -147,6 +129,7 @@ fields:
     description: Number of variants listed
     type: NUMBER
     xpath: //div[@class='varThumbs']/h3//text()
+    defaultValue: $0
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -223,6 +206,9 @@ fields:
   - name: videoLength
     singleValue: false
     description: null
+    manualSelector: script[type='application/ld+json']
+    regExp: '(\"duration\"\: \")([^"]+)'
+    regExpReplace: $2
   - name: ingredientImagePresent
     singleValue: true
     description: null
@@ -264,12 +250,12 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count(//div[@class='owl-thumbs']/button[not(contains(@class,'owl-thumb-item active'))]//source/@srcset)
-  - name: secondary_image
+    xpath: count(//div[@class='owl-thumbs']/button[not(contains(@class,'owl-thumb-item active'))]//img[@class='imgMed hidden']/@src)
+  - name: alternateImages
     type: FILE[]
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='owl-thumbs']/button[not(contains(@class,'owl-thumb-item active'))]//source/@srcset
+    xpath: //div[@class='owl-thumbs']/button[not(contains(@class,'owl-thumb-item active'))]//img[@class='imgMed hidden']/@src
   - name: news
     singleValue: true
     description: null
@@ -464,6 +450,7 @@ fields:
   - name: promotion
     type: TEXT
     description: promotion text on product page
+    xpath: //div[@class='productMain']//span[@class='sav']//text()
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -481,7 +468,10 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
+    type: TEXT
     description: colour / scent / flavour / other
+    xpath: //div[@class='tab-info']//h3[contains(text(),'Care & Material')]/following-sibling::h3//text()
+    regExp: '\w+'
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -493,15 +483,17 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //div[@class='wishlistPopout']/@data-productsku
   - name: variants
-    singleValue: true
-    manualSelector: script[type='text/javascript']
-    regExp: '(upc\:)(\D.+)"'
-    regExpReplace: $2
+    type: TEXT[]
+    xpath: //div[@class='productMain']//div[@id='productSizeStock']/button/@data-sku
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //*[@id="itemInfoContainer"]/div[1]//text()[position()>1 and position()<7]
+    type: TEXT[]
+    xpath: //*[@id="itemInfoContainer"]/div[@class='tab-info']//br/following-sibling::text()
+    regExp: '(\w.+)'
+    regExpReplace: $1
   - name: prop65Warning
     singleValue: true
     description: null
@@ -518,7 +510,7 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    example: htt-ps://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
