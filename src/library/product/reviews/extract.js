@@ -15,7 +15,7 @@ async function implementation (
   const { preExtraction, transform, mergeType } = parameters;
   let filterReviews = parameters.filterReviews;
   const { productReviews } = dependencies;
-  preExtraction && await preExtraction(context);
+  preExtraction && await preExtraction(context, date, results);
   // Adding current page url
   await context.evaluate(async function () {
     function addElementToDocument (key, value) {
@@ -35,25 +35,23 @@ async function implementation (
   const data = await context.extract(productReviews, mergeOptions);
   let stop = false;
   // Fiter out reviews in case reviews outside limit is present in the page.
-  // if (data && data[0]) {
-  //   console.log('DATAA group!')
-  //   console.log(data[0].group[0])
-  //   const filteredReivews = data[0].group.filter(review => {
-  //     const reviewDate = review.reviewDate ? new Date(review.reviewDate[0].text).setHours(0, 0, 0, 0) : new Date(new Date(date)).setHours(0, 0, 0, 0);
-  //     const dateLimit = new Date(new Date(date)).setHours(0, 0, 0, 0);
-  //     return (reviewDate - dateLimit) >= 0;
-  //   });
-  //   if (filteredReivews.length < data[0].group.length) {
-  //     stop = true;
-  //   }
-  //   if (results !== Infinity) {
-  //     stop = false;
-  //     filterReviews = false;
-  //   }
-  //   if (filterReviews) {
-  //     data[0].group = filteredReivews;
-  //   }
-  // }
+  if (data && data[0]) {
+    const filteredReivews = data[0].group.filter(review => {
+      const reviewDate = new Date(review.reviewDate[0].text).setHours(0, 0, 0, 0);
+      const dateLimit = new Date(new Date(date)).setHours(0, 0, 0, 0);
+      return (reviewDate - dateLimit) >= 0;
+    });
+    if (filteredReivews.length < data[0].group.length) {
+      stop = true;
+    }
+    if (results !== Infinity) {
+      stop = false;
+      filterReviews = false;
+    }
+    if (filterReviews) {
+      data[0].group = filteredReivews;
+    }
+  }
   return { data, stop };
 }
 

@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'beru',
-    nextLinkSelector: 'button[data-auto="show-more"]',
+    // nextLinkSelector: 'button[data-auto="show-more"]',
     mutationSelector: null,
-    spinnerSelector: 'button[data-auto="show-more"] > div',
+    // spinnerSelector: 'button[data-auto="show-more"] > div',
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,

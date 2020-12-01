@@ -17,7 +17,7 @@ module.exports = {
     // await context.setBlockAds(false);
     // await context.setLoadAllResources(true);
     // await context.setLoadImages(true);
-    const inputUrl = `${url}#[!opt!]{"discard_CSP_header":true, "block_ads": false}[/!opt!]`;
+    url = `${url}#[!opt!]{"cookie_jar":[{"name":"ymp-onboarding-popup-was-shown","value":"true"},{"name":"first_region_init","value":"true"},{"name":"regionChanged","value":"true"},{"name":"region_dropdown_showed","value":"true"},{"name":"lr","value":"213"},{"name":"available-delivery","value":"213=1"}]}[/!opt!]`;
     // await context.goto(inputUrl, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
     const memory = {};
     const backconnect = !!memory.backconnect;

@@ -6,6 +6,5 @@ module.exports = {
     store: 'beru',
     domain: 'beru.ru',
     zipcode: '',
-    mergeType: 'MERGE_ROWS',
   },
 };

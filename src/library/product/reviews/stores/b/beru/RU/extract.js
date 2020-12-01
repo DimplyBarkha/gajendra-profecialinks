@@ -1,92 +1,163 @@
 const { transform } = require('./shared');
-async function preExtraction (context) {
-  await context.evaluate(async function () {
-    const reviews = document.querySelectorAll('div[data-zone-name="review"]');
-    reviews.forEach((review) => {
-      const upperDiv = document.createElement('div');
-      upperDiv.setAttribute('class', 'iio_reviews');
-      upperDiv.style.display = 'none';
+async function preExtraction (context, date, results) {
+  async function addReviews (date = null) {
+    function generateDynamicTable (jsonData) {
+      const dataLength = jsonData.length;
 
-      const reviewText = review.querySelector('span').closest('div[data-tid]').parentNode.parentNode.textContent;
-      let reviewNum = '';
-      switch (reviewText) {
-        case 'Ужасный товар':
-          reviewNum = '1';
-          break;
-        case 'Плохой товар':
-          reviewNum = '2';
-          break;
-        case 'Обычный товар':
-          reviewNum = '3';
-          break;
-        case 'Хороший товар':
-          reviewNum = '4';
-          break;
-        case 'Отличный товар':
-          reviewNum = '5';
-          break;
-        default:
-          reviewNum = '';
+      if (dataLength > 0) {
+        const table = document.createElement('table');
+        table.style.width = '50%';
+        table.setAttribute('border', '1');
+        table.setAttribute('cellspacing', '0');
+        table.setAttribute('cellpadding', '5');
+
+        const col = [];
+        for (let i = 0; i < dataLength; i++) {
+          for (const key in jsonData[i]) {
+            if (col.indexOf(key) === -1) {
+              col.push(key);
+            }
+          }
+        }
+        const tHead = document.createElement('thead');
+        const hRow = document.createElement('tr');
+
+        for (let i = 0; i < col.length; i++) {
+          const th = document.createElement('th');
+          th.innerHTML = col[i];
+          hRow.appendChild(th);
+        }
+        tHead.appendChild(hRow);
+        table.appendChild(tHead);
+
+        const tBody = document.createElement('tbody');
+
+        for (let i = 0; i < dataLength; i++) {
+          const bRow = document.createElement('tr');
+          for (let j = 0; j < col.length; j++) {
+            const td = document.createElement('td');
+            td.setAttribute('class', col[j]);
+            console.log(jsonData[i]);
+            if (
+              jsonData[i][col[j]] &&
+            (jsonData[i][col[j]] !== 'null' ||
+              jsonData[i][col[j]] !== 'undefined')
+            ) {
+              if (typeof jsonData[i][col[j]] === 'object') {
+                if (Array.isArray(jsonData[i][col[j]])) {
+                  jsonData[i][col[j]].forEach((data) => {
+                    const tr = document.createElement('tr');
+                    if (typeof data === 'object') {
+                      data = JSON.stringify(data);
+                    }
+                    tr.innerText = data;
+                    td.append(tr);
+                  });
+                } else {
+                  td.innerHTML = JSON.stringify(jsonData[i][col[j]]);
+                }
+              } else {
+                td.innerHTML = jsonData[i][col[j]];
+              }
+            }
+            bRow.appendChild(td);
+          }
+          tBody.appendChild(bRow);
+        }
+        table.appendChild(tBody);
+
+        const container = document.createElement('div');
+        container.setAttribute('id', 'product-review-api');
+        container.setAttribute('style', 'overflow:scroll;float: left');
+        container.innerHTML = '';
+        container.appendChild(table);
+        document.querySelector('[data-zone-name="footer"]').append(container);
       }
-      upperDiv.setAttribute('data-reviewRating', reviewNum);
-      review.append(upperDiv);
-    });
-  });
-  try {
-    await context.evaluate(() => {
-      Array.from(document.querySelectorAll('.commentText .b_8lynrUTtGG')).forEach(elm => elm.click());
-    });
-    const weekDaysMap = {
-      понедельник: 'monday',
-      вторник: 'tuesday',
-      среда: 'wednesday',
-      четверг: 'thursday',
-      пятница: 'friday',
-      суббота: 'saturday',
-      воскресенье: 'sunday',
+    }
+    async function getProductId (link) {
+      link = link || window.location.href;
+      const res = await fetch(link);
+      const html = await res.text();
+      return html.match(/"productId":(\d+)/)[1];
+    }
+    const productId = await getProductId(document.querySelector('[data-tid="f72d1588"] a').href);
+    const sk = state.user.sk;
+    const API =
+    'https://pokupki.market.yandex.ru/api/resolve/?r=beton/src/resolvers/reviews:resolveFullProductReviews';
+    let page = 0;
+    const body = {
+      params: [
+        {
+          productId: productId,
+          pager: {
+            pageNum: page,
+            showAll: true,
+          },
+          sort: {
+            by: 'date',
+            type: 'desc',
+          },
+          filter: {
+            gradeValue: null,
+          },
+        },
+      ],
+      path: window.location.pathname,
     };
-
-    const monthsMap1 = {
-      январь: 'January',
-      февраль: 'February',
-      март: 'March',
-      апрель: 'April',
-      май: 'May',
-      июнь: 'June',
-      июль: 'July',
-      август: 'August',
-      сентябрь: 'September',
-      октябрь: 'October',
-      ноябрь: 'November',
-      декабрь: 'December',
-    };
-
-    const monthsMap2 = {
-      января: 'January',
-      февраля: 'February',
-      марта: 'March',
-      апреля: 'April',
-      мая: 'May',
-      июня: 'June',
-      июля: 'July',
-      августа: 'August',
-      сентября: 'September',
-      октября: 'October',
-      ноября: 'November',
-      декабря: 'December',
-    };
-    const wordsToReplace = [...Object.keys(monthsMap2), ...Object.keys(monthsMap1), ...Object.keys(weekDaysMap)];
-    const wordMap = { ...monthsMap2, ...monthsMap1, ...weekDaysMap };
-    Array.from(document.querySelectorAll('.b_I_N6IMOcwb')).forEach(elm => {
-      let elmString = elm.innerText;
-      wordsToReplace.forEach(elm => {
-        elmString = elmString.replace(elm, wordMap[elm]);
+    let data = [];
+    let paginate = true;
+    do {
+      const res = await fetch(API, {
+        headers: {
+          sk,
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(body),
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
       });
-      elm.innerText = elmString;
-    });
-  } catch (err) {
-    console.log('Error clicking more text and date formatting.');
+      body.params[0].pager.pageNum = ++page;
+      const json = await res.json();
+      const reviews = json.results[0].data.collections.review;
+      if (Object.values(reviews).length === 0) {
+        paginate = false;
+      } else {
+        const users = json.results[0].data.collections.user;
+        const comments = json.results[0].data.collections.comment;
+        for (const review in reviews) {
+          if (reviews[review].userUid) {
+            reviews[review].userName = users[reviews[review].userUid].displayName;
+          }
+        }
+        for (const comment in comments) {
+          if (comments[comment].userId) {
+            comments[comment].userName =
+            users[comments[comment].userId].displayName;
+          }
+          const reviewId = comments[comment].rootCommentId.match(/\d+$/)[0];
+          console.log(reviewId);
+          reviews[reviewId].commentName = comments[comment].userName || '';
+          reviews[reviewId].commentUpdateTime =
+          comments[comment].updateTime.formatted || '';
+          reviews[reviewId].commentBody = comments[comment].body || '';
+        }
+        data = data.concat(Object.values(reviews));
+        const filteredData = data.filter(review => {
+          const reviewDate = review.created ? new Date(review.created).setHours(0, 0, 0, 0) : new Date(new Date(date)).setHours(0, 0, 0, 0);
+          const dateLimit = new Date(new Date(date)).setHours(0, 0, 0, 0);
+          return (reviewDate - dateLimit) >= 0;
+        });
+        if (filteredData.length < data.length) {
+          paginate = false;
+          data = filteredData;
+        }
+      }
+    } while (paginate);
+    console.log(data);
+    generateDynamicTable(data);
   }
+  await context.evaluate(addReviews, date);
 }
 module.exports = {
   implements: 'product/reviews/extract',
@@ -95,7 +166,7 @@ module.exports = {
     store: 'beru',
     transform,
     preExtraction,
-    mergeType: 'MERGE_ROWS',
+    mergeType: null,
     filterReviews: true,
     domain: 'beru.ru',
     zipcode: '',

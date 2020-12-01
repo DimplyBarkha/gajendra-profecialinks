@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-zone-name="review"]
+recordXPath: //div[@id="product-review-api"]/table/tbody/tr
 fields:
   - name: sku
     xpath: (ancestor::html//div[contains(@data-zone-data,"skuId")]/@data-zone-data)[1]
@@ -11,32 +11,30 @@ fields:
   - name: reviewDate
     type: DATETIME
     description: Date the review was made
-    xpath: //div[@class="b_I_N6IMOcwb"]|//div[1]//div[4]
+    xpath: ./td[@class="created"]
+  - name: responseDate
+    type: DATETIME
+    description: Date the review was made
+    xpath: ./td[@class="commentUpdateTime"]
   - name: reviewRating
-    # type: NUMBER
+    type: NUMBER
     singleValue: false
     description: Rating normalized to be out of 5
-    xpath: //div/@data-reviewrating[1]
-    # xpath: //span//ancestor::div[contains(@data-tid, "")]//div//div[contains(text(), "Хороший товар")]|//span//ancestor::div[contains(@data-tid, "")]//div//div[contains(text(), "Плохой товар")]|//span//ancestor::div[contains(@data-tid, "")]//div//div[contains(text(), "Обычный товар")]|//span//ancestor::div[contains(@data-tid, "")]//div//div[contains(text(), "Хороший товар")]|//span//ancestor::div[contains(@data-tid, "")]//div//div[contains(text(), "Отличный товар")]
-    # xpath: //@review-rating|//div/@data-reviewrating
+    xpath: ./td[@class="averageGrade"]
   - name: reviewText
     description: The text of the review
-    # xpath: concat(//span[contains(text(), "Достоинства")], " ", //span[contains(text(), "Достоинства")]//following-sibling::span, //span[contains(text(), "Недостатки")], " ", //span[contains(text(), "Недостатки")]//following-sibling::span, //span[contains(text(), "Комментарий")], " ", //span[contains(text(), "Комментарий")]//following-sibling::span)
-    # xpath: //span[contains(text(), "Достоинства")]//ancestor::div[1]//ancestor::div[1]|//span[contains(text(), "Недостатки")]//ancestor::div[1]//ancestor::div[1]|//span[contains(text(), "Комментарий")]//ancestor::div[1]//ancestor::div[1]
-    xpath: //span[contains(text(), "Достоинства")]|//span[contains(text(), "Достоинства")]//following-sibling::span|//span[contains(text(), "Недостатки")]| //span[contains(text(), "Недостатки")]//following-sibling::span|//span[contains(text(), "Комментарий")]|//span[contains(text(), "Комментарий")]//following-sibling::span
-    # xpath: //span[contains(text(), "Достоинства")]//ancestor::div[1]|//span[contains(text(), "Недостатки")]//ancestor::div[1]|//span[contains(text(), "Комментарий")]//ancestor::div[1]
+    xpath: ./td[@class="comment"] | ./td[@class="pro"] | ./td[@class="contra"]
   - name: reviewTitle
     singleValue: false
     description: The title of the review
-    xpath: //div[@class="b_3aVcLCACC9"]
   - name: productUrl
     xpath: ancestor::html//div[@data-zone-name="schema"]//meta[@itemprop="url"]/@content
     description: The url of the product details page
   - name: manufacturerResponse
     description: The response of the manufacturer (if any)
-    xpath: ./following-sibling::div//span[@class="b_3JsGNgDHFb"]
+    xpath: ./td[@class="commentBody"]
   - name: reviewUrl
-    xpath: ancestor::html//link[@rel="alternate"]/@href
+    xpath: ancestor::html//div[@id="currentPageUrl"]
     description: A direct link to the review
   - name: reviewedSku
     description: The SKU of the item that was reviewed (may be different from the
@@ -44,22 +42,19 @@ fields:
       value, transform will handle the value.
   - name: user
     description: The user name of the reviewer
+    xpath: ./td[@class="userName"]
     type: TEXT
   - name: aggregateRating
     description: The product rating
   - name: reviewAuthor
     singleValue: false
-    xpath: //div[@class='b_3fJVmfwbhK']
+    xpath: ./td[@class="userName"]
   - name: reviewRatingScale
     singleValue: false
     xpath: ancestor::html//meta[@itemprop="bestRating"]/@content
-  # - name: answer
-  #   singleValue: false
-  #   xpath: //div[@class="b_dkDeduCKVt"]
   - name: responseAuthor
     singleValue: false
-    xpath: ./following-sibling::div//div[@class="b_dkDeduCKVt"]
+    xpath: ./td[@class="commentName"]
   - name: reviewId
     singleValue: false
-    xpath: //div/@data-id
-
+    xpath: ./td[@class="id"]

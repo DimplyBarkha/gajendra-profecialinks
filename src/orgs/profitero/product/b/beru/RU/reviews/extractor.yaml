@@ -6,8 +6,14 @@ parameters:
   zipcode: ""
 proxy:
   zone: ZUS
-  # type: RESIDENTIAL
-  type: DATA_CENTER
+  type: RESIDENTIAL
+  # type: DATA_CENTER
+policy:
+  numberRetries: 20
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     staging:
