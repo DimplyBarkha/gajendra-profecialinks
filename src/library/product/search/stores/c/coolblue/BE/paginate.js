@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'BE',
     store: 'coolblue',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,

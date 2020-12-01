@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//*[@class='sales-price__current']/text()
     regExp: (.+)
-    regExpReplace: EUR $1    
+    regExpReplace: $1
   - name: name
     singleValue: false
     xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//div[@class='product-card__title']//h3/text()
@@ -38,7 +38,7 @@ fields:
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
-    xpath: ancestor::html//div[@id='added-searchurl']    
+    xpath: ancestor::html //div[@id="added-searchurl"]
   # - name: ratingCount
   #   singleValue: false
   #   xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//div[@class='review-rating']//span[contains(@class,'review-rating__reviews')]/a/text()
