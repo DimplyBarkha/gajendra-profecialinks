@@ -3,9 +3,9 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'backmarket.fr',
-    timeout: null,
+    timeout: 100000,
     country: 'FR',
     store: 'backmarket',
-    zipcode: "''",
+    zipcode: '',
   },
 };
