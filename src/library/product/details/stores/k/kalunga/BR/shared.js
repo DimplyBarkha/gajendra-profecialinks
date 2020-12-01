@@ -11,13 +11,14 @@ const transform = (data) => {
     el.group.forEach(gr => {
       try {
         if (gr.rpc) gr.rpc[0].text = gr.rpc[0].text.replace(onlyNumbers, '');
-        if (gr.price) gr.price[0].text = gr.price[0].text.replace(onlyNumbers, '');
+        if (gr.rpc) gr['_input'] = [{ text: gr.rpc[0].text.replace(onlyNumbers, '') }];
+        // if (gr.price) gr.price[0].text = gr.price[0].text.replace(onlyNumbers, '');
         if (gr.description) {
           gr.description.forEach(el => {
             el.text = el.text.replace(/\s+/g, ' ').trim();
           });
         };
-        if (gr.listPrice) gr.listPrice[0].text = gr.listPrice[0].text.replace(onlyNumbers, '');
+        // if (gr.listPrice) gr.listPrice[0].text = gr.listPrice[0].text.replace(onlyNumbers, '');
         if (gr.variantId) gr.variantId[0].text = gr.variantId[0].text.replace(onlyNumbers, '');
         if (gr.additional_desc_bullet_count) gr.additional_desc_bullet_count = [{ text: gr.additional_desc_bullet_count.length }];
         if (gr.retailer_product_code) gr.retailer_product_code[0].text = gr.retailer_product_code[0].text.replace(onlyNumbers, '');
