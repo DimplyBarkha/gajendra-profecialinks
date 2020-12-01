@@ -62,12 +62,28 @@ const transform = (data) => {
         row.description = [{ text }];
       }
 
+      if (row.price) {
+        let text = '';
+        row.price.forEach(item => {
+          text = item.text.replace(/,/g, '.');
+        });
+        row.price = [{ text }];
+      }
+
       if (row.caloriesPerServing) {
         let text = '';
         row.caloriesPerServing.forEach(item => {
           text = text + (text ? ' ' : '') + item.text;
         });
         row.caloriesPerServing = [{ text }];
+      }
+
+      if (row.quantity) {
+        let text = '';
+        row.quantity.forEach(item => {
+          text = item.text.split('(')[0];
+        });
+        row.quantity = [{ text }];
       }
     }
   }

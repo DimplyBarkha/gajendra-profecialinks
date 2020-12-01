@@ -68,8 +68,12 @@ fields:
     xpath: //h2[contains(.,"Zutaten und Allergene")]/parent::div/following-sibling::div[1]
   - name: servingSize
     xpath: //table[contains(@class,"pdr-NutritionTable")]//th[2]
+    regExp: (pro )?(\d+)
+    regExpReplace: $1$2
   - name: servingSizeUom
     xpath: //table[contains(@class,"pdr-NutritionTable")]//th[2]
+    regExp: (pro )?(\d+)(.+)
+    regExpReplace: $3
   - name: numberOfServingsInPackage
   - name: caloriesPerServing
     xpath: //table[contains(@class,"pdr-NutritionTable")]//tbody//td[contains(.,"Energie")]/following-sibling::td
