@@ -21,6 +21,7 @@ const transform = (data) => {
     el.group.forEach(gr => {
       try {
         gr['rank'] = [{ text: ranks.indexOf(gr.productUrl[0].text) }];
+        gr['rankOrganic'] = [{ text: ranks.indexOf(gr.productUrl[0].text) }];
         gr['_input'] = filterSearch;
         gr['_url'] = url;
         gr.productUrl[0].text = 'https://www.kalunga.com.br' + gr.productUrl[0].text;
