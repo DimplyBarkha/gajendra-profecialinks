@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="plist"]//div[contains(@class,'plist_element')]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class="plist"]//div[contains(@class,'plist_element')]//div[@class='plist_content']//div[@class='article-content']//div[@class="price"]//meta[@itemprop="price"]/@content
+    regExp: (\d+)(\.)?(\d{1,2})?
+    regExpReplace: $1,$3 €
+  - name: name
+    singleValue: false
+    xpath: //div[@class="plist"]//div[contains(@class,'plist_element')]//div[@class='plist_content']//div[@class='article-content']//div[@class='plist_details']//a[@itemprop='name']/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="plist"]//div[contains(@class,'plist_element')]//div[@class='plist_content']//div[@class='article-content']//div[@class='plist_details']//a[@itemprop='name']/@href    
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="plist"]//div[contains(@class,'plist_element')]//div[@class='plist_pictures']//a[contains(@class,'image-container')]//meta[@itemprop="image"]/@content
+  - name: id
+    singleValue: false
+    xpath: //div[@class="plist"]//div[contains(@class,'plist_element')]//div[@class='plist_content']//div[@class='article-content']//div[@class='plist_details']//ul[@class="keyfacts"]//span[@itemprop="sku"]/text()
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="plist"]//div[contains(@class,'plist_element')]//div[@class='plist_content']//div[@class='article-content']//div[@class='plist_details']//meta[@itemprop="ratingValue"]/@content    
+    regExp: (\d+)(\.)?(\d{1,2})?
+    regExpReplace: $1,$3
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="plist"]//div[contains(@class,'plist_element')]//div[@class='plist_content']//div[@class='article-content']//div[@class='plist_details']//meta[@itemprop="ratingCount"]/@content
