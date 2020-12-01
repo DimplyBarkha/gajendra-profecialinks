@@ -32,7 +32,7 @@ const transform = (data) => {
       }
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {
-          if (item.text.indexOf('foodie.fi') < 0) {
+          if (item.text.indexOf('http') < 0) {
             item.text = 'https://www.foodie.fi' + item.text;
           }
         });
