@@ -8,10 +8,10 @@ proxy:
   zone: ZES
   type: DATA_CENTER
 policy:
-  numberRetries: 10
+  numberRetries: 20
   priority: MEDIUM
   retryDelay: 60
-  backoffPolicy: EXPONENTIAL
+  backoffPolicy: LINEAR
   retryWithResidentialProxyAfter: 99
 meta:
   branches:
