@@ -11,7 +11,7 @@ fields:
     xpath: //section[@class="product-grid"]//div[@class="product-tile"]/@data-product-code
   - name: name
     SingleValue: false
-    xpath: //section[@class="product-grid"]//div[contains(@class,"product-tile-range-name arial")]
+    xpath: //section[@class="product-grid"]//div[contains(@class,"product-tile-info-box")]//h3
   - name: thumbnail
     SingleValue: false
     xpath: //div[@class="product-tile"]//a[contains(@class,"product-tile-content ClickSearchResultEvent_Class")]//img/@data-src
@@ -23,7 +23,6 @@ fields:
     xpath: //section[@class="product-grid"]//a//div[position()=2]/p[@class='formatted-price']
   - name: soldBy
     SingleValue: false
-    xpath: //section[@class="product-grid"]//div[contains(@class,"product-tile-brand-name strong")]
   - name: manufacturer
     SingleValue: false
-    xpath: //section[@class="product-grid"]//div[contains(@class,"product-tile-brand-name strong")]
+    
