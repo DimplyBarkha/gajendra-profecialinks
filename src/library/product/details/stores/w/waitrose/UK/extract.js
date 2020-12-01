@@ -40,7 +40,6 @@ module.exports = {
         element.title = productUrl;
         element.style.display = 'none';
         document.body.appendChild(element);
-  
       }
     });
     var data = await context.extract(productDetails, { transform });
