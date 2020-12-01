@@ -46,6 +46,18 @@ async function implementation (
     }, { timeout: 10000 }, loadedSelector, noResultsXPath);
   }
 
+  const checkIfResults = await context.evaluate((xp) => {
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return !e;
+  }, noResultsXPath);
+
+  if (!checkIfResults) {
+    return false;
+  }
+
   async function getData (reviewUrl, pageNum) {
     reviewUrl = reviewUrl.replace('pageNum', pageNum);
     console.log('URL passed - ' + reviewUrl);
@@ -104,7 +116,7 @@ async function implementation (
       }
     }
     // Bind the reviews to DOM
-    await context.evaluate(function (reviews, lastReviewDate) {
+    await context.evaluate(function (reviews, lastReviewDate, destinationUrl) {
       function checkIfReviewIsFromLast30Days (lastDate, reviewDate) {
         console.log('lastDate' + lastDate);
         console.log('reviewDate' + reviewDate);
@@ -142,7 +154,7 @@ async function implementation (
         }
 
         for (let i = 0; i < badges.length; i++) {
-          if (badges.name === 'VerifiedPurchaser') {
+          if (badges[i].name === 'VerifiedPurchaser') {
             console.log('Found verified purchase');
             return 'Yes';
           }
@@ -157,17 +169,43 @@ async function implementation (
 
         const div = document.createElement('div');
         div.id = reviews[i].id;
-        div.setAttribute('data-comment', reviews[i].comment);
-        div.setAttribute('data-positiveVoteCount', reviews[i].positiveVoteCount ? reviews[i].positiveVoteCount : '');
-        div.setAttribute('data-reviewDate', getFormattedDate(reviews[i].submissionDate));
-        div.setAttribute('data-starRating', reviews[i].starRating);
-        div.setAttribute('data-title', reviews[i].title);
-        div.setAttribute('data-verifiedPurchaser', getVerifiedPurchaseValue(reviews[i].badges));
-        div.setAttribute('data-user', reviews[i].userNickname);
         div.className = 'extract-reviews';
+
+        const comment = document.createElement('span');
+        comment.setAttribute('name', reviews[i].comment);
+        div.appendChild(comment);
+
+        const positiveVoteCount = document.createElement('span');
+        positiveVoteCount.setAttribute('name', reviews[i].positiveVoteCount ? reviews[i].positiveVoteCount : '');
+        div.appendChild(positiveVoteCount);
+
+        const submissionDate = document.createElement('span');
+        submissionDate.setAttribute('name', getFormattedDate(reviews[i].submissionDate));
+        div.appendChild(submissionDate);
+
+        const starRating = document.createElement('span');
+        starRating.setAttribute('name', reviews[i].starRating);
+        div.appendChild(starRating);
+
+        const title = document.createElement('span');
+        title.setAttribute('name', reviews[i].title);
+        div.appendChild(title);
+
+        const verifiedPurchaser = document.createElement('span');
+        verifiedPurchaser.setAttribute('name', getVerifiedPurchaseValue(reviews[i].badges));
+        div.appendChild(verifiedPurchaser);
+
+        const userNickname = document.createElement('span');
+        userNickname.setAttribute('name', reviews[i].userNickname ? reviews[i].userNickname : '');
+        div.appendChild(userNickname);
+
+        const productUrl = document.createElement('span');
+        productUrl.setAttribute('name', destinationUrl);
+        div.appendChild(productUrl);
+
         document.body.appendChild(div);
       }
-    }, extractedReviews, lastReviewDate);
+    }, extractedReviews, lastReviewDate, destinationUrl);
   }
 
   console.log('Checking no results', noResultsXPath);
@@ -187,7 +225,7 @@ module.exports = {
     store: 'nordstrom',
     domain: 'nordstrom.com',
     loadedSelector: '#product-page-reviews',
-    noResultsXPath: '//h1[contains(.,"cannot be found")]',
+    noResultsXPath: '//h1[contains(.,"cannot be found")] | //h1[contains(.,"No results")]',
   },
   implementation,
 };

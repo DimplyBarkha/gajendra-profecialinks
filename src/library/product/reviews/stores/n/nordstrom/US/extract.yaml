@@ -4,14 +4,12 @@ recordSelector: null
 recordXPath: //div[contains(@class,'extract-reviews')]
 fields:
   - name: id
-    singleValue: false
     xpath: //@id
   - name: helpfulCount
     type: NUMBER
     description: Number of people who said the review was helpful
-    xpath: //@data-positiveVoteCount
+    xpath: //span[2]/@name
   - name: commentCount
-    singleValue: true
     type: NUMBER
     description: Number of comments on the review
   - name: brandText
@@ -27,41 +25,38 @@ fields:
     regExp: \/(\d+)
     regExpReplace: $1
   - name: reviewDate
-    type: DATETIME
     description: Date the review was made
-    xpath: //@data-reviewDate
+    type: DATETIME
+    xpath: //span[3]/@name
   - name: reviewRating
+    description: Rating normalized to be out of 5
+    type: NUMBER
+    xpath: //span[4]/@name
+  - name: reviewRating2
     type: NUMBER
     description: Rating normalized to be out of 5
-    xpath: //@data-starRating
+    xpath: //span[4]/@name
   - name: reviewText
     description: The text of the review
-    xpath: //@data-comment
+    xpath: //span[1]/@name
   - name: reviewTitle
     description: The title of the review
-    xpath: //@data-title
+    xpath: //span[5]/@name
   - name: reviewerTags
     description: The tags a reviewer has
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: productUrl
     description: The url of the product details page
-    xpath: ancestor::html//meta[contains(@property,'og:url')]/@content
+    xpath: //span[8]/@name
   - name: verifiedPurchase
-    type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
-    xpath: //@data-verifiedPurchaser
-    defaultValue: false
-    regExp: /Yes/
-    regExpReplace: true
+    xpath: //span[6]/@name
   - name: manufacturerResponse
-    singleValue: true
     description: The response of the manufacturer (if any)
   - name: syndicatedFrom
-    singleValue: true
     description: Stated place the review was syndicated from
   - name: reviewUrl
-    singleValue: true
     description: A direct link to the review
   - name: reviewedSku
     description: The SKU of the item that was reviewed (may be different from the
@@ -73,7 +68,7 @@ fields:
   - name: user
     description: The user name of the reviewer
     type: TEXT
-    xpath: //@data-user
+    xpath: //span[7]/@name
   - name: aggregateRating
     description: The product rating
     xpath: ancestor::html//span[contains(@itemprop,'ratingValue')]/@content
