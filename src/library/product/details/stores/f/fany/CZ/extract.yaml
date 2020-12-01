@@ -1,0 +1,51 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'product-photo-main')]/img/@src
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'product-top')]/h1
+  - name: price
+    singleValue: false
+    xpath: //span[@class='price']/strong
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class='price']/strong  
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'product-top')]/p[normalize-space()]/text()
+  - name: weightNet
+    singleValue: false
+    xpath: //span[@class='size']
+  - name: manufacturer
+    singleValue: false
+    xpath: //table/tbody/tr/td[text()='Výrobce/dodavatel']/../td[2]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='product-producer']/img/@src   
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //table/tbody/tr[2]/td/../td[2]    
+  - name: availabilityText
+    singleValue: false
+    xpath: //p[@class='delivery delivery-0']
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@class="alcohol-alert"]/p     
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumbs']/li[position()>1]
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='sproduct-flags flags text-right']/span
+  - name: variantCount
+    singleValue: false
+    defaultValue: "0" 
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="tabs-content"]/div/ul/li  | //div[@class="tabs-content"]/div
+  
