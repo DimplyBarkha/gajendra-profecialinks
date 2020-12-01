@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null #div.rm-variations__colors
+recordXPath: null #//div[contains(@class, 'rm-variations__colors')]
+fields:
+  - name: variantId
+    xpath: //article[contains(@class, 'rm-product__card')][count(//div[contains(@class, 'rm-variations')])>0]//a[contains(@class, 'rm-variations__item')]/@href | //article[contains(@class, 'rm-product__card')][count(//div[contains(@class, 'rm-variations')])=0]/ancestor::html//meta[@property='og:url']/@content
+    regExp: (.+)\/p\/(\d+)
+    regExpReplace: $2
+  - name: variantUrl
+    xpath: //article[contains(@class, 'rm-product__card')][count(//div[contains(@class, 'rm-variations')])>0]//a[contains(@class, 'rm-variations__item')]/@href | //article[contains(@class, 'rm-product__card')][count(//div[contains(@class, 'rm-variations')])=0]/ancestor::html//meta[@property='og:url']/@content

@@ -1,0 +1,86 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //meta[contains(@property, 'og:image')]/@content
+  - name: imageAlt
+    xpath: //div[contains(@class, 'rm-productdetail__image-detail')]//div[contains(@class, 'swiper-slide-active')]//img[contains(@class, 'rm-product__image')]/@alt
+  - name: category
+    xpath: //ol[contains(@class, 'rm-breadcrumb__list')]/li[position()>1 and not(contains(@class, 'active'))]
+  - name: nameExtended
+    xpath: //ol[contains(@class, 'rm-breadcrumb__list')]/li[contains(@class, 'active')]
+  - name: name
+    xpath: //ol[contains(@class, 'rm-breadcrumb__list')]/li[contains(@class, 'active')]
+  - name: variantInfo
+    xpath: //a[contains(@class, 'rm-variations__item--selected')]/div[contains(@class, 'rm-link--grey')]
+  - name: price
+    xpath: //div[contains(@class, 'rm-price__current')]/@content
+  - name: description
+    xpath: //article[contains(@itemprop,"description")]//h2[contains(., 'Produktbeschreibung') or contains(., 'Produktdetails')]/following-sibling::div[contains(@class, 'rm-accordion__detail-info')]
+  - name: ingredientsList
+    xpath: //article[contains(@itemprop,"description")]//h2[contains(., 'Inhaltsstoffe')]/following-sibling::div[contains(@class, 'rm-accordion__detail-info')]
+  - name: brandText
+    xpath: //div[contains(@class, 'rm-product__brand')]
+  - name: manufacturer
+    xpath: //h4[contains(., 'Kontaktdaten') or contains(., 'Lebensmittelunternehmer')]/following-sibling::p[1]/text()[1]
+  - name: availabilityText
+    xpath: //link[contains(@class, 'rm-product__availability')]/@href
+  - name: quantity
+    xpath: //div[contains(@class, 'rm-product__unit')]/div[contains(@class, 'rm-product__unit')]
+  - name: gtin
+    xpath: //span[contains(@itemprop, 'sku')]/@content
+  - name: sku
+    xpath: //span[contains(@itemprop, 'sku')]/@content
+  - name: variantId
+    xpath: //div[contains(@class, 'rm-product__id--dan')]
+  - name: directions
+    xpath: //article[contains(@itemprop,"description")]//h2[contains(., 'Anwendung')]/following-sibling::div[contains(@class, 'rm-accordion__detail-info')]
+  - name: warnings
+    xpath: //h4[contains(., 'Warnhinweise')]/following-sibling::* | //h2[contains(., 'Warnhinweise')]/following-sibling::*
+  - name: servingSize
+    xpath: //h2[contains(., 'Nährwerte')]/following-sibling::div//table/tbody/tr[2]/td[2]
+  - name: caloriesPerServing
+    xpath: //tr[contains(., 'Energie')]/td[2]
+    regExp: (.+)\/(.+)
+    regExpReplace: $2
+  - name: totalFatPerServing
+    xpath: //tr[contains(., 'Fett')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $1
+  - name: totalFatPerServingUom
+    xpath: //tr[contains(., 'Fett')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $2
+  - name: alternateImages
+    xpath: //div[contains(@class, 'rm-productdetail__image-thumbs')]//div[contains(@class, 'swiper-slide') and not(contains(@class, 'active'))]//img/@src
+    regExp: (.+)(width=70&height=70)(.+)
+    regExpReplace: $1width=600&height=600&canvas=600
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class, 'rm-productdetail__image-thumbs')]//div[contains(@class, 'swiper-slide') and not(contains(@class, 'active'))])
+  - name: ratingCount 
+    xpath: //div[contains(@class, 'bv_numReviews_text')]
+    regExp: \d+
+  - name: aggregateRating
+    xpath: //div[contains(@class, 'bv_avgRating_component_container')]
+  - name: storage
+    xpath: //article[contains(@itemprop,"description")]//h2[contains(., 'Aufbewahrung und Verwendung')]/following-sibling::div[contains(@class, 'rm-accordion__detail-info')]
+  - name: countryOfOrigin
+    xpath: //article[contains(@itemprop,"description")]//h4[contains(., 'Ursprungsland')]/following-sibling::p
+  - name: descriptionBullets
+    xpath: count(//article[contains(@itemprop,"description")]//h2[contains(., 'Produktbeschreibung') or contains(., 'Produktdetails')]/following-sibling::div[contains(@class, 'rm-accordion__detail-info')]//ul/li)
+  - name: additionalDescBulletInfo
+    xpath: //article[contains(@itemprop,"description")]//h2[contains(., 'Produktbeschreibung') or contains(., 'Produktdetails')]/following-sibling::div[contains(@class, 'rm-accordion__detail-info')]//ul/li
+  - name: promotion
+    xpath: //span[contains(@class, 'rm-badge--SPAREN')]
+  - name: listPrice
+    xpath: //span[contains(@class, 'rm-price__strikethrough')]
+  - name: firstVariant
+    xpath: //div[contains(@class, 'rm-variations__colors')]//a[contains(@class, 'rm-variations__item')][1]/@href
+    regExp: (.+)\/p\/(\d+)
+    regExpReplace: $2
+  - name: variants
+    xpath: //div[contains(@class, 'rm-variations__colors')]//a[contains(@class, 'rm-variations__item') and not(contains(@class, 'rm-variations__item--selected'))]/@href
+    regExp: (.+)\/p\/(\d+)
+    regExpReplace: $2
