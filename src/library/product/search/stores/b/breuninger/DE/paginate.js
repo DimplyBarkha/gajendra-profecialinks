@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '*[data-order]',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(@class,"suchen-null-treffer-headline")]//span/following-sibling::text()["leider nichts finden"]',
     openSearchDefinition: null,
     domain: 'breuninger.de',
     zipcode: '',

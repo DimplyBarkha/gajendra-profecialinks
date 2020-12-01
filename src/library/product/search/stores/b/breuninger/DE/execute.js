@@ -7,7 +7,7 @@ module.exports = {
     domain: 'breuninger.de',
     url: 'https://www.breuninger.com/de/suche/?q={searchTerms}',
     loadedSelector: '*[data-order]',
-    noResultsXPath: '//div[@class="suchen-page-headline"]//div[contains(text(), "Es wurden keine Treffer")]',
+    noResultsXPath: '//h1[contains(@class,"suchen-null-treffer-headline")]//span/following-sibling::text()["leider nichts finden"]',
     zipcode: '',
   },
 };
