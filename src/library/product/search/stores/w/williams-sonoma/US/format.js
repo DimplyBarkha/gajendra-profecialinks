@@ -35,7 +35,7 @@ const transform = (data) => {
         if (row.price.length > 1) {
           row.price.splice(1);
         }
-        row.thumbnail.forEach(item => {
+        row.price.forEach(item => {
           item.text = item.text.replace('Our Price', '').trim();
           item.text = item.text.replace('Sale', '').trim();
         });
