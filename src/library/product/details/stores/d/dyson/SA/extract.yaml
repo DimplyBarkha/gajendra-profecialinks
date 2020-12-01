@@ -85,3 +85,13 @@ fields:
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
+  - name: inTheBoxUrl
+    xpath: //div[@class="contents"]//img/@src | //div[@class="contents "]//img/@src
+  - name: inTheBoxText
+    xpath: //div[@class="contents"]//strong | //div[@class="contents "]//strong
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: //h2[contains(.,'Choose your model')]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No 

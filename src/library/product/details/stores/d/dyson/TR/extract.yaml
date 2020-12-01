@@ -564,3 +564,13 @@ fields:
     singleValue: true
     xpath: //div[@id="hasEnhancedContent"]
     defaultValue: No
+  - name: inTheBoxUrl
+    xpath: //div[@class="contents"]//img/@src | //div[@class="contents "]//img/@src
+  - name: inTheBoxText
+    xpath: //div[@class="contents"]//strong | //div[@class="contents "]//strong
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: //h2[contains(.,'Model Seçin')]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No 

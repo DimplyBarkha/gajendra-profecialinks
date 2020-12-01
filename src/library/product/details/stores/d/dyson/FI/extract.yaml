@@ -8,3 +8,12 @@ fields:
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'tomitus')] or .//*[contains(text(),'palau')]])[1]
   - name: warranty
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' takuu')]])[1]
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,"whats-in-the-box")]//img/@src
+  - name: inTheBoxText
+    xpath: //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"]
+  - name: hasComparisonTable
+    xpath: //h2[contains(.,'Valitse malli')]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No 
