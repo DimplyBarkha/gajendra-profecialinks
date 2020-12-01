@@ -40,7 +40,13 @@ fields:
   - name: warnings
     xpath: //h4[contains(., 'Warnhinweise')]/following-sibling::* | //h2[contains(., 'Warnhinweise')]/following-sibling::*
   - name: servingSize
-    xpath: //h2[contains(., 'Nährwerte')]/following-sibling::div//table/tbody/tr[2]/td[2]
+    xpath: //th[contains(., 'Durchschnittliche Nährwertangaben')]/following-sibling::th[1]
+    regExp: pro\s?(\d+)\s?(.+),(.+)
+    regExpReplace: $1
+  - name: servingSizeUom
+    xpath: //th[contains(., 'Durchschnittliche Nährwertangaben')]/following-sibling::th[1]
+    regExp: pro\s?(\d+)\s?(.+),(.+)
+    regExpReplace: $2
   - name: caloriesPerServing
     xpath: //tr[contains(., 'Energie')]/td[2]
     regExp: (.+)\/(.+)
@@ -51,6 +57,62 @@ fields:
     regExpReplace: $1
   - name: totalFatPerServingUom
     xpath: //tr[contains(., 'Fett')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $2
+  - name: saturatedFatPerServing
+    xpath: //tr[contains(., 'gesättigte Fettsäuren')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $1
+  - name: saturatedFatPerServingUom
+    xpath: //tr[contains(., 'gesättigte Fettsäuren')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $2
+  - name: totalCarbPerServing
+    xpath: //tr[contains(., 'Kohlenhydrate')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $1
+  - name: totalCarbPerServingUom
+    xpath: //tr[contains(., 'Kohlenhydrate')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $2
+  - name: proteinPerServing
+    xpath: //tr[contains(., 'Eiweiß')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $1
+  - name: proteinPerServingUom
+    xpath: //tr[contains(., 'Eiweiß')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $2
+  - name: totalSugarsPerServing
+    xpath: //tr[contains(., 'Zucker')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $1
+  - name: totalSugarsPerServingUom
+    xpath: //tr[contains(., 'Zucker')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $2
+  - name: saltPerServing
+    xpath: //tr[contains(., 'Salz')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $1
+  - name: saltPerServingUom
+    xpath: //tr[contains(., 'Salz')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $2
+  - name: dietaryFibrePerServing
+    xpath: //tr[contains(., 'Ballaststoffe')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $1
+  - name: dietaryFibrePerServingUom
+    xpath: //tr[contains(., 'Ballaststoffe')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $2
+  - name: sodiumPerServing
+    xpath: //tr[contains(., 'Natrium')]/td[2]
+    regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
+    regExpReplace: $1
+  - name: sodiumPerServingUom
+    xpath: //tr[contains(., 'Natrium')]/td[2]
     regExp: (.+)\s?(g|mg|ml|%|IU|Mg|Ml|litre|L)
     regExpReplace: $2
   - name: alternateImages
