@@ -75,7 +75,8 @@ fields:
     xpath: //dl[contains(.,'Peso')]//dd//p
   - name: gtin
     singleValue: false
-    xpath: (//script/@data-flix-ean | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'EAN')]//parent::div/dd/p | //dl[contains(.,'EAN')]//dd//p)[1]
+    # xpath: //div[contains(@class, "js-articleView")]/@data-ean13
+    xpath: (//div[contains(@class, "js-articleView")]/@data-ean13 | //script/@data-flix-ean | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'EAN')]//parent::div/dd/p | //dl[contains(.,'EAN')]//dd//p)[1]
   - name: mpc
     singleValue: false
     # xpath: (//script/@data-flix-mpn | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Modelo')]//parent::div/dd/p)[1] | //h1[contains(@class, "f-productHeader-Title")] 
