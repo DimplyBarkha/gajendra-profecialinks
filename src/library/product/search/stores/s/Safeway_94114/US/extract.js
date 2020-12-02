@@ -64,4 +64,3 @@ module.exports = {
     return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
   },
 };
-
