@@ -33,6 +33,18 @@ module.exports = {
       const newAvailability = document.createElement('availability');
       newAvailability.innerText = availability;
       document.body.append(newAvailability);
+
+      // Get terms and conditions
+      const tandc = document.querySelector('a#FC_hypTermsAndConditions') ? 'Yes' : 'No';
+      const newTandc = document.createElement('tandc');
+      newTandc.innerText = tandc;
+      document.body.append(newTandc);
+
+      // Get privacy policy
+      const privacyPolicy = document.querySelector('a#FC_hypPrivacyStatement') ? 'Yes' : 'No';
+      const newPrivacyPolicy = document.createElement('privacyPolicy');
+      newPrivacyPolicy.innerText = privacyPolicy;
+      document.body.append(newPrivacyPolicy);
     });
     await context.extract(productDetails, { transform });
   },

@@ -2,11 +2,20 @@ input:
   id: "488"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=4b4fc31d-0837-4bfc-b81c-3e94c0a55430/task=dd752c83-330e-4107-8449-a5065df1b3c2/b907afd6-7e41-4c73-9846-fddc4753685e.html
+  - html: https://workbench.import.io/html/run=ec7da715-d21b-416b-9180-eaee9b12dfad/task=902a6d81-4337-4987-a511-d1152c10586f/fb29c366-efca-47e3-9624-ddfe94cd774b.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
-          - image:
+          - category:
+              - text: Browse Categories
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
+            nameExtended:
+              - text: Smarties Milk Chocolate Tube 38g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            name:
+              - text: Smarties Milk Chocolate Tube 38g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            image:
               - text: https://www.booker.co.uk/bbimages/1/2dc4b9a3-3da5-4772-94a0-1d9a184ba48f.jpg
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
@@ -22,8 +31,8 @@ extractions:
               - text: 48 x 38g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
             price:
-              - text: £21.83
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[4]/span[1]
+              - text: £18.19
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[1]
             brandText:
               - text: Smarties
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
@@ -117,21 +126,9 @@ extractions:
             saltPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
-            category:
-              - text: Browse Categories
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
-            nameExtended:
-              - text: Smarties Milk Chocolate Tube 38g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
-            name:
-              - text: Smarties Milk Chocolate Tube 38g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
-            termsAndConditions:
-              - text: Yes
-                xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
-            privacyPolicy:
-              - text: Yes
-                xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[5]/a[1]
+            manufacturer:
+              - text: PO Box 203
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/p[1]
             legalDisclaimer:
               - text: The image and summary details have been prepared for illustration and
                   information purposes only. On occasion the actual product may
@@ -159,6 +156,12 @@ extractions:
             availabilityText:
               - text: In Stock
                 xpath: /html/body/availability[1]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/tandc[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/privacypolicy[1]
             technicalInformationPdfPresent:
               - text: No
             customerServiceAvailability:
@@ -189,4 +192,4 @@ extractions:
             packaging:
               - text: Type Box
         xpath: /html
-    timestamp: 1606840170633
+    timestamp: 1606902918345

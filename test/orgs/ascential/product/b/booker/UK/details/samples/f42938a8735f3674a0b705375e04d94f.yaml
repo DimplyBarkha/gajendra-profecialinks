@@ -2,11 +2,20 @@ input:
   id: "135923"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=4b4fc31d-0837-4bfc-b81c-3e94c0a55430/task=44c9c2bc-c9d0-4eb7-8e27-a71b6eda6ece/bb0c9885-cd4e-4031-b8af-7e82ebd7d30e.html
+  - html: https://workbench.import.io/html/run=ec7da715-d21b-416b-9180-eaee9b12dfad/task=4b8cff31-cd3b-4939-8352-3be6bf81b0ef/bb2109ce-b7f2-4b8d-84d3-0beaf3d13766.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
-          - image:
+          - category:
+              - text: Browse Categories
+                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
+            nameExtended:
+              - text: Chef's Larder Jalfrezi Sauce 2.15 Litres
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            name:
+              - text: Chef's Larder Jalfrezi Sauce 2.15 Litres
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
+            image:
               - text: https://www.booker.co.uk/bbimages/1/1c045914-aa7c-4be8-a63f-6c796f80b79a.jpg
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
@@ -91,24 +100,12 @@ extractions:
                   fry until thoroughly cooked. Add the contents of the container
                   to the pan and heat thoroughly."
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
+            manufacturer:
+              - text: Chef's Larder
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]/p[1]
             countryOfOrigin:
               - text: United Kingdom
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[11]/ul[1]/li[1]/span[1]
-            category:
-              - text: Browse Categories
-                xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
-            nameExtended:
-              - text: Chef's Larder Jalfrezi Sauce 2.15 Litres
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
-            name:
-              - text: Chef's Larder Jalfrezi Sauce 2.15 Litres
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
-            termsAndConditions:
-              - text: Yes
-                xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
-            privacyPolicy:
-              - text: Yes
-                xpath: /html/body/form[1]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/span[5]/a[1]
             legalDisclaimer:
               - text: The image and summary details have been prepared for illustration and
                   information purposes only. On occasion the actual product may
@@ -136,6 +133,12 @@ extractions:
             availabilityText:
               - text: Out of Stock
                 xpath: /html/body/availability[1]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/tandc[1]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/privacypolicy[1]
             technicalInformationPdfPresent:
               - text: No
             customerServiceAvailability:
@@ -167,4 +170,4 @@ extractions:
             packaging:
               - text: Type Plastic Bottle
         xpath: /html
-    timestamp: 1606840170165
+    timestamp: 1606902916329

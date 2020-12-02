@@ -44,7 +44,7 @@ fields:
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-  xpath: //li[@id="BPIH_liWSPVAT"]/span
+  xpath: //li[@id="BPIH_liWSP"]/span
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -68,8 +68,7 @@ fields:
   singleValue: true
   description: Product manufacturer
   xpath: //h1[contains(.,'Manufacturer')]/following-sibling::p
-  regExp: ^(.+?),
-  regExpReplace: $1
+  regExp: ^([^,]+)
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -532,17 +531,11 @@ fields:
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  xpath: //a[@id="FC_hypTermsAndConditions"]
-  regExp: (.*)
-  regExpReplace: 'Yes'
-  defaultValue: 'No'
+  xpath: //tandc
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  xpath: //a[@id="FC_hypPrivacyStatement"]
-  regExp: (.*)
-  regExpReplace: 'Yes'
-  defaultValue: 'No'
+  xpath: //privacyPolicy
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
