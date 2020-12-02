@@ -297,6 +297,7 @@ async function implementation(inputs, parameters, context, dependencies) {
         }, ms);
       });
     }
+ 
     function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -361,6 +362,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     if (close) {
       close.click();
     }
+   
     var xpath =
       "//span[contains(text() , 'Страна производства')]/../following-sibling::div/span";
     var countryOfOrigin = document.evaluate(
@@ -506,6 +508,16 @@ async function implementation(inputs, parameters, context, dependencies) {
       ingredients = ingredientsData.textContent;
     }
     addHiddenDiv('ingredients', ingredients);
+    var xpath =
+      '//div[@data-id="popup"]/table//button[@data-text="Accept all"]';
+    var popUP = document.evaluate(
+      xpath,
+      document,
+      null,
+      XPathResult.FIRST_ORDERED_NODE_TYPE,
+      null
+    ).singleNodeValue;
+    console.log('s', popUP);
     var specificationList;
     let specification = '';
 
@@ -519,6 +531,6 @@ async function implementation(inputs, parameters, context, dependencies) {
     });
     addHiddenDiv('specification', specification);
   });
-
+ 
   return await context.extract(productDetails, { transform });
 }
