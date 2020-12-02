@@ -2,7 +2,7 @@ input:
   id: "103063"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=ec7da715-d21b-416b-9180-eaee9b12dfad/task=9ef439b3-ec53-4a4e-bceb-ac41a621c234/15ee89af-8d89-42b4-9bb7-d6b723095bac.html
+  - html: https://workbench.import.io/html/run=35e9698c-db8b-4977-891d-658881a7b6e4/task=c5e8e18e-6e7d-4741-bbc0-b97e03bbc53e/87e4a13a-e55d-4194-a888-d32d16673836.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -39,9 +39,6 @@ extractions:
             storage:
               - text: Chilled
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/span[1]
-            imageZoomFeaturePresent:
-              - text: Yes
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
             legalDisclaimer:
               - text: The image and summary details have been prepared for illustration and
                   information purposes only. On occasion the actual product may
@@ -65,16 +62,16 @@ extractions:
               - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
                   Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
                   House Vintners, Chef's Larder, Drop Shipment
-                xpath: /html/body/meta-key[1]
+                xpath: /html/body/div[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/availability[1]
+                xpath: /html/body/div[2]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/tandc[1]
-            privacyPolicy:
+                xpath: /html/body/div[3]
+            imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/privacypolicy[1]
+                xpath: /html/body/div[6]
             technicalInformationPdfPresent:
               - text: No
             customerServiceAvailability:
@@ -96,4 +93,4 @@ extractions:
             packaging:
               - text: ""
         xpath: /html
-    timestamp: 1606902914784
+    timestamp: 1606913051488

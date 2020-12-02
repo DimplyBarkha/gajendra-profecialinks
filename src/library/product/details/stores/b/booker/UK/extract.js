@@ -10,9 +10,13 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    const cookies = await context.evaluate(async () => {
+      return document.querySelector('input#EUCookieButton');
+    });
+    if (cookies) {
+      await context.click('input#EUCookieButton');
+    };
     await context.evaluate(async function () {
-      const cookies = document.querySelector('input#EUCookieButton');
-      if (cookies) cookies.click();
       // Get legalDisclaimer info
       const legalDisclaimer = Array.from(document.querySelectorAll('div.piDisclaimer')).map(elm => {
         const value = elm.textContent.trim();
@@ -48,8 +52,9 @@ module.exports = {
       addElementToDocument('privacyPolicy', privacyPolicy);
 
       // Get serving size Uom
-      const servingSizeUom = document.evaluate('//h1[contains(.,"Nutrition")]/following-sibling::div/table//tr[1]/th[2]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      addElementToDocument('servingSizeUom', servingSizeUom.textContent.replace(/.*\d+\s?(\w+)\s?.*/g, '$1'));
+      const servingSizeUom = document.evaluate('//h1[contains(.,"Nutrition")]/following-sibling::div/table//tr[1]/th[2]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      const servingSizeUomData = servingSizeUom && servingSizeUom.singleNodeValue ? servingSizeUom.singleNodeValue.textContent.replace(/.*\d+\s?(\w+)\s?.*/g, '$1') : '';
+      addElementToDocument('servingSizeUom', servingSizeUomData);
 
       // Get zoomIn feature
       const zoomIn = document.querySelector('img[alt="Click for larger image"]') ? 'Yes' : 'No';
