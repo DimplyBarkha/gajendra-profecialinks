@@ -1,4 +1,3 @@
-// const { transform } = require('../../../../shared');
 const { transform } = require('../sharedTransform');
 
 module.exports = {
