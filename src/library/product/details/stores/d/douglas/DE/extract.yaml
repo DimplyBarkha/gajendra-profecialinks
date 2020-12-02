@@ -12,7 +12,9 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"rd__breadcrumbs__item rd__breadcrumbs__item--back")]//following-sibling::a
   - name: nameExtended
-    xpath: concat(//h1//span[@class='rd__copytext rd__copytext--90' or contains(@class, 'rd__product-header__title__brand')], ' ', //span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'])
+    xpath: concat(//span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'])
+  - name: nameExtendedPrefix
+    xpath: //h1//span[@class='rd__copytext rd__copytext--90' or contains(@class, 'rd__product-header__title__brand')]
   - name: price
     xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__new-price")]/span[1]
   - name: availabilityText
@@ -110,3 +112,7 @@ fields:
     xpath: //div[contains(@class, 'rd__product-details__description__collapsible')]//li[contains(., 'garantie') and not(contains(@type,'non-bullet'))] | //div[contains(@class, 'rd__product-details__description__collapsible')]//div[contains(., 'garantie')]
   - name: pricePerUnit
     xpath: //div[contains(@class, 'rd__product-details__options__price__item__quantity')]/span[2]
+  - name: shippingInfo
+    xpath: //img[@alt='Marketplace logo']/@src
+    regExp: (.+)douglas-marketplace-par(.+)
+    regExpReplace: DOUGLAS PARTNER

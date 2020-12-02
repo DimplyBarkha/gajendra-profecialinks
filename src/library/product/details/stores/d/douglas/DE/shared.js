@@ -110,10 +110,18 @@ const transform = (data) => {
 
       if (row.nameExtended) {
         let nameExtended = row.nameExtended[0].text;
+        if (row.nameExtendedPrefix) {
+          const prefix = row.nameExtendedPrefix[0].text;
+          if (!nameExtended.toLowerCase().includes(prefix.toLowerCase())) {
+            nameExtended = `${prefix} - ${nameExtended}`;
+          } 
+        }
+        
+
         if (row.variantInformation) {
-          nameExtended += ` ${row.variantInformation[0].text}`;
+          nameExtended += ` - ${row.variantInformation[0].text}`;
         } else if (row.quantity) {
-          nameExtended += ` ${row.quantity[0].text}`;
+          nameExtended += ` - ${row.quantity[0].text}`;
         };
         row.nameExtended = [{ text: nameExtended }];
       }
