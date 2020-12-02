@@ -15,9 +15,21 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
-      // document.getElementById('certificatesTabLink').click();
-      // document.getElementById('reviewsTabLink').click();
-      // await new Promise(r => setTimeout(r, 6000));
+
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+      var name = getXpath('(//div[@data-videoid="productVideoPrimary"])[2]/@data-videoid', 'nodeValue');
+      if (name != null) {
+        // @ts-ignore
+        document.querySelector('div[data-videoid="productVideoPrimary"]:last-child').click()
+        await new Promise(r => setTimeout(r, 6000));
+
+      }
 
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -54,9 +66,11 @@ module.exports = {
         singleRating = (5 * singleRating) / 100;
         singleRating = singleRating.toFixed(1);
         addElementToDocument('aggregateRating', singleRating);
+
       }
 
     });
+
     return await context.extract(productDetails, { transform });
   },
 };

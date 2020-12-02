@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class="b-breadcrumbs"]//li[position()>2 and position()<last()]
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@class="b-productName"]/text()
+    xpath: concat(//span[contains(text(),'Торговая марка')]/following-sibling::span//span/a/text(),"-",//h1[@class="b-productName"]/text())
   - name: listPrice
     singleValue: true
     type: CURRENCY
@@ -31,9 +31,10 @@ fields:
     xpath: //div[@class='i-mt15 b-colored--red']/span[@class='i-fs30 i-fwb']
   - name: availabilityText
     singleValue: true
-    xpath: (//span[@class='b-colored--green i-lh-28']/text())[2]
+    xpath: //input[@value="В корзину"]/parent::*//div//span/text()
     regExp: (.+)
     regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: (//div[contains(@class,"productDescriptionText")])[1]
@@ -46,10 +47,10 @@ fields:
     xpath: //div[contains(@class,"certificates")]//tr[2]//td[3]/text()
   - name: quantity
     singleValue: true
-    xpath: ((//span[contains(text(),'Длина')]/following::span)|(//tbody//span[contains(text(),'намотки')]/following::td)|(//tbody//span[contains(text(),'Размер')]/following::td))[1]
+    xpath: (//tbody//span[contains(text(),'Количество штук в упаковке')]/parent::*/following-sibling::td)[1] 
   - name: weightNet
     singleValue: true
-    xpath: //tbody//span[contains(text(),'Вес, грамм')]/following-sibling::span/span/text()  
+    xpath: (//tbody//span[contains(text(),'Вес')]/parent::*/following-sibling::td)[1]  
   - name: sku
     singleValue: true
     xpath: //div/span[@class='i-fs14 i-fwb']
@@ -66,6 +67,12 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //div[@class='aggregateRating'] 
+  - name: specifications
+    singleValue: true
+    xpath: (//table[@class="b-list b-list--striped b-productParams__classification__table"])[1]
+  - name: warranty
+    singleValue: true
+    xpath: (//tbody//span[contains(text(),'Гарантийный срок')]/parent::*/following-sibling::td)[1]
   - name: color
     singleValue: true
     xpath: (//span[contains(text(),'Цвет')]/following::span[2]/text())[1]
@@ -83,7 +90,10 @@ fields:
     regExp: (?<=Состав:).*  
   - name: countryOfOrigin
     singleValue: true
-    xpath: ((//tbody//span[contains(text(),'Страна происхождения:')])/following::td/text())[1]  
+    xpath: ((//tbody//span[contains(text(),'Страна')])/following::td/text())[1]
+  - name: video
+    singleValue: true
+    xpath: //div[@id="productVideoPrimary"]//video//@src
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
@@ -103,8 +113,7 @@ fields:
     defaultValue: No
   - name: materials
     singleValue: true
-    description: Materials used to make the product
-    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: (//tbody//span[contains(text(),'Материал')]/parent::*/following-sibling::td)[1]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
