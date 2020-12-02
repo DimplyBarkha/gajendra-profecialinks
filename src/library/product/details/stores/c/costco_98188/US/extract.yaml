@@ -1,7 +1,8 @@
 fields:
   - name: image
-    xpath: //img[@id="productImage"]/@src
+    xpath: //img[@id='initialProductImage']/@src
   - name: imageAlt
+    xpath: //img[@id='initialProductImage']/@alt
   - name: alternateImages
     xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))][position()>1]//img/@src
   - name: metaKeywords
@@ -14,6 +15,8 @@ fields:
   - name: nameExtended
     xpath: //h1[@itemprop="name"]
   - name: price
+    xpath: //div[contains(@class,'your-price')]//span[@class='value']
+  - name: listPrice
     xpath: //div[contains(@class,"online-price")]//span[@class="op-value"] | //div[contains(@class,'online-price active')]//span[@class='op-value']
   - name: priceCurrency
   - name: availability
@@ -30,13 +33,14 @@ fields:
     singleValue: false
     xpath: //ul[@class="pdp-features"]//li | //div[@class="product-info-description"]/ul/li
   - name: description
-    xpath: //div[@id='product-desc']
+    xpath: //div[@id='costco-product-desc']
   - name: descriptionBullets
     xpath: count(//ul[@class="pdp-features"]//li)
   - name: brandText
     xpath: //div[@itemprop="brand"]
   - name: manufacturer
   - name: quantity
+    xpath: //h1[@itemprop="name"]
   - name: weightNet
   - name: weightGross
   - name: gtin
@@ -55,8 +59,6 @@ fields:
   - name: aggregateRatingText
   - name: aggregateRating
     xpath: //span[@itemprop="ratingValue"]
-  - name: shippingInfo
-    xpath: //div[contains(@class,"is-available")]
   - name: shippingDimensions
   - name: shippingWeight
   - name: variantCount
@@ -110,6 +112,7 @@ fields:
   - name: addonItem
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
+    xpath: //div[@class='product-interaction']//div//center
   - name: product/food
   - name: ingredientsList
     xpath: (//div[contains(.,'Ingredients')])
@@ -165,6 +168,7 @@ fields:
   - name: pricePerUnit
     xpath: //span[@class="unitcurrency"]
   - name: pricePerUnitUom
+    xpath: //span[@class="unitcurrency"]
   - name: promotion
     xpath: //p[@class="merchandisingText"]
   - name: alcoholContent
@@ -179,8 +183,9 @@ fields:
   - name: energyEfficiency
   - name: technicalInformationPdfPresent
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
-  - name: t_&_cs
   - name: termsAndConditions
+    xpath: //p[@class="PromotionalText"]//a[contains(text(),'Terms')]
+    defaultValue: 'No'
   - name: privacyPolicy
   - name: customerServiceAvailability
   - name: productUrl
