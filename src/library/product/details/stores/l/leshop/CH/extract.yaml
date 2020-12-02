@@ -256,7 +256,6 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
-    type: NUMBER
   - name: caloriesPerServing
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
@@ -266,12 +265,10 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalFatPerServing
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
     xpath: //html//div[@id='rawtotalFatPerServing']
   - name: totalFatPerServingUom
     singleValue: true
@@ -281,7 +278,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
     xpath: //html//div[@id='rawsaturatedFatPerServing']
   - name: saturatedFatPerServingUom
     singleValue: true
@@ -291,7 +287,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: transFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Trans Fat content
@@ -299,7 +294,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: cholesterolPerServingUom
     singleValue: true
     description: Unit of Measure Data for Cholesterol content
@@ -308,7 +302,6 @@ fields:
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
     xpath: //html//div[@id='rawsodiumPerServing']
-    type: NUMBER
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
@@ -318,7 +311,6 @@ fields:
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     xpath: //html//div[@id='rawtotalCarbPerServing']
-    type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
@@ -327,7 +319,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    type: NUMBER
     xpath: //html//div[@id='rawdietaryFibrePerServing']
   - name: dietaryFibrePerServingUom
     singleValue: true
@@ -337,7 +328,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
     xpath: //html//div[@id='rawtotalSugarsPerServing']
   - name: totalSugarsPerServingUom
     singleValue: true
@@ -347,7 +337,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
     xpath: //html//div[@id='rawproteinPerServing']
   - name: proteinPerServingUom
     singleValue: true
@@ -358,7 +347,6 @@ fields:
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     xpath: //html//div[@id='rawvitaminAPerServing']
-    type: NUMBER
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
@@ -367,7 +355,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    type: NUMBER
     xpath: //html//div[@id='rawvitaminCPerServing']
   - name: vitaminCPerServingUom
     singleValue: true
@@ -378,7 +365,6 @@ fields:
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
     xpath: //html//div[@id='rawcalciumPerServing']
-    type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
@@ -388,7 +374,6 @@ fields:
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
     xpath: //html//div[@id='rawironPerServing']
-    type: NUMBER
   - name: ironPerServingUom
     singleValue: true
     description: Unit of Measure Data for Iron
@@ -400,7 +385,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
-    type: NUMBER
     xpath: //html//div[@id='rawmagnesiumPerServing']
   - name: magnesiumPerServingUom
     singleValue: true
@@ -410,7 +394,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    type: NUMBER
     xpath: //html//div[@id='rawsaltPerServing']
   - name: saltPerServingUom
     singleValue: true
