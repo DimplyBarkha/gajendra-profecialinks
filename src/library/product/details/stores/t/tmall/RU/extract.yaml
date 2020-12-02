@@ -49,6 +49,8 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="next-message-content"]
+    regExp: (.+),
+    regExpReplace: 'Out of Stock'
     defaultValue: 'In Stock'
   - name: shippingInfo
     singleValue: false
