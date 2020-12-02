@@ -16,7 +16,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  const cssProduct = "a[class*='nav-link']";
+  const cssProduct = "div[class*='product_productCardSummary'] a[class*='nav-link'][class*='image']";
   const cssProductDetails = "div[class*='product-details_productDetails']";
 
   const isSelectorAvailable = async (cssSelector) => {
@@ -33,8 +33,19 @@ async function implementation (
   console.log(`productAvailable: ${productAvailable}`);
   if (productAvailable) {
     console.log('clicking product link');
-    await context.click(cssProduct);
-    await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+    await context.evaluate(async function (cssProduct) {
+      const overlay = document.querySelector("button[class*='coaching-tip_close']");
+      if(overlay !== undefined) {
+        overlay.click();
+      }
+      const prod = document.querySelector(cssProduct);  
+      if (prod !== undefined) {
+        prod.click();
+      }
+    }, cssProduct);
+  
+    /*didnt work await context.click(cssProduct);
+    await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' }); */
     await context.waitForSelector(cssProductDetails);
     const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
     console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
