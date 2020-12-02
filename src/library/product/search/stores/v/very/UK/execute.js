@@ -7,7 +7,7 @@ module.exports = {
     domain: 'very.co.uk',
     url: 'https://www.very.co.uk/e/q/{searchTerms}.end',
     loadedSelector: 'div[id="products"]',
-    noResultsXPath: '//div[@class="standardContent"]|//div[contains(@class,"productOptions")]',
+    noResultsXPath: '//div[@class="standardContent"] | //div[@class="productHeader"]',
     zipcode: '',
   },
 };

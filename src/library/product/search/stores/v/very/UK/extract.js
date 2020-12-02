@@ -26,6 +26,8 @@ async function implementation (inputs, parameters, context, dependencies) {
         price = element.querySelector('dd[class="productPrice"').textContent;
       } else if (element.querySelector('dd[class="productNowPrice"')) {
         price = element.querySelector('dd[class="productNowPrice"').textContent;
+      } else if (element.querySelector('span[class="priceRangeWasValue"]')) {
+        price = element.querySelector('span[class="priceRangeWasValue"]').textContent;
       }
 
       if (price) {
