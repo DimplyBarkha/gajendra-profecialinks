@@ -14,10 +14,6 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      
-      
-
-
       const getColor = document.querySelector('li.item_description');
       let color = '';
       let dimension = '';
@@ -142,21 +138,6 @@ module.exports = {
           }
         }
       }
-      let getSpecificationData = document.querySelectorAll('div.bulletsdescription li');
-      let getSpecData = [];
-      for (i = 0; i < getSpecificationData.length; i++) {
-        if (getSpecificationData[i].getAttribute('valuecharacteristics') !== null && getSpecificationData[i].getAttribute('valuecharacteristics') !== '' && getSpecificationData[i].getAttribute('valuecharacteristics') !== ' ') { getSpecData.push(getSpecificationData[i].getAttribute('valuecharacteristics')); }
-      }
-      if (getSpecData.length <= 2) {
-        getSpecData = [];
-        getSpecificationData = document.querySelectorAll('div.bulletsdescription li');
-        for (i = 0; i < getSpecificationData.length; i++) {
-          if (getSpecificationData[i].getAttribute('valuefeatures') !== null && getSpecificationData[i].getAttribute('valuefeatures') !== '' && getSpecificationData[i].getAttribute('valuefeatures') !== ' ') { getSpecData.push(getSpecificationData[i].getAttribute('valuefeatures')); }
-        }
-      }
-      const specdata = getSpecData.join(' || ');
-      document.body.setAttribute('specdata', specdata);
-
       
       let scrollSelector = document.querySelector('#footer_v2 .footer-content');
       // @ts-ignore
@@ -170,6 +151,25 @@ module.exports = {
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
         await new Promise(resolve => setTimeout(resolve, 3500));
       }
+      let getSpecificationData = document.querySelectorAll('div.bulletsdescription li');
+      let getSpecData = [];
+      for (i = 0; i < getSpecificationData.length; i++) {
+        if (getSpecificationData[i].getAttribute('valuecharacteristics') !== null && getSpecificationData[i].getAttribute('valuecharacteristics') !== '' && getSpecificationData[i].getAttribute('valuecharacteristics') !== ' ') { getSpecData.push(getSpecificationData[i].getAttribute('valuecharacteristics')); }
+      }
+      if (getSpecData.length <= 2) {
+        getSpecData = [];
+        getSpecificationData = document.querySelectorAll('div.bulletsdescription li');
+        for (i = 0; i < getSpecificationData.length; i++) {
+          if (getSpecificationData[i].getAttribute('valuefeatures') !== null && getSpecificationData[i].getAttribute('valuefeatures') !== '' && getSpecificationData[i].getAttribute('valuefeatures') !== ' ') { getSpecData.push(getSpecificationData[i].getAttribute('valuefeatures')); }
+        }
+      }
+      // @ts-ignore
+      [...document.querySelectorAll("div[class*='specification']  td")].forEach(q => {
+        getSpecData.push(q.innerText.replace(/\n/g,""));
+      });
+      //document.body.setAttribute('specifications', specifications);
+      const specdata = getSpecData.join(' || ');
+      document.body.setAttribute('specdata', specdata);
 
 
     });
