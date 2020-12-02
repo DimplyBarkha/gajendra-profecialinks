@@ -13,14 +13,14 @@ const transform = (data) => {
             //for (i = 0; i < group.length; i++) {
             for (const [key, value] of Object.entries(row)) {
                 let obj = {};
-                obj[key] = value;
-                console.log('#####################1')
-                console.log(obj)
-                arr.push(obj);
+                //obj[key] = value;
+                //arr.push(obj);
                 if (key == 'bannerImage') {
+                    obj['mediaImage'] = value
                     obj['mediaLocation'] = 'Banner Image';
                     arr.push(obj);
                 } else if (key == 'topCarousel') {
+                    obj['mediaImage'] = value;
                     obj['mediaLocation'] = 'Top Carousel';
                     arr.push(obj);
                 } else {
