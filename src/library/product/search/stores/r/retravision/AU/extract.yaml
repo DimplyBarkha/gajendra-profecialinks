@@ -1,10 +1,10 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id='instant-search-results-container']//div[contains(@class,'ais-hit')]//div[contains(@class,'ais-hit item product')]
+recordXPath: //div[contains(@class,'container')]//div[contains(@class,'ais-InstantSearch')]//div[@class='product-listing']
 fields:
   - name: id
-    xpath: //div[contains(@class,'product-sku-code')]
+    xpath: //div[contains(@class,'product-listing__content-sku')]
     singleValue: false
   - name: manufacturer
     xpath: //div[contains(@class,'manufacturer-logo')]//img//@alt
