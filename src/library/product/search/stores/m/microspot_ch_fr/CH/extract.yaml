@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="rzgLFq _1rUvhT"]/div//div[@class="_165CLk _15M-aT"]/img/@src
+  - name: id
+    singleValue: false
+    xpath: //div[@class="_1oDXqC"]/div[@class="_1O6ExT _395aoU"][1]/@data-tracking
+  - name: price
+    singleValue: false
+    xpath: //div[@class="rzgLFq _1rUvhT"]/div//div[@class="_2PzTei"]//div[@class="_28doBv"]
+  - name: name
+    singleValue: false
+    xpath: //div[@class="rzgLFq _1rUvhT"]/div//div[@class="_3FlNQL"]//div[@class="_4kaNBc"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="rzgLFq _1rUvhT"]/div/div[@class="_35THZ2"]/a/@href
+  - name: aggregateRating
+    singleValue: false
+    xpath: //html//div[@id="rat"]
