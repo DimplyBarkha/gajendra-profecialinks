@@ -43,7 +43,7 @@ fields:
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price" or @id="primeNowDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
   - name: price
     singleValue: false
-    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[contains(@id,"priceblock_dealprice")] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")] | //li[@class="swatchSelect"]//span[@class="olp-message a-color-price"]/span/text()[last()]
+    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[contains(@id,"priceblock_dealprice")] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")] | //li[@class="swatchSelect"]//span[@class="olp-message a-color-price"]/span/text()[last()] | //div[@id="buyNew_noncbb"]/span
   - name: availabilityText
     singleValue: false
     xpath: (//*[normalize-space(@id)='availability']/span[not(span)] | //*[normalize-space(@id)='availability']/span/span[last()] | //*[normalize-space(@id)='availability-string']/span[not(span)])[1]
@@ -133,7 +133,7 @@ fields:
     regExp: ^[^\s]+
   - name: shippingInfo
     singleValue: false
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"] | //div[@id="tabular-buybox"]//span[contains(@class,"a-truncate-full")]
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"] | //body/@shipping-info | //*[@id="sellerProfileTriggerId"]/..
   - name: shippingDimensions
     singleValue: false
     xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Shipping Dimensions") or contains(normalize-space(text()),"Parcel Dimensions")]/following-sibling::*[1] | //*[normalize-space(text())="Item Package Dimensions"]/following-sibling::*[1]
@@ -289,7 +289,7 @@ fields:
     xpath: //div[@id="fast-track-message"]//div[@id="delivery-message"][not(normalize-space(.)="")] | //div[@id="fast-track-message"]//span[@id="upsell-message"][not(normalize-space(.)="")]
   - name: ingredientsList
     #singleValue: true
-    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p | //td[contains(.,"Ingredients")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"]
   - name: servingSize
     xpath: //*[contains(text(),"Serving Size")]/following-sibling::*[1]
     regExp: '^[^\s]+'

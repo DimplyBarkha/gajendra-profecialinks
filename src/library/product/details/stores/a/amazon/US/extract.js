@@ -168,6 +168,16 @@ async function implementation (
   } catch (err) {
     console.log('Error while adding other seller info. Error: ', err);
   }
+  await context.evaluate(() => {
+    const shippingInfo = Array.from(
+      document.querySelectorAll(
+        'div[id="tabular-buybox"] span[class*="a-truncate-full"]',
+      ),
+    )
+      .map((elm) => elm.innerText.trim())
+      .join(' ');
+    shippingInfo.length && document.body.setAttribute('shipping-info', shippingInfo);
+  });
   await context.extract(productDetails, { transform });
 }
 
