@@ -518,6 +518,8 @@ async function implementation(inputs, parameters, context, dependencies) {
       null
     ).singleNodeValue;
     console.log('s', popUP);
+    addHiddenDiv('popUP', popUP);
+
     var specificationList;
     let specification = '';
 
