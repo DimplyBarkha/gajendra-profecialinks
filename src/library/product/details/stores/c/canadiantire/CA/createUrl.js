@@ -3,8 +3,8 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'canadiantire.ca',
-    prefix: 'search.do?q=',
-    url: 'https://canadiantire.ca/search.do?q={id}',
+    prefix: null,
+    url: null,
     country: 'CA',
     store: 'canadiantire',
     zipcode: '',
