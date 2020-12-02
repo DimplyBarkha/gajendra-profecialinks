@@ -51,8 +51,10 @@ const transform = (data) => {
       }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
+          item.text = item.text.replace('Precio regular:', '');
           item.text = item.text.replace('.', '');
           item.text = item.text.replace(',', '.');
+          item.text = item.text.trim();
         });
       }
       if (row.brandText) {

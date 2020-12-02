@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class='product-name']//span
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='add-to-cart-wrapper']//button[text()='Agregar']
+    xpath: //div[@class='add-to-cart-wrapper']//button[contains(text(),'Agregar')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -29,10 +29,10 @@ fields:
     xpath: //img[contains(@id,'slick-slide') and not(@id='slick-slide00')]/@src
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'price-box')]//p[@class='price']
+    xpath: //div[contains(@class,'price-info')]//p[contains(@id,'product-price')] | //div[contains(@class,'price-info')]//span[contains(@class,'precio-numero')]
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class,'price-box')]//p[@class='old-price']//span
+    xpath: //div[contains(@class,'price-info')]//p[contains(@class,'regular-price')]
   - name:  description
     singleValue: false
     xpath: //div[contains(@class,'descripcion-content')]//div[@class='descripcion-texto']/text()
@@ -84,3 +84,9 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //div[@class='especifiacion-box']//span[normalize-space()='Peso' or normalize-space()='Peso de la caja']//following-sibling::span
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
