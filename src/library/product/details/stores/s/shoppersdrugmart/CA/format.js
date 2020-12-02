@@ -45,6 +45,12 @@ const transform = (data) => {
           item.text = item.text.trim();
         });
       }
+      if (row.quantity) {
+        row.quantity.forEach(item => {
+          item.text = item.text.replace('Size:', '');
+          item.text = item.text.trim();
+        });
+      }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
           if(item.text.indexOf('disable') < 0) {
