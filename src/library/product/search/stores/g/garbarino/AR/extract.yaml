@@ -53,7 +53,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@class="itemBox--price"]/meta[@itemprop="price"]/@content
+    xpath: //div[@class="itemBox--price"]/span[contains(@class, "value-item")]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
