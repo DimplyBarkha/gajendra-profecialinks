@@ -48,12 +48,7 @@ async function implementation(
             }
           });
         }
-        try{
-          await context.waitForSelector('button[id="showMoreProducts"]',{ timeout : 60000});
-          console.log('load button exist');
-        }catch(e){
-          console.log("load more button doesn't exist");
-        }
+        await new Promise(resolve => setTimeout(resolve, 20000));
         
         // Check if load more exists
         const doesLoadMoreExists = document.querySelector('button[id="showMoreProducts"]');
