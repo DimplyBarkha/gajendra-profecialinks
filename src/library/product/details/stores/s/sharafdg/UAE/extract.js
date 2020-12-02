@@ -15,6 +15,9 @@ module.exports = {
     console.log(inputs.id + ' is product id in extract.js');
     const searchUrl = `https://uae.sharafdg.com/?q=${pId}&post_type=product`;
     await context.goto(searchUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: false });
+    try {
+      await context.waitForSelector('div.product-items',{timeout: 15000});
+    } catch(er) {}
     const productUrl = await context.evaluate(async function () {
       let productUrl = null;
       if (document.querySelector('div[class="product-container"] div[class*="carousel-details"]')) {
@@ -28,7 +31,7 @@ module.exports = {
     if (productUrl !== null) {
       await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: false });
     }
-    if(inputUrl!==null ||inputUrl!==''){
+    if(inputUrl){
       await context.goto(inputUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: false });
     }
     await context.evaluate(async function (productUrl) {
