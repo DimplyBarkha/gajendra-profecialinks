@@ -14,7 +14,7 @@ fields:
     xpath: //div[@class="ProductListContent"]//div[contains(@class,"productName detailUrl")]//a
   - name: thumbnail
     SingleValue: false
-    xpath: //div[@class="ProductListContent"]//div[@class="productImage"]//img/@src
+    xpath: //div[@class="ProductListContent"]//div[@class="productImage"]//img/@data-original
   - name: price
     SingleValue: false
     xpath: //div[@class="ProductListContent"]//div[@class="discountPrice"]//span[not(@class)]
