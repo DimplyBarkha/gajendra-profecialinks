@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  # - name: url
+  #   singleValue: false
+  #   xpath: //a[@title="Ir para a próxima página"]/@href
+  - name: id
+    singleValue: false
+    xpath: //div[@class="BuyCn"]/a/@data-id
+  - name: name
+    singleValue: false
+    xpath: //h3[@class="Title smtt"]/a|//h3[@class="Title"]/a
+  - name: productUrl
+    singleValue: false
+    xpath: //h3[@class="Title smtt"]/a/@href|//h3[@class="Title"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="Image"]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.maquillalia.com/$1
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="Rating"]/span[@class="Num"]
+    regExp: \d+
+  - name: price
+    singleValue: false
+    xpath: //div[@class="Price "]/strong|//strong[@class="price-maq"]//small
+    type: CURRENCY
+  - name: aggregateRating
+    singleValue: false

@@ -18,6 +18,7 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -26,7 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class="title"]
+    xpath: //div[@class="column"]//h2[@class="block-title"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -53,6 +54,7 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
+    xpath: count(//div[@class="product-description-details block"]/ul/li)
     type: NUMBER
   - name: brandText
     singleValue: true
@@ -112,16 +114,17 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: (//div[@id="accRating"]//span/text())[1]
+    regExp: ^\d+
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    xpath: count((//div[@id="accRating"]//div[@class="rating-stars  tooltip"]//ul)[1]/li)
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@class="user-rating clr clearfix"]//div[@class="rating-stars  tooltip"]/@data-title
-    regExp: (.+:\s)(\d)(.+)
-    regExpReplace: $2
+    xpath: count((//div[@id="accRating"]//div[@class="rating-stars  tooltip"]//ul)[1]/li)
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -137,6 +140,7 @@ fields:
     description: Number of variants listed
     xpath: //div[@class="select-variant clearfix"]/div[@class="quiet label"]
     regExp: (\d+)
+    defaultValue: 0
     type: NUMBER
   - name: color
     singleValue: true
@@ -442,9 +446,17 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    xpath: //div[@class="price base clr"]
+    regExp: (:.+/)
+    # regExp: (.+:)(.+)(/.+)
+    # regExpReplace: $2 
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
+    xpath: //div[@class="price base clr"]
+    # regExp: (.+/)(.+)
+    # regExpReplace: $2
+    regExp: (/.+)
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -466,7 +478,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //html//div[@id="VariantInfo"]
+    xpath: //span[@class="toggle variant selected"]|//div[@class="variant-name"]
     # xpath: concat(//span[@class="toggle variant selected"]/text() , //ul[@class="dropdown-container"])
     # xpath: //span[@class="toggle variant selected"]/text()|//span[@class="variant-text text"]
     # xpath: //span[@class="variant-text text"]
@@ -482,12 +494,15 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //span[@class="toggle variant selected"]|//div[@class="variant-name"]
   - name: variants
     singleValue: false
     description: null
+    xpath: //html//div[@id="VariantInfo"]
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@class="product-description-details block"]/ul/li
   - name: prop65Warning
     singleValue: true
     description: null
