@@ -29,7 +29,7 @@ async function implementation (
       type: 'RECAPTCHA',
     },
    });
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {

@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //ul[@id="main-gallery"]//li[@data-slick-index="1"]/input[1]/@name
+    xpath: //ul[@id="main-gallery"]//a[contains(@class,"slick-slide") and contains(@class,"slick-active") and contains(@class,"slick-current")]/img/@src
   - name: imageAlt
     singleValue: false
     xpath: //ul[@id="main-gallery"]//a[contains(@class,"slick-current") and contains(@class,"slick-current slick-active")]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@id="main-gallery"]//li[position()>1]/input[1]/@name
+    xpath: //ul[@id="main-gallery"]//li/input[1]/@name
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -33,9 +33,6 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@id="product-actions"]//ul[@class="sellingPoint standard"]/li/text()
-  - name: brandText
-    singleValue: false
-    xpath: //div[@id="product-details"]//table//td/b[text()="Manufacturer"]/parent::*/parent::*/td[2]
   - name: manufacturer
     singleValue: false
     xpath: //div[@id="product-details"]//table//td/b[text()="Manufacturer"]/parent::*/parent::*/td[2]
@@ -59,7 +56,7 @@ fields:
     defaultValue: '0'
   - name: videos
     singleValue: false
-    description: URLs of videos on page
+    xpath: //div[@class="productVideo playoverlay"]//img/@src
   - name: name
     singleValue: false
     xpath: //h1[@class="left product-title"]
@@ -85,3 +82,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: color
+    singleValue: false
+    xpath: //div[@id="product-details"]//table//td/b[text()="Colors"]/parent::*/parent::*/td[2]
+  - name: materials
+    singleValue: false
+    xpath: //div[@id="product-details"]//table//td/b[text()="Materials"]/parent::*/parent::*/td[2]

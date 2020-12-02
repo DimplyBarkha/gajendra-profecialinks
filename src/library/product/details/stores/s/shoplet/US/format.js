@@ -25,6 +25,14 @@ const transform = (data) => {
     for (const { group } of data) {
       
       for (let row of group) { 
+          if(row.alternateImages){
+              let tmp=0;
+              row.alternateImages.forEach(item=>{
+                tmp++;
+              })
+              if(tmp>0)
+                row.secondaryImageTotal=[{"text":tmp}];
+          }
           if(row.description){
               let inf=[];
               row.description.forEach(item=>{
@@ -60,9 +68,8 @@ const transform = (data) => {
                 row.specifications.forEach(item=>{
                     if(row2==0){
                         tmp=item.text;
-                        row2++
-                    }
-                    if(row2==1){
+                        row2=1
+                    }else if(row2==1){
                         tmp=tmp+" : "+item.text;
                         row2=0;
                         inf.push(tmp);
@@ -81,8 +88,21 @@ const transform = (data) => {
             if(row.Image360Present){
                 row.Image360Present=[{"text":"Yes"}];
             }
-            if(row.manufacturerDescription){
-                //let text=await context.evaluate()
+            if(row.videos){
+                let vid;let videosAr=[]
+                row.videos.forEach(item=>{
+                    videosAr=item.text.replace('//img.youtube.com/vi/','').split('/');
+                    if(videosAr.length>1){
+                        vid=true;
+                    }else{
+                        vid=false
+                    }
+                })
+                if(vid==true){
+                    row.videos=[{"text":"https://youtu.be/"+videosAr[0]}];
+                }else{
+                    delete row.videos;
+                }
             }
       }
     }
