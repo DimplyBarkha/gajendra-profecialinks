@@ -17,3 +17,11 @@ fields:
    singleValue: false
    description: Unique id (within this extractor)
    xpath: //div[contains(@class,"product-tracking")]//@data-track-product-id
+ - name: thumbnail
+   singleValue: false
+   xpath: //div[contains(@class,'product-tile__thumbnail__image')]//img/@src
+ - name: name
+   singleValue: false
+   xpath: //h3[@class='product-tile__details__info__name']/a/span
+ - name: manifacturer
+   singleValue: false 

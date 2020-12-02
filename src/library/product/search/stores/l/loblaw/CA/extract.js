@@ -91,4 +91,3 @@ module.exports = {
   //   await applyScroll(context);
   //   return await context.extract(productDetails, { transform });
   // }
-
