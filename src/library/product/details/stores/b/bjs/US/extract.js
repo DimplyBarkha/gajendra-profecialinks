@@ -4,13 +4,13 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'bjs',
-    transform: null,
+    transform: transform,
     domain: 'bjs.com',
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -18,7 +18,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -44,81 +44,105 @@ module.exports = {
         return result;
       };
 
-      const skuXpath = getXpath("//div[@class='prod-item-model-number']/span[1]/text()",'nodeValue');
-      console.log("sku: ", skuXpath);
-      if(skuXpath != null  ){
-        const sku = skuXpath ? skuXpath.split(':') : [];
-        addElementToDocument('sku_added',sku[1]);
-        console.log(sku[1]);
+      const mpcXpath = getXpath("//div[@class='prod-item-model-number']/span[2]/text()", 'nodeValue');
+      console.log("mpc: ", mpcXpath);
+      if (mpcXpath != null) {
+        const mpc = mpcXpath ? mpcXpath.split(':') : [];
+        addElementToDocument('mpc_added', mpc[1]);
+      }
+
+      const upcXpath1 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'upc')]/following-sibling::td[1]", 'innerText');
+      const upcXpath2 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'UPC')]/following-sibling::td[1]", 'innerText');
+
+
+      if (upcXpath1 != null) {
+        addElementToDocument('upc_added', upcXpath1);
+      } else {
+        addElementToDocument('upc_added', upcXpath2);
+      }
+
+      const weightXpath1 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Item Weight')]/following-sibling::td[1]", 'innerText');
+      const weightXpath2 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Weight')]/following-sibling::td[1]", 'innerText');
+
+      if (weightXpath1 != null) {
+        addElementToDocument('weight_added', weightXpath1);
+      } else {
+        addElementToDocument('weight_added', weightXpath2);
+      }
+
+      const quanityXpath1 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Size')]/following-sibling::td[1]", 'innerText');
+
+      const quanityXpath2 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Unit Size')]/following-sibling::td[1]", 'innerText');
+
+
+      if (quanityXpath1 != null) {
+        addElementToDocument('quantity_added', quanityXpath1);
+      } else {
+        addElementToDocument('quantity_added', quanityXpath2);
+      }
+
+      const jsonstr = getXpath("//script[@_ngcontent-bjs-universal-app-c171='']/text()", 'nodeValue');
+
+
+      if (jsonstr) {
+        const jsonObj = JSON.parse(jsonstr);
+
+        addElementToDocument('retailer_product_code_added', jsonObj.sku);
+      }
+
+      const availabilitystr = getXpath("//div[@class='sticky-content']/button/text()", 'nodeValue');
+
+
+      if (availabilitystr != null) {
+
+        if (availabilitystr == "SOLD OUT") {
+
+          addElementToDocument('availability_added', "Out of Stock");
         }
-      
-        const upcXpath1 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'upc')]/following-sibling::td[1]",'innerText');
-        console.log("upcXpath1", upcXpath1);
-        const upcXpath2 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'UPC')]/following-sibling::td[1]",'innerText');
-        console.log("upcXpath2", upcXpath2);
+        else {
 
-        if(upcXpath1 != null){
-          addElementToDocument('upc_added',upcXpath1);
-        }else{
-          addElementToDocument('upc_added',upcXpath2);
+          addElementToDocument('availability_added', "In Stock");
         }
+      }
 
-        const weightXpath1 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Item Weight')]/following-sibling::td[1]",'innerText');
-        console.log("weightXpath1", weightXpath1);
-        const weightXpath2 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Weight')]/following-sibling::td[1]",'innerText');
-        console.log("weightXpath2", weightXpath2);
+      const descXpath = getXpath("//div[@class='desc-table']", 'innerText');
+      addElementToDocument('desc_added', descXpath);
 
-        if(weightXpath1 != null){
-          addElementToDocument('weight_added',weightXpath1);
-        }else{
-          addElementToDocument('weight_added',weightXpath2);
+      const warningXpath = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Product Warnings')]/following-sibling::td[1]", 'innerText');
+
+      addElementToDocument('warning_added', warningXpath);
+
+      const ratingXpath = getXpath("//div[@class='pr-snippet-read-and-write']/span", 'innerText');
+      if (ratingXpath != null) {
+
+        addElementToDocument('rating_added', (ratingXpath.split(" ")[0]));
+      }
+
+      const altImageXpath = getAllXpath("//div[@class='mcs-items-container']/div/div/a/@data-image", 'nodeValue').join(' | ');
+      var altImageXpathValue = altImageXpath.split('|');
+
+      addElementToDocument('alt_image_added', altImageXpath);
+      addElementToDocument('alt_image_count_added', altImageXpathValue.length);
+
+      const specificationsXpath1 = getAllXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr", 'innerText').join(' | ');
+
+      addElementToDocument('specification_added', specificationsXpath1);
+
+      const meterialsXpath = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Material(s)')]/following-sibling::td[1]", 'innerText');
+
+      addElementToDocument('meterials_added', meterialsXpath);
+
+      const imageZoomXpath = getXpath("//div[@class='zoomcontainer']//a/@class", 'nodeValue');
+
+      if (imageZoomXpath != null) {
+        if (imageZoomXpath == "MagicZoomPlus") {
+          addElementToDocument('image_zoom_added', "YES");
         }
+      } else {
+        addElementToDocument('image_zoom_added', "NO");
+      }
 
-        const quanityXpath1 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Size')]/following-sibling::td[1]",'innerText');
-        console.log("quanityXpath1", quanityXpath1);
-        const quanityXpath2 = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']/tr/th[contains(.,'Unit Size')]/following-sibling::td[1]",'innerText');
-        console.log("quanityXpath2", quanityXpath2);
-
-        if(quanityXpath1 != null){
-          addElementToDocument('quantity_added',quanityXpath1);
-        }else{
-          addElementToDocument('quantity_added',quanityXpath2);
-        }
-
-        const jsonstr = getXpath("//script[@_ngcontent-bjs-universal-app-c171='']/text()",'nodeValue');
-        console.log("jsonstr", jsonstr);
-
-        if(jsonstr){
-          const jsonObj = JSON.parse(jsonstr);
-          console.log('jsonObj' + jsonObj.sku);
-          addElementToDocument('retailer_product_code_added',jsonObj.sku);
-        }
-        //*[@id="desktopDescriptiontabcontent"]/div[1]/app-pdp-tab-description-molecule/div/div/li
-        // const bulletXpath1 = getXpath("//*[@id='desktopDescriptiontabcontent']/div[1]/app-pdp-tab-description-molecule/div/div/li",'innerText');
-        // console.log(bulletXpath1.length);
-        // console.log("bulletXpath1", bulletXpath1);
-        // const bulletXpath2 = getXpath("//*[@id='desktopDescriptiontabcontent']/div[1]/app-pdp-tab-description-molecule/div/div/ul/li",'innerText');
-        // console.log("bulletXpath2", bulletXpath2);
-
-        // if(bulletXpath1 != null){
-        //   addElementToDocument('bullet_added',bulletXpath1);
-        // }else{
-        //   addElementToDocument('bullet_added',bulletXpath2);
-        // }
-        //const jsonStr = getXpath("//table[@class='table table-bordered']//tbody[@class='specs-table-body']//tr[@class='specs-table-row']//th[contains(.,  'upc')]", 'nodeValue');
-      //table[@class="table table-bordered"]//tbody[@class="specs-table-body"]//tr[@class="specs-table-row"]//th[contains(.,  "upc")]
-      //let available;
-      //console.log("jsonStr: ", jsonStr);
-      // if (jsonStr != null) {
-      //   const jsonObj = JSON.parse(jsonStr);
-      //   console.log('jsonObj' + jsonObj.sku);
-      //   // if (((jsonObj.offers.availability).includes(['InStock']))) {
-      //   //   available = 'InStock';
-      //   // } else {
-      //   //   available = 'OutOfStock';
-      //  // addElementToDocument("",);
-      //   }
-   });
-  await context.extract(productDetails, { transform: transformParam });
+    });
+    await context.extract(productDetails, { transform: transformParam });
   },
 };

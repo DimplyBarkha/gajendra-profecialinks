@@ -13,6 +13,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
+    xpath: //div[@id="alt_image_added"]
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
@@ -32,26 +33,23 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: //p[@class="price-display green-Price"]/text()
+    xpath: //div[@class="online-price-and-green-price"]//div//div//div
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: //span[@class="inStock"]/text()
+    xpath: //div[@id="availability_added"]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: (//*[@id="desktopDescriptiontabcontent"]/div[1]/app-pdp-tab-description-molecule/div/text())[1]
+    xpath: //div[@id='desc_added']
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: (count(//div[@class="desc-table"]/div/li))/2
+    xpath: count(//*[@id="desktopDescriptiontabcontent"]/div[1]/app-pdp-tab-description-molecule/div/div/ul/li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -80,7 +78,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //div[@id="sku_added"]
+    xpath: //div[@id="retailer_product_code_added"]
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
@@ -88,7 +86,16 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
+    xpath: //div[@id="mpc_added"]
     description: The manufacturer model code (unique) of the product
+  - name: materials
+    singleValue: true
+    xpath: //div[@id="meterials_added"]
+    description: Content under "legal disclaimer" header
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    xpath: //div[@id="image_zoom_added"]
+    description: Content under "legal disclaimer" header     
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -101,21 +108,25 @@ fields:
     description: Content under "directions" header
   - name: warnings
     singleValue: true
+    xpath: //div[@id='warning_added']
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //div[@class="pr-snippet-rating-decimal"]/text()
+    xpath: //div[@id='rating_added']
     description: The number of ratings
     type: NUMBER
+    defaultValue: "0"
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
+    xpath: //div[@class="pr-snippet-rating-decimal"]/text()
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    defaultValue: "0"
   - name: shippingInfo
     singleValue: true
+    xpath: //*[@id="desktopShippingtabcontent"]/div/app-pdp-tab-shipping-and-returns-molecule/div/div/p[1]
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
@@ -126,6 +137,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: "0"
     type: NUMBER
   - name: color
     singleValue: true
@@ -234,6 +246,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: true
+    xpath: //div[@id="alt_image_count_added"]
     description: null
     type: NUMBER
   - name: news
@@ -396,6 +409,7 @@ fields:
     description: null
   - name: specifications
     singleValue: true
+    xpath: //div[@id="specification_added"]
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
@@ -459,4 +473,3 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-  
