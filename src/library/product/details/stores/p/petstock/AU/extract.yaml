@@ -74,7 +74,7 @@ fields:
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
-  xpath: normalize-space(//div[contains(@class,'active')]//div[@class="item-value"])
+  xpath: normalize-space(//div[contains(@class,'active')]//div[@class="item-value"][contains(text(),'g')])
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
