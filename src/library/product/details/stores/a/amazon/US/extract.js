@@ -181,6 +181,8 @@ async function implementation (
       .join(' ');
     shippingInfo.length && document.body.setAttribute('shipping-info', shippingInfo);
   });
+  await context.extract(productDetails, { transform });
+}
 
 module.exports = {
   implements: 'product/details/extract',
