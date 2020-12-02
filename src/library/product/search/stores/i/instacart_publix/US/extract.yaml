@@ -8,7 +8,9 @@ fields:
     xpath: //span[@class='full-item-name']/text()
   - name: price
     singleValue: false
-    xpath: //div[@class='item-price']/span/span/text()
+    xpath: //*[contains(concat( " ", @class, " " ), concat( " ", "item-price", " " ))]//span[(((count(preceding-sibling::*) + 1) = 1) and parent::*)]
+    # regExp: (^\$\d+\.\d+)R?
+    # regExpReplace: $1
   - name: id
     singleValue: false
     xpath: //div[@class='item-info']/@id
