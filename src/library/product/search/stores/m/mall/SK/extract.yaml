@@ -29,5 +29,6 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article/div/div[@class="lst-product-item-body"]//span[@class="rat--small"]
-
-    
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="pd_url"]
