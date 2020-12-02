@@ -5,8 +5,8 @@ module.exports = {
     country: 'BE',
     store: 'bol',
     domain: 'bol.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[data-test="product-page-columns"]',
+    noResultsXPath: '//div[@data-test="non-deliverable"]',
     zipcode: '',
   },
 };
