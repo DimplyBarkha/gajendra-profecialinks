@@ -20,7 +20,7 @@ fields:
     xpath: //*[contains(./@id, 'product-card')]//img/@src
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id='aggregateRating']
+    xpath: //html//div[@id="rating"]
   - name: reviewCount
     singleValue: false
     type: NUMBER

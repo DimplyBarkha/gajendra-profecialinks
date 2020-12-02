@@ -18,7 +18,14 @@ async function implementation(
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
-        //for rank
+        function addElementToDocument(key, value) {
+            const catElement = document.createElement('div');
+            catElement.id = key;
+            catElement.textContent = value;
+            catElement.style.display = 'none';
+            document.body.appendChild(catElement);
+        }
+        let length = document.querySelectorAll("span[class='eo du']").length
         function addHiddenDiv(id, content, index) {
             const newDiv = document.createElement('div');
             newDiv.id = id;
@@ -26,17 +33,16 @@ async function implementation(
             newDiv.style.display = 'none';
             const originalDiv = document.querySelectorAll("span[class='eo du']")[index];
             originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-        }
-        let firstChildNode;
-        const aggregateRating = document.querySelectorAll("span[class='eo du']")
-        for (let k = 0; k < aggregateRating.length; k++) {
-            firstChildNode = aggregateRating[k].getElementsByClassName('ep eq').length
-            addHiddenDiv('aggregateRating', firstChildNode, k);
-        }
-        while (!!document.querySelector('#container > div > div > div.a.h > main > div > div.b7.b8.b9.ba > div > div.i.j.k.a.b > div.i.j.k.ce.fz.cf.g0.cg.g1.ch.g2.ci.g3.cj.g4.a.b.q.g5 > button > span > font > font')) {
-            // @ts-ignore
-            document.querySelector('#container > div > div > div.a.h > main > div > div.b7.b8.b9.ba > div > div.i.j.k.a.b > div.i.j.k.ce.fz.cf.g0.cg.g1.ch.g2.ci.g3.cj.g4.a.b.q.g5 > button > span > font > font').click()
-            await new Promise(r => setTimeout(r, 6000));
+            }
+        for (let product = 0; product < length; product++) {
+            let a = document.querySelector('span[class="eo du"]')
+            var count = 0;
+            for (let c = 0; c < a.childElementCount; c++) {
+                if (a.children[c].className == "ep eq") {
+                    count++;
+                    addHiddenDiv('rating', count);
+                }
+            }
         }
     });
     return await context.extract(productDetails, { transform });
