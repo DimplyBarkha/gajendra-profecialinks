@@ -5,9 +5,9 @@ module.exports = {
     country: 'NL',
     store: 'newpharma',
     domain: 'newpharma.nl',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.newpharma.nl/search-results/index.html?key1={searchTerms}',
+    loadedSelector: 'body[data-view]',
+    noResultsXPath: '//span[@class="gtm-search-no-results"]',
     zipcode: "''",
   },
 };

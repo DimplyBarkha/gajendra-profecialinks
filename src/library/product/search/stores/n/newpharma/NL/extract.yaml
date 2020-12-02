@@ -1,5 +1,62 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
-fields: null
+recordSelector: div.product.js-product-row.product--desktop
+recordXPath: //div[@class="product js-product-row product--desktop "]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //span[@class="product-image-with-overlay cursor-hand"]/@id
+    regExp: '([0-9]\w+)'
+    regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //div[@class="details"]/a/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="details"]/a/@producturl
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="image"]/descendant::img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="product js-product-row product--desktop "]/@data-google-360
+    regExp: '"rating":"(.*?)"'
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="c-rating-star__text"]
+    regExp: '([0-9]\w+)'
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[@class="c-price__sale"]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@class="details"]/a/@rank
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[@class="details"]/a/@rank
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
