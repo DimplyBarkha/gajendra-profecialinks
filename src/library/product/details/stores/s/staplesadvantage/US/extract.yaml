@@ -33,16 +33,16 @@ fields:
   xpath: //span[@class='price-info__originalPrice']
 - name: price
   singleValue: false
-  xpath: //div[@class='price-info__final_price']
+  xpath: //div[@class="price-info__final_price"]
 - name: availabilityText
   singleValue: true
-  defaultValue: Out of Stock
+  defaultValue: "In Stock"
 - name: description
   singleValue: false
   xpath: //div[@id='ProductDetailsSummaryWrapper']/ul/@description
 - name: descriptionBullets
-  singleValue: true
-  xpath: count(//div[@id='ProductDetailsSummaryWrapper']/ul/li)
+  singleValue: false
+  xpath: //body/@bulletsnumber
 - name: brandText
   singleValue: false
   xpath: //div[@class="tab__tab"]/descendant::th[contains(., "Brand Name")]/following-sibling::td
@@ -69,11 +69,14 @@ fields:
   regExpReplace: $2
 - name: variantId
   singleValue: true
+  xpath: //span[@id="item_number"]
+  regExp: '([0-9]\w+)'
+  regExpReplace: $1
 - name: mpc
   singleValue: true
 - name: packSize
   singleValue: true
-  xpath: (//td[contains(., 'Pack Size') or contains(., 'Pack Qty')]/following-sibling::td)[1]
+  xpath: (//th[contains(., 'Pack Size')]/following-sibling::td | //th[contains(., 'Pack Qty')]/following-sibling::td)[1]
 - name: legalDisclaimer
   singleValue: true
   xpath:
@@ -84,17 +87,18 @@ fields:
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
-  singleValue: true
+  singleValue: false
   description: The number of ratings
   xpath: //div[@class='review-snapshot-ux2dot0__review_block']/descendant::span[@class='rating__reviewLinkWrapper rating__review_link rating__textDecoration']
+  regExp: '([0-9]\w+)'
+  regExpReplace: $1
 - name: aggregateRatingText
-  singleValue: true
+  singleValue: false
   description: The stated aggregate rating
-  xpath: //span[@class='rating__rating_label']
 - name: aggregateRating
-  singleValue: true
+  singleValue: false
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //span[@class='rating__rating_label']
+  xpath: //span[@class='rating__rating_label']/@rating
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -107,6 +111,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  defaultValue: "0"
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -366,7 +371,7 @@ fields:
 - name: specifications
   singleValue: false
   description: The physical dimensions of the product including packaging.
-  xpath: concat(//div[@class="tab__tab"]/descendant::tr[contains(., 'Width')], //div[@class="tab__tab"]/descendant::tr[contains(., 'Depth')], //div[@class="tab__tab"]/descendant::tr[contains(., 'Length')], //div[@class="tab__tab"]/descendant::tr[contains(., 'Height')])
+  xpath: //div[@id="ProdSpecSection"]
 - name: warranty
   singleValue: true
   xpath: (//td[contains(., 'Warranty')]/following-sibling::td)[1]
@@ -478,5 +483,5 @@ fields:
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: "Yes"
   xpath: //div[@class='image-gallery-ux2dot0__hero_zoom_lens img_zoom_lens']
