@@ -139,3 +139,12 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //div[@id='tab-details']//table//tr//th[contains(text(),'Energy star rating')]//following-sibling::td
+  - name: termsAndConditions
+    singleValue: false
+    xpath: Yes
+  - name: privacyPolicy
+    singleValue: false
+    xpath: Yes
+  - name: shippingWeight
+    singleValue: false
+    xpath: //tr[th[contains(text(),'Packaged Weight')]]/td
