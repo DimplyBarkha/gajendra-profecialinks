@@ -46,53 +46,6 @@ const transform = (data, context) => {
           item.text = item.text.includes('http') ? item.text : 'https:' + item.text;
         });
       }
-      if (row.gtin) {
-        if (row.gtin[0].text.includes('@context')) {
-          let jsonStr = row.gtin[0].text;
-          if (jsonStr.includes(' = ')) {
-            jsonStr = jsonStr[1].split(' = ');
-            jsonStr = jsonStr[1].slice(0, -1);
-          }
-          // jsonStr = jsonStr.length === 2 ? jsonStr[1].split(' = ') : [];
-          // jsonStr = jsonStr.length === 2 ? jsonStr[1].slice(0, -1) : '';
-          const jsonObj = jsonStr.length ? JSON.parse(jsonStr) : '';
-          const ean = Object.keys(jsonObj).length ? (jsonObj.gtin13 ? jsonObj.gtin13 : '') : '';
-          row.gtin = [
-            {
-              text: ean,
-            },
-          ];
-
-          if (row.eangtin) {
-            row.eangtin = [
-              {
-                text: ean,
-              },
-            ];
-          }
-        }
-        if (row.gtin[0].text.includes('var product')) {
-          let jsonStr = row.gtin[0].text;
-          jsonStr = jsonStr.split('var product');
-          jsonStr = jsonStr[1] ? jsonStr[1].split(' = ') : [];
-          jsonStr = jsonStr.length === 2 ? jsonStr[1].slice(0, -1) : [];
-          const jsonObj = jsonStr.length ? JSON.parse(jsonStr) : '';
-          const ean = Object.keys(jsonObj).length ? (jsonObj.ean ? jsonObj.ean : '') : '';
-          row.gtin = [
-            {
-              text: ean,
-            },
-          ];
-
-          if (row.eangtin) {
-            row.eangtin = [
-              {
-                text: ean,
-              },
-            ];
-          }
-        }
-      }
       if (row.variants) {
         row.variants.forEach(item => {
           item.text = item.text.match(/(?<=-)(.*?)(?=\.)/gm) ? item.text.match(/(?<=-)(.*?)(?=\.)/gm)[0] : '';
@@ -192,24 +145,14 @@ const transform = (data, context) => {
 
         row.description = [{ text: clean(row.description[0].text) }];
       }
-      if (row.aggregateRating) {
-        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
-      }
-
-      console.log('row.price');
-      console.log(row.price);
-      if (row.price) {
-        console.log('row.price');
-        console.log(row.price);
-        row.price[0].text = row.price[0].text.replace('.', ',');
-      }
-      if (row.listPrice) {
-        row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
-      }
 
       if (row.inTheBoxUrl) {
         row.inTheBoxUrl.forEach(item => {
-          item.text = item.text.startsWith('//') ? 'https:' + item.text : item.text;
+          if (item.text.startsWith('//')) {
+            const img = item.text;
+            const imgText = 'https:' + img;
+            item.text = imgText;
+          }
         });
       }
 

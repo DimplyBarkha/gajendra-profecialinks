@@ -36,8 +36,8 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    # xpath: //meta[@property="product:price:amount"]/@content
-    xpath: //div[@id="priceValue"]
+    xpath: //meta[@property="product:price:amount"]/@content
+    # xpath: //div[@id="priceValue"]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -83,10 +83,14 @@ fields:
   - name: gtin
     singleValue: true
     xpath: (//script[contains(text(), "var product")])[1]
+    regExp: .*ean\":\"(\d+).*
+    regExpReplace: $1
     description: GTIN code (includes UPC/EAN)
   - name: eangtin
     singleValue: true
     xpath: (//script[contains(text(), "var product")])[1]
+    regExp: .*ean\":\"(\d+).*
+    regExpReplace: $1
   - name: sku
     singleValue: true
     xpath: //span[@itemprop="sku"]

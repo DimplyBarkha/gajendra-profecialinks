@@ -37,6 +37,12 @@ const transform = (data) => {
           }
         });
       }
+
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach(item => {
+          item.text = item.text.startsWith('//') ? 'https:' + item.text : item.text;
+        });
+      }
       if (row.image) {
         row.image.forEach(itemText => {
           itemText.text = itemText.text.includes('http') ? itemText.text : 'https:' + itemText.text;
