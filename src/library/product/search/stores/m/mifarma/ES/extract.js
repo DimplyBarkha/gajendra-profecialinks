@@ -1,4 +1,4 @@
-const { transform } = require("../../../../shared");
+const { transform } = require('../../../../shared');
 
 const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
@@ -7,33 +7,46 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   const addSku = async function (context) {
     await context.evaluate(async function () {
       const regex = /(?<=\w\/\w\/\w\/).+(?=_.jpg|_\w.jpg)/;
-      const skuList = document.querySelectorAll(".result-thumbnail > img");
+      const skuList = document.querySelectorAll('.result-thumbnail > img');
       skuList.forEach((sku) => {
-        //@ts-ignore
-        let skuRaw = sku.src.match(regex)[0];
-       
+        // @ts-ignore
 
-        if (
-          (skuRaw.includes("_") && skuRaw.slice(-5).includes("duplo")) ||
-          skuRaw.includes("_ml_duplokit") 
-        ) {
-          skuRaw = skuRaw.slice(-11);
-          sku.setAttribute("sku", skuRaw);
-          return;
-        }
-        
-        if (skuRaw.includes("_") && skuRaw.slice(-5).includes("duplo")) {
-          skuRaw = skuRaw.slice(-11);
-          sku.setAttribute("sku", skuRaw);
-          return;
-        }
-        if (skuRaw.includes("_")) {
-          skuRaw = skuRaw.slice(-6);
-          sku.setAttribute("sku", skuRaw);
+        let skuRaw = sku.src.match(regex);
+        if (!skuRaw) {
           return;
         } else {
-          sku.setAttribute("sku", skuRaw);
-          return
+          skuRaw = skuRaw[0];
+        }
+        if (
+          (skuRaw.includes('_') && skuRaw.slice(-5).includes('duplo')) ||
+          skuRaw.includes('_ml_duplokit') ||
+          skuRaw.includes('_mlph')
+        ) {
+          skuRaw = skuRaw.slice(-11);
+          sku.setAttribute('sku', skuRaw);
+          return;
+        }
+        if (skuRaw.includes('_burdeos')) {
+          skuRaw = skuRaw.slice(-9);
+          sku.setAttribute('sku', skuRaw);
+          return;
+        }
+        if (skuRaw.slice(-4).includes('x2_')) {
+          skuRaw = skuRaw.slice(-9, -1);
+          sku.setAttribute('sku', skuRaw);
+          return;
+        }
+        if (skuRaw.includes('duplo_mf')) {
+          skuRaw = skuRaw.slice(-8);
+          sku.setAttribute('sku', skuRaw);
+          return;
+        }
+
+        if (skuRaw.includes('_')) {
+          skuRaw = skuRaw.slice(-6);
+          sku.setAttribute('sku', skuRaw);
+        } else {
+          sku.setAttribute('sku', skuRaw);
         }
       });
     });
@@ -49,7 +62,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
         break;
       }
     }
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve();
@@ -58,37 +71,37 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     }
   });
   await context.evaluate(async function () {
-    function addElementToDocument(doc, key, value) {
-      const catElement = document.createElement("div");
+    function addElementToDocument (doc, key, value) {
+      const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
-      catElement.style.display = "none";
+      catElement.style.display = 'none';
       doc.appendChild(catElement);
     }
-    const lastProductPosition = localStorage.getItem("prodCount")
-      ? Number(localStorage.getItem("prodCount"))
+    const lastProductPosition = localStorage.getItem('prodCount')
+      ? Number(localStorage.getItem('prodCount'))
       : 1;
-    const arr = document.querySelectorAll(".ais-hits > div");
+    const arr = document.querySelectorAll('.ais-hits > div');
     for (let i = 0; i < arr.length; i++) {
-      addElementToDocument(arr[i], "pd_rank", lastProductPosition + i);
+      addElementToDocument(arr[i], 'pd_rank', lastProductPosition + i);
     }
-    localStorage.setItem("prodCount", `${lastProductPosition + arr.length}`);
+    localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
   });
 
   await context.evaluate(() => {
-    const rating = document.querySelectorAll(".rating");
+    const rating = document.querySelectorAll('.rating');
     rating.forEach((el) => {
       // @ts-ignore
       const trimmedAndDivided = el.style.width.slice(0, -1) / 20;
       const numericRate1Decimal = trimmedAndDivided.toFixed(1);
-      el.setAttribute("numericrating", numericRate1Decimal);
+      el.setAttribute('numericrating', numericRate1Decimal);
     });
   });
   const addSearchUrl = async function (context) {
     await context.evaluate(async function () {
-      const productList = document.querySelectorAll(".ais-hits > div");
+      const productList = document.querySelectorAll('.ais-hits > div');
       const url = window.location.href;
-      productList.forEach((product) => product.setAttribute("searchurl", url));
+      productList.forEach((product) => product.setAttribute('searchurl', url));
     });
   };
   await addSearchUrl(context);
@@ -98,13 +111,13 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 };
 
 module.exports = {
-  implements: "product/search/extract",
+  implements: 'product/search/extract',
   parameterValues: {
-    country: "ES",
-    store: "mifarma",
+    country: 'ES',
+    store: 'mifarma',
     transform: transform,
-    domain: "mifarma.es",
-    zipcode: "",
+    domain: 'mifarma.es',
+    zipcode: '',
   },
   implementation,
 };
