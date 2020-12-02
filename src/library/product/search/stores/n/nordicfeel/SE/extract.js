@@ -39,7 +39,7 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'nordicfeel',
-    transform: null,
+    transform,
     domain: 'nordicfeel.se',
     zipcode: '',
   },

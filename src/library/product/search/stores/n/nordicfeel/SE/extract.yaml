@@ -27,7 +27,7 @@ fields:
     xpath: //div[@class='card--product--price']//span[@class='price-default ' or contains(@class,'price-campaign')]  
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class='card--product--rating']//div[@class='stars']//i[@class='icon-star icon-star--active']
+    xpath: //div[@class='card--product--rating']//div[@class='stars']//i[@class='icon-star icon-star--active']/@class
   - name: brandText
     singleValue: false
     xpath: //div[@class='card--product--details']//span[@class='card--product--brand']

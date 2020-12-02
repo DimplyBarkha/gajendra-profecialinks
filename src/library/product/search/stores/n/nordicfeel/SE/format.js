@@ -31,7 +31,10 @@ const transform = (data, context) => {
         }
 
         row.rank = [{ text: rankCounter }];
-                
+
+        if (row.aggregateRating2) {
+          row.aggregateRating2 = [{'text':row.aggregateRating2.length,'xpath':row.aggregateRating2[0].xpath}];            
+        }       
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));
