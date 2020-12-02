@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-tile-start] | //body[contains(@class,"product-details-page")]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@data-tile-start]//div[contains(@class,"image-container")]/a[contains(@class,"thumb-link")]/@href | //body[contains(@class,"product-details-page")]//link[@rel="canonical"]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@data-tile-start]//div[contains(@class,"image-container")]/a[contains(@class,"thumb-link")]/img/@srcset | //body[contains(@class,"product-details-page")]//div[contains(@class,"primary-image active")]/img[contains(@class,"primary-image-img")]/@srcset
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //div[@data-tile-start]//div[contains(@class,"tile-body") and @data-pid]//h3[contains(@class,"pdp-link")]/a | //body[contains(@class,"product-details-page")]//h1[contains(@class,"product-name")]
+  - name: price
+    singleValue: false
+    xpath: //div[@data-tile-start]//div[contains(@class,"hover-bg-content")]//span[contains(@class,"prod-price")]/span[@class="price"]//span[contains(@class,"sales")] | //div[@data-tile-start]//div[contains(@class,"hover-bg-content")]//span[contains(@class,"prod-price")]//span[contains(@class,"range")] | //body[contains(@class,"product-details-page")]//div[contains(@class,"product-secondary-section")]//span[contains(@class,"prod-price")]//span[contains(@class,"formatted_sale_price")]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: id
+    singleValue: false
+    xpath: //div[@data-tile-start]//div[contains(@class,"product standard") and @data-pid]/@data-pid | //body[contains(@class,"product-details-page")]//div[@data-ttsku]/@data-ttsku
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@data-tile-start]//div[contains(@class,"ratings")]/div[@data-productid]/@data-starrating | //body[contains(@class,"product-details-page")]//div[contains(@class,"product-secondary-section")]//div[contains(@class,"ratings")]/span
+  - name: ratingCount
+    singleValue: false
+    xpath: //body[contains(@class,"product-details-page")]//div[contains(@class,"product-secondary-section")]//div[contains(@class,"ratings")]//a[contains(@class,"reviews")]
+  - name: reviewCount
+    singleValue: false
+    xpath: //body[contains(@class,"product-details-page")]//div[contains(@class,"product-secondary-section")]//div[contains(@class,"ratings")]//a[contains(@class,"reviews")]
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id='searchUrl']
