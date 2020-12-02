@@ -19,10 +19,11 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
+    xpath: //div[contains(@id,"treebody")]//div[contains(@id,"activetopbranch")] | //li[@class="leaf active"]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    xpath: //h1[contains(@class,"product__name")]/text()
+    xpath: concat(//h1[contains(@class,"product__name")]/text() ,' ', //div[contains(@class,"product__description")]/text())
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -44,9 +45,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //p[contains(@class,"product__info")]
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: concat(//p[contains(@class,"product__details")],' ',//div[contains(@class,"product__info")]//a)
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -61,9 +60,6 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //div[@id="quantity_added"]
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -248,6 +244,7 @@ fields:
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
     singleValue: false
+    xpath: //div[@id="servingSize_added"]
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
     singleValue: false
@@ -268,6 +265,7 @@ fields:
       per 100g serving
   - name: totalFatPerServingUom
     singleValue: false
+    xpath: //div[@id="totalFatPerServing_added"]
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     singleValue: false
@@ -276,6 +274,7 @@ fields:
       on per 100g serving
   - name: saturatedFatPerServingUom
     singleValue: false
+    xpath: //div[@id="saturatedFatPerServing_added"]
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
     singleValue: false
@@ -293,10 +292,12 @@ fields:
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: false
+    xpath: //div[@id="SodiumPerServing_added"]
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
   - name: sodiumPerServingUom
     singleValue: false
+    xpath: //div[@id="SodiumPerServing_added"]
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
@@ -305,6 +306,7 @@ fields:
       based on per 100g serving
   - name: totalCarbPerServingUom
     singleValue: false
+    xpath: //div[@id="totalCarbPerServing_added"]
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     singleValue: false
@@ -320,6 +322,7 @@ fields:
       per 100g serving
   - name: totalSugarsPerServingUom
     singleValue: false
+    xpath: //div[@id="totalSugarsPerServing_added"]
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: false
@@ -328,6 +331,7 @@ fields:
       100g serving
   - name: proteinPerServingUom
     singleValue: false
+    xpath: //div[@id="proteinPerServing_added"]
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     singleValue: false
@@ -345,10 +349,12 @@ fields:
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
     singleValue: false
+    xpath: //div[@id="calciumPerServing_added"]
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
   - name: calciumPerServingUom
     singleValue: false
+    xpath: //div[@id="calciumPerServing_added"]
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
     singleValue: false
@@ -362,10 +368,12 @@ fields:
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
     singleValue: false
+    xpath: //div[@id="magnesiumPerServing_added"]
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
   - name: magnesiumPerServingUom
     singleValue: false
+    xpath: //div[@id="magnesiumPerServing_added"]
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     singleValue: false
@@ -374,6 +382,7 @@ fields:
       100g serving
   - name: saltPerServingUom
     singleValue: false
+    xpath: //div[@id="saltPerServing_added"]
     description: Unit of Measure Data for Salt
   - name: dietaryInformation
     singleValue: false
@@ -408,9 +417,11 @@ fields:
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: false
+    xpath: //div[contains(@class,"product__price-piece")] 
     description: Price of the product split into certain units
   - name: pricePerUnitUom
     singleValue: false
+    xpath: //div[contains(@class,"product__price-piece")]//span[contains(@class,"product__unit")]
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
@@ -490,4 +501,6 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'

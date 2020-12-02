@@ -26,14 +26,24 @@ const transform = (data) => {
           priceItem.text = priceItem.text.replace('/pc.', '').replace('/st', '').replace(',', '.').replace('€', '').trim();
         });
       }
-      if (row.ingredientsList) {
-        row.ingredientsList.forEach((ingredientsListItem) => {
-          ingredientsListItem.text = ingredientsListItem.text.replace('Ingrediënten Ingrediënten:', '');
-        });
-      }
       if (row.servingSize) {
         row.servingSize.forEach((servingSizeItem) => {
-          servingSizeItem.text = servingSizeItem.text.replace('Gemiddelde voedingswaarde per', '');
+          servingSizeItem.text = servingSizeItem.text.replace('Gemiddelde mineralen per 100g/100ml', '100ml').replace(/[^\d]/gm, '');
+        });
+      }
+      if (row.servingSizeUom) {
+        row.servingSizeUom.forEach((servingSizeUomItem) => {
+          servingSizeUomItem.text = servingSizeUomItem.text.replace('Gemiddelde voedingswaarde per', '').replace('Gemiddelde mineralen per', '').replace(/[\d.]/gm, '');
+        });
+      }
+      if (row.sodiumPerServing) {
+        row.sodiumPerServing.forEach((sodiumPerServingItem) => {
+          sodiumPerServingItem.text = sodiumPerServingItem.text.replace(/[A-Za-z]/gm, '');
+        });
+      }
+      if (row.sodiumPerServingUom) {
+        row.sodiumPerServingUom.forEach((sodiumPerServingUomItem) => {
+          sodiumPerServingUomItem.text = sodiumPerServingUomItem.text.replace(/[\d.]/gm, '');
         });
       }
       if (row.sku) {
@@ -48,12 +58,107 @@ const transform = (data) => {
       }
       if (row.caloriesPerServing) {
         row.caloriesPerServing.forEach((caloriesPerServingItem) => {
-          caloriesPerServingItem.text = caloriesPerServingItem.text.replace(/[^\d]/gm, '');
+          caloriesPerServingItem.text = caloriesPerServingItem.text.replace(/[A-Za-z]/gm, '');
+        });
+      }
+      if (row.caloriesPerServingUom) {
+        row.caloriesPerServingUom.forEach((caloriesPerServingUomItem) => {
+          caloriesPerServingUomItem.text = caloriesPerServingUomItem.text.replace(/[\d.]/gm, '');
+        });
+      }
+      if (row.calciumPerServing) {
+        row.calciumPerServing.forEach((calciumPerServingItem) => {
+          calciumPerServingItem.text = calciumPerServingItem.text.replace(/[A-Za-z]/gm, '');
+        });
+      }
+      if (row.calciumPerServingUom) {
+        row.calciumPerServingUom.forEach((calciumPerServingUomItem) => {
+          calciumPerServingUomItem.text = calciumPerServingUomItem.text.replace(/[\d.]/gm, '');
+        });
+      }
+      if (row.totalFatPerServing) {
+        row.totalFatPerServing.forEach((totalFatPerServingItem) => {
+          totalFatPerServingItem.text = totalFatPerServingItem.text.replace(/[A-Za-z]/gm, '');
+        });
+      }
+      if (row.totalFatPerServingUom) {
+        row.totalFatPerServingUom.forEach((totalFatPerServingUomItem) => {
+          totalFatPerServingUomItem.text = totalFatPerServingUomItem.text.replace(/[\d.]/gm, '');
+        });
+      }
+      if (row.saturatedFatPerServing) {
+        row.saturatedFatPerServing.forEach((saturatedFatPerServingItem) => {
+          saturatedFatPerServingItem.text = saturatedFatPerServingItem.text.replace(/[A-Za-z]/gm, '');
+        });
+      }
+      if (row.saturatedFatPerServingUom) {
+        row.saturatedFatPerServingUom.forEach((saturatedFatPerServingUomItem) => {
+          saturatedFatPerServingUomItem.text = saturatedFatPerServingUomItem.text.replace(/[\d.]/gm, '');
+        });
+      }
+      if (row.totalCarbPerServing) {
+        row.totalCarbPerServing.forEach((totalCarbPerServingItem) => {
+          totalCarbPerServingItem.text = totalCarbPerServingItem.text.replace(/[A-Za-z]/gm, '');
+        });
+      }
+      if (row.totalCarbPerServingUom) {
+        row.totalCarbPerServingUom.forEach((totalCarbPerServingUomItem) => {
+          totalCarbPerServingUomItem.text = totalCarbPerServingUomItem.text.replace(/[\d.]/gm, '');
+        });
+      }
+      if (row.totalSugarsPerServing) {
+        row.totalSugarsPerServing.forEach((totalSugarsPerServingItem) => {
+          totalSugarsPerServingItem.text = totalSugarsPerServingItem.text.replace(/[A-Za-z]/gm, '');
+        });
+      }
+      if (row.totalSugarsPerServingUom) {
+        row.totalSugarsPerServingUom.forEach((totalSugarsPerServingUomItem) => {
+          totalSugarsPerServingUomItem.text = totalSugarsPerServingUomItem.text.replace(/[\d.]/gm, '');
+        });
+      }
+      if (row.proteinPerServing) {
+        row.proteinPerServing.forEach((proteinPerServingItem) => {
+          proteinPerServingItem.text = proteinPerServingItem.text.replace(/[A-Za-z]/gm, '');
+        });
+      }
+      if (row.proteinPerServingUom) {
+        row.proteinPerServingUom.forEach((proteinPerServingUomItem) => {
+          proteinPerServingUomItem.text = proteinPerServingUomItem.text.replace(/[\d.]/gm, '');
+        });
+      }
+      if (row.saltPerServing) {
+        row.saltPerServing.forEach((saltPerServingItem) => {
+          saltPerServingItem.text = saltPerServingItem.text.replace(/[A-Za-z]/gm, '');
+        });
+      }
+      if (row.saltPerServingUom) {
+        row.saltPerServingUom.forEach((saltPerServingUomItem) => {
+          saltPerServingUomItem.text = saltPerServingUomItem.text.replace(/[\d.]/gm, '');
+        });
+      }
+      if (row.magnesiumPerServing) {
+        row.magnesiumPerServing.forEach((magnesiumPerServingItem) => {
+          magnesiumPerServingItem.text = magnesiumPerServingItem.text.replace(/[A-Za-z]/gm, '');
+        });
+      }
+      if (row.magnesiumPerServingUom) {
+        row.magnesiumPerServingUom.forEach((magnesiumPerServingUomItem) => {
+          magnesiumPerServingUomItem.text = magnesiumPerServingUomItem.text.replace(/[\d.]/gm, '');
         });
       }
       if (row.image) {
         row.image.forEach((imageItem) => {
           imageItem.text = imageItem.text.includes('http') ? imageItem.text : 'https:' + imageItem.text;
+        });
+      }
+      if (row.pricePerUnitUom) {
+        row.pricePerUnitUom.forEach((pricePerUnitUomItem) => {
+          pricePerUnitUomItem.text = pricePerUnitUomItem.text.replace('/pc.', '/pc');
+        });
+      }
+      if (row.pricePerUnit) {
+        row.pricePerUnit.forEach((pricePerUnitItem) => {
+          pricePerUnitItem.text = pricePerUnitItem.text.replace('/pc.', '').replace(',', '.');
         });
       }
     }
