@@ -32,13 +32,13 @@ fields:
     # regExp: brandName":"([^"]+)
     # regExpReplace: $1
   - name: sku
-    xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data|//div[@data-apiary-widget-name="@marketplace/Fink"]//div/@data-zone-data
-    regExp: (.*)skuId":"(.*?)"(.*)
-    regExpReplace: $2
+    xpath: (//div/@data-zone-data[contains(.,"skuId")])[1]
+    regExp: skuId":"([^"]+)
+    regExpReplace: $1
   - name: variantId
-    xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data|//div[@data-apiary-widget-name="@marketplace/Fink"]//div/@data-zone-data
-    regExp: (.*)skuId":"(.*?)"(.*)
-    regExpReplace: $2
+    xpath: (//div/@data-zone-data[contains(.,"skuId")])[1]
+    regExp: skuId":"([^"]+)
+    regExpReplace: $1
   - name: warnings
   - name: alternateImages
     xpath: //ul[@data-tid="2c199bef"]//li[position()>1]//img/@src
@@ -135,3 +135,5 @@ fields:
     xpath: //div[@data-zone-name="filter"]//div[contains(@class, "b_1hvhLkjFFt")]//span[1]
   - name: boughtTogether
     xpath: //div[@data-apiary-widget-id="/ProductAccessories"]//div[@data-auto="item"]//img[@class="b_3ifiYhxrvQ"]/@title
+  - name: attributes
+    xpath: //div[@data-auto="sku-specs"]//h3[@data-tid-prop="4b145b4d"]/following-sibling::div/div

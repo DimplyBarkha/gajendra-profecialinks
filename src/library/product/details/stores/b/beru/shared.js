@@ -27,6 +27,9 @@ const transform = (data) => {
         });
         row.description = [{ text }];
       }
+      if (row.attributes) {
+        row.attributes.forEach(elm => { elm.text = elm.text.replace(/\n/, ' : '); });
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = el.text ? clean(el.text) : el.text;
       }));
