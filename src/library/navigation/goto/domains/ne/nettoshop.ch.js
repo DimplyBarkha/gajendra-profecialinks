@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'nettoshop.ch',
-    timeout: null,
+    timeout: 90000,
     country: 'CH',
     store: 'nettoshop_ch_fr',
     zipcode: '',
