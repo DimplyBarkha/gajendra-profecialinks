@@ -45,9 +45,16 @@ const transform = (data, context) => {
           item.text = item.text.replace("(Oferta)",'').trim();
           item.text = item.text.replace(/(\s*\(Precio\s+final\)\s*)+/g, '').trim();
           // item.text = item.text.replace('S\/ ','');
-          // item.text = item.text.replace(',', '.');
+          item.text = item.text.replace('.', ',');
         });
       }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = toTrunc(item.text,1);
+          //item.text = Math.trunc(item.text*1000)/1000;
+          //item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();          
+        });
+      }      
       row.rank = [{ text: rankCounter }];
       
       row.name=[{text: brandData+' '+nameData}];
@@ -60,6 +67,12 @@ const transform = (data, context) => {
   context.setState({ orgRankCounter });
   // context.setState({ productCodes });
   // console.log(productCodes);
+  function toTrunc(value,n){
+    let x=(value.toString()+".0").split(".");
+    let num = x[0]+"."+x[1].substr(0,n);
+    return num.replace(/(\s*\.\s*)+/g, ',').trim();
+  }
   return data;
 };
 module.exports = { transform };
+
