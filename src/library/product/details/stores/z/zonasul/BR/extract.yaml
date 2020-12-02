@@ -9,6 +9,9 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class,'fotorama__stage__shaft')]//div[contains(@class,'fotorama__active')]//img/@src
+  - name: image2
+    singleValue: false
+    xpath: //div[@class='vtex-store-components-3-x-productImage']//img[contains(@class,'vtex-store-components-3-x-productImageTag')]/@src
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,'fotorama__stage__shaft')]//div[contains(@class,'fotorama__active')]//img/@alt
@@ -32,7 +35,7 @@ fields:
     defaultValue: Out of Stock
   - name: price
     singleValue: false
-    xpath: //div[@class='vtex-product-price-zonasul__difference']//span[@class='vtex-difference__por']
+    xpath: //div[contains(@class,'product-main')]//span[@class='vtex-difference__por']
   - name: listPrice
     singleValue: false    
     xpath: //div[@class='vtex-product-price-zonasul__difference']//span[@class='vtex-difference__de']
@@ -44,7 +47,7 @@ fields:
     xpath: //div[@class='div_line']//strong[text()='Marca:']//parent::p[string-length(text()) > 0]/text()
   - name: sku
     singleValue: false
-    xpath: //meta[@property='product:sku']    
+    xpath: //meta[@property='product:sku']/@content
   - name: variantId
     singleValue: false
     xpath: //span[contains(@class,'identifier__value')]    

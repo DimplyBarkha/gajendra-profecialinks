@@ -24,19 +24,12 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      // if (row.alternateImages) {
-      //   row.alternateImages.splice(0, 1);
-      //   if (row.alternateImages.length === 0) {
-      //     delete row.alternateImages;
-      //   }
-      // }
-      // if (row.descriptionBullets) {
-      //   var bulletArr = [];
-      //   row.descriptionBullets.forEach(item => {
-      //     bulletArr.push(item.text.replace(/^\s*-\s*/, ''));
-      //   });
-      //   row.descriptionBullets = [{ text: '|| ' + bulletArr.join(' || ') }];
-      // }
+      if (row.image2) {
+        if (!row.image) {
+          row.image = [{ text: row.image2[0].text }];
+        }
+        delete row.image2;
+      }
       if (row.specifications) {
         var arrSpecs = [];
         row.specifications.forEach(item => {
