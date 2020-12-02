@@ -6,8 +6,8 @@ fields:
   - name: image
     singleValue: true
     xpath: //div[@id="ProductImageBox"]/img/@src
-    regExp: (images/.*)
-    regExpReplace: https://www.lenstore.co.uk/$1
+    # regExp: (images/.*)
+    # regExpReplace: https://www.lenstore.co.uk/$1
   - name: imageAlt
     singleValue: true
     xpath: //div[@id="ProductImageBox"]/img/@alt
