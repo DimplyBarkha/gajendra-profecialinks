@@ -60,7 +60,7 @@ fields:
     xpath: //@data-product-sku
   - name: variantId
     singleValue: true
-    xpath: //@data-pdid
+    xpath: //li[contains(@class,"main top-product")]/@data-colour
   - name: mpc
     singleValue: true
     xpath: //span//strong[text()='Product Code:']//following::span[1]
