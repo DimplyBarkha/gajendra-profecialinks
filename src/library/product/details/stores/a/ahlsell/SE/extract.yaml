@@ -15,12 +15,18 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@class="article-information"]/@data-variant
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class="information"]//div[@class="art-nbr-collection"]/p[contains(text(),"Ean artikelnr")]/span
+  - name: packSize
+    singleValue: false
+    xpath: //div[@class="technical-data"]//ul[contains(@class,"jsSpecs specs ")]//li//span[contains(text(),"Förpackningsstorlekar")]/parent::*/span
   - name: brandText
     singleValue: false  
     xpath: //div[@class="article-information"]/@data-brand
-  - name: manufacturer
-    singleValue: false  
-    xpath: //div[@class="article-information"]/@data-brand
+  - name: price
+    singleValue: false
+    xpath: //div[@class="article-information"]/@data-price
   - name: description
     singleValue: false
     xpath: //div[@class='information']//p
@@ -29,7 +35,7 @@ fields:
     xpath: //div[@class='art-nbr-collection']//p |  //div[contains(@class,"step-attributes clearfix")]//ul[contains(@class,"jsSpecs specs ")]//li                
   - name: descriptionBullets
     singleValue: false    
-    xpath: //div[@class='art-nbr-collection']//p |  //div[contains(@class,"step-attributes clearfix")]//ul[contains(@class,"jsSpecs specs ")]//li
+    xpath:  //div[@class="technical-data"]//div[contains(@class,"step-attributes clearfix")]//ul[contains(@class,"jsSpecs specs ")]//li 
   - name: category
     singleValue: false
     xpath: //div[@class="breadcrumbs"]//span[not(contains(position(),1)) and  not(contains(position(),2))]//a
@@ -45,6 +51,9 @@ fields:
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,"variants-tables hide-mobile")]//td[@class="art-nbr"]//a
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,"variants-tables hide-mobile")]//th
   - name: firstVariant
     singleValue: false
     xpath: //div[contains(@class,"variants-tables hide-mobile")]//tr[2]//td[1]//a

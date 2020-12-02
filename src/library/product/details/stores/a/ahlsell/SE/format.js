@@ -39,6 +39,24 @@ const transform = (data) => {
               item.text = 'https://www.ahlsell.se' + item.text;
             });
         }
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text +'0.00' + 'SEk' ;
+          });
+        }
+        if (row.packSize) {
+          row.packSize.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '').trim();
+            item.text = item.text.replace('Förpackningsstorlekar:', '').trim();
+          });
+        }
+        if(row.variantInformation){
+          var strVariantInfo = ''
+          row.variantInformation.forEach(item => {
+            strVariantInfo = strVariantInfo + item.text + ' | '
+          })
+           row.variantInformation = [{"text": strVariantInfo, "xpath": row.variantInformation[0].xpath}]
+        }     
         if(row.variants){
         
             let value = []
@@ -52,9 +70,6 @@ const transform = (data) => {
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
-              item.text = item.text.replace("#", '||').trim();
-              item.text = item.text.replace(", ", '||').trim();
-              item.text = item.text.replace(". ", '||').trim();
               description_ar.push(item.text);
             });
             if (description_ar.length) {
