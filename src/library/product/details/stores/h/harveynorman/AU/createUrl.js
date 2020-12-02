@@ -1,11 +1,12 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'harveynorman.com.au',
-    timeout: 500000,
+    prefix: null,
+    url: null,
     country: 'AU',
     store: 'harveynorman',
-    zipcode: "''",
+    zipcode: '',
   },
 };

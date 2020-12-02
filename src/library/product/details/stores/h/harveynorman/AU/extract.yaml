@@ -1,0 +1,72 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='product-carousel-wrapper']//div[contains(@class,'item active')]//img//@src
+  - name: sku
+    singleValue: false
+    xpath: (//script[@type='text/javascript'][contains(.,'HN_PAGE_INFO')])[1]//text()
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id='productQuestionTabs']//input[@name='product_id']//@value
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class='breadcrumb_container']//ul//li[position() >2]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='breadcrumb_container']//ul//li[@class='active last']
+  - name: name
+    singleValue: false
+    xpath: //div[@class='breadcrumb_container']//ul//li[@class='active last']
+  - name: price
+    singleValue: false
+    xpath: //div[@id='product-view-price']//span[@class='price']
+  - name: listPrice
+    singleValue: false
+    xpath: 
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='primary-ctas']//button//span
+    defaultValue: "In Stock"
+  - name: description
+    singleValue: false
+    xpath: //div[@id='productDescription']//div[contains(@class,'short-description')]//text()
+  - name: variantCount
+    singleValue: false
+    xpath: count(//fieldset//select//option[position() >1])
+  - name: variantInformation
+    singleValue: false
+    xpath: 
+  - name: brandText
+    singleValue: false
+    xpath: (//script[@type='text/javascript'][contains(.,'HN_PAGE_INFO')])[1]//text()
+  - name: ratingCount
+    sinngleValue: false
+    xpath: (//script[@type='application/ld+json'])[1]
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//script[@type='application/ld+json'])[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='product-carousel-wrapper']//div[contains(@class,'item active')]//img//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='product-carousel-wrapper']//div[contains(@class,'item') and position() >1]//img//@data-image-src
+  - name: videos
+    singleValue: false
+    xpath: //div[@class='product-carousel-wrapper']//div[contains(@class,'item')]//iframe//@src
+  - name: gtin
+    singleValue: false
+    xpath: (//script[@type='text/javascript'][contains(.,'HN_PAGE_INFO')])[1]//text()
+  - name: directions
+    singleValue: false
+    xpath: //div[@id='product-information']//div[@id='productCare']//p
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
