@@ -36,10 +36,17 @@ module.exports = {
       }
       try {
         const quantity = productID + "-weight";
+        let checkSplit;
         // @ts-ignore
         const rawquantity = document.querySelector('span[id="' + quantity + '"]').innerText;
-        addHiddenDiv('quantity', rawquantity.split('x')[1]);
-        addHiddenDiv('packSize', rawquantity.split('x')[0]);
+        checkSplit = rawquantity.split('x');
+        if (checkSplit.length == 1) {
+          addHiddenDiv('quantity', rawquantity.split('x')[0]);
+        }
+        else {
+          addHiddenDiv('quantity', rawquantity.split('x')[1]);
+          addHiddenDiv('packSize', rawquantity.split('x')[0]);
+        }
         addHiddenDiv('variantId', productID);
         addHiddenDiv('image', image.split('"')[1]);
       } catch (error) {
