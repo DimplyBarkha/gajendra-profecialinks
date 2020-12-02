@@ -1,0 +1,22 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[@class="columns is-multiline is-mobile"]//div[contains(@class,"is-one-third-desktop")]/@id
+    regExp: (\w+\d+)
+  - name: manufacturer
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"product-card__productInfo___30YSc")]//div[contains(@class,"main-price__dollarsAndCentsContainer___fV42h")]
+  - name: productType
+    singleValue: false
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="product-card__productCardLink___1yaKc"]/@href
+
+
+
