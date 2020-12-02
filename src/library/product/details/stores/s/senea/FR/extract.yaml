@@ -1,0 +1,102 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="images__wrapper"]//div[contains(@class,"product-cover")]//img/@src
+  - name: imageAlt
+    xpath: //div[@class="images__wrapper"]//div[contains(@class,"product-cover")]//img/@alt
+  - name: alternateImages
+    xpath: //div[@class="images__wrapper"]//div[contains(@class,"product__thumbnails")]//img[not(contains(@class,"selected"))]/@data-image-large-src
+  - name: secondaryImagesTotal
+    xpath: count(//div[@class="images__wrapper"]//div[contains(@class,"product__thumbnails")]//img[not(contains(@class,"selected"))])
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    xpath: //section[@class="breadcrumb__wrapper"]//ol//li[position()>1 and position()<last()]
+  - name: nameExtended
+    xpath: //h1[@itemprop="name"]
+  - name: listPrice
+  - name: price
+    xpath: concat(//div[@class="product__main-infos"]//div[@itemprop="offers"]//span[@itemprop="price"],' ',//meta[@property="product:price:currency"]/@content)
+  - name: availabilityText
+    xpath: //div[@class="add"]//button/@data-button-action
+    regExp: (add-to-cart)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //div[@itemprop="description"] | //div[@id="description"] | //div[@id="description"]//a/@href
+  - name: descriptionBullets
+  - name: brandText
+    xpath: //div[@class="product__main-infos"]//span[@itemprop="brand"]
+  - name: manufacturer
+    xpath: //div[@class="product__main-infos"]//div[@class="product-manufacturer"]//img/@alt
+  - name: quantity
+  - name: weightNet
+  - name: weightGross
+  - name: gtin
+    xpath: //section[@class="product-features"]//dt[contains(.,"EAN")]/following-sibling::dd[1]
+  - name: sku
+  - name: variantId
+    xpath: //div[@class="product__main-infos"]//span[@itemprop="sku"]
+  - name: mpc
+  - name: packSize
+    xpath: //div[@class="product__main-infos"]//p[@class="left_info"]//span[contains(@class,"info--product")]
+  - name: legalDisclaimer
+  - name: directions
+  - name: warnings
+  - name: ratingCount
+    xpath: //div[@itemprop="aggregateRating"]//meta[contains(@itemprop,"ratingCount")]/@content
+  - name: reviewCount
+    xpath: //div[@itemprop="aggregateRating"]//meta[contains(@itemprop,"ratingCount")]/@content
+  - name: aggregateRatingText
+    xpath: //div[@itemprop="aggregateRating"]//meta[contains(@itemprop,"ratingValue")]/@content
+  - name: aggregateRating
+    xpath: //div[@itemprop="aggregateRating"]//meta[contains(@itemprop,"ratingValue")]/@content
+  - name: shippingInfo
+  - name: shippingDimensions
+  - name: shippingWeight
+  - name: variantCount
+  - name: color
+  - name: colorCode
+  - name: manufacturerDescription
+  - name: manufacturerImages
+  - name: videos
+    xpath: //iframe[contains(@src,"youtube.com")]/@src
+  - name: name
+    xpath: //h1[@itemprop="name"]
+  - name: brandLink
+  - name: ingredientsList
+  - name: dietaryInformation
+  - name: specificationsLabel
+    xpath: //section[@class="product-features"]//dl//dt[@class="name"]
+  - name: specifications
+    xpath: //section[@class="product-features"]//dl//dd[@class="value"]
+  - name: warranty
+  - name: storage
+  - name: countryOfOrigin
+  - name: allergyAdvice
+  - name: packaging
+  - name: pricePerUnit2
+    xpath: //div[@class="product__main-infos"]//div[@itemprop="offers"]//p[contains(@class,"product-unit-price")]
+  - name: pricePerUnitUom
+  - name: promotion
+  - name: alcoholContent
+  - name: variantInformation
+  - name: variants
+  - name: additionalDescBulletInfo
+  - name: prop65Warning
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: No
