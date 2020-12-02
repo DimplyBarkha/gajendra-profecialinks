@@ -22,15 +22,25 @@ const transform = (data) => {
       }))));
       return data;
     };
-    if(data.length > 1){
-      var arrTemp = []
-      data[1].group.forEach(row => {
-          if(row['alternateImages']){
-            arrTemp.push(row['alternateImages'][0])
-          }
-      });
-      data[0].group[0].alternateImages = Array.from(arrTemp)
-      data.splice(1,1)
+    var tmpDataLength = data.length
+    if(tmpDataLength > 1){
+        var arrSecImg = []
+        var arrMfgImg = []
+        data.forEach((tmpRow, index) => {
+            if (index != 0){
+                data[index].group.forEach(grpRow => {
+                    if(grpRow['alternateImages']){
+                        arrSecImg.push(grpRow['alternateImages'][0])
+                    }
+                    if(grpRow['aplus_images']){
+                        arrMfgImg.push(grpRow['aplus_images'][0])
+                    }
+                });
+            }
+       });
+        data.splice(1,data.length-1) 
+      if (arrSecImg.length) data[0].group[0].alternateImages = Array.from(arrSecImg);
+      if (arrMfgImg.length) data[0].group[0].aplus_images = Array.from(arrMfgImg)
     }
     for (const { group } of data) {
       for (const row of group) {
