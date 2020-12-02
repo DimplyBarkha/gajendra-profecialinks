@@ -1,30 +1,37 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //article[@class="Item Fashion  "]
 fields:
   - name: id
     singleValue: false
+    xpath: //article[@class="Item Fashion  "]/@data-itemnumber
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //h2[@class="Title "]/a/@data-label
   - name: productUrl
     singleValue: false
+    xpath: //div[@class="Info"]/h2/a/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[@class="Images"]/a/img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
+    xpath: //div[contains(@class, "Rating")]/@class
+    regExp: \d+
   - name: reviewCount
     singleValue: false
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[@class="Price"]/a
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -33,12 +40,14 @@ fields:
     singleValue: false
   - name: rank
     singleValue: false
+    xpath: //article[@class="Item Fashion  "]/@data-itemposition
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
+    xpath: //article[@class="Item Fashion  "]/@data-itemposition
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
+    type: STRING
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid

@@ -9,7 +9,7 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div[class~="Page"]',
     loadedXpath: null,
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
