@@ -43,9 +43,14 @@ async function implementation (inputs, parameters, context, dependencies) {
       const brand = scriptTagJSON ? scriptTagJSON.brand ? scriptTagJSON.brand.name ? scriptTagJSON.brand.name : '' : '' : '';
       addHiddenDiv('added_brandText', brand);
 
-      let availabilityText = scriptTagJSON ? scriptTagJSON.offers ? scriptTagJSON.offers.availability ? scriptTagJSON.offers.availability : '' : '' : '';
-      availabilityText = availabilityText && availabilityText.toLowerCase().includes('instock') ? 'In Stock' : 'Out Of Stock';
-      addHiddenDiv('added_availabilityText', availabilityText);
+      // let availabilityText = scriptTagJSON ? scriptTagJSON.offers ? scriptTagJSON.offers.availability ? scriptTagJSON.offers.availability : '' : '' : '';
+      // availabilityText = availabilityText && availabilityText.toLowerCase().includes('instock') ? 'In Stock' : 'Out Of Stock';
+      // addHiddenDiv('added_availabilityText', availabilityText);
+      if(document.querySelector('input[name="buyNow"]')){
+        document.querySelector('body').setAttribute('availability','In Stock');     
+      } else{
+        document.querySelector('body').setAttribute('availability','Out of Stock');
+      }
 
       const price = scriptTagJSON ? scriptTagJSON.offers ? scriptTagJSON.offers.price ? scriptTagJSON.offers.price : '' : '' : '';
       const currency = scriptTagJSON ? scriptTagJSON.offers ? scriptTagJSON.offers.priceCurrency ? scriptTagJSON.offers.priceCurrency : '' : '' : '';
