@@ -1,8 +1,16 @@
 extends: ../shared 
+recordxpath: (//html)[1]
 fields:
   - name: availabilityText
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'carrello')]//text()
-    defaultValue: 'Out Of Stock'
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'carrello')]//text() | //button[contains(.,'aggiungi al carrello')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[@id='added_price']
   - name: weightNet
     xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Peso')]])[1]
   - name: shippingInfo
