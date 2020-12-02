@@ -1,7 +1,5 @@
-singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordxpath: null
+extends: ../shared 
+
 fields:
   - name: image
     singleValue: true
@@ -559,10 +557,6 @@ fields:
   - name: enhancedContentHTML #todo
     singleValue: true
     defaultValue: No
-  - name: inTheBoxUrl
-    xpath: //div[contains(@class,"whats-in-the-box")]//img/@src
-  - name: inTheBoxText
-    xpath: //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"]
   - name: hasComparisonTable
     singleValue: true
     xpath: //div[contains(.,'Wählen Sie Ihr Modell')]

@@ -12,10 +12,6 @@ fields:
   - name: warranty
     singleValue: true
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arantie ')]])[1] |(//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' garantie') or contains(text(), 'bedenktijd')]])[1]
-  - name: inTheBoxUrl
-    xpath: //div[@class="whats-in-the-box__content-container"]//img/@src
-  - name: inTheBoxText
-    xpath: //div[@class="whats-in-the-box__content-container"]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"]
   - name: hasComparisonTable
     xpath: //h2[contains(.,'Choisissez votre modèle')]
     regExp: (.*)

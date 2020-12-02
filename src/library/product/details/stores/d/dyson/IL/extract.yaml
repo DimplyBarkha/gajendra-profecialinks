@@ -64,13 +64,4 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "hgroup product__claims")]/*[not(self::a)] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
-  - name: inTheBoxUrl
-    xpath: //div[@class="contents"]//img/@src | //div[@class="contents "]//img/@src
-  - name: inTheBoxText
-    xpath: //div[@class="contents"]//strong | //div[@class="contents "]//strong
-  - name: hasComparisonTable
-    singleValue: true
-    xpath: //h2[contains(.,'Choose your model')]
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No 
+  

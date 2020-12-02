@@ -1,11 +1,1 @@
 extends: ../shared 
-fields:
-  - name: inTheBoxUrl
-    xpath: //div[contains(@class,"whats-in-the-box")]//img/@src
-  - name: inTheBoxText
-    xpath: //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"]
-  - name: hasComparisonTable
-    xpath: //h2[contains(.,'Choose your model')]
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No 

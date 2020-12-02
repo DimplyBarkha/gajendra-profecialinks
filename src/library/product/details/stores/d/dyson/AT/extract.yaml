@@ -8,10 +8,6 @@ fields:
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'ieferung ')] or .//*[contains(text(),'liefern')]])[1]
   - name: warranty
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' Garantie')]])[1]
-  - name: inTheBoxUrl
-    xpath: //div[contains(@class,"whats-in-the-box")]//img/@src
-  - name: inTheBoxText
-    xpath: //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"]
   - name: hasComparisonTable
     xpath: //h2[contains(.,'Wählen Sie Ihr Modell')]
     regExp: (.*)

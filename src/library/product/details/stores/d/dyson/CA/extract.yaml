@@ -1,6 +1,4 @@
-singleRecord: false
-regionsSelector: null
-recordSelector: null
+extends: ../shared 
 recordXPath: html
 fields:
   - name: image
@@ -556,13 +554,3 @@ fields:
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arranty ') or contains(text(),'arantie ')] or .//*[contains(text(),'uarantee ')] or .//*[contains(text(),'money back ')]])[1]
   - name: shippingInfo
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ') or contains(text(),'ivraison ')] or .//*[contains(text(),'elivery')]])[1]
-  - name: inTheBoxUrl
-    xpath: //div[@class="contents"]//img/@src | //div[@class="contents "]//img/@src
-  - name: inTheBoxText
-    xpath: //div[@class="contents"]//strong | //div[@class="contents "]//strong
-  - name: hasComparisonTable
-    singleValue: true
-    xpath: //h2[contains(.,'Choose your model')]
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No 
