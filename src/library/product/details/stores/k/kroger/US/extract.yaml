@@ -138,7 +138,6 @@ fields:
   - name: size
     xpath: //span[@id="ProductDetails-sellBy-unit"]
   - name: weightNet
-    xpath: //span[@id="ProductDetails-sellBy-unit"]
   - name: weightGross
   - name: sku
     xpath: //div[@id='my-sku']
@@ -285,3 +284,6 @@ fields:
       [0-9,<,.]+
   - name: saltPerServingUom
     xpath: translate(//span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Sodium')]/parent::*,"Sodium 01233456789 .","")
+  - name: nutritionHtml
+    xpath: //div[@class="Nutrition"]//div[contains(@class,"NutritionInfo-LabelContainer")]
+    html: true
