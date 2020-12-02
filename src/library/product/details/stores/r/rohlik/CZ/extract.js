@@ -16,6 +16,9 @@ module.exports = {
   ) => {
     await context.evaluate(async function () {
       var text = '';
+      if (document.querySelector('#react-tabs-0')) {
+        document.querySelector('#react-tabs-0').click();
+      }
       var bulletText = '';
       var value = document.querySelector('div#productDetailDescription > div > div > div > div');
       if (value) {

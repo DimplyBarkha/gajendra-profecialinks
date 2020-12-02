@@ -21,6 +21,13 @@ const transform = (data) => {
         });
         row.ingredientsList = [{ text }];
       }
+      if (row.allergyAdvice) {
+        let text = '';
+        row.allergyAdvice.forEach(item => {
+          text = row.allergyAdvice.map(elm => elm.text).join(' ');
+        });
+        row.allergyAdvice = [{ text }];
+      }
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {

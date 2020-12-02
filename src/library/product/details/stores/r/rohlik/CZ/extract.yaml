@@ -35,10 +35,8 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[@id='desc']
-#   - name: descriptionBullets
-#     singleValue: true
-#     description: Number of ul > li tags in the description
-#     type: NUMBER
+  - name: descriptionBullets
+    xpath: count(//div[@id="productDetailDescription"]//ul//li)
   - name: brandText
     xpath: //div[@id="productDetail"]//h2
     regExp: (^\s*([a-zA-Z0-9]+))
@@ -227,7 +225,7 @@ fields:
 #     description: Suggested number of servings of the product.
 #     type: NUMBER
   - name: caloriesPerServing
-    xpath: //td[contains(.,'Energetická hodnota')]/following-sibling::td
+    xpath: //td[contains(.,'Energetická hodnota')]/following-sibling::td//text()[position()=3]
 #   - name: caloriesFromFatPerServing
 #     singleValue: true
 #     description: Nutritional Information for Calories From Fat content - Usually
@@ -371,9 +369,9 @@ fields:
 #     description: List of additives in the product
   - name: pricePerUnit
     xpath: //span[@class="unitPrice"]
-#   - name: pricePerUnitUom
-#     singleValue: true
-#     description: The unit of measurement used in price_per_unit
+  - name: pricePerUnitUom
+    xpath: //span[@class="unitPrice"]
+    regExp: kg|kl|l|ks|praní
   - name: promotion
     xpath: //span[@class="offerDiscount"]
 #   - name: alcoholContent
