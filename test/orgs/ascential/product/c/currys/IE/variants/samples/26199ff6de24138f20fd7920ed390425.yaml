@@ -1,0 +1,16 @@
+input:
+  _url: http://currys.ie
+  URL: https://www.currys.ie/ieen/home-appliances/health-beauty/hair-stylers/dyson-airwrap-complete-hair-styler-nickel-fuchsia-10187264-pdt.html
+extractions:
+  - html: https://workbench.import.io/html/run=ecf83ece-3943-40c6-8fdc-45a77bdb5869/task=565d7a61-4105-46a9-9d03-6b2e88c54f92/603b750d-97f2-4bbc-a36e-2d3afb9cb45c.html
+    extractionConfigId: product/details/stores/c/currys/IE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "10187264"
+                xpath: /html/body/div[8]
+            variantUrl:
+              - text: https://www.currys.ie/ieen/x/-10187264-pdt.html
+                xpath: /html/body/div[8]
+        xpath: /html/body
+    timestamp: 1606897945381

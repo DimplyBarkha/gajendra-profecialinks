@@ -1,0 +1,22 @@
+input:
+  _url: http://currys.ie
+  URL: https://www.currys.ie/ieen/home-appliances/health-beauty/hair-dryers/dyson-supersonic-hair-dryer-iron-fuchsia-10150662-pdt.html
+extractions:
+  - html: https://workbench.import.io/html/run=ecf83ece-3943-40c6-8fdc-45a77bdb5869/task=0a79c3e4-35c1-4d5a-80f2-37ecc6d07933/30dc2292-f6d4-4662-820a-24803791bca6.html
+    extractionConfigId: product/details/stores/c/currys/IE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "10150662"
+                xpath: /html/body/div[8]
+            variantUrl:
+              - text: https://www.currys.ie/ieen/x/-10150662-pdt.html
+                xpath: /html/body/div[8]
+          - variantId:
+              - text: "10182825"
+                xpath: /html/body/div[9]
+            variantUrl:
+              - text: https://www.currys.ie/ieen/x/-10182825-pdt.html
+                xpath: /html/body/div[9]
+        xpath: /html/body
+    timestamp: 1606897940543

@@ -1,0 +1,16 @@
+input:
+  _url: http://currys.ie
+  URL: https://www.currys.ie/ieen/home-appliances/health-beauty/beauty-and-skin-care/dyson-lightcycle-morph-floor-light-white-silver-10205119-pdt.html
+extractions:
+  - html: https://workbench.import.io/html/run=ecf83ece-3943-40c6-8fdc-45a77bdb5869/task=61d262f5-ef96-45b5-9056-7310c8d33d23/9a55ffe8-dcf9-4a6a-b572-872d28b40bc3.html
+    extractionConfigId: product/details/stores/c/currys/IE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "10205119"
+                xpath: /html/body/div[7]
+            variantUrl:
+              - text: https://www.currys.ie/ieen/x/-10205119-pdt.html
+                xpath: /html/body/div[7]
+        xpath: /html/body
+    timestamp: 1606897946114

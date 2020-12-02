@@ -1,0 +1,16 @@
+input:
+  _url: http://currys.ie
+  URL: https://www.currys.ie/ieen/home-appliances/floorcare/vacuum-cleaners/dyson-big-ball-multifloor-2-cylinder-bagless-vacuum-cleaner-grey-yellow-10192001-pdt.html
+extractions:
+  - html: https://workbench.import.io/html/run=ecf83ece-3943-40c6-8fdc-45a77bdb5869/task=ba4427db-ed58-41a1-95da-298c43aded45/074e5479-4ad7-44e8-b72f-5a66e2049a44.html
+    extractionConfigId: product/details/stores/c/currys/IE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "10192001"
+                xpath: /html/body/div[8]
+            variantUrl:
+              - text: https://www.currys.ie/ieen/x/-10192001-pdt.html
+                xpath: /html/body/div[8]
+        xpath: /html/body
+    timestamp: 1606897943428

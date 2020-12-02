@@ -1,0 +1,22 @@
+input:
+  _url: http://currys.ie
+  URL: https://www.currys.ie/ieen/home-appliances/health-beauty/hair-dryers/dyson-supersonic-hair-dryer-black-nickel-10182825-pdt.html
+extractions:
+  - html: https://workbench.import.io/html/run=ecf83ece-3943-40c6-8fdc-45a77bdb5869/task=1fcd8fc0-d094-44b6-b708-48be8ba0ed24/3ae40d8f-ccf1-41be-b12c-9eff21faf595.html
+    extractionConfigId: product/details/stores/c/currys/IE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "10182825"
+                xpath: /html/body/div[7]
+            variantUrl:
+              - text: https://www.currys.ie/ieen/x/-10182825-pdt.html
+                xpath: /html/body/div[7]
+          - variantId:
+              - text: "10150662"
+                xpath: /html/body/div[8]
+            variantUrl:
+              - text: https://www.currys.ie/ieen/x/-10150662-pdt.html
+                xpath: /html/body/div[8]
+        xpath: /html/body
+    timestamp: 1606897940447
