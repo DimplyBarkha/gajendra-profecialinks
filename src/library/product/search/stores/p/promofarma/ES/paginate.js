@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'promofarma',
-    nextLinkSelector: '#pagnNextString, #pagnNextLink, ul[class="pagination justify-content-center"] li:last-child[class="page-item  "]',
+    nextLinkSelector: '#pagnNextString, #pagnNextLink, ul[class="pagination justify-content-center"] li[class="page-item active "]+li a ',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
