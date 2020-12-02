@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'lenstore',
-    nextLinkSelector: '#Main > div.o-outer > div > div.listPageMain > div.list-page__tab-content > div.list-page__tab-panel.active.js-list-page__tab-panel > div.search-results-filter-bottom > div > nav > a._pagination__link._pagination__link--next',
+    nextLinkSelector: 'div[class="search-results-filter-bottom"]>div[class="search-results-filter search-results-filter--right"]>nav[class="_pagination"]>a[class="_pagination__link _pagination__link--next "]',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
