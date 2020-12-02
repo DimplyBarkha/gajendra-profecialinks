@@ -115,7 +115,8 @@ fields:
     singleValue: false
     xpath: //section[@id='review']/@data-revoo-sku
   - name: availabilityText
-    xpath: //div[@class="product-availability"]//span[contains(text(), "Disponibile")]/text()  |  //div[@class="product-availability"]//div//span[contains(text(),"Ordinabile previa verifica disponibilità")]/text()
+    #xpath: //div[@class="product-availability"]//span[contains(text(), "Disponibile")]/text()  |  //div[@class="product-availability"]//div//span[contains(text(),"Ordinabile previa verifica disponibilità")]/text()
+    xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock

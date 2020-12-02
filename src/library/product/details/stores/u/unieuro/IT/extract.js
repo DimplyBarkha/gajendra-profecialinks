@@ -1,6 +1,6 @@
 const { transform } = require('../format');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -8,7 +8,22 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
   await context.evaluate(async function () {
+    try {
+
+      if (document.querySelector('section[class*="hits"] section:first-child')) {
+        document.querySelector('section[class*="hits"] section:first-child div[class*="title product-tile__title"] >a').click();
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  });
+
+  await context.waitForSelector('.container', { timeout: 60000 });
+
+  await context.evaluate(async function () {
+
     let scrollTop = 0;
     while (scrollTop <= 20000) {
       await stall(500);
@@ -19,7 +34,7 @@ async function implementation (
         break;
       }
     }
-    function stall (ms) {
+    function stall(ms) {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
