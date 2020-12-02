@@ -14,9 +14,9 @@ fields:
   xpath: //div[contains(@class,'image-container')]//a[@class='thumb-link']//img[@class='tile-image'][1]//@src
 - name: name
   SingleValue: false
-  xpath: //div[@class='wrap']//a//span
+  xpath: //h3[@class='pdp-link']//a
 - name: price
-  SingleValue: false
+  SingleValue: false 
   xpath: //div[contains(@class,'tile-body text-center')]//div[@class='hover-bg-content']//span[@class='prod-price']//span[contains(@class,'value bfx-price')]//span
 - name: listprice
   SingleValue: false
@@ -24,3 +24,9 @@ fields:
 - name: aggregateRating
   singleValue: false
   xpath: //div[@class='tile-body-footer']//div[contains(@class,'TTteaser__rating')]//span//@class
+- name: rankOrganic
+  SingleValue: false
+  defaultValue: 1
+- name: rank
+  SingleValue: false
+  defaultValue: 1

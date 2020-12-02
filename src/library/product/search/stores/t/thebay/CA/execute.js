@@ -7,7 +7,7 @@ module.exports = {
     domain: 'thebay.com',
     url: 'https://www.thebay.com/search?q={searchTerms}',
     loadedSelector: 'div.row.product-grid',
-    noResultsXPath: null,
+    noResultsXPath: '//*[contains(text(),"We weren’t able to find any results for")]',
     zipcode: '',
   },
 };
