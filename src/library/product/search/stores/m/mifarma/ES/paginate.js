@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="no-results"]',
     openSearchDefinition: null,
     domain: 'mifarma.es',
     zipcode: '',

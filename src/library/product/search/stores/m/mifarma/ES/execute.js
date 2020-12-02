@@ -7,7 +7,7 @@ module.exports = {
     domain: 'mifarma.es',
     url: 'https://www.mifarma.es/catalogsearch/result/?q={searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="no-results"]',
     zipcode: '',
   },
 };
