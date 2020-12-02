@@ -40,7 +40,7 @@ fields:
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-    type: NUMBER
+    #type: NUMBER
   - name: brandText
     singleValue: false
     xpath: //span[@class="value"]/a/text() | //div[@class="manufacturers"]/span[@class="value"]/a/text()
@@ -84,14 +84,14 @@ fields:
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    type: NUMBER
+    #type: NUMBER
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    #type: NUMBER
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -104,7 +104,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    type: NUMBER
+    #type: NUMBER
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -485,4 +485,5 @@ fields:
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: false
+    defaultValue: No
     description: If Zoom feature is available for Main image or images in the
