@@ -16,6 +16,35 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const cssProduct = "a[class*='nav-link']";
+  const cssProductDetails = "div[class*='product-details_productDetails']";
+
+  const isSelectorAvailable = async (cssSelector) => {
+    console.log(`Is selector available: ${cssSelector}`);
+    return await context.evaluate(function (selector) {
+      return !!document.querySelector(selector);
+    }, cssSelector);
+  };
+
+  console.log('.....waiting......');
+  await context.waitForSelector(cssProduct, { timeout: 10000 });
+
+  const productAvailable = await isSelectorAvailable(cssProduct);
+  console.log(`productAvailable: ${productAvailable}`);
+  if (productAvailable) {
+    console.log('clicking product link');
+    await context.click(cssProduct);
+    await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+    await context.waitForSelector(cssProductDetails);
+    const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
+    console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
+    if (!productDetailsAvailable) {
+      throw new Error('ERROR: Failed to load product details page');
+    }
+    console.log('navigation complete!!');
+  }
+  
+
   await context.evaluate(async () => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');

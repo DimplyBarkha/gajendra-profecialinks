@@ -5,8 +5,8 @@ module.exports = {
     country: 'MX',
     store: 'walmart',
     domain: 'walmart.com.mx',
-    loadedSelector: "div[data-automation-id*='hero-image'] img",
-    noResultsXPath: "//div[contains(@class,'products_noResultsWrapper')]",
+    loadedSelector: "div[class*='product_container']",
+    noResultsXPath: "//div[contains(@class,'no-results_container')]",
     zipcode: '',
   },
 };
