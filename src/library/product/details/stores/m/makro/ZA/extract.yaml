@@ -1,0 +1,65 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="mak-body-content"]
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"owl-item active")]//img[contains(@class,"lazyOwl")]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"owl-item active")]//img[contains(@class,"lazyOwl")]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"mak-owl-thumb")]/button[not(contains(@class,"mak-owl-thumb-item active"))]/img/@src
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,"breadcrumb")]/li[position()>1]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //span[contains(@itemprop,"name")]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'product-ProductNamePrice')]/p
+  - name: brandText
+    singleValue: false
+    xpath: //span[contains(@itemprop,"brand")]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: sku
+    singleValue: false
+    xpath: //span[contains(@itemprop,"productId")]
+  - name: variantId
+    singleValue: false
+    xpath: //span[contains(@itemprop,"productId")]
+  - name: gtin
+    singleValue: false
+    xpath: //span[contains(@itemprop,"gtin13")]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class="mak-content__box-pad"]//div[contains(@class,"mak-content__box-tiny")]/div[text()="Product Weight"]/parent::*/div[2]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[@class="mak-content__box-pad"]//div[contains(@class,"mak-content__box-tiny")]/div[text()="Shipping Dimensions"]/parent::*/div[2]
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div[@class="mak-content__box-pad"]//div[contains(@class,"mak-content__box-tiny")]/div[text()="Shipping Weight"]/parent::*/div[2]
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@id="deliveryIn"]
+  - name: color
+    singleValue: false
+    xpath: //span[contains(@itemprop,"color")]
+  - name: name
+    singleValue: false
+    xpath: //span[contains(@itemprop,"name")]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"visible-md")]//div[contains(@class,"js-ratingCalc")]/@data-rating
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"tabbody pdp-reviews")]/div[@class="mak-content__box-pad"]
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
