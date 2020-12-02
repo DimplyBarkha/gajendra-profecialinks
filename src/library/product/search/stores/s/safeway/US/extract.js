@@ -34,7 +34,7 @@ module.exports = {
       });
     };
     await applyScroll(context);
-    async function getProductsCount(context) {
+    async function getProductsCount (context) {
       return context.evaluate(async function () {
         const products = document.evaluate('//img[contains(@class,"ab-lazy loaded")]/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         return products.snapshotLength;
