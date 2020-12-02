@@ -97,6 +97,22 @@ const transform = (data) => {
           row.videos = result;
         }
 
+        if (row.galleryVideos) {
+          var lookup = {};
+          var items = row.galleryVideos;
+          var result = [];
+
+          for (var item, i = 0; item = items[i++];) {
+            var text = item.text;
+
+            if (!(text in lookup)) {
+              lookup[text] = 1;
+              result.push({text: item.text, xpath: item.xpath});
+            }
+          }
+          row.galleryVideos = result;
+        }
+
         if(row.alternateImages) {
           var result = [];
           let url = "https:";

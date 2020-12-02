@@ -96,6 +96,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //*[@id="product_specification"]/div[1]/div/div[1]/span[2]/text()
+  - name: galleryVideos
+    singleValue: false
+    xpath: //li[contains(@class,'amp-slide')]//video/@src
   - name: videos
     singleValue: false
     xpath: //*[@id="content"]//*[self::video or self::iframe]/@src
