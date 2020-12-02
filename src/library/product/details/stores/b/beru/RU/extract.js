@@ -509,7 +509,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     }
     addHiddenDiv('ingredients', ingredients);
     var xpaths ;
-    xpaths = document.querySelector('button[data-text="Accept all"]').innerText
+    xpaths = document.querySelector('button[data-text="Accept all"]')
     // var popUP = document.evaluate(
     //   xpath,
     //   document,
