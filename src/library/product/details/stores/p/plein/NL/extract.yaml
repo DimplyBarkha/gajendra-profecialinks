@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -6,7 +6,55 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[@id='owl-product']//div[contains(@class,'owl-item active')]//a//img[@class='owl-lazy']//@src
+  - name: sku
+    singleValue: false
+    xpath: (//script[@type='application/ld+json'])[2]
+  - name: variantId
+    singleValue: false
+    xpath: //form[@id='frmWithQuantity']//input[@name='product_id']//@value
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumb']//li[position()>1]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1//a[contains(@class,'single-breadcrumb')]/parent::h1
+  - name: name
+    singleValue: false
+    xpath: //h1//a[contains(@class,'single-breadcrumb')]/parent::h1
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-block']//div[@class='pricing-row']//span[@class='product-price']//strong 
+  - name: listprice
+    singleValue: false
+    xpath: //div[@class='product-block']//div[@class='pricing-row']//span[@class='product-recommended']
+  - name: availabilityText
+    singleValue: false
+    xpath: //form[@id='frmWithQuantity']//a[@class='btn product-add-to-cart']//span
+    defaultValue: "In Stock"
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'product-details')]/parent::div//p
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class='product-block']//ul[contains(@class,'volume-buttons')]//li)
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='product-block']//ul[contains(@class,'volume-buttons')]//li[@class='active']
+  - name: brandText
+    singleValue: false
+    xpath: (//script[@type='application/ld+json'])[2]
+  - name: ratingCount
+    sinngleValue: false
+    xpath: (//a[@class='rating'])[1]/following-sibling::a
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//a[@class='rating'])[1]//span//i//@class
   - name: imageAlt
     singleValue: false
     xpath: //div[@id='owl-product']//div[contains(@class,'owl-item active')]//a//img[@class='owl-lazy']//@alt
-  
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='owl-product']//div[contains(@class,'owl-item')][position()>1]//a//img[@class='owl-lazy']//@data-src
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class='film-button-container']//@data-ean  

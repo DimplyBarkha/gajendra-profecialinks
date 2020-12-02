@@ -6,7 +6,7 @@ module.exports = {
     store: 'plein',
     domain: 'plein.nl',
     loadedSelector: 'div.owl-item.active img.owl-lazy',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="no-page"]//h2[text()="Sorry, we kunnen de pagina niet vinden"]',
     zipcode: '',
   },
 };
