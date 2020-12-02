@@ -5,9 +5,9 @@ module.exports = {
     country: 'IL',
     store: 'yenotbitan',
     domain: 'ybitan.co.il',
-    url: null,
+    url: 'https://www.ybitan.co.il/search/{searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="no-results-message"]/h5',
     zipcode: '',
   },
 };
