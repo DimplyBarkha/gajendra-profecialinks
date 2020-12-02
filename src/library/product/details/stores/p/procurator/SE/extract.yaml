@@ -1,0 +1,49 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'product-images')]//div[@class='active']//img//@src
+  - name: sku
+    singleValue: false
+    xpath: //p[@class='article-no']//span[@itemprop='productID']
+  - name: variantId
+    singleValue: false
+    xpath: //p[@class='article-no']//span[@itemprop='productID']
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumbs']//li[position()>1]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'details cms-content')]//h1[@itemprop='name']
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'details cms-content')]//h1[@itemprop='name']
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'price-list')]//div[@class='price'][1]//span
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'details')]//div[contains(@class,'row space-top-half')]//div[@class='button-container']//button
+    defaultValue: "In Stock"
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//ul[@class='product-usp']//li)
+  - name: description
+    singleValue: false
+    xpath: //p[contains(@class,'product-short-description')]  
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'product-images')]//div[@class='active']//img//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'product-images')]//div[@class='image-carousel']//li[position()>1]//img//@src
+  
