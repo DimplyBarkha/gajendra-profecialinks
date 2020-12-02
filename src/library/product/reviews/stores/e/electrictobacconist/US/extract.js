@@ -1,4 +1,5 @@
-const { transform } = require('../sharedTransform');
+const { transform } = require('../../../../shared');
+const { implementation } = require('../sharedExtract');
 
 module.exports = {
   implements: 'product/reviews/extract',
@@ -10,4 +11,5 @@ module.exports = {
     domain: 'electrictobacconist.com',
     zipcode: '',
   },
+  implementation,
 };

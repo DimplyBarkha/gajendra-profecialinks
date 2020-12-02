@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'electrictobacconist',
-    nextLinkSelector: 'a[class="button alternate-reviews__next-page-button "]',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,

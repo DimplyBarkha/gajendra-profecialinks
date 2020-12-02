@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"alternate-reviews__single")]
+recordXPath: //div[@id="script-review"]
 fields:
   - name: rating
     singleValue: false
-    xpath: //div[@class="alternate-reviews__review-stars"]/i[contains(@class,"icon-star") and not(contains(@class,"inactive"))]/@class
+    xpath: //@rating
   - name: sourceUrl
     singleValue: false
     xpath: ancestor::html//meta[@property="og:url"]/@content
@@ -54,7 +54,7 @@ fields:
   - name: reviewText
     singleValue: false
     description: The text of the review
-    xpath: //div[contains(@class,"__review-comment")]
+    xpath: //div[@id="script-review"]
   - name: reviewTitle
     singleValue: false
     description: The title of the review
