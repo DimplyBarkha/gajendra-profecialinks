@@ -28,12 +28,29 @@ const transform = (data, context) => {
         if (!row.sponsored) {
           orgRankCounter += 1;
           row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        if (row.price) {
+          let now_price = '';
+          row.price.forEach(item => {                                         
+              var matches = /(Now)/isg.exec(item.text);
+              if (matches) {                  
+                  now_price = item.text;
+                  return false;
+              }
+              else{
+                item.text = item.text.replace(/(Was)+/g, '');
+              }
+          });
+          if (now_price != '' && row.price.length >= 2){
+            now_price = now_price.replace(/(Now)+/g, '');
+            row.price = [{'text':now_price,'xpath':row.price[0].xpath}];
+          }
         }  
         row.rank = [{ text: rankCounter }];
                 
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
-        }));
+        }));        
       }
     }
     context.setState({ rankCounter });
