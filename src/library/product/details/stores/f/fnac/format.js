@@ -51,6 +51,10 @@ const transform = (data) => {
       if (row.mpc) {
         row.mpc[0].text = row.mpc[0].text.trim();
       }
+
+      if (row.attributes) {
+        row.attributes.forEach(elm => { elm.text = elm.text.replace(/[\n\s]+/, ' : '); });
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = el.text ? cleanUp(el.text) : el.text;
       }));

@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: batteryInfo
     xpath: //tr[contains(.,'Potencia')]//b
-  - name: promoText
+  - name: promotion
     singleValue: false
     xpath: //span[contains(@class,"f-productOffer-optionType")] | //span[contains(@class,"f-productOffer-commercial")]
   - name: _input
@@ -136,3 +136,5 @@ fields:
   - name: sellerCount
     xpath: normalize-space(//li[@data-track-click='{"action":"MpAllOffer"}']/span[1])
     regExp: ^[^\s]+
+  - name: attributes
+    xpath: //div[@class="characteristicsStrate__list"]/dl
