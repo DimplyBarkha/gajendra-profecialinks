@@ -142,6 +142,25 @@ module.exports = {
         addElementToDocument('image_zoom_added', "NO");
       }
 
+      // -----------------------------
+      // -----------------------------
+      // --------- Salsify -----------
+      // -----------------------------
+      // -----------------------------
+
+      const availabilityText = document.querySelector('#addtocart-target') ? 'In stock' : 'Out of stock';
+      let gtin = document.querySelector('.prod-item-model-number > span:first-child') ? document.querySelector('.prod-item-model-number > span:first-child').innerText : null;
+      gtin = gtin ? gtin.split(':') : null;
+      gtin = gtin ? gtin[gtin.length - 1].trim() : null;
+      const rating = document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal') ? document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal').innerText : 0;
+      let reviews = document.querySelector('.desktopOnly .product-details .reviewnum') ? document.querySelector('.desktopOnly .product-details .reviewnum').innerText : '0';
+      reviews = reviews.match(/\d+/g)[0];
+      document.body.setAttribute('import-seller-name', `BJ's Wholesale Club`);
+      document.body.setAttribute('import-seller-availability', availabilityText);
+      document.body.setAttribute('import-gtin', gtin);
+      document.body.setAttribute('import-rating', rating);
+      document.body.setAttribute('import-reviews', reviews);
+      document.body.setAttribute('import-enhanced-content', 'false');
     });
     await context.extract(productDetails, { transform: transformParam });
   },
