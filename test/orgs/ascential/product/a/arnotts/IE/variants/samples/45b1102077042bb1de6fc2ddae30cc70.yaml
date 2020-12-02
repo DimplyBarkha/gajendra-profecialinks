@@ -2,12 +2,15 @@ input:
   _url: http://arnotts.ie
   URL: https://www.arnotts.ie/remington/hair-dryer-and-straightener-gift-pack/149881782.html?cgid=root
 extractions:
-  - html: https://workbench.import.io/html/run=996e51a9-5902-45e9-b721-e87022e14c01/task=6d5ecc31-317d-4af6-904f-6eb98b92e1bc/f66c60ce-8b97-4db6-bd26-8989653eb847.html
+  - html: https://workbench.import.io/html/run=93eabaec-e5fc-41d5-aebe-87187b97d3df/task=2104c564-812f-4c7d-8cc1-8fe284ddc4e3/044f8bfe-c4ce-41d6-9691-b5b50bbe3d90.html
     extractionConfigId: product/details/stores/a/arnotts/IE/variantsExtract
     data:
       - group:
-          - variantUrl:
-              - text: https://www.arnotts.ie/remington/hair-dryer-and-straightener-gift-pack/149881782.html?cgid=root
+          - variantId:
+              - text: 1000238752&dwvar_1000238752_size=One%20Size
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.arnotts.ie/on/demandware.store/Sites-arnotts-global-Site/en_IE/Product-Variation?pid=1000238752&dwvar_1000238752_size=One%20Size
                 xpath: /html/body/ol[1]/li[1]/@variant_url
         xpath: /html
-    timestamp: 1606907896280
+    timestamp: 1606919862644

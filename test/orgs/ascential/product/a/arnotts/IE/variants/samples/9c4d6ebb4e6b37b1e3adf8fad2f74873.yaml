@@ -2,12 +2,21 @@ input:
   _url: http://arnotts.ie
   URL: https://www.arnotts.ie/chanel/eau-de-parfum-spray/103485063.html?cgid=root#q=perfume&start=1
 extractions:
-  - html: https://workbench.import.io/html/run=996e51a9-5902-45e9-b721-e87022e14c01/task=2b4dbe6a-9702-4236-8a16-d6a13fe4d8dd/0e2924fa-e770-46ad-9fef-b74cf31ad232.html
+  - html: https://workbench.import.io/html/run=93eabaec-e5fc-41d5-aebe-87187b97d3df/task=787a6ada-d8e1-4367-b22f-499e94d75292/103d989b-9e50-4b81-b4c3-885e8d4ce890.html
     extractionConfigId: product/details/stores/a/arnotts/IE/variantsExtract
     data:
       - group:
-          - variantUrl:
-              - text: https://www.arnotts.ie/chanel/eau-de-parfum-spray/103485063.html?cgid=root#q=perfume&start=1
+          - variantId:
+              - text: 103485063&dwvar_103485063_size=50ml
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.arnotts.ie/on/demandware.store/Sites-arnotts-global-Site/en_IE/Product-Variation?pid=103485063&dwvar_103485063_size=50ml
                 xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 103485063&dwvar_103485063_size=100ml
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.arnotts.ie/on/demandware.store/Sites-arnotts-global-Site/en_IE/Product-Variation?pid=103485063&dwvar_103485063_size=100ml
+                xpath: /html/body/ol[1]/li[2]/@variant_url
         xpath: /html
-    timestamp: 1606907897142
+    timestamp: 1606919864237
