@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'UK',
     store: 'johnlewis',
-    // nextLinkSelector: 'nav[class="Pagination_c-pagination__2iG-y c-pagination--bottom Pagination_c-pagination--footer__2c6x8"]>ul>li[class="Pagination_c-pagination__next__1Pq6x Pagination_c-pagination__item__cBJ6v"]>a',
+    nextLinkSelector: 'nav[class="Pagination_c-pagination__2iG-y c-pagination--bottom Pagination_c-pagination--footer__2c6x8"]>ul>li>a[aria-label="Next"]',
     // nextLinkXpath: '(//a[@data-test="next-btn"])[2]',
     mutationSelector: null,
     spinnerSelector: null,
@@ -14,9 +14,9 @@ module.exports = {
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
-    openSearchDefinition: {
-      template: 'https://www.johnlewis.com/search?search-term={searchTerms}&page={page}',
-      },
+    // openSearchDefinition: {
+    //   template: 'https://www.johnlewis.com/search?search-term={searchTerms}&page={page}',
+    //   },
     domain: 'johnlewis.com',
     zipcode: '',
   },
