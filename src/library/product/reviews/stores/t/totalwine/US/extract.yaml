@@ -34,7 +34,7 @@ fields:
   - name: reviewText
     singleValue: false
     description: The text of the review
-    xpath: //div[contains(@class, 'bv-content-details-offset-off')]//div[contains(@*, 'bv-content-summary-body-text')]//p/text()
+    xpath: //div[contains(@class, 'bv-content-details-offset-off')]//div[contains(@*, 'bv-content-summary-body-text')]//p
   - name: reviewTitle
     singleValue: false
     description: The title of the review
@@ -74,6 +74,7 @@ fields:
   - name: aggregateRating
     description: The product rating
   - name: reviewAuthor
-    xpath: //div[@class="bv-author"]
+    singleValue: false
+    xpath: //div[@class="bv-author"]|//div[@class="bv-content-author-name"]
   - name: reviewRatingScale
     xpath: //div[contains(@class, 'bv-content-header-meta')]//meta[contains(@*, 'bestRating')]/@content
