@@ -1,0 +1,16 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/bosch-flexxo-bbh32101-steelstofzuiger/9200000097698311/?bltgh=vlNzqpAJCkIYAfan85FHiA.1_47.54.ProductTitle
+extractions:
+  - html: https://workbench.import.io/html/run=a008be00-4691-4423-9396-aa1d55d2054b/task=4b5df058-8d24-41e4-9b18-c16f943a6bf9/80dada14-7f67-40b1-b466-ff63e2a00db5.html
+    extractionConfigId: product/details/stores/b/bol/BE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "9200000097698311"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/bosch-flexxo-bbh32101-steelstofzuiger/9200000097698311/?bltgh=vlNzqpAJCkIYAfan85FHiA.1_47.54.ProductTitle
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1606818448910

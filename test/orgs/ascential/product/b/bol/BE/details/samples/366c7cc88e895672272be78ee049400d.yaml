@@ -1,0 +1,77 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/hepa-luchtreiniging-filter-voor-dyson-pure-hot-cool-link-luchtreiniger-ventilator-luchtfilter/9200000102978590/?bltgh=pQzrX9iRxEQ4qpVwOXNN4g.1_21.26.ProductTitle
+extractions:
+  - html: https://workbench.import.io/html/run=5e60e435-1318-4ed1-80b3-4923d58e1308/task=330d7e7d-baf1-4ab8-85a4-c02e57a70eb0/b15fae5d-45e8-459b-a68f-aa85ef558636.html
+    extractionConfigId: product/details/stores/b/bol/BE/extract
+    data:
+      - group:
+          - category:
+              - text: Elektronica
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Huishoudelijke apparaten
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Luchtbehandeling
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Luchtreinigingsfilters
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[5]
+            description:
+              - text: >-
+                  Let op! Controleer voor aanschaf het modelnummer van uw Dyson
+                  luchtreiniger. Deze filter is enkel geschikt voor de volgende
+                  modellen: DP01/DP02/DP03/HP00/HP01/HP02/ P03
+
+                  Verleng de levensduur van je Dyson Pure Cool Link en de Dyson Pure Hot+Cool Link door eens in het jaar het filter te vervangen.
+
+                  Dit 360° HEPA glasvezelfilter haalt 99,95 % van de deeltjes uit de lucht.en is geschikt om ultra-fijne deeltjes tot 0,1 micrometer effectief uit de lucht te filteren inclusief allergenen, pollen, bacteriën en huidschilfers.Daarnaast worden vieze geuren en mogelijke schadelijke stoffen uit de lucht gefilterd. Wanneer je de luchtreiniger gemiddeld 12 uur per dag gebruikt, vervang je de filter na 1 jaar. 
+
+                  Dit 360° HEPA vervangfilter is niet van het merk Dyson maar wel geschikt voor onderstaande luchtbehandelingsapparaten van Dyson:
+
+                  Dyson Cool Link / Pure Hot + Cool Link (tafelmodel)-reinigersmodellen DP01 / DP02/ DP03 / HP00 / HP01 / HP02 / HP03
+
+                  Vervangt: origineel Dyson-onderdeelnummer 967449-04/968101-04/968125-05
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[2]
+            weightNet:
+              - text: 386 g
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/dl[1]/dd[4]
+            gtin:
+              - text: "8719984011446"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[3]
+            sku:
+              - text: 967449-04/968101-04/968125-05
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[4]
+            color:
+              - text: Wit | Blauw
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]
+            name:
+              - text: HEPA Luchtreiniging Filter Voor Dyson Pure Hot Cool Link Luchtreiniger
+                  Ventilator Luchtfilter
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/hepa-luchtreiniging-filter-voor-dyson-pure-hot-cool-link-luchtreiniger-ventilator-luchtfilter/9200000102978590/?bltgh=pQzrX9iRxEQ4qpVwOXNN4g.1_21.26.ProductTitle
+                xpath: /html/body/div[4]
+            nameExtended:
+              - text: HEPA Luchtreiniging Filter Voor Dyson Pure Hot Cool Link Luchtreiniger
+                  Ventilator Luchtfilter
+                xpath: /html/body/div[5]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/div[6]
+            price:
+              - text: 58,95 EUR
+                xpath: /html/body/div[7]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[8]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[9]
+            technicalInformationPdfPresent:
+              - text: "false"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1606894949710

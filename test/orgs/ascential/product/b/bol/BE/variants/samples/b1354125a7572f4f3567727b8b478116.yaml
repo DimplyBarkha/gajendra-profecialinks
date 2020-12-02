@@ -1,0 +1,16 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/dyson-v11-hepa-filter-alternatief/9200000124055793/?bltgh=oHoxDfBZuM1roMHsV2BINQ.1_28.38.ProductImage
+extractions:
+  - html: https://workbench.import.io/html/run=a008be00-4691-4423-9396-aa1d55d2054b/task=0ec979dc-c128-4cfd-8640-ba4642d28da2/e0be304c-22bf-49d9-9a4a-7f10df6a803a.html
+    extractionConfigId: product/details/stores/b/bol/BE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "9200000124055793"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/dyson-v11-hepa-filter-alternatief/9200000124055793/?bltgh=oHoxDfBZuM1roMHsV2BINQ.1_28.38.ProductImage
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1606818453449

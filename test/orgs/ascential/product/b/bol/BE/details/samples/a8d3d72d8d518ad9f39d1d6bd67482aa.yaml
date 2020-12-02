@@ -1,0 +1,125 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/aeg-cx7-2-45an-steelstofzuiger/9200000083968895/?s2a=#productTitle
+extractions:
+  - html: https://workbench.import.io/html/run=5e60e435-1318-4ed1-80b3-4923d58e1308/task=f3e075d5-9958-47f8-9abd-09027862d897/f3be2ead-725a-4875-addf-c8534d1daa71.html
+    extractionConfigId: product/details/stores/b/bol/BE/extract
+    data:
+      - group:
+          - color:
+              - text: Rood
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[3]
+            weightNet:
+              - text: 4,6 kg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[16]
+            technicalInformationPdfPresent:
+              - text: "true"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/dl[1]
+      - group:
+          - gtin:
+              - text: "7332543577699"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[1]
+            sku:
+              - text: 900 940 731
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[2]
+            weightNet:
+              - text: 4597 gram
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[3]
+            specifications:
+              - text: 69,1 x 36,7 x 17 cm
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[4]
+            warranty:
+              - text: 2 jaar
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[8]
+            technicalInformationPdfPresent:
+              - text: "true"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[4]/dl[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=5e60e435-1318-4ed1-80b3-4923d58e1308/task=f3e075d5-9958-47f8-9abd-09027862d897/f3be2ead-725a-4875-addf-c8534d1daa71.html
+      - group:
+          - weightNet:
+              - text: 3.44 kg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[5]/dl[1]/dd[2]
+            technicalInformationPdfPresent:
+              - text: "true"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[5]/dl[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=5e60e435-1318-4ed1-80b3-4923d58e1308/task=f3e075d5-9958-47f8-9abd-09027862d897/f3be2ead-725a-4875-addf-c8534d1daa71.html
+      - group:
+          - category:
+              - text: Elektronica
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Huishoudelijke apparaten
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Stofzuigers
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Steelstofzuigers
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[5]
+            description:
+              - text: >-
+                  De CX7-2-45AN, X Flexibility™ ANIMAL EDITION steelstofzuiger
+                  is soepel in handeling en sterk in zuigkracht. Deze ANIMAL
+                  steelstofzuiger wordt speciaal geleverd met het gemotoriseerde
+                  X Flexibility™ Animal Care-mondstuk voor het in één beweging
+                  opzuigen van vuil en dierenharen met het grootste gemak. De
+                  snoerloze steelstofzuiger van AEG biedt grenzeloze
+                  schoonmaakvrijheid op alle oppervlakken en staat klaar wanneer
+                  u hem nodig heeft.
+                   
+                   De meest complete AEG steelstofzuiger van dit moment met een speciale mini turboborstel die gemonteerd kan worden op de uitneembare kruimelzuiger om ook uw meubels te ontdoen van haren en stof. Neem deze kruimelzuiger met mini turboborstel zelfs mee naar de auto of caravan. Optionele accessoires beschikbaar om deze nog veelzijdiger te maken. 
+
+                   
+                  AEG CX7-2-45AN. Stofzuigercontainer type: Zakloos, Kleur van het product: Zwart, Rood, Stof capaciteit: 0,5 l. Soort reiniging: Droog, Vuilafscheidingsmethode: Cyclonisch, Ruimte schoon gemaakt per keer dat de batterij wordt opgeladen: 48 m². Stroombron: Batterij/Accu, Energie-opslagtechnologie accu/batterij: Lithium-Ion (Li-Ion), Accu/Batterij voltage: 18 V
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
+            name:
+              - text: AEG CX7-2-45AN - Steelstofzuiger
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            firstVariant:
+              - text: "9200000082406288"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/@href
+            variants:
+              - text: "9200000083968895"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[3]/@href
+              - text: "9200000107574392"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[4]/@href
+              - text: "9300000016310183"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[5]/@href
+              - text: "9200000082406294"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[6]/@href
+              - text: "9200000064187695"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[7]/@href
+            productUrl:
+              - text: https://www.bol.com/nl/p/aeg-cx7-2-45an-steelstofzuiger/9200000083968895/?s2a=#productTitle
+                xpath: /html/body/div[4]
+            nameExtended:
+              - text: AEG CX7-2-45AN - Steelstofzuiger
+                xpath: /html/body/div[5]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/div[6]
+            price:
+              - text: 219,98 EUR
+                xpath: /html/body/div[7]
+            ratingCount:
+              - text: "207"
+                xpath: /html/body/div[8]
+            aggregateRating:
+              - text: "4.3"
+                xpath: /html/body/div[9]
+            brandText:
+              - text: AEG
+                xpath: /html/body/div[10]
+            brandLink:
+              - text: https://www.bol.com/nl/b/aeg/4333315/
+                xpath: /html/body/div[11]
+            technicalInformationPdfPresent:
+              - text: "true"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+        htmlExtraction: https://crawl-assets.import.io/html/run=5e60e435-1318-4ed1-80b3-4923d58e1308/task=f3e075d5-9958-47f8-9abd-09027862d897/f3be2ead-725a-4875-addf-c8534d1daa71.html
+    timestamp: 1606894949986

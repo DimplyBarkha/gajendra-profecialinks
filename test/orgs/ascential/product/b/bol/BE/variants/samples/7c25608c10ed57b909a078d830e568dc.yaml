@@ -1,0 +1,16 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/dyson-dc28c-dc33c-dc37-dc37c-dc39-dc39c-dc41c-dc53-serie-plus-parts-wasbaar-pre-filter/9200000107852491/?bltgh=oHoxDfBZuM1roMHsV2BINQ.1_28.35.ProductImage
+extractions:
+  - html: https://workbench.import.io/html/run=a008be00-4691-4423-9396-aa1d55d2054b/task=236b0c93-1f0a-4f5a-81c4-d5af5aa3d926/6fa8e489-d016-4683-9bb2-864defcdbd4a.html
+    extractionConfigId: product/details/stores/b/bol/BE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "9200000107852491"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/dyson-dc28c-dc33c-dc37-dc37c-dc39-dc39c-dc41c-dc53-serie-plus-parts-wasbaar-pre-filter/9200000107852491/?bltgh=oHoxDfBZuM1roMHsV2BINQ.1_28.35.ProductImage
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1606818450912

@@ -1,0 +1,126 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/dyson-v8-animal-steelstofzuiger/9200000097514825/#product_specifications
+extractions:
+  - html: https://workbench.import.io/html/run=5e60e435-1318-4ed1-80b3-4923d58e1308/task=b1d4c453-2a3e-444d-9e14-698fd4453124/280db6b9-b8e1-4734-ab05-81fa46e14041.html
+    extractionConfigId: product/details/stores/b/bol/BE/extract
+    data:
+      - group:
+          - color:
+              - text: Grijs
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]
+            weightNet:
+              - text: 4,9 kg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[8]
+            technicalInformationPdfPresent:
+              - text: "false"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]
+      - group:
+          - gtin:
+              - text: "5025155033838"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[1]
+            sku:
+              - text: 248367-01
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[2]
+            weightNet:
+              - text: 4852 gram
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[3]
+            specifications:
+              - text: 16 x 27,9 x 74,7 cm
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[4]
+            warranty:
+              - text: 2 jaar
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[4]/dl[1]/dd[7]
+            technicalInformationPdfPresent:
+              - text: "false"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[4]/dl[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=5e60e435-1318-4ed1-80b3-4923d58e1308/task=b1d4c453-2a3e-444d-9e14-698fd4453124/280db6b9-b8e1-4734-ab05-81fa46e14041.html
+      - group:
+          - image:
+              - text: https://media.s-bol.com/knlnQqrnWNJ/550x110.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V8 Animal+ - Steelstofzuiger
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://media.s-bol.com/nqoqQwOpvQ5/550x464.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            technicalInformationPdfPresent:
+              - text: "false"
+            imageZoomFeaturePresent:
+              - text: "true"
+          - alternateImages:
+              - text: https://media.s-bol.com/On2nl4QxBxE/550x197.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            technicalInformationPdfPresent:
+              - text: "false"
+            imageZoomFeaturePresent:
+              - text: "true"
+          - alternateImages:
+              - text: https://media.s-bol.com/pvqvwykvWmQ/550x275.jpg
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/wsp-skeleton-image[1]/div[1]/img[1]/@src
+            technicalInformationPdfPresent:
+              - text: "false"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=5e60e435-1318-4ed1-80b3-4923d58e1308/task=b1d4c453-2a3e-444d-9e14-698fd4453124/280db6b9-b8e1-4734-ab05-81fa46e14041.html
+      - group:
+          - category:
+              - text: Elektronica
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Huishoudelijke apparaten
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Stofzuigers
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Steelstofzuigers
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[5]
+            description:
+              - text: "Geen snoer. Geen gedoe. Aangedreven door de Dyson digitale motor V8. Tot
+                  40 minuten constante hoge zuigkracht. Efficiënte filtratie in
+                  de hele machine verwijdert allergenen. \\n\\nGeschikt voor
+                  alle vloertypen dankzij de direct aangedreven
+                  vloerzuigmond.\\n\\nMet hygiënisch te legen stofreservoir.
+                  Inclusief 4 extra accessoires: het combinatie-accessoire, de
+                  kierenzuiger, de gemotoriseerde miniborstel en de flexibele
+                  kierenzuiger.\\n\\nKan eenvoudig worden veranderd in een
+                  kruimelzuiger. 2 jaar garantie."
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]
+            name:
+              - text: Dyson V8 Animal+ - Steelstofzuiger
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            productUrl:
+              - text: https://www.bol.com/nl/p/dyson-v8-animal-steelstofzuiger/9200000097514825/#product_specifications
+                xpath: /html/body/div[4]
+            nameExtended:
+              - text: Dyson V8 Animal+ - Steelstofzuiger
+                xpath: /html/body/div[5]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/div[6]
+            price:
+              - text: 358,95 EUR
+                xpath: /html/body/div[7]
+            ratingCount:
+              - text: "132"
+                xpath: /html/body/div[8]
+            aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/div[9]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[10]
+            brandLink:
+              - text: https://www.bol.com/nl/b/dyson/4460839/
+                xpath: /html/body/div[11]
+            technicalInformationPdfPresent:
+              - text: "false"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+        htmlExtraction: https://crawl-assets.import.io/html/run=5e60e435-1318-4ed1-80b3-4923d58e1308/task=b1d4c453-2a3e-444d-9e14-698fd4453124/280db6b9-b8e1-4734-ab05-81fa46e14041.html
+    timestamp: 1606894948793

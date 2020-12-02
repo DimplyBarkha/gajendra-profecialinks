@@ -1,0 +1,28 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/dyson-pure-hot-cool-link-luchtreiniger-blauw/9200000064047707/?s2a=#productTitle
+extractions:
+  - html: https://workbench.import.io/html/run=a008be00-4691-4423-9396-aa1d55d2054b/task=1f888dbb-c6ad-441a-9fcd-8c8cd7362069/bc78d48a-0345-4be6-81ab-c4a6ec50fc74.html
+    extractionConfigId: product/details/stores/b/bol/BE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "9200000064047707"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/dyson-pure-hot-cool-link-luchtreiniger-blauw/9200000064047707/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: "9200000064047705"
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/dyson-pure-hot-cool-link-luchtreiniger-wit-zilver/9200000064047705/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+          - variantId:
+              - text: "9200000100559847"
+                xpath: /html/body/ol[1]/li[3]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/dyson-pure-hot-cool-link-luchtreiniger-zilver-zwart/9200000100559847/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[3]/@variant_url
+        xpath: /html
+    timestamp: 1606818450842

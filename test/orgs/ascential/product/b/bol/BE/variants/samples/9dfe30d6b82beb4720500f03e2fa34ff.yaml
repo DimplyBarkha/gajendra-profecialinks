@@ -1,0 +1,52 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/aeg-cx7-2-45bm-steelstofzuiger/9200000082406288/?bltgh=k7-B0s3KoP-0GyzX-CdNhA.1_47.52.ProductTitle
+extractions:
+  - html: https://workbench.import.io/html/run=a008be00-4691-4423-9396-aa1d55d2054b/task=ec9bc08d-bda3-42b6-b3a9-f6a070d7d6a1/a376c65a-7d3b-424c-a232-c4471e89add7.html
+    extractionConfigId: product/details/stores/b/bol/BE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "9200000082406288"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/aeg-cx7-2-45bm-steelstofzuiger/9200000082406288/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: "9200000107574394"
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/aeg-qx8-1-45cr-a-animal-edition-steelstofzuiger/9200000107574394/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+          - variantId:
+              - text: "9200000083968895"
+                xpath: /html/body/ol[1]/li[3]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/aeg-cx7-2-45an-steelstofzuiger/9200000083968895/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[3]/@variant_url
+          - variantId:
+              - text: "9200000107574392"
+                xpath: /html/body/ol[1]/li[4]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/aeg-qx8-1-45sm-steelstofzuiger/9200000107574392/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[4]/@variant_url
+          - variantId:
+              - text: "9300000016310183"
+                xpath: /html/body/ol[1]/li[5]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/aeg-cx7-2-45mo-zakloos-2-in-1-steelstofzuiger-zwart-groen/9300000016310183/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[5]/@variant_url
+          - variantId:
+              - text: "9200000082406294"
+                xpath: /html/body/ol[1]/li[6]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/aeg-cx7-2-35o-steelstofzuiger/9200000082406294/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[6]/@variant_url
+          - variantId:
+              - text: "9200000064187695"
+                xpath: /html/body/ol[1]/li[7]/@variant_id
+            variantUrl:
+              - text: https://www.bol.com/nl/p/aeg-cx7-35-oko-steelstofzuiger/9200000064187695/?s2a=#productTitle
+                xpath: /html/body/ol[1]/li[7]/@variant_url
+        xpath: /html
+    timestamp: 1606818451027

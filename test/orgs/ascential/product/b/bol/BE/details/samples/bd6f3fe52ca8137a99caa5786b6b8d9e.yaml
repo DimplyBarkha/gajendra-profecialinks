@@ -1,0 +1,84 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/dyson-pure-hot-cool-link-luchtreiniger-blauw/9200000064047707/?s2a=#productTitle
+extractions:
+  - html: https://workbench.import.io/html/run=5e60e435-1318-4ed1-80b3-4923d58e1308/task=f38e95fd-8bf6-4563-b670-12c158e6c518/76a290c9-74a1-4c79-8f33-86cd5ec02e3f.html
+    extractionConfigId: product/details/stores/b/bol/BE/extract
+    data:
+      - group:
+          - color:
+              - text: Blauw
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[5]
+            specifications:
+              - text: 70,6 x 26,8 x 26,5mm
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[6]/dl[1]/dd[1]
+            gtin:
+              - text: "5025155023747"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[7]/dl[1]/dd[1]
+            sku:
+              - text: 305575-01
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[7]/dl[1]/dd[2]
+            warranty:
+              - text: 2 jaar
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[9]/dl[1]/dd[3]
+            weightNet:
+              - text: 6502 g
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[9]/dl[1]/dd[7]
+            category:
+              - text: Elektronica
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Huishoudelijke apparaten
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Luchtbehandeling
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Luchtreinigers
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/ul[1]/li[5]
+            description:
+              - text: >-
+                  De Dyson Pure Hot + Cool Link reinigt de lucht en verwarmt en
+                  verkoelt.Luchtverontreiniging is niet alleen buitenshuis een
+                  probleem. Het is ook een probleem binnenshuis.
+
+                  In het gemiddelde huis kan de lucht zelfs tot vijf keer zo vervuild zijn als de lucht buiten. De luchtreiniging verwijdert automatisch 99,95% van de allergenen en verontreinigende stoffen uit de lucht. De Dyson luchtreinigers gebruiken de Air Multiplier™ technologie.
+
+                  Door de gelijkmatige oscillatie, gecombineerd met een verreikende luchtstroom, zorgt de Dyson luchtreiniger dat gezuiverde lucht door de hele kamer verspreid wordt. Jet Focus regeling voor een persoonlijke verwarming over een grote afstand of een snelle, gelijkmatige kamerverwarming. Met één druk op de knop stelt u de automatische nachtmodus in waarin de lucht wordt gereinigd met de stilste luchtstroominstellingen. De machine houdt de luchtkwaliteit dus op peil terwijl u ongestoord (door-)slaapt. Dyson Pure machines controleren automatisch de luchtkwaliteit en passen de luchtstroom daarop aan. Met de Pure Hot+Cool™ luchtreiniger stelt u de gewenste kamertemperatuur in, en de machine verwarmt u en houdt de ruimte op deze temperatuur. Verwarmt met thermostaatregeling in de winter. Zorgt voor verkoeling in de zomer. Reinigt de lucht het hele jaar door. Gecertificeerd als asthma & allergy friendly™ door Airmid.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]
+            name:
+              - text: Dyson Pure Hot+Cool Link - Luchtreiniger - Blauw
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            firstVariant:
+              - text: "9200000064047707"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]/@href
+            variants:
+              - text: "9200000100559847"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/@href
+            productUrl:
+              - text: https://www.bol.com/nl/p/dyson-pure-hot-cool-link-luchtreiniger-blauw/9200000064047707/?s2a=#productTitle
+                xpath: /html/body/div[3]
+            nameExtended:
+              - text: Dyson Pure Hot+Cool Link - Luchtreiniger - Blauw
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: OutOfStock
+                xpath: /html/body/div[5]
+            price:
+              - text: undefined undefined
+                xpath: /html/body/div[6]
+            ratingCount:
+              - text: "53"
+                xpath: /html/body/div[7]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[8]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[9]
+            brandLink:
+              - text: https://www.bol.com/nl/b/dyson/4460839/
+                xpath: /html/body/div[10]
+            technicalInformationPdfPresent:
+              - text: "false"
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html
+    timestamp: 1606894951741
