@@ -21,7 +21,10 @@ async function implementation (
     const pageLink = window.location.href.replace(/(.*)&page=(\d+)/, '$2');
     const page = pageLink ? parseInt(pageLink) : 1;
     // @ts-ignore
-    if (searchTerm && page) {
+    const pageCheck = document.querySelector('acl-pagination > div > nav > div > ul > li:last-child') && document.querySelector('acl-pagination > div > nav > div > ul > li:last-child').innerText;
+    const pageCount = pageCheck ? parseInt(pageCheck) : 1;
+    // @ts-ignore
+    if (searchTerm && page && pageCount && page <= pageCount) {
       // @ts-ignore
       return await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/search?q=${searchTerm}:relevance&page=${page}&pageSize=40&lang=en`)
         .then(response => response.json())
