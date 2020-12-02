@@ -17,10 +17,8 @@ fields:
     xpath: //div[@class="pl__wrap"]//div[@class="pb__img__wrap"]//img/@src
   - name: price 
     SingleValue: false 
-    xpath: //div[@class="pl__wrap"]//div[@class="pb__cell pb__price"]
+    xpath: //div[@class="pb__row pb__content"]//span[@class="p-analytics"]/@data-analytics-price
   - name: soldBy
     SingleValue: false
-    xpath: //div[@class="pl__wrap"]//span[@class="p-analytics"]/@data-analytics-dimension9
   - name: manufacturer
     SingleValue: false
-    xpath: //div[@class="pl__wrap"]//span[@class="p-analytics"]/@data-analytics-dimension9
