@@ -53,6 +53,9 @@ fields:
     xpath: //span[@class='manufacturer']
   - name: gtin
     singleValue: false
+    xpath: //span[contains(@class,'custom_fields')]//span[contains(@class,'ean')]
+  - name: gtin1
+    singleValue: false
     xpath: //script[contains(text(),'gtin14')]
     regExp: gtin14\"\s*:\s*\"(.+?)\"
     regExpReplace: $1
@@ -78,3 +81,6 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //ul[@class='cs-page-product__badges']//span[@class='cs-page-product__badge-text']
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,'swatch-attribute groesse_ml')]//div[contains(@class,'swatch-option text')]

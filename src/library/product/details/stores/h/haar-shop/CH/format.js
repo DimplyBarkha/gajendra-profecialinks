@@ -36,6 +36,12 @@ const transform = (data) => {
           row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
         }
       }
+      if (row.gtin1) {
+        if (!row.gtin) {
+          row.gtin = [{ text: row.gtin1[0].text }];
+        }
+        delete row.gtin1;
+      }
       if (row.descriptionBullets) {
         var bulletArr = [];
         row.descriptionBullets.forEach(item => {
