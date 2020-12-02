@@ -40,16 +40,13 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: //ul[@class="c-singleProduct__list-check"]/li/span
+    xpath: //div[@id="added_availability_text"]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="c-product-description__accordioncontent"]
+    xpath: //div[@id="added_description_desc"]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets

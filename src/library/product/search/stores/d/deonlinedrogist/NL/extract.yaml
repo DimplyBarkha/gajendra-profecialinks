@@ -24,8 +24,6 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: //*[@class="c-prod-results__price"]//div[2]
-    regExp: (^([^€]*))(\,)([^\€]*)($)
-    regExpReplace: $5 $2.$4
   - name: listPrice
     singleValue: true
     description: Alt text of the main product image
@@ -36,5 +34,4 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@class="c-prod-results__brand"]/text()  
-    
+    #xpath: //div[@class="c-prod-results__brand"]/text()
