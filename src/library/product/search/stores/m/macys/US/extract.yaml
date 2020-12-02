@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    type: CURRENCY
+    xpath: (//div[@class="cell"]//div[@class="priceInfo"]//span[contains(text(),'Sale') or contains(text(),'Now')]//following-sibling::text() | //div[@class="cell"]//div[@class="priceInfo"]//span[@class='regular']//span[not(contains(text(),'Sale'))]//following-sibling::text())
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="cell"]//div//div[@class="productThumbnailImage "]//a//@href
+    regExp: (/.*)
+    regExpReplace: https://www.macys.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="cell"]//div[@class="productThumbnailImage "]//div//img//@src
+  - name: ratingCount
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@class="cell"]//div[@class="stars"]//span[@class="aggregateCount"]/text()
+  - name: aggregateRating
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@id='aggregateRating']   
+  - name: id
+    singleValue: false
+    xpath: //div[@class="cell"]//div[@class="productThumbnailImage "]//div//img//@id
+    regExp: \d+
+  - name: name
+    singleValue: false
+    xpath: //div[@class="cell"]//div[@class="productDetail"]//a//@title
