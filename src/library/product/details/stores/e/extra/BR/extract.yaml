@@ -113,9 +113,9 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //div[contains(@class,'pd-image-full')]//img//@src | //div[@id="product-special-content"]//img//@src
-  # - name: manufacturerDescription
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'css-1fj0as8')]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //article[contains(@class,'texto')] | //div[@id='product-description']
   - name: secondaryImageTotal
   - name: warranty
     singleValue: false
