@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'canadiantire.ca',
     prefix: null,
-    url: 'https://www.canadiantire.ca/search.do?q={id}',
+    url: 'https://canadiantire.ca/search.do?q={id}',
     country: 'CA',
     store: 'canadiantire',
     zipcode: '',
