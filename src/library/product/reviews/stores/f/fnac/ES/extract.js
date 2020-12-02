@@ -7,5 +7,6 @@ module.exports = {
     transform,
     domain: 'fnac.es',
     zipcode: '',
+    filterReviews: true,
   },
 };

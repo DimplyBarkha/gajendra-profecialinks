@@ -7,7 +7,7 @@ module.exports = {
     domain: 'fnac.es',
     loadedSelector: 'section.customerReviewsSection',
     noResultsXPath: '//section[@class="customerReviewsEmptySection"]|/html[not(//*[@class="js-customer-reviews"])]',
-    reviewUrl: 'https://www.fnac.es/p/a6179672/avis',
+    reviewUrl: 'https://www.fnac.es/p/{id}/avis',
     sortButtonSelectors: null,
     zipcode: '',
   },
