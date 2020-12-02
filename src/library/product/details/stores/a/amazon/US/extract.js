@@ -112,11 +112,7 @@ async function implementation (
     return data;
   }
   await helpers.addURLtoDocument('added-url');
-  await helpers.addURLtoDocument('added-url');
-  const asin = await context.evaluate(() => {
-    return window.location.href.match(/\/dp\/(\w+)/)[1];
-  });
-  await helpers.addItemToDocument('added-asin', asin);
+  await helpers.addURLtoDocument('added-asin', true);
   const variants = await amazonHelp.getVariants();
 
   if (variants && variants.length) {
@@ -172,6 +168,16 @@ async function implementation (
   } catch (err) {
     console.log('Error while adding other seller info. Error: ', err);
   }
+  await context.evaluate(() => {
+    const shippingInfo = Array.from(
+      document.querySelectorAll(
+        'div[id="tabular-buybox"] span[class*="a-truncate-full"]',
+      ),
+    )
+      .map((elm) => elm.innerText.trim())
+      .join(' ');
+    shippingInfo.length && document.body.setAttribute('shipping-info', shippingInfo);
+  });
   await context.extract(productDetails, { transform });
 }
 
