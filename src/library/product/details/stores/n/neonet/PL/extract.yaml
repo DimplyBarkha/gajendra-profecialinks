@@ -33,7 +33,8 @@ fields:
     xpath: concat(//div[@class="productShopCss-sp__integer-1z1"], '.', normalize-space(//div[@class="productShopCss-sp__formatter-XUK"]))
   - name: availabilityText
     singleValue: false
-    xpath: //link[@itemprop="availability"]/@href
+    # xpath: //link[@itemprop="availability"]/@href
+    xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock    
