@@ -1,20 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class, "product-list-item")]
 fields:
   - name: id
     singleValue: false
+    xpath: //div/@data-defaultsku
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //div[@class="product"]//img/parent::a/@title
   - name: productUrl
     singleValue: false
+    xpath: //div[@class="product"]//img/parent::a/@href
+    regExp: (.+)
+    regExpReplace: https://www.monsterpetsupplies.co.uk$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[@class="product"]//img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,6 +31,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //a[@class="product-price"]
   - name: manufacturer
     singleValue: true
   - name: soldBy

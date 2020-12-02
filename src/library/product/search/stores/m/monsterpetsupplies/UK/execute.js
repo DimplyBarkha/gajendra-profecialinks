@@ -5,9 +5,9 @@ module.exports = {
     country: 'UK',
     store: 'monsterpetsupplies',
     domain: 'monsterpetsupplies.co.uk',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.monsterpetsupplies.co.uk/search/{searchTerms}',
+    loadedSelector: 'div[class="product-list"]',
+    noResultsXPath: '//h1[contains(text(), "No results for")]',
     zipcode: '',
   },
 };
