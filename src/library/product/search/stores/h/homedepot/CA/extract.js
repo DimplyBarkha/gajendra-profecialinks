@@ -16,19 +16,38 @@ async function implementation (
   } catch (error) {
     console.log('no localized button found');
   }
+  try {
+    await context.clickAndWaitForNavigation('.hdca-cms-content-banner__content-box .hdca-button-container a', {}, { timeout: 30000 });
+  } catch (error) {
+    console.log('no banner container found');
+  }
   const response = await context.evaluate(async function () {
     const searchTerm = window.location.href.replace(/(.*)q=(.*):relevance(.*)/, '$2');
-    const pageLink = window.location.href.replace(/(.*)&page=(\d+)/, '$2');
+    const pageLink = window.location.href.match(/(.*)&page=(\d+)/) && window.location.href.replace(/(.*)&page=(\d+)/, '$2');
     const page = pageLink ? parseInt(pageLink) : 1;
     // @ts-ignore
     const pageCheck = document.querySelector('acl-pagination > div > nav > div > ul > li:last-child') && document.querySelector('acl-pagination > div > nav > div > ul > li:last-child').innerText;
     const pageCount = pageCheck ? parseInt(pageCheck) : 1;
     // @ts-ignore
-    if (searchTerm && page && pageCount && page <= pageCount) {
+    const scriptsDiv = document.querySelectorAll('script[type="text/javascript"]');
+    // @ts-ignore
+    const scriptDiv = Array.from(scriptsDiv, ele => ele.innerText);
+    const categoryString = scriptDiv.filter(element => element.match(/(.*) 'pagetype': 'CATEGORY', 'categoryid': '(.*)' (.*)/));
+    const categoryId = categoryString && categoryString[0] && categoryString[0].match(/(.*) 'categoryid': '(.*)' (.*)/) && categoryString[0].replace(/(.*) 'categoryid': '(.*)' (.*)/, '$2');
+    console.log('category id', categoryId, 'page Link', pageLink, 'page', page, 'page check', pageCount);
+    if (page && pageCount && page <= pageCount) {
+      if (categoryId) {
+        return await fetch(`https://www.homedepot.ca/api/search/v1/search?category=${categoryId}&store=7011&page=${page}&pageSize=40&lang=en`)
+          .then(response => response.json())
+          .catch(error => console.error('Error:', error));
+      } else {
       // @ts-ignore
-      return await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/search?q=${searchTerm}:relevance&page=${page}&pageSize=40&lang=en`)
-        .then(response => response.json())
-        .catch(error => console.error('Error:', error));
+        if (searchTerm) {
+          return await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/search?q=${searchTerm}:relevance&store=7011&page=${page}&pageSize=40&lang=en`)
+            .then(response => response.json())
+            .catch(error => console.error('Error:', error));
+        }
+      }
     }
   });
   if (response && response.products) {
@@ -56,14 +75,21 @@ async function implementation (
           if (!document.querySelector(rowId)) {
             addElementToDocument(`pd_div_${index}`, index);
           }
-          const searchTerm = window.location.href.replace(/(.*)q=(.*):relevance(.*)/, '$2');
-          const pageLink = window.location.href.replace(/(.*)&page=(\d+)/, '$2');
+          const searchTerm = window.location.href.match(/(.*)(q|searchterm)=(.*):relevance(.*)/) ? window.location.href.replace(/(.*)(q|searchterm)=(.*):relevance(.*)/, '$3') : window.location.href.replace(/(.*)searchterm=(.*)&(.*)/, '$2');
+          const pageLink = window.location.href.match(/(.*)&page=(\d+)/) && window.location.href.replace(/(.*)&page=(\d+)/, '$2');
           const page = pageLink ? parseInt(pageLink) : 1;
           // @ts-ignore
           if (searchTerm && page) {
           // @ts-ignore
             const searchUrl = `https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/search?q=${searchTerm}:relevance&page=${page}&pageSize=40&lang=en`;
             !document.querySelector('div[id*="search-url"]') && addElementToDocument('search-url', searchUrl);
+          } else {
+            // @ts-ignore
+            const searchTerm1 = document.querySelector('h1 span.acl-display--show') && document.querySelector('h1 span.acl-display--show').innerText;
+            if (searchTerm1 && page) {
+              const searchUrl1 = `https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/search?q=${searchTerm}:relevance&page=${page}&pageSize=40&lang=en`;
+              !document.querySelector('div[id*="search-url"]') && addElementToDocument('search-url', searchUrl1);
+            }
           }
           element.code && addDataToDocument('id', element.code, rowId);
           element.url && addDataToDocument('pd_url', element.url, rowId);
