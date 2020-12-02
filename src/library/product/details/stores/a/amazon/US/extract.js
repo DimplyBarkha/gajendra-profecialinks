@@ -112,7 +112,10 @@ async function implementation (
     return data;
   }
   await helpers.addURLtoDocument('added-url');
-  await helpers.addURLtoDocument('added-asin', true);
+  const asin = await context.evaluate(() => {
+    return window.location.href.match(/\/dp\/(\w+)/)[1];
+  });
+  await helpers.addItemToDocument('added-asin', asin);
   const variants = await amazonHelp.getVariants();
 
   if (variants && variants.length) {
@@ -178,8 +181,6 @@ async function implementation (
       .join(' ');
     shippingInfo.length && document.body.setAttribute('shipping-info', shippingInfo);
   });
-  await context.extract(productDetails, { transform });
-}
 
 module.exports = {
   implements: 'product/details/extract',
