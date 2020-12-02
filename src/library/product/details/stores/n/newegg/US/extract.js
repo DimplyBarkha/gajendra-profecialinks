@@ -33,21 +33,39 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 20000));
-    await context.evaluate(async () => {
-      let questtionCount = document.querySelector("#product-details > div.tab-navs > div:nth-child(4)");
-      if (questtionCount) {
-        questtionCount.click();
-      }
-    });
-    await new Promise(resolve => setTimeout(resolve, 20000));
-    await context.evaluate(async () => {
-      let questtionCountValue = document.querySelector("#tt-qa-list > div.tt-c-questions__toolbar.tt-c-toolbar > div > span");
-      if (questtionCountValue) {
-        document.head.setAttribute('questioncount', questtionCountValue.textContent);
-      }
-    });
 
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
+    await new Promise(resolve => setTimeout(resolve, 20000));
+    await context.evaluate(async () => {
+      let checkElement = document.querySelector("#product-buying + div > div.tab-navs div:nth-child(2)");
+      if (checkElement) {
+        checkElement.click();
+        console.log('cliked');
+      } else {
+        console.log('Did not found element');
+      }
+    });
     return await context.extract(productDetails, { transform });
   },
 };

@@ -1,7 +1,7 @@
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath:
 fields:
   - name: image
     singleValue: false
@@ -75,7 +75,7 @@ fields:
     xpath: count(//div[contains(@class,'product-bullets')]//li)
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'product-bullets')]
+    xpath: //div[@id="product-overview"]/div/p |//div[contains(@class,'product-bullets')]
   - name: warranty
     singleValue: false
     xpath: //div[@class="info-cell"]//div[contains(@class,'info-item')]//li[contains(text(),'Warranty')]
@@ -114,7 +114,7 @@ fields:
     xpath: //div[contains(@class,'product-reviews')]//span[contains(@class,'item-rating-num')]
   - name: manufacturerImages
     singleValue: false
-    xpath: //article[contains(@class, 'a_plus_content')]//img/@src | //div[contains(@class,'wc-reset')]//li//img/@src
+    xpath: //article[contains(@class, 'a_plus_content')]//img/@src | //div[contains(@class,'wc-reset')]//li//img/@src | //article[contains(@class, 'a-plus-content')]//img/@src | //div[@id="product-overview"]//div[@class="flix-container"]//img/@src | (//div[@id="product-overview"]//a//img[@alt="Product image"]/@src)[1] | (//div[@id="product-overview"]//a//img/@src)[1]
     regExp: ([^()]+)
     regExpReplace: https:$1
   - name: manufacturerDescription
@@ -162,3 +162,12 @@ fields:
     xpath: //h2[contains(text(),'Sponsored Products')]/following::div[1]//a//@href
     regExp: (.+)
     regExpReplace: https://www.newegg.com$1
+  - name: otherSellersBuyboxWinner
+    singleValue: false
+    xpath: //div[@class="product-price"]//li[@class="price-save"]
+  - name: otherSellersName
+    singleValue: false
+    xpath: //div[@id="product-buying"]/following-sibling::div//div[@class="tab-panes"]//img/@alt
+  - name: otherSellersPrice
+    singleValue: false
+    xpath: //div[@id="product-buying"]/following-sibling::div//div[@class="tab-panes"]//ul[@class="price"]//li//strong
