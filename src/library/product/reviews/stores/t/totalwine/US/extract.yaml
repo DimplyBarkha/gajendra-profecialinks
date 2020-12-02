@@ -74,6 +74,6 @@ fields:
   - name: aggregateRating
     description: The product rating
   - name: reviewAuthor
-    xpath: (//div[@class="bv-author"])[1]
+    xpath: //div[@class="bv-author"]
   - name: reviewRatingScale
     xpath: //div[contains(@class, 'bv-content-header-meta')]//meta[contains(@*, 'bestRating')]/@content
