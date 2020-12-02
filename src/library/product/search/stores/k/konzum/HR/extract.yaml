@@ -11,7 +11,7 @@ fields:
   - name: thumbnail
     xpath: //a[@class="link-to-product"]/@href
     regExp: (.+)
-    regExpReplace: https://www.konzum.hr/$1
+    regExpReplace: https:/$1
     description: The URL for the product thumbnail image
   - name: name
     xpath: //a[@class="link-to-product"]
