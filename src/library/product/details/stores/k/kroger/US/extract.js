@@ -11,7 +11,21 @@ const implementation = async (
 
   const { url, id, zipcode } = inputs;
 
-  await context.waitForSelector('div.ProductCard a', { timeout: 5000 });
+  // try{
+  //   await context.waitForSelector('div.ProductCard a', { timeout: 5000 });
+  // }catch(e){}
+  await context.evaluate(async function () {
+    if (document.querySelector('.ProductDetails-header h1')) { document.querySelector('.ProductDetails-header h1').click(); }
+    if (document.querySelector('div.ProductCard a')) { document.querySelector('div.ProductCard a').click(); }
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+    await stall(5000);
+  });
 
   await context.click('div.ContainerGrid-header.m-0 div.ProductCard a')
     .catch(() => console.log('URL given as input, no item to click'));
