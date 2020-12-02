@@ -86,3 +86,40 @@ fields:
     # Price per: kilo € 5.82
     regExp: (.+?)€
     regExpReplace: $1
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(@class,'unitPrice')]//div[contains(@class,'ratio-base-packing-unit')]/span
+  - name: servingSize
+    singleValue: false
+    xpath: //div[contains(@class,'ProductNutricionalInfo')]/h3
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Kilojoule')]]/td[not(contains(@class,'first-text'))]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Totale vetten')]]/td[not(contains(@class,'first-text'))]
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Vetzuren')][contains(text(),'verzadigd')]]/td[not(contains(@class,'first-text'))]
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'natrium')]]/td[not(contains(@class,'first-text'))]
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Voedingsvezels')]]/td[not(contains(@class,'first-text'))] 
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Suikers')]]/td[not(contains(@class,'first-text'))]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Eiwitten')]]/td[not(contains(@class,'first-text'))]
+  - name: saltPerServing
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Zout')]]/td[not(contains(@class,'first-text'))]
+  - name: vitaminCPerServing
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'vitamine C')]]/td[not(contains(@class,'first-text'))] | //table//tr[td[contains(text(),'Vitamine C')]]/td[not(contains(@class,'first-text'))] 
+  - name: vitaminAPerServing
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'vitamine A')]]/td[not(contains(@class,'first-text'))] | //table//tr[td[contains(text(),'Vitamine A')]]/td[not(contains(@class,'first-text'))] 
+  
