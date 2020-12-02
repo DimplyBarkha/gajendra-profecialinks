@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'macys',
-    nextLinkSelector: '#filterResultsBottom > ul > li.pagination > ul > li.next-page > div > a',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
