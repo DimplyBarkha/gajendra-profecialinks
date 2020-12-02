@@ -4,12 +4,13 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: productUrl
+    xpath: //meta[@property="og:url"]/@content
   - name: image
-    xpath: //div[@id='pd_image']
+    xpath: //a[@class='append_image'][1]/@href
   - name: imageAlt
-    xpath: //*[@id="tns1-item0"]//picture/img/@alt
+    xpath: (//ul[contains(@class,"ProductImageGallery__list")]//li/a//img/@alt)[1]
   - name: alternateImages
-    xpath: //li[position()>1]//div[@class='o-ProductImageGallery__minor']/a/@href
+    xpath: //a[@class='append_image'][position()>1]/@href
   - name: metaKeywords
     xpath: //meta[@name='description']/@content
   - name: category
@@ -28,9 +29,9 @@ fields:
   - name: description
     xpath: //h2[contains(text(),'Produktdetails & Pflichtangaben')]/following-sibling::div[1]
   - name: brandText
-    xpath: //ul[contains(@class,'m-ProductData')]//li[3]//dd
+    xpath: //dt[contains(text(),'Marke')]/following-sibling::dd
   - name: manufacturer
-    xpath: //ul[contains(@class,'m-ProductData')]//li[4]//dd
+    xpath: //dt[contains(text(),'Hersteller')]/following-sibling::dd
   - name: quantity
     xpath: //div[contains(@class,"m-ProductVariant__label--checked")]//div[contains(@class,"ProductVariant--units")]
   - name: sku
@@ -38,7 +39,7 @@ fields:
   - name: variantId
     xpath: //span[@data-qa-id="product-attribute-pzn"]
   - name: directions
-    xpath: //p//*[contains(text(), "Anwendung")]/parent::p/text()
+    xpath: //p//*[contains(text(), "Anwendung")]/parent::p/text() | //p//*[contains(text(), "Anwendung")]/parent::p/following-sibling::ul |  //h3[contains(text(), "Anwendung")]/following-sibling::ul[1] | //p//*[contains(text(), "Anwendung")]/parent::p/following-sibling::ol
   - name: warnings
     xpath: //p//*[contains(text(), "Warnhinweise:")]/ancestor::p/following-sibling::p[1]
   - name: ratingCount
@@ -46,15 +47,15 @@ fields:
     regExp: (\d+)
     regExpReplace: $1
   - name: aggregateRating
-    xpath: (//div[contains(@class,'StarRating')]//span[@class="a-visuallyhidden"])[1]
+    xpath: //h1[contains(@class,'ProductTemplate__heading')]/following-sibling::div/div[@data-qa-id="product-rating"]/a/span
     regExp: (.+)\svon 5
     regExpReplace: $1
   - name: videos
-    xpath: //video[@class='a-Video a-fullwidth-image']/source/@src
+    xpath: //a[@data-qa-id="form-gallery-video-0"]//video/source[1]/@src | //div[contains(@class,'o-ProductAdditionalInformation')]//iframe/@src
   - name: name
     xpath: //h1[contains(@class,"o-ProductTemplate__heading")]
   - name: ingredientsList
-    xpath: //*[@id="productActiveIngredients.headline"]
+    xpath: //*[@id="productActiveIngredients.headline"]//div[contains(@class,"o-ProductAdditionalInformation")]
   - name: productOtherInformation
     xpath: //div[@id="productAdditonalInfos.headline"]
   - name: mpc
@@ -67,6 +68,10 @@ fields:
     xpath: //div[contains(@class,"m-ProductVariant__label--checked")]//div[contains(@class,"ProductVariant--units")]
   - name: firstVariant
     xpath: //span[@data-qa-id="product-attribute-pzn"]
+  - name: promotion
+    xpath: //div[contains(@class,"m-ProductVariant__label--checked")]//span[@class="o-ProductVariantMain__discount_badge"]
+  - name: secondaryImageTotal
+    xpath: count(//a[@class='append_image'][position()>1]/@href)
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions
