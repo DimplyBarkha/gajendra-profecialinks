@@ -5,8 +5,7 @@ recordXPath: //div[@class='ais-hits']/div
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class='result-thumbnail']/img/@src
-    regExp: (?<=\w\/\w\/\w\/)(.+)(?=_.jpg)
+    xpath: //div[@class='result-thumbnail']/img/@sku
   - name: searchUrl
     singleValue: false
     xpath: //div[@class='ais-hits']/div/@searchurl
