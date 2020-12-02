@@ -508,17 +508,17 @@ async function implementation(inputs, parameters, context, dependencies) {
       ingredients = ingredientsData.textContent;
     }
     addHiddenDiv('ingredients', ingredients);
-    var xpath =
-      '//div[@data-id="popup"]/table//button[@data-text="Accept all"]';
-    var popUP = document.evaluate(
-      xpath,
-      document,
-      null,
-      XPathResult.FIRST_ORDERED_NODE_TYPE,
-      null
-    ).singleNodeValue;
-    console.log('s', popUP);
-    addHiddenDiv('popUP', popUP);
+    var xpaths ;
+    xpaths = document.querySelector('button[data-text="Accept all"]').innerText
+    // var popUP = document.evaluate(
+    //   xpath,
+    //   document,
+    //   null,
+    //   XPathResult.FIRST_ORDERED_NODE_TYPE,
+    //   null
+    // ).singleNodeValue;
+    console.log('s', xpaths);
+    addHiddenDiv('xpaths', xpaths);
 
     var specificationList;
     let specification = '';
