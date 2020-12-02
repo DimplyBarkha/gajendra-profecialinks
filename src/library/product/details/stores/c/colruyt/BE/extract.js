@@ -40,6 +40,9 @@ async function implementation (inputs, parameters, context, dependencies) {
   let storage = '';
   let gtin = '';
   let quantity = '';
+  let calciumPerServing = '';
+  let SodiumPerServing = '';
+  let magnesiumPerServing = '';
 
   console.log('url---->', url);
   if (url) {
@@ -62,11 +65,6 @@ async function implementation (inputs, parameters, context, dependencies) {
       console.log('selector not present');
     }
     console.log('In second page');
-    // ingredients = await context.evaluate(() => {
-    //   console.log('ingredientSelector', document.querySelector('h1'));
-    //   const ingredientSelector = document.querySelector('h1');
-    //   return ingredientSelector ? ingredientSelector.innerText : '';
-    // });
     totalSugarsPerServing = await context.evaluate(() => {
       const totalSugarsPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Sucres")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return totalSugarsPerServingSelector ? totalSugarsPerServingSelector.innerText : '';
@@ -108,7 +106,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       return saltPerServingSelector ? saltPerServingSelector.innerText : '';
     });
     storage = await context.evaluate(() => {
-      const storageSelector = document.evaluate('//span[contains(@class,"caption")]//parent::*/following-sibling::p', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const storageSelector = document.evaluate('//span[contains(@class,"caption")]/parent::*/following-sibling::p[last()]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return storageSelector ? storageSelector.innerText : '';
     });
     gtin = await context.evaluate(() => {
@@ -119,6 +117,19 @@ async function implementation (inputs, parameters, context, dependencies) {
       const quantitySelector = document.evaluate('//p[contains(@class,"brutto")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return quantitySelector ? quantitySelector.innerText : '';
     });
+    calciumPerServing = await context.evaluate(() => {
+      const calciumPerServingSelector = document.evaluate('(//div[contains(@class,"value-left")]//span[contains(text(),"Calcium")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      return calciumPerServingSelector ? calciumPerServingSelector.innerText : '';
+    });
+    SodiumPerServing = await context.evaluate(() => {
+      const SodiumPerServingSelector = document.evaluate('(//div[contains(@class,"value-left")]//span[contains(text(),"Sodium")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      return SodiumPerServingSelector ? SodiumPerServingSelector.innerText : '';
+    });
+    magnesiumPerServing = await context.evaluate(() => {
+      const magnesiumPerServingSelector = document.evaluate('(//span[contains(text(),"Magnésium")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      return magnesiumPerServingSelector ? magnesiumPerServingSelector.innerText : '';
+    });
+
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
@@ -134,7 +145,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
   }
 
-  await context.evaluate(({ totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity }) => {
+  await context.evaluate(({ totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing }) => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -156,7 +167,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     addHiddenDiv('storage_added', storage);
     addHiddenDiv('gtin_added', gtin);
     addHiddenDiv('quantity_added', quantity);
-  }, { totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity });
+    addHiddenDiv('calciumPerServing_added', calciumPerServing);
+    addHiddenDiv('SodiumPerServing_added', SodiumPerServing);
+    addHiddenDiv('magnesiumPerServing_added', magnesiumPerServing);
+  }, { totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing });
 
   return await context.extract(productDetails, { transform });
 }
