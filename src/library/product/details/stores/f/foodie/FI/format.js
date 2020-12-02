@@ -48,6 +48,12 @@ const transform = (data) => {
       if (row.pricePerUnit) {
         row.pricePerUnit.forEach(item => {
           item.text = item.text.replace(',', '.');
+          item.text = item.text.replace(/€\/.+/, '');
+        });
+      }
+      if (row.pricePerUnitUom) {
+        row.pricePerUnitUom.forEach(item => {
+          item.text = item.text.replace(/.+(€\/.+)/, '$1');
         });
       }
       if (row.weightNet) {
