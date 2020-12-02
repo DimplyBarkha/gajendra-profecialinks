@@ -20,15 +20,15 @@ const transform = (data) => {
   data.forEach(el => {
     el.group.forEach(gr => {
       try {
-        gr['rank'] = [{ text: ranks.indexOf(gr.productUrl[0].text) }];
-        gr['rankOrganic'] = [{ text: ranks.indexOf(gr.productUrl[0].text) }];
+        gr['rank'] = [{ text: ranks.indexOf(gr.productUrl[0].text) + 1 }];
+        gr['rankOrganic'] = [{ text: ranks.indexOf(gr.productUrl[0].text) + 1}];
         gr['_input'] = filterSearch;
         gr['_url'] = url;
         gr.productUrl[0].text = 'https://www.kalunga.com.br' + gr.productUrl[0].text;
         try {
           const text = gr.id[0].text;
           gr.id[0].text = gr.id[0].text = text.substring(text.length - 6);
-          gr.gtin[0].text = gr.gtin[0].text = text.substring(text.length - 6);
+          // gr.gtin[0].text = gr.gtin[0].text = text.substring(text.length - 6);
         } catch (e) {
           console.log(e);
         }
