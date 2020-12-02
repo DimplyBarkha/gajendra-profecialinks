@@ -44,7 +44,7 @@ const cleanUp = (data, context) => {
         row.variants = [{ text: text.trim() }];
       }
       if (row.quantity) {
-        if (!row.quantity[0].text.includes('LB')) {
+        if (row.quantity[0].text == "undefined") {
           row.quantity[0].text = '';
         }
       }
@@ -53,15 +53,20 @@ const cleanUp = (data, context) => {
       //     row.variantInformation[0].text = '';
       //   }
       // }
-      // if (row.quantity && row.variantInformation) {
-      //   if (row.quantity[0].text.includes('undefined') && row.variantInformation[0].text) {
-      //     row.variantInformation[0].text = `${row.variantInformation[0].text}`;
-      //   } else if (row.variantInformation[0].text.includes('undefined') && row.quantity[0].text) {
-      //     row.variantInformation[0].text = `${row.quantity[0].text}`;
-      //   } else {
-      //     row.variantInformation[0].text = `${row.variantInformation[0].text} ${row.quantity[0].text}`;
-      //   }
-      // }
+      if (row.quantity && row.variantInformation) {
+        let text = '';
+        if (row.quantity[0].text.includes('undefined') && row.variantInformation[0].text) {
+          text = `${row.variantInformation[0].text}`;
+        } else if (row.variantInformation[0].text.includes('undefined') && row.quantity[0].text) {
+          text = `${row.quantity[0].text}`;
+        } else {
+          text = `${row.variantInformation[0].text} ${row.quantity[0].text}`;
+        }
+        if (text.includes('undefined')) {
+          text = '';
+        }
+        row.variantInformation = [{ text: text.trim() }]
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

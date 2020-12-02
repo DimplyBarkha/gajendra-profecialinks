@@ -76,7 +76,7 @@ async function implementation(
       const flavourArray = [];
       productData && productData.ProductVarientViewModelList && productData.ProductVarientViewModelList.forEach((element, index) => {
         element && element.VariantAttributes && element.VariantAttributes.forEach((element, index) => {
-          if (element && element.Key == "Flavors") {
+          if (element && element.Key.includes("Flavor")) {
             if (element.Data != undefined) {
               flavourArray.push(element.Data);
             } else {

@@ -37,7 +37,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //@availability
-    regExp: (In Stock)
+    regExp: (In Stock|Low Stock)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
@@ -96,10 +96,9 @@ fields:
     xpath: ancestor::html//span[contains(@class,"review-count")]
   - name: aggregateRatingText
     description: The stated aggregate rating
-    xpath: ancestor::html//div[@class="rating"]//input[@class="stars-home hide"]/@value
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@class="rating"]//input[contains(@class,"stars")]/@value
+    xpath: ancestor::html//div[@class="rating"]//input[contains(@class,"stars")]/@value
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
