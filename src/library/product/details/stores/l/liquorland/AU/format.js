@@ -37,7 +37,7 @@ const transform = (data) => {
         row.image = [{ text: row.image2[0].text }];
         delete row.image2;
       }
-      if (row.alternateImages) {
+      else if (row.alternateImages) {
         row.image = [{ text: row.alternateImages[0].text }];
       }
       if (row.image) {
