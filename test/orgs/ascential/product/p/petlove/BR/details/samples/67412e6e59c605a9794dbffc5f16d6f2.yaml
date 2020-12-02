@@ -2,11 +2,14 @@ input:
   id: 2154518
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=993a31f1-01cb-4185-9b43-951f05b3787e/task=c09ee7f7-c270-44f5-bdd8-cc1654c0a1f5/f91be6eb-2018-46c3-9c62-f8f8375ebd75.html
+  - html: https://workbench.import.io/html/run=d6b24f94-ef1b-42b9-9863-a4269a4fdf78/task=277a7b95-f60c-4070-8de6-b07ee228b49d/05066137-1811-4418-9ba0-e305b9de7801.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/racao-supra-funny-bunny-chinchila/p?sku=2154518
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/204414/large/Ra%C3%A7%C3%A3o_Supra_Funny_Bunny_Chinchila_-_700_g_2154515.jpg?1556474602
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -126,7 +129,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/racao-supra-funny-bunny-chinchila/p?sku=2154518
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/204415/large/Ra%C3%A7%C3%A3o_Supra_Funny_Bunny_Chinchila_-_2_5__Kg_2154518.jpg?1556474681
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -247,4 +253,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606203511164
+    timestamp: 1606913682749

@@ -2,11 +2,14 @@ input:
   id: 3105099-4
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=993a31f1-01cb-4185-9b43-951f05b3787e/task=8349d522-2fe9-440a-bb48-39abc49c56c9/ea086f29-0d47-45de-a4a3-8b75487d287d.html
+  - html: https://workbench.import.io/html/run=d6b24f94-ef1b-42b9-9863-a4269a4fdf78/task=6dd61731-40a2-4545-ac5a-01254fd27aa1/9aa03c67-9f82-4162-874f-c8be2797a410.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p?sku=3105099-4
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/212801/large/Brinquedo_KONG_Squeakair_Bola_de_T%C3%AAnis_3105099.jpg?1566312151
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -106,7 +109,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p?sku=3105099-4
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/154192/large/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast2-3-Unidades---Medio-_1.jpg?1556357038
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -200,7 +206,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/brinquedo-kong-squeaker-bola-de-tenis-3105099/p?sku=3105099-4
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/154194/large/Brinquedo-Kong-Squeakair-Bola-de-Tenis-Ast1-2-Unidades---Grande_1.jpg?1556357104
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -292,4 +301,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606203520349
+    timestamp: 1606913700466

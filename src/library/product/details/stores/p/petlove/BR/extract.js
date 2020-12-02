@@ -9,7 +9,7 @@ module.exports = {
     domain: 'petlove.com.br',
     zipcode: '',
   },
-  implementation: async ({ id }, parameters, context, { productDetails, transform }) => {
+  implementation: async (inputs, parameters, context, { productDetails, transform }) => {
     const variantsTotal = await context.evaluate(async () => document.querySelectorAll('div.box-variants label.radio-button-item > div').length);
     const iterations = variantsTotal || 1;
     for (let i = 0; i < iterations; i++) {
@@ -65,6 +65,7 @@ module.exports = {
           const availabilityText = document.querySelector('div.box-variants div.label-stock') ? document.querySelector('div.box-variants div.label-stock').textContent : '';
           const couponText = document.querySelector('div.product-info div.flag') ? document.querySelector('div.product-info div.flag').textContent : '';
 
+          variantElem.setAttribute('product_url', window.location.href);
           variantElem.setAttribute('product_name', name);
           variantElem.setAttribute('brand', brand);
           variantElem.setAttribute('name_extended', nameExtendedArr.join(' - '));

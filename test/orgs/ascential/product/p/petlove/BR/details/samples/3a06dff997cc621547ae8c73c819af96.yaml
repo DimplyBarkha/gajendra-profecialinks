@@ -2,11 +2,14 @@ input:
   id: 3102928
   _url: http://petlove.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=993a31f1-01cb-4185-9b43-951f05b3787e/task=f2c6788c-1daa-46e2-9ed4-8900b5ab85ad/7684b35c-274d-42fc-be75-b4b057a9d86a.html
+  - html: https://workbench.import.io/html/run=d6b24f94-ef1b-42b9-9863-a4269a4fdf78/task=c1ebbb96-7465-4cef-b93e-c48aaf98cc65/258c2874-298f-4ad2-bd63-e8c11c84e8e1.html
     extractionConfigId: product/details/stores/p/petlove/BR/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p?sku=3102928
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/192331/large/3102932.1.jpg?1556453690
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -22,11 +25,8 @@ extractions:
             nameExtended:
               - text: Maxxi - Refil para Filtro Maxxi - HF 60
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@name_extended
-            listPrice:
-              - text: R$11,29
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@list_price
             price:
-              - text: R$10,73
+              - text: R$11,29
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@price
             availabilityText:
               - text: "em estoque "
@@ -44,7 +44,7 @@ extractions:
               - text: Refil para Filtro Maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@product_name
             coupon:
-              - text: 14% OFF
+              - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[2]/div[1]/@coupon_text
             category:
               - text: Peixes
@@ -92,7 +92,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p?sku=3102928
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/192335/large/3102928.1.jpg?1556453994
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -101,11 +104,8 @@ extractions:
             nameExtended:
               - text: Maxxi - Refil para Filtro Maxxi - HF 120
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@name_extended
-            listPrice:
-              - text: R$18,39
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@list_price
             price:
-              - text: R$17,47
+              - text: R$18,39
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@price
             availabilityText:
               - text: em estoque
@@ -123,7 +123,7 @@ extractions:
               - text: Refil para Filtro Maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@product_name
             coupon:
-              - text: 15% OFF
+              - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[3]/div[1]/@coupon_text
             category:
               - text: Peixes
@@ -171,7 +171,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p?sku=3102928
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/192336/large/3102928.2.jpg?1556454061
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[4]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -241,7 +244,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p?sku=3102928
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/192337/large/3102928.3.jpg?1556453922
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -250,11 +256,8 @@ extractions:
             nameExtended:
               - text: Maxxi - Refil para Filtro Maxxi - HF 360
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@name_extended
-            listPrice:
-              - text: R$30,39
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@list_price
             price:
-              - text: R$28,87
+              - text: R$30,39
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@price
             availabilityText:
               - text: em estoque
@@ -272,7 +275,7 @@ extractions:
               - text: Refil para Filtro Maxxi
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@product_name
             coupon:
-              - text: 15% OFF
+              - text: 10% OFF
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[5]/div[1]/@coupon_text
             category:
               - text: Peixes
@@ -320,7 +323,10 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
             imageZoomFeaturePresent:
               - text: "true"
-          - image:
+          - productUrl:
+              - text: https://www.petlove.com.br/refil-para-filtro-maxxi/p?sku=3102928
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/@product_url
+            image:
               - text: https://www.petlove.com.br/images/products/192339/large/3102927_filtro.jpg?1556454147
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[6]/div[1]/ol[1]/li[1]/@image
             imageAlt:
@@ -391,4 +397,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606203517855
+    timestamp: 1606913688118
