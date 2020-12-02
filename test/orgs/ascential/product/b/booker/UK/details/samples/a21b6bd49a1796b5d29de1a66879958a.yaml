@@ -2,7 +2,7 @@ input:
   id: "257876"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=ec7da715-d21b-416b-9180-eaee9b12dfad/task=e8c829f9-1d11-4966-bda2-c384479a383d/beb58398-a1f7-45d8-bfd3-23aa608c5aaf.html
+  - html: https://workbench.import.io/html/run=8858fa43-1a0b-4a90-be57-9aa8613a9ece/task=76075c42-ace2-4ed4-8869-a18d3878cff6/8d2b0de4-7cbd-4c1c-896c-f1021c40dce4.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -36,9 +36,6 @@ extractions:
             brandText:
               - text: Chef's Larder
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[9]/span[1]
-            brandLink:
-              - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=630&searchTerm=By+Brand%3a+Chef%27s+Larder
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[9]/span[1]/a[1]/@href
             storage:
               - text: Frozen
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[10]/span[1]
@@ -50,9 +47,6 @@ extractions:
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
             servingSize:
               - text: 100g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
-            servingSizeUom:
-              - text: 00g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 1693kJ
@@ -134,23 +128,24 @@ extractions:
               - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
                   Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
                   House Vintners, Chef's Larder, Drop Shipment
-                xpath: /html/body/meta-key[1]
+                xpath: /html/body/div[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/availability[1]
+                xpath: /html/body/div[2]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/tandc[1]
-            privacyPolicy:
+                xpath: /html/body/div[3]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[5]
+            imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/privacypolicy[1]
+                xpath: /html/body/div[6]
             technicalInformationPdfPresent:
               - text: No
             customerServiceAvailability:
               - text: No
             Image360Present:
-              - text: No
-            imageZoomFeaturePresent:
               - text: No
             warnings:
               - text: Contains EggsContains MilkMay Contain NutsContains SoyaContains Wheat
@@ -176,4 +171,4 @@ extractions:
             packaging:
               - text: Type Box
         xpath: /html
-    timestamp: 1606902914998
+    timestamp: 1606909994910

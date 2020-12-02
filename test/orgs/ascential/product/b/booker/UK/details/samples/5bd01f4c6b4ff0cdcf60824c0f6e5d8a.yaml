@@ -2,7 +2,7 @@ input:
   id: "488"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=ec7da715-d21b-416b-9180-eaee9b12dfad/task=902a6d81-4337-4987-a511-d1152c10586f/fb29c366-efca-47e3-9624-ddfe94cd774b.html
+  - html: https://workbench.import.io/html/run=8858fa43-1a0b-4a90-be57-9aa8613a9ece/task=48b062eb-7669-4aa4-8b5c-e4b83062246c/10a32257-67ba-4f9e-9703-9f669c7f7a26.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -36,9 +36,6 @@ extractions:
             brandText:
               - text: Smarties
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
-            brandLink:
-              - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=1805&searchTerm=By+Brand%3a+Smarties
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]/a[1]/@href
             storage:
               - text: Ambient
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[8]/span[1]
@@ -77,9 +74,6 @@ extractions:
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
             servingSize:
               - text: "100"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
-            servingSizeUom:
-              - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 1941 kJ
@@ -152,23 +146,24 @@ extractions:
               - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
                   Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
                   House Vintners, Chef's Larder, Drop Shipment
-                xpath: /html/body/meta-key[1]
+                xpath: /html/body/div[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/availability[1]
+                xpath: /html/body/div[2]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/tandc[1]
-            privacyPolicy:
+                xpath: /html/body/div[3]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[5]
+            imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/privacypolicy[1]
+                xpath: /html/body/div[6]
             technicalInformationPdfPresent:
               - text: No
             customerServiceAvailability:
               - text: No
             Image360Present:
-              - text: No
-            imageZoomFeaturePresent:
               - text: No
             warnings:
               - text: Contains MilkContains Wheat
@@ -192,4 +187,4 @@ extractions:
             packaging:
               - text: Type Box
         xpath: /html
-    timestamp: 1606902918345
+    timestamp: 1606909996921

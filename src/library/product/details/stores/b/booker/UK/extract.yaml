@@ -27,7 +27,7 @@ fields:
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
-  xpath: //meta-key
+  xpath: //div[@id='metaKeyword']
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
@@ -50,7 +50,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //availability
+  xpath: //div[@id='availability']
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -265,8 +265,7 @@ fields:
   regExp: (\d+(\.\d)?\w+)
 - name: servingSizeUom
   singleValue: true
-  xpath: //h1[contains(.,'Nutrition')]/following-sibling::div/table//tr[1]/th[2]
-  regExp: \w{1,3}$
+  xpath: //div[@id='servingSizeUom']
   description: Unit of measure of serving
 - name: numberOfServingsInPackage
   singleValue: true
@@ -531,11 +530,11 @@ fields:
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  xpath: //tandc
+  xpath: //div[@id='tandc']
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  xpath: //privacyPolicy
+  xpath: ////div[@id='privacyPolicy']
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
@@ -553,7 +552,4 @@ fields:
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: 'No'
-  xpath: //img[@alt="Click for larger image"]/@alt
-  regExp: (.*)
-  regExpReplace: 'Yes'
+  xpath: //div[@id='zoomIn']

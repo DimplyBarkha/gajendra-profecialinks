@@ -2,7 +2,7 @@ input:
   id: "49643"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=ec7da715-d21b-416b-9180-eaee9b12dfad/task=be2487e7-3d49-4f7d-9bc2-3736409b6058/8f28cfb0-ab82-42df-bb39-12cd5c626222.html
+  - html: https://workbench.import.io/html/run=8858fa43-1a0b-4a90-be57-9aa8613a9ece/task=731b9ac6-c9b2-4cec-8cbc-9eb390232f64/ccac6a6c-267e-40c7-bb92-3d6ece105ed1.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -36,9 +36,6 @@ extractions:
             brandText:
               - text: Hellmann's
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/span[1]
-            brandLink:
-              - text: https://www.booker.co.uk/catalog/similarproducts.aspx?sp=894&searchTerm=By+Brand%3a+Hellmann%27s
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/span[1]/a[1]/@href
             storage:
               - text: Ambient
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/span[1]
@@ -58,9 +55,6 @@ extractions:
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
             servingSize:
               - text: 100g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
-            servingSizeUom:
-              - text: old
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 2986 kJ/714 kcal
@@ -127,23 +121,24 @@ extractions:
               - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
                   Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
                   House Vintners, Chef's Larder, Drop Shipment
-                xpath: /html/body/meta-key[1]
+                xpath: /html/body/div[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/availability[1]
+                xpath: /html/body/div[2]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/tandc[1]
-            privacyPolicy:
+                xpath: /html/body/div[3]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[5]
+            imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/privacypolicy[1]
+                xpath: /html/body/div[6]
             technicalInformationPdfPresent:
               - text: No
             customerServiceAvailability:
               - text: No
             Image360Present:
-              - text: No
-            imageZoomFeaturePresent:
               - text: No
             warnings:
               - text: Contains EggsFree From Gluten
@@ -162,4 +157,4 @@ extractions:
             packaging:
               - text: Type Unspecified Pack
         xpath: /html
-    timestamp: 1606902917522
+    timestamp: 1606909994677

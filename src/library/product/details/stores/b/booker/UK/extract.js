@@ -22,29 +22,38 @@ module.exports = {
       newDisclaimer.innerText = legalDisclaimer.join(' ');
       document.body.append(newDisclaimer);
 
+      // function to append the elements to DOM
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+
       // Get metakeywords
       const metaKeyword = (document.querySelector('meta[name="keywords"]') && document.querySelector('meta[name="keywords"]').getAttribute('content')) || '';
-      const newKeyword = document.createElement('meta-key');
-      newKeyword.innerText = metaKeyword;
-      document.body.append(newKeyword);
+      addElementToDocument('metaKeyword', metaKeyword);
 
       // Get availability text
       const availability = !document.querySelector('div.discontinuedBox') && document.querySelector('div#mainContent') ? 'In Stock' : 'Out of Stock';
-      const newAvailability = document.createElement('availability');
-      newAvailability.innerText = availability;
-      document.body.append(newAvailability);
+      addElementToDocument('availability', availability);
 
       // Get terms and conditions
       const tandc = document.querySelector('a#FC_hypTermsAndConditions') ? 'Yes' : 'No';
-      const newTandc = document.createElement('tandc');
-      newTandc.innerText = tandc;
-      document.body.append(newTandc);
+      addElementToDocument('tandc', tandc);
 
       // Get privacy policy
       const privacyPolicy = document.querySelector('a#FC_hypPrivacyStatement') ? 'Yes' : 'No';
-      const newPrivacyPolicy = document.createElement('privacyPolicy');
-      newPrivacyPolicy.innerText = privacyPolicy;
-      document.body.append(newPrivacyPolicy);
+      addElementToDocument('privacyPolicy', privacyPolicy);
+
+      // Get serving size Uom
+      const servingSizeUom = document.evaluate('//h1[contains(.,"Nutrition")]/following-sibling::div/table//tr[1]/th[2]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      addElementToDocument('servingSizeUom', servingSizeUom.textContent.replace(/.*\d+\s?(\w+)\s?.*/g, '$1'));
+
+      // Get zoomIn feature
+      const zoomIn = document.querySelector('img[alt="Click for larger image"]') ? 'Yes' : 'No';
+      addElementToDocument('zoomIn', zoomIn);
     });
     await context.extract(productDetails, { transform });
   },
