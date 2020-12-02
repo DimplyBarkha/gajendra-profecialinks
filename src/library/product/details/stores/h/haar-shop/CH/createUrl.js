@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'haar-shop.ch',
     prefix: null,
-    url: null,
+    url: 'https://www.haar-shop.ch/de/#search:query={id}',
     country: 'CH',
     store: 'haar-shop',
     zipcode: '',
