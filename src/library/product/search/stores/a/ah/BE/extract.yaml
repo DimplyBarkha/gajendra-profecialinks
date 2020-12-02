@@ -3,31 +3,24 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
+  - name: thumbnail
     singleValue: true
     description: images of products
     xpath: //figure/div/img/@src
-  - name: name
+  - name: _pageTimestamp
     singleValue: true
-    description: name of products
-    xpath: //article/div/div/a/strong/span
-  - name: url
+  - name: productUrl
     singleValue: true
-    description: name of products
     xpath: //article/div/a/@href
   - name: price
     singleValue: true
-    description: price of products
-    xpath: //div[@class='product-card-portrait_pricePromotion__2CZsy']/div/div/span
-  - name: quantity
+    xpath: //div[@class='price_portrait__2B9Lk']/div
+  - name: input
     singleValue: true
-    description: quantity of products
-    xpath: //article/div[@class='header_root__3b4tI']/a[@class='link_root__fmxIo']/div[@class='product-card-portrait_pricePromotion__2CZsy']/div/span
-  - name: discount
+    xpath: //div[@id='url']
+  - name: url
     singleValue: true
-    description: discount of products
-    xpath: //article/div/a/div/div/div/span
-  - name: manufacturedDiscount
+    xpath: //div[@id='search_terms']
+  - name: rank
     singleValue: true
-    description: manufacturedDiscount of products
-    xpath: //article/div/a/div/div[@class='shield_root__YmXCB']/span
+    xpath: //div[@id='rank']

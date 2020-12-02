@@ -4,11 +4,21 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const searchTerms = [];
+  const urlCustom = [];
+  data.forEach(element => {
+    searchTerms.push(element.group.find(e => e.input));
+    urlCustom.push(element.group.find(e => e.url));
+  });
+  const filterSearch = searchTerms.filter(e => e)[0].input;
+  const url = urlCustom.filter(e => e)[0].url;
   data.forEach(el => {
-    el.group.forEach(element => {
-      element.url[0].text = 'https://www.ah.be' + element.url[0].text;
-      element.price = [{ text: element.price.map(p => p.text).join('') + ' €' }];
-      element.discount = [{ text: element.discount.map(d => d.text).join('') + ' €' }];
+    el.group.forEach((gr, index) => {
+      gr['rankOrganic'] = [{ text: index + 1 }];
+      gr['_input'] = url;
+      gr['_url'] = filterSearch;
+      if (gr && gr.price) gr.price[0].text = '€ ' + gr.price[0].text;
+      if (gr && gr.productUrl)gr.productUrl[0].text = 'https://www.ah.be' + gr.productUrl[0].text;
     });
   });
   return data;
