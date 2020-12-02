@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class="selected-product gallery-thumbs"]//div[@class="slick-track"]/li[position()>1]//img/@src
     regExp: (static.hondoscenter.com/.*)
     regExpReplace: https://$1
-  - name: sku
+  - name: variantId
     singleValue: true
     xpath: //span[@class="sku-code"]/text()
   - name: name
