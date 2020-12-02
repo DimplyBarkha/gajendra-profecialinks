@@ -5,9 +5,9 @@ module.exports = {
     country: 'DE',
     store: 'mytime',
     domain: 'mytime.de',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.mytime.de/search?query={searchTerms}',
+    loadedSelector: 'ol.products-list',
+    noResultsXPath: '//p[@class="category-view__info"]',
     zipcode: '',
   },
 };
