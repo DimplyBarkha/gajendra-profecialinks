@@ -20,9 +20,9 @@ fields:
     xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article/div/a/@id
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article/div/a/@href
-    regExp: (kava/.*)
-    regExpReplace: https://www.mall.sk/$1
+    xpath: //a[@class="lst-product-item-media"]/@href
+    regExp: (/.*)
+    regExpReplace: https://www.mall.sk$1
   - name: price
     singleValue: false
     xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article//span[@class="lst-product-item-price-value"]/text()
