@@ -19,11 +19,11 @@ module.exports = {
     const { productDetails, Helpers } = dependencies;
     const helpers = new Helpers(context);
     const productPageSelector = "//main//div[contains(concat(' ',normalize-space(@class),' '),'par parsys')]//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
-  
+
     // first check that the page is a valid product page
     const isValidProductPage = await helpers.checkXpathSelector(productPageSelector);
     if (!isValidProductPage && productPageSelector) return; // exit without extracting anything
-  
+
     await context.evaluate(async () => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -39,13 +39,13 @@ module.exports = {
           catElement.textContent = value;
         }
       }
-  
+
       const getSel = (sel, prop) => {
         const el = document.querySelector(sel);
         if (prop && el) return el[prop];
         return el || '';
       };
-  
+
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -53,7 +53,7 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-  
+
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
@@ -63,10 +63,10 @@ module.exports = {
         }
         return result;
       };
-  
+
       // get the json object
       const jsonObj = window.dataLayer && window.dataLayer.primaryProduct ? window.dataLayer.primaryProduct : null;
-  
+
       // try to get the brand from multiple different sources
       const tm = '™';
       let brandText = 'Dyson';
@@ -113,9 +113,9 @@ module.exports = {
         if (cleaned.length > 0) setBrand(cleaned[1]);
         else setBrand(lastChance);
       }
-  
+
       addElementToDocument('added_brandtext', brandText);
-  
+
       // add the sku
       if (jsonObj) {
         addElementToDocument('added_sku', jsonObj.globalProductSKU || jsonObj.localProductSKU);
@@ -150,11 +150,11 @@ module.exports = {
           }
         }
       }
-  
+
       // deal with the price
       const listPrice = getXpath("(//div[@class='product-hero__price-top']/div[1])[1]", 'innerText');
       const price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
-      
+
       // transform the price to avoid locale issue
       const localeCleaner = (price) => {
         // first remove all possible thousand spearators
@@ -233,7 +233,7 @@ module.exports = {
         ];
         // keep only letters and currency symbols
         const letter = RegExp(/[a-zA-Z\s]/);
-        let temp = (price || '').split('').filter(char => letter.test(char) || currSymb.includes(char)).join('');
+        const temp = (price || '').split('').filter(char => letter.test(char) || currSymb.includes(char)).join('');
         // split per groups of words and only returns the last one
         return temp.split(' ').filter(word => word).slice(-1);
       };
@@ -241,21 +241,21 @@ module.exports = {
       addElementToDocument('added_currency', getCurrency(price));
       addElementToDocument('added_price', fixPrice(price));
       if (listPrice !== price) addElementToDocument('added_listPrice', fixPrice(listPrice));
-  
+
       // add the extended name
       brandText = brandText || 'Dyson';
       const name = getXpath("//h1[contains(concat(' ',normalize-space(@class),' '),' product-hero__line1 ')]", 'innerText');
       const variant = getXpath("(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@alt", 'nodeValue');
       const prefix = name && name.includes(brandText) ? '' : brandText;
       addElementToDocument('added_nameExtended', `${prefix ? prefix + ' - ' : ''}${name}${variant ? ' - ' + variant : ''}`);
-  
+
       // add the type of info the variants are on
       const varInfo = [...getSel('.product-hero .swatches > div', 'classList')] || [];
       if (varInfo[0]) {
         // addElementToDocument('added_variantinformation', varInfo[0].replace('swatches__', ''));
         addElementToDocument('added_variantinformation', getSel('.product-hero .swatches > div .swatches__color-id', 'innerText'));
       }
-  
+
       // Get the manufacturer description
       const descr = "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])]//*[contains(concat(' ',normalize-space(@class),' '),' h1 ') or contains(concat(' ',normalize-space(@class),' '),' h2 ') or contains(concat(' ',normalize-space(@class),' '),' h3 ') or contains(concat(' ',normalize-space(@class),' '),' h4 ') or contains(concat(' ',normalize-space(@class),' '),' h5 ') or contains(concat(' ',normalize-space(@class),' '),' h6 ') or contains(concat(' ',normalize-space(@class),' '),' body ') or contains(concat(' ',normalize-space(@class),' '),' js-text-body ') or contains(concat(' ',normalize-space(@class),' '),' typography-body ')]";
       const imgs = "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src";
@@ -263,12 +263,12 @@ module.exports = {
       addElementToDocument('added_productOtherInformation', getAllXpath(otherDescription, 'innerText').join(' '));
       addElementToDocument('added_manufacturerDescription', getAllXpath(descr, 'innerText').join(' '));
       addElementToDocument('added_manufacturerImages', getAllXpath(imgs));
-  
+
       // Get the description bullets
       const descBullets = getAllXpath("//div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//*[contains(text(), '•')] | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//li", 'innerText')
         .map(b => b.split('•').join(''));
       addElementToDocument('added_descBullets', descBullets);
-  
+
       // get the videos
       const videos = " (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src";
       addElementToDocument('added_videos', getAllXpath(videos, 'nodeValue').map(v => `${window.location.hostname}${v}`));

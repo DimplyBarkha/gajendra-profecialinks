@@ -104,9 +104,9 @@ class Helpers {
           }
         } else elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
       } else if (type === 'css') elem = document.querySelector(selector);
-      console.log(elem)
+      console.log(elem);
       return elem && elem[property] && elem[property].trim ? elem[property].trim() : (elem[property] || elem);
     }, { selector, property, type, allMatches });
   }
 }
-module.exports = Helpers
+module.exports = Helpers;

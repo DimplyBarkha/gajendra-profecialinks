@@ -1,14 +1,9 @@
-
 // module.exports.implementation = ({ productPageSelector = defaultproductPageSelector } = {}) =>
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails, Helpers } = dependencies;
   const helpers = new Helpers(context);
-  const productPageSelector = "//main//div[contains(concat(' ',normalize-space(@class),' '),'par parsys')]//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
+  const productPageSelector =
+    "//main//div[contains(concat(' ',normalize-space(@class),' '),'par parsys')]//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
 
   // first check that the page is a valid product page
   const isValidProductPage = await helpers.checkXpathSelector(productPageSelector);
@@ -21,9 +16,10 @@ async function implementation (
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
       if (Array.isArray(value)) {
-        const innerHTML = value.reduce((acc, val) => {
-          return `${acc}<li>${val}</li>`;
-        }, '<ul>') + '</ul>';
+        const innerHTML =
+          value.reduce((acc, val) => {
+            return `${acc}<li>${val}</li>`;
+          }, '<ul>') + '</ul>';
         catElement.innerHTML = innerHTML;
       } else {
         catElement.textContent = value;
@@ -46,6 +42,7 @@ async function implementation (
 
     const getAllXpath = (xpath, prop) => {
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      console.log(nodeSet);
       const result = [];
       for (let index = 0; index < nodeSet.snapshotLength; index++) {
         const element = nodeSet.snapshotItem(index);
@@ -66,7 +63,7 @@ async function implementation (
     // setBrand(getSel('title', 'innerText'));
     setBrand(brandText);
     if (!brandText) {
-      const lastCat = [...new Set([...document.querySelectorAll('.breadcrumb li')].map(i => i.innerText.trim()))].slice(-1)[0];
+      const lastCat = [...new Set([...document.querySelectorAll('.breadcrumb li')].map((i) => i.innerText.trim()))].slice(-1)[0];
       setBrand(lastCat);
     }
     if (!brandText) {
@@ -74,8 +71,7 @@ async function implementation (
       setBrand(imgAlt);
       let imgSrc;
       try {
-        imgSrc = getSel('.product-hero__motif-container img', 'src')
-          .split('/').slice(-1)[0].split('?')[0].split(/[-_]/).join(' ');
+        imgSrc = getSel('.product-hero__motif-container img', 'src').split('/').slice(-1)[0].split('?')[0].split(/[-_]/).join(' ');
       } catch (error) {} // can't use image source
       if (!brandText && (imgAlt || imgSrc)) {
         const newSrc = imgAlt || imgSrc;
@@ -96,7 +92,8 @@ async function implementation (
         }
         if (found) setBrand(brand);
       }
-    } if (!brandText) {
+    }
+    if (!brandText) {
       const lastChance = getXpath("//div[@data-title][contains(normalize-space(@data-title),'™ ')]/@data-title", 'nodeValue');
       // Remove leading 'The'
       const cleaned = lastChance ? lastChance.split('The ') : [];
@@ -104,7 +101,7 @@ async function implementation (
       else setBrand(lastChance);
     }
 
-    addElementToDocument('added_brandtext', brandText);
+    addElementToDocument('added_brandText', brandText);
 
     // add the sku
     if (jsonObj) {
@@ -128,13 +125,12 @@ async function implementation (
           };
           const shortColors = prodID.split(' ').slice(-1);
           if (shortColors.length > 0) {
-            const colors = shortColors[0].split('/')
-              .reduce((acc, col) => {
-                if (col.length === 3 && col[0] === 'S' && colorMapping[col.slice(1)]) {
-                  return [...acc, colorMapping[col.slice(1)]];
-                } else if (colorMapping[col]) return [...acc, colorMapping[col]];
-                return acc;
-              }, []);
+            const colors = shortColors[0].split('/').reduce((acc, col) => {
+              if (col.length === 3 && col[0] === 'S' && colorMapping[col.slice(1)]) {
+                return [...acc, colorMapping[col.slice(1)]];
+              } else if (colorMapping[col]) return [...acc, colorMapping[col]];
+              return acc;
+            }, []);
             addElementToDocument('added_color', colors.length > 0 ? colors.join('-') : '');
           }
         }
@@ -144,11 +140,11 @@ async function implementation (
     // deal with the price
     const listPrice = getXpath("(//div[@class='product-hero__price-top']/div[1])[1]", 'innerText');
     const price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
-    
+
     // transform the price to avoid locale issue
     const localeCleaner = (price) => {
       // first remove all possible thousand spearators
-      const charToRemove = [' ', '\'', String.fromCharCode(160)];
+      const charToRemove = [' ', "'", String.fromCharCode(160)];
       const newDecimalSeparator = '.';
       const potentialDecSeparators = [',', '.'];
       let temp = charToRemove.reduce((acc, char) => acc.split(char).join(''), price || '');
@@ -156,14 +152,20 @@ async function implementation (
       temp = temp.replace(/[^0-9.,\s]/g, '');
       // deal with comma and dots
       let decimalFound = false;
-      return temp.split('').reverse().reduce((acc, char) => {
-        if (!decimalFound && potentialDecSeparators.includes(char)) {
-          decimalFound = true;
-          return `${acc}${newDecimalSeparator}`;
-        }
-        if (potentialDecSeparators.includes(char)) return acc;
-        return `${acc}${char}`;
-      }, '').split('').reverse().join('');
+      return temp
+        .split('')
+        .reverse()
+        .reduce((acc, char) => {
+          if (!decimalFound && potentialDecSeparators.includes(char)) {
+            decimalFound = true;
+            return `${acc}${newDecimalSeparator}`;
+          }
+          if (potentialDecSeparators.includes(char)) return acc;
+          return `${acc}${char}`;
+        }, '')
+        .split('')
+        .reverse()
+        .join('');
     };
     const getCurrency = (price) => {
       // all currencies symbols
@@ -223,11 +225,17 @@ async function implementation (
       ];
       // keep only letters and currency symbols
       const letter = RegExp(/[a-zA-Z\s]/);
-      let temp = (price || '').split('').filter(char => letter.test(char) || currSymb.includes(char)).join('');
+      const temp = (price || '')
+        .split('')
+        .filter((char) => letter.test(char) || currSymb.includes(char))
+        .join('');
       // split per groups of words and only returns the last one
-      return temp.split(' ').filter(word => word).slice(-1);
+      return temp
+        .split(' ')
+        .filter((word) => word)
+        .slice(-1);
     };
-    const fixPrice = price => `${localeCleaner(price)}`;
+    const fixPrice = (price) => `${localeCleaner(price)} ${getCurrency(price)}`;
     addElementToDocument('added_currency', getCurrency(price));
     addElementToDocument('added_price', fixPrice(price));
     if (listPrice !== price) addElementToDocument('added_listPrice', fixPrice(listPrice));
@@ -235,7 +243,10 @@ async function implementation (
     // add the extended name
     brandText = brandText || 'Dyson';
     const name = getXpath("//h1[contains(concat(' ',normalize-space(@class),' '),' product-hero__line1 ')]", 'innerText');
-    const variant = getXpath("(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@alt", 'nodeValue');
+    const variant = getXpath(
+      "(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@alt",
+      'nodeValue',
+    );
     const prefix = name && name.includes(brandText) ? '' : brandText;
     addElementToDocument('added_nameExtended', `${prefix ? prefix + ' - ' : ''}${name}${variant ? ' - ' + variant : ''}`);
 
@@ -247,22 +258,60 @@ async function implementation (
     }
 
     // Get the manufacturer description
-    const descr = "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])]//*[contains(concat(' ',normalize-space(@class),' '),' h1 ') or contains(concat(' ',normalize-space(@class),' '),' h2 ') or contains(concat(' ',normalize-space(@class),' '),' h3 ') or contains(concat(' ',normalize-space(@class),' '),' h4 ') or contains(concat(' ',normalize-space(@class),' '),' h5 ') or contains(concat(' ',normalize-space(@class),' '),' h6 ') or contains(concat(' ',normalize-space(@class),' '),' body ') or contains(concat(' ',normalize-space(@class),' '),' js-text-body ') or contains(concat(' ',normalize-space(@class),' '),' typography-body ')]";
-    const imgs = "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src";
-    const otherDescription = "//div[contains(concat(' ',normalize-space(@class),' '),' product-specification ')]//li";
+    const firstManuDesc = document.querySelector('.par.parsys > .text.parbase') ? document.querySelector('.par.parsys > .text.parbase').innerText : '';
+    const secondManuDesc = document.querySelectorAll('.par.parsys > .container-par.parbase')[0]
+      ? document.querySelectorAll('.par.parsys > .container-par.parbase')[0].querySelector('.text.parbase')
+        ? document.querySelectorAll('.par.parsys > .container-par.parbase')[0].querySelectorAll('.text.parbase')
+        : ''
+      : '';
+    const thirdManuDesc = document.querySelectorAll('.par.parsys > .container-par.parbase')[1]
+      ? document.querySelectorAll('.par.parsys > .container-par.parbase')[1].querySelector('.text.parbase')
+        ? document.querySelectorAll('.par.parsys > .container-par.parbase')[1].querySelectorAll('.text.parbase')
+        : ''
+      : '';
+
+    let thirdManuDescText = '';
+    let secondManuDescText = '';
+    Array.from(secondManuDesc).forEach((elem, i) => {
+      if (i === 0) secondManuDescText = `${elem.innerText}`;
+      else secondManuDescText = `${secondManuDescText} ${elem.innerText}`;
+    });
+
+    Array.from(thirdManuDesc).forEach((elem, i) => {
+      if (i === 0) thirdManuDescText = elem.innerText;
+      else thirdManuDescText = `${thirdManuDescText} ${elem.innerText}`;
+    });
+
+    const imgs =
+      "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src";
+    const otherDescription = "//ul[contains(@class,'product-specification__specification-container')]//li";
     addElementToDocument('added_productOtherInformation', getAllXpath(otherDescription, 'innerText').join(' '));
-    addElementToDocument('added_manufacturerDescription', getAllXpath(descr, 'innerText').join(' '));
+    addElementToDocument('added_manufacturerDescription', `${firstManuDesc} ${secondManuDescText} ${thirdManuDescText}`);
     addElementToDocument('added_manufacturerImages', getAllXpath(imgs));
 
     // Get the description bullets
-    const descBullets = getAllXpath("//div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//*[contains(text(), '•')] | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//li", 'innerText')
-      .map(b => b.split('•').join(''));
+    const descBullets = getAllXpath(
+      "//div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//*[contains(text(), '•')] | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//li",
+      'innerText',
+    ).map((b) => b.split('•').join(''));
     addElementToDocument('added_descBullets', descBullets);
 
     // get the videos
     const videos = " (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src";
-    addElementToDocument('added_videos', getAllXpath(videos, 'nodeValue').map(v => `${window.location.hostname}${v}`));
+    addElementToDocument(
+      'added_videos',
+      getAllXpath(videos, 'nodeValue').map((v) => `${window.location.hostname}${v}`),
+    );
+
+    // get availability text
+    const addToBasketButton = document.querySelector('.product-hero__button-container .add-to-basket .product-hero__button')
+      ? document.querySelector('.product-hero__button-container .add-to-basket .product-hero__button')
+      : null;
+    if (addToBasketButton) {
+      if (addToBasketButton.classList.contains('add-to-basket__form-button')) addElementToDocument('added_availabilityText', addToBasketButton.innerText);
+      else addElementToDocument('added_availabilityText', 'Out of stock');
+    } else addElementToDocument('added_availabilityText', 'Out of stock');
   });
   return await context.extract(productDetails, { transform: parameters.transform });
-};
+}
 module.exports = { implementation };

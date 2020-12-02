@@ -22,7 +22,7 @@ async function implementation (
   const urlSelector = '.line:first-child span.html-tag ~ :not(.html-tag)';
 
   const urls = await context.evaluate((urlSelector) => [...document.querySelectorAll(urlSelector)].map(u => u.innerText), urlSelector);
-  
+
   // await helpers.addArrayToDocument('prodURL', urls);
   const addArrayToDocument = async (key, values, { parentID = '', type = 'div', clss = '' } = {}) => {
     const inputs = { key, values, parentID, type, clss };

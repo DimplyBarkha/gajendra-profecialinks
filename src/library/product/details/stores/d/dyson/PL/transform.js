@@ -33,7 +33,7 @@ const cleanUp = (data, context) => {
           });
           row.manufacturerDescription = [{ text: text.join(' ') }];
         }
-        
+
         if (row.specifications) {
           const text = [];
           row.specifications.forEach(item => {
@@ -41,15 +41,15 @@ const cleanUp = (data, context) => {
           });
           row.specifications = [{ text: text.join(' ') }];
         }
-        
+
         if (row.videos) {
           row.videos.forEach(item => {
             if (!(item.text.startsWith('http'))) {
-                item.text = '';
+              item.text = '';
             }
           });
         }
-        
+
         if (row.aggregateRating12) {
           const rating = (row.aggregateRating12[0].text / 100) * 5;
           row.aggregateRating = [{ text: (rating.toFixed(1)).toString() }];

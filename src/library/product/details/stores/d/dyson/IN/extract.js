@@ -45,10 +45,10 @@ module.exports = {
       addElementToDocument('added_specs', specs);
 
       const aggRatingXpath = '(//span[contains(@class,"rating__data__value")] | //div[contains(@class,"product--column")]//div[contains(@class,"rating-summary")]//span[@itemprop="ratingValue"] )[1]';
-      let aggRatingElm = document.evaluate(aggRatingXpath, document, null, 7, null);
+      const aggRatingElm = document.evaluate(aggRatingXpath, document, null, 7, null);
       if (aggRatingElm.snapshotLength > 0) {
         console.log('agg rating is present');
-        let aggRatingValue = aggRatingElm.snapshotItem(0).textContent.trim();
+        const aggRatingValue = aggRatingElm.snapshotItem(0).textContent.trim();
         console.log('aggregate rating - ' + aggRatingValue);
         addElementToDocument('aggrating', aggRatingValue);
       } else {

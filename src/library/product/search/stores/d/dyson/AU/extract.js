@@ -7,27 +7,26 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  let allResults = [];
+  const allResults = [];
 
-  function stall(ms) {
+  function stall (ms) {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve();
-      }, ms)
+      }, ms);
     });
   }
 
-  await context.evaluate(async function() {
-
-    function stall(ms) {
+  await context.evaluate(async function () {
+    function stall (ms) {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
-        }, ms)
+        }, ms);
       });
     }
 
-    function addHiddenDiv(el, id, text) {
+    function addHiddenDiv (el, id, text) {
       const div = document.createElement('div');
       div.innerHTML = text;
       div.classList.add(id);
@@ -35,13 +34,13 @@ async function implementation (
     }
 
     let scrollTop = 0;
-    while(scrollTop < 5000) {
+    while (scrollTop < 5000) {
       scrollTop += 500;
       window.scroll(0, 500);
       await stall(250);
     }
 
-    function addHiddenDiv(el, id, text) {
+    function addHiddenDiv (el, id, text) {
       const div = document.createElement('div');
       div.innerHTML = text;
       div.classList.add(id);
@@ -58,7 +57,7 @@ async function implementation (
           el.classList.add('productInfo');
           const name = el.querySelector('h3').innerText;
           const id = ind + 1;
-          const thumbnail  = el.querySelector('img').getAttribute('src');
+          const thumbnail = el.querySelector('img').getAttribute('src');
           const url = el.querySelector('a').getAttribute('href');
           const splitURL = url.split('-');
           addHiddenDiv(el, 'name', name);
@@ -77,7 +76,7 @@ async function implementation (
           el.classList.add('productInfo');
           const name = el.querySelector('h3').innerText;
           const id = ind + 1;
-          const thumbnail  = el.querySelector('img').getAttribute('src');
+          const thumbnail = el.querySelector('img').getAttribute('src');
           const url = el.querySelector('a').getAttribute('href');
           const splitURL = url.split('-');
           addHiddenDiv(el, 'name', name);
