@@ -8,7 +8,7 @@ fields:
     xpath: //a[@class="product-photo"]/@href
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="moProductGallery"]/a[not(contains(@class,"active"))]/@data-zoom-image
+    xpath: //div[@id="moProductGallery"]/a[position()>1]/@data-zoom-image
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -26,10 +26,11 @@ fields:
     xpath: //div[contains(@class,"product-price-value-primary")]/strong
   - name: availabilityText
     singleValue: false
+    xpath: //div[@class="onstock-detail"]/div[@class="stock-message"]/span[text()="Vyřazeno ze sortimentu"]
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //span[@class="btn-text-wrapper"]
+    xpath: //span[@class="btn-text-wrapper"] | //div[contains(@id,"collapseParams")]//dl/dt | //div[contains(@id,"collapseParams")]//dl/dd
   - name: gtin
     singleValue: false
     xpath: //div[contains(@class,"product-info-ean")]//span[@class="title"]
@@ -40,11 +41,59 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"product-info-id")]
   - name: variantCount
-    singleValue: fasle
-    defaultValue: 0
+    singleValue: false
+    defaultValue: '0'
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //h1[@class="product-title"]
   - name: imageZoomFeaturePresent
-    singleValue: true
+    singleValue: false
     defaultValue: Yes
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="SLOŽENÍ"]/following-sibling::dd[1]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="VÝROBCE"]/following-sibling::dd[1]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="HMOTNOST/OBJEM"]/following-sibling::dd[1]
+  - name: storage
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="PODMÍNKY UCHOVÁNÍ"]/following-sibling::dd[1]
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="ALERGENY"]/following-sibling::dd[1]
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="VÝŽIVOVÉ ÚDAJE/JEDNOTKA"]/following-sibling::dd[1]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="VÝŽIVOVÉ ÚDAJE/JEDNOTKA"]/following-sibling::dd[1]
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="VÝŽIVOVÉ ÚDAJE/JEDNOTKA"]/following-sibling::dd[1]
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="VÝŽIVOVÉ ÚDAJE/JEDNOTKA"]/following-sibling::dd[1]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="VÝŽIVOVÉ ÚDAJE/JEDNOTKA"]/following-sibling::dd[1]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="VÝŽIVOVÉ ÚDAJE/JEDNOTKA"]/following-sibling::dd[1]
+  - name: saltPerServing
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="VÝŽIVOVÉ ÚDAJE/JEDNOTKA"]/following-sibling::dd[1]
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //div[@class="product-price"]//div[@class="product-price-label"]/i[@title=">Cena za jednotku"]/@class
+  - name: packSize
+    singleValue: false
+    xpath: //div[@class="mo-product-onstock"]//div[@class="stock-quantity"]
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="NÁVOD K POUŽITÍ"]/following-sibling::dd[1]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@id,"collapseParams")]//dl/dt[text()="Původ"]/following-sibling::dd[1]
