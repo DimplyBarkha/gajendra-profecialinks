@@ -17,7 +17,7 @@ fields:
     # xpath: //img[contains(@id,'testId-pod-image')]/@src
   - name: name
     singleValue: false
-    xpath: //b[contains(@id,'testId-pod-displaySubTitle')]
+    xpath: //a[contains(@class,'layout_grid-view')]//img/@alt
   - name: soldBy
     singleValue: false
     xpath: //b[contains(@class,'pod-sellerText')]
@@ -26,6 +26,9 @@ fields:
     xpath: //li[contains(@class,'price-2') or contains(@class,'price-1') or contains(@class,'price-0')][1]
     # xpath: (//li[contains(@class,'price-2')] | //li[contains(@class,'price-1')] | //li[contains(@class,'price-0')])
   - name: ratingCount
+    singleValue: false
+    xpath: //span/@data-rating
+  - name: reviewCount
     singleValue: false
     xpath: //span/@data-rating
   - name: aggregateRating
@@ -44,3 +47,6 @@ fields:
     singleValue: false
   - name: rankOrganic
     singleValue: true
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]

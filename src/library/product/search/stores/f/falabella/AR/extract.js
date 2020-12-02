@@ -1,5 +1,5 @@
 
-const { transform } = require('../format');
+const { transform } = require('./transform');
 
 async function implementation(
   inputs,
@@ -32,6 +32,26 @@ async function implementation(
       }
     });
   };
+  await context.evaluate(async function () {
+
+    let URL = window.location.href;
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.innerHTML = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('div.grid-pod')[index];
+      originalDiv.appendChild(newDiv);
+      console.log("child appended " + index);
+    }
+    const result = [];
+    const product = document.querySelectorAll('div.grid-pod');
+    // select query selector and loop and add div
+    for (let i = 0; i < product.length; i++) {
+      addHiddenDiv('page_url', URL, i);
+    }
+    return result;
+  });
   await applyScroll(context);
   return await context.extract(productDetails, { transform });
 }

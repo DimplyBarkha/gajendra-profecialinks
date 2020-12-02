@@ -6,6 +6,11 @@
 const transform = (data, context) => {
   let nameData = "";
   let brandData = "";
+  function remove_character(str, char_pos) {
+    var part1 = str.substring(0, char_pos);
+    var part2 = str.substring(char_pos + 1, str.length);
+    return (part1 + part2);
+  }
   for (const { group } of data) {
     for (const row of group) {
       if (row.name) {
@@ -13,18 +18,21 @@ const transform = (data, context) => {
           nameData = item.text;
         });
       }
-      if (row.brandText) {
-        row.brandText.forEach(item => {
-          brandData = item.text;
-        });
-      }
+      // if (row.brandText) {
+      //   row.brandText.forEach(item => {
+      //     brandData = item.text;
+      //   });
+      // }
       if (row.price) {
         row.price.forEach(item => {
           item.text = item.text.replace("(Oferta)", '').trim();
           item.text = item.text.replace(/(\s*\(Precio\s+final\)\s*)+/g, '').trim();
         });
       }
-      row.name = [{ text: brandData + ' ' + nameData }];
+      var sepratorIndex = nameData.indexOf('-');
+      nameData = remove_character(nameData, sepratorIndex);
+      nameData = remove_character(nameData, sepratorIndex);
+      row.name = [{ text: nameData }];
     }
   }
   const clean = text => text.toString()
