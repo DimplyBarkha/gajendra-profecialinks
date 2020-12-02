@@ -1,7 +1,7 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    url: 'https://www.kroger.com/search?query={id}&searchType=natural&fulfillment=all',
+    url: 'https://www.kroger.com/p/upc/{id}',
     domain: 'kroger.com',
     prefix: null,
     suffix: null,

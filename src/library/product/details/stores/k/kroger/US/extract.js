@@ -11,7 +11,7 @@ const implementation = async (
 
   const { url, id, zipcode } = inputs;
 
-  await context.waitForSelector('div.ProductCard a', { timeout: 5000 });
+  await context.waitForSelector('div.ProductCard a', { timeout: 5000 }).catch(() => console.log('URL given as input, no item to click'));
 
   await context.click('div.ContainerGrid-header.m-0 div.ProductCard a')
     .catch(() => console.log('URL given as input, no item to click'));
