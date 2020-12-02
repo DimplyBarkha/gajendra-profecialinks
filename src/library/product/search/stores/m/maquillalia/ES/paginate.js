@@ -4,8 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'maquillalia',
-    // nextLinkSelector: "a[class='Next']",
-    nextLinkSelector: null,
+    nextLinkSelector: "a[class='Next']",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
