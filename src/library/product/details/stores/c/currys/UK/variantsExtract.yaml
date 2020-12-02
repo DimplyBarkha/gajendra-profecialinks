@@ -1,12 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: '//div[@class="no-tablet"]//a[@class="dc-product-swatch-link"]'
 fields:
-  - name: variantId
-    singleValue: false
-    xpath: //script[@id='app.settings']
-  - name: variantUrl
-    singleValue: false    
-  - name: variant
-    singleValue: false
+- name: variantId
+  singleValue: false
+  xpath: //link[@rel="canonical"]/@href
+  regExp: (.+-)(\d+)-
+  regExpReplace: $2
+- name: variantUrl
+  xpath: //link[@rel="canonical"]/@href
+  singleValue: false    

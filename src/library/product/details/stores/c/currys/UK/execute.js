@@ -5,7 +5,7 @@
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action, createUrl: ImportIO.Action} } dependencies
  */
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -44,7 +44,7 @@ async function implementation (
           break;
         }
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -67,7 +67,7 @@ module.exports = {
     country: 'UK',
     store: 'currys',
     domain: 'currys.co.uk',
-    loadedSelector: 'h1.page-title',
+    loadedSelector: 'div#product-main',
     noResultsXPath: "//p[@class='e404-headline']",
     zipcode: '',
   },
