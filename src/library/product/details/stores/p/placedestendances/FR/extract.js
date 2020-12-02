@@ -14,6 +14,10 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
+      
+      
+
+
       const getColor = document.querySelector('li.item_description');
       let color = '';
       let dimension = '';
@@ -152,6 +156,22 @@ module.exports = {
       }
       const specdata = getSpecData.join(' || ');
       document.body.setAttribute('specdata', specdata);
+
+      
+      let scrollSelector = document.querySelector('#footer_v2 .footer-content');
+      // @ts-ignore
+      let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      let yPos = 0;
+      while (scrollLimit && yPos < scrollLimit) {
+        yPos = yPos + 350;
+        window.scrollTo(0, yPos);
+        scrollSelector = document.querySelector('#footer_v2 .footer-content');
+        // @ts-ignore
+        scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+        await new Promise(resolve => setTimeout(resolve, 3500));
+      }
+
+
     });
 
     const { transform } = parameters;

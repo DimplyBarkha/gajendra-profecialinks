@@ -57,7 +57,11 @@ fields:
   - name: colorCode
     xpath: //input[@id="couleur_id"]/@value
   - name: manufacturerDescription
+    xpath: normalize-space(//div[contains(@class,"flix-Text-block") or contains(@class,"flix-content-box") or contains(@class,"flix-std-featureslist") or contains(@class,"flix-std-container-fluid")])
   - name: manufacturerImages
+    xpath: //div[contains(@class,"flix-background-image")]//img[contains(@class,"flix-img-responsive")]/@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: videos
     xpath: //@video
   - name: internationalShipping
