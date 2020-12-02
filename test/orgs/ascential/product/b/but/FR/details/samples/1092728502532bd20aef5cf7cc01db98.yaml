@@ -1,0 +1,461 @@
+input:
+  _url: http://but.fr
+  URL: https://www.but.fr/produits/5025155046821/Aspirateur-balai-DYSON-V11-ABSOLUTE-EXTRA-PRO.html
+extractions:
+  - html: https://workbench.import.io/html/run=ab77a94b-4d85-44b3-8a2b-619b0276b2f2/task=3fcb4bde-4a90-4d36-ad73-669413a13cb6/e85a9d3b-e521-488b-9450-d62415e3c5bf.html
+    extractionConfigId: product/details/stores/b/but/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.but.fr/produits/5025155046821/Aspirateur-balai-DYSON-V11-ABSOLUTE-EXTRA-PRO.html
+                xpath: /html/head[1]/meta[4]/@content
+            image:
+              - text: https://image.but.fr/is/image/but/5025155046821_AMB1?id=_4gae3&fmt=jpg&fit=constrain,1&wid=688&hei=387
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Aspirateur balai DYSON V ABSOLUTE EXTRA PRO
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_Q.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_P.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_D.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_Z2.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_Z3.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[6]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_Z4.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[7]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_Z5.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[8]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_Z6.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[9]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_Z7.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[10]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_AMB2.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[11]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_AMB3.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[12]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155046821_AMB4.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[13]/img[1]/@onclick
+            metaKeywords:
+              - text: Aspirateur balai DYSON V11 ABSOLUTE EXTRA PRO - Aspirateur BUT
+                xpath: /html/head[1]/meta[1]/@content
+            category:
+              - text: Electroménager
+                xpath: /html/body/div[2]/nav[1]/a[2]
+              - text: Entretien de la maison
+                xpath: /html/body/div[2]/nav[1]/a[3]
+              - text: Aspirateur
+                xpath: /html/body/div[2]/nav[1]/a[4]
+            nameExtended:
+              - text: DYSON Aspirateur balai V11 ABSOLUTE EXTRA PRO
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: 799,99 €
+                xpath: /html/body/div[2]/section[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[16]
+            description:
+              - text: "|| Autonomie de 60 minutes de puissance constante || Batterie
+                  supplémentaire pour bénéficier d'un temps de nettoyage
+                  prolongé || Ecran LCD : permet d'afficher l'autonomie restante
+                  et la performance en temps réel Générales || EAN 5025155046821
+                  || Marque DYSON || Produits exclusifs internet Commandable
+                  uniquement sur internet - non disponible en magasin
+                  Caractéristiques du produit || Type d'aspirateur Balai || Type
+                  de collecteur Sans Sac || Alimentation Rechargeable ||
+                  Autonomie en mn 60 || Sans sac oui || Volume maximum de
+                  poussière collecté (en litres) 0.76 || Variateur de puissance
+                  Oui || Commande électronique à la poignée N/A || Câble
+                  enrouleur N/A || Multifonction Non || Tube N/A || Rechargeable
+                  oui || Temps de charge 4h30 || Capacite en litres 0,76
+                  Fonctionnalités || Rayon d'action en m n/a || Système de
+                  filtrage (aspirateurs sans sac) Filtre Cyclone Accessoires ||
+                  Accessoires Accessoire combiné et long suceur et batterie
+                  supplémentaire || Brosses spécifiques Brosse motorisée, brosse
+                  rouleau doux, mini brosse motorisée, brosse douce, brosse
+                  rigide || Brosse pour poils d'animaux Non || Electrobrosse Oui
+                  || Turbo brosse Non Services || Garantie 2 ans, pièces, main
+                  d'oeuvre et transport || Disponibilité des pièces détachées
+                  (Donnée fournisseur) 3 ans Caractéristiques du colis ||
+                  Dimensions colis 1 L. 108 cm x l. 34 cm x H. 21 cm - Pds 14 kg
+                  || Nombre de colis 1 "
+            brandText:
+              - text: DYSON
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/h1[1]/strong[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/h1[1]/strong[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[2]/section[1]/div[5]/div[2]/ul[2]/li[17]/span[2]
+            sku:
+              - text: "5025155046821"
+                xpath: /html/body/script[2]/@data-flix-ean
+            variantId:
+              - text: "5025155046821"
+                xpath: /html/body/script[2]/@data-flix-ean
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/a[1]
+            aggregateRating:
+              - text: 5,0
+                xpath: /html/body/div[2]/section[1]/div[9]/div[1]/div[1]/p[2]/span[1]
+            shippingInfo:
+              - text: |-
+                  Vendu par BUT- EXCLU WEBi
+                  Les produits exclu web BUT ne sont pas exposés en magasin.
+                xpath: /html/body/div[2]/section[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[1]/div[1]/p[1]
+            shippingDimensions:
+              - text: L. 108 cm x l. 34 cm x H. 21 cm - Pds 14 kg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[2]/ul[2]/li[16]/span[2]
+            shippingWeight:
+              - text: " 14 kg"
+                xpath: /html/body/div[2]/section[1]/div[5]/div[2]/ul[2]/li[16]/span[2]
+            manufacturerDescription:
+              - text: L'aspiration la plus puissante de tous les aspirateurs sans fil en
+                  utilisation1. Il optimise intelligement le nettoyage et
+                  l'autonomie. S'adapte au différents types de sols. Jusqu'à 60
+                  minutes d'autonomie en mode Eco. Alimenté par le moteur Dyson
+                  Hyperdymium™ Monte jusqu’à 125 000 tours/minute pour générer
+                  l'aspiration la plus puissante de tous les aspirateurs en
+                  utilisation.1 Caractéristiques Technologie Radial Root
+                  Cyclone™ 14 cyclones génèrent des forces de plus de 79 000G
+                  pour capturer les particules microscopiques sans obstruer le
+                  filtre et sans perte d'aspiration. Système complet de
+                  filtration Le système de filtration Dyson parfaitement étanche
+                  capture 99,97% des particules aussi petites que 0,3 microns.
+                  Rapport intelligent en temps réel Suit la performance 8000
+                  fois par seconde, puis l’affiche en temps réel sur l’écran
+                  LCD. Optimise intelligemment le nettoyage et l'autonomie En
+                  mode Auto, le système de détection automatique (Dyson DLS™) de
+                  la brosse High Torque contrôle la résistance de la brosse 360
+                  fois par seconde, ajustant automatiquement la puissance aux
+                  différents types de sols. Vous pouvez donc passer d'un tapis à
+                  un sol dur sans avoir à changer de brosse. Mode Auto Il ajuste
+                  automatiquement la puissance aux différents types de sols pour
+                  optimiser l'autonomie. Mode Eco Jusqu'à 60 minutes
+                  d'autonomie.2 Ideal pour les longues sessions de nettoyage sur
+                  tous les types de sols. Mode Boost L'aspiration la plus
+                  puissante de tous les aspirateurs sans fil en utilisation.1 Un
+                  nettoyage partout La polyvalence de la technologie Dyson sans
+                  fil facilite la nettoyage partout dans la maison. Avec des
+                  accessoires Dyson adaptés à différentes tâches.
+                  Caractéristiques Vidage hygiénique du collecteur Le mécanisme
+                  de vidage de précision éjecte hygiéniquement toute la
+                  poussière et les débris dans votre poubelle, en un seul geste.
+                  Station murale de chargement L’aspirateur Dyson V11 se range
+                  dans la station fixée au mur pour se recharger. Batterie
+                  clipsable Changer de batterie en un clic.3 Les batteries
+                  amovibles peuvent être chargées sur ou en dehors de la
+                  machine. Nettoyage puissant sur les sols durs et tapis Un
+                  moteur numérique intégré fait tourner la brosse jusqu'à 60
+                  fois par seconde. Rapport intelligent en temps réel Suit la
+                  performance 8000 fois par seconde, puis l’affiche en temps
+                  réel sur l’écran LCD. Accessoires Brosse motorisée High Torque
+                  Brosse rouleau doux Mini brosse motorisée Dans la boîte Dyson
+                  V11™ Absolute Extra Brosse motorisée High Torque Brosse
+                  rouleau doux Mini brosse motorisée Station murale de
+                  chargement Chargeur Accessoire combiné Long suceur Mini brosse
+                  douce Brosse rigide Batterie Station d'accueil 1Aspiration
+                  testée au niveau du tube conformément à la norme EN 60312-1,
+                  clauses 5.8 et 5.9, collecteur plein, par rapport aux
+                  aspirateurs balais sans fil du marché (données marché, Nov’18
+                  – Oct’19) en mode Boost 2En mode Auto sur les sols durs
+                  3Batterie et chargeur supplémentaire inclus avec certains
+                  modèles ou disponibles séparément à l'achat.L'aspiration la
+                  plus puissante de tous les aspirateurs sans fil en
+                  utilisation1. Il optimise intelligement le nettoyage et
+                  l'autonomie. S'adapte au différents types de sols. Jusqu'à 60
+                  minutes d'autonomie en mode Eco.L'aspiration la plus puissante
+                  de tous les aspirateurs sans fil en utilisation1.Il optimise
+                  intelligement le nettoyage et l'autonomie. S'adapte au
+                  différents types de sols. Jusqu'à 60 minutes d'autonomie en
+                  mode Eco.Alimenté par le moteur Dyson Hyperdymium™ Monte
+                  jusqu’à 125 000 tours/minute pour générer l'aspiration la plus
+                  puissante de tous les aspirateurs en utilisation.1Alimenté par
+                  le moteur Dyson Hyperdymium™Monte jusqu’à 125 000 tours/minute
+                  pour générer l'aspiration la plus puissante de tous les
+                  aspirateurs en utilisation.1Caractéristiques Technologie
+                  Radial Root Cyclone™ 14 cyclones génèrent des forces de plus
+                  de 79 000G pour capturer les particules microscopiques sans
+                  obstruer le filtre et sans perte d'aspiration. Système complet
+                  de filtration Le système de filtration Dyson parfaitement
+                  étanche capture 99,97% des particules aussi petites que 0,3
+                  microns. Rapport intelligent en temps réel Suit la performance
+                  8000 fois par seconde, puis l’affiche en temps réel sur
+                  l’écran LCD.CaractéristiquesTechnologie Radial Root Cyclone™
+                  14 cyclones génèrent des forces de plus de 79 000G pour
+                  capturer les particules microscopiques sans obstruer le filtre
+                  et sans perte d'aspiration. Système complet de filtration Le
+                  système de filtration Dyson parfaitement étanche capture
+                  99,97% des particules aussi petites que 0,3 microns. Rapport
+                  intelligent en temps réel Suit la performance 8000 fois par
+                  seconde, puis l’affiche en temps réel sur l’écran
+                  LCD.Technologie Radial Root Cyclone™ 14 cyclones génèrent des
+                  forces de plus de 79 000G pour capturer les particules
+                  microscopiques sans obstruer le filtre et sans perte
+                  d'aspiration.Technologie Radial Root Cyclone™ 14 cyclones
+                  génèrent des forces de plus de 79 000G pour capturer les
+                  particules microscopiques sans obstruer le filtre et sans
+                  perte d'aspiration.Technologie Radial Root Cyclone™14 cyclones
+                  génèrent des forces de plus de 79 000G pour capturer les
+                  particules microscopiques sans obstruer le filtre et sans
+                  perte d'aspiration.Système complet de filtration Le système de
+                  filtration Dyson parfaitement étanche capture 99,97% des
+                  particules aussi petites que 0,3 microns.Système complet de
+                  filtration Le système de filtration Dyson parfaitement étanche
+                  capture 99,97% des particules aussi petites que 0,3
+                  microns.Système complet de filtrationLe système de filtration
+                  Dyson parfaitement étanche capture 99,97% des particules aussi
+                  petites que 0,3 microns.Rapport intelligent en temps réel Suit
+                  la performance 8000 fois par seconde, puis l’affiche en temps
+                  réel sur l’écran LCD.Rapport intelligent en temps réel Suit la
+                  performance 8000 fois par seconde, puis l’affiche en temps
+                  réel sur l’écran LCD.Rapport intelligent en temps réelSuit la
+                  performance 8000 fois par seconde, puis l’affiche en temps
+                  réel sur l’écran LCD.Optimise intelligemment le nettoyage et
+                  l'autonomie En mode Auto, le système de détection automatique
+                  (Dyson DLS™) de la brosse High Torque contrôle la résistance
+                  de la brosse 360 fois par seconde, ajustant automatiquement la
+                  puissance aux différents types de sols. Vous pouvez donc
+                  passer d'un tapis à un sol dur sans avoir à changer de
+                  brosse.Optimise intelligemment le nettoyage et l'autonomieEn
+                  mode Auto, le système de détection automatique (Dyson DLS™) de
+                  la brosse High Torque contrôle la résistance de la brosse 360
+                  fois par seconde, ajustant automatiquement la puissance aux
+                  différents types de sols. Vous pouvez donc passer d'un tapis à
+                  un sol dur sans avoir à changer de brosse.Mode Auto Il ajuste
+                  automatiquement la puissance aux différents types de sols pour
+                  optimiser l'autonomie.Mode AutoIl ajuste automatiquement la
+                  puissance aux différents types de sols pour optimiser
+                  l'autonomie.Mode Eco Jusqu'à 60 minutes d'autonomie.2 Ideal
+                  pour les longues sessions de nettoyage sur tous les types de
+                  sols. Mode Boost L'aspiration la plus puissante de tous les
+                  aspirateurs sans fil en utilisation.1Mode Eco Jusqu'à 60
+                  minutes d'autonomie.2 Ideal pour les longues sessions de
+                  nettoyage sur tous les types de sols.Mode EcoJusqu'à 60
+                  minutes d'autonomie.2 Ideal pour les longues sessions de
+                  nettoyage sur tous les types de sols.Mode Boost L'aspiration
+                  la plus puissante de tous les aspirateurs sans fil en
+                  utilisation.1Mode BoostL'aspiration la plus puissante de tous
+                  les aspirateurs sans fil en utilisation.1Un nettoyage partout
+                  La polyvalence de la technologie Dyson sans fil facilite la
+                  nettoyage partout dans la maison. Avec des accessoires Dyson
+                  adaptés à différentes tâches.Un nettoyage partout La
+                  polyvalence de la technologie Dyson sans fil facilite la
+                  nettoyage partout dans la maison. Avec des accessoires Dyson
+                  adaptés à différentes tâches.Un nettoyage partoutLa
+                  polyvalence de la technologie Dyson sans fil facilite la
+                  nettoyage partout dans la maison. Avec des accessoires Dyson
+                  adaptés à différentes tâches.Caractéristiques Vidage
+                  hygiénique du collecteur Le mécanisme de vidage de précision
+                  éjecte hygiéniquement toute la poussière et les débris dans
+                  votre poubelle, en un seul geste. Station murale de chargement
+                  L’aspirateur Dyson V11 se range dans la station fixée au mur
+                  pour se recharger. Batterie clipsable Changer de batterie en
+                  un clic.3 Les batteries amovibles peuvent être chargées sur ou
+                  en dehors de la machine. Nettoyage puissant sur les sols durs
+                  et tapis Un moteur numérique intégré fait tourner la brosse
+                  jusqu'à 60 fois par seconde. Rapport intelligent en temps réel
+                  Suit la performance 8000 fois par seconde, puis l’affiche en
+                  temps réel sur l’écran LCD.CaractéristiquesVidage hygiénique
+                  du collecteur Le mécanisme de vidage de précision éjecte
+                  hygiéniquement toute la poussière et les débris dans votre
+                  poubelle, en un seul geste. Station murale de chargement
+                  L’aspirateur Dyson V11 se range dans la station fixée au mur
+                  pour se recharger. Batterie clipsable Changer de batterie en
+                  un clic.3 Les batteries amovibles peuvent être chargées sur ou
+                  en dehors de la machine.Vidage hygiénique du collecteur Le
+                  mécanisme de vidage de précision éjecte hygiéniquement toute
+                  la poussière et les débris dans votre poubelle, en un seul
+                  geste.Vidage hygiénique du collecteur Le mécanisme de vidage
+                  de précision éjecte hygiéniquement toute la poussière et les
+                  débris dans votre poubelle, en un seul geste.Vidage hygiénique
+                  du collecteurLe mécanisme de vidage de précision éjecte
+                  hygiéniquement toute la poussière et les débris dans votre
+                  poubelle, en un seul geste.Station murale de chargement
+                  L’aspirateur Dyson V11 se range dans la station fixée au mur
+                  pour se recharger.Station murale de chargement L’aspirateur
+                  Dyson V11 se range dans la station fixée au mur pour se
+                  recharger.Station murale de chargementL’aspirateur Dyson V11
+                  se range dans la station fixée au mur pour se
+                  recharger.Batterie clipsable Changer de batterie en un clic.3
+                  Les batteries amovibles peuvent être chargées sur ou en dehors
+                  de la machine.Batterie clipsable Changer de batterie en un
+                  clic.3 Les batteries amovibles peuvent être chargées sur ou en
+                  dehors de la machine.Batterie clipsableChanger de batterie en
+                  un clic.3 Les batteries amovibles peuvent être chargées sur ou
+                  en dehors de la machine.Nettoyage puissant sur les sols durs
+                  et tapis Un moteur numérique intégré fait tourner la brosse
+                  jusqu'à 60 fois par seconde. Rapport intelligent en temps réel
+                  Suit la performance 8000 fois par seconde, puis l’affiche en
+                  temps réel sur l’écran LCD.Nettoyage puissant sur les sols
+                  durs et tapis Un moteur numérique intégré fait tourner la
+                  brosse jusqu'à 60 fois par seconde.Nettoyage puissant sur les
+                  sols durs et tapis Un moteur numérique intégré fait tourner la
+                  brosse jusqu'à 60 fois par seconde.Nettoyage puissant sur les
+                  sols durs et tapisUn moteur numérique intégré fait tourner la
+                  brosse jusqu'à 60 fois par seconde.Rapport intelligent en
+                  temps réel Suit la performance 8000 fois par seconde, puis
+                  l’affiche en temps réel sur l’écran LCD.Rapport intelligent en
+                  temps réel Suit la performance 8000 fois par seconde, puis
+                  l’affiche en temps réel sur l’écran LCD.Rapport intelligent en
+                  temps réelSuit la performance 8000 fois par seconde, puis
+                  l’affiche en temps réel sur l’écran LCD.Accessoires Brosse
+                  motorisée High Torque Brosse rouleau doux Mini brosse
+                  motoriséeAccessoiresBrosse motorisée High Torque Brosse
+                  rouleau doux Mini brosse motoriséeBrosse motorisée High
+                  TorqueBrosse motorisée High TorqueBrosse motorisée High
+                  TorqueBrosse rouleau douxBrosse rouleau douxBrosse rouleau
+                  douxMini brosse motoriséeMini brosse motoriséeMini brosse
+                  motoriséeDans la boîte Dyson V11™ Absolute Extra Brosse
+                  motorisée High Torque Brosse rouleau doux Mini brosse
+                  motorisée Station murale de chargement Chargeur Accessoire
+                  combiné Long suceur Mini brosse douce Brosse rigide Batterie
+                  Station d'accueilDans la boîteDyson V11™ Absolute Extra Brosse
+                  motorisée High Torque Brosse rouleau doux Mini brosse
+                  motorisée Station murale de chargement Chargeur Accessoire
+                  combiné Long suceur Mini brosse douce Brosse rigide Batterie
+                  Station d'accueilDyson V11™ Absolute ExtraDyson V11™ Absolute
+                  ExtraDyson V11™ Absolute ExtraBrosse motorisée High Torque
+                  Brosse rouleau doux Mini brosse motorisée Station murale de
+                  chargement Chargeur Accessoire combiné Long suceur Mini brosse
+                  douce Brosse rigide Batterie Station d'accueilBrosse motorisée
+                  High Torque Brosse rouleau doux Mini brosse motorisée Station
+                  murale de chargementBrosse motorisée High TorqueBrosse
+                  motorisée High TorqueBrosse motorisée High TorqueBrosse
+                  rouleau douxBrosse rouleau douxBrosse rouleau douxMini brosse
+                  motoriséeMini brosse motoriséeMini brosse motoriséeStation
+                  murale de chargementStation murale de chargementStation murale
+                  de chargementChargeur Accessoire combiné Long suceur Mini
+                  brosse douceChargeurChargeurChargeurAccessoire
+                  combinéAccessoire combinéAccessoire combinéLong suceurLong
+                  suceurLong suceurMini brosse douceMini brosse douceMini brosse
+                  douceBrosse rigide Batterie Station d'accueilBrosse
+                  rigideBrosse rigideBrosse
+                  rigideBatterieBatterieBatterieStation d'accueilStation
+                  d'accueilStation d'accueil Caractéristiques de l’appareil
+                  Poids 2.97 kg Brosse principale Brosse high torque Technologie
+                  cyclonique 14 cyclones génèrent des forces de plus de 79 000G
+                  pour capturer dans le collecteur les particules
+                  microscopiques, comme le pollen et les bactéries. Filtration
+                  Système de filtration complet de l’appareil Puissance
+                  d'aspiration (mode boost) 185 AW Temps de chargement 4h30
+                  Autonomie Jusqu'à 60 minutes Capacité du collecteur 0.76 L
+                  Hauteur 261 mm Longueur 250 mm Largeur 1286 mm
+                  Caractéristiques de l’appareil Poids 2.97 kg Brosse principale
+                  Brosse high torque Technologie cyclonique 14 cyclones génèrent
+                  des forces de plus de 79 000G pour capturer dans le collecteur
+                  les particules microscopiques, comme le pollen et les
+                  bactéries. Filtration Système de filtration complet de
+                  l’appareil Puissance d'aspiration (mode boost) 185 AW Temps de
+                  chargement 4h30 Autonomie Jusqu'à 60 minutes Capacité du
+                  collecteur 0.76 L Hauteur 261 mm Longueur 250 mm Largeur 1286
+                  mm Caractéristiques de l’appareil Poids 2.97 kg Brosse
+                  principale Brosse high torque Technologie cyclonique 14
+                  cyclones génèrent des forces de plus de 79 000G pour capturer
+                  dans le collecteur les particules microscopiques, comme le
+                  pollen et les bactéries. Filtration Système de filtration
+                  complet de l’appareil Puissance d'aspiration (mode boost) 185
+                  AW Temps de chargement 4h30 Autonomie Jusqu'à 60 minutes
+                  Capacité du collecteur 0.76 L Hauteur 261 mm Longueur 250 mm
+                  Largeur 1286 mm Hauteur 261 mm Longueur 250 mm Largeur 1286 mm
+                xpath: /html/body/div[15]
+            manufacturerImages:
+              - text: https://media.flixcar.com/f360cdn/Dyson-45349190-dyson_v11_absolute_motif.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986345-248L_Mod1.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986374-248L_Mod2.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986413-M3-01.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986419-M3-02.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986431-M3-03.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[3]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986437-248L_Mod4.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45349057-V11_4_AbsoluteAndTorqueDrive_FlixNew_PDP_Desktop_Mod4_AutoMode_LB.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45349069-V11_5_AbsoluteAndTorqueDrive_FlixNew_PDP_Desktop_Mod5_EcoMode_LB.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45349075-V11_6_AbsoluteAndTorqueDrive_FlixNew_PDP_Desktop_Mod6_BoostMode_LB.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986452-248L_Mod8.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986471-01_feature.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[2]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986479-02_feature.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[2]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986485-03_feature.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[2]/div[3]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986491-04_feature.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[3]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986499-05_feature.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[3]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45349147-V11_AbsoluteAndTorqueDrive_FlixNew_PDP_Desktop_Tools1_Torque.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45349153-V11_AbsoluteAndTorqueDrive_FlixNew_PDP_Desktop_Tools2_Fluffy.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45349159-V11_AbsoluteAndTorqueDrive_FlixNew_PDP_Desktop_Tools3_MMT.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]/div[3]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986510-M11-in-the-box-Nickel_blue.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-74024231-248L_LB-FlixMedia-PDP-ITB-Torque.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986526-V11_FlixMedia_PDP_ITB_SoftRoller.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-74023596-V11_FlixMedia_PDP_ITB_Minimotortool.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-74023512-V11_FlixMedia_PDP_ITB_WallDock.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-74023522-V11_FlixMedia_PDP_ITB_Charger.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-74023531-V11_FlixMedia_PDP_ITB_Combi.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-74023542-V11_FlixMedia_PDP_ITB_Crevice.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[2]/div[3]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-74023551-V11_FlixMedia_PDP_ITB_SoftDustBrush.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-74023609-248F-FlixMedia-PDP-ITB-StubbornDirtBrush.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986485-03_feature.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[3]/div[2]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-64185807-V11_FlixMedia_PDP_ITB_FloorDock.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]/div[3]/div[3]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-45349179-V11_FlixMedia_PDP_Spec_Blue_LB_THD.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@srcset
+            videos:
+              - text: https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=%7B%22playlist%22%3A%5B%7B%22file%22%3A%22%5C%2F%5C%2Fcontent.jwplatform.com%5C%2Fvideos%5C%2FchDYOspQ-oPzTg8Ym.mp4%22%2C%22image%22%3A%22%5C%2F%5C%2Fassets-jpcust.jwpsrv.com%5C%2Fthumbs%5C%2FchDYOspQ-1280.jpg%22%2C%22mediaid%22%3A%22chDYOspQ%22%2C%22code%22%3A%22feature-1-Laspiration%20la%20plus%20puissante%20de%20tous%20les%20aspirateurs%20sans%20fil%20en%20utilisation%3CSUP%3E1%3C%5C%2FSUP%3E.%22%7D%5D%2C%22listbar%22%3A%7B%22position%22%3A%22right%22%2C%22size%22%3A%22234%22%7D%7D&vidno=undefined&p=1832942&d=523&l=fr&sid=FB72341F-B341-698A-5EE5-AECF126F1745&mpn=&ean=5025155046821&base=//media.flixcar.com&gvid=flix5fc77a4f000000.90848935&pn=https|dub|forwww.but.fr/produits/5025155046821/Aspirateur-balai-DYSON-V11-ABSOLUTE-EXTRA-PRO.html
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/iframe[1]/@src
+              - text: https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=%7B%22playlist%22%3A%5B%7B%22file%22%3A%22%5C%2F%5C%2Fcontent.jwplatform.com%5C%2Fvideos%5C%2FHL8dTmVU-oPzTg8Ym.mp4%22%2C%22image%22%3A%22%5C%2F%5C%2Fassets-jpcust.jwpsrv.com%5C%2Fthumbs%5C%2FHL8dTmVU-1280.jpg%22%2C%22mediaid%22%3A%22HL8dTmVU%22%2C%22code%22%3A%22feature-7-Mode%20Auto%22%7D%5D%2C%22listbar%22%3A%7B%22position%22%3A%22right%22%2C%22size%22%3A%22234%22%7D%7D&vidno=undefined&p=1832942&d=523&l=fr&sid=FB72341F-B341-698A-5EE5-AECF126F1745&mpn=&ean=5025155046821&base=//media.flixcar.com&gvid=flix5fc77a4f000000.90848935&pn=https|dub|forwww.but.fr/produits/5025155046821/Aspirateur-balai-DYSON-V11-ABSOLUTE-EXTRA-PRO.html
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[3]/div[2]/div[1]/div[1]/iframe[1]/@src
+            name:
+              - text: DYSON Aspirateur balai V11 ABSOLUTE EXTRA PRO
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/h1[1]
+            specifications:
+              - text: L. 108 cm x l. 34 cm x H. 21 cm - Pds 14 kg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[2]/ul[2]/li[16]/span[2]
+            warranty:
+              - text: "Garantie : 2 ans gratuite"
+                xpath: /html/body/div[2]/section[1]/div[1]/section[1]/div[1]/div[1]/div[4]/ul[2]/li[1]/a[1]
+              - text: 2 ans, pièces, main d'oeuvre et transport
+                xpath: /html/body/div[2]/section[1]/div[5]/div[2]/ul[2]/li[13]/span[2]
+            additionalDescBulletInfo:
+              - text: "|| Autonomie de 60 minutes de puissance constante, || Batterie
+                  supplémentaire pour bénéficier d'un temps de nettoyage
+                  prolongé, || Ecran LCD : permet d'afficher l'autonomie
+                  restante et la performance en temps réel"
+                xpath: /html/body/div[18]
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "3"
+        xpath: /
+    timestamp: 1606908515472

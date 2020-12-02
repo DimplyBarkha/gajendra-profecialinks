@@ -1,0 +1,435 @@
+input:
+  _url: http://but.fr
+  URL: https://www.but.fr/produits/5025155049259/Aspirateur-balai-DYSON-V8-SLIM.html
+extractions:
+  - html: https://workbench.import.io/html/run=ab77a94b-4d85-44b3-8a2b-619b0276b2f2/task=720afd9a-d2de-469a-923d-b574a10bfa64/e6e80495-ce05-4efc-893b-4a9b496a1497.html
+    extractionConfigId: product/details/stores/b/but/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.but.fr/produits/5025155049259/Aspirateur-balai-DYSON-V8-SLIM.html
+                xpath: /html/head[1]/meta[4]/@content
+            image:
+              - text: https://image.but.fr/is/image/but/5025155049259_Q?id=eRXa12&fmt=jpg&fit=constrain,1&wid=256&hei=533
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Aspirateur balai DYSON V SLIM
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155049259_Z2.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155049259_Z3.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155049259_AMB2.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/img[1]/@onclick
+              - text: https://image.but.fr/is/image/but/images_produits/produit-lg/5025155049259_AMB3.jpg
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/img[1]/@onclick
+            metaKeywords:
+              - text: Aspirateur balai DYSON V8 SLIM - Aspirateur BUT
+                xpath: /html/head[1]/meta[1]/@content
+            category:
+              - text: Electroménager
+                xpath: /html/body/div[2]/nav[1]/a[2]
+              - text: Entretien de la maison
+                xpath: /html/body/div[2]/nav[1]/a[3]
+              - text: Aspirateur
+                xpath: /html/body/div[2]/nav[1]/a[4]
+            nameExtended:
+              - text: DYSON Aspirateur balai V8 SLIM
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: 379,99 €
+                xpath: /html/body/div[2]/section[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[15]
+            description:
+              - text: "|| Jusqu'à 40 minutes d'autonomie puissante et sans baisse de régime ||
+                  Pratique : station murale de chargement Un atout pour nettoyer
+                  les solsL'aspirateur DYSON V8 SLIM est un aspirateur balai qui
+                  allie performances et longue autonomie. En effet, cet
+                  aspirateur sans sac d'une puissance de 21,6&nbsp;V est aussi
+                  efficace sur le carrelage que sur les moquettes et le parquet.
+                  Vous pourrez ainsi l'utiliser dans toute la maison. Côté
+                  autonomie, ce modèle offre 40 minutes d'utilisation. Il vous
+                  faudra 5 heures pour recharger complètement la batterie. Pour
+                  cela, il faudra placer l'appareil sur sa station murale de
+                  chargement qui servira aussi de support de rangement.
+                  Pratique, le collecteur de poussière de 0,54&nbsp;L se vide
+                  facilement tout en évitant le contact direct avec les
+                  saletés.Un modèle au design moderneCet aspirateur rouge et
+                  gris affiche des lignes minces et modernes. Vous pourrez
+                  l'installer dans le cellier ou dans l'entrée tout en profitant
+                  de sa discrétion. Côté accessoires, cet aspirateur comprend un
+                  long suceur et une électrobrosse qui s'enlève facilement afin
+                  d'utiliser l'appareil comme un aspirateur de table. Générales
+                  || EAN 5025155049259 || Marque DYSON Caractéristiques du
+                  produit || Type d'aspirateur Balai || Type de collecteur Sans
+                  Sac || Alimentation Rechargeable || Puissance en volts 21,6 ||
+                  Autonomie en mn 7 || Sans sac oui || Volume maximum de
+                  poussière collecté (en litres) 0.54 || Variateur de puissance
+                  Oui || Commande électronique à la poignée N/A || Câble
+                  enrouleur Non || Multifonction Non || Tube N/A || Rechargeable
+                  oui || Temps de charge 5 h || Capacite en litres 0,54
+                  Fonctionnalités || Rayon d'action en m n/a || Système de
+                  filtrage (aspirateurs sans sac) Filtre Cyclone Accessoires ||
+                  Accessoires accessoire combiné et long suceur || Brosse pour
+                  poils d'animaux Non || Electrobrosse Oui || Turbo brosse Non
+                  Services || Garantie 2 ans, pièces, main d'oeuvre à domicile
+                  || Disponibilité des pièces détachées (Donnée fournisseur) 3
+                  ans Caractéristiques du colis || Dimensions colis 1 L. 15 cm x
+                  l. 27 cm x H. 68 cm - Pds 5 kg || Nombre de colis 1 "
+            brandText:
+              - text: DYSON
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/h1[1]/strong[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/h1[1]/strong[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[2]/section[1]/div[5]/div[2]/ul[2]/li[17]/span[2]
+            sku:
+              - text: "5025155049259"
+                xpath: /html/body/script[2]/@data-flix-ean
+            variantId:
+              - text: "5025155049259"
+                xpath: /html/body/script[2]/@data-flix-ean
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/a[1]
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[2]/section[1]/div[9]/div[1]/div[1]/p[2]/span[1]
+            shippingInfo:
+              - text: Vendu par BUT
+                xpath: /html/body/div[2]/section[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[1]/div[1]/p[1]
+            shippingDimensions:
+              - text: L. 15 cm x l. 27 cm x H. 68 cm - Pds 5 kg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[2]/ul[2]/li[16]/span[2]
+            shippingWeight:
+              - text: " 5 kg"
+                xpath: /html/body/div[2]/section[1]/div[5]/div[2]/ul[2]/li[16]/span[2]
+            manufacturerDescription:
+              - text: Brosse repensée. 40 % plus compacte et plus légère. Performances
+                  identiques.1 La brosse FluffyTMde Dyson a été repensée pour un
+                  gain de poids et de taille de 40% tout en préservant ses
+                  capacités d'aspiration des poussières fines. Aspire. Et aspire
+                  encore. Jusqu’à 40 minutes.2 Sa batterie au
+                  nickel-cobalt-aluminium fournit jusqu'à 40 minutes
+                  d'aspiration sans baisse de régime. Pour une aspiration
+                  puissante dans toute votre habitation. Caractéristiques du
+                  produit Alimenté par le moteur numérique Dyson V8TM Avec une
+                  vitesse de rotation maximale de 110 000 tr/min, soit cinq fois
+                  plus que celle d'une Formule 1, le moteur numérique Dyson V8TM
+                  génère jusqu'à 115 watts d'aspiration. Filtration de pointe Le
+                  système de filtration complet de l'appareil capture 99,97 %
+                  des particules aussi fines que 0,3 micron.3 Cyclones 2 Tier
+                  Radial™ 15 cyclones produisent une puissante force centrifuge
+                  pour projeter la poussière microscopique dans le collecteur
+                  transparent. Aspiration plus silencieuse Conception acoustique
+                  prévue pour absorber les vibrations et atténuer le niveau
+                  sonore. Jusqu'à 40 minutes d'autonomie2 40 minutes
+                  d'aspiration continue sans baisse de régime en mode Puissant.
+                  Brosse Slim FluffyTM Un condensé de technologie. Brosse 40 %
+                  plus compacte et plus légère que la précédente Dyson
+                  FluffyTM1. Performances identiques. Long suceur Conçu pour le
+                  nettoyage de précision sur les bords et dans les espaces
+                  étroits. Accessoire deux en un Utilisez-le avec ou sans la
+                  brosse d'extraction. Deux outils en un pour passer facilement
+                  d'une surface à l'autre. Deux modes de puissance Jusqu'à 40
+                  minutes d'aspiration sans baisse de régime en mode Puissant³.
+                  Vous pouvez aussi utiliser le mode MAX pour une aspiration
+                  ciblée et intense. Atteint facilement les zones en hauteur Son
+                  tube plus court et plus léger que celui du précédent Dyson V8™
+                  permet d'aspirer les zones en hauteur facilement et d'un seul
+                  geste. Se transforme rapidement en aspirateur à main D'une
+                  simple pression, le Dyson V8TM Slim se transforme en
+                  aspirateur à main, puis à nouveau en aspirateur-balai. Vidage
+                  hygiénique du collecteur Éjecte toute la poussière et les
+                  débris collectés d'un seul geste pour éviter tout contact avec
+                  la poussière. Station d’accueil Permet de ranger et de
+                  recharger votre aspirateur Dyson V8™ et ses accessoires pour
+                  qu’il soit toujours prêt quand vous en avez besoin. Contenu de
+                  la boîte Aspirateur Dyson V8 Slim Parquet Brosse Slim FluffyTM
+                  Accessoire deux en un Long suceur avec détachement facile
+                  Station d’accueil Chargeur 1En comparaison avec le Dyson V8™
+                  2Autonomie renseignée pour le mode d’aspiration puissant avec
+                  une brosse non motorisée. 3Testé conformément à la norme IEC
+                  62885-02, clause 5.11, en mode Boost.Brosse repensée. 40 %
+                  plus compacte et plus légère. Performances identiques.1 La
+                  brosse FluffyTMde Dyson a été repensée pour un gain de poids
+                  et de taille de 40% tout en préservant ses capacités
+                  d'aspiration des poussières fines.Brosse repensée. 40 % plus
+                  compacte et plus légère. Performances identiques.1La brosse
+                  FluffyTMde Dyson a été repensée pour un gain de poids et de
+                  taille de 40% tout en préservant ses capacités d'aspiration
+                  des poussières fines.Aspire. Et aspire encore. Jusqu’à 40
+                  minutes.2 Sa batterie au nickel-cobalt-aluminium fournit
+                  jusqu'à 40 minutes d'aspiration sans baisse de régime. Pour
+                  une aspiration puissante dans toute votre habitation.Aspire.
+                  Et aspire encore. Jusqu’à 40 minutes.2 Sa batterie au
+                  nickel-cobalt-aluminium fournit jusqu'à 40 minutes
+                  d'aspiration sans baisse de régime. Pour une aspiration
+                  puissante dans toute votre habitation.Aspire. Et aspire
+                  encore. Jusqu’à 40 minutes.2Sa batterie au
+                  nickel-cobalt-aluminium fournit jusqu'à 40 minutes
+                  d'aspiration sans baisse de régime. Pour une aspiration
+                  puissante dans toute votre habitation.Caractéristiques du
+                  produit Alimenté par le moteur numérique Dyson V8TM Avec une
+                  vitesse de rotation maximale de 110 000 tr/min, soit cinq fois
+                  plus que celle d'une Formule 1, le moteur numérique Dyson V8TM
+                  génère jusqu'à 115 watts d'aspiration. Filtration de pointe Le
+                  système de filtration complet de l'appareil capture 99,97 %
+                  des particules aussi fines que 0,3 micron.3 Cyclones 2 Tier
+                  Radial™ 15 cyclones produisent une puissante force centrifuge
+                  pour projeter la poussière microscopique dans le collecteur
+                  transparent. Aspiration plus silencieuse Conception acoustique
+                  prévue pour absorber les vibrations et atténuer le niveau
+                  sonore. Jusqu'à 40 minutes d'autonomie2 40 minutes
+                  d'aspiration continue sans baisse de régime en mode Puissant.
+                  Brosse Slim FluffyTM Un condensé de technologie. Brosse 40 %
+                  plus compacte et plus légère que la précédente Dyson
+                  FluffyTM1. Performances identiques. Long suceur Conçu pour le
+                  nettoyage de précision sur les bords et dans les espaces
+                  étroits. Accessoire deux en un Utilisez-le avec ou sans la
+                  brosse d'extraction. Deux outils en un pour passer facilement
+                  d'une surface à l'autre. Deux modes de puissance Jusqu'à 40
+                  minutes d'aspiration sans baisse de régime en mode Puissant³.
+                  Vous pouvez aussi utiliser le mode MAX pour une aspiration
+                  ciblée et intense. Atteint facilement les zones en hauteur Son
+                  tube plus court et plus léger que celui du précédent Dyson V8™
+                  permet d'aspirer les zones en hauteur facilement et d'un seul
+                  geste. Se transforme rapidement en aspirateur à main D'une
+                  simple pression, le Dyson V8TM Slim se transforme en
+                  aspirateur à main, puis à nouveau en aspirateur-balai. Vidage
+                  hygiénique du collecteur Éjecte toute la poussière et les
+                  débris collectés d'un seul geste pour éviter tout contact avec
+                  la poussière. Station d’accueil Permet de ranger et de
+                  recharger votre aspirateur Dyson V8™ et ses accessoires pour
+                  qu’il soit toujours prêt quand vous en avez
+                  besoin.Caractéristiques du produitAlimenté par le moteur
+                  numérique Dyson V8TM Avec une vitesse de rotation maximale de
+                  110 000 tr/min, soit cinq fois plus que celle d'une Formule 1,
+                  le moteur numérique Dyson V8TM génère jusqu'à 115 watts
+                  d'aspiration. Filtration de pointe Le système de filtration
+                  complet de l'appareil capture 99,97 % des particules aussi
+                  fines que 0,3 micron.3 Cyclones 2 Tier Radial™ 15 cyclones
+                  produisent une puissante force centrifuge pour projeter la
+                  poussière microscopique dans le collecteur
+                  transparent.Alimenté par le moteur numérique Dyson V8TM Avec
+                  une vitesse de rotation maximale de 110 000 tr/min, soit cinq
+                  fois plus que celle d'une Formule 1, le moteur numérique Dyson
+                  V8TM génère jusqu'à 115 watts d'aspiration.Alimenté par le
+                  moteur numérique Dyson V8TM Avec une vitesse de rotation
+                  maximale de 110 000 tr/min, soit cinq fois plus que celle
+                  d'une Formule 1, le moteur numérique Dyson V8TM génère jusqu'à
+                  115 watts d'aspiration.Alimenté par le moteur numérique Dyson
+                  V8TMAvec une vitesse de rotation maximale de 110 000 tr/min,
+                  soit cinq fois plus que celle d'une Formule 1, le moteur
+                  numérique Dyson V8TM génère jusqu'à 115 watts
+                  d'aspiration.Filtration de pointe Le système de filtration
+                  complet de l'appareil capture 99,97 % des particules aussi
+                  fines que 0,3 micron.3Filtration de pointe Le système de
+                  filtration complet de l'appareil capture 99,97 % des
+                  particules aussi fines que 0,3 micron.3Filtration de pointeLe
+                  système de filtration complet de l'appareil capture 99,97 %
+                  des particules aussi fines que 0,3 micron.3Cyclones 2 Tier
+                  Radial™ 15 cyclones produisent une puissante force centrifuge
+                  pour projeter la poussière microscopique dans le collecteur
+                  transparent.Cyclones 2 Tier Radial™ 15 cyclones produisent une
+                  puissante force centrifuge pour projeter la poussière
+                  microscopique dans le collecteur transparent.Cyclones 2 Tier
+                  Radial™15 cyclones produisent une puissante force centrifuge
+                  pour projeter la poussière microscopique dans le collecteur
+                  transparent.Aspiration plus silencieuse Conception acoustique
+                  prévue pour absorber les vibrations et atténuer le niveau
+                  sonore. Jusqu'à 40 minutes d'autonomie2 40 minutes
+                  d'aspiration continue sans baisse de régime en mode Puissant.
+                  Brosse Slim FluffyTM Un condensé de technologie. Brosse 40 %
+                  plus compacte et plus légère que la précédente Dyson
+                  FluffyTM1. Performances identiques.Aspiration plus silencieuse
+                  Conception acoustique prévue pour absorber les vibrations et
+                  atténuer le niveau sonore.Aspiration plus silencieuse
+                  Conception acoustique prévue pour absorber les vibrations et
+                  atténuer le niveau sonore.Aspiration plus
+                  silencieuseConception acoustique prévue pour absorber les
+                  vibrations et atténuer le niveau sonore.Jusqu'à 40 minutes
+                  d'autonomie2 40 minutes d'aspiration continue sans baisse de
+                  régime en mode Puissant.Jusqu'à 40 minutes d'autonomie2 40
+                  minutes d'aspiration continue sans baisse de régime en mode
+                  Puissant.Jusqu'à 40 minutes d'autonomie240 minutes
+                  d'aspiration continue sans baisse de régime en mode
+                  Puissant.Brosse Slim FluffyTM Un condensé de technologie.
+                  Brosse 40 % plus compacte et plus légère que la précédente
+                  Dyson FluffyTM1. Performances identiques.Brosse Slim FluffyTM
+                  Un condensé de technologie. Brosse 40 % plus compacte et plus
+                  légère que la précédente Dyson FluffyTM1. Performances
+                  identiques.Brosse Slim FluffyTMUn condensé de technologie.
+                  Brosse 40 % plus compacte et plus légère que la précédente
+                  Dyson FluffyTM1. Performances identiques.Long suceur Conçu
+                  pour le nettoyage de précision sur les bords et dans les
+                  espaces étroits. Accessoire deux en un Utilisez-le avec ou
+                  sans la brosse d'extraction. Deux outils en un pour passer
+                  facilement d'une surface à l'autre. Deux modes de puissance
+                  Jusqu'à 40 minutes d'aspiration sans baisse de régime en mode
+                  Puissant³. Vous pouvez aussi utiliser le mode MAX pour une
+                  aspiration ciblée et intense.Long suceur Conçu pour le
+                  nettoyage de précision sur les bords et dans les espaces
+                  étroits.Long suceur Conçu pour le nettoyage de précision sur
+                  les bords et dans les espaces étroits.Long suceurConçu pour le
+                  nettoyage de précision sur les bords et dans les espaces
+                  étroits.Accessoire deux en un Utilisez-le avec ou sans la
+                  brosse d'extraction. Deux outils en un pour passer facilement
+                  d'une surface à l'autre.Accessoire deux en un Utilisez-le avec
+                  ou sans la brosse d'extraction. Deux outils en un pour passer
+                  facilement d'une surface à l'autre.Accessoire deux en
+                  unUtilisez-le avec ou sans la brosse d'extraction. Deux outils
+                  en un pour passer facilement d'une surface à l'autre.Deux
+                  modes de puissance Jusqu'à 40 minutes d'aspiration sans baisse
+                  de régime en mode Puissant³. Vous pouvez aussi utiliser le
+                  mode MAX pour une aspiration ciblée et intense.Deux modes de
+                  puissance Jusqu'à 40 minutes d'aspiration sans baisse de
+                  régime en mode Puissant³. Vous pouvez aussi utiliser le mode
+                  MAX pour une aspiration ciblée et intense.Deux modes de
+                  puissanceJusqu'à 40 minutes d'aspiration sans baisse de régime
+                  en mode Puissant³. Vous pouvez aussi utiliser le mode MAX pour
+                  une aspiration ciblée et intense.Atteint facilement les zones
+                  en hauteur Son tube plus court et plus léger que celui du
+                  précédent Dyson V8™ permet d'aspirer les zones en hauteur
+                  facilement et d'un seul geste. Se transforme rapidement en
+                  aspirateur à main D'une simple pression, le Dyson V8TM Slim se
+                  transforme en aspirateur à main, puis à nouveau en
+                  aspirateur-balai. Vidage hygiénique du collecteur Éjecte toute
+                  la poussière et les débris collectés d'un seul geste pour
+                  éviter tout contact avec la poussière.Atteint facilement les
+                  zones en hauteur Son tube plus court et plus léger que celui
+                  du précédent Dyson V8™ permet d'aspirer les zones en hauteur
+                  facilement et d'un seul geste.Atteint facilement les zones en
+                  hauteur Son tube plus court et plus léger que celui du
+                  précédent Dyson V8™ permet d'aspirer les zones en hauteur
+                  facilement et d'un seul geste.Atteint facilement les zones en
+                  hauteurSon tube plus court et plus léger que celui du
+                  précédent Dyson V8™ permet d'aspirer les zones en hauteur
+                  facilement et d'un seul geste.Se transforme rapidement en
+                  aspirateur à main D'une simple pression, le Dyson V8TM Slim se
+                  transforme en aspirateur à main, puis à nouveau en
+                  aspirateur-balai.Se transforme rapidement en aspirateur à main
+                  D'une simple pression, le Dyson V8TM Slim se transforme en
+                  aspirateur à main, puis à nouveau en aspirateur-balai.Se
+                  transforme rapidement en aspirateur à mainD'une simple
+                  pression, le Dyson V8TM Slim se transforme en aspirateur à
+                  main, puis à nouveau en aspirateur-balai.Vidage hygiénique du
+                  collecteur Éjecte toute la poussière et les débris collectés
+                  d'un seul geste pour éviter tout contact avec la
+                  poussière.Vidage hygiénique du collecteur Éjecte toute la
+                  poussière et les débris collectés d'un seul geste pour éviter
+                  tout contact avec la poussière.Vidage hygiénique du
+                  collecteurÉjecte toute la poussière et les débris collectés
+                  d'un seul geste pour éviter tout contact avec la
+                  poussière.Station d’accueil Permet de ranger et de recharger
+                  votre aspirateur Dyson V8™ et ses accessoires pour qu’il soit
+                  toujours prêt quand vous en avez besoin.Station d’accueil
+                  Permet de ranger et de recharger votre aspirateur Dyson V8™ et
+                  ses accessoires pour qu’il soit toujours prêt quand vous en
+                  avez besoin.Station d’accueil Permet de ranger et de recharger
+                  votre aspirateur Dyson V8™ et ses accessoires pour qu’il soit
+                  toujours prêt quand vous en avez besoin.Station
+                  d’accueilPermet de ranger et de recharger votre aspirateur
+                  Dyson V8™ et ses accessoires pour qu’il soit toujours prêt
+                  quand vous en avez besoin.Contenu de la boîte Aspirateur Dyson
+                  V8 Slim Parquet Brosse Slim FluffyTM Accessoire deux en un
+                  Long suceur avec détachement facile Station d’accueil
+                  ChargeurContenu de la boîteAspirateur Dyson V8 Slim Parquet
+                  Brosse Slim FluffyTM Accessoire deux en un Long suceur avec
+                  détachement facile Station d’accueil ChargeurAspirateur Dyson
+                  V8 Slim ParquetAspirateur Dyson V8 Slim ParquetAspirateur
+                  Dyson V8 Slim ParquetBrosse Slim FluffyTM Accessoire deux en
+                  un Long suceur avec détachement facile Station d’accueil
+                  ChargeurBrosse Slim FluffyTM Accessoire deux en un Long suceur
+                  avec détachement facile Station d’accueilBrosse Slim
+                  FluffyTMBrosse Slim FluffyTMBrosse Slim FluffyTMAccessoire
+                  deux en unAccessoire deux en unAccessoire deux en unLong
+                  suceur avec détachement facileLong suceur avec détachement
+                  facileLong suceur avec détachement facileStation
+                  d’accueilStation d’accueilStation
+                  d’accueilChargeurChargeurChargeurChargeur Caractéristiques
+                  Contenance du collecteur 0.54 L Poids 2.1 KG Temps de charge 5
+                  hrs Autonomie 40 mins Technologie Cyclone 2 cyclones
+                  concentriques Largeur 1 249 mm Longueur 256 mm Hauteur 250 mm
+                  Caractéristiques Contenance du collecteur 0.54 L Poids 2.1 KG
+                  Temps de charge 5 hrs Autonomie 40 mins Technologie Cyclone 2
+                  cyclones concentriques Largeur 1 249 mm Longueur 256 mm
+                  Hauteur 250 mm Caractéristiques Contenance du collecteur 0.54
+                  L Poids 2.1 KG Temps de charge 5 hrs Autonomie 40 mins
+                  Technologie Cyclone 2 cyclones concentriques Largeur 1 249 mm
+                  Longueur 256 mm Hauteur 250 mm Largeur 1 249 mm Longueur 256
+                  mm Hauteur 250 mm
+                xpath: /html/body/div[14]
+            manufacturerImages:
+              - text: https://media.flixcar.com/f360cdn/Dyson-70353551-Dyson-V8.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733570-V8_slim_desktop_module1.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733583-V8_Slim_desktop_module2.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733596-1_Feature_Motor.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733602-2_Feature_Filter.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733614-3_Feature_Cyclone.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[3]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733624-4_Feature_Acoustic.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733630-5_Feature_40minutes.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[3]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733636-6_Feature_SoftRoller.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[3]/div[3]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733642-7_Feature_CreviceTool.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[4]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733648-8_Feature_CombinationTool.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[4]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733654-9_Feature_TwoPowerModes.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[4]/div[3]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733660-10_Feature_UpHigh.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733666-11_Feature_TransformsHandheld.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[5]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733673-12_Feature_BinEmpty.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[5]/div[3]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733689-13_Feature_DockingStation.jpg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733695-Product.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733701-Soft_Roller.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733707-Combination_Tool.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733714-Crevice_Tool.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733725-Docking_Station.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733734-Charger.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-73733742-Specifications.png
+                xpath: /html/body/div[2]/section[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@srcset
+            name:
+              - text: DYSON Aspirateur balai V8 SLIM
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/h1[1]
+            specifications:
+              - text: L. 15 cm x l. 27 cm x H. 68 cm - Pds 5 kg
+                xpath: /html/body/div[2]/section[1]/div[5]/div[2]/ul[2]/li[16]/span[2]
+            warranty:
+              - text: "Garantie : 2 ans gratuite"
+                xpath: /html/body/div[2]/section[1]/div[1]/section[1]/div[1]/div[1]/div[4]/ul[2]/li[1]/a[1]
+              - text: 2 ans, pièces, main d'oeuvre à domicile
+                xpath: /html/body/div[2]/section[1]/div[5]/div[2]/ul[2]/li[13]/span[2]
+            additionalDescBulletInfo:
+              - text: "|| Jusqu'à 40 minutes d'autonomie puissante et sans baisse de régime, ||
+                  Pratique : station murale de chargement"
+                xpath: /html/body/div[17]
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "2"
+        xpath: /
+    timestamp: 1606908515190
