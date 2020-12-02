@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li//div[contains(@class,'prateleira__item')]
+fields:
+  - name: id
+    xpath: //input[@name='productId']/@value | //div[contains(@class,'prateleira__item')]/@data-product-id
+  - name: name
+    xpath: //a[@class='prateleira__name']
+  - name: price
+    xpath: //span[contains(@class,'prateleira__best-price')]
+  - name: productUrl
+    xpath: //a[@class='prateleira__image-link']/@href
+    regExp: (.+)
+    regExpReplace: https://www.walmart.com.ar/$1
+  - name: thumbnail
+    xpath: //div[@class='prateleira__image']//img/@src
