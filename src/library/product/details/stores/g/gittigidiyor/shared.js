@@ -11,14 +11,14 @@ const transform = (data) => {
                 row.availabilityText[0].text = row.availabilityText[0].text.includes('adet ürün stokta') ? 'In Stock' : 'Out Of Stock'
             }
 
-            if (row.nameExtended) {
-                let nameExtended = row.nameExtended[0].text;
-                nameExtended = nameExtended[nameExtended.length - 1] === '-' ? nameExtended.substring(0, nameExtended.length - 1).trim() : nameExtended.trim()
-                nameExtended = nameExtended[0] === '-' ? nameExtended.substring(1, nameExtended.length).trim() : nameExtended.trim()
-                row.nameExtended = [{
-                    text: nameExtended
-                }]
-            }
+            // if (row.nameExtended) {
+            //     let nameExtended = row.nameExtended[0].text;
+            //     nameExtended = nameExtended[nameExtended.length - 1] === '-' ? nameExtended.substring(0, nameExtended.length - 1).trim() : nameExtended.trim()
+            //     nameExtended = nameExtended[0] === '-' ? nameExtended.substring(1, nameExtended.length).trim() : nameExtended.trim()
+            //     row.nameExtended = [{
+            //         text: nameExtended
+            //     }]
+            // }
 
             if (row.specValues) {
                 let specValues = row.specValues;
@@ -50,19 +50,19 @@ const transform = (data) => {
                 finalDescription += featureStr.length > 0 ? ` || ${featureStr}` : '';
                 finalDescription += row.descriptionContent ? ` ${row.descriptionContent[0].text}` : '';
                 row.description = [{ text: finalDescription }]
-                    // row.description = [{ text: `${row.description[0].text} ${row.featureHeading[0].text} || ${featureStr}` }];
+                // row.description = [{ text: `${row.description[0].text} ${row.featureHeading[0].text} || ${featureStr}` }];
             }
 
             if (row.aggregateRating) {
                 row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('.', ',') }]
             }
 
-            if (row.name) {
-                let nameExtended = '';
-                nameExtended += row.name[0].text;
-                nameExtended += row.nameExtendedTail ? ` - ${row.nameExtendedTail[0].text}` : '';
-                row.nameExtended = [{ text: nameExtended }];
-            }
+            // if (row.name) {
+            //     let nameExtended = '';
+            //     nameExtended += row.name[0].text;
+            //     nameExtended += row.nameExtendedTail ? ` - ${row.nameExtendedTail[0].text}` : '';
+            //     row.nameExtended = [{ text: nameExtended }];
+            // }
 
             if (row.weightNet) {
                 let netWeight = row.weightNet[0].text;
@@ -94,6 +94,9 @@ const transform = (data) => {
 
             if (!row.warranty && row.warrantySecondary) {
                 row.warranty = [{ text: row.warrantySecondary[0].text }]
+            }
+            if (row.sku) {
+                row.sku = [{ text: row.sku[0].text }]
             }
 
             row.variantCount = [{ text: 0 }]
