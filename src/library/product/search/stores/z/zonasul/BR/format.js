@@ -38,6 +38,11 @@ const transform = (data) => {
       if (row.price_1) {
         delete row.price_1;
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(',', '.');
+        });
+      }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
