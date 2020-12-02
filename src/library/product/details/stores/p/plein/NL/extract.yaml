@@ -1,0 +1,12 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id='owl-product']//div[contains(@class,'owl-item active')]//a//img[@class='owl-lazy']//@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='owl-product']//div[contains(@class,'owl-item active')]//a//img[@class='owl-lazy']//@alt
+  
