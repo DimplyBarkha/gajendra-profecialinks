@@ -8,7 +8,7 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
-  singleValue: false
+  singleValue: true
   xpath: //a[@id="productUrl"]/@title
 - name: _pageTimeStamp
   singleValue: false
@@ -32,10 +32,12 @@ fields:
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
+  xpath: //h1[@id="productName"]/span[@itemprop="name"]
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
+  xpath: //span[@data-test="product-pod-price"]/span
   description: The stated undiscounted price for the product
 - name: price
   singleValue: true
@@ -81,9 +83,11 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   singleValue: true
+  xpath: //div[contains(@class, "bv-shared")]/@data-product-id
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
+  xpath: //div[contains(@class, "bv-shared")]/@data-product-id
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
