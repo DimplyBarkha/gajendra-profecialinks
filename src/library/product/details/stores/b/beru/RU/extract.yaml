@@ -94,6 +94,9 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
+    regExp: (\/)(\d+)
+    regExpReplace: $2
+    xpath: //link[@rel="canonical"]/@href
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -144,6 +147,7 @@ fields:
   - name: color
     singleValue: false
     description: A textual description of the colour
+    xpath: //span[@class="b_orEV9DcwNt"]
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -460,6 +464,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
+    xpath: //span[@class="b_orEV9DcwNt"]
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
