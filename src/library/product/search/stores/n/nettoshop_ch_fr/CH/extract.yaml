@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="c-product-grid-item c-product-grid-item--theme c-product-grid-item--theme-primary-1 ember-view"]/@id
+  - name: name
+    singleValue: true
+    xpath: //div[@class="c-product-grid-item__title"]/a
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="c-product-grid-item__title"]/a/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.nettoshop.ch$1
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='added-searchurl']
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="c-product-grid-item__product"]/a/div/picture/img/@data-src
+  - name: price
+    singleValue: false
+    xpath: //div[@class="c-product-grid-item__price-total"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="c-rating c-rating--read-only ember-view"]/@title
