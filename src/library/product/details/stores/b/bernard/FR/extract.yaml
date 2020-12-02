@@ -12,7 +12,6 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    type: TEXT
     xpath: (//img[@id="SkuPageMainImg"]/@alt)[1]
   - name: alternateImages
     singleValue: false
@@ -61,12 +60,10 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     regExp: '[^:]*$'
-    type: TEXT
     xpath: (//div[@class="formLabel SL_m"])[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    type: TEXT
     xpath: (//div[@class="formLabel SL_m"])[1]
     regExp: '[^:]*$'
   - name: quantity
@@ -102,169 +99,167 @@ fields:
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: //span[@class="whenYouBuyQty when-you-buy-qty scTrack scLink"]
-  # - name: legalDisclaimer
-  #   singleValue: true
-  #   description: Content under "legal disclaimer" header
-  # - name: directions
-  #   singleValue: true
-  #   description: Content under "directions" header
-  # - name: warnings
-  #   singleValue: true
-  #   description: Content under "warnings" header
-  # - name: reviewCount
-  #   singleValue: true
-  #   description: The number of ratings
-  #   xpath: //span[@class="link scTrack scLink"]
-  # - name: aggregateRatingText
-  #   singleValue: true
-  #   description: The stated aggregate rating
-  # - name: aggregateRating2
-  #   singleValue: true
-  #   description: The stated aggregate rating normalized to be out of 5
-  #   xpath: //span[@id="productRating"]
-  # - name: shippingInfo
-  #   singleValue: true
-  #   description: Shipping information for the product
-  # - name: shippingDimensions
-  #   singleValue: true
-  #   description: Stated shipping dimensions
-  #   xpath: (//li[@class="txtDesc oddRow"])[6]
-  # - name: shippingWeight
-  #   singleValue: true
-  #   description: Stated shipping weight
-  # - name: variantCount
-  #   singleValue: true
-  #   description: Number of variants listed
-  #   type: NUMBER
-  # - name: color
-  #   singleValue: true
-  #   description: A textual description of the colour
-  #   type: TEXT
-  #   xpath: //ul[@class="formRow darkGray"]//li[2]
-  #   regExp: '[^:]*$'
-  # - name: colorCode
-  #   singleValue: true
-  #   description: A code description of the color (e.g. RGB hex)
-  # - name: manufacturerDescription
-  #   singleValue: false
-  #   description: The extended description of the product supplied by the lister
-  # - name: manufacturerImages
-  #   singleValue: false
-  #   description: Images within the third party description
-  # - name: videos
-  #   singleValue: false
-  #   description: URLs of videos on page
-  # - name: name
-  #   singleValue: true
-  #   description: The product name
-  # - name: inStorePrice
-  #   singleValue: true
-  #   description: Price in the selected store
-  # - name: asin
-  #   singleValue: true
-  #   description: null
-  # - name: coupon
-  #   singleValue: true
-  #   description: Text of any coupon offer
-  # - name: amazonChoice
-  #   singleValue: true
-  #   description: YES or Blank
-  # - name: amazonChoiceCategory
-  #   singleValue: true
-  #   description: Text of link next to Amazon choice graphic
-  # - name: brandLink
-  #   singleValue: true
-  #   description: null
-  # - name: internationalShipping
-  #   singleValue: true
-  #   description: Text next to bullet point
-  # - name: salesRank
-  #   singleValue: false
-  #   description: Amazon best selling rank from product details (linked back) - needs
-  #     to be collapsed
-  # - name: salesRankCategory
-  #   singleValue: false
-  #   description: Amazon best selling rank from product details (linked back) - needs
-  #     to be collapsed
-  # - name: subscriptionPrice
-  #   singleValue: true
-  #   description: Subscribe and save price
-  # - name: subscribeAndSave
-  #   singleValue: true
-  #   description: YES/NO
-  # - name: heroQuickPromoHeadline
-  #   singleValue: true
-  #   description: See image - top section hero area
-  # - name: heroQuickPromoImageUrl
-  #   singleValue: true
-  #   description: null
-  # - name: heroQuickPromoUrl
-  #   singleValue: true
-  #   description: null
-  # - name: pasin
-  #   singleValue: true
-  #   description: Parent asin
-  # - name: videoLength
-  #   singleValue: false
-  #   description: null
-  # - name: ingredientImagePresent
-  #   singleValue: true
-  #   description: null
-  # - name: factImagePresent
-  #   singleValue: true
-  #   description: null
-  # - name: largeImageCount
-  #   singleValue: true
-  #   description: null
-  #   type: NUMBER
-  # - name: variantAsins
-  #   singleValue: true
-  #   description: null
-  # - name: primeFlag
-  #   singleValue: true
-  #   description: null
-  # - name: lbb
-  #   singleValue: true
-  #   description: Check Lost by Box Requirements (just for Amazon and a couple of
-  #     other stores) - LBB occurs when a product is bought from someone other
-  #     than Amazon (on Amazon Website) - even though Amazon has the product "in
-  #     Stock"
-  # - name: lbbPrice
-  #   singleValue: true
-  #   description: null
-  # - name: featureBullets
-  #   singleValue: false
-  #   description: null
-  # - name: otherSellersName
-  #   singleValue: false
-  #   description: null
-  # - name: otherSellersPrice
-  #   singleValue: false
-  #   description: null
-  # - name: otherSellersShipping
-  #   singleValue: false
-  #   description: null
+  - name: legalDisclaimer
+    singleValue: true
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: true
+    description: Content under "directions" header
+  - name: warnings
+    singleValue: true
+    description: Content under "warnings" header
+  - name: reviewCount
+    singleValue: true
+    description: The number of ratings
+    xpath: //span[@class="link scTrack scLink"]
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: aggregateRating2
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //span[@id="productRating"]
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: shippingDimensions
+    singleValue: true
+    description: Stated shipping dimensions
+    xpath: (//li[@class="txtDesc oddRow"])[6]
+  - name: shippingWeight
+    singleValue: true
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    type: NUMBER
+  - name: color
+    singleValue: true
+    description: A textual description of the colour
+    regExp: '[^:]*$'
+  - name: colorCode
+    singleValue: true
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+  - name: name
+    singleValue: true
+    description: The product name
+  - name: inStorePrice
+    singleValue: true
+    description: Price in the selected store
+  - name: asin
+    singleValue: true
+    description: null
+  - name: coupon
+    singleValue: true
+    description: Text of any coupon offer
+  - name: amazonChoice
+    singleValue: true
+    description: YES or Blank
+  - name: amazonChoiceCategory
+    singleValue: true
+    description: Text of link next to Amazon choice graphic
+  - name: brandLink
+    singleValue: true
+    description: null
+  - name: internationalShipping
+    singleValue: true
+    description: Text next to bullet point
+  - name: salesRank
+    singleValue: false
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: salesRankCategory
+    singleValue: false
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: subscriptionPrice
+    singleValue: true
+    description: Subscribe and save price
+  - name: subscribeAndSave
+    singleValue: true
+    description: YES/NO
+  - name: heroQuickPromoHeadline
+    singleValue: true
+    description: See image - top section hero area
+  - name: heroQuickPromoImageUrl
+    singleValue: true
+    description: null
+  - name: heroQuickPromoUrl
+    singleValue: true
+    description: null
+  - name: pasin
+    singleValue: true
+    description: Parent asin
+  - name: videoLength
+    singleValue: false
+    description: null
+  - name: ingredientImagePresent
+    singleValue: true
+    description: null
+  - name: factImagePresent
+    singleValue: true
+    description: null
+  - name: largeImageCount
+    singleValue: true
+    description: null
+    type: NUMBER
+  - name: variantAsins
+    singleValue: true
+    description: null
+  - name: primeFlag
+    singleValue: true
+    description: null
+  - name: lbb
+    singleValue: true
+    description: Check Lost by Box Requirements (just for Amazon and a couple of
+      other stores) - LBB occurs when a product is bought from someone other
+      than Amazon (on Amazon Website) - even though Amazon has the product "in
+      Stock"
+  - name: lbbPrice
+    singleValue: true
+    description: null
+  - name: featureBullets
+    singleValue: false
+    description: null
+  - name: otherSellersName
+    singleValue: false
+    description: null
+  - name: otherSellersPrice
+    singleValue: false
+    description: null
+  - name: otherSellersShipping
+    singleValue: false
+    description: null
   # - name: secondaryImageTotal
   #   singleValue: true
   #   description: null
   #   type: NUMBER
   #   xpath: count(//li[@class="itemThumb"])
-  # - name: news
-  #   singleValue: true
-  #   description: null
-  # - name: addonItem
-  #   singleValue: true
-  #   description: null
-  # - name: fastTrack
-  #   singleValue: true
-  #   description: null
-  # - name: ingredientsList
-  #   singleValue: true
-  #   description: List of Ingredients from site - can be string of data if no
-  #     discernible start/end point
-  # - name: servingSize
-  #   singleValue: true
-  #   description: The size of serving Nutritional information is based on.
+  - name: news
+    singleValue: true
+    description: null
+  - name: addonItem
+    singleValue: true
+    description: null
+  - name: fastTrack
+    singleValue: true
+    description: null
+  - name: ingredientsList
+    singleValue: true
+    description: List of Ingredients from site - can be string of data if no
+      discernible start/end point
+  - name: servingSize
+    singleValue: true
+    description: The size of serving Nutritional information is based on.
   # - name: servingSizeUom
   #   singleValue: true
   #   description: Unit of measure of serving
