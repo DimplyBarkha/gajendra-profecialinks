@@ -9,7 +9,7 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class="c-product-grid__item"]',
+    loadedSelector: null,
     loadedXpath: null,
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
