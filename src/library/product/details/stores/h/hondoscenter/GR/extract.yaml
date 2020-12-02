@@ -39,6 +39,10 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: concat(//h3[@class="manufacturer"]/a/text()," ",//h1[@class="title"]/text())
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class="attribute Products_CustomData_1"]/div/div/text()
+
 
 
 
