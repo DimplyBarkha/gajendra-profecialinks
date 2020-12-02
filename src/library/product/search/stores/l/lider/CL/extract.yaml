@@ -4,43 +4,35 @@ recordSelector: null
 recordXPath: null
 fields: 
   - name: id
-    singleValue: true
+    singleValue: false
     xpath: //div[@id='content-prod-boxes']/div/@prod-number
     # regExp: (\d+)
   - name: rankOrganic
     singleValue: false
   - name: name
-    singleValue: true
-    xpath: //div[@class='product-details']/a/span
-      # //span[@class='product-item__title']
+    singleValue: false
+    xpath: //div[@class='product-details']/a
+      # //div[@class='product-details']/a/span
   - name: productUrl
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='product-details']/a/@href
     regExp: (/.+)
     regExpReplace: https://www.lider.cl$1
-      # //div[@class="product-item__top-padding"]//a/@href
   - name: gtin
-    singleValue: true
+    singleValue: false
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='photo-container']/img/@src
   - name: reviewCount
-    singleValue: true
-    # xpath: //div[@class='productlist__products']//span[@class='product-item__rating-count']
-    # regExp: (\d+)
+    singleValue: false
   - name: aggregateRating
-    singleValue: true
-    # xpath: //html//div[@id='agg']
-    # type: NUMBER
-    # xpath: //div[@class='productlist__products']//div[@class='review-stars__container review-stars__container--border']/@data-js-border-offset
-  # - name: reviewCount
-  #   singleValue: false
+    singleValue: false
+    xpath: //span[@class='bv-off-screen']
+    regExp: (\d+)
   - name: price
-    singleValue: true
+    singleValue: false
     # type: CURRENCY
     xpath: //span[@class='price-sell']
-    # //div[@class='productlist__products']//span[@class='nowrap']
-    # //div[@class='productlist__products']//div[@class='product-item__price']
   - name: manufacturer
     singleValue: false
   - name: soldBy
