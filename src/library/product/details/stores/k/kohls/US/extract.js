@@ -4,7 +4,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await context.waitForXPath('//div[@class="bv_main_container"]');
+  await context.waitForXPath('//div[@class="bv_main_container"]', 50000);
 
   await context.evaluate(async () => {
     // await new Promise((resolve, reject) => setTimeout(resolve, 5000));

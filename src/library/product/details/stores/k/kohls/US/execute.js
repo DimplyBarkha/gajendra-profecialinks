@@ -16,14 +16,16 @@ module.exports = {
       }
       url = await dependencies.createUrl({ id });
     }
-    await context.setBlockAds(false);
-    await context.setFirstRequestTimeout(50000);
-    await context.setBypassCSP(true);
-    await context.setAntiFingerprint(false);
-    await context.setLoadAllResources(true);
-    await context.setUseRelayProxy(false);
-    await context.setLoadImages(true);
-    await context.setJavaScriptEnabled(true);
+    // await context.setBlockAds(false);
+    // await context.setFirstRequestTimeout(50000);
+    // await context.setBypassCSP(true);
+    // await context.setAntiFingerprint(false);
+    // await context.setLoadAllResources(true);
+    // await context.setUseRelayProxy(false);
+    // await context.setLoadImages(true);
+    // await context.setJavaScriptEnabled(true);
+
+    url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true}[/!opt!]`;
 
     await dependencies.goto({ url, zipcode, storeId });
 
