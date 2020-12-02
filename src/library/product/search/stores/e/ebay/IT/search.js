@@ -1,10 +1,8 @@
-
 module.exports = {
-  implements: 'product/search',
+  implements: "product/search",
   parameterValues: {
-    country: 'IT',
-    store: 'ebay',
-    domain: 'ebay.it',
-    zipcode: '',
+    country: "IT",
+    store: "ebay",
+    domain: "ebay.it",
   },
 };

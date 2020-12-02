@@ -7,6 +7,5 @@ module.exports = {
     store: "ebay",
     transform: transform,
     domain: "ebay.it",
-    zipcode: "",
   },
 };
