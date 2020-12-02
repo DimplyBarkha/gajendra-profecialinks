@@ -117,7 +117,22 @@ fields:
   #   xpath: //ul[@id='custom-attr-product-video-durations']//li/text()
   - name: featureBullets
     singleValue: false
-    xpath: //ul[@id='custom-attr-product-feature-bullets']//li
+    xpath: //ul[@id='custom-attr-product-feature-bullets']//li | //div[@class="description"]//ul//li
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@id='custom-attr-product-additional-desc-bullets']//li
+    
+    # salsify
+  - name: highQualityImages
+    singleValue: false
+    xpath: //div[@class="product-gallery"]//img[@role="presentation"]/@src | //div[@id='product-images-container']//div[contains(@class, 'product-gallery__thumbnails')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-current')) and not(contains(@class, 'slick-cloned'))]//img[not(contains(@data-activitymap-name, 'Video'))]/@src
+    regExp: (.+)(h_80|h_1200)(.+)(w_80|w_1200)(.+)
+    regExpReplace: $1h_1200$3w_1200$5
+  - name: shownImages
+    singleValue: false
+    xpath: //div[@class="product-gallery"]//img[@role="presentation"]/@src | //div[@id='product-images-container']//div[contains(@class, 'product-gallery__thumbnails')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-current')) and not(contains(@class, 'slick-cloned'))]//img[not(contains(@data-activitymap-name, 'Video'))]/@src
+    regExp: (.+)(h_80|h_1200)(.+)(w_80|w_1200)(.+)
+    regExpReplace: $1h_1200$3w_1200$5
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id='custom-attr-url-field']/text()
