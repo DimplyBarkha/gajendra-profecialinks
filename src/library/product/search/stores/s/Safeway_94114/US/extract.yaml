@@ -1,0 +1,29 @@
+extends: ../../safeway/Us/extract
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"search-results-grid")]//div[contains(@class,"row gutters-items-v2 grid-wrapper")]//product-item-v2
+fields:
+  - name: productUrl
+    xpath: //h3//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.safeway.com$1
+  - name: thumbnail
+    xpath: //img[contains(@class,"ab-lazy loaded")]/@src
+  - name: name
+    xpath: //h3
+  - name: id
+    xpath: //a[@class="product-title"]/@id
+    regExp: (\d+)
+  - name: reviewCount
+  - name: ratingCount
+  - name: price
+    xpath: //span[contains(@class,"product-price")]
+    regExp: (Your Price \$)(\d+\.\d+)
+    regExpReplace: $2
+  - name: manufacturer
+  - name: aggregateRating2
+    xpath: 
+  - name: rankOrganic
+  - name: rank
+  - name: sponsored
