@@ -68,6 +68,7 @@ const transform = (data) => {
         if (row.aggregateRating[0].text) {
           rating = parseInt(row.aggregateRating[0].text);
           rating = (rating / 100) * 5;
+          rating = rating.toString().replace('.', ',');
         }
 
         row.aggregateRating = [
