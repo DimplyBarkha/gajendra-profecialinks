@@ -49,14 +49,12 @@ module.exports = {
       const priceXpath2 = getXpath("//span[@class='price-item__cent-value js-product-detail-device-once-cent']",'innerText');
       const currencyXpath = getXpath("//div[@class='price-item__unit-icon']",'innerText');
 
-      //const priceXpath = (priceXpath1.concat(',').concat(priceXpath2)).concat(currencyXpath);
       const priceXpath = currencyXpath.concat((priceXpath1.concat(',').concat(priceXpath2)));
       console.log("priceXpath- new : ", priceXpath);
-      //console.log("priceXpath: ", priceXpath)
       addElementToDocument('added_price', priceXpath);
 
       const pXpath = getXpath("//div[@class='site-md__main-content']//script[3]",'nodeValue');
-      //div[@class="site-md__main-content"]//script/text()
+
       const jsonStr = getXpath("//div[@class='site-md__main-content']//script[@type='application/ld+json']",'innerText');
       if(jsonStr){
         const jsonObj = JSON.parse(jsonStr);
@@ -67,6 +65,7 @@ module.exports = {
         var color2 = "";
         console.log("color1: ", color1);
         var skuColr1 = (color1.concat(" - ")).concat(sku1);
+        addElementToDocument('added_firstVarient', skuColr1);
         //
         if(jsonObj.isSimilarTo[1] != null){
           sku2 = jsonObj.isSimilarTo[1].sku;

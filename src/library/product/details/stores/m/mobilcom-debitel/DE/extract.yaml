@@ -17,8 +17,6 @@ fields:
     singleValue: false
     xpath: //div[@id="altImages_added"]
     description: Other product images (not in manufacturer description)
-    # regExp: [^(.*)$] 
-    # regExpReplace: 'https://www.mobilcom-debitel.de$1'
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -33,7 +31,7 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed) 
   - name: online_price_currency
     singleValue: true
-    xpath: //div[@class='price-item__unit-icon']
+    #xpath: //div[@class='price-item__unit-icon']
   - name: listPrice
     singleValue: true
     xpath: //div[@id='listPriceXpath_added']
@@ -66,8 +64,7 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: true
-    xpath: //div[@class='table-list-grouping__items-wrapper']//div[@class='table-list-grouping__item']//div[contains(.,'Manufacturer')]/following-sibling::div//text()
-    #xpath: //div[@id="manXpath_added"]
+    xpath: //div[@class='table-list-grouping__items-wrapper']//div[@class='table-list-grouping__item']//div[contains(.,'Hersteller')]/following-sibling::div[1]
     description: Product manufacturer
   - name: quantity
     singleValue: true
@@ -76,6 +73,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
+    xpath: //div[@class='table-list-grouping__items-wrapper']//div[@class='table-list-grouping__item']//div[contains(.,'Gewicht')]/following-sibling::div[1]
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
@@ -86,7 +84,6 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div[@class="product-detail-device-offer__image"]/@data-binki
-    #xpath: //div[@id="added_retailer_product_code"]
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
@@ -135,14 +132,13 @@ fields:
     type: NUMBER
   - name: color
     singleValue: true
-    xpath: //div[@class='table-list-grouping__items-wrapper']//div[@class='table-list-grouping__item']//div[contains(.,'colour')]/following-sibling::div[1]/font/font/text()
+    xpath: //div[@class='table-list-grouping__items-wrapper']//div[@class='table-list-grouping__item']//div[contains(.,'Farbe')]/following-sibling::div[1]
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    #xpath: //div[@class='site-md__main-content']/div[@class='site-md__page-product-detail js-page-product-detail']/section[@class='content-section js-product-detail-device-details-target']
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
@@ -458,10 +454,10 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
-    xpath: //div[@id="added_varientInfo"]
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
+    xpath: //div[@id="added_firstVarient"]
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -473,6 +469,7 @@ fields:
       this will need analysis
   - name: variants
     singleValue: false
+    xpath: //div[@id="added_varientInfo"]
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
@@ -524,5 +521,4 @@ fields:
     defaultValue: No
   - name: url
     singleValue: true
-    #xpath: //link[@rel="canonical"]/@href
     description: If Zoom feature is available for Main image or images in the
