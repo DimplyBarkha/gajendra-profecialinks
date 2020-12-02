@@ -18,7 +18,7 @@ module.exports = {
       const iterations = variants.length || 1;
       for (let i = 0; i < iterations; i++) {
         const elem = document.createElement('li');
-        const url = variants.length ? variants[i].getAttribute('href') : window.location.href;
+        const url = variants.length && variants[i].getAttribute('href') ? variants[i].getAttribute('href') : window.location.href;
         const id = url.match(/pid=(.*)/) ? url.match(/pid=(.*)/)[1] : '';
         elem.setAttribute('variant_url', url);
         elem.setAttribute('variant_id', id);

@@ -1,0 +1,13 @@
+input:
+  _url: http://arnotts.ie
+  URL: https://www.arnotts.ie/dyson/dyson-v11-animal-vacuum-cleaner/140657573.html?cgid=root
+extractions:
+  - html: https://workbench.import.io/html/run=996e51a9-5902-45e9-b721-e87022e14c01/task=ed6c5d0f-d1b6-456f-af98-df988207c0bc/3800890b-3c3f-4cd4-a82a-182a72fb8e8a.html
+    extractionConfigId: product/details/stores/a/arnotts/IE/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.arnotts.ie/dyson/dyson-v11-animal-vacuum-cleaner/140657573.html?cgid=root
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1606907897905

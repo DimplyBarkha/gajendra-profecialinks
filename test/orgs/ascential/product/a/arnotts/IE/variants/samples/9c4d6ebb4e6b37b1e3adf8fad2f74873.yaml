@@ -1,0 +1,13 @@
+input:
+  _url: http://arnotts.ie
+  URL: https://www.arnotts.ie/chanel/eau-de-parfum-spray/103485063.html?cgid=root#q=perfume&start=1
+extractions:
+  - html: https://workbench.import.io/html/run=996e51a9-5902-45e9-b721-e87022e14c01/task=2b4dbe6a-9702-4236-8a16-d6a13fe4d8dd/0e2924fa-e770-46ad-9fef-b74cf31ad232.html
+    extractionConfigId: product/details/stores/a/arnotts/IE/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.arnotts.ie/chanel/eau-de-parfum-spray/103485063.html?cgid=root#q=perfume&start=1
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1606907897142
