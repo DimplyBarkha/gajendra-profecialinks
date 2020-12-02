@@ -25,5 +25,5 @@ fields:
   - name: price
     singleValue: false
     type: CURRENCY
-    xpath: //span[@class="price ng-star-inserted"]/span/span/text()
+    xpath: //span[@class="price ng-star-inserted"]/span/span/text() | //span[@class="promotion-price ng-star-inserted"]/span/text()
     
