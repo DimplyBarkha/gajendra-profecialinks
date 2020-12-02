@@ -29,3 +29,12 @@ fields:
     SingleValue: false    
   - name: rank
     SingleValue: false
+  - name: aggregateRating2
+    SingleValue: false
+    xpath: //div[@class="product-ratingsContainer"]/span[1]
+  - name: reviewCount
+    SingleValue: false
+    xpath: //div[@class="product-ratingsContainer"]/div[@class='product-ratingsCount']/text()
+  - name: ratingCount
+    SingleValue: false
+    xpath: //div[@class="product-ratingsContainer"]/div[@class='product-ratingsCount']/text()

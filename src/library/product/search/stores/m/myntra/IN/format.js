@@ -47,6 +47,22 @@ const transform = (data, context) => {
           });
           row.price = [{'text':info.join(' '),'xpath':row.price[0].xpath}];
         }
+        if (row.reviewCount) {
+          row.reviewCount.forEach(item => {                                         
+              var matches = /(\d+)k/isg.exec(item.text);
+              if (matches) {
+                  item.text = parseInt(matches[1]) * 1000;
+              }
+          });
+        }
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {                                         
+              var matches = /(\d+)k/isg.exec(item.text);
+              if (matches) {
+                  item.text = parseInt(matches[1]) * 1000;
+              }
+          });
+        }
         row.rank = [{ text: rankCounter }];
                 
         Object.keys(row).forEach(header => row[header].forEach(el => {
