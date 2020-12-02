@@ -6,7 +6,7 @@ module.exports = {
     store: 'haar-shop',
     domain: 'haar-shop.ch',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"cs-messages")]//h3[contains(text(),"Keine Ergebnisse für Suchanfrage")]',
     zipcode: '',
   },
 };
