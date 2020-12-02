@@ -30,10 +30,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //del[@class='price primary large']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[@class='price primary large']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -102,15 +104,22 @@ fields:
   - name: ratingCount
     singleValue: false
     description: The number of ratings
+    xpath: (//p[@data-test='review-display-rate-section-text']/strong[contains(text(),'avis')])[1]
     type: NUMBER
     xpath: //p[@data-test='review-display-rate-section-text']//strong
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    xpath: (//strong[@class='LC2nl-FnDLn38vhZnBeEQ'])[1]
+    regExp: (\d).(\d+)
+    regExpReplace: $1,$3
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: (//strong[@class='LC2nl-FnDLn38vhZnBeEQ'])[1]
+    regExp: (\d).(\d+)
+    regExpReplace: $1,$3
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -127,9 +136,12 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //ul[@class='icEAdXPcKgFqrw7gnMYbo']/li/strong[text()='Couleur :']/../text()
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
+    xpath: //div[@class='_1Gji-8_DfEFVMyNyTNUi96']/a/@style
+    regExp: (?<=rgb\().+(?=\))
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
@@ -395,9 +407,12 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //ul[@class='icEAdXPcKgFqrw7gnMYbo']//li/strong[contains(text(),'Hauteur')]/.. | //ul[@class='icEAdXPcKgFqrw7gnMYbo']//li/strong[contains(text(),'Largeur')]/.. | //ul[@class='icEAdXPcKgFqrw7gnMYbo']//li/strong[contains(text(),'Profondeur ')]/..
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //div[@class='feature-content pointer'][contains(text(), 'Garantie')]/text() | //select[@id='trustpack']//option
+    regExp: \d+ \w+
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -413,6 +428,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
+    xpath: //li[@class='k0sGURSGNc2ex9_M13T_m'][last()]//div[@class='_1BgFAbwo_xcNkFE6kw0SrS']
   - name: packaging
     singleValue: true
     description: Packaging information
