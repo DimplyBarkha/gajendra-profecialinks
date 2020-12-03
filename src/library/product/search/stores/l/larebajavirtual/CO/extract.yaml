@@ -10,6 +10,8 @@ fields:
     singleValue: false
     xpath: //div[@class='priceFinal']/text()
     type: CURRENCY
+    regExp: (.+)
+    regExpReplace: $1
   - name: id
     singleValue: false
     xpath: //input[@id='codigo-producto-gtm']/@value
