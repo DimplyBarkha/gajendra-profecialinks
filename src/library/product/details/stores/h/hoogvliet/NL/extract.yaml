@@ -122,4 +122,6 @@ fields:
   - name: vitaminAPerServing
     singleValue: false
     xpath: //table//tr[td[contains(text(),'vitamine A')]]/td[not(contains(@class,'first-text'))] | //table//tr[td[contains(text(),'Vitamine A')]]/td[not(contains(@class,'first-text'))] 
-  
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //h3[contains(text(),'Voedingswaarde')]//following-sibling::table//td[normalize-space()='Koolhydraten']//following-sibling::td

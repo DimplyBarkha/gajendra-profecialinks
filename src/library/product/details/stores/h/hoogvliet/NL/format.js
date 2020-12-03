@@ -43,6 +43,12 @@ const transform = (data) => {
           row.descriptionBullets = [{ text: bulletInfo.length }];
         }
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(/\s+/g, '');
+          item.text = item.text.trim();
+        });
+      }
       if (row.pricePerUnit) {
         row.pricePerUnit.forEach(item => {
           item.text = item.text.replace('Prijs per:', '');
