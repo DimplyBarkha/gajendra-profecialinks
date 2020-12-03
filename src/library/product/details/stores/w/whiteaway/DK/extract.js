@@ -8,4 +8,5 @@ module.exports = {
     domain: 'whiteaway.com',
     zipcode: '',
   },
+  implementation,
 };
