@@ -71,6 +71,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+
     xpath: //*[contains(text(),'Nettovægt')]/following::td[1]
   - name: weightGross
     singleValue: true
@@ -92,7 +93,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //span[@class="js-sku-small"]
+    # xpath: //span[@class="js-sku-small"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -145,11 +146,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: (//h2[contains(text(),"Fordele og specifikationer")]/following::div[1])[1]
+    xpath: //div[@id="zzz"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: (//section[@class="vip__superspecs__outer"])//img/@src
+    xpath: (//section[@class="vip__superspecs__outer"]//img/@src)
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -410,7 +411,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //*[contains(text(),'Specifikationer')]/following-sibling::div[1]
+    xpath: //div[@id="xyz"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -429,7 +430,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    # xpath: //*[contains(text(),'Specifikationer')]/following::section[@class="vip__addition-info__outer js-sniff-color"]//p
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -526,8 +526,8 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: Yesx
-  - name: url.////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    defaultValue: Yes
+  - name: url
     singleValue: true
     description: The URL of the product
     xpath: //link[@rel="canonical"]/@href
