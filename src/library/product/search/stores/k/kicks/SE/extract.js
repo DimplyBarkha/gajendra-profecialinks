@@ -25,25 +25,29 @@ async function implementation(
             catElement.style.display = 'none';
             document.body.appendChild(catElement);
         }
-        let length = document.querySelectorAll("span[class='eo du']").length
-        function addHiddenDiv(id, content, index) {
-            const newDiv = document.createElement('div');
-            newDiv.id = id;
-            newDiv.textContent = content;
-            newDiv.style.display = 'none';
-            const originalDiv = document.querySelectorAll("span[class='eo du']")[index];
-            originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-            }
-        for (let product = 0; product < length; product++) {
-            let a = document.querySelector('span[class="eo du"]')
-            var count = 0;
-            for (let c = 0; c < a.childElementCount; c++) {
-                if (a.children[c].className == "ep eq") {
-                    count++;
-                    addHiddenDiv('rating', count);
+    function addHiddenDiv(id, content, index) {
+        const aggregateRatingXpath = document.querySelectorAll("a[itemscope] > div > span");
+        console.log(aggregateRatingXpath);
+        const countFinal = [];
+        let count = 0;
+        for (let i = 0; i <= aggregateRatingXpath.length; i++) {
+            const ratingCount = aggregateRatingXpath[i].childNodes.length;
+            const ratingName = aggregateRatingXpath[i].childNodes;
+            for (let j = 0; j <= ratingCount; j++) {
+                // @ts-ignore
+                const smileClassName = ratingName[0].className; alert(ratingName[j])
+                // @ts-ignore
+                const RemainingClassName = ratingName[j].className;
+                if (smileClassName == RemainingClassName) {
+                    count = count + 1
                 }
+                countFinal.push(count);
+                var test = countFinal.length;
+                console.log(countFinal);
+                console.log('length' + test)
             }
         }
+    }
     });
     return await context.extract(productDetails, { transform });
 }
