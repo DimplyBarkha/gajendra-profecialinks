@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: (//div[@id="rclModal"]//ul//img[contains(@alt, "image")]/@src)[position()>1]
+  xpath: (//div[@id="rclModal"]//ul//img/@src)[position()>1]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -105,6 +105,7 @@ fields:
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //dt[contains(text(), "Set Size")]/..//span
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -137,11 +138,10 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-  xpath: count(//label[span[contains(text(), "Color")]]/following-sibling::div//li)
 - name: color
   singleValue: false
   description: A textual description of the colour
-  xpath: //label[span[contains(text(), "Color")]]/following-sibling::div//li/button/@value
+  xpath: //label[span[contains(text(), "Color")]]/following-sibling::div//li/button/@value | //div[contains(text(), "Color")]/following-sibling::div
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -174,6 +174,7 @@ fields:
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
+  xpath: //li[contains(text(),"Manufactured in")] | //div[contains(@class, 'Overview')]//li[contains(text(),'Made in')]
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
@@ -216,7 +217,6 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
-  xpath: //div[@id="multiSkuContainer"]//label
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core

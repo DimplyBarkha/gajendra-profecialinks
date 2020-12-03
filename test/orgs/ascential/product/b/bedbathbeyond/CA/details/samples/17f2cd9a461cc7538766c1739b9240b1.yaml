@@ -1,0 +1,129 @@
+input:
+  _url: http://bedbathbeyond.ca
+  URL: https://www.bedbathandbeyond.ca/store/product/dyson-reg-pure-cool-link-air-purifier-in-white-silver/1047491151
+extractions:
+  - html: https://workbench.import.io/html/run=b1b386a3-276f-4af3-8e91-55614a0d8922/task=bc7ece7f-911e-4458-b655-491e05925c30/26b20ac6-fa9c-40d5-b067-7ea74db91765.html
+    extractionConfigId: product/details/stores/b/bedbathbeyond/CA/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bedbathandbeyond.ca/store/product/dyson-reg-pure-cool-link-air-purifier-in-white-silver/1047491151
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/98591147491151p?$690$&wid=690&hei=690
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson® Pure Cool Link Air Purifier in White/Silver. View a larger version
+                  of this product image.
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@alt
+            category:
+              - text: Storage & Cleaning
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@title
+              - text: Heating & Cooling
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@title
+              - text: Air Purifiers
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@title
+            nameExtended:
+              - text: Dyson® Pure Cool Link Air Purifier in White/Silver
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: $599.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]
+            availabilityText:
+              - text: OutOfStock
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/link[2]/@href
+            description:
+              - text: "Breathe cleaner air all year round with the Dyson Pure Cool Link. With
+                  advanced technology, this air purifier automatically removes
+                  allergens and pollutants, and the Dyson Link App provides
+                  monitored reports so you can control your environment
+                  remotely. || The Dyson Pure Cool Link Air Purifier provides
+                  you with cleaner breathing air and a cooler environment all
+                  year round || Automatically removes 99.97% of allergens and
+                  pollutants as small as 0.3 microns from your home || Wrapped
+                  with a 360-degree vacuum-sealed glass HEPA filter || Layer of
+                  activated carbon granules captures odors and harmful toxins
+                  like paint fumes || All-year-round purification and
+                  circulation || Purifying fan for summer || Dyson Link App
+                  provides you with monitored reports so can remotely control
+                  your environment || Quiet settings for nighttime mode || LED
+                  display dims-no disturbance || Auto and tip-over shut off ||
+                  Easy filter change || 2-year manufacturer's warranty ||
+                  Imported || MODEL 305160-01 || skuId : 47491151"
+                xpath: /html/body/@description
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]
+            sku:
+              - text: "47491151"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/@content
+            variantId:
+              - text: "47491151"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/@content
+            mpc:
+              - text: 305160-01
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[14]/text()[1]
+            ratingCount:
+              - text: "30"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/meta[1]/@content
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            manufacturerDescription:
+              - text: >-
+                  Dyson purifiers remove 99.97% of particles as small as 0.3
+                  microns. In auto mode, your purifier will automatically
+                  monitor indoor air quality and adjust airflow accordingly. So
+                  once the air in your room is clean, it stays clean. Even for
+                  the lightest sleepers. 
+
+                  At the push of a button, your purifier will continue to monitor and respond to air quality while you’re asleep – but only using the quietest settings Using an independent motor for smooth oscillation, Dyson purifiers project and 
+
+                  circulate purified air across the room. The Dyson purifier's footprint is so small that it can sit comfortably on a letter-sized piece of paper. So you can position it anywhere in the room. Some other air purifiers have a high face velocity. This means they force air through their filters, which can cause harmful pollutants to escape back into the room.
+
+                  Dyson purifiers keep them trapped.
+
+                  They have a lower face velocity, combined with a high-efficiency HEPA filter. So 99.97% of potentially harmful pollutants as small as 0.3 microns, stay trapped in the filter media.
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/div[2]/div[1]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1529400698062_3d94551a-bc55-4e4a-be96-e7ffcd857fd7/module/dysoncaen/_cp/products/1465921807694/tab-39e4067f-eda4-44f8-8c5f-f6922ebfe02d/b011fe6d-428b-4ee0-a3e0-a511013b1ba4.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1529400698062_3d94551a-bc55-4e4a-be96-e7ffcd857fd7/module/dysoncaen/_cp/products/1465921807694/tab-0a455e99-7a1e-4fc6-a8fb-887d7daf8556/6941c9d7-17e9-49ee-894e-f6a35a759558.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1529400698062_3d94551a-bc55-4e4a-be96-e7ffcd857fd7/module/dysoncaen/_cp/products/1465921807694/tab-0a455e99-7a1e-4fc6-a8fb-887d7daf8556/449abb44-1af0-4297-b40d-f15358efae13.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1529400698062_3d94551a-bc55-4e4a-be96-e7ffcd857fd7/module/dysoncaen/_cp/products/1465921807694/tab-0a455e99-7a1e-4fc6-a8fb-887d7daf8556/038f9944-62ef-4a3d-9139-85a0141ff289.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1529400698062_3d94551a-bc55-4e4a-be96-e7ffcd857fd7/module/dysoncaen/_cp/products/1465921807694/tab-0a455e99-7a1e-4fc6-a8fb-887d7daf8556/af1aa1c5-2731-46c2-9bf7-3bd2392df369.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1529400698062_3d94551a-bc55-4e4a-be96-e7ffcd857fd7/module/dysoncaen/_cp/products/1465921807694/tab-0a455e99-7a1e-4fc6-a8fb-887d7daf8556/d0b0b039-bb6b-4409-bc8d-6b1a65fe104e.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[4]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1529400698062_3d94551a-bc55-4e4a-be96-e7ffcd857fd7/module/dysoncaen/_cp/products/1465921807694/tab-0a455e99-7a1e-4fc6-a8fb-887d7daf8556/a4cdda7e-69a8-40a4-b6ad-71deeecea189.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[5]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1529400698062_3d94551a-bc55-4e4a-be96-e7ffcd857fd7/module/dysoncaen/_cp/products/1465921807694/tab-0a455e99-7a1e-4fc6-a8fb-887d7daf8556/f81f983e-c289-49ac-aeef-86fe52930871.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[7]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Dyson® Pure Cool Link Air Purifier in White/Silver
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            warranty:
+              - text: 2-year
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[12]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "15"
+        xpath: /
+    timestamp: 1606982191660

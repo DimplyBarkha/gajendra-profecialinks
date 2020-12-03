@@ -1,0 +1,182 @@
+input:
+  _url: http://bedbathbeyond.ca
+  URL: https://www.bedbathandbeyond.ca/store/product/dyson-dc77-cinetic-trade-multi-floor-upright-vacuum/1044126445
+extractions:
+  - html: https://workbench.import.io/html/run=b1b386a3-276f-4af3-8e91-55614a0d8922/task=6fcf2612-29e3-4113-bd50-435f46c1cf8f/d10b5108-fa8b-44f4-a7b3-190504991659.html
+    extractionConfigId: product/details/stores/b/bedbathbeyond/CA/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bedbathandbeyond.ca/store/product/dyson-dc77-cinetic-multi-floor-upright-vacuum/1044126445
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/61390044126445p?$690$&wid=690&hei=690
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson DC77 Cinetic™ Multi-Floor Upright Vacuum. View a larger version of
+                  this product image.
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@alt
+            category:
+              - text: Storage & Cleaning
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@title
+              - text: Vacuums & Floor Care
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@title
+              - text: Upright Vacuums
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@title
+            nameExtended:
+              - text: Dyson DC77 Cinetic™ Multi-Floor Upright Vacuum
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            listPrice:
+              - text: $699.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]
+            price:
+              - text: $549.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/link[2]/@href
+            description:
+              - text: "Never lose suction with the Dyson DC77 Cinetic Multi-Floor Upright
+                  Vacuum. Utilizes Dyson's smallest and most efficient cyclones.
+                  Oscillating tips prevent clogging and there are no bags to
+                  buy, no filters to wash or replace. || Dyson DC77 Cinetic
+                  Multi-Floor Upright Vacuum is an extremely powerful vacuum
+                  that does not lose suction || Utilizes Dyson's smallest and
+                  most efficient cyclones || Dyson Cinetic science captures the
+                  microscopic dust that clogs all other vacuums; each tip
+                  oscillates 350 times every second to prevent filter or machine
+                  clogging || Ultra-efficient Dyson Cinetic Cyclones mean you
+                  don't have to wash or replace the filter || Ball™ technology
+                  allows the vacuum to turn on the spot; no more awkward moves
+                  || Self-adjusting cleaner head with a powerful motorized brush
+                  bar || Motorized brush bar with stiff nylon bristles drives
+                  deep into carpet to remove ground in dirt || Easy
+                  release/telescopic wand || Vacuum cleaning path width: 13\" ||
+                  HEPA permanent filtration means no bags to buy, no filters to
+                  wash or replace || Includes:\t<ul>\t\t<li>Multi-angle
+                  brush</li>\t\t<li>Mattress tool</li>\t\t<li>Stiff bristle
+                  brush</li>\t\t<li>Combination tool</li>\t</ul>\t ||
+                  Multi-angle brush || Mattress tool || Stiff bristle brush ||
+                  Combination tool || Works equally well on bare floors and
+                  carpet || Base plate automatically adjusts the cleaner head
+                  height to seal in suction across all floor types || Suction
+                  power 190 AW || Measures 13.4\" L x 17.2\" W x 43.3\" H ||
+                  Weighs 19 lb. || Cord measures 35' L || UL listed || 5-year
+                  manufacturer's warranty || Imported || Model DC77MF || skuId :
+                  44126445"
+                xpath: /html/body/@description
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]
+            weightNet:
+              - text: 19 lb
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[16]
+            sku:
+              - text: "44126445"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/@content
+            variantId:
+              - text: "44126445"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/@content
+            mpc:
+              - text: DC77MF
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[21]/text()[1]
+            ratingCount:
+              - text: "52"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/meta[1]/@content
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            color:
+              - text: BLUE
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[2]
+            manufacturerDescription:
+              - text: "Dyson Cinetic™ tips oscillate at up to 5,000 Hz, separating the
+                  microscopic dust that clogs all other vacuums. The only vacuum
+                  with no dirty filters to wash or replace, so there's no loss
+                  of suction. This vacuum has the highest geometric average when
+                  carpet, hard floor and creviced hard floor pick-up results are
+                  combined. Tested against the upright market, dust-loaded.
+                  Seals in suction across carpets and hard floors. The motorized
+                  brush bar with stiff nylon bristles drives deep into carpet to
+                  remove ground-in dirt. Steers easily into difficult places
+                  with a simple turn of the wrist. Tangle-free Turbine tool
+                  removes hair from carpets and upholstery. Certified asthma &
+                  allergy friendly™. No other vacuum expels cleaner air. Our
+                  hose and wand release in one smooth action, making it easy to
+                  clean up high. Just push the button to release the dirt.
+                  ASTHMA & ALLERGY FRIENDLY and the ASTHMA & ALLERGY FRIENDLY
+                  LOGO are Certification Marks and Trademarks of ALLERGY
+                  STANDARDS LIMITED. AAFA is a Registered Trademark of the
+                  ASTHMA AND ALLERGY FOUNDATION OF AMERICA.The following Dyson
+                  uprights on Dyson.com have been certified Asthma & Allergy
+                  Friendly™: DC65, DC39, Dyson Cinetic Big Ball, Dyson Ball,
+                  Dyson Ball Compact, Dyson Ball (Canister), Dyson Ball Compact
+                  (Canister), Dyson Cinetic (Canister), Carbon fiber soft
+                  dusting brush, Reach under tool, Tangle free Turbine tool,
+                  Mattress tool, and Flexi-crevice tool."
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[2]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/a52ff6c0-469a-4234-91e3-f7fb609769a1.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/a92c85d8-7b26-48a2-86ac-06f64681e7b8.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/73f4eb7c-f0cc-4059-bcb3-f6edf6fa0cd5.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/afc3b4af-a17e-4041-a145-153f9fc5ce00.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/15018eb5-cf80-4c09-93eb-9aabc14b07b4.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/c1fd61e3-30e8-4010-9bec-d8e26b72df3c.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/92c185a3-cf53-4c2b-ae18-cce5217227b2.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/7b4b5729-9108-4516-8b96-1ca03c20cc23.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/2f5b8b72-abbd-4d01-bb12-6574c3e76dc0.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/1e1cbba6-110c-4ef4-bcf8-38bfc47bcdb4.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/0f3f2a4c-09cc-40a9-a0b7-e2153ac473e5.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-73e4f1d9-3696-4178-9c2e-8eae9a903a42/a9d5c9b3-be77-47c8-89d7-0d9d1800cb96.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-bcb26b2e-fdbc-4b3c-b0e5-2cea866906ea/b9de9e18-f18c-43ca-bc06-795f35e61d08.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-bcb26b2e-fdbc-4b3c-b0e5-2cea866906ea/58b96d76-1069-4e01-9f08-3129a4011147.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-bcb26b2e-fdbc-4b3c-b0e5-2cea866906ea/6f15799a-03d5-4e1c-9358-dfe73f20359f.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-bcb26b2e-fdbc-4b3c-b0e5-2cea866906ea/af74db7f-618a-4ae0-af28-2c8644d63710.jpg.w1920.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-bcb26b2e-fdbc-4b3c-b0e5-2cea866906ea/d86fb4ef-9c7a-49c4-a759-f08289e0b70b.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1533130929745_88703bcd-d8f5-4ec7-b34a-6aa1323b6afd/module/dysoncaen/_cp/products/1456770147148/tab-bcb26b2e-fdbc-4b3c-b0e5-2cea866906ea/e6e7011f-a80b-498e-a34e-30f77d7f6a6a.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Dyson DC77 Cinetic™ Multi-Floor Upright Vacuum
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            warranty:
+              - text: 5-year
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[19]
+            promotion:
+              - text: You save $150.00 (21% OFF)
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "26"
+        xpath: /
+    timestamp: 1606982192151

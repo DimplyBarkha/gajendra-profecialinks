@@ -24,9 +24,14 @@ module.exports = {
     });
 
     await context.click('div#pdpNavigations a[href="#reviews"]');
-    await context.click('div#wc-read-button');
-    await context.click('img[class*="ProductMediaCarouselStyle"]');
     await context.waitForXPath('//section[@id="reviews"]/div/div[1]/div[1]/div/div[1]/div[1]');
+    const loadMoreButton = await context.evaluate(async () => {
+      return document.querySelector('div#wc-read-button');
+    });
+    if (loadMoreButton) {
+      await context.click('div#wc-read-button');
+    }
+    await context.click('img[class*="ProductMediaCarouselStyle"]');
 
     const { transform } = parameters;
     const { productDetails } = dependencies;

@@ -1,0 +1,98 @@
+input:
+  _url: http://bedbathbeyond.ca
+  URL: https://www.bedbathandbeyond.ca/store/product/dyson-v6-cord-free-stick-vacuum/1060983817
+extractions:
+  - html: https://workbench.import.io/html/run=b1b386a3-276f-4af3-8e91-55614a0d8922/task=9d61cdb9-dd02-4cc9-bbc8-fc686076c622/a220ff5a-cd38-4cb5-aec7-c71e4110cdd0.html
+    extractionConfigId: product/details/stores/b/bedbathbeyond/CA/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bedbathandbeyond.ca/store/product/dyson-v6-cord-free-stick-vacuum/1060983817
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/116280360983817p?$690$&wid=690&hei=690
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V6 Cord-Free Stick Vacuum. View a larger version of this product
+                  image.
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@alt
+            category:
+              - text: Storage & Cleaning
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@title
+              - text: Vacuums & Floor Care
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@title
+              - text: Stick Vacuums
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@title
+            nameExtended:
+              - text: Dyson V6 Cord-Free Stick Vacuum
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: $464.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]
+            availabilityText:
+              - text: OutOfStock
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/link[2]/@href
+            description:
+              - text: "Specially engineered to clean all floor types, the Dyson Cord-Free Stick
+                  Vacuum is powered by a digital motor that generates a superior
+                  suction for prime cleaning capabilities. This revolutionary
+                  vacuum easily transforms into a handheld for quick jobs. ||
+                  Dyson's V6 Cord-Free Stick Vacuum boasts an unrivaled suction
+                  to deliver a superior clean to all floor types || Motorized
+                  cleaner head to clean both carpets and hard floors || Tier
+                  Radial™ cyclones capture more fine dust || Detachable wand ||
+                  Easily converts to handheld || 20 minutes of fade-free power
+                  || Uses 1 AAA battery (included) || 100 watts || Measures
+                  48.3\" L x 8.6\" W x 8.3\" H || Weighs 4.4 lb. || 2-year
+                  manufacturer's warranty || Imported || Model 227404-01 ||
+                  skuId : 60983817"
+                xpath: /html/body/@description
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]
+            weightNet:
+              - text: 4.4 lb
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[10]
+            sku:
+              - text: "60983817"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/@content
+            variantId:
+              - text: "60983817"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/@content
+            mpc:
+              - text: 227404-01
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[13]/text()[1]
+            ratingCount:
+              - text: "423"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/meta[1]/@content
+            aggregateRating:
+              - text: "4.3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            color:
+              - text: WHITE/SILVER
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[2]
+            name:
+              - text: Dyson V6 Cord-Free Stick Vacuum
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            warranty:
+              - text: 2-year
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[11]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "14"
+        xpath: /
+    timestamp: 1606982189795

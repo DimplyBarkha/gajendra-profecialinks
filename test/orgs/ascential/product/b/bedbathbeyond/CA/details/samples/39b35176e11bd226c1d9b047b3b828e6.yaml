@@ -1,0 +1,159 @@
+input:
+  _url: http://bedbathbeyond.ca
+  URL: https://www.bedbathandbeyond.ca/store/product/dyson-supersonic-trade-hair-dryer/3351126
+extractions:
+  - html: https://workbench.import.io/html/run=b1b386a3-276f-4af3-8e91-55614a0d8922/task=dfc4856c-f50e-42d6-981f-bdc5b23007b5/39367c2a-70db-4590-818f-dd75b6b1b030.html
+    extractionConfigId: product/details/stores/b/bedbathbeyond/CA/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bedbathandbeyond.ca/store/product/dyson-supersonic-hair-dryer/3351126
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/209069865966082p?$690$&wid=690&hei=690
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Supersonic™ Hair Dryer. View a larger version of this product image.
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@alt
+            category:
+              - text: Health & Beauty
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@title
+              - text: Hair Care
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@title
+              - text: Hair Dryers
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@title
+            nameExtended:
+              - text: Dyson Supersonic™ Hair Dryer
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: $499.99
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]
+            availabilityText:
+              - text: InStock
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/link[2]/@href
+            description:
+              - text: Experience the next generation of hair drying with the Dyson Supersonic
+                  Hair Dryer. Boasting a powerful V9 digital motor combined with
+                  Air Multiplier technology, its innovative design delivers
+                  super fast, precise drying in a fraction of the time. ||
+                  Powerful V9 digital motor combined with Air Multiplier™
+                  technology multiplies the air three times for fast, precise
+                  drying || Intelligent thermistor helps prevent extreme heat
+                  damage and preserves natural hair shine || Air temperature is
+                  measured 20 times every second, keeping the temperature under
+                  control || With the motor in the handle, the Dyson Supersonic
+                  is engineered for balance || Variable heat settings with cool
+                  shot function || Comes with magnetic attachments, including
+                  styling concentrator, diffuser and smoothing nozzle ||
+                  Removable filter || 120 voltage || 1600 watts || Polycarbonate
+                  || Wipe clean || Measures 1.52" L x 2.78" W x 3.81" H || Cord
+                  length measures 106" || Weighs 3.89 lb. || 2-year limited
+                  manufacturer's warranty || Imported || Model 305997-01
+                  (Iron/Fuchsia); 309743-01 (NIckel/Purple); 305998-01
+                  (White/Silver)
+                xpath: /html/body/@description
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]
+            weightNet:
+              - text: 3.89 lb
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[14]
+            sku:
+              - text: "65966082"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/@content
+            variantId:
+              - text: "65966082"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/@content
+            mpc:
+              - text: 305997-01, 309743-01, 305998-01
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[17]/text()[1]
+            ratingCount:
+              - text: "356"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/meta[1]/@content
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            color:
+              - text: BLACK/NICKEL, IRON/FUCHSIA, NICKEL/PURPLE, WHITE/SILVER
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/button[1]/@value
+            manufacturerDescription:
+              - text: >-
+                  The design of the Styling concentrator creates a high-velocity
+                  blade of air that's perfect for styling. And because the air
+                  is focused, you can style one section at a time – without
+                  disturbing the rest. Dries hair with smooth, controlled
+                  airflow, helping to create a smooth, natural finish.
+                  Engineered to disperse air more evenly around your curls, the
+                  Diffuser simulates natural drying, helping to reduce frizz and
+                  define curls and waves. Long prongs allow you to style more
+                  hair with greater control – and reach deeper into the hair.
+                  Create bends or go super-sleek. It’s got the control to do
+                  either. Create an amplified smooth look, with volume at the
+                  roots and a bend at the ends. Control your curls, or volumize
+                  them. Or use it on straighter hair to create movement. High –
+                  for fast drying and styling
+
+                  Medium – for regular drying
+
+                  Low – for diffusing 100°C – fast drying and styling
+
+                  80°C – regular drying
+
+                  60°C – cooler drying and diffusing
+
+                  28°C – constant cold 28°C cold shot, to set your style
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[2]
+            manufacturerImages:
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-f0d39dbd-6ad8-4a68-88e3-e38ff1e10cc1/4627f8c3-9e27-4553-9710-8b95c303e6e8.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-f0d39dbd-6ad8-4a68-88e3-e38ff1e10cc1/3b130f21-68dc-49e0-b9df-d4eadc5abe5a.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-f0d39dbd-6ad8-4a68-88e3-e38ff1e10cc1/669d86da-91dc-4f79-b757-8d811a73723d.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-3b7d410c-3544-4b7b-9df0-8ab6201a3422/d903fc01-da38-497d-8477-73639e8364cc.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-3b7d410c-3544-4b7b-9df0-8ab6201a3422/f2442af9-18d6-4c38-8ac6-88e62987defc.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-3b7d410c-3544-4b7b-9df0-8ab6201a3422/0a15b2d7-aa51-4613-afb7-7c909241b4a2.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-391eb246-1879-4f79-b4e3-4f411c1be351/34a30380-2fec-4ac8-b9c7-6d117fefe985.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-391eb246-1879-4f79-b4e3-4f411c1be351/dbb06fdd-40c0-47d2-be26-459e5840c888.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-391eb246-1879-4f79-b4e3-4f411c1be351/c00e81c2-803b-4bf6-a736-c74c48ad5445.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-3877a372-233a-44c9-a029-c27ef64f9648/01d40714-ed62-43b1-8c0b-680bc17ced78.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-3877a372-233a-44c9-a029-c27ef64f9648/3ec3207f-94b6-485a-ae56-c1550e28d671.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-3877a372-233a-44c9-a029-c27ef64f9648/55e04b49-dacb-4b93-9917-1edc08f226c9.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-3877a372-233a-44c9-a029-c27ef64f9648/857788c1-a6f2-45f6-888a-28daaa00b200.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+              - text: https://smedia.webcollage.net/rwvfp/wc/cp/1559938947694_de1c77e1-811a-4ba2-aebd-e5553109b0ce/module/dysoncaen/_cp/products/1559932120455/tab-3877a372-233a-44c9-a029-c27ef64f9648/e72c8f45-0618-4a8f-8057-893cdb3622f2.jpg.w480.jpg
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Dyson Supersonic™ Hair Dryer
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            warranty:
+              - text: 2-year
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[15]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "17"
+        xpath: /
+    timestamp: 1606982200997
