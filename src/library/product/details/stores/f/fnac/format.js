@@ -35,15 +35,15 @@ const transform = (data) => {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n\s*){1,}/g, ' || ');
         row.additionalDescBulletInfo[0].text = cleanUp(row.additionalDescBulletInfo[0].text);
       }
-      if (row.availabilityText) {
-        row.availabilityText.forEach(availabilityTextItem => {
-          if (availabilityTextItem.text.toLowerCase().includes('disponível') || availabilityTextItem.text.toLowerCase().includes('em stock')) {
-            availabilityTextItem.text = 'In Stock';
-          } else {
-            availabilityTextItem.text = 'Out Of Stock';
-          }
-        });
-      }
+      // if (row.availabilityText) {
+      //   row.availabilityText.forEach(availabilityTextItem => {
+      //     if (availabilityTextItem.text.toLowerCase().includes('disponível') || availabilityTextItem.text.toLowerCase().includes('em stock')) {
+      //       availabilityTextItem.text = 'In Stock';
+      //     } else {
+      //       availabilityTextItem.text = 'Out Of Stock';
+      //     }
+      //   });
+      // }
       if (row.descriptionBullets) {
         row.descriptionBullets.forEach((descriptionBulletsItem) => {
           if (

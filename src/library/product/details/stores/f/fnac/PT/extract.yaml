@@ -44,6 +44,9 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //span[contains(@class,"f-buyBox-availabilityStatus-available")]
+    regExp: .+
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
