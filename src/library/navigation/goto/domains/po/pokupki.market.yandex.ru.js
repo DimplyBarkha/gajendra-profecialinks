@@ -35,7 +35,7 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
-    const captchaFrame = "iframe[sandbox='allow-same-origin allow-scripts']";
+    const captchaFrame = "iframe[sandbox='allow-same-origin allow-scripts'] | iframe[@id=iframe]";
     try {
       await context.waitForSelector(captchaFrame);
     } catch (e) {
