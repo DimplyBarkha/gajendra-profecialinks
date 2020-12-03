@@ -52,8 +52,9 @@ async function implementation (
     waitUntil: 'load',
     checkBlocked: false,
   });
+  await new Promise((resolve) => setTimeout(resolve, 4000));
   if (id) {
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     const link = await context.evaluate(() => {
       const link = document.querySelector("section[id*='product-list'] a[class*='product-image-link']") ? document.querySelector("section[id*='product-list'] a[class*='product-image-link']").getAttribute('href') : '';
       return link;
