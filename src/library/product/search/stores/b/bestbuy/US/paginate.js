@@ -1,6 +1,6 @@
 
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
     country: 'US',
     store: 'bestbuy',
