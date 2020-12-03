@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'frisco.pl',
-    timeout: 120000,
+    prefix: null,
+    url: null,
     country: 'PL',
     store: 'frisco',
     zipcode: '',

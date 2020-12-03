@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'frisco.pl',
-    timeout: 120000,
     country: 'PL',
     store: 'frisco',
+    domain: 'frisco.pl',
     zipcode: '',
   },
 };

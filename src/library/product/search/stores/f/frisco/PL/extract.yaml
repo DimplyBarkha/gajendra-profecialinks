@@ -27,7 +27,9 @@ fields:
   singleValue: true
 - name: price
   singleValue: false
-  xpath: //span[@class='price product-box_normal-price digits-1']
+  xpath: //span[@class="price product-box_normal-price digits-2"] | //span[@class="price product-box_normal-price digits-1"]
+  regExp: (\d+)\,(\d+)(.*)
+  regExpReplace: $1.$2$3
 - name: manufacturer
   singleValue: true
 - name: soldBy

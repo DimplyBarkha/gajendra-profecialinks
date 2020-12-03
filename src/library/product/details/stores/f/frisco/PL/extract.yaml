@@ -1,0 +1,122 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@class="product-page_image"]/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class="product-page_image"]/img/@alt
+  - name: metaKeywords
+    singleValue: true
+    xpath:   
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumbs"]/div[position()>1 and position()<last()]/a/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class="product-page_name-box"]/h1/text()
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //span[@class="cart-box_old-price"]
+  - name: price
+    singleValue: true
+    xpath: //span[@class="main-price"]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@itemprop="availability"]/@content
+  - name: description
+    singleValue: false
+    xpath: //h1[@itemprop='name'] | //div[@class="ui-tabs_tab-content"]//h2[contains(text(),"L'OR Kawa Crema ziarna")]//following::p[1]
+  - name: brandText
+    singleValue: true
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: quantity
+    singleValue: true
+    xpath:
+  - name: weightNet
+    singleValue: true
+    xpath: //span[contains(text(),'Waga:')]/following::span[1]/text()
+  - name: weightGross
+    singleValue: true
+    xpath: //span[contains(text(),'Waga:')]/following::span[1]/text()
+  - name: gtin
+    singleValue: true
+    xpath: //span[contains(text(),'EAN')]/following::span[1]/text()
+  - name: manufacturer
+    singleValue: true
+    xpath: //h3[contains(text(),'Nazwa firmy')]/following::p[1]/text()
+  - name: sku
+    singleValue: true
+    xpath: //div[@id="id1"]/text()
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id="vid"]
+  - name: warnings
+    singleValue: true
+    xpath: //div[@id="wid"]/text()
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class="product-page_name-box"]/h1/text()
+  - name: productUrl
+    singleValue: true
+    description: The URL for the product details page
+    xpath:
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+    xpath: //div[@id="mid"]/text()
+  - name: inStorePrice
+    singleValue: true
+    xpath: //span[@class="main-price"]
+  - name: directions
+    singleValue: true
+    description: Content under "directions" header
+    xpath: //div[@id="did"]/text()
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: //div[@id="cid"]/text()
+  - name: caloriesFromFatPerServing
+    singleValue: true
+    xpath: //div[@id="cpid"]/text()
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: //div[@id="tfid"]/text()
+  - name: totalFatPerServingUom
+    singleValue: true
+    xpath: //div[@id="tfsid"]/text()
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: //div[@id="tssid"]/text()
+  - name: storage
+    singleValue: true
+    xpath: //div[@id="did"]/text()
+  - name: countryOfOrigin
+    singleValue: true
+    xpath:
+  - name: allergyAdvice
+    singleValue: true
+    xpath: //div[@id="aid"]
+  - name: brand_url
+    singleValue: true
+    xpath: //span[@class='value']/a/@href
+    regExp: (.+)
+    regExpReplace: https://frisco.pl$1
+  - name: ingredientsList
+    singleValue: true
+    xpath: //div[@id="componentid"]
+  - name: pricePerUnit
+    singleValue: true
+    xpath: 
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: //div[@class='product-page_labels-single green']
+  - name: onlinepricecurrency
+    singleValue: true
+    xpath: //meta[@itemprop="currency"]/@content
+
+    
