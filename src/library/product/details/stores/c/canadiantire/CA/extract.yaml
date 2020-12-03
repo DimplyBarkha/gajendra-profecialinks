@@ -53,7 +53,7 @@ fields:
     xpath: //div[@class="pdp-product-brand-link-content-wrapper"]//div[@class="brand-logo-link"]/a/img/@alt | //div[contains(@data-component,"PDPBuyBox")]/@data-config
   - name: color
     singleValue: false
-    xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li[contains(.,'Colour') or contains(.,'Color')]/text()[3]/following-sibling::*/text()
+    xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li[contains(.,'Colour:') or contains(.,'Color:')]/text()[3]/following-sibling::*/text()
   - name: warranty
     singleValue: false
     xpath: //div[@class="pdp-info-component__warranty pdp-info-component__col"]//div[@class="pdp-info-component__subheading"]
