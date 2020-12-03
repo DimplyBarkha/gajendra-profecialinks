@@ -40,13 +40,7 @@ fields:
       clicks add to basket this is the price they would be charged
     xpath: //div[contains(@class,'sku-details-wrap')]//span[contains(@id,'SkuPriceUpdate')]/.. 
   - name: availabilityText
-    singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    xpath: //div[contains(@class,'sku-details-wrap')]//a[@ctatype="addtocart"] 
-    regExp: (.+)
-    regExpReplace: In Stock
+    xpath: //div[contains(@class,'sku-details-wrap')]//a[@ctatype="addtocart"]//text()
     defaultValue: Out of Stock
   - name: description
     singleValue: false
@@ -84,11 +78,13 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div[contains(@id,"skuZoomImage")]//img/@data-sku 
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
+    xpath: //div[contains(@class,"formLabel")]//span[contains(.,"Item ")]/../text()
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -105,6 +101,8 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
+    xpath: //div[contains(@id,"SkuMainContentDiv")]//span[contains(@scvalue,"mainproduct:reviews")]
+    regExp: (\d+)
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
@@ -112,6 +110,7 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
+    xpath: //div[contains(@id,"SkuMainContentDiv")]//span[contains(@id,"productRating")] 
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -130,21 +129,27 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //span[contains(text(),"True Color")]/../text()
+    regExp: ([\w\s]+)
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@class,"aplus-body")]//*[not(self::style)and not(contains(@style,"display"))]/text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[contains(@id,"aplus")]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[@id="videos"]/@data
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[contains(@class,"skuName")]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -221,6 +226,7 @@ fields:
     singleValue: true
     description: null
   - name: featureBullets
+    xpath: //*[contains(text(),"Features")]/..//li//*[not(self::style)]/text() 
     singleValue: false
     description: null
   - name: otherSellersName
@@ -233,6 +239,7 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
+    xpath: count(//li[contains(@class,"itemThumb") and not(contains(@class,"clicked"))]//img/@data-zoomimage) 
     singleValue: true
     description: null
     type: NUMBER
@@ -397,6 +404,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[contains(@class,"skuSpecificsCnt")]//table//td
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -465,6 +473,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@data-tab="tbDescription"]/div[2]//ul/li
   - name: prop65Warning
     singleValue: true
     description: null
@@ -509,4 +518,7 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    xpath: //div[contains(@id,"skuZoomImage")]/img/@src
+    regExp: (.+)
+    regExpReplace: 'Yes'
     defaultValue: No
