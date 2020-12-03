@@ -82,7 +82,7 @@ module.exports = {
           const starFillRate = parseFloat(starFillRateRegex.exec(fillAtr));
           rating += starFillRate;
         }
-        addElementToDocument('aggregate_rating', rating);
+        addElementToDocument('aggregate_rating', rating.toString().replace('.', ','));
       }
       const productDetails = document.querySelectorAll('dd[class*="product-details__content-value"]');
       if (productDetails.length) {
