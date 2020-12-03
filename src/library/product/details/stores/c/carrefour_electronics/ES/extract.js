@@ -57,6 +57,21 @@ module.exports = {
         const gtin = obj.productEAN;
         addElementToDocument('gtin', gtin);
       }
+      const skuNode = document.querySelector('link[rel="canonical"]')
+        ? document.querySelector('link[rel="canonical"]').getAttribute('href') : '';
+      if (skuNode) {
+        // eslint-disable-next-line no-useless-escape
+        const skuRegex = /([^\/]+)\/[^\/]+$/g;
+        const sku = skuRegex.exec(skuNode)[1];
+        addElementToDocument('sku_code', sku);
+      }
+      const ratingCountNode = document.querySelector('div[class=\'buybox\'] span[class*="stars-rate-extended__reviews"]')
+        ? document.querySelector('div[class=\'buybox\'] span[class*="stars-rate-extended__reviews"]').innerText : '';
+      if (ratingCountNode) {
+        const ratingRegex = /\d+/g;
+        const ratingCount = ratingRegex.exec(ratingCountNode);
+        addElementToDocument('rating_count', ratingCount);
+      }
 
       const ratingStars = document.querySelectorAll('div[class=\'buybox\'] span[class*=\'stars-rate-extended__star-container\'] svg');
       if (ratingStars.length) {

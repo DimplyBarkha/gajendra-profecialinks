@@ -9,7 +9,7 @@ fields:
     singleValue: false
   - name: productUrl
     singleValue: false
-    xpath: //link[@rel='canonical']
+    xpath: //link[@rel='canonical']/@href
   - name: _pageTimeStamp
     singleValue: false
   - name: image
@@ -89,16 +89,12 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //link[@rel="canonical"]/@href
-    regExp: ([^\/]+)\/[^\/]+$
-    regExpReplace: $1
+    xpath: //div[@id='sku_code']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
       sku
-    xpath: //link[@rel="canonical"]/@href
-    regExp: ([^\/]+)\/[^\/]+$
-    regExpReplace: $1
+    xpath: //div[@id='sku_code']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -118,8 +114,7 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //div[@class='buybox']//span[contains(@class, "stars-rate-extended__reviews")]
-    rexExp: \d+
+    xpath: //div[@id='rating_count']
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -151,7 +146,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class='flix-content']//div[@style]
+    xpath: //div[@class='flix-content']//div[@style]//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -159,7 +154,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[contains(@class,'fullJwPlayerWarp') and contains(@class,'fullPlaylist')]/input/@value
+    xpath: //div[contains(@class,'fullJwPlayerWarp') and contains(@class,'fullPlaylist')]//iframe/@src
   - name: name
     singleValue: true
     description: The product name
