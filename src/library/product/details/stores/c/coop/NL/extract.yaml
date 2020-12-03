@@ -41,32 +41,33 @@ fields:
   - name: servingSize
     singleValue: false
     xpath: //span[@data-resource-id='per-100']
-  - name: servingSizeUom
-    singleValue: false
-    xpath: //span[@class='nutrient-portion-uom']
+  # - name: servingSizeUom
+  #   singleValue: false
+  #   xpath: //span[@class='nutrient-portion-uom']
   - name: caloriesPerServing
     singleValue: false
-    xpath: //tr[td[text()='Energie']]/td[contains(@class,'amount')]
+    xpath: //tr//td[contains(text(),'Energie')]/following-sibling::td      
   - name: totalFatPerServing
     singleValue: false
-    xpath: //tr[td[text()='Vetten']]/td[contains(@class,'amount')]
+    xpath: //tr//td[contains(text(),'Vetten')]/following-sibling::td      
   - name: totalCarbPerServing
     singleValue: false
-    xpath: //tr[td[text()='Koolhydraten']]/td[contains(@class,'amount')]
+    xpath: //tr//td[contains(text(),'Koolhydraten')]/following-sibling::td      
   - name: proteinPerServing
     singleValue: false
-    xpath: //tr[td[text()='Eiwitten']]/td[contains(@class,'amount')]
+    xpath: //tr//td[contains(text(),'Eiwitten')]/following-sibling::td      
   - name: totalSugarPerServing
     singleValue: false
-    xpath: //tr[td[text()='Suikers']]/td[contains(@class,'amount')]
+    xpath: //tr//td[contains(text(),'Suikers')]/following-sibling::td      
   - name: saltPerServing
     singleValue: false
-    xpath: //tr[td[text()='Zout']]/td[contains(@class,'amount')]
+    xpath: //tr//td[contains(text(),'Zout')]/following-sibling::td
   - name: dietaryFibrePerServing
     singleValue: false
-    xpath: //tr[td[text()='Voedingsvezel']]/td[contains(@class,'amount')]
+    xpath: //tr//td[contains(text(),'Voedingsvezel')]/following-sibling::td      
   - name: ingredientsList
     singleValue: false
+    xpath: //div[@class='allergyInfo']
   - name: category
     singleValue: false
     xpath: //div[contains(@class,'crumbs')]//a[not(contains(@class,'back'))][not(contains(@href,'product'))]//span[contains(@itemprop,'title')][not(text()='Home')]
