@@ -2,7 +2,7 @@ extends: ../shared
 fields:
   - name: weightNet
     xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Gewicht')]])[1]
-  - name: shippingInfo
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ')] or .//*[contains(text(),'elivery')]])[1]
-  - name: warranty
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arranty ')] or .//*[contains(text(),'uarantee ')]])[
+  - name: termsAndConditions
+    xpath: boolean(//li[@class="footer__item"]/a[@aria-label="Datenschutzerklärung"]/@href)
+  - name: privacyPolicy
+    xpath: boolean(//li[@class="footer__item"]/a[@aria-label="Datenschutzerklärung"]/@href)

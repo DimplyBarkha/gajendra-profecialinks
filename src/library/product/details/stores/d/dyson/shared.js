@@ -101,6 +101,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       else setBrand(lastChance);
     }
 
+    addElementToDocument('product_url', window.location.href);
     addElementToDocument('added_brandText', brandText);
 
     // add the sku
