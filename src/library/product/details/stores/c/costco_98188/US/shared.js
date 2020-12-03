@@ -7,17 +7,10 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       var bulletsText = '';
-      var newArray = [];
+      var bulletsCount = 0;
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo.length) {
-        var originalArray = row.additionalDescBulletInfo;
-        var lookupObject = {};
-        for (var i in originalArray) {
-          lookupObject[originalArray[i].text] = originalArray[i];
-        }
-        for (i in lookupObject) {
-          newArray.push(lookupObject[i]);
-        }
-        newArray.forEach((ele) => {
+        bulletsCount = row.additionalDescBulletInfo.length;
+        row.additionalDescBulletInfo.forEach((ele) => {
           if (ele.text) {
             bulletsText += '||' + ele.text.trim();
           }
@@ -27,23 +20,8 @@ const transform = (data) => {
             text: bulletsText,
           }];
       }
-      if (row.descriptionBullets && newArray.length) {
-        row.descriptionBullets[0].text = newArray.length;
-      }
-      if (row.description) {
-        var desc = '';
-        row.description.forEach((ele) => {
-          desc += ' ' + ele.text;
-        });
-        row.description = [
-          {
-            text: bulletsText + ' ' + desc,
-          }];
-      } else if (bulletsText) {
-        row.description = [
-          {
-            text: bulletsText,
-          }];
+      if (row.descriptionBullets && bulletsCount) {
+        row.descriptionBullets[0].text = bulletsCount;
       }
       if (row.specifications) {
         var specText = '';
@@ -53,6 +31,45 @@ const transform = (data) => {
         row.specifications = [{
           text: (specText.slice(0, -3)).trim(),
         }];
+      }
+      if (row.category && row.category.length) {
+        row.category = row.category.map((e) => {
+          e.text = e.text.replace('Go to ', '');
+          return e;
+        });
+      }
+      if (row.alternateImages && row.alternateImages.length) {
+        row.alternateImages = row.alternateImages.map((e) => {
+          e.text = e.text.replace('recipeId=735', 'recipeId=728');
+          return e;
+        });
+      }
+      if (row.price && (!row.price[0].text.includes('$'))) {
+        row.price[0].text = '$'.concat(row.price[0].text);
+      }
+      if (row.listPrice && (!row.listPrice[0].text.includes('$'))) {
+        row.listPrice[0].text = '$'.concat(row.listPrice[0].text);
+        if (row.price[0].text === row.listPrice[0].text) {
+          delete row.listPrice;
+        }
+      }
+      if (row.termsAndConditions) {
+        row.termsAndConditions[0].text = row.termsAndConditions[0].text === 'No' ? 'No' : 'Yes';
+      }
+      if (row.quantity) {
+        if (row.quantity[0].text.includes('fl oz')) {
+          var size = row.quantity[0].text.split(',');
+          for (var k = 0; k < size.length; k++) {
+            if (size[k].includes('fl oz')) {
+              row.quantity = [
+                {
+                  text: size[k].trim(),
+                }];
+            }
+          }
+        } else {
+          delete row.quantity;
+        }
       }
     }
   }

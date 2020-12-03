@@ -33,6 +33,42 @@ module.exports = {
       if (descNode && descNode.innerText) {
         addHiddenDiv('product-desc', descNode.innerText);
       }
+      const bulletsNode = document.querySelectorAll('ul.pdp-features li');
+      const detailsNode = document.querySelector('div.row.active div.product-info-description');
+      const featuresNode = document.querySelectorAll('div.row.active div.product-info-description ul li');
+      var descText = '';
+      var featureText = '';
+      var detailsDesc = '';
+      if (bulletsNode.length) {
+        bulletsNode.forEach((ele) => {
+          if (ele.innerText) {
+            descText += '||' + ele.innerText;
+          }
+        });
+      }
+      if (detailsNode && detailsNode.innerText) {
+        detailsDesc = detailsNode.innerText
+      }
+      if (featuresNode.length) {
+        var index = -1;
+        if (detailsDesc) {
+          detailsDesc = detailsDesc.replace(/(\r\n|\n|\r)/gm, '');
+          index = detailsDesc.indexOf(featuresNode[0].innerText);
+        }
+        featuresNode.forEach((ele) => {
+          if (ele.innerText) {
+            featureText += '||' + ele.innerText;
+            detailsDesc = detailsDesc.replace(ele.innerText, '');
+          }
+        });
+        if (index !== -1) {
+          detailsDesc = [detailsDesc.slice(0, index), featureText, detailsDesc.slice(index)].join('');
+        }
+      }
+      if (detailsDesc || descText) {
+        addHiddenDiv('costco-product-desc', descText.concat(' ' + detailsDesc));
+      };
+
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;

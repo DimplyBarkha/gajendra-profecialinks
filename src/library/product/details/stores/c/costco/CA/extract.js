@@ -102,9 +102,10 @@ module.exports = {
         addElementToDocument('skuValue', modelInfo);
       }
       // xpath for variantId
-      const variantId = getXpath('//p[contains(@id,"product-body-item-number")]//span/@data-sku | //p[contains(@id,"product-body-item-number")]/text()', 'nodeValue');
+      let variantId = getXpath('//p[contains(@id,"product-body-item-number")]//span/@data-sku | //p[contains(@id,"product-body-item-number")]/text()', 'nodeValue');
       if (variantId !== null) {
-        addElementToDocument('variantId', variantId.replace('Item'));
+        variantId = variantId.replace('Item', '');
+        addElementToDocument('variantId', variantId);
       }
 
       // xpath for video
@@ -114,9 +115,20 @@ module.exports = {
         addElementToDocument('added_video_url', videoUrlObj.playlist[0].file);
       }
 
+      const specXpath = '//div[contains(@class,"product-info-specs")]//div[@class="row"]';
+      const specValue = getAllXpath(specXpath, 'innerText');
+      let specVal = '';
+      specValue.forEach(function (element) {
+        specVal = specVal + ' ' + element;
+      });
+      if (specVal.length > 0) {
+        addElementToDocument('added_specValue', specVal);
+      }
+
       // xpath for specificationValue
       const specifictionXpath = '//div[@class="product-info-description"]/ul[3]';
       const specificationValue = getAllXpath(specifictionXpath, 'innerText');
+
       specificationValue.forEach(function (element) {
         const specArray = element.split('\n');
         var i;
@@ -147,6 +159,8 @@ module.exports = {
       if (priceValue.length > 0 && !priceValue[0].includes('- -.- -')) {
         priceNew = [priceValue[1] + '' + priceValue[0]];
         addElementToDocument('priceValue', priceNew);
+      } else {
+        addElementToDocument('priceValue', priceValue[1]);
       }
 
       // xpath for availabilityText
@@ -154,13 +168,15 @@ module.exports = {
       const availValue = getXpath(availXpath, 'nodeValue');
       let availabilityText;
       if (availValue != null) {
-        if (availValue.includes('instock')) {
+        if (availValue.includes('in')) {
           availabilityText = 'In Stock';
         } else {
           availabilityText = 'Out of Stock';
         }
         addElementToDocument('availabilityText', availabilityText);
       }
+
+      addElementToDocument('added_variantCount', 0);
 
       const aggregateRating = getXpath("//span[@itemprop='ratingValue']", 'innerText');
       if (aggregateRating) {
