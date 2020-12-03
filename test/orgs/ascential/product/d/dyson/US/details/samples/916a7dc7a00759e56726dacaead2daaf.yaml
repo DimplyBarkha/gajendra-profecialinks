@@ -2,7 +2,7 @@ input:
   _url: http://dyson.com
   URL: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-pure-cool-tower-tp01-black-nickel
 extractions:
-  - html: https://workbench.import.io/html/run=7e58164e-0d31-4740-a484-ef2e578ab4d2/task=01a64ee5-09ef-439b-aead-b47fce5c27a1/995c0fac-f5d3-49dc-8a65-2b737ae434df.html
+  - html: https://workbench.import.io/html/run=1df447a3-f8de-4411-8f3e-1189703d4742/task=4d3eb7c0-9e35-4eb4-bc16-9604e87b303e/8f6b6cc4-a22f-463b-b122-fe6ef1352788.html
     extractionConfigId: product/details/stores/d/dyson/US/extract
     data:
       - group:
@@ -43,9 +43,6 @@ extractions:
             price:
               - text: 399.99 $
                 xpath: /html/body/div[11]
-            availabilityText:
-              - text: Out of stock
-                xpath: /html/body/div[17]
             description:
               - text: >-
                   Dyson Pure Cool™ TP01 purifying fan (Black/Nickel). 
@@ -115,6 +112,8 @@ extractions:
                   2-year warranty 
                   Includes parts and labor
                 xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            availabilityText:
+              - text: Out Of Stock
             manufacturer:
               - text: Dyson
             descriptionBullets:
@@ -124,4 +123,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1607002699851
+    timestamp: 1607006744911

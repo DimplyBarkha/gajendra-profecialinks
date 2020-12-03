@@ -2,7 +2,7 @@ input:
   _url: http://dyson.com
   URL: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-dp01-pure-cool-link-desk-white-silver
 extractions:
-  - html: https://workbench.import.io/html/run=7e58164e-0d31-4740-a484-ef2e578ab4d2/task=522aff7e-5799-4404-8213-a2361ab9b7ea/408b6378-6515-4f96-947a-1465bc9fa082.html
+  - html: https://workbench.import.io/html/run=1df447a3-f8de-4411-8f3e-1189703d4742/task=4496779a-ab18-4239-a2c8-3504a5449cef/ac2dfddd-e3c4-43c4-bde1-4b9e11f98ba6.html
     extractionConfigId: product/details/stores/d/dyson/US/extract
     data:
       - group:
@@ -27,9 +27,6 @@ extractions:
             nameExtended:
               - text: Dyson Pure Cool Link™ desk purifier fan in (White/Silver).
                 xpath: /html/body/div[12]
-            availabilityText:
-              - text: Out of stock
-                xpath: /html/body/div[17]
             description:
               - text: >-
                   Dyson Pure Cool Link™ desk purifier fan in (White/Silver).
@@ -99,6 +96,8 @@ extractions:
                   2-year warranty 
                   Includes parts and labor
                 xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            availabilityText:
+              - text: Out Of Stock
             manufacturer:
               - text: Dyson
             descriptionBullets:
@@ -108,4 +107,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1607002699307
+    timestamp: 1607006746138

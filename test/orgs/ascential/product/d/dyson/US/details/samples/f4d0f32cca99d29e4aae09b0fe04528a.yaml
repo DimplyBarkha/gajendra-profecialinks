@@ -2,7 +2,7 @@ input:
   _url: http://dyson.com
   URL: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-pure-cool-link-tower-nickel
 extractions:
-  - html: https://workbench.import.io/html/run=7e58164e-0d31-4740-a484-ef2e578ab4d2/task=b0584254-2be9-4188-abbf-eb7e182aff63/a3bf4884-5831-45e5-b602-5d2c32804702.html
+  - html: https://workbench.import.io/html/run=1df447a3-f8de-4411-8f3e-1189703d4742/task=60951a4c-3809-4e10-ac12-1986672411eb/a7954668-c0c7-4fa1-bebe-bc250e9fc1ae.html
     extractionConfigId: product/details/stores/d/dyson/US/extract
     data:
       - group:
@@ -43,9 +43,6 @@ extractions:
             price:
               - text: 519.99 $
                 xpath: /html/body/div[11]
-            availabilityText:
-              - text: Out of stock
-                xpath: /html/body/div[17]
             description:
               - text: |-
                   Dyson Pure Cool Link™ tower TP02 purifier fan (Nickel)
@@ -119,6 +116,8 @@ extractions:
                   2-year warranty 
                   Includes parts and labor
                 xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            availabilityText:
+              - text: Out Of Stock
             manufacturer:
               - text: Dyson
             descriptionBullets:
@@ -128,4 +127,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1607002698402
+    timestamp: 1607006744199
