@@ -36,6 +36,12 @@ const transform = (data) => {
                     item.text = "https://www.empik.com" + item.text;
                 });
             }
+
+            if (row.aggregateRating) {
+                row.aggregateRating.forEach(item => {
+                    item.text = Number(item.text);
+                });
+            }
         }
     }
     return cleanUp(data);
