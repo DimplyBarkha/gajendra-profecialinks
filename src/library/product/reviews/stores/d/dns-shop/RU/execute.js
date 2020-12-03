@@ -7,7 +7,7 @@ module.exports = {
     domain: 'dns-shop.ru',
     loadedSelector: 'div.opinions-widget',
     noResultsXPath: null,
-    reviewUrl: null,
+    reviewUrl: 'https://www.dns-shop.ru/search/?q={id}/opinion/',
     sortButtonSelectors: null,
     zipcode: '',
   },
