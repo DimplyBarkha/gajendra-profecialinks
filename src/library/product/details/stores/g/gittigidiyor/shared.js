@@ -95,8 +95,13 @@ const transform = (data) => {
             if (!row.warranty && row.warrantySecondary) {
                 row.warranty = [{ text: row.warrantySecondary[0].text }]
             }
-            if (row.sku) {
-                row.sku = [{ text: row.sku[0].text }]
+            // if (row.sku) {
+            //     row.sku = [{ text: row.sku[0].text }]
+            // }
+            if (row.sku && row.variantId) {
+                if (row.sku[0].text == "") {
+                    row.sku[0].text == row.variantId[0].text;
+                }
             }
 
             row.variantCount = [{ text: 0 }]
