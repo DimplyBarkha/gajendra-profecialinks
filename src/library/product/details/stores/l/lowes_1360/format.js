@@ -37,6 +37,12 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.variants) {
+        const variantArray = row.variants.map((item) => {
+          return item.text;
+        });
+        row.variants = [{ text: variantArray.join('|'), xpath: row.variants[0].xpath }];
+      }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/, ' : ') : '';
