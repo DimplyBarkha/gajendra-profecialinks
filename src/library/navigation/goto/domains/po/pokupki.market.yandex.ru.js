@@ -35,7 +35,7 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
-    const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), div#iframe-wrapper";
+    const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title]), div#iframe-wrapper , iframe[sandbox='allow-same-origin allow-scripts'], div.central";
     try {
       await context.waitForSelector(captchaFrame);
     } catch (e) {
@@ -62,5 +62,6 @@ module.exports = {
         console.log('Details page selector not found');
       }
     }
+    
   },
 };
