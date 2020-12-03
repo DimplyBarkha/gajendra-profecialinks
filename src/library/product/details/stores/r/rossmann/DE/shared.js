@@ -44,9 +44,13 @@ const transform = (data) => {
         }
       }
 
-      // if (row.additionalDescBulletInfo) {
-      //   row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
-      // }
+      if (row.additionalDescBulletInfo) {
+        for (let i = 0; i < row.additionalDescBulletInfo.length; i++) {
+          if (i !== 0) {
+            row.additionalDescBulletInfo[i].text = row.additionalDescBulletInfo[i].text.replace('||', '');
+          }
+        }
+      }
     }
   }
 

@@ -22,8 +22,6 @@ module.exports = {
         for (let i = 0; i < descUl.snapshotLength; i++) {
           descUl.snapshotItem(i).textContent = `|| ${descUl.snapshotItem(i).textContent}`;
         }
-      } else {
-        console.log("not found")
       }
     });
     return await context.extract(productDetails, { transform: transformParam });
