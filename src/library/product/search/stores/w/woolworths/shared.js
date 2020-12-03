@@ -47,6 +47,13 @@ const transform = (data, context) => {
           item.text = item.text.replace(/[{()}]/g, '');
         });        
       }
+      if (row.price) {
+        let info = [];
+        row.price.forEach(item => {
+          info.push(item.text);
+        });
+        row.price = [{'text':info.join(''),'xpath':row.price[0].xpath}];
+      }
     }
   }
   context.setState({ rankCounter });
