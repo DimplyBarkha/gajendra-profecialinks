@@ -1,0 +1,22 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[@id="desktop-banner"]//a | //div[contains(@id,'promo')] | //div[contains(@class,'category')] | //div[contains(@id,'octopus')]
+fields:
+- name: Department
+- name: page
+- name: mediaLocation
+  xpath: Image Not Found
+- name: bannerImage
+  xpath: //img
+  type: IMAGE
+- name: topCarousel
+  xpath: //img
+  type: IMAGE
+- name: promoBanner
+  xpath: //img/@src
+- name: categoryImage
+  xpath: //img/@src
+- name: sponsoredImage
+  xpath: //img/@src
+  

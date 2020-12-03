@@ -23,15 +23,24 @@ const transform = (data) => {
                     obj['mediaImage'] = value;
                     obj['mediaLocation'] = 'Top Carousel';
                     arr.push(obj);
-                } else {
-                    obj['mediaLocation'] = 'Image not found';
+                } else if (key == 'promoBanner') {
+                    obj['mediaImage'] = value;
+                    obj['mediaLocation'] = 'Promo Banner';
+                    arr.push(obj);
+                } else if (key == 'categoryImage') {
+                    obj['mediaImage'] = value;
+                    obj['mediaLocation'] = 'Category Image';
+                    arr.push(obj);
+                } else if (key == 'sponsoredImage') {
+                    obj['mediaImage'] = value;
+                    obj['mediaLocation'] = 'Sponsored Image';
                     arr.push(obj);
                 }
             }
         }
         //}
-
-        data[0].group = arr;
+        if (arr.length > 0)
+            data[0].group = arr;
 
         for (row of group) {
             if (row.bannerImage) {
@@ -40,6 +49,15 @@ const transform = (data) => {
             }
             if (row.topCarousel) {
                 row.mediaLocation = 'Top Carousel'
+            }
+            if (row.promoBanner) {
+                row.mediaLocation = 'Promo Banner'
+            }
+            if (row.categoryImage) {
+                row.mediaLocation = 'Category Image'
+            }
+            if (row.sponsoredImage) {
+                row.mediaLocation = 'Sponsored Image'
             }
         }
     }
