@@ -35,7 +35,7 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
-    const captchaFrame = "no-script[src*='captcha']:not([title]), no-script[src*='captcha']:not([title])";
+    const captchaFrame = "iframe[sandbox='allow-same-origin allow-scripts']";
     try {
       await context.waitForSelector(captchaFrame);
     } catch (e) {
