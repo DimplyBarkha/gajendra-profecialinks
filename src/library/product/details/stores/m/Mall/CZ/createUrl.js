@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'mall.cz',
-    timeout: 60000,
+    prefix: null,
+    url: null,
     country: 'CZ',
     store: 'Mall',
     zipcode: '',

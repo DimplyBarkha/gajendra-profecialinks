@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //img[@class="gallery-magnifier__zoom"]/@src
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //span[@class="back-to-parent"]/a/span/font/font/text()
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class="hidden-small lay-overflow-hidden word-break--word mt-0"]/font/font/text()
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //div[@class="other-options-box"]/div/div/div/font/font/text()
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //b[@class="final-price"]/font/font/text()
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[@class="pdra__status pdra__status--available"]/font/font/text()
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //p[@class="mb-20 pro-description--short"]

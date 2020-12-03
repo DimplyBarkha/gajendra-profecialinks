@@ -11,7 +11,7 @@ module.exports = {
     noResultsXPath: null,
     openSearchDefinition: {
      // offset = 30,
-      template: 'https://www.mall.cz/znacka/{searchTerms}?page={page}',
+      template: 'https://www.mall.cz/hledej?page={page}&s={searchTerms}',
       },
     resultsDivSelector: null,
     openSearchDefinition: null,
