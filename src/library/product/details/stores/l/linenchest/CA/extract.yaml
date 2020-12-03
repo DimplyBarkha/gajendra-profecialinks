@@ -1,0 +1,76 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id="mtImageContainer"]//div//a//@href
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="mcs-items-container"]//div[@class="mcs-item"][position()>1]//a//@href
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumbs"]//ul//li[position()>1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="page-title-wrapper product"]//h1[@class="page-title"]//span
+  - name: name
+    singleValue: false
+    xpath: //div[@class="page-title-wrapper product"]//h1[@class="page-title"]//span
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-info-price"]//span[@class="price-container price-final_price tax"]//span[@class="price-wrapper"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="tt-c-reviews-summary__rating tt-u-mb--sm"]//span[@class="tt-c-reviews-summary__rating-number"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@id="tt-teaser"]//a[@class="TTteaser__read-reviews"]
+    regExp: \d+
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="mcs-items-container"]//div[@class="mcs-item"][position()>1]//a//@href)
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: (//div[@class="product attribute more-infos"])[1]//div[@itemprop="more_infos"]//ul//li | //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count((//div[@class="product attribute more-infos"])[1]//div[@itemprop="more_infos"]//ul//li | //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul//li)
+  - name: description
+    singleValue: false
+    xpath: concat(//div[@class="product attribute overview"]//div[@itemprop="description"], //div[@class="product attribute more-infos"]//div[@itemprop="more_infos"]//ul, //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul)
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'product-sku')]
+    regExp: \d+
+  - name: availabilityText
+    singleValue: false
+    xpath: //meta[@property="product:availability"]//@content
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="product attribute manufacturer"]//div[@itemprop="manufacturer"]
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@property="product:brand"]//@content
+  - name: color
+    singleValue: false
+    xpath: //meta[@property="product:color"]//@content
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="mcs-items-container"]//div[@class="mcs-item"]//a[contains(@class,'mt-thumb-switcher video-selector')]//@data-video
+  - name: productUrl
+    singleValue: false
+    xpath: //link[@rel="canonical"]//@href
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'product-sku')]
+    regExp: \d+
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@data-price-type="oldPrice"]//span
+  - name: shippingDimensions
+    singleValue: false
+    xpath: (//div[@itemprop="more_infos"]/ul/li[contains(.,"Dimensions")])[1]
+    regExp: :\W+(.+)
+    regExpReplace: $1
