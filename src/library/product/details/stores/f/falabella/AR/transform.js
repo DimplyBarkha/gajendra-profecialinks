@@ -30,6 +30,9 @@ const transform = (data) => {
       //   });
       // }
       if (row.videos) {
+        row.videos = row.videos.filter((video) => {
+          return video.text;
+        })
         row.videos.forEach(item => {
           item.text = item.text.indexOf('https:') === -1 ? ('https:' + item.text) : item.text;
         });
@@ -47,10 +50,29 @@ const transform = (data) => {
           item.text = cs;
         });
       }
+      if (row.image) {
+        row.image.forEach(item => {
+          item.text = item.text.split('?')[0]
+        });
+      }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
-          item.text = item.text.replace("?wid=800&hei=800&qlt=70", '').trim();
+          item.text = item.text.split('?')[0]
         });
+
+        row.alternateImages = row.alternateImages.filter(alternateItem => {
+          const itemFound = row.image.find((item) => {
+            return item.text === alternateItem.text;
+          });
+
+          if (itemFound) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+
+        row.secondaryImageTotal = [{ text: row.alternateImages ? row.alternateImages.length : 0 }];
       }
     }
   }
