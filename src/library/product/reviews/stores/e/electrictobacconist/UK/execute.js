@@ -12,5 +12,5 @@ module.exports = {
     sortButtonSelector: null,
     zipcode: '',
   },
-  implementation
+  implementation,
 };

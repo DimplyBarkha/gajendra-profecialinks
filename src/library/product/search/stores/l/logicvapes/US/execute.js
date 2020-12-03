@@ -6,26 +6,17 @@ async function implementation (
   dependencies,
 ) {
   console.log('params', parameters);
-  const { zipcode, keywords } = inputs;
   const url = parameters.url;
+  await dependencies.goto({ url, zipcode: inputs.zipcode });
 
-  await dependencies.goto({ url, zipcode });
-
-  await context.waitForSelector('iframe', { timeout: 7000 })
+  await context.waitForSelector('div.age-barrier-wrapper div.buttons', { timeout: 10000 })
+    .then(async () => {
+      await context.evaluate(() => {
+        const confirmButton = document.evaluate("//a[contains(text(),'21+')]", document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+        confirmButton.click();
+      });
+    })
     .catch(() => console.log('No age verification needed!'));
-  await context.evaluate(() => {
-    const ageConfIframe = document.querySelector('iframe');
-    if (ageConfIframe) {
-      const dismissButton = ageConfIframe.contentDocument.querySelector('button[data-trigger="dismiss"]');
-      if (dismissButton) {
-        dismissButton.click();
-      }
-    }
-  });
-
-  await context.setInputValue('input#query', keywords);
-
-  await context.clickAndWaitForNavigation('form[action="/search"] button[type="submit"]', { timeout: 15000, waitUntil: 'load' });
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -43,5 +34,15 @@ async function implementation (
 }
 
 module.exports = {
+  implements: 'product/search/execute',
+  parameterValues: {
+    country: 'US',
+    store: 'logicvapes',
+    domain: 'logicvapes.us',
+    url: 'https://www.logicvapes.us/shop',
+    loadedSelector: 'div.products-list-category',
+    noResultsXPath: '//p[contains(text(),"page you are looking for doesn\'t exist")]',
+    zipcode: '',
+  },
   implementation,
 };

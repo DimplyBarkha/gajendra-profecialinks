@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="products-list-category"]//div[@class="img"]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="products-list-category"]//div[@class="img"]//a/@href
+    regExp: >-
+      (.+)
+    regExpReplace: https://www.logicvapes.us$1

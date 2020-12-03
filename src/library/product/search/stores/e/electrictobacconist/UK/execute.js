@@ -11,5 +11,5 @@ module.exports = {
     noResultsXPath: '//h1[contains(text(),"0 results found")] | //div[@class="product-listings--empty"]',
     zipcode: '',
   },
-  implementation
+  implementation,
 };

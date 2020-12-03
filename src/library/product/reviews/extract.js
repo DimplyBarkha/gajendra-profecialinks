@@ -13,7 +13,7 @@ async function implementation (
 ) {
   const { date, results } = inputs;
   const { transform, mergeType } = parameters;
-  let filterReviews = parameters.filterReviews;
+  const filterReviews = parameters.filterReviews;
   const { productReviews } = dependencies;
   // Adding current page url
   await context.evaluate(async function () {
@@ -32,7 +32,7 @@ async function implementation (
   });
 
   console.log(`mergeType: ${mergeType}`);
-  const mergeOptions = mergeType ? { transform, type: mergeType } : { transform } ;
+  const mergeOptions = mergeType ? { transform, type: mergeType } : { transform };
   const data = await context.extract(productReviews, mergeOptions);
   // const data = await context.extract(productReviews, { transform });
 
@@ -56,7 +56,7 @@ async function implementation (
   //   }
   // }
   // return { data, stop };
-  return { data, };
+  return { data };
 }
 
 module.exports = {
