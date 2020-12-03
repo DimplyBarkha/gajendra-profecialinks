@@ -1,7 +1,7 @@
 
 const { transform } = require('../shared');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -9,6 +9,12 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  try {
+    await context.waitForSelector('div[data-test= "component-badge"]', { timeout: 60000 });
+    console.log('load button exist');
+  } catch (e) {
+    console.log("load more button doesn't exist");
+  }
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
@@ -21,7 +27,7 @@ async function implementation (
           break;
         }
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
