@@ -1,0 +1,200 @@
+input:
+  _url: http://dyson.at
+  URL: https://www.dyson.at/staubsauger/kabellose-staubsauger/dyson-v11/absolute-extra-nickel-blau
+extractions:
+  - html: https://workbench.import.io/html/run=a7bf2418-3561-41d8-82fb-fb96ea16ba01/task=22cd3b95-078b-44f1-aa92-265029b55e16/c689e513-f1b7-4d71-a652-e63b34522612.html
+    extractionConfigId: product/details/stores/d/dyson/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/298884-01.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V11 Absolute Extra (Nickel/Blau)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cordless-vacuums/v11/absolute-extra/298884-01/298884-01-gallery-img-1.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cordless-vacuums/v11/absolute-extra/298884-01/298884-01-gallery-img-2.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cordless-vacuums/v11/absolute-extra/298884-01/298884-01-gallery-img-3.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cordless-vacuums/v11/absolute-extra/298884-01/298884-01-gallery-img-4.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cordless-vacuums/v11/absolute-extra/298884-01/298884-01-gallery-img-5.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cordless-vacuums/v11/absolute-extra/298884-01/298884-01-gallery-img-6.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/img[1]/@src
+            description:
+              - text: |-
+                  Dyson V11™ Absolute Extra (Nickel/Blau) Kabelloser Staubsauger
+                   
+                  Optimiert Reinigung und Laufzeit auf intelligente Weise
+                   
+                  Der leistungsstärkste kabellose Staubsauger von Dyson
+                   
+                  Bis zu 60 Minuten Laufzeit im Eco-Modus¹
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
+            name:
+              - text: Dyson V11™ Absolute Extra (Nickel/Blau) Kabelloser Staubsauger
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
+            shippingInfo:
+              - text: |-
+                  Kostenlose Lieferung 
+                  Ab einer Bestellung von 75€
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            warranty:
+              - text: |-
+                  Dyson Garantie 
+                  2 Jahre mit Abhol- und Lieferservice
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
+            ratingCount:
+              - text: "103"
+                xpath: /html/body/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.8"
+                xpath: /html/body/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            specifications:
+              - text: |-
+                  Höhe
+                   
+                   261 mm 
+                   
+                   
+                   
+                  Länge
+                   
+                   250 mm 
+                   
+                   
+                   
+                  Breite
+                   
+                   1.286 mm
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/div[1]/ul[1]
+            weightNet:
+              - text: |-
+                  Gewicht (in Kg)
+                   
+                   2,97 kg
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/ul[1]/li[2]
+            category:
+              - text: Staubsauger
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Kabellose Staubsauger
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson V11™
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dyson.at/staubsauger/kabellose-staubsauger/dyson-v11/absolute-extra-nickel-blau
+                xpath: /html/body/div[6]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[7]
+            sku:
+              - text: 298884-01
+                xpath: /html/body/div[8]
+            variantId:
+              - text: 298884-01
+                xpath: /html/body/div[8]
+            mpc:
+              - text: 298884-01
+                xpath: /html/body/div[8]
+            color:
+              - text: Nickel-Iron-Blue
+                xpath: /html/body/div[9]
+            nameExtended:
+              - text: Dyson V11™ Absolute Extra (Nickel/Blau) Kabelloser Staubsauger
+                xpath: /html/body/div[12]
+            productOtherInformation:
+              - text: Bodendüse Torque-Drive-Bodendüse & Elektrobürste mit Soft-Walze Gewicht
+                  (in Kg) 2,97 kg Ladezeit 4,5 Std. Laufzeit Bis zu 60 min
+                  Zyklonentechnologie 14 konzentrisch angeordnete Zyklone
+                  Filterung Fortschrittliche, hocheffiziente Filtration.
+                  Behältervolumen 0,76 L 220 AW
+                xpath: /html/body/div[13]
+            manufacturerDescription:
+              - text: Der kabellose Staubsauger mit der höchsten Saugkraft² Kabellose Reinigung
+                  leicht gemacht mit den leistungsstarken und intelligenten
+                  Staubsaugern von Dyson.² Konstant hohe Akkuleistung und
+                  akkuschonender Ein-/Aus-Schalter. Die Systemleistung wird
+                  gemessen und in Echtzeit auf dem LCD-Display angezeigt, um
+                  einen noch besseren Überblick über die Reinigung zu geben.
+                  Produktmerkmale Der passende Reinigungsmodus für jede
+                  Reinigungsaufgabe Drei Reinigungsmodi, um optimierte Saugkraft
+                  für unterschiedliche Reinigungsaufgaben zu bieten. Die
+                  richtige Mischung aus Leistung und Laufzeit. Entfernt tief
+                  sitzenden Schmutz von Hart- und Teppichböden Ein integrierter
+                  digitaler Motor lässt die Bürstwalze bis zu 60 Mal pro Sekunde
+                  rotieren. Feste Nylonborsten dringen tief in die Fasern von
+                  Teppichböden ein und entfernen so tief sitzenden Schmutz.
+                  Carbonfasern entfernen feinen Staub von Hartböden.
+                  Intelligente Meldungen in Echtzeit Die Systemleistung wird
+                  8.000 Mal pro Sekunde gemessen und dann in Echtzeit auf dem
+                  LCD-Display angezeigt. Einzigartiges Managementsystem für die
+                  Akkuleistung Durch den optimierten Energieverbrauch und den
+                  akkuschonenden Ein-/Aus-Schalter von Dyson wird nur bei Bedarf
+                  Energie verbraucht, was die Laufzeit verlängert. Mechanismus
+                  für eine punktgenaue hygienische Behälterentleerung Durch den
+                  Mechanismus für die punktgenaue Behälterentleerung werden mit
+                  nur einem Handgriff aufgesaugter Staub und Schmutz aus dem
+                  Behälter entfernt – ohne dass Sie damit in Berührung kommen.
+                  Wandhalterung mit Ladefunktion Der Dyson V11™ Staubsauger wird
+                  zum Laden des Akkus und für die ordentliche Aufbewahrung des
+                  Zubehörs einfach in die Wandhalterung mit Ladefunktion
+                  eingehängt. So ist er jederzeit zur Hand. Herausnehmbarer
+                  Akkusatz Den Akku können Sie ganz einfach durch Drücken auf
+                  den entsprechenden Knopf lösen und dann austauschen – für eine
+                  noch längere Reinigung.³ Herausnehmbare Akkus können Sie mit
+                  oder ohne verbundenes Gerät laden. Dyson Staubsauger auf der
+                  Beliebtheitsskala ganz vorne Dyson Staubsauger wurden in einer
+                  repräsentativen GfK Konsumentenbefragung im Mai 2020 zur
+                  Besten Staubsaugermarke Österreichs gewählt. Dyson punktete
+                  vor allem mit Spitzentechnologie, einfacher Bedienung, hoher
+                  Filter – und Akkuleistung und ist für die Teilnehmer insgesamt
+                  derzeit die beste und vertrauenswürdigste Staubsaugermarke im
+                  Land. ¹ Repräsentative GfK Konsumentenbefragung Mai 2020
+                  Technologie Konstant hohe Leistung Mit dem siebenzelligen
+                  Nickel-Kobalt-Aluminium-Akku können Sie in einem
+                  Reinigungsvorgang jede Stelle in Ihrem Zuhause reinigen.
+                  Angetrieben von einem Dyson Hyperdymium™ Motor Mit bis zu
+                  125.000 U/Minute der leistungsstärkste kabellose Staubsauger
+                  von Dyson.² Radial Root Cyclone™ Technologie 14 Zyklone
+                  erzeugen Kräfte von mehr als 79.000 G, wodurch der Schmutz in
+                  den Staubbehälter befördert wird, ohne den Filter zu
+                  verstopfen. So gibt es keinen Saugkraftverlust.
+                  Fortschrittliche, hocheffiziente Filterung Das komplett
+                  versiegelte Filtersystem von Dyson entfernt 99,99 % der
+                  Partikel bis zu einer Größe von nur 0,3 Mikrometer.⁴
+                  Verbesserte Akustik Fängt Vibrationen ab und dämpft Lärm,
+                  sodass der Geräuschpegel verringert wird. Optimierte Anordnung
+                  Durch die neue Ausrichtung von Motor, Behälter und Zyklon wird
+                  die Luft direkt in gerader Linie von der Bodendüse zu den
+                  Zyklonen transportiert. Mithilfe dieser Anordnung entsteht die
+                  hohe Saugkraft von Dyson.
+                xpath: /html/body/div[14]
+            videos:
+              - text: www.dyson.at/content/dam/dyson/video/products/primary/298884-01.mp4
+                xpath: /html/body/div[16]/ul[1]/li[1]
+            availabilityText:
+              - text: Out of stock
+                xpath: /html/body/div[17]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html
+    timestamp: 1607000511982

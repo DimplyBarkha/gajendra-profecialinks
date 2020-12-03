@@ -42,7 +42,6 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     const getAllXpath = (xpath, prop) => {
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      console.log(nodeSet);
       const result = [];
       for (let index = 0; index < nodeSet.snapshotLength; index++) {
         const element = nodeSet.snapshotItem(index);
@@ -283,12 +282,12 @@ async function implementation (inputs, parameters, context, dependencies) {
       else thirdManuDescText = `${thirdManuDescText} ${elem.innerText}`;
     });
 
-    const imgs =
-      "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src";
+    // const imgs =
+    // "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src";
     const otherDescription = "//ul[contains(@class,'product-specification__specification-container')]//li";
     addElementToDocument('added_productOtherInformation', getAllXpath(otherDescription, 'innerText').join(' '));
     addElementToDocument('added_manufacturerDescription', `${firstManuDesc} ${secondManuDescText} ${thirdManuDescText}`);
-    addElementToDocument('added_manufacturerImages', getAllXpath(imgs));
+    // addElementToDocument('added_manufacturerImages', getAllXpath(imgs));
 
     // Get the description bullets
     const descBullets = getAllXpath(
@@ -298,7 +297,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     addElementToDocument('added_descBullets', descBullets);
 
     // get the videos
-    const videos = " (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src";
+    const videos = "(//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src";
     addElementToDocument(
       'added_videos',
       getAllXpath(videos, 'nodeValue').map((v) => `${window.location.hostname}${v}`),

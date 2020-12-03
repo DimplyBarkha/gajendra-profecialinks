@@ -45,7 +45,7 @@ const transform = (data) => {
       // }
       if (row.availabilityText && row.availabilityText[0]) {
         row.availabilityText = [
-          { text: row.availabilityText[0].text ? 'In Stock' : 'Out of Stock' },
+          { text: row.availabilityText[0].text && row.availabilityText[0].text !== 'Out of stock' ? 'In Stock' : 'Out of Stock' },
         ];
       }
     }

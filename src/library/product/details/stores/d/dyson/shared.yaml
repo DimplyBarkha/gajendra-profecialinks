@@ -23,6 +23,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //div[@class="product-gallery__overlay"]//img[not(@id="")]/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -111,6 +112,7 @@ fields:
     singleValue: true
     description: The number of ratings
     xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')]//p[contains(concat(' ',normalize-space(@class),' '),'count')][not(contains(concat(' ',normalize-space(@class),' '),'author'))])[1]
+    regExp: ^\d+
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -151,7 +153,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id='added_manufacturerDescription']
+    xpath: //div[@id='added_manufacturerImages']
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -394,7 +396,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]/ul
+    xpath: //ul[contains(@class, "product-specification__dimensions-container")]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product

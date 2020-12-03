@@ -1,0 +1,168 @@
+input:
+  _url: http://dyson.at
+  URL: https://www.dyson.at/raumklima/luftreiniger-luftbefeuchter/dyson-pure-humidify-cool/weiss-silber
+extractions:
+  - html: https://workbench.import.io/html/run=a7bf2418-3561-41d8-82fb-fb96ea16ba01/task=24f39893-ff58-4f4f-b4e2-508c49062e03/ea4ea4ed-d5f8-4d47-a778-e778d5a4f214.html
+    extractionConfigId: product/details/stores/d/dyson/AT/extract
+    data:
+      - group:
+          - category:
+              - text: Raumklima
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: "3-in-1: Luftreiniger. Luftbefeuchter. Ventilator."
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Pure Humidify+Cool
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/275413-01.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Humidify+Cool
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifier-and-humidifiers/275413-01/275413-01-gallery-img-1.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifier-and-humidifiers/275413-01/275413-01-gallery-img-2.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifier-and-humidifiers/275413-01/275413-01-gallery-img-3.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifier-and-humidifiers/275413-01/275413-01-gallery-img-4.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifier-and-humidifiers/275413-01/275413-01-gallery-img-5.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifier-and-humidifiers/275413-01/275413-01-gallery-img-6.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/img[1]/@src
+            description:
+              - text: >-
+                  Dyson Humidify+Cool™ Luftbefeuchter und Luftreiniger
+                  (Weiß/Silber)
+                   
+                  Luftreiniger, Luftbefeuchter und Ventilator in einem intelligenten Gerät
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
+            ratingCount:
+              - text: "122"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.3"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.3"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Kostenlose Lieferung 
+                  Ab einer Bestellung von 75€
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            name:
+              - text: Dyson Humidify+Cool™ Luftbefeuchter und Luftreiniger (Weiß/Silber)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
+            specifications:
+              - text: |-
+                  Höhe
+                   
+                   925 mm
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  Dyson Garantie 
+                  2 Jahre mit Abhol- und Lieferservice
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
+            firstVariant:
+              - text: Weiß / Silber - Selected colour
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@alt
+            variants:
+              - text: Weiß / Silber - Selected colour
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@alt
+              - text: Schwarz / Nickel
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]/img[1]/@alt
+            weightNet:
+              - text: |-
+                  Gewicht (in Kg)
+                   
+                   8,29 kg
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/ul[1]/li[1]
+            productUrl:
+              - text: https://www.dyson.at/raumklima/luftreiniger-luftbefeuchter/dyson-pure-humidify-cool/weiss-silber
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 275413-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 275413-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 275413-01
+                xpath: /html/body/div[9]
+            color:
+              - text: White-Silver
+                xpath: /html/body/div[10]
+            price:
+              - text: 699.00 €
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson Humidify+Cool™ Luftbefeuchter und Luftreiniger (Weiß/Silber) - Weiß
+                  / Silber - Selected colour
+                xpath: /html/body/div[13]
+            variantInformation:
+              - text: Weiß / Silber
+                xpath: /html/body/div[14]
+            productOtherInformation:
+              - text: Gewicht (in Kg) 8,29 kg 312 mm 280 mm
+                xpath: /html/body/div[15]
+            manufacturerDescription:
+              - text: Für eine angenehmere Umgebung Der Dyson Luftreiniger mit
+                  Befeuchtungsfunktion verbessert die Luftqualität. Seine
+                  Aktivkohle- und HEPA-Filter entfernen Gase¹ und Partikel². Die
+                  Air Multiplier™ Technologie verteilt anschließend gereinigte
+                  und befeuchtete Luft im gesamten Raum³ und sorgt bei Bedarf
+                  für einen kühlenden Luftstrom. Registriert Erkennt automatisch
+                  Partikel² und Gase¹ sowie Temperatur und Luftfeuchtigkeit,
+                  analysiert diese und meldet die Ergebnisse in Echtzeit.
+                  Entfernt HEPA- und Aktivkohlefilterung. Entfernt Gase¹ und
+                  99,95 % der Luftverschmutzung durch Partikel.² Säubert Die
+                  Ultraviolet Cleanse Technologie entfernt 99,9 % der Bakterien
+                  im Wasser. Lässt zirkulieren Die Dyson Air Multiplier™
+                  Technologie vermischt und verteilt gereinigte, befeuchtete
+                  Luft im gesamten Raum.³ Kühlender Luftstrom Bei höheren
+                  Temperaturen sorgt ein kräftiger Strom aus gereinigter,
+                  befeuchteter Luft für einen kühlenden Luftstrom. Echte Daten,
+                  in Echtzeit Überwachen Sie die Luftqualität mit der Dyson Link
+                  App⁴. Verteilungs-Modus Lenkt den Luftstrom von hinten durch
+                  das Gerät. Für die Reinigung und Befeuchtung der Luft ohne
+                  kühlendem Luftstrom. Brise-Modus Spezielle Algorithmen steuern
+                  den Luftstrom, sodass eine kühlende, erfrischende Brise
+                  imitiert wird. Nachtmodus Kontrolliert, reinigt, befeuchtet
+                  und sorgt für einen kühlenden Luftstrom bei reduzierter
+                  Lautstärke und mit gedimmtem Display. Sleep-Timer Stellen Sie
+                  ein, nach welchen voreingestellten Intervallen zwischen 15
+                  Minuten und 9 Stunden Ihr Gerät sich automatisch ausschaltet.
+                  Gründlicher Reinigungszyklus Aktivieren Sie per Knopfdruck den
+                  gründlichen Reinigungszyklus des Geräts. Sie werden Schritt
+                  für Schritt durch diesen unkomplizierten Vorgang geführt.
+                  Dyson Luftreiniger entdecken
+                xpath: /html/body/div[16]
+            videos:
+              - text: www.dyson.at/content/dam/dyson/video/products/primary/275413-01.mp4
+                xpath: /html/body/div[18]/ul[1]/li[1]
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[19]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "2"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1607000508190

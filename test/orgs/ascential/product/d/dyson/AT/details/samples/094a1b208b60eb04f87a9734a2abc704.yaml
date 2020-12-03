@@ -1,0 +1,156 @@
+input:
+  _url: http://dyson.at
+  URL: https://www.dyson.at/staubsauger/bodenstaubsauger/dyson-cinetic-big-ball/absolute-2
+extractions:
+  - html: https://workbench.import.io/html/run=a7bf2418-3561-41d8-82fb-fb96ea16ba01/task=f852920a-7539-466a-8f2a-db7557cb8780/76ee15d5-29af-499e-acc6-1bf0e39dad08.html
+    extractionConfigId: product/details/stores/d/dyson/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/228415-01.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Cinetic Big Ball Absolute 2 Staubsauger vor einem weißen Hintergrund
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cylinder-vacuums/cinetic-big-ball/absolute-2/228415-01/228415-01-gallery-img-1.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cylinder-vacuums/cinetic-big-ball/absolute-2/228415-01/228415-01-gallery-img-2.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cylinder-vacuums/cinetic-big-ball/absolute-2/228415-01/228415-01-gallery-img-3.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cylinder-vacuums/cinetic-big-ball/absolute-2/228415-01/228415-01-gallery-img-4.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cylinder-vacuums/cinetic-big-ball/absolute-2/228415-01/228415-01-gallery-img-5.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/cylinder-vacuums/cinetic-big-ball/absolute-2/228415-01/228415-01-gallery-img-6.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/img[1]/@src
+            description:
+              - text: |-
+                  Dyson Cinetic Big Ball™ Absolute 2 Bodenstaubsauger
+                   
+                  Entwickelt für die gründliche Reinigung an jeder Stelle.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
+            ratingCount:
+              - text: "28"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.0"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            name:
+              - text: Dyson Cinetic Big Ball™ Absolute 2 Bodenstaubsauger
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
+            shippingInfo:
+              - text: |-
+                  Kostenlose Lieferung 
+                  Ab einer Bestellung von 75€
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            warranty:
+              - text: |-
+                  Dyson Garantie 
+                  5 Jahre mit Abhol- und Lieferservice
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
+            specifications:
+              - text: |-
+                  Höhe
+                   
+                   347 mm 
+                   
+                   
+                   
+                  Länge
+                   
+                   383 mm 
+                   
+                   
+                   
+                  Breite
+                   
+                   295 mm
+                xpath: /html/body/main[1]/div[2]/div[17]/section[1]/div[1]/div[1]/ul[1]
+            weightNet:
+              - text: |-
+                  Gewicht (in Kg)
+                   
+                   8,06 kg
+                xpath: /html/body/main[1]/div[2]/div[17]/section[1]/div[1]/ul[1]/li[3]
+            category:
+              - text: Staubsauger
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Bodenstaubsauger
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Cinetic Big Ball™
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dyson.at/staubsauger/bodenstaubsauger/dyson-cinetic-big-ball/absolute-2
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 228415-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 228415-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 228415-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Iron-Iron
+                xpath: /html/body/div[10]
+            price:
+              - text: 499.00 €
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson Cinetic Big Ball™ Absolute 2 Bodenstaubsauger
+                xpath: /html/body/div[13]
+            productOtherInformation:
+              - text: Maximale Reichweite 9,66 m Saugkraft (leistungsstarker modus) 160 AW
+                  Gewicht (in Kg) 8,06 kg Bodendüse Dyson pneumatische Bodendüse
+                  Zyklonentechnologie Dyson Cinetic™ Technologie Filterung Nicht
+                  waschbar
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: Entwickelt für die gründliche Reinigung an jeder Stelle. Der Dyson Cinetic
+                  Big Ball™ ist der einzige Staubsauger, für den Sie keine
+                  Staubbeutel kaufen und keine Filter waschen oder austauschen
+                  müssen. Die 35 Zyklone des Dyson Cinetic™ haben oszillierende
+                  Spitzen. Dadurch kann sich kein Staub auf ihnen ablagern und
+                  sie blockieren. Da sich die schwersten Komponenten in
+                  Bodennähe befinden, bleibt der Staubsauger dank des niedrigen
+                  Schwerpunkts aufrecht und im Gleichgewicht. Wird er doch
+                  umgeworfen, richtet er sich durch die Schwerkraft automatisch
+                  wieder auf. Mit achtteiligem Zubehör. Zentrale Produktmerkmale
+                  Dyson Cinetic™ Technologie Extrem effiziente Zyklone erfassen
+                  Staub, ohne zu blockieren. So gibt es keinen Saugkraftverlust.
+                  Kein Waschen oder Austauschen schmutziger Filter 35 extrem
+                  effiziente Zyklone erfassen mikroskopisch feinen Staub, ohne
+                  den Bodenstaubsauger zu blockieren. So gibt es keinen
+                  Saugkraftverlust und keine schmutzigen Filter, die gewaschen
+                  oder ersetzt werden müssen. Sie kommen nicht mit dem Schmutz
+                  in Berührung Staub und Schmutz werden mit einem Handgriff
+                  entleert – damit Sie nicht damit in Berührung kommen.
+                xpath: /html/body/div[15]
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[18]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html
+    timestamp: 1607000504348
