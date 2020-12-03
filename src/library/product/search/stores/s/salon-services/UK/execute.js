@@ -1,4 +1,3 @@
-
 async function implementation(
   inputs,
   parameters,
@@ -46,6 +45,7 @@ async function implementation(
         const productsCount = products.snapshotLength;
         scrollTop += 3000;
         window.scroll(0, scrollTop);
+        await stall(2000);
         if (scrollTop >= 40000 || productsCount > 150) {
           await stall(10000);
           break;
