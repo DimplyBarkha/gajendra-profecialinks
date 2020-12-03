@@ -23,6 +23,9 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //p[contains(@class,'gNZlqo')]
+  - name: name
+    singleValue: false
+    xpath: //p[contains(@class,'gNZlqo')]
   # - name: listPrice
   #   singleValue: true
   #   description: The stated undiscounted price for the product
@@ -62,6 +65,8 @@ fields:
   - name: totalCarbPerServing
     singleValue: false
     xpath: //tr[contains(@class,'eXbGuj')]/td[contains(text(),'Carboidratos')]/following::td[1]
+    regExp: ([0-9\,]{1,})g
+    regExpReplace: $1
   - name: totalCarbPerServingUom
     singleValue: false
   - name: servingSize
@@ -70,19 +75,36 @@ fields:
   - name: sodiumPerServing
     singleValue: false
     xpath: //tr[contains(@class,'eXbGuj')]/td[contains(text(),'Sódio')]/following::td[1]
+    regExp: ([0-9\,]{1,})g
+    regExpReplace: $1
   - name: sodiumPerServingUom
     singleValue: false
   - name: proteinPerServing
     singleValue: false
     xpath: //tr[contains(@class,'eXbGuj')]/td[contains(text(),'Proteínas')]/following::td[1]
+    regExp: ([0-9\,]{1,})g
+    regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false
   - name: ingredientsList
     singleValue: false
-    xpath: //p[contains(@class,'klbUBp')]
-  # - name: descriptionBullets
-  #   singleValue: true
-  #   description: Number of ul > li tags in the description
+    xpath: //p[contains(@class,'klbUBp')]/p[contains(text(),'INGREDIENTES:')]
+    regExp: 'INGREDIENTES: (.*)'
+    regExpReplace: $1
+  - name: directions
+    singleValue: false
+    xpath: //p[contains(@class,'klbUBp')]/p[contains(text(),'MODO DE USO:')]
+    regExp: 'MODO DE USO: (.*)'
+    regExpReplace: $1
+  - name: countryOfOrigin
+    singleValue: false
+    defaultValue: 'Brasil'
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //p[contains(@class,'klbUBp')]//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//p[contains(@class,'klbUBp')]//li)
   #   type: NUMBER
   # - name: brandText
   #   singleValue: false
@@ -114,9 +136,6 @@ fields:
   # - name: legalDisclaimer
   #   singleValue: true
   #   description: Content under "legal disclaimer" header
-  # - name: directions
-  #   singleValue: true
-  #   description: Content under "directions" header
   # - name: warnings
   #   singleValue: true
   #   description: Content under "warnings" header
@@ -153,9 +172,6 @@ fields:
   # - name: videos
   #   singleValue: false
   #   description: URLs of videos on page
-  # - name: name
-  #   singleValue: true
-  #   description: The product name
   # - name: inStorePrice
   #   singleValue: true
   #   description: Price in the selected store
@@ -380,9 +396,6 @@ fields:
   # - name: storage
   #   singleValue: true
   #   description: Suggested storage location for product
-  # - name: countryOfOrigin
-  #   singleValue: true
-  #   description: The country from which the product originates
   # - name: allergyAdvice
   #   singleValue: true
   #   description: Allergy information associated with the product
@@ -437,9 +450,6 @@ fields:
   #     variants. method 3 = apply some logic to determine link between variants,
   #     this will need analysis
   # - name: variants
-  #   singleValue: false
-  #   description: null
-  # - name: additionalDescBulletInfo
   #   singleValue: false
   #   description: null
   # - name: prop65Warning

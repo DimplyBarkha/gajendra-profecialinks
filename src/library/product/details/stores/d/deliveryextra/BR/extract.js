@@ -27,12 +27,21 @@ module.exports = {
       if (iframe) {
         await context.goto(iframe);
         const manufactDes = await context.evaluate(() => {
-          return document.querySelector("div[class*='tab-pane active']") ? document.querySelector("div[class*='tab-pane active']").innerText : '';
+          const desc = document.querySelectorAll("div[class*='tab-pane']") ? Array.from(document.querySelectorAll("div[class*='tab-pane']")) : '';
+          if (desc && desc.length) {
+            console.log('----------------Hello', desc.length);
+            let newDesc = '';
+            desc.forEach(element => {
+              newDesc += element.innerText + ' | ';
+            });
+            newDesc = newDesc.slice(0, -2).trim();
+            return newDesc;
+          }
         });
         const manufactImg = await context.evaluate(() => {
           const arrImgSel = document.querySelectorAll("div[class*='box'] img[src]") ? Array.from(document.querySelectorAll("div[class*='box'] img[src]")) : '';
           const img = arrImgSel.map((imgSelector) => imgSelector && imgSelector.src ? imgSelector.src : '');
-          const imgURL = img.join(' , ');
+          const imgURL = img.join(' | ');
           return imgURL;
         });
         await context.goto(locationUrl, { timeout: 30000 });

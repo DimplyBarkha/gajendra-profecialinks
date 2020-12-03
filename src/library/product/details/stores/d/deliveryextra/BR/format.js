@@ -22,11 +22,16 @@ const transform = (data) => {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace('x200x200', '');
         });
-        if (row.alternateImages[0].text === row.image[0].text) {
-          row.alternateImages.shift();
-        }
+        row.alternateImages = row.alternateImages.filter((item) => item.text !== row.image[0].text);
         row.alternateImages = row.alternateImages.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
+      }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += item.text + ' || ';
+        });
+        row.additionalDescBulletInfo = [{ text: text.slice(0, -2).trim() }];
       }
       if (row.servingSize) {
         if (row.servingSize[0].text.length && row.servingSize[0].text.includes('porção de')) {
@@ -36,6 +41,7 @@ const transform = (data) => {
           test = regExString.exec(demo);
           test = test[1].trim() + 'g';
           row.servingSize[0].text = test;
+          row.servingSizeUom = [{ text: 'g' }];
         } else if (row.servingSize[0].text.length && row.servingSize[0].text.includes('Porção de')) {
           var test1 = '';
           var demo1 = row.servingSize[0].text;
@@ -43,15 +49,11 @@ const transform = (data) => {
           test1 = regExString1.exec(demo1);
           test1 = test1[1].trim() + 'g';
           row.servingSize[0].text = test1;
+          row.servingSizeUom = [{ text: 'g' }];
         }
       }
       if (row.category) {
-        if (row.category.length === 4) {
-          row.category.pop();
-          row.category.pop();
-        } else {
-          row.category.pop();
-        }
+        row.category.pop();
       }
       if (row.proteinPerServing && row.proteinPerServing[0].text.length) {
         row.proteinPerServingUom = [{ text: 'g' }];
