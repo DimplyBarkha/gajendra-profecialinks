@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"col-12")]/div[@class="product"]
+fields: 
+  - name: productUrl
+    xpath: //div[@class="tile-body"]/div[@class="pdp-link"]/a[contains(@aria-label,"Veterinary")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.1800petmeds.com$1
+  - name: thumbnail
+    xpath: //div[@class="image-container"]//img/@src
+  - name: name
+    xpath: //div[@class="tile-body"]/div[@class="pdp-link"]/a[contains(@aria-label,"Veterinary")]
+  - name: aggregateRating2
+    xpath: //div[@class="tile-body"]//div[@class="BVInlineRatings"]/img/@src
+    regExp: (\d)\_(\d).gif
+    regExpReplace: $1.$2
+  - name: reviewCount
+    xpath: //div[@class="tile-body"]//div[@class="BVInlineRatings"]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: price
+    xpath: //span[@class="price-starts-at"]/span[@class="sale"]
+    regExp: (\d+.\d+|\d+)
+    regExpReplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: id
+    xpath: //div[@class="tile-body"]/div[@class="pdp-link"]/a[contains(@aria-label,"Veterinary")]/@href
+    regExp: prod(\d+)
+    regExpReplace: $1
