@@ -9,7 +9,7 @@ fields:
     xpath: //div[@class="images__wrapper"]//div[contains(@class,"product-cover")]//img/@alt
   - name: alternateImages
     xpath: //div[@class="images__wrapper"]//div[contains(@class,"product__thumbnails")]//img[not(contains(@class,"selected"))]/@data-image-large-src
-  - name: secondaryImagesTotal
+  - name: secondaryImageTotal
     xpath: count(//div[@class="images__wrapper"]//div[contains(@class,"product__thumbnails")]//img[not(contains(@class,"selected"))])
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
