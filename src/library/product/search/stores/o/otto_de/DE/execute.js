@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'otto_de',
     domain: 'otto.de',
-    url: 'https://www.otto.de/suche/4k%20TV/',
+    url: 'https://www.otto.de/suche/{searchTerms}/',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
