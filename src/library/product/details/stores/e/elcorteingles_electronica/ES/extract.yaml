@@ -47,9 +47,9 @@ fields:
   - name: variantId
     xpath: //div[@id="retailer_product_code"]
   - name: mpc
-    xpath: //div[@id="mpc"]
-    regExp: \s+(.+)$
-    regExpReplace: $1
+    xpath: //div[contains(@class,"product_model")]
+    regExp: (.+)(\:)(.+)
+    regExpReplace: $3
   - name: directions
     xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
   - name: videos
@@ -82,7 +82,7 @@ fields:
   - name: shipping
     xpath:
   - name: energyEfficiency
-    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1]
+    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] | //div[@id="energyRating"] | //tr[contains(.,"eficiencia energética")]//td[2]
   - name: imageZoomFeaturePresent
     xpath: //div[@id="imageZoomFeaturePresent"]
   - name: shippingDimensions
