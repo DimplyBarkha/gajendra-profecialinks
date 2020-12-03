@@ -68,7 +68,7 @@ fields:
     singleValue: false
     xpath: (//div[contains(@class,"ProductImages")]//img[@class="ProductImages-image"]/@src)[position()>1]
   - name: imageCount
-    xpath: count(//div[contains(@class,"ProductThumbnails")]//img[@class="ProductImages-image"])
+    xpath: count(//div[contains(@class,"ProductImages")]//img[@class="ProductImages-image"])
   - name: imageAlt
     xpath: //div[@class="ProductDetails-header"]/h1
   - name: name
