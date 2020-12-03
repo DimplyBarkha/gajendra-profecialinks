@@ -68,7 +68,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'css-5l6g5o')]//div[contains(@class,'css-lbe0jv')]
   - name: variantCount
-    singleValue: true
+    singleValue: false
     defaultValue: '0'
   - name: warranty
     singleValue: false
@@ -117,4 +117,7 @@ fields:
     xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Sugar']//following-sibling::div
   - name: allergyAdvice
     singleValue: false
-    xpath: //h3[text()='Allergy Information']//following-sibling::p
+    xpath: //h3[text()='Allergy Information']//following-sibling::p    
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: No
