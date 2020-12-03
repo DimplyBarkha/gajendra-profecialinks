@@ -12,7 +12,8 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class='product-details']/a
-      # //div[@class='product-details']/a/span
+    # xpath: //div[@class='product-details']/a/span[2]/text()
+    # concat(//div[@class='product-details']/a/span[1]/text(),' ',//div[@class='product-details']/a/span[2]/text())
   - name: productUrl
     singleValue: false
     xpath: //div[@class='product-details']/a/@href
@@ -26,7 +27,7 @@ fields:
   - name: reviewCount
     singleValue: false
   - name: aggregateRating
-    singleValue: false
+    singleValue: true
     xpath: //span[@class='bv-off-screen']
     regExp: (\d+)
   - name: price
