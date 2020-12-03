@@ -23,8 +23,21 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
+    let tmpSku='';
     for (let row of group) {
       let fstImg='',fstImgAlt='',restImg=[];
+      if(row.sku){
+        row.sku.forEach(item=>{
+          if(item.text.indexOf('ITEM')==-1){
+
+          }else{
+            tmpSku=item.text.replace('ITEM ','');
+          }
+        })
+        row.sku=[{"text":tmpSku}];
+        row.variantId=[{"text":tmpSku}];
+        row.firstVariant=[{"text":tmpSku}];
+      }
       if(row.image){
         row.image.forEach(item=>{
           if(fstImg=='')
@@ -70,16 +83,6 @@ const transform = (data) => {
       if(row.quantity){
         row.quantity.forEach(item=>{
           item.text=item.text.replace('SIZE ','');
-        })
-      }
-      if(row.sku){
-        row.sku.forEach(item=>{
-          item.text=item.text.replace('ITEM ','');
-        })
-      }
-      if(row.variantId){
-        row.variantId.forEach(item=>{
-          item.text=item.text.replace('ITEM ','');
         })
       }
       if(row.ratingCount){
@@ -132,11 +135,6 @@ const transform = (data) => {
       if(row.variantInformation){
         row.variantInformation.forEach(item=>{
           item.text=item.text.replace(' - Selected','');
-        })
-      }
-      if(row.firstVariant){
-        row.firstVariant.forEach(item=>{
-          item.text=item.text.replace('ITEM ','');
         })
       }
       if(row.variants){
