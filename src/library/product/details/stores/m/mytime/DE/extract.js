@@ -33,6 +33,22 @@ module.exports = {
       } else addElementToDocument('isAvailable', 'Out of Stock');
     });
 
-    await context.extract(productDetails);
+    var dataRef = await context.extract(productDetails, { transform });
+
+    dataRef[0].group.forEach((row) => {
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `|| ${item.text.replace('\n', '-')} `;
+        });
+        row.additionalDescBulletInfo = [
+          {
+            text: text,
+          },
+        ];
+      }
+    });
+
+    return dataRef;
   },
 };

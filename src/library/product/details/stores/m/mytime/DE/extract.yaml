@@ -105,7 +105,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: //li[strong[contains(text(), 'Anwendungshinweise')]]/p
+  xpath: //li[strong[contains(text(), 'Anwen')]]/p
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -256,7 +256,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //li[strong[contains(text(), 'Inhaltsstoffe')]]/p
+  xpath: //li[strong[contains(text(), 'Inhaltsstoffe')]]/p | //li[@id='tab-ingredientsAndAllergens']//li[position()=1]/p | //li[strong[contains(text(), 'Zusammensetzung')]]/p
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -293,7 +293,8 @@ fields:
 - name: saturatedFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Saturated Fat content
-  xpath: ([a-zA-Z]+)
+  xpath: //tr[td[contains(text(), 'Fettsäuren')]]/td[last()]
+  regExp: ([a-zA-Z]+)
 - name: transFatPerServing
   singleValue: true
   description: Nutritional Information for Trans Fat content - Usually based on per
@@ -356,9 +357,12 @@ fields:
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
+  xpath: //li[strong[contains(text(), 'Vitamin A')]]/p
 - name: vitaminAPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin A
+  xpath: //li[strong[contains(text(), 'Vitamin A')]]/p
+  regExp: ([a-zA-Z]+\/[a-zA-Z]+)
 - name: vitaminCPerServing
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
@@ -377,9 +381,12 @@ fields:
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
+  xpath: //li[strong[contains(text(), 'Eisen')]]/p
 - name: ironPerServingUom
   singleValue: true
   description: Unit of Measure Data for Iron
+  xpath: //li[strong[contains(text(), 'Eisen')]]/p
+  regExp: ([a-zA-Z]+\/[a-zA-Z]+)
 - name: dietarySymbols
   singleValue: true
   description: Information related to the dietary symbols of a specific product
@@ -401,9 +408,9 @@ fields:
   xpath: //tr[td[contains(text(), 'Salz')]]/td[last()]
   regExp: ([a-zA-Z]+)
 - name: dietaryInformation
-  singleValue: true
+  singleValue: false
   description: 
-  xpath: concat(//li[strong[contains(text(), 'Vegetarisch')]], //li[strong[contains(text(), 'Laktosefrei')]])
+  xpath: //li[strong[contains(text(), 'Vegetarisch') or contains(text(), 'frei') or contains(text(), 'Vegan') or contains(text(), 'Fütterungsempfehlung') ]] 
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
@@ -413,15 +420,19 @@ fields:
 - name: storage
   singleValue: true
   description: Suggested storage location for product
+  xpath: //li[strong[contains(text(), 'Lagerung')]]/p
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
+  xpath: //li[strong[contains(text(), 'Herkunftsland')]]/p
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
+  xpath: //li[@id='tab-ingredientsAndAllergens']//li[strong][position()>1]
 - name: recyclingInformation
   singleValue: true
   description: Recycling information associated with the product
+  xpath: //li[strong[contains(text(), 'Nachhaltigkeit')]]/p
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
@@ -435,9 +446,12 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //em[@class='product-page__bulk-price']
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //em[@class='product-page__bulk-price']
+  regExp: ([a-zA-Z]+)
 - name: promotion
   singleValue: true
   description: promotion text on product page
@@ -474,6 +488,7 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
+  xpath: (//div[contains(@class,'product-accordion')])[2]//li[not(strong[contains(text(), 'Bes')]) and not(strong[contains(text(), 'Verpackungsform')]) and not(strong[contains(text(), 'Zusammensetzung')]) and not(strong[contains(text(), 'Fütterungsempfehlung')])  and not(strong[contains(text(), 'Zusammensetzung')]) and not(strong[contains(text(), 'Warnhinweise')])  and not(strong[contains(text(), 'Anwen')]) and not(strong[contains(text(), 'frei')]) and not(strong[contains(text(), 'Herkunftsland')]) and not(strong[contains(text(), 'nummer')]) and not(strong[contains(text(), 'Nachhaltigkeit')]) and not(strong[contains(text(), 'Vege')]) and not(strong[contains(text(), 'Warnhinweise')])  and not(strong[contains(text(), 'Anwen')]) and not(strong[contains(text(), 'frei')]) and not(strong[contains(text(), 'Herkunftsland')]) and not(strong[contains(text(), 'nummer')]) and not(strong[contains(text(), 'Nachhaltigkeit')]) and not(strong[contains(text(), 'Vege')]) and not(strong[contains(text(), 'Vegan')]) and not(strong[contains(text(), 'Haltbarkeit & Lagerung')]) and not(strong[contains(text(), 'Eisen')]) and not(strong[contains(text(), 'Vitamin A')]) and not(strong[contains(text(), 'Alter')])]
 - name: prop65Warning
   singleValue: true
   description: 
@@ -481,6 +496,7 @@ fields:
   singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
   example: 4 - 99 years
+  xpath: //li[strong[contains(text(), 'Alter')]]/p
 - name: energyEfficiency
   singleValue: true
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
