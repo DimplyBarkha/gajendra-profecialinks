@@ -347,7 +347,7 @@ fields:
     regExpReplace: $1
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//img/@srcset
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false

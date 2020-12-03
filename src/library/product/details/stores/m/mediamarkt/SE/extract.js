@@ -34,6 +34,11 @@ async function implementation (
     }
     addHiddenDiv('added_gtim', gtin);
   });
+  try {
+    await context.waitForSelector('div[class*="InTheBox"]', { timeout: 45000 });
+  } catch (error) {
+    console.log('No in the box content');
+  }
   await new Promise(resolve => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }

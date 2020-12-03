@@ -37,12 +37,6 @@ const transform = (data) => {
           }
         });
       }
-
-      if (row.inTheBoxUrl) {
-        row.inTheBoxUrl.forEach(item => {
-          item.text = item.text.startsWith('//') ? 'https:' + item.text : item.text;
-        });
-      }
       if (row.image) {
         row.image.forEach(itemText => {
           itemText.text = itemText.text.includes('http') ? itemText.text : 'https:' + itemText.text;
@@ -87,6 +81,15 @@ const transform = (data) => {
         row.ratingCount.forEach((ratingCountItem) => {
           ratingCountItem.text = ratingCountItem.text.replace(/[^\d]/gm, '');
         });
+      }
+      if (row.inTheBoxUrl) {
+        if ((row.inTheBoxUrl[0].text.includes('media.flixcar.com') || row.inTheBoxUrl[0].text.includes('syndication.flix360.com')) && row.inTheBoxUrl[0].text.includes('1000w')) {
+          row.inTheBoxUrl.forEach(item => {
+            const img = 'https:' + item.text.split(' ')[0];
+            const imgText = img;
+            item.text = imgText;
+          });
+        }
       }
     }
   }
