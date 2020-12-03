@@ -20,6 +20,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     };
     const searchUrl = window.location.href;
     addElementToDocument('searchurl', searchUrl);
+
     const products = document.querySelectorAll('ol[class="products-list"] > li');
     const scriptTags = document.querySelectorAll(' head script:not([type]):not([src])');
     const arrayOfGTINS = [];
@@ -38,8 +39,15 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
     }
   });
+  var dataRef = await context.extract(productDetails, { transform });
 
-  return await context.extract(productDetails, { transform });
+  dataRef[0].group.forEach((row) => {
+    if (row.productUrl) {
+      row.productUrl.pop();
+    }
+  });
+
+  return dataRef;
 }
 
 module.exports = {

@@ -14,7 +14,7 @@ fields:
     xpath: //a[@class='product-card__name__link']
   - name: productUrl
     singleValue: false
-    xpath: //a[@class='product-card__name__link']/a/@href
+    xpath: //a[@class='product-card__name__link']/@href
     regExp: (.*)
     regExpReplace: https://www.mytime.de$1
   - name: gtin
