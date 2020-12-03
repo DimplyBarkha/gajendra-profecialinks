@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'MX',
     store: 'lacomer',
-    nextLinkSelector: '.btn-arrow-right-mobile',
+    // nextLinkSelector: 'button[class="btn btn-primary hidden-sm-down"]',
     // nextLinkXpath: '//button[@ng-click="buscaxPaginaSig(pagActual)"][2]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '#product_list',
+    // loadedSelector: '#product_list',
     loadedXpath: null,
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,

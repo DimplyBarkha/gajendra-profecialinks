@@ -6,7 +6,7 @@ module.exports = {
     store: 'lacomer',
     domain: 'lacomer.com.mx',
     url: 'https://www.lacomer.com.mx/lacomer/goBusqueda.action?succId=287&ver=mislistas&succFmt=100&criterio={searchTerms}#/{searchTerms}',
-    loadedSelector: '#product_list',
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
