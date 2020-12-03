@@ -6,7 +6,7 @@ module.exports = {
     store: 'piperitas',
     domain: 'piperitas.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="page-title"]',
     zipcode: '',
   },
 };
