@@ -42,11 +42,11 @@ fields:
     xpath: count(//div[contains(@class,"product-info")]//ul/li[not(contains(@role,"listitem"))] | //div[@class="content"]//div[@class="specs"]//ul/li[not(contains(@role,"listitem"))])
   - name: sku
     singleValue: false
-    xpath: //div[@id="save-btn-container"]//button[@data-testid="save-btn"]/@data-product-id | //div[@class="buttonWrapper"]//input[@name="productId"]/@value | //div[@role="button"]//button[@aria-label="Save"]/@data-product-id
+    xpath: (//div[@id="save-btn-container"]//button[@data-testid="save-btn"]/@data-product-id | //div[@class="buttonWrapper"]//input[@name="productId"]/@value | //div//button[contains(@class,"save pd-save-btn")]/@data-product-id)[1]
   - name: variantId
     singleValue: false
-    xpath: //div[@class="modelNo"]//span[@aria-hidden="true"]
-    regExp: (\Item\s#)(.*)\s(.*)
+    xpath: (//div[@class="modelNo"]//span[@aria-hidden="true"])[1]
+    regExp: (\Item.*#)(.*)
     regExpReplace: $2
   - name: mpc
     singleValue: false
@@ -85,11 +85,6 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1/@aria-label
-  - name: manufacturer
-    singleValue: false
-    xpath: (//span[@class="wc-powered-by-webcollage-text"]/img/@src)[1]
-    regExp: (.*)(\/)(.*).svg(.*)
-    regExpReplace: $3
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@id,"wc-aplus")]/descendant::*[not(contains(@style,"none")) and not(name()='style')]
@@ -103,7 +98,7 @@ fields:
     regExpReplace: $1
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@class="false swatchWrapper"]//button)
+    xpath: count(//div[contains(@class,"swatchWrapper")]//button[contains(@data-automation-id,"swatchSpan")])
     defaultValue: 0
   - name: color
     singleValue: false
@@ -148,3 +143,7 @@ fields:
   - name: warnings
     singleValue: true
     xpath: //div[@class="props65"]//span[@class="title"]
+  - name: variants
+    xpath: //div[contains(@class,"swatchWrapper")]//button/@data-url
+    regExp: \/(\d+)
+    regExpReplace: $1
