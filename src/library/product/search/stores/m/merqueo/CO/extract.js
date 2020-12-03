@@ -2,8 +2,6 @@ const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-
   await context.evaluate(async () => {
     function addProp (name, prop) {
       let j = 0;
@@ -35,7 +33,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     const scrollLimit = 10000;
     await stall(3000);
     while (scrollTop <= scrollLimit) {
-      const productSelectorURL = document.querySelectorAll('a[data-v-c701e340]');
+      const productSelectorURL = document.querySelectorAll('h2.mq-product-title>a');
       productSelectorURL.forEach(element => {
         if (!(productUrl.includes(element.href))) {
           productUrl.push(element.href);
@@ -49,7 +47,7 @@ async function implementation (inputs, parameters, context, dependencies) {
           productId.push(element.id);
         }
       });
-      const productSelectorImage = document.querySelectorAll('img[data-v-c701e340]');
+      const productSelectorImage = document.querySelectorAll('article img.v-lazy-image-loaded');
       productSelectorImage.forEach(element => {
         if (!(productImage.includes(element.src))) {
           productImage.push(element.src);
@@ -66,7 +64,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       await stall(1000);
     }
 
-    for (let i = 0; i < productUrl.length; i++) {
+    for (let i = 0; i < productId.length; i++) {
       const productInfo = document.createElement('div');
       productInfo.className = 'productinfo';
       document.body.appendChild(productInfo);

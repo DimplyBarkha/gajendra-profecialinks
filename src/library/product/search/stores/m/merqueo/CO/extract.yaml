@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null #.mq-grid-item
+recordSelector: null # .mq-grid-item
 recordXPath: null # //div[@class="mq-grid-item"]
 fields:
   - name: id
@@ -13,7 +13,7 @@ fields:
     xpath: //div[@class="productinfo"]/@name
   - name: productUrl
     singleValue: false
-    xpath: //a[@data-v-c701e340]
+    xpath: //div[@class="productinfo"]/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail
